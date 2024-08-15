@@ -25,7 +25,9 @@ describe "Admin manages participatory process publication" do
     visit decidim.last_activities_path
     expect(page).to have_content("New participatory process #{title}")
 
-    find("span", text: "Participatory process", match: :first).click
+    within "table" do
+      find("span", text: "Participatory process", match: :first).click
+    end
     expect(page).to have_content("New participatory process #{title}")
   end
 end

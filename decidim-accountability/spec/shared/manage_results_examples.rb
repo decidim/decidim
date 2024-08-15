@@ -85,7 +85,9 @@ shared_examples "manage results" do
       visit decidim.last_activities_path
       expect(page).to have_content("New result: #{translated(attributes[:title])}")
 
-      find("span", text: "Result", match: :first).click
+      within "#filters" do
+        find("span", text: "Result", match: :first).click
+      end
       expect(page).to have_content("New result: #{translated(attributes[:title])}")
     end
   end

@@ -122,7 +122,9 @@ RSpec.shared_examples "manage debates" do
     visit decidim.last_activities_path
     expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
 
-    find("span", text: "Debate", match: :first).click
+    within "#filters" do
+      find("span", text: "Debate", match: :first).click
+    end
     expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
   end
 

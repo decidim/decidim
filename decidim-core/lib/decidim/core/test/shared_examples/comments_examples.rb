@@ -505,7 +505,9 @@ shared_examples "comments" do
         visit decidim.last_activities_path
         expect(page).to have_content("New comment: #{content}")
 
-        find("span", text: "Comment", match: :first).click
+        within "#filters" do
+          find("span", text: "Comment", match: :first).click
+        end
         expect(page).to have_content("New comment: #{content}")
       end
     end

@@ -25,7 +25,9 @@ describe "Admin manages assembly publication" do
     visit decidim.last_activities_path
     expect(page).to have_content("New assembly: #{title}")
 
-    find("span", text: "Assembly", match: :first).click
+    within "#filters" do
+      find("span", text: "Assembly", match: :first).click
+    end
     expect(page).to have_content("New assembly: #{title}")
   end
 end
