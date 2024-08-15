@@ -118,6 +118,12 @@ RSpec.shared_examples "manage debates" do
 
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
+
+    visit decidim.last_activities_path
+    expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
+
+    find("span", text: "Debate", match: :first).click
+    expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
   end
 
   it "creates a new open debate" do

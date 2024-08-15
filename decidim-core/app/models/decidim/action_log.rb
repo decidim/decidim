@@ -160,7 +160,6 @@ module Decidim
 
     def self.publicable_exceptions
       @publicable_exceptions = %w(
-        Decidim::Meetings::Meeting
         Decidim::Blogs::Post
       ).select do |klass|
         klass.safe_constantize.present?

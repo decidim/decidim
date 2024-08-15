@@ -500,6 +500,14 @@ shared_examples "comments" do
         expect(page).to have_css("span.comments-count", text: "#{commentable.comments.count} comments")
         expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to be_empty
       end
+
+      it "shows the entry in last activities" do
+        visit decidim.last_activities_path
+        expect(page).to have_content("New comment: #{content}")
+
+        find("span", text: "Comment", match: :first).click
+        expect(page).to have_content("New comment: #{content}")
+      end
     end
 
     context "when user adds a new comment with a link" do

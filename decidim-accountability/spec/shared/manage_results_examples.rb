@@ -81,6 +81,12 @@ shared_examples "manage results" do
       visit decidim_admin.root_path
       expect(page).to have_content("created result")
       expect(page).to have_content(attributes[:title]["en"])
+
+      visit decidim.last_activities_path
+      expect(page).to have_content("New result: #{translated(attributes[:title])}")
+
+      find("span", text: "Result", match: :first).click
+      expect(page).to have_content("New result: #{translated(attributes[:title])}")
     end
   end
 

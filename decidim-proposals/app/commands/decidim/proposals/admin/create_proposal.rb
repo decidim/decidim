@@ -93,6 +93,14 @@ module Decidim
               participatory_space: true
             }
           )
+          Decidim.traceability.perform_action!(
+            "publish",
+            proposal,
+            form.current_user,
+            visibility: "all"
+          ) do
+            proposal.publish!
+          end
         end
 
         def first_attachment_weight
