@@ -93,7 +93,6 @@ hu:
       comments:
         blocked_comments_for_unauthorized_user_warning: Ebben a pillanatban nem tud megjegyzéseket tenni, de elolvashatja az előzőeket.
         blocked_comments_for_user_warning: Ebben a pillanatban nem tud megjegyzéseket tenni, de elolvashatja az előzőeket.
-        blocked_comments_warning: A megjegyzések jelenleg le vannak tiltva, de a korábbiakat elolvashatod.
         comment_details_title: Megjegyzés részletei
         loading: Hozzászólások betöltése ...
         single_comment_warning: <a href="%{url}"><a href="%{url}">Minden hozzászólás megtekintése</a>
