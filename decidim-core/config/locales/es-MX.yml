@@ -293,6 +293,7 @@ es-MX:
       dismiss: Descartar notificación
     amendments:
       accepted:
+        error: Se ha producido un error al aceptar la enmienda.
         success: La enmienda ha sido aceptada correctamente.
       amendable:
         button: Enmendar %{model_name}
@@ -305,6 +306,7 @@ es-MX:
           one: "%{count} enmienda"
           other: "%{count} enmiendas"
       created:
+        error: Se ha producido un error al actualizar el borrador de la enmienda.
         success: La enmienda se ha creado correctamente.
       destroy_draft:
         error: Hubo un problema al eliminar el borrador de enmienda.
@@ -356,6 +358,7 @@ es-MX:
         error: Se ha producido un error al actualizar el borrador de enmienda.
         success: Borrador de enmienda actualizado correctamente.
       withdraw:
+        error: Se ha producido un error al retirar la enmienda.
         success: La enmienda se ha retirado correctamente.
       wizard_step_form:
         steps:
@@ -593,6 +596,9 @@ es-MX:
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario para completar la creación de la cuenta
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
+        new_tos_fields:
+          sign_up: Crear una cuenta
+          sign_up_title: Terminar de crear tu cuenta
       registrations:
         create:
           error: Se ha producido un error al crear tu cuenta.
@@ -1429,6 +1435,7 @@ es-MX:
         subject: Un contenido ha sido denunciado
     reports:
       create:
+        error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
     resource_endorsements:
       create:
@@ -1705,6 +1712,7 @@ es-MX:
         message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos fallidos de inicio de sesión.
         subject: Desbloquear instrucciones
     omniauth_callbacks:
+      add_tos_errors: Se tienen que aceptar los términos y condiciones de uso para crear una cuenta.
       failure: No se pudo autenticar desde %{kind} porque "%{reason}".
       success: Se ha autenticado correctamente desde la cuenta %{kind}.
     passwords:
