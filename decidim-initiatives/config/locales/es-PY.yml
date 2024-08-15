@@ -91,7 +91,7 @@ es-PY:
               accepted: Con las firmas necesarias
               created: Creada
               discarded: Descartada
-              published: Publicada
+              open: Abierta
               rejected: No ha conseguido las firmas necesarias
               validating: Validación técnica
           type_id_eq:
@@ -329,7 +329,7 @@ es-PY:
         accepted: Ha conseguido las firmas
         created: Creado
         discarded: Descartado
-        published: Publicado
+        open: Abierta
         rejected: No ha conseguido las firmas necesarias
         validating: Validación técnica
       application_helper:
@@ -578,7 +578,7 @@ es-PY:
           accepted: Con las firmas necesarias
           created: Creada
           discarded: Descartada
-          published: Publicada
+          open: Abiertas
           rejected: No ha conseguido las firmas
           validating: Validación técnica
       states:

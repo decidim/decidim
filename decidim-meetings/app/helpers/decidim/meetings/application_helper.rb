@@ -59,7 +59,11 @@ module Decidim
 
       # If the content is safe, HTML tags are sanitized, otherwise, they are stripped.
       def render_meeting_body(meeting)
-        sanitized = render_sanitized_content(meeting, :description)
+        render_meeting_sanitize_field(meeting, :description)
+      end
+
+      def render_meeting_sanitize_field(meeting, field)
+        sanitized = render_sanitized_content(meeting, field)
         if safe_content?
           Decidim::ContentProcessor.render_without_format(sanitized).html_safe
         else

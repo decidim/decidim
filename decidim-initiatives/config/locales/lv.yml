@@ -217,7 +217,6 @@ lv:
         accepted: Pietiekami daudz parakstu
         created: Izveidots
         discarded: Atmests
-        published: Publicēts
         rejected: Nepietiek parakstu
         validating: Tehniskā validācija
       application_helper:
@@ -353,7 +352,6 @@ lv:
           accepted: Pietiekami daudz parakstu
           created: Izveidots
           discarded: Atmests
-          published: Publicēts
           rejected: Nepietiek parakstu
           validating: Tehniskā validācija
       states:

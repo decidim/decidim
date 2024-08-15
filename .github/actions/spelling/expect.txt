@@ -28,6 +28,7 @@ Ajuntamentde
 alabs
 alecslupu
 Alexandru
+amd
 amendables
 AMR
 andreslucena
@@ -153,6 +154,7 @@ contingut
 continuar
 contrasenya
 coopdevs
+Correu
 Cov
 Cprojects
 crdownload
@@ -875,6 +877,8 @@ tableize
 tagsinput
 tailwindcss
 tarekraafat
+taxonomizable
+taxonomization
 technopolitical
 templatable
 templateable

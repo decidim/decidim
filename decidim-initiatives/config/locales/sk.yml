@@ -174,7 +174,6 @@ sk:
       admin_states:
         created: Vytvorené
         discarded: Odstránená
-        published: Publikované
       application_helper:
         filter_state_values:
           closed: Uzavreté

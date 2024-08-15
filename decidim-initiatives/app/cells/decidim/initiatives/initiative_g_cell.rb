@@ -11,16 +11,14 @@ module Decidim
         Decidim::Initiatives::Engine.routes.url_helpers.initiative_path(model)
       end
 
-      def has_image?
-        image.present?
-      end
-
       def image
         @image ||= model.attachments.find(&:image?)
       end
 
-      def resource_image_path
-        image.url if has_image?
+      def resource_image_url
+        return if image.blank?
+
+        image.url
       end
 
       def metadata_cell

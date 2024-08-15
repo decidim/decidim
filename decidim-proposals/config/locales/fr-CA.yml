@@ -179,7 +179,6 @@ fr-CA:
             participatory_texts_enabled: Textes participatifs activés
             participatory_texts_enabled_readonly: Impossible d'interagir avec ce paramètre s'il y a des propositions existantes. Veuillez créer une nouvelle fonctionnalité `Propositions` si vous voulez activer cette fonctionnalité ou supprimer toutes les propositions importées dans 'Textes participatifs` si vous voulez la désactiver.
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
-            proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
             proposal_edit_time: Durée d'édition des propositions
             proposal_edit_time_choices:
               infinite: Autoriser l'édition des propositions pour une durée infinie
@@ -234,11 +233,13 @@ fr-CA:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
+            email_subject: Vous avez été assigné en tant qu'évaluateur à la proposition %{resource_title}.
+            notification_title: Vous avez été assigné en tant qu'évaluateur à la proposition <a href="%{resource_path}">%{resource_title}</a>. Jetez-y un œil sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
           proposal_note_created:
-            email_intro: Quelqu'un a laissé une note sur la proposition "%{resource_title}". Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d'administration</a>.
             email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
             email_subject: Quelqu'un a laissé une note sur la proposition %{resource_title}.
-            notification_title: Quelqu'un a laissé une note sur la proposition <a href="%{resource_path}">%{resource_title}</a>. Consultez-la sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} a été accepté en tant que contributeur du brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -473,7 +474,6 @@ fr-CA:
           form:
             note: Remarque
             submit: Soumettre
-          leave_your_note: Laisser une remarque
           title: Notes privées
         proposal_states:
           create:

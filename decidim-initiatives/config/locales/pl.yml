@@ -97,7 +97,6 @@ pl:
               accepted: Wystarczająca liczba podpisów
               created: Utworzono
               discarded: Odrzucono
-              published: Opublikowano
               rejected: Niewystarczająca liczba podpisów
               validating: Walidacja techniczna
           type_id_eq:
@@ -335,7 +334,6 @@ pl:
         accepted: Wystarczająca liczba podpisów
         created: Utworzono
         discarded: Odrzucono
-        published: Opublikowano
         rejected: Niewystarczająca liczba podpisów
         validating: Weryfikacja techniczna
       application_helper:
@@ -594,7 +592,6 @@ pl:
           accepted: Wystarczająca liczba podpisów
           created: Utworzone
           discarded: Odrzucone
-          published: Opublikowane
           rejected: Niewystarczająca liczba podpisów
           validating: Walidacja techniczna
       states:

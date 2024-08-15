@@ -163,11 +163,17 @@ module Decidim
                         icon_name: "home-gear-line",
                         if: allowed_to?(:update, :organization, organization: current_organization)
 
+          menu.add_item :taxonomies,
+                        I18n.t("menu.taxonomies", scope: "decidim.admin"),
+                        decidim_admin.taxonomies_path,
+                        icon_name: "price-tag-3-line",
+                        position: 1.3
+
           menu.add_item :scopes,
                         I18n.t("menu.scopes", scope: "decidim.admin"),
                         decidim_admin.scopes_path,
                         icon_name: "price-tag-3-line",
-                        position: 1.3,
+                        position: 1.4,
                         if: allowed_to?(:read, :scope),
                         active: [%w(
                           decidim/admin/scopes

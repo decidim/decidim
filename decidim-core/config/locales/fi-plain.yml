@@ -1261,6 +1261,7 @@ fi-pl:
         administrators: Hallintakäyttäjät
         allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
         allow_push_notifications: Vastaanota push-ilmoituksia, mikäli haluat tietää, mitä alustalla tapahtuu, kun et ole paikalla. Voit poistaa ne käytöstä milloin tahansa.
+        assigned_to_proposal: Haluan saada sähköpostia, kun joku antaa minulle ehdotuksen arvioitavaksi
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
         everything_followed: Kaikki mitä seuraan
@@ -1279,6 +1280,7 @@ fi-pl:
         push_notifications_reminder: Mikäli haluat vastaanottaa push-ilmoituksia alustalta, sinun on sallittava ne ensin selaimesi asetuksista tälle sivustolle.
         receive_notifications_about: Haluan saada ilmoituksia
         update_notifications_settings: Tallenna muutokset
+        valuators: Arvioijat
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
         success: Ilmoitusasetuksesi päivitettiin onnistuneesti.

@@ -18,13 +18,18 @@ module Decidim
             post :update_category
             post :publish_answers
             post :update_scope
+            post :update_multiple_answers, controller: "proposal_answers"
             resource :proposals_import, only: [:new, :create]
             resource :proposals_merge, only: [:create]
             resource :proposals_split, only: [:create]
             resource :valuation_assignment, only: [:create, :destroy]
           end
           resources :proposal_answers, only: [:edit, :update]
-          resources :proposal_notes, only: [:create]
+          resources :proposal_notes, only: [:create] do
+            member do
+              post :reply
+            end
+          end
         end
 
         resources :proposal_states

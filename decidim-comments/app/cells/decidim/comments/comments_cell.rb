@@ -4,13 +4,11 @@ module Decidim
   module Comments
     # A cell to display a comments section for a commentable object.
     class CommentsCell < Decidim::ViewModel
+      include UserRoleChecker
       delegate :user_signed_in?, to: :controller
-      def add_comment
-        return if single_comment?
-        return if comments_blocked?
-        return if user_comments_blocked?
 
-        render :add_comment
+      def add_comment
+        render :add_comment if can_add_comments?
       end
 
       def single_comment_warning
@@ -40,6 +38,15 @@ module Decidim
       end
 
       private
+
+      def can_add_comments?
+        return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
+        return if single_comment?
+        return if comments_blocked?
+        return if user_comments_blocked?
+
+        true
+      end
 
       def decidim_comments
         Decidim::Comments::Engine.routes.url_helpers
@@ -137,6 +144,10 @@ module Decidim
       # action_authorization_link expects current_component to be available
       def current_component
         model.try(:component)
+      end
+
+      def current_participatory_space
+        model.try(:participatory_space)
       end
 
       def blocked_comments_for_unauthorized_user_warning_link
