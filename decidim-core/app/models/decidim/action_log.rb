@@ -62,7 +62,7 @@ module Decidim
         "(action <> ? AND resource_type IN (?)) OR (resource_type IN (?))",
         "create",
         publicable_public_resource_types,
-        (private_resource_types + public_resource_types - publicable_public_resource_types + %w(Decidim::Meetings::Meeting Decidim::Blobs::Post))
+        (private_resource_types + public_resource_types - publicable_public_resource_types)
       )
     }
 
@@ -71,7 +71,7 @@ module Decidim
         "(action <> ? AND resource_type IN (?)) OR (resource_type IN (?))",
         "create",
         publicable_public_resource_types,
-        (public_resource_types - publicable_public_resource_types + %w(Decidim::Meetings::Meeting Decidim::Blobs::Post))
+        (public_resource_types - publicable_public_resource_types)
       )
     }
 
@@ -81,7 +81,7 @@ module Decidim
         "publish",
         publicable_public_resource_types,
         "create",
-        (public_resource_types - publicable_public_resource_types + %w(Decidim::Meetings::Meeting Decidim::Blobs::Post))
+        (public_resource_types - publicable_public_resource_types)
       )
     }
 
