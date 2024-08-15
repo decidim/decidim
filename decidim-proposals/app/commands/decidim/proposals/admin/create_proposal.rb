@@ -37,7 +37,6 @@ module Decidim
 
           transaction do
             create_proposal
-            publish_proposal
             create_gallery if process_gallery?
             create_attachment(weight: first_attachment_weight) if process_attachments?
             link_author_meeting if form.created_in_meeting?
@@ -52,17 +51,6 @@ module Decidim
 
         attr_reader :form, :proposal, :attachment, :gallery
 
-        def publish_proposal
-          Decidim.traceability.perform_action!(
-            :publish,
-            proposal,
-            form.current_user,
-            visibility: "all"
-          ) do
-            proposal.publish!
-          end
-        end
-
         def create_proposal
           @proposal = Decidim::Proposals::ProposalBuilder.create(
             attributes:,
@@ -70,6 +58,9 @@ module Decidim
             action_user: form.current_user
           )
           @attached_to = @proposal
+          Decidim.traceability.perform_action!(:publish, proposal, form.current_user, visibility: "all") do
+            proposal.update!(published_at: Time.current)
+          end
         end
 
         def attributes
@@ -84,8 +75,7 @@ module Decidim
             address: form.address,
             latitude: form.latitude,
             longitude: form.longitude,
-            created_in_meeting: form.created_in_meeting,
-            published_at: Time.current
+            created_in_meeting: form.created_in_meeting
           }
         end
 
