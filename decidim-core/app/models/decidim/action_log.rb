@@ -62,7 +62,7 @@ module Decidim
         "(action <> ? AND resource_type IN (?)) OR (resource_type IN (?))",
         "create",
         publicable_public_resource_types,
-        (private_resource_types + public_resource_types - publicable_public_resource_types)
+        (private_resource_types + public_resource_types - publicable_public_resource_types + %w(Decidim::Meetings::Meeting Decidim::Blobs::Post))
       )
     }
 
@@ -71,7 +71,7 @@ module Decidim
         "(action <> ? AND resource_type IN (?)) OR (resource_type IN (?))",
         "create",
         publicable_public_resource_types,
-        (public_resource_types - publicable_public_resource_types)
+        (public_resource_types - publicable_public_resource_types + %w(Decidim::Meetings::Meeting Decidim::Blobs::Post))
       )
     }
 
@@ -81,7 +81,7 @@ module Decidim
         "publish",
         publicable_public_resource_types,
         "create",
-        (public_resource_types - publicable_public_resource_types)
+        (public_resource_types - publicable_public_resource_types + %w(Decidim::Meetings::Meeting Decidim::Blobs::Post))
       )
     }
 
@@ -154,7 +154,17 @@ module Decidim
     end
 
     def self.publicable_public_resource_types
-      @publicable_public_resource_types ||= public_resource_types.select { |klass| klass.constantize.column_names.include?("published_at") }
+      @publicable_public_resource_types ||= public_resource_types
+                                            .select { |klass| klass.constantize.column_names.include?("published_at") } - publicable_exceptions
+    end
+
+    def self.publicable_exceptions
+      @publicable_exceptions = %w(
+        Decidim::Meetings::Meeting
+        Decidim::Blogs::Post
+      ).select do |klass|
+        klass.safe_constantize.present?
+      end
     end
 
     def self.ransackable_scopes(auth_object = nil)
