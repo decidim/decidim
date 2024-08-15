@@ -58,8 +58,8 @@ module Decidim
             action_user: form.current_user
           )
           @attached_to = @proposal
-          Decidim.traceability.perform_action!(:publish, proposal, form.current_user, visibility: "all") do
-            proposal.update!(published_at: Time.current)
+          Decidim.traceability.perform_action!(:publish, @proposal, form.current_user, visibility: "all") do
+            @proposal.update!(published_at: Time.current)
           end
         end
 
