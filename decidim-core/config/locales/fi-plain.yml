@@ -293,6 +293,7 @@ fi-pl:
       dismiss: Piilota ilmoitus
     amendments:
       accepted:
+        error: Muutoksen hyväksyminen epäonnistui.
         success: Muutoksen hyväksyntä onnistui.
       amendable:
         button: Muuta %{model_name}
@@ -305,6 +306,7 @@ fi-pl:
           one: "%{count} muutos"
           other: "%{count} muutosta"
       created:
+        error: Muutoksen luonti epäonnistui.
         success: Muutosluonnoksen lisäys onnistui.
       destroy_draft:
         error: Muutosluonnoksen poisto epäonnistui.
@@ -356,6 +358,7 @@ fi-pl:
         error: Muutosluonnoksen päivitys epäonnistui.
         success: Muutosluonnoksen päivitys onnistui.
       withdraw:
+        error: Muutoksen peruuttaminen epäonnistui.
         success: Muutos on peruutettu.
       wizard_step_form:
         steps:
@@ -593,6 +596,9 @@ fi-pl:
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi tilisi luonnin
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
+        new_tos_fields:
+          sign_up: Luo tili
+          sign_up_title: Viimeistele tilin luominen
       registrations:
         create:
           error: Käyttäjätilin luonti epäonnistui.
@@ -1426,6 +1432,7 @@ fi-pl:
         subject: Resurssi on ilmoitettu
     reports:
       create:
+        error: Ilmoituksen luonti epäonnistui. Yritä uudestaan.
         success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
     resource_endorsements:
       create:
@@ -1703,6 +1710,7 @@ fi-pl:
         message: Tilisi on lukittu liian monen epäonnistuneen kirjautumisyrityksen vuoksi.
         subject: Avaa ohjeet
     omniauth_callbacks:
+      add_tos_errors: Tilin luominen edellyttää käyttöehtojen hyväksyntää.
       failure: Sisäänkirjautuminen epäonnistui palvelulla %{kind} koska "%{reason}".
       success: Kirjauduit onnistuneesti sisään %{kind} -tilillä.
     passwords:
