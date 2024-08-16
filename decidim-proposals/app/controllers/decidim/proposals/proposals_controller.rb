@@ -316,6 +316,14 @@ module Decidim
             icon: resource_type_icon_key("Decidim::Proposals::Proposal"),
             method: :cell,
             args: ["decidim/linked_resources_for", @proposal, { type: :proposals, link_name: "copied_from_component" }]
+          },
+          {
+            enabled: true,
+            id: "included_history",
+            text: t("decidim/history/history", scope: "activerecord.models", count: 2),
+            icon: resource_type_icon_key("history"),
+            method: :cell,
+            args: ["decidim/linked_resources_for", @proposal, { type: :history, link_name: "included_proposals" }]
           }
         ] + attachments_tab_panel_items(@proposal)
       end

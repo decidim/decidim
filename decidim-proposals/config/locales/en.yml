@@ -91,12 +91,15 @@ en:
       decidim/proposals/voting_enabled_event: Proposal voting enabled
   activerecord:
     models:
+      decidim/history/history:
+        one: History
+        other: History
       decidim/proposals/collaborative_draft:
         one: Collaborative draft
         other: Collaborative drafts
       decidim/proposals/proposal:
         one: Proposal
-        other: History
+        other: Proposals
       decidim/proposals/proposal_note:
         one: Note
         other: Notes
