@@ -96,7 +96,7 @@ en:
         other: Collaborative drafts
       decidim/proposals/proposal:
         one: Proposal
-        other: Proposals
+        other: History
       decidim/proposals/proposal_note:
         one: Note
         other: Notes
