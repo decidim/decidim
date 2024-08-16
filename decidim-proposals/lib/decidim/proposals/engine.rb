@@ -47,7 +47,7 @@ module Decidim
       initializer "decidim_proposals.register_icons" do
         Decidim.icons.register(name: "Decidim::Proposals::CollaborativeDraft", icon: "draft-line", category: "activity",
                                description: "Collaborative draft", engine: :proposals)
-        Decidim.icons.register(name: "Decidim::Proposals::Proposal", icon: "chat-new-line", category: "activity",
+        Decidim.icons.register(name: "Decidim::Proposals::Proposal", icon: "scan-line", category: "activity",
                                description: "Proposal", engine: :proposals)
         Decidim.icons.register(name: "participatory_texts_item", icon: "bookmark-line", description: "Index item", category: "participatory_texts",
                                engine: :proposals)
