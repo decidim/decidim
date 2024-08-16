@@ -33,13 +33,13 @@ edit_link(
                     </h3>
                     <p class="page__accordion-trigger-snippet"><%= translated_attribute topic.description %></p>
                   </div>
-                  <button id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" data-open-md="true" aria-labelledby="accordion-title-<%= ix %>">
+                  <button id="accordion-trigger-<%= ix %>" data-controls="accordion-panel-<%= ix %>" aria-labelledby="accordion-title-<%= ix %>">
                     <%= icon "arrow-down-s-line", class: "page__accordion-trigger-arrow" %>
                     <%= icon "arrow-up-s-line", class: "page__accordion-trigger-arrow" %>
                   </button>
                 </div>
 
-                <div id="accordion-panel-<%= ix %>" class="page__accordion-panel">
+                <div id="accordion-panel-<%= ix %>" class="page__accordion-panel" aria-hidden="true">
                   <ul role="menu">
                     <% topic.pages.each do |page| %>
                       <li role="menuitem"><%= link_to translated_attribute(page.title), page_path(page), class: "text-secondary" %></li>
