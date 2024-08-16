@@ -19,7 +19,7 @@
       <p class="filter-help" role="menuitem" aria-disabled="true"><%= t("help", scope: "decidim.shared.filter_form_help") %></p>
 
       <% if local_assigns.has_key?(:search_variable) %>
-        <div class="filter-search filter-container" role="menuitem" >
+        <div class="filter-search filter-container" role="menuitem">
           <%= form.search_field search_variable,
                                 label: false,
                                 placeholder: search_label,
