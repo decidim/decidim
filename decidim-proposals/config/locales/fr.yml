@@ -170,6 +170,7 @@ fr:
               random: Aléatoire
               recent: Les plus récentes
               with_more_authors: Avec le plus d'auteurs
+            geocoding_enabled: Cartes activées
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
             new_proposal_body_template_help: Vous pouvez définir le texte prérempli que les nouvelles propositions auront
@@ -773,6 +774,7 @@ fr:
           discard: Supprimer ce brouillon
           discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
           send: Aperçu
+          title: Modifier le brouillon de la proposition
         edit_form_fields:
           marker_added: Marqueur ajouté à la carte.
         filters:
