@@ -583,6 +583,9 @@ fr:
           sign_up: Veuillez compléter votre profil
           subtitle: Veuillez compléter le formulaire suivant afin de compléter l’inscription
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+        new_tos_fields:
+          sign_up: Créer un compte
+          sign_up_title: Finalisez la création de votre compte
       registrations:
         create:
           error: Il y a eu un problème pour créer votre compte.
@@ -1688,6 +1691,7 @@ fr:
         message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
         subject: Instructions de déverrouillage
     omniauth_callbacks:
+      add_tos_errors: Les conditions d'utilisation doivent être acceptées afin de créer un compte.
       failure: Impossible de vous authentifier à partir de %{kind} car "%{reason}".
       success: Authentifié avec succès à partir de %{kind} compte.
     passwords:
