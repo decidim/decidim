@@ -64,7 +64,7 @@ module Decidim
 
           it "raises ActiveSupport::MessageVerifier::InvalidSignature" do
             expect { described_class.decrypt(value) }.to raise_error(
-                                                           ActiveSupport::MessageEncryptor::InvalidMessage
+              ActiveSupport::MessageEncryptor::InvalidMessage
             )
           end
         end
