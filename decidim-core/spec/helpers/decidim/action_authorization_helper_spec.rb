@@ -19,6 +19,7 @@ module Decidim
       allow(helper).to receive(:current_component).and_return(component)
       allow(helper).to receive(:current_user).and_return(user)
       allow(helper).to receive(:action_authorized_to).with(action, resource:, permissions_holder:).and_return(status)
+      allow(helper).to receive(:protect_against_forgery?).and_return(true)
     end
 
     shared_examples "an action authorization widget helper" do |params|
