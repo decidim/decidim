@@ -24,6 +24,7 @@ AGPL
 Ajuntament
 Ajuntamentde
 alabs
+amd
 amendables
 AMR
 andreslucena
@@ -866,6 +867,8 @@ tableize
 tagsinput
 tailwindcss
 tarekraafat
+taxonomizable
+taxonomization
 technopolitical
 templatable
 templateable

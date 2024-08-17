@@ -248,6 +248,10 @@ module Decidim
         i18n_key = controller_name == "collaborative_drafts" ? "decidim.proposals.collaborative_drafts.name" : "decidim.components.proposals.name"
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t(i18n_key)
       end
+
+      def templates_available?
+        Decidim.module_installed?(:templates) && defined?(Decidim::Templates::Template) && Decidim::Templates::Template.exists?(templatable: current_component)
+      end
     end
   end
 end

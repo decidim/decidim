@@ -15,7 +15,7 @@ $(() => {
     }, 1000);
 
     // Prevent reload when page is already unloading, otherwise it may cause infinite reloads.
-    window.addEventListener("beforeunload", () => {
+    window.addEventListener("pagehide", () => {
       clearInterval(exitInterval);
       return;
     });

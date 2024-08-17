@@ -19,9 +19,11 @@ describe Decidim::EventPublisherJob do
     let(:event_name) { "some_event" }
     let(:data) do
       {
-        resource:
+        resource:,
+        event_class:
       }
     end
+    let(:event_class) { "Decidim::Dev::DummyResourceEvent" }
 
     context "when the resource is publicable" do
       let(:resource) { build(:dummy_resource) }
@@ -171,6 +173,48 @@ describe Decidim::EventPublisherJob do
 
           subject
         end
+      end
+    end
+
+    context "when the event is not present" do
+      let(:resource) { build(:dummy_resource, :published) }
+      let(:event_class) { nil }
+
+      it "does not enqueue the jobs" do
+        expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
+        expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
+
+        subject
+      end
+    end
+
+    context "when the event class does not send emails" do
+      let(:resource) { build(:dummy_resource, :published) }
+
+      before do
+        allow(Decidim::Dev::DummyResourceEvent).to receive(:types).and_return([:notification])
+      end
+
+      it "does not enqueue the email job" do
+        expect(Decidim::EmailNotificationGeneratorJob).not_to receive(:perform_later)
+        expect(Decidim::NotificationGeneratorJob).to receive(:perform_later)
+
+        subject
+      end
+    end
+
+    context "when the event class does not send notifications" do
+      let(:resource) { build(:dummy_resource, :published) }
+
+      before do
+        allow(Decidim::Dev::DummyResourceEvent).to receive(:types).and_return([:email])
+      end
+
+      it "does not enqueue the notification job" do
+        expect(Decidim::EmailNotificationGeneratorJob).to receive(:perform_later)
+        expect(Decidim::NotificationGeneratorJob).not_to receive(:perform_later)
+
+        subject
       end
     end
   end

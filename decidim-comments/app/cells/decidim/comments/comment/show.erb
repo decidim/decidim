@@ -51,6 +51,13 @@
                 <% end %>
               </li>
             <% end %>
+            <% if(extra_actions) %>
+              <% extra_actions.each do |action| %>
+                <li>
+                  <%= link_to(*action) %>
+                </li>
+              <% end %>
+            <% end %>
           </ul>
         </div>
       </div>

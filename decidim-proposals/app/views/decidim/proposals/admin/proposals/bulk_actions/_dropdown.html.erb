@@ -49,6 +49,13 @@
           </button>
         </li>
       <% end %>
+      <% if templates_available? %>
+        <li>
+          <button type="button" data-action="apply-answer-template">
+            <%= t("decidim.proposals.admin.proposals.index.apply_answer_template") %>
+          </button>
+        </li>
+      <% end %>
       <li>
         <button type="button" data-action="publish-answers">
           <%= t("decidim.proposals.admin.proposals.index.publish_answers") %>

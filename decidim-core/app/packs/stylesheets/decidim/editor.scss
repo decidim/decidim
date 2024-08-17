@@ -21,7 +21,7 @@
 }
 
 .editor-container {
-  @apply editor-props editor-suggestions-props flex flex-col mb-6 border editor-border;
+  @apply editor-props editor-suggestions-props flex flex-col mt-4 border editor-border;
 
   &.editor-disabled {
     .editor-input .ProseMirror {
