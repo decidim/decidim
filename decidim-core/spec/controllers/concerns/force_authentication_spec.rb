@@ -35,8 +35,7 @@ module Decidim
 
       it "forces authentication" do
         get :show
-        expect(response.location).to eq("http://test.host/users/sign_in")
-        expect(response.body).to have_text("You are being redirected")
+        expect(response).to redirect_to("http://test.host/users/sign_in")
         expect(response).to have_http_status(:found)
       end
 

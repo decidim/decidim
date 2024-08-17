@@ -5,6 +5,7 @@ class AddQuestionnaireToExistingMeetings < ActiveRecord::Migration[5.2]
     self.table_name = :decidim_meetings_meetings
     include Decidim::Forms::HasQuestionnaire
   end
+
   def change
     Meeting.transaction do
       Meeting.find_each do |meeting|

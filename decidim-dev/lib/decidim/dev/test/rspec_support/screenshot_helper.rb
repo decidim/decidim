@@ -24,7 +24,7 @@ module ActionDispatch
           message = +"[Screenshot Image]: file://#{image_path}\n"
           message << +"[Screenshot HTML]: file://#{html_path}\n" if html
 
-          case output_type
+          case screenshot_output || output_type
           when "artifact"
             message << "\e]1338;url=artifact://#{absolute_image_path}\a\n"
           when "inline"

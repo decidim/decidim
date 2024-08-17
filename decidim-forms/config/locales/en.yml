@@ -3,6 +3,7 @@ en:
   activemodel:
     attributes:
       answer:
+        add_documents: Add Documents
         body: Answer
         choices: Choices
         selected_choices: Selected choices

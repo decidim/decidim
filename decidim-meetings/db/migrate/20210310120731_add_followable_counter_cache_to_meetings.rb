@@ -11,6 +11,7 @@ class AddFollowableCounterCacheToMeetings < ActiveRecord::Migration[5.2]
              class_name: "Decidim::Follow",
              counter_cache: :follows_count
   end
+
   def change
     add_column :decidim_meetings_meetings, :follows_count, :integer, null: false, default: 0, index: true
 

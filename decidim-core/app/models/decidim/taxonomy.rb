@@ -50,6 +50,14 @@ module Decidim
       [:search_by_name]
     end
 
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(children_count decidim_organization_id id name parent_id taxonomizations_count weight)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(children organization parent taxonomizations)
+    end
+
     def translated_name
       Decidim::TaxonomyPresenter.new(self).translated_name
     end

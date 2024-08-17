@@ -20,7 +20,7 @@ module Decidim
     def show
       raise ActionController::RoutingError, "Not Found" unless link
 
-      redirect_to link.target_url, status: :moved_permanently
+      redirect_to link.target_url, status: :moved_permanently, allow_other_host: true
     end
 
     private

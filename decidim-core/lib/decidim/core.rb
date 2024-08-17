@@ -125,6 +125,8 @@ module Decidim
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
   autoload :IconRegistry, "decidim/icon_registry"
   autoload :HasConversations, "decidim/has_conversations"
+  autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  autoload :ResourceHelper, "decidim/resource_helper"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
@@ -577,7 +579,7 @@ module Decidim
   config_accessor :omniauth_providers do
     {
       developer: {
-        enabled: Rails.env.development? || Rails.env.test?,
+        enabled: Rails.env.local?,
         icon: "phone-line"
       },
       facebook: {
