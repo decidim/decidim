@@ -125,12 +125,11 @@ describe UploaderImageDimensionsValidator do
         content_type:
       )
     end
+    let!(:resource) { create(:dummy_resource) }
+
     let(:attachment) do
-      ActiveStorage::Attachment.create!(
-        name: "upload",
-        record: create(:dummy_resource),
-        blob:
-      )
+      resource.attachment.attach blob
+      resource.attachment
     end
 
     before do

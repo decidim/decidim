@@ -33,6 +33,8 @@ module Decidim
         datetime: :published_at
       )
 
+      has_one_attached :attachment
+
       amendable(
         fields: [:title],
         form: "Decidim::Dev::DummyResourceForm"
