@@ -80,7 +80,6 @@ module Decidim
       end
 
       html_options["onclick"] = "event.preventDefault();" if url == ""
-      html_options["method"] = "post"
 
       if block
         send("#{tag}_to", url, html_options, &body)
