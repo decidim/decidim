@@ -29,7 +29,7 @@ module Decidim
       include Decidim::IconHelper
 
       helper_method :collection, :initiatives, :filter, :stats, :tabs, :panels
-      helper_method :initiative_type, :available_initiative_types
+      helper_method :initiative_type, :available_initiative_types, :decidim_admin_initiatives
 
       before_action :authorize_participatory_space, only: [:show]
 
@@ -181,6 +181,10 @@ module Decidim
             args: ["decidim/documents_panel", @current_initiative]
           }
         ].select { |item| item[:enabled] }
+      end
+
+      def decidim_admin_initiatives
+        EngineRouter.admin_proxy(Decidim::Initiative.new(organization: current_organization))
       end
     end
   end
