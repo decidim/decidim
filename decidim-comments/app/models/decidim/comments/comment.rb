@@ -55,7 +55,6 @@ module Decidim
       validates :depth, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: MAX_DEPTH }
       validates :alignment, inclusion: { in: [0, 1, -1] }
       validate :body_length
-      validate :commentable_can_have_comments
 
       scope :not_deleted, -> { where(deleted_at: nil) }
 
@@ -230,12 +229,6 @@ module Decidim
         return unless component&.settings.respond_to?(:comments_max_length)
 
         component.settings.comments_max_length.positive?
-      end
-
-      # Private: Check if commentable can have comments and if not adds
-      # a validation error to the model
-      def commentable_can_have_comments
-        errors.add(:commentable, :cannot_have_comments) unless root_commentable.accepts_new_comments?
       end
 
       # Private: Compute comment depth inside the current comment tree

@@ -5,6 +5,8 @@ module Decidim
     # A form object used to create comments from the graphql api.
     #
     class CommentForm < Form
+      include Decidim::UserRoleChecker
+
       attribute :body, Decidim::Attributes::CleanString
       attribute :alignment, Integer
       attribute :user_group_id, Integer
@@ -17,6 +19,7 @@ module Decidim
       validates :alignment, inclusion: { in: [0, 1, -1] }, if: ->(form) { form.alignment.present? }
 
       validate :max_depth
+      validate :commentable_can_have_comments
 
       def max_length
         if current_component.try(:settings).respond_to?(:comments_max_length)
@@ -32,6 +35,17 @@ module Decidim
         return unless commentable.respond_to?(:depth)
 
         errors.add(:base, :invalid) if commentable.depth >= Comment::MAX_DEPTH
+      end
+
+      private
+
+      # Private: Check if commentable can have comments and if not adds
+      # a validation error to the model
+      def commentable_can_have_comments
+        return unless current_component && current_component.participatory_space
+        return if user_has_any_role?(current_user, current_component.participatory_space)
+
+        errors.add(:commentable, :cannot_have_comments) unless commentable.accepts_new_comments?
       end
     end
   end
