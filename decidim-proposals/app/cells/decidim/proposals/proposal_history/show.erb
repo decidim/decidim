@@ -1,0 +1,82 @@
+<ul class="flex flex-col gap-4 p-4">
+    <li class="flex flex-row gap-2.5 relative">
+        <div class="w-8 h-8 rounded-full border-secondary border flex justify-center items-center">
+            <div class="bg-secondary w-6 h-6 rounded-full flex justify-center items-center">
+                <%= icon "chat-new-line", class: "fill-current text-white" %>
+            </div>
+            <span class="absolute left-4 top-full w-px h-8 bg-secondary"></span>
+        </div> 
+        <div class="flex flex-col items-center lg:flex-row lg:gap-1">
+            <span class="text-sm text-gray-2">20/02/2023 10:00</span>
+            <p>This proposal was created</p>
+        </div>
+    </li>
+    <li class="flex flex-row gap-2.5 items-center relative">
+        <div class="w-8 h-8 flex justify-center items-center">
+            <span class="w-2 h-2 rounded-full bg-secondary"></span>
+        </div>
+        <span class="absolute left-4 top-5 w-px h-9 bg-secondary"></span>
+        <p>This proposal collected 45 votes and 3 comments</p>
+    </li>
+    <li class="flex flex-row gap-2.5 relative">
+        <div class="mt-1.5 w-8 h-8 rounded-full border-secondary border flex justify-center items-center">
+            <%= icon "map-pin-line", class: "fill-current text-secondary" %>
+        </div> 
+        <span class="absolute left-4 top-full w-px h-8 bg-secondary"></span>
+        <div class="flex flex-col items-center lg:flex-row lg:gap-1">
+            <span class="text-sm text-gray-2">17/01/2023 16:00</span>
+            <p>It was discussed in this meeting:</p>
+            <%= link_to "Consell de Barri de la Barceloneta", "#", class: "underline decoration-current text-secondary font-semibold" %>
+        </div>
+    </li>
+    <li class="flex flex-row gap-2.5 items-center relative">
+        <div class="w-8 h-8 flex justify-center items-center">
+            <span class="w-2 h-2 rounded-full bg-secondary"></span>
+        </div>
+        <span class="absolute left-4 top-5 w-px h-9 bg-secondary"></span>
+        <p>30 people attended this meeting</p>
+    </li>
+    <li class="flex flex-row gap-2.5 relative">
+        <div class="mt-1.5 w-8 h-8 rounded-full border-secondary border flex justify-center items-center">
+            <%= icon "map-pin-line", class: "fill-current text-secondary" %>
+        </div>
+        <span class="absolute left-4 top-full w-px h-6 bg-secondary"></span>
+        <div class="flex flex-col items-center lg:flex-row lg:gap-1">
+            <span class="text-sm text-gray-2">12/01/2023 14:00</span>
+            <p>It was discussed in this meeting:</p>
+            <%= link_to "Trobada de cp-creació de projectes", "#", class: "underline decoration-current text-secondary font-semibold" %>
+        </div>
+    </li>
+    <li class="flex flex-row gap-2.5 relative">
+        <div class="mt-1.5 w-8 h-8 rounded-full border-secondary border flex justify-center items-center">
+            <%= icon "coin-line", class: "fill-current text-secondary" %>
+        </div>
+        <span class="absolute left-4 top-full w-px h-6 bg-secondary"></span>
+        <div class="flex flex-col items-center lg:flex-row lg:gap-1">
+            <span class="text-sm text-gray-2">10/01/2023 10:00</span>
+            <p>It was added to this budget:</p>
+            <%= link_to "Millora dels equipaments esportius", "#", class: "underline decoration-current text-secondary font-semibold" %>
+        </div>
+    </li>
+    <li class="flex flex-row gap-2.5 relative">
+        <div class="mt-1.5 w-8 h-8 rounded-full border-secondary border flex justify-center items-center">
+            <%= icon "briefcase-2-line", class: "fill-current text-secondary" %>
+        </div>
+        <span class="absolute left-4 top-full w-px h-6 bg-secondary"></span>
+        <div class="flex flex-col items-center lg:flex-row lg:gap-1">
+            <span class="text-sm text-gray-2">03/01/2023 10:00</span>
+            <p>It was added to this result:</p>
+            <%= link_to "installacions multiesportives", "#", class: "underline decoration-current text-secondary font-semibold" %>
+        </div>
+    </li>
+    <li class="flex flex-row gap-2.5">
+        <div class="mt-1.5 w-8 h-8 rounded-full border-secondary border flex justify-center items-center">
+            <%= icon "briefcase-2-line", class: "fill-current text-secondary" %>
+        </div>
+        <div class="flex flex-col items-center lg:flex-row lg:gap-1">
+            <span class="text-sm text-gray-2">18/12/2022 10:00</span>
+            <p>It was added to this result:</p>
+            <%= link_to "Pràctica d'esports minoritaris", "#", class: "underline decoration-current text-secondary font-semibold" %>
+        </div>
+    </li>
+</ul>

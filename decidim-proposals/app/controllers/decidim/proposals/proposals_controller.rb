@@ -291,7 +291,7 @@ module Decidim
             text: t("decidim/history/history", scope: "activerecord.models", count: 2),
             icon: resource_type_icon_key("history"),
             method: :cell,
-            args: ["decidim/linked_resources_for", @proposal, { type: :history, link_name: "included_proposals" }]
+            args: ["decidim/proposals/proposal_history", @proposal]
           }
         ] + attachments_tab_panel_items(@proposal)
       end
