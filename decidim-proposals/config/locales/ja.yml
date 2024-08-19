@@ -264,6 +264,9 @@ ja:
           actions:
             accept: 承認
             decline: 拒否
+          email_intro: 'あなたは提案「%{resource_title}」の共著者に招待されています。このページで招待を承認または拒否することができます：'
+          email_outro: 提案の著者が共著者になることを認識したいので、この通知を受け取りました。
+          email_subject: あなたは提案「%{resource_title}」の共著者に招待されています
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
