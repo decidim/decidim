@@ -566,6 +566,9 @@ ja:
           sign_up: プロフィールを完成してください
           subtitle: アカウントの作成を完了するため、次のフォームに記入してください
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
+        new_tos_fields:
+          sign_up: アカウントを作成
+          sign_up_title: アカウントの作成を完了する
       registrations:
         create:
           error: アカウント作成中に問題が発生しました。
