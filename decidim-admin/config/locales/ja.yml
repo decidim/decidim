@@ -776,6 +776,7 @@ ja:
           success: ニュースレターは正常に更新されました。送信する前に確認してください。
       officializations:
         block:
+          error: 参加者のブロック中に問題が発生しました。
           success: 参加者をブロックしました。
         create:
           success: 参加者が公式化されました。
@@ -809,6 +810,7 @@ ja:
           show: 表示
           title: 参加者のメールアドレスを表示
         unblock:
+          error: 参加者のブロック解除中に問題が発生しました。
           success: 参加者のブロックを解除しました。
       organization:
         edit:
@@ -1007,7 +1009,25 @@ ja:
           error: このページの更新中に問題が発生しました。
           success: ページが更新されました。
       taxonomies:
+        actions: アクション
         count: カウント
+        edit:
+          back: 戻る
+          new_item: 新しい項目
+          subtitle: '"%{taxonomy_name}" の項目'
+          update: 更新
+        filters:
+          search_placeholder: 検索
+        name: 名前
+        table:
+          to_next_page: 次のページにドラッグ
+          to_prev_page: 前のページにドラッグ
+      taxonomy_items:
+        edit:
+          title: '%{taxonomy} の項目を編集'
+          update: 項目の更新
+        new:
+          create: 項目の作成
       titles:
         admin_log: 管理者ログ
         area_types: エリア種別
