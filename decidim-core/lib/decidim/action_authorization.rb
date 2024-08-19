@@ -14,7 +14,7 @@ module Decidim
 
     def action_authorized_to(action, resource: nil, permissions_holder: nil)
       action_authorization_cache[action_authorization_cache_key(action, resource, permissions_holder)] ||=
-        ::Decidim::ActionAuthorizer.new(current_user, action, permissions_holder || resource&.component || current_component, resource).authorize
+        ::Decidim::ActionAuthorizer.new(current_user, action, permissions_holder || resource.try(:component) || try(:current_component), resource).authorize
     end
 
     def action_authorization_cache
