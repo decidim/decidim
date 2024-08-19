@@ -10,7 +10,7 @@ module Decidim
       include Paginable
       include HasParticipatorySpaceContentBlocks
 
-      helper_method :collection, :parent_assemblies, :promoted_assemblies, :stats, :assembly_participatory_processes, :decidim_admin_assemblies
+      helper_method :collection, :parent_assemblies, :promoted_assemblies, :stats, :assembly_participatory_processes
 
       def index
         enforce_permission_to :list, :assembly
@@ -92,10 +92,6 @@ module Decidim
 
       def assembly_participatory_processes
         @assembly_participatory_processes ||= @current_participatory_space.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
-      end
-
-      def decidim_admin_assemblies
-        EngineRouter.admin_proxy(Decidim::Assembly.new(organization: current_organization))
       end
     end
   end

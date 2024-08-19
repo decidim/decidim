@@ -18,8 +18,7 @@ module Decidim
                     :participatory_process_group,
                     :default_date_filter,
                     :related_processes,
-                    :linked_assemblies,
-                    :decidim_admin_participatory_processes
+                    :linked_assemblies
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_processes.none?
@@ -139,11 +138,6 @@ module Decidim
 
       def linked_assemblies
         @linked_assemblies ||= current_participatory_space.linked_participatory_space_resources(:assembly, "included_participatory_processes").public_spaces
-      end
-
-      # workaround for https://github.com/rails/rails/pull/45719
-      def decidim_admin_participatory_processes
-        EngineRouter.admin_proxy(Decidim::ParticipatoryProcess.new(organization: current_organization))
       end
     end
   end

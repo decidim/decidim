@@ -17,7 +17,7 @@ module Decidim
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
 
-      helper_method :collection, :promoted_conferences, :conferences, :stats, :decidim_admin_conferences
+      helper_method :collection, :promoted_conferences, :conferences, :stats
 
       def index
         raise ActionController::RoutingError, "Not Found" if published_conferences.none?
@@ -61,10 +61,6 @@ module Decidim
 
       def stats
         @stats ||= ConferenceStatsPresenter.new(conference: current_participatory_space)
-      end
-
-      def decidim_admin_conferences
-        EngineRouter.admin_proxy(Decidim::Conference.new(organization: current_organization))
       end
     end
   end
