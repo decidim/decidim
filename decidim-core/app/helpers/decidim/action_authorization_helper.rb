@@ -52,19 +52,18 @@ module Decidim
 
     # rubocop: disable Metrics/PerceivedComplexity
     def authorized_to(tag, action, arguments, block)
+      html_options = block ? arguments[1] : arguments[2] || {}
+      resource = html_options.delete(:resource)
+      permissions_holder = html_options.delete(:permissions_holder)
+      pending_verifications = action && !action_authorized_to(action, resource:, permissions_holder:).ok?
+
       if block
         body = block
         url = arguments[0]
-        html_options = arguments[1]
       else
-        body = content_tag :span, arguments[0]
+        body = pending_verifications ? t("verify_to", scope: "decidim.core.actions", action: arguments[0]) : arguments[0]
         url = arguments[1]
-        html_options = arguments[2]
       end
-
-      html_options ||= {}
-      resource = html_options.delete(:resource)
-      permissions_holder = html_options.delete(:permissions_holder)
 
       if !current_user
         html_options = clean_authorized_to_data_open(html_options)
@@ -77,7 +76,7 @@ module Decidim
         end
 
         url = "#"
-      elsif action && !action_authorized_to(action, resource:, permissions_holder:).ok?
+      elsif pending_verifications
         html_options = clean_authorized_to_data_open(html_options)
 
         html_options["data-dialog-open"] = "authorizationModal"
@@ -90,7 +89,7 @@ module Decidim
       if block
         send("#{tag}_to", url, html_options, &body)
       else
-        send("#{tag}_to", body, url, html_options)
+        send("#{tag}_to", content_tag(:span, body), url, html_options)
       end
     end
     # rubocop: enable Metrics/PerceivedComplexity
