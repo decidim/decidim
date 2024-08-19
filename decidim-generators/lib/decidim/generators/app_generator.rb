@@ -357,11 +357,6 @@ module Decidim
             end
           end
         CONFIG
-
-        if ENV.fetch("RAILS_BOOST_PERFORMANCE", false).to_s == "true"
-          gsub_file "Gemfile", /gem "spring".*/, "# gem \"spring\""
-          gsub_file "Gemfile", /gem "spring-watcher-listen".*/, "# gem \"spring-watcher-listen\""
-        end
       end
 
       def authorization_handler

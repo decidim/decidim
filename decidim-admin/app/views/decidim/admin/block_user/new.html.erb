@@ -19,7 +19,7 @@
               <%= cell("decidim/announcement", t(".already_reported_html"), callout_class: "alert" ) %>
             <% end %>
 
-            <% if defined?(Decidim::Templates) %>
+            <% if Decidim.module_installed?(:templates) %>
               <%= render "decidim/templates/admin/block_user_templates/template_chooser", form: f %>
             <% end %>
 
