@@ -405,6 +405,7 @@ fr:
         edit_proposal_state: Modifier l'état
         import: Importer depuis une autre fonctionnalité
         mark_as_coauthor: Marquer comme co-auteur
+        mark_as_coauthor_confirm: Êtes-vous sûr(e) de vouloir marquer ce participant comme co-auteur ? Le destinataire recevra une notification pour accepter ou refuser l'invitation.
         new: Nouvelle proposition
         new_proposal_state: Nouvel état
         participatory_texts: Textes participatifs
@@ -751,6 +752,19 @@ fr:
       destroy_draft:
         error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
         success: Le brouillon de la proposition a bien été supprimé.
+      invite_coauthors:
+        cancel:
+          error: Une erreur s'est produite lors de l'annulation de l'invitation du co-auteur.
+          success: Invitation de co-auteur annulée avec succès.
+        create:
+          error: Une erreur s'est produite lors de l'invitation du co-auteur.
+          success: "%{author_name} a été invité en tant que co-auteur."
+        destroy:
+          error: Une erreur s'est produite lors du refus de l'invitation.
+          success: L'invitation a été refusée.
+        update:
+          error: Une erreur s'est produite lors de l'acceptation de cette invitation.
+          success: L'invitation a été acceptée.
       last_activity:
         new_proposal: 'Nouvelle proposition :'
         proposal_updated: 'Proposition mise à jour :'
