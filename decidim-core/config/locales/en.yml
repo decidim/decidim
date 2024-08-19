@@ -591,6 +591,7 @@ en:
       actions:
         login_before_access: Please, log in with your account before access.
         unauthorized: You are not authorized to perform this action.
+        verify_to: Verify your account to %{action}
       application_helper:
         filter_area_values:
           all: All
