@@ -10,7 +10,7 @@ module Decidim
       # verification_metadata - metadata containing the required code.
       def initialize(form, verification_metadata)
         @form = form
-        @verification_metadata = verification_metadata
+        @verification_metadata = verification_metadata.with_indifferent_access
       end
 
       # Executes the command. Broadcasts these events:
