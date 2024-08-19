@@ -166,6 +166,11 @@ ja:
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
+            edit_time: 提案は、この時間までの間は著者が編集することができます
+            edit_time_units:
+              days: 日
+              hours: 時
+              minutes: 分
             geocoding_enabled: マップは有効です
             minimum_votes_per_user: ユーザーあたりの最小投票数
             new_proposal_body_template: 新しい提案本文テンプレート
@@ -179,6 +184,10 @@ ja:
             proposal_edit_time_choices:
               infinite: いつでも提案を編集することを許可する
               limited: 特定の期間内での提案の編集を許可する
+            proposal_edit_time_unit_options:
+              days: 日
+              hours: 時
+              minutes: 分
             proposal_length: 提案本文の最大長
             proposal_limit: 参加者ごとの提案数制限
             proposal_wizard_step_1_help_text: 提案ウィザード "作成" ステップヘルプ テキスト
@@ -228,7 +237,13 @@ ja:
             votes_hidden: 投票を非表示にしました (投票が有効な場合、チェックを入れると投票数が非表示になります)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> の共著者として追加されました。
         admin:
+          proposal_assigned_to_valuator:
+            email_outro: 提案の評価者のため、この通知を受け取りました。
+            email_subject: あなたは提案 %{resource_title} に評価者として割り当てられています。
+            notification_title: 誰かがあなたを提案 <a href="%{resource_path}">%{resource_title}</a> の評価者に割り当てました。詳細は<a href="%{admin_proposal_info_path}">管理者パネル</a>で確認してください。
           proposal_note_created:
             email_intro: '%{author_name} は %{resource_title} でプライベートノートを作成しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
             email_outro: 提案を評価できるため、この通知を受け取りました。
@@ -238,6 +253,17 @@ ja:
             email_intro: '"%{resource_title}" 内の "%{author_name}" "%{author_nickname}" によるプライベートノートで言及されました。<a href="%{admin_proposal_info_url}">管理パネル</a>で確認してください。'
             email_outro: プライベートノートで言及されているため、この通知を受信しました。
             email_subject: 誰かが提案 %{resource_title} のメモであなたをメンションしました。
+            notification_title: <a href="%{resource_path}">%{resource_title}"</a> 内の<a href="%{author_path}">%{author_name} %{author_nickname}</a> によるプライベートノートで言及されました。<a href="%{admin_proposal_info_path}">管理パネル</a>で確認してください。
+          proposal_note_replied:
+            email_outro: あなたがノートの作成者であるため、この通知を受信しました。
+            email_subject: "%{author_name} が %{resource_title} 内のあなたのプライベートノートに返信しました。"
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a>内のあなたのプライベートノートに返信しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください。
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> は提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を承諾しました。
+        coauthor_invited:
+          actions:
+            accept: 承認
+            decline: 拒否
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
@@ -379,11 +405,15 @@ ja:
     proposals:
       actions:
         answer_proposal: 提案に回答
+        cancel_coauthor_invitation: 共著者の招待をキャンセル
+        cancel_coauthor_invitation_confirm: 共著者の招待をキャンセルしてもよろしいですか？
         delete_proposal_state_confirm: このステータスを削除してもよろしいですか？
         destroy: ステータスを削除
         edit_proposal: 提案を編集
         edit_proposal_state: ステータスを編集
         import: 別のコンポーネントからインポート
+        mark_as_coauthor: 共著者としてマーク
+        mark_as_coauthor_confirm: このユーザーを共同執筆者としてマークしてもよろしいですか？受信者は招待を承認または拒否するための通知を受け取ります。
         new: 新しい提案
         new_proposal_state: 新しいステータス
         participatory_texts: 参加型テキスト
