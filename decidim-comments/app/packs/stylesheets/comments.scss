@@ -34,7 +34,7 @@
   @apply rounded-none border-l-black border-2 border-background p-3 pl-6;
 
   &__header {
-    @apply flex items-center gap-x-2 mb-2 -ml-10 relative;
+    @apply flex items-center gap-x-2 mb-3 -ml-10 -mt-6 relative;
 
     a[href^="/profile"] > span:first-child {
       @apply z-10;
