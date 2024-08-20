@@ -44,8 +44,7 @@ describe Decidim::Debates::Admin::DebateForm do
   end
 
   it_behaves_like "a scopable resource"
-  it_behaves_like "etiquette validator", fields: [:title, :description]
-  
+  it_behaves_like "etiquette validator", fields: [:title, :description]  
   it { is_expected.to be_valid }
 
   describe "when title is missing" do
