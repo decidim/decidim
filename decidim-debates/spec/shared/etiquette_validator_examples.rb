@@ -5,7 +5,7 @@ shared_examples "etiquette validator" do |options|
     context "when #{field} contains too many caps" do
       let(field) do
         string = "#{"A" * 50}#{"a" * 49}"
-        options[:i18n].true?  == false ? string : { en: string }
+        options[:i18n] == false ? string : { en: string }
       end
 
       it { is_expected.to be_invalid }
