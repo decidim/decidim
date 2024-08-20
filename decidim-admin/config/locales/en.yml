@@ -203,7 +203,7 @@ en:
         verify: Verify
       admin_terms_of_service:
         accept:
-          error: There was an error while accepting the admin terms of service.
+          error: There was a problem while accepting the admin terms of service.
           success: Great! You have accepted the admin terms of service.
         actions:
           accept: I agree with the terms
@@ -367,7 +367,7 @@ en:
         user_name: User
       content_blocks:
         create:
-          error: There was an error while creating the content block.
+          error: There was a problem while creating the content block.
           success: Content block successfully created.
         destroy:
           error: There was a problem trying to delete this content block.
@@ -791,7 +791,7 @@ en:
           success: Newsletter updated successfully. Please review it before sending.
       officializations:
         block:
-          error: There was an error blocking the participant.
+          error: There was a problem blocking the participant.
           success: Participant successfully blocked.
         create:
           success: Participant successfully officialized.
@@ -825,7 +825,7 @@ en:
           show: Show
           title: Show participant's email address
         unblock:
-          error: There was an error unblocking the participant.
+          error: There was a problem unblocking the participant.
           success: Participant successfully unblocked.
       organization:
         edit:

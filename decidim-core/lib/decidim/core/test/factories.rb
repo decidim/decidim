@@ -787,6 +787,11 @@ FactoryBot.define do
         some_extra_data: "1"
       }
     end
+
+    trait :proposal_coauthor_invite do
+      event_name { "decidim.events.proposals.coauthor_invited" }
+      event_class { "Decidim::Proposals::CoauthorInvitedEvent" }
+    end
   end
 
   factory :conversation, class: "Decidim::Messaging::Conversation" do
