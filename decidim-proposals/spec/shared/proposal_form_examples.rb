@@ -87,9 +87,9 @@ shared_examples "a proposal form" do |options|
   context "when the title is too long" do
     let(:title) do
       if options[:i18n] == false
-        "A#{"a"* 200}"
+        "A#{"a" * 200}"
       else
-        { en: "A#{"a"* 200}" }
+        { en: "A#{"a" * 200}" }
       end
     end
 
