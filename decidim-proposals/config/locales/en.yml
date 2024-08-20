@@ -100,6 +100,10 @@ en:
       decidim/proposals/proposal:
         one: Proposal
         other: Proposals
+      decidim/budgets/project/text: "It was added to this budget:"
+      decidim/accountability/result/text: "It was added to this result:"
+      decidim/meetings/meeting/text: "In these meeting it was discussed:"
+      decidim/proposals/proposal/text: "This proposal has been merged of:"
       decidim/proposals/proposal_note:
         one: Note
         other: Notes
@@ -782,6 +786,8 @@ en:
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
+      creation:
+        text: This proposal was created
       destroy_draft:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
