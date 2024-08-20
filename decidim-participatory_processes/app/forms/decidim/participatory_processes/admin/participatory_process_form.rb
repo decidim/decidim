@@ -9,6 +9,7 @@ module Decidim
       class ParticipatoryProcessForm < Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
+        include Decidim::Admin::HasTaxonomyFormAttributes
 
         mimic :participatory_process
 
@@ -27,7 +28,6 @@ module Decidim
         attribute :hashtag, String
         attribute :slug, String
 
-        attribute :taxonomies, Array[Integer]
         attribute :area_id, Integer
         attribute :participatory_process_group_id, Integer
         attribute :scope_id, Integer
@@ -68,18 +68,8 @@ module Decidim
           @processes = Decidim::ParticipatoryProcess.where(organization: model.organization).where.not(id: model.id)
         end
 
-        def taxonomizations
-          taxonomies.map do |taxonomy_id|
-            Decidim::Taxonomization.new(taxonomy_id:)
-          end
-        end
-
-        def taxonomy_filters
-          @taxonomy_filters ||= TaxonomyFilter.where(space_manifest: :participatory_processes, root_taxonomy: root_taxonomies)
-        end
-
-        def root_taxonomies
-          @root_taxonomies ||= current_organization.taxonomies.where(parent_id: nil)
+        def participatory_space_manifest
+          :participatory_processes
         end
 
         def scope

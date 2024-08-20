@@ -9,6 +9,7 @@ module Decidim
       class AssemblyForm < Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
+        include Decidim::Admin::HasTaxonomyFormAttributes
 
         CREATED_BY = %w(city_council public others).freeze
 
@@ -41,7 +42,6 @@ module Decidim
         attribute :twitter_handler, String
         attribute :youtube_handler, String
 
-        attribute :taxonomies, Array[Integer]
         attribute :decidim_assemblies_type_id, Integer
         attribute :area_id, Integer
         attribute :parent_id, Integer
@@ -85,6 +85,10 @@ module Decidim
 
         alias organization current_organization
 
+        def participatory_space_manifest
+          :assemblies
+        end
+
         def ensure_parent_cannot_be_child
           return if id.blank?
 
@@ -94,20 +98,6 @@ module Decidim
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id
-        end
-
-        def taxonomizations
-          taxonomies.map do |taxonomy_id|
-            Decidim::Taxonomization.new(taxonomy_id:)
-          end
-        end
-
-        def taxonomy_filters
-          @taxonomy_filters ||= TaxonomyFilter.where(space_manifest: :assemblies, root_taxonomy: root_taxonomies)
-        end
-
-        def root_taxonomies
-          @root_taxonomies ||= current_organization.taxonomies.where(parent_id: nil)
         end
 
         def scope
