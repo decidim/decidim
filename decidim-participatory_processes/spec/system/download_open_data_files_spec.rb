@@ -2,6 +2,7 @@
 
 require "spec_helper"
 require "decidim/core/test/shared_examples/download_open_data_shared_context"
+require "decidim/core/test/shared_examples/download_open_data_shared_examples"
 
 describe "Download Open Data files", download: true do
   let(:organization) { create(:organization) }
@@ -30,35 +31,23 @@ describe "Download Open Data files", download: true do
 
     context "when the participatory process is unpublished" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
-      let(:participatory_process_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
+      let(:participatory_space_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
 
-      it "does not include it" do
-        download_open_data_file
-        content = extract_content_from_zip(download_path, file_name)
-        expect(content).not_to include(participatory_process_title)
-      end
+      it_behaves_like "does not include it in the open data file"
     end
 
     context "when the participatory process is published and not private" do
       let!(:participatory_process) { create(:participatory_process, :published, organization:, private_space: false) }
-      let(:participatory_process_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
+      let(:participatory_space_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
 
-      it "includes it" do
-        download_open_data_file
-        content = extract_content_from_zip(download_path, file_name)
-        expect(content).to include(participatory_process_title)
-      end
+      it_behaves_like "includes it in the open data file"
     end
 
     context "when the participatory process is published and private" do
       let!(:participatory_process) { create(:participatory_process, :published, organization:, private_space: true) }
-      let(:participatory_process_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
+      let(:participatory_space_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
 
-      it "does not include it" do
-        download_open_data_file
-        content = extract_content_from_zip(download_path, file_name)
-        expect(content).not_to include(participatory_process_title)
-      end
+      it_behaves_like "does not include it in the open data file"
     end
   end
 end
