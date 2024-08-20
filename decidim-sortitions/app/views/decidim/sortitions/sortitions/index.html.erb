@@ -1,10 +1,8 @@
 <% add_decidim_meta_tags(
   description: translated_attribute(current_component.participatory_space.try(:description)),
-  title: translated_attribute(current_component.name),
+  title: component_name,
   url: sortitions_url,
   resource: current_component) %>
-
-<% add_decidim_page_title component_name %>
 
 <% content_for :aside do %>
   <h1 class="title-decorator"><%= component_name %></h1>
