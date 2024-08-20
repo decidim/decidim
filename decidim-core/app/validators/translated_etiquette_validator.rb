@@ -8,7 +8,6 @@
 # This will automatically check for presence for the default locale of the form
 # object (or the `default_locale` of the form's organization) for the given field.
 class TranslatedEtiquetteValidator < EtiquetteValidator
-
   def validate_each(record, attribute, _value)
     translated_attr = "#{attribute}_#{default_locale_for(record)}".gsub("-", "__")
     translated_value = record.send(translated_attr)
