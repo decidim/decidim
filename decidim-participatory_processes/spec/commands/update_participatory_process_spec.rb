@@ -7,10 +7,7 @@ module Decidim::ParticipatoryProcesses
     describe "call" do
       let(:my_process) { create(:participatory_process) }
       let!(:taxonomizations) do
-        [
-          create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization: my_process.organization), taxonomizable: my_process),
-          create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization: my_process.organization), taxonomizable: my_process)
-        ]
+        2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization: my_process.organization), taxonomizable: my_process) }
       end
       let(:taxonomy) { create(:taxonomy, :with_parent, organization: my_process.organization) }
       let(:params) do
