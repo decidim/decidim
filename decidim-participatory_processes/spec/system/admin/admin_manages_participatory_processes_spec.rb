@@ -4,7 +4,9 @@ require "spec_helper"
 
 describe "Admin manages participatory processes", versioning: true do
   include_context "when admin administrating a participatory process"
+  include_context "with taxonomy filters context"
 
+  let(:space_manifest) { "participatory_processes" }
   let!(:participatory_process_groups) do
     create_list(:participatory_process_group, 3, organization:)
   end
@@ -83,6 +85,8 @@ describe "Admin manages participatory processes", versioning: true do
         group_title = participatory_process_groups.first.title["en"]
         select group_title, from: :participatory_process_participatory_process_group_id
 
+        select(decidim_sanitize_translated(taxonomy_child.name), from: "taxonomies-#{taxonomy_filter.id}")
+
         fill_in :participatory_process_slug, with: "slug"
         fill_in :participatory_process_hashtag, with: "#hashtag"
         fill_in :participatory_process_weight, with: 1
@@ -94,6 +98,7 @@ describe "Admin manages participatory processes", versioning: true do
         find("*[type=submit]").click
       end
 
+      byebug
       expect(page).to have_admin_callout("successfully")
 
       within "[data-content]" do

@@ -21,7 +21,11 @@
   <div class="card-section my-4 p-4">
     <div class="card-divider">
       <h2 class="">
-        <%= t(".items", count: current_taxonomy_filter.filter_items_count) %>
+        <% if current_taxonomy_filter.filter_items_count.positive? %>
+          <%= t(".items", count: current_taxonomy_filter.filter_items_count) %>
+        <% else %>
+          <%= t(".no_items") %>
+        <% end %>
       </h2>
     </div>
 
