@@ -16,9 +16,13 @@ describe "Download Open Data files" do
       click_on "Download Open Data files"
       expect(File.basename(download_path)).to include("open-data.zip")
       Zip::File.open(download_path) do |zipfile|
-        expect(zipfile.glob("*open-data-proposals.csv").length).to eq(1)
-        expect(zipfile.glob("*open-data-results.csv").length).to eq(1)
+        expect(zipfile.glob("*open-data-meeting_comments.csv").length).to eq(1)
         expect(zipfile.glob("*open-data-meetings.csv").length).to eq(1)
+        expect(zipfile.glob("*open-data-projects.csv").length).to eq(1)
+        expect(zipfile.glob("*open-data-proposal_comments.csv").length).to eq(1)
+        expect(zipfile.glob("*open-data-proposals.csv").length).to eq(1)
+        expect(zipfile.glob("*open-data-result_comments.csv").length).to eq(1)
+        expect(zipfile.glob("*open-data-results.csv").length).to eq(1)
       end
     end
   end
