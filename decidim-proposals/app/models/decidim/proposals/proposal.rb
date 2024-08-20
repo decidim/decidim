@@ -62,8 +62,7 @@ module Decidim
 
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
 
-      validates :title, :body, presence: true, etiquette: true
-      validates :title, :body, presence: true, etiquette: true
+      validates :title, :body, presence: true
 
       geocoded_by :address
 

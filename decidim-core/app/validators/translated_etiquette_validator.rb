@@ -11,10 +11,10 @@ class TranslatedEtiquetteValidator < EtiquetteValidator
 
   def validate_each(record, attribute, value)
     translated_attr = "#{attribute}_#{default_locale_for(record)}".gsub("-", "__")
-    value = record.send(translated_attr)
-    return if value.blank?
+    translated_value = record.send(translated_attr)
+    return if translated_value.blank?
 
-    text_value = strip_tags(value)
+    text_value = strip_tags(translated_value)
 
     validate_caps(record, translated_attr, text_value)
     validate_marks(record, translated_attr, text_value)
