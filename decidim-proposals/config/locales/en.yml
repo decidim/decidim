@@ -91,19 +91,19 @@ en:
       decidim/proposals/voting_enabled_event: Proposal voting enabled
   activerecord:
     models:
+      decidim/accountability/result/text: 'It was added to this result:'
+      decidim/budgets/project/text: 'It was added to this budget:'
       decidim/history/history:
         one: History
         other: History
+      decidim/meetings/meeting/text: 'In these meeting it was discussed:'
       decidim/proposals/collaborative_draft:
         one: Collaborative draft
         other: Collaborative drafts
       decidim/proposals/proposal:
         one: Proposal
         other: Proposals
-      decidim/budgets/project/text: "It was added to this budget:"
-      decidim/accountability/result/text: "It was added to this result:"
-      decidim/meetings/meeting/text: "In these meeting it was discussed:"
-      decidim/proposals/proposal/text: "This proposal has been merged of:"
+      decidim/proposals/proposal/text: 'This proposal has been merged of:'
       decidim/proposals/proposal_note:
         one: Note
         other: Notes
