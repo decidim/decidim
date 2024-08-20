@@ -12,8 +12,8 @@ module Decidim
       attribute :scope_id, Integer
       attribute :user_group_id, Integer
 
-      validates :title, presence: true, etiquette: true
-      validates :description, presence: true, etiquette: true
+      validates :title, :description, presence: true
+      validates :title, :description, etiquette: true
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validate :editable_by_user
 

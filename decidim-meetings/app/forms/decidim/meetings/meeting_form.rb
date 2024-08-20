@@ -21,8 +21,8 @@ module Decidim
       attribute :iframe_access_level, String
 
       validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
-      validates :title, presence: true, etiquette: true
-      validates :description, presence: true, etiquette: true
+      validates :title, :description, presence: true
+      validates :title, :description, etiquette: true
       validates :type_of_meeting, presence: true
       validates :location, presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
       validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }

@@ -24,12 +24,13 @@ module Decidim
 
       attachments_attribute :documents
 
-      validates :title, :body, presence: true, etiquette: true
+      validates :title, :body, presence: true
+      validates :title, :body, etiquette: true
       validates :title, length: { in: 15..150 }
       validates :body, proposal_length: {
         minimum: 15,
         maximum: ->(record) { record.component.settings.proposal_length }
-      }, etiquette: true
+      }
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
