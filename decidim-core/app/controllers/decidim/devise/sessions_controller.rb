@@ -47,19 +47,6 @@ module Decidim
       def check_sign_in_enabled
         redirect_to new_user_session_path unless current_organization.sign_in_enabled?
       end
-
-      def store_onboarding_cookie_data!(user)
-        if cookies[:onboarding]
-          onboarding = JSON.parse(cookies[:onboarding])
-
-          user.extended_data = user.extended_data.merge(onboarding:)
-          user.save!
-
-          cookies.delete(:onboarding)
-        end
-      rescue JSON::ParserError
-        cookies.delete(:onboarding)
-      end
     end
   end
 end

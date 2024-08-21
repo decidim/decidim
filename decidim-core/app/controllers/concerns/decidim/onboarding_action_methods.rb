@@ -20,6 +20,19 @@ module Decidim
 
         OnboardingManager.new(user).pending_action?
       end
+
+      def store_onboarding_cookie_data!(user)
+        if cookies[:onboarding]
+          onboarding = JSON.parse(cookies[:onboarding])
+
+          user.extended_data = user.extended_data.merge(onboarding:)
+          user.save!
+
+          cookies.delete(:onboarding)
+        end
+      rescue JSON::ParserError
+        cookies.delete(:onboarding)
+      end
     end
   end
 end
