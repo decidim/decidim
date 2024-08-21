@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const model = element.dataset.onboardingModel;
 
       Cookies.set("onboarding", JSON.stringify({ action, model }), {
-        expires: 365,
+        expires: 365
       });
 
       console.log("stored onboarding cookie", { action, model });
