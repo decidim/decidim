@@ -2,7 +2,7 @@
 
 The concept of being "taxonomizable" in Decidim refers to the ability of various entities (such as proposals, participatory processes, assemblies, etc.) to be categorized and organized using taxonomies. This allows for better organization, filtering, and searching of these entities within the platform.
 
-Taxonomies replaces the old concepts of "Scopes", "Areas" and "Categories" in Decidim. They are a more flexible althought require admins to define the taxonomies and assign them to the entities.
+Taxonomies replaces the old concepts of "Scopes", "Areas" and "Categories" in Decidim. They are a more flexible although require admins to define the taxonomies and assign them to the entities.
 
 == Types of taxonomies
 
