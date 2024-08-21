@@ -29,6 +29,8 @@ module Decidim
           add_linked_resources_item(items, :meetings, "proposals_from_meeting", "decidim/meetings/meeting/text", "Decidim::Meetings::Meeting")
           add_linked_resources_item(items, :proposals, "copied_from_component", "decidim/proposals/proposal/text", "Decidim::Proposals::Proposal")
         end
+
+        @proposal_history_items.sort_by! { |item| item[:date] }
       end
 
       def add_linked_resources_item(items, resource_type, link_name, text_key, icon_key)
