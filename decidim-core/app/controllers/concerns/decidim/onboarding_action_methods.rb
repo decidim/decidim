@@ -9,7 +9,7 @@ module Decidim
     included do
       helper_method :pending_onboarding_action?
 
-      # Returns true if there's a pending onboarding action for the user.
+      # Returns true if there is a pending onboarding action for the user.
       # The check if skipped for admins, users that are not verifiable of
       # organizations that have no available authorizations.
       def pending_onboarding_action?(user)
