@@ -1075,9 +1075,9 @@ en:
         edit:
           back: Back
           items: "%{count} items selected"
+          no_items: No items ara available for this taxonomies. You can create items in the taxonomy configuration settings.
           title: Edit taxonomy filter
           update: Update taxonomy filter
-          no_items: No items ara available for this taxonomies. You can create items in the taxonomy configuration settings.
         form:
           select_taxonomy: Select a taxonomy
         index:

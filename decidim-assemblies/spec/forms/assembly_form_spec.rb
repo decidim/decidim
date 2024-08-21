@@ -2,6 +2,7 @@
 
 require "spec_helper"
 
+# rubocop:disable RSpec/MultipleMemoizedHelpers
 module Decidim
   module Assemblies
     module Admin
@@ -176,7 +177,7 @@ module Decidim
           expect(subject.taxonomy_filters).to contain_exactly(taxonomy_filter1, taxonomy_filter2)
         end
 
-        context "when taxnomies belong to another organization" do
+        context "when taxonomies belong to another organization" do
           let!(:taxonomies) { create_list(:taxonomy, 3) }
 
           it { is_expected.not_to be_valid }
@@ -415,3 +416,4 @@ module Decidim
     end
   end
 end
+# rubocop:enable RSpec/MultipleMemoizedHelpers

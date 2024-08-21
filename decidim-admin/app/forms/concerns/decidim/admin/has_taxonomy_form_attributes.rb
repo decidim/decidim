@@ -15,7 +15,7 @@ module Decidim
         end
 
         def taxonomizations
-          taxonomies.map do |taxonomy_id|
+          compact_taxonomies.map do |taxonomy_id|
             Decidim::Taxonomization.new(taxonomy_id:)
           end
         end
@@ -31,14 +31,18 @@ module Decidim
         private
 
         def taxonomies_belong_to_current_organization
-          return if taxonomies.empty?
+          return if compact_taxonomies.empty?
 
-          taxonomies.each do |taxonomy_id|
+          compact_taxonomies.each do |taxonomy_id|
             taxonomy = Decidim::Taxonomy.find(taxonomy_id)
             next if taxonomy.organization == current_organization
 
             errors.add(:taxonomies, :invalid)
           end
+        end
+
+        def compact_taxonomies
+          @compact_taxonomies ||= taxonomies.compact
         end
       end
     end
