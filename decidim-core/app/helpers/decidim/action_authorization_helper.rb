@@ -69,7 +69,7 @@ module Decidim
         html_options["data-dialog-open"] = "loginModal"
 
         url = "#"
-      elsif !authorization_status&.ok?
+      elsif authorization_status&.ok? == false
         html_options.merge!(onboarding_data_attributes(action, resource))
         if authorization_status.pending_authorizations_count > 1
           tag = "link"
