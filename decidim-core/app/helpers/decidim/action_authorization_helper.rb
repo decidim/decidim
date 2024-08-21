@@ -52,25 +52,27 @@ module Decidim
 
     # rubocop: disable Metrics/PerceivedComplexity
     def authorized_to(tag, action, arguments, block)
-      html_options = clean_authorized_to_data_open(block ? arguments[1] : arguments[2])
-      resource = html_options.delete(:resource)
-      authorization_status = get_authorization_status(action, resource, html_options)
-
       if block
         body = block
         url = arguments[0]
+        html_options = arguments[1]
       else
-        body = pending_verifications_message(arguments[0], authorization_status)
+        body = arguments[0]
         url = arguments[1]
+        html_options = arguments[2]
       end
 
+      html_options ||= {}
+      resource = html_options.delete(:resource)
+      authorization_status = get_authorization_status(action, resource, html_options)
+
       if !current_user
-        html_options.merge!(onboarding_data_attributes(action, resource))
+        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource)))
         html_options["data-dialog-open"] = "loginModal"
 
         url = "#"
       elsif authorization_status&.ok? == false
-        html_options.merge!(onboarding_data_attributes(action, resource))
+        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource)))
         if authorization_status.pending_authorizations_count > 1
           tag = "link"
           html_options["method"] = "post"
@@ -87,7 +89,7 @@ module Decidim
       if block
         send("#{tag}_to", url, html_options, &body)
       else
-        send("#{tag}_to", content_tag(:span, body), url, html_options)
+        send("#{tag}_to", content_tag(:span, pending_verifications_message(body, authorization_status)), url, html_options)
       end
     end
     # rubocop: enable Metrics/PerceivedComplexity
