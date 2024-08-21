@@ -126,6 +126,10 @@ module Decidim
       def codes
         @codes ||= statuses.map(&:code)
       end
+
+      def pending_authorizations_count
+        @authorization_handlers.count
+      end
     end
 
     class AuthorizationError < StandardError; end

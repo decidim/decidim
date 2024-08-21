@@ -52,36 +52,34 @@ module Decidim
 
     # rubocop: disable Metrics/PerceivedComplexity
     def authorized_to(tag, action, arguments, block)
-      html_options = block ? arguments[1] : arguments[2] || {}
+      html_options = clean_authorized_to_data_open(block ? arguments[1] : arguments[2])
       resource = html_options.delete(:resource)
-      permissions_holder = html_options.delete(:permissions_holder)
-      pending_verifications = action && !action_authorized_to(action, resource:, permissions_holder:).ok?
+      authorization_status = get_authorization_status(action, resource, html_options.delete(:permissions_holder))
 
       if block
         body = block
         url = arguments[0]
       else
-        body = pending_verifications ? t("verify_to", scope: "decidim.core.actions", action: arguments[0]) : arguments[0]
+        body = pending_verifications_message(arguments[0], authorization_status)
         url = arguments[1]
       end
 
       if !current_user
-        html_options = clean_authorized_to_data_open(html_options)
-
+        html_options.merge!(onboarding_data_attributes(action, resource))
         html_options["data-dialog-open"] = "loginModal"
 
-        if resource
-          html_options["data-onboarding-model"] = resource.to_gid
-          html_options["data-onboarding-action"] = action
+        url = "#"
+      elsif !authorization_status&.ok?
+        html_options.merge!(onboarding_data_attributes(action, resource))
+        if authorization_status.pending_authorizations_count > 1
+          tag = "link"
+          html_options["method"] = "post"
+          url = decidim_verifications.renew_onboarding_data_authorizations_path
+        else
+          html_options["data-dialog-open"] = "authorizationModal"
+          html_options["data-dialog-remote-url"] = modal_path(action, resource)
+          url = "#"
         end
-
-        url = "#"
-      elsif pending_verifications
-        html_options = clean_authorized_to_data_open(html_options)
-
-        html_options["data-dialog-open"] = "authorizationModal"
-        html_options["data-dialog-remote-url"] = modal_path(action, resource)
-        url = "#"
       end
 
       html_options["onclick"] = "event.preventDefault();" if url == ""
@@ -108,6 +106,8 @@ module Decidim
     end
 
     def clean_authorized_to_data_open(html_options)
+      return {} if html_options.blank?
+
       html_options.delete(:"data-dialog-open")
       html_options.delete(:"data-dialog-remote-url")
 
@@ -120,9 +120,34 @@ module Decidim
         html_options[key].delete("open_url")
         html_options[key].delete(:"open-url")
         html_options[key].delete("open-url")
+        html_options[key].delete(:"dialog-open")
+        html_options[key].delete(:"dialog-remote-url")
       end
 
       html_options
+    end
+
+    def get_authorization_status(action, resource, permissions_holder)
+      return if action.blank?
+      return unless resource.try(:component)
+
+      action_authorized_to(action, resource:, permissions_holder:)
+    end
+
+    def pending_verifications_message(text, authorization_status)
+      return text if authorization_status.blank?
+      return text if [:ok, :unauthorized].include?(authorization_status.global_code)
+
+      t("verify_to", scope: "decidim.core.actions", action: text)
+    end
+
+    def onboarding_data_attributes(action, resource)
+      return if resource.blank?
+
+      {
+        "data-onboarding-model" => resource.to_gid,
+        "data-onboarding-action" => action
+      }
     end
   end
 end
