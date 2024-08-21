@@ -20,7 +20,7 @@
 
   <div class="card-section my-4 p-4">
     <div class="card-divider">
-      <h2 class="">
+      <h2>
         <% if current_taxonomy_filter.filter_items_count.positive? %>
           <%= t(".items", count: current_taxonomy_filter.filter_items_count) %>
         <% else %>
@@ -42,6 +42,7 @@
           <div class="item__edit-sticky-container">
             <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
           </div>
+        </div>
       <% end %>
     </div>
   </div>

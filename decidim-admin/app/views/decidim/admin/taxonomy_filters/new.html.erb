@@ -21,7 +21,7 @@
   <% if @form.root_taxonomy %>
     <div class="card-section my-4 p-4">
       <div class="card-divider">
-        <h2 class="">
+        <h2>
           <%= t(".items", count: @form.root_taxonomy.all_children.flatten.count) %>
         </h2>
       </div>
@@ -39,6 +39,7 @@
             <div class="item__edit-sticky-container">
               <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
             </div>
+          </div>
         <% end %>
       </div>
     </div>
