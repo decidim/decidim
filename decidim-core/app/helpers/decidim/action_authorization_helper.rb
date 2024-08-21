@@ -54,7 +54,7 @@ module Decidim
     def authorized_to(tag, action, arguments, block)
       html_options = clean_authorized_to_data_open(block ? arguments[1] : arguments[2])
       resource = html_options.delete(:resource)
-      authorization_status = get_authorization_status(action, resource, html_options.delete(:permissions_holder))
+      authorization_status = get_authorization_status(action, resource, html_options)
 
       if block
         body = block
@@ -127,9 +127,11 @@ module Decidim
       html_options
     end
 
-    def get_authorization_status(action, resource, permissions_holder)
+    def get_authorization_status(action, resource, opts = {})
+      return if opts.delete(:ignore_authorization_status)
       return if action.blank?
-      return unless resource.try(:component)
+
+      permissions_holder = opts.delete(:permissions_holder)
 
       action_authorized_to(action, resource:, permissions_holder:)
     end
