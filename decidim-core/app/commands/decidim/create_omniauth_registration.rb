@@ -36,6 +36,8 @@ module Decidim
         trigger_omniauth_registration
 
         broadcast(:ok, @user)
+      rescue NeedTosAcceptance
+        broadcast(:add_tos_errors, @user)
       rescue ActiveRecord::RecordInvalid => e
         broadcast(:error, e.record)
       end
@@ -73,10 +75,12 @@ module Decidim
           file = url.open
           @user.avatar.attach(io: file, filename:)
         end
-        @user.skip_confirmation! if verified_email
-        @user.tos_agreement = "1"
-        @user.save!
+        @user.tos_agreement = form.tos_agreement
+        @user.accepted_tos_version = Time.current
+        raise NeedTosAcceptance if @user.tos_agreement.blank?
 
+        @user.skip_confirmation! if verified_email
+        @user.save!
         @user.after_confirmation if verified_email
       end
     end
@@ -129,9 +133,15 @@ module Decidim
         name: form.name,
         nickname: form.normalized_nickname,
         avatar_url: form.avatar_url,
-        raw_data: form.raw_data
+        raw_data: form.raw_data,
+        tos_agreement: form.tos_agreement,
+        newsletter_notifications_at: form.newsletter_at,
+        accepted_tos_version: form.current_organization.tos_version
       )
     end
+  end
+
+  class NeedTosAcceptance < StandardError
   end
 
   class InvalidOauthSignature < StandardError
