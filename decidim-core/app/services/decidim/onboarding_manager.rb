@@ -75,6 +75,8 @@ module Decidim
     #
     # Returns a string
     def model_name
+      return unless valid?
+
       @model_name ||= model.class.model_name
     end
 
