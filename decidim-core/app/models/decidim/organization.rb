@@ -15,7 +15,7 @@ module Decidim
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     AVAILABLE_MACHINE_TRANSLATION_DISPLAY_PRIORITIES = %w(original translation).freeze
 
-    translatable_fields :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
+    translatable_fields :name, :description, :cta_button_text, :omnipresent_banner_title, :omnipresent_banner_short_description,
                         :highlighted_content_banner_title, :highlighted_content_banner_short_description, :highlighted_content_banner_action_title,
                         :highlighted_content_banner_action_subtitle, :welcome_notification_subject, :welcome_notification_body, :id_documents_explanation_text,
                         :admin_terms_of_service_body
@@ -35,13 +35,15 @@ module Decidim
 
     has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates
 
+    has_many :taxonomies, foreign_key: "decidim_organization_id", class_name: "Decidim::Taxonomy", inverse_of: :organization, dependent: :destroy
+
     # Users registration mode. Whether users can register or access the system. Does not affect users that access through Omniauth integrations.
     #  enabled: Users registration and sign in are enabled (default value).
     #  existing: Users cannot be registered in the system. Only existing users can sign in.
     #  disable: Users cannot register or sign in.
     enum users_registration_mode: [:enabled, :existing, :disabled], _prefix: true
 
-    validates :name, :host, uniqueness: true
+    validates :host, uniqueness: true
     validates :reference_prefix, presence: true
     validates :time_zone, presence: true, time_zone: true
     validates :default_locale, inclusion: { in: :available_locales }
@@ -59,6 +61,27 @@ module Decidim
     validates_upload :highlighted_content_banner_image, uploader: Decidim::ImageUploader
 
     has_one_attached :open_data_file
+
+    validate :unique_name
+
+    def unique_name
+      base_query = new_record? ? Decidim::Organization.all : Decidim::Organization.where.not(id:).all
+
+      organization_names = []
+
+      base_query.pluck(:name).each do |value|
+        organization_names += value.except("machine_translations").values
+        organization_names += value.fetch("machine_translations", {}).values
+      end
+
+      organization_names = organization_names.map(&:downcase).compact_blank
+
+      name.each do |language, value|
+        next if value.is_a?(Hash)
+
+        errors.add("name_#{language}", :taken) if organization_names.include?(value.downcase)
+      end
+    end
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::OrganizationPresenter

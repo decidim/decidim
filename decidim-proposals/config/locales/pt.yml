@@ -56,12 +56,10 @@ pt:
           attributes:
             base:
               not_official: Não são oficiais
-              supported: Receberam suporte ou apoios
         proposals_split:
           attributes:
             base:
               not_official: Não são oficiais
-              supported: Receberam suporte ou apoios
     models:
       decidim/proposals/admin/update_proposal_category_event: Categoria da proposta modificada
       decidim/proposals/admin/update_proposal_scope_event: Âmbito da proposta modificado
@@ -81,9 +79,6 @@ pt:
       decidim/proposals/proposal_note:
         one: Nota
         other: Notas
-      decidim/proposals/proposal_vote:
-        one: Voto
-        other: Votos
   decidim:
     admin:
       filters:
@@ -117,7 +112,6 @@ pt:
           comment: Comentar
           create: Criar
           endorse: Endossar
-          vote: Voto
           vote_comment: Cometário ao voto
           withdraw: Retirar
         name: Propostas
@@ -128,23 +122,18 @@ pt:
             amendments_wizard_help_text: Texto de ajuda do Assistente de Modificações
             announcement: Anúncio
             attachments_allowed: Permitir anexos
-            can_accumulate_supports_beyond_threshold: Pode acumular votos além do limite
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
             comments_max_length: Comprimento máximo dos comentários (Deixar 0 para o valor predefinido)
             default_sort_order: Ordenamento por defeitos das propostas
-            default_sort_order_help: Por defeito significa que se os apoios estiverem activos as propostas serão ordenadas ao acaso, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
-              default: Por defeito
               most_commented: Mais comentada
               most_endorsed: Mais apoiada
               most_followed: Mais seguida
-              most_voted: Mais apoiada
               random: Aleatório
               recent: Mais recentes
               with_more_authors: Com mais autores
             geocoding_enabled: Geocoding ativado
-            minimum_votes_per_user: Votos mínimos por utilizador
             new_proposal_body_template: Novo modelo de corpo de proposta
             new_proposal_body_template_help: Pode definir o texto pré-preenchido que as novas Propostas terão
             new_proposal_help_text: Novo texto de ajuda da proposta
@@ -152,7 +141,6 @@ pt:
             participatory_texts_enabled: Textos participativos ativados
             participatory_texts_enabled_readonly: Não é possível interagir com esta configuração caso existam propostas. Crie um novo "Componente de propostas" caso pretenda ativar esta característica ou elimine todas as propostas importadas no menu "Textos Participativos" caso pretenda desativá-la.
             proposal_answering_enabled: Respostas à proposta ativadas
-            proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que estes minutos passem
             proposal_edit_time: Edição de proposta
             proposal_edit_time_choices:
               infinite: Permitir editar propostas por um limite de tempo indeterminado
@@ -160,14 +148,10 @@ pt:
             proposal_length: Comprimento máximo do corpo da proposta
             proposal_limit: Limite de propostas por utilizador
             proposal_wizard_step_1_help_text: Texto de ajuda do passo "Criar" do Assistente de Propostas
-            proposal_wizard_step_2_help_text: Texto de ajuda do passo "Comparar" do Assistente de Propostas
-            proposal_wizard_step_3_help_text: Texto de ajuda do passo "Concluir" do Assistente de Propostas
-            proposal_wizard_step_4_help_text: Texto de ajuda do passo "Publicar" do Assistente de Propostas
             resources_permissions_enabled: As permissões de ações podem ser definidas para cada proposta
             scope_id: Âmbito
             scopes_enabled: Âmbitos activados
             threshold_per_proposal: Limiar por proposta
-            vote_limit: Limite de voto por participante
           step:
             amendment_creation_enabled: Criação de modificação ativada
             amendment_creation_enabled_help: O participante pode modificar propostas.
@@ -185,13 +169,10 @@ pt:
             automatic_hashtags: Hashtags adicionados a todas as propostas
             comments_blocked: Comentários bloqueados
             default_sort_order: Ordenamento por defeitos das propostas
-            default_sort_order_help: Por defeito significa que se os apoios estiverem activos as propostas serão ordenadas ao acaso, e se os apoios estiverem bloqueados serão ordenadas do maior para o menor número de apoios.
             default_sort_order_options:
-              default: Por defeito
               most_commented: Mais comentada
               most_endorsed: Mais apoiada
               most_followed: Mais seguida
-              most_voted: Mais apoiada
               random: Aleatório
               recent: Mais recentes
               with_more_authors: Com mais autores
@@ -200,9 +181,8 @@ pt:
             proposal_answering_enabled: Resposta de proposta ativada
             publish_answers_immediately: Publicar as respostas às propostas imediatamente
             suggested_hashtags: Hashtags sugeridos aos participantes para novas propostas
-            votes_blocked: Votação bloqueada
-            votes_enabled: Votação ativada
-            votes_hidden: Votos ocultos (se os votos estiverem ativados, selecionar isto esconderá o número de votos)
+            votes_blocked: Votos bloqueados
+            votes_enabled: Votos ativados
     events:
       proposals:
         admin:
@@ -260,10 +240,7 @@ pt:
           email_subject: O âmbito da proposta %{resource_title} foi atualizado
           notification_title: O âmbito da proposta <a href="%{resource_path}">%{resource_title}</a> foi atualizado por um administrador.
         voting_enabled:
-          email_intro: 'Pode votar em propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Recebeu esta notificação porque segue %{participatory_space_title}. Pode parar de receber notificações seguindo a hiperligação anterior.
-          email_subject: As propostas de votação começaram para %{participatory_space_title}
-          notification_title: Agora pode começar a <a href="%{resource_path}">votar em propostas</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -280,13 +257,7 @@ pt:
         proposal_votes:
           conditions:
             - Navegue e passe algum tempo a ler as propostas de outras pessoas
-            - Votar nas propostas que gosta ou que considera interessantes
-          description: Este distintivo é concedido quando vota em propostas de outras pessoas.
-          description_another: Este participante votou em %{score} propostas.
-          description_own: Você deu suporte a %{score} propostas.
-          name: Votos da proposta
-          next_level_in: Vote em mais %{score} propostas para alcançar o próximo nível!
-          unearned_own: Ainda não votou em alguma proposta.
+            - 
         proposals:
           conditions:
             - Escolha o espaço de participação do seu interesse com o envio de propostas ativado
@@ -310,10 +281,6 @@ pt:
         description: Número de propostas
         object: propostas
         title: Propostas
-      votes:
-        description: Número de votos nas propostas
-        object: votos
-        title: Votos
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos (%{count})
@@ -372,7 +339,6 @@ pt:
           form:
             note: Nota
             submit: Submeter
-          leave_your_note: Deixe a sua nota
           title: Notas privadas
         proposals:
           edit:
@@ -424,7 +390,6 @@ pt:
             remove_assignment: Remover atribuição
             remove_assignment_confirmation: Tem a certeza de que pretende remover o avaliador desta proposta?
             valuators: Avaliadores
-            votes_count: Contagem de votos
           update_category:
             invalid: 'Estas propostas já possuíam a categoria %{subject_name}: %{proposals}.'
             success: 'Propostas atualizadas corretamente para a categoria %{subject_name}: %{proposals}.'
@@ -590,17 +555,7 @@ pt:
         buttons:
           amend: Modificar
           comment: Comentar
-      proposal_votes:
-        create:
-          error: Ocorreu um problema ao votar na proposta.
       proposals:
-        compare:
-          continue: Continuar
-          no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
-          title: Propostas semelhantes
-        complete:
-          send: Enviar
-          title: Concluir a sua proposta
         dynamic_map_instructions:
           description: As coordenadas serão actualizadas quando clicar no botão ‘pré-visualização’. No entanto, o endereço não será alterado.
           instructions: Pode mover o ponto no mapa.
@@ -627,7 +582,6 @@ pt:
           search: Pesquisar
           state: Estado
           type: Tipo
-          voted: Votado
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Aceder a rascunhos colaborativos
@@ -645,7 +599,6 @@ pt:
           most_commented: Mais comentadas
           most_endorsed: Mais endossadas
           most_followed: Mais seguidas
-          most_voted: Mais votadas
           random: Aleatória
           recent: Recente
           with_more_authors: Com mais autores
@@ -677,46 +630,19 @@ pt:
           proposal_accepted_reason: 'Esta proposta foi aceite porque:'
           proposal_in_evaluation_reason: Esta proposta está sob avaliação
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
-          withdraw_btn_hint: Pode retirar a sua proposta se mudar de ideia, desde que não tenha recebido nenhum voto. A proposta não é eliminada, aparecerá na lista de propostas retiradas.
           withdraw_confirmation_html: Tem a certeza de que deseja retirar esta proposta?<br><br><strong>Esta ação não pode ser cancelada!</strong>
           withdraw_proposal: Retirar proposta
         update:
           title: Atualizar proposta
-        vote_button:
-          already_voted: Já votou
-          already_voted_hover: Retirar voto
-          maximum_votes_reached: Limite de voto atingido
-          no_votes_remaining: Não há votos restantes
-          vote: Voto
-          votes_blocked: Votação desativada
-        votes_count:
-          count:
-            one: VOTO
-            other: VOTOS
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Cada proposta pode acumular mais de %{limit} votos
-          minimum_votes_per_user:
-            description: Deve distribuir um mínimo de %{votes} votos entre diferentes propostas.
-            supports_remaining: Tem que votar em mais %{remaining_votes} propostas para os seus votos serem levados em conta.
           proposal_limit:
             description: Pode criar até %{limit} propostas.
-          title: 'A votação está sujeita às seguintes regras:'
-          vote_limit:
-            description: Pode votar até %{limit} propostas.
-            votes: Votos
         wizard_aside:
           back: Retroceder
           back_from_step_1: Retroceder para as propostas
-          back_from_step_2: Retroceder para as propostas
-          back_from_step_3: Retroceder à comparação de propostas
-          back_from_step_4: Retroceder para a edição do rascunho
         wizard_steps:
           current_step: Passo atual
           step_1: Criar a sua proposta
-          step_2: Comparar
-          step_3: Concluir
-          step_4: Publicar a sua proposta
           title: Passos para criação de proposta
       proposals_picker:
         choose_proposals: Escolher propostas
@@ -745,4 +671,4 @@ pt:
     statistics:
       proposals_accepted: Propostas aceites
       proposals_count: Propostas
-      supports_count: Suportes
+      votes_count: Votos

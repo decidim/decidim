@@ -147,6 +147,7 @@ en:
         actions:
           comment: Comment
           join: Join
+          reply_poll: Reply poll
         name: Meetings
         settings:
           global:
@@ -363,6 +364,13 @@ en:
           update:
             invalid: There was a problem updating this meeting poll.
             success: Meeting poll successfully updated.
+        poll:
+          form:
+            announcement_html:
+            - When a question receives answers or is published/closed, it can no longer be edited.
+            - You can add a question at any time.
+            - The poll will be closed when the results of all created questions have been published.
+            - Visit the <a href='%{admin_link}'>poll administration page</a> to send questions and publish results.
         registrations:
           edit:
             save: Save
@@ -424,7 +432,7 @@ en:
           body: The meeting <a href="%{meeting_path}">"%{meeting_title}"</a> is pending to be closed. Please add a report of the meeting using the "Close meeting" button.
           greetings: Greetings,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hello %{username},
-          subject: You can now close your meeting with a report on the %{organization_name} platform
+          subject: You can now close the meeting "%{meeting_title}" with a report
       conference_venues: Conference Venues
       content_blocks:
         upcoming_meetings:
@@ -441,16 +449,14 @@ en:
       iframe_embed_type:
         embed_in_meeting_page: Embed in meeting page
         none: None
-        open_in_live_event_page: Open in live event page (with optional polls)
+        open_in_live_event_page: Open in live event page
         open_in_new_tab: Open URL in a new tab
       last_activity:
         meeting_updated: 'Meeting updated:'
         new_meeting: 'New meeting:'
       layouts:
         live_event:
-          administrate: Administrate
           close: close
-          questions: Questions
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -531,6 +537,8 @@ en:
           edit_close_meeting: Edit meeting report
           edit_meeting: Edit meeting
           join_meeting: Join meeting
+          reply_poll: Reply poll
+          view_poll: View poll
         meetings:
           no_meetings_warning: No meetings match your search criteria or there is not any meeting scheduled.
           upcoming_meetings_warning: Currently, there are no scheduled meetings, but here you can find all the past meetings listed.
@@ -589,13 +597,22 @@ en:
             start_time: Start date
             title: Title
       polls:
+        answers:
+          index:
+            administrate: Administrate
+            title: Poll
+          index_admin:
+            back_to_meeting: Back to meeting
+            title: Administrate poll
+            view_poll: View poll
         questions:
           closed_question:
-            question_results: Question results
+            announcement: The replies for this question have been closed.
+            question: Question
+            question_results: Results
           index:
             empty_questions: Throughout this meeting, some questions will be sent and you will be able to answer them. They will be displayed here.
           index_admin:
-            admin_dashboard: Administrator dashboard
             edit: Edit in the admin panel
             question: Question
             received_answer: received answer
@@ -603,6 +620,10 @@ en:
             results: Results
             send: Send
             sent: Sent
+            statuses:
+              closed: Results sent (closed)
+              published: Sent (open)
+              unpublished: Pending to be sent
           published_question:
             max_choices_alert: There are too many choices selected
             question: Question
@@ -643,7 +664,7 @@ en:
         transparent: Transparent
         withdraw: Withdrawn
       withdraw:
-        error: An error ocurred while withdrawing the meeting.
+        error: There was a problem withdrawing the meeting.
         success: The meeting has been withdrawn successfully.
     metrics:
       meetings:

@@ -187,6 +187,7 @@ de:
         export: Alles exportieren
         export-selection: Auswahl exportieren
         import: Importieren
+        manage: Verwalten
         newsletter:
           new: Neuer Newsletter
         participatory_space_private_user:
@@ -218,7 +219,7 @@ de:
           error: Beim Erstellen eines neuen Bereichstyps ist ein Fehler aufgetreten.
           success: Bereichstyp wurde erfolgreich erstellt.
         destroy:
-          success: Der Bereichstyp wurde erfolgreich zerstört.
+          success: Der Bereichstyp wurde erfolgreich gelöscht.
         edit:
           title: Bereichstyp bearbeiten
           update: Aktualisieren
@@ -234,7 +235,7 @@ de:
           success: Bereich wurde erfolgreich erstellt.
         destroy:
           has_spaces: Dieser Bereich hat abhängige partizipative Räume. Bitte stellen Sie sicher, dass kein partizipativer Raum mehr diesen Bereich referenziert, bevor sie ihn löschen.
-          success: Bereich wurde erfolgreich zerstört.
+          success: Bereich wurde erfolgreich gelöscht.
         edit:
           title: Bereich bearbeiten
           update: Aktualisieren
@@ -250,7 +251,7 @@ de:
           error: Beim Erstellen eines neuen Ordners ist ein Fehler aufgetreten.
           success: Ordner erfolgreich erstellt
         destroy:
-          success: Der Ordner wurde erfolgreich zerstört.
+          success: Der Ordner wurde erfolgreich gelöscht.
         edit:
           title: Ordner bearbeiten
           update: Aktualisieren
@@ -267,7 +268,7 @@ de:
           error: Beim Erstellen des neuen Anhangs ist ein Fehler aufgetreten.
           success: Anhang wurde erfolgreich erstellt.
         destroy:
-          success: Anhang wurde erfolgreich entfernt.
+          success: Anhang wurde erfolgreich gelöscht.
         edit:
           title: Anhang bearbeiten
           update: Aktualisieren
@@ -349,6 +350,8 @@ de:
       conflicts:
         attempts: Versuche
         'false': 'Nein'
+        index:
+          text: Suche nach bestehender E-Mail, Name oder Spitzname des Teilnehmenden.
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
         title: Überprüfungskonflikte
@@ -449,6 +452,7 @@ de:
           values:
             'false': Veröffentlicht
             'true': Unveröffentlicht
+        remove_all: Alle entfernen
         scope_id_eq:
           label: Themenbereich
         search_label: Suche
@@ -569,6 +573,7 @@ de:
         appearance: Aussehen
         area_types: Bereichstypen
         areas: Bereiche
+        components: Komponenten
         configuration: Aufbau
         content: Gemeldeter Inhalt
         external_domain_allowlist: Erlaubte externe Domains
@@ -731,7 +736,7 @@ de:
           success: Newsletter erfolgreich geliefert
         destroy:
           error_already_sent: 'Newsletter kann nicht gelöscht werden: Es wurde bereits gesendet.'
-          success: Newsletter erfolgreich zerstört.
+          success: Newsletter erfolgreich gelöscht.
         edit:
           save_and_preview: Speichern und Vorschau
           title: Newsletter bearbeiten
@@ -873,7 +878,7 @@ de:
           success: Participatory Space Privater Benutzerzugriff erfolgreich erstellt.
         destroy:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
-          success: Participatory Space Privater Benutzerzugriff wurde erfolgreich zerstört.
+          success: Privater Zugriff zum partizipativen Raum erfolgreich gelöscht.
         index:
           import_via_csv: Aus CSV-Datein importieren
           title: Participatory Space privater Benutzer
@@ -923,7 +928,7 @@ de:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.
           success: Der Geltungsbereichstyp wurde erfolgreich erstellt.
         destroy:
-          success: Der Scope-Typ wurde erfolgreich zerstört
+          success: Der Themen-Typ wurde erfolgreich gelöscht
         edit:
           title: Bereichstyp bearbeiten
           update: Aktualisieren
@@ -962,6 +967,11 @@ de:
           help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
           title: Token teilen
       shared:
+        adjacent_navigation:
+          next: Weiter
+          next_title: Nächstes Element
+          previous: Zurück
+          previous_title: Vorheriges Element
         gallery:
           add_images: Bilder hinzufügen
           edit_images: Bilder bearbeiten
@@ -988,7 +998,7 @@ de:
           error: Beim Erstellen einer neuen Seite ist ein Fehler aufgetreten.
           success: Seite erfolgreich erstellt
         destroy:
-          success: Seite erfolgreich zerstört
+          success: Seite erfolgreich gelöscht
         edit:
           changed_notably_help: Wenn diese Option aktiviert ist, werden Nutzende benachrichtigt, um die neuen Nutzungsbedingungen zu akzeptieren.
           last_notable_change: 'Letzte signifikante Änderung: %{tos_version_formatted}'

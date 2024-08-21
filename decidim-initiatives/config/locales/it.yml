@@ -73,7 +73,6 @@ it:
               accepted: Numero di firme sufficiente
               created: Creato
               discarded: Rifiutato
-              published: Pubblicati
               rejected: Firme non sufficienti
               validating: Validazione tecnica
           type_id_eq:
@@ -83,7 +82,6 @@ it:
       menu:
         attachments: Allegati
         committee_members: Membri del comitato
-        components: componenti
         information: Informazione
         initiatives: Iniziative
         initiatives_types: Tipi di iniziativa
@@ -256,7 +254,6 @@ it:
         accepted: Firme sufficienti
         created: Creato
         discarded: Discarded
-        published: Pubblicato
         rejected: Firme non sufficienti
         validating: Convalida tecnica
       application_helper:
@@ -374,6 +371,7 @@ it:
             other: e altre %{count} persone
         committee_members:
           approve: Approva
+          revoke: Revoca
           title: Membri del comitato
         count:
           title:
@@ -436,7 +434,6 @@ it:
           other: " firme"
         vote_cabin:
           already_voted: Già firmata
-          supports_required: "%{total_supports} firme richieste"
           verification_required: Verifica il tuo account per firmare l'iniziativa
           vote: Firma
           votes_blocked: Firma disabilitata
@@ -465,7 +462,6 @@ it:
           accepted: Firme sufficienti
           created: Creata
           discarded: Scartato
-          published: Pubblicato
           rejected: Firme non sufficienti
           validating: Convalida tecnica
       states:

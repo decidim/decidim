@@ -1,4 +1,21 @@
 lv:
+  activemodel:
+    attributes:
+      oauth_application:
+        organization_logo: Organizācijas logotips (kvadrāts)
+        organization_url: Organizācijas URL
+        redirect_uri: Novirzīšanas URI
+      organization:
+        address: SMTP saimniekdatora nosaukums
+        password: Parole
+        port: Ports
+        user_name: Lietotājvārds
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Novirzīšanas URI jābūt SSL URI
   decidim:
     system:
       actions:
@@ -78,7 +95,6 @@ lv:
           success: Organizācija ir veiksmīgi atjaunināta.
         users_registration_mode:
           disabled: Piekļuvi var veikt tikai ar ārējiem kontiem
-          enabled: Ļauj dalībniekiem reģistrēties un pierakstīties
       shared:
         notices:
           no_organization_warning_html: Lai sāktu, jums ir jāizveido organizācija. Pirms turpināt, noteikti izlasiet %{guide}.

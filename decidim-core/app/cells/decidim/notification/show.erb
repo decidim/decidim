@@ -6,6 +6,11 @@
       <% if notification.display_resource_text? %>
         <div class="editor-content"><%= notification.resource_text %></div>
       <% end %>
+      <% if action_cell %>
+        <div class="notification__snippet-actions">
+          <%= cell(action_cell, model) %>
+        </div>
+      <% end %>
     </div>
   </div>
   <%= link_to model, remote: true, method: :delete, class: "notification__button", data: { "notification-read": "" } do %>

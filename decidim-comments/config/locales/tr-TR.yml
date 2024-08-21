@@ -24,7 +24,6 @@ tr:
           error: Yorum oylanırken bir sorun oluştu.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Hesabınızla giriş yapın</a> veya yorumunuzu eklemek için <a href="%{sign_up_url}">kaydolun</a>.
         form:
           body:
             label: Yorum
@@ -40,8 +39,10 @@ tr:
         alignment:
           against: Karşısında
           in_favor: Lehine
+        comment_label: Yorum %{comment_id}
+        comment_label_reply: Yorum %{comment_id} (Yoruma Yanıt %{parent_comment_id})
+        controls_label: Yorum Kontrolü
         deleted_user: Silinmiş katılımcı
-        hide_replies: Yanıtları gizle
         reply: Cevapla
         report:
           action: Rapor

@@ -9,10 +9,13 @@ describe "Search comments" do
   let(:manifest_name) { "dummy" }
   let!(:commentable) { create(:dummy_resource, component:) }
   let!(:searchables) { create_list(:comment, 3, commentable:) }
-  let!(:term) { strip_tags(translated(searchables.first.body)).split.last }
+  let!(:term) { "FooBar" }
   let(:hashtag) { "#decidim" }
 
   before do
+    comment = create(:comment, body: "FooBar", commentable:)
+    searchables << comment
+
     hashtag_comment = create(:comment, body: "A comment with a hashtag #{hashtag}", commentable:)
     searchables << hashtag_comment
   end

@@ -31,7 +31,7 @@ module Decidim
             enforce_permission_to :create, :attachment_collection
             @form = form(AttachmentCollectionForm).from_params(params, collection_for:)
 
-            CreateAttachmentCollection.call(@form, collection_for, current_user) do
+            CreateAttachmentCollection.call(@form, collection_for) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachment_collections.create.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -56,7 +56,7 @@ module Decidim
             enforce_permission_to :update, :attachment_collection, attachment_collection: @attachment_collection
             @form = form(AttachmentCollectionForm).from_params(params, collection_for:)
 
-            UpdateAttachmentCollection.call(@attachment_collection, @form, current_user) do
+            UpdateAttachmentCollection.call(@attachment_collection, @form) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachment_collections.update.success", scope: "decidim.admin")
                 redirect_to action: :index

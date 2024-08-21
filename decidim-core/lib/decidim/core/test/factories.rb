@@ -112,7 +112,11 @@ FactoryBot.define do
       create_static_pages { true }
     end
 
-    name { Faker::Company.unique.name }
+    # we do not want machine translation here
+    name do
+      Decidim.available_locales.index_with { |_locale| Faker::Company.unique.name }
+    end
+
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
     twitter_handler { Faker::Hipster.word }
@@ -198,6 +202,7 @@ FactoryBot.define do
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
     email_on_moderations { true }
+    email_on_assigned_proposals { true }
     password_updated_at { Time.current }
     previous_passwords { [] }
     extended_data { {} }
@@ -433,6 +438,7 @@ FactoryBot.define do
     end
     title { generate_localized_title(:static_page_topic_title, skip_injection:) }
     description { generate_localized_description(:static_page_topic_description, skip_injection:) }
+    show_in_footer { true }
     organization
   end
 
@@ -467,6 +473,11 @@ FactoryBot.define do
       file { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
       content_type { "application/pdf" }
       file_size { 17_525 }
+    end
+
+    trait :with_link do
+      file { nil }
+      link { Faker::Internet.url }
     end
   end
 
@@ -617,6 +628,38 @@ FactoryBot.define do
     organization
   end
 
+  factory :taxonomy, class: "Decidim::Taxonomy" do
+    transient do
+      skip_injection { false }
+    end
+
+    name { generate_localized_title(:taxonomy_name, skip_injection:) }
+    organization
+    parent { nil }
+    weight { nil }
+
+    trait :with_parent do
+      association :parent, factory: :taxonomy
+    end
+
+    trait :with_children do
+      transient do
+        children_count { 3 }
+      end
+
+      after(:create) do |taxonomy, evaluator|
+        create_list(:taxonomy, evaluator.children_count, parent: taxonomy, organization: taxonomy.organization)
+        taxonomy.reload
+        taxonomy.update(weight: taxonomy.children.count)
+      end
+    end
+  end
+
+  factory :taxonomization, class: "Decidim::Taxonomization" do
+    taxonomy { association(:taxonomy, :with_parent) }
+    taxonomizable { association(:dummy_resource) }
+  end
+
   factory :coauthorship, class: "Decidim::Coauthorship" do
     transient do
       skip_injection { false }
@@ -725,6 +768,11 @@ FactoryBot.define do
       {
         some_extra_data: "1"
       }
+    end
+
+    trait :proposal_coauthor_invite do
+      event_name { "decidim.events.proposals.coauthor_invited" }
+      event_class { "Decidim::Proposals::CoauthorInvitedEvent" }
     end
   end
 

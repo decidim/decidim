@@ -87,7 +87,6 @@ zh-TW:
               accepted: 足夠的簽署數
               created: 已建立
               discarded: 已捨棄
-              published: 已發佈
               rejected: 不足夠的簽署數
               validating: 技術驗證
           type_id_eq:
@@ -100,7 +99,6 @@ zh-TW:
       menu:
         attachments: 附件
         committee_members: 委員會成員
-        components: 组件
         information: 資訊
         initiatives: 倡議
         initiatives_settings: 設定
@@ -282,7 +280,6 @@ zh-TW:
         initiatives_types:
           create:
             error: 出現了一個錯誤.
-            success: 一個新的倡議類型已成功更新.
           destroy:
             success: 該倡議類型已成功刪除.
           edit:
@@ -314,7 +311,6 @@ zh-TW:
         accepted: 足夠的簽署數
         created: 已建立
         discarded: 已捨棄
-        published: 已發佈
         rejected: 不足夠的簽署數
         validating: 技術驗證
       application_helper:
@@ -445,6 +441,7 @@ zh-TW:
           approve: 核准
           invite_to_committee_help: 透過分享此連結，邀請其他參與者加入推廣委員會。
           no_members_yet: 推廣委員會中沒有成員.
+          revoke: 撤銷
           title: 委員會成員
         count:
           title:
@@ -506,7 +503,6 @@ zh-TW:
           other: " 簽名"
         vote_cabin:
           already_voted: 已簽署
-          supports_required: "需要 %{total_supports} 個簽署支持"
           verification_required: 驗證您的帳戶以簽署該倡議
           vote: 簽署
           votes_blocked: 簽署已禁用
@@ -536,7 +532,6 @@ zh-TW:
           accepted: 足夠的簽署數
           created: 已建立
           discarded: 已捨棄
-          published: 已發佈
           rejected: 簽署數不足
           validating: 技術驗證
       states:

@@ -56,12 +56,10 @@ gl:
           attributes:
             base:
               not_official: Non é oficial
-              supported: Recibiron soporte ou apoios
         proposals_split:
           attributes:
             base:
               not_official: Non é oficial
-              supported: Recibiron soporte ou apoios
     models:
       decidim/proposals/admin/update_proposal_category_event: Modificouse a categoría de proposta
       decidim/proposals/admin/update_proposal_scope_event: Mudouse o ámbito da proposta
@@ -81,9 +79,6 @@ gl:
       decidim/proposals/proposal_note:
         one: Nota
         other: Notas
-      decidim/proposals/proposal_vote:
-        one: Vota
-        other: Votos
   decidim:
     admin:
       filters:
@@ -113,7 +108,6 @@ gl:
           comment: Comentario
           create: Crear
           endorse: Endosar
-          vote: Vota
           vote_comment: Votar comentario
           withdraw: Retirar
         name: Propostas
@@ -122,51 +116,38 @@ gl:
             amendments_enabled: Modificacións habilitadas
             announcement: Anuncio
             attachments_allowed: Permitir anexos
-            can_accumulate_supports_beyond_threshold: Pode acumular soportes máis aló do limiar
             collaborative_drafts_enabled: Esquemas colaborativos habilitados
             comments_enabled: Comentarios habilitados
             default_sort_order: Orde predefinido das propostas
-            default_sort_order_help: Predefinido significa que se os apoios están activos, as propostas amosaranse ordenadas ao chou e se están bloqueados, entón serán ordenados de máis a menos apoios.
             default_sort_order_options:
-              default: Predefinida
               most_commented: Máis comentadas
               most_endorsed: Máis apoios
               most_followed: Máis seguidas
-              most_voted: Máis apoios
               random: Ao chou
               recent: Máis recentes
               with_more_authors: Con máis autores
             geocoding_enabled: Geocoding habilitado
-            minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_help_text: Nova proposta de axuda de texto
             official_proposals_enabled: Propostas oficiais habilitadas
             participatory_texts_enabled: Permitir textos participativos
             proposal_answering_enabled: Contestando a proposta habilitada
-            proposal_edit_before_minutes: As propostas poden ser editadas por autores antes de que pase moitos minutos
             proposal_length: Lonxitude máxima do corpo da proposta
             proposal_limit: Límite de proposta por usuario
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
-            proposal_wizard_step_2_help_text: Asistente de propostas "Comparar" texto de axuda paso a paso
-            proposal_wizard_step_3_help_text: Asistente de propostas Texto de axuda de paso "Completo"
-            proposal_wizard_step_4_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
             resources_permissions_enabled: Os permisos de acción pódense establecer para cada proposta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
             threshold_per_proposal: Umbral por proposta
-            vote_limit: Límite de voto por usuario
           step:
             announcement: Anuncio
             automatic_hashtags: Hashtags engadido a todas as propostas
             comments_blocked: Comentarios bloqueados
             creation_enabled: Os participantes poden crear propostas
             default_sort_order: Orde predefinido das propostas
-            default_sort_order_help: Predefinido significa que se os apoios están activos, as propostas amosaranse ordenadas ao chou e se están bloqueados, entón serán ordenados de máis a menos apoios.
             default_sort_order_options:
-              default: Predefinida
               most_commented: Máis comentadas
               most_endorsed: Máis apoios
               most_followed: Máis seguidas
-              most_voted: Máis apoios
               random: Ao chou
               recent: Recentes
               with_more_authors: Con máis autores
@@ -174,9 +155,8 @@ gl:
             endorsements_enabled: Aprobacións habilitadas
             proposal_answering_enabled: Contestando a proposta habilitada
             suggested_hashtags: Hashtags suxeriu aos usuarios novas propostas
-            votes_blocked: Voto bloqueado
-            votes_enabled: Votación habilitada
-            votes_hidden: Votos ocultos (se os votos están habilitados, a comprobación ocultará o número de votos)
+            votes_blocked: Votos bloqueados
+            votes_enabled: Votos habilitados
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -226,10 +206,7 @@ gl:
         proposal_update_scope:
           email_outro: Recibiches esta notificación porque es o autor da proposta.
         voting_enabled:
-          email_intro: 'Podes votar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: A votación das propostas comezou para %{participatory_space_title}
-          notification_title: Agora podes comezar <a href="%{resource_path}">propostas de voto</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -246,13 +223,7 @@ gl:
         proposal_votes:
           conditions:
             - Busque e pase un tempo a ler as propostas doutras persoas
-            - Dea soporte ás propostas que che gustan ou que che resulten interesantes
-          description: Este distintivo concedeuse cando apoias as propostas doutras persoas.
-          description_another: Este usuario deu soporte a %{score} propostas.
-          description_own: Vostede deu apoio a %{score} propostas.
-          name: A proposta é compatible
-          next_level_in: Dea soporte a máis de %{score} propostas para alcanzar o seguinte nivel!
-          unearned_own: Xa deu soporte a ningunha proposta aínda.
+            - 
         proposals:
           conditions:
             - Escolle o espazo de participación do teu interese coa presentación de propostas habilitadas
@@ -276,10 +247,6 @@ gl:
         description: Número de propostas xeradas
         object: propostas
         title: Propostas
-      votes:
-        description: Número de votos xerados nas propostas dos usuarios
-        object: votos
-        title: Votos
     participatory_spaces:
       highlighted_proposals:
         see_all: Ver todos (%{count})
@@ -347,7 +314,6 @@ gl:
           form:
             note: Nota
             submit: Enviar
-          leave_your_note: Deixe a súa nota
           title: Notas privadas
         proposals:
           edit:
@@ -385,7 +351,6 @@ gl:
             related_meetings: Xuntanzas relacionadas
             remove_assignment_confirmation: Estás seguro de que desexas eliminar este avaliador/a da proposta?
             valuators: Avaliadores/as
-            votes_count: Reconto de votos
         proposals_imports:
           new:
             create: Propostas de importación
@@ -542,17 +507,7 @@ gl:
         buttons:
           amend: Modificar
           comment: Comentario
-      proposal_votes:
-        create:
-          error: Houbo erros ao votar a proposta.
       proposals:
-        compare:
-          continue: Continúe
-          no_similars_found: Ben feito! Non se atoparon propostas similares
-          title: Propostas similares
-        complete:
-          send: Enviar
-          title: Completa a túa proposta
         dynamic_map_instructions:
           instructions: Podes mover o punto no mapa.
         edit:
@@ -580,7 +535,6 @@ gl:
           search: Busca
           state: Estado
           type: Tipo
-          voted: Votado
         index:
           click_here: Ver todas as propostas
           collaborative_drafts_list: Acceda a borradores colaborativos
@@ -598,7 +552,6 @@ gl:
           most_commented: Máis comentadas
           most_endorsed: Con máis adhesións
           most_followed: Con máis seguidores
-          most_voted: A maioría votada
           random: Aleatorio
           recent: Recentes
           with_more_authors: Con máis autores
@@ -624,38 +577,14 @@ gl:
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
-          withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
           withdraw_proposal: Retire a proposta
-        vote_button:
-          already_voted: Xa votou
-          already_voted_hover: Unvocar
-          maximum_votes_reached: Límite de voto alcanzado
-          no_votes_remaining: Non hai votos restantes
-          vote: Vota
-          votes_blocked: Votación desactivada
-        votes_count:
-          count:
-            one: VOTAR
-            other: VOTOS
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Cada proposta pode acumular máis de %{limit} apoios
-          minimum_votes_per_user:
-            description: Debes distribuír un mínimo de %{votes} votos entre diferentes propostas.
-            supports_remaining: Tes que votar máis %{remaining_votes} propostas para que os teus votos sexan tidos en conta.
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
-          title: 'A votación está suxeita ás seguintes regras:'
-          vote_limit:
-            description: Podes votar ata %{limit} propostas.
-            votes: Votos
         wizard_aside:
           back: De volta
         wizard_steps:
           step_1: Crea a túa proposta
-          step_2: Compare
-          step_3: Completa
-          step_4: Publica a túa proposta
       publish:
         error: Houbo erros ao publicar a proposta.
         success: Proposta publicada correctamente.
@@ -679,4 +608,4 @@ gl:
     statistics:
       proposals_accepted: Propostas aceptadas
       proposals_count: Propostas
-      supports_count: Apoios
+      votes_count: Votos

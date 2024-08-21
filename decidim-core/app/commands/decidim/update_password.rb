@@ -3,22 +3,22 @@
 module Decidim
   # Decidim command updates user's password
   class UpdatePassword < Decidim::Command
+    delegate :current_user, to: :form
+
     # Updates a user's password.
     #
-    # user - The user to be updated.
     # form - The form with the data.
-    def initialize(user, form)
-      @user = user
+    def initialize(form)
       @form = form
     end
 
     def call
       return broadcast(:invalid) if form.invalid?
 
-      user.password = form.password
-      user.password_updated_at = Time.current
+      current_user.password = form.password
+      current_user.password_updated_at = Time.current
 
-      if user.save
+      if current_user.save
         broadcast(:ok)
       else
         broadcast(:invalid)
@@ -27,6 +27,6 @@ module Decidim
 
     private
 
-    attr_reader :form, :user
+    attr_reader :form
   end
 end

@@ -48,7 +48,6 @@ id:
       actions:
         new_initiative_type: Jenis inisiatif baru
       menu:
-        components: Komponen
         information: Informasi
         initiatives: Inisiatif
         initiatives_types: Jenis inisiatif
@@ -185,7 +184,6 @@ id:
       admin_states:
         created: Dibuat
         discarded: Dibuang
-        published: Diterbitkan
         validating: Validasi teknis
       application_helper:
         filter_state_values:
@@ -283,7 +281,6 @@ id:
           other: " tanda tangan"
         vote_cabin:
           already_voted: Sudah ditandatangani
-          supports_required: "%{total_supports} tanda tangan diperlukan"
           verification_required: Verifikasi akun Anda untuk menandatangani inisiatif
           vote: Tanda
           votes_blocked: Penandatanganan dinonaktifkan

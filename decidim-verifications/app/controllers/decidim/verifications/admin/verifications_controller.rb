@@ -9,7 +9,7 @@ module Decidim
           return unless params.has_key?(:revocations_before_date)
 
           form = RevocationsBeforeDateForm.from_params(params[:revocations_before_date])
-          RevokeByConditionAuthorizations.call(current_organization, current_user, form) do
+          RevokeByConditionAuthorizations.call(current_organization, form) do
             on(:ok) do
               flash[:notice] = t("authorization_revocation.destroy_ok", scope: "decidim.admin.menu")
               redirect_to decidim_admin.authorization_workflows_url

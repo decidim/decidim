@@ -1,1 +1,98 @@
 th:
+  activemodel:
+    attributes:
+      area:
+        area_type: ประเภทพื้นที่
+        name: ชื่อ
+        organization: องค์กร
+      area_type:
+        name: ชื่อ
+        organization: องค์กร
+        plural: พหูพจน์
+      attachment:
+        attachment_collection_id: โฟลเดอร์
+        description: คำอธิบาย
+        file: ไฟล์
+        title: ชื่อไฟล์แนบหรือรูปภาพ
+        weight: ตำแหน่งการสั่งซื้อ
+      attachment_collection:
+        description: คำอธิบาย
+        name: ชื่อ
+      organization:
+        machine_translation_display_priority_translation: แปลข้อความก่อน
+        name: ชื่อ
+        official_img_footer: ส่วนท้ายของโลโก้อย่างเป็นทางการ
+        official_url: URL องค์กรอย่างเป็นทางการ
+        omnipresent_banner_short_description: คำอธิบายสั้น
+        omnipresent_banner_title: ชื่อ
+        omnipresent_banner_url: URL
+        organization_admin_email: อีเมลผู้ดูแลระบบองค์กร
+        organization_admin_name: อีเมลผู้ดูแลระบบองค์กร
+        organization_locales: สถานที่ขององค์กร
+        primary_color: หลัก
+        reference_prefix: คำนำหน้าอ้างอิง
+        rich_text_editor_in_public_views: เปิดใช้งานโปรแกรมแก้ไขข้อความแบบ Rich Text สำหรับผู้เข้าร่วม
+        secondary_color: รอง
+        secondary_hosts: เจ้าภาพรอง
+        send_welcome_notification: ส่งการแจ้งเตือนยินดีต้อนรับ
+        success_color: ความสำเร็จ
+        tertiary_color: ระดับอุดมศึกษา
+        time_zone: เขตเวลา
+        tos_version: เงื่อนไขการให้บริการเวอร์ชัน
+        twitter_handler: ตัวจัดการเอ็กซ์
+        user_groups_enabled: เปิดใช้งานกลุ่ม
+        users_registration_mode: โหมดการลงทะเบียนผู้ใช้
+        warning_color: คำเตือน
+        welcome_notification_body: ยินดีต้อนรับเนื้อหาการแจ้งเตือน
+        welcome_notification_subject: ยินดีต้อนรับเรื่องการแจ้งเตือน
+        youtube_handler: ตัวจัดการ YouTube
+      participatory_space_private_user:
+        email: อีเมล
+        name: ชื่อ
+      scope:
+        code: รหัส
+        name: ชื่อ
+        organization: องค์กร
+        parent_id: พ่อแม่
+        scope_type: ประเภทขอบเขต
+        scope_type_id: ประเภทขอบเขต
+      scope_type:
+        name: ชื่อ
+        organization: องค์กร
+        plural: พหูพจน์
+      settings:
+        scope_id: ขอบเขต
+      static_page:
+        allow_public_access: อนุญาตการเข้าถึงโดยไม่ต้องตรวจสอบสิทธิ์
+        changed_notably: มีการเปลี่ยนแปลงที่เห็นได้ชัดเจน
+        content: เนื้อหา
+        organization: องค์กร
+        show_in_footer: แสดงในส่วนท้าย
+        slug: บุ้ง URL
+        title: ชื่อ
+        topic_id: หัวข้อ
+        weight: ตำแหน่งการสั่งซื้อ
+      static_page_topic:
+        description: คำอธิบาย
+        name: ชื่อหัวข้อ
+  decidim:
+    admin:
+      area_types:
+        edit:
+          title: แก้ไขประเภทพื้นที่
+          update: อัปเดต
+        new:
+          create: สร้างประเภทพื้นที่
+          title: ประเภทพื้นที่ใหม่
+        update:
+          error: เกิดปัญหาในการอัปเดตประเภทพื้นที่นี้
+          success: อัปเดตประเภทพื้นที่เรียบร้อยแล้ว
+      areas:
+        create:
+          error: เกิดปัญหาในการสร้างพื้นที่ใหม่
+          success: สร้างพื้นที่สำเร็จแล้ว
+        destroy:
+          has_spaces: พื้นที่นี้มีช่องว่างที่ต้องพึ่งพา โปรดตรวจสอบให้แน่ใจว่าไม่มี Participatory Space อ้างอิงถึงพื้นที่นี้ก่อนที่จะลบออก
+          success: ทำลายพื้นที่สำเร็จ
+        edit:
+          title: แก้ไขพื้นที่

@@ -1,4 +1,4 @@
-<section style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).path %>');" data-conference-hero>
+<section style="background-image:url('<%= current_participatory_space.attached_uploader(:banner_image).url %>');" data-conference-hero>
   <div class="conference__hero">
     <div class="conference__hero-text">
       <h1 class="h1 text-5xl">
@@ -19,7 +19,7 @@
       <% if current_participatory_space.registrations_enabled? %>
         <% if current_participatory_space.has_registration_for?(current_user) %>
           <%= link_to t("layouts.decidim.conference_hero.manage_registration"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__primary" %>
-        <% else %>
+        <% elsif current_participatory_space.has_published_registration_types? %>
           <%= link_to t("layouts.decidim.conference_hero.register"), decidim_conferences.conference_registration_types_path(current_participatory_space), class: "button button__lg button__secondary" %>
         <% end %>
       <% end %>

@@ -1,1 +1,113 @@
 bg:
+  activemodel:
+    attributes:
+      questionnaire:
+        title: Заглавие
+      template:
+        description: Описание
+        name: Име
+  decidim:
+    admin:
+      menu:
+        templates: Шаблони
+      templates:
+        actions:
+          new_template: Нов шаблон
+        apply:
+          error: Възникна проблем при прилагането на този шаблон.
+          success: Шаблонът е приложен успешно.
+        copy:
+          error: Възникна проблем при копирането на този шаблон.
+          success: Шаблонът е копиран успешно.
+        create:
+          error: Възникна проблем при създаването на този шаблон.
+          success: Шаблонът е създаден успешно.
+        destroy:
+          success: Шаблонът е изтрит успешно.
+        empty: Все още няма шаблони.
+        fetch:
+          error: Не можах да намеря този шаблон. Моля, презаредете страницата.
+        missing_resource: "(липсващ ресурс)"
+        update:
+          error: Възникна проблем при обновяването на този шаблон.
+          success: Шаблонът е обновен успешно.
+      titles:
+        template_types:
+          questionnaires: Шаблони за въпросници
+        templates: Шаблони
+    models:
+      questionnaire_template:
+        fields:
+          questions: Брой въпроси
+          title: Заглавие на въпросник
+      template:
+        fields:
+          created_at: Създаден на
+        name: Шаблон
+    templates:
+      admin:
+        block_user_templates:
+          edit:
+            title: Редактиране на шаблон за блокиране на потребителско съобщение
+          form:
+            save: Запази
+          index:
+            confirm_delete: Сигурни ли сте, че желаете да изтриете този шаблон?
+            title: Блокиране на потребителски съобщения
+          new:
+            title: Нов шаблон за блокиране на потребителско съобщение
+          template_chooser:
+            select_template: Изберете шаблонен отговор
+        proposal_answer_templates:
+          edit:
+            title: Редактиране на шаблон за отговор на предложение
+          form:
+            component_constraint_help: Обърнете внимание, че ще бъдат изброени само пространства за участие, които имат компоненти от типа „предложения“.
+            hint1_html: "<strong>%{organization}</strong> ще бъде заменено от името на организацията"
+            hint2_html: "<strong>%{name}</strong> ще бъде заменено с името на автора"
+            hint3_html: "<strong>%{admin}</strong> ще бъде заменено от името на администратора (този, който отговаря на предложението)"
+            hint_html: "<strong>Съвет:</strong> Можете да използвате тези променливи навсякъде в шаблонния отговор, които ще бъдат заменени при използване на шаблона"
+            save: Запази
+          index:
+            component_constraint: Добавяне на ограничение
+            confirm_delete: Сигурни ли сте, че желаете да изтриете този шаблон?
+            missing_state: Липсващо състояние
+            proposal_state_id: Вътрешно състояние
+            title: Отговори на предложенията
+          new:
+            title: Нов шаблон за отговор на предложение
+          template_chooser:
+            select_template: Изберете шаблонен отговор
+        questionnaire_templates:
+          choose:
+            create_from_template: Създайте от шаблон
+            description: На път сте да създадете нов въпросник. Можете да изберете предварително дефиниран шаблон и да го промените след това.
+            label: Избор на шаблон
+            placeholder: Избор на шаблон
+            skip_template: Пропусни
+          edit:
+            edit: Редактирай
+            empty: Все още няма въпроси.
+            questionnaire: Въпросник
+            title: Редактиране на шаблон на въпросник
+          form:
+            title: Шаблон за въпросник %{questionnaire_for}
+          index:
+            confirm_delete: Сигурни ли сте, че желаете да изтриете този шаблон?
+            title: Шаблони за въпросници
+          new:
+            title: Нов шаблон за въпросник
+          preview:
+            current_step: Стъпка %{step}
+            of_total_steps: от %{total_steps}
+            tos_agreement: С участието си приемате Условията на услугата
+      admin_log:
+        template:
+          create: "%{user_name} създаде шаблона на въпросника %{resource_name}"
+          delete: "%{user_name} изтри шаблона на въпросника %{resource_name}"
+          duplicate: "%{user_name} дублира шаблона на въпросника %{resource_name}"
+          update: "%{user_name} актуализира шаблона на въпросника %{resource_name}"
+      template_types:
+        block_user: Блокиране на потребителски съобщения
+        proposal_answer_templates: Отговори на предложенията
+        questionnaires: Въпросници

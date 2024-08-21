@@ -26,6 +26,8 @@ en:
         destroy:
           success: Template deleted successfully.
         empty: There are no templates yet.
+        fetch:
+          error: Could not find this template. Please reload the page.
         missing_resource: "(missing resource)"
         update:
           error: There was a problem updating this template.

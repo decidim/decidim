@@ -85,7 +85,7 @@ describe Decidim::CardMetadataCell, type: :cell do
       let(:items_list) { [:author_item] }
 
       it "displays the author cell" do
-        expect(cell_html).to have_css("div[data-author]")
+        expect(cell_html).to have_css("span[data-author]")
         expect(cell_html).to have_content(model.author.name)
       end
     end
@@ -110,11 +110,11 @@ describe Decidim::CardMetadataCell, type: :cell do
       end
     end
 
-    context "when duration_item enabled" do
-      let(:items_list) { [:duration_item] }
+    context "when start_date_item enabled" do
+      let(:items_list) { [:start_date_item] }
 
       context "and one of dates is blank" do
-        let(:start_date) { Date.current }
+        let(:end_date) { Date.current }
 
         it "displays nothing" do
           expect(cell_html.text).to be_blank
@@ -126,7 +126,7 @@ describe Decidim::CardMetadataCell, type: :cell do
         let(:end_date) { 5.days.from_now.at_beginning_of_day }
 
         it "displays the duration" do
-          expect(cell_html).to have_content("1d")
+          expect(cell_html).to have_content("00:00 AM UTC")
         end
       end
     end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :decidim_system do
-  desc "Create a new system admin"
+  desc "Creates a new system admin"
   task create_admin: :environment do
     puts "Please, provide the following attributes to create a new system admin#{" (currently there are existing system admins)" if Decidim::System::Admin.exists?}:"
     email = prompt("email", hidden: false)

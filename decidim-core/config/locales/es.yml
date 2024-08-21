@@ -103,7 +103,7 @@ es:
       half_a_minute: medio minuto
       less_than_x_minutes:
         one: hace menos de un minuto
-        other: ha menos de %{count} minutos
+        other: hace menos de %{count} minutos
       less_than_x_seconds:
         one: hace menos de un segundo
         other: hace menos de %{count} segundos
@@ -144,6 +144,7 @@ es:
       external_link: Enlace externo
       front_page_link: Ir a la página principal
       logo: "Logo oficial de %{organization}"
+      opens_in_new_tab: Abrir en una pestaña nueva
       skip_button: Saltar al contenido principal
     account:
       blocked: Esta cuenta ha sido bloqueada por una violación de los términos y condiciones de uso
@@ -295,10 +296,6 @@ es:
         title:
           one: "%{count} enmienda"
           other: "%{count} enmiendas"
-      compare_draft:
-        continue: Continuar
-        no_similars_found: No se encontraron enmiendas similares.
-        title: Enmiendas similares
       created:
         error: Se ha producido un error al crear el borrador de enmienda.
         success: El borrador de enmienda se ha creado correctamente.
@@ -354,14 +351,16 @@ es:
       wizard_step_form:
         steps:
           '1': Crea tu enmienda
-          '2': Compara tu enmienda
-          '3': Completa tu enmienda
-          '4': Publicar tu enmienda
+          '2': Publica tu enmienda
     anonymous_user: Anónima
     application:
       document:
         download: Descargar archivo
+        visit_link: Visita el enlace
       documents:
+        component_documents:
+          dummy: Documentos de componentes ficticios
+          meetings: Documentos sobre encuentros
         documents: Documentos
         related_documents: Documentos relacionados
       photo:
@@ -430,7 +429,7 @@ es:
         ok:
           title: Has sido autorizada mientras estás en esta página. Por favor, vuelve a cargar la página para realizar tu acción.
         pending:
-          explanation: Para realizar esta acción, debes estar autorizada con "%{authorization}", pero tu autorización todavía está en progreso.
+          explanation: Para realizar esta acción, debes estar autorizada con "%{authorization}", pero tu autorización todavía está en curso.
           resume: Comprueba el progreso de tu autorización "%{authorization}".
           title: La autorización aún está en progreso
         unauthorized:
@@ -583,18 +582,18 @@ es:
           complete_profile: Completa el perfil
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           sign_up: Por favor, completa tu perfil
-          subtitle: Por favor, rellena el siguiente formulario para completar la inscripción
+          subtitle: Por favor, rellena el siguiente formulario para completar la creación de la cuenta
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         create:
-          error: Hubo un problema al crear tu cuenta.
+          error: Se ha producido un error al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           log_in: Entra
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_up: Regístrate
-          subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
+          sign_up: Crea una cuenta
+          subtitle: Crea una cuenta para participar en la plataforma.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
           tos_title: Términos de servicio
@@ -604,7 +603,7 @@ es:
           are_you_new?: '¿Eres nueva en la plataforma?'
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa.
-          sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder.
+          sign_up_disabled: La creación de cuentas está deshabilitada, puedes utilizar una cuenta existente para acceder.
         user:
           timed_out: Has estado sin actividad durante demasiado tiempo y tu sesión se ha cerrado automáticamente. Si quieres seguir participando, inicia sesión de nuevo.
       shared:
@@ -617,7 +616,7 @@ es:
             Por favor, considera volver a marcar la casilla de selección del boletín a continuación.<br>
             Es muy importante para nosotras que puedas recibir correos electrónicos ocasionales para hacer avisos importantes, siempre puedes cambiar esto en la página de configuración de notificaciones.</p>
             <p>Si no marcas la casilla, es posible que te pierdas información relevante sobre nuevas oportunidades de participación dentro de la plataforma.<br>
-            Si aún deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
+            Si aún así deseas evitar recibir boletines, entendemos perfectamente tu decisión.</p>
             <p>¡Gracias por leer esto!</p>
           title: Notificaciones de boletines
         omniauth_buttons:
@@ -632,7 +631,7 @@ es:
       authorizations:
         new:
           authorize: Autoriza la aplicación
-          by_organization_link_html: <small class="heading-small">por %{link}</small>
+          by_organization_link_html: por %{link}
           cancel: Cancelar
           connect_your_account_html: Conecta tu cuenta iniciando sesión en %{organization}>.
           publish_content: Publique contenido para tí
@@ -642,7 +641,7 @@ es:
           this_application_will_be_able_to: 'Esta aplicación podrá:'
           this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
           update_profile: Actualiza tu perfil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar tu cuenta"
+          wants_to_use_your_account_html: "%{application_name} quiere usar tu cuenta"
     download_your_data:
       export:
         ready: Listo
@@ -655,8 +654,8 @@ es:
         request_data: Solicita datos
     editor_images:
       create:
-        error: Error al cargar la imagen.
-        success: Imagen cargada correctamente.
+        error: Error al subir la imagen.
+        success: Imagen subida correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsement_buttons_cell:
       already_endorsed: No me gusta
@@ -693,57 +692,57 @@ es:
         amendment_accepted:
           affected_user:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque se ha aceptado una enmienda al apartado "%{amendable_title}" que administras.
             email_subject: Enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Se ha aceptado una enmienda para %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Enmienda aceptada para %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido aceptada para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque se ha presentado una esmena al apartado "%{amendable_title}" que administras.
             email_subject: Nueva enmienda para %{amendable_title}
             notification_title: Se ha creado una nueva enmienda para <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Se ha creado una nueva enmienda para %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Nueva enmienda para %{amendable_title}
             notification_title: Se ha creado una nueva enmienda para <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_promoted:
           affected_user:
             email_intro: 'Una enmienda rechazada para %{amendable_title} ha sido publicada como una nueva %{amendable_type}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque eres una autora de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque se ha promocionado una esmena al apartado "%{amendable_title}" que administras.
             email_subject: Se ha publicado una enmienda de %{emendation_author_nickname} como nuevo %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: 'Una enmienda rechazada para %{amendable_title} ha sido publicada como nueva %{amendable_type}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Se ha publicado una enmienda de %{emendation_author_nickname} como nuevo %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">rechazó la enmienda</a> para <a href="%{amendable_path}">%{amendable_title}</a> se ha publicado como un nuevo %{amendable_type} por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
           affected_user:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque eres autora de %{amendable_title}.
+            email_outro: Has recibido esta notificación porque se ha rechazado una enmienda al apartado "%{amendable_title}" que administras.
             email_subject: Enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'Una enmienda ha sido rechazada por %{amendable_title}. Puedes verla desde esta página:'
-            email_outro: Has recibido esta notificación porque estás siguiendo a %{amendable_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_outro: Has recibido esta notificación porque estás siguiendo la enmienda "%{amendable_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Una enmienda rechazada por %{amendable_title} de %{emendation_author_nickname}
             notification_title: La <a href="%{emendation_path}">enmienda</a> creada por <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> ha sido rechazada por <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'Se ha añadido un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Se ha producido una actualización para %{resource_title}
           notification_title: Se ha añadido un <a href="%{resource_path}">nuevo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
           email_intro: 'Ya está activo el componente %{resource_title} para %{participatory_space_title}. Puedes verlo desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{participatory_space_title}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Una actualización en %{participatory_space_title}
           notification_title: Ya está activo el componente %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
@@ -775,17 +774,17 @@ es:
           notification_title: Te han invitado a unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> . Revisa la pestaña <a href="%{groups_profile_tab_path}">Grupos</a> en tu perfil para aceptar la invitación!
         join_request_accepted:
           email_intro: '¡Felicidades! Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> ha aceptado tu solicitud para unirte a él.'
-          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
+          email_outro: Has recibido esta notificación porque tu solicitud de incorporación al grupo se ha actualizado.
           email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido aceptada!
           notification_title: Has sido aceptada al grupo <a href="%{resource_path}">%{user_group_name}</a>.
         join_request_created:
           email_intro: Alguien pidió unirse al grupo %{user_group_name}. Puedes aceptarla o rechazarla desde <a href="%{resource_url}">miembros del grupo en la página</a>.
-          email_outro: Has recibido esta notificación porque eres administradora del grupo %{user_group_name}.
+          email_outro: Has recibido esta notificación porque administras el grupo "%{user_group_name}".
           email_subject: Alguien ha solicitado unirse al grupo %{user_group_name}
           notification_title: Alguien ha solicitado unirse al grupo %{user_group_name}. Puedes aceptar o rechazar la solicitud desde <a href="%{resource_path}">la página de miembros del grupo</a>.
         join_request_rejected:
           email_intro: Una administradora del grupo <a href="%{resource_url}">%{user_group_name}</a> ha rechazado tu solicitud para unirte a él.
-          email_outro: Has recibido esta notificación porque tu solicitud de incorporación se ha actualizado.
+          email_outro: Has recibido esta notificación porque tu solicitud de incorporación al grupo se ha actualizado.
           email_subject: Tu solicitud para unirte al grupo %{user_group_name} ha sido rechazada!
           notification_title: Tu solicitud para unirte al grupo <a href="%{resource_path}">%{user_group_name}</a> ha sido rechazada.
         promoted_to_admin:
@@ -800,40 +799,40 @@ es:
           notification_title: Has sido eliminado del grupo <a href="%{resource_path}">%{user_group_name}</a>.
         user_group_created:
           email_intro: Se ha creado un nuevo grupo con el nombre %{user_group_name}. Ahora puedes verificarlo, si procede, en el <a href="%{groups_admin_url}">panel de administración</a>.
-          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_outro: Has recibido esta notificación porque administras la plataforma.
           email_subject: Se ha creado un nuevo grupo
           notification_title: Se ha creado el grupo %{user_group_name}. Ahora puedes verificarlo en el <a href="%{groups_admin_path}">panel de administración</a>.
         user_group_updated:
           email_intro: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_url}">panel de administración</a>.
-          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_outro: Has recibido esta notificación porque administras la plataforma.
           email_subject: Un grupo ha actualizado su perfil
           notification_title: El grupo %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       nickname_event:
-        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
+        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
-        notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
-          email_outro: Has recibido esta notificación porque eres un autora del contenido eliminado.
+          email_outro: Has recibido esta notificación porque se ha eliminado un contenido que creaste.
           email_subject: Tu %{resource_type} ha sido eliminado
           notification_title: |-
             Una administradora eliminó tu %{resource_type} porque ha sido reportado como %{report_reasons}.</br>
             <i>%{resource_content}</i>
       resource_endorsed:
         email_intro: '%{endorser_name} %{endorser_nickname}, a quien sigues, acaba de adherirse a "%{resource_title}" que puede ser interesante para ti, compruébalo y contribuye:'
-        email_outro: Has recibido esta notificación porque estás siguiendo a %{endorser_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_outro: Has recibido esta notificación porque estás siguiendo a "%{endorser_nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
         email_subject: "%{endorser_nickname} se ha adherido a una propuesta"
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a la propuesta <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
-          email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_outro: Has recibido esta notificación porque estás siguiendo a "%{nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: "%{nickname} ha actualizado su perfil"
           notification_title: La página <a href="%{resource_path}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
         user_officialized:
           email_intro: La participante %{name} (%{nickname}) ha sido oficializada.
-          email_outro: Has recibido esta notificación porque eres una de las administradoras de la plataforma.
+          email_outro: Has recibido esta notificación porque administras la plataforma.
           email_subject: "Se ha oficializado a %{name}"
           notification_title: La participante %{name} (%{nickname}) ha sido oficializada.
     export_mailer:
@@ -855,7 +854,7 @@ es:
         result: Resultados
     fingerprint:
       check: Verificar huella digital
-      explanation: La siguiente cadena de texto es una representación abreviada y criptografiada de este contenido. Es útil para garantizar que el contenido no haya sido alterado, ya que una única modificación daría lugar a un valor totalmente diferente.
+      explanation: La siguiente cadena de texto es una representación abreviada y encriptada de este contenido. Es útil para garantizar que el contenido no haya sido alterado, ya que una única modificación daría lugar a un valor totalmente diferente.
       online_calculator_name: Calculadora MD5 en línea
       replicate_help: Esta huella digital se calcula utilizando un algoritmo hash SHA256. Para poder replicarlo tú mismo, puedes usar una %{online_calculator_link} y copiar y pegar los datos de origen.
       source: Origen
@@ -881,6 +880,11 @@ es:
         button: Dejar de seguir
         error: Se ha producido un error al dejar de seguir este recurso.
     forms:
+      attachment_link:
+        explanation: Guía para enlaces adjuntos
+        help_messages:
+          - Solo se aceptan formatos de URL correctos.
+          - Por favor, ten en cuenta que los enlaces deben ser públicos para que todas las participantes puedan acceder a ellos.
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -916,6 +920,7 @@ es:
           filename: Nombre del archivo
           remove: Eliminar
           replace: Reemplazar
+          save: Guardar
           title: Título
           title_required: '¡Se requiere un título!'
           uploaded: Subido
@@ -1039,7 +1044,7 @@ es:
           content: "<p>En %{organization} puedes participar y decidir sobre diferentes temas, a través de los espacios que ves en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada uno encontrarás diferentes opciones para participar: hacer propuestas (individualmente o con otras personas), tomar parte en debates, priorizar proyectos a ejecutar, asistir a encuentros presenciales y otras acciones.</p>\n"
           title: '¿Qué puedo hacer en %{organization}?'
         description: Lee más sobre %{organization}.
-        title: Ayuda general
+        title: General
     last_activities:
       all: Todos los tipos de actividad
       index:
@@ -1145,7 +1150,7 @@ es:
         index:
           new_conversation: Nueva conversación
           next: Siguiente
-          no_conversations: Aún no tienes ninguna conversarción.
+          no_conversations: Aún no tienes ninguna conversación.
           title: Conversaciones
         reply_form:
           placeholder: Tu respuesta...
@@ -1235,9 +1240,11 @@ es:
         same_language: El contenido ha sido publicado en tu idioma preferido (%{language}), por eso no se muestra ninguna traducción automática en este correo electrónico.
         translated_text: 'Texto traducido automáticamente:'
     notifications:
+      action_error: Se ha producido un error al actualizar las notificaciones.
       no_notifications: Aún no hay notificaciones.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
+        moderated: Contenido moderado
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
@@ -1253,7 +1260,8 @@ es:
       show:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquier participante me envíe un mensaje directo, incluso si no la sigo.
-        allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
+        allow_push_notifications: Recibe notificaciones emergentes para estar al día de lo que pasa en la plataforma. Puedes desactivarlas en cualquier momento.
+        assigned_to_proposal: Quiero recibir un correo electrónico cuando alguien me asigne una propuesta para evaluar
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         everything_followed: Todo lo que sigo
@@ -1269,9 +1277,10 @@ es:
         notifications_sending_frequency: '¿Con qué frecuencia quieres recibir el correo resumen de notificaciones?'
         own_activity: Mi propia actividad, como cuando alguien comenta en mi propuesta o me menciona
         push_notifications: Notificaciones emergentes
-        push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
+        push_notifications_reminder: Para recibir notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones
         update_notifications_settings: Guardar cambios
+        valuators: Evaluadoras
       update:
         error: Se ha producido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se ha actualizado correctamente.
@@ -1310,7 +1319,7 @@ es:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Regístrate
-          register_title: Regístrate para crear una cuenta
+          register_title: Crea una cuenta
       index:
         standalone_pages: Páginas
         subheading: Navegar por las páginas de ayuda de %{name}
@@ -1319,7 +1328,7 @@ es:
       participatory_space:
         metrics:
           headline: Métricas
-          link: Muestra todas las métricas
+          link: Mostrar todas
       terms_of_service:
         accept:
           error: Se ha producido un error al aceptar los términos y condiciones de uso.
@@ -1334,12 +1343,12 @@ es:
           modal_button: Rechazar los términos y condiciones de uso
           modal_title: '¿Confirmas que no aceptas los términos y condiciones de uso actualizados?'
         required_review:
-          alert: Hemos actualizado nuestros Términos y Condiciones, por favor, revísalos.
-          body: Por favor, dedica un momento a revisar la actualización de nuestros Términos y Condiciones de uso. De lo contrario, no podrás participar en la plataforma.
-          title: 'Requerido: Revisa las actualizaciones en nuestros términos y condiciones de uso'
+          alert: Hemos actualizado nuestros términos y condiciones de uso, por favor, revísalos.
+          body: Por favor, dedica un momento a revisar la actualización de nuestros términos y condiciones de uso. De lo contrario, no podrás participar en la plataforma.
+          title: 'Requerido: revisa las actualizaciones en nuestros términos y condiciones de uso'
     passwords:
       update:
-        error: Ha habido un problema al actualizar la contraseña.
+        error: Se ha producido un error al actualizar la contraseña.
         success: La contraseña se ha actualizado correctamente.
     profile:
       deleted: Participante eliminada
@@ -1376,7 +1385,7 @@ es:
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crea un grupo
         edit_profile: Edita el perfil
@@ -1456,6 +1465,8 @@ es:
         close_modal: Cerrar el modal
         ok: De acuerdo
         title: Confirmar
+      embed:
+        title: Contenido de vídeo incrustado
       extended_navigation_bar:
         more: Más
         unfold: Desplegar
@@ -1476,7 +1487,7 @@ es:
         title: Reportar contenido inapropiado
       flag_user_modal:
         already_reported: Este contenido ya ha sido reportado y será revisado por una administradora.
-        block: Eliminar a esta participante
+        block: Bloquear a esta participante
         close: Cerrar
         description: '¿Qué es inapropiado de la usuaria?'
         does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que creas que no pertenece a %{organization_name}.
@@ -1488,10 +1499,10 @@ es:
       floating_help:
         help: Ayuda
       follow_button:
-        log_in_before_follow: Pro favor, inicia sesión antes de realizar esta acción
+        log_in_before_follow: Por favor, inicia sesión antes de realizar esta acción
       login_modal:
         please_log_in: Por favor, inicia la sesión
-        sign_up: Regístrate
+        sign_up: Crea una cuenta
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
       participatory_space_filters:
@@ -1618,7 +1629,7 @@ es:
       locked: Tu cuenta está bloqueada.
       not_found_in_database: '%{authentication_keys} o contraseña no son válidos.'
       timeout: Tu sesión expiró. Por favor, vuelve a iniciarla para continuar.
-      unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
+      unauthenticated: Debes iniciar sesión o crear una cuenta antes de continuar.
     invitations:
       edit:
         header: Termina de crear tu cuenta
@@ -1705,7 +1716,7 @@ es:
     registrations:
       destroyed: Tu cuenta se ha cancelado correctamente. Esperamos volver a verte pronto.
       new:
-        sign_up: Regístrate
+        sign_up: Crea una cuenta
       signed_up: '¡Bienvenida! Te has registrado con éxito.'
       signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no has podido iniciar la sesión sesión porque tu cuenta está bloqueada.
       signed_up_but_locked: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta está bloqueada.
@@ -1722,11 +1733,11 @@ es:
       links:
         back: Volver
         didn_t_receive_confirmation_instructions: '¿No has recibido las instrucciones de confirmación?'
-        didn_t_receive_unlock_instructions: '¿No has recibido las instrucciones para desbloquear?'
+        didn_t_receive_unlock_instructions: '¿No has recibido las instrucciones de desbloqueo?'
         forgot_your_password: '¿Olvidaste tu contraseña?'
         log_in: Entra
         log_in_with_provider: Inicia sesión con %{provider}
-        sign_up: Regístrate
+        sign_up: Crea una cuenta
       minimum_password_length:
         one: "(%{count} caracteres como mínimo)"
         other: "(%{count} caracteres como mínimo)"
@@ -1776,19 +1787,19 @@ es:
       control:
         blockquote: Cita
         bold: Negrita
-        bulletList: Lista desordenada
-        codeBlock: Bloque de códigos
+        bulletList: Lista en viñetas
+        codeBlock: Bloque de código
         common:
-          eraseStyles: Borrar los estilos
+          eraseStyles: Borrar estilos
         hardBreak: Salto de línea
         heading: Estilo de texto
         image: Imagen
         indent:
-          indent: Aumentar la sangria
-          outdent: Reduiir la sangria
+          indent: Aumentar la sangría
+          outdent: Reducir la sangría
         italic: Cursiva
         link: Enlace
-        orderedList: Lista ordenada
+        orderedList: Lista numerada
         underline: Subrayado
         videoEmbed: Incrustar vídeo
       textStyle:
@@ -1803,30 +1814,30 @@ es:
       activity: Actividad
       custom: Personalizado
       flags: Banderas
-      foods: Alimentos y bebidas
+      foods: Comida y bebida
       frequent: Usados frecuentemente
       nature: Animales y naturaleza
       objects: Objetos
-      people: Caras y Personas
+      people: Caras y personas
       places: Viajes y lugares
       search: Resultados de búsqueda
       symbols: Símbolos
     pick: Elige un emoji…
     search: Buscar
     search_no_results_1: '¡Oh no!'
-    search_no_results_2: No se pudo encontrar ese emoticono
+    search_no_results_2: No se pudo encontrar ese emoji
     skins:
       '1': Por defecto
-      '2': Clara
-      '3': Medio clara
-      '4': Media
-      '5': Medio oscura
-      '6': Oscura
+      '2': Claro
+      '3': Medio claro
+      '4': Medio
+      '5': Medio oscuro
+      '6': Oscuro
       choose: Elige un tono de piel predeterminado
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
-      already_confirmed: ya ha sido confirmado, por favor, intente iniciar sesión de nuevo
+      already_confirmed: ya ha sido confirmado, por favor, intenta iniciar sesión de nuevo
       blank: no puede estar en blanco
       cannot_be_blank: no puede estar en blanco
       confirmation: no coincide con %{attribute}
@@ -1840,7 +1851,7 @@ es:
       long_words: contiene palabras demasiado largas (más de 35 caracteres)
       must_start_with_caps: debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
-      not_found: no se pudo encontrar. ¿Te has registrado previamente?
+      not_found: no se pudo encontrar. ¿Has creado una cuenta anteriormente?
       not_locked: No estaba bloqueado
       not_saved:
         one: 'Se ha producido un error procesando tu solicitud:'
@@ -1925,8 +1936,8 @@ es:
         log_in: Entra
         made_with_open_source: Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
-        sign_up: Regístrate
-        terms_and_conditions: Términos y condiciones
+        sign_up: Crea una cuenta
+        terms_of_service: Términos y condiciones de uso
       header:
         log_in: Entra
         main_menu: Menú principal
@@ -1942,10 +1953,6 @@ es:
         mark_as_read: Marcar como leído
       offline_banner:
         cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión previa en caché de la página que estás visitando, quizás el contenido no está actualizado.'
-      shared:
-        layout_item:
-          next: Siguiente tema
-          prev: Tema anterior
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"
@@ -2049,6 +2056,7 @@ es:
       long_with_particles: "%d de %B del %Y a las %Hh%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Supresiones

@@ -73,7 +73,6 @@
               accepted: Nok signaturer
               created: Opprettet
               discarded: Forkastet
-              published: Publisert
               rejected: Ikke nok signaturer
               validating: Teknisk validering
           type_id_eq:
@@ -83,7 +82,6 @@
       menu:
         attachments: Vedlegg
         committee_members: Utvalgets medlemmer
-        components: Komponenter
         information: Informasjon
         initiatives: Initiativer
         initiatives_settings: Innstillinger
@@ -269,7 +267,6 @@
         accepted: Nok signaturer
         created: Opprettet
         discarded: Forkastet
-        published: Publisert
         rejected: Ikke nok signaturer
         validating: Teknisk validering
       application_helper:
@@ -382,6 +379,7 @@
             other: og %{count} flere personer
         committee_members:
           approve: Godkjenn
+          revoke: Tilbakekall
           title: Utvalgets medlemmer
         count:
           title:
@@ -444,7 +442,6 @@
           other: " underskrifter"
         vote_cabin:
           already_voted: Allerede signert
-          supports_required: "%{total_supports} signaturer påkrevd"
           verification_required: Verifiser kontoen din for å signere initiativet
           vote: Signer
           votes_blocked: Underskriving deaktivert
@@ -473,7 +470,6 @@
           accepted: Nok signaturer
           created: Opprettet
           discarded: Forkastet
-          published: Publisert
           rejected: Ikke nok signaturer
           validating: Teknisk validering
       states:

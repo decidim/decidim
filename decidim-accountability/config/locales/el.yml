@@ -223,15 +223,7 @@ el:
           search: Αναζήτηση ενεργειών
         show:
           stats:
-            attendees: Συμμετέχοντες
             back_to_resource: Επιστροφή στο αποτέλεσμα
-            comments: Σχόλια
-            contributions: Συνεισφορές
-            last_edited_by: Τελευταία επεξεργασία από
-            last_updated_at: Τελευταία ενημέρωση στις
-            meetings: Συσκέψεις
-            proposals: Προτάσεις
-            votes: Υποστηρίξεις
         timeline:
           title: Εξέλιξη έργου
     admin:
@@ -250,16 +242,12 @@ el:
         name: Υπευθυνότητα
         settings:
           global:
-            categories_label: Όνομα για «Κατηγορίες»
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
             comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
             display_progress_enabled: Εμφάνιση προόδου
-            heading_leaf_level_results: Όνομα για «Έργα»
-            heading_parent_level_results: Όνομα για «Αποτελέσματα»
             intro: Εισαγωγή
             scope_id: Πεδίο εφαρμογής
             scopes_enabled: Ενεργοποιημένα πεδία εφαρμογής
-            subcategories_label: Όνομα για «Υποκατηγορίες»
           step:
             comments_blocked: Τα σχόλια αποκλείστηκαν
     events:

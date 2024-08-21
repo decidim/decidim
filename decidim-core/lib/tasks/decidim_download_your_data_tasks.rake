@@ -32,7 +32,7 @@ namespace :decidim do
           else
             puts " #{index}/#{users_count} !! [#{user_id}] DELETING USER"
             log.info " #{index}/#{users_count} !! [#{user_id}] DELETING USER"
-            Decidim::DestroyAccount.call(user, Decidim::DeleteAccountForm.from_params({})) # Delete user!
+            Decidim::DestroyAccount.call(Decidim::DeleteAccountForm.from_params({}).with_context({ current_user: user })) # Delete user!
           end
         else
           puts " #{index}/#{users_count} - [#{user_id}] User not found"
@@ -55,7 +55,7 @@ namespace :decidim do
     end
   end
 
-  desc "Check and notify users to update their newsletter notifications settings"
+  desc "Checks and notifies users to update their newsletter notifications settings"
   task check_users_newsletter_opt_in: :environment do
     print %(
 > This will send an email to all the users that have marked the newsletter by default. This should only be run if you were using Decidim before v0.11
@@ -64,7 +64,7 @@ namespace :decidim do
     input = $stdin.gets.chomp
     if input.casecmp("y").zero?
       puts %(  Continue...)
-      Decidim::User.where("newsletter_notifications_at < ?", Time.zone.parse("2018-05-25 00:00 +02:00")).find_each(&:newsletter_opt_in_notify)
+      Decidim::User.where(newsletter_notifications_at: ...Time.zone.parse("2018-05-25 00:00 +02:00")).find_each(&:newsletter_opt_in_notify)
     else
       puts %(  Execution cancelled...)
     end
@@ -76,9 +76,7 @@ namespace :decidim do
     attachments = ActiveStorage::Attachment.joins(:blob).where(
       name: "download_your_data_file",
       record_type: "Decidim::UserBaseEntity"
-    ).where(
-      "active_storage_blobs.created_at < ?", Decidim.download_your_data_expiry_time.ago
-    )
+    ).where(active_storage_blobs: { created_at: ...Decidim.download_your_data_expiry_time.ago })
     attachments.each do |attachment|
       delete_download_your_data_file attachment
     end

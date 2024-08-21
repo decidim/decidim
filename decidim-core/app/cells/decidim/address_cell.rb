@@ -31,11 +31,33 @@ module Decidim
       decidim_sanitize_translated(model.address)
     end
 
+    def display_start_and_end_time?
+      model.respond_to?(:start_time) && model.respond_to?(:end_time)
+    end
+
+    def start_and_end_time
+      <<~HTML
+        #{with_tooltip(l(model.start_time, format: :tooltip)) { start_time }}
+        -
+        #{with_tooltip(l(model.end_time, format: :tooltip)) { end_time }}
+      HTML
+    end
+
     def display_online_meeting_url?
       return true unless model.respond_to?(:online?)
       return true unless model.respond_to?(:iframe_access_level_allowed_for_user?)
 
       model.online? && model.iframe_access_level_allowed_for_user?(current_user)
+    end
+
+    private
+
+    def start_time
+      l model.start_time, format: "%H:%M %p"
+    end
+
+    def end_time
+      l model.end_time, format: "%H:%M %p %Z"
     end
   end
 end

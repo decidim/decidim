@@ -38,7 +38,7 @@ de:
           error: Beim Abstimmen des Kommentars sind Fehler aufgetreten.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Melden Sie sich mit Ihrem Konto an</a> oder <a href="%{sign_up_url}">registrieren Sie sich</a>, um Ihren Kommentar hinzuzufügen.
+        account_message: Sie müssen sich <a href="%{sign_in_url}">mit einem bestehendem Konto anmelden</a> oder <a href="%{sign_up_url}"> ein neues Konto registrieren</a>, um Ihren Kommentar hinzufügen.
         form:
           body:
             label: Kommentar
@@ -64,13 +64,18 @@ de:
           against: Gegen
           in_favor: Zugunsten
         cancel_reply: Antwort abbrechen
+        comment_label: Kommentar %{comment_id}
+        comment_label_reply: Kommentar %{comment_id} (Antwort auf Kommentar %{parent_comment_id})
         confirm_destroy: Sind Sie sich sicher, dass Sie diesen Kommentar löschen möchten?
+        controls_label: Kommentarsteuerung
         delete: Löschen
         deleted_at: Kommentar gelöscht am %{date}
         deleted_user: Gelöschter Benutzer
         edit: Bearbeiten
         edited: Bearbeitet
-        hide_replies: Antworten verbergen
+        hide_replies:
+          one: Antwort verbergen
+          other: '%{count} Antworten verbergen'
         moderated_at: Kommentar moderiert am %{date}
         reply: Antworten
         report:

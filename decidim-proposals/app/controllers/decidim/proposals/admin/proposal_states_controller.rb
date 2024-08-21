@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       class ProposalStatesController < Admin::ApplicationController
-        include Decidim::Admin::Paginable
+        include Decidim::Paginable
 
         helper_method :proposal_states, :proposal_state
         def index

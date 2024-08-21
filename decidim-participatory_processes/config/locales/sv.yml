@@ -4,7 +4,6 @@ sv:
       participatory_process:
         announcement: Meddelande
         area_id: Område
-        banner_image: Bannerbild
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_steps: Kopiera steg
@@ -30,8 +29,6 @@ sv:
         scope_type_max_depth_id: Djup på omfångsfilter
         scopes_enabled: Omfång aktiverade
         short_description: Kort beskrivning
-        show_metrics: Visa metrik
-        show_statistics: Visa statistik
         slug: URL-slug
         start_date: Startdatum
         subtitle: Underrubrik

@@ -42,7 +42,6 @@ uk:
         scope_id: Обсяг
         scopes_enabled: Обсяги увімкнено
         short_description: Стислий опис
-        show_statistics: Показувати статистику
         slug: Скорочена веб-адреса
         special_features: Особливості
         subtitle: Підзаголовок
@@ -158,7 +157,6 @@ uk:
           categories: Категорії
           components: Складові
           moderations: Дії з модерації
-          private_users: Приватні учасники
       models:
         assemblies_types:
           fields:
@@ -261,11 +259,7 @@ uk:
       show:
         assembly_type: Різновид зборів
         duration: Тривалість
-        is_transparent:
-          'false': непрозорі
-          'true': прозорі
         private_space: Це приватні збори
-        related_participatory_processes: Пов'язані рухи співучасті
     assembly_members:
       assembly_member:
         designated_on: 'Надано повноваження:'

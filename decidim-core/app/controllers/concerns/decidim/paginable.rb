@@ -7,7 +7,7 @@ module Decidim
   module Paginable
     extend ActiveSupport::Concern
 
-    OPTIONS = [10, 20, 50, 100].freeze
+    OPTIONS = [25, 50, 100].freeze
 
     included do
       helper_method :per_page, :page_offset
@@ -19,7 +19,7 @@ module Decidim
 
       def per_page
         if OPTIONS.include?(params[:per_page])
-          params[:per_page]
+          params[:per_page].to_i
         elsif params[:per_page]
           sorted = OPTIONS.sort
           params[:per_page].to_i.clamp(sorted.first, sorted.last)

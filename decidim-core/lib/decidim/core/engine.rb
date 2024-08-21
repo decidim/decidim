@@ -39,15 +39,13 @@ require "ransack"
 require "wisper"
 require "shakapacker"
 
-# Needed for the assets:precompile task, for configuring webpacker instance
-require "decidim/webpacker"
-
 require "decidim/api"
 require "decidim/core/content_blocks/registry_manager"
 require "decidim/core/menu"
 require "decidim/middleware/strip_x_forwarded_host"
 require "decidim/middleware/static_dispatcher"
 require "decidim/middleware/current_organization"
+require "decidim/webpacker"
 
 module Decidim
   module Core
@@ -158,6 +156,7 @@ module Decidim
 
         # Attachments
         Decidim.icons.register(name: "file-text-line", icon: "file-text-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "file-upload-line", icon: "file-upload-line", category: "documents", description: "File upload", engine: :core)
         Decidim.icons.register(name: "scales-2-line", icon: "scales-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "image-line", icon: "image-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "error-warning-line", icon: "error-warning-line", category: "system", description: "", engine: :core)
@@ -174,10 +173,12 @@ module Decidim
         Decidim.icons.register(name: "dislike", icon: "dislike-line", description: "Dislike", category: "action", engine: :core)
         Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "draggable", icon: "draggable", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "login-circle-line", icon: "login-circle-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "list-check", icon: "list-check", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "add-fill", icon: "add-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "clipboard-line", icon: "clipboard-line", category: "system", description: "", engine: :initiatives)
+        Decidim.icons.register(name: "user-forbid-line", icon: "user-forbid-line", category: "system", description: "", engine: :core)
 
         # Refactor later: Some of the icons here are duplicated, and it would be a greater refactor to remove the duplicates
         Decidim.icons.register(name: "Decidim::Amendment", icon: "git-branch-line", category: "activity", description: "Amendment", engine: :core)
@@ -224,6 +225,10 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
 
+      initializer "decidim_core.active_storage_variant_processor" do |app|
+        app.config.active_storage.variant_processor = :mini_magick
+      end
+
       initializer "decidim_core.action_controller" do |_app|
         config.to_prepare do
           ActiveSupport.on_load :action_controller do
@@ -234,6 +239,14 @@ module Decidim
 
       initializer "decidim_core.action_mailer" do |app|
         app.config.action_mailer.deliver_later_queue_name = :mailers
+      end
+
+      initializer "decidim_core.signed_global_id", after: "global_id" do |app|
+        next if app.config.global_id.fetch(:expires_in, nil).present?
+
+        config.after_initialize do
+          SignedGlobalID.expires_in = nil
+        end
       end
 
       initializer "decidim_core.middleware" do |app|
@@ -297,8 +310,8 @@ module Decidim
         end
       end
 
-      initializer "decidim_core.i18n_exceptions" do
-        ActionView::Base.raise_on_missing_translations = true unless Rails.env.production?
+      initializer "decidim_core.i18n_exceptions" do |app|
+        app.config.i18n.raise_on_missing_translations = true unless Rails.env.production?
       end
 
       initializer "decidim_core.geocoding", after: :load_config_initializers do
@@ -370,26 +383,21 @@ module Decidim
         Decidim.stats.register :processes_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, start_at, end_at|
           processes = ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(organization)
 
-          processes = processes.where("created_at >= ?", start_at) if start_at.present?
-          processes = processes.where("created_at <= ?", end_at) if end_at.present?
+          processes = processes.where(created_at: start_at..) if start_at.present?
+          processes = processes.where(created_at: ..end_at) if end_at.present?
           processes.count
         end
       end
 
       initializer "decidim_core.menu" do
         Decidim::Core::Menu.register_menu!
+        Decidim::Core::Menu.register_mobile_menu!
         Decidim::Core::Menu.register_user_menu!
       end
 
       initializer "decidim_core.notifications" do
-        if Rails.autoloaders.zeitwerk_enabled?
-          config.after_initialize do
-            Decidim::EventsManager.subscribe_events!
-          end
-        else
-          config.to_prepare do
-            Decidim::EventsManager.subscribe_events!
-          end
+        config.after_initialize do
+          Decidim::EventsManager.subscribe_events!
         end
       end
 

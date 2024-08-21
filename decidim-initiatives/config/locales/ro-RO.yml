@@ -86,7 +86,6 @@ ro:
               accepted: Semnături suficiente
               created: Creat
               discarded: Respins
-              published: Publicat
               rejected: Semnături insuficiente
               validating: Validarea tehnică
           type_id_eq:
@@ -96,7 +95,6 @@ ro:
       menu:
         attachments: Atașamente
         committee_members: Membrii comitetului
-        components: Componente
         information: Informații
         initiatives: Inițiative
         initiatives_types: Tipuri de inițiative
@@ -290,7 +288,6 @@ ro:
         accepted: Semnături suficiente
         created: Creat
         discarded: Respins
-        published: Publicate
         rejected: Semnături insuficiente
         validating: Validarea tehnică
       application_helper:
@@ -411,6 +408,7 @@ ro:
             other: și încă %{count} persoane
         committee_members:
           approve: Aprobă
+          revoke: Revocă
           title: Membrii comitetului
         count:
           title:
@@ -476,7 +474,6 @@ ro:
           other: " semnături"
         vote_cabin:
           already_voted: Deja semnat
-          supports_required: "%{total_supports} semnături necesare"
           verification_required: Verifică-ți contul pentru a semna inițiativa
           vote: Semnare
           votes_blocked: Semnarea este dezactivată
@@ -506,7 +503,6 @@ ro:
           accepted: Semnături suficiente
           created: Creat
           discarded: Respins
-          published: Publicat
           rejected: Semnături insuficiente
           validating: Validarea tehnică
       states:

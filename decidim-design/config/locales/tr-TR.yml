@@ -2,11 +2,77 @@
 tr:
   decidim:
     design:
+      components:
+        activities:
+          activities: Etkinlikler
+        author:
+          title: Yazar
+        tab_panels:
+          title: Sekmeler
+        tooltips:
+          demo: Gösteri
+          demo_description: Bu bileşenin çalışması için katılımcının öğenin üzerine gelmesi gerekir.
+          github_source_html: GitHub %{github_link}'taki kaynak kodu
+          usage: Kullanım
+          usage_p: 'Bir bilgi çubuğu üç bağımsız değişkenle birlikte "with_tooltip" yardımcısının kullanılmasını gerektirir:'
+          usage_p_2_html: 'Bilgi Çubuğunun görüntüleneceği yerde simge içeren isteğe bağlı bir sınıf. Olası değerler şunlardır: <code>:top</code>, <code>:bottom</code>, <code>:right</code> veya <code>:left</code>.'
+          usage_p_3_html: Kullanıcının görüntülenmesi için üzerine gelmesi gereken dizeyi içeren bir blok.
       foundations:
         iconography:
           description_iconography: Eylemlerin, başlıkların vb. anlamlarını güçlendirmek için simgeler kullanırız
           description_iconography_html: 'Remixicon %{iconography_link} açık kaynak kitaplığını kullanıyoruz:'
           title: İkonografi
+        layout:
+          breakpoint: Kesme Noktası
+          breakpoints: Kesme Noktaları
+          code: Kod
+          description_layout_p1: Masaüstü için Decidim, farklı içerik türleri için sınırlı sayıda şablona (ızgara yapılandırmaları) sahip 12 sütunlu bir ızgara kullanır. Belirli bir içerik türünün (ana sayfa, öğe listesi, bireysel öğe) kendine özgü bir düzene sahip olması amaçlanır. Böylece kullanıcılar, sayfanın genel görünümüne bakarak ne tür içerikte olduklarını anlayabilirler.
+          description_layout_p2: Bir Decidim sitesinin tutarlılığını koruyabilmesi için yeni modüller oluştururken veya mevcut modülleri özelleştirirken bu basit kurallara uyulmalıdır.
+          desktop: Masaüstü
+          full_width: Tam Genişlik
+          layout_list_1: 'Ana sayfa (sitenin, bir alanın): tam genişliği'
+          layout_list_2: 'Öğelerin listesi (boşlukların, boşluk içindeki öğelerin vb.): sol kenarda'
+          mobile: Mobil
+          not_required: "Zorunlu Olmayan\nGereksiz"
+          section_p_breakpoints: 'Öğelerin duyarlı maksimum genişliğini yönetmek için, aşağıdaki kesme noktalarını belirten varsayılan "konteyner" Tailwind sınıfına güveniyoruz:'
+          section_p_code: Yeni modülleri uygularken, HTML yapısını kurmak için gereken kodu size otomatik olarak sağlayan bazı yardımcılarınız vardır. Div öğelerini sınıflarla doğrudan kullanmak yerine bu yardımcıları kullanmalısınız, böylece tutarlılığı korursunuz.
+          section_p_code_html: Temel düzenleri %{link_section_code} içinde bulabilirsiniz
+          section_p_desktop: Masaüstü ızgara sistemi, sütunlar arasında 16 piksellik bir boşluk ve 48 piksellik sol ve sağ kenar boşlukları bulunan 12 esnek sütundan oluşur
+          tablet: Tablet
+          title: Düzen
+        typography:
+          description: Bu yönergeler, Decidim'de tipografinin nasıl kullanılacağını özetlemekte ve tasarımcıların en iyi tipografik uygulamaları göz önünde bulundurarak özgürce tasarım yapmaları için koruma görevi görmektedir.
+          headings:
+            characters: Satır başına karekter
+            layout: Sütun Düzeni
+            size: Boyut
+          title: Tipografi
+          typefaces_description_1: Decidim birincil yazı tipi olarak 310 dili destekleyen Source Sans Pro'yu kullanır
+          typefaces_description_2: Bu yazı tipleri Açık Yazı Tipi Lisansı kapsamında lisanslanmıştır
+      helpers:
+        activity: Etkinlik
+        avatar: Profil resmi
+        avatar_description: Yazarın ikincil bir bilgi olduğu alanlarda kullanılır.
+        compact: "Yoğun\nSıkıştırılmış"
+        context: İçerik
+        context_description: Bu hücre, bir kullanıcı hakkında bazı bilgileri görüntüler. Bu kaynak/içerik oluşturucuyu tanımlamaya yönelik görsel bir yardımdır. Farenin üzerine gelindiğinde, daha fazla bilgi ve profiline bağlantılar içeren bir bilgi kutusu görüntülenir.
+        context_description_2: Kaynaklar bu hücre ana başlığın altında görünür. Diğer içerikler ise içeriğin yanında görünür.
+        default: Varsayılan
+        demo: Gösteri
+        demo_text: 'Bu hücre LastActivity öğelerinin bir modelini alır ve aşağıdaki öğeleri görüntüler:'
+        demo_text_2: Son etkinlik sayfasında, içerik bloğunda ve açılır menülerde kullanılır.
+        source_code: Kaynak Kodu
+        tab_panels_context_description: Bu sekme bileşeni, dikey alandan tasarruf etmek için görüntülenen ana öğenin tüm ilgili içeriklerini veya diğer kaynaklarını bir araya getirir. Sekmeye tıklamak, içeriği göstermek için oluşturulan paneli etkinleştirecektir.
+        tab_panels_usage_description: 'Bu bileşen bir dizi karma işlem yapar. Her bir öğenin çıktısını bir sekme paneli yapısında yeniden düzenler. Her panel için mevcut özellikler:'
+        tab_panels_usage_description_arguments_html: "<string>args</string>: <i>Dizi</i>. Önceki yönteme ilişkin argümanlar"
+        tab_panels_usage_description_html: "<strong>etkin</strong>: <i>Boolean</i>. Sekmeyi koşullu olarak oluştur"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Benzersiz kimlik"
+        tab_panels_usage_description_rails_html: "<strong>yöntem</strong>: <i>Sembol</i>. Herhangi bir fonksiyonunun anlayabileceği"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Remiks simgesi tuşu"
+        tab_panels_usage_description_tab_html: "<strong>metin</strong>: <i>Dize</i>. Sekme başlığı\n<strong>text</strong>: <i>String</i>. Sekme başlığı"
+        variations: Çeşitlilik
+        variations_description: Bu hücrenin üç farklı versiyonu bulunmaktadır. Her biri, görüntülendiği içeriğe göre daha iyi uymaktadır.
+        variations_text: Etkinliğin türüne göre hücre, katılımcı bir alana ait olsun ya da olmasın, bir yazarı olsun ya da olmasın, farklı kaynakları bildirerek farklı içerik gösterebilir.
       home:
         index:
           by_sharing_principles: Tasarım kararlarının ardındaki ilkeleri, felsefeyi ve mantığı paylaşarak, topluluğun tutarlı bir şekilde katkıda bulunmasını sağlamak ve böylece en iyi katılımcı deneyimine ulaşmak istiyoruz.

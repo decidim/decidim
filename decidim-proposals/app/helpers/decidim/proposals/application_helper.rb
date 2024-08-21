@@ -145,12 +145,12 @@ module Decidim
       end
 
       def show_voting_rules?
-        return false unless votes_enabled?
+        return false if !votes_enabled? || current_settings.votes_blocked?
 
         return true if vote_limit_enabled?
         return true if threshold_per_proposal_enabled?
         return true if proposal_limit_enabled?
-        return true if can_accumulate_supports_beyond_threshold?
+        return true if can_accumulate_votes_beyond_threshold?
         return true if minimum_votes_per_user_enabled?
       end
 
@@ -247,6 +247,10 @@ module Decidim
       def component_name
         i18n_key = controller_name == "collaborative_drafts" ? "decidim.proposals.collaborative_drafts.name" : "decidim.components.proposals.name"
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t(i18n_key)
+      end
+
+      def templates_available?
+        Decidim.module_installed?(:templates) && defined?(Decidim::Templates::Template) && Decidim::Templates::Template.exists?(templatable: current_component)
       end
     end
   end

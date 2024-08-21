@@ -7,10 +7,14 @@ js_configs = {
     "mentionsModal": {
       "removeRecipient": t("decidim.shared.mentions_modal.remove_recipient", name: "%name%")
     },
+    "confirmUnload": t("decidim.shared.confirm_unload"),
     emojis: I18n.t("emojis").deep_transform_keys { |k| k.to_s.camelize(:lower) },
     editor: I18n.t("editor"),
     date: I18n.t("date"),
     time: I18n.t("time")
+  },
+  notifications: {
+    action_error: I18n.t("decidim.notifications.action_error")
   },
   external_domain_allowlist: [current_organization.host] + current_organization.external_domain_allowlist,
   consent_cookie_name: Decidim.consent_cookie_name,
@@ -27,7 +31,8 @@ character_messages = {
   }
 }
 external_link_messages = {
-  "externalLink": t("decidim.accessibility.external_link")
+  "externalLink": t("decidim.accessibility.external_link"),
+  "opensInNewTab": t("decidim.accessibility.opens_in_new_tab")
 }
 validator_messages = {
   "correctErrors": t("forms.correct_errors")

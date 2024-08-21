@@ -96,7 +96,6 @@ lt:
               accepted: Parašų užtenka
               created: Sukurta
               discarded: Atmesta
-              published: Publikuota
               rejected: Parašų neužtenka
               validating: Techninis patvirtinimas
           type_id_eq:
@@ -109,7 +108,6 @@ lt:
       menu:
         attachments: Priedai
         committee_members: Komiteto nariai
-        components: Komponentai
         information: Informacija
         initiatives: Iniciatyvos
         initiatives_settings: Nustatymai
@@ -291,7 +289,6 @@ lt:
         initiatives_types:
           create:
             error: Įvyko klaida.
-            success: Naujas iniciatyvos tipas sukurtas.
           destroy:
             success: Iniciatyvos tipas sėkmingai pašalintas.
           edit:
@@ -323,7 +320,6 @@ lt:
         accepted: Parašų užtenka
         created: Sukurta
         discarded: Atmesta
-        published: Paskelbta
         rejected: Parašų neužtenka
         validating: Techninis patvirtinimas
       application_helper:
@@ -464,6 +460,7 @@ lt:
           invite_to_committee_help: Pasidalinkite šia nuoroda norėdami pakvieti kitus į remėjų komitetą.
           link: Nuoroda
           no_members_yet: Rėmėjų komitete nėra narių.
+          revoke: Atšaukti
           title: Komiteto nariai
         count:
           title:
@@ -540,7 +537,6 @@ lt:
           other: " parašai"
         vote_cabin:
           already_voted: Jau pasirašyta
-          supports_required: "%{total_supports} – reikalingas parašų skaičius"
           verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
           vote: Pasirašyti
           votes_blocked: Pasirašymas išjungtas
@@ -578,7 +574,6 @@ lt:
           accepted: Parašų užtenka
           created: Sukurta
           discarded: Atmesta
-          published: Publikuota
           rejected: Parašų neužtenka
           validating: Techninis patvirtinimas
       states:

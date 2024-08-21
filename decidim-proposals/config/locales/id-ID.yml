@@ -56,15 +56,12 @@ id:
         other: Proposal
       decidim/proposals/proposal_note:
         other: Catatan
-      decidim/proposals/proposal_vote:
-        other: Suara
   decidim:
     components:
       proposals:
         actions:
           create: Membuat
           endorse: Mengesahkan
-          vote: Memilih
           withdraw: Menarik
         name: Proposal
         settings:
@@ -72,25 +69,18 @@ id:
             amendments_enabled: Amandemen diaktifkan
             announcement: Pengumuman
             attachments_allowed: Izinkan lampiran
-            can_accumulate_supports_beyond_threshold: Dapat mengumpulkan dukungan di luar ambang batas
             collaborative_drafts_enabled: Draf kolaboratif diaktifkan
             comments_enabled: Komentar diaktifkan
             geocoding_enabled: Geocoding diaktifkan
-            minimum_votes_per_user: Suara minimum per pengguna
             new_proposal_help_text: Teks bantuan proposal baru
             official_proposals_enabled: Proposal resmi diaktifkan
             participatory_texts_enabled: Teks partisipatif diaktifkan
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
-            proposal_edit_before_minutes: Proposal dapat diedit oleh penulis sebelum ini banyak menit berlalu
             proposal_length: Panjang badan proposal maksimum
             proposal_limit: Batas proposal per pengguna
             proposal_wizard_step_1_help_text: Panduan proposal "Buat" teks bantuan langkah
-            proposal_wizard_step_2_help_text: Proposal wizard "Bandingkan" langkah bantuan teks
-            proposal_wizard_step_3_help_text: Panduan proposal, selesaikan langkah bantuan teks
-            proposal_wizard_step_4_help_text: Panduan proposal "Publikasikan" langkah bantuan teks
             resources_permissions_enabled: Izin tindakan dapat diatur untuk setiap proposal
             threshold_per_proposal: Ambang batas per proposal
-            vote_limit: Batas suara per pengguna
           step:
             announcement: Pengumuman
             automatic_hashtags: Hashtag ditambahkan ke semua proposal
@@ -99,9 +89,6 @@ id:
             endorsements_enabled: Pengesahan diaktifkan
             proposal_answering_enabled: Pengangkatan proposal diaktifkan
             suggested_hashtags: Hashtag disarankan kepada pengguna untuk proposal baru
-            votes_blocked: Voting diblokir
-            votes_enabled: Voting diaktifkan
-            votes_hidden: Memberi suara tersembunyi (jika suara diaktifkan, memeriksa ini akan menyembunyikan jumlah suara)
     events:
       proposals:
         collaborative_draft_access_accepted:
@@ -151,10 +138,7 @@ id:
         proposal_update_scope:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
         voting_enabled:
-          email_intro: 'Anda dapat memilih proposal dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
-          email_subject: Proposal voting telah dimulai untuk %{participatory_space_title}
-          notification_title: Anda sekarang dapat memulai <a href="%{resource_path}">proposal voting</a> dalam <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -171,13 +155,7 @@ id:
         proposal_votes:
           conditions:
             - Jelajahi dan habiskan waktu untuk membaca proposal orang lain
-            - Berikan dukungan pada proposal yang Anda sukai atau temukan menarik
-          description: Lencana ini diberikan saat Anda mendukung proposal orang lain.
-          description_another: Pengguna ini telah memberikan dukungan untuk %{score} proposal.
-          description_own: Anda telah memberikan dukungan untuk %{score} proposal.
-          name: Dukungan proposal
-          next_level_in: Berikan dukungan untuk %{score} lebih banyak proposal untuk mencapai level berikutnya!
-          unearned_own: Anda telah memberi dukungan untuk belum ada proposal.
+            - 
         proposals:
           conditions:
             - Pilih ruang partisipasi yang Anda minati dengan penyerahan agar proposal diaktifkan
@@ -201,10 +179,6 @@ id:
         description: Jumlah proposal yang dihasilkan
         object: proposal
         title: Proposal
-      votes:
-        description: Jumlah suara yang dihasilkan dalam proposal oleh pengguna
-        object: suara
-        title: Suara
     participatory_spaces:
       highlighted_proposals:
         see_all: Lihat semua (%{count})
@@ -258,7 +232,6 @@ id:
           form:
             note: Catatan
             submit: Menyerahkan
-          leave_your_note: Tinggalkan catatanmu
           title: Catatan pribadi
         proposals:
           edit:
@@ -287,7 +260,6 @@ id:
             title: Buat proposal
           show:
             body: Tubuh
-            votes_count: Suara menghitung
         proposals_imports:
           new:
             create: Mengimpor proposal
@@ -434,17 +406,7 @@ id:
         buttons:
           amend: Merubah
           comment: Komentar
-      proposal_votes:
-        create:
-          error: Ada kesalahan saat memilih proposal.
       proposals:
-        compare:
-          continue: Terus
-          no_similars_found: Sudah selesai dilakukan dengan baik! Tidak ada proposal serupa yang ditemukan
-          title: Proposal serupa
-        complete:
-          send: Kirim
-          title: Selesaikan proposal Anda
         edit:
           attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
@@ -465,7 +427,6 @@ id:
           search: Pencarian
           state: Negara
           type: Mengetik
-          voted: Dipilih
         index:
           collaborative_drafts_list: Akses draf kolaboratif
           count:
@@ -476,7 +437,6 @@ id:
           send: Terus
         orders:
           label: 'Memesan proposal dengan:'
-          most_voted: Sebagian besar memilih
           random: Acak
           recent: Baru
         preview:
@@ -495,37 +455,14 @@ id:
           proposal_accepted_reason: 'Proposal ini telah diterima karena:'
           proposal_in_evaluation_reason: Proposal ini sedang dievaluasi
           proposal_rejected_reason: 'Proposal ini telah ditolak karena:'
-          withdraw_btn_hint: Anda dapat menarik proposal Anda jika Anda berubah pikiran, selama Anda belum menerima dukungan apa pun. Proposal tidak dihapus, itu akan muncul dalam daftar proposal yang ditarik.
           withdraw_proposal: Tarik proposal
-        vote_button:
-          already_voted: Sudah memilih
-          already_voted_hover: Batalkan suara
-          maximum_votes_reached: Batas suara tercapai
-          no_votes_remaining: Tidak ada suara yang tersisa
-          vote: Memilih
-          votes_blocked: Voting dinonaktifkan
-        votes_count:
-          count:
-            other: SUARA
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Setiap proposal dapat mengumpulkan lebih dari %{limit} dukungan
-          minimum_votes_per_user:
-            description: Anda harus mendistribusikan minimal %{votes} suara di antara proposal yang berbeda.
-            supports_remaining: Anda harus memilih %{remaining_votes} proposal lagi agar suara Anda dipertimbangkan.
           proposal_limit:
             description: Anda dapat membuat hingga %{limit} proposal.
-          title: 'Voting tunduk pada aturan berikut:'
-          vote_limit:
-            description: Anda dapat memilih hingga %{limit} proposal.
-            votes: Suara
         wizard_aside:
           back: Kembali
         wizard_steps:
           step_1: Buat proposal Anda
-          step_2: Membandingkan
-          step_3: Lengkap
-          step_4: Publikasikan proposal Anda
       publish:
         error: Sudah ada kesalahan saat memublikasikan proposal.
         success: Proposal berhasil diterbitkan.

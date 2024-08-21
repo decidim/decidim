@@ -17,18 +17,6 @@ module Decidim
       true
     end
 
-    # Public Setting that defines the similarity minimum value to consider two
-    # initiatives similar. Defaults to 0.25.
-    config_accessor :similarity_threshold do
-      0.25
-    end
-
-    # Public Setting that defines how many similar initiatives will be shown.
-    # Defaults to 5.
-    config_accessor :similarity_limit do
-      5
-    end
-
     # Minimum number of committee members required to pass the initiative to
     # technical validation phase. Only applies to initiatives created by
     # individuals.

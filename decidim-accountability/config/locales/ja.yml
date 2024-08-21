@@ -12,6 +12,7 @@ ja:
         project_ids: 含まれるプロジェクト
         proposals: 含まれる提案
         start_date: 開始日
+        subresults: 結果（サブ）
         title: タイトル
         updated_at: 更新日時
       status:
@@ -229,15 +230,7 @@ ja:
           search: アクションを検索
         show:
           stats:
-            attendees: 参加者
             back_to_resource: 結果に戻る
-            comments: コメント
-            contributions: 貢献
-            last_edited_by: '最終編集者:'
-            last_updated_at: 最終更新日時
-            meetings: ミーティング
-            proposals: 提案
-            votes: サポート
         timeline:
           title: プロジェクトの進化
     admin:
@@ -256,16 +249,12 @@ ja:
         name: アカウンタビリティ
         settings:
           global:
-            categories_label: '「カテゴリ」の名前'
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             display_progress_enabled: 進行状況を表示
-            heading_leaf_level_results: プロジェクトの名前
-            heading_parent_level_results: 検索結果の名前
             intro: はじめに
             scope_id: スコープ
             scopes_enabled: スコープが有効
-            subcategories_label: サブカテゴリの名前
           step:
             comments_blocked: コメントをブロック
     events:

@@ -33,16 +33,18 @@ module Decidim
         def unassign_proposals
           transaction do
             form.proposals.flat_map do |proposal|
-              assignment = find_assignment(proposal)
-              unassign(assignment) if assignment
+              form.valuator_roles.each do |valuator_role|
+                assignment = find_assignment(proposal, valuator_role)
+                unassign(assignment) if assignment
+              end
             end
           end
         end
 
-        def find_assignment(proposal)
+        def find_assignment(proposal, valuator_role)
           Decidim::Proposals::ValuationAssignment.find_by(
             proposal:,
-            valuator_role: form.valuator_role
+            valuator_role:
           )
         end
 

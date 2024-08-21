@@ -43,6 +43,14 @@ module Decidim
       )
     end
 
+    def mobile_breadcrumb_root_menu
+      @mobile_breadcrumb_root_menu ||= ::Decidim::BreadcrumbRootMenuPresenter.new(
+        :mobile_menu,
+        self,
+        container_options: { class: "menu-bar__main-dropdown__menu" }
+      )
+    end
+
     def footer_menu
       @footer_menu ||= ::Decidim::FooterMenuPresenter.new(
         :menu,
@@ -55,6 +63,8 @@ module Decidim
     end
 
     def menu_highlighted_participatory_process
+      return if current_user.blank? && current_organization&.force_users_to_authenticate_before_access_organization
+
       @menu_highlighted_participatory_process ||= (
         # The queries already include the order by weight
         Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(current_organization) |

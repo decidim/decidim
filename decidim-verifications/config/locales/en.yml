@@ -44,7 +44,7 @@ en:
           destroy:
             confirm: Revoke before date authorizations cannot be undone. Are you sure you want to continue?
             confirm_all: Revoke all the authorizations cannot be undone. Are you sure you want to continue?
-          destroy_nok: There has been a problem while revoking authorizations.
+          destroy_nok: There was a problem while revoking authorizations.
           destroy_ok: All matched authorizations have been revocated successfully.
           info: There are a total of %{count} verified participants.
           no_data: No verified participants.
@@ -57,10 +57,24 @@ en:
         grant_id_documents_offline_verification: "%{user_name} verified %{resource_name} using an offline Identity Documents authorization"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+          - An example authorization handler so developers can understand how a simple verification works.
+          - It is aimed for developers so they can understand how to implement their own verification system.
+          - Get verified by introducing a passport number starting with "A".
         csv_census:
           help:
           - Admins upload a CSV with the emails of the accepted participants.
           - Only participants with an email in that CSV file can get verified.
+        default:
+          help:
+          - The authorization handler help is not defined.
+          - A developer needs to define the help in the translation (i18n) key "%{authorization_handler}"
+        dummy_authorization_handler:
+          help:
+          - An example authorization handler so developers can understand how a simple verification works.
+          - It is aimed for developers so they can understand how to implement their own verification system.
+          - Get verified by introducing a document number ending with "X".
         id_documents:
           help:
           - Users fill in their identity information and upload a copy of their document.
@@ -73,6 +87,11 @@ en:
           - You send the letter to their address with the verification code.
           - You mark the letter as sent.
           - Once you mark the letter as sent, the participant will be able to introduce the code and get verified.
+        sms:
+          help:
+          - Participants request a verification code to be sent to their phone.
+          - They need to introduce the code to get verified.
+          - If they do not receive the code, they can request it again.
       csv_census:
         explanation: Get verified using the organization's census.
         name: Organization's census
@@ -139,7 +158,7 @@ en:
         admin:
           census:
             create:
-              error: There was an error importing census.
+              error: There was a problem importing census.
               success: Successfully imported %{count} items (%{errors} errors).
             destroy_all:
               success: All census data have been deleted.

@@ -12,10 +12,12 @@ module Decidim
       translatable_attribute :description, String
       attribute :weight, Integer, default: 0
       attribute :attachment_collection_id, Integer
+      attribute :link, String
 
       mimic :attachment
 
-      validates :file, presence: true, unless: :persisted?
+      validates :file, presence: true, unless: :persisted_or_link?
+      validates :link, url: true
       validates :file, passthru: { to: Decidim::Attachment }
       validates :title, :description, translatable_presence: true
       validates :attachment_collection, presence: true, if: ->(form) { form.attachment_collection_id.present? }
@@ -24,6 +26,10 @@ module Decidim
       delegate :attached_to, to: :context, prefix: false
 
       alias organization current_organization
+
+      def persisted_or_link?
+        persisted? || link.present?
+      end
 
       def attachment_collections
         @attachment_collections ||= attached_to.attachment_collections

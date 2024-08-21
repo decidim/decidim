@@ -363,7 +363,6 @@ ro:
       close_meeting_reminder_mailer:
         close_meeting_reminder:
           hello: Salut %{username},
-          subject: Acum poți închide întâlnirea cu un raport pe platforma %{organization_name}
       conference_venues: Locuri ale conferinței
       content_blocks:
         upcoming_meetings:
@@ -379,16 +378,13 @@ ro:
       iframe_embed_type:
         embed_in_meeting_page: Incorporează în pagina de şedinţe
         none: Niciunul
-        open_in_live_event_page: Deschide în pagina de evenimente live (cu sondaje opționale)
         open_in_new_tab: Deschideți în filă nouă
       last_activity:
         meeting_updated: 'Ședință actualizată:'
         new_meeting: 'Ședință nouă:'
       layouts:
         live_event:
-          administrate: Administrează
           close: închide
-          questions: Întrebări
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -517,12 +513,9 @@ ro:
             title: Titlu
       polls:
         questions:
-          closed_question:
-            question_results: Rezultatele întrebării
           index:
             empty_questions: Pe parcursul acestei întâlniri, vor fi trimise câteva întrebări și vei putea răspunde la acestea. Acestea vor fi afișate aici.
           index_admin:
-            admin_dashboard: Panou de administrare
             edit: Editează în panoul de administrare
             question: Întrebare
             received_answer: răspuns primit

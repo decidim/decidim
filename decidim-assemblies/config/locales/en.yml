@@ -51,7 +51,6 @@ en:
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
-        show_statistics: Show statistics
         slug: URL slug
         special_features: Special features
         subtitle: Subtitle
@@ -210,7 +209,7 @@ en:
           info: About this assembly
           landing_page: Landing page
           moderations: Moderations
-          private_users: Private users
+          private_users: Private participants
           see_assembly: See assembly
         assemblies_types: Assemblies types
       models:
@@ -397,11 +396,7 @@ en:
       show:
         assembly_type: Assembly type
         duration: Duration
-        is_transparent:
-          'false': opaque
-          'true': transparent
         private_space: This is a private assembly
-        related_participatory_processes: Related participatory processes
         social_networks_title: Visit assembly on
     assembly_members:
       assembly_member:

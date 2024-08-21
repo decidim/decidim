@@ -5,6 +5,7 @@ module Decidim
     # A cell to display a single comment.
     class CommentCell < Decidim::ViewModel
       include Decidim::ResourceHelper
+      include Decidim::UserRoleChecker
       include Cell::ViewModel::Partial
 
       delegate :current_user, :user_signed_in?, to: :controller
@@ -37,6 +38,24 @@ module Decidim
 
       private
 
+      def parent_element_id
+        return unless reply?
+
+        "comment_#{model.decidim_commentable_id}"
+      end
+
+      def comment_label
+        if reply?
+          t("decidim.components.comment.comment_label_reply", comment_id: model.id, parent_comment_id: model.decidim_commentable_id)
+        else
+          t("decidim.components.comment.comment_label", comment_id: model.id)
+        end
+      end
+
+      def reply?
+        model.decidim_commentable_type == model.class.name
+      end
+
       def cache_hash
         return @hash if defined?(@hash)
 
@@ -49,6 +68,7 @@ module Decidim
         hash.push(model.down_votes_count)
         hash.push(model.cache_key_with_version)
         hash.push(model.author.cache_key_with_version)
+        hash.push(extra_actions.to_s)
         @hash = hash.join(Decidim.cache_key_separator)
       end
 
@@ -68,6 +88,27 @@ module Decidim
         options[:order] || "older"
       end
 
+      def extra_actions
+        return @extra_actions if defined?(@extra_actions) && @extra_actions.present?
+
+        @extra_actions = model.extra_actions_for(current_user)
+        return unless @extra_actions
+
+        @extra_actions.map! do |action|
+          [
+            "#{icon(action[:icon]) if action[:icon].present?}#{action[:label]}",
+            action[:url],
+            {
+              class: "dropdown__item"
+            }
+          ].tap do |link|
+            link[2][:method] = action[:method] if action[:method].present?
+            link[2][:remote] = action[:remote] if action[:remote].present?
+            link[2][:data] = action[:data] if action[:data].present?
+          end
+        end
+      end
+
       def reply_id
         "comment#{model.id}-reply"
       end
@@ -77,6 +118,8 @@ module Decidim
       end
 
       def can_reply?
+        return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
+
         user_signed_in? && accepts_new_comments? &&
           root_commentable.user_allowed_to_comment?(current_user)
       end
@@ -187,6 +230,10 @@ module Decidim
       # action_authorization_button expects current_component to be available
       def current_component
         root_commentable.try(:component)
+      end
+
+      def current_participatory_space
+        current_component&.participatory_space
       end
 
       def vote_button_to(path, params, &)

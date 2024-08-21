@@ -163,10 +163,10 @@ FactoryBot.define do
       end
     end
 
-    trait :with_can_accumulate_supports_beyond_threshold do
+    trait :with_can_accumulate_votes_beyond_threshold do
       settings do
         {
-          can_accumulate_supports_beyond_threshold: true
+          can_accumulate_votes_beyond_threshold: true
         }
       end
     end
@@ -267,6 +267,7 @@ FactoryBot.define do
     end
     token { :not_answered }
     title { generate_state_title(:not_answered, skip_injection:) }
+    announcement_title { generate_localized_title(:announcement_title, skip_injection:) }
     component { build(:proposal_component) }
     bg_color { Faker::Color.hex_color(:light) }
     text_color { Faker::Color.hex_color(:dark) }
@@ -466,6 +467,12 @@ FactoryBot.define do
         proposal.attachments << create(:attachment, :with_pdf, attached_to: proposal, skip_injection: evaluator.skip_injection)
       end
     end
+
+    trait :moderated do
+      after(:create) do |proposal, evaluator|
+        create(:moderation, reportable: proposal, hidden_at: 2.days.ago, skip_injection: evaluator.skip_injection)
+      end
+    end
   end
 
   factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do
@@ -490,7 +497,13 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    body { Faker::Lorem.sentences(number: 3).join("\n") }
+    body do
+      if skip_injection
+        generate(:title)
+      else
+        "<script>alert(\"proposal_note_body\");</script> #{generate(:title)}"
+      end
+    end
     proposal { build(:proposal, skip_injection:) }
     author { build(:user, organization: proposal.organization, skip_injection:) }
   end
@@ -559,7 +572,7 @@ FactoryBot.define do
     valuator_role do
       space = proposal.component.participatory_space
       organization = space.organization
-      build :participatory_process_user_role, role: :valuator, skip_injection:, user: build(:user, organization:, skip_injection:)
+      build(:participatory_process_user_role, role: :valuator, skip_injection:, user: build(:user, organization:, skip_injection:))
     end
   end
 end

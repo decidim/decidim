@@ -108,7 +108,7 @@ describe "Explore meetings", :slow do
         end
 
         it "shows all the withdrawn meetings" do
-          expect(page).to have_css("span", text: "Withdrawn", count: 3)
+          expect(page).to have_css(".card__list-metadata div", text: "Withdrawn", count: 3)
           within ".flash.info", match: :first do
             expect(page).to have_content("You are viewing the list of meetings withdrawn by their authors.")
           end
@@ -141,7 +141,7 @@ describe "Explore meetings", :slow do
         visit_component
 
         within("#meetings__meeting_#{meeting.id}") do
-          expect(page).to have_css("span", text: 2)
+          expect(page).to have_css("[data-comments-count]", text: 2)
         end
       end
     end
@@ -425,7 +425,7 @@ describe "Explore meetings", :slow do
     end
   end
 
-  describe "show", :serves_map do
+  describe "show" do
     let(:meetings_count) { 1 }
     let(:meeting) { meetings.first }
     let(:date) { 10.days.from_now }
@@ -446,12 +446,27 @@ describe "Explore meetings", :slow do
       expect(page).to have_i18n_content(meeting.location_hints, strip_tags: true)
       expect(page).to have_content(meeting.address)
       expect(page).to have_content(meeting.reference)
+      expect(page).to have_content(I18n.l(meeting.start_time, format: "%H:%M"))
+      expect(page).to have_content(I18n.l(meeting.end_time, format: "%H:%M"))
+      expect(page).to have_content("UTC")
 
       within ".meeting__calendar-day" do
         expect(page).to have_content(date.day)
       end
-      within ".meeting__calendar-time" do
-        expect(page).to have_content(/00:00\s-\s23:59/)
+      within ".meeting__calendar-year" do
+        expect(page).to have_content(/20\d\d/)
+      end
+    end
+
+    context "when the organization has a different timezone" do
+      before do
+        organization.update!(time_zone: "Hawaii")
+
+        visit resource_locator(meeting).path
+      end
+
+      it "shows the correct time zone" do
+        expect(page).to have_content("HST")
       end
     end
 

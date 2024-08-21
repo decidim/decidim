@@ -130,8 +130,6 @@ ru:
       amendable:
         button: Изменить %{model_name}
         promote_button: Повысить до %{model_name}
-      compare_draft:
-        continue: Продолжить
       edit_draft:
         send: Предпросмотр
       emendation:
@@ -252,15 +250,13 @@ ru:
         new:
           complete_profile: Заполните профиль
           sign_up: Пожалуйста, заполните свой профиль
-          subtitle: Пожалуйста, заполните следующую форму, чтобы завершить регистрацию
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
       registrations:
         new:
           already_have_an_account?: У вас уже есть учетная запись?
+          log_in: Войти
           newsletter: Получать время от времени рассылку со свежими новостями
           newsletter_title: Разрешение на связь с вами
-          sign_up: Зарегистрироваться
-          subtitle: Зарегистрируйтесь, чтобы участвовать в обсуждениях и поддерживать предложения.
           tos_agreement: Регистрируясь, вы принимаете %{link}.
           tos_title: Условия участия
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
@@ -437,6 +433,10 @@ ru:
           intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы посмотреть их:"
           subject: У вас есть новые сообщения от %{sender}
       conversations:
+        index:
+          title: Беседы
+        show:
+          title: Беседа с %{usernames}
         start:
           send: Отправить
     newsletter_mailer:
@@ -490,6 +490,7 @@ ru:
       deleted: Удаленный участник
     profiles:
       show:
+        conversations: Беседы
         followers: Читают
         following: Следит за
       sidebar:
@@ -543,8 +544,6 @@ ru:
         title: Пожаловаться на проблему
       floating_help:
         help: Справка
-      login_modal:
-        sign_up: Зарегистрироваться
       reference:
         reference: 'Ссылка: %{reference}'
       results_per_page:
@@ -619,16 +618,17 @@ ru:
       edit:
         new_password: Пароль
     registrations:
-      new:
-        sign_up: Зарегистрироваться
       signed_up: Добро пожаловать! Вы успешно зарегистрировались.
       signed_up_but_inactive: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что учетная запись еще не активирована.
       signed_up_but_locked: Вы успешно зарегистрировались. Однако вы не можете войти в систему, потому что ваша учетная запись заблокирована.
+    sessions:
+      new:
+        log_in: Войти
     shared:
       links:
         back: Назад
         forgot_your_password: Забыли пароль?
-        sign_up: Зарегистрироваться
+        log_in: Войти
     unlocks:
       new:
         resend_unlock_instructions: Повторно отправить инструкции по разблокировке
@@ -651,8 +651,10 @@ ru:
       edit_link:
         edit: Редактировать
       footer:
+        log_in: Войти
         made_with_open_source: Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.
-        sign_up: Зарегистрироваться
+      header:
+        log_in: Войти
       impersonation_warning:
         close_session: Закрыть сеанс
         description_html: Вы выступаете в роли участника <b>%{user_name}</b>.

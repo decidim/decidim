@@ -56,10 +56,24 @@ fi:
         grant_id_documents_offline_verification: "%{user_name} tunnisti käyttäjän %{resource_name} henkilöllisyystodistuksen tarkastuksella"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+            - Esimerkkikäsittelijä vahvistuksille, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
+            - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
+            - Vahvista itsesi syöttämällä A-kirjaimella alkava passin numero.
         csv_census:
           help:
             - Hallintakäyttäjät lisäävät hyväksyttyjen osallistujien sähköpostiosoitteet CSV-tiedostosta.
             - Ainoastaan osallistujat, joiden sähköpostiosoite on CSV-tiedostossa, voivat vahvistaa tilinsä.
+        default:
+          help:
+            - Vahvistuksien käsittelijän ohjetekstiä ei ole määritetty.
+            - Kehittäjän on määritettävä ohjeteksti käännösavaimelle "%{authorization_handler}"
+        dummy_authorization_handler:
+          help:
+            - Esimerkkikäsittelijä vahvistuksille, jonka avulla kehittäjät ymmärtävät paremmin, kuinka käyttäjätilien vahvistaminen toimii.
+            - Se on tarkoitettu kehittäjille, jotta he voivat ymmärtää, miten omia käyttäjätilien vahvistamistoimintoja voi toteuttaa järjestelmään.
+            - Vahvista itsesi syöttämällä X-kirjaimella alkava asiakirjan numero.
         id_documents:
           help:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
@@ -68,10 +82,15 @@ fi:
             - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin henkilö voi korjata sitä.
         postal_letter:
           help:
-            - Käyttäjät pyytävät lähettämään vahvistuskoodin heidän postiosoitteeseensa.
+            - Osallistujat pyytävät lähettämään vahvistuskoodin heidän postiosoitteeseensa.
             - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
             - Sinä merkitset kirjeen lähetetyksi.
             - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi syöttää koodin ja vahvistaa tilinsä.
+        sms:
+          help:
+            - Osallistujat pyytävät vahvistuskoodin lähettämistä heidän puhelimeensa.
+            - Heidän on syötettävä koodi vahvistaakseen tilinsä.
+            - Jos he eivät saa koodia, he voivat pyytää sitä uudelleen.
       csv_census:
         explanation: Varmenna käyttäjätilisi organisaation henkilötietorekisterin avulla.
         name: Organisaation rekisteritiedot
@@ -88,8 +107,10 @@ fi:
     events:
       verifications:
         verify_with_managed_user:
+          email_intro: Osallistuja <a href="%{resource_url}">%{resource_title}</a> yritti tunnistautua toisen osallistujan (<a href="%{managed_user_url}">%{managed_user_name}</a>) tiedoilla.
           email_outro: Tarkasta <a href="%{conflicts_url}">tunnistautumisten konfliktilista</a> ja ota yhteyttä osallistujaan tarkastaaksesi hänen tietonsa ja ratkaistaksesi ongelman.
           email_subject: Tunnistautumisyritys epäonnistui toisen osallistujan tietojen käytön takia
+          notification_title: Osallistuja <a href="%{resource_path}">%{resource_title}</a> yritti tunnistautua toisen osallistujan (<a href="%{managed_user_path}">%{managed_user_name}</a>) tiedoilla.
     verifications:
       authorizations:
         authorization_metadata:
@@ -265,6 +286,8 @@ fi:
           create:
             error: Pyyntösi epäonnistui.
             success: Kiitos! Olemme lähettäneet tekstiviestin puhelimeesi.
+          destroy:
+            success: Varmennuskoodin nollaaminen onnistui. Anna puhelinnumerosi uudelleen.
           edit:
             confirm_destroy: Haluatko varmasti luoda uuden vahvistuskoodin?
             destroy: Luo uusi vahvistuskoodi

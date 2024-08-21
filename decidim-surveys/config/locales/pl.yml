@@ -71,6 +71,7 @@ pl:
       survey_confirmation_mailer:
         confirmation:
           body: Pomyślnie udzielono odpowiedzi na ankietę %{questionnaire_title} w ramach %{participatory_space}
+          subject: Kwestionariusz %{questionnaire_title} odpowiadający na potwierdzenie
         export_name: Odpowiedzi udzielone w ankiecie
       surveys:
         answer:

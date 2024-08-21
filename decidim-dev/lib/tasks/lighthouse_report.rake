@@ -42,9 +42,9 @@ namespace :decidim do
 
     def lighthouse_paths
       ["/"].tap do |urls|
-        urls << Decidim::ResourceLocatorPresenter.new(Decidim::ParticipatoryProcess.published.first).path
-        urls << Decidim::ResourceLocatorPresenter.new(Decidim::Meetings::Meeting.published.first).path
-        urls << Decidim::ResourceLocatorPresenter.new(Decidim::Proposals::Proposal.published.first).path
+        urls << Decidim::ResourceLocatorPresenter.new(Decidim::ParticipatoryProcess.published.first).path if Decidim.module_installed?(:participatory_processes)
+        urls << Decidim::ResourceLocatorPresenter.new(Decidim::Meetings::Meeting.published.not_hidden.first).path if Decidim.module_installed?(:meetings)
+        urls << Decidim::ResourceLocatorPresenter.new(Decidim::Proposals::Proposal.published.not_hidden.first).path if Decidim.module_installed?(:proposals)
       end
     end
   end

@@ -1,4 +1,21 @@
 sk:
+  activemodel:
+    attributes:
+      oauth_application:
+        organization_logo: Logo organizácie (štvorec)
+        organization_url: Odkaz na stránku organizácie 
+        redirect_uri: Presmerovať URI
+      organization:
+        address: SMTP hostname
+        password: Heslo
+        port: Port
+        user_name: Používateľské meno
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Presmerovacie URI musí byť SSL URI
   decidim:
     system:
       actions:
@@ -75,7 +92,6 @@ sk:
           success: Organizácia úspešne aktualizovaná.
         users_registration_mode:
           disabled: Môžete pristupovať iba pomocou externého účtu
-          enabled: Umožniť účastníkom registráciu a prihlásenie sa
       shared:
         notices:
           no_organization_warning_html: Musíte vytvoriť organizáciu, aby ste mohli začať. Prečítajte si %{guide}, než začnete.

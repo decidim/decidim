@@ -87,7 +87,6 @@ hu:
               accepted: Elég aláírások
               created: Létrehozva
               discarded: Elvetve
-              published: Közzétéve
               rejected: Nincsen elég aláírás
               validating: Technikai érvényesítés
           type_id_eq:
@@ -100,7 +99,6 @@ hu:
       menu:
         attachments: Csatolmányok
         committee_members: Bizottsági tagok
-        components: Elemek
         information: Információ
         initiatives: Kezdeményezések
         initiatives_settings: Beállítások
@@ -282,7 +280,6 @@ hu:
         initiatives_types:
           create:
             error: Hiba történt.
-            success: Az új kezdeményezéstípus létrehozása sikeres.
           destroy:
             success: A kezdeményezéstípus eltávolítása sikeres.
           edit:
@@ -314,7 +311,6 @@ hu:
         accepted: Elegendő aláírás
         created: Létrehozva
         discarded: Elvetve
-        published: Közzétéve
         rejected: Nincs elegendő aláírás
         validating: Technikai érvényesítés
       application_helper:
@@ -436,6 +432,7 @@ hu:
             other: és még %{count} ember
         committee_members:
           approve: Jóváhagy
+          revoke: Visszavonás
           title: Bizottsági tagok
         count:
           title:
@@ -499,7 +496,6 @@ hu:
           other: " aláírások"
         vote_cabin:
           already_voted: Már aláírtad
-          supports_required: "%{total_supports} aláírás szükséges"
           verification_required: Ellenőrizze fiókját, hogy aláírja a kezdeményezést
           vote: Aláírás
           votes_blocked: Aláírás letiltva
@@ -528,7 +524,6 @@ hu:
           accepted: Elegendő aláírás
           created: Létrehozva
           discarded: Elvetve
-          published: Közzétéve
           rejected: Nincs elegendő aláírás
           validating: Technikai érvényesítés
       states:

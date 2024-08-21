@@ -43,9 +43,9 @@ describe "Proposals" do
 
       it "has helper character counter" do
         within "form.new_proposal" do
-          editor = find(".editor")
-          page.scroll_to(editor)
-          expect(editor.sibling("[id^=characters_]:not([id$=_sr])")).to have_content("At least 15 characters", count: 1)
+          within ".editor .input-character-counter__text" do
+            expect(page).to have_content("At least 15 characters", count: 1)
+          end
         end
       end
 
@@ -72,6 +72,44 @@ describe "Proposals" do
           expect(find_by_id("proposal_body").value).not_to include("<strong>")
           expect(find_by_id("proposal_body").value).not_to include("</strong>")
           expect(find_by_id("proposal_body").value).to have_content("This test has many characters")
+        end
+      end
+    end
+
+    describe "validating the form" do
+      before do
+        click_on "New proposal"
+      end
+
+      context "when focus shifts to body" do
+        it "displays error when title is empty" do
+          fill_in :proposal_title, with: " "
+          find_by_id("proposal_body").click
+
+          expect(page).to have_css(".form-error.is-visible", text: "There is an error in this field.")
+        end
+
+        it "displays error when title is invalid" do
+          fill_in :proposal_title, with: "invalid-title"
+          find_by_id("proposal_body").click
+
+          expect(page).to have_css(".form-error.is-visible", text: "There is an error in this field")
+        end
+      end
+
+      context "when focus remains on title" do
+        it "does not display error when title is empty" do
+          fill_in :proposal_title, with: " "
+          find_by_id("proposal_title").click
+
+          expect(page).to have_no_css(".form-error.is-visible", text: "There is an error in this field.")
+        end
+
+        it "does not display error when title is invalid" do
+          fill_in :proposal_title, with: "invalid-title"
+          find_by_id("proposal_title").click
+
+          expect(page).to have_no_css(".form-error.is-visible", text: "There is an error in this field")
         end
       end
     end

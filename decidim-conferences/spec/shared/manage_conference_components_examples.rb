@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "manage conference components" do
+  let!(:attributes) { attributes_for(:component, participatory_space: conference) }
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -20,9 +22,7 @@ shared_examples "manage conference components" do
         fill_in_i18n(
           :component_name,
           "#component-name-tabs",
-          en: "My component",
-          ca: "La meva funcionalitat",
-          es: "Mi funcionalitat"
+          **attributes[:name].except("machine_translations")
         )
 
         within ".global-settings" do
@@ -49,12 +49,17 @@ shared_examples "manage conference components" do
 
     it "is successfully created" do
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_content("My component")
+      expect(page).to have_content(translated(attributes[:name]))
+    end
+
+    it "has a successful admin log" do
+      visit decidim_admin.root_path
+      expect(page).to have_content("created #{translated(attributes[:name])} in #{translated(conference.title)}")
     end
 
     context "and then edit it" do
       before do
-        within "tr", text: "My component" do
+        within "tr", text: translated(attributes[:name]) do
           click_on "Configure"
         end
       end
@@ -103,9 +108,7 @@ shared_examples "manage conference components" do
         fill_in_i18n(
           :component_name,
           "#component-name-tabs",
-          en: "My updated component",
-          ca: "La meva funcionalitat actualitzada",
-          es: "Mi funcionalidad actualizada"
+          **attributes[:name].except("machine_translations")
         )
 
         within ".global-settings" do
@@ -120,9 +123,9 @@ shared_examples "manage conference components" do
       end
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_content("My updated component")
+      expect(page).to have_content(translated(attributes[:name]))
 
-      within "tr", text: "My updated component" do
+      within "tr", text: translated(attributes[:name]) do
         click_on "Configure"
       end
 
@@ -133,6 +136,9 @@ shared_examples "manage conference components" do
       within ".default-step-settings" do
         expect(all("input[type=checkbox]").first).to be_checked
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated #{translated(attributes[:name])} in #{translated(conference.title)}")
     end
   end
 
@@ -192,7 +198,16 @@ shared_examples "manage conference components" do
           click_on "Publish"
         end
 
-        expect(enqueued_jobs.last[:args]).to include("decidim.events.components.component_published")
+        expect(Decidim::EventPublisherJob).to(have_been_enqueued.with(
+                                                "decidim.events.components.component_published", {
+                                                  resource: component,
+                                                  event_class: "Decidim::ComponentPublishedEvent",
+                                                  affected_users: [],
+                                                  followers: [follower],
+                                                  force_send: false,
+                                                  extra: {}
+                                                }
+                                              ))
       end
 
       it_behaves_like "manage component share tokens"

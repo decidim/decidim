@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "uri"
+
 shared_context "when generating a new application" do
   let(:env) do |example|
     #
@@ -219,8 +221,6 @@ shared_context "with application env vars" do
       "API_SCHEMA_MAX_PER_PAGE" => "31",
       "API_SCHEMA_MAX_COMPLEXITY" => "3001",
       "API_SCHEMA_MAX_DEPTH" => "11",
-      "PROPOSALS_SIMILARITY_THRESHOLD" => "0.99",
-      "PROPOSALS_SIMILARITY_LIMIT" => "3",
       "PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT" => "6",
       "PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT" => "5",
       "MEETINGS_UPCOMING_MEETING_NOTIFICATION" => "3",
@@ -333,8 +333,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim api schema_max_per_page) => 50,
       %w(decidim api schema_max_complexity) => 5000,
       %w(decidim api schema_max_depth) => 15,
-      %w(decidim proposals similarity_threshold) => 0.25,
-      %w(decidim proposals similarity_limit) => 10,
       %w(decidim proposals participatory_space_highlighted_proposals_limit) => 4,
       %w(decidim proposals process_group_highlighted_proposals_limit) => 3,
       %w(decidim meetings upcoming_meeting_notification) => 2,
@@ -343,8 +341,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim budgets enable_proposal_linking) => "auto",
       %w(decidim accountability enable_proposal_linking) => "auto",
       %w(decidim initiatives creation_enabled) => "auto",
-      %w(decidim initiatives similarity_threshold) => 0.25,
-      %w(decidim initiatives similarity_limit) => 5,
       %w(decidim initiatives minimum_committee_members) => 2,
       %w(decidim initiatives default_signature_time_period_length) => 120,
       %w(decidim initiatives default_components) => %w(pages meetings),
@@ -431,8 +427,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim api schema_max_per_page) => 31,
       %w(decidim api schema_max_complexity) => 3001,
       %w(decidim api schema_max_depth) => 11,
-      %w(decidim proposals similarity_threshold) => 0.99,
-      %w(decidim proposals similarity_limit) => 3,
       %w(decidim proposals participatory_space_highlighted_proposals_limit) => 6,
       %w(decidim proposals process_group_highlighted_proposals_limit) => 5,
       %w(decidim meetings upcoming_meeting_notification) => 3,
@@ -441,8 +435,6 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim budgets enable_proposal_linking) => false,
       %w(decidim accountability enable_proposal_linking) => false,
       %w(decidim initiatives creation_enabled) => false,
-      %w(decidim initiatives similarity_threshold) => 0.99,
-      %w(decidim initiatives similarity_limit) => 10,
       %w(decidim initiatives minimum_committee_members) => 3,
       %w(decidim initiatives default_signature_time_period_length) => 133,
       %w(decidim initiatives default_components) => %w(pages proposals budgets),
@@ -613,8 +605,6 @@ shared_examples_for "an application with configurable env vars" do
 
   let(:proposals_initializer_off) do
     {
-      "similarity_threshold" => 0.25,
-      "similarity_limit" => 10,
       "participatory_space_highlighted_proposals_limit" => 4,
       "process_group_highlighted_proposals_limit" => 3
     }
@@ -622,8 +612,6 @@ shared_examples_for "an application with configurable env vars" do
 
   let(:proposals_initializer_on) do
     {
-      "similarity_threshold" => 0.99,
-      "similarity_limit" => 3,
       "participatory_space_highlighted_proposals_limit" => 6,
       "process_group_highlighted_proposals_limit" => 5
     }
@@ -836,8 +824,6 @@ shared_examples_for "an application with extra configurable env vars" do
   let(:initiatives_initializer_off) do
     {
       "creation_enabled" => true,
-      "similarity_threshold" => 0.25,
-      "similarity_limit" => 5,
       "minimum_committee_members" => 2,
       "default_signature_time_period_length" => 120,
       "default_components" => %w(pages meetings),
@@ -853,8 +839,6 @@ shared_examples_for "an application with extra configurable env vars" do
   let(:initiatives_initializer_on) do
     {
       "creation_enabled" => false,
-      "similarity_threshold" => 0.99,
-      "similarity_limit" => 10,
       "minimum_committee_members" => 3,
       "default_signature_time_period_length" => 133,
       "default_components" => %w(pages proposals budgets),

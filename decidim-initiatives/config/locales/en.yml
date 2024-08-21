@@ -80,7 +80,6 @@ en:
   decidim:
     admin:
       actions:
-        manage: Manage
         new_initiative_type: New initiative type
         new_initiative_type_scope: New initiative type scope
       filters:
@@ -93,7 +92,7 @@ en:
               accepted: Enough signatures
               created: Created
               discarded: Discarded
-              published: Published
+              open: Open
               rejected: Not enough signatures
               validating: Technical validation
           type_id_eq:
@@ -102,12 +101,11 @@ en:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Search %{collection} by title, description, ID or author name.
       initiatives_settings:
         update:
-          error: An error has occurred.
+          error: There was a problem updating the initiatives settings.
           success: The initiatives settings have been successfully updated.
       menu:
         attachments: Attachments
         committee_members: Committee members
-        components: Components
         information: Information
         initiative_type_scopes: Initiative type scopes
         initiatives: Initiatives
@@ -239,6 +237,10 @@ en:
               most_recent: Most recent
         exports:
           initiatives: Initiatives
+        index:
+          initiatives_types:
+            alert_html: "<p>You must create at least one initiative type so participants can start creating initiatives.</p><p> %{link}</p>"
+            button: New initiative type
         initiatives:
           edit:
             accept: Accept initiative
@@ -264,7 +266,7 @@ en:
             new: New
             photos: Photos
           update:
-            error: An error has occurred.
+            error: There was a problem updating the initiative.
             success: The initiative has been successfully updated.
         initiatives_settings:
           edit:
@@ -278,7 +280,7 @@ en:
             title: Settings for initiatives
         initiatives_type_scopes:
           create:
-            error: An error has occurred.
+            error: There was a problem creating a new scope for the given initiative.
             success: A new scope for the given initiative type has been created.
           destroy:
             success: The scope has been successfully removed.
@@ -289,12 +291,12 @@ en:
             create: Create
             title: Create initiative type scope
           update:
-            error: An error has occurred.
+            error: There was a problem updating the scope.
             success: The scope has been successfully updated.
         initiatives_types:
           create:
-            error: An error has occurred.
-            success: A new initiative type has been successfully created.
+            error: There was a problem creating the initiative type.
+            success: A new initiative type has been successfully created. You need to define at least one scope for this initiative type so it can be used.
           destroy:
             success: The initiative type has been successfully removed.
           edit:
@@ -310,7 +312,7 @@ en:
             create: Create
             title: New initiative type
           update:
-            error: An error has occurred.
+            error: There was a problem updating the initiative type.
             success: The initiative type has been successfully updated.
       admin_log:
         initiative:
@@ -328,7 +330,7 @@ en:
         accepted: Enough signatures
         created: Created
         discarded: Discarded
-        published: Published
+        open: Open
         rejected: Not enough signatures
         validating: Technical validation
       application_helper:
@@ -542,7 +544,6 @@ en:
           other: " signatures"
         vote_cabin:
           already_voted: Already signed
-          supports_required: "%{total_supports} signatures required"
           verification_required: Verify your account to sign the initiative
           vote: Sign
           votes_blocked: Signing disabled
@@ -578,7 +579,7 @@ en:
           accepted: Enough signatures
           created: Created
           discarded: Discarded
-          published: Published
+          open: Open
           rejected: Not enough signatures
           validating: Technical validation
       states:
@@ -586,7 +587,7 @@ en:
         expired: Expired
       unavailable_scope: Unavailable scope
       update:
-        error: An error has occurred.
+        error: There was a problem updating the initiative.
         success: The initiative has been successfully updated.
     menu:
       initiatives: Initiatives

@@ -171,7 +171,7 @@ ca:
         back_to: Tornar a %{component_name}
         close_modal: Tancar el modal
         continue: Continuar
-        more_information: Més informació
+        more_information: Més informació sobre el pressupost
       budgets_list:
         budgets: Pressupostos
         cancel_order:
@@ -184,6 +184,11 @@ ca:
         finished_message: Has finalitzat el procés de votació. Gràcies per participar-hi!
         highlighted_cta: Votar a %{name}
         if_change_opinion: Si has canviat d'opinió, pots
+        orders:
+          highest_cost: Cost més elevat
+          label: Ordenar projectes per
+          lowest_cost: Cost més baix
+          random: Ordre aleatori
         progress: Acaba la votació
         remove_vote: Eliminar el vot
         show: Mostra els projectes
@@ -361,7 +366,7 @@ ca:
       budgets:
         budget_published:
           email_intro: 'Ja està activa la fase %{resource_title} per a %{participatory_space_title}. Pots veure-la des d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai %{participatory_space_title}. Pots deixar de rebre notificacions a través de l'enllaç anterior.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions a través de l'enllaç anterior.
           email_subject: El component %{resource_title} ja està actiu per %{participatory_space_title}.
           notification_title: El pressupost <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està actiu.
     orders:

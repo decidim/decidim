@@ -127,6 +127,50 @@ describe "Conference registrations" do
         expect(page).to have_css("button[disabled]", text: "Registration", count: 4)
       end
     end
+
+    context "and there are published registrations types" do
+      it "allows to register" do
+        visit_conference
+        within ".conference__hero" do
+          expect(page).to have_content "Register"
+        end
+        within ".conference__content-block" do
+          expect(page).to have_content "Register"
+          click_on "Register"
+        end
+        expect(page).to have_content "CHOOSE YOUR REGISTRATION OPTION:"
+      end
+    end
+
+    context "and there are unpublished registrations types" do
+      let!(:registration_types) do
+        create_list(:registration_type, 5, :unpublished, conference:)
+      end
+
+      it "does not show the register button" do
+        visit_conference
+        within ".conference__hero" do
+          expect(page).to have_no_content "Register"
+        end
+        within ".conference__content-block" do
+          expect(page).to have_no_content "Register"
+        end
+      end
+    end
+
+    context "and there are no registrations types" do
+      let(:registration_types) { [] }
+
+      it "does not show the register button" do
+        visit_conference
+        within ".conference__hero" do
+          expect(page).to have_no_content "Register"
+        end
+        within ".conference__content-block" do
+          expect(page).to have_no_content "Register"
+        end
+      end
+    end
   end
 
   context "and the user is going to the conference" do

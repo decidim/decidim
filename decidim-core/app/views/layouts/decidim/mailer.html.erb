@@ -83,9 +83,9 @@
                       <th class="small-12 first columns cityhall-bar">
                         <div class="decidim-logo" style="float: right; text-align: right; padding-right: 16px">
                           <% if @custom_url_for_mail_root.present? %>
-                            <%= link_to @organization.name.html_safe, @custom_url_for_mail_root %>
+                            <%= link_to organization_name(@organization).html_safe, @custom_url_for_mail_root %>
                           <% else %>
-                            <%= link_to @organization.name.html_safe, decidim.root_url(host: @organization.host) %>
+                            <%= link_to organization_name(@organization).html_safe, decidim.root_url(host: @organization.host) %>
                           <% end %>
                         </div>
                       </th>

@@ -126,15 +126,7 @@ zh-CN:
           search: 搜索操作
         show:
           stats:
-            attendees: 参与者
             back_to_resource: 返回结果
-            comments: 评论
-            contributions: 二. 捐款
-            last_edited_by: 最后编辑者
-            last_updated_at: 最后更新于
-            meetings: 会议
-            proposals: 建议
-            votes: 支持
         timeline:
           title: 项目进化
     components:
@@ -142,16 +134,12 @@ zh-CN:
         name: 问责制
         settings:
           global:
-            categories_label: '"类别"的名称'
             comments_enabled: 评论已启用
             comments_max_length: 评论最大长度 (默认值留0)
             display_progress_enabled: 显示进度
-            heading_leaf_level_results: '“项目”的名称'
-            heading_parent_level_results: '"结果"的名称'
             intro: 简介
             scope_id: 范围
             scopes_enabled: 范围已启用
-            subcategories_label: '"子类别"的名称'
           step:
             comments_blocked: 评论已阻止
     events:

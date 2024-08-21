@@ -7,7 +7,7 @@ module Decidim
       include Decidim::TranslatableResource
 
       translatable_fields :body
-      belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id"
+      belongs_to :question, class_name: "Question", foreign_key: "decidim_question_id", counter_cache: :matrix_rows_count
 
       delegate :answer_options, :mandatory, :max_choices, to: :question
 

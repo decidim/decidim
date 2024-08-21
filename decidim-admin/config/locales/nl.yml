@@ -150,6 +150,7 @@ nl:
         export: Alles exporteren
         export-selection: Selectie exporteren
         import: Importeren
+        manage: Beheer
         newsletter:
           new: Nieuwe nieuwsbrief
         participatory_space_private_user:
@@ -947,3 +948,8 @@ nl:
   errors:
     messages:
       invalid_json: Ongeldige JSON
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Algemene moderatie

@@ -1,11 +1,27 @@
-<div class="address__container">
-  <%= icon "map-pin-line" %>
-  <div class="address">
-    <div class="address__location"><%= t(model.type_of_meeting, scope: "decidim.meetings.meetings.filters.type_values") %></div>
-      <% if display_online_meeting_url? %>
-        <a href="<%= model.online_meeting_url %>" target="_blank" rel="noopener noreferrer" class="address__hints underline break-all">
-          <%= model.online_meeting_url %>
-      <% end %>
-    </a>
-  </div>
-</div>
+<ul>
+  <li class="mb-4">
+    <div class="address__container">
+      <%= icon "map-pin-line" %>
+      <div class="address">
+        <div class="address__location"><%= t(model.type_of_meeting, scope: "decidim.meetings.meetings.filters.type_values") %></div>
+        <% if display_online_meeting_url? %>
+          <a href="<%= model.online_meeting_url %>" target="_blank" rel="noopener noreferrer" class="address__hints underline break-all">
+            <%= model.online_meeting_url %>
+          <% end %>
+          </a>
+      </div>
+    </div>
+  </li>
+  <% if display_start_and_end_time? %>
+    <li>
+      <div class="address__container">
+        <%= icon "time-line" %>
+        <div class="address">
+          <div class="address__location">
+            <%= start_and_end_time %>
+          </div>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

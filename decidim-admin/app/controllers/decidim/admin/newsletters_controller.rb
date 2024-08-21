@@ -71,7 +71,7 @@ module Decidim
         @form = form(NewsletterForm).from_params(params)
         @form.images = images_block_context unless has_images_block_context?
 
-        UpdateNewsletter.call(newsletter, @form, current_user) do
+        UpdateNewsletter.call(newsletter, @form) do
           on(:ok) do |newsletter|
             flash[:notice] = I18n.t("newsletters.update.success", scope: "decidim.admin")
             redirect_to action: :show, id: newsletter.id
@@ -117,7 +117,7 @@ module Decidim
         enforce_permission_to(:update, :newsletter, newsletter:)
         @form = form(SelectiveNewsletterForm).from_params(params)
 
-        DeliverNewsletter.call(newsletter, @form, current_user) do
+        DeliverNewsletter.call(newsletter, @form) do
           on(:ok) do
             flash[:notice] = I18n.t("newsletters.deliver.success", scope: "decidim.admin")
             redirect_to action: :index

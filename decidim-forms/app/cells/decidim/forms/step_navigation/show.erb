@@ -1,6 +1,6 @@
-<div class="answer-questionnaire__submit">
+<div class="answer-questionnaire__submit layout-aside__ctas-buttons survey-section-buttons" data-sticky-buttons>
   <% if !first_step? %>
-    <button type="button" class="button button__sm button__text-secondary" data-toggle="<%= [previous_step_dom_id, current_step_dom_id].join(" ") %>">
+    <button type="button" class="button button__sm button__transparent-secondary" data-toggle="<%= [previous_step_dom_id, current_step_dom_id].join(" ") %>" data-survey-buttons>
       <%= icon "arrow-left-line", class: "fill-current" %>
       <%= t("decidim.forms.step_navigation.show.back") %>
     </button>
@@ -14,7 +14,7 @@
       **confirm_data
     ) %>
   <% else %>
-    <button type="button" class="button button__sm button__secondary" data-toggle="<%= [next_step_dom_id, current_step_dom_id].join(" ") %>">
+    <button type="button" class="button button__sm button__secondary" data-toggle="<%= [next_step_dom_id, current_step_dom_id].join(" ") %>" data-survey-buttons>
       <%= t("decidim.forms.step_navigation.show.continue") %>
       <%= icon "arrow-right-line", class: "fill-current" %>
     </button>

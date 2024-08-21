@@ -187,6 +187,7 @@ ca:
         export: Exportar tot
         export-selection: Exportar selecció
         import: Importar
+        manage: Gestionar
         newsletter:
           new: Nou butlletí
         participatory_space_private_user:
@@ -349,6 +350,8 @@ ca:
       conflicts:
         attempts: Intents
         'false': 'No'
+        index:
+          text: Cercar per correu electrònic, nom o àlies.
         managed_user_name: Usuari gestionat
         solved: Resolt
         title: Conflictes de verificació
@@ -449,6 +452,7 @@ ca:
           values:
             'false': Publicat
             'true': Despublicat
+        remove_all: Eliminar tots
         scope_id_eq:
           label: Àmbit
         search_label: Cercar
@@ -569,6 +573,7 @@ ca:
         appearance: Aparença
         area_types: Tipus d'àrees
         areas: Àrees
+        components: Components
         configuration: Configuració
         content: Contingut reportat
         external_domain_allowlist: Dominis externs permesos
@@ -865,7 +870,7 @@ ca:
           remove: Eliminar
           up: Pujar
         form:
-          add:
+          add: Afegeix a la llista de permesos
           title: Llistat de dominis externs permesos
       participatory_space_private_users:
         create:
@@ -962,6 +967,11 @@ ca:
           help: Aquests tokens s'utilitzen per a compartir públicament aquest recurs no publicat a qualsevol usuari. S'ocultaran quan es publiqui el recurs. Fes clic en la icona de compartir el token per a visitar la URL compartible.
           title: Compartir tokens
       shared:
+        adjacent_navigation:
+          next: Següent
+          next_title: Següent element
+          previous: Anterior
+          previous_title: Element anterior
         gallery:
           add_images: Afegir imatges
           edit_images: Editar imatges

@@ -149,6 +149,7 @@ gl:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
+        manage: Xestionar
         newsletter:
           new: Novo boletín
         participatory_space_private_user:
@@ -925,3 +926,8 @@ gl:
   errors:
     messages:
       invalid_json: JSON non válido
+  layouts:
+    decidim:
+      admin:
+        global_moderations:
+          title: Moderacións globais

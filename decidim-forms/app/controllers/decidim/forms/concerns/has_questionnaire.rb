@@ -30,7 +30,7 @@ module Decidim
 
             @form = form(Decidim::Forms::QuestionnaireForm).from_params(params, session_token:, ip_hash:)
 
-            Decidim::Forms::AnswerQuestionnaire.call(@form, current_user, questionnaire) do
+            Decidim::Forms::AnswerQuestionnaire.call(@form, questionnaire) do
               on(:ok) do
                 # i18n-tasks-use t("decidim.forms.questionnaires.answer.success")
                 flash[:notice] = I18n.t("answer.success", scope: i18n_flashes_scope)

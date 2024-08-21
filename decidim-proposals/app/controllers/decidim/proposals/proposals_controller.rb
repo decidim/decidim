@@ -7,6 +7,7 @@ module Decidim
       helper ProposalWizardHelper
       helper ParticipatoryTextsHelper
       helper UserGroupHelper
+      helper Decidim::Admin::IconLinkHelper
       include Decidim::ApplicationHelper
       include Flaggable
       include Withdrawable
@@ -18,18 +19,17 @@ module Decidim
 
       helper_method :proposal_presenter, :form_presenter, :tab_panel_items
 
-      before_action :authenticate_user!, only: [:new, :create, :complete]
-      before_action :ensure_is_draft, only: [:compare, :complete, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
+      before_action :authenticate_user!, only: [:new, :create]
+      before_action :ensure_is_draft, only: [:preview, :publish, :edit_draft, :update_draft, :destroy_draft]
       before_action :set_proposal, only: [:show, :edit, :update, :withdraw]
       before_action :edit_form, only: [:edit_draft, :edit]
+      before_action :set_view_mode, only: [:index]
 
       before_action :set_participatory_text
 
       # rubocop:disable Naming/VariableNumber
       STEP1 = :step_1
       STEP2 = :step_2
-      STEP3 = :step_3
-      STEP4 = :step_4
       # rubocop:enable Naming/VariableNumber
 
       def index
@@ -74,20 +74,21 @@ module Decidim
         if proposal_draft.present?
           redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
         else
-          @form = form(ProposalWizardCreateStepForm).from_params(body: translated_proposal_body_template)
+          @form = form(ProposalForm).from_params(body: translated_proposal_body_template)
         end
       end
 
       def create
         enforce_permission_to :create, :proposal
         @step = STEP1
-        @form = form(ProposalWizardCreateStepForm).from_params(proposal_creation_params)
+        @form = form(ProposalForm).from_params(proposal_creation_params)
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
 
-            redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/compare"
+            @proposal = proposal
+            redirect_to "#{Decidim::ResourceLocatorPresenter.new(proposal).path}/preview"
           end
 
           on(:invalid) do
@@ -97,37 +98,15 @@ module Decidim
         end
       end
 
-      def compare
-        enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP2
-        @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_component, @proposal)
-                               .all
-
-        if @similar_proposals.blank?
-          flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
-          redirect_to "#{Decidim::ResourceLocatorPresenter.new(@proposal).path}/complete"
-        end
-      end
-
-      def complete
-        enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP3
-
-        @form = form_proposal_model
-
-        @form.attachment = form_attachment_new
-      end
-
       def preview
         enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP4
+        @step = STEP2
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def publish
         enforce_permission_to :edit, :proposal, proposal: @proposal
-        @step = STEP4
+        @step = STEP2
         PublishProposal.call(@proposal, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
@@ -142,7 +121,7 @@ module Decidim
       end
 
       def edit_draft
-        @step = STEP3
+        @step = STEP1
         enforce_permission_to :edit, :proposal, proposal: @proposal
       end
 
@@ -209,8 +188,8 @@ module Decidim
             flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
             redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
-          on(:has_supports) do
-            flash[:alert] = I18n.t("proposals.withdraw.errors.has_supports", scope: "decidim")
+          on(:has_votes) do
+            flash[:alert] = I18n.t("proposals.withdraw.errors.has_votes", scope: "decidim")
             redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
         end
@@ -339,6 +318,15 @@ module Decidim
             args: ["decidim/linked_resources_for", @proposal, { type: :proposals, link_name: "copied_from_component" }]
           }
         ] + attachments_tab_panel_items(@proposal)
+      end
+
+      def set_view_mode
+        @view_mode ||= params[:view_mode] || session[:view_mode] || default_view_mode
+        session[:view_mode] = @view_mode
+      end
+
+      def default_view_mode
+        @default_view_mode ||= current_component.settings.attachments_allowed? ? "grid" : "list"
       end
     end
   end

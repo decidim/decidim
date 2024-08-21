@@ -21,6 +21,7 @@ module Decidim
       include Decidim::SafeRedirect
       include NeedsSnippets
       include UserBlockedChecker
+      include ActiveStorage::SetCurrent
 
       helper Decidim::TranslationsHelper
       helper Decidim::MetaTagsHelper
@@ -34,6 +35,7 @@ module Decidim
       helper Decidim::CacheHelper
       helper Decidim::SocialShareButtonHelper
       helper Decidim::SanitizeHelper
+      helper Decidim::ApplicationHelper
 
       layout "layouts/decidim/application"
 

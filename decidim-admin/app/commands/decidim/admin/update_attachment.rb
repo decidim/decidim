@@ -9,14 +9,14 @@ module Decidim
 
       attr_reader :attachment
 
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # attachment - the Attachment to update
       # form - A form object with the params.
-      def initialize(attachment, form, user)
+      def initialize(attachment, form)
         @attachment = attachment
         @form = form
-        @user = user
       end
 
       # Executes the command. Broadcasts these events:
@@ -37,20 +37,23 @@ module Decidim
       attr_reader :form
 
       def update_attachment
-        Decidim.traceability.update!(@attachment, @user, attributes)
+        Decidim.traceability.update!(@attachment, current_user, attributes)
       end
 
       def attributes
         {
           title: form.title,
           file: form.file,
+          link: form.link,
           description: form.description,
-          weight: form.weight,
-          attachment_collection: form.attachment_collection
+          weight: form.weight
         }.merge(
           attachment_attributes(:file)
-        ).reject do |attribute, value|
-          value.blank? && attribute != :attachment_collection
+        ).compact_blank.merge(
+          attachment_collection: form.attachment_collection
+        ).tap do |attrs|
+          attrs[:file] = nil if form.link.present? && form.file.blank?
+          attrs[:link] = nil if form.file.present? && form.link.blank?
         end
       end
     end

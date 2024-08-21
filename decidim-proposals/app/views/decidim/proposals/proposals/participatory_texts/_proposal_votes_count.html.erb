@@ -17,7 +17,7 @@
         <%= proposal.proposal_votes_count || 0 %>
       </button>
     <% else %>
-      <% if proposal.maximum_votes_reached? && !proposal.can_accumulate_supports_beyond_threshold && current_component.participatory_space.can_participate?(current_user) %>
+      <% if proposal.maximum_votes_reached? && !proposal.can_accumulate_votes_beyond_threshold && current_component.participatory_space.can_participate?(current_user) %>
         <button type="button" name="button" class="column button button--sc disabled" disabled id="proposal-<%= proposal.id %>-votes-count">
           <%= proposal.proposal_votes_count || 0 %>
         </button>

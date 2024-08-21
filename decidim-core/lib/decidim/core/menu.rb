@@ -10,12 +10,22 @@ module Decidim
                         decidim.root_path,
                         position: 1,
                         active: :exclusive
+        end
+      end
 
-          menu.add_item :pages,
+      def self.register_mobile_menu!
+        Decidim.menu :mobile_menu do |menu|
+          menu.add_item :root,
+                        I18n.t("menu.home", scope: "decidim"),
+                        decidim.root_path,
+                        position: 1,
+                        active: :exclusive
+
+          menu.add_item :help,
                         I18n.t("menu.help", scope: "decidim"),
                         decidim.pages_path,
-                        position: 7,
-                        active: :inclusive
+                        position: 10,
+                        active: :exclusive
         end
       end
 

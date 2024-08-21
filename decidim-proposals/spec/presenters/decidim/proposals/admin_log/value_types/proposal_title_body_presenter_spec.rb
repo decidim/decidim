@@ -2,8 +2,16 @@
 
 require "spec_helper"
 
-describe Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter do
-  subject { described_class.new(value, _helpers) }
+describe Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter, type: :helper do
+  subject { described_class.new(value, helper) }
+
+  before do
+    module FooBar
+      include Decidim::SanitizeHelper
+    end
+
+    helper.extend FooBar
+  end
 
   let(:value) do
     {
@@ -11,7 +19,6 @@ describe Decidim::Proposals::AdminLog::ValueTypes::ProposalTitleBodyPresenter do
       "es" => "My title in Spanish"
     }
   end
-  let(:_helpers) { nil }
 
   describe "#present" do
     it "handles i18n fields" do

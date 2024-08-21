@@ -21,14 +21,46 @@ module Decidim
         end
       end
 
-      context "when given a String" do
-        let(:value) { "01/02/2017 15:00" }
-
-        context "with a different timezone" do
+      shared_context "with date and time parsing" do
+        context "and timezone offset" do
           it "parses the String in the correct timezone" do
             Time.use_zone("CET") do
               expect(subject.utc.to_s).to eq("2017-02-01 14:00:00 UTC")
             end
+          end
+        end
+
+        context "and no timezone offset" do
+          it "parses the String in the correct timezone" do
+            expect(subject.utc.to_s).to eq("2017-02-01 15:00:00 UTC")
+          end
+        end
+      end
+
+      context "when given a String" do
+        context "with formatted DateTime" do
+          context "when d/m/Y" do
+            let(:value) { "01/02/2017 15:00" }
+
+            include_context "with date and time parsing"
+          end
+
+          context "when Y-m-d HH:MM" do
+            let(:value) { "2017-02-01 15:00" }
+
+            include_context "with date and time parsing"
+          end
+
+          context "when Y-m-d HH:MM:SS TZ" do
+            let(:value) { "2017-02-01 16:00:00 +01:00" }
+
+            include_context "with date and time parsing"
+          end
+
+          context "when %Y-%m-%d %H:%M:%S.%N %z" do
+            let(:value) { "2017-02-01 16:00:00.000000000 +0100" }
+
+            include_context "with date and time parsing"
           end
         end
 

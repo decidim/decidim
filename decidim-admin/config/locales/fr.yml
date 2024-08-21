@@ -187,6 +187,7 @@ fr:
         export: Tout exporter
         export-selection: Exporter la sélection
         import: Importer
+        manage: Gérer
         newsletter:
           new: Nouvelle newsletter
         participatory_space_private_user:
@@ -287,6 +288,7 @@ fr:
       block_user:
         new:
           action: Bloquer le compte et envoyer la justification
+          already_reported_html: En poursuivant cette action, vous masquerez également tous les contenus du participant.
           description: Bloquer un utilisateur rendra son compte inutilisable, vous devriez fournir dans votre justification les conditions de déblocage de l'utilisateur.
           justification: Justification
           title: Bloquer l'utilisateur %{name}
@@ -348,11 +350,14 @@ fr:
       conflicts:
         attempts: Tentatives
         'false': 'Non'
+        index:
+          text: Recherche par adresse e-mail, nom ou pseudonyme.
         managed_user_name: Utilisateur représenté
         solved: Résolu
         title: Conflits de vérification
         transfer:
           email: Email
+          error: Une erreur est survenue lors du transfert de l'utilisateur actuel en utilisateur représenté.
           name: Nom
           reason: Raison
           success: Le transfert a bien été effectué.
@@ -447,6 +452,7 @@ fr:
           values:
             'false': Publié
             'true': Dépublié
+        remove_all: Tout supprimer
         scope_id_eq:
           label: Secteur
         search_label: Rechercher
@@ -567,6 +573,7 @@ fr:
         appearance: Apparence
         area_types: Types de périmètre d'assemblée
         areas: Périmètres d'assemblée
+        components: Fonctionnalités
         configuration: Configuration
         content: Contenu signalé
         external_domain_allowlist: Domaines externes autorisés
@@ -960,6 +967,11 @@ fr:
           help: Ces jetons sont utilisés pour partager cette ressource non publiée à n'importe quel utilisateur. Ils seront cachés dès que la ressource sera publiée. Cliquez sur l'icône du jeton pour visiter l'URL partageable.
           title: Partager les jetons
       shared:
+        adjacent_navigation:
+          next: Suivant
+          next_title: Élément suivant
+          previous: Précédent
+          previous_title: Élément précédent
         gallery:
           add_images: Ajouter des images
           edit_images: Modifier les images

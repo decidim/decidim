@@ -73,6 +73,12 @@ module Decidim
         end
       end
 
+      def skip_gemfile_if_defined
+        return unless options[:skip_gemfile]
+
+        remove_file "Gemfile"
+      end
+
       def install_decidim_webpacker
         # Copy CSS file
         copy_file "decidim_application.scss", "app/packs/stylesheets/decidim/decidim_application.scss"
@@ -90,6 +96,9 @@ module Decidim
         bundle_install
         rails "shakapacker:binstubs"
 
+        # Copy package.json
+        copy_file "package.json", "package.json"
+
         # Run Decidim custom webpacker installation
         rails "decidim:webpacker:install"
 
@@ -103,33 +112,6 @@ module Decidim
 
       def build_api_docs
         rails "decidim_api:generate_docs"
-      end
-
-      def remove_old_assets
-        remove_file "config/initializers/assets.rb"
-        remove_dir("app/assets")
-        remove_dir("app/javascript")
-      end
-
-      def remove_sprockets_requirement
-        gsub_file "config/application.rb", %r{require ['"]rails/all['"]\R}, <<~RUBY
-          require "decidim/rails"
-
-          # Add the frameworks used by your app that are not loaded by Decidim.
-          # require "action_mailbox/engine"
-          # require "action_text/engine"
-          require "action_cable/engine"
-          require "rails/test_unit/railtie"
-        RUBY
-
-        gsub_file "config/environments/development.rb", /config\.assets.*$/, ""
-        gsub_file "config/environments/test.rb", /config\.assets.*$/, ""
-        gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
-      end
-
-      def copy_migrations
-        rails "decidim:choose_target_plugins", "railties:install:migrations"
-        recreate_db if options[:recreate_db]
       end
 
       def letter_opener_web
@@ -169,8 +151,29 @@ module Decidim
         copy_file "rack_profiler_initializer.rb", "config/initializers/rack_profiler.rb"
       end
 
+      def tweak_spring
+        run "bundle exec spring stop"
+        run "bundle exec spring binstub --all"
+
+        create_file "config/spring.rb", <<~CONFIG
+          require "decidim/spring"
+
+          Spring.watch(
+            ".ruby-version",
+            ".rbenv-vars",
+            "tmp/restart.txt",
+            "tmp/caching-dev.txt"
+          )
+        CONFIG
+      end
+
       def bundle_install
         run "bundle install"
+      end
+
+      def copy_migrations
+        rails "decidim:choose_target_plugins", "railties:install:migrations"
+        recreate_db if options[:recreate_db]
       end
 
       private
@@ -181,7 +184,9 @@ module Decidim
 
         rails "db:migrate"
 
-        rails "db:seed" if options[:seed_db]
+        rails "assets:precompile"
+
+        rails "--trace", "db:seed" if options[:seed_db]
 
         rails "db:test:prepare"
       end

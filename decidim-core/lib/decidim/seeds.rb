@@ -97,6 +97,14 @@ module Decidim
       )
     end
 
+    def create_taxonomy!(name:, parent:)
+      Decidim::Taxonomy.create!(
+        name: Decidim::Faker::Localized.literal(name),
+        organization:,
+        parent:
+      )
+    end
+
     def create_category!(participatory_space:)
       Decidim::Category.create!(
         name: Decidim::Faker::Localized.sentence(word_count: 5),
@@ -104,6 +112,37 @@ module Decidim
           Decidim::Faker::Localized.paragraph(sentence_count: 3)
         end,
         participatory_space:
+      )
+    end
+
+    def create_report!(reportable:, current_user:)
+      moderation = Moderation.find_or_create_by!(reportable:, participatory_space: reportable.participatory_space)
+
+      Decidim::Report.create!(
+        moderation:,
+        user: current_user,
+        locale: I18n.locale,
+        reason: "spam",
+        details: "From the seeds"
+      )
+    rescue ActiveRecord::RecordInvalid
+      # Ignore in case we have an error in the report creation.
+      # Most likely is a "Validation failed: User has already been taken"
+    end
+
+    def hide_report!(reportable:)
+      moderation = Moderation.find_or_create_by!(reportable:, participatory_space: reportable.participatory_space)
+      moderation.update!(hidden_at: Time.zone.now)
+    end
+
+    def create_user_report!(reportable:, current_user:)
+      moderation = UserModeration.find_or_create_by!(user: reportable)
+
+      UserReport.create!(
+        moderation:,
+        user: current_user,
+        reason: "spam",
+        details: "From the seeds"
       )
     end
 
@@ -117,6 +156,10 @@ module Decidim
       file_number = format("%03d", rand(1...100))
 
       create_blob!(seeds_file: "avatars/#{file_number}.jpg", filename: "#{file_number}.jpg", content_type: "image/jpeg")
+    end
+
+    def create_follow!(user, followable)
+      Decidim::Follow.create!(followable:, user:)
     end
   end
 end

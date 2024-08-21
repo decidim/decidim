@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Meetings
   describe UpdateMeeting do
-    subject { described_class.new(form, current_user, meeting) }
+    subject { described_class.new(form, meeting) }
 
     let(:meeting) { create(:meeting) }
     let(:organization) { meeting.component.organization }

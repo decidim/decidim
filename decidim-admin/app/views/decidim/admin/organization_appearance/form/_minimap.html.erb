@@ -3,7 +3,7 @@
   <div id="minimap" class="grid grid-cols-1 md:grid-cols-2">
     <div class="minimap-tab">
       <% if current_organization.favicon.attached? %>
-        <%= image_tag current_organization.attached_uploader(:favicon).path, class: "minimap-favicon" %>
+        <%= image_tag current_organization.attached_uploader(:favicon).url, class: "minimap-favicon" %>
       <% else %>
         <%= content_tag :div, nil, { class: "minimap-favicon placeholder", style: "width: #{image_width(current_organization, :favicon) * size_factor}px; height: #{image_height(current_organization, :favicon) * size_factor}px;" } do %>
           <span><%= t("favicon", scope: "activemodel.attributes.organization") %></span>
@@ -13,7 +13,7 @@
 
     <div class="minimap-header">
       <% if current_organization.logo.present? %>
-        <%= image_tag current_organization.attached_uploader(:logo).path, class: "minimap-logo" %>
+        <%= image_tag current_organization.attached_uploader(:logo).url, class: "minimap-logo" %>
       <% else %>
         <%= content_tag :div, nil, { class: "minimap-logo placeholder", style: "width: #{image_width(current_organization, :logo) * size_factor}px; height: #{image_height(current_organization, :logo) * size_factor}px;" } do %>
           <span><%= t("logo", scope: "activemodel.attributes.organization") %></span>
@@ -26,7 +26,7 @@
 
     <div class="minimap-footer">
       <% if current_organization.official_img_footer.attached? %>
-        <%= image_tag current_organization.attached_uploader(:official_img_footer).path, class: "minimap-official_img_footer" %>
+        <%= image_tag current_organization.attached_uploader(:official_img_footer).url, class: "minimap-official_img_footer" %>
       <% else %>
         <%= content_tag :div, nil, { class: "minimap-official_img_footer placeholder", style: "width: #{image_width(current_organization, :official_img_footer) * size_factor}px; height: #{image_height(current_organization, :official_img_footer) * size_factor}px;" } do %>
         <span><%= t("official_img_footer", scope: "activemodel.attributes.organization") %></span>

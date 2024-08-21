@@ -78,7 +78,9 @@ describe Decidim::ContentBlocks::ParticipatorySpaceHeroCell, type: :cell do
     end
 
     it "uses that image's big version as background" do
-      expect(subject.to_s).to include(content_block.images_container.attached_uploader(:background_image).path(variant: :big))
+      style = subject.find("section")["style"]
+      background_url = style.match(/background-image:url\('([^']+)'\)/)[1]
+      expect(background_url).to be_blob_url(content_block.images_container.background_image.blob)
     end
   end
 end

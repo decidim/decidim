@@ -8,7 +8,7 @@ on:
         type: string
       ruby_version:
         description: 'Ruby Version'
-        default: "3.2.2"
+        default: "3.3.4"
         required: false
         type: string
       working-directory:
@@ -38,6 +38,11 @@ on:
         required: false
         default: true
         type: boolean
+      chrome_version:
+        description: 'Chrome & Chromedriver version'
+        required: false
+        default: "126.0.6478.182"
+        type: string
 
 jobs:
   build_app:
@@ -49,7 +54,6 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      RUBYOPT: '-W:no-deprecated'
     services:
       validator:
         image: ghcr.io/validator/validator:latest
@@ -64,15 +68,30 @@ jobs:
           --health-retries 5
         env:
           POSTGRES_PASSWORD: postgres
+      redis:
+        image: redis
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
+      - run: |
+          wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
+          sudo dpkg -i /tmp/chrome.deb
+          rm /tmp/chrome.deb
+        name: Install Chrome version ${{inputs.chrome_version}}
       - uses: nanasess/setup-chromedriver@v2
-      - uses: actions/cache@v3
+        with:
+          chromedriver-version: ${{inputs.chrome_version}}
+      - uses: actions/cache@v4
         id: app-cache
         with:
           path: ./spec/decidim_dummy_app/
@@ -103,15 +122,16 @@ jobs:
           SIMPLECOV: "true"
           SHAKAPACKER_RUNTIME_COMPILE: "false"
           NODE_ENV: "test"
-      - uses: codecov/codecov-action@v3
+      - uses: codecov/codecov-action@v4
         name: Upload coverage
         with:
           token: ${{ inputs.codecov_token }}
           name: ${{ inputs.working-directory }}
           flags: ${{ inputs.working-directory }}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: screenshots
           path: ./spec/decidim_dummy_app/tmp/screenshots
           if-no-files-found: ignore
+          overwrite: true

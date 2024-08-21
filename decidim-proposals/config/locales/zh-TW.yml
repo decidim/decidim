@@ -61,12 +61,10 @@ zh-TW:
           attributes:
             base:
               not_official: 非正式
-              supported: 已獲得支持或連署
         proposals_split:
           attributes:
             base:
               not_official: 非正式
-              supported: 已獲得支持或連署
     models:
       decidim/proposals/admin/update_proposal_category_event: 提案類別已更改
       decidim/proposals/admin/update_proposal_scope_event: 提案範圍已更改
@@ -83,8 +81,6 @@ zh-TW:
         other: 提案
       decidim/proposals/proposal_note:
         other: 備註
-      decidim/proposals/proposal_vote:
-        other: 支援
   decidim:
     admin:
       filters:
@@ -118,7 +114,6 @@ zh-TW:
           comment: 評論
           create: 建立
           endorse: 連署
-          vote: 支援
           vote_comment: 投票評論
           withdraw: 撤回
         name: 提案
@@ -129,23 +124,18 @@ zh-TW:
             amendments_wizard_help_text: 修改向導説明文字
             announcement: 公告
             attachments_allowed: 允許附檔
-            can_accumulate_supports_beyond_threshold: 能夠累積支持至超過門檻
             collaborative_drafts_enabled: ' 啟用協作草稿'
             comments_enabled: 已啟用留言
             comments_max_length: 評論字數最大長度(若要使用預設值請輸入0)
             default_sort_order: 預設提案排序
-            default_sort_order_help: 默認意味著如果啟用了支持，則建議將提案按隨機順序排序，如果封鎖了支持，則將按最受支持的順序排序。
             default_sort_order_options:
-              default: 預設值
               most_commented: 最多評論
               most_endorsed: 最多已連署
               most_followed: 最多追蹤者
-              most_voted: 最受支持的
               random: 隨機
               recent: 最近
               with_more_authors: 有更多作者
             geocoding_enabled: 地理編碼已啟用
-            minimum_votes_per_user: 每位使用者最少贊成數量
             new_proposal_body_template: 新提案正文樣板
             new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
             new_proposal_help_text: 新提案幫助文本
@@ -153,7 +143,6 @@ zh-TW:
             participatory_texts_enabled: 參與式文字已啟用
             participatory_texts_enabled_readonly: 如果已經存在提案，則無法與此設置互動。如果您想要啟用此功能，請創建一個新的“提案組件”，或者如果要禁用此功能，請在“參與式文字”選單中放棄所有已匯入的提案。
             proposal_answering_enabled: 提案回答已啟用
-            proposal_edit_before_minutes: 在幾分鐘後，作者可以編輯提案
             proposal_edit_time: 編輯提案
             proposal_edit_time_choices:
               infinite: 允許無限時間編輯提案
@@ -161,14 +150,10 @@ zh-TW:
             proposal_length: 提案正文的最大長度
             proposal_limit: 參與者可提出提案的上限
             proposal_wizard_step_1_help_text: 提案向導「創建」步驟說明文字
-            proposal_wizard_step_2_help_text: 提案向導「比較」步驟說明文字
-            proposal_wizard_step_3_help_text: 提案向導「完成」步驟說明文字
-            proposal_wizard_step_4_help_text: 提案向導「發佈」步驟說明文字
             resources_permissions_enabled: 每個提案都可以設定行動權限
             scope_id: 範圍
             scopes_enabled: 啟用範圍
             threshold_per_proposal: 每個提案的門檻
-            vote_limit: 每位參與者可支持的數量上限
           step:
             amendment_creation_enabled: 創建修正案已啟用
             amendment_creation_enabled_help: 參與者可修改提案
@@ -188,13 +173,10 @@ zh-TW:
             creation_enabled: 參與者可以建立提案
             creation_enabled_readonly: 啟用參與式文本功能後，此設置將被禁用。要將提案上傳為參與式文本，請點擊“參與式文本”按鈕，然後按照說明進行操作。
             default_sort_order: 預設提案排序
-            default_sort_order_help: 默認意味著如果啟用了支持，則建議將提案按隨機順序排序，如果封鎖了支持，則將按最受支持的順序排序。
             default_sort_order_options:
-              default: 預設值
               most_commented: 最多評論
               most_endorsed: 最多已連署
               most_followed: 最多追蹤者
-              most_voted: 最受支持的
               random: 隨機
               recent: 最近
               with_more_authors: 有更多作者
@@ -204,17 +186,12 @@ zh-TW:
             publish_answers_immediately: 立即發布提案回答
             publish_answers_immediately_help_html: '請注意，如果您在未啟用此功能的情況下回答任何提案，您將需要手動選擇它們並使用發布操作進行發布。有關此操作的更多信息，請參閱 <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">提案答案文檔頁面</a>。'
             suggested_hashtags: 為新提案建議參與者使用的標籤
-            votes_blocked: 封鎖支持
-            votes_enabled: 啟用支持
-            votes_hidden: 隱藏支持（如果支持被啟用，勾選此選項將隱藏支持的數量）
     events:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: 有人在提案「%{resource_title}」上留了一則留言。在<a href="%{admin_proposal_info_url}">管理員面板</a>檢查它。
             email_outro: 您收到此通知，因為您可以對提案進行評估。
             email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
-            notification_title: 有人在提案「<a href="%{resource_path}">%{resource_title}</a>」上留了一則留言。請至<a href="%{admin_proposal_info_path}">管理面板</a>查看。
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
           email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
@@ -282,10 +259,7 @@ zh-TW:
           email_subject: '%{resource_title} 提案範圍已更新'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案範圍已由管理員更新。
         voting_enabled:
-          email_intro: '你可以支持 %{participatory_space_title} 的提案！在此頁面開始參與：'
           email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
-          email_subject: 已開放 %{participatory_space_title} 的提案支持。
-          notification_title: 現在您可以開始<a href="%{resource_path}">支持提案</a>於<a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -302,14 +276,7 @@ zh-TW:
         proposal_votes:
           conditions:
             - 瀏覽並花些時間閱讀其他人的提案
-            - 給你喜歡或覺得有趣的提案提供支持
-          description: 當您支持他人的提案時，將獲得此徽章。
-          description_another: 這個參與者支持了 %{score} 個提案。
-          description_own: 你已經支持了 %{score} 個提案。
-          name: 支持的提案
-          next_level_in: 給予支持給%{score} 更多提案，以達到下一個等級！
-          unearned_another: 這位參與者尚未對任何提案表示支持。
-          unearned_own: 您尚未給任何提案提供支持。
+            - 
         proposals:
           conditions:
             - 選擇您有興趣的參與空間並啟用提交提案功能
@@ -334,10 +301,6 @@ zh-TW:
         description: 提案總數
         object: 提案
         title: 提案
-      votes:
-        description: 提案所獲得的支持數
-        object: 支持
-        title: 支援
     participatory_spaces:
       highlighted_proposals:
         see_all: 檢視所有提案 (%{count})
@@ -429,7 +392,6 @@ zh-TW:
           form:
             note: 附註
             submit: 提交
-          leave_your_note: 留下您的註記
           title: 私有注解
         proposals:
           answer:
@@ -488,7 +450,6 @@ zh-TW:
             remove_assignment: 移除指派
             remove_assignment_confirmation: 您確定要將評估者從此提案中移除嗎？
             valuators: 評估者
-            votes_count: 支持數量
           update_category:
             invalid: '這些提案已經擁有 %{subject_name} 類別: %{proposals}。'
             select_a_category: 請選擇一個類別。
@@ -681,17 +642,7 @@ zh-TW:
         buttons:
           amend: 修訂
           comment: 評論
-      proposal_votes:
-        create:
-          error: 支持提案時發生問題。
       proposals:
-        compare:
-          continue: 繼續
-          no_similars_found: 做得好！沒有相似的提案
-          title: 相似的提案
-        complete:
-          send: 發送
-          title: 完成您的提案
         dynamic_map_instructions:
           description: 當點擊“預覽”按鈕時，座標將會更新，但地址不會更改。
           instructions: 您可以在地圖上移動點。
@@ -720,7 +671,6 @@ zh-TW:
           search: 搜尋
           state: 狀態
           type: 類別
-          voted: 支持
         index:
           click_here: 檢視所有提案
           collaborative_drafts_list: 進入協作草稿
@@ -738,7 +688,6 @@ zh-TW:
           most_commented: 最多評論
           most_endorsed: 最多已連署
           most_followed: 最多追蹤者
-          most_voted: 最受支持的
           random: 隨機
           recent: 最近
           with_more_authors: 有更多作者
@@ -771,48 +720,19 @@ zh-TW:
           proposal_accepted_reason: '這個提案已經被接受，因為：'
           proposal_in_evaluation_reason: 這個提案正在被評估中
           proposal_rejected_reason: '這個提案被拒絕了，因為：'
-          withdraw_btn_hint: 如果你改變主意，只要你的提案沒有獲得任何支持，你可以撤回你的提案。提案不會被刪除，它會顯示在被撤回的提案清單中。
           withdraw_confirmation_html: 您確定要撤回此提案嗎？<br><br><strong>此操作無法取消！</strong>
           withdraw_proposal: 撤回提案
         update:
           title: 更新提案
-        vote_button:
-          already_voted: 已得到支持
-          already_voted_hover: 撤回支持
-          maximum_votes_reached: 已達支持上限
-          no_votes_remaining: 無剩餘支持次數
-          vote: 支持
-          votes_blocked: 支持已禁用
-        votes_count:
-          count:
-            other: 支持
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: 每個提案可以累積超過%{limit} 個支持
-          minimum_votes_per_user:
-            description: 你必須在不同的提案之間分配至少 %{votes} 票的支持。
-            given_enough_votes: 您已經提供足夠的支持。
-            supports_remaining: 您還需要支持 %{remaining_votes} 個提案，才能讓您的支持被考慮在內。
           proposal_limit:
             description: 您最多可以創建 %{limit} 個提案。
-          threshold_per_proposal:
-            description: 為了讓提案被認可，需要達到%{limit} 個支持票數.
-          title: '支持需遵守以下規則：'
-          vote_limit:
-            description: 您最多可以支持 %{limit} 個提案。
-            votes: 支持
         wizard_aside:
           back: 返回
           back_from_step_1: 返回提案
-          back_from_step_2: 返回提案
-          back_from_step_3: 返回比較提案
-          back_from_step_4: 返回編輯草案
         wizard_steps:
           current_step: 當前步驟
           step_1: 創建你的提案
-          step_2: 比較
-          step_3: 完成
-          step_4: 發佈您的提案
           title: 提案創建步驟
       proposals_picker:
         choose_proposals: 選擇提案
@@ -831,9 +751,6 @@ zh-TW:
       versions:
         index:
           title: 版本
-      withdraw:
-        errors:
-          has_supports: 這份提案無法撤回，因為它已經得到支持。
     resource_links:
       copied_from_component:
         proposal_proposal: 相關提案
@@ -845,4 +762,4 @@ zh-TW:
     statistics:
       proposals_accepted: 已通過的提案
       proposals_count: 提案
-      supports_count: 支持
+      votes_count: 投票

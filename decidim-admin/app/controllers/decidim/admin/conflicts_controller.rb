@@ -3,18 +3,16 @@
 module Decidim
   module Admin
     class ConflictsController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::VerificationConflicts::Filterable
+
       layout "decidim/admin/users"
 
-      helper_method :context_breadcrumb_items
+      helper_method :context_breadcrumb_items, :conflicts
 
       add_breadcrumb_item_from_menu :impersonate_menu
 
       def index
         enforce_permission_to :index, :impersonatable_user
-
-        @conflicts = Decidim::Verifications::Conflict.joins(:current_user).where(
-          decidim_users: { decidim_organization_id: current_organization.id }
-        )
       end
 
       def edit
@@ -65,6 +63,16 @@ module Decidim
           label: I18n.t("menu.impersonations", scope: "decidim.admin"),
           url: decidim_admin.impersonatable_users_path
         }
+      end
+
+      def collection
+        @collection ||= Decidim::Verifications::Conflict.joins(:current_user).where(
+          decidim_users: { decidim_organization_id: current_organization.id }
+        )
+      end
+
+      def conflicts
+        @conflicts ||= filtered_collection.order(created_at: :desc)
       end
     end
   end

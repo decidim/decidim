@@ -21,7 +21,7 @@ module Decidim
         }
 
         def signature_dates_required?
-          @signature_dates_required ||= context.initiative.state == "published"
+          @signature_dates_required ||= context.initiative.state == "open"
         end
       end
     end

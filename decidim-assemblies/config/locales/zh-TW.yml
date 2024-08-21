@@ -50,7 +50,6 @@ zh-TW:
         scope_id: 範圍
         scopes_enabled: 啟用範圍
         short_description: 簡短說明
-        show_statistics: 顯示統計資料
         slug: URL名稱
         special_features: 特殊功能
         subtitle: 子標題
@@ -189,7 +188,6 @@ zh-TW:
           categories: 類別
           components: 元件
           moderations: 版主
-          private_users: 私人使用者
         assemblies_types: 大會類型
       models:
         assemblies_types:
@@ -336,11 +334,7 @@ zh-TW:
       show:
         assembly_type: 大會類型
         duration: 持續時間
-        is_transparent:
-          'false': 不透明
-          'true': 透明
         private_space: 這是一個私人大會
-        related_participatory_processes: 相關參與過程
         social_networks_title: 訪問大會
     assembly_members:
       assembly_member:

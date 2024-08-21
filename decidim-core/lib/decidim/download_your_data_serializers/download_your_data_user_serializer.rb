@@ -5,6 +5,7 @@ module Decidim
   module DownloadYourDataSerializers
     class DownloadYourDataUserSerializer < Decidim::Exporters::Serializer
       include Decidim::ResourceHelper
+      include Decidim::TranslatableAttributes
 
       # Public: Exports a hash with the serialized data for this user.
       def serialize
@@ -16,7 +17,7 @@ module Decidim
           locale: resource.locale,
           organization: {
             id: resource.organization.try(:id),
-            name: resource.organization.try(:name)
+            name: translated_attribute(resource.organization.try(:name))
           },
           newsletter_notifications_at: resource.newsletter_notifications_at,
           notifications_sending_frequency: resource.notifications_sending_frequency,

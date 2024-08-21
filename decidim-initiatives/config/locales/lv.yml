@@ -66,7 +66,6 @@ lv:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Meklēt %{collection} pēc nosaukuma, apraksta, ID vai autora vārda.
       menu:
-        components: Komponenti
         information: Informācija
         initiatives: Iniciatīvas
         initiatives_types: Iniciatīvu veidi
@@ -218,7 +217,6 @@ lv:
         accepted: Pietiekami daudz parakstu
         created: Izveidots
         discarded: Atmests
-        published: Publicēts
         rejected: Nepietiek parakstu
         validating: Tehniskā validācija
       application_helper:
@@ -335,7 +333,6 @@ lv:
           other: "paraksti"
         vote_cabin:
           already_voted: Jau parakstīta
-          supports_required: "Nepieciešami %{total_supports} paraksti"
           verification_required: Lai parakstītu iniciatīvu, verificējiet savu kontu
           vote: Parakstīt
           votes_blocked: Parakstīšana ir atspējota
@@ -355,7 +352,6 @@ lv:
           accepted: Pietiekami daudz parakstu
           created: Izveidots
           discarded: Atmests
-          published: Publicēts
           rejected: Nepietiek parakstu
           validating: Tehniskā validācija
       states:

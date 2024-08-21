@@ -214,15 +214,7 @@ ro:
           search: Caută acțiuni
         show:
           stats:
-            attendees: Participanți
             back_to_resource: Înapoi la rezultat
-            comments: Comentarii
-            contributions: Contribuții
-            last_edited_by: Ultima actualizare realizată de
-            last_updated_at: Ultima actualizare la
-            meetings: Întâlniri
-            proposals: Propuneri
-            votes: Voturi
         timeline:
           title: Evoluția proiectului
     admin:
@@ -241,16 +233,12 @@ ro:
         name: Responsabilitate
         settings:
           global:
-            categories_label: Nume pentru "Categorii"
             comments_enabled: Comentarii activate
             comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
             display_progress_enabled: Afișare progres
-            heading_leaf_level_results: Nume pentru "Proiecte"
-            heading_parent_level_results: Nume pentru "Rezultate"
             intro: Introducere
             scope_id: Domeniu de interes
             scopes_enabled: Domenii de interes activate
-            subcategories_label: Nume pentru "Subcategorii"
           step:
             comments_blocked: Comentarii blocate
     events:

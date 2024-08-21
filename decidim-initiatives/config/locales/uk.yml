@@ -41,7 +41,6 @@ uk:
       actions:
         new_initiative_type: Додати різновид почину
       menu:
-        components: Складові
         information: Відомості
         initiatives: Почини
         initiatives_types: Різновиди починів
@@ -129,7 +128,6 @@ uk:
       admin_states:
         created: Створені
         discarded: Відкинуті
-        published: Оприлюднено
         validating: Технічна перевірка
       application_helper:
         filter_state_values:
@@ -216,7 +214,6 @@ uk:
           other: " підписів"
         vote_cabin:
           already_voted: Вже підписалися
-          supports_required: "Необхідно %{total_supports} підписів"
           vote: Підписати
           votes_blocked: Підписування вимкнене
         votes_count:
