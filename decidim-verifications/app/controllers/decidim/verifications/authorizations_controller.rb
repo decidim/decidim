@@ -65,6 +65,12 @@ module Decidim
         end
       end
 
+      def renew_onboarding_data
+        store_onboarding_cookie_data!(current_user)
+
+        redirect_to first_login_authorizations_path
+      end
+
       protected
 
       def authorization_method(authorization)
