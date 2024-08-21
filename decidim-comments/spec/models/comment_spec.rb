@@ -59,9 +59,9 @@ module Decidim
         expect(comment.participatory_space).to eq(component.participatory_space)
       end
 
-      it "is not valid if its parent is a comment and cannot accept new comments" do
-        allow(comment.root_commentable).to receive(:accepts_new_comments?).and_return false
-        expect(replies[0]).not_to be_valid
+      it "is valid if its parent is a comment and can accept new comments" do
+        allow(comment.root_commentable).to receive(:accepts_new_comments?).and_return(true)
+        expect(replies[0]).to be_valid
       end
 
       it "computes its depth before saving the model" do
