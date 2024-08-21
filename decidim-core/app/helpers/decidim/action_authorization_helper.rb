@@ -142,7 +142,7 @@ module Decidim
     end
 
     def onboarding_data_attributes(action, resource)
-      return if resource.blank?
+      return {} if resource.blank?
 
       {
         "data-onboarding-model" => resource.to_gid,
