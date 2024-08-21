@@ -28,6 +28,8 @@ module Decidim
           add_linked_resources_item(items, :results, "included_proposals", "decidim/accountability/result/text", "Decidim::Accountability::Result")
           add_linked_resources_item(items, :meetings, "proposals_from_meeting", "decidim/meetings/meeting/text", "Decidim::Meetings::Meeting")
           add_linked_resources_item(items, :proposals, "copied_from_component", "decidim/proposals/proposal/text", "Decidim::Proposals::Proposal")
+          add_proposal_state_item(items) if proposal_state(@model).present?
+          add_proposal_withdraw_item(items) if proposal_withdrawn_state(@model).present?
         end
 
         @proposal_history_items.sort_by! { |item| item[:date] }
@@ -51,9 +53,38 @@ module Decidim
           id: "proposal_creation",
           date: @model.created_at,
           text: t("decidim.proposals.creation.text"),
-          icon: "chat-new-line",
-          resources: []
+          icon: resource_type_icon_key("Decidim::Proposals::Proposal")
         }
+      end
+
+      def add_proposal_state_item(items)
+        state = proposal_state(@model)
+        items << {
+          id: "proposal_state",
+          date: @model.updated_at,
+          text: t("decidim.proposals.state.text"),
+          icon: resource_type_icon_key("Decidim::Proposals::Proposal"),
+          state:
+        }
+      end
+
+      def add_proposal_withdraw_item(items)
+        state = proposal_withdrawn_state(@model)
+        items << {
+          id: "proposal_withdraw",
+          date: @model.updated_at,
+          text: t("decidim.proposals.withdraw.text"),
+          icon: resource_type_icon_key("Decidim::Proposals::Proposal"),
+          state:
+        }
+      end
+
+      def proposal_state(proposal)
+        translated_attribute(proposal&.proposal_state&.title)
+      end
+
+      def proposal_withdrawn_state(proposal)
+        return humanize_proposal_state(:withdrawn).html_safe if proposal.withdrawn?
       end
     end
   end

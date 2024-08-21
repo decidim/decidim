@@ -16,6 +16,9 @@
       <div class="flex flex-col lg:items-center lg:flex-row lg:gap-1">
         <span class="text-sm text-gray-2"><%= item[:date].strftime("%d/%m/%Y %H:%M") %></span>
         <p><%= item[:text] %></p>
+        <% if item[:id] == "proposal_state" || item[:id] == "proposal_withdraw" %>
+          <p class="text-secondary font-semibold"><%= item[:state] %></p>
+        <% end %>
         <% if item[:resources].present? %>
           <ul>
             <% item[:resources].each do |resource| %>
