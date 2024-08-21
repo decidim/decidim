@@ -15,6 +15,7 @@ module Decidim
               get :first_login
               get :renew_modal
               get :renew
+              post :renew_onboarding_data
             end
           end
 
