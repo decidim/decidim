@@ -21,7 +21,7 @@ module Decidim::Comments
         expect(subject).to have_css(".flash.primary.loading-comments", text: "Loading comments ...")
         expect(subject).to have_no_content(comment.body.values.first)
         expect(subject).to have_css(".add-comment")
-        expect(subject).to have_content("Log in or create an account to add your comment.")
+        expect(subject).to have_content("Log in with your account or create an account to add your comment.")
 
         {
           best_rated: "Best rated",
