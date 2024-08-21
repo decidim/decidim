@@ -200,6 +200,7 @@ en:
             resources_permissions_enabled: Actions permissions can be set for each proposal
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Taxonomy filters
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per participant
           step:

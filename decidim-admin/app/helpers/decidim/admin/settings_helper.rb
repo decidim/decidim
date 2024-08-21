@@ -17,7 +17,8 @@ module Decidim
         scope: :scope_field,
         enum: :collection_radio_buttons,
         time: :datetime_field,
-        integer_with_units: :integer_with_units
+        integer_with_units: :integer_with_units,
+        taxonomy_filter: :taxonomy_filter
       }.freeze
 
       # Renders a form field that matches a settings attribute's type.
@@ -53,21 +54,32 @@ module Decidim
           if attribute.translated?
             options[:tabs_id] = "#{options.delete(:tabs_prefix)}-#{name}-tabs"
             form.send(:translated, form_method, name, options)
-          elsif form_method == :collection_radio_buttons
-            render_enum_form_field(form, attribute, name, i18n_scope, options)
-          elsif form_method == :select_field
-            render_select_form_field(form, attribute, name, i18n_scope, options)
-          elsif form_method == :scope_field
-            scopes_select_field(form, name)
-          elsif form_method == :integer_with_units
-            integer_with_units(form, attribute, name, i18n_scope, options)
           else
-            form.send(form_method, name, options)
+            render_field_form_method(form_method, form, attribute, name, i18n_scope, options)
           end
         end.html_safe
       end
 
       private
+
+      # rubocop:disable Metrics/ParameterLists
+      def render_field_form_method(form_method, form, attribute, name, i18n_scope, options)
+        case form_method
+        when :collection_radio_buttons
+          render_enum_form_field(form, attribute, name, i18n_scope, options)
+        when :select_field
+          render_select_form_field(form, attribute, name, i18n_scope, options)
+        when :scope_field
+          scopes_select_field(form, name)
+        when :integer_with_units
+          integer_with_units(form, attribute, name, i18n_scope, options)
+        when :taxonomy_filter
+          taxonomy_filter(form, attribute, name, i18n_scope, options)
+        else
+          form.send(form_method, name, options)
+        end
+      end
+      # rubocop:enable Metrics/ParameterLists
 
       # Renders a select field collection input for the given attribute
       #
@@ -194,6 +206,10 @@ module Decidim
                                         { name: "#{form.field_name(name)}[1]", style: "flex: 1 1 75%;" })
 
         content_tag(:label, options[:label]) + content_tag(:div, number_field_html + select_field_html, class: "flex space-x-2 items-center")
+      end
+
+      def taxonomy_filter(_form, _attribute, _name, _i18n_scope, _options)
+        "TODO:: Taxonomy filters selector"
       end
     end
   end

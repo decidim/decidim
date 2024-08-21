@@ -31,6 +31,7 @@ Decidim.register_component(:proposals) do |component|
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope
+    settings.attribute :taxonomy_filters, type: :taxonomy_filter
     settings.attribute :vote_limit, type: :integer, default: 0, required: true
     settings.attribute :minimum_votes_per_user, type: :integer, default: 0, required: true
     settings.attribute :proposal_limit, type: :integer, default: 0, required: true

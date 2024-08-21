@@ -115,7 +115,8 @@ module Decidim
         enum: { klass: String, default: nil },
         select: { klass: String, default: nil },
         scope: { klass: Integer, default: nil },
-        time: { klass: Decidim::Attributes::TimeWithZone, default: nil }
+        time: { klass: Decidim::Attributes::TimeWithZone, default: nil },
+        taxonomy_filter: { klass: Array, default: nil }
       }.freeze
 
       attribute :type, Symbol, default: :boolean
