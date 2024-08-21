@@ -13,6 +13,7 @@ module Decidim
 
     def show
       return if is_active_link?(onboarding_path)
+      return unless onboarding_manager.valid?
       return unless onboarding_manager.pending_action?
 
       render :show
