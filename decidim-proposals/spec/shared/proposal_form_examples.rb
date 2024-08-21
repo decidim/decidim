@@ -108,7 +108,7 @@ shared_examples "a proposal form" do |options|
     it { is_expected.to be_valid }
   end
 
-  it_behaves_like "etiquette validator", fields: [:title, :body]
+  it_behaves_like "etiquette validator", fields: [:title, :body], **options
 
   context "when there is no body" do
     let(:body) { nil }
@@ -408,7 +408,7 @@ shared_examples "a proposal form with meeting as author" do |options|
     it { is_expected.to be_invalid }
   end
 
-  it_behaves_like "etiquette validator", fields: [:title, :body]
+  it_behaves_like "etiquette validator", fields: [:title, :body], **options
 
   context "when there is no body" do
     let(:body) { nil }
