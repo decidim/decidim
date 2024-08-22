@@ -1,5 +1,5 @@
 <ul class="relative flex flex-col gap-4 p-4">
-  <% proposal_history_items.each_with_index do |item, index| %>
+  <% history_items.each_with_index do |item, index| %>
     <li class="flex flex-row gap-2.5 relative">
       <div class="relative w-8 h-8 rounded-full border-secondary border flex justify-center items-center">
         <% if item[:id] == "proposal_creation" %>
@@ -9,7 +9,7 @@
         <% else %>
           <%= icon item[:icon], class: "fill-current text-secondary" %>
         <% end %>
-        <% if index < proposal_history_items.size - 1 %>
+        <% if index < history_items.size - 1 %>
           <% if item[:id] == "proposal_creation" %>
             <span class="absolute left-1/2 top-full w-px h-6 lg:h-4 bg-secondary"></span>
           <% else %>
