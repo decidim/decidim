@@ -28,12 +28,18 @@ module Decidim
       def first_login
         return redirect_to authorizations_path unless onboarding_manager.valid?
 
-        if onboarding_manager.finished_verifications?(active_authorization_methods)
-          flash[:notice] = t("authorizations.first_login.completed_verifications", scope: "decidim.verifications")
-          redirect_to ResourceLocatorPresenter.new(onboarding_manager.model).url
+        authorization_status = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources).global_code
 
-          onboarding_manager.remove_pending_action!
-        end
+        return unless onboarding_manager.finished_verifications?(active_authorization_methods) || authorization_status == :unauthorized
+
+        flash[:notice] = if authorization_status == :unauthorized
+                           t("authorizations.first_login.unauthorized", scope: "decidim.verifications", action: onboarding_manager.action)
+                         else
+                           t("authorizations.first_login.completed_verifications", scope: "decidim.verifications")
+                         end
+        redirect_to ResourceLocatorPresenter.new(onboarding_manager.model).url
+
+        onboarding_manager.remove_pending_action!
       end
 
       def create

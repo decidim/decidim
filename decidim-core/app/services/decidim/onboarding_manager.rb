@@ -99,6 +99,19 @@ module Decidim
       authorizations.select { |authorization| authorization_handlers.include?(authorization.name) }
     end
 
+    # Returns a hash which can be passed to action_authorized_to helper method
+    # to determine the permissions status of the action
+    #
+    # Returns a hash
+    def action_authorized_resources
+      return {} unless valid?
+
+      {
+        resource: model,
+        permissions_holder:
+      }
+    end
+
     private
 
     def active_authorization_methods
