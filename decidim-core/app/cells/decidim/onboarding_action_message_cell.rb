@@ -15,6 +15,7 @@ module Decidim
       return if is_active_link?(onboarding_path)
       return unless onboarding_manager.valid?
       return unless onboarding_manager.pending_action?
+      return if authorization_status == :unauthorized
 
       render :show
     end
@@ -27,6 +28,10 @@ module Decidim
 
     def onboarding_manager
       @onboarding_manager ||= OnboardingManager.new(user)
+    end
+
+    def authorization_status
+      @authorization_status ||= action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources).global_code
     end
 
     def message_text
