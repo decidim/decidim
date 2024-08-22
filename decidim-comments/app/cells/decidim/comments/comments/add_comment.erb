@@ -3,7 +3,7 @@
     <%== cell("decidim/comments/comment_form", model, root_depth:) %>
   <% else %>
     <p>
-      <h5 class="text-lg text-gray-2">Leave your comment</h5>
+      <div class="h5 text-lg text-gray-2"><%= t("decidim.components.add_comment_form.title") %></div>
       <div>
         <div class="flash flex-col warning">
           <div class="flash__message">
