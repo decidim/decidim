@@ -22,6 +22,10 @@ module Decidim
       Decidim::AdminLog::TaxonomyFilterPresenter
     end
 
+    def self.for(space_manifest)
+      where(space_manifest:)
+    end
+
     private
 
     def root_taxonomy_is_root

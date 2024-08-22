@@ -342,6 +342,14 @@ en:
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
+        taxonomy_filters_badge:
+          remove: Remove
+        taxonomy_filters_drawer:
+          add_filter: Add filter
+          clear_all: Clear all
+          filters: Filters
+          save: Save
+          title: Filters
         title: Components
         unpublish:
           success: The component has been successfully unpublished.

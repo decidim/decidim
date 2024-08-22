@@ -93,7 +93,7 @@ module Decidim
           end
 
           def collection
-            @collection ||= TaxonomyFilter.where(space_manifest: participatory_space_manifest, root_taxonomy: root_taxonomies)
+            @collection ||= TaxonomyFilter.for(participatory_space_manifest).where(root_taxonomy: root_taxonomies)
           end
 
           def current_taxonomy_filter

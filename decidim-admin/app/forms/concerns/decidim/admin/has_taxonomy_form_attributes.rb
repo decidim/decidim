@@ -21,7 +21,7 @@ module Decidim
         end
 
         def taxonomy_filters
-          @taxonomy_filters ||= TaxonomyFilter.where(space_manifest: participatory_space_manifest, root_taxonomy: root_taxonomies)
+          @taxonomy_filters ||= TaxonomyFilter.for(participatory_space_manifest).where(root_taxonomy: root_taxonomies)
         end
 
         def root_taxonomies
