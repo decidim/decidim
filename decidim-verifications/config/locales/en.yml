@@ -140,6 +140,7 @@ en:
           pending_admin_approval_verifications: Pending admin approval verifications
           pending_verifications: Pending verifications
           title: Verify your identity
+          unauthorized: You are not athorized to %{action} in this resource
           verify_with_these_options: 'These are the available options to verify your identity:'
         index:
           expired_verification: Verification expired
