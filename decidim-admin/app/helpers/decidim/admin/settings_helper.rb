@@ -74,7 +74,15 @@ module Decidim
         when :integer_with_units
           integer_with_units(form, attribute, name, i18n_scope, options)
         when :taxonomy_filters
-          taxonomy_filters(form, name, i18n_scope)
+          if current_taxonomy_filters.blank?
+            label_tag(name, t(name, scope: i18n_scope)) +
+              content_tag(:p) do
+                content_tag(:span, t("no_taxonomy_filters_found", scope: i18n_scope), class: "text-gray mr-2") +
+                  link_to(t("define_taxonomy_filters", scope: i18n_scope), participatory_space_taxonomy_filters_path, class: "button button__text-secondary")
+              end.html_safe
+          else
+            taxonomy_filters(form, name, i18n_scope)
+          end
         else
           form.send(form_method, name, options)
         end
@@ -244,6 +252,10 @@ module Decidim
         @current_taxonomy_filters ||= TaxonomyFilter.for(current_participatory_space_manifest.name).map do |filter|
           ["#{decidim_sanitize_translated(filter.name)} (#{filter.filter_items_count})", filter.id]
         end
+      end
+
+      def participatory_space_taxonomy_filters_path
+        Decidim::EngineRouter.new(current_participatory_space.mounted_admin_engine, {}).send("#{current_participatory_space.manifest.route_name}_filters_path")
       end
     end
   end

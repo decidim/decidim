@@ -172,6 +172,7 @@ en:
               random: Random
               recent: Recent
               with_more_authors: With more authors
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             edit_time: Proposals can be edited by authors before this much time passes
             edit_time_units:
               days: Days
@@ -182,6 +183,7 @@ en:
             new_proposal_body_template: New proposal body template
             new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
             new_proposal_help_text: New proposal help text
+            no_taxonomy_filters_found: No taxonomy filters found.
             official_proposals_enabled: Official proposals enabled
             participatory_texts_enabled: Participatory texts enabled
             participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
