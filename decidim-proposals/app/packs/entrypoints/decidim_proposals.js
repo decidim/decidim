@@ -10,3 +10,4 @@ require.context("../documents", true)
 
 // CSS
 import "stylesheets/decidim/proposals/proposals.scss"
+import "stylesheets/decidim/proposals/proposal_history.scss"
