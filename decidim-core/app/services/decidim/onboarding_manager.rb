@@ -71,6 +71,16 @@ module Decidim
       @model ||= GlobalID::Locator.locate(onboarding_model)
     end
 
+    # Returns the permissions_holder if present related to the action in the
+    # onboarding process.
+    #
+    # Returns an ActiveRecord model
+    def permissions_holder
+      return if onboarding_permissions_holder.blank?
+
+      @permissions_holder ||= GlobalID::Locator.locate(onboarding_permissions_holder)
+    end
+
     # Returns the model name related to the action in the onboarding process.
     #
     # Returns a string
@@ -123,6 +133,14 @@ module Decidim
     # Returns a string
     def onboarding_model
       onboarding_data["model"]
+    end
+
+    # Returns the onboarding data from the user's extended_data related to the permissions_holder
+    # in gid format. This attribute is optional and may not be present
+    #
+    # Returns a string
+    def onboarding_permissions_holder
+      onboarding_data["permissions_holder"]
     end
 
     # Returns the onboarding data from the user's extended_data related to the action.
