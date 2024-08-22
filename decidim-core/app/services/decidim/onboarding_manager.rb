@@ -102,7 +102,7 @@ module Decidim
     #
     # Returns an array of strings
     def authorization_handlers
-      return unless permissions
+      return [] unless permissions
 
       permissions["authorization_handlers"]&.keys&.map(&:to_s) || []
     end
