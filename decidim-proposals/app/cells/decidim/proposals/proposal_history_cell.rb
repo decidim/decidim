@@ -44,6 +44,7 @@ module Decidim
           date: resources.first.updated_at,
           text: t(text_key, scope: "activerecord.models", count: resources.size),
           icon: resource_type_icon_key(icon_key),
+          url: resource_locator(resources.first).path,
           resources:
         }
       end
