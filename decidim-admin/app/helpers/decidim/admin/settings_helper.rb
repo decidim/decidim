@@ -74,7 +74,7 @@ module Decidim
         when :integer_with_units
           integer_with_units(form, attribute, name, i18n_scope, options)
         when :taxonomy_filters
-          taxonomy_filters(form, attribute, name, i18n_scope, options)
+          taxonomy_filters(form, name, i18n_scope)
         else
           form.send(form_method, name, options)
         end
@@ -208,8 +208,14 @@ module Decidim
         content_tag(:label, options[:label]) + content_tag(:div, number_field_html + select_field_html, class: "flex space-x-2 items-center")
       end
 
-      def taxonomy_filters(form, _attribute, name, i18n_scope, _options)
-        values = form.object.send(name).filter_map do |id|
+      # Renders a form field that includes a taxonomy filters input hidden for each taxonomy filter
+      # and a button to open a drawer with all the available taxonomy filters with actions to manage them.
+      #
+      # @param form (see #settings_attribute_input)
+      # @param name (see #settings_attribute_input)
+      # @param i18n_scope (see #settings_attribute_input)
+      def taxonomy_filters(form, name, i18n_scope)
+        values = (form.object.send(name) || []).filter_map do |id|
           current_taxonomy_filters.find { |item| item[1].to_s == id.to_s }
         end || []
 
