@@ -1321,7 +1321,9 @@ en:
         message_2: Please, try again later.
         retry: Retry
     onboarding_action_message:
-      cta_html: <a href="%{path}">You can finish the authorization process</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
+      click_link: Click here
+      cta_html: <a href="%{path}">%{link_text}</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
+      finish_authorization_process: You can finish the authorization process
     open_data:
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     pad_iframe:
