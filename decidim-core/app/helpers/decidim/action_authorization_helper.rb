@@ -64,16 +64,17 @@ module Decidim
 
       html_options ||= {}
       resource = html_options.delete(:resource)
-      authorization_status = get_authorization_status(action, resource, html_options)
+      permissions_holder = html_options.delete(:permissions_holder)
+      authorization_status = get_authorization_status(action, resource, permissions_holder)
 
       if !current_user
-        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource)))
+        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder)))
         html_options["data-dialog-open"] = "loginModal"
 
         url = "#"
       elsif authorization_status&.ok? == false
-        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource)))
-        if authorization_status.pending_authorizations_count > 1
+        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder)))
+        if multiple_pending_steps?(authorization_status)
           tag = "link"
           html_options["method"] = "post"
           url = decidim_verifications.renew_onboarding_data_authorizations_path
@@ -129,12 +130,14 @@ module Decidim
       html_options
     end
 
-    def get_authorization_status(action, resource, opts = {})
+    def get_authorization_status(action, resource, permissions_holder)
       return if action.blank?
 
-      permissions_holder = opts.delete(:permissions_holder)
-
       action_authorized_to(action, resource:, permissions_holder:)
+    end
+
+    def multiple_pending_steps?(authorization_status)
+      authorization_status.pending_authorizations_count > 1 && authorization_status.global_code != :unauthorized
     end
 
     def pending_verifications_message(text, authorization_status)
@@ -144,13 +147,14 @@ module Decidim
       t("verify_to", scope: "decidim.core.actions", action: text)
     end
 
-    def onboarding_data_attributes(action, resource)
+    def onboarding_data_attributes(action, resource, permissions_holder)
       return {} if [action, resource].any?(&:blank?)
 
       {
         "data-onboarding-model" => resource.to_gid,
+        "data-onboarding-permissions-holder" => permissions_holder&.to_gid,
         "data-onboarding-action" => action
-      }
+      }.compact
     end
   end
 end
