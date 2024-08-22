@@ -16,7 +16,7 @@ module Decidim
         helper ProcessGroupsForSelectHelper
         helper Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessHelper
 
-        helper_method :current_participatory_process, :current_participatory_space, :process_group
+        helper_method :current_participatory_process, :current_participatory_space, :process_group, :deleted_collection
 
         layout "decidim/admin/participatory_processes"
 
@@ -77,6 +77,41 @@ module Decidim
           enforce_permission_to :create, Decidim::ParticipatoryProcess
         end
 
+        def soft_delete
+          enforce_permission_to :soft_delete, :process, process: current_participatory_process
+          Decidim::Commands::SoftDeleteResource.call(current_participatory_process, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("participatory_processes.soft_delete.success", scope: "decidim.admin")
+              redirect_to participatory_processes_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("participatory_processes.soft_delete.error", scope: "decidim.admin")
+              redirect_to participatory_processes_path
+            end
+          end
+        end
+
+        def restore
+          enforce_permission_to :restore, :process, process: current_participatory_process
+          Decidim::Commands::RestoreResource.call(current_participatory_process, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("participatory_processes.restore.success", scope: "decidim.admin")
+              redirect_to participatory_processes_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("participatory_processes.restore.error", scope: "decidim.admin")
+              redirect_to participatory_processes_path
+            end
+          end
+        end
+
+        def deleted
+          enforce_permission_to :read, :process_list
+          render :deleted
+        end
+
         private
 
         def process_group
@@ -87,9 +122,13 @@ module Decidim
           @collection ||= ParticipatoryProcessesWithUserRole.for(current_user)
         end
 
+        def deleted_collection
+          collection.trashed
+        end
+
         def current_participatory_process
-          @current_participatory_process ||= collection.where(slug: params[:slug]).or(
-            collection.where(id: params[:slug])
+          @current_participatory_process ||= collection.unscoped.where(slug: params[:slug]).or(
+            collection.unscoped.where(id: params[:slug])
           ).first
         end
 

@@ -38,7 +38,7 @@ module Decidim
 
         def action_string
           case action
-          when "create", "publish", "unpublish", "update", "import", "export", "duplicate"
+          when "create", "publish", "unpublish", "update", "import", "export", "duplicate", "soft_delete", "restore"
             "decidim.admin_log.participatory_process.#{action}"
           else
             super

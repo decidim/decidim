@@ -36,6 +36,7 @@ module Decidim
     include Decidim::TranslatableResource
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::SoftDeletable
 
     CREATED_BY = %w(city_council public others).freeze
 

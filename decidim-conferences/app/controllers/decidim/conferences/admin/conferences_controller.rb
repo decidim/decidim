@@ -69,10 +69,40 @@ module Decidim
           enforce_permission_to :create, :conference
         end
 
+        def soft_delete
+          enforce_permission_to :soft_delete, :conference, conference: current_conference
+          SoftDeleteResource.call(current_conference, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("conferences.soft_delete.success", scope: "decidim.admin")
+              redirect_to conferences_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("conferences.soft_delete.error", scope: "decidim.admin")
+              redirect_to conferences_path
+            end
+          end
+        end
+
+        def restore
+          enforce_permission_to :restore, :conference, conference: current_conference
+          RestoreResource.call(current_conference, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("conferences.restore.success", scope: "decidim.admin")
+              redirect_to conferences_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("conferences.restore.error", scope: "decidim.admin")
+              redirect_to conferences_path
+            end
+          end
+        end
+
         private
 
         def current_conference
-          @current_conference ||= collection.where(slug: params[:slug]).or(
+          @current_conference ||= collection.unscoped.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])
           ).first
         end

@@ -26,6 +26,11 @@ module Decidim
           resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
           resources :copies, controller: "participatory_process_copies", only: [:new, :create]
 
+          member do
+            patch :soft_delete
+            patch :restore
+          end
+
           resources :steps, controller: "participatory_process_steps" do
             resource :activate, controller: "participatory_process_step_activations", only: [:create, :destroy]
             collection do
@@ -43,6 +48,7 @@ module Decidim
           resource :export, controller: "participatory_process_exports", only: :create
 
           collection do
+            get :deleted, to: "participatory_processes#deleted"
             resources :imports, controller: "participatory_process_imports", only: [:new, :create]
           end
           resource :landing_page, only: [:edit, :update], controller: "participatory_process_landing_page" do

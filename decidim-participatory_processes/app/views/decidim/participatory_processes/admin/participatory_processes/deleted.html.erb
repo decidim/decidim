@@ -1,0 +1,34 @@
+<% add_decidim_page_title(t("participatory_processes_deleted", scope: "decidim.admin.titles")) %>
+<%= admin_tabs(:admin_participatory_processes_menu).render %>
+
+<div class="card" id="processes">
+  <%= admin_filter_selector %>
+</div>
+<div class="table-scroll">
+  <table class="table-list">
+    <thead>
+    <tr>
+      <th>
+        <%= sort_link(query, :title, t("models.participatory_process.fields.title", scope: "decidim.admin")) %>
+      </th>
+      <th>
+        <%= sort_link(query, :created_at, t("models.participatory_process.fields.created_at", scope: "decidim.admin"), default_order: :desc) %>
+      </th>
+      <th>
+        <%= sort_link(query, :private_space, t("models.participatory_process.fields.private", scope: "decidim.admin")) %>
+      </th>
+      <th class="table-list__actions">
+        <%= sort_link(query, :published_at, t("models.participatory_process.fields.published", scope: "decidim.admin")) %>
+      </th>
+      <th>
+        <%= t("models.participatory_process.fields.actions", scope: "decidim.admin") %>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% deleted_collection.each do |process| %>
+      <%= render partial: "process_row", locals: { process: process, view: :deleted } %>
+    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -172,6 +172,12 @@ en:
         update:
           error: There was a problem updating this conference.
           success: Conference successfully updated.
+        soft_delete:
+          error: There was a problem moving this conference to trash.
+          success: Conference successfully moved to trash.
+        restore:
+          error: There was a problem restoring this conference.
+          success: Conference successfully restored.
       conferences_copies:
         create:
           error: There was a problem duplicating this conference.
