@@ -53,12 +53,12 @@
     });
 
     select.addEventListener("change", function() {
-      var selectedId = select.options[select.selectedIndex].value;
-      var selectedName = select.options[select.selectedIndex].text;
+      var id = select.options[select.selectedIndex].value;
+      var text = select.options[select.selectedIndex].text;
       // add to containers as a span unless already there
-      if (selectedId && !container.querySelector(`[data-filter="${selectedId}"]`)) {
-        var span = `<%= j(render("taxonomy_filters_badge", value: "${selectedId}", title: "${selectedName}", name:, object_name: form.object_name)).gsub("\\$", "$").html_safe %>`;
-        container.insertAdjacentHTML("beforeend", span);
+      if (id && !container.querySelector(`[data-filter="${id}"]`)) {
+        var span = "<%= j(render("taxonomy_filters_badge", value: "%ID%", title: "%TITLE%", name:, object_name: form.object_name)) %>";
+        container.insertAdjacentHTML("beforeend", span.replace(/%ID%/g, id).replace(/%TITLE%/g, text));
         container.parentElement.querySelector("[data-clear-all]").classList.remove("hidden");
       }
       select.selectedIndex = 0;
