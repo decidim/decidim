@@ -14,6 +14,10 @@
 
         &_icon {
             @apply relative w-8 h-8 rounded-full border-secondary border flex justify-center items-center;
+
+            &-creation {
+                @apply bg-secondary w-6 h-6 rounded-full flex justify-center items-center;
+            }
         }
 
         &_content {
