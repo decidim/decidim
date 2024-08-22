@@ -10,11 +10,9 @@
     <%= render :content %>
   <% end %>
 <% else %>
-  <%= action_authorized_button_to(
-        :follow,
+  <%= logged_button_to(
         path,
         resource: model,
-        ignore_authorization_status: true,
         class: button_classes,
         title: t("decidim.shared.follow_button.log_in_before_follow"),
         params: req_params,
