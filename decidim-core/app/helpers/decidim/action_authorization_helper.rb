@@ -130,7 +130,6 @@ module Decidim
     end
 
     def get_authorization_status(action, resource, opts = {})
-      return if opts.delete(:ignore_authorization_status)
       return if action.blank?
 
       permissions_holder = opts.delete(:permissions_holder)
@@ -146,7 +145,7 @@ module Decidim
     end
 
     def onboarding_data_attributes(action, resource)
-      return {} if resource.blank?
+      return {} if [action, resource].any?(&:blank?)
 
       {
         "data-onboarding-model" => resource.to_gid,
