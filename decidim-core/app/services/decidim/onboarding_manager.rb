@@ -51,8 +51,8 @@ module Decidim
     # active_authorization_methods - A list of the active authorization methods for the user.
     #
     # Returns a boolean
-    def finished_verifications?(active_authorization_methods)
-      (authorization_handlers - active_authorization_methods).empty?
+    def finished_verifications?(authorization_methods = active_authorization_methods)
+      (authorization_handlers - authorization_methods).empty?
     end
 
     # Removes the pending action from the user's extended_data.
@@ -90,6 +90,10 @@ module Decidim
     end
 
     private
+
+    def active_authorization_methods
+      @active_authorization_methods ||= Verifications::Authorizations.new(organization: user.organization, user:).pluck(:name)
+    end
 
     # Returns the permissions for the action and model in the onboarding process.
     #
