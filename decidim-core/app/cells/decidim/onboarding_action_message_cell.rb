@@ -33,6 +33,7 @@ module Decidim
       t(
         "cta_html",
         scope: "decidim.onboarding_action_message",
+        link_text: t(onboarding_manager.finished_verifications? ? "click_link" : "finish_authorization_process", scope: "decidim.onboarding_action_message"),
         path: onboarding_path,
         action: onboarding_manager.action,
         resource_name: onboarding_manager.model_name.human.downcase,
