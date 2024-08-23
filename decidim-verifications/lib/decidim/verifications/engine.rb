@@ -16,6 +16,7 @@ module Decidim
               get :renew_modal
               get :renew
               post :renew_onboarding_data
+              delete :clear_onboarding_data
             end
           end
 
