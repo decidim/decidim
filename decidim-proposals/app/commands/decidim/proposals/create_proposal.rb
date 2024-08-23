@@ -82,6 +82,7 @@ module Decidim
               component: form.component
             )
 
+            proposal.taxonomizations = form.taxonomizations if form.taxonomizations.present?
             proposal.category = form.category if form.category_id.present?
             proposal.scope = form.scope if form.scope_id.present?
             proposal.documents = form.documents if form.documents.present?

@@ -7,6 +7,7 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::AttachmentAttributes
       include Decidim::HasUploadValidations
+      include Decidim::Admin::HasTaxonomyFormAttributes
 
       mimic :proposal
 
@@ -57,6 +58,10 @@ module Decidim
         self.scope_id = model.scope.id if model.scope
 
         self.documents = model.attachments
+      end
+
+      def participatory_space_manifest
+        @participatory_space_manifest ||= current_component.participatory_space.manifest.name
       end
 
       # Finds the Category from the category_id.

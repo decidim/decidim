@@ -10,12 +10,14 @@ module Decidim
 
         validate :taxonomies_belong_to_current_organization
 
+        # Returns the participatory space manifest for search the available filters (ie: participatory_processes, assemblies, etc)
+        # To implement where this concern is included.
         def participatory_space_manifest
           raise NotImplementedError
         end
 
         def taxonomizations
-          compact_taxonomies.map do |taxonomy_id|
+          @taxonomizations ||= compact_taxonomies.map do |taxonomy_id|
             Decidim::Taxonomization.new(taxonomy_id:)
           end
         end

@@ -30,7 +30,7 @@ module Decidim
         options.merge!(builder_type: type.to_s.pluralize)
         type = "collection"
       when "check_boxes_tree"
-        options.merge!(check_boxes_tree_id: check_boxes_tree_id(method))
+        options.merge!(check_boxes_tree_id: check_boxes_tree_id(method, id))
       end
 
       @template.render(
@@ -51,8 +51,8 @@ module Decidim
 
     private
 
-    def check_boxes_tree_id(method)
-      method
+    def check_boxes_tree_id(*args)
+      args.map(&:to_s).join("_")
     end
 
     def default_form_type_for_collection(collection)

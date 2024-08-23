@@ -202,16 +202,17 @@ module Decidim
       end
 
       def default_filter_params
-        @default_filter_params ||= {
+        {
           search_text_cont: "",
           with_any_origin: nil,
           activity: "all",
+          with_any_taxonomy: nil,
           with_any_category: nil,
           with_any_state: default_states,
           with_any_scope: nil,
           related_to: "",
           type: "all"
-        }.merge(current_component.available_taxonomy_filters.to_h { |filter| [:"with_any_taxonomy-#{filter.root_taxonomy_id}", nil] })
+        }
       end
 
       def default_states

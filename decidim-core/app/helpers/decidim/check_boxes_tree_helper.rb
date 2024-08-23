@@ -16,7 +16,8 @@ module Decidim
         include_hidden: false,
         label_options: {
           "data-children-checkbox": parent_id,
-          value:
+          value:,
+          for: "#{options[:namespace]}_#{options[:id]}"
         }
       }
       options.merge!(checkbox_options)
@@ -37,9 +38,13 @@ module Decidim
     end
 
     # struct for leafs of checkboxes trees
-    TreePoint = Struct.new(:value, :label) do
+    TreePoint = Struct.new(:value, :label, :root) do
       def tree_node?
         is_a?(TreeNode)
+      end
+
+      def root?
+        root.present? || value.blank?
       end
     end
 
@@ -50,14 +55,9 @@ module Decidim
     end
 
     def filter_taxonomy_values_for(taxonomy_filter)
-      taxonomies = taxonomy_filter.taxonomies.map do |id, hash|
-        TreeNode.new(
-          TreePoint.new(id, decidim_escape_translated(hash[:taxonomy].name)),
-          filter_taxonomy_values_children(hash[:children])
-        )
-      end
+      taxonomies = filter_taxonomy_values_children(taxonomy_filter.taxonomies)
       TreeNode.new(
-        TreePoint.new("", t("decidim.core.application_helper.filter_taxonomy_values.all")),
+        TreePoint.new(taxonomy_filter.root_taxonomy_id, t("decidim.core.application_helper.filter_taxonomy_values.all"), true),
         taxonomies
       )
     end
