@@ -313,7 +313,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     context "and there are no authorizations defined for the resource" do
       it "the user is redirected to the resource" do
         expect(page).to have_current_path commentable_path
-        expect(page).to have_content "You have been sucessfully authorized"
+        expect(page).to have_content "You have been successfully authorized"
       end
     end
 
