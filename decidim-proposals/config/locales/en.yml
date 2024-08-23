@@ -862,6 +862,7 @@ en:
           scope: Scope
           search: Search
           state: Status
+          taxonomy_filters: Filters
           type: Type
           voted: Voted
         index:

@@ -594,6 +594,8 @@ en:
           all: All
         filter_scope_values:
           all: All
+        filter_taxonomy_values:
+          all: All
     devise:
       omniauth_registrations:
         create:

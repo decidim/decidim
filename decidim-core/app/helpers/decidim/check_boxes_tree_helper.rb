@@ -49,6 +49,28 @@ module Decidim
       raise StandardError, "Not implemented"
     end
 
+    def filter_taxonomy_values_for(taxonomy_filter)
+      taxonomies = taxonomy_filter.taxonomies.map do |id, hash|
+        TreeNode.new(
+          TreePoint.new(id, decidim_escape_translated(hash[:taxonomy].name)),
+          filter_taxonomy_values_children(hash[:children])
+        )
+      end
+      TreeNode.new(
+        TreePoint.new("", t("decidim.core.application_helper.filter_taxonomy_values.all")),
+        taxonomies
+      )
+    end
+
+    def filter_taxonomy_values_children(children)
+      children.map do |id, hash|
+        TreeNode.new(
+          TreePoint.new(id, decidim_escape_translated(hash[:taxonomy].name)),
+          filter_taxonomy_values_children(hash[:children])
+        )
+      end
+    end
+
     def filter_categories_values
       sorted_main_categories = current_participatory_space.categories.first_class.includes(:subcategories).sort_by do |category|
         [category.weight, decidim_escape_translated(category.name)]

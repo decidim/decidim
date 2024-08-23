@@ -26,6 +26,37 @@ module Decidim
       where(space_manifest:)
     end
 
+    # A memoized taxonomy tree hash filtered according to the filter_items
+    # that respects the order given by the taxonomies table.
+    # The returned hash structure is:
+    # {
+    #  _object_id_ => {
+    #    taxonomy: _object_,
+    #    children: [
+    #      {
+    #        _sub_object_id_: {
+    #          taxonomy: _sub_object_,
+    #          children: [
+    #    ...
+    # }
+    # @returns [Hash] a hash with the taxonomy tree structure.
+    def taxonomies
+      @taxonomies ||= taxonomy_children(root_taxonomy)
+    end
+
+    def taxonomy_children(taxonomy)
+      taxonomy.children.where(id: available_taxonomy_ids).each_with_object({}) do |child, children|
+        children[child.id] = {
+          taxonomy: child,
+          children: taxonomy_children(child)
+        }
+      end
+    end
+
+    def available_taxonomy_ids
+      @available_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
+    end
+
     private
 
     def root_taxonomy_is_root
