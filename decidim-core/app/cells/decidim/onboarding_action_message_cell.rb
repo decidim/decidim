@@ -38,12 +38,20 @@ module Decidim
       t(
         "cta_html",
         scope: "decidim.onboarding_action_message",
-        link_text: t(onboarding_manager.finished_verifications? ? "click_link" : "finish_authorization_process", scope: "decidim.onboarding_action_message"),
+        link_text:,
         path: onboarding_path,
         action: onboarding_manager.action,
         resource_name: onboarding_manager.model_name.human.downcase,
         resource_title: translated_attribute(onboarding_manager.model.title)
       )
+    end
+
+    def link_text
+      if onboarding_manager.finished_verifications?
+        t("click_link", scope: "decidim.onboarding_action_message")
+      else
+        t("finish_authorization_process", scope: "decidim.onboarding_action_message")
+      end
     end
 
     def info_icon
