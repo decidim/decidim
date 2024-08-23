@@ -426,6 +426,7 @@ en:
           scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
+        explanation: Dummy authorization workflow
         name: Dummy authorization workflow
       errors:
         duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
