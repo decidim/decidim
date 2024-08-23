@@ -313,6 +313,7 @@ describe "Proposals" do
 
             expect(page).to have_content("successfully")
 
+            click_on "Images"
             within "#panel-images" do
               expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
             end

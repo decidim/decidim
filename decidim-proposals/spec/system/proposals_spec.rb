@@ -341,7 +341,9 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_no_content("Accepted")
+        within ".layout-author" do
+          expect(page).to have_no_content("Accepted")
+        end
         expect(page).to have_no_content("This proposal has been accepted")
         expect(page).not_to have_i18n_content(proposal.answer)
       end
