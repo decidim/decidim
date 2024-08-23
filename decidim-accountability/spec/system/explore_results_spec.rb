@@ -380,11 +380,21 @@ describe "Explore results", :versioning do
 
         it "the result is mentioned in the proposal page" do
           click_on translated(proposal.title)
+          begin
+            page.driver.browser.switch_to.alert.accept
+          rescue StandardError
+            Selenium::WebDriver::Error::NoAlertOpenError
+          end
           expect(page).to have_i18n_content(result.title)
         end
 
         it "a banner links back to the result" do
           click_on translated(proposal.title)
+          begin
+            page.driver.browser.switch_to.alert.accept
+          rescue StandardError
+            Selenium::WebDriver::Error::NoAlertOpenError
+          end
           expect(page).to have_content("Included in #{translated(result.title)}")
         end
       end
