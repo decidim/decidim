@@ -77,6 +77,10 @@ module Decidim
         redirect_to first_login_authorizations_path
       end
 
+      def clear_onboarding_data
+        clear_onboarding_data!(current_user)
+      end
+
       protected
 
       def authorization_method(authorization)
