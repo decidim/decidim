@@ -33,6 +33,11 @@ module Decidim
       rescue JSON::ParserError
         cookies.delete(:onboarding)
       end
+
+      def clear_onboarding_data!(user)
+        user.extended_data = user.extended_data.except("onboarding")
+        user.save!
+      end
     end
   end
 end
