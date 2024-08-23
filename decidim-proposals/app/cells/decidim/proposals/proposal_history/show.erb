@@ -6,7 +6,7 @@
           <%= icon item[:icon], class: item[:id] == "proposal_creation" ? "fill-current text-white" : "fill-current text-secondary" %>
         </div>
         <% if index < history_items.size - 1 %>
-          <span class="<%= item[:id] == "proposal_creation" ? "proposal_history_cell__line_short" : "proposal_history_cell__line_long" %>"></span>
+          <span class="<%= item[:id] == "proposal_creation" || item[:id] == "proposal_withdraw" ? "proposal_history_cell__line_short" : "proposal_history_cell__line_long" %>"></span>
         <% end %>
       </div>
       <div class="proposal_history_cell__item_content">
@@ -19,7 +19,7 @@
           <ul>
             <% item[:resources].each do |resource| %>
               <li>
-                <%= link_to translated_attribute(resource.title), item[:url], class: "link_to_resource" %>
+                <%= link_to translated_attribute(resource.title), item[:url], class: "underline decoration-current text-secondary font-semibold" %>
               </li>
             <% end %>
           </ul>
