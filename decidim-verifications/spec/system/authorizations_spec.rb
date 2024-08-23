@@ -7,7 +7,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     switch_to_host(organization.host)
   end
 
-  context "when a new user" do
+  context "when a new user visits authorizations" do
     let(:organization) { create(:organization, available_authorizations: authorizations) }
 
     let(:user) { create(:user, :confirmed, organization:) }
@@ -16,19 +16,17 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
       let(:authorizations) { ["dummy_authorization_handler"] }
 
       before do
-        visit decidim.root_path
-        within "#main-bar" do
-          click_on("Log in")
-        end
-
-        within "form.new_user", match: :first do
-          fill_in :session_user_email, with: user.email
-          fill_in :session_user_password, with: "decidim123456789"
-          find("*[type=submit]").click
-        end
+        sign_in
+        visit_authorizations
       end
 
-      it "redirects the user to the authorization form after the first sign in" do
+      it "shows one authorization link" do
+        expect(page).to have_css("a[data-verification]", text: "Example authorization")
+      end
+
+      it "allows the user to fill in the authorization form" do
+        click_on "Example authorization"
+
         fill_in "Document number", with: "123456789X"
 
         fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
@@ -38,6 +36,8 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
       end
 
       it "allows the user to skip it" do
+        click_on "Example authorization"
+
         click_on "start exploring"
         expect(page).to have_current_path decidim.account_path
 
@@ -50,6 +50,8 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
         let!(:other_user) { create(:user, :confirmed, organization: user.organization) }
 
         it "transfers the authorization from the deleted user" do
+          click_on "Example authorization"
+
           fill_in "Document number", with: document_number
 
           fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
@@ -69,6 +71,8 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
         let!(:other_user) { create(:user, :deleted, organization: user.organization) }
 
         it "transfers the authorization from the deleted user" do
+          click_on "Example authorization"
+
           fill_in "Document number", with: document_number
 
           fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
@@ -114,20 +118,12 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
       let(:authorizations) { %w(dummy_authorization_handler dummy_authorization_workflow) }
 
       before do
-        visit decidim.root_path
-        within "#main-bar" do
-          click_on("Log in")
-        end
-
-        within "form.new_user", match: :first do
-          fill_in :session_user_email, with: user.email
-          fill_in :session_user_password, with: "decidim123456789"
-          find("*[type=submit]").click
-        end
+        sign_in
+        visit_authorizations
       end
 
       it "allows the user to choose which one to authorize against to" do
-        expect(page).to have_css("a[href]", text: /\AVerify against /, count: 2)
+        expect(page).to have_css("a[data-verification]", count: 2)
       end
     end
   end
@@ -297,6 +293,54 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     end
   end
 
+  context "when there is onboarding action data and the user signs in" do
+    let(:organization) { create(:organization, available_authorizations: authorizations) }
+    let(:component) { create(:component, manifest_name: "dummy", organization:, permissions:) }
+    let(:commentable) { create(:dummy_resource, component:) }
+    let(:permissions) { nil }
+    let(:comment) { create(:comment, commentable:) }
+    let(:action) { :comment }
+    let(:extended_data) { { onboarding: { action:, model: commentable.to_gid } } }
+    let(:user) { create(:user, :confirmed, organization:, extended_data:) }
+    let(:commentable_path) { Decidim::ResourceLocatorPresenter.new(commentable).path }
+    let(:authorizations) { %w(dummy_authorization_handler dummy_authorization_workflow) }
+    # let!(:resource_permission) { commentable.create_resource_permission(permissions:) }
+
+    before do
+      sign_in
+    end
+
+    context "and there are no authorizations defined for the resource" do
+      it "the user is redirected to the resource" do
+        expect(page).to have_current_path commentable_path
+        expect(page).to have_content "You have been sucessfully authorized"
+      end
+    end
+
+    context "and there are authorizations defined for the resource" do
+      let(:permissions) do
+        {
+          action => {
+            authorization_handlers: {
+              dummy_authorization_handler: {
+                options: {
+                  allowed_postal_codes: "1234, 4567"
+                }
+              }
+            }
+          }
+        }
+      end
+
+      it "the user is redirected to a page with the authorizations required to perform the action" do
+        expect(page).to have_current_path decidim_verifications.first_login_authorizations_path
+        expect(page).to have_content "You are almost ready to comment in the dummy resource #{translated_attribute(commentable.title)}"
+        expect(page).to have_css("a[data-verification]", text: "Example authorization")
+        expect(page).to have_no_css("a[data-verification]", text: "Dummy authorization workflow")
+      end
+    end
+  end
+
   private
 
   def visit_authorizations
@@ -305,5 +349,18 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     end
 
     click_on "Authorizations"
+  end
+
+  def sign_in
+    visit decidim.root_path
+    within "#main-bar" do
+      click_on("Log in")
+    end
+
+    within "form.new_user", match: :first do
+      fill_in :session_user_email, with: user.email
+      fill_in :session_user_password, with: "decidim123456789"
+      find("*[type=submit]").click
+    end
   end
 end
