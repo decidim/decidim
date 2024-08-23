@@ -8,8 +8,8 @@
       <%= message_text %>
     </div>
 
-    <button class="close-button" type="button" data-close aria-label="<%= t("decidim.alert.dismiss") %>">
+    <%= button_to decidim_verifications.clear_onboarding_data_authorizations_path, form_class: "close-button", role: :button, method: :delete, remote: true, data: { close: "" } do %>
       <%= close_icon %>
-    </button>
+    <% end %>
   </div>
 </div>
