@@ -245,6 +245,7 @@ shared_examples "manage proposals" do
             expect(page).to have_admin_callout("successfully")
 
             visit resource_locator(Decidim::Proposals::Proposal.last).path
+            click_on "Images"
             expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)
           end
         end
