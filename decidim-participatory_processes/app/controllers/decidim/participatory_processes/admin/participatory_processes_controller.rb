@@ -22,7 +22,7 @@ module Decidim
 
         def index
           enforce_permission_to :read, :process_list
-          @participatory_processes = filtered_collection
+          @participatory_processes = filtered_collection.not_deleted
         end
 
         def new
@@ -79,6 +79,7 @@ module Decidim
 
         def soft_delete
           enforce_permission_to :soft_delete, :process, process: current_participatory_process
+
           Decidim::Commands::SoftDeleteResource.call(current_participatory_process, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_processes.soft_delete.success", scope: "decidim.admin")
@@ -94,15 +95,16 @@ module Decidim
 
         def restore
           enforce_permission_to :restore, :process, process: current_participatory_process
+
           Decidim::Commands::RestoreResource.call(current_participatory_process, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_processes.restore.success", scope: "decidim.admin")
-              redirect_to participatory_processes_path
+              redirect_to deleted_participatory_processes_path
             end
 
             on(:invalid) do
               flash[:alert] = I18n.t("participatory_processes.restore.error", scope: "decidim.admin")
-              redirect_to participatory_processes_path
+              redirect_to deleted_participatory_processes_path
             end
           end
         end
@@ -123,12 +125,12 @@ module Decidim
         end
 
         def deleted_collection
-          collection.trashed
+          @deleted_collection ||= filtered_collection.trashed
         end
 
         def current_participatory_process
-          @current_participatory_process ||= collection.unscoped.where(slug: params[:slug]).or(
-            collection.unscoped.where(id: params[:slug])
+          @current_participatory_process ||= collection.where(slug: params[:slug]).or(
+            collection.where(id: params[:slug])
           ).first
         end
 

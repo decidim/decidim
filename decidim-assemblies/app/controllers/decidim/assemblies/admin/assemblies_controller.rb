@@ -8,12 +8,12 @@ module Decidim
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
         include Decidim::Assemblies::Admin::Filterable
         include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
-        helper_method :current_assembly, :parent_assembly, :current_participatory_space
+        helper_method :current_assembly, :parent_assembly, :current_participatory_space, :deleted_collection
         layout "decidim/admin/assemblies"
 
         def index
           enforce_permission_to :read, :assembly_list
-          @assemblies = filtered_collection
+          @assemblies = filtered_collection.not_deleted
         end
 
         def new
@@ -69,10 +69,46 @@ module Decidim
           enforce_permission_to :create, :assembly
         end
 
+        def soft_delete
+          enforce_permission_to :soft_delete, :assembly, assembly: current_assembly
+
+          Decidim::Commands::SoftDeleteResource.call(current_assembly, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("assemblies.soft_delete.success", scope: "decidim.admin")
+              redirect_to assemblies_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("assemblies.soft_delete.error", scope: "decidim.admin")
+              redirect_to assemblies_path
+            end
+          end
+        end
+
+        def restore
+          enforce_permission_to :restore, :assembly, assembly: current_assembly
+
+          Decidim::Commands::RestoreResource.call(current_assembly, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("assemblies.restore.success", scope: "decidim.admin")
+              redirect_to deleted_assemblies_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("assemblies.restore.error", scope: "decidim.admin")
+              redirect_to deleted_assemblies_path
+            end
+          end
+        end
+
         private
 
         def collection
           @collection ||= OrganizationAssemblies.new(current_user.organization).query
+        end
+
+        def deleted_collection
+          @deleted_collection ||= filtered_collection.trashed
         end
 
         def current_assembly

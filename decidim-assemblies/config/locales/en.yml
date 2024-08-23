@@ -94,15 +94,26 @@ en:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Are you sure you want to delete this assembly?  If you change your mind, you can restore it later.
+        confirm_restore: Confirm restore
         import_assembly: Import
         new_assembly: New assembly
         new_assembly_member: New assembly member
         new_assembly_type: New assembly type
         new_assembly_user_role: New assembly admin
+        restore: Restore
+        soft_delete: Soft delete
+        view_deleted_assemblies: View deleted assemblies
       assemblies:
         create:
           error: There was a problem creating a new assembly.
           success: Assembly created successfully.
+        deleted:
+          actions:
+            restore: Restore
+          heading: Deleted assemblies
+          name: Deleted assemblies
+          no_deleted_assemblies: There are no deleted assemblies.
         edit:
           update: Update
         index:
@@ -116,6 +127,12 @@ en:
         update:
           error: There was a problem updating this assembly.
           success: Assembly successfully updated.
+        restore:
+          error: There was a problem while restoring the assembly.
+          success: Assembly has been successfully restored.
+        soft_delete:
+          error: There was a problem while deleting the assembly.
+          success: Assembly has been successfully deleted.
       assemblies_copies:
         create:
           error: There was a problem duplicating this assembly.
@@ -251,7 +268,10 @@ en:
             valuator: Valuator
       titles:
         assemblies: Assemblies
+        assemblies_deleted: Deleted assemblies
         assemblies_types: Assemblies types
+      tooltips:
+        deleted_assemblies_info: An assembly can only be deleted if status is "Unpublished".
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"

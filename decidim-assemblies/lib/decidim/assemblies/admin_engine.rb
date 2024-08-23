@@ -34,7 +34,13 @@ module Decidim
 
           resource :export, controller: "assembly_exports", only: :create
 
+          member do
+            patch :soft_delete
+            patch :restore
+          end
+
           collection do
+            get :deleted, to: "assemblies#deleted"
             resources :imports, controller: "assembly_imports", only: [:new, :create]
           end
 

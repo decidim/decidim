@@ -301,7 +301,7 @@ en:
           success: Participatory process successfully restored.
         soft_delete:
           error: There was a problem while deleting the participatory process.
-          success: Participatory process successfully moved to the trash.
+          success: Participatory process has been successfully deleted.
       participatory_processes_copies:
         create:
           error: There was a problem duplicating this participatory process.
