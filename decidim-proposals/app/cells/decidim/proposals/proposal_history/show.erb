@@ -19,7 +19,7 @@
           <ul>
             <% item[:resources].each do |resource| %>
               <li>
-                <%= link_to translated_attribute(resource.title), item[:url], class: "underline decoration-current text-secondary font-semibold" %>
+                <%= link_to decidim_sanitize_translated(resource.title), item[:url], class: "underline decoration-current text-secondary font-semibold" %>
               </li>
             <% end %>
           </ul>

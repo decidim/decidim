@@ -259,7 +259,7 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_i18n_content(meeting.title)
+        expect(page).to have_i18n_content(decidim_sanitize_translated(meeting.title))
       end
     end
 
@@ -278,7 +278,7 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_i18n_content(result.title)
+        expect(page).to have_i18n_content(decidim_sanitize_translated(result.title))
       end
     end
 
@@ -384,7 +384,7 @@ describe "Proposals" do
       visit_component
       click_on proposal_title
 
-      expect(page).to have_i18n_content(project.title)
+      expect(page).to have_i18n_content(decidim_sanitize_translated(project.title))
     end
   end
 
