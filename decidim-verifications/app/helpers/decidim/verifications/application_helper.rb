@@ -88,11 +88,22 @@ module Decidim
       end
 
       def onboarding_sections(onboarding_manager, redirect_url: nil, granted_authorizations: nil, pending_authorizations: nil, unauthorized_methods: nil)
-        scope = "decidim.verifications.authorizations.first_login"
         [
-          [t("granted_verifications", scope:), onboarding_manager.filter_authorizations(granted_authorizations), :granted_authorization_display_data],
-          [t("pending_admin_approval_verifications", scope:), onboarding_manager.filter_authorizations(pending_authorizations), :pending_authorization_display_data],
-          [t("pending_verifications", scope:), onboarding_manager.filter_authorizations(unauthorized_methods), :unauthorized_method_display_data]
+          [
+            t("granted_verifications", scope: "decidim.verifications.authorizations.first_login"),
+            onboarding_manager.filter_authorizations(granted_authorizations),
+            :granted_authorization_display_data
+          ],
+          [
+            t("pending_admin_approval_verifications", scope: "decidim.verifications.authorizations.first_login"),
+            onboarding_manager.filter_authorizations(pending_authorizations),
+            :pending_authorization_display_data
+          ],
+          [
+            t("pending_verifications", scope: "decidim.verifications.authorizations.first_login"),
+            onboarding_manager.filter_authorizations(unauthorized_methods),
+            :unauthorized_method_display_data
+          ]
         ].filter_map do |title, authorizations, presenter|
           { title:, items: authorizations.map { |authorization| send(presenter, authorization, redirect_url) } } if authorizations.present?
         end
