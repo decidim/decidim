@@ -29,7 +29,8 @@ module Decidim
       elsif permissions_holder
         "#{action}-#{permissions_holder.class.name}-#{permissions_holder.id}"
       else
-        "#{action}-#{current_component.id}"
+        component = resource.try(:component) || current_component
+        "#{action}-#{component.id}"
       end
     end
   end
