@@ -95,14 +95,11 @@ en:
     admin:
       actions:
         confirm_delete_assembly: Are you sure you want to delete this assembly?  If you change your mind, you can restore it later.
-        confirm_restore: Confirm restore
         import_assembly: Import
         new_assembly: New assembly
         new_assembly_member: New assembly member
         new_assembly_type: New assembly type
         new_assembly_user_role: New assembly admin
-        restore: Restore
-        soft_delete: Soft delete
         view_deleted_assemblies: View deleted assemblies
       assemblies:
         create:
@@ -124,15 +121,15 @@ en:
         new:
           create: Create
           title: New assembly
-        update:
-          error: There was a problem updating this assembly.
-          success: Assembly successfully updated.
         restore:
           error: There was a problem while restoring the assembly.
           success: Assembly has been successfully restored.
         soft_delete:
           error: There was a problem while deleting the assembly.
           success: Assembly has been successfully deleted.
+        update:
+          error: There was a problem updating this assembly.
+          success: Assembly successfully updated.
       assemblies_copies:
         create:
           error: There was a problem duplicating this assembly.

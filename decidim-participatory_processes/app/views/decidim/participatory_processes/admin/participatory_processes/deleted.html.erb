@@ -27,7 +27,7 @@
     </thead>
     <tbody>
     <% deleted_collection.each do |process| %>
-      <%= render partial: "process_row", locals: { process: process, view: :deleted } %>
+      <%= render partial: "process_row", locals: { process:, view: :deleted } %>
     <% end %>
     </tbody>
   </table>

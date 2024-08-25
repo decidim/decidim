@@ -293,15 +293,15 @@ en:
         new:
           create: Create
           title: New participatory process
-        update:
-          error: There was a problem updating this participatory process.
-          success: Participatory process successfully updated.
         restore:
           error: There was a problem while restoring the participatory process.
           success: Participatory process successfully restored.
         soft_delete:
           error: There was a problem while deleting the participatory process.
           success: Participatory process has been successfully deleted.
+        update:
+          error: There was a problem updating this participatory process.
+          success: Participatory process successfully updated.
       participatory_processes_copies:
         create:
           error: There was a problem duplicating this participatory process.
@@ -328,10 +328,10 @@ en:
         export: "%{user_name} exported the %{resource_name} participatory process"
         import: "%{user_name} imported the %{resource_name} participatory process"
         publish: "%{user_name} published the %{resource_name} participatory process"
-        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
-        update: "%{user_name} updated the %{resource_name} participatory process"
         restore: "%{user_name} restored the %{resource_name} participatory process"
         soft_delete: "%{user_name} trashed the %{resource_name} participatory process"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
+        update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_group:
         create: "%{user_name} created the %{resource_name} participatory process group"
         update: "%{user_name} updated the %{resource_name} participatory process group"

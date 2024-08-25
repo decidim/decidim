@@ -27,7 +27,7 @@
     </thead>
     <tbody>
     <% @participatory_processes.each do |process| %>
-      <%= render partial: "process_row", locals: { process: process, view: :index } %>
+      <%= render partial: "process_row", locals: { process:, view: :index } %>
     <% end %>
     </tbody>
   </table>

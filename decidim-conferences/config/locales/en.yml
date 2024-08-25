@@ -169,15 +169,15 @@ en:
         new:
           create: Create
           title: Conference
-        update:
-          error: There was a problem updating this conference.
-          success: Conference successfully updated.
-        soft_delete:
-          error: There was a problem moving this conference to trash.
-          success: Conference successfully moved to trash.
         restore:
           error: There was a problem restoring this conference.
           success: Conference successfully restored.
+        soft_delete:
+          error: There was a problem moving this conference to trash.
+          success: Conference successfully moved to trash.
+        update:
+          error: There was a problem updating this conference.
+          success: Conference successfully updated.
       conferences_copies:
         create:
           error: There was a problem duplicating this conference.
