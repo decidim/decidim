@@ -44,7 +44,7 @@ module Decidim::Proposals
     end
 
     context "when the proposal has linked resources" do
-      let(:proposal) { create(:proposal, component:) }
+      context "when proposal has been linked in a budget"
       let(:budget_component) do
         create(:component, manifest_name: :budgets, participatory_space: proposal.component.participatory_space)
       end
@@ -57,6 +57,38 @@ module Decidim::Proposals
       it "shows related projects" do
         html = cell("decidim/proposals/proposal_history", proposal).call
         expect(html).to have_content("It was added to this budget:")
+      end
+    end
+
+    context "when a proposal has been linked in a result" do
+      let(:accountability_component) do
+        create(:component, manifest_name: :accountability, participatory_space: proposal.component.participatory_space)
+      end
+      let(:result) { create(:result, component: accountability_component) }
+
+      before do
+        result.link_resources([proposal], "included_proposals")
+      end
+
+      it "shows related resources" do
+        html = cell("decidim/proposals/proposal_history", proposal).call
+        expect(html).to have_content("It was added to this result:")
+      end
+    end
+
+    context "when a proposal has been linked in a meeting" do
+      let(:meeting_component) do
+        create(:component, manifest_name: :meetings, participatory_space: proposal.component.participatory_space)
+      end
+      let(:meeting) { create(:meeting, :published, component: meeting_component) }
+
+      before do
+        meeting.link_resources([proposal], "proposals_from_meeting")
+      end
+
+      it "shows related meetings" do
+        html = cell("decidim/proposals/proposal_history", proposal).call
+        expect(html).to have_content("In these meeting it was discussed:")
       end
     end
   end
