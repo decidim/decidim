@@ -3,14 +3,10 @@
     <%== cell("decidim/comments/comment_form", model, root_depth:) %>
   <% else %>
     <p>
-      <div class="h5 text-lg text-gray-2"><%= t("decidim.components.add_comment_form.title") %></div>
       <div>
         <div class="flash flex-col warning">
           <div class="flash__message">
-            <%= t(
-              "decidim.components.add_comment_form.account_message",
-              sign_up_url: decidim.new_user_registration_path
-            ) %>
+            <%= action_authorized_link_to("comment", t("decidim.components.add_comment_form.title"), "#", resource: model) %>
           </div>
         </div>
       </div>
