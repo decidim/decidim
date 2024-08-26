@@ -40,7 +40,7 @@ module Decidim
         scope: "decidim.onboarding_action_message",
         link_text:,
         path: onboarding_path,
-        action: onboarding_manager.action,
+        action: onboarding_manager.action_text.downcase,
         resource_name: onboarding_manager.model_name.human.downcase,
         resource_title: translated_attribute(onboarding_manager.model.title)
       )
