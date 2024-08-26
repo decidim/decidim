@@ -724,5 +724,17 @@ describe "Proposals" do
         expect(page).to have_css(".card__grid-img img")
       end
     end
+
+    context "when proposals have history" do
+      let!(:proposal) { create(:proposal, component:) }
+
+      it "shows the proposal with history panel" do
+        visit_component
+        click_on proposal_title
+
+        expect(page).to have_content("History")
+        expect(page).to have_content("This proposal was created")
+      end
+    end
   end
 end

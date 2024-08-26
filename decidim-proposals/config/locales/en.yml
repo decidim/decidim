@@ -988,7 +988,7 @@ en:
       withdraw:
         errors:
           has_votes: This proposal cannot be withdrawn because it already has votes.
-        text: This proposal has been withdraw.
+        text: This proposal has been withdrawn.
     resource_links:
       copied_from_component:
         proposal_proposal: Related proposals
