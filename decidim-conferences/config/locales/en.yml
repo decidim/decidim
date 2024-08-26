@@ -90,6 +90,7 @@ en:
     admin:
       actions:
         confirm: Confirm
+        confirm_delete_conference: Are you sure you want to delete this conference? If you change your mind, you can restore it later.
         new_conference: New conference
         new_conference_user_role: New conference admin
         new_media_link: New media link
@@ -97,6 +98,7 @@ en:
         new_registration_type: New registration type
         new_speaker: New speaker
         send_diplomas: Send certificates of attendance
+        view_deleted_conferences: View deleted conferences
       conference_copies:
         new:
           copy: Copy
@@ -305,6 +307,9 @@ en:
           success: Conference registration type successfully updated.
       titles:
         conferences: Conferences
+        conferences_deleted: Deleted conferences
+      tooltips:
+        deleted_conferences_info: Conferences can only be deleted if status is "Unpublished".
     admin_log:
       conference:
         create: "%{user_name} created the %{resource_name} conference"

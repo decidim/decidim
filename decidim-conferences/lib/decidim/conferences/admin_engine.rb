@@ -52,6 +52,15 @@ module Decidim
             end
           end
 
+          member do
+            patch :soft_delete
+            patch :restore
+          end
+
+          collection do
+            get :deleted, to: "conferences#deleted"
+          end
+
           resources :attachment_collections, controller: "conference_attachment_collections", except: [:show]
           resources :attachments, controller: "conference_attachments", except: [:show]
         end
@@ -66,6 +75,10 @@ module Decidim
               put :unpublish
               get :share
               patch :soft_delete
+              patch :restore
+            end
+            collection do
+              get :deleted, to: "components#deleted"
             end
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do

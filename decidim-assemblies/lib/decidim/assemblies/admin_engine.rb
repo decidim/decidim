@@ -59,6 +59,10 @@ module Decidim
               put :unpublish
               get :share
               patch :soft_delete
+              patch :restore
+            end
+            collection do
+              get :deleted, to: "components#deleted"
             end
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do

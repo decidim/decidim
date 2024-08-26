@@ -8,13 +8,13 @@ module Decidim
       class ConferencesController < Decidim::Conferences::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
 
-        helper_method :current_conference, :current_participatory_space
+        helper_method :current_conference, :current_participatory_space, :deleted_collection
         layout "decidim/admin/conferences"
         include Decidim::Conferences::Admin::Filterable
 
         def index
           enforce_permission_to :read, :conference_list
-          @conferences = filtered_collection
+          @conferences = filtered_collection.not_deleted
         end
 
         def new
@@ -71,7 +71,7 @@ module Decidim
 
         def soft_delete
           enforce_permission_to :soft_delete, :conference, conference: current_conference
-          SoftDeleteResource.call(current_conference, current_user) do
+          Decidim::Commands::SoftDeleteResource.call(current_conference, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("conferences.soft_delete.success", scope: "decidim.admin")
               redirect_to conferences_path
@@ -86,7 +86,7 @@ module Decidim
 
         def restore
           enforce_permission_to :restore, :conference, conference: current_conference
-          RestoreResource.call(current_conference, current_user) do
+          Decidim::Commands::RestoreResource.call(current_conference, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("conferences.restore.success", scope: "decidim.admin")
               redirect_to conferences_path
@@ -99,10 +99,14 @@ module Decidim
           end
         end
 
+        def deleted
+          enforce_permission_to :read, :conference_list
+        end
+
         private
 
         def current_conference
-          @current_conference ||= collection.unscoped.where(slug: params[:slug]).or(
+          @current_conference ||= collection.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])
           ).first
         end
@@ -115,6 +119,10 @@ module Decidim
 
         def conference_params
           { id: params[:slug] }.merge(params[:conference].to_unsafe_h)
+        end
+
+        def deleted_collection
+          @deleted_collection ||= filtered_collection.trashed
         end
       end
     end
