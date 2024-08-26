@@ -185,6 +185,14 @@ en:
         browse: Browse
         category:
           new: New category
+        confirm_delete_component: |
+          Are you sure you want to delete this component?<br>
+          This component contains:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} resources</li>
+          </ul>
+          If you change your mind, you can restore it later.
+        confirm_delete_title: Delete component '%{component_name}'
         export: Export all
         export-selection: Export selection
         import: Import
@@ -201,6 +209,7 @@ en:
         user:
           new: New admin
         verify: Verify
+        view_deleted_components: View deleted components
       admin_terms_of_service:
         accept:
           error: There was a problem while accepting the admin terms of service.
@@ -320,6 +329,8 @@ en:
           error: There was a problem creating this component.
           success: Component created successfully.
           success_landing_page: Component created successfully. You can add a content block for this component in the home of the space. Go to <a href="%{landing_page_path}">Landing page</a> to configure it.
+        deleted:
+          title: Deleted components
         destroy:
           error: There was a problem destroying this component.
           success: Component deleted successfully.
@@ -342,6 +353,12 @@ en:
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
+        restore:
+          error: There was a problem restoring this component.
+          success: The component has been restored successfully.
+        soft_delete:
+          error: There was a problem deleting this component.
+          success: The component has been deleted successfully.
         title: Components
         unpublish:
           success: The component has been successfully unpublished.
@@ -1091,6 +1108,8 @@ en:
         taxonomies: Taxonomies
         user_groups: Groups
         users: Administrators
+      tooltips:
+        deleted_component_info: This component can only be deleted if status is 'Unpublished'.
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.

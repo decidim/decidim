@@ -4,34 +4,8 @@
 <div class="card" id="processes">
   <%= admin_filter_selector %>
 </div>
-<div class="table-scroll">
-  <table class="table-list">
-    <thead>
-      <tr>
-        <th>
-          <%= sort_link(query, :title, t("models.participatory_process.fields.title", scope: "decidim.admin")) %>
-        </th>
-        <th>
-          <%= sort_link(query, :created_at, t("models.participatory_process.fields.created_at", scope: "decidim.admin"), default_order: :desc) %>
-        </th>
-        <th>
-          <%= sort_link(query, :private_space, t("models.participatory_process.fields.private", scope: "decidim.admin")) %>
-        </th>
-        <th class="table-list__actions">
-          <%= sort_link(query, :published_at, t("models.participatory_process.fields.published", scope: "decidim.admin")) %>
-        </th>
-        <th>
-          <%= t("models.participatory_process.fields.actions", scope: "decidim.admin") %>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @participatory_processes.each do |process| %>
-      <%= render partial: "process_row", locals: { process:, view: :index } %>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+
+<%= render partial: "processes_table", locals: { processes: @participatory_processes, view: :index } %>
 
 <div class="card mt-4">
   <%= link_to deleted_participatory_processes_path, class: "flex items-center text-secondary" do %>

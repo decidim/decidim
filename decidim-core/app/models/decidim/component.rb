@@ -102,5 +102,21 @@ module Decidim
     def participatory_space_name
       participatory_space.underscored_name
     end
+
+    def resources_count
+      count = 0
+
+      # Найти все модели с полем decidim_component_id
+      models_with_component_id = ActiveRecord::Base.descendants.select do |model|
+        !model.abstract_class? && model.column_names.include?("decidim_component_id")
+      end
+
+      # Подсчитать количество ресурсов для каждой модели
+      models_with_component_id.each do |model|
+        count += model.where(decidim_component_id: id).count
+      end
+
+      count
+    end
   end
 end

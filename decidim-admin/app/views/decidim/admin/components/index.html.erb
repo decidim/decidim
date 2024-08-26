@@ -27,18 +27,15 @@
     </h1>
   </div>
 
-  <div class="table-scroll">
-    <table class="table-list">
-      <thead>
-        <th><%= t(".headers.name") %></th>
-        <th><%= t(".headers.type") %></th>
-        <%= th_resource_scope_label(t(".headers.scope")) %>
-        <th><%= t(".headers.actions") %></th>
-      </thead>
+  <%= render partial: "components_table", locals: { components: @components, view: :index } %>
 
-      <tbody>
-        <%= render partial: "component", collection: @components %>
-      </tbody>
-    </table>
+  <div class="card mt-4">
+    <%= link_to deleted_components_path, class: "flex items-center text-secondary" do %>
+      <%= icon "delete-bin-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+      <%= t("actions.view_deleted_components", scope: "decidim.admin") %>
+      <span class="ml-2">
+      <%= icon_with_tooltip("information-line", t("tooltips.deleted_component_info", scope: "decidim.admin")) %>
+    </span>
+    <% end %>
   </div>
 </div>

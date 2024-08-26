@@ -126,6 +126,45 @@ module Decidim
         redirect_to share_token.url
       end
 
+      def soft_delete
+        @component = query_scope.find(params[:id])
+        enforce_permission_to :destroy, :component, component: @component
+
+        Decidim::Commands::SoftDeleteResource.call(@component, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("components.soft_delete.success", scope: "decidim.admin")
+            redirect_to action: :index
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("components.soft_delete.error", scope: "decidim.admin")
+            redirect_to action: :index
+          end
+        end
+      end
+
+      def deleted
+        enforce_permission_to :read, :component
+        @deleted_components = current_participatory_space.components.trashed
+      end
+
+      def restore
+        @component = deleted_components.find(params[:id])
+        enforce_permission_to :restore, :component, component: @component
+
+        Decidim::Commands::RestoreResource.call(@component, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("components.restore.success", scope: "decidim.admin")
+            redirect_to action: :index
+          end
+
+          on(:invalid) do
+            flash[:alert] = I18n.t("components.restore.error", scope: "decidim.admin")
+            redirect_to action: :index
+          end
+        end
+      end
+
       private
 
       # Processes the component params so the form object defined in the manifest (component_form_class_name)
@@ -179,6 +218,10 @@ module Decidim
         return if participatory_space.manifest.content_blocks_scope_name.blank?
 
         Decidim::EngineRouter.admin_proxy(participatory_space).send("edit_#{participatory_space.manifest.route_name}_landing_page_path")
+      end
+
+      def deleted_components
+        @deleted_components ||= current_participatory_space.components.trashed
       end
     end
   end

@@ -16,35 +16,7 @@
 
   <%= admin_filter_selector %>
 
-  <div class="table-scroll">
-    <table class="table-list">
-      <thead>
-        <tr>
-          <th>
-            <%= sort_link(query, :title, t("models.assembly.fields.title", scope: "decidim.admin")) %>
-          </th>
-          <th>
-            <%= sort_link(query, :created_at, t("models.assembly.fields.created_at", scope: "decidim.admin"), default_order: :desc) %>
-          </th>
-          <th>
-            <%= sort_link(query, :private_space, t("models.assembly.fields.private", scope: "decidim.admin")) %>
-          </th>
-          <th class="table-list__actions">
-            <%= sort_link(query, :published_at, t("models.assembly.fields.published", scope: "decidim.admin")) %>
-          </th>
-          <th>
-            <%= t("models.assembly.fields.actions", scope: "decidim.admin") %>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @assemblies.each do |assembly| %>
-          <% next unless allowed_to? :list, :assembly, assembly: assembly %>
-        <%= render partial: "assembly_row", locals: { assembly:, view: :index } %>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+  <%= render partial: "assemblies_table", locals: { assemblies: @assemblies, view: :index } %>
 
   <div class="mt-4">
     <%= link_to deleted_assemblies_path, class: "flex items-center text-secondary" do %>
