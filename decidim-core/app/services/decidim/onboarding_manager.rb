@@ -39,6 +39,20 @@ module Decidim
       onboarding_action
     end
 
+    # Returns the translation of the action to be performed if found, action
+    # elsewhere
+    #
+    # Returns a string
+    def action_text
+      @action_text ||= if component && I18n.exists?("#{component.manifest.name}.actions.#{action}", scope: "decidim.components")
+                         I18n.t("#{component.manifest.name}.actions.#{action}", scope: "decidim.components")
+                       elsif model.respond_to?(:resource_manifest) && I18n.exists?("#{model.resource_manifest.name}.actions.#{action}", scope: "decidim.resources")
+                         I18n.t("#{model.resource_manifest.name}.actions.#{action}", scope: "decidim.resources")
+                       else
+                         action
+                       end
+    end
+
     # Checks if there is any pending action for the user.
     #
     # Returns a boolean
