@@ -15,6 +15,8 @@ module Decidim
     #     proposal
     #   )
     class ProposalHistoryCell < Decidim::ViewModel
+      include Decidim::Proposals::ApplicationHelper
+
       def show
         render
       end
@@ -71,7 +73,7 @@ module Decidim
 
       def add_proposal_withdraw_item(items)
         items << {
-          id: "proposal_withdraw",
+          id: "proposal_withdrawn",
           date: @model.updated_at,
           text: t("decidim.proposals.withdraw.text"),
           icon: resource_type_icon_key("Decidim::Proposals::Proposal"),

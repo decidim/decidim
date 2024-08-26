@@ -58,37 +58,53 @@ module Decidim::Proposals
         html = cell("decidim/proposals/proposal_history", proposal).call
         expect(html).to have_content("It was added to this budget:")
       end
+
+      context "when a proposal has been linked in a result" do
+        let(:accountability_component) do
+          create(:component, manifest_name: :accountability, participatory_space: proposal.component.participatory_space)
+        end
+        let(:result) { create(:result, component: accountability_component) }
+
+        before do
+          result.link_resources([proposal], "included_proposals")
+        end
+
+        it "shows related resources" do
+          html = cell("decidim/proposals/proposal_history", proposal).call
+          expect(html).to have_content("It was added to this result:")
+        end
+      end
+
+      context "when a proposal has been linked in a meeting" do
+        let(:meeting_component) do
+          create(:component, manifest_name: :meetings, participatory_space: proposal.component.participatory_space)
+        end
+        let(:meeting) { create(:meeting, :published, component: meeting_component) }
+
+        before do
+          meeting.link_resources([proposal], "proposals_from_meeting")
+        end
+
+        it "shows related meetings" do
+          html = cell("decidim/proposals/proposal_history", proposal).call
+          expect(html).to have_content("In these meeting it was discussed:")
+        end
+      end
     end
 
-    context "when a proposal has been linked in a result" do
-      let(:accountability_component) do
-        create(:component, manifest_name: :accountability, participatory_space: proposal.component.participatory_space)
-      end
-      let(:result) { create(:result, component: accountability_component) }
+    context "when an official proposal it is withdrawn" do
+      let!(:official_proposal) { create(:proposal, :official, :withdrawn, component:) }
+      let!(:official_proposal_title) { translated(official_proposal.title) }
 
       before do
-        result.link_resources([proposal], "included_proposals")
+        allow(official_proposal).to receive(:proposal_withdrawn_state).and_return(double(title: "Withdrawn"))
       end
 
-      it "shows related resources" do
-        html = cell("decidim/proposals/proposal_history", proposal).call
-        expect(html).to have_content("It was added to this result:")
-      end
-    end
-
-    context "when a proposal has been linked in a meeting" do
-      let(:meeting_component) do
-        create(:component, manifest_name: :meetings, participatory_space: proposal.component.participatory_space)
-      end
-      let(:meeting) { create(:meeting, :published, component: meeting_component) }
-
-      before do
-        meeting.link_resources([proposal], "proposals_from_meeting")
-      end
-
-      it "shows related meetings" do
-        html = cell("decidim/proposals/proposal_history", proposal).call
-        expect(html).to have_content("In these meeting it was discussed:")
+      it "shows the proposal withdrawn state" do
+        expect(official_proposal.withdrawn?).to be true
+        html = cell("decidim/proposals/proposal_history", official_proposal).call
+        expect(html).to have_content("This proposal has been withdrawn.")
+        expect(html).to have_content("Withdrawn")
       end
     end
   end
