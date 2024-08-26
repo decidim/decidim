@@ -12,7 +12,7 @@
           t(
             "onboarding_message_html",
             scope: "decidim.verifications.authorizations.first_login",
-            action: onboarding_manager.action,
+            action: onboarding_manager.action_text.downcase,
             resource_name: onboarding_manager.model_name.human.downcase,
             resource_title: translated_attribute(onboarding_manager.model.title)
           ),
