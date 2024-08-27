@@ -52,6 +52,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     export.include_in_open_data = true
 
     export.serializer Decidim::ParticipatoryProcesses::ParticipatoryProcessSerializer
+    export.open_data_serializer Decidim::ParticipatoryProcesses::OpenDataParticipatoryProcessSerializer
   end
 
   participatory_space.register_on_destroy_account do |user|
