@@ -48,6 +48,30 @@ module Decidim
       authorized_to(:button, nil, arguments, block)
     end
 
+    # Public: Returns an action text which can be wrapped inside a verification
+    # pending message if the authorization status is not completed yet. The
+    # method accepts a Proc for the action text and the proc is called passing
+    # the authorization status
+    #
+    # action_text          - A String or a Proc. If a Proc is provided and
+    #                        admits an argument the authorization_status
+    #                        argument is passed to the Proc when evaluated.
+    # authorization_status - A Decidim::ActionAuthorizer::AuthorizationStatusCollection
+    #                        or nil. This class is returned by the
+    #                        action_authorized_to helper method.
+    #
+    # Returns a String with the text.
+    def pending_verifications_message(action_text, authorization_status)
+      if action_text.is_a?(Proc)
+        action_text.arity < 1 ? capture(&action_text) : capture(authorization_status, &action_text)
+      else
+        return action_text if authorization_status.blank?
+        return action_text if [:ok, :unauthorized].include?(authorization_status.global_code)
+
+        t("verify_to", scope: "decidim.core.actions", action: action_text)
+      end
+    end
+
     private
 
     # rubocop: disable Metrics/PerceivedComplexity
@@ -87,11 +111,10 @@ module Decidim
 
       html_options["onclick"] = "event.preventDefault();" if url == ""
 
-      if block
-        send("#{tag}_to", url, html_options, &body)
-      else
-        send("#{tag}_to", content_tag(:span, pending_verifications_message(body, authorization_status)), url, html_options)
-      end
+      message = pending_verifications_message(body, authorization_status)
+      message = content_tag(:span, message) unless block
+
+      send("#{tag}_to", message, url, html_options)
     end
     # rubocop: enable Metrics/PerceivedComplexity
 
@@ -138,13 +161,6 @@ module Decidim
 
     def multiple_pending_steps?(authorization_status)
       authorization_status.pending_authorizations_count > 1 && authorization_status.global_code != :unauthorized
-    end
-
-    def pending_verifications_message(text, authorization_status)
-      return text if authorization_status.blank?
-      return text if [:ok, :unauthorized].include?(authorization_status.global_code)
-
-      t("verify_to", scope: "decidim.core.actions", action: text)
     end
 
     def onboarding_data_attributes(action, resource, permissions_holder)
