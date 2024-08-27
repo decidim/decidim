@@ -51,13 +51,12 @@ module Decidim
             headers.push(*exporter.headers)
             exported = exporter.export
 
-            tmpfile = Tempfile.new("#{export_manifest.name}-#{component.id}-")
-            tmpfile.write(exported.read)
-            # Do not delete the file when the reference is deleted
-            ObjectSpace.undefine_finalizer(tmpfile)
-            tmpfile.close
+            tmpdir = Dir::Tmpname.create(export_manifest.name.to_s) {}
+            filename = File.join(tmpdir, "#{component.id}.csv")
+            Dir.mkdir(tmpdir)
+            File.write(filename, exported.read)
 
-            collection.push(tmpfile.path)
+            collection.push(filename)
           end
         end
       end
