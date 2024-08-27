@@ -23,9 +23,15 @@
   <% end %>
 
   <% if @proposal.withdrawable_by?(current_user) %>
-    <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "button button__sm button__transparent-secondary w-full", title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show" ), data: { confirm: t("withdraw_confirmation_html", scope: "decidim.proposals.proposals.show" ) } do %>
-      <span><%= t("withdraw_proposal", scope: "decidim.proposals.proposals.show") %></span>
-    <% end %>
+    <%= action_authorized_link_to(
+          :withdraw,
+          t("withdraw_proposal", scope: "decidim.proposals.proposals.show"),
+          withdraw_proposal_path(@proposal),
+          method: :put,
+          class: "button button__sm button__transparent-secondary w-full",
+          title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show" ),
+          data: { confirm: t("withdraw_confirmation_html", scope: "decidim.proposals.proposals.show" ) }
+        ) %>
   <% end %>
 </section>
 <% end %>
