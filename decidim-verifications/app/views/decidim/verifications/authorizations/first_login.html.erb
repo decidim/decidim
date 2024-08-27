@@ -5,20 +5,18 @@
 <%= append_javascript_pack_tag "decidim_verifications" %>
 <%= append_stylesheet_pack_tag "decidim_verifications" %>
 
-<%= render layout: "layouts/decidim/shared/layout_user_profile" do %>
-  <section class="authorizations-list">
-    <%= cell(
-          "decidim/announcement",
-          t(
-            "onboarding_message_html",
-            scope: "decidim.verifications.authorizations.first_login",
-            action: onboarding_manager.action_text.downcase,
-            resource_name: onboarding_manager.model_name.human.downcase,
-            resource_title: translated_attribute(onboarding_manager.model.title)
-          ),
-          callout_class: "success"
-        ) %>
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="py-10">
+    <%= t(
+          "onboarding_message_html",
+          scope: "decidim.verifications.authorizations.first_login",
+          action: onboarding_manager.action_text.downcase,
+          resource_name: onboarding_manager.model_name.human.downcase,
+          resource_title: translated_attribute(onboarding_manager.model.title)
+        )  %>
+  </div>
 
+  <section class="authorizations-list">
     <% onboarding_sections(
         onboarding_manager,
         redirect_url:,
