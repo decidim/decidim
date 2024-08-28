@@ -544,7 +544,6 @@ en:
           other: " signatures"
         vote_cabin:
           already_voted: Already signed
-          verification_required: Verify your account to sign the initiative
           vote: Sign
           votes_blocked: Signing disabled
         votes_count:
