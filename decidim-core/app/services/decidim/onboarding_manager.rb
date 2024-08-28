@@ -29,7 +29,9 @@ module Decidim
     #
     # Returns a boolean
     def valid?
-      action.present? && model.present?
+      return if action.blank?
+
+      permissions_holder.present?
     end
 
     # Returns the action to be performed.
@@ -46,8 +48,9 @@ module Decidim
     def action_text
       @action_text ||= if component && I18n.exists?("#{component.manifest.name}.actions.#{action}", scope: "decidim.components")
                          I18n.t("#{component.manifest.name}.actions.#{action}", scope: "decidim.components")
-                       elsif model.respond_to?(:resource_manifest) && I18n.exists?("#{model.resource_manifest.name}.actions.#{action}", scope: "decidim.resources")
-                         I18n.t("#{model.resource_manifest.name}.actions.#{action}", scope: "decidim.resources")
+                       elsif permissions_holder.respond_to?(:resource_manifest) &&
+                             I18n.exists?("#{permissions_holder.resource_manifest.name}.actions.#{action}", scope: "decidim.resources")
+                         I18n.t("#{permissions_holder.resource_manifest.name}.actions.#{action}", scope: "decidim.resources")
                        else
                          action
                        end
@@ -82,6 +85,8 @@ module Decidim
     #
     # Returns an ActiveRecord model
     def model
+      return if onboarding_model.blank?
+
       @model ||= GlobalID::Locator.locate(onboarding_model)
     end
 
@@ -90,7 +95,7 @@ module Decidim
     #
     # Returns an ActiveRecord model
     def permissions_holder
-      return if onboarding_permissions_holder.blank?
+      return model if onboarding_permissions_holder.blank?
 
       @permissions_holder ||= GlobalID::Locator.locate(onboarding_permissions_holder)
     end
@@ -101,7 +106,7 @@ module Decidim
     def model_name
       return unless valid?
 
-      @model_name ||= model.class.model_name
+      @model_name ||= permissions_holder.class.model_name
     end
 
     # Filters the given authorizations that are required for the onboarding process.
@@ -116,13 +121,13 @@ module Decidim
     # Returns a hash which can be passed to action_authorized_to helper method
     # to determine the permissions status of the action
     #
-    # Returns a hash
+    # Returns a Hash
     def action_authorized_resources
       return {} unless valid?
 
       {
         resource: model,
-        permissions_holder:
+        permissions_holder: onboarding_permissions_holder.presence && permissions_holder
       }
     end
 
@@ -145,7 +150,7 @@ module Decidim
     #
     # Returns a hash
     def permissions
-      @permissions ||= model&.permissions&.fetch(action, nil) || component&.permissions&.fetch(action, nil)
+      @permissions ||= permissions_holder&.permissions&.fetch(action, nil) || component&.permissions&.fetch(action, nil)
     end
 
     # Returns the authorization handlers for the action and model in the onboarding process.
@@ -161,6 +166,8 @@ module Decidim
     #
     # Returns a Decidim::Component
     def component
+      return if model.blank?
+
       model.component
     end
 
