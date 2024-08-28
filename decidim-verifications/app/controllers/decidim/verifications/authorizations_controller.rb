@@ -26,7 +26,7 @@ module Decidim
 
       # TODO: rename to onboarding?
       def first_login
-        return redirect_to authorizations_path unless onboarding_manager.valid?
+        return redirect_back(fallback_location: authorizations_path) unless onboarding_manager.valid?
 
         authorization_status = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources).global_code
 
