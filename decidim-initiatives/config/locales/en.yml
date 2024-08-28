@@ -607,7 +607,7 @@ en:
           comment: Comment
       initiatives_type:
         actions:
-          create: Create
+          create: Create an initiative
           title: Actions
           vote: Sign
   layouts:
