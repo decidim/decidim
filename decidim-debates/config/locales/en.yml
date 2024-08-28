@@ -27,7 +27,7 @@ en:
       debates:
         actions:
           comment: Comment
-          create: Create
+          create: Create a debate
           endorse: Endorse
         name: Debates
         settings:
