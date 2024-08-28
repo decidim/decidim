@@ -6,7 +6,7 @@ module Decidim
     # admin panel.
     #
     class ComponentsController < Decidim::Admin::ApplicationController
-      helper_method :manifest, :current_participatory_space, :initiative?
+      helper_method :manifest, :current_participatory_space, :initiative?, :deleted_components
 
       def index
         enforce_permission_to :read, :component
@@ -145,7 +145,6 @@ module Decidim
 
       def deleted
         enforce_permission_to :deleted, :deleted_components, participatory_space: current_participatory_space
-        @deleted_components ||= current_participatory_space.components.trashed
       end
 
       def restore
@@ -222,10 +221,6 @@ module Decidim
 
       def deleted_components
         @deleted_components ||= current_participatory_space.components.trashed
-      end
-
-      def initiative?
-        current_participatory_space.is_a?(Decidim::Initiative)
       end
     end
   end
