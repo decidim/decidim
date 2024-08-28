@@ -6,7 +6,7 @@ module Decidim
     # admin panel.
     #
     class ComponentsController < Decidim::Admin::ApplicationController
-      helper_method :manifest, :current_participatory_space
+      helper_method :manifest, :current_participatory_space, :initiative?
 
       def index
         enforce_permission_to :read, :component
@@ -128,7 +128,7 @@ module Decidim
 
       def soft_delete
         @component = query_scope.find(params[:id])
-        enforce_permission_to :destroy, :component, component: @component
+        enforce_permission_to :soft_delete, :component, component: @component
 
         Decidim::Commands::SoftDeleteResource.call(@component, current_user) do
           on(:ok) do
@@ -144,8 +144,8 @@ module Decidim
       end
 
       def deleted
-        enforce_permission_to :read, :component
-        @deleted_components = current_participatory_space.components.trashed
+        enforce_permission_to :deleted, :deleted_components, participatory_space: current_participatory_space
+        @deleted_components ||= current_participatory_space.components.trashed
       end
 
       def restore
@@ -222,6 +222,10 @@ module Decidim
 
       def deleted_components
         @deleted_components ||= current_participatory_space.components.trashed
+      end
+
+      def initiative?
+        current_participatory_space.is_a?(Decidim::Initiative)
       end
     end
   end

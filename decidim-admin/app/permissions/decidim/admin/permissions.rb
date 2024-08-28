@@ -65,6 +65,9 @@ module Decidim
           end
 
           allow! if permission_action.subject == :taxonomy_item
+
+          allow_soft_delete? if permission_action.subject == :component && permission_action.action == :soft_delete
+          allow_show_deleted? if permission_action.subject == :deleted_components && permission_action.action == :deleted
         end
 
         permission_action
@@ -266,6 +269,22 @@ module Decidim
         taxonomy = context.fetch(:taxonomy, nil)
 
         toggle_allow(taxonomy&.removable?)
+      end
+
+      def current_participatory_space
+        context.fetch(:participatory_space, nil)
+      end
+
+      def current_participatory_space_is_initiative?
+        current_participatory_space.is_a?(Decidim::Initiative)
+      end
+
+      def allow_soft_delete?
+        toggle_allow(!current_participatory_space_is_initiative?)
+      end
+
+      def allow_show_deleted?
+        toggle_allow(!current_participatory_space_is_initiative?)
       end
     end
   end

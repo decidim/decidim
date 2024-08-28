@@ -28,14 +28,15 @@
   </div>
 
   <%= render partial: "components_table", locals: { components: @components, view: :index } %>
-
-  <div class="card mt-4">
-    <%= link_to deleted_components_path, class: "flex items-center text-secondary" do %>
-      <%= icon "delete-bin-line", class: "mr-2 fill-current text-secondary", role: "img" %>
-      <%= t("actions.view_deleted_components", scope: "decidim.admin") %>
-      <span class="ml-2">
-      <%= icon_with_tooltip("information-line", t("tooltips.deleted_component_info", scope: "decidim.admin")) %>
-    </span>
-    <% end %>
-  </div>
+  <% if allowed_to?(:deleted, :deleted_components, participatory_space: current_participatory_space) %>
+    <div class="card mt-4">
+      <%= link_to deleted_components_path, class: "flex items-center text-secondary" do %>
+        <%= icon "delete-bin-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+        <%= t("actions.view_deleted_components", scope: "decidim.admin") %>
+        <span class="ml-2">
+        <%= icon_with_tooltip("information-line", t("tooltips.deleted_component_info", scope: "decidim.admin")) %>
+      </span>
+      <% end %>
+    </div>
+  <% end %>
 </div>
