@@ -106,7 +106,17 @@ module Decidim
     def model_name
       return unless valid?
 
-      @model_name ||= permissions_holder.class.model_name
+      @model_name ||= (model.presence || permissions_holder).class.model_name
+    end
+
+    # Returns the resource title associated to the action. If the model is defined
+    # its title is used, if not the permissions holder title
+    #
+    # Returns a Hash
+    def model_title
+      return unless valid?
+
+      @model_title ||= (model.presence || permissions_holder)&.title
     end
 
     # Filters the given authorizations that are required for the onboarding process.
