@@ -37,7 +37,7 @@ module Decidim
                          else
                            t("authorizations.first_login.completed_verifications", scope: "decidim.verifications")
                          end
-        redirect_to ResourceLocatorPresenter.new(onboarding_manager.model).url
+        redirect_to onboarding_manager.finished_redirect_path
 
         onboarding_manager.remove_pending_action!
       end
