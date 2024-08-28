@@ -92,12 +92,12 @@ module Decidim
       authorization_status = get_authorization_status(action, resource, permissions_holder)
 
       if !current_user
-        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder)))
+        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder, url)))
         html_options["data-dialog-open"] = "loginModal"
 
         url = "#"
       elsif authorization_status&.ok? == false
-        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder)))
+        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder, url)))
         if multiple_pending_steps?(authorization_status)
           tag = "link"
           html_options["method"] = "post"
@@ -163,13 +163,15 @@ module Decidim
       authorization_status.pending_authorizations_count > 1 && authorization_status.global_code != :unauthorized
     end
 
-    def onboarding_data_attributes(action, resource, permissions_holder)
-      return {} if [action, resource].any?(&:blank?)
+    def onboarding_data_attributes(action, resource, permissions_holder, redirect_path = nil)
+      return {} if action.blank?
+      return {} if [resource, permissions_holder].all?(&:blank?)
 
       {
-        "data-onboarding-model" => resource.to_gid,
+        "data-onboarding-model" => resource&.to_gid,
         "data-onboarding-permissions-holder" => permissions_holder&.to_gid,
-        "data-onboarding-action" => action
+        "data-onboarding-action" => action,
+        "data-onboarding-redirect-path" => redirect_path
       }.compact
     end
   end
