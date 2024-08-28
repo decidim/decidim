@@ -178,10 +178,11 @@ module Decidim
       permissions["authorization_handlers"]&.keys&.map(&:to_s) || []
     end
 
-    # Returns the model component
+    # Returns the model component or the permissions holder when it is a component.
     #
     # Returns a Decidim::Component
     def component
+      return permissions_holder if permissions_holder.is_a?(Decidim::Component)
       return if model.blank?
 
       model.component
