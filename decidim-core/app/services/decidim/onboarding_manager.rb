@@ -116,7 +116,13 @@ module Decidim
     def model_title
       return unless valid?
 
-      @model_title ||= (model.presence || permissions_holder)&.title
+      @model_title ||= begin
+        resource = model.presence || permissions_holder
+
+        method = [:title, :name].find { |m| resource.respond_to?(m) }
+
+        resource.send(method) if method
+      end
     end
 
     # Filters the given authorizations that are required for the onboarding process.
