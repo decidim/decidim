@@ -126,6 +126,15 @@ module Decidim
       }
     end
 
+    # Returns the path to redirect after finishing the verification process. The path
+    # can be obtained from the user onboarding redirect_path data or if a resource is
+    # present using a ResourceLocatorPresenter
+    #
+    # Returns a String
+    def finished_redirect_path
+      @finished_redirect_path ||= onboarding_data["redirect_path"].presence || ResourceLocatorPresenter.new(model).url
+    end
+
     private
 
     def active_authorization_methods
