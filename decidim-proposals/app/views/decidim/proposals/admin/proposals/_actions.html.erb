@@ -1,0 +1,17 @@
+<% if allowed_to? :edit, :proposal, proposal: proposal %>
+  <%= icon_link_to "pencil-line", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
+<% else %>
+  <span class="action-space icon"></span>
+<% end %>
+
+<%= icon_with_link_to_proposal(proposal) %>
+
+<%= icon_link_to "eye-line", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
+
+<%= resource_permissions_link(proposal) %>
+
+<% if view == :deleted %>
+  <%= icon_link_to "refresh-line", restore_proposal_path(proposal), t("actions.restore", scope: "decidim.proposals.admin"), method: :patch, class: "action-icon--restore" %>
+  <% else %>
+  <%= icon_link_to "delete-bin-line", soft_delete_proposal_path(proposal), t("actions.soft_delete",  scope: "decidim.proposals.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_proposal", scope: "decidim.proposals.admin") } %>
+<% end %>

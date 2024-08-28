@@ -436,7 +436,12 @@ en:
         title: Actions
       admin:
         actions:
+          confirm_delete_proposal: Are you sure you want to delete this proposal?
+          deleted_proposals_info: Deleted proposals can be restored from the trash.
           preview: Preview
+          restore: Restore
+          soft_delete: Soft delete
+          view_deleted_proposals: View deleted proposals
         exports:
           proposal_comments: Comments
           proposals: Proposals
@@ -549,6 +554,8 @@ en:
           create:
             invalid: There was a problem creating this proposal.
             success: Proposal successfully created.
+          deleted:
+            title: Deleted proposals
           edit:
             title: Update proposal
             update: Update
@@ -588,6 +595,9 @@ en:
           publish_answers:
             number_of_proposals: Answers for %{number} proposal's will be published?
             select_a_proposal: Please select a proposal.
+          restore:
+            error: There was a problem restoring this proposal.
+            success: Proposal successfully restored.
           show:
             amendments_count: Amendments count
             assigned_valuators: Assigned valuators
@@ -607,6 +617,9 @@ en:
             remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
             valuators: Valuators
             votes_count: Votes count
+          soft_delete:
+            error: There was a problem soft deleting this proposal.
+            success: Proposal successfully deleted.
           update_category:
             invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
             select_a_category: Please select a category.

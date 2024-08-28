@@ -137,15 +137,53 @@ module Decidim
 
           Admin::UpdateProposal.call(@form, @proposal) do
             on(:ok) do |_proposal|
-              flash[:notice] = t("proposals.update.success", scope: "decidim")
+              flash[:notice] = t("proposals.update.success", scope: "decidim.admin")
               redirect_to proposals_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = t("proposals.update.error", scope: "decidim")
+              flash.now[:alert] = t("proposals.update.error", scope: "decidim.admin")
               render :edit
             end
           end
+        end
+
+        def soft_delete
+          enforce_permission_to(:soft_delete, :proposal, proposal:)
+
+          Decidim::Commands::SoftDeleteResource.call(proposal, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("proposals.soft_delete.success", scope: "decidim.proposals.admin")
+              redirect_to proposals_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.soft_delete.error", scope: "decidim.proposals.admin")
+              redirect_to proposals_path
+            end
+          end
+        end
+
+        def restore
+          enforce_permission_to(:restore, :proposal, proposal:)
+
+          Decidim::Commands::RestoreResource.call(proposal, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("proposals.restore.success", scope: "decidim.proposals.admin")
+              redirect_to deleted_proposals_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("proposals.restore.error", scope: "decidim.proposals.admin")
+              redirect_to deleted_proposals_path
+            end
+          end
+        end
+
+        def deleted
+          enforce_permission_to :deleted, :deleted_proposals
+
+          @deleted_proposals = filtered_collection.trashed
         end
 
         private
@@ -155,7 +193,7 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= filtered_collection
+          @proposals ||= filtered_collection.not_deleted
         end
 
         def proposal
