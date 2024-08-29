@@ -23,6 +23,8 @@ sv:
             choices:
               missing: är inte fullständiga
               too_many: är för många
+        questionnaire:
+          request_invalid: Det gick inte att hantera begäran. Försök igen.
   decidim:
     forms:
       admin:
@@ -144,6 +146,7 @@ sv:
         show:
           answer_questionnaire:
             are_you_new?: Ny användare?
+            sign_in_description: Logga in för att fylla i enkäten
             title: Besvara formuläret
           current_step: Steg %{step}
           of_total_steps: av %{total_steps}
