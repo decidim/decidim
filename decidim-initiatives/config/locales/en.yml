@@ -396,9 +396,9 @@ en:
           choose_html: I want to create a <strong>%{title}</strong>
           more_information: More information
           new: Create a new initiative
-          promote_initiative: promote this initiative
           select: I want to promote this initiative
           select_initiative_type_help: Initiatives are a means by which the participants can intervene so that the organization can undertake actions in defence of the general interest. Which initiative do you want to launch?
+          verification_required: Verify your account to promote this initiative
         share_committee_link:
           invite_to_committee_help: Link to invite people that will be part of the promoter committee
       edit:

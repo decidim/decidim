@@ -18,6 +18,7 @@
           fill_data_create_initiative_index_path(initiative: { type_id: initiative_type.id }),
           authorizations_modal_path: authorization_create_modal_initiative_path(initiative_type),
           permissions_holder: initiative_type,
+          "data-dialog-open": allowed_to?(:create, :initiative, { initiative_type: }) ? "" : "not-authorized-modal",
           class: "!px-4 title-action__action button button__xl button__secondary w-full"
         ) do %>
       <%= t("new_initiative", scope: "decidim.initiatives.initiatives.index_header") %>
@@ -25,3 +26,5 @@
     <% end %>
   <% end %>
 <% end %>
+
+<%= render partial: "decidim/initiatives/modal" %>
