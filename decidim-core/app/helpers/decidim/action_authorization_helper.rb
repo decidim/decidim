@@ -86,7 +86,7 @@ module Decidim
         html_options = arguments[2]
       end
 
-      html_options ||= {}
+      html_options = (html_options || {}).with_indifferent_access
       resource = html_options.delete(:resource)
       permissions_holder = html_options.delete(:permissions_holder)
       authorization_status = get_authorization_status(action, resource, permissions_holder)
@@ -101,6 +101,7 @@ module Decidim
         if multiple_pending_steps?(authorization_status)
           tag = "link"
           html_options["method"] = "post"
+          html_options.delete(:remote)
           url = decidim_verifications.renew_onboarding_data_authorizations_path
         else
           html_options["data-dialog-open"] = "authorizationModal"
