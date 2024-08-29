@@ -108,7 +108,7 @@ module Decidim
           url = decidim_verifications.renew_onboarding_data_authorizations_path
         else
           html_options["data-dialog-open"] = "authorizationModal"
-          html_options["data-dialog-remote-url"] = modal_path(action, resource)
+          html_options["data-dialog-remote-url"] = modal_path(action, resource, html_options)
           url = "#"
         end
       end
@@ -122,13 +122,19 @@ module Decidim
     end
     # rubocop: enable Metrics/PerceivedComplexity
 
-    def modal_path(action, resource)
+    def modal_path(action, resource, opts = {})
+      if (default_path = opts.delete(:authorizations_modal_path)).present?
+        return default_path
+      end
+
       resource_params = if resource
                           { resource_name: resource.resource_manifest.name, resource_id: resource.id }
                         else
                           {}
                         end
-      if current_component.present?
+
+      component = try(:current_component) || resource.try(:component)
+      if component.present?
         decidim.authorization_modal_path(authorization_action: action, component_id: current_component&.id, **resource_params)
       else
         decidim.free_resource_authorization_modal_path(authorization_action: action, **resource_params)
