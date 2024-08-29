@@ -59,7 +59,7 @@ module Decidim
                     .and_return(["dummy_authorization_handler"])
                 end
 
-                it { is_expected.to eq("/authorizations/first_login") }
+                it { is_expected.to eq("/authorizations/onboarding_pending") }
 
                 context "when there is a pending redirection" do
                   before do
@@ -90,7 +90,7 @@ module Decidim
                     user.blocked = false
                   end
 
-                  it { is_expected.to eq("/authorizations/first_login") }
+                  it { is_expected.to eq("/authorizations/onboarding_pending") }
                 end
               end
 
