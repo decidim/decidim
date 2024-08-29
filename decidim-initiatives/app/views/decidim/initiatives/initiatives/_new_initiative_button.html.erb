@@ -16,6 +16,7 @@
     <%= action_authorized_link_to(
           :create,
           fill_data_create_initiative_index_path(initiative: { type_id: initiative_type.id }),
+          authorizations_modal_path: authorization_create_modal_initiative_path(initiative_type),
           permissions_holder: initiative_type,
           class: "!px-4 title-action__action button button__xl button__secondary w-full"
         ) do %>
