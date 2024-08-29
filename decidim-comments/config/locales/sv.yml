@@ -35,6 +35,7 @@ sv:
           error: Det gick inte att rösta om kommentaren.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera dig</a> för att lämna en kommentar.
         form:
           body:
             label: Kommentera
