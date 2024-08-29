@@ -92,6 +92,9 @@ sv:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
+      initiatives_settings:
+        update:
+          error: Ett fel har inträffat.
       menu:
         attachments: Bilagor
         information: Information
@@ -232,6 +235,8 @@ sv:
             edit: Redigera
             new: Ny
             photos: Foton
+          update:
+            error: Ett fel har inträffat.
         initiatives_settings:
           edit:
             update: Uppdatera
@@ -239,13 +244,19 @@ sv:
             comments: Mest kommenterade
             random: Slumpmässigt
         initiatives_type_scopes:
+          create:
+            error: Ett fel har inträffat.
           edit:
             title: Redigera initiativtypens omfång
             update: Uppdatera
           new:
             create: Skapa
             title: Skapa omfång till initiativtyp
+          update:
+            error: Ett fel har inträffat.
         initiatives_types:
+          create:
+            error: Ett fel har inträffat.
           edit:
             update: Uppdatera
           form:
@@ -256,6 +267,8 @@ sv:
           new:
             create: Skapa
             title: Ny initiativtyp
+          update:
+            error: Ett fel har inträffat.
       admin_log:
         initiative:
           publish: "%{user_name} publicerade initiativet %{resource_name}"
@@ -461,6 +474,8 @@ sv:
         accepted: Godkända
         expired: Utgångna
       unavailable_scope: Ej tillgängligt omfång
+      update:
+        error: Ett fel har inträffat.
     menu:
       initiatives: Initiativ
     resources:
