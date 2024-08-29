@@ -23,7 +23,7 @@ module Decidim
 
       def store_onboarding_cookie_data!(user)
         if cookies[:onboarding]
-          onboarding = JSON.parse(cookies[:onboarding])
+          onboarding = JSON.parse(cookies[:onboarding]).transform_keys(&:underscore)
 
           user.extended_data = user.extended_data.merge(onboarding:)
           user.save!
