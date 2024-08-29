@@ -266,7 +266,7 @@ describe "Initiative" do
 
           let(:authorization) { nil }
 
-          it "they are shown an error" do
+          it "they are redirected to pending onboarding authorizations page" do
             click_on "New initiative"
             within "#loginModal" do
               fill_in "Email", with: authorized_user.email
@@ -274,7 +274,8 @@ describe "Initiative" do
               click_on "Log in"
             end
 
-            expect(page).to have_content("You are not authorized to perform this action")
+            expect(page).to have_content("You are almost ready to create an initiative")
+            expect(page).to have_css("a[data-verification]", count: 1)
           end
         end
       end
