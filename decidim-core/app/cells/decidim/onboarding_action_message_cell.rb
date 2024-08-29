@@ -23,7 +23,7 @@ module Decidim
     private
 
     def onboarding_path
-      decidim_verifications.first_login_authorizations_path
+      decidim_verifications.onboarding_pending_authorizations_path
     end
 
     def onboarding_manager

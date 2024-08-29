@@ -333,7 +333,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
       end
 
       it "the user is redirected to a page with the authorizations required to perform the action" do
-        expect(page).to have_current_path decidim_verifications.first_login_authorizations_path
+        expect(page).to have_current_path decidim_verifications.onboarding_pending_authorizations_path
         expect(page).to have_content "You are almost ready to comment in the dummy resource #{translated_attribute(commentable.title)}"
         expect(page).to have_css("a[data-verification]", text: "Example authorization")
         expect(page).to have_no_css("a[data-verification]", text: "Dummy authorization workflow")

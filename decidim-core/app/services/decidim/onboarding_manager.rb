@@ -10,9 +10,8 @@ module Decidim
   # 1. A visitor (logged out) tries to perform an action that requires to be logged in
   # 2. The intended action is stored in a cookie (onboarding key)
   # 3. The visitor logs in and the onboarding cookie data is merged into the User#extended_data column.
-  # 4. After logging in, the user is redirected to the onboarding authorizations page
-  #    (first_login page that will be renamed) if there is any pending action stored in
-  #    the User#extended_data column
+  # 4. After logging in, the user is redirected to the onboarding pending authorizations page
+  #    if there is any pending action stored in the User#extended_data column
   # 5. The user completes the required authorizations
   # 6. When the onboarding authorizations page detects that all the verification steps have been
   #    completed, it will remove the pending action from the User#extended_data column and redirect

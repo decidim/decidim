@@ -15,7 +15,7 @@ module Decidim
         elsif user.needs_password_update?
           decidim.change_password_path
         elsif pending_onboarding_action?(user)
-          decidim_verifications.first_login_authorizations_path
+          decidim_verifications.onboarding_pending_authorizations_path
         else
           super
         end

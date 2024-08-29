@@ -35,7 +35,7 @@ module Decidim
         sign_in(resource)
 
         store_onboarding_cookie_data!(resource)
-        return decidim_verifications.first_login_authorizations_path if pending_onboarding_action?(resource)
+        return decidim_verifications.onboarding_pending_authorizations_path if pending_onboarding_action?(resource)
 
         super
       end

@@ -18,14 +18,13 @@ module Decidim
       helper Decidim::AuthorizationFormHelper
       helper Decidim::TranslationsHelper
 
-      layout "layouts/decidim/authorizations", except: [:index, :first_login]
+      layout "layouts/decidim/authorizations", except: [:index, :onboarding_pending]
 
       def new; end
 
       def index; end
 
-      # TODO: rename to onboarding?
-      def first_login
+      def onboarding_pending
         return redirect_back(fallback_location: authorizations_path) unless onboarding_manager.valid?
 
         authorization_status = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources).global_code
@@ -33,9 +32,9 @@ module Decidim
         return unless onboarding_manager.finished_verifications?(active_authorization_methods) || authorization_status == :unauthorized
 
         flash[:notice] = if authorization_status == :unauthorized
-                           t("authorizations.first_login.unauthorized", scope: "decidim.verifications", action: onboarding_manager.action)
+                           t("authorizations.onboarding_pending.unauthorized", scope: "decidim.verifications", action: onboarding_manager.action)
                          else
-                           t("authorizations.first_login.completed_verifications", scope: "decidim.verifications")
+                           t("authorizations.onboarding_pending.completed_verifications", scope: "decidim.verifications")
                          end
         redirect_to onboarding_manager.finished_redirect_path
 
@@ -74,7 +73,7 @@ module Decidim
       def renew_onboarding_data
         store_onboarding_cookie_data!(current_user)
 
-        redirect_to first_login_authorizations_path
+        redirect_to onboarding_pending_authorizations_path
       end
 
       def clear_onboarding_data
