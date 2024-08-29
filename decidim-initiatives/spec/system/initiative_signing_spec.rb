@@ -89,10 +89,12 @@ describe "Initiative signing" do
           visit decidim_initiatives.initiative_path(initiative)
 
           within ".initiative__aside" do
-            expect(page).to have_content("Verify your account to sign the initiative")
+            expect(page).to have_content("Verify your account to sign")
           end
-          click_on "Verify your account to sign the initiative"
-          expect(page).to have_content("Authorization required")
+          click_on "Verify your account to sign"
+
+          expect(page).to have_content("You are almost ready to sign in the initiative")
+          expect(page).to have_css("a[data-verification]", count: 2)
         end
       end
 
