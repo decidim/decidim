@@ -6,14 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
     element.addEventListener("mousedown", () => {
       const action = element.dataset.onboardingAction;
       const model = element.dataset.onboardingModel;
-      const permissions_holder = element.dataset.onboardingPermissionsHolder;
-      const redirect_path = element.dataset.onboardingRedirectPath;
+      const permissionsHolder = element.dataset.onboardingPermissionsHolder;
+      const redirectPath = element.dataset.onboardingRedirectPath;
 
-      Cookies.set("onboarding", JSON.stringify({ action, model, permissions_holder, redirect_path }), {
+      Cookies.set("onboarding", JSON.stringify({ action, model, permissionsHolder, redirectPath }), {
         expires: 365
       });
 
-      console.log("stored onboarding cookie", { action, model, permissions_holder, redirect_path });
+      console.log("stored onboarding cookie", { action, model, permissionsHolder, redirectPath });
     });
   });
 });
