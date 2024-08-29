@@ -535,6 +535,8 @@ sv:
         private_meeting: Privat möte
         transparent: Transparent
         withdraw: Tillbakadragna
+      withdraw:
+        error: Ett fel uppstod när mötet skulle tas bort.
     metrics:
       meetings:
         description: Antal skapade möten
