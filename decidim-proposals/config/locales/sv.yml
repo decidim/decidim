@@ -201,8 +201,10 @@ sv:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: Någon har skrivit en anteckning om förslaget "%{resource_title}". Läs den i <a href="%{admin_proposal_info_url}">administratörspanelen</a>.
             email_outro: Du har fått detta meddelande eftersom du kan värdera förslaget.
             email_subject: Någon lämnade en anteckning på förslag %{resource_title}.
+            notification_title: Någon har skrivit en anteckning om förslaget <a href="%{resource_path}">%{resource_title}</a>. Läs den i <a href="%{admin_proposal_info_path}">administratörspanelen</a>.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har fått tillgång till och är accepterad som bidragsgivare till %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>fått tillgång till och accepterats som bidragsgivare till</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
@@ -373,6 +375,10 @@ sv:
           leave_your_note: Lämna anteckningen
           title: Privata anteckningar
         proposals:
+          answer:
+            invalid: Det gick inte att svara på förslaget.
+          create:
+            invalid: Det gick inte att skapa förslaget.
           edit:
             title: Uppdatera förslag
             update: Uppdatera
@@ -442,6 +448,11 @@ sv:
           create:
             invalid: 'Det gick inte att dela upp de valda förslagen på grund av vissa av dem:'
             success: Förslagen har delats upp till nya förslag.
+        valuation_assignments:
+          create:
+            invalid: Det gick inte att tilldela förslag till en handläggare.
+          delete:
+            invalid: Det gick inte att ta bort tilldelningen av förslag från en handläggare.
       admin_log:
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
