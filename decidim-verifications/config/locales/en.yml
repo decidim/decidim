@@ -125,13 +125,6 @@ en:
         destroy:
           error: There was a problem deleting the authorization.
           success: You have successfully deleted the authorization.
-        first_login:
-          completed_verifications: You have been successfully authorized
-          granted_verifications: Granted verifications
-          onboarding_message_html: You are almost ready to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
-          pending_admin_approval_verifications: Pending admin approval verifications
-          pending_verifications: Pending verifications
-          unauthorized: You are not athorized to %{action} in this resource
         index:
           expired_verification: Verification expired
           granted_verification: Granted verification
@@ -143,6 +136,13 @@ en:
         new:
           authorize: Send
           authorize_with: Verify with %{authorizer}
+        onboarding_pending:
+          completed_verifications: You have been successfully authorized
+          granted_verifications: Granted verifications
+          onboarding_message_html: You are almost ready to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
+          pending_admin_approval_verifications: Pending admin approval verifications
+          pending_verifications: Pending verifications
+          unauthorized: You are not athorized to %{action} in this resource
         renew_modal:
           cancel: Cancel
           continue: Continue
