@@ -240,8 +240,20 @@ fr:
             email_subject: Vous avez été assigné en tant qu'évaluateur à la proposition %{resource_title}.
             notification_title: Vous avez été assigné en tant qu'évaluateur à la proposition <a href="%{resource_path}">%{resource_title}</a>. Jetez-y un œil sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
           proposal_note_created:
+            email_intro: '%{author_name} a créé une note privée dans %{resource_title}. Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d''administration</a>.'
             email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
             email_subject: Quelqu'un a laissé une note sur la proposition %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a créé une note privée dans <a href="%{resource_path}">%{resource_title}</a>. Consultez-la sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
+          proposal_note_mentioned:
+            email_intro: Vous avez été mentionné(e) dans une note privée dans «%{resource_title}» par «%{author_name}» «%{author_nickname}». Jetez-y un coup d'œil dans <a href="%{admin_proposal_info_url}">le panneau d'administration</a>.
+            email_outro: Vous avez reçu cette notification parce que vous avez été mentionné(e) dans une note privée.
+            email_subject: Quelqu'un vous a mentionné(e) dans une note sur la proposition %{resource_title}.
+            notification_title: Vous avez été mentionné(e) dans une note privée dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a>. Jetez-y un coup d'œil dans <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
+          proposal_note_replied:
+            email_intro: '%{author_name} a répondu à votre note privée dans %{resource_title}. Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d''administration</a>.'
+            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur/autrice de la note.
+            email_subject: "%{author_name} a répondu à votre note privée dans %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a répondu à votre note privée dans <a href="%{resource_path}">%{resource_title}</a>. Consultez-la sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
         coauthor_accepted_invite:
           notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> a accepté votre invitation à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
@@ -494,6 +506,9 @@ fr:
           form:
             note: Remarque
             submit: Soumettre
+          reply:
+            error: Il y a eu un problème lors de la création de la réponse à cette note de proposition.
+            success: La réponse à la note de proposition a été créée avec succès.
           title: Notes privées
         proposal_states:
           create:
