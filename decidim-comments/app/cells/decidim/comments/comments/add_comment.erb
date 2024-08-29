@@ -6,7 +6,7 @@
       <div>
         <div class="flash flex-col warning">
           <div class="flash__message">
-            <%= action_authorized_link_to("comment", t("decidim.components.add_comment_form.account_message"), "#", resource: model) %>
+            <%= action_authorized_link_to("comment", t("decidim.components.add_comment_form.account_message"), "#", **onboarding_action_params) %>
           </div>
         </div>
       </div>
