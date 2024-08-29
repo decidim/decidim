@@ -35,7 +35,7 @@ module Decidim
     end
 
     def redirect_url
-      pending_onboarding_action?(current_user) ? decidim_verifications.first_login_authorizations_path : URI(request.referer).path
+      pending_onboarding_action?(current_user) ? decidim_verifications.onboarding_pending_authorizations_path : URI(request.referer).path
     end
   end
 end
