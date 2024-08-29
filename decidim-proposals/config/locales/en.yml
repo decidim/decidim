@@ -104,6 +104,7 @@ en:
         one: Proposal
         other: Proposals
       decidim/proposals/proposal/text: 'This proposal was created:'
+      decidim/proposals/proposal/budget_text: The proposal was created
       decidim/proposals/proposal_note:
         one: Note
         other: Notes

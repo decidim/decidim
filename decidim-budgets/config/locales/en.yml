@@ -196,6 +196,8 @@ en:
         vote: Vote
         voted_budgets: Voted budgets
         voted_on: You have voted on %{links}.
+      creation:
+        text: They were added to this budget
       last_activity:
         new_vote_at: New budgeting vote at
       limit_announcement:

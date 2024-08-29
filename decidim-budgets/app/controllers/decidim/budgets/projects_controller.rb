@@ -74,20 +74,12 @@ module Decidim
       def items
         @items ||= [
           {
-            enabled: @project.linked_resources(:proposals, "included_proposals").present?,
-            id: "included_proposals",
-            text: t("decidim/proposals/proposal", scope: "activerecord.models", count: 2),
-            icon: resource_type_icon_key("Decidim::Budgets::Project"),
+            enabled: BudgetHistoryCell.new(@project).send(:history_items).any?,
+            id: "included_history",
+            text: t("decidim/history/history", scope: "activerecord.models", count: 2),
+            icon: resource_type_icon_key("history"),
             method: :cell,
-            args: ["decidim/linked_resources_for", @project, { type: :proposals, link_name: "included_proposals" }]
-          },
-          {
-            enabled: @project.linked_resources(:results, "included_projects").present?,
-            id: "included_results",
-            text: t("decidim/accountability/result", scope: "activerecord.models", count: 2),
-            icon: resource_type_icon_key("Decidim::Accountability::Result"),
-            method: :cell,
-            args: ["decidim/linked_resources_for", @project, { type: :results, link_name: "included_projects" }]
+            args: ["decidim/budgets/budget_history", @project]
           },
           {
             enabled: @project.photos.present?,
