@@ -156,6 +156,7 @@ module Decidim
 
     def get_authorization_status(action, resource, permissions_holder)
       return if action.blank?
+      return if permissions_holder.blank? && resource.try(:component).blank?
 
       action_authorized_to(action, resource:, permissions_holder:)
     end
