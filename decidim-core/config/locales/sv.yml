@@ -278,6 +278,8 @@ sv:
       update_draft:
         error: Det gick inte att uppdatera utkastet till ändringsförslag.
         success: Utkastet till ändringsförslag har uppdaterats.
+      withdraw:
+        error: Det gick inte att återkalla ändringsförslaget.
       wizard_step_form:
         steps:
           '1': Skapa ändringsförslag
@@ -469,6 +471,8 @@ sv:
       sub_hero:
         name: Sub hjälte banner
     core:
+      actions:
+        login_before_access: Du behöver logga in för att komma åt det här innehållet.
       application_helper:
         filter_area_values:
           all: Alla
@@ -499,6 +503,7 @@ sv:
         new:
           are_you_new?: Ny här?
           register: Skapa ett konto
+          sign_up_disabled: Registrering har inaktiverats, du kan endast logga in med ett befintligt konto.
       shared:
         newsletter_modal:
           buttons:
@@ -664,6 +669,8 @@ sv:
           email_outro: Du har fått detta meddelande eftersom du är administratör för plattformen.
           email_subject: En användargrupp har uppdaterat sin profil
           notification_title: '%{user_group_name} användargrupp har uppdaterat sin profil och lämnar den overifierad. Du kan nu verifiera den i <a href="%{groups_admin_path}">administratörspanelen</a>.'
+      nickname_event:
+        notification_body: Vi har ändrat reglerna för användarnamn för att undvika dubbletter och har tagit bort regeln om skriftlägeskänsliga namn. <br/> Ditt användarnamn skapades efter ett annat med samma namn, så vi har automatiskt bytt namn på det. Du kan ändra det i <a href="%{link_to_account_settings}">dina kontoinställningar</a>.
       notification_event:
         notification_title: En händelse inträffade i <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -1297,6 +1304,7 @@ sv:
       last_attempt: Du har ett försök kvar innan ditt konto blir låst.
       locked: Ditt konto är låst.
       not_found_in_database: Ogiltig %{authentication_keys} eller ogiltigt lösenord.
+      unauthenticated: Du behöver logga in eller skapa ett konto innan du kan fortsätta.
     invitations:
       edit:
         header: Slutför att skapa ditt konto
@@ -1437,10 +1445,19 @@ sv:
       objects: Objekt
       people-body: Personer & kropp
       recents: Nyligen använd
+      smileys-emotion: Smileys & Emotikoner
       symbols: Symboler
+    error:
+      load: Det gick inte att ladda emojis
+    recents:
+      clear: Rensa senast använda emojis
+      none: Du har inte valt några emojis än.
     retry: Försök igen
     search:
+      _: Sök emojis...
       clear: Rensa sök
+      error: Det gick inte att söka emojis
+      not_found: Hittade ingenting
   errors:
     messages:
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
@@ -1533,6 +1550,7 @@ sv:
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
         resources: Resurser
         sign_up: Registrera
+        terms_and_conditions: Användarvillkor
       header:
         log_in: Logga in
         main_menu: Huvudmeny
@@ -1546,6 +1564,10 @@ sv:
       notifications_dashboard:
         mark_all_as_read: Markera allt som läst
         mark_as_read: Markera som läst
+      shared:
+        layout_item:
+          next: Nästa
+          prev: Föregående
       social_media_links:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
