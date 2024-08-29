@@ -96,14 +96,14 @@ en:
       decidim/history/history:
         one: History
         other: History
-      decidim/meetings/meeting/text: 'In these meeting it was discussed:'
+      decidim/meetings/meeting/text: 'It was discussed in this meeting:'
       decidim/proposals/collaborative_draft:
         one: Collaborative draft
         other: Collaborative drafts
       decidim/proposals/proposal:
         one: Proposal
         other: Proposals
-      decidim/proposals/proposal/text: 'This proposal has been merged of:'
+      decidim/proposals/proposal/text: 'This proposal was created:'
       decidim/proposals/proposal_note:
         one: Note
         other: Notes
