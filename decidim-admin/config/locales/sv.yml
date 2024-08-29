@@ -182,10 +182,19 @@ sv:
         user:
           new: Ny admin
         verify: Kontrollera
+      admin_terms_of_service:
+        accept:
+          error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
+        required_review:
+          callout: Var vänlig granska de uppdaterade användarvillkoren för administratörer för att kunna fortsätta använda plattformen.
+          cta: Granska dem nu.
+        title: Användarvillkor för administratörer
       area_types:
         create:
           error: Det gick inte att skapa en ny områdestyp.
           success: Områdestypen har skapats.
+        destroy:
+          success: Områdestypen har raderats.
         edit:
           title: Redigera områdestyp
           update: Uppdatera
@@ -194,12 +203,14 @@ sv:
           title: Ny områdestyp
         update:
           error: Det gick inte att uppdatera områdestypen.
+          success: Områdestypen har uppdaterats.
       areas:
         create:
           error: Det gick inte att skapa ett nytt område.
           success: Området har har skapats.
         destroy:
           has_spaces: Det finns redan deltagarutrymmen för detta område. Se till att inget utrymme refererar till detta område innan du tar bort det.
+          success: Området har raderats.
         edit:
           title: Redigera område
           update: Uppdatera
@@ -209,6 +220,7 @@ sv:
         no_areas: Inga områden
         update:
           error: Det gick inte att uppdatera området.
+          success: Området har uppdaterats.
       attachment_collections:
         create:
           error: Det gick inte att skapa en ny mapp.
@@ -247,9 +259,11 @@ sv:
         message: Var försiktig när du arbetar med bilagor i ett privat utrymme. En deltagare skulle kunna dela detta dokument utanför plattformen.
       autocomplete:
         no_results: Hittade inga resultat
+        search_prompt: Sök genom att skriva minst tre tecken.
       block_user:
         new:
           action: Blockera konto och skicka motivering
+          already_reported_html: Fortsätter du kommer även alla deltagares innehåll att döljas.
           description: Att blockera en användare kommer att göra dess konto oanvändbart, du kan skriva din motivering och riktlinjer för hur du anser att du skulle överväga att avblockera användaren.
           justification: Motivering
           title: Blockera användare %{name}
@@ -279,6 +293,7 @@ sv:
         create:
           error: Det gick inte att skapa komponenten.
           success: Komponenten har skapats.
+          success_landing_page: Komponenten har skapats. Du kan även lägga till ett innehållsblock för komponenten på processens startsida. Gå till <a href="%{landing_page_path}">Landningssidan</a> för att konfigurera den.
         destroy:
           error: Ett fel uppstod när komponenten skulle förstöras.
           success: Komponenten har raderats.
@@ -310,6 +325,8 @@ sv:
       conflicts:
         attempts: Försök
         'false': 'Nej'
+        index:
+          text: Sök efter e-post, namn eller användarnamn.
         managed_user_name: Hanterad användare
         solved: Löst
         title: Verifieringskonflikter
@@ -322,9 +339,35 @@ sv:
           title: Överföring
         'true': 'Ja'
         user_name: Användare
+      content_blocks:
+        create:
+          error: Det gick inte att skapa innehållsblocket.
+          success: Innehållsblocket har skapats.
+        destroy:
+          error: Det gick inte att radera innehållsblocket.
+          success: Innehållsblocket har raderats.
+        edit:
+          active_content_blocks: Aktiva innehållsblock
+          add: Lägg till innehållsblock
+          destroy_confirmation: Är du säker på att du vill radera innehållsblocket?
+          inactive_content_blocks: Inaktiva innehållsblock
+          title: Sidans innehåll
+          update: Uppdatera
       dashboard:
+        pending_moderations:
+          anouncement:
+            one: '%{count} inlägg väntar på moderering'
+            other: '%{count} inlägg väntar på moderering'
+          title: Inväntar moderering
         show:
+          dropdown: Rullgardinsmeny
           view_more_logs: Visa fler loggar
+      domain_whitelist:
+        form:
+          domain_too_short: Domännamnet är för kort
+        update:
+          error: Det gick inte att uppdatera listan över godkända domäner.
+          success: Listan över godkända domäner har uppdaterats.
       exports:
         export_as: "%{name} som %{export_format}"
         formats:
@@ -332,6 +375,7 @@ sv:
           Excel: Excel
           FormPDF: PDF
           JSON: JSON
+        notice: Din export håller på att behandlas. Du får ett e-postmeddelande när det är klart.
       filters:
         category_id_eq:
           label: Kategori
@@ -406,8 +450,10 @@ sv:
             message_1: CSV, JSON och Excel (.xlsx) filer stöds
             message_2: För CSV-filer måste separatorn mellan kolumner vara en semikolon (";")
       help_sections:
+        error: Det gick inte att uppdatera hjälpavsnitten.
         form:
           save: Spara
+        success: Hjälpavsnitten har uppdaterats.
       impersonatable_users:
         index:
           filter:
@@ -464,6 +510,8 @@ sv:
             message:
               one: 'Saknad kolumn: %{columns}.'
               other: 'Saknade kolumner: %{columns}.'
+        error: Ett fel uppstod under importeringen.
+        example_error: Det gick inte att skapa typen av exempel.
         new:
           accepted_mime_types:
             csv: csv
@@ -475,6 +523,7 @@ sv:
           download_example_format: Exempel som %{name}
           file_legend: Lägg till en fil som kommer importeras.
           import: Importera
+        notice: "%{count} %{resource_name} har importerats."
       logs:
         filters:
           participatory_space: Hitta deltagarutrymme
@@ -498,7 +547,10 @@ sv:
         appearance: Utseende
         area_types: Typer av område
         areas: Områden
+        components: Komponenter
         configuration: Konfiguration
+        content: Rapporterat innehåll
+        external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
@@ -506,9 +558,12 @@ sv:
         moderation: Global moderering
         newsletters: Nyhetsbrev
         participants: Deltagare
+        reported_users: Rapporterade deltagare
         scope_types: Omfattningstyper
         scopes: Omfattningar
+        see_site: Se webbplatsen
         settings: Inställningar
+        static_page_topics: Ämnesområden
         static_pages: Sidor
         user_groups: Grupper
         users: Deltagare
@@ -577,6 +632,7 @@ sv:
           fields:
             created_at: Skapandedatum
             email: E-post
+            last_sign_in_at: Senaste inloggningsdatum
             name: Namn
             role: Roll
             roles:
@@ -604,6 +660,7 @@ sv:
           nickname: Användarnamn
           reason: Anledning
           reports: Antal anmälningar
+          title: Rapporterade deltagare
         report:
           reasons:
             does_not_belong: Tillhör inte
@@ -613,9 +670,12 @@ sv:
           blocked: Blockerad
           unblocked: Icke blockerade
       moderations:
+        index:
+          title: Rapporterat innehåll
         report:
           reasons:
             does_not_belong: Hör inte hemma
+            hidden_during_block: Dold vid blockering av deltagare
             offensive: Stötande
             spam: Skräp
         reports:
@@ -685,14 +745,26 @@ sv:
           select_users: Välj vilka användare som ska få nyhetsbrevet
           title: Välj mottagare att skicka till
           warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
+        send:
+          no_recipients: Inga mottagare för det här urvalet.
+        send_to_user:
+          sent_successfully: Nyhetsbrevet har skickats till %{email}
         show:
           preview: Förhandsvisa
           select_recipients_to_deliver: Välj mottagare att leverera till
+          send_me_a_test_email: Skicka ett testmeddelande till mig
           subject: Ämne
         update:
           error: Det gick inte att uppdatera nyhetsbrevet.
           success: Nyhetsbrevet har uppdaterats. Granska det gärna innan du skickar det.
       officializations:
+        block:
+          error: Det gick inte att blockera deltagaren.
+          success: Deltagaren har blockerats.
+        create:
+          success: Deltagaren har fått officiell status.
+        destroy:
+          success: Deltagaren har inte längre officiell status.
         index:
           actions: Åtgärder
           badge: Märke
@@ -720,6 +792,9 @@ sv:
           hidden: dold
           show: Visa
           title: Visa deltagarens e-postadress
+        unblock:
+          error: Det gick inte att avblockera deltagaren.
+          success: Deltagaren har avblockerats.
       organization:
         edit:
           title: Redigera organisation
@@ -730,6 +805,7 @@ sv:
           instagram: Instagram
           rich_text_editor_in_public_views_help: I vissa textfält kan deltagare använda vissa HTML-taggar med hjälp av den rika textredigeraren.
           social_handlers: Sociala
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -740,6 +816,7 @@ sv:
           update: Uppdatera
         form:
           colors:
+            choose_color: Välj primär färg
             colors_title: Organisationsfärger
             colors_warning_html: Varning! Att ändra dessa färger kan bryta minska kontrasterna och tillgängligheten. Du kan kontrollera kontrasten i ditt val med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
             title: Färgväljare
