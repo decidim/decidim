@@ -69,7 +69,10 @@ module Decidim
         return action_text if [:ok, :unauthorized].include?(authorization_status.global_code)
 
         action_index = t("verify_to", scope: "decidim.core.actions", action: "%%%%").strip.index("%%%%")
-        action_text[0] = action_text[0].downcase if action_index.positive? && /\A[[:upper:]][^[[:upper:]]]*\z/.match?(action_text)
+        if action_index.positive? && /\A[[:upper:]][^[[:upper:]]]*\z/.match?(action_text)
+          action_text = action_text.dup
+          action_text[0] = action_text[0].downcase
+        end
 
         t("verify_to", scope: "decidim.core.actions", action: action_text)
       end
