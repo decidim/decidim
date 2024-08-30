@@ -27,6 +27,7 @@
           :withdraw,
           t("withdraw_proposal", scope: "decidim.proposals.proposals.show"),
           withdraw_proposal_path(@proposal),
+          resource: @proposal,
           method: :put,
           class: "button button__sm button__transparent-secondary w-full",
           title: t("withdraw_btn_hint", scope: "decidim.proposals.proposals.show" ),
