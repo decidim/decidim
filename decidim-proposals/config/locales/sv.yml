@@ -789,7 +789,7 @@ sv:
           title: 'Stöd är föremål för följande regler:'
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
-            votes: Stöder
+            votes: Saknar %{number} stöd
         wizard_aside:
           back: Tillbaka
           back_from_step_1: Tillbaka till förslag
