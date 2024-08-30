@@ -136,7 +136,7 @@ module Decidim
                           {}
                         end
 
-      component = try(:current_component) || resource.try(:component)
+      component = try(:current_component) # || resource.try(:component)
       if component.present?
         decidim.authorization_modal_path(authorization_action: action, component_id: component&.id, **resource_params)
       else
@@ -168,6 +168,8 @@ module Decidim
 
     def get_authorization_status(action, resource, permissions_holder)
       return if action.blank?
+
+      permissions_holder ||= resource.blank? ? try(:current_component) : nil
       return if permissions_holder.blank? && resource.try(:component).blank?
 
       action_authorized_to(action, resource:, permissions_holder:)
