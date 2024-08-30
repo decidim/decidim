@@ -1,0 +1,31 @@
+.result_history_cell {
+  @apply relative flex flex-col gap-4 p-4;
+
+  &__line_short {
+    @apply absolute left-1/2 top-full w-px h-6 lg:h-4 bg-secondary;
+  }
+
+  &__line_long {
+    @apply absolute left-1/2 top-full w-px h-11 lg:h-4 bg-secondary;
+  }
+
+  &__item {
+    @apply flex flex-row gap-2.5 relative;
+
+    &_icon {
+      @apply relative w-8 h-8 rounded-full border-secondary border flex justify-center items-center;
+
+      &-creation {
+        @apply bg-secondary w-6 h-6 rounded-full flex justify-center items-center;
+      }
+    }
+
+    &_content {
+      @apply flex flex-col lg:items-center lg:flex-row lg:gap-1;
+    }
+
+    &_date {
+      @apply text-sm text-gray-2;
+    }
+  }
+}

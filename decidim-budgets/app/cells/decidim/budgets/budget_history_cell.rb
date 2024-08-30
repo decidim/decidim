@@ -28,6 +28,7 @@ module Decidim
 
         @history_items = []
         add_linked_resources_items(@history_items, :proposals, "included_proposals", "decidim/proposals/proposal/budget_text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, :results, "included_results", "decidim/accountability/result/budget_text", "Decidim::Accountability::Result")
         add_budget_creation_item(@history_items) if @history_items.any?
 
         @history_items.sort_by! { |item| item[:date] }

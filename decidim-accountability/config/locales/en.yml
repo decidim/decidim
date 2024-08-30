@@ -8,10 +8,10 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_date: End date
-        meetings_ids: Included meetings
+        meetings_ids: 'It was discussed in this meeting:'
         progress: Progress
-        project_ids: Included projects
-        proposals: Included proposals
+        project_ids: 'It was included in this project:'
+        proposals: 'It was included in this proposal:'
         start_date: Start date
         subresults: Subresults
         title: Title
@@ -33,6 +33,7 @@ en:
       decidim/accountability/result:
         one: Result
         other: Results
+      decidim/accountability/result/budget_text: This result was added
   decidim:
     accountability:
       actions:
@@ -178,6 +179,8 @@ en:
       content_blocks:
         highlighted_results:
           results: Results
+      creation:
+        text: This result was created
       import_mailer:
         import:
           errors: Errors
