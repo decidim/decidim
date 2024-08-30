@@ -147,7 +147,6 @@ is:
           discard: Fargaðu þessari drög
           discard_confirmation: Ertu viss um að þú viljir fleygja þessari tillögu drög?
           send: Preview
-          title: Breyta tillögu drög
         filters:
           category: Flokkur
           origin: Uppruni
