@@ -511,7 +511,6 @@ sk:
           discard: Zrušte tento návrh
           discard_confirmation: Naozaj chcete túto návrh zakázať?
           send: Náhľad
-          title: Upraviť koncept návrhu
         filters:
           activity: Moja aktivita
           all: Všetko
