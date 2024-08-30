@@ -7,6 +7,7 @@ module Decidim
       private
 
       def run_before_hooks
+        Decidim::Reminder.where(component: resource).destroy_all
         resource.manifest.run_hooks(:before_destroy, resource)
       end
 
