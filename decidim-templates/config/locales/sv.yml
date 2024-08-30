@@ -26,6 +26,8 @@ sv:
         proposal_answer_templates:
           form:
             save: Spara
+          index:
+            global_scope: Globalt (tillgängligt överallt)
         questionnaire_templates:
           choose:
             label: Välj mall
