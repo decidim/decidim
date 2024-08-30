@@ -135,7 +135,7 @@ module Decidim
 
       component = try(:current_component) || resource.try(:component)
       if component.present?
-        decidim.authorization_modal_path(authorization_action: action, component_id: current_component&.id, **resource_params)
+        decidim.authorization_modal_path(authorization_action: action, component_id: component&.id, **resource_params)
       else
         decidim.free_resource_authorization_modal_path(authorization_action: action, **resource_params)
       end
