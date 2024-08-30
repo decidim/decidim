@@ -152,7 +152,7 @@ module Decidim
     #
     # Returns a String
     def finished_redirect_path
-      @finished_redirect_path ||= onboarding_data["redirect_path"].presence || ResourceLocatorPresenter.new(model).url
+      @finished_redirect_path ||= onboarding_data["redirect_path"].presence || model_path
     end
 
     private
@@ -214,6 +214,16 @@ module Decidim
     # Returns a hash
     def onboarding_data
       user.extended_data["onboarding"] || {}
+    end
+
+    # Returns the path associated to the model using ResourceLocatorPresenter. If model is not
+    # present returns the root path
+    #
+    # Returns a String
+    def model_path
+      return Decidim::Core::Engine.routes.url_helpers.root_path if model.blank?
+
+      ResourceLocatorPresenter.new(model).url
     end
   end
 end
