@@ -1466,7 +1466,7 @@ sv:
       _: Sök emojis...
       clear: Rensa sökning
       error: Det gick inte att söka emojis
-      not_found: Hittade ingenting
+      not_found: Sökningen gav inget resultat
   errors:
     messages:
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
