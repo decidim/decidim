@@ -781,7 +781,7 @@ es-PY:
           discard: Descartar este borrador
           discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
           send: Previsualizar
-          title: Editar borrador de propuesta
+          title: Editar el borrador de la propuesta
         edit_form_fields:
           marker_added: Marcador añadido al mapa.
         filters:
