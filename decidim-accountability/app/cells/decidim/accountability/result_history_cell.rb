@@ -19,7 +19,7 @@ module Decidim
         add_linked_resources_items(@history_items, :proposals, "included_proposals", "result.proposals", "Decidim::Proposals::Proposal")
         add_linked_resources_items(@history_items, :projects, "included_projects", "result.project_ids", "Decidim::Budgets::Project")
         add_linked_resources_items(@history_items, :meetings, "meetings_through_proposals", "result.meetings_ids", "Decidim::Meetings::Meeting")
-        add_resultt_creation_item(@history_items) if @history_items.any?
+        add_result_creation_item(@history_items) if @history_items.any?
 
         @history_items.sort_by! { |item| item[:date] }
       end
@@ -40,7 +40,7 @@ module Decidim
         end
       end
 
-      def add_resultt_creation_item(items)
+      def add_result_creation_item(items)
         items << {
           id: "result_creation",
           date: @model.created_at,
