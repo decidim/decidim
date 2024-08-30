@@ -94,7 +94,19 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 ## 5. Changes in APIs
 
-### 5.1. [[TITLE OF THE CHANGE]]
+### 5.1. Decidim version number no longer disclosed through the GraphQL API by default
+
+In previous Decidim versions, you could request the running Decidim version through the following API query against the GraphQL API:
+
+```graphql
+query { decidim { version } }
+```
+
+This no longer returns the running Decidim version by default and instead it will result to `null` being reported as the version number.
+
+If you would like to re-enable exposing the Decidim version number through the GraphQL API, you may do so by setting the `DECIDIM_API_DISCLOSE_SYSTEM_VERSION` environment variable to `true`. However, this is highly discouraged but may be required for some automation or integrations.
+
+### 5.2. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

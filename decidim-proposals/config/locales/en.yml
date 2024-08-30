@@ -544,10 +544,10 @@ en:
           answer:
             bulk_answer_error: Proposals with IDs [%{proposals}] could not be answered due errors applying the template "%{template}". You can check that the answer template matches the expected format for this component by applying it individually.
             bulk_answer_success: '%{count} proposals will be answered using the template "%{template}". Please wait a few minutes and refresh the page to see the updates.'
-            invalid: There has been a problem answering this proposal.
+            invalid: There was a problem answering this proposal.
             success: Proposal successfully answered.
           create:
-            invalid: There has been a problem creating this proposal.
+            invalid: There was a problem creating this proposal.
             success: Proposal successfully created.
           edit:
             title: Update proposal
@@ -629,18 +629,18 @@ en:
             title: Import proposals from another component
         proposals_merges:
           create:
-            invalid: 'There has been a problem merging the selected proposals because some of them:'
+            invalid: 'There was a problem merging the selected proposals because some of them:'
             success: Successfully merged the proposals into a new one.
         proposals_splits:
           create:
-            invalid: 'There has been a problem splitting the selected proposals because some of them:'
+            invalid: 'There was a problem splitting the selected proposals because some of them:'
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
-            invalid: There was an error assigning proposals to a valuator.
+            invalid: There was a problem assigning proposals to a valuator.
             success: Proposals assigned to a valuator successfully.
           delete:
-            invalid: There was an error unassigning proposals from a valuator.
+            invalid: There was a problem unassigning proposals from a valuator.
             success: Valuator unassigned from proposals successfully.
       admin_log:
         proposal:
