@@ -768,7 +768,6 @@ cs:
           discard: Zrušte tento návrh
           discard_confirmation: Opravdu chcete tuto návrh zakázat?
           send: Náhled
-          title: Upravit koncept návrhu
         edit_form_fields:
           marker_added: Značka přidána na mapu.
         filters:
