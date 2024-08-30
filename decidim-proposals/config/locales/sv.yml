@@ -450,7 +450,7 @@ sv:
             success: Förslagen har delats upp till nya förslag.
         valuation_assignments:
           create:
-            invalid: Det gick inte att tilldela förslag till en handläggare.
+            invalid: Det gick inte att tilldela förslagen till en handläggare.
           delete:
             invalid: Det gick inte att ta bort tilldelningen av förslag från en handläggare.
       admin_log:
