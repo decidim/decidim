@@ -31,13 +31,16 @@ module Decidim
       false
     end
 
-    def self.ransackable_attributes(_auth_object = nil)
-      %w(birthday birthplace ceased_date created_at decidim_assembly_id decidim_user_id designation_date full_name gender id position
-         position_other updated_at weight)
+    def self.ransackable_attributes(auth_object = nil)
+      base = []
+
+      return base unless auth_object&.admin?
+
+      base + %w(full_name ceased_date)
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(assembly non_user_avatar_attachment non_user_avatar_blob user versions)
+      %w(user)
     end
   end
 end

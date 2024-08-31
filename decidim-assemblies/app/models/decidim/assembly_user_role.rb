@@ -16,12 +16,16 @@ module Decidim
     validates :role, inclusion: { in: ParticipatorySpaceUser::ROLES }, uniqueness: { scope: [:user, :assembly] }
     def target_space_association = :assembly
 
-    def self.ransackable_attributes(_auth_object = nil)
-      %w(created_at decidim_assembly_id decidim_user_id email id invitation_accepted_at last_sign_in_at name nickname role updated_at)
+    def self.ransackable_attributes(auth_object = nil)
+      base = []
+
+      return base unless auth_object&.admin?
+
+      base + %w(name nickname email invitation_accepted_at last_sign_in_at role)
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(assembly user versions)
+      []
     end
 
     def self.log_presenter_class_for(_log)
