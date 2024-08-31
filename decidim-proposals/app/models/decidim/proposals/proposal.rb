@@ -416,10 +416,10 @@ module Decidim
 
       def self.ransackable_attributes(_auth_object = nil)
         # %w(address answer answered_at body coauthorships_count comments_count cost cost_report created_at created_in_meeting decidim_component_id
-        #    decidim_proposals_proposal_state_id decidim_scope_id endorsements_count execution_period follows_count id id_string internal_state
+        #    decidim_proposals_proposal_state_id decidim_scope_id endorsements_count execution_period follows_count id  internal_state
         #    is_emendation latitude longitude old_state participatory_text_level position proposal_notes_count proposal_votes_count published_at
-        #    reference search_text state_published state_published_at title updated_at valuation_assignments_count withdrawn_at)
-        base = %w()
+        #    reference search_text state_published state_published_at  updated_at valuation_assignments_count withdrawn_at)
+        base = %w(id_string title)
 
         return base unless _auth_object&.admin?
 

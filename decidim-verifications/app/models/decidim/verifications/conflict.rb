@@ -16,7 +16,7 @@ module Decidim::Verifications
 
     def self.ransackable_associations(_auth_object = nil)
       # %w(current_user managed_user)
-      []
+      %w(current_user)
     end
   end
 end

@@ -32,9 +32,9 @@ module Decidim
     end
 
     def self.ransackable_attributes(_auth_object = nil)
-      # %w(created_at decidim_participatory_space_id decidim_participatory_space_type decidim_reportable_id decidim_reportable_type hidden_at id report_count
-      #    reportable_type_string reported_content reported_id_string updated_at)
-      base = %w()
+      # %w( decidim_participatory_space_id decidim_participatory_space_type decidim_reportable_id decidim_reportable_type hidden_at id report_count
+      #    reportable_type_string   updated_at)
+      base = %w(reported_id_string reported_content created_at)
 
       return base unless _auth_object&.admin?
 

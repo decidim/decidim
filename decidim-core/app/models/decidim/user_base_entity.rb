@@ -70,11 +70,11 @@ module Decidim
       #    confirmation_sent_at confirmed_at created_at current_sign_in_at current_sign_in_ip decidim_organization_id
       #    delete_reason deleted_at digest_sent_at direct_message_types email email_on_moderations extended_data
       #    failed_attempts followers_count following_count follows_count id invitation_accepted_at invitation_created_at
-      #    invitation_limit invitation_sent_at invitations_count invited_by_id invited_by_type last_sign_in_at last_sign_in_ip
+      #    invitation_limit invitation_sent_at invitations_count invited_by_id invited_by_type  last_sign_in_ip
       #    locale locked_at managed name newsletter_notifications_at  notification_settings notification_types
       #    notifications_sending_frequency officialized_as officialized_at password_updated_at personal_url previous_passwords
       #    remember_created_at reset_password_sent_at roles sign_in_count type unconfirmed_email updated_at)
-      base = %w(name email nickname)
+      base = %w(name email nickname last_sign_in_at)
 
       return base unless _auth_object&.admin?
 

@@ -27,8 +27,8 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      # %w(reports user versions)
-      []
+      # %w(  versions)
+      %w(reports user)
     end
   end
 end
