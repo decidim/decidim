@@ -172,7 +172,7 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area assembly_type scope parent children)
+      %w(area assembly_type scope parent children categories)
     end
 
     private

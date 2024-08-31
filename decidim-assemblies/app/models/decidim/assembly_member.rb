@@ -32,11 +32,9 @@ module Decidim
     end
 
     def self.ransackable_attributes(auth_object = nil)
-      base = []
+      return [] unless auth_object&.admin?
 
-      return base unless auth_object&.admin?
-
-      base + %w(full_name ceased_date)
+      %w(full_name ceased_date)
     end
 
     def self.ransackable_associations(_auth_object = nil)
