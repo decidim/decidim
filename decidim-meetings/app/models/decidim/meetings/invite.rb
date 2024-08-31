@@ -35,11 +35,17 @@ module Decidim
       alias decline! reject!
 
       def self.ransackable_attributes(_auth_object = nil)
-        %w(accepted_at created_at decidim_meeting_id decidim_user_id id rejected_at sent_at updated_at)
+        # %w(accepted_at created_at decidim_meeting_id decidim_user_id id rejected_at sent_at updated_at)
+        base = %w()
+
+        return base unless _auth_object&.admin?
+
+        base + %w()
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(meeting user versions)
+        # %w(meeting user versions)
+        []
       end
     end
   end

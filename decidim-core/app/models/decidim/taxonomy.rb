@@ -51,11 +51,17 @@ module Decidim
     end
 
     def self.ransackable_attributes(_auth_object = nil)
-      %w(children_count decidim_organization_id id name parent_id taxonomizations_count weight)
+      # %w(children_count decidim_organization_id id name parent_id taxonomizations_count weight)
+      base = %w()
+
+      return base unless _auth_object&.admin?
+
+      base + %w()
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(children organization parent taxonomizations)
+      # %w(children organization parent taxonomizations)
+      []
     end
 
     def translated_name
