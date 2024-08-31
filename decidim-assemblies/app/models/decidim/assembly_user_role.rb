@@ -16,18 +16,6 @@ module Decidim
     validates :role, inclusion: { in: ParticipatorySpaceUser::ROLES }, uniqueness: { scope: [:user, :assembly] }
     def target_space_association = :assembly
 
-    def self.ransackable_attributes(auth_object = nil)
-      base = []
-
-      return base unless auth_object&.admin?
-
-      base + %w(name nickname email invitation_accepted_at last_sign_in_at role)
-    end
-
-    def self.ransackable_associations(_auth_object = nil)
-      []
-    end
-
     def self.log_presenter_class_for(_log)
       Decidim::Assemblies::AdminLog::AssemblyUserRolePresenter
     end
