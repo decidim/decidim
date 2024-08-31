@@ -45,6 +45,5 @@ module Decidim
       # %w(participatory_space reportable reports versions)
       []
     end
-
   end
 end

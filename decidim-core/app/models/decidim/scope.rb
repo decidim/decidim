@@ -78,11 +78,7 @@ module Decidim
 
     def self.ransackable_attributes(_auth_object = nil)
       # %w(code created_at decidim_organization_id id name parent_id part_of scope_type_id updated_at)
-      base = %w()
-
-      return base unless _auth_object&.admin?
-
-      base + %w()
+      %w(name id)
     end
 
     private

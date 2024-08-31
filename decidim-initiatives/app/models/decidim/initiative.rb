@@ -168,7 +168,7 @@ module Decidim
 
       return base unless auth_object&.admin?
 
-      base + %w( published_at state)
+      base + %w(published_at state)
     end
 
     def self.ransackable_associations(_auth_object = nil)

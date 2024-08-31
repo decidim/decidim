@@ -48,12 +48,8 @@ module Decidim
     ransacker_i18n :name
 
     def self.ransackable_attributes(_auth_object = nil)
-      # %w(decidim_participatory_space_id decidim_participatory_space_type description id name parent_id weight)
-      base = %w()
-
-      return base unless _auth_object&.admin?
-
-      base + %w()
+      # %w(decidim_participatory_space_id decidim_participatory_space_type  parent_id weight)
+      %w(description id name)
     end
 
     private
