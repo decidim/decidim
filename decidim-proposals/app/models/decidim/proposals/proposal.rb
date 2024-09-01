@@ -414,7 +414,7 @@ module Decidim
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :body]
 
-      def self.ransackable_attributes(auth_object = nil)
+      def self.ransackable_attributes(_auth_object = nil)
         # %w(address answer answered_at  coauthorships_count comments_count cost cost_report created_at created_in_meeting decidim_component_id
         #    decidim_proposals_proposal_state_id decidim_scope_id endorsements_count execution_period follows_count id  internal_state
         #     latitude longitude old_state participatory_text_level position proposal_notes_count proposal_votes_count published_at

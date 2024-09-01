@@ -22,18 +22,14 @@ module Decidim
         Decidim::Conferences::AdminLog::InvitePresenter
       end
 
-      def self.ransackable_attributes(_auth_object = nil)
-        # %w(accepted_at created_at decidim_conference_id decidim_conference_registration_type_id decidim_user_id id rejected_at sent_at updated_at)
-        base = %w()
+      def self.ransackable_attributes(auth_object = nil)
+        return [] unless auth_object&.admin?
 
-        return base unless _auth_object&.admin?
-
-        base + %w()
+        base + %w(accepted_at rejected_at sent_at)
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        # %w(conference registration_type user versions)
-        []
+        %w(user)
       end
 
       def self.user_collection(user)
