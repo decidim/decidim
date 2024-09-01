@@ -218,6 +218,8 @@ en:
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         export_component: "%{user_name} exported the %{resource_name} %{component_name} in %{space_name} as %{format_name}"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
+        restore: "%{user_name} restored the %{resource_name} component in the %{space_name} space"
+        soft_delete: "%{user_name} moved to trash the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
       contextual_help_section:
