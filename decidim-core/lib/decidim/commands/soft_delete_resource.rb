@@ -20,7 +20,7 @@ module Decidim
 
         run_before_hooks
         soft_delete_resource
-        # enqueue_soft_delete_job_for_associated_objects
+        enqueue_soft_delete_job_for_associated_objects
         run_after_hooks
 
         broadcast(:ok, resource)

@@ -5,68 +5,58 @@ module Decidim
     queue_as :default
 
     def perform(object_id, object_class, user_id)
-      object = object_class.constantize.find(object_id)
-      current_user = Decidim::User.find(user_id)
+      object = object_class.constantize.find_by(id: object_id)
+      user = Decidim::User.find_by(id: user_id)
 
-      return if object.nil? || current_user.nil?
+      return if object.nil? || user.nil?
 
-      trash_associated_objects(object, current_user)
+      ActiveRecord::Base.transaction do
+        if object.is_a?(Decidim::Component)
+          soft_delete_component_resources(object, user)
+        elsif object.respond_to?(:components)
+          soft_delete_space_resources(object, user)
+        else
+          Rails.logger.warn("Unsupported object type for soft delete: #{object.class.name}")
+        end
+      end
     rescue StandardError => e
-      Rails.logger.error("Error soft deleting associated resources: #{e.message}")
+      Rails.logger.error("Error in SoftDeleteAssociatedResourcesJob: #{e.message}")
+      Rails.logger.error(e.backtrace.join("\n"))
     end
 
     private
 
-    def trash_associated_objects(object, user)
-      associated_components = find_associated_components(object)
+    def soft_delete_space_resources(space, user)
+      space.components.each do |component|
+        trash_record(component, user)
+        soft_delete_component_resources(component, user)
+      end
+    end
 
-      associated_components.each do |component|
-        Decidim.traceability.perform_action!(
-          "soft_delete",
-          component,
-          user,
-          **extra_params
-        ) do
-          component.trash!
+    def soft_delete_component_resources(component, user)
+      component_name = component.manifest_name.classify
+      resource_class_name = "Decidim::#{component_name.pluralize}::#{component_name.singularize}"
+
+      begin
+        resource_class = resource_class_name.constantize
+        resource_class.where(component: component).find_each do |resource|
+          trash_record(resource, user)
         end
+      rescue NameError => e
+        Rails.logger.warn("Could not find resource class for component: #{component.manifest_name}. Error: #{e.message}")
       end
     end
 
-    def extra_params = {}
+    def trash_record(record, user)
+      return unless record.respond_to?(:trash!)
 
-    def find_associated_components(object)
-      if participatory_space?(object)
-        object.components
-      else
-        []
+      Decidim.traceability.perform_action!(
+        "soft_delete",
+        record,
+        user
+      ) do
+        record.trash!
       end
-    end
-
-    def participatory_space?(object)
-      object.is_a?(Decidim::ParticipatoryProcess) ||
-        object.is_a?(Decidim::Assembly) ||
-        object.is_a?(Decidim::Conference)
-    end
-
-    def find_associated_objects(object)
-      if participatory_space?(object)
-        object.components
-      elsif object.is_a?(Decidim::Component)
-        object.resources
-      else
-        []
-      end
-    end
-
-    def notify_author(associated_object)
-      author = associated_object.author
-      return unless author
-
-      Decidim::Notifications.notify(
-        author,
-        title: I18n.t("notifications.soft_delete.title", resource_name: associated_object.name),
-        body: I18n.t("notifications.soft_delete.body", resource_name: associated_object.name)
-      )
     end
   end
 end
