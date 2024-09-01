@@ -373,7 +373,7 @@ module Decidim
         [:with_any_type, :with_any_date, :with_any_space, :with_any_origin, :with_any_scope, :with_any_category, :with_any_global_category]
       end
 
-      def self.ransackable_attributes(_auth_object = nil)
+      def self.ransackable_attributes(auth_object = nil)
         # %w(address attendees_count attending_organizations audio_url available_slots closed_at closing_report closing_visible comments_count
         #    comments_enabled comments_end_time comments_start_time contributions_count created_at customize_registration_email decidim_author_id
         #    decidim_author_type decidim_component_id decidim_scope_id decidim_user_group_id  end_time follows_count id
@@ -382,9 +382,9 @@ module Decidim
         #    registrations_enabled reserved_slots salt  start_time state  transparent type_of_meeting updated_at video_url withdrawn_at)
         base = %w(description id_string search_text title)
 
-        return base unless _auth_object&.admin?
+        return base unless auth_object&.admin?
 
-        base + %w()
+        base + %w(is_upcoming)
       end
 
       def self.ransackable_associations(_auth_object = nil)
