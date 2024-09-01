@@ -20,12 +20,7 @@ module Decidim
     end
 
     def self.ransackable_attributes(_auth_object = nil)
-      # %w(created_at details id  updated_at user_id user_moderation_id)
-      base = %w(reason)
-
-      return base unless _auth_object&.admin?
-
-      base + %w()
+      %w(reason)
     end
 
     private

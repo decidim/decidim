@@ -160,15 +160,11 @@ module Decidim
     end
 
     def self.ransackable_attributes(auth_object = nil)
-      # %w(answer answer_url answered_at author_name author_nickname comments_count created_at decidim_area_id decidim_author_id decidim_author_type
-      #    decidim_organization_id decidim_user_group_id first_progress_notification_at follows_count hashtag   offline_votes
-      #    online_votes reference scoped_type_id  second_progress_notification_at signature_end_date signature_start_date
-      #    signature_type state supports_count  type_id updated_at)
       base = %w(search_text title description id id_string supports_count author_name author_nickname)
 
       return base unless auth_object&.admin?
 
-      base + %w(published_at state)
+      base + %w(published_at state decidim_area_id type_id)
     end
 
     def self.ransackable_associations(_auth_object = nil)
