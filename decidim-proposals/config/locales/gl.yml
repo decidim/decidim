@@ -599,7 +599,6 @@ gl:
           discard: Descarta este borrador
           discard_confirmation: '¿Estás seguro de que desexas descartar este borrador de proposta?'
           send: Vista previa
-          title: Editar borrador de proposta
         filters:
           activity: A miña actividade
           all: Todas
