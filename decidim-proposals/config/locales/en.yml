@@ -778,7 +778,7 @@ en:
           discard: Discard this draft
           discard_confirmation: Are you sure you want to discard this proposal draft?
           send: Preview
-          title: Edit Proposal Draft
+          title: Edit proposal draft
         filters:
           activity: My activity
           all: All
