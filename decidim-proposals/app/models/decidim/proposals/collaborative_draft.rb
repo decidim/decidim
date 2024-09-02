@@ -68,13 +68,15 @@ module Decidim
       end
 
       def self.ransackable_attributes(_auth_object = nil)
-        %w(address authors_count body coauthorships_count comments_count contributions_count created_at decidim_component_id decidim_scope_id
-           follows_count id latitude longitude published_at reference search_text state title updated_at versions_count)
+        # %w(address authors_count  coauthorships_count comments_count contributions_count created_at decidim_component_id decidim_scope_id
+        #    follows_count id latitude longitude published_at reference search_text state updated_at versions_count)
+        %w(id_string search_text title body)
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(attachments categorization category coauthorships collaborator_requests comment_threads comments component followers follows moderation
-           reports requesters resource_links_from resource_links_to resource_permission scope user_groups versions)
+        # %w(attachments categorization category coauthorships collaborator_requests comment_threads comments component followers follows moderation
+        #    reports requesters resource_links_from resource_links_to resource_permission scope user_groups versions)
+        %w(category scope)
       end
     end
   end

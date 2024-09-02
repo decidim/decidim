@@ -163,19 +163,16 @@ module Decidim
       [:with_any_area, :with_any_scope, :with_any_type]
     end
 
-    def self.ransackable_attributes(_auth_object = nil)
-      %w(announcement banner_image children_count closing_date closing_date_reason composition created_at created_by created_by_other creation_date
-         decidim_area_id decidim_assemblies_type_id decidim_organization_id decidim_scope_id description developer_group duration facebook_handler
-         follows_count github_handler hashtag hero_image id included_at instagram_handler internal_organisation is_transparent local_area
-         meta_scope parent_id parents_path participatory_scope participatory_structure private_space promoted published_at purpose_of_action
-         reference scopes_enabled short_description show_statistics slug special_features subtitle target title twitter_handler type_id updated_at
-         weight youtube_handler)
+    def self.ransackable_attributes(auth_object = nil)
+      base = %w(title short_description description id)
+
+      return base unless auth_object&.admin?
+
+      base + %w(published_at private_space parent_id decidim_assemblies_type_id)
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area assembly_type attachment_collections attachments banner_image_attachment banner_image_blob categories children components followers
-         follows hero_image_attachment hero_image_blob members organization parent participatory_space_private_users participatory_space_resource_links_from
-         participatory_space_resource_links_to scope searchable_resources users versions)
+      %w(area assembly_type scope parent children categories)
     end
 
     private

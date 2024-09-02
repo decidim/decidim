@@ -94,14 +94,18 @@ module Decidim
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :description]
 
-      def self.ransackable_attributes(_auth_object = nil)
-        %w(children_count comments_count created_at decidim_accountability_status_id decidim_component_id decidim_scope_id description end_date
-           external_id id id_string parent_id progress reference search_text start_date title updated_at weight)
+      def self.ransackable_attributes(auth_object = nil)
+        base = %w(search_text title description)
+
+        return base unless auth_object&.admin?
+
+        base + %w(id_string created_at id progress)
       end
 
-      def self.ransackable_associations(_auth_object = nil)
-        %w(attachment_collections attachments categorization category children comment_threads comments component parent resource_links_from
-           resource_links_to resource_permission scope searchable_resources status timeline_entries versions)
+      def self.ransackable_associations(auth_object = nil)
+        return [] unless auth_object&.admin?
+
+        %w(category status scope)
       end
 
       private

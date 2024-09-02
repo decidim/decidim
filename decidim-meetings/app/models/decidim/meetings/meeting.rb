@@ -373,19 +373,25 @@ module Decidim
         [:with_any_type, :with_any_date, :with_any_space, :with_any_origin, :with_any_scope, :with_any_category, :with_any_global_category]
       end
 
-      def self.ransackable_attributes(_auth_object = nil)
-        %w(address attendees_count attending_organizations audio_url available_slots closed_at closing_report closing_visible comments_count
-           comments_enabled comments_end_time comments_start_time contributions_count created_at customize_registration_email decidim_author_id
-           decidim_author_type decidim_component_id decidim_scope_id decidim_user_group_id description end_time follows_count id id_string
-           iframe_access_level iframe_embed_type is_upcoming latitude location location_hints longitude online_meeting_url private_meeting
-           published_at reference registration_email_custom_content registration_form_enabled registration_terms registration_type registration_url
-           registrations_enabled reserved_slots salt search_text start_time state title transparent type_of_meeting updated_at video_url withdrawn_at)
+      def self.ransackable_attributes(auth_object = nil)
+        # %w(address attendees_count attending_organizations audio_url available_slots closed_at closing_report closing_visible comments_count
+        #    comments_enabled comments_end_time comments_start_time contributions_count created_at customize_registration_email decidim_author_id
+        #    decidim_author_type decidim_component_id decidim_scope_id decidim_user_group_id  end_time follows_count id
+        #    iframe_access_level iframe_embed_type is_upcoming latitude location location_hints longitude online_meeting_url private_meeting
+        #    published_at reference registration_email_custom_content registration_form_enabled registration_terms registration_type registration_url
+        #    registrations_enabled reserved_slots salt  start_time state  transparent type_of_meeting updated_at video_url withdrawn_at)
+        base = %w(description id_string search_text title)
+
+        return base unless auth_object&.admin?
+
+        base + %w(is_upcoming closed_at)
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(agenda attachment_collections attachments author categorization category comment_threads comments component followers follows invites
-           moderation poll public_participants questionnaire registrations reports resource_links_from resource_links_to resource_permission scope
-           searchable_resources services user_group versions)
+        # %w(agenda attachment_collections attachments author categorization  comment_threads comments component followers follows invites
+        #    moderation poll public_participants questionnaire registrations reports resource_links_from resource_links_to resource_permission
+        #    searchable_resources services user_group versions)
+        %w(category scope)
       end
 
       def self.ransack(params = {}, options = {})

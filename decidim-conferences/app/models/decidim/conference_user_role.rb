@@ -19,13 +19,5 @@ module Decidim
     def self.log_presenter_class_for(_log)
       Decidim::Conferences::AdminLog::ConferenceUserRolePresenter
     end
-
-    def self.ransackable_attributes(_auth_object = nil)
-      %w(created_at decidim_conference_id decidim_user_id email id invitation_accepted_at last_sign_in_at name nickname role updated_at)
-    end
-
-    def self.ransackable_associations(_auth_object = nil)
-      %w(conference user versions)
-    end
   end
 end

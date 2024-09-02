@@ -207,18 +207,15 @@ module Decidim
       [:with_date, :with_any_area, :with_any_scope, :with_any_type]
     end
 
-    def self.ransackable_attributes(_auth_object = nil)
-      %w(announcement banner_image created_at decidim_area_id decidim_organization_id decidim_participatory_process_group_id
-         decidim_participatory_process_type_id decidim_scope_id decidim_scope_type_id description developer_group end_date
-         follows_count hashtag hero_image id local_area meta_scope participatory_scope participatory_structure private_space
-         promoted published_at reference scopes_enabled short_description show_metrics show_statistics slug start_date subtitle
-         target title updated_at weight)
+    def self.ransackable_attributes(auth_object = nil)
+      base = %w(title short_description description id)
+      return base unless auth_object&.admin?
+
+      base + %w(private_space published_at decidim_participatory_process_group_id)
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(active_step area attachment_collections attachments categories components followers follows hero_image_attachment hero_image_blob
-         organization participatory_process_group participatory_process_type participatory_space_private_users
-         participatory_space_resource_links_from participatory_space_resource_links_to scope scope_type_max_depth searchable_resources steps users versions)
+      %w(area scope participatory_process_type participatory_process_group)
     end
   end
 end

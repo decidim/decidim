@@ -415,16 +415,18 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :body]
 
       def self.ransackable_attributes(_auth_object = nil)
-        %w(address answer answered_at body coauthorships_count comments_count cost cost_report created_at created_in_meeting decidim_component_id
-           decidim_proposals_proposal_state_id decidim_scope_id endorsements_count execution_period follows_count id id_string internal_state
-           is_emendation latitude longitude old_state participatory_text_level position proposal_notes_count proposal_votes_count published_at
-           reference search_text state_published state_published_at title updated_at valuation_assignments_count withdrawn_at)
+        # %w(address answer answered_at  coauthorships_count comments_count cost cost_report created_at created_in_meeting decidim_component_id
+        #    decidim_proposals_proposal_state_id decidim_scope_id endorsements_count execution_period follows_count id  internal_state
+        #     latitude longitude old_state participatory_text_level position proposal_notes_count proposal_votes_count published_at
+        #    reference  state_published state_published_at  updated_at valuation_assignments_count withdrawn_at)
+        %w(id_string search_text title body is_emendation)
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(amendable amended amenders amendments attachments categorization category coauthorships comment_threads comments component emendations
-           endorsements followers follows moderation notes proposal_state reports resource_links_from resource_links_to resource_permission scope
-           searchable_resources user_groups valuation_assignments versions votes)
+        # %w(amendable amended amenders amendments attachments categorization  coauthorships comment_threads comments component emendations
+        #    endorsements followers follows moderation notes  reports resource_links_from resource_links_to resource_permission
+        #    searchable_resources user_groups valuation_assignments versions votes)
+        %w(category scope proposal_state)
       end
 
       ransacker :state_published do
