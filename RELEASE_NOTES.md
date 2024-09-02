@@ -28,6 +28,7 @@ gem "decidim-dev", github: "decidim/decidim"
 
 ```console
 sudo apt install p7zip # or the alternative installation process for your operating system. See "2.1. 7zip dependency introduction"
+bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
@@ -191,6 +192,18 @@ We have changed the behavior of the footer pages and topics links:
 - Only show links in footer to topics.
 
 You can read more about this change on PR [\#12592](https://github.com/decidim/decidim/pull/12592).
+
+### 3.8. Remove spring and spring-watcher-listen from your Gemfile
+
+To simplify the upgrade process, we have decided to add `spring` and `spring-watcher-listener` as hard dependencies of `decidim-dev`.
+
+Before upgrading to this version, make sure you run in your console:
+
+```bash
+bundle remove spring spring-watcher-listen
+```
+
+You can read more about this change on PR [#13235](https://github.com/decidim/decidim/pull/13235).
 
 ### 3.7. [[TITLE OF THE ACTION]]
 
