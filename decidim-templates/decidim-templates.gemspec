@@ -36,5 +36,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "decidim-admin", Decidim::Templates.version
   s.add_development_dependency "decidim-dev", Decidim::Templates.version
   s.add_development_dependency "decidim-participatory_processes", Decidim::Templates.version
+  s.add_development_dependency "decidim-proposals", Decidim::Templates.version
   s.add_development_dependency "decidim-surveys", Decidim::Templates.version
 end
