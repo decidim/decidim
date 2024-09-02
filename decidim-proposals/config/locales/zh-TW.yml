@@ -743,7 +743,6 @@ zh-TW:
           discard: 放棄此草案
           discard_confirmation: 您確定要放棄此提案草案嗎？
           send: 預覽
-          title: 編輯提案草案
         filters:
           activity: 我的活動
           all: 全部
