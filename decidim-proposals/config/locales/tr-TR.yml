@@ -610,7 +610,6 @@ tr:
           discard: Bu taslağı sil
           discard_confirmation: Bu teklif taslağını silmek istediğinizden emin misiniz?
           send: Ön izleme
-          title: Teklif Taslağını Düzenle
         filters:
           activity: Aktivitelerim
           all: Tümü
