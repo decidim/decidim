@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
       Cookies.set("onboarding", JSON.stringify({ action, model, permissionsHolder, redirectPath }), {
         expires: 365
       });
-
-      console.log("stored onboarding cookie", { action, model, permissionsHolder, redirectPath });
     });
   });
 });
