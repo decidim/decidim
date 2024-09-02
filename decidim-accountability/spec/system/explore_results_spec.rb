@@ -433,7 +433,7 @@ describe "Explore results", :versioning do
         end
 
         it "shows the tab" do
-          expect(page).to have_no_content("History")
+          expect(page).to have_content("History")
         end
 
         it "shows related meetings" do

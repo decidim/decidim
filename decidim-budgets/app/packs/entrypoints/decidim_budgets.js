@@ -6,3 +6,4 @@ import "src/decidim/budgets/exit_handler"
 require.context("../images", true)
 
 import "stylesheets/budgets.scss"
+import "stylesheets/budget_history.scss"

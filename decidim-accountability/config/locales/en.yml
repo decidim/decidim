@@ -33,7 +33,7 @@ en:
       decidim/accountability/result:
         one: Result
         other: Results
-      decidim/accountability/result/budget_text: This result was added
+      decidim/accountability/result/budget_text: This result was included
   decidim:
     accountability:
       actions:
