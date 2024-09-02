@@ -159,15 +159,13 @@ pt:
       dismiss: Descartar notificação
     amendments:
       accepted:
-        error: Ocorreu um problema ao aceitar a modificação.
         success: A modificação foi aceite corretamente.
       amendable:
         button: Modificar %{model_name}
-        error: Ocorreu um erro ao modificar este recurso.
+        error: Houve um erro ao alterar este recurso.
         promote_button: Promover a %{model_name}
         promote_confirm_text: Tem a certeza de que deseja promover esta retificação?
       created:
-        error: Ocorreu um erro ao criar o rascunho da modificação.
         success: O rascunho da modificação foi criado corretamente.
       destroy_draft:
         error: Ocorreu um problema ao eliminar o rascunho da modificação.
@@ -925,7 +923,6 @@ pt:
         subject: Um recurso foi reportado
     reports:
       create:
-        error: Ocorreu um erro ao criar o relatório. Por favor, tente novamente.
         success: O relatório foi criado corretamente e será revisto por um administrador.
     resource_endorsements:
       create:
@@ -1195,9 +1192,6 @@ pt:
       long_words: contém palavras muito longas (acima de 35 caracteres)
       must_start_with_caps: deve começar com uma letra maiúscula
       not_locked: não estava bloqueado
-      not_saved:
-        one: 'Ocorreu um erro ao processar o seu pedido:'
-        other: 'Ocorreram diversos erros ao processar o seu pedido:'
       too_many_marks: está a usar muitos sinais de pontuação consecutivos (por exemplo, ! e ?)
       too_much_caps: está a usar muitas letras maiúsculas (acima de 25% do texto)
   forms:

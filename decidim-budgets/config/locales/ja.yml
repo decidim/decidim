@@ -321,7 +321,7 @@ ja:
               errors:
                 budget_voting_rule_only_one: 有効にできる投票ルールは1つのみです。
                 budget_voting_rule_required: 投票ルールが1つ必要です。
-            geocoding_enabled: ジオコーディングを有効にする
+            geocoding_enabled: マップは有効です
             landing_page_content: 予算ランディングページ
             more_information_modal: 詳しい情報
             projects_per_page: ページあたりのプロジェクト数

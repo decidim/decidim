@@ -143,7 +143,6 @@ sv:
               random: Slumpmässigt
               recent: Senaste
               with_more_authors: Med fler författare
-            geocoding_enabled: Geokodning aktiverad
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
@@ -433,11 +432,9 @@ sv:
             select_states: Kontrollera status för förslagen som ska importeras
         proposals_merges:
           create:
-            invalid: 'Det gick inte att slå samman de valda förslagen på grund av vissa av dem:'
             success: Förslagen har sammanfogats till ett nytt förslag.
         proposals_splits:
           create:
-            invalid: 'Det gick inte att dela upp de valda förslagen på grund av vissa av dem:'
             success: Förslagen har delats upp till nya förslag.
       admin_log:
         proposal:
@@ -609,7 +606,6 @@ sv:
           discard: Släng utkastet
           discard_confirmation: Vill du slänga detta utkast till förslag?
           send: Förhandsvisa
-          title: Redigera utkast till förslag
         filters:
           activity: Min aktivitet
           all: Allt

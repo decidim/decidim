@@ -227,15 +227,12 @@ ro:
       dismiss: Anulare notificare
     amendments:
       accepted:
-        error: S-a produs o eroare în timpul acceptării amendamentului.
         success: Amendamentul a fost acceptat cu succes.
       amendable:
         button: Fă un amendament pentru %{model_name}
-        error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
       created:
-        error: S-a produs o eroare la crearea ciornei de amendament.
         success: Ciorna de amendament a fost creată cu succes.
       destroy_draft:
         error: A apărut o eroare la ștergerea ciornei de amendament.
@@ -1078,7 +1075,6 @@ ro:
         subject: A fost raportată o resursă
     reports:
       create:
-        error: A apărut o eroare la crearea raportului. Te rugăm să încerci din nou.
         success: Raportul a fost creat cu succes şi va fi revizuit de un administrator.
     resource_endorsements:
       create:
@@ -1354,10 +1350,6 @@ ro:
       long_words: conține cuvinte care sunt prea lungi (peste 35 de caractere)
       must_start_with_caps: trebuie să înceapă cu o majusculă
       not_locked: nu a fost blocat
-      not_saved:
-        one: 'A apărut o eroare la procesarea cererii tale:'
-        few: 'Au existat mai multe erori la procesarea cererii dvs.:'
-        other: 'Au existat mai multe erori la procesarea cererii dvs.:'
       too_many_marks: folosește prea multe semne consecutive de punctuație (de ex. ! și ?)
       too_much_caps: utilizează prea multe majuscule (peste 25% din text)
   forms:

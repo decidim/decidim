@@ -19,6 +19,8 @@ eu:
         body: Testua
       report:
         details: Iruzkin gehigarriak
+      taxonomy:
+        name: Taxonomiaren izena
       user:
         about: Honi buruz
         email: Zure helbide elektronikoa
@@ -278,16 +280,14 @@ eu:
       dismiss: Baztertu jakinarazpena
     amendments:
       accepted:
-        error: Errore bat gertatu da aldaketa onartuz.
         success: Aldaketa ongi onartu da.
       amendable:
         button: Zuzendu %{model_name}
-        error: Errore bat egon da baliabide hau aldatzean.
+        error: Errore bat gertatu da baliabidea aldatzen.
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
       created:
-        error: Errorea egon da zuzenketa-zirriborroa sortzean.
         success: Zuzenketa-zirriborroa zuzen sortu da.
       destroy_draft:
         error: Arazo bat egon da zuzenketa-zirriborroa ezabatzean.
@@ -339,7 +339,6 @@ eu:
         error: Arazoa egon da zuzenketa-zirriborroa eguneratzean.
         success: Zuzenketa-zirriborroa zuzen eguneratu da.
       withdraw:
-        error: Arazo bat egon da zuzenketa kentzean.
         success: Zuzenketa zuzen kendu da.
       wizard_step_form:
         steps:
@@ -1406,7 +1405,6 @@ eu:
         subject: Eduki bat salatua izan da
     reports:
       create:
-        error: Errore bat egon da edukia salatzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
     resource_endorsements:
       create:
@@ -1841,9 +1839,6 @@ eu:
       nesting_too_deep: ezin da egon azpikategoria batean
       not_found: ezin izan da aurkitu. Lehenago konturik sortu duzu?
       not_locked: ez zen blokeatuta
-      not_saved:
-        one: 'Errore bat egon da zure eskaera prozesatzean:'
-        other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: letra larri gehiegi erabiltzen ari da (testuaren% 25 baino gehiago)
       too_short: laburregia da (gutxienez %{count} karaktere behar dira)

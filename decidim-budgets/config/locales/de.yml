@@ -328,7 +328,7 @@ de:
               errors:
                 budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein.
                 budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig.
-            geocoding_enabled: Geocoding aktiviert
+            geocoding_enabled: Karten aktiviert
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite
