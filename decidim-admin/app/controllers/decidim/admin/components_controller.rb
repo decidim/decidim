@@ -145,6 +145,7 @@ module Decidim
           on(:ok) do
             head :ok
           end
+
           on(:invalid) do
             head :bad_request
           end
