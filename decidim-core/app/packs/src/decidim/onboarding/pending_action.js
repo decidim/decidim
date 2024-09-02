@@ -1,5 +1,7 @@
 import Cookies from "js-cookie";
 
+const ONBOARDING_COOKIE_EXPIRY = 365;
+
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-onboarding-action]").forEach((element) => {
     // the dialog-open data attribute is stealing the click event
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const redirectPath = element.dataset.onboardingRedirectPath;
 
       Cookies.set("onboarding", JSON.stringify({ action, model, permissionsHolder, redirectPath }), {
-        expires: 365
+        expires: ONBOARDING_COOKIE_EXPIRY
       });
     });
   });
