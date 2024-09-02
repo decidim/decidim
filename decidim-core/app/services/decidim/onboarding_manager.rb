@@ -71,15 +71,6 @@ module Decidim
       (authorization_handlers - authorization_methods).empty?
     end
 
-    # Removes the pending action from the user's extended_data.
-    #
-    # Returns nothing
-    def remove_pending_action!
-      extended_data = user.extended_data
-      extended_data.delete("onboarding")
-      user.update!(extended_data:)
-    end
-
     # Returns the model related to the action in the onboarding process.
     #
     # Returns an ActiveRecord model
