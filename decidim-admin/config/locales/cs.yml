@@ -202,7 +202,6 @@ cs:
         verify: Ověřit
       admin_terms_of_service:
         accept:
-          error: Při přijímání podmínek služby administrátora došlo k chybě.
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s podmínkami
@@ -350,6 +349,8 @@ cs:
       conflicts:
         attempts: Pokusy
         'false': 'Ne'
+        index:
+          text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky.
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
         title: Konflikty ověření
@@ -364,7 +365,6 @@ cs:
         user_name: Uživatel
       content_blocks:
         create:
-          error: Při vytváření bloku obsahu došlo k chybě.
           success: Blok obsahu byl úspěšně vytvořen.
         destroy:
           error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
@@ -464,6 +464,9 @@ cs:
             pending: Čekající
             rejected: Odmítnuto
             verified: Ověřeno
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomie
       forms:
         file_help:
           import:
@@ -594,6 +597,7 @@ cs:
         settings: Nastavení
         static_page_topics: Témata
         static_pages: Stránky
+        taxonomies: Taxonomie
         user_groups: Skupiny
         users: Účastníci
       metrics:
@@ -788,7 +792,6 @@ cs:
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
       officializations:
         block:
-          error: Při blokování účastníka došlo k chybě.
           success: Účastník byl úspěšně zablokován.
         create:
           success: Účastník úspěšně oficiálně zaregistrován.
@@ -822,7 +825,6 @@ cs:
           show: Zobrazit
           title: Zobrazit e-mailovou adresu účastníka
         unblock:
-          error: Při odblokování účastníka došlo k chybě.
           success: Účastník byl úspěšně odblokován.
       organization:
         edit:
@@ -1023,6 +1025,50 @@ cs:
         update:
           error: Při aktualizaci této stránky došlo k chybě.
           success: Stránka byla úspěšně aktualizována.
+      taxonomies:
+        actions: Akce
+        amount: Množství
+        count: Spočítat
+        create:
+          invalid: Při vytváření této taxonomie došlo k chybě.
+          success: Taxonomie byla úspěšně vytvořena.
+        destroy:
+          invalid: Při mazání této taxonomie došlo k chybě.
+          success: Taxonomie úspěšně zničena.
+        edit:
+          back: Zpět
+          description: Položky v této taxonomii budou použity pro klasifikaci nebo filtrování zdrojů, jako jsou participační prostory nebo komponenty. Použijte přetažení pro přeuspořádání seznamu.
+          new_item: Nová položka
+          no_items: V této taxonomii momentálně nejsou žádné položky. Vytvořte seznam položek pro klasifikaci nebo filtrování zdrojů, jako jsou participační prostory nebo komponenty. Položky mohou být vnořeny až do tří úrovní.
+          subtitle: Položky v "%{taxonomy_name}"
+          title: Upravit taxonomii "%{taxonomy_name}"
+          update: Aktualizovat
+        filters:
+          search_placeholder: Hledat
+        index:
+          description: Taxonomie umožňuje administrátorům kategorizovat a uspořádat obsah. Například přidat taxonomii pro klasifikaci procesů podle geografického rozsahu.
+          new_taxonomy: Nová taxonomie
+        name: Název
+        new:
+          create: Vytvořit taxonomii
+          title: Nová taxonomie
+        no_taxonomies: Momentálně nejsou žádné taxonomie. Vytvořte zde seznam taxonomií a definovaných položek v každém z nich pro klasifikaci nebo filtrování zdrojů.
+        table:
+          to_next_page: Přetáhněte na další stránku
+          to_prev_page: Přetáhněte pro předchozí stránku
+        taxonomy_actions:
+          confirm_destroy: Opravdu chcete odstranit %{name}? Tímto odstraníte také všechny podřízené položky.
+        update:
+          invalid: Při aktualizaci této taxonomie došlo k chybě.
+          success: Taxonomie byla úspěšně aktualizována.
+      taxonomy_items:
+        edit:
+          title: Upravit položku v %{taxonomy}
+          update: Aktualizovat položku
+        new:
+          create: Vytvořit položku
+          none: Žádné
+          title: Nová položka v %{taxonomy}
       titles:
         admin_log: Správce protokolu
         area_types: Typy oblastí
@@ -1043,6 +1089,7 @@ cs:
         scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti
         statistics: Aktivita
+        taxonomies: Taxonomie
         user_groups: Skupiny
         users: Administrátoři
       user_group:

@@ -94,9 +94,6 @@ sv:
         start_exploring: börja utforska
       csv_census:
         admin:
-          census:
-            create:
-              error: Det gick inte att importera folkbokföringen.
           destroy:
             title: Radera alla medlemsuppgifter
           index:
