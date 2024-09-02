@@ -778,7 +778,7 @@ es-PY:
           discard: Descartar este borrador
           discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
           send: Previsualizar
-          title: Editar borrador de propuesta
+          title: Editar el borrador de la propuesta
         filters:
           activity: Mi actividad
           all: Todo
