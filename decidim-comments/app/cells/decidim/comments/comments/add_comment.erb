@@ -3,11 +3,9 @@
     <%== cell("decidim/comments/comment_form", model, root_depth:) %>
   <% else %>
     <p>
-      <div>
-        <div class="flash flex-col warning">
-          <div class="flash__message">
-            <%= action_authorized_link_to("comment", t("decidim.components.add_comment_form.account_message"), "#", **onboarding_action_params) %>
-          </div>
+      <div class="flash flex-col warning">
+        <div class="flash__message">
+          <%= action_authorized_link_to("comment", t("decidim.components.add_comment_form.account_message"), "#", **onboarding_action_params) %>
         </div>
       </div>
     </p>
