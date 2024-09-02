@@ -14,7 +14,7 @@ sv:
         document_number: Dokumentnummer
         email: E-post
         name: Namn
-        nickname: Smeknamn
+        nickname: Användarnamn
         phone: Telefon
       message:
         body: Innehåll
@@ -205,13 +205,13 @@ sv:
       user:
         block: "%{user_name} blockerade användaren %{resource_name}"
         invite: "%{user_name} bjöd in användaren %{resource_name} med rollen: %{role}"
-        officialize: "%{user_name} gjorde deltagaren %{resource_name} officiell"
+        officialize: "%{user_name} gav deltagaren %{resource_name} officiell status"
         promote: "%{user_name} befordrade %{resource_name}"
         remove_from_admin: "%{user_name} tog bort deltagaren %{resource_name} med rollen: %{role}"
         show_email: "%{user_name} hämtade e-postadressen för deltagaren %{resource_name}"
         transfer: "%{user_name} överförde deltagaren %{resource_name}"
         unblock: "%{user_name} avblockerade användaren %{resource_name}"
-        unofficialize: "%{user_name} gjorde deltagaren %{resource_name} inofficiell"
+        unofficialize: "%{user_name} tog bort den officiella statusen från deltagaren %{resource_name}"
       user_group:
         reject: "%{user_name} avvisade gruppverifieringen för %{resource_name}"
         verify: "%{user_name} verifierade gruppen %{resource_name}"
@@ -278,6 +278,8 @@ sv:
       update_draft:
         error: Det gick inte att uppdatera utkastet till ändringsförslag.
         success: Utkastet till ändringsförslag har uppdaterats.
+      withdraw:
+        error: Det gick inte att återkalla ändringsförslaget.
       wizard_step_form:
         steps:
           '1': Skapa ändringsförslag
@@ -469,6 +471,8 @@ sv:
       sub_hero:
         name: Sub hjälte banner
     core:
+      actions:
+        login_before_access: Du behöver logga in för att komma åt det här innehållet.
       application_helper:
         filter_area_values:
           all: Alla
@@ -499,6 +503,7 @@ sv:
         new:
           are_you_new?: Ny här?
           register: Skapa ett konto
+          sign_up_disabled: Registrering har inaktiverats, du kan endast logga in med ett befintligt konto.
       shared:
         newsletter_modal:
           buttons:
@@ -664,6 +669,8 @@ sv:
           email_outro: Du har fått detta meddelande eftersom du är administratör för plattformen.
           email_subject: En användargrupp har uppdaterat sin profil
           notification_title: '%{user_group_name} användargrupp har uppdaterat sin profil och lämnar den overifierad. Du kan nu verifiera den i <a href="%{groups_admin_path}">administratörspanelen</a>.'
+      nickname_event:
+        notification_body: Vi har ändrat reglerna för användarnamn för att undvika dubbletter och har tagit bort regeln om skriftlägeskänsliga namn. <br/> Ditt användarnamn skapades efter ett annat med samma namn, så vi har automatiskt bytt namn på det. Du kan ändra det i <a href="%{link_to_account_settings}">dina kontoinställningar</a>.
       notification_event:
         notification_title: En händelse inträffade i <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -686,6 +693,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{nickname}. Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: "%{nickname} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
+        user_officialized:
+          email_intro: Deltagaren %{name} (%{nickname}) har fått officiell status.
+          email_outro: Du har fått detta meddelande eftersom du är administratör i organisationen.
+          email_subject: "%{name} har fått officiell status"
+          notification_title: Deltagaren %{name} (%{nickname}) har fått officiell status.
     export_mailer:
       download_your_data_export:
         click_button: 'Hämta dina data genom att klicka på Nästa.<br/>Filen kommer vara tillgänglig till och med %{date}.<br/>Du kan använda <a href="https://www.7-zip.org/">7-Zip</a> (för Windows), <a href="https://www.keka.io/en/">Keka</a> (för MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (för Linux) för att öppna den. Lösenord: %{password}'
@@ -834,6 +846,7 @@ sv:
         default_page:
           content: "<p>I %{organization} kan du delta och besluta om olika ämnen genom de områden som visas i toppmenyn: dialoger, grupper, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
           title: Vad kan jag göra i %{organization}?
+        description: Läs mer om %{organization}.
         title: Allmän hjälp
     last_activities:
       all: Alla aktivitetstyper
@@ -1053,7 +1066,7 @@ sv:
         standalone_pages: Sidor
         subheading: Navigera genom hjälpsidorna för %{name}
         title: Hjälp
-        topics: Ämnen
+        topics: Ämnesområden
       participatory_space:
         metrics:
           headline: Metrik
@@ -1173,8 +1186,9 @@ sv:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         close: Stäng
         description: Är detta innehåll olämpligt?
+        does_not_belong: Innehåller olaglig information, hot om självmord, personuppgifter eller något annat som inte hör hemma på %{organization_name}.
         hide: Dölj
-        offensive: Innehåller rasism, sexism, nedsättande kommentarer, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hatpropaganda.
+        offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
         reason: Anledning
         report: Rapportera
         spam: Innehåller klickbete, reklam, bedrägerier eller skräpprogramvara.
@@ -1183,7 +1197,8 @@ sv:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         close: Stäng
         description: Vad är olämpligt med användaren?
-        offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
+        does_not_belong: Innehåller olaglig information, hot om självmord, personuppgifter eller något annat som inte hör hemma på %{organization_name}.
+        offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
         report: Rapportera
         spam: Innehåller klickbete, reklam, bedrägerier eller skriptbottar.
         title: Rapportera olämplig användare
@@ -1248,6 +1263,7 @@ sv:
     user_interests:
       show:
         my_interests: Mina intressen
+        select_your_interests: Välj ämnen du är intresserad av för att få information om relevanta händelser under fliken Tidslinje på din profilsida.
         update_my_interests: Uppdatera mina intressen
       update:
         error: Det gick inte att uppdatera dina intressen.
@@ -1297,6 +1313,7 @@ sv:
       last_attempt: Du har ett försök kvar innan ditt konto blir låst.
       locked: Ditt konto är låst.
       not_found_in_database: Ogiltig %{authentication_keys} eller ogiltigt lösenord.
+      unauthenticated: Du behöver logga in eller skapa ett konto innan du kan fortsätta.
     invitations:
       edit:
         header: Slutför att skapa ditt konto
@@ -1435,12 +1452,21 @@ sv:
       custom: Anpassad
       flags: Flaggor
       objects: Objekt
-      people-body: Personer & kropp
-      recents: Nyligen använd
+      people-body: Människor
+      recents: Senast använda
+      smileys-emotion: Smileys & Emotikoner
       symbols: Symboler
+    error:
+      load: Det gick inte att ladda emojis
+    recents:
+      clear: Rensa senast använda emojis
+      none: Du har inte valt några emojis än.
     retry: Försök igen
     search:
-      clear: Rensa sök
+      _: Sök emojis...
+      clear: Rensa sökning
+      error: Det gick inte att söka emojis
+      not_found: Sökningen gav inget resultat
   errors:
     messages:
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
@@ -1533,6 +1559,7 @@ sv:
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
         resources: Resurser
         sign_up: Registrera
+        terms_and_conditions: Användarvillkor
       header:
         log_in: Logga in
         main_menu: Huvudmeny
@@ -1546,6 +1573,10 @@ sv:
       notifications_dashboard:
         mark_all_as_read: Markera allt som läst
         mark_as_read: Markera som läst
+      shared:
+        layout_item:
+          next: Nästa
+          prev: Föregående
       social_media_links:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"

@@ -791,7 +791,6 @@ pl:
           discard: Porzuć ten szkic
           discard_confirmation: Czy na pewno chcesz porzucić ten szkic propozycji?
           send: Podgląd
-          title: Edytuj szkic propozycji
         filters:
           activity: Moja aktywność
           all: Wszystko

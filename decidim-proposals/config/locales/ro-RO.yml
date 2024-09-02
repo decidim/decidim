@@ -669,7 +669,6 @@ ro:
           discard: Renunță la această ciornă
           discard_confirmation: Sigur dorești să renunți la această ciornă de propunere?
           send: Previzualizează
-          title: Editează ciorna de propunere
         filters:
           activity: Activitatea mea
           all: Toate

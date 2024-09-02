@@ -475,7 +475,7 @@ ja:
         proposal_notes:
           create:
             error: 提案ノートの作成中に問題が発生しました。
-            success: 提案メモを作成しました。
+            success: 提案ノートを作成しました。
           form:
             note: メモ
             submit: 送信
@@ -769,7 +769,7 @@ ja:
           discard: この下書きを破棄する
           discard_confirmation: この提案の下書きを破棄してもよろしいですか？
           send: プレビュー
-          title: 提案の草案を編集
+          title: 提案の下書きを編集
         filters:
           activity: 参加したもの
           all: すべて

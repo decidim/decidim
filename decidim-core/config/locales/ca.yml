@@ -533,8 +533,8 @@ ca:
         html_content: Contingut HTML
         name: Bloc HTML
       last_activity:
-        name: Última activitat
-        title: Última activitat
+        name: Darrera activitat
+        title: Darrera activitat
         view_all: Veure-ho tot
       last_activity_settings_form:
         max_last_activity_users: Número màxim d'avatars de participants amb activitat recent a mostrar
@@ -1041,7 +1041,7 @@ ca:
     last_activities:
       all: Tots els tipus d'activitats
       index:
-        last_activity: Última activitat
+        last_activity: Darrera activitat
       name: Darreres activitats
       no_activities_warning: No hi ha res a mostrar per a aquest tipus d'activitat.
     linked_resource_from:

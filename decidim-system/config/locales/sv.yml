@@ -156,6 +156,7 @@ sv:
         users_registration_mode:
           disabled: Åtkomst kan endast göras med externa konton
           enabled: Tillåt deltagare att registrera och logga in
+          existing: Tillåt inte deltagare att registrera sig, men tillåt befintliga deltagare att logga in
       shared:
         notices:
           no_organization_warning_html: Kom igång genom att skapa en organisation. Läs %{guide} innan du fortsätter.

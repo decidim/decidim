@@ -6,7 +6,7 @@ sv:
         address: Adress
         body: Innehåll
         category_id: Kategori
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         has_address: Har adress
         scope_id: Omfattning
         state: Status
@@ -19,7 +19,7 @@ sv:
         automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
         category_id: Kategori
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         has_address: Har adress
         scope_id: Omfattning
         state: Status
@@ -39,7 +39,7 @@ sv:
         keep_authors: Behåll originalförfattare
       valuation_assignment:
         admin_log:
-          valuator_role_id: Värderarens namn
+          valuator_role_id: Handläggarens namn
     errors:
       models:
         proposal:
@@ -66,7 +66,7 @@ sv:
     models:
       decidim/proposals/accepted_proposal_event: Förslag accepterat
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
-      decidim/proposals/admin/update_proposal_scope_event: Ändrat förslagets omfång
+      decidim/proposals/admin/update_proposal_scope_event: Förslagets indelning har ändrats
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
       decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
       decidim/proposals/evaluating_proposal_event: Förslaget utvärderas
@@ -112,7 +112,7 @@ sv:
               validating: Teknisk validering
               withdrawn: Tillbakadragen
           valuator_role_ids_has:
-            label: Tilldelad till värderare
+            label: Tilldelad till handläggare
           with_any_state:
             label: Besvarade
             values:
@@ -213,8 +213,10 @@ sv:
       proposals:
         admin:
           proposal_note_created:
+            email_intro: Någon har skrivit en anteckning om förslaget "%{resource_title}". Läs den i <a href="%{admin_proposal_info_url}">administratörspanelen</a>.
             email_outro: Du har fått detta meddelande eftersom du kan värdera förslaget.
             email_subject: Någon lämnade en anteckning på förslag %{resource_title}.
+            notification_title: Någon har skrivit en anteckning om förslaget <a href="%{resource_path}">%{resource_title}</a>. Läs den i <a href="%{admin_proposal_info_path}">administratörspanelen</a>.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har fått tillgång till och är accepterad som bidragsgivare till %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>fått tillgång till och accepterats som bidragsgivare till</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
@@ -249,6 +251,7 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har accepterats.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har accepterats. Läs svaret på den här sidan:'
+            email_subject: Ett förslag som du följer har godkänts
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har accepterats.
         proposal_evaluating:
           affected_user:
@@ -258,6 +261,7 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> utvärderas.
           follower:
             email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
+            email_subject: Ett förslag som du följer utvärderas
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
           email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts i kommentarerna i <a href="%{resource_url}">det här utrymmet</a>.
@@ -280,6 +284,7 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avslagits.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
+            email_subject: Ett förslag som du följer har avvisats
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
         proposal_update_category:
           email_intro: 'En administratör har uppdaterat kategorin för ditt förslag "%{resource_title}", ta en titt på följande sida:'
@@ -287,10 +292,10 @@ sv:
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         proposal_update_scope:
-          email_intro: 'En administratör har uppdaterat omfånget för ditt förslag "%{resource_title}", ta en titt på följande sida:'
+          email_intro: 'En administratör har uppdaterat indelningen för ditt förslag "%{resource_title}", ta en titt på följande sida:'
           email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
-          email_subject: Omfånget för förslaget %{resource_title} har uppdaterats
-          notification_title: Omfånget för förslaget <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
+          email_subject: Indelningen för förslaget %{resource_title} har uppdaterats
+          notification_title: Indelningen för förslaget <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         voting_enabled:
           email_intro: 'Du kan stödja förslag i %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -318,6 +323,7 @@ sv:
           description_own: Du har gett stöd till %{score} förslag.
           name: Stött förslag
           next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
+          unearned_another: Den här deltagaren har inte gett sitt stöd till några förslag än.
           unearned_own: Du har inte gett stöd till några förslag än.
         proposals:
           conditions:
@@ -423,6 +429,10 @@ sv:
           leave_your_note: Lämna anteckningen
           title: Privata anteckningar
         proposals:
+          answer:
+            invalid: Det gick inte att svara på förslaget.
+          create:
+            invalid: Det gick inte att skapa förslaget.
           edit:
             title: Uppdatera förslag
             update: Uppdatera
@@ -434,11 +444,11 @@ sv:
             select_a_meeting: Välj ett möte
           index:
             actions: Åtgärder
-            assign_to_valuator: Tilldela till värderare
+            assign_to_valuator: Tilldela till handläggare
             assign_to_valuator_button: Tilldela
             cancel: Avbryt
             change_category: Ändra kategori
-            change_scope: Ändra omfång
+            change_scope: Ändra indelning
             merge: Slå samman till ett nytt
             merge_button: Slå ihop
             publish: Publicera
@@ -448,16 +458,16 @@ sv:
             split: Dela upp förslag
             split_button: Dela upp
             title: Förslag
-            unassign_from_valuator: Ta bort tilldelning till värderare
+            unassign_from_valuator: Ta bort tilldelning till handläggare
             unassign_from_valuator_button: Ta bort tilldelning
             update: Uppdatera
-            update_scope_button: Uppdatera omfång
+            update_scope_button: Uppdatera indelning
           new:
             create: Skapa
             title: Skapa förslag
           show:
             amendments_count: Antal ändringsförslag
-            assigned_valuators: Tilldelade värderare
+            assigned_valuators: Tilldelade handläggare
             body: Innehåll
             comments_count: Antal kommentarer
             documents: Dokument
@@ -470,15 +480,17 @@ sv:
             ranking: "%{ranking} av %{total}"
             related_meetings: Relaterade möten
             remove_assignment: Ta bort tilldelning
-            remove_assignment_confirmation: Vill du ta bort värderaren från förslaget?
-            valuators: Värderare
+            remove_assignment_confirmation: Vill du ta bort handläggaren från förslaget?
+            valuators: Handläggare
             votes_count: Antal stöd
           update_category:
             invalid: 'Dessa förslag var redan i kategorin %{subject_name}: %{proposals}.'
             success: 'Förslag som har uppdaterats till kategorin %{subject_name}: %{proposals}.'
           update_scope:
-            invalid: 'Dessa förslag hade redan omfånget %{subject_name}: %{proposals}.'
-            success: 'Förslag som har uppdaterats till omfånget %{subject_name}: %{proposals}.'
+            invalid: 'De här förslagen tillhör redan %{subject_name}: %{proposals}.'
+            select_a_proposal: Välj ett förslag.
+            select_a_scope: Välj en indelning.
+            success: 'Förslag som har uppdaterats till %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: Importera förslag
@@ -493,6 +505,13 @@ sv:
           create:
             invalid: 'Det gick inte att dela upp de valda förslagen på grund av vissa av dem:'
             success: Förslagen har delats upp till nya förslag.
+        valuation_assignments:
+          create:
+            invalid: Det gick inte att tilldela förslagen till en handläggare.
+            success: Förslagen har tilldelats en handläggare.
+          delete:
+            invalid: Det gick inte att ta bort tilldelningen av förslag från en handläggare.
+            success: Handläggaren är inte längre tilldelad förslagen.
       admin_log:
         proposal:
           answer: "%{user_name} svarade på förslaget %{resource_name} på utrymmet %{space_name}"
@@ -502,8 +521,8 @@ sv:
         proposal_note:
           create: "%{user_name} lämnade en privat anteckning på förslaget %{resource_name} på utrymmet %{space_name}"
         valuation_assignment:
-          create: "%{user_name} tilldelade förslaget %{resource_name} till en värderare"
-          delete: "%{user_name} tog bort en värderare från förslaget %{proposal_title}"
+          create: "%{user_name} tilldelade förslaget %{resource_name} till en handläggare"
+          delete: "%{user_name} tog bort en handläggare från förslaget %{proposal_title}"
       answers:
         accepted: Accepterat
         evaluating: Utvärderas
@@ -558,7 +577,7 @@ sv:
           open: Öppna
           published: Publicerade
           related_to: Relaterade till
-          scope: Omfång
+          scope: Indelning
           search: Sök
           state: Status
           withdrawn: Tillbakadragna
@@ -639,11 +658,11 @@ sv:
             official_proposal: Officiellt förslag
             published_answer: Publicerat svar
             published_at: Publicerad
-            scope: Omfång
+            scope: Indelning
             state: Status
             title: Titel
-            valuator: Värderare
-            valuators: Värderare
+            valuator: Handläggare
+            valuators: Handläggare
             votes: Stöd
       participatory_text_proposal:
         alternative_title: Det finns inga deltagartexter just nu
@@ -676,7 +695,6 @@ sv:
           discard: Släng utkastet
           discard_confirmation: Vill du slänga detta utkast till förslag?
           send: Förhandsvisa
-          title: Redigera utkast till förslag
         filters:
           activity: Min aktivitet
           all: Allt
@@ -685,7 +703,7 @@ sv:
           my_proposals: Mina förslag
           origin: Ursprung
           related_to: Relaterade till
-          scope: Omfång
+          scope: Indelning
           search: Sök
           state: Status
           type: Typ
@@ -763,13 +781,16 @@ sv:
             description: Varje förslag kan samla mer än %{limit} stöd
           minimum_votes_per_user:
             description: Du måste fördela minst %{votes} stöd mellan olika förslag.
+            given_enough_votes: Du har gett så mycket stöd du kan.
             supports_remaining: Du måste stödja ytterligare %{remaining_votes} förslag för att dina stöd ska beaktas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
+          threshold_per_proposal:
+            description: Förslag behöver få stöd från minst %{limit} deltagare för accepteras.
           title: 'Stöd är föremål för följande regler:'
           vote_limit:
             description: Du kan stödja upp till %{limit} förslag.
-            votes: Stöder
+            votes: Saknar %{number} stöd
         wizard_aside:
           back: Tillbaka
           back_from_step_1: Tillbaka till förslag
@@ -799,6 +820,9 @@ sv:
       versions:
         index:
           title: Versioner
+      withdraw:
+        errors:
+          has_supports: Förslaget kan inte dras tillbaka eftersom det redan har fått stöd.
     resource_links:
       copied_from_component:
         proposal_proposal: Relaterade förslag

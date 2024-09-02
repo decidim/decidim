@@ -629,7 +629,6 @@ it:
           discard: Scarta questa bozza
           discard_confirmation: Sei sicuro di voler eliminare questa bozza di proposta?
           send: Anteprima
-          title: Modifica bozza di proposta
         filters:
           activity: La mia attività
           all: Tutti

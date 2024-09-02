@@ -35,6 +35,7 @@ sv:
           error: Det gick inte att rösta om kommentaren.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Logga in med ditt konto</a> eller <a href="%{sign_up_url}">registrera dig</a> för att lämna en kommentar.
         form:
           body:
             label: Kommentera
@@ -43,13 +44,13 @@ sv:
           user_group_id:
             label: Kommentera som
         opinion:
-          label: Din åsikt om detta ämne
+          label: Din åsikt om ämnet
           negative: Negativ
-          negative_selected: Din åsikt om detta ämne är negativ
+          negative_selected: Din åsikt om ämnet är negativ
           neutral: Neutral
-          neutral_selected: Din åsikt om detta ämne är neutral
+          neutral_selected: Din åsikt om ämnet är neutral
           positive: Positiv
-          positive_selected: Din åsikt om detta ämne är positiv
+          positive_selected: Din åsikt om ämnet är positiv
         remaining_characters: "%{count} tecken kvar"
         remaining_characters_1: "%{count} tecken kvar"
         title: Lägg till din kommentar
@@ -72,7 +73,8 @@ sv:
           description: Är detta innehåll olämpligt?
           details: Ytterligare kommentarer
           reasons:
-            offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
+            does_not_belong: Innehåller olaglig information, hot om självmord, personuppgifter eller något annat som inte hör hemma på %{organization_name}.
+            offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera olämpligt innehåll
         show_replies:

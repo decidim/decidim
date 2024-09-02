@@ -155,6 +155,9 @@ sv:
             success: Valet har avpublicerats framgångsrikt.
         exports:
           elections: Val
+        mailers:
+          trustee_mailer:
+            body: "<p>Hej %{user_name},</p><p>Du har lagts till som förvaltare av %{resource_name}.</p>"
         menu:
           trustees: Förvaltare
         models:
@@ -370,6 +373,7 @@ sv:
         ballot_decision:
           audit: ( Granska valsedel )
           back: Starta om omröstningsprocessen
+          description: Här har du möjlighet att lägga din röst för att granska att den räknas korrekt eller granska att din röstsedel är korrekt krypterad. Av säkerhetsskäl innebär en granskning av din röst att den förstörs, och du behöver göra om röstningen.
         confirm:
           answer_number: svara %{number}
           confirm: Bekräfta
@@ -418,6 +422,8 @@ sv:
         voting_step:
           back: Tillbaka
           continue: Nästa
+      warnings:
+        no_elections_warning: Inga omröstningar matchar dina sökkriterier eller så är inga omröstningar inplanerade.
     events:
       elections:
         election_published:
