@@ -236,7 +236,7 @@ es:
           positions:
             other: Otro
             president: Presidencia
-            secretary: Secretaria
+            secretary: Secretaría
             vice_president: Vicepresidencia
         assembly_user_role:
           fields:
