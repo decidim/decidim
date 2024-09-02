@@ -36,5 +36,5 @@ describe "Paginate specs" do
 
   it_behaves_like "list pagination", 25
   it_behaves_like "list pagination", 50
-  # it_behaves_like "list pagination", 100
+  it_behaves_like "list pagination", 100
 end
