@@ -121,7 +121,7 @@ fi-pl:
           update_budget:
             invalid: 'Nämä hankkeet ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
             select_a_project: Valitse hanke.
-            success: 'Seuraavat hankkeet päivitettiin onnistuneesti budjettiin %{subject_name}: %{projects}.'
+            success: 'Seuraavat hankkeet päivitys onnistui budjetissa %{subject_name}: %{projects}.'
           update_category:
             invalid: 'Näillä projekteilla oli jo aihepiiri %{subject_name}: %{projects}.'
             select_a_category: Valitse aihepiiri.

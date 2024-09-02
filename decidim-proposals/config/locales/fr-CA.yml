@@ -781,7 +781,7 @@ fr-CA:
           discard: Supprimer ce brouillon
           discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
           send: Aperçu
-          title: Modifier le brouillon de votre proposition
+          title: Modifier le brouillon de la proposition
         edit_form_fields:
           marker_added: Marqueur ajouté à la carte.
         filters:

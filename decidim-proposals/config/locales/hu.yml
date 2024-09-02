@@ -609,7 +609,6 @@ hu:
           discard: Vázlat elvetése
           discard_confirmation: Biztos vagy benne, hogy elveted ezt a vázlatot?
           send: Előnézet
-          title: Javaslat vázlatok szerkesztése
         filters:
           activity: Tevékenységeim
           all: Összes

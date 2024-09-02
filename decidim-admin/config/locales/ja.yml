@@ -351,6 +351,8 @@ ja:
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
+        index:
+          text: 現在のユーザーのメールアドレス、名前、ニックネームで検索します。
         managed_user_name: 管理対象ユーザー
         solved: 解決済み
         title: 確認の競合

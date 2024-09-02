@@ -22,6 +22,8 @@ sv:
               too_long: är för långt
             choices:
               missing: är inte fullständiga
+        questionnaire:
+          request_invalid: Det gick inte att hantera begäran. Försök igen.
   decidim:
     forms:
       admin:

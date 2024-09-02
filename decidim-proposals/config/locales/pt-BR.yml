@@ -620,7 +620,6 @@ pt-BR:
           discard: Descarte este rascunho
           discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
           send: Visualização
-          title: Editar proposta de rascunho
         filters:
           activity: Minha atividade
           all: Tudo

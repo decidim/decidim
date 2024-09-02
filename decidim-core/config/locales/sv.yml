@@ -271,6 +271,8 @@ sv:
       update_draft:
         error: Det gick inte att uppdatera utkastet till ändringsförslag.
         success: Utkastet till ändringsförslag har uppdaterats.
+      withdraw:
+        error: Det gick inte att återkalla ändringsförslaget.
       wizard_step_form:
         steps:
           '1': Skapa ändringsförslag
