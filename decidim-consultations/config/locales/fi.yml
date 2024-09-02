@@ -303,7 +303,7 @@ fi:
         create:
           error: Kysymyksen äänestäminen epäonnistui
           success: Voit muuttaa sitä kuulemisen loppuun saakka. Ainoastaan viimeisin ääni hyväksytään.
-          title_error: Virhe äänestettäessä!
+          title_error: Äänestäminen epäonnistui!
           title_success: Äänestys onnistui
       regular_questions:
         title: Tätä kuulemista koskevat kysymykset
