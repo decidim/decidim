@@ -782,7 +782,6 @@ lt:
           discard: Ištrinti šį juodraštį
           discard_confirmation: Ar tikrai norite ištrinti šį pasiūlymo juodraštį?
           send: Peržiūrėti
-          title: Redaguoti pasiūlymo projektą
         filters:
           activity: Mano veikla
           all: Visi
