@@ -136,7 +136,7 @@ module Decidim
                           {}
                         end
 
-      component = try(:current_component) # || resource.try(:component)
+      component = try(:current_component)
       if component.present?
         decidim.authorization_modal_path(authorization_action: action, component_id: component&.id, **resource_params)
       else
@@ -181,9 +181,11 @@ module Decidim
 
     def onboarding_data_attributes(action, resource, permissions_holder, redirect_path = nil, opts = {})
       return {} if action.blank?
+
+      permissions_holder ||= try(:current_component) if resource.blank?
       return {} if [resource, permissions_holder].all?(&:blank?)
 
-      redirect_path = nil if (opts[:method].present? && opts[:method].to_s != "get") || redirect_path == "#"
+      redirect_path = valid_redirect(redirect_path, opts)
 
       {
         "data-onboarding-model" => resource&.to_gid,
@@ -191,6 +193,13 @@ module Decidim
         "data-onboarding-action" => action,
         "data-onboarding-redirect-path" => redirect_path
       }.compact
+    end
+
+    def valid_redirect(path, html_options = {})
+      return if path == "#"
+      return if html_options[:method].present? && html_options[:method].to_s != "get"
+
+      path
     end
   end
 end
