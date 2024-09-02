@@ -779,7 +779,6 @@ eu:
           discard: Ezabatu zirriborro hau
           discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
           send: Aurreikusi
-          title: Editatu proposamenaren zirriborroa
         filters:
           activity: Nire jarduera
           all: Guztiak
