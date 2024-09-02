@@ -202,7 +202,6 @@ eu:
         verify: Egiaztatu
       admin_terms_of_service:
         accept:
-          error: Errore bat egon da zerbitzuaren administrazio-baldintzak onartzean.
           success: Ederto! Onartu dituzu zerbitzuaren administrazio-baldintzak.
         actions:
           accept: Bat nator baldintzekin
@@ -364,7 +363,6 @@ eu:
         user_name: Erabiltzailea
       content_blocks:
         create:
-          error: Errorea izan da eduki-blokea sortzean
           success: Eduki-blokea zuzen sortua.
         destroy:
           error: Arazoa izan da eduki-bloke hau ezabatzen saiatzean
@@ -467,6 +465,9 @@ eu:
             pending: Zain
             rejected: Ukatua
             verified: Egiaztatua
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomia
       forms:
         file_help:
           import:
@@ -580,6 +581,7 @@ eu:
         settings: Ezarpenak
         static_page_topics: Gaiak
         static_pages: Orriak
+        taxonomies: Taxonomiak
         user_groups: Erabiltzaile-taldeak
         users: Parte-hartzaileak 
       metrics:
@@ -774,7 +776,6 @@ eu:
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
       officializations:
         block:
-          error: Errore bat egon da parte-hartzaile hau blokeatzean.
           success: Parte-hartzailea zuzen blokeatua.
         create:
           success: Pate-hartzailea zuzen ofizializatua.
@@ -808,7 +809,6 @@ eu:
           show: Erakutsi
           title: Erakutsi parte-hartzailearen helbide elektronikoa
         unblock:
-          error: Errore bat egon da parte-hartzailea desblokeatzean.
           success: Parte-hartzailea zuzen desblokeatua.
       organization:
         edit:
@@ -1004,6 +1004,24 @@ eu:
         update:
           error: Arazo bat egon da orri hau eguneratzean.
           success: Orria zuzen eguneratua.
+      taxonomies:
+        actions: Ekintzak
+        amount: Kopurua
+        count: Zenbaketa
+        create:
+          invalid: Arazo bat egon da kategoria hau sortzean.
+          success: Kategoria zuzen sortua.
+        destroy:
+          invalid: Arazo bat egon da osagai hau ezabatzean.
+        edit:
+          back: Atzera
+          new_item: Elementu berria
+          update: Gorde
+        filters:
+          search_placeholder: Bilatu
+        index:
+          new_taxonomy: Taxonomia berria
+        name: Izena
       titles:
         admin_log: Administratzaile-erregistroa
         area_types: Arlo motak
@@ -1024,6 +1042,7 @@ eu:
         scope_types: Esparru motak
         scopes: Esparruak
         statistics: Jarduera
+        taxonomies: Taxonomiak
         user_groups: Erabiltzaile-taldeak
         users: Administratzaileak
       user_group:
