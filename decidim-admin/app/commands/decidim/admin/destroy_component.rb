@@ -11,6 +11,7 @@ module Decidim
       def initialize(component, current_user)
         @component = component
         @current_user = current_user
+      end
 
       # Public: Executes the command.
       #
