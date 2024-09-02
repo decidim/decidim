@@ -778,7 +778,7 @@ ca:
           discard: Descarta aquest esborrany
           discard_confirmation: Segur que vols descartar l'esborrany d'aquesta proposta?
           send: Vista prèvia
-          title: Edició l'esborrany de proposta
+          title: Edició l'esborrany de la proposta
         filters:
           activity: La meva activitat
           all: Totes
