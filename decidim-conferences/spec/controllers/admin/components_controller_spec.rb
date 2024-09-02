@@ -25,6 +25,10 @@ module Decidim
           )
         end
 
+        let(:space) { conference }
+
+        it_behaves_like "a reorder components controller", slug_attribute: :conference_slug
+
         before do
           request.env["decidim.current_organization"] = organization
           request.env["decidim.current_conference"] = conference
