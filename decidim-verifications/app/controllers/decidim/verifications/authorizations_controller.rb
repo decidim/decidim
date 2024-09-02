@@ -39,7 +39,7 @@ module Decidim
 
         redirect_to onboarding_manager.finished_redirect_path
 
-        onboarding_manager.remove_pending_action!
+        clear_onboarding_data!(current_user)
       end
 
       def create
