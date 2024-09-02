@@ -47,7 +47,7 @@ describe "Admin manages initiatives" do
   include_context "with filterable context"
 
   STATES.each do |state|
-    let!("#{state}_initiative".to_sym) { create_initiative_with_trait(state) }
+    let!(:"#{state}_initiative") { create_initiative_with_trait(state) }
   end
 
   before do

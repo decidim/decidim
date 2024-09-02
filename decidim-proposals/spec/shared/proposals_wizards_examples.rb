@@ -93,7 +93,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to edit the proposal draft" do
-          expect(page).to have_content("Edit Proposal Draft")
+          expect(page).to have_content("Edit proposal draft")
         end
       end
 
@@ -239,7 +239,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to edit the proposal draft" do
-          expect(page).to have_content("Edit Proposal Draft")
+          expect(page).to have_content("Edit proposal draft")
         end
       end
 

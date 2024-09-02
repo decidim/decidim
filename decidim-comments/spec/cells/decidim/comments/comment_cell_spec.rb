@@ -11,6 +11,7 @@ module Decidim::Comments
     let(:my_cell) { cell("decidim/comments/comment", comment) }
     let(:organization) { create(:organization) }
     let(:participatory_process) { create(:participatory_process, organization:) }
+    let(:assembly) { create(:assembly, organization:) }
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
     let(:comment) { create(:comment, commentable:) }
@@ -191,6 +192,57 @@ module Decidim::Comments
             end
           end
         end
+
+        context "when comments are blocked" do
+          before do
+            allow(commentable).to receive(:user_allowed_to_comment?).and_return(false)
+          end
+
+          it "does not render the reply form" do
+            expect(subject).to have_no_css(".add-comment")
+          end
+
+          context "and the user is an admin" do
+            let(:current_user) { create(:user, :admin, :confirmed, organization: component.organization) }
+
+            it "renders the reply form" do
+              expect(subject).to have_css(".add-comment")
+            end
+          end
+
+          context "and the user is a user manager" do
+            let(:current_user) { create(:user, :user_manager, :confirmed, organization: component.organization) }
+
+            it "renders the reply form" do
+              expect(subject).to have_css(".add-comment")
+            end
+          end
+
+          context "and the user is a valuator in the same participatory space" do
+            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :valuator) }
+
+            it "renders the reply form" do
+              expect(subject).to have_css(".add-comment")
+            end
+          end
+
+          context "and the user is a valuator in another participatory process" do
+            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: create(:participatory_process, organization: component.organization), role: :valuator) }
+
+            it "does not render the reply form" do
+              expect(subject).to have_no_css(".add-comment")
+            end
+          end
+
+          context "and the user is a valuator in another participatory space" do
+            let!(:component) { create(:component, participatory_space: assembly) }
+            let!(:valuator_role) { create(:assembly_user_role, user: current_user, assembly: create(:assembly, organization: component.organization), role: :valuator) }
+
+            it "does not render the reply form" do
+              expect(subject).to have_no_css(".add-comment")
+            end
+          end
+        end
       end
     end
 
@@ -225,6 +277,29 @@ module Decidim::Comments
         it "renders a plain button" do
           expect(subject).to have_no_css("[data-dialog-open=\"authorizationModal\"]")
         end
+      end
+    end
+
+    describe "#extra_actions" do
+      let(:current_user) { create(:user, :confirmed, organization: component.organization) }
+      let(:actions) do
+        [{
+          label: "Poke comment",
+          url: "/poke"
+        }]
+      end
+
+      before do
+        allow(commentable).to receive(:actions_for_comment).with(comment, current_user).and_return(actions)
+      end
+
+      it "renders the extra actions" do
+        expect(subject).to have_link("Poke comment", href: "/poke")
+      end
+
+      it "generates a cache hash with the action data" do
+        hash = my_cell.send(:cache_hash)
+        expect(hash).to include(actions.to_s)
       end
     end
   end

@@ -44,7 +44,7 @@ module Decidim
             description: "The participatory process group in which this process belong to"
 
       def hero_image
-        object.attached_uploader(:hero_image).path
+        object.attached_uploader(:hero_image).url
       end
     end
   end

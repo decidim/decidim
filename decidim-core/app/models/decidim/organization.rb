@@ -35,6 +35,8 @@ module Decidim
 
     has_many :templates, foreign_key: "decidim_organization_id", class_name: "Decidim::Templates::Template", dependent: :destroy if defined? Decidim::Templates
 
+    has_many :taxonomies, foreign_key: "decidim_organization_id", class_name: "Decidim::Taxonomy", inverse_of: :organization, dependent: :destroy
+
     # Users registration mode. Whether users can register or access the system. Does not affect users that access through Omniauth integrations.
     #  enabled: Users registration and sign in are enabled (default value).
     #  existing: Users cannot be registered in the system. Only existing users can sign in.

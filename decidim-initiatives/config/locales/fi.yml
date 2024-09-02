@@ -91,7 +91,7 @@ fi:
               accepted: Tarpeeksi allekirjoituksia
               created: Luotu
               discarded: Hylätyt
-              published: Julkaistut
+              open: Avoimet
               rejected: Liian vähän allekirjoituksia
               validating: Teknisessä validoinnissa
           type_id_eq:
@@ -329,7 +329,7 @@ fi:
         accepted: Tarpeeksi allekirjoituksia
         created: Luotu
         discarded: Hylätty
-        published: Julkaistu
+        open: Avoimet
         rejected: Liian vähän allekirjoituksia
         validating: Teknisessä tarkastuksessa
       application_helper:
@@ -578,7 +578,7 @@ fi:
           accepted: Tarpeeksi allekirjoituksia
           created: Luotu
           discarded: Hylätty
-          published: Julkaistu
+          open: Avoimet
           rejected: Liian vähän allekirjoituksia
           validating: Teknisessä tarkastuksessa
       states:

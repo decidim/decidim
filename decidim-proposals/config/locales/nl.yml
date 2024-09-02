@@ -124,7 +124,6 @@ nl:
             participatory_texts_enabled: Participatieve teksten ingeschakeld
             participatory_texts_enabled_readonly: Instelling niet aanpasbaar als er bestaande voorstellen zijn. Maak een nieuwe `Voorstellen component` aan als u deze functie wilt inschakelen of wijs alle geïmporteerde voorstellen in het `Participatieve Teksten` menu af, als u de instelling wilt uitschakelen.
             proposal_answering_enabled: Reacties op voorstellen ingeschakeld
-            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat de tijd (uitgedrukt in minuten) verstreken is
             proposal_edit_time: Voorstel bewerken
             proposal_edit_time_choices:
               infinite: Voorstellen onbeperkt in tijd laten bewerken
@@ -337,7 +336,6 @@ nl:
           form:
             note: Opmerking
             submit: Bevestigen
-          leave_your_note: Laat je opmerking achter
           title: Privé-opmerkingen
         proposals:
           edit:

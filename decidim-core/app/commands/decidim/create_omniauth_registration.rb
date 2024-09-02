@@ -36,6 +36,8 @@ module Decidim
         trigger_omniauth_registration
 
         broadcast(:ok, @user)
+      rescue NeedTosAcceptance
+        broadcast(:add_tos_errors, @user)
       rescue ActiveRecord::RecordInvalid => e
         broadcast(:error, e.record)
       end
@@ -55,7 +57,12 @@ module Decidim
         # If user has left the account unconfirmed and later on decides to sign
         # in with omniauth with an already verified account, the account needs
         # to be marked confirmed.
-        @user.skip_confirmation! if !@user.confirmed? && @user.email == verified_email
+        if !@user.confirmed? && @user.email == verified_email
+          @user.skip_confirmation!
+          @user.after_confirmation
+        end
+        @user.tos_agreement = "1"
+        @user.save!
       else
         @user.email = (verified_email || form.email)
         @user.name = form.name
@@ -68,11 +75,14 @@ module Decidim
           file = url.open
           @user.avatar.attach(io: file, filename:)
         end
-        @user.skip_confirmation! if verified_email
-      end
+        @user.tos_agreement = form.tos_agreement
+        @user.accepted_tos_version = Time.current
+        raise NeedTosAcceptance if @user.tos_agreement.blank?
 
-      @user.tos_agreement = "1"
-      @user.save!
+        @user.skip_confirmation! if verified_email
+        @user.save!
+        @user.after_confirmation if verified_email
+      end
     end
 
     def create_identity
@@ -123,9 +133,15 @@ module Decidim
         name: form.name,
         nickname: form.normalized_nickname,
         avatar_url: form.avatar_url,
-        raw_data: form.raw_data
+        raw_data: form.raw_data,
+        tos_agreement: form.tos_agreement,
+        newsletter_notifications_at: form.newsletter_at,
+        accepted_tos_version: form.current_organization.tos_version
       )
     end
+  end
+
+  class NeedTosAcceptance < StandardError
   end
 
   class InvalidOauthSignature < StandardError

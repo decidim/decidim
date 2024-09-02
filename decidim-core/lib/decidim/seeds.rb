@@ -97,6 +97,14 @@ module Decidim
       )
     end
 
+    def create_taxonomy!(name:, parent:)
+      Decidim::Taxonomy.create!(
+        name: Decidim::Faker::Localized.literal(name),
+        organization:,
+        parent:
+      )
+    end
+
     def create_category!(participatory_space:)
       Decidim::Category.create!(
         name: Decidim::Faker::Localized.sentence(word_count: 5),

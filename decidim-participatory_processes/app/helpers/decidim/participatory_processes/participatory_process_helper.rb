@@ -53,7 +53,7 @@ module Decidim
         OpenStruct.new(
           text: translated_attribute(cta_settings.button_text),
           path: cta_settings.button_url,
-          image_url: block.images_container.attached_uploader(:background_image).path(variant: :big)
+          image_url: block.images_container.attached_uploader(:background_image).variant_url(:big)
         )
       end
 

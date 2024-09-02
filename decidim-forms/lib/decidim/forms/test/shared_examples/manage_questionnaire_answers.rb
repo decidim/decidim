@@ -5,13 +5,13 @@ require "spec_helper"
 shared_examples_for "manage questionnaire answers" do
   let(:first_type) { "short_answer" }
   let!(:first) do
-    create :questionnaire_question, questionnaire:, position: 1, question_type: first_type
+    create(:questionnaire_question, questionnaire:, position: 1, question_type: first_type)
   end
   let!(:second) do
-    create :questionnaire_question, questionnaire:, position: 2, question_type: "single_option"
+    create(:questionnaire_question, questionnaire:, position: 2, question_type: "single_option")
   end
   let!(:third) do
-    create :questionnaire_question, questionnaire:, position: 3, question_type: "files"
+    create(:questionnaire_question, questionnaire:, position: 3, question_type: "files")
   end
   let(:questions) do
     [first, second, third]
@@ -25,10 +25,10 @@ shared_examples_for "manage questionnaire answers" do
   end
 
   context "when there are answers" do
-    let!(:answer1) { create :answer, questionnaire:, question: first }
-    let!(:answer2) { create :answer, body: "second answer", questionnaire:, question: first }
-    let!(:answer3) { create :answer, questionnaire:, question: second }
-    let!(:file_answer) { create :answer, :with_attachments, questionnaire:, question: third, body: nil, user: answer3.user, session_token: answer3.session_token }
+    let!(:answer1) { create(:answer, questionnaire:, question: first) }
+    let!(:answer2) { create(:answer, body: "second answer", questionnaire:, question: first) }
+    let!(:answer3) { create(:answer, questionnaire:, question: second) }
+    let!(:file_answer) { create(:answer, :with_attachments, questionnaire:, question: third, body: nil, user: answer3.user, session_token: answer3.session_token) }
 
     it "shows the answer admin link" do
       visit questionnaire_edit_path
@@ -76,9 +76,9 @@ shared_examples_for "manage questionnaire answers" do
 
       context "when multiple answer choice" do
         let(:first_type) { "multiple_option" }
-        let!(:answer1) { create :answer, questionnaire:, question: first, body: nil }
-        let!(:answer_option) { create :answer_option, question: first }
-        let!(:answer_choice) { create :answer_choice, answer: answer1, answer_option:, body: translated(answer_option.body, locale: I18n.locale) }
+        let!(:answer1) { create(:answer, questionnaire:, question: first, body: nil) }
+        let!(:answer_option) { create(:answer_option, question: first) }
+        let!(:answer_choice) { create(:answer_choice, answer: answer1, answer_option:, body: translated(answer_option.body, locale: I18n.locale)) }
 
         it "shows the answers page with custom body" do
           new_window = window_opened_by { find_all("a.action-icon.action-icon--eye").first.click }
@@ -94,7 +94,7 @@ shared_examples_for "manage questionnaire answers" do
     end
 
     context "and managing individual answer page" do
-      let!(:answer11) { create :answer, questionnaire:, body: "", user: answer1.user, question: second }
+      let!(:answer11) { create(:answer, questionnaire:, body: "", user: answer1.user, question: second) }
 
       before do
         visit questionnaire_edit_path
@@ -133,10 +133,10 @@ shared_examples_for "manage questionnaire answers" do
       end
 
       context "when the file answer does not have a title for the attachment" do
-        let!(:file_answer) { create :answer, questionnaire:, question: third, body: nil, user: answer3.user, session_token: answer3.session_token }
+        let!(:file_answer) { create(:answer, questionnaire:, question: third, body: nil, user: answer3.user, session_token: answer3.session_token) }
 
         before do
-          create :attachment, :with_image, attached_to: file_answer, title: {}, description: {}
+          create(:attachment, :with_image, attached_to: file_answer, title: {}, description: {})
         end
 
         it "third answer has download link for the attachments" do

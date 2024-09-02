@@ -96,7 +96,6 @@ lt:
               accepted: Parašų užtenka
               created: Sukurta
               discarded: Atmesta
-              published: Publikuota
               rejected: Parašų neužtenka
               validating: Techninis patvirtinimas
           type_id_eq:
@@ -321,7 +320,6 @@ lt:
         accepted: Parašų užtenka
         created: Sukurta
         discarded: Atmesta
-        published: Paskelbta
         rejected: Parašų neužtenka
         validating: Techninis patvirtinimas
       application_helper:
@@ -576,7 +574,6 @@ lt:
           accepted: Parašų užtenka
           created: Sukurta
           discarded: Atmesta
-          published: Publikuota
           rejected: Parašų neužtenka
           validating: Techninis patvirtinimas
       states:

@@ -16,6 +16,7 @@ module Decidim
     include NeedsTosAccepted
     include Headers::HttpCachingDisabler
     include Headers::ContentSecurityPolicy
+    include Headers::BrowserFeaturePermissions
     include ActionAuthorization
     include ForceAuthentication
     include SafeRedirect
@@ -24,6 +25,7 @@ module Decidim
     include DisableRedirectionToExternalHost
     include NeedsPasswordChange
     include LinkedResourceReference
+    include ActiveStorage::SetCurrent
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
