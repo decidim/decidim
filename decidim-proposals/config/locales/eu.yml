@@ -167,6 +167,12 @@ eu:
               random: Ausazkoa
               recent: Azkenak
               with_more_authors: Egile gehiagorekin
+            edit_time: Proposamenak egileek edita ditzakete denbora luzea igaro baino lehen
+            edit_time_units:
+              days: Egunak
+              hours: Orduak
+              minutes: Minutuak
+            geocoding_enabled: Mapak gaituta
             minimum_votes_per_user: Gutxieneko botoak erabiltzaile bakoitzeko
             new_proposal_body_template: Plantilla proposamen berriaren testurako
             new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
@@ -179,6 +185,10 @@ eu:
             proposal_edit_time_choices:
               infinite: Utzi proposamenak editatzen epe mugagabe batean
               limited: Utzi proposamenak editatzen epe zehatz baten barruan
+            proposal_edit_time_unit_options:
+              days: Egunak
+              hours: Orduak
+              minutes: Minutuak
             proposal_length: Proposamen-testuaren gehieneko luzera
             proposal_limit: Proposamen-muga erabiltzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
@@ -228,10 +238,16 @@ eu:
             votes_hidden: Boto ezkutuak (botoak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekide gisa gehitu zaituzte.
         admin:
           proposal_note_created:
             email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
             email_subject: Norbaitek ohar bat utzi du %{resource_title} proposamenean.
+        coauthor_invited:
+          actions:
+            accept: Onartu
+            decline: Baztertu
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} onartu da <a href="%{resource_url}">%{resource_title}</a> zirriborro koloboratiboan laguntzaile gisa sartzeko.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
@@ -767,6 +783,7 @@ eu:
           discard: Ezabatu zirriborro hau
           discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
           send: Aurreikusi
+          title: Editatu proposamenaren zirriborroa
         edit_form_fields:
           marker_added: Markatzailea mapan gehitua.
         filters:
