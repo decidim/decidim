@@ -287,7 +287,15 @@ describe "Support Proposal", type: :system, slow: true do
           end
 
           it "is not able to vote other proposals" do
-            expect(page).to have_css(".button[disabled]", count: 2)
+            expect(page).to have_css(".button[disabled]", text: "No supports remaining", count: 2)
+          end
+
+          context "when removing the vote from the voted proposal" do
+            it "updates the other proposals' buttons" do
+              click_on "Already supported"
+
+              expect(page).to have_css(".button", text: "Support", count: 3)
+            end
           end
 
           context "when votes are blocked" do
