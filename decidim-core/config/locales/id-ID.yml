@@ -122,7 +122,6 @@ id:
         verify_via_csv: "%{user_name} memverifikasi %{resource_name} grup pengguna melalui file CSV"
     amendments:
       accepted:
-        error: Terjadi kesalahan saat menerima amandemen.
         success: Amandemen telah diterima dengan sukses.
       amendable:
         button: Ubah %{model_name}
@@ -676,7 +675,6 @@ id:
         subject: Sumber daya telah dilaporkan
     reports:
       create:
-        error: Terjadi kesalahan saat membuat laporan. Tolong, coba lagi.
         success: Laporan telah berhasil dibuat dan akan ditinjau oleh admin.
     scopes:
       global: Ruang lingkup global
