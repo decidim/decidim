@@ -133,6 +133,8 @@ PATH
       selenium-webdriver (~> 4.9)
       simplecov (~> 0.22.0)
       simplecov-cobertura (~> 2.1.0)
+      spring (~> 2.0)
+      spring-watcher-listen (~> 2.0)
       w3c_rspec_validators (~> 0.3.0)
       webmock (~> 3.18)
       wisper-rspec (~> 1.0)
@@ -827,8 +829,6 @@ DEPENDENCIES
   net-smtp (~> 0.3.1)
   parallel_tests (~> 4.2)
   puma (>= 6.3.1)
-  spring (~> 2.0)
-  spring-watcher-listen (~> 2.0)
   web-console (~> 4.2)
 
 RUBY VERSION
