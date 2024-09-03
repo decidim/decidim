@@ -449,7 +449,7 @@ eu:
               md: Markdown
               odt: ODT
             bottom_hint: "(Dokumentuaren atalak aurreikusi eta ordenatu ahal izango ditu)"
-            document_legend: 'Erantsi 2MB baino txikiagoa den dokumentu bat. Atal bakoitza, 3 sakontasun-mailaraino, proposamen bihurtuko da. Hauek dira onartutako formatuak: %{valid_mime_types}'
+            document_legend: 'Gehitu 2MB baino txikiagoa den dokumentu bat. Atal bakoitza, 3 sakontasun-mailaraino, proposamen bihurtuko da. Hauek dira onartutako formatuak: %{valid_mime_types}'
             title: Gehitu Dokumentua
             upload_document: Kargatu dokumentua
           publish:
@@ -644,7 +644,7 @@ eu:
           error: Arazo bat izan da lankidetza-zirriborroak sortzean.
           success: Zirriborro kolaboratiboa sortu da.
         edit:
-          attachment_legend: "(Aukerakoa) Erantsi fitxategi bat"
+          attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
           back: Atzera
           select_a_category: Mesedez, hautatu kategoria bat
           send: Bidali
@@ -768,7 +768,7 @@ eu:
           description: Koordenatuak eguneratu egingo dira 'aurrebistaratu' botoian klik egiten duzunean. Baina helbidea ez da aldatzen.
           instructions: Kokapena mugitu ahal duzu mapan.
         edit:
-          add_documents: Erantsi dokumentuak
+          add_documents: Gehitu dokumentuak
           attachment_legend: "(Aukerakoa) Gehitu eranskina"
           back: Atzera
           edit_documents: Editatu dokumentuak
@@ -779,6 +779,7 @@ eu:
           discard: Ezabatu zirriborro hau
           discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
           send: Aurreikusi
+          title: Editatu proposamenaren zirriborroa
         edit_form_fields:
           marker_added: Markatzailea mapan gehitua.
         filters:
