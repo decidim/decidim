@@ -304,7 +304,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     let(:user) { create(:user, :confirmed, organization:, extended_data:) }
     let(:commentable_path) { Decidim::ResourceLocatorPresenter.new(commentable).path }
     let(:authorizations) { %w(dummy_authorization_handler dummy_authorization_workflow) }
-    # let!(:resource_permission) { commentable.create_resource_permission(permissions:) }
+    let!(:user_verification) { nil }
 
     before do
       sign_in
@@ -332,11 +332,58 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
         }
       end
 
-      it "the user is redirected to a page with the authorizations required to perform the action" do
-        expect(page).to have_current_path decidim_verifications.onboarding_pending_authorizations_path
-        expect(page).to have_content "You are almost ready to comment in the dummy resource #{translated_attribute(commentable.title)}"
-        expect(page).to have_css("a[data-verification]", text: "Example authorization")
-        expect(page).to have_no_css("a[data-verification]", text: "Dummy authorization workflow")
+      context "and the user is not verified with the authorization" do
+        it "the user onboarding extended data is maintained" do
+          expect(user.reload.extended_data["onboarding"]).to be_present
+        end
+
+        it "the user is redirected to a page with the authorizations required to perform the action" do
+          expect(page).to have_current_path decidim_verifications.onboarding_pending_authorizations_path
+          expect(page).to have_content "You are almost ready to comment in the dummy resource #{translated_attribute(commentable.title)}"
+          expect(page).to have_css("a[data-verification]", text: "Example authorization")
+          expect(page).to have_no_css("a[data-verification]", text: "Dummy authorization workflow")
+        end
+      end
+
+      context "and the user is verified with the authorization" do
+        let(:document_number) { "123456789X" }
+        let!(:user_verification) { create(:authorization, :granted, user:, name: "dummy_authorization_handler", metadata:) }
+
+        context "and the authorization is granted with metadata which meets the conditions to allow the action" do
+          let(:metadata) do
+            {
+              "postal_code" => "1234",
+              "document_number" => document_number
+            }
+          end
+
+          it "the user onboarding extended data is removed" do
+            expect(user.reload.extended_data["onboarding"]).to be_blank
+          end
+
+          it "the user is redirected to the resource with a success message" do
+            expect(page).to have_current_path commentable_path
+            expect(page).to have_content "You have been successfully authorized"
+          end
+        end
+
+        context "and the authorization is granted with metadata which does not meet the conditions to allow the action" do
+          let(:metadata) do
+            {
+              "postal_code" => "1111",
+              "document_number" => document_number
+            }
+          end
+
+          it "the user onboarding extended data is removed" do
+            expect(user.reload.extended_data["onboarding"]).to be_blank
+          end
+
+          it "the user is redirected to the resource with a failed authorization message" do
+            expect(page).to have_current_path commentable_path
+            expect(page).to have_content "You are not athorized to comment in this resource"
+          end
+        end
       end
     end
   end
