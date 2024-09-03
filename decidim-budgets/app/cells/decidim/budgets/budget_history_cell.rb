@@ -39,9 +39,9 @@ module Decidim
         return if resources.blank?
 
         resources.each do |resource|
-          title = resource.title[I18n.locale.to_s]
+          title = decidim_sanitize_translated(resource.title[I18n.locale.to_s])
           url = resource_locator(resource).path
-          link = content_tag(:a, title, href: url, class: "underline decoration-current text-secondary font-semibold")
+          link = link_to(title, url, class: "underline decoration-current text-secondary font-semibold")
 
           items << {
             id: "#{link_name}_#{resource.id}",
