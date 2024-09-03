@@ -202,6 +202,7 @@ eu:
         verify: Egiaztatu
       admin_terms_of_service:
         accept:
+          error: Arazoa izan da zerbitzuaren baldintzak onartzean.
           success: Ederto! Onartu dituzu zerbitzuaren administrazio-baldintzak.
         actions:
           accept: Bat nator baldintzekin
@@ -349,6 +350,8 @@ eu:
       conflicts:
         attempts: Saiakerak
         'false': 'Ez'
+        index:
+          text: Bilatu gaur egungo erabiltzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
         managed_user_name: Erabiltzaile kudeatua
         solved: Ebatzita
         title: Egiaztapen-arazoak
@@ -363,6 +366,7 @@ eu:
         user_name: Erabiltzailea
       content_blocks:
         create:
+          error: Arazo bat izan da edukien blokea sortzean.
           success: Eduki-blokea zuzen sortua.
         destroy:
           error: Arazoa izan da eduki-bloke hau ezabatzen saiatzean
@@ -776,6 +780,7 @@ eu:
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
       officializations:
         block:
+          error: Arazo bat izan da parte-hartzailea blokeatzean.
           success: Parte-hartzailea zuzen blokeatua.
         create:
           success: Pate-hartzailea zuzen ofizializatua.
@@ -809,6 +814,7 @@ eu:
           show: Erakutsi
           title: Erakutsi parte-hartzailearen helbide elektronikoa
         unblock:
+          error: Arazo bat izan da parte-hartzailea desblokeatzean.
           success: Parte-hartzailea zuzen desblokeatua.
       organization:
         edit:
@@ -1013,6 +1019,7 @@ eu:
           success: Kategoria zuzen sortua.
         destroy:
           invalid: Arazo bat egon da osagai hau ezabatzean.
+          success: Taxonomia behar bezala suntsitua.
         edit:
           back: Atzera
           new_item: Elementu berria
