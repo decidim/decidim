@@ -165,7 +165,6 @@ zh-TW:
           title: 重複的參與性流程
       participatory_process_groups:
         destroy:
-          error: 刪除參與性流程群組時發生錯誤。
           success: 參與式流程組成功刪除。
         edit:
           title: 編輯程序群組

@@ -467,6 +467,7 @@ LCell
 legacysupport
 Lesch
 lfo
+libu
 libicu
 libpq
 libreadline
@@ -869,7 +870,6 @@ tailwindcss
 tarekraafat
 taxonomizable
 taxonomization
-taxonomizations
 technopolitical
 templatable
 templateable
@@ -918,6 +918,7 @@ tzid
 tzip
 uber
 ucw
+udev
 ueee
 ugc
 ujs

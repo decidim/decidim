@@ -218,15 +218,13 @@ sv:
       dismiss: Avfärda avisering
     amendments:
       accepted:
-        error: Ett fel uppstod när ändringen skulle godkännas.
         success: Ändringen har godkänts.
       amendable:
         button: Ändra %{model_name}
-        error: Det gick inte att ändra resursen.
+        error: Det har inträffat ett fel vid ändring av denna resurs.
         promote_button: Gör till %{model_name}
         promote_confirm_text: Vill du stötta detta ändringsförslag?
       created:
-        error: Ett fel uppstod när ändringsutkastet skulle skapas.
         success: Skapade utkast till ändringsförslag.
       destroy_draft:
         error: Det gick inte att radera utkastet till ändringsförslag.
@@ -1096,7 +1094,6 @@ sv:
         subject: En resurs har rapporterats
     reports:
       create:
-        error: Det uppstod ett fel när rapporten skulle skapas. Försök igen.
         success: Rapporten har skapats och kommer att granskas av en administratör.
     resource_endorsements:
       create:
@@ -1419,9 +1416,6 @@ sv:
       long_words: innehåller ord som är för långa (över 35 tecken)
       must_start_with_caps: måste börja med en stor bokstav
       not_locked: låstes inte
-      not_saved:
-        one: 'Det finns ett fel i din begäran:'
-        other: 'Det finns flera fel i din begäran:'
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex. ! och ?)
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
   forms:

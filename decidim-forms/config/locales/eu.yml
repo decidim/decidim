@@ -22,8 +22,6 @@ eu:
             choices:
               missing: ez dira osatu
               too_many: Gehienez, %{count} aukeratu ahal duzu.
-        questionnaire:
-          request_invalid: Errore bat egon da eskaera bidaltzean. Mesedez, saiatu berriro.
   decidim:
     forms:
       admin:

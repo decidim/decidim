@@ -663,7 +663,6 @@ fr-CA:
         transparent: Visible par les non-membres
         withdraw: Retirée
       withdraw:
-        error: Une erreur s'est produite lors de l'annulation de la rencontre.
         success: La rencontre a été annulée avec succès.
     metrics:
       meetings:

@@ -269,7 +269,6 @@ pt-BR:
       dismiss: Limpar notificação
     amendments:
       accepted:
-        error: Ocorreu um erro ao aceitar a alteração.
         success: A emenda foi aceita com sucesso.
       amendable:
         button: Emendar %{model_name}
@@ -281,7 +280,6 @@ pt-BR:
           one: "%{count} comentário"
           other: "%{count} comentários"
       created:
-        error: Ocorreu um erro ao criar o rascunho da alteração.
         success: A proposta de alteração foi criada com êxito.
       destroy_draft:
         error: Houve um problema ao excluir o rascunho de alteração.
@@ -1208,7 +1206,6 @@ pt-BR:
         subject: Um recurso foi relatado
     reports:
       create:
-        error: Ocorreu um erro ao criar o relatório. Por favor, tente novamente.
         success: O relatório foi criado com sucesso e será revisto por um administrador.
     resource_endorsements:
       create:
@@ -1494,9 +1491,6 @@ pt-BR:
       long_words: contém palavras muito longas (mais de 35 caracteres)
       must_start_with_caps: deve começar com letra maiúscula
       not_locked: não estava trancado
-      not_saved:
-        one: 'Houve um erro ao processar seu pedido:'
-        other: 'Houve erros múltiplos ao processar sua solicitação:'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
       too_short: é muito curto (menos de 15 caracteres)

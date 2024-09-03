@@ -241,8 +241,8 @@ As of April 2017, only proposals and meetings have maps and geocoding.
 
 === Proposals
 
-In order to enable geocoding for proposals you will need to edit the component configuration and turn on "Geocoding enabled" configuration.
-This works for that specific component, so you can have geocoding enabled for proposals in a participatory process, and disabled for another proposals component in the same participatory process.
+In order to enable maps for proposals you will need to edit the component configuration and turn on "Maps enabled" configuration.
+This works for that specific component, so you can have maps enabled for proposals in a participatory process, and disabled for another proposals component in the same participatory process.
 
 === Meetings
 
