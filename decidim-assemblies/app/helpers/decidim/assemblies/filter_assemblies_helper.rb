@@ -21,9 +21,9 @@ module Decidim
 
       def filter_sections
         [
-          { method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope" },
-          { method: :with_any_area, collection: filter_areas_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "area" },
-          { method: :with_any_type, collection: filter_types_values, label_scope: "decidim.assemblies.assemblies.filters", id: "type" }
+          { method: :with_any_scope, collection: filter_global_scopes_values, label: t("decidim.shared.participatory_space_filters.filters.scope"), id: "scope" },
+          { method: :with_any_area, collection: filter_areas_values, label: t("decidim.shared.participatory_space_filters.filters.area"), id: "area" },
+          { method: :with_any_type, collection: filter_types_values, label: t("decidim.assemblies.assemblies.filters.type"), id: "type" }
         ].reject { |item| item[:collection].blank? }
       end
     end

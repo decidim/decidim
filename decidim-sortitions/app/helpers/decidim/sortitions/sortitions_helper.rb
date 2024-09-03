@@ -39,12 +39,12 @@ module Decidim
       end
 
       def filter_sections_sortitions
-        sections = [{ method: :with_any_state, collection: filter_state_values, label_scope: "decidim.sortitions.sortitions.filters", id: "state" }]
+        sections = [{ method: :with_any_state, collection: filter_state_values, label: t("decidim.sortitions.sortitions.filters.state"), id: "state" }]
         if current_participatory_space.categories.any?
           sections.append(
             method: :with_category,
             collection: filter_categories_values,
-            label_scope: "decidim.sortitions.sortitions.filters", id: "category"
+            label: t("decidim.sortitions.sortitions.filters.category"), id: "category"
           )
         end
         sections.reject { |item| item[:collection].blank? }
