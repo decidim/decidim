@@ -1085,6 +1085,8 @@ eu:
           not_found: 'Esparrua ez da aurkitu (ID: %{id}) datu-basean'
         scope_type_presenter:
           not_found: 'Esparru mota ez da aurkitu (ID: %{id}) datu-basean'
+        taxonomy_presenter:
+          not_found: 'Taxonomia ez da aurkitu (ID: %{id}) datu-basean'
     managed_users:
       expired_session: Parte-hartzaile baten egungo administrazio-saioa iraungi egin da.
     map:
@@ -1263,6 +1265,7 @@ eu:
         administrators: Administratzaileak
         allow_public_contact: Baimendu edozein parte-hartzailek bidali diezadala mezu zuzena, nahiz eta nik jarraitu ez.
         allow_push_notifications: Bidali mezuak plataforman ez zaudenean zer gertatzen den jakiteko. Nahi duzunean desgaitu ditzakezu.
+        assigned_to_proposal: Mezu elektroniko bat jaso nahi dut norbaitek ebaluatzeko proposamen bat ematen didanean
         direct_messages: Jaso edonoren mezu zuzenak
         email_on_moderations: Mezu elektroniko bat jaso nahi dut zerbait neurriz erreportatzen den bakoitzean.
         everything_followed: Jarraitzen dudan guztia
@@ -1281,6 +1284,7 @@ eu:
         push_notifications_reminder: Plataformaren jakinarazpenak jasotzeko, lehen zure nabigatzailearen konfigurazioan baimendu behar dituzu.
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
         update_notifications_settings: Gorde aldaketak
+        valuators: Ebaluatzaileak
       update:
         error: Arazo bat egon da zure jakinarazpenen konfigurazioa eguneratzean.
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
@@ -1418,6 +1422,7 @@ eu:
         subject: Eduki bat salatua izan da
     reports:
       create:
+        error: Arazo bat izan da txostena sortzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
     resource_endorsements:
       create:
@@ -1464,6 +1469,7 @@ eu:
         close_modal: Itxi leihoa
         ok: Ados
         title: Baieztatu
+      confirm_unload: Orrialde honetan gorde gabeko aldaketak daude. Ziur zaude orri hau utzi nahi duzula?
       embed:
         title: Bideo-eduki txertatuak
       extended_navigation_bar:
@@ -1693,6 +1699,7 @@ eu:
         message: Kontua blokeatu zaizu gehiegitan saitu zarelako, lortu gabe, saioa hasten.
         subject: Desblokeatu argibideak
     omniauth_callbacks:
+      add_tos_errors: Zerbitzuaren baldintzak onartu behar dira kontu bat sortzeko.
       failure: Ezin izan da autentifikatu %{kind} "%{reason}" delako.
       success: '%{kind} kontutik behar bezala egiaztatua.'
     passwords:
@@ -1852,6 +1859,9 @@ eu:
       nesting_too_deep: ezin da egon azpikategoria batean
       not_found: ezin izan da aurkitu. Lehenago konturik sortu duzu?
       not_locked: ez zen blokeatuta
+      not_saved:
+        one: 'Errore bat izan da zure eskaera prozesatzean:'
+        other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: letra larri gehiegi erabiltzen ari da (testuaren% 25 baino gehiago)
       too_short: laburregia da (gutxienez %{count} karaktere behar dira)
