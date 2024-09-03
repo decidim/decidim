@@ -663,6 +663,7 @@ eu:
         transparent: Gardena
         withdraw: Kenduta
       withdraw:
+        error: Arazo bat izan da topaketa kentzean.
         success: Zuzenketa zuzen kendu da.
     metrics:
       meetings:
