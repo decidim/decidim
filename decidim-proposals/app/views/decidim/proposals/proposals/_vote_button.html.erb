@@ -7,7 +7,7 @@
     <div id="proposal-<%= proposal.id %>-vote-button" class="button--vote-button">
       <% if !current_user %>
         <% if current_settings.votes_blocked? %>
-          <%= action_authorized_button_to :vote, t("decidim.proposals.proposals.vote_button.votes_blocked"), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), resource: proposal, class: "button #{vote_button_classes(from_proposals_list)} disabled", disabled: true %>
+          <%= action_authorized_button_to :vote, t("decidim.proposals.proposals.vote_button.votes_blocked"), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), resource: proposal, class: "button #{vote_button_classes(from_proposals_list)}", disabled: true %>
         <% else %>
           <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), resource: proposal, class: "button #{vote_button_classes(from_proposals_list)}", data: { disable: true, "redirect-url": proposal_path(proposal) } do %>
             <%= t("decidim.proposals.proposals.vote_button.vote") %>
@@ -29,7 +29,8 @@
               "redirect-url": proposal_path(proposal)
             },
             class: "button #{vote_button_classes(from_proposals_list)} active light",
-            id: "vote_button-#{proposal.id}"
+            id: "vote_button-#{proposal.id}",
+            disabled: false
           ) do %>
             <%= icon("check", class: "icon--small") %>
             <%= t("decidim.proposals.proposals.vote_button.already_voted") %>
@@ -37,14 +38,57 @@
           <% end %>
         <% else %>
           <% if proposal.maximum_votes_reached? && !proposal.can_accumulate_supports_beyond_threshold && current_component.participatory_space.can_participate?(current_user) %>
-            <%= content_tag :button, t("decidim.proposals.proposals.vote_button.maximum_votes_reached"), class: "button #{vote_button_classes(from_proposals_list)} disabled", disabled: true %>
+            <%= action_authorized_button_to(
+              :vote,
+              proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list),
+              resource: proposal,
+              remote: true,
+              data: { disable: true, "redirect-url": proposal_path(proposal) },
+              class: "button #{vote_button_classes(from_proposals_list)}",
+              disabled: true
+            ) do %>
+              <%= t("decidim.proposals.proposals.vote_button.maximum_votes_reached") %>
+              <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
+            <% end %>
           <% else %>
             <% if vote_limit_enabled? && remaining_votes_count_for(current_user) == 0 %>
-              <%= content_tag :button, t("decidim.proposals.proposals.vote_button.no_votes_remaining"), class: "button #{vote_button_classes(from_proposals_list)}", disabled: true %>
+              <%= action_authorized_button_to(
+                :vote,
+                proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list),
+                resource: proposal,
+                remote: true,
+                data: { disable: true, "redirect-url": proposal_path(proposal) },
+                class: "button #{vote_button_classes(from_proposals_list)}",
+                disabled: true
+              ) do %>
+                <%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>
+                <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
+              <% end %>
             <% elsif current_settings.votes_blocked? || !current_component.participatory_space.can_participate?(current_user) %>
-              <%= content_tag :button, t("decidim.proposals.proposals.vote_button.votes_blocked"), class: "button #{vote_button_classes(from_proposals_list)} disabled", disabled: true %>
+              <%= action_authorized_button_to(
+                :vote,
+                proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list),
+                resource: proposal,
+                remote: true,
+                data: { disable: true, "redirect-url": proposal_path(proposal) },
+                class: "button #{vote_button_classes(from_proposals_list)}",
+                disabled: true
+              ) do %>
+                <%= t("decidim.proposals.proposals.vote_button.votes_blocked") %>
+                <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
+               <% end %>
             <% else %>
-              <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), resource: proposal, remote: true, data: { disable: true, "redirect-url": proposal_path(proposal) }, class: "button #{vote_button_classes(from_proposals_list)}" do %>
+              <%= action_authorized_button_to(
+                :vote,
+                proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list),
+                resource: proposal,
+                remote: true,
+                data: {
+                  disable: true, "redirect-url": proposal_path(proposal)
+                },
+                class: "button #{vote_button_classes(from_proposals_list)}",
+                disabled: false
+              ) do %>
                 <%= t("decidim.proposals.proposals.vote_button.vote") %>
                 <span class="show-for-sr"><%= decidim_html_escape(present(proposal).title) %></span>
               <% end %>
