@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 
 const ONBOARDING_COOKIE_EXPIRY = 365;
+const DATA_KEY = "onboarding";
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-onboarding-action]").forEach((element) => {
@@ -11,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const permissionsHolder = element.dataset.onboardingPermissionsHolder;
       const redirectPath = element.dataset.onboardingRedirectPath;
 
-      Cookies.set("onboarding", JSON.stringify({ action, model, permissionsHolder, redirectPath }), {
+      Cookies.set(DATA_KEY, JSON.stringify({ action, model, permissionsHolder, redirectPath }), {
         expires: ONBOARDING_COOKIE_EXPIRY
       });
     });
