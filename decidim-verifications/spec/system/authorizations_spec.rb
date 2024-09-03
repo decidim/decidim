@@ -381,7 +381,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
 
           it "the user is redirected to the resource with a failed authorization message" do
             expect(page).to have_current_path commentable_path
-            expect(page).to have_content "You are not athorized to comment in this resource"
+            expect(page).to have_content "You are not authorized to comment in this resource"
           end
         end
       end
