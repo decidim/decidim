@@ -18,6 +18,8 @@ module Decidim
   #    the user to the intended action.
   #
   class OnboardingManager
+    DATA_KEY = "onboarding"
+
     attr_reader :user
 
     def initialize(user)
@@ -204,7 +206,7 @@ module Decidim
     #
     # Returns a hash
     def onboarding_data
-      user.extended_data["onboarding"] || {}
+      user.extended_data[DATA_KEY] || {}
     end
 
     # Returns the path associated to the model using ResourceLocatorPresenter. If model is not
