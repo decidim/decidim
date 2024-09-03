@@ -11,14 +11,9 @@
       </div>
       <div class="budget_history_cell__item_content">
         <span class="budget_history_cell__item_date"><%= item[:date].strftime("%d/%m/%Y %H:%M") %></span>
-        <p><%= item[:text] %></p>
-        <% if item[:resource].present? %>
-          <ul>
-            <li>
-              <%= link_to decidim_sanitize_translated(item[:resource].title), item[:url], class: "underline decoration-current text-secondary font-semibold" %>
-            </li>
-          </ul>
-        <% end %>
+        <p class="flex flex-col lg:flex-row">
+         <%= item[:text] %>
+        </p>
       </div>
     </li>
   <% end %>
