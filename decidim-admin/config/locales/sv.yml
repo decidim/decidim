@@ -873,6 +873,8 @@ sv:
           without_topic: Sidor utan ämne
         update:
           error: Det gick inte att uppdatera sidan.
+      taxonomies:
+        count: Antal
       titles:
         admin_log: Administratörslogg
         area_types: Områdestyper

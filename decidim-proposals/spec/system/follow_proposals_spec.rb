@@ -11,5 +11,5 @@ describe "Follow proposals" do
 
   let(:followable_path) { resource_locator(followable).path }
 
-  include_examples "follows with a component"
+  include_examples "followable content for users with a component"
 end

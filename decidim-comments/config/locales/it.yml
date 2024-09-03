@@ -81,7 +81,7 @@ it:
       comments:
         blocked_comments_for_unauthorized_user_warning: Devi essere verificato prima di poter commentare, ma puoi leggere i commenti precedenti.
         blocked_comments_for_user_warning: Non sei in grado di commentare in questo momento, ma puoi leggere quelli precedenti.
-        blocked_comments_warning: I commenti sono disabilitati in questo momento, ma puoi leggere quelli precedenti.
+        blocked_comments_warning: I commenti sono attualmente disabilitati, solo gli amministratori possono rispondere o pubblicarne di nuovi.
         comment_details_title: Dettagli commento
         loading: Sto caricando i commenti ...
         single_comment_warning: <a href="%{url}">Visualizza tutti i commenti</a>

@@ -51,8 +51,9 @@ module Decidim
             exporter = Decidim::Exporters::CSV.new(batch, serializer)
             headers.push(*exporter.headers)
             exported = exporter.export
-
-            tmpdir = Dir::Tmpname.create(export_manifest.name.to_s) {}
+            tmpdir = Dir::Tmpname.create(export_manifest.name.to_s) do
+              # just get an empty file name
+            end
             filename = File.join(tmpdir, "#{component.id}.csv")
             Dir.mkdir(tmpdir)
             File.write(filename, exported.read)
