@@ -68,6 +68,8 @@ module Decidim
         return action_text if authorization_status.blank?
         return action_text if [:ok, :unauthorized].include?(authorization_status.global_code)
 
+        # The position where the action is interpolated in the "verify your account to 'act'"
+        # message is obtained to determine if the first letter of its text should be downcased
         action_index = t("verify_to", scope: "decidim.core.actions", action: "%%%%").strip.index("%%%%")
         if action_index.positive? && /\A[[:upper:]][^[[:upper:]]]*\z/.match?(action_text)
           action_text = action_text.dup
