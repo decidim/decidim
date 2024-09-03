@@ -142,7 +142,7 @@ en:
           onboarding_message_html: You are almost ready to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
           pending_admin_approval_verifications: Pending admin approval verifications
           pending_verifications: Pending verifications
-          unauthorized: You are not athorized to %{action} in this resource
+          unauthorized: You are not authorized to %{action} in this resource
         renew_modal:
           cancel: Cancel
           continue: Continue
