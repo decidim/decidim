@@ -19,6 +19,8 @@ es-MX:
         body: Cuerpo
       report:
         details: Comentarios adicionales
+      taxonomy:
+        name: Nombre de la taxonomía
       user:
         about: Acerca de
         email: Tu correo electrónico
@@ -260,6 +262,13 @@ es-MX:
         create: "%{user_name} creó la página estática %{resource_name}"
         delete: "%{user_name} eliminó la página estática %{resource_name}"
         update: "%{user_name} actualizó la página estática %{resource_name}"
+      taxonomy:
+        create: "%{user_name} ha creado la taxonomía \"%{resource_name}\""
+        create_with_parent: "%{user_name} ha creado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
+        delete: "%{user_name} ha borrado la taxonomía \"%{resource_name}\""
+        delete_with_parent: "%{user_name} ha borrado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
+        update: "%{user_name} ha actualizado la taxonomía \"%{resource_name}\""
+        update_with_parent: "%{user_name} ha actulizado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
       user:
         block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
         invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
@@ -284,7 +293,7 @@ es-MX:
       dismiss: Descartar notificación
     amendments:
       accepted:
-        error: Ocurrió un error al aceptar la enmienda.
+        error: Se ha producido un error al aceptar la enmienda.
         success: La enmienda ha sido aceptada correctamente.
       amendable:
         button: Enmendar %{model_name}
@@ -296,12 +305,8 @@ es-MX:
         title:
           one: "%{count} enmienda"
           other: "%{count} enmiendas"
-      compare_draft:
-        continue: Continuar
-        no_similars_found: No se encontraron enmiendas similares.
-        title: Enmiendas similares
       created:
-        error: Se ha producido un error al crear la enmienda.
+        error: Se ha producido un error al actualizar el borrador de la enmienda.
         success: La enmienda se ha creado correctamente.
       destroy_draft:
         error: Hubo un problema al eliminar el borrador de enmienda.
@@ -358,14 +363,16 @@ es-MX:
       wizard_step_form:
         steps:
           '1': Crea tu enmienda
-          '2': Compara tu enmienda
-          '3': Completa tu enmienda
-          '4': Publicar tu enmienda
+          '2': Publica tu enmienda
     anonymous_user: Anónimo
     application:
       document:
         download: Descargar archivo
+        visit_link: Visita el enlace
       documents:
+        component_documents:
+          dummy: Documentos de componentes ficticios
+          meetings: Documentos sobre encuentros
         documents: Documentos
         related_documents: Documentos relacionados
       photo:
@@ -587,18 +594,21 @@ es-MX:
           complete_profile: Completar perfil
           nickname_help: Tu alias en %{organization}. Solo puede contener letras, números, '-' y '_'.
           sign_up: Por favor, completa tu perfil
-          subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
+          subtitle: Por favor, rellena el siguiente formulario para completar la creación de la cuenta
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
+        new_tos_fields:
+          sign_up: Crear una cuenta
+          sign_up_title: Terminar de crear tu cuenta
       registrations:
         create:
-          error: Hubo un problema al crear tu cuenta.
+          error: Se ha producido un error al crear tu cuenta.
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           log_in: Entra
           newsletter: Quiero recibir un boletín ocasional con información relevante
           newsletter_title: Permiso de contacto
-          sign_up: Regístrate
-          subtitle: Crea una cuenta para poder participar en los debates y apoyar las propuestas.
+          sign_up: Crea una cuenta
+          subtitle: Crea una cuenta para participar en la plataforma.
           terms: los términos y condiciones de uso
           tos_agreement: Al registrarte aceptas %{link}.
           tos_title: Términos de servicio
@@ -608,7 +618,7 @@ es-MX:
           are_you_new?: '¿Eres nuevo en la plataforma?'
           register: Créate una cuenta
           sign_in_disabled: Puedes acceder con una cuenta externa.
-          sign_up_disabled: El registro está deshabilitado, puedes usar una cuenta existente para acceder.
+          sign_up_disabled: La creación de cuentas está deshabilitada, puedes utilizar una cuenta existente para acceder.
         user:
           timed_out: Has estado sin actividad durante demasiado tiempo y tu sesión se ha cerrado automáticamente. Si quieres seguir participando, inicia sesión de nuevo.
       shared:
@@ -813,9 +823,9 @@ es-MX:
           email_subject: Un grupo de usuarias ha actualizado su perfil
           notification_title: El grupo de usuarias %{user_group_name} ha actualizado su perfil perdiendo la verificación. Puedes volver a verificarlo a través del <a href="%{groups_admin_path}">panel de administración</a>.
       nickname_event:
-        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
+        notification_body: Hemos corregido la forma en que se utilizan los alias para que no haya duplicados, para hacerlo ya no se distingue entre mayúsculas y minúsculas.<br/>Tu alias fue creado después de otro igual, así que se ha renombrado automáticamente. Puedes modificarlo desde la <a href="%{link_to_account_settings}">configuración de tu cuenta</a>.
       notification_event:
-        notification_title: Se ha producido un evento a <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Se ha producido un evento en <a href="%{resource_path}">%{resource_title}</a>.
       reports:
         resource_hidden:
           email_intro: Una administradora eliminó su %{resource_type} porque ha sido reportado como %{report_reasons}.
@@ -885,6 +895,11 @@ es-MX:
         button: Dejar de seguir
         error: Ha habido un error dejando de seguir este recurso.
     forms:
+      attachment_link:
+        explanation: Guía para enlaces adjuntos
+        help_messages:
+          - Solo se aceptan formatos de URL correctos.
+          - Por favor, ten en cuenta que los enlaces deben ser públicos para que todas las participantes puedan acceder a ellos.
       errors:
         decidim/user:
           password: La contraseña es demasiado corta.
@@ -920,6 +935,7 @@ es-MX:
           filename: Nombre del archivo
           remove: Eliminar
           replace: Reemplazar
+          save: Guardar
           title: Título
           title_required: '¡Se requiere un título!'
           uploaded: Subido
@@ -1043,7 +1059,7 @@ es-MX:
           content: "<p>En %{organization} puedes participar y decidir sobre diferentes temas, a través de los espacios que ves en el menú superior: Procesos, Asambleas, Iniciativas, Consultas.</p> <p>Dentro de cada uno encontrarás diferentes opciones para participar: hacer propuestas - a nivel individual o con otras personas -, tomar parte en debates, priorizar proyectos a ejecutar, asistir a encuentros presenciales y otras acciones.</p>\n"
           title: '¿Qué puedo hacer en %{organization}?'
         description: Lee más sobre %{organization}.
-        title: Ayuda general
+        title: General
     last_activities:
       all: Todos los tipos de actividad
       index:
@@ -1082,6 +1098,8 @@ es-MX:
           not_found: 'No se encontró el ámbito en la base de datos (ID: %{id})'
         scope_type_presenter:
           not_found: 'No se encontró el tipo de ámbito en la base de datos (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'No se ha encontrado la taxonomía en la base de datos (ID: %{id})'
     managed_users:
       expired_session: La sesión de suplantación actual ha caducado.
     map:
@@ -1239,9 +1257,11 @@ es-MX:
         same_language: El contenido ha sido publicado en tu idioma preferido (%{language}), por eso no se muestra ninguna traducción automática en este correo electrónico.
         translated_text: 'Texto traducido automáticamente:'
     notifications:
+      action_error: Se ha producido un error al actualizar las notificaciones.
       no_notifications: No hay notificaciones aún.
       show:
         missing_event: Vaya, esta notificación pertenece a un elemento que ya no está disponible. Puedes descartarla.
+        moderated: Contenido moderado
     notifications_digest_mailer:
       header:
         daily: Resumen diario de notificaciones
@@ -1258,6 +1278,7 @@ es-MX:
         administrators: Administradoras
         allow_public_contact: Permitir que cualquier participante me envíe un mensaje directo, incluso si no la sigo.
         allow_push_notifications: Mostrar notificaciones emergentes para saber qué pasa cuando no estás en la plataforma. Puedes desactivarlas en cualquier momento.
+        assigned_to_proposal: Quiero recibir un correo electrónico cuando alguien me asigne una propuesta para evaluar
         direct_messages: Recibir mensajes directos de cualquiera
         email_on_moderations: Quiero recibir un correo electrónico cada vez que se reporta algo o a alguien para moderación.
         everything_followed: Todo lo que sigo
@@ -1276,6 +1297,7 @@ es-MX:
         push_notifications_reminder: Para obtener notificaciones de la plataforma, primero tienes que permitirlas en la configuración de tu navegador.
         receive_notifications_about: Quiero recibir notificaciones sobre
         update_notifications_settings: Guardar cambios
+        valuators: Evaluadoras
       update:
         error: Ha habido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se han actualizado correctamente.
@@ -1314,7 +1336,7 @@ es-MX:
           headline: Estado actual de %{organization}
         sub_hero:
           register: Regístrate
-          register_title: Inicia sesión o crea una cuenta
+          register_title: Crea una cuenta
       index:
         standalone_pages: Páginas
         subheading: Navegar por las páginas de ayuda de %{name}
@@ -1380,7 +1402,7 @@ es-MX:
           manage_user_group_admins: Gestionar administradoras
           manage_user_group_users: Gestionar miembros
           message: Mensaje
-          resend_email_confirmation_instructions: Reenvia un correo electrónico con las instrucciones de confirmación
+          resend_email_confirmation_instructions: Reenvía un correo electrónico con las instrucciones de confirmación
         confirmation_instructions_sent: Instrucciones de confirmación enviadas por correo electrónico.
         create_user_group: Crear un grupo
         edit_profile: Editar perfil
@@ -1413,7 +1435,7 @@ es-MX:
         subject: Un contenido ha sido denunciado
     reports:
       create:
-        error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
+        error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
     resource_endorsements:
       create:
@@ -1460,6 +1482,7 @@ es-MX:
         close_modal: Cerrar el modal
         ok: De acuerdo
         title: Confirmar
+      confirm_unload: Esta página contiene cambios sin guardar. ¿Seguro que quieres abandonar esta página?
       embed:
         title: Contenido de vídeo incrustado
       extended_navigation_bar:
@@ -1494,10 +1517,10 @@ es-MX:
       floating_help:
         help: Ayuda
       follow_button:
-        log_in_before_follow: Pro favor, inicia sesión antes de realizar esta acción
+        log_in_before_follow: Por favor, inicia sesión antes de realizar esta acción
       login_modal:
         please_log_in: Por favor, inicia la sesión
-        sign_up: Regístrate
+        sign_up: Crea una cuenta
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
       participatory_space_filters:
@@ -1624,7 +1647,7 @@ es-MX:
       locked: Tu cuenta está bloqueada.
       not_found_in_database: '%{authentication_keys} o contraseña inválida.'
       timeout: Tu sesión expiró. Por favor, vuelve a iniciarla para continuar.
-      unauthenticated: Debes iniciar sesión o registrarte antes de continuar.
+      unauthenticated: Debes iniciar sesión o crear una cuenta antes de continuar.
     invitations:
       edit:
         header: Termina de crear tu cuenta
@@ -1689,6 +1712,7 @@ es-MX:
         message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos fallidos de inicio de sesión.
         subject: Desbloquear instrucciones
     omniauth_callbacks:
+      add_tos_errors: Se tienen que aceptar los términos y condiciones de uso para crear una cuenta.
       failure: No se pudo autenticar desde %{kind} porque "%{reason}".
       success: Se ha autenticado correctamente desde la cuenta %{kind}.
     passwords:
@@ -1711,7 +1735,7 @@ es-MX:
     registrations:
       destroyed: '¡Adiós! Tu cuenta ha sido cancelada exitosamente. Esperamos volverte a ver pronto.'
       new:
-        sign_up: Regístrate
+        sign_up: Crea una cuenta
       signed_up: '¡Bienvenido/a! Te has registrado con éxito.'
       signed_up_but_inactive: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta aún no está activada.
       signed_up_but_locked: Te has registrado con éxito. Sin embargo, no pudimos iniciar sesión porque tu cuenta está bloqueada.
@@ -1732,7 +1756,7 @@ es-MX:
         forgot_your_password: '¿Olvidaste tu contraseña?'
         log_in: Entra
         log_in_with_provider: Inicia sesión con %{provider}
-        sign_up: Regístrate
+        sign_up: Crea una cuenta
       minimum_password_length:
         one: "(%{count} caracteres como mínimo)"
         other: "(%{count} caracteres como mínimo)"
@@ -1809,30 +1833,30 @@ es-MX:
       activity: Actividad
       custom: Personalizado
       flags: Banderas
-      foods: Alimentos y bebidas
+      foods: Comida y bebida
       frequent: Usados frecuentemente
       nature: Animales y naturaleza
       objects: Objetos
-      people: Caras y Personas
+      people: Caras y personas
       places: Viajes y lugares
       search: Resultados de búsqueda
       symbols: Símbolos
     pick: Elige un emoji…
     search: Buscar
     search_no_results_1: '¡Oh no!'
-    search_no_results_2: No se pudo encontrar ese emoticono
+    search_no_results_2: No se pudo encontrar ese emoji
     skins:
       '1': Por defecto
-      '2': Clara
-      '3': Medio clara
-      '4': Media
-      '5': Medio oscura
-      '6': Oscura
+      '2': Claro
+      '3': Medio claro
+      '4': Medio
+      '5': Medio oscuro
+      '6': Oscuro
       choose: Elige un tono de piel predeterminado
   errors:
     messages:
       allowed_file_content_types: 'solo se permiten archivos con las siguientes extensiones: %{types}'
-      already_confirmed: ya ha sido confirmado, por favor, intente iniciar sesión de nuevo
+      already_confirmed: ya ha sido confirmado, por favor, intenta iniciar sesión de nuevo
       blank: no puede estar en blanco
       cannot_be_blank: no puede estar en blanco
       confirmation: no coincide con %{attribute}
@@ -1846,11 +1870,8 @@ es-MX:
       long_words: Contiene palabras que son demasiado largas (más de 35 caracteres)
       must_start_with_caps: Debe comenzar con una letra mayúscula
       nesting_too_deep: no puede estar dentro de una subcategoría
-      not_found: no se pudo encontrar. ¿Te has registrado previamente?
+      not_found: no se pudo encontrar. ¿Has creado una cuenta anteriormente?
       not_locked: No estaba bloqueado
-      not_saved:
-        one: 'Se ha producido un error procesando tu solicitud:'
-        other: 'Hubo varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)
@@ -1931,8 +1952,8 @@ es-MX:
         log_in: Entra
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
         resources: Recursos
-        sign_up: Regístrate
-        terms_and_conditions: Términos y condiciones
+        sign_up: Crea una cuenta
+        terms_of_service: Términos y condiciones de uso
       header:
         log_in: Entra
         main_menu: Menú principal
@@ -1948,10 +1969,6 @@ es-MX:
         mark_as_read: Marcar como leído
       offline_banner:
         cache_version_page: '¡Ups! Tu red está desconectada. Esta es una versión previa en caché de la página que estás visitando, quizás el contenido no está actualizado.'
-      shared:
-        layout_item:
-          next: Siguiente tema
-          prev: Tema anterior
       social_media_links:
         facebook: "%{organization} en Facebook"
         github: "%{organization} en GitHub"

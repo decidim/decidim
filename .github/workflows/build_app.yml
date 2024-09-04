@@ -3,7 +3,7 @@ on:
     inputs:
       ruby_version:
         description: 'Ruby Version'
-        default: "3.2.2"
+        default: "3.3.4"
         type: string
         required: false
       node_version:
@@ -21,7 +21,6 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      RUBYOPT: '-W:no-deprecated'
     services:
       postgres:
         image: postgres:14
@@ -34,19 +33,19 @@ jobs:
         env:
           POSTGRES_PASSWORD: postgres
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
           bundler-cache: true
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ inputs.node_version }}
           cache: 'npm'
           cache-dependency-path: ./package-lock.json
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         id: app-cache
         with:
           path: ./spec/decidim_dummy_app/

@@ -14,7 +14,7 @@ module Decidim
 
     def self.crypt_data
       key = ActiveSupport::KeyGenerator.new("sent_at").generate_key(
-        Rails.application.secrets.secret_key_base, ActiveSupport::MessageEncryptor.key_len
+        Rails.application.secret_key_base, ActiveSupport::MessageEncryptor.key_len
       )
       ActiveSupport::MessageEncryptor.new(key)
     end

@@ -23,6 +23,7 @@ Inside of your application you can customize it in different ways:
 * xref:customize:javascript.adoc[JavaScript]
 * xref:customize:logic.adoc[Logic]
 * xref:customize:menu.adoc[Menu]
+* xref:customize:admin_filters.adoc[Admin filters]
 * xref:customize:oauth.adoc[OAuth]
 * xref:customize:styles.adoc[Styles]
 * xref:customize:texts.adoc[Texts]

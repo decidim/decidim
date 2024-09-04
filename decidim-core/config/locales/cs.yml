@@ -19,6 +19,8 @@ cs:
         body: Tělo zprávy
       report:
         details: Další komentáře
+      taxonomy:
+        name: Název taxonomie
       user:
         about: O nás
         email: Váš email
@@ -286,6 +288,10 @@ cs:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
         update: "%{user_name} aktualizovala %{resource_name} statickou stránku"
+      taxonomy:
+        create: "%{user_name} vytvořil taxonomii %{resource_name}"
+        create_with_parent: "%{user_name} vytvořil taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
+        delete: "%{user_name} odstranil %{resource_name} taxonomii"
       user:
         block: "%{user_name} zablokoval uživatele %{resource_name}"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
@@ -310,7 +316,6 @@ cs:
       dismiss: Odmítnout oznámení
     amendments:
       accepted:
-        error: Při přijímání změny došlo k chybě.
         success: Tento pozměňovací návrh byl úspěšně přijat.
       amendable:
         button: Změna %{model_name}
@@ -324,12 +329,7 @@ cs:
           few: "%{count} pozměňovací návrhy"
           many: "%{count} pozměňovacích návrhů"
           other: "%{count} pozměňovacích návrhů"
-      compare_draft:
-        continue: Pokračovat
-        no_similars_found: Nebyly nalezeny žádné podobné vylepšení.
-        title: Podobná vylepšení
       created:
-        error: Při vytváření pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh byl úspěšně vytvořen.
       destroy_draft:
         error: Při mazání pozměňovacího návrhu došlo k potížím.
@@ -381,19 +381,19 @@ cs:
         error: Při aktualizaci pozměňovacího návrhu došlo k potížím.
         success: Pozměňovací návrh byl úspěšně aktualizován.
       withdraw:
-        error: Došlo k chybě při odebrání pozměňovacího návrhu.
         success: Pozměňovací návrh byl úspěšně stažen.
       wizard_step_form:
         steps:
           '1': Vytvořte svůj pozměňovací návrh
-          '2': Porovnejte váš pozměňovací návrh
-          '3': Dokončete váš pozměňovací návrh
-          '4': Zveřejněte svůj pozměňovací návrh
+          '2': Publikovat svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       document:
         download: Stáhnout soubor
+        visit_link: Navštívit odkaz
       documents:
+        component_documents:
+          meetings: Dokumenty ze schůzky
         documents: Dokumenty
         related_documents: Související dokumenty
       photo:
@@ -621,7 +621,6 @@ cs:
           complete_profile: Dokončit profil
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           sign_up: Prosím, vyplňte svůj profil
-          subtitle: Pro dokončení registrace vyplňte prosím následující formulář
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       registrations:
         create:
@@ -631,8 +630,7 @@ cs:
           log_in: Přihlásit
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
-          sign_up: Zaregistrovat se
-          subtitle: Registrujte se, abyste se mohli účastnit Diskusí a podpořit Návrhy.
+          sign_up: Vytvořit účet
           terms: podmínky poskytování služeb
           tos_agreement: Přihlášením souhlasíte s %{link}.
           tos_title: Smluvní podmínky
@@ -642,7 +640,6 @@ cs:
           are_you_new?: Jste na platformě poprvé?
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
-          sign_up_disabled: Registrace je zakázána, můžete použít existující účet k přístupu.
         user:
           timed_out: Byli jste neaktivní příliš dlouho a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se prosím znovu.
       shared:
@@ -959,6 +956,7 @@ cs:
           filename: Název souboru
           remove: Odebrat
           replace: Nahradit
+          save: Uložit
           title: Název
           title_required: Název je povinný!
           uploaded: Nahráno
@@ -1082,7 +1080,7 @@ cs:
           content: "<p>v %{organization} se můžete zúčastnit a rozhodnout se o různých tématech přes místa, která vidíte v horním menu: procesy, shromáždění, iniciativy, konzultace.</p> <p>V rámci každé z nich najdete různé možnosti účasti: učinit návrhy - jednotlivě nebo s jinými lidmi -, účastnit se debat, upřednostňovat realizaci projektů, účastnit se osobních setkání a dalších akcí.</p>\n"
           title: Co mohu udělat v %{organization}?
         description: Přečtěte si více o %{organization}.
-        title: Obecná nápověda
+        title: Obecné
     last_activities:
       all: Všechny typy aktivit
       index:
@@ -1121,6 +1119,8 @@ cs:
           not_found: 'Oblast působnosti nebyla nalezena v databázi (ID: %{id})'
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Taxonomie nebyla v databázi nalezena (ID: %{id})'
     managed_users:
       expired_session: Aktuální relace správy účastníka vypršela.
     map:
@@ -1315,6 +1315,7 @@ cs:
         push_notifications_reminder: Chcete-li dostávat oznámení z platformy, musíte je nejdříve povolit v nastavení prohlížeče.
         receive_notifications_about: Chci dostávat oznámení
         update_notifications_settings: Uložit změny
+        valuators: Hodnotitelé
       update:
         error: Při aktualizaci nastavení oznámení došlo k chybě.
         success: Nastavení oznámení bylo úspěšně aktualizováno.
@@ -1353,7 +1354,7 @@ cs:
           headline: Aktuální stav %{organization}
         sub_hero:
           register: Registrovat
-          register_title: Zaregistrujte se pro vytvoření účtu
+          register_title: Vytvořit účet
       index:
         standalone_pages: Stránky
         subheading: Procházejte stránky nápovědy %{name}
@@ -1452,7 +1453,6 @@ cs:
         subject: Byl ohlášen zdroj
     reports:
       create:
-        error: Při vytváření shromáždění došlo k chybě. Zkuste to znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
     resource_endorsements:
       create:
@@ -1536,7 +1536,7 @@ cs:
         log_in_before_follow: Před provedením této akce se přihlaste
       login_modal:
         please_log_in: Přihlaste se
-        sign_up: Přihlásit se
+        sign_up: Vytvořit účet
       mentions_modal:
         remove_recipient: Odebrat příjemce %{name}
       participatory_space_filters:
@@ -1663,7 +1663,7 @@ cs:
       locked: Váš účet je uzamčen.
       not_found_in_database: Neplatný %{authentication_keys} nebo heslo.
       timeout: Vaše relace vypršela. Chcete-li pokračovat, přihlaste se znovu.
-      unauthenticated: Před pokračováním se musíte přihlásit nebo se zaregistrovat.
+      unauthenticated: Před pokračováním se musíte přihlásit nebo vytvořit účet.
     invitations:
       edit:
         header: Dokončete vytvoření účtu
@@ -1751,7 +1751,7 @@ cs:
     registrations:
       destroyed: Sbohem! Váš účet byl úspěšně zrušen. Doufáme, že vás brzy uvidíme.
       new:
-        sign_up: Přihlásit se
+        sign_up: Vytvořit účet
       signed_up: Vítejte! Úspěšně jste se zaregistrovali.
       signed_up_but_inactive: Úspěšně jste se zaregistrovali. Nemohli jsme vás však přihlásit, protože váš účet ještě není aktivován.
       signed_up_but_locked: Úspěšně jste se zaregistrovali. Nemohli jsme vás však přihlásit, protože váš účet je uzamčen.
@@ -1772,7 +1772,7 @@ cs:
         forgot_your_password: Zapomněli jste heslo?
         log_in: Přihlásit
         log_in_with_provider: Přihlásit se pomocí %{provider}
-        sign_up: Zaregistrovat se
+        sign_up: Vytvořit účet
       minimum_password_length:
         one: "(Minimálně%{count} znaků)"
         few: "(Minimálně%{count} znaků)"
@@ -1888,13 +1888,7 @@ cs:
       long_words: obsahuje slova, která jsou příliš dlouhá (přes 35 znaků)
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
-      not_found: nemůže být nalezeno. Zaregistrovali jste se dříve?
       not_locked: nebyl uzamčen
-      not_saved:
-        one: 'Při zpracování vašeho požadavku došlo k chybě:'
-        few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
-        many: 'Při zpracování vašeho požadavku došlo k mnoha chybám:'
-        other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)
@@ -1977,8 +1971,8 @@ cs:
         log_in: Přihlásit
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
         resources: Zdroje
-        sign_up: Registrovat
-        terms_and_conditions: Podmínky používání
+        sign_up: Vytvořit účet
+        terms_of_service: Podmínky služby
       header:
         log_in: Přihlásit
         main_menu: Hlavní menu
@@ -1994,10 +1988,6 @@ cs:
         mark_as_read: Označit jako přečtené
       offline_banner:
         cache_version_page: Jejda! Vaše síť je offline. Toto je dříve uložená verze stránky, kterou navštívíte, možná není aktualizovaná.
-      shared:
-        layout_item:
-          next: Další položka
-          prev: Předchozí položka
       social_media_links:
         facebook: "%{organization} na Facebooku"
         github: "%{organization} na GitHubu"

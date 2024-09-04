@@ -38,7 +38,7 @@ fr-CA:
           error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Connectez-vous avec votre compte</a> ou <a href="%{sign_up_url}"> inscrivez-vous </a> pour ajouter votre commentaire.
+        account_message: <a href="%{sign_in_url}">Connectez-vous</a> ou <a href="%{sign_up_url}">créez un compte</a> pour ajouter votre commentaire.
         form:
           body:
             label: Commentaire
@@ -64,13 +64,18 @@ fr-CA:
           against: Contre
           in_favor: Pour
         cancel_reply: Annuler la réponse
+        comment_label: Commentaire %{comment_id}
+        comment_label_reply: Commentaire %{comment_id} (réponse au commentaire %{parent_comment_id})
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce commentaire?
+        controls_label: Contrôles du commentaire
         delete: Supprimer
         deleted_at: Commentaire supprimé le %{date}
         deleted_user: Utilisateur supprimé
         edit: Modifier
         edited: Modifié
-        hide_replies: Cacher les réponses
+        hide_replies:
+          one: Masquer la réponse
+          other: Masquer {count} réponses
         moderated_at: Commentaire modéré le %{date}
         reply: Répondre
         report:
@@ -98,7 +103,6 @@ fr-CA:
       comments:
         blocked_comments_for_unauthorized_user_warning: Vous devez valider votre inscription pour commenter maintenant, mais vous pouvez lire les commentaires précédents.
         blocked_comments_for_user_warning: Vous n'êtes pas en mesure de commenter pour le moment, mais vous pouvez lire les précédents.
-        blocked_comments_warning: Les commentaires sont actuellement désactivés, mais vous pouvez lire ceux déjà saisis.
         comment_details_title: Détails du commentaire
         loading: Chargement des commentaires ...
         single_comment_warning: <a href="%{url}">Voir tous les commentaires</a>

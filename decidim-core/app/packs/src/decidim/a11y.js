@@ -104,6 +104,20 @@ const createDropdown = (component) => {
     });
   }
 
+  // Disable focus on children elements so we can pass the AXE accessibility tests
+  const dropdownMenu = document.getElementById(dropdownOptions.dropdown);
+  if (dropdownMenu.getAttribute("aria-hidden") === "true") {
+    dropdownMenu.
+      querySelectorAll("a, input, button").
+      forEach((element) => { element.tabIndex = -1 })
+  }
+
+  component.addEventListener("click", () => {
+    dropdownMenu.
+      querySelectorAll("a, input, button").
+      forEach((element) => { element.tabIndex = 0 })
+  })
+
   Dropdowns.render(component.id, dropdownOptions);
 }
 

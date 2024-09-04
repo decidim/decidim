@@ -74,7 +74,6 @@ tr:
               accepted: Yeterince imza
               created: Oluşturuldu
               discarded: Yok sayıldı
-              published: Yayınlandı
               rejected: Yeterince imza yok
               validating: Teknik doğrulama
           type_id_eq:
@@ -82,7 +81,6 @@ tr:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} ''ı başlık, açıklama, kimlik veya yazar adına göre arayın.'
       menu:
-        components: Bileşenler
         information: Bilgi
         initiatives: Girişimler
         initiatives_types: Girişim türleri
@@ -247,7 +245,6 @@ tr:
         accepted: Yeterince imza
         created: Oluşturuldu
         discarded: Yok sayıldı
-        published: Yayınlandı
         rejected: Yeterince imza yok
         validating: Teknik doğrulama
       application_helper:
@@ -439,7 +436,6 @@ tr:
           accepted: Yeterince imza
           created: Oluşturuldu
           discarded: Yok sayıldı
-          published: Yayınlandı
           rejected: Yeterince imza yok
           validating: Teknik doğrulama
       states:

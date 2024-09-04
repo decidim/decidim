@@ -22,7 +22,7 @@ ca:
       category:
         description: Descripció
         name: Nom
-        parent_id: Pare
+        parent_id: Categoria mare
         weight: Ordre de posició
       component:
         name: Nom
@@ -109,7 +109,7 @@ ca:
         code: Codi
         name: Nom
         organization: Organització
-        parent_id: Pare
+        parent_id: Àmbit pare
         scope_type: Tipus d'àmbit
         scope_type_id: Tipus d'àmbit
       scope_type:
@@ -187,6 +187,7 @@ ca:
         export: Exportar tot
         export-selection: Exportar selecció
         import: Importar
+        manage: Gestionar
         newsletter:
           new: Nou butlletí
         participatory_space_private_user:
@@ -201,7 +202,7 @@ ca:
         verify: Verificar
       admin_terms_of_service:
         accept:
-          error: S'ha produït un error en acceptar els Termes i Condicions d'administració.
+          error: Hi ha hagut un problema en acceptar els Termes i Condicions d'administració.
           success: Genial! Has acceptat les condicions del servei d'administració.
         actions:
           accept: Estic d'acord amb les condicions
@@ -349,6 +350,8 @@ ca:
       conflicts:
         attempts: Intents
         'false': 'No'
+        index:
+          text: Cercar per correu electrònic, nom o àlies.
         managed_user_name: Usuari gestionat
         solved: Resolt
         title: Conflictes de verificació
@@ -363,7 +366,7 @@ ca:
         user_name: Usuària
       content_blocks:
         create:
-          error: S'ha produït un error creant el bloc de contingut.
+          error: Hi ha hagut un problema creant el bloc de contingut.
           success: El bloc de contingut s'ha creat correctament.
         destroy:
           error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
@@ -449,6 +452,7 @@ ca:
           values:
             'false': Publicat
             'true': Despublicat
+        remove_all: Eliminar tots
         scope_id_eq:
           label: Àmbit
         search_label: Cercar
@@ -465,6 +469,9 @@ ca:
             pending: Pendents
             rejected: Rebutjada
             verified: Verificades
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomia
       forms:
         file_help:
           import:
@@ -569,6 +576,7 @@ ca:
         appearance: Aparença
         area_types: Tipus d'àrees
         areas: Àrees
+        components: Components
         configuration: Configuració
         content: Contingut reportat
         external_domain_allowlist: Dominis externs permesos
@@ -586,6 +594,7 @@ ca:
         settings: Configuració
         static_page_topics: Temes
         static_pages: Pàgines
+        taxonomies: Taxonomies
         user_groups: Grups
         users: Participants
       metrics:
@@ -780,7 +789,7 @@ ca:
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       officializations:
         block:
-          error: S'ha produït un error en bloquejar a la participant.
+          error: Hi ha hagut un problema en bloquejar a la participant.
           success: Participant bloquejada correctament.
         create:
           success: Participant oficialitzada correctament.
@@ -814,7 +823,7 @@ ca:
           show: Mostra
           title: Mostra l'adreça de correu electrònic de la participant
         unblock:
-          error: S'ha produït un error en desbloquejar a la participant.
+          error: Hi ha hagut un problema en desbloquejar a la participant.
           success: Participant desbloquejada correctament.
       organization:
         edit:
@@ -865,7 +874,7 @@ ca:
           remove: Eliminar
           up: Pujar
         form:
-          add:
+          add: Afegeix a la llista de permesos
           title: Llistat de dominis externs permesos
       participatory_space_private_users:
         create:
@@ -962,6 +971,11 @@ ca:
           help: Aquests tokens s'utilitzen per a compartir públicament aquest recurs no publicat a qualsevol usuari. S'ocultaran quan es publiqui el recurs. Fes clic en la icona de compartir el token per a visitar la URL compartible.
           title: Compartir tokens
       shared:
+        adjacent_navigation:
+          next: Següent
+          next_title: Següent element
+          previous: Anterior
+          previous_title: Element anterior
         gallery:
           add_images: Afegir imatges
           edit_images: Editar imatges
@@ -1008,6 +1022,51 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
           success: La pàgina s'ha actualitzat correctament.
+      taxonomies:
+        actions: Accions
+        amount: Import
+        count: Recompte
+        create:
+          invalid: S'ha produït un error en crear aquesta taxonomia.
+          success: Taxonomia creada correctament.
+        destroy:
+          invalid: S'ha produït un error en eliminar aquesta taxonomia.
+          success: Taxonomia eliminada correctament.
+        edit:
+          back: Enrere
+          description: Els elements d'aquesta taxonomia es faran servir per a classificar o filtrar recursos, com ara espais de participació o components. Pots endreçar el llistat arrossegant els elements.
+          new_item: Nou element
+          no_items: Actualment no hi ha elements en aquesta taxonomia. Crea una llista d'elements per classificar o filtrar recursos, com ara espais participatius o components. Els elements es poden niar fins a tres nivells.
+          subtitle: Elements a %{taxonomy_name}"
+          title: Editar la taxonomina "%{taxonomy_name}"
+          update: Actualitzar
+        filters:
+          search_placeholder: Cercar
+        index:
+          description: Una taxonomia permet a les administradores categoritzar i organitzar-ne el contingut. Per exemple, afegir una taxonomia per classificar processos per àmbit geogràfic.
+          new_taxonomy: Nova taxonomia
+          no_items_found: No s'han trobat taxonomies que coincideixin amb els criteris de cerca.
+        name: Nom
+        new:
+          create: Crear taxonomia
+          title: Nova taxonomia
+        no_taxonomies: Actualment no hi ha taxonomies. Crea una llista de taxonomies i defineix-ne els elements per classificar o filtrar recursos.
+        table:
+          to_next_page: Passa a la pàgina següent
+          to_prev_page: Passa a la pàgina anterior
+        taxonomy_actions:
+          confirm_destroy: Segur que vols eliminar "%{name}"? També s'eliminaran tots els elements inclosos en aquesta.
+        update:
+          invalid: S'ha produït un error en actualitzar aquesta taxonomia.
+          success: Taxonomia actualitzada correctament.
+      taxonomy_items:
+        edit:
+          title: Editar element a "%{taxonomy}"
+          update: Actualitza l'element
+        new:
+          create: Crea un element
+          none: Cap
+          title: Editar element a "%{taxonomy}"
       titles:
         admin_log: Registre d'administració
         area_types: Tipus d'àrees
@@ -1028,6 +1087,7 @@ ca:
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         statistics: Activitat
+        taxonomies: Taxonomies
         user_groups: Grups
         users: Administradores
       user_group:

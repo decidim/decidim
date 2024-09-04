@@ -21,9 +21,6 @@ ro:
               too_long: este prea lung
             choices:
               missing: nu sunt completate
-              too_many: sunt prea multe
-        questionnaire:
-          request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou.
   decidim:
     forms:
       admin:
@@ -157,7 +154,6 @@ ro:
           answer_questionnaire:
             already_have_an_account?: Ai deja un cont?
             are_you_new?: Utilizator nou?
-            sign_in_description: Autentifică-te pentru a participa la sondaj
             sign_up_description: Creați un cont de participant pentru a participa la sondaj
             title: Completează chestionarul
           current_step: Pasul %{step}

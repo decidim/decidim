@@ -117,6 +117,7 @@ sk:
       actions:
         add: Pridať
         browse: Prechádzať
+        manage: Správa
         per_page: Na stranu
         permissions: Práva
         reject: Odmietnuť
@@ -602,6 +603,8 @@ sk:
           without_topic: Stránky bez témy
         update:
           error: Pri aktualizácii stránky nastala chyba.
+      taxonomies:
+        count: Počet
       titles:
         admin_log: Záznam činnosti admina
         area_types: Typy oblastí

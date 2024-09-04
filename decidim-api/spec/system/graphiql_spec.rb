@@ -22,9 +22,9 @@ describe "GraphiQL" do
       )
     end
 
-    it "forces the user to login" do
+    it "forces the user to log in" do
       expect(page).to have_current_path("/users/sign_in")
-      expect(page).to have_content("Please, login with your account before access")
+      expect(page).to have_content("Please, log in with your account before access")
     end
   end
 

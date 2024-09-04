@@ -355,8 +355,8 @@ module Decidim
       # Public: Can accumulate more votes than maximum for this proposal.
       #
       # Returns true if can accumulate, false otherwise
-      def can_accumulate_supports_beyond_threshold
-        component.settings.can_accumulate_supports_beyond_threshold
+      def can_accumulate_votes_beyond_threshold
+        component.settings.can_accumulate_votes_beyond_threshold
       end
 
       # Checks whether the user can edit the given proposal.
@@ -476,8 +476,18 @@ module Decidim
         return true if draft?
         return true if component.settings.proposal_edit_time == "infinite"
 
-        limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
-        Time.current < limit
+        time_value, time_unit = component.settings.edit_time
+
+        limit_time = case time_unit
+                     when "minutes"
+                       updated_at + time_value.minutes
+                     when "hours"
+                       updated_at + time_value.hours
+                     else
+                       updated_at + time_value.days
+                     end
+
+        Time.current < limit_time
       end
 
       def process_amendment_state_change!
@@ -488,6 +498,47 @@ module Decidim
           assign_state(amendment.state)
           update!(state_published_at: Time.current)
         end
+      end
+
+      def user_has_actions?(user)
+        return false if authors.include?(user)
+        return false if user&.blocked?
+        return false if user&.deleted?
+        return false unless user&.confirmed?
+
+        true
+      end
+
+      def actions_for_comment(comment, current_user)
+        return if comment.commentable != self
+        return unless authors.include?(current_user)
+        return unless user_has_actions?(comment.author)
+
+        if coauthor_invitations_for(comment.author).any?
+          [
+            {
+              label: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation"),
+              url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: id, id: comment.author.id),
+              icon: "user-forbid-line",
+              method: :delete,
+              data: { confirm: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation_confirm") }
+            }
+          ]
+        else
+          [
+            {
+              label: I18n.t("decidim.proposals.actions.mark_as_coauthor"),
+              url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: id, id: comment.author.id),
+              icon: "user-add-line",
+              method: :post,
+              data: { confirm: I18n.t("decidim.proposals.actions.mark_as_coauthor_confirm") }
+            }
+          ]
+        end
+      end
+
+      def coauthor_invitations_for(user)
+        Decidim::Notification.where(event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: self, user:)
       end
 
       private

@@ -18,10 +18,6 @@ FactoryBot.define do
     settings do
       {
         intro: generate_localized_description(:accountability_component_intro, skip_injection:),
-        categories_label: generate_localized_word(:accountability_component_categories_label, skip_injection:),
-        subcategories_label: generate_localized_word(:accountability_component_subcategories_label, skip_injection:),
-        heading_parent_level_results: generate_localized_word(:accountability_component_heading_parent_level_results, skip_injection:),
-        heading_leaf_level_results: generate_localized_word(:accountability_component_heading_leaf_level_results, skip_injection:),
         scopes_enabled: true,
         scope_id: participatory_space.scope&.id
       }
@@ -48,7 +44,7 @@ FactoryBot.define do
     description { generate_localized_description(:result_description, skip_injection:) }
     start_date { "12/7/2017" }
     end_date { "30/9/2017" }
-    status { create :status, component:, skip_injection: }
+    status { create(:status, component:, skip_injection:) }
     progress { rand(1..100) }
   end
 

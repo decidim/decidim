@@ -269,7 +269,6 @@ pt-BR:
       dismiss: Limpar notificação
     amendments:
       accepted:
-        error: Ocorreu um erro ao aceitar a alteração.
         success: A emenda foi aceita com sucesso.
       amendable:
         button: Emendar %{model_name}
@@ -280,12 +279,7 @@ pt-BR:
         title:
           one: "%{count} comentário"
           other: "%{count} comentários"
-      compare_draft:
-        continue: Continuar
-        no_similars_found: Não foram encontradas emendas similares.
-        title: Emendas similares
       created:
-        error: Ocorreu um erro ao criar o rascunho da alteração.
         success: A proposta de alteração foi criada com êxito.
       destroy_draft:
         error: Houve um problema ao excluir o rascunho de alteração.
@@ -333,9 +327,6 @@ pt-BR:
       wizard_step_form:
         steps:
           '1': Crie sua emenda
-          '2': Compare sua alteração
-          '3': Completar sua alteração
-          '4': Publique sua alteração
     anonymous_user: Anônimo
     application:
       document:
@@ -522,7 +513,6 @@ pt-BR:
           complete_profile: Complete o seu perfil
           nickname_help: Seu alias em %{organization}. Só pode conter letras, números, '-' e '_'.
           sign_up: Por favor, complete o seu perfil
-          subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       registrations:
         create:
@@ -532,8 +522,6 @@ pt-BR:
           log_in: Iniciar sessão
           newsletter: Receba um boletim informativo ocasional com informações relevantes
           newsletter_title: Permissão de contato
-          sign_up: Inscreva-se
-          subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           tos_agreement: Ao cadastrar-se, aceita %{link}.
           tos_title: Termos de serviço
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -927,7 +915,6 @@ pt-BR:
         default_page:
           content: "<p>Em %{organization} você pode participar e decidir sobre diferentes tópicos, através dos espaços que você vê no menu superior: Processos, Assembleias, Iniciativas, Consultas.</p> <p>Dentro de cada um você encontrará diferentes opções para participar: fazer propostas - individualmente ou com outras pessoas -, participar de debates, priorizar projetos a serem implementados, participar de reuniões presenciais e outras ações.</p>\n"
           title: O que posso fazer em %{organization}?
-        title: Ajuda Geral
     last_activities:
       all: Todos os tipos de atividade
       index:
@@ -1150,7 +1137,6 @@ pt-BR:
           headline: Estado atual de %{organization}
         sub_hero:
           register: Registrar-se
-          register_title: Cadastre-se para criar uma conta
       index:
         standalone_pages: Páginas
         subheading: Navegue pelas páginas de ajuda de %{name}
@@ -1220,7 +1206,6 @@ pt-BR:
         subject: Um recurso foi relatado
     reports:
       create:
-        error: Ocorreu um erro ao criar o relatório. Por favor, tente novamente.
         success: O relatório foi criado com sucesso e será revisto por um administrador.
     resource_endorsements:
       create:
@@ -1290,8 +1275,6 @@ pt-BR:
         title: Denunciar usuário inapropriado
       floating_help:
         help: Ajuda
-      login_modal:
-        sign_up: Cadastrar-se
       mentions_modal:
         remove_recipient: Remover destinatário %{name}
       participatory_space_filters:
@@ -1464,8 +1447,6 @@ pt-BR:
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
       destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
-      new:
-        sign_up: Cadastrar-se
       signed_up: Bem vinda! Você se inscreveu com sucesso.
       signed_up_but_inactive: Você se inscreveu com sucesso. No entanto, não poderíamos fazer o seu login porque sua conta ainda não está ativada.
       signed_up_but_locked: Você se inscreveu com sucesso. No entanto, não poderíamos fazer login porque sua conta está bloqueada.
@@ -1483,7 +1464,6 @@ pt-BR:
         forgot_your_password: Esqueceu sua senha?
         log_in: Iniciar sessão
         log_in_with_provider: Iniciar sessão com %{provider}
-        sign_up: Cadastrar-se
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
         other: "(%{count} caracteres no mínimo)"
@@ -1510,11 +1490,7 @@ pt-BR:
       invalid_time_zone: não é um fuso horário válido
       long_words: contém palavras muito longas (mais de 35 caracteres)
       must_start_with_caps: deve começar com letra maiúscula
-      not_found: não pôde ser encontrado. Você se inscreveu anteriormente?
       not_locked: não estava trancado
-      not_saved:
-        one: 'Houve um erro ao processar seu pedido:'
-        other: 'Houve erros múltiplos ao processar sua solicitação:'
       too_many_marks: está usando muitos sinais de pontuação consecutivos (por exemplo,! e?)
       too_much_caps: está usando muitas letras maiúsculas (mais de 25% do texto)
       too_short: é muito curto (menos de 15 caracteres)
@@ -1591,8 +1567,6 @@ pt-BR:
         log_in: Iniciar sessão
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         resources: Recursos
-        sign_up: Cadastre-se
-        terms_and_conditions: Termos e Condições
       header:
         log_in: Iniciar sessão
         main_menu: Menu principal

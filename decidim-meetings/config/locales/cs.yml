@@ -372,6 +372,13 @@ cs:
           update:
             invalid: Při aktualizaci této schůze došlo k chybě.
             success: Anketa ke schůzi byla úspěšně aktualizována.
+        poll:
+          form:
+            announcement_html:
+              - 
+              - Otázku můžete kdykoliv přidat.
+              - 
+              - 
         registrations:
           edit:
             save: Uložit
@@ -435,7 +442,7 @@ cs:
           body: Schůzka <a href="%{meeting_path}">"%{meeting_title}"</a> čeká na ukončení. Přidejte prosím zprávu o schůzce pomocí tlačítka "Zavřít schůzku".
           greetings: Dobrý den,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Dobrý den %{username},
-          subject: Nyní můžete svou schůzku uzavřít se zprávou o platformě %{organization_name}
+          subject: Nyní můžete schůzku "%{meeting_title}" ukončit s hlášením
       conference_venues: Konferenční prostory
       content_blocks:
         upcoming_meetings:
@@ -452,16 +459,13 @@ cs:
       iframe_embed_type:
         embed_in_meeting_page: Vložit do stránky schůzky
         none: Žádný
-        open_in_live_event_page: Otevřít na stránce živé události (s volitelnými anketami)
         open_in_new_tab: Otevřít URL v nové kartě
       last_activity:
         meeting_updated: 'Schůze aktualizována:'
         new_meeting: 'Nová schůze:'
       layouts:
         live_event:
-          administrate: Spravovat
           close: zavřít
-          questions: Otázky
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -604,13 +608,19 @@ cs:
             start_time: Datum zahájení
             title: Titul
       polls:
+        answers:
+          index:
+            administrate: Spravovat
+            title: Anketa
+          index_admin:
+            back_to_meeting: Zpět na schůzku
         questions:
           closed_question:
-            question_results: Výsledky otázek
+            question: Otázka
+            question_results: Výsledky
           index:
             empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
           index_admin:
-            admin_dashboard: Řídicí panel administrace
             edit: Upravit v panelu administrace
             question: Otázka
             received_answer: přijatá odpověď
@@ -618,6 +628,9 @@ cs:
             results: Výsledky
             send: Odeslat
             sent: Odesláno
+            statuses:
+              closed: Výsledky byly odeslány (uzavřeny)
+              unpublished: Čeká na odeslání
           published_question:
             max_choices_alert: Je vybráno příliš mnoho možností
             question: Otázka
@@ -660,7 +673,6 @@ cs:
         transparent: Průhledný
         withdraw: Staženo
       withdraw:
-        error: Došlo k chybě při stahování schůzky.
         success: Schůzka byla úspěšně stažena.
     metrics:
       meetings:

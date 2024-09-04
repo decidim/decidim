@@ -73,7 +73,6 @@ lt:
         deleted_user: Ištrintas dalyvis
         edit: Redaguoti
         edited: Redaguota
-        hide_replies: Paslėpti atsakymus
         moderated_at: Komentaras moderuotas %{date}
         reply: Atsakyti
         report:
@@ -103,7 +102,6 @@ lt:
       comments:
         blocked_comments_for_unauthorized_user_warning: Norėdami komentuoti turite būti patvirtintas(-a), tačiau galite skaityti egzistuojančius komentarus.
         blocked_comments_for_user_warning: Šiuo metu komentarų pateikti negalite, tačiau galite perskaityti ankstesnius komentarus.
-        blocked_comments_warning: Komentarai šiuo metu išjungti, tačiau galite perskaityti ankstesnius komentarus.
         comment_details_title: Komentaro detalės
         loading: Komentarai įkeliami...
         single_comment_warning: <a href="%{url}">Peržiūrėti visus komentarus</a>

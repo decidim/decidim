@@ -11,7 +11,7 @@ module Decidim
       with_user(admin) do
         mail(to: admin.email, subject: I18n.t(
           "decidim.user_report_mailer.notify.subject",
-          organization_name: report.moderation.user.organization.name,
+          organization_name: organization_name(report.moderation.user.organization),
           reason: @report.reason
         ))
       end

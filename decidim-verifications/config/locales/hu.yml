@@ -39,7 +39,6 @@ hu:
           destroy:
             confirm: A dátum előtti engedélyek visszavonása nem vonható vissza. Biztos, hogy folytatni szeretné?
             confirm_all: Az összes jogosultság visszavonása nem vonható vissza. Biztos, hogy folytatni szeretné?
-          destroy_nok: A felhatalmazások visszavonása során probléma merült fel.
           destroy_ok: Az összes egyező engedélyt sikeresen visszavonták.
           info: Összesen %{count} ellenőrzött résztvevő.
           no_data: Nincsenek ellenőrzött résztvevők.
@@ -132,7 +131,6 @@ hu:
         admin:
           census:
             create:
-              error: Hiba történt a névjegyzék importálásakor.
               success: Sikeresen importált %{count} elemet (%{errors} hiba).
             destroy_all:
               success: Minden névjegyzéki adatot töröltek.

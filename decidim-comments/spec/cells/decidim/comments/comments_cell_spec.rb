@@ -21,7 +21,7 @@ module Decidim::Comments
         expect(subject).to have_css(".flash.primary.loading-comments", text: "Loading comments ...")
         expect(subject).to have_no_content(comment.body.values.first)
         expect(subject).to have_css(".add-comment")
-        expect(subject).to have_content("Log in with your account or sign up to add your comment.")
+        expect(subject).to have_content("Log in or create an account to add your comment.")
 
         {
           best_rated: "Best rated",
@@ -101,12 +101,45 @@ module Decidim::Comments
           before do
             comment # Create the comment before disabling comments
             allow(commentable).to receive(:accepts_new_comments?).and_return(false)
-            allow(commentable).to receive(:user_allowed_to_comment?).with(current_user).and_return(false)
+            allow(commentable).to receive(:user_allowed_to_comment?).with(current_user).and_return(true)
           end
 
           it "renders the comments blocked warning" do
             expect(subject).to have_css(".flash.warning", text: I18n.t("decidim.components.comments.blocked_comments_warning"))
             expect(subject).to have_no_css(".flash.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
+            expect(subject).to have_no_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
+          end
+
+          context "and the user is an admin" do
+            let(:current_user) { create(:user, :admin, :confirmed, organization: component.organization) }
+
+            it "renders add comment" do
+              expect(subject).to have_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
+            end
+          end
+
+          context "and the user is a user manager" do
+            let(:current_user) { create(:user, :user_manager, :confirmed, organization: component.organization) }
+
+            it "renders add comment" do
+              expect(subject).to have_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
+            end
+          end
+
+          context "and the user is a valuator in the same participatory space" do
+            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :valuator) }
+
+            it "renders add comment" do
+              expect(subject).to have_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
+            end
+          end
+
+          context "and the user is a valuator in a different participatory space" do
+            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, role: :valuator) }
+
+            it "does not render add comment" do
+              expect(subject).to have_no_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
+            end
           end
         end
 

@@ -19,6 +19,8 @@ ja:
         body: 本文
       report:
         details: 追加コメント
+      taxonomy:
+        name: タクソノミー名
       user:
         about: 私について
         email: あなたのメールアドレス
@@ -247,6 +249,13 @@ ja:
         create: "%{user_name} が %{resource_name} の静的ページを作成しました"
         delete: "%{user_name} が %{resource_name} の静的ページを削除しました"
         update: "%{user_name} は %{resource_name} 静的ページを更新しました"
+      taxonomy:
+        create: "%{user_name} がタクソノミー %{resource_name} を作成しました"
+        create_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内にタクソノミー %{resource_name} を作成しました"
+        delete: "%{user_name} がタクソノミー %{resource_name} を削除しました"
+        delete_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を削除しました"
+        update: "%{user_name} がタクソノミー %{resource_name} を更新しました"
+        update_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を更新しました"
       user:
         block: "%{user_name} がユーザー %{resource_name} をブロックしました"
         invite: "%{user_name} が参加者 %{resource_name} をロール %{role} で招待しました"
@@ -271,23 +280,19 @@ ja:
       dismiss: 通知を消去
     amendments:
       accepted:
-        error: 修正を承認中にエラーが発生しました。
+        error: 修正を受け入れる際に問題が発生しました。
         success: 修正が正常に受け入れられました。
       amendable:
         button: '%{model_name} を修正'
-        error: リソースの修正中にエラーが発生しました。
+        error: リソースの修正中に問題が発生しました。
         promote_button: '%{model_name} に昇格'
         promote_confirm_text: この修正を承認してもよろしいですか？
         promote_help_text: この修正を促進し、独立した%{model_name} として公開できます。
       amendments:
         title:
           other: "%{count} 件の修正"
-      compare_draft:
-        continue: 続ける
-        no_similars_found: 似たような表現は見つかりません。
-        title: 似たような訂正
       created:
-        error: 修正案の作成中にエラーが発生しました。
+        error: 修正案の作成中に問題が発生しました。
         success: 修正案が正常に作成されました。
       destroy_draft:
         error: 修正案を削除中に問題が発生しました。
@@ -339,19 +344,21 @@ ja:
         error: 修正案の更新中に問題が発生しました。
         success: 修正の下書きが正常に更新されました。
       withdraw:
-        error: 修正の撤回中にエラーが発生しました。
+        error: 修正案の取り消し中に問題がありました。
         success: 修正を撤回しました。
       wizard_step_form:
         steps:
           '1': 修正を作成する
-          '2': 修正内容を比較
-          '3': 修正を完了する
-          '4': 修正内容を公開
+          '2': 修正を公開
     anonymous_user: 匿名です
     application:
       document:
         download: ファイルをダウンロード
+        visit_link: リンクを開く
       documents:
+        component_documents:
+          dummy: ダミーコンポーネントドキュメント
+          meetings: ミーティングドキュメント
         documents: ドキュメント
         related_documents: 関連ドキュメント
       photo:
@@ -553,7 +560,7 @@ ja:
         name: サブヒーローバナー
     core:
       actions:
-        login_before_access: アクセスする前に、あなたのアカウントでログインしてください。
+        login_before_access: アクセスする前にログインしてください。
         unauthorized: この操作を実行する権限がありません。
       application_helper:
         filter_area_values:
@@ -570,8 +577,11 @@ ja:
           complete_profile: プロファイルを完了
           nickname_help: '%{organization} でのニックネームです。文字、数字、''-'' および ''_'' のみを使用できます。'
           sign_up: プロフィールを完成してください
-          subtitle: ユーザ登録を完了するには、次のフォームに記入してください
+          subtitle: アカウントの作成を完了するため、次のフォームに記入してください
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
+        new_tos_fields:
+          sign_up: アカウントを作成
+          sign_up_title: アカウントの作成を完了する
       registrations:
         create:
           error: アカウント作成中に問題が発生しました。
@@ -580,8 +590,8 @@ ja:
           log_in: ログイン
           newsletter: 関連するお知らせを受け取る
           newsletter_title: ニュースレターを受け取る
-          sign_up: 新規登録
-          subtitle: 参加するにはユーザ登録をしてください。
+          sign_up: アカウントを作成
+          subtitle: プラットフォームに参加するアカウントを作成します。
           terms: 利用規約
           tos_agreement: ユーザ登録することで、 %{link} に同意したことになります。
           tos_title: 利用規約
@@ -591,7 +601,7 @@ ja:
           are_you_new?: プラットフォームは初めてですか？
           register: アカウントを作成
           sign_in_disabled: 外部アカウントでアクセスできます。
-          sign_up_disabled: 新規登録は無効になっています。既存のアカウントを使用してアクセスすることができます。
+          sign_up_disabled: アカウントの作成が無効になっています。既存のアカウントを使用してアクセスできます。
         user:
           timed_out: 長時間非アクティブであり、自動的にサービスからログアウトされました。 引き続きサービスをご利用いただく場合は、再度ログインしてください。
       shared:
@@ -864,6 +874,11 @@ ja:
         button: フォローを停止
         error: リソースのフォローを解除する際に問題が発生しました。
     forms:
+      attachment_link:
+        explanation: 添付ファイルへのリンクのガイド
+        help_messages:
+          - 正しいURL形式のみ入力できます
+          - リンクは公開されているものでなければならないので、すべての参加者がアクセスできるようにしてください。
       errors:
         decidim/user:
           password: パスワードが短すぎます。
@@ -899,6 +914,7 @@ ja:
           filename: ファイル名
           remove: 削除
           replace: 置換
+          save: 保存
           title: タイトル
           title_required: タイトルが必要です
           uploaded: アップロード済
@@ -1022,7 +1038,7 @@ ja:
           content: "<p>%{organization} では、トップメニューにあるスペース（参加型プロセスや参加スペース、取り組み、議案）から、さまざまなトピックに参加したり、決定したりすることができます。</p> <p>それぞれのスペースには、参加するためのさまざまなオプションが用意されています: （個人または他の人と一緒に）提案をする 、ディベートに参加する、実施するプロジェクトの優先順位を決める、対面ミーティングに出席する、その他のアクションを行う等。</p>\n"
           title: '%{organization} で何ができますか？'
         description: '%{organization} についてもっと読む'
-        title: 一般的なヘルプ
+        title: 全般
     last_activities:
       all: すべてのアクティビティ種別
       index:
@@ -1061,6 +1077,8 @@ ja:
           not_found: 'スコープがデータベース上に見つかりませんでした (ID: %{id})'
         scope_type_presenter:
           not_found: 'スコープ種別がデータベース上に見つかりませんでした (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'データベース内にタクソノミーが見つかりませんでした (ID: %{id})'
     managed_users:
       expired_session: 参加者の現在の管理セッションの有効期限が切れています。
     map:
@@ -1218,9 +1236,11 @@ ja:
         same_language: コンテンツはあなたの設定された言語(%{language}) で投稿されました。このため、このメールには自動翻訳は表示されません。
         translated_text: '自動翻訳されたテキスト:'
     notifications:
+      action_error: 通知の更新中に問題が発生しました。
       no_notifications: まだ通知はありません。
       show:
         missing_event: この通知は利用できなくなった要素に属しています。破棄してください。
+        moderated: モデレートされたコンテンツ
     notifications_digest_mailer:
       header:
         daily: 日次の通知のダイジェスト
@@ -1237,6 +1257,7 @@ ja:
         administrators: 管理者
         allow_public_contact: 私をフォローしていないユーザーからでもダイレクトメッセージを送信できます
         allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取ります。いつでもオフにできます。
+        assigned_to_proposal: 誰かが私に提案の評価を割り当てた際に、メールを受信したいです
         direct_messages: ダイレクトメッセージを受信する
         email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
         everything_followed: 自分がフォローしているすべて
@@ -1255,6 +1276,7 @@ ja:
         push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で通知を許可する必要があります。
         receive_notifications_about: 通知を受け取りたい
         update_notifications_settings: 変更を保存
+        valuators: 評価者
       update:
         error: 通知設定の更新中に問題が発生しました。
         success: 通知設定が正常に更新されました。
@@ -1293,7 +1315,7 @@ ja:
           headline: '%{organization} の現在の状態'
         sub_hero:
           register: 登録
-          register_title: サインアップしてアカウントを作成
+          register_title: アカウントを作成
       index:
         standalone_pages: ページ
         subheading: '%{name} のヘルプページをナビゲートします'
@@ -1392,7 +1414,7 @@ ja:
         subject: リソースが報告されました
     reports:
       create:
-        error: レポートの作成中にエラーが発生しました。もう一度やり直してください。
+        error: レポートの作成中に問題が発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
     resource_endorsements:
       create:
@@ -1439,6 +1461,7 @@ ja:
         close_modal: ウィンドウを閉じる
         ok: OK
         title: 確定
+      confirm_unload: このページには保存されていない変更が含まれています。このページから移動してもよいですか？
       embed:
         title: 埋め込み動画コンテンツ
       extended_navigation_bar:
@@ -1476,7 +1499,7 @@ ja:
         log_in_before_follow: このアクションを実行する前にログインしてください
       login_modal:
         please_log_in: ログインしてください
-        sign_up: 新規登録
+        sign_up: アカウントを作成
       mentions_modal:
         remove_recipient: 受信者 %{name} を削除
       participatory_space_filters:
@@ -1603,7 +1626,7 @@ ja:
       locked: あなたのアカウントはロックされています。
       not_found_in_database: '%{authentication_keys} またはパスワードが無効です。'
       timeout: セッションの有効期限が切れました。再度ログインしてください。
-      unauthenticated: 続行する前にログインまたはサインアップする必要があります。
+      unauthenticated: 続行するにはログインするか、またはアカウントを作成する必要があります。
     invitations:
       edit:
         header: アカウントの作成を完了する
@@ -1668,6 +1691,7 @@ ja:
         message: あなたのアカウントは、ログインに失敗した回数が多すぎるためロックされています。
         subject: 説明のロックを解除する
     omniauth_callbacks:
+      add_tos_errors: アカウントを作成するには、利用規約に同意する必要があります。
       failure: '「 %{kind} 」のため、%{reason}から認証できませんでした。'
       success: '%{kind} アカウントから正常に認証されました。'
     passwords:
@@ -1690,7 +1714,7 @@ ja:
     registrations:
       destroyed: お客様のアカウントは正常にキャンセルされました。しばらくお待ちください。
       new:
-        sign_up: 新規登録
+        sign_up: アカウントを作成
       signed_up: ようこそ！正常に登録完了しました。
       signed_up_but_inactive: 登録が完了しました。ただし、アカウントが有効化されていないため、ログインできませんでした。
       signed_up_but_locked: 登録完了しましたが、アカウントがロックされているため、ログインできませんでした。
@@ -1711,7 +1735,7 @@ ja:
         forgot_your_password: パスワードをお忘れですか？
         log_in: ログイン
         log_in_with_provider: '%{provider} でログイン'
-        sign_up: 新規登録
+        sign_up: アカウントを作成
       minimum_password_length:
         other: "(%{count} 文字以上)"
     unlocks:
@@ -1824,10 +1848,10 @@ ja:
       long_words: には長すぎる単語が含まれています（35文字以上）
       must_start_with_caps: 先頭は大文字でなければなりません
       nesting_too_deep: サブカテゴリ内にすることはできません
-      not_found: 見つかりませんでした。以前に登録しましたか？
+      not_found: 見つかりませんでした。以前にアカウントを作成されましたか？
       not_locked: ロックされていません
       not_saved:
-        other: 'リクエストの処理中に複数のエラーが発生しました:'
+        other: 'リクエストの処理中にエラーが発生しました:'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
       too_short: は短すぎます( %{count} 文字以下)
@@ -1907,8 +1931,8 @@ ja:
         log_in: ログイン
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
         resources: リソース
-        sign_up: 新規登録
-        terms_and_conditions: 利用規約
+        sign_up: アカウントを作成
+        terms_of_service: 利用規約
       header:
         log_in: ログイン
         main_menu: メインメニュー
@@ -1924,10 +1948,6 @@ ja:
         mark_as_read: 既読にする
       offline_banner:
         cache_version_page: 注意：あなたのネットワークはオフラインです。これは以前にアクセスしているページのキャッシュされたバージョンです。おそらくコンテンツが最新ではありません。
-      shared:
-        layout_item:
-          next: 次のアイテム
-          prev: 前のアイテム
       social_media_links:
         facebook: "Facebook の %{organization}"
         github: "GitHub の %{organization}"

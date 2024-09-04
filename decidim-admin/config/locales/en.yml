@@ -188,6 +188,7 @@ en:
         export: Export all
         export-selection: Export selection
         import: Import
+        manage: Manage
         newsletter:
           new: New newsletter
         participatory_space_private_user:
@@ -202,7 +203,7 @@ en:
         verify: Verify
       admin_terms_of_service:
         accept:
-          error: There was an error while accepting the admin terms of service.
+          error: There was a problem while accepting the admin terms of service.
           success: Great! You have accepted the admin terms of service.
         actions:
           accept: I agree with the terms
@@ -350,6 +351,8 @@ en:
       conflicts:
         attempts: Attempts
         'false': 'No'
+        index:
+          text: Search by current user email, name or nickname.
         managed_user_name: Managed User
         solved: Solved
         title: Verification conflicts
@@ -364,7 +367,7 @@ en:
         user_name: User
       content_blocks:
         create:
-          error: There was an error while creating the content block.
+          error: There was a problem while creating the content block.
           success: Content block successfully created.
         destroy:
           error: There was a problem trying to delete this content block.
@@ -450,6 +453,7 @@ en:
           values:
             'false': Published
             'true': Unpublished
+        remove_all: Remove all
         scope_id_eq:
           label: Scope
         search_label: Search
@@ -466,6 +470,9 @@ en:
             pending: Pending
             rejected: Rejected
             verified: Verified
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomy
       forms:
         file_help:
           import:
@@ -570,6 +577,7 @@ en:
         appearance: Appearance
         area_types: Area types
         areas: Areas
+        components: Components
         configuration: Configuration
         content: Reported content
         external_domain_allowlist: Allowed external domains
@@ -587,6 +595,7 @@ en:
         settings: Settings
         static_page_topics: Topics
         static_pages: Pages
+        taxonomies: Taxonomies
         user_groups: Groups
         users: Participants
       metrics:
@@ -781,7 +790,7 @@ en:
           success: Newsletter updated successfully. Please review it before sending.
       officializations:
         block:
-          error: There was an error blocking the participant.
+          error: There was a problem blocking the participant.
           success: Participant successfully blocked.
         create:
           success: Participant successfully officialized.
@@ -815,7 +824,7 @@ en:
           show: Show
           title: Show participant's email address
         unblock:
-          error: There was an error unblocking the participant.
+          error: There was a problem unblocking the participant.
           success: Participant successfully unblocked.
       organization:
         edit:
@@ -963,6 +972,11 @@ en:
           help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
           title: Share tokens
       shared:
+        adjacent_navigation:
+          next: Next
+          next_title: Next item
+          previous: Previous
+          previous_title: Previous item
         gallery:
           add_images: Add images
           edit_images: Edit images
@@ -1009,6 +1023,51 @@ en:
         update:
           error: There was a problem updating this page.
           success: Page updated successfully.
+      taxonomies:
+        actions: Actions
+        amount: Amount
+        count: Count
+        create:
+          invalid: There was a problem creating this taxonomy.
+          success: Taxonomy created successfully.
+        destroy:
+          invalid: There was a problem destroying this taxonomy.
+          success: Taxonomy successfully destroyed.
+        edit:
+          back: Back
+          description: The items in this taxonomy will be used to classify or filter resources, such as participatory spaces or components. Use drag and drop to reorder the list.
+          new_item: New item
+          no_items: There are currently no items in this taxonomy. Create a list of items here to classify or filter resources, such as participatory spaces or components. Items can be nested up to three levels.
+          subtitle: Items in "%{taxonomy_name}"
+          title: Edit taxonomy "%{taxonomy_name}"
+          update: Update
+        filters:
+          search_placeholder: Search
+        index:
+          description: A taxonomy allows admins categorizing and organizing content. For example, add a taxonomy to classify processes by geographical scope.
+          new_taxonomy: New taxonomy
+          no_items_found: No taxonomies found matching the search criteria.
+        name: Name
+        new:
+          create: Create taxonomy
+          title: New taxonomy
+        no_taxonomies: There are currently no taxonomies. Create a list of taxonomies here and defined items in each of them to classify or filter resources.
+        table:
+          to_next_page: Drag over for next page
+          to_prev_page: Drag over for previous page
+        taxonomy_actions:
+          confirm_destroy: Are you sure you want to delete %{name}? This will also delete all the children items.
+        update:
+          invalid: There was a problem updating this taxonomy.
+          success: Taxonomy updated successfully.
+      taxonomy_items:
+        edit:
+          title: Edit item in %{taxonomy}
+          update: Update item
+        new:
+          create: Create item
+          none: None
+          title: New item in %{taxonomy}
       titles:
         admin_log: Admin log
         area_types: Area types
@@ -1029,6 +1088,7 @@ en:
         scope_types: Scope types
         scopes: Scopes
         statistics: Activity
+        taxonomies: Taxonomies
         user_groups: Groups
         users: Administrators
       user_group:

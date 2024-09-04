@@ -34,16 +34,26 @@ module Decidim
       describe "decidim" do
         let(:query) { %({ decidim { version }}) }
 
-        it "returns the right version" do
-          expect(response["decidim"]).to include("version" => Decidim.version)
+        it "returns nil" do
+          expect(response["decidim"]).to include("version" => nil)
+        end
+
+        context "when disclosing system version is enabled" do
+          before do
+            allow(Decidim::Api).to receive(:disclose_system_version).and_return(true)
+          end
+
+          it "returns the right version" do
+            expect(response["decidim"]).to include("version" => Decidim.version)
+          end
         end
       end
 
       describe "organization" do
-        let(:query) { %({ organization { name }}) }
+        let(:query) { %({ organization { name { translation(locale: "en") } }}) }
 
         it "returns the current organization" do
-          expect(response["organization"]["name"]).to eq(current_organization.name.to_s)
+          expect(response["organization"]["name"]["translation"]).to eq(translated(current_organization.name))
         end
       end
 

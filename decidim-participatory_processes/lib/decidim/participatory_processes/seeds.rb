@@ -18,6 +18,11 @@ module Decidim
           Decidim::ContentBlocksCreator.new(process_group).create_default!
         end
 
+        taxonomy = create_taxonomy!(name: "Process Types", parent: nil)
+        2.times do
+          create_taxonomy!(name: ::Faker::Lorem.word, parent: taxonomy)
+        end
+
         process_types = []
         2.times do
           process_types << create_process_type!
@@ -25,6 +30,9 @@ module Decidim
 
         2.times do |_n|
           process = create_process!(process_group: process_groups.sample, process_type: process_types.sample)
+
+          create_follow!(Decidim::User.where(organization:, admin: true).first, process)
+          create_follow!(Decidim::User.where(organization:, admin: false).first, process)
 
           create_process_step!(process:)
 
@@ -93,7 +101,6 @@ module Decidim
           end,
           organization:,
           hero_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? hero_image : nil, # Keep after organization
-          banner_image: ::Faker::Boolean.boolean(true_ratio: 0.5) ? banner_image : nil, # Keep after organization
           promoted: true,
           published_at: 2.weeks.ago,
           meta_scope: Decidim::Faker::Localized.word,

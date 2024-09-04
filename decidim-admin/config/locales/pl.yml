@@ -187,6 +187,7 @@ pl:
         export: Eksportuj wszystko
         export-selection: Eksportuj wybrane
         import: Importuj
+        manage: Zarządzanie
         newsletter:
           new: Nowy newsletter
         participatory_space_private_user:
@@ -201,7 +202,6 @@ pl:
         verify: Zweryfikuj
       admin_terms_of_service:
         accept:
-          error: Wystąpił błąd podczas akceptacji warunków użytkowania administratora.
           success: Świetnie! Zaakceptowano warunki użytkowania administratora.
         actions:
           accept: Zgadzam się z warunkami
@@ -287,6 +287,7 @@ pl:
       block_user:
         new:
           action: Zablokuj konto i wyślij uzasadnienie
+          already_reported_html: Kontynuując tę akcję, ukryjesz również wszystkie treści uczestników.
           description: Blokowanie użytkownika sprawi, że jego konto nie będzie użyteczne. Możesz podać w uzasadnieniu wszelkie wytyczne dotyczące sposobu odblokowania użytkownika.
           justification: Uzasadnienie
           title: Zablokuj użytkownika %{name}
@@ -353,6 +354,7 @@ pl:
         title: Konflikty weryfikacji
         transfer:
           email: Adres e-mail
+          error: Podczas transferu bieżącego użytkownika do zarządzanego użytkownika wystąpił błąd.
           name: Imię
           reason: Powód
           success: Bieżący transfer został pomyślnie zakończony.
@@ -361,7 +363,6 @@ pl:
         user_name: Użytkownik
       content_blocks:
         create:
-          error: Wystąpił błąd podczas tworzenia bloku treści.
           success: Blok treści został utworzony.
         destroy:
           error: Wystąpił problem podczas próby usunięcia tego bloku treści.
@@ -444,6 +445,7 @@ pl:
           values:
             'false': Opublikowany
             'true': Nieopublikowany
+        remove_all: Usuń wszystkie
         scope_id_eq:
           label: Zakres
         search_label: Szukaj
@@ -572,6 +574,7 @@ pl:
         appearance: Wygląd
         area_types: Typy kategorii
         areas: Kategorie
+        components: Komponenty
         configuration: Konfiguracja
         content: Zgłoszona zawartość
         external_domain_allowlist: Dozwolone domeny zewnętrzne
@@ -783,7 +786,6 @@ pl:
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
       officializations:
         block:
-          error: Wystąpił błąd podczas blokowania uczestnika.
           success: Uczestnik został zablokowany.
         create:
           success: Potwierdzenie autentyczności uczestnika powiodło się.
@@ -817,7 +819,6 @@ pl:
           show: Pokaż
           title: Pokaż adres e-mail uczestnika
         unblock:
-          error: Wystąpił błąd podczas odblokowywania użytkownika.
           success: Odblokowanie uczestnika powiodło się.
       organization:
         edit:
@@ -967,6 +968,11 @@ pl:
           help: Te tokeny są używane do publicznego udostępniania nieopublikowanego zasobu każdemu użytkownikowi. Zostaną one ukryte, gdy zasób zostanie opublikowany. Kliknij na ikonę udostępniania tokenu aby odwiedzić udostępniany adres URL.
           title: Udostępnij tokeny
       shared:
+        adjacent_navigation:
+          next: Następny
+          next_title: Następny element
+          previous: Poprzedni
+          previous_title: Poprzedni element
         gallery:
           add_images: Dodaj obrazy
           edit_images: Edytuj obrazy
@@ -1013,6 +1019,8 @@ pl:
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana.
+      taxonomies:
+        count: Liczba
       titles:
         admin_log: Logi administratora
         area_types: Typy kategorii

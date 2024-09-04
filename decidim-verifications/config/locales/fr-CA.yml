@@ -43,7 +43,6 @@ fr-CA:
           destroy:
             confirm: Révoquer avant la date d'autorisation ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
             confirm_all: La révocation des autorisations ne peut être annulée. Êtes-vous sur de vouloir continuer?
-          destroy_nok: Il y a eu un problème lors de la révocation des autorisations.
           destroy_ok: Toutes les autorisations correspondantes ont été annulées avec succès.
           info: Il y a un total de %{count} participants vérifiés.
           no_data: Aucun participant vérifié.
@@ -56,10 +55,24 @@ fr-CA:
         grant_id_documents_offline_verification: "%{user_name} a vérifié %{resource_name} au moyen d’une vérification de documents d’identité hors ligne"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+            - Un exemple de gestionnaire d'autorisation pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
+            - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
+            - Obtenir une vérification en saisissant un numéro de passeport commençant par "A".
         csv_census:
           help:
             - Les administrateurs téléchargent un fichier CSV avec les emails des participants acceptés.
             - Seuls les participants avec un email dans ce fichier CSV peuvent être vérifiés.
+        default:
+          help:
+            - L'aide du gestionnaire d'autorisation n'est pas définie.
+            - Un développeur a besoin de définir l'aide dans la clé de traduction (i18n) "%{authorization_handler}"
+        dummy_authorization_handler:
+          help:
+            - Un exemple de gestionnaire d'autorisation pour que les développeurs puissent comprendre comment une simple vérification fonctionne.
+            - Il est destiné aux développeurs afin qu'ils puissent comprendre comment implémenter leur propre système de vérification.
+            - Obtenir une vérification en saisissant un numéro de document se terminant par "X".
         id_documents:
           help:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
@@ -72,6 +85,11 @@ fr-CA:
             - Vous envoyez la lettre à leur adresse avec le code de vérification.
             - Vous marquez la lettre comme envoyée.
             - Une fois que vous avez coché la lettre, l'utilisateur sera en mesure de présenter le code et d'être vérifié.
+        sms:
+          help:
+            - Les participants demandent l'envoi d'un code de vérification sur leur téléphone.
+            - Ils doivent introduire le code pour être vérifiés.
+            - S'ils ne reçoivent pas le code, ils peuvent le demander à nouveau.
       csv_census:
         explanation: Faites-vous vérifier en utilisant le recensement de l'organisation.
         name: Recensement de l'organisation
@@ -88,8 +106,10 @@ fr-CA:
     events:
       verifications:
         verify_with_managed_user:
+          email_intro: Le participant <a href="%{resource_url}">%{resource_title}</a> a essayé d'être vérifié avec les données d'un autre utilisateur (<a href="%{managed_user_url}">%{managed_user_name}</a>).
           email_outro: Consultez la <a href="%{conflicts_url}">liste de conflits des vérifications</a> et contactez le participant pour vérifier ses détails et résoudre le problème. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
           email_subject: Echec lors de la tentative de vérification d'un participant
+          notification_title: Le participant <a href="%{resource_path}">%{resource_title}</a> a essayé d'être vérifié avec les données d'un autre participant (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -136,7 +156,6 @@ fr-CA:
         admin:
           census:
             create:
-              error: Une erreur est survenue lors du recensement.
               success: '%{count} éléments importés avec succès (%{errors} erreurs).'
             destroy_all:
               success: Toutes les données du recensement ont été supprimées.

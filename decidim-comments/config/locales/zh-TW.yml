@@ -62,7 +62,6 @@ zh-TW:
         deleted_user: 已刪除的參與者
         edit: 編輯
         edited: 已編輯
-        hide_replies: 隱藏答覆
         moderated_at: 評論在%{date} 被審核
         reply: 回覆
         report:
@@ -89,7 +88,6 @@ zh-TW:
       comments:
         blocked_comments_for_unauthorized_user_warning: 目前需要驗證您的身份才能發表評論，但您可以閱讀先前的評論。
         blocked_comments_for_user_warning: 目前您無法發表評論，但您可以閱讀先前的評論。
-        blocked_comments_warning: 目前無法發表評論，但您可以閱讀先前的評論。
         comment_details_title: 評論詳細資料
         loading: 正在加載評論…
         single_comment_warning: <a href="%{url}">查看所有評論</a>

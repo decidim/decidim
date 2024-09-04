@@ -38,7 +38,7 @@ module Decidim
         let(:query) { "{ avatarUrl }" }
 
         it "returns the user avatar url" do
-          expect(response).to include("avatarUrl" => model.attached_uploader(:avatar).path)
+          expect(response["avatarUrl"]).to be_blob_url(model.avatar.blob)
         end
       end
 
@@ -71,10 +71,10 @@ module Decidim
       end
 
       describe "organizationName" do
-        let(:query) { "{ organizationName }" }
+        let(:query) { '{ organizationName { translation(locale: "en") } } ' }
 
         it "returns the group's organization name" do
-          expect(response).to include("organizationName" => model.organization.name)
+          expect(response["organizationName"]["translation"]).to eq(translated(model.organization.name))
         end
       end
 

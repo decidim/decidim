@@ -13,6 +13,7 @@ en:
         project_ids: Included projects
         proposals: Included proposals
         start_date: Start date
+        subresults: Subresults
         title: Title
         updated_at: Updated at
       status:
@@ -255,16 +256,12 @@ en:
         name: Accountability
         settings:
           global:
-            categories_label: Name for "Categories"
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             display_progress_enabled: Display progress
-            heading_leaf_level_results: Name for "Projects"
-            heading_parent_level_results: Name for "Results"
             intro: Intro
             scope_id: Scope
             scopes_enabled: Scopes enabled
-            subcategories_label: Name for "Subcategories"
           step:
             comments_blocked: Comments blocked
     events:

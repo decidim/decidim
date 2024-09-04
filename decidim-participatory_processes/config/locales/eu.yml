@@ -4,7 +4,6 @@ eu:
       participatory_process:
         announcement: Oharra
         area_id: Arloa
-        banner_image: Banner-irudia
         copy_categories: Kopiatu kategoriak
         copy_components: Kopiatu osagaiak
         copy_steps: Kopiatu faseak
@@ -34,8 +33,6 @@ eu:
         scope_type_max_depth_id: Esparruaren iragazkiaren sakonera
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
-        show_metrics: Erakutsi metrikak
-        show_statistics: Erakutsi estatistikak
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
@@ -178,7 +175,6 @@ eu:
           title: Bikoiztu prozesu parte-hartzailea
       participatory_process_groups:
         destroy:
-          error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
           success: Prozesu parte-hartzaileen taldea zuzen ezabatua.
         edit:
           title: Editatu prozesu-taldea

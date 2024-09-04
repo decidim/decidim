@@ -9,7 +9,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        include Decidim::Admin::Paginable
+        include Decidim::Paginable
         include Decidim::TranslatableAttributes
 
         helper Decidim::Admin::FilterableHelper
@@ -20,12 +20,15 @@ module Decidim
                       :filters,
                       :filters_with_values,
                       :find_dynamic_translation,
+                      :filter_prefix_key,
                       :query,
                       :query_params,
                       :query_params_with,
                       :query_params_without,
+                      :blank_query_params,
                       :ransack_params,
-                      :search_field_predicate
+                      :search_field_predicate,
+                      :adjacent_items
 
         delegate :categories, to: :current_component
         delegate :scopes, to: :current_organization
@@ -36,8 +39,68 @@ module Decidim
 
         private
 
+        def check_admin_session_filters
+          if (current_filters = ransack_params).present?
+            admin_session_filters = session["admin_filters"] || {}
+            return if admin_session_filters[filter_prefix_key] == current_filters
+
+            current_filters = {} if current_filters[:reset_filters] == "true"
+
+            admin_session_filters[filter_prefix_key] = current_filters
+            session["admin_filters"] = admin_session_filters
+
+            redirect_to url_for(query_params.merge(q: {})) if current_filters.blank?
+          else
+            @session_filter_params = {} unless session_filter_params.is_a?(Hash)
+            redirect_to url_for(query_params_with(session_filter_params)) if session_filter_params.present?
+          end
+        end
+
         def filtered_collection
           paginate(query.result)
+        end
+
+        def session_filtered_collection
+          @session_filtered_collection ||= begin
+            query = base_query.ransack(session_filter_params, search_context: :admin, auth_object: current_user).result
+            # The limit reorders as pagination does
+            query.limit(query.count)
+          end
+        end
+
+        # This method takes the query used by filter and selects the id of
+        # each item of the filtered collection (this extra select id avoids
+        # some errors where the SQL of the filtered collection query uses
+        # aliases and the id is not available in the result) and uses the lag
+        # and lead window functions which returns the previous and next ids in
+        # the query
+        def adjacent_items(item)
+          query =
+            <<-SQL.squish
+              WITH
+                collection AS (#{session_filtered_collection.select(:id).to_sql}),
+                successors AS (
+                  SELECT
+                    id,
+                    Lag(id, 1) OVER () prev_item,
+                    Lead(id, 1) OVER () next_item
+                  FROM
+                    collection
+                )
+              SELECT
+                prev_item,
+                next_item
+              FROM
+                successors
+              WHERE
+                successors.id = #{item.id}
+            SQL
+
+          (ActiveRecord::Base.connection.exec_query(query).first || {}).compact_blank.transform_values { |id| collection.find_by(id:) }
+        end
+
+        def filter_prefix_key
+          @filter_prefix_key ||= controller_name.to_sym
         end
 
         def base_query
@@ -63,6 +126,10 @@ module Decidim
           query_params[:q] || {}
         end
 
+        def session_filter_params
+          @session_filter_params ||= (session["admin_filters"] || {}).with_indifferent_access.fetch(filter_prefix_key, {})
+        end
+
         # For injecting ransack params while keeping query params in links.
         def query_params_with(hash)
           query_params.merge(q: ransack_params.merge(hash))
@@ -70,7 +137,15 @@ module Decidim
 
         # For rejecting ransack params while keeping query params in links.
         def query_params_without(*)
-          query_params.merge(q: ransack_params.except(*))
+          q = ransack_params.except(*)
+
+          return blank_query_params if q.blank?
+
+          query_params.merge(q:)
+        end
+
+        def blank_query_params
+          query_params.merge(q: { reset_filters: true })
         end
 
         # Ransack predicate to use in the search_form_for.

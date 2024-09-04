@@ -18,14 +18,6 @@ module Decidim
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.accountability.name")
       end
 
-      def categories_label
-        translated_attribute(component_settings.categories_label).presence || t("results.home.categories_label", scope: "decidim.accountability")
-      end
-
-      def subcategories_label
-        translated_attribute(component_settings.subcategories_label).presence || t("results.home.subcategories_label", scope: "decidim.accountability")
-      end
-
       def filter_items_for(participatory_space:, category:)
         [
           {

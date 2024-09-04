@@ -4,7 +4,6 @@ hu:
       participatory_process:
         announcement: Közlemény
         area_id: Terület
-        banner_image: Banner kép
         copy_categories: Kategóriák másolása
         copy_components: Elemek másolása
         copy_steps: Lépések másolása
@@ -34,8 +33,6 @@ hu:
         scope_type_max_depth_id: Scope szűrő mélysége
         scopes_enabled: Hatáskörök engedélyezve
         short_description: Rövid leírás
-        show_metrics: Mutatók megjelenítése
-        show_statistics: Statisztikák megjelenítése
         slug: URL slug
         start_date: Kezdő dátum
         subtitle: Felirat
@@ -171,7 +168,6 @@ hu:
           title: Részvételi folyamat duplikálása
       participatory_process_groups:
         destroy:
-          error: Hiba történt a részvételi folyamatcsoport törlése során.
           success: Részvételi folyamat csoport törlése sikeres.
         edit:
           title: Folyamat csoport szerkesztése

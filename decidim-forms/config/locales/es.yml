@@ -21,9 +21,9 @@ es:
               too_long: es demasiado largo
             choices:
               missing: no están completos
-              too_many: son demasiados
+              too_many: Puedes elegir un máximo de %{count} opciones.
         questionnaire:
-          request_invalid: Ha ocurrido un error al enviar tu solicitud. Por favor, Inténtalo de nuevo.
+          request_invalid: Se ha producido un problema al procesar la solicitud. Por favor, vuelve a intentarlo.
   decidim:
     forms:
       admin:
@@ -157,7 +157,7 @@ es:
           answer_questionnaire:
             already_have_an_account?: '¿Ya tienes una cuenta?'
             are_you_new?: '¿Eres una nueva usuaria?'
-            sign_in_description: Inicia tu sesión para responder la encuesta
+            sign_in_description: Inicia sesión para realizar la encuesta
             sign_up_description: Crea una cuenta de participante para realizar la encuesta
             title: Responde el formulario
           current_step: Paso %{step}

@@ -76,7 +76,6 @@ zh-TW:
   decidim:
     admin:
       actions:
-        manage: 管理
         new_initiative_type: 新的倡議類型
       filters:
         initiatives:
@@ -88,7 +87,6 @@ zh-TW:
               accepted: 足夠的簽署數
               created: 已建立
               discarded: 已捨棄
-              published: 已發佈
               rejected: 不足夠的簽署數
               validating: 技術驗證
           type_id_eq:
@@ -101,7 +99,6 @@ zh-TW:
       menu:
         attachments: 附件
         committee_members: 委員會成員
-        components: 组件
         information: 資訊
         initiatives: 倡議
         initiatives_settings: 設定
@@ -253,7 +250,6 @@ zh-TW:
             new: 新的
             photos: 圖片
           update:
-            error: 出現了一個錯誤.
             success: 倡議已成功更新.
         initiatives_settings:
           edit:
@@ -267,7 +263,6 @@ zh-TW:
             title: 倡議設定
         initiatives_type_scopes:
           create:
-            error: 出現了一個錯誤.
             success: 已為給定的倡議類型建立新範圍.
           destroy:
             success: 範圍已成功刪除.
@@ -278,12 +273,8 @@ zh-TW:
             create: 建立
             title: 建立倡議類型範圍
           update:
-            error: 出現了一個錯誤.
             success: 範圍已成功更新.
         initiatives_types:
-          create:
-            error: 出現了一個錯誤.
-            success: 一個新的倡議類型已成功更新.
           destroy:
             success: 該倡議類型已成功刪除.
           edit:
@@ -297,7 +288,6 @@ zh-TW:
             create: 建立
             title: 新的倡議類型
           update:
-            error: 出現了一個錯誤.
             success: 該倡議類型已成功更新.
       admin_log:
         initiative:
@@ -315,7 +305,6 @@ zh-TW:
         accepted: 足夠的簽署數
         created: 已建立
         discarded: 已捨棄
-        published: 已發佈
         rejected: 不足夠的簽署數
         validating: 技術驗證
       application_helper:
@@ -537,7 +526,6 @@ zh-TW:
           accepted: 足夠的簽署數
           created: 已建立
           discarded: 已捨棄
-          published: 已發佈
           rejected: 簽署數不足
           validating: 技術驗證
       states:
@@ -545,7 +533,6 @@ zh-TW:
         expired: 已過期
       unavailable_scope: 不可用的範圍
       update:
-        error: 出現了一個錯誤.
         success: 倡議已成功更新.
     menu:
       initiatives: 倡議

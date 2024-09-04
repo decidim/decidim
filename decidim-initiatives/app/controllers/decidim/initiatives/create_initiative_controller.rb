@@ -57,13 +57,13 @@ module Decidim
       def store_data
         @form = form(Decidim::Initiatives::InitiativeForm).from_params(params, { initiative_type: })
 
-        CreateInitiative.call(@form, current_user) do
+        CreateInitiative.call(@form) do
           on(:ok) do |initiative|
             session[:initiative_id] = initiative.id
 
             path = promotal_committee_required? ? "promotal_committee" : "finish"
 
-            redirect_to send("#{path}_create_initiative_index_path".to_sym)
+            redirect_to send(:"#{path}_create_initiative_index_path")
           end
 
           on(:invalid) do
@@ -110,7 +110,7 @@ module Decidim
         return if action_name == destination_step
         return if initiative_type_id.present? && initiative_type.present?
 
-        redirect_to send("#{destination_step}_create_initiative_index_path".to_sym)
+        redirect_to send(:"#{destination_step}_create_initiative_index_path")
       end
 
       def scopes

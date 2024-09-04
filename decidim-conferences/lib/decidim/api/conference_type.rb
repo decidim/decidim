@@ -39,11 +39,15 @@ module Decidim
       field :media_links, [Decidim::Conferences::ConferenceMediaLinkType, { null: true }], "List of media links in this conference", null: true
 
       def hero_image
-        object.attached_uploader(:hero_image).path
+        object.attached_uploader(:hero_image).url
       end
 
       def banner_image
-        object.attached_uploader(:banner_image).path
+        object.attached_uploader(:banner_image).url
+      end
+
+      def speakers
+        object.speakers.published
       end
     end
   end

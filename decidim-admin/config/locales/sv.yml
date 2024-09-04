@@ -169,6 +169,7 @@ sv:
         export: Exportera alla
         export-selection: Exportera markering
         import: Importera
+        manage: Hantera
         newsletter:
           new: Nytt nyhetsbrev
         participatory_space_private_user:
@@ -872,6 +873,8 @@ sv:
           without_topic: Sidor utan ämne
         update:
           error: Det gick inte att uppdatera sidan.
+      taxonomies:
+        count: Antal
       titles:
         admin_log: Administratörslogg
         area_types: Områdestyper

@@ -5,16 +5,16 @@ module Decidim
     # This command gets called when permissions for a component are updated
     # in the admin panel.
     class UpdateComponentPermissions < Decidim::Command
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # form    - The form from which the data in this component comes from.
       # component - The component to update.
       # resource - The resource to update.
-      def initialize(form, component, resource, user)
+      def initialize(form, component, resource)
         @form = form
         @component = component
         @resource = resource
-        @user = user
       end
 
       # Public: Sets the permissions for a component.
@@ -23,7 +23,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless form.valid?
 
-        Decidim.traceability.perform_action!("update_permissions", @component, @user) do
+        Decidim.traceability.perform_action!("update_permissions", @component, current_user) do
           transaction do
             update_permissions
             run_hooks

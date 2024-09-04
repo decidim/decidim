@@ -39,7 +39,7 @@ ca:
         is_transparent: És transparent
         local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
-        parent_id: Assemblea principal
+        parent_id: Assemblea mare
         participatory_processes_ids: Processos participatius relacionats
         participatory_scope: Què es decideix?
         participatory_structure: Com es decideix
@@ -50,7 +50,6 @@ ca:
         scope_id: Àmbit
         scopes_enabled: Àmbits habilitats
         short_description: Descripció breu
-        show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
         special_features: Característiques especials
         subtitle: Subtítol
@@ -158,7 +157,7 @@ ca:
           assembly_members_title: Membres de l'assemblea
         new:
           create: Crea
-          title: Nou membre de l'assemblea
+          title: Afegir membre
         update:
           error: S'ha produït un error en actualitzar el membre d'aquesta assemblea.
           success: Membre actualitzat correctament per a aquesta assemblea.
@@ -292,7 +291,7 @@ ca:
             select_a_created_by: Selecciona una creadora
             select_an_area: Selecciona una Àrea
             select_an_assembly_type: Selecciona un tipus d'assemblea
-            select_parent_assembly: Selecciona una assemblea principal
+            select_parent_assembly: Selecciona una assemblea mare
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
             title: Informació general

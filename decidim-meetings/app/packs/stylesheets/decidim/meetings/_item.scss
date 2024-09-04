@@ -125,12 +125,16 @@
         }
 
         &::-webkit-progress-bar {
-          @apply bg-white;
+          @apply bg-gray lg:bg-white;
         }
 
         &::-moz-progress-bar {
           @apply bg-success;
         }
+      }
+
+      &-label {
+        @apply text-sm font-bold lg:hidden;
       }
     }
 
@@ -172,6 +176,110 @@
   &__cancelation-modal {
     &__description {
       @apply mt-8 mb-16 text-lg text-gray-2;
+    }
+  }
+}
+
+// layout reset stuff
+.meeting-poll__layout {
+  header,
+  main h1,
+  footer {
+    @apply hidden md:block;
+  }
+
+  .layout-1col {
+    padding: 0;
+  }
+}
+
+.meeting-polls {
+  @apply m-0 md:mt-10 md:mb-24;
+
+  counter-reset: question;
+
+  &__question {
+    @apply bg-white;
+
+    summary {
+      @apply p-4 font-normal text-black text-md transition bg-background cursor-pointer marker:text-secondary;
+
+      transition: background-color 0.2s ease-in-out;
+
+      & > span:first-child::after {
+        counter-increment: question;
+        content: "#" counter(question);
+      }
+
+      & > span:last-child:not(:only-child) {
+        @apply text-sm font-semibold float-right;
+      }
+
+      & + * {
+        @apply mt-4 mb-8 md:mb-16 pr-4 pl-[calc(1rem+14px)] md:px-0 space-y-6;
+      }
+    }
+
+    &[open] summary {
+      @apply bg-secondary md:bg-background marker:text-white md:marker:text-secondary text-white md:text-black;
+    }
+
+    &.is-new {
+      animation: animateHighlight 5s ease-in-out forwards;
+    }
+
+    & + & {
+      @apply mt-4;
+    }
+
+    @keyframes animateHighlight {
+      0%,
+      80% {
+        background-color: rgba(var(--warning-rgb), 0.1);
+      }
+    }
+  }
+
+  &__answer {
+    label {
+      @apply block p-4 ring-4 ring-background rounded transition;
+
+      &:not(:has([disabled])) {
+        @apply hover:ring-tertiary hover:cursor-pointer;
+      }
+    }
+
+    label + label,
+    & + & {
+      @apply mt-4;
+    }
+
+    &--value {
+      @apply flex gap-2 justify-between text-gray-2 text-lg;
+
+      > *:last-child {
+        @apply w-1/6 flex-none text-gray text-right;
+      }
+    }
+
+    &--bar {
+      @apply w-full h-2.5 overflow-hidden rounded bg-background;
+
+      > * {
+        @apply bg-success h-full rounded;
+      }
+    }
+  }
+
+  &__admin-action {
+    @apply py-4 grid grid-cols-2 gap-x-4 gap-y-8 border-t border-t-gray [&>*:nth-child(2)]:ml-auto [&>*:nth-child(3)]:col-span-2;
+  }
+
+  &__topbar {
+    @apply my-4 md:my-0 px-4 md:px-0 py-2 md:py-10 flex justify-between gap-4 bg-background md:bg-transparent;
+
+    &.is-admin {
+      @apply mt-0 bg-tertiary md:bg-transparent text-black;
     }
   }
 }

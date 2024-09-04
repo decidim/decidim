@@ -5,16 +5,17 @@ module Decidim
     class UpdateExternalDomainAllowlist < Decidim::Command
       attr_reader :form, :organization
 
-      def initialize(form, organization, user)
+      delegate :current_user, to: :form
+
+      def initialize(form, organization)
         @form = form
         @organization = organization
-        @user = user
       end
 
       def call
         return broadcast(:invalid) if form.invalid?
 
-        Decidim.traceability.perform_action!("update_external_domain", @organization, @user) do
+        Decidim.traceability.perform_action!("update_external_domain", @organization, current_user) do
           save_domains!
         end
 

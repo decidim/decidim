@@ -23,7 +23,7 @@ module Decidim
             description: ["If the user making the request is logged in, it will return whether this recipient accepts a conversation or not.",
                           " It will return false for non-logged requests."].join
 
-      field :organization_name, GraphQL::Types::String, "The user's organization name", null: false
+      field :organization_name, Decidim::Core::TranslatedFieldType, "The user's organization name", null: false
 
       field :deleted, GraphQL::Types::Boolean, "Whether the user's account has been deleted or not", null: false
 

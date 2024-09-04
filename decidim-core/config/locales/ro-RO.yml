@@ -227,19 +227,12 @@ ro:
       dismiss: Anulare notificare
     amendments:
       accepted:
-        error: S-a produs o eroare în timpul acceptării amendamentului.
         success: Amendamentul a fost acceptat cu succes.
       amendable:
         button: Fă un amendament pentru %{model_name}
-        error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
-      compare_draft:
-        continue: Continuă
-        no_similars_found: Nu există amendamente similare.
-        title: Amendamente similare
       created:
-        error: S-a produs o eroare la crearea ciornei de amendament.
         success: Ciorna de amendament a fost creată cu succes.
       destroy_draft:
         error: A apărut o eroare la ștergerea ciornei de amendament.
@@ -286,9 +279,7 @@ ro:
       wizard_step_form:
         steps:
           '1': Creează-ți un amendament
-          '2': Compară amendamentul tău
-          '3': Completează amendamentul tău
-          '4': Publică amendamentul tău
+          '2': Publică amendamentul tău
     anonymous_user: Anonim
     application:
       document:
@@ -469,15 +460,13 @@ ro:
           complete_profile: Profil complet
           nickname_help: Pseudonimul tău în %{organization}. Poate conține doar litere, numere, '-' și '_'.
           sign_up: Completează-ţi profilul
-          subtitle: Te rugăm să completezi următorul formular pentru a finaliza înregistrarea
           username_help: Numele public care apare pe posturi. Pentru a garanta anonimitatea, poate fi orice nume.
       registrations:
         new:
           already_have_an_account?: Ai deja un cont?
+          log_in: Autentificare
           newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
-          sign_up: Înscrie-te
-          subtitle: Înscrie-te pentru a participa la discuții și pentru a vota propuneri.
           tos_agreement: Prin înregistrare ești de acord cu %{link}.
           tos_title: Condiții de utilizare
           username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
@@ -730,6 +719,7 @@ ro:
           filename: Nume fișier
           remove: Șterge
           replace: Înlocuiește
+          save: Salvează
           title: Titlu
           title_required: Titlul este obligatoriu!
         select_file: Selectaţi fişierul
@@ -808,7 +798,6 @@ ro:
         default_page:
           content: "<p>În %{organization} poți participa și decide cu privire la diferite subiecte, prin spaţiile participative pe care le vezi în meniul superior: Procese, Grupuri de lucru, Iniţiative, Consultări.</p> <p>În cadrul fiecăruia vei găsi opțiuni diferite pentru a participa: formulează propuneri individual sau împreună cu alte persoane, ia parte la dezbateri, prioritizează proiectele ce urmează a fi puse în aplicare, participă la întâlniri față-în-față și la alte acțiuni.</p>\n"
           title: Ce pot face în %{organization}?
-        title: Ajutor General
     last_activities:
       all: Toate tipurile de activitate
       index:
@@ -1024,7 +1013,6 @@ ro:
           headline: Starea curentă a %{organization}
         sub_hero:
           register: Inregistrare
-          register_title: Înregistrează-te pentru a crea un cont
       index:
         standalone_pages: Pagini
         subheading: Navigați prin paginile de ajutor ale %{name}
@@ -1087,7 +1075,6 @@ ro:
         subject: A fost raportată o resursă
     reports:
       create:
-        error: A apărut o eroare la crearea raportului. Te rugăm să încerci din nou.
         success: Raportul a fost creat cu succes şi va fi revizuit de un administrator.
     resource_endorsements:
       create:
@@ -1158,8 +1145,6 @@ ro:
         title: Raportează un utilizator nepotrivit
       floating_help:
         help: Ajutor
-      login_modal:
-        sign_up: Înscrie-te
       participatory_space_filters:
         filters:
           areas: Zone
@@ -1329,19 +1314,20 @@ ro:
       updated_not_active: Parola dvs. a fost schimbată cu succes.
     registrations:
       destroyed: Contul tău a fost anulat cu succes. Sperăm să te revedem în curând.
-      new:
-        sign_up: Înscrie-te
       signed_up: Bine ați venit! V-ați înregistrat cu succes.
       signed_up_but_inactive: V-ați înregistrat cu succes. Cu toate acestea, nu vă putem conecta deoarece contul dvs. nu este încă activat.
       signed_up_but_locked: V-ați înregistrat cu succes. Cu toate acestea, nu vă putem conecta deoarece contul dvs. este blocat.
       signed_up_but_unconfirmed: Un mesaj cu un link de confirmare a fost trimis la adresa ta de e-mail. Te rugăm să urmezi link-ul pentru a-ți activa contul.
       update_needs_confirmation: Ți-ai actualizat contul cu succes, dar trebuie să verificăm noua ta adresă de e-mail. Vă rugăm să verificați adresa de e-mail și să urmați link-ul de confirmare pentru a confirma noua dvs. adresă de e-mail.
       updated: Contul dvs. a fost actualizat cu succes.
+    sessions:
+      new:
+        log_in: Autentificare
     shared:
       links:
         back: Înapoi
         forgot_your_password: Ți-ai uitat parola?
-        sign_up: Înscrie-te
+        log_in: Autentificare
       minimum_password_length:
         one: "(minim%{count} caracter)"
         few: "(minim%{count} caractere)"
@@ -1363,12 +1349,7 @@ ro:
       invalid_time_zone: nu este un fus orar valid
       long_words: conține cuvinte care sunt prea lungi (peste 35 de caractere)
       must_start_with_caps: trebuie să înceapă cu o majusculă
-      not_found: nu a putut fi găsit. V-ați înscris anterior?
       not_locked: nu a fost blocat
-      not_saved:
-        one: 'A apărut o eroare la procesarea cererii tale:'
-        few: 'Au existat mai multe erori la procesarea cererii dvs.:'
-        other: 'Au existat mai multe erori la procesarea cererii dvs.:'
       too_many_marks: folosește prea multe semne consecutive de punctuație (de ex. ! și ?)
       too_much_caps: utilizează prea multe majuscule (peste 25% din text)
   forms:
@@ -1395,9 +1376,10 @@ ro:
         cc_by_license: Licență Creative Commons
         decidim_logo: Logo decidim
         download_open_data: Descarcă fișierele de date deschise
+        log_in: Autentificare
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
-        sign_up: Înscrie-te
       header:
+        log_in: Autentificare
         main_menu: Meniul principal
         user_menu: Meniu utilizator
       impersonation_warning:

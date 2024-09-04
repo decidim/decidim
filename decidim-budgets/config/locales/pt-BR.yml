@@ -165,7 +165,6 @@ pt-BR:
         back_to: Voltar para %{component_name}
         close_modal: Fechar modal
         continue: Continuar
-        more_information: Mais informação
       budgets_list:
         cancel_order:
           more_than_one: exclua seu voto em %{name} e comece de novo
@@ -268,7 +267,6 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
-            geocoding_enabled: Geocoding habilitado
             landing_page_content: Página inicial dos orçamentos
             more_information_modal: Modal de mais informação
             projects_per_page: Projetos por página

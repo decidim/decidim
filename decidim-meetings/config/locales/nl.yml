@@ -330,7 +330,6 @@ nl:
           body: De vergadering <a href="%{meeting_path}">"%{meeting_title}"</a> is in behandeling om te worden gesloten. Voeg een verslag van de vergadering toe via de knop "Sluiten".
           greetings: Groeten,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hallo %{username},
-          subject: Je kunt je vergadering nu sluiten op het %{organization_name} platform met een verslag
       conference_venues: Vergaderlocaties
       content_blocks:
         upcoming_meetings:
@@ -347,13 +346,10 @@ nl:
       iframe_embed_type:
         embed_in_meeting_page: Insluiten in vergaderpagina
         none: Geen
-        open_in_live_event_page: Open in live event pagina (met optionele polls)
         open_in_new_tab: Open link in een nieuw tabblad
       layouts:
         live_event:
-          administrate: Beheer
           close: sluit
-          questions: Vragen
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -482,12 +478,9 @@ nl:
             title: Titel
       polls:
         questions:
-          closed_question:
-            question_results: Resultaten vraag
           index:
             empty_questions: Tijdens deze vergadering worden er enkele vragen verzonden en je kan ze beantwoorden. Ze zullen hier worden weergegeven.
           index_admin:
-            admin_dashboard: Beheer Dashboard
             edit: Bewerk in admin
             question: Vraag
             received_answer: antwoord ontvangen

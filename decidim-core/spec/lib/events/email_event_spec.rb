@@ -21,7 +21,7 @@ module Decidim
         TestEvent.new(resource:, event_name: "test", user:)
       end
 
-      let(:organization) { create(:organization, name: "O'Connor") }
+      let(:organization) { create(:organization, name: { en: "O'Connor" }) }
       let(:user) { create(:user, name: "Sarah Connor", organization:) }
       let(:resource) { user }
 
@@ -39,7 +39,7 @@ module Decidim
 
       describe ".has_button?" do
         it "responds and returns false" do
-          expect(subject).not_to have_button # rubocop:disable Capybara/NegationMatcher
+          expect(subject).not_to have_button
         end
       end
     end

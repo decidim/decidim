@@ -39,10 +39,8 @@ ru:
   decidim:
     admin:
       actions:
-        manage: Управлять
         new_initiative_type: Добавить вид почина
       menu:
-        components: Составляющие
         information: Сведения
         initiatives: Почины
         initiatives_types: Виды починов
@@ -130,7 +128,6 @@ ru:
       admin_states:
         created: Созданные
         discarded: Отброшенные
-        published: Обнародовано
         validating: Техническая проверка
       application_helper:
         filter_state_values:

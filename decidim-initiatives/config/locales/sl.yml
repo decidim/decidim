@@ -5,8 +5,6 @@ sl:
         decidim_user_group_id: Avtor
   decidim:
     admin:
-      actions:
-        manage: Uredi
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -15,7 +13,6 @@ sl:
             values:
               created: Ustvarjeno
               discarded: Zavrženo
-              published: Objavljeno
           type_id_eq:
             label: Tip
     initiatives:

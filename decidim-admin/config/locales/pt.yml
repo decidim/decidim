@@ -150,6 +150,7 @@ pt:
         export: Exportar tudo
         export-selection: Exportar selecção
         import: Importar
+        manage: Gerir
         newsletter:
           new: Novo boletim informativo
         participatory_space_private_user:
@@ -783,6 +784,8 @@ pt:
           without_topic: Páginas sem tópico
         update:
           error: Ocorreu um problema ao atualizar esta página.
+      taxonomies:
+        count: Contagem
       titles:
         admin_log: Registo de administrador
         area_types: Tipos de área

@@ -50,7 +50,6 @@ de:
         scope_id: Umfang
         scopes_enabled: Bereiche aktiviert
         short_description: Kurze Beschreibung
-        show_statistics: Zeige Statistiken
         slug: URL-Block
         special_features: Besondere Merkmale
         subtitle: Untertitel
@@ -209,7 +208,7 @@ de:
           info: Über dieses Gremium
           landing_page: Startseite
           moderations: Moderationen
-          private_users: Private Benutzer
+          private_users: Private Teilnehmende
           see_assembly: Gremium ansehen
         assemblies_types: Versammlungstypen
       models:
@@ -248,7 +247,7 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Schätzer
+            valuator: Bewertende
       titles:
         assemblies: Gremien
         assemblies_types: Versammlungstypen

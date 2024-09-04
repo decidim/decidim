@@ -4,9 +4,10 @@ module Decidim
   module Meetings
     # This command is executed when the user creates an Answer in a meeting poll.
     class CreateAnswer < Decidim::Command
-      def initialize(form, current_user, questionnaire)
+      delegate :current_user, to: :form
+
+      def initialize(form, questionnaire)
         @form = form
-        @current_user = current_user
         @questionnaire = questionnaire
       end
 
@@ -33,14 +34,14 @@ module Decidim
 
       def answer_question
         answer = Answer.new(
-          user: @current_user,
+          user: current_user,
           questionnaire: @questionnaire,
           question: form.question
         )
 
         form.selected_choices.each do |choice|
           answer.choices.build(
-            body: choice.body,
+            body: choice.body || translated_attribute(AnswerOption.find_by(id: choice.answer_option_id)&.body),
             decidim_answer_option_id: choice.answer_option_id
           )
         end

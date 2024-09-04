@@ -382,9 +382,13 @@ tr:
           collaborators: Ortaklar
           main_promotors: Organizatörler
         show:
+          already_have_an_account?: Hesabınız var mı?
+          are_you_new?: Yeni Katılımcı?
           login_as: '%{name} <%{email}> olarak giriş yaptınız'
           manage_registration: Kayıt İşlemini Yönet
           register: Kayıt olmak
+          sign_in_description: Konferansa kaydolmak için giriş yapın
+          sign_up_description: Konferansa kaydolmak için bir hesap oluşturun
       content_blocks:
         highlighted_conferences:
           name: Vurgulanan konferanslar

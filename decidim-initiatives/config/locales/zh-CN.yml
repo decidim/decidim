@@ -71,7 +71,6 @@ zh-CN:
               accepted: 足够的签名
               created: 已创建
               discarded: 丢弃的
-              published: 已发布
               rejected: 签名不足
               validating: 技术验证
           type_id_eq:
@@ -79,7 +78,6 @@ zh-CN:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: 按标题、描述、ID或作者名称搜索 %{collection}。
       menu:
-        components: 组件
         information: 信息
         initiatives: 倡议
         initiatives_types: 倡议类型
@@ -238,7 +236,6 @@ zh-CN:
         accepted: 足够的签名
         created: 已创建
         discarded: 丢弃的
-        published: 已发布
         rejected: 签名不足
         validating: 技术验证
       application_helper:
@@ -377,7 +374,6 @@ zh-CN:
           accepted: 足够的签名
           created: 已创建
           discarded: 丢弃的
-          published: 已发布
           rejected: 签名不足
           validating: 技术验证
       states:

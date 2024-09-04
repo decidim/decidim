@@ -72,9 +72,6 @@ id:
         start_exploring: mulai menjelajah
       csv_census:
         admin:
-          census:
-            create:
-              error: Terjadi kesalahan saat mengimpor sensus.
           destroy:
             title: Hapus semua data sensus
           index:

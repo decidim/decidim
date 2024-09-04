@@ -171,7 +171,7 @@ de:
         back_to: Zurück zu %{component_name}
         close_modal: Dialog schließen
         continue: Weiter
-        more_information: Mehr Informationen
+        more_information: Weitere Informationen zum Budget
       budgets_list:
         budgets: Budgets
         cancel_order:
@@ -184,6 +184,11 @@ de:
         finished_message: Sie haben den Abstimmungsprozess beendet. Vielen Dank für Ihre Teilnahme!
         highlighted_cta: Über %{name} abstimmen
         if_change_opinion: Wenn Sie ihr Meinung geändert haben, können Sie
+        orders:
+          highest_cost: Höchste Kosten
+          label: Budgets sortieren nach
+          lowest_cost: Niedrigste Kosten
+          random: Zufällige Reihenfolge
         progress: Abstimmung beenden
         remove_vote: Stimme entfernen
         show: Projekte ansehen
@@ -323,7 +328,7 @@ de:
               errors:
                 budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein.
                 budget_voting_rule_required: Es ist eine Abstimmungsregel notwendig.
-            geocoding_enabled: Geocoding aktiviert
+            geocoding_enabled: Karten aktiviert
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
             projects_per_page: Projekte pro Seite

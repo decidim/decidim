@@ -110,7 +110,6 @@ sv:
         back_to: Tillbaka till %{component_name}
         close_modal: Stäng fönster
         continue: Fortsätt
-        more_information: Mer information
       budgets_list:
         budgets: Budgetar
         cancel_order:

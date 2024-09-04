@@ -4,7 +4,6 @@ zh-CN:
       participatory_process:
         announcement: 通 知
         area_id: 区域
-        banner_image: 横幅图像
         copy_categories: 复制类别
         copy_components: 复制组件
         copy_steps: 复制步骤
@@ -27,8 +26,6 @@ zh-CN:
         scope_type_max_depth_id: 范围过滤器深度：
         scopes_enabled: 范围已启用
         short_description: 简短描述
-        show_metrics: 显示指标
-        show_statistics: 显示统计
         slug: URL 名称
         start_date: 开始日期
         subtitle: 字幕
@@ -130,7 +127,6 @@ zh-CN:
           title: 重复的参与进程
       participatory_process_groups:
         destroy:
-          error: 销毁参与性进程小组时出错。
           success: 参与进程组已成功删除。
         edit:
           title: 编辑流程组

@@ -12,6 +12,7 @@ fi:
         project_ids: Liitetyt hankkeet
         proposals: Sisällytetyt ehdotukset
         start_date: Alkamispäivä
+        subresults: Alitulokset
         title: Otsikko
         updated_at: Päivitysaika
       status:
@@ -253,27 +254,23 @@ fi:
         name: Vastuullisuus
         settings:
           global:
-            categories_label: Nimi termille "Aihepiirit"
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             display_progress_enabled: Näytä edistyminen
-            heading_leaf_level_results: Nimi termille "Hankkeet"
-            heading_parent_level_results: Nimi termille "Tulokset"
             intro: Esittelyteksti
             scope_id: Teema
             scopes_enabled: Teemat käytössä
-            subcategories_label: Nimi termille "Ala-aihepiirit"
           step:
             comments_blocked: Kommentointi estetty
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Ehdotus "%{proposal_title}" on liitetty tulokseen. Voit tutustua siihen tältä sivulta:'
+          email_intro: 'Ehdotus "%{proposal_title}" on liitetty tulokseen. Voit tutustua siihen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohtaan %{proposal_title}
           notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty tulokseen <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
-          email_intro: 'Tulos "%{resource_title}", joka sisältää ehdotuksen "%{proposal_title}", on nyt %{progress}% valmis. Voit tutustua siihen tältä sivulta:'
+          email_intro: 'Tulos "%{resource_title}", joka sisältää ehdotuksen "%{proposal_title}", on nyt %{progress}% valmis. Voit tutustua siihen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat ehdotusta "%{proposal_title}" ja se sisältyy tulokseen "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteen %{resource_title} edistykseen
           notification_title: Tulos <a href="%{resource_path}">%{resource_title}</a>, joka sisältää ehdotuksen <a href="%{proposal_path}">%{proposal_title}</a>, on nyt %{progress}% valmis.

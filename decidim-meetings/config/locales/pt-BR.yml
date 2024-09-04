@@ -423,7 +423,6 @@ pt-BR:
           body: A reunião <a href="%{meeting_path}">"%{meeting_title}"</a> está pendente para ser fechada. Adicione um relatório da reunião usando o botão "Fechar reunião".
           greetings: Saudações,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Olá %{username},
-          subject: Agora você pode encerrar sua reunião com um relatório na plataforma %{organization_name}
       conference_venues: Locais de conferência
       content_blocks:
         upcoming_meetings:
@@ -440,16 +439,13 @@ pt-BR:
       iframe_embed_type:
         embed_in_meeting_page: Incorporar na página da reunião
         none: Nenhum
-        open_in_live_event_page: Abrir na página de eventos ao vivo (com enquetes opcionais)
         open_in_new_tab: Abrir URL em uma nova aba
       last_activity:
         meeting_updated: 'Reunião atualizada:'
         new_meeting: 'Nova reunião:'
       layouts:
         live_event:
-          administrate: Administrar
           close: fechar
-          questions: Perguntas
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -589,12 +585,9 @@ pt-BR:
             title: Título
       polls:
         questions:
-          closed_question:
-            question_results: Resultados das perguntas
           index:
             empty_questions: Durante esta reunião, algumas perguntas serão enviadas e você poderá respondê-las. Elas serão exibidas aqui.
           index_admin:
-            admin_dashboard: Painel de administração
             edit: Editar no painel de administração
             question: Pergunta
             received_answer: resposta recebida
@@ -642,7 +635,6 @@ pt-BR:
         transparent: Transparente
         withdraw: Retirado
       withdraw:
-        error: Ocorreu um erro ao retirar a reunião.
         success: A reunião foi retirada com sucesso.
     metrics:
       meetings:

@@ -56,6 +56,33 @@ module Decidim
         subject.default_locale = :en
         expect(subject).not_to be_valid
       end
+
+      describe "name" do
+        context "when name does not exists" do
+          it "is valid" do
+            expect(described_class.count).to eq(0)
+            expect(subject).to be_valid
+          end
+        end
+
+        context "when name exists for same locale" do
+          let!(:dummy_organization) { create(:organization, name: { en: "Dummy Random 22" }) }
+
+          it "is invalid" do
+            subject.name = { en: "Dummy Random 22" }
+            expect(subject).not_to be_valid
+          end
+        end
+
+        context "when name exists for different locale" do
+          let!(:dummy_organization) { create(:organization, name: { ca: "Dummy Random 22", en: "Dummy" }) }
+
+          it "is invalid" do
+            subject.name = { en: "Dummy Random 22" }
+            expect(subject).not_to be_valid
+          end
+        end
+      end
     end
 
     describe "enabled omniauth providers" do
@@ -237,6 +264,18 @@ module Decidim
         let(:favicon_path) { Decidim::Dev.asset("icon.png") }
 
         it_behaves_like "creates correct favicon variants"
+      end
+    end
+
+    describe "#to_sgid" do
+      subject { sgid }
+
+      let(:organization) { create(:organization) }
+      let(:sgid) { travel_to(5.years.ago) { organization.to_sgid.to_s } }
+
+      it "does not expire" do
+        located = GlobalID::Locator.locate_signed(subject)
+        expect(located).to eq(organization)
       end
     end
   end

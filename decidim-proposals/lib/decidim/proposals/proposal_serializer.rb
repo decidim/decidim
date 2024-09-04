@@ -19,6 +19,9 @@ module Decidim
       def serialize
         {
           id: proposal.id,
+          author: {
+            **author_fields
+          },
           category: {
             id: proposal.category.try(:id),
             name: proposal.category.try(:name) || empty_translatable
@@ -41,7 +44,7 @@ module Decidim
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),
           answered_at: proposal.answered_at,
-          supports: proposal.proposal_votes_count,
+          votes: proposal.proposal_votes_count,
           endorsements: {
             total_count: proposal.endorsements.size,
             user_endorsements:
@@ -103,6 +106,54 @@ module Decidim
         return value.transform_values { |v| convert_to_plain_text(v) } if value.is_a?(Hash)
 
         convert_to_text(value)
+      end
+
+      def author_fields
+        is_author_user_group = resource.coauthorships.map(&:decidim_user_group_id).any?
+
+        {
+          id: resource.authors.map(&:id),
+          name: resource.authors.map do |author|
+            author_name(is_author_user_group ? resource.coauthorships.first.user_group : author)
+          end,
+          url: resource.authors.map do |author|
+            author_url(is_author_user_group ? resource.coauthorships.first.user_group : author)
+          end
+        }
+      end
+
+      def author_name(author)
+        if author.respond_to?(:name)
+          translated_attribute(author.name) # is a Decidim::User or Decidim::Organization or Decidim::UserGroup
+        elsif author.respond_to?(:title)
+          translated_attribute(author.title) # is a Decidim::Meetings::Meeting
+        end
+      end
+
+      def author_url(author)
+        if author.respond_to?(:nickname)
+          profile_url(author.nickname) # is a Decidim::User or Decidim::UserGroup
+        elsif author.respond_to?(:title)
+          meeting_url(author) # is a Decidim::Meetings::Meeting
+        else
+          root_url # is a Decidim::Organization
+        end
+      end
+
+      def profile_url(nickname)
+        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+      end
+
+      def meeting_url(meeting)
+        Decidim::EngineRouter.main_proxy(meeting.component).meeting_url(id: meeting.id, host:)
+      end
+
+      def root_url
+        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
+      end
+
+      def host
+        resource.organization.host
       end
     end
   end

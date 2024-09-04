@@ -395,7 +395,6 @@ el:
           body: Η συνάντηση <a href="%{meeting_path}">"%{meeting_title}"</a> εκκρεμεί να λήξει. Παρακαλώ προσθέστε μια αναφορά της συνάντησης χρησιμοποιώντας το κουμπί "Κλείσιμο συνάντησης".
           greetings: Με φιλικούς χαιρετισμούς,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Γεια σας %{username},
-          subject: Μπορείτε τώρα να κλείσετε τη συνάντησή σας με μια αναφορά στην πλατφόρμα %{organization_name}
       conference_venues: Χώροι διασκέψεων
       content_blocks:
         upcoming_meetings:
@@ -412,16 +411,13 @@ el:
       iframe_embed_type:
         embed_in_meeting_page: Ενσωμάτωση στη σελίδα συνάντησης
         none: Κανένας
-        open_in_live_event_page: Άνοιγμα σε σελίδα ζωντανής εκδήλωσης (με προαιρετικές δημοσκοπήσεις)
         open_in_new_tab: Άνοιγμα URL σε νέα καρτέλα
       last_activity:
         meeting_updated: 'Η συνάντηση ενημερώθηκε:'
         new_meeting: 'Νέα συνάντηση:'
       layouts:
         live_event:
-          administrate: Διαχειριστείτε
           close: κλείσιμο
-          questions: Ερωτήσεις
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -554,12 +550,9 @@ el:
             title: Τίτλος
       polls:
         questions:
-          closed_question:
-            question_results: Αποτελέσματα ερωτήσεων
           index:
             empty_questions: Κατά τη διάρκεια αυτής της συνάντησης, ορισμένες ερωτήσεις θα σταλούν και θα είστε σε θέση να τις απαντήσετε. Θα εμφανιστούν εδώ.
           index_admin:
-            admin_dashboard: Πίνακας διαχείρισης
             edit: Επεξεργασία στον πίνακα διαχείρισης
             question: Ερώτηση
             received_answer: έλαβε απάντηση
@@ -605,7 +598,6 @@ el:
         transparent: Διαφανής
         withdraw: Αποσύρθηκε
       withdraw:
-        error: Προέκυψε σφάλμα κατά την απόσυρση της συνάντησης.
         success: Η συνάντηση αποσύρθηκε με επιτυχία.
     metrics:
       meetings:

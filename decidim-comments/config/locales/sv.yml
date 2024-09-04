@@ -62,7 +62,6 @@ sv:
         deleted_user: Raderad deltagare
         edit: Redigera
         edited: Redigerad
-        hide_replies: Göm svar
         moderated_at: Kommentar modererad den %{date}
         reply: Svara
         report:
@@ -89,7 +88,6 @@ sv:
       comments:
         blocked_comments_for_unauthorized_user_warning: Du behöver verifiera dig för att kunna kommentera just nu, men du kan läsa tidigare kommentarer.
         blocked_comments_for_user_warning: Du kan inte kommentera just nu, men du kan läsa tidigare kommentarer.
-        blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
         comment_details_title: Kommentarsdetaljer
         loading: Laddar kommentarer...
         single_comment_warning: <a href="%{url}">Visa alla kommentarer</a>

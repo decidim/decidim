@@ -182,6 +182,7 @@ lt:
         export: Eksportuoti viską
         export-selection: Eksportuoti pasirinktą
         import: Importuoti
+        manage: Valdyti
         newsletter:
           new: Naujas naujienlaiškis
         participatory_space_private_user:
@@ -196,7 +197,6 @@ lt:
         verify: Patikrinti
       admin_terms_of_service:
         accept:
-          error: Sutinkant su administratoriaus nustatytomis naudojimosi sąlygomis įvyko klaida.
           success: Puiku! Jūs sutikote su administratoriaus naudojimosi sąlygomis.
         actions:
           accept: Aš sutinku su šiomis sąlygomis
@@ -546,6 +546,7 @@ lt:
         appearance: Išvaizda
         area_types: Erdvės tipas
         areas: Erdvės
+        components: Komponentai
         configuration: Konfigūracija
         content: Turinys, apie kurį pranešta
         help_sections: Pagalbos skyrius
@@ -753,7 +754,6 @@ lt:
           success: Naujienlaiškis atnaujintas. Peržiūrėkite jį prieš išsiųsdami.
       officializations:
         block:
-          error: Blokuojant dalyvį iškilo problema.
           success: Dalyvis sėkmingai užblokuotas.
         create:
           success: Dalyvis sėkmingai oficializuotas.
@@ -787,7 +787,6 @@ lt:
           show: Rodyti
           title: Rodyti dalyvio el. pašto adresą
         unblock:
-          error: Atblokuojant dalyvį iškilo problema.
           success: Dalyvis sėkmingai atblokuotas.
       organization:
         edit:
@@ -962,6 +961,8 @@ lt:
         update:
           error: Atnaujinant šį puslapį iškilo problema.
           success: Puslapis atnaujintas.
+      taxonomies:
+        count: Kiekis
       titles:
         admin_log: Administratoriaus veiklos žurnalas
         area_types: Aplinkos tipai

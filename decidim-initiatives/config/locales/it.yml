@@ -62,7 +62,6 @@ it:
   decidim:
     admin:
       actions:
-        manage: Gestisci
         new_initiative_type: Nuovo tipo di iniziativa
       filters:
         initiatives:
@@ -74,7 +73,6 @@ it:
               accepted: Numero di firme sufficiente
               created: Creato
               discarded: Rifiutato
-              published: Pubblicati
               rejected: Firme non sufficienti
               validating: Validazione tecnica
           type_id_eq:
@@ -84,7 +82,6 @@ it:
       menu:
         attachments: Allegati
         committee_members: Membri del comitato
-        components: componenti
         information: Informazione
         initiatives: Iniziative
         initiatives_types: Tipi di iniziativa
@@ -257,7 +254,6 @@ it:
         accepted: Firme sufficienti
         created: Creato
         discarded: Discarded
-        published: Pubblicato
         rejected: Firme non sufficienti
         validating: Convalida tecnica
       application_helper:
@@ -466,7 +462,6 @@ it:
           accepted: Firme sufficienti
           created: Creata
           discarded: Scartato
-          published: Pubblicato
           rejected: Firme non sufficienti
           validating: Convalida tecnica
       states:

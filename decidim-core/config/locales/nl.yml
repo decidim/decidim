@@ -162,19 +162,13 @@ nl:
       dismiss: Negeer notificatie
     amendments:
       accepted:
-        error: Er is een fout opgetreden bij het accepteren van het amendement.
         success: Het amendement is met succes aangenomen.
       amendable:
         button: Wijzigen %{model_name}
         error: Er is een fout opgetreden bij het wijzigen van deze bron.
         promote_button: Promoot naar %{model_name}
         promote_confirm_text: Weet je zeker dat je deze eervolle vermelding wilt promoten?
-      compare_draft:
-        continue: Volgende
-        no_similars_found: Geen gelijkaardige amendementen gevonden.
-        title: Gelijkaardige amendementen
       created:
-        error: Er is een fout opgetreden tijdens het aanmaken van het amendement.
         success: Het amendement werd met succes aangemaakt.
       destroy_draft:
         error: Er was een probleem bij het verwijderen van het amendement.
@@ -221,9 +215,6 @@ nl:
       wizard_step_form:
         steps:
           '1': Maak uw amendement
-          '2': Vergelijk uw amendement
-          '3': Voltooi uw amendement
-          '4': Publiceer uw amendement
     anonymous_user: Anoniem
     application:
       document:
@@ -384,15 +375,13 @@ nl:
           complete_profile: Volledig profiel
           nickname_help: Je alias in %{organization}. Kan alleen letters, cijfers, '-' en '_' bevatten.
           sign_up: Gelieve uw profiel te voltooien
-          subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op je berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet jouw echte naam te zijn.
       registrations:
         new:
           already_have_an_account?: Heb je al een account?
+          log_in: Aanmelden
           newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
           newsletter_title: Contact toestemming
-          sign_up: Registratie
-          subtitle: Meld je aan om deel te nemen aan discussies en om voorstellen te steunen.
           tos_agreement: Door het aanmelden gaat u akkoord met %{link}.
           tos_title: Servicevoorwaarden
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
@@ -689,7 +678,6 @@ nl:
         default_page:
           content: "<p>In %{organization} kunt u deelnemen en besluiten over verschillende onderwerpen, via de ruimten die u ziet in het top menu: Processen, Groepen, Initiatieven, Raadplegingen.</p> <p>Binnen elke ruimte vindt u verschillende opties om deel te nemen: doe voorstellen - individueel of met andere mensen - neem deel aan debatten, wijs prioriteiten toe aan projecten, woon vergaderingen bij en andere acties.</p>\n \n"
           title: Wat kan ik doen in %{organization}?
-        title: Algemene hulp
     last_activities:
       all: Alle soorten activiteiten
       index:
@@ -887,7 +875,6 @@ nl:
           headline: Huidige stand van %{organization}
         sub_hero:
           register: Registreren
-          register_title: Meld je aan voor een account
       index:
         standalone_pages: Pages
         subheading: Navigeer door de helppagina's van %{name}
@@ -944,7 +931,6 @@ nl:
         subject: Een bron is gemeld
     reports:
       create:
-        error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
     resource_endorsements:
       create:
@@ -1005,8 +991,6 @@ nl:
         title: Meld een probleem
       floating_help:
         help: Help
-      login_modal:
-        sign_up: Registreren
       participatory_space_filters:
         filters:
           areas: Onderwerpen
@@ -1161,19 +1145,20 @@ nl:
       updated_not_active: Je wachtwoord is met succes veranderd.
     registrations:
       destroyed: Uw account is succesvol geannuleerd. We hopen je snel weer te zien.
-      new:
-        sign_up: Aanmelden
       signed_up: Welkom! Je hebt je succesvol aangemeld.
       signed_up_but_inactive: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account nog niet is geactiveerd.
       signed_up_but_locked: Je hebt je succesvol aangemeld. We konden u echter niet aanmelden omdat uw account is vergrendeld.
       signed_up_but_unconfirmed: Een bericht met een bevestigingslink is verzonden naar je e-mailadres. Volg de link om je account te activeren.
       update_needs_confirmation: Je hebt je account bijgewerkt, maar we moeten je nieuwe e-mailadres verifiëren. Controleer uw e-mail en volg de bevestigingslink om uw nieuwe e-mailadres te bevestigen.
       updated: Uw account is succesvol bijgewerkt.
+    sessions:
+      new:
+        log_in: Aanmelden
     shared:
       links:
         back: Terug
         forgot_your_password: Uw wachtwoord vergeten?
-        sign_up: Registreren
+        log_in: Aanmelden
       minimum_password_length:
         one: "(Minimaal%{count} tekens)"
         other: "(Minimaal%{count} tekens)"
@@ -1194,11 +1179,7 @@ nl:
       invalid_time_zone: is geen geldige tijdszone
       long_words: bevat woorden die te lang zijn (meer dan 35 tekens)
       must_start_with_caps: moet beginnen met een hoofdletter
-      not_found: kon niet worden gevonden. Ben je vooraf aangemeld?
       not_locked: was niet vergrendeld
-      not_saved:
-        one: 'Er is een fout opgetreden bij de verwerking van je aanvraag:'
-        other: 'Er zijn fouten opgetreden bij de verwerking van je aanvraag:'
       too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld ! en?)
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
   forms:
@@ -1235,9 +1216,10 @@ nl:
         cc_by_license: Creative Commons-licentie
         decidim_logo: Logo Decidimmen
         download_open_data: Download Open Data-bestanden
+        log_in: Aanmelden
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
-        sign_up: Registreren
       header:
+        log_in: Aanmelden
         main_menu: Hoofdmenu
         user_menu: Gebruikersmenu
       impersonation_warning:

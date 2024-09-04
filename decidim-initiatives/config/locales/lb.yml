@@ -62,7 +62,6 @@ lb:
   decidim:
     admin:
       actions:
-        manage: Verwalten
         new_initiative_type: Neuer Initiativentyp
       filters:
         initiatives:
@@ -74,7 +73,6 @@ lb:
               accepted: Ausreichend Unterschriften
               created: Erstellt
               discarded: Verworfen
-              published: Verëffentlecht
               rejected: Zu wenige Unterschriften
               validating: Technische Validierung
           type_id_eq:
@@ -84,7 +82,6 @@ lb:
       menu:
         attachments: Anhänge
         committee_members: Ausschussmitglieder
-        components: Komponenten
         information: Information
         initiatives: Initiativen
         initiatives_types: Arten von Initiativen
@@ -213,7 +210,6 @@ lb:
         accepted: Ausreichend Unterschriften
         created: Erstellt
         discarded: Verworfen
-        published: Veröffentlicht
         rejected: Ungenügend Unterschriften
         validating: Technische Validierung
       application_helper:
@@ -369,7 +365,6 @@ lb:
           accepted: Ausreichend Unterschriften
           created: Erstellt
           discarded: Verworfen
-          published: Veröffentlicht
           rejected: Ungenügend Unterschriften
           validating: Technische Validierung
       states:

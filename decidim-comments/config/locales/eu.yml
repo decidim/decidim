@@ -38,7 +38,7 @@ eu:
           error: Arazo bat egon da iruzkina bozkatzean.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Sartu zure kontuarekin</a> edo <a href="%{sign_up_url}">erregistratu</a> zure iruzkina gehitzeko.
+        account_message: Sortu kontu bat <a href="%{sign_in_url}">Log in</a> edo <a href="%{sign_up_url}"> </a> zure iruzkina gehitzeko.
         form:
           body:
             label: Iruzkina
@@ -64,13 +64,15 @@ eu:
           against: Aurka
           in_favor: Alde
         cancel_reply: Ezeztatu erantzuna
+        comment_label: Iruzkindu %{comment_id}
+        comment_label_reply: Iruzkindu %{comment_id} (erantzun %{parent_comment_id} iruzkinei)
         confirm_destroy: Ziur zaude iruzkin hau ezabatu nahi duzula?
+        controls_label: Iruzkindu kontrolak
         delete: Ezabatu
         deleted_at: Iruzkina ezabatu da data honetan %{date}
         deleted_user: Parte-hartzailea ezabatua
         edit: Editatu
         edited: Editatuta
-        hide_replies: Ezkutatu erantzunak
         moderated_at: Iruzkina %{date}-an moderatu egin da
         reply: Erantzuna
         report:
@@ -98,7 +100,6 @@ eu:
       comments:
         blocked_comments_for_unauthorized_user_warning: Egiaztatuta egon behar zara momentu honetan iruzkina egiteko, baina aurreko iruzkinak irakur ditzakezu.
         blocked_comments_for_user_warning: Oraindik ez duzu iruzkinik egin, baina aurrekoak irakurri ditzakezu.
-        blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         comment_details_title: Iruzkinaren xehetasunak
         loading: Iruzkinak kargatzen...
         single_comment_warning: <a href="%{url}">k erakusten ditu iruzkin guztiak</a>

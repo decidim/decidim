@@ -300,11 +300,9 @@ lt:
       dismiss: Atmesti pranešimą
     amendments:
       accepted:
-        error: Priimant pakeitimą įvyko klaida.
         success: Pakeitimas priimtas.
       amendable:
         button: Pakeisti %{model_name}
-        error: Keičiant šį išteklių įvyko klaida.
         promote_button: Pakelti iki %{model_name}
         promote_confirm_text: Ar tikrai norite palaikyti šią pataisą?
         promote_help_text: Galite paremti šią pataisą ir ją paskelbti kaip nepriklausomą %{model_name}.
@@ -314,12 +312,7 @@ lt:
           few: "%{count} pataisos"
           many: "%{count} pataisos"
           other: "%{count} pataisos"
-      compare_draft:
-        continue: Tęsti
-        no_similars_found: Panašių pataisymų nerasta.
-        title: Panašūs pataisymai
       created:
-        error: Kuriant pakeitimo juodraštį įvyko klaida.
         success: Pakeitimo juodraštis sukurtas.
       destroy_draft:
         error: Šalinant šį pakeitimo juodraštį iškilo problema.
@@ -368,14 +361,10 @@ lt:
         error: Atnaujinant pataisos juodraštį iškilo problema.
         success: Pataisos juodraštis sėkmingai atnaujintas.
       withdraw:
-        error: Išimant pataisą įvyko klaida.
         success: Pataisa sėkmingai atsiimta.
       wizard_step_form:
         steps:
           '1': Sukurkite savo pataisą
-          '2': Palyginkite savo pataisą
-          '3': Užbaikite savo pataisą
-          '4': Paskalbkite savo pataisą
     anonymous_user: Anonimas
     application:
       document:
@@ -589,7 +578,6 @@ lt:
         name: Turinio juosta po paveikslėliu
     core:
       actions:
-        login_before_access: Prašau prisijunkite prie savo paskyros.
         unauthorized: Jūs neturite teisės atlikti šio veiksmo.
       application_helper:
         filter_area_values:
@@ -606,15 +594,13 @@ lt:
           complete_profile: Užbaigti profilį
           nickname_help: Jūsų slapyvardis %{organization}. Gali būti tik raidės, skaičiai ir brūkšneliai.
           sign_up: Užbaikite profilio pildymą
-          subtitle: Kad galėtumėte baigti registraciją, užpildykite šią formą
           username_help: Viešas vardas, kuris bus rodomas jūsų įrašuose. Tai gali būti bet koks vardas, nes siekame užtikrinti anonimiškumą.
       registrations:
         new:
           already_have_an_account?: Jau turite paskyrą?
+          log_in: Prisijungti
           newsletter: Kartais gauti naujienlaiškį su aktualia informacija
           newsletter_title: Leidimas susisiekti
-          sign_up: Užsiregistruoti
-          subtitle: Užsiregistruokite, kad galėtumėte dalyvauti diskusijose ir paremti pasiūlymus.
           terms: paslaugų teikimo sąlygos
           tos_agreement: Užsiregistruodami jūs sutinkate su %{link}.
           tos_title: Paslaugų teikimo sąlygos
@@ -624,7 +610,6 @@ lt:
           are_you_new?: Naujas platformos naudotojas?
           register: Sukurti paskyrą
           sign_in_disabled: Galite prisijungti su išorine paskyra.
-          sign_up_disabled: Registracija išjungta, norėdami prisijungti, naudokite jau egzistuojančią paskyrą.
       shared:
         newsletter_modal:
           buttons:
@@ -921,6 +906,7 @@ lt:
           filename: Rinkmenos pavadinimas
           remove: Pašalinti
           replace: Pakeisti
+          save: Išsaugoti
           title: Pavadinimas
           title_required: Reikalingas pavadinimas!
           uploaded: Įkelta
@@ -1044,7 +1030,6 @@ lt:
           content: "<p>%{organization} galite dalyvauti ir spręsti dėl įvairių temų pasinaudodami puslapiais, kuriuos matote viršutiniame meniu: „Procesai“, „Asamblėjos“, „Iniciatyvos“, „Konsultacijos“.</p> <p>Kiekviename iš jų rasite įvairių dalyvavimo galimybių: individualiai arba su kitais žmonėmis teikti pasiūlymus, dalyvauti diskusijose, nustatyti, kurie įgyvendintini projektai, yra prioritetiniai, dalyvauti tiesioginiuose susitikimuose ir kituose veiksmuose.</p>\n"
           title: Ką galiu daryti %{organization}?
         description: Daugiau informacijos apie %{organization}.
-        title: Bendroji Pagalba
     last_activities:
       all: Visos veiklos rūšys
       index:
@@ -1305,7 +1290,6 @@ lt:
           headline: Dabartinė %{organization} padėtis
         sub_hero:
           register: Registruotis
-          register_title: Užsiregistruokite norėdami susikurti paskyrą
       index:
         standalone_pages: Puslapiai
         subheading: Naršyti %{name} pagalbos puslapiuose
@@ -1402,7 +1386,6 @@ lt:
         subject: Apie išteklių pranešta
     reports:
       create:
-        error: Kuriant ataskaitą įvyko klaida. Bandykite dar kartą.
         success: Ataskaita sukurta ir ją peržiūrės administratorius.
     resource_endorsements:
       create:
@@ -1435,7 +1418,6 @@ lt:
           past: Praėję
       filters_small_view:
         filter: Filtruoti
-        filter_and_search: Filtruoti ir ieškoti
         filter_by: Filtruoti pagal
       results:
         view_all: Peržiūrėti viską (%{count})
@@ -1480,8 +1462,6 @@ lt:
         title: Pranešti apie netinkamą turinį
       floating_help:
         help: Pagalba
-      login_modal:
-        sign_up: Užsiregistruoti
       mentions_modal:
         remove_recipient: Išimti gavėją %{name}
       participatory_space_filters:
@@ -1680,21 +1660,22 @@ lt:
       updated_not_active: Jūsų slaptažodis pakeistas.
     registrations:
       destroyed: Jūsų sąskaita buvo sėkmingai panaikinta. Mes tikimės netrukus Jus vėl pamatyti.
-      new:
-        sign_up: Užsiregistruoti
       signed_up: Sveiki atvykę! Jūs sėkmingai užsiregistravote.
       signed_up_but_inactive: Jūs užsiregistravote sėkmingai. Tačiau negalėjome jūsų prijungti, nes jūsų sąskaita dar neaktyvuota.
       signed_up_but_locked: Jūs sėkmingai užsiregistravote. Tačiau mes negalėjome jūsų prijungti, nes jūsų sąskaita yra užrakinta.
       signed_up_but_unconfirmed: Žinutė su patvirtinimo nuoroda buvo išsiųsta į jūsų el. paštą. Prašome sekite nuorodą norėdami aktyvuoti paskyrą.
       update_needs_confirmation: Sėkmingai atnaujinote paskyrą, bet turime patvirtinti jūsų naują el. pašto adresą. Prašome patikrinkite savo el. paštą ir spustelėkite patvirtinimo nuorodą.
       updated: Jūsų paskyra atnaujinta.
+    sessions:
+      new:
+        log_in: Prisijungti
     shared:
       links:
         back: Atgal
         didn_t_receive_confirmation_instructions: Negavote patvirtinimo nurodymų?
         didn_t_receive_unlock_instructions: Negavote atblokavimo nurodymų?
         forgot_your_password: Pamiršote savo slaptažodį?
-        sign_up: Užsiregistruoti
+        log_in: Prisijungti
       minimum_password_length:
         one: "(bent %{count} simbolis)"
         few: "(bent %{count} simboliai)"
@@ -1788,13 +1769,7 @@ lt:
       long_words: yra per ilgų žodžių (daugiau kaip 35 ženklai)
       must_start_with_caps: pradėti būtina didžąja raide
       nesting_too_deep: negali priklausyti pakategorei
-      not_found: nepavyko rasti. Ar užsiregistravote anksčiau?
       not_locked: nebuvo užrakintas
-      not_saved:
-        one: 'Vykdant jūsų prašymą įvyko klaida:'
-        few: 'Vykdant jūsų prašymus įvyko klaida:'
-        many: 'Vykdant jūsų prašymus įvyko klaida:'
-        other: 'Vykdant jūsų prašymus įvyko klaida:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
       too_short: per trumpas (mažiau nei %{count} ženklų)
@@ -1873,11 +1848,11 @@ lt:
         decidim_logo: '„Decidim“ logotipas'
         decidim_title: Decidim
         download_open_data: Parsisiųsti atvirųjų duomenų rinkmenas
+        log_in: Prisijungti
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
         resources: Ištekliai
-        sign_up: Registruotis
-        terms_and_conditions: Nuostatos ir sąlygos
       header:
+        log_in: Prisijungti
         main_menu: Pagrindinis meniu
         user_menu: Naudotojo meniu
       impersonation_warning:

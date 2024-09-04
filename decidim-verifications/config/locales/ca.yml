@@ -56,10 +56,24 @@ ca:
         grant_id_documents_offline_verification: "%{user_name} ha verificat %{resource_name} utilitzant una autorització offline de Documents d'identitat"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+            - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona.
+            - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
+            - Verifica't introduint un número de passaport que comenci per "A".
         csv_census:
           help:
             - Les administradores carreguen un CSV amb els correus electrònics de les participants acceptades.
             - Només es poden verificar les participants amb un correu electrònic que consti en aquest arxiu CSV.
+        default:
+          help:
+            - L'ajuda sobre el gestor d'autorització no està definida.
+            - Una desenvolupadora necessita definir l'ajuda a la clau de traducció (i18n) %{authorization_handler}
+        dummy_authorization_handler:
+          help:
+            - Un exemple de gestor d'autorització perquè les desenvolupadores puguin entendre com funciona una verificació simple.
+            - Està dirigit a les desenvolupadores perquè puguin entendre com implementar el seu propi sistema de verificació.
+            - Verifica't introduint un número de document que finalitzi amb "X".
         id_documents:
           help:
             - Les participants omplen la informació de la seva identitat i carreguen una còpia del seu document.
@@ -72,6 +86,11 @@ ca:
             - Enviar la carta a la seva adreça amb el codi de verificació.
             - Marcar la carta com a enviada.
             - Una vegada la carta estigui marcada com a enviada, la participant podrà introduir el codi i verificar-se.
+        sms:
+          help:
+            - Les participants sol·liciten un codi de verificació que s'enviarà al seu telèfon.
+            - Cal que introdueixin el codi per a ser verificades.
+            - Si no reben el codi, poden tornar a demanar-lo.
       csv_census:
         explanation: Verifica't mitjançant el cens de l'organització.
         name: Cens de l'organització
@@ -138,7 +157,7 @@ ca:
         admin:
           census:
             create:
-              error: S'ha produït un error en la importació del cens.
+              error: S'ha produït un error en importar del cens.
               success: S'han importat correctament %{count} elements (%{errors} errors).
             destroy_all:
               success: S'han eliminat totes les dades del cens.

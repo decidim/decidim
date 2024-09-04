@@ -39,10 +39,8 @@ uk:
   decidim:
     admin:
       actions:
-        manage: Керувати
         new_initiative_type: Додати різновид почину
       menu:
-        components: Складові
         information: Відомості
         initiatives: Почини
         initiatives_types: Різновиди починів
@@ -130,7 +128,6 @@ uk:
       admin_states:
         created: Створені
         discarded: Відкинуті
-        published: Оприлюднено
         validating: Технічна перевірка
       application_helper:
         filter_state_values:

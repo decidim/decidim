@@ -126,13 +126,11 @@ pt-BR:
             amendments_wizard_help_text: Texto de ajuda do Assistente
             announcement: Anúncio
             attachments_allowed: Permitir anexos
-            can_accumulate_supports_beyond_threshold: Pode acumular suportes além do limiar
             collaborative_drafts_enabled: Rascunhos colaborativos ativados
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             default_sort_order_options:
               most_commented: Mais comentado
-            geocoding_enabled: Geocodificação habilitada
             minimum_votes_per_user: Mínimo de votos por usuário
             new_proposal_body_template: Novo modelo de corpo da proposta
             new_proposal_body_template_help: Você pode definir o texto pré-preenchido que as novas propostas terão
@@ -141,7 +139,6 @@ pt-BR:
             participatory_texts_enabled: Textos participativos habilitados
             participatory_texts_enabled_readonly: Não é possível interagir com esta configuração se houver propostas existentes. Por Favor, crie um novo componente `Propostas` se você quiser habilitar esta funcionalidade ou descartar todas as propostas importadas no menu `Textos Participatórios` se você quiser desativá-la.
             proposal_answering_enabled: Resposta de proposta ativada
-            proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que muitos minutos passem.
             proposal_edit_time: Editando proposta
             proposal_edit_time_choices:
               infinite: Permitir a edição de propostas por um período infinito de tempo
@@ -149,14 +146,10 @@ pt-BR:
             proposal_length: Comprimento máximo do corpo da proposta
             proposal_limit: Limite da proposta por usuário
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
-            proposal_wizard_step_2_help_text: Assistente de proposta "Comparar" passo ajuda texto
-            proposal_wizard_step_3_help_text: Texto de ajuda da etapa "Completa" do assistente de proposta
-            proposal_wizard_step_4_help_text: Assistente de propostas "Publicar" passo ajuda texto
             resources_permissions_enabled: Permissões de ações podem ser definidas para cada proposta
             scope_id: Escopo
             scopes_enabled: Escopos habilitados
             threshold_per_proposal: Limiar por proposta
-            vote_limit: Limite de voto por usuário
           step:
             amendment_creation_enabled: Criação de alteração ativada
             amendment_creation_enabled_help: O usuário pode alterar propostas.
@@ -182,8 +175,8 @@ pt-BR:
             proposal_answering_enabled: Resposta de proposta ativada
             publish_answers_immediately: Publicar respostas da proposta imediatamente
             suggested_hashtags: Hashtags sugeridos aos usuários para novas propostas
-            votes_blocked: Votação desativada
-            votes_enabled: Votação habilitada
+            votes_blocked: Votos bloqueados
+            votes_enabled: Votos ativados
             votes_hidden: Votos ocultos (se os votos estiverem ativados, verificar isso esconderá o número de votos)
     events:
       proposals:
@@ -258,7 +251,6 @@ pt-BR:
         voting_enabled:
           email_intro: 'Você pode votar propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: As propostas de votação começaram para %{participatory_space_title}
           notification_title: Agora você pode iniciar <a href="%{resource_path}">propostas de votação</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -276,13 +268,7 @@ pt-BR:
         proposal_votes:
           conditions:
             - Navegue e passe algum tempo lendo as propostas de outras pessoas
-            - Dê apoio às propostas que você gosta ou ache interessante
-          description: Este selo é concedido quando você oferece suporte a propostas de outras pessoas.
-          description_another: Este usuário deu suporte a %{score} propostas.
-          description_own: Você deu suporte a %{score} propostas.
-          name: Apoios proposta
-          next_level_in: Dê suporte a mais %{score} propostas para alcançar o próximo nível!
-          unearned_own: Você deu suporte a nenhuma proposta ainda.
+            - 
         proposals:
           conditions:
             - Escolha o espaço de participação de seu interesse com o envio de propostas ativadas
@@ -307,7 +293,6 @@ pt-BR:
         object: propostas
         title: Propostas
       votes:
-        description: Número de votos gerados em propostas de usuários
         object: votos
         title: Votos
     participatory_spaces:
@@ -394,7 +379,6 @@ pt-BR:
           form:
             note: Nota
             submit: Enviar
-          leave_your_note: Deixe sua nota
           title: Notas privadas
         proposals:
           edit:
@@ -446,7 +430,6 @@ pt-BR:
             remove_assignment: Remover Atribuição
             remove_assignment_confirmation: Tem certeza que deseja remover o avaliador desta proposta?
             valuators: Avaliadores
-            votes_count: Contagem de votos
           update_category:
             invalid: 'Estas propostas já tinham a categoria %{subject_name}: %{proposals}.'
             select_a_category: Por favor, selecione uma categoria.
@@ -617,17 +600,7 @@ pt-BR:
         buttons:
           amend: Alterar
           comment: Comente
-      proposal_votes:
-        create:
-          error: Houve erros ao votar a proposta.
       proposals:
-        compare:
-          continue: Continuar
-          no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
-          title: Propostas semelhantes
-        complete:
-          send: Enviar
-          title: Complete sua proposta
         dynamic_map_instructions:
           description: As coordenadas serão atualizadas quando clicar no botão 'visualizar'. No entanto, o endereço não muda.
           instructions: Você pode mover o ponto no mapa.
@@ -643,7 +616,6 @@ pt-BR:
           discard: Descarte este rascunho
           discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
           send: Visualização
-          title: Editar proposta de rascunho
         filters:
           activity: Minha atividade
           all: Tudo
@@ -707,46 +679,29 @@ pt-BR:
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
-          withdraw_btn_hint: Você pode retirar sua proposta se mudar de idéia, desde que não tenha recebido nenhum suporte. A proposta não é excluída, ela aparecerá na lista de propostas retiradas.
           withdraw_confirmation_html: Tem certeza que deseja retirar esta proposta?<br><br><strong>Esta ação não pode ser cancelada!</strong>
           withdraw_proposal: Retirar proposta
         update:
           title: Atualizar proposta
         vote_button:
           already_voted: Já votou
-          already_voted_hover: Unvote
           maximum_votes_reached: Limite de votação atingido
           no_votes_remaining: Não há votos restantes
           vote: Voto
           votes_blocked: Votação desativada
-        votes_count:
-          count:
-            one: VOTO
-            other: VOTOS
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Cada proposta pode acumular mais de %{limit} suporta
           minimum_votes_per_user:
             description: Você deve distribuir um mínimo de %{votes} votos entre diferentes propostas.
-            supports_remaining: Você tem que votar %{remaining_votes} mais propostas para seus votos a serem levados em conta.
           proposal_limit:
             description: Você pode criar até %{limit} propostas.
-          title: 'A votação está sujeita às seguintes regras:'
           vote_limit:
             description: Você pode votar até %{limit} propostas.
-            votes: Votos
         wizard_aside:
           back: Costas
           back_from_step_1: Voltar às propostas
-          back_from_step_2: Voltar às propostas
-          back_from_step_3: Voltar para a proposta de comparação
-          back_from_step_4: Voltar à edição de rascunho
         wizard_steps:
           current_step: Etapa atual
           step_1: Crie sua proposta
-          step_2: Comparar
-          step_3: Completo
-          step_4: Publique sua proposta
           title: Etapas de criação proposta
       proposals_picker:
         choose_proposals: Escolher propostas
@@ -775,4 +730,4 @@ pt-BR:
     statistics:
       proposals_accepted: Propostas aceitas
       proposals_count: Propostas
-      supports_count: Votos
+      votes_count: Votos

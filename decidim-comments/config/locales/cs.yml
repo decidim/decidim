@@ -42,7 +42,7 @@ cs:
           error: Při hlasování o komentáři došlo k chybě.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Přihlaste se pomocí svého účtu</a> nebo se <a href="%{sign_up_url}">zaregistrujte</a> a přidejte svůj komentář.
+        account_message: <a href="%{sign_in_url}">Přihlaste se</a> nebo <a href="%{sign_up_url}">vytvořit účet</a> a přidejte svůj komentář.
         form:
           body:
             label: Komentář
@@ -68,13 +68,15 @@ cs:
           against: Proti
           in_favor: Ve prospěch
         cancel_reply: Zrušit odpověď
+        comment_label: Komentář %{comment_id}
+        comment_label_reply: Komentář %{comment_id} (odpověď na komentář %{parent_comment_id})
         confirm_destroy: Opravdu chcete odstranit tento komentář?
+        controls_label: Ovládání komentářů
         delete: Smazat
         deleted_at: Komentář byl smazán dne %{date}
         deleted_user: Vymazaný účastník
         edit: Upravit
         edited: Upraveno
-        hide_replies: Skrýt odpovědi
         moderated_at: Komentář moderován dne %{date}
         reply: Odpověď
         report:
@@ -104,7 +106,6 @@ cs:
       comments:
         blocked_comments_for_unauthorized_user_warning: Musíte být ověřen, abyste mohli komentovat tuto chvíli, ale můžete si přečíst ty předchozí.
         blocked_comments_for_user_warning: Momentálně nemůžete komentovat, ale můžete si přečíst ty předchozí.
-        blocked_comments_warning: Komentáře jsou momentálně zakázány, ale můžete si přečíst ty předchozí.
         comment_details_title: Podrobnosti komentáře
         loading: Načítání komentářů ...
         single_comment_warning: <a href="%{url}">Zobrazit všechny komentáře</a>

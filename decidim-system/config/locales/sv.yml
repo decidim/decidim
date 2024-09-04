@@ -154,7 +154,6 @@ sv:
           success: Organisationen har uppdaterats.
         users_registration_mode:
           disabled: Åtkomst kan endast göras med externa konton
-          enabled: Tillåt deltagare att registrera och logga in
       shared:
         notices:
           no_organization_warning_html: Kom igång genom att skapa en organisation. Läs %{guide} innan du fortsätter.

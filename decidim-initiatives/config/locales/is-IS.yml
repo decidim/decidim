@@ -19,10 +19,7 @@ is-IS:
         name: Heill heiti
   decidim:
     admin:
-      actions:
-        manage: Stjórna
       menu:
-        components: Hluti
         information: Upplýsingar
         initiatives: Frumkvæði
         initiatives_types: Frumgerð tegundir
@@ -92,7 +89,6 @@ is-IS:
       admin_states:
         created: Búið til
         discarded: Fargað
-        published: Published
         validating: Tæknilegar staðfestingar
       application_helper:
         filter_state_values:

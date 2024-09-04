@@ -59,7 +59,6 @@ nl:
   decidim:
     admin:
       actions:
-        manage: Beheer
         new_initiative_type: Nieuw initiatiefstype
       filters:
         search_placeholder:
@@ -67,7 +66,6 @@ nl:
       menu:
         attachments: Bijlagen
         committee_members: Commissieleden
-        components: Onderdelen
         information: Informatie
         initiatives: Initiatieven
         initiatives_types: Initiatieftypes
@@ -230,7 +228,6 @@ nl:
         accepted: Genoeg handtekeningen
         created: gemaakt
         discarded: Afgedankte
-        published: Gepubliceerd
         rejected: Niet genoeg handtekeningen
         validating: Technische validatie
       application_helper:
@@ -395,7 +392,6 @@ nl:
           accepted: Genoeg handtekeningen
           created: Aangemaakt
           discarded: Verwijderd
-          published: Ingediend
           rejected: Niet genoeg handtekeningen
           validating: Technische validatie
       states:

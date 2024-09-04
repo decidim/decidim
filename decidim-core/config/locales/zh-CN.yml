@@ -139,19 +139,12 @@ zh-CN:
       dismiss: 取消通知
     amendments:
       accepted:
-        error: 接受修改时发生错误。
         success: 修正已被成功接受。
       amendable:
         button: 修改 %{model_name}
-        error: 修改此资源时出错。
         promote_button: 提升至 %{model_name}
         promote_confirm_text: 您确定要推广此修饰吗？
-      compare_draft:
-        continue: 继续
-        no_similars_found: 未找到类似的修改。
-        title: 类似的修改
       created:
-        error: 创建修正草案时发生错误。
         success: 修正草稿已成功创建。
       destroy_draft:
         error: 删除修正草案时出现问题。
@@ -189,9 +182,6 @@ zh-CN:
       wizard_step_form:
         steps:
           '1': 创建您的修改
-          '2': 比较您的修改
-          '3': 完成您的修改
-          '4': 发布您的修改
     anonymous_user: 匿名的
     application:
       document:
@@ -329,15 +319,12 @@ zh-CN:
         new:
           complete_profile: 完整资料
           sign_up: 请填写您的个人资料
-          subtitle: 请填写以下表单以完成注册
           username_help: 在您的帖子上出现的公共名称。为了保证匿名，可以使用任何名称。
       registrations:
         new:
           already_have_an_account?: 已经有一个帐户？
           newsletter: 接收附带相关信息的时事通讯
           newsletter_title: 联系人权限
-          sign_up: 注册
-          subtitle: 注册参加讨论和支持建议。
           tos_agreement: 通过注册您同意 %{link}。
           tos_title: 服务条款
           username_help: 在您的帖子上出现的公共名称。为了保证匿名，可以使用任何名称。
@@ -624,7 +611,6 @@ zh-CN:
         default_page:
           content: "<p>在 %{organization} 中，您可以参与并决定不同的主题， 通过你在顶菜单中看到的空间：程序、集会、倡议、协商。</p> <p>在每个选项中，您都会发现不同的参与选项：单独或与其他人一起提出建议 • 参加辩论、确定执行项目的优先次序、参加面对面会议和其他行动。</p>\n"
           title: 我可以在 %{organization} 中做什么？
-        title: 常规帮助
     last_activities:
       all: 所有活动类型
       index:
@@ -853,7 +839,6 @@ zh-CN:
         subject: 资源已被报告
     reports:
       create:
-        error: 创建报告时发生错误。请再试一次。
         success: 报告已成功创建，将由管理员审核。
     resource_endorsements:
       create:
@@ -913,8 +898,6 @@ zh-CN:
         title: 报告不恰当的内容
       floating_help:
         help: 帮助
-      login_modal:
-        sign_up: 注册
       participatory_space_filters:
         filters:
           areas: 地区
@@ -1061,8 +1044,6 @@ zh-CN:
       updated_not_active: 您的密码已成功更改。
     registrations:
       destroyed: 您的帐户已成功取消。我们希望很快再见到您。
-      new:
-        sign_up: 注册
       signed_up: 欢迎！您已成功注册。
       signed_up_but_inactive: 您已成功注册。但我们无法登录，因为您的帐户尚未激活。
       signed_up_but_locked: 您已成功注册。但我们无法登录，因为您的帐户已被锁定。
@@ -1073,7 +1054,6 @@ zh-CN:
       links:
         back: 后退
         forgot_your_password: 忘记密码？
-        sign_up: 注册
       minimum_password_length:
         other: "(%{count} 个字符最小)"
     unlocks:
@@ -1093,10 +1073,7 @@ zh-CN:
       invalid_time_zone: 不是有效的时区
       long_words: 包含过长的单词 (超过 35 个字符)
       must_start_with_caps: 必须以大写字母开始
-      not_found: 找不到。您以前注册过吗？
       not_locked: 未锁定
-      not_saved:
-        other: '处理您的请求时发生多个错误：'
       too_many_marks: 正在使用太多连续标点符号(例如! 和 ?)
       too_much_caps: 正在使用太多大写字母(超过25%文本)
   forms:
@@ -1119,7 +1096,6 @@ zh-CN:
         decidim_logo: 解码徽标
         download_open_data: 下载打开的数据文件
         made_with_open_source: 使用 <a target="_blank" href="https://github.com/decidim/decidim">免费软件</a> 创建的网站。
-        sign_up: 注册
       impersonation_warning:
         close_session: 关闭会话
         description_html: 您正在管理参与者 <b>%{user_name}</b>

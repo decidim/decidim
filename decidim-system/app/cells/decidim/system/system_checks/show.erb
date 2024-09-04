@@ -1,0 +1,13 @@
+<ul>
+  <% checks.each do |key, check| %>
+    <li>
+      <% if check[:check_method] %>
+        <%= icon "checkbox-circle-line", class: "fill-success inline" %>
+        <%= t("#{key}.success", scope: "decidim.system.system_checks") %>
+      <% else %>
+        <%= icon "close-circle-line", class: "fill-alert inline" %>
+        <%= t("#{key}.error", scope: "decidim.system.system_checks", error_extra: check[:error_extra]) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

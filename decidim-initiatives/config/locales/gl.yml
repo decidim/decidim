@@ -52,7 +52,6 @@ gl:
       menu:
         attachments: Anexos
         committee_members: Membros da comisión
-        components: Compoñentes
         information: Información
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -190,7 +189,6 @@ gl:
       admin_states:
         created: Creada
         discarded: Descartou
-        published: Publicado
         validating: Validación técnica
       application_helper:
         filter_state_values:

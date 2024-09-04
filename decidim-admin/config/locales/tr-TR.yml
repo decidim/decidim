@@ -130,6 +130,7 @@ tr:
       actions:
         add: Eklemek
         browse: Araştır
+        manage: yönetme
         per_page: Sayfa başına
         permissions: İzinler
         reject: reddetmek
@@ -706,6 +707,8 @@ tr:
           without_topic: Konu olmayan sayfalar
         update:
           error: Bu sayfa güncellenirken bir hata oluştu.
+      taxonomies:
+        count: saymak
       titles:
         admin_log: Yönetici günlüğü
         area_types: Alan türleri

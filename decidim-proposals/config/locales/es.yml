@@ -74,12 +74,12 @@ es:
           attributes:
             base:
               not_official: No son oficiales
-              supported: Han recibido apoyos o adhesiones
+              voted: Han recibido apoyos o adhesiones
         proposals_split:
           attributes:
             base:
               not_official: No son oficiales
-              supported: No han recibido apoyos ni adhesiones
+              voted: Han recibido apoyos o adhesiones
     models:
       decidim/proposals/admin/update_proposal_category_event: Categoría de la propuesta cambiada
       decidim/proposals/admin/update_proposal_scope_event: Ámbito de propuesta cambiado
@@ -101,7 +101,7 @@ es:
         other: Notas
       decidim/proposals/proposal_vote:
         one: Apoyo
-        other: Apoyos
+        other: Apoyo
   decidim:
     admin:
       filters:
@@ -143,7 +143,7 @@ es:
           comment: Comentar
           create: Crear
           endorse: Adherirse
-          vote: Dar apoyo
+          vote: Apoyar
           vote_comment: Votar comentario
           withdraw: Retirar
         name: Propuestas
@@ -154,14 +154,15 @@ es:
             amendments_wizard_help_text: Asistente de ayuda de las enmiendas
             announcement: Aviso
             attachments_allowed: Permitir adjuntos
-            can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
+            attachments_allowed_help: Al activar esta opción, las propuestas se mostrarán en modo de cuadrícula por defecto y la primera imagen aparecerá en la tarjeta.
+            can_accumulate_votes_beyond_threshold: Puede acumular apoyos más allá del umbral
             collaborative_drafts_enabled: Borradores colaborativos habilitados
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             default_sort_order: Ordenación por defecto de propuestas
-            default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán por las más apoyadas.
+            default_sort_order_help: '''Automático'' significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán de más a menos apoyos.'
             default_sort_order_options:
-              default: Por defecto
+              automatic: Automático
               most_commented: Más comentadas
               most_endorsed: Con más adhesiones
               most_followed: Más seguidas
@@ -169,8 +170,13 @@ es:
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
-            geocoding_enabled: Geocodificación habilitada
-            minimum_votes_per_user: Apoyos mínimos por participante
+            edit_time: Las autoras pueden editar las propuestas antes de que pase este tiempo
+            edit_time_units:
+              days: Días
+              hours: Horas
+              minutes: Minutos
+            geocoding_enabled: Mapas habilitados
+            minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
@@ -178,17 +184,18 @@ es:
             participatory_texts_enabled: Textos participativos habilitados
             participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
             proposal_answering_enabled: Respuesta a propuestas habilitada
-            proposal_edit_before_minutes: Las propuestas pueden ser editadas por las autoras antes de que pasen estos minutos
             proposal_edit_time: Edición de propuestas
             proposal_edit_time_choices:
               infinite: Permitir editar propuestas por una cantidad infinita de tiempo
               limited: Permitir la edición de propuestas dentro de un plazo específico
+            proposal_edit_time_unit_options:
+              days: Días
+              hours: Horas
+              minutes: Minutos
             proposal_length: Longitud máxima del cuerpo de la propuesta
             proposal_limit: Límite de propuestas por participante
             proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuestas
-            proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuestas
-            proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuestas
-            proposal_wizard_step_4_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuestas
+            proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuestas
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
@@ -213,9 +220,9 @@ es:
             creation_enabled: Las participantes pueden crear propuestas
             creation_enabled_readonly: Esta opción se desactiva cuando activas la funcionalidad de Textos Participativos. Para subir propuestas como texto participativo haz clic en el botón Textos Participativos y sigue las instrucciones.
             default_sort_order: Orden predeterminado de propuestas
-            default_sort_order_help: Por defecto significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán por las más apoyadas.
+            default_sort_order_help: '''Automático'' significa que si los apoyos están habilitados, las propuestas se mostrarán en orden aleatorio, y si los apoyos están bloqueados, se ordenarán de más a menos apoyos.'
             default_sort_order_options:
-              default: Por defecto
+              automatic: Automático
               most_commented: Más comentadas
               most_endorsed: Con más adhesiones
               most_followed: Más seguidas
@@ -231,15 +238,44 @@ es:
             suggested_hashtags: Hashtags sugeridos a las participantes para nuevas propuestas
             votes_blocked: Apoyos bloqueados
             votes_enabled: Apoyos habilitados
-            votes_hidden: Apoyos ocultos (si los apoyos están habilitados, marcando esta opción ocultarás el número de apoyos)
+            votes_hidden: Votos ocultos (si los votos están habilitados, marcando esta opción ocultará el número de votos)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: Se te ha añadido como coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Se te ha asignado como evaluadora de la propuesta "%{resource_title}". Esto significa que se  ha confiado en ti para dar tu opinión y dar una respuesta adecuada en los próximos días. Puedes ver la propuesta en el <a href="%{admin_proposal_info_url}">panel de administración</a>.
+            email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
+            email_subject: Has sido asignada como evaluadora de la propuesta "%{resource_title}".
+            notification_title: Se te ha asignado como evaluadora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>". Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
           proposal_note_created:
-            email_intro: Alguien ha dejado una nota en la propuesta "%{resource_title}". Revísala ahora a través del <a href="%{admin_proposal_info_url}">panel de administración</a>.
+            email_intro: '%{author_name} ha creado una nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
             email_outro: Recibes esta notificación porque puedes evaluar la propuesta.
             email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
-            notification_title: Alguien ha dejado una nota en la propuesta <a href="%{resource_path}">%{resource_title}</a>. Revísala ahora a través del <a href="%{admin_proposal_info_path}">panel de administración</a>.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creado una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
+          proposal_note_mentioned:
+            email_intro: '"%{author_name}" "%{author_nickname}" te ha mencionado en una nota privada en "%{resource_title}". Puedes verla en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
+            email_outro: Has recibido esta notificación porque se te ha mencionado en una nota privada.
+            email_subject: Alguien dejó una nota en la propuesta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha mencionado en una nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verla en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
+          proposal_note_replied:
+            email_intro: '%{author_name} ha respondido a tu nota privada en %{resource_title}. Puedes verlo en el <a href="%{admin_proposal_info_url}">panel de administración</a>.'
+            email_outro: Has recibido esta notificación porque eres el autor de la nota privada.
+            email_subject: "%{author_name} ha respondido a tu nota privada en %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respondido a tu nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verlo en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha aceptado tu invitación para ser coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
+        coauthor_invited:
+          actions:
+            accept: Aceptar
+            decline: Rechazar
+          email_intro: 'Te han invitado a ser coautora de la propuesta "%{resource_title}". Puedes aceptar o rechazar la invitación en esta página:'
+          email_outro: Has recibido esta notificación porque la autora de la propuesta quiere reconocer tus contribuciones convirtiéndote en coautora.
+          email_subject: Se te ha añadido como coautora de la propuesta "%{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name}</a> quiere que la invites a ser coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha rechazado tu invitación para ser coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
@@ -317,10 +353,12 @@ es:
           email_outro: Recibiste esta notificación porque eres autora de la propuesta.
           email_subject: El ámbito de la propuesta %{resource_title} ha sido actualizado
           notification_title: El ámbito de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado por una administradora.
+        rejected_coauthorship:
+          notification_title: Has rechazado la invitación de <a href="%{author_path}">%{author_name}</a> para convertirte en coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         voting_enabled:
-          email_intro: '¡Puedes apoyar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
+          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Empieza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: El apoyo a propuestas ha comenzado para %{participatory_space_title}
+          email_subject: La recogida de apoyos a las propuestas recogidas en "%{participatory_space_title}" ha empezado
           notification_title: Ya puedes empezar a <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
@@ -338,8 +376,8 @@ es:
         proposal_votes:
           conditions:
             - Navega y dedica un tiempo leyendo las propuestas de otras personas
-            - Da apoyo a las propuestas con las que estés de acuerdo o encuentres interesantes
-          description: Este distintivo se otorga cuando apoyas propuestas de otras personas.
+            - Apoya a las propuestas con las que estés de acuerdo o encuentres interesantes
+          description: Esta insignia se concede cuando se apoyan propuestas de otras personas.
           description_another: Esta participante ha apoyado %{score} propuestas.
           description_own: Has dado apoyo a %{score} propuestas.
           name: Apoyos a propuestas
@@ -371,9 +409,9 @@ es:
         object: propuestas
         title: Propuestas
       votes:
-        description: Número de apoyos a las propuestas
-        object: apoyos
-        title: Apoyos
+        description: Número de apoyos a propuestas
+        object: votos
+        title: Votos
     participatory_spaces:
       highlighted_proposals:
         last: Propuestas más recientes
@@ -381,11 +419,15 @@ es:
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
+        cancel_coauthor_invitation: Cancelar la invitación de coautoría
+        cancel_coauthor_invitation_confirm: '¿Seguro que deseas cancelar la invitación de coautoría?'
         delete_proposal_state_confirm: '¿Seguro que quieres borrar este estado?'
         destroy: Borrar estado
         edit_proposal: Editar propuesta
         edit_proposal_state: Editar estado
         import: Importar desde otro componente
+        mark_as_coauthor: Marcar como coautora
+        mark_as_coauthor_confirm: '¿Seguro que quieres marcar a esta usuaria como coautora? La participatinte recibirá una notificación para aceptar o rechazar la invitación.'
         new: Nueva propuesta
         new_proposal_state: Nuevo estado
         participatory_texts: Textos participativos
@@ -474,7 +516,9 @@ es:
           form:
             note: Nota
             submit: Enviar
-          leave_your_note: Deja tu nota
+          reply:
+            error: Se ha producido un error al crear esta respuesta en la nota privada.
+            success: La respuesta a la nota privada se ha creado con éxito.
           title: Notas privadas
         proposal_states:
           create:
@@ -497,10 +541,12 @@ es:
             success: Estado actualizado correctamente
         proposals:
           answer:
-            invalid: Ha habido un problema al responder a esta propuesta.
+            bulk_answer_error: No se ha podido responder a las propuestas con IDs [%{proposals}] debido a errores aplicando la plantilla "%{template}". Puedes comprobar que la plantilla de respuesta coincide con el formato esperado para este componente aplicándolo individualmente.
+            bulk_answer_success: 'Las propuestas %{count} serán respondidas usando la plantilla "%{template}". Por favor, espera unos minutos y actualiza la página para ver las actualizaciones.'
+            invalid: Se ha producido un error al responder a esta propuesta.
             success: Propuesta respuesta con éxito.
           create:
-            invalid: Ha habido un problema al crear esta propuesta.
+            invalid: Se ha producido un error al crear esta propuesta.
             success: Propuesta creada correctamente.
           edit:
             title: Actualizar propuesta
@@ -513,6 +559,7 @@ es:
             select_a_meeting: Selecciona un encuentro
           index:
             actions: Acciones
+            apply_answer_template: Aplicar la plantilla de respuesta
             assign_to_valuator: Asignar a evaluadora
             assign_to_valuator_button: Asignar
             cancel: Cancelar
@@ -520,9 +567,11 @@ es:
             change_scope: Cambiar ámbito
             merge: Fusionar en una nueva
             merge_button: Fusionar
+            no_templates_available: No hay pantillas disponibles
             publish: Publicar
             publish_answers: Publicar respuestas
             select_component: Selecciona un componente
+            select_valuators: Selecciona una o más evaluadoras
             selected: seleccionado
             split: Dividir propuestas
             split_button: Dividir
@@ -579,18 +628,18 @@ es:
             title: Importar proyectos desde otro componente
         proposals_merges:
           create:
-            invalid: 'Ha habido un problema al fusionar las propuestas seleccionadas porque algunas de ellas:'
+            invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
             success: Se han convinado con éxito las propuestas en una de nueva.
         proposals_splits:
           create:
-            invalid: 'Ha habido un problema al dividir las propuestas seleccionadas porque algunas de ellas:'
+            invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
             success: Las propuestas se han dividido en otras nuevas con éxito.
         valuation_assignments:
           create:
             invalid: Se ha producido un error al asignar propuestas a una evaluadora.
             success: Propuestas asignadas correctamente a una evaluadora.
           delete:
-            invalid: Se ha producido un error al deshacer la asignación de propuestas de una evaluadora.
+            invalid: Se ha producido un error al asignar propuestas a una evaluadora.
             success: Evaluadora desasignada correctamente.
       admin_log:
         proposal:
@@ -611,13 +660,13 @@ es:
         withdrawn: Retirada
       application_helper:
         filter_origin_values:
-          all: Todas
+          all: Todos
           meetings: Encuentros
           official: Oficial
           participants: Participantes
           user_groups: Grupos
         filter_state_values:
-          all: Todas
+          all: Todos
           not_answered: No contestada
         filter_type_values:
           all: Todas
@@ -732,6 +781,19 @@ es:
       destroy_draft:
         error: Se ha producido un error al eliminar el borrador colaborativo.
         success: El borrador de la propuesta fue eliminado correctamente.
+      invite_coauthors:
+        cancel:
+          error: Se ha producido un error al cancelar la invitación de coautoría.
+          success: Invitación de coautoría cancelada con éxito.
+        create:
+          error: Se ha producido un error al invitar a la coautora.
+          success: "%{author_name} ha sido invitada como coautora con éxito."
+        destroy:
+          error: Se ha producido un error al rechazar la invitación.
+          success: Se ha rechazado su invitación.
+        update:
+          error: Se ha producido un error al aceptar esta invitación.
+          success: Se ha aceptado la invitación.
       last_activity:
         new_proposal: 'Nueva propuesta:'
         proposal_updated: 'Propuesta actualizada:'
@@ -765,13 +827,6 @@ es:
         create:
           error: Se ha producido un error al apoyar la propuesta.
       proposals:
-        compare:
-          continue: Continuar
-          no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
-          title: Propuestas similares
-        complete:
-          send: Enviar
-          title: Completa tu propuesta
         dynamic_map_instructions:
           description: Las coordenadas se actualizarán cuando hagas clic en el botón 'previsualizar'. Sin embargo, la dirección no cambia.
           instructions: Puedes mover la ubicación en el mapa.
@@ -802,13 +857,15 @@ es:
           search: Buscar
           state: Estado
           type: Tipo
-          voted: Has dado apoyo
+          voted: Apoyadas
         index:
           click_here: Ver todas las propuestas
           collaborative_drafts_list: Acceder a borradores colaborativos
           count:
             one: "%{count} propuesta"
             other: "%{count} propuestas"
+          grid_mode: Vista en cuadrícula
+          list_mode: Vista en listado
           new_proposal: Nueva propuesta
           see_all: Ver todas las propuestas
           see_all_withdrawn: Ver todas las propuestas retiradas
@@ -866,26 +923,26 @@ es:
           title: Actualizar propuesta
         vote_button:
           already_voted: Ya has dado tu apoyo
-          already_voted_hover: Retirar tu apoyo
+          already_voted_hover: Retirar el apoyo
           maximum_votes_reached: Límite de apoyos alcanzado
-          no_votes_remaining: No quedan apoyos
+          no_votes_remaining: No hay votos restantes
           vote: Dar apoyo
-          votes_blocked: Apoyos deshabilitados
+          votes_blocked: Apoyos desactivados
         votes_count:
           count:
             one: Apoyo
             other: Apoyos
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
+          can_accumulate_votes_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
           minimum_votes_per_user:
             description: Debes distribuir un mínimo de %{votes} apoyos entre las diferentes propuestas.
             given_enough_votes: Has dado apoyos suficientes.
-            supports_remaining: Debes apoyar %{remaining_votes} propuestas más para que tus apoyos sean tenidos en cuenta.
+            votes_remaining: Has de dar %{remaining_votes} apoyo/s más a propuestas para que tus apoyos sean tenidos en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
-            description: Para que las propuestas sean validadas necesitan alcanzar un mínimo de %{limit} apoyos.
+            description: Para que una propuesta se valide, debe recibir %{limit} apoyos.
           title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
@@ -893,15 +950,11 @@ es:
         wizard_aside:
           back: Volver
           back_from_step_1: Volver a propuestas
-          back_from_step_2: Volver a propuestas
-          back_from_step_3: Volver a comparar propuestas
-          back_from_step_4: Volver a editar borrador
+          back_from_step_2: Volver a la edición
         wizard_steps:
           current_step: Paso actual
           step_1: Crear tu propuesta
-          step_2: Comparar
-          step_3: Completar
-          step_4: Publicar tu propuesta
+          step_2: Publica tu propuesta
           title: Pasos de creación de una propuesta
       proposals_picker:
         choose_proposals: Elegir propuestas
@@ -922,7 +975,7 @@ es:
           title: Versiones
       withdraw:
         errors:
-          has_supports: Esta propuesta no puede ser retirada porque ya tiene apoyos.
+          has_votes: Esta propuesta no puede ser retirada porque ya tiene apoyos.
     resource_links:
       copied_from_component:
         proposal_proposal: Propuestas relacionadas
@@ -934,4 +987,4 @@ es:
     statistics:
       proposals_accepted: Propuestas aceptadas
       proposals_count: Propuestas
-      supports_count: Apoyos
+      votes_count: Votos

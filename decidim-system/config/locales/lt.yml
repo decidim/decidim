@@ -175,8 +175,6 @@ lt:
         smtp_settings:
           fieldsets:
             sender: Siuntėjas
-          instructions:
-            from_label: 'El. pašto siuntėjas bus: "jūsų-organizacijos-pavadinimas <your-organization@example.org>". Palikite tuščią, jei norite naudoti el. pašto adresą kaip etiketę.'
           placeholder:
             from_email: jūsų-organizacija@example.org
             from_label: jūsų-organizacijos-pavadinimas
@@ -185,8 +183,6 @@ lt:
           success: Organizacija atnaujinta.
         users_registration_mode:
           disabled: Prieiga galima tik iš išorės paskyrų
-          enabled: Leisti dalyviams registruotis ir prisijungti
-          existing: Neleisti dalyviams užsiregistruoti, bet leiskite esamiems dalyviams prisijungti
       shared:
         notices:
           no_organization_warning_html: Norėdami pradėti, turite sukurti organizaciją. Prieš tęsdami būtinai perskaitykite %{guide}.

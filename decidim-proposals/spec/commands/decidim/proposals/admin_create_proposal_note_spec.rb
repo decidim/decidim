@@ -6,66 +6,15 @@ module Decidim
   module Proposals
     module Admin
       describe CreateProposalNote do
+        include_context "with proposal and users allowed to create proposal notes"
+
         describe "call" do
-          let(:proposal) { create(:proposal) }
-          let(:organization) { proposal.component.organization }
-          let(:current_user) { create(:user, :admin, organization:) }
-          let!(:another_admin) { create(:user, :admin, organization:) }
-          let(:valuation_assignment) { create(:valuation_assignment, proposal:) }
-          let!(:valuator) { valuation_assignment.valuator }
-          let(:form) { ProposalNoteForm.from_params(form_params).with_context(current_user:, current_organization: organization) }
-
-          let(:form_params) do
-            {
-              body: "A reasonable private note"
-            }
-          end
-
           let(:command) { described_class.new(form, proposal) }
 
-          describe "when the form is not valid" do
-            before do
-              allow(form).to receive(:invalid?).and_return(true)
-            end
+          it_behaves_like "a proposal note command call"
 
-            it "broadcasts invalid" do
-              expect { command.call }.to broadcast(:invalid)
-            end
-
-            it "does not create the proposal note" do
-              expect do
-                command.call
-              end.not_to change(ProposalVote, :count)
-            end
-          end
-
-          describe "when the form is valid" do
-            before do
-              allow(form).to receive(:invalid?).and_return(false)
-            end
-
-            it "broadcasts ok" do
-              expect { command.call }.to broadcast(:ok)
-            end
-
-            it "creates the proposal notes" do
-              expect do
-                command.call
-              end.to change(ProposalNote, :count).by(1)
-            end
-
-            it "traces the action", versioning: true do
-              expect(Decidim.traceability)
-                .to receive(:create!)
-                .with(ProposalNote, current_user, hash_including(:body, :proposal, :author), resource: hash_including(:title))
-                .and_call_original
-
-              expect { command.call }.to change(ActionLog, :count)
-              action_log = Decidim::ActionLog.last
-              expect(action_log.version).to be_present
-            end
-
-            it "notifies the admins and the valuators" do
+          context "when no users are mentioned" do
+            it "nobody gets notified" do
               expect(Decidim::EventsManager)
                 .to receive(:publish)
                 .once
@@ -74,7 +23,82 @@ module Decidim
                   event: "decidim.events.proposals.admin.proposal_note_created",
                   event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
                   resource: proposal,
-                  affected_users: a_collection_containing_exactly(another_admin, valuator)
+                  affected_users: a_collection_containing_exactly(valuator),
+                  extra: { note_author_id: form.current_user.id }
+                )
+
+              command.call
+            end
+          end
+
+          context "when author is the only mentioned" do
+            let(:body) { body_with_mentions(current_user) }
+
+            it "only valuators gets notified" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .once
+                .ordered
+                .with(
+                  event: "decidim.events.proposals.admin.proposal_note_created",
+                  event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+                  resource: proposal,
+                  affected_users: a_collection_containing_exactly(valuator),
+                  extra: { note_author_id: form.current_user.id }
+                )
+
+              command.call
+            end
+          end
+
+          context "when admins, participatory space admins or proposal valuators are mentioned" do
+            let(:body) { body_with_mentions(another_admin, participatory_space_admin, valuator) }
+
+            it "affected users are notified" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .once
+                .ordered
+                .with(
+                  event: "decidim.events.proposals.admin.proposal_note_mentioned",
+                  event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+                  resource: proposal,
+                  affected_users: a_collection_containing_exactly(another_admin, participatory_space_admin, valuator),
+                  extra: { note_author_id: form.current_user.id }
+                )
+
+              command.call
+            end
+
+            it "valuators do not receive proposal note creation notification if mentioned" do
+              expect(Decidim::EventsManager)
+                .not_to receive(:publish)
+                .with(
+                  event: "decidim.events.proposals.admin.proposal_note_created",
+                  event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+                  resource: proposal,
+                  affected_users: a_collection_containing_exactly(valuator),
+                  extra: { note_author_id: form.current_user.id }
+                )
+
+              command.call
+            end
+          end
+
+          context "when not affected users are mentioned" do
+            let(:body) { body_with_mentions(normal_user, other_participatory_space_admin, other_proposal_valuator) }
+
+            it "only the valuators are notified" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .once
+                .ordered
+                .with(
+                  event: "decidim.events.proposals.admin.proposal_note_created",
+                  event_class: Decidim::Proposals::Admin::ProposalNoteCreatedEvent,
+                  resource: proposal,
+                  affected_users: a_collection_containing_exactly(valuator),
+                  extra: { note_author_id: form.current_user.id }
                 )
 
               command.call

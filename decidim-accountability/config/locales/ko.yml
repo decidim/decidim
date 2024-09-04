@@ -216,16 +216,12 @@ ko:
         name: 책임
         settings:
           global:
-            categories_label: '"카테고리" 이름'
             comments_enabled: 댓글 활성화됨
             comments_max_length: 댓글 최대 길이(기본값은 0으로 남김)
             display_progress_enabled: 진행사항 보기
-            heading_leaf_level_results: '"프로젝트" 이름'
-            heading_parent_level_results: '"결과" 이름'
             intro: 소개
             scope_id: 범위
             scopes_enabled: 범위 활성화됨
-            subcategories_label: '"카테고리" 이름'
           step:
             comments_blocked: 댓글 차단됨
     events:

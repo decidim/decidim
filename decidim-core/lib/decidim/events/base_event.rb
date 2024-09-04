@@ -77,6 +77,25 @@ module Decidim
 
       def resource_text; end
 
+      # The cell that will be used to render the action or nil if not action needs to be rendered.
+      #
+      # @return [nil] - if no action needs to be rendered
+      # @return [String] - if String, it is the cell to be rendered. Make it return with "decidim/notification_actions/buttons"
+      #                    in your event implementation to render the buttons cell
+      def action_cell; end
+
+      # The data that will be passed to the action cell
+      #
+      # @return [nil] - If no data needs to be rendered
+      # @return [Array<Hash{Symbol => String}>] - For the buttons cell, it should be an array of hashes with the following keys:
+      #   - url: the URL to which the button will point
+      #   - label: the label of the button (optional if i18n_label is present)
+      #   - i18n_label: the i18n key of the label (optional if label is present)
+      #   - icon: the icon of the button (optional)
+      #   - method: the HTTP method of the request (optional)
+      #   - class: the class of the button (optional)
+      def action_data; end
+
       def organization
         resource.try(:organization)
       end
@@ -109,6 +128,10 @@ module Decidim
                 end
 
         Decidim::ContentProcessor.render_without_format(title, links: false).html_safe
+      end
+
+      def hidden_resource?
+        resource.respond_to?(:hidden?) && resource.hidden?
       end
 
       private

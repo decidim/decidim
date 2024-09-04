@@ -42,4 +42,21 @@ $(() => {
       $amendmentStepSettings.toggle();
     });
   }
+
+  // Toggles visibility of the attachments_allowed help text when the checkbox is clicked.
+  // Show the help text if the checkbox is checked.
+  const $attachmentsAllowedCheckbox = $("#component_settings_attachments_allowed");
+  const $attachmentsHelpText = $(".attachments_allowed_container .help-text");
+
+  if (!$attachmentsAllowedCheckbox.is(":checked")) {
+    $attachmentsHelpText.hide();
+  }
+
+  $attachmentsAllowedCheckbox.on("change", () => {
+    if ($attachmentsAllowedCheckbox.is(":checked")) {
+      $attachmentsHelpText.show();
+    } else {
+      $attachmentsHelpText.hide();
+    }
+  });
 });

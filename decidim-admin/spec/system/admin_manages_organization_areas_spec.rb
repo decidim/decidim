@@ -5,6 +5,7 @@ require "spec_helper"
 describe "Organization Areas" do
   let(:admin) { create(:user, :admin, :confirmed) }
   let(:organization) { admin.organization }
+  let(:attributes) { attributes_for(:area) }
 
   before do
     switch_to_host(organization.host)
@@ -24,9 +25,8 @@ describe "Organization Areas" do
       click_on "Add"
 
       within ".item__edit-form" do
-        fill_in_i18n :area_name, "#area-name-tabs", en: "My area",
-                                                    es: "Mi area",
-                                                    ca: "La meva area"
+        fill_in_i18n :area_name, "#area-name-tabs", **attributes[:name].except("machine_translations")
+
         select area_type.name["en"], from: :area_area_type_id
 
         find("*[type=submit]").click
@@ -35,8 +35,11 @@ describe "Organization Areas" do
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
-        expect(page).to have_content("My area")
+        expect(page).to have_content(translated(attributes[:name]))
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:name])} area")
     end
 
     context "with existing areas" do
@@ -59,17 +62,18 @@ describe "Organization Areas" do
         end
 
         within ".item__edit-form" do
-          fill_in_i18n :area_name, "#area-name-tabs", en: "Another area",
-                                                      es: "Otra area",
-                                                      ca: "Una altra area"
+          fill_in_i18n :area_name, "#area-name-tabs", **attributes[:name].except("machine_translations")
           find("*[type=submit]").click
         end
 
         expect(page).to have_admin_callout("successfully")
 
         within "table" do
-          expect(page).to have_content("Another area")
+          expect(page).to have_content(translated(attributes[:name]))
         end
+
+        visit decidim_admin.root_path
+        expect(page).to have_content("updated the #{translated(attributes[:name])} area")
       end
 
       it "can delete them" do

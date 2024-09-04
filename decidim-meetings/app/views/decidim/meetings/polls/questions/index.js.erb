@@ -1,5 +1,5 @@
-var $aside = $("#meeting-poll-aside");
+var $meetingPoll = $("[data-decidim-meetings-poll]");
 
-if($aside.length){
-  $aside.html('<%= j(render partial: "decidim/meetings/polls/questions/index").strip.html_safe %>');
+if($meetingPoll.length){
+  $meetingPoll.html('<%= j(render partial: "decidim/meetings/polls/questions/index").strip.html_safe %>');
 }

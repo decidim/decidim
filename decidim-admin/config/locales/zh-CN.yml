@@ -124,6 +124,7 @@ zh-CN:
       actions:
         add: 添加
         browse: 浏览
+        manage: 管理
         per_page: 每页
         permissions: 权限
         reject: 拒绝
@@ -642,6 +643,8 @@ zh-CN:
           without_topic: 无主题页面
         update:
           error: 更新此页面时出现问题。
+      taxonomies:
+        count: 计数
       titles:
         admin_log: 管理员日志
         area_types: 区域类型
