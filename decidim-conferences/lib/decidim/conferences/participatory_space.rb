@@ -46,6 +46,7 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     export.include_in_open_data = true
 
     export.serializer Decidim::Conferences::ConferenceSerializer
+    export.open_data_serializer Decidim::Conferences::OpenDataConferenceSerializer
   end
 
   participatory_space.register_on_destroy_account do |user|
