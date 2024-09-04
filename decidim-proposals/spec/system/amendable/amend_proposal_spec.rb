@@ -255,7 +255,7 @@ describe "Amend Proposal", versioning: true do
             end
 
             it "is shown the Error Flash" do
-              expect(page).to have_css("[data-alert-box].alert", text: "An error ocurred while creating the amendment")
+              expect(page).to have_css("[data-alert-box].alert", text: "There was a problem creating the amendment")
             end
 
             it "is shown the field error message" do

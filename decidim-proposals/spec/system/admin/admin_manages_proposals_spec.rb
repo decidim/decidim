@@ -27,6 +27,6 @@ describe "Admin manages proposals" do
   it_behaves_like "publish answers"
 
   it_behaves_like "sorted moderations" do
-    let!(:reportables) { create_list(:proposal, 17, component: current_component) }
+    let!(:reportables) { create_list(:proposal, 27, component: current_component) }
   end
 end

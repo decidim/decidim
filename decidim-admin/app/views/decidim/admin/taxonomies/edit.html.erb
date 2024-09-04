@@ -1,0 +1,87 @@
+<% add_decidim_page_title(t(".title", taxonomy_name: translated_attribute(taxonomy.name))) %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title", taxonomy_name: translated_attribute(taxonomy.name)) %>
+    <%= link_to :back, class: "button button__transparent-secondary button__sm" do %>
+      <%= t(".back") %>
+    <% end %>
+  </h1>
+</div>
+
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, html: { class: "form-defaults form edit_taxonomy_" }) do |f| %>
+    <%= render partial: "form", object: f %>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="item__edit-form">
+  <h2 class="item_show__header-title mb-4">
+    <%= t(".subtitle", taxonomy_name: translated_attribute(taxonomy.name)) %>
+    <%= link_to t(".new_item"), new_taxonomy_item_path(taxonomy), id: "new-item", class: "js-drawer-editor button button__sm button__secondary new" %>
+  </h2>
+
+  <% if collection.any? %>
+    <%= render "filters" %>
+
+    <% if @taxonomies.any? %>
+      <p class="help-text mt-4"><%= t(".description") %></p>
+      <%= render "table", collection: @taxonomies %>
+    <% else %>
+      <p class="mt-8"><%= t("no_items_found", scope: "decidim.admin.taxonomies.index") %></p>
+    <% end %>
+  <% else %>
+    <p class="mt-8"><%= t(".no_items") %></p>
+  <% end %>
+</div>
+
+<%= decidim_drawer id: "item-form" do %>
+  <div data-dialog-container class="layout-content"></div>
+<% end %>
+
+<script>
+  document.addEventListener("decidim:loaded", function() {
+    var drawer = window.Decidim.currentDialogs["item-form"];
+    var drawerButtons = document.querySelectorAll(".js-drawer-editor");
+    var container = drawer.dialog.querySelector("[data-dialog-container]");
+
+    function setDrawerContent(content) {
+      container.innerHTML = content;
+
+      var form = container.querySelector("#taxonomy-item-form");
+      if(!form) {
+        return location.reload();
+      }
+      window.initFoundation(container);
+
+      form.addEventListener("ajax:beforeSend", function(evt) {
+        form.classList.add("spinner-container");
+      });
+
+      form.addEventListener("ajax:success", function(evt) {
+        var [data, _status, xhr] = event.detail;
+        if(xhr.responseURL.indexOf(location.pathname) > -1) {
+          location.href = xhr.responseURL;
+        } else {
+          setDrawerContent(data.body.innerHTML)
+        }
+      });
+    }
+
+    drawerButtons.forEach(function(button) {
+      button.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        container.innerHTML = '<div class="spinner-container">&nbsp;</div>';
+        fetch(button.getAttribute("href"))
+          .then(function(response) { return response.text() })
+          .then(function(html) { setDrawerContent(html) });
+        drawer.open();
+      });
+    });
+  });
+</script>

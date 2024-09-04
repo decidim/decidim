@@ -322,7 +322,6 @@ pl:
               errors:
                 budget_voting_rule_only_one: Może być włączona tylko jedna reguła głosowania.
                 budget_voting_rule_required: Wymagana jest jedna reguła głosowania.
-            geocoding_enabled: Włączono geokodowanie
             landing_page_content: Strona główna budżetów
             more_information_modal: Więcej informacji
             projects_per_page: Projektów na stronie

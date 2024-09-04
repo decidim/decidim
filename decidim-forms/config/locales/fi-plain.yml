@@ -23,7 +23,7 @@ fi-pl:
               missing: ovat puutteellisia
               too_many: Voit valita enintään %{count} vaihtoehtoa.
         questionnaire:
-          request_invalid: Pyynnön käsittely ei onnistunut. Yritä uudestaan myöhemmin.
+          request_invalid: Pyynnön käsittely epäonnistui. Yritä uudestaan myöhemmin.
   decidim:
     forms:
       admin:

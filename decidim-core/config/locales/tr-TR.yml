@@ -155,7 +155,6 @@ tr:
       dismiss: Bildirimleri yoksay
     amendments:
       accepted:
-        error: Değişikliği kabul ederken bir hata oluştu.
         success: Değişiklik başarıyla kabul edildi.
       amendable:
         button: '%{model_name} üzerinde değişiklik yapın'
@@ -163,7 +162,6 @@ tr:
         promote_button: '%{model_name} olarak yükselt'
         promote_confirm_text: Bu değişikliği tanıtmak istediğinizden emin misiniz?
       created:
-        error: Değişiklik taslağı oluşturulurken bir hata oluştu.
         success: Değişiklik taslağı başarı ile oluşturuldu.
       destroy_draft:
         error: Değişiklik taslağı silerken bir hata oluştu.
@@ -934,7 +932,6 @@ tr:
         subject: Bir kaynak rapor edildi
     reports:
       create:
-        error: Rapor oluşturulurken bir hata oluştu. Lütfen tekrar dene.
         success: Rapor başarıyla oluşturuldu ve bir yönetici tarafından incelenecek.
     resource_endorsements:
       create:
@@ -1204,9 +1201,6 @@ tr:
       long_words: çok uzun kelimeler içeriyor (35 karakterden fazla)
       must_start_with_caps: büyük harfle başlamalıdır
       not_locked: kilitli değildi
-      not_saved:
-        one: 'İsteğiniz işlenirken bir hata oluştu:'
-        other: 'İsteğinizi işlerken birden çok hata oluştu:'
       too_many_marks: çok fazla ardışık noktalama işareti kullanıyor (örneğin! ve?)
       too_much_caps: çok fazla büyük harf kullanıyor (metnin% 25'inden fazlası)
   forms:

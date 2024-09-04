@@ -81,7 +81,6 @@
       comments:
         blocked_comments_for_unauthorized_user_warning: Du må verifiseres for å kommentere, men du kan lese de forrige.
         blocked_comments_for_user_warning: Du kan ikke kommentere for øyeblikket, men du kan lese de forrige.
-        blocked_comments_warning: Kommenterer er deaktivert på dette tidspunktet, men du kan lese de forrige.
         comment_details_title: Kommenter detaljer
         loading: Laster inn kommenterer ...
         single_comment_warning: <a href="%{url}">Se alle kommentarer</a>
