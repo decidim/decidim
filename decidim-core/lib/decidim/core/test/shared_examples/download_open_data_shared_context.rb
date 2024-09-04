@@ -1,6 +1,17 @@
 # frozen_string_literal: true
 
 RSpec.shared_context "when downloading open data files" do
+  # Workaround to ignore Bullet warnings in these examples, until we found a way to actually fix these issues
+  before do
+    Bullet.n_plus_one_query_enable = false
+    Bullet.unused_eager_loading_enable = false
+  end
+
+  after do
+    Bullet.n_plus_one_query_enable = Decidim::Env.new("DECIDIM_BULLET_N_PLUS_ONE", "false").present?
+    Bullet.unused_eager_loading_enable = Decidim::Env.new("DECIDIM_BULLET_UNUSED_EAGER", "false").present?
+  end
+
   def download_open_data_file
     # Prevent using the same cached file
     open_data_file = Rails.root.join("tmp/#{organization.open_data_file_path}")
