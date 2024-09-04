@@ -253,10 +253,26 @@ eu:
             notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k ohar pribatu bat sortu du hemen: <a href="%{resource_path}">%{resource_title}</a>. Begiratu <a href="%{admin_proposal_info_path}"> admin. panelean.'
           proposal_note_mentioned:
             email_intro: '"%{author_name}" "%{author_nickname}" k "%{resource_title}" ohar pribatuan aipatu zaitu. Begiratu <a href="%{admin_proposal_info_url}"> admin. panelean.'
+            email_outro: Jakinarazpen hau jaso duzu ohar pribatu batean aipatu zaituztelako.
+            email_subject: Norbaitek aipatu zaitu ohar batean %{resource_title} proposamenean.
+            notification_title: '"%{author_name}" "%{author_nickname}" k "%{resource_title}" ohar pribatuan aipatu zaitu. Begiratu <a href="%{admin_proposal_info_url}"> admin. panelean.'
+          proposal_note_replied:
+            email_intro: '% {author_name} -k zure ohar pribatua erantzun du hemen: %{resources ce_title}. Begiratu <a href="%{admin_proposal_info_url}">admin panelean.'
+            email_outro: Jakinarazpen hau jaso duzu oharraren egilea zarelako.
+            email_subject: "%{author_name} k zure ohar pribatua erantzun du hemen: %{resource_title}."
+            notification_title: '<a href="%{author_path}">%{author_name}%{author_nickname} k zure ohar pribatua erantzun du hemen: <a href="%{resource_path}">%{resource_title}. Begiratu <a href="%{admin_proposal_info_path}">admin. panelean.'
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> k onartu du zure gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         coauthor_invited:
           actions:
             accept: Onartu
             decline: Baztertu
+          email_intro: 'Gonbidatu zaituzte "%{resource_title}" proposamenaren egilekidea izatera. Gonbidapena onartu edo baztertu ahal duzu orrialde honetan:'
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egileak balioetsi nahi dituelako zure ekarpenak zu egilekide bihurtuz.
+          email_subject: Gonbidatu zaituzte "%{resource_title}" proposamenaren egilekidea izatera
+          notification_title: <a href="%{author_path}">%{author_name}</a> k gonbidatu nahi zaitu <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekide gisa.
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> k zure gonbidapena baztertu du <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} onartu da <a href="%{resource_url}">%{resource_title}</a> zirriborro koloboratiboan laguntzaile gisa sartzeko.'
           email_outro: Jakinarazpen hau jaso duzu <a href="%{resource_url}">%{resource_title}</a>-ko kolaboratzailea zarelako.
@@ -334,6 +350,8 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
           email_subject: '%{resource_title} proposamenaren esparrua eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eremua administratzaile batek eguneratu du.
+        rejected_coauthorship:
+          notification_title: Baztertu duzu <a href="%{author_path}">%{author_name}</a> ren gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         voting_enabled:
           email_intro: 'Proposamenak bozkatu ditzakezuhemen: % {participatory_space_title} Hasi orri honetan parte hartzen:'
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen duzulako. Jakinarazpenak jasotzeari uti ahal diozu aurreko estekan.
@@ -398,11 +416,15 @@ eu:
     proposals:
       actions:
         answer_proposal: Erantzun proposamenari
+        cancel_coauthor_invitation: Ezeztatu egilekide-gonbidapena
+        cancel_coauthor_invitation_confirm: Ziur zaude egilekide-gonbidapena ezeztatu nahi duzula?
         delete_proposal_state_confirm: Ziur zaude egoera hau ezabatu nahi duzula?
         destroy: Ezabatu egoera
         edit_proposal: Editatu proposamena
         edit_proposal_state: Editatu egoera
         import: Inportatu proposamenak beste osagai batetik
+        mark_as_coauthor: Markatu egilekide gisa
+        mark_as_coauthor_confirm: Ziur zaude erabiltzaile hau egilekide gisa markatu nahi duzula? Parte-hartzaileak jakinarazpena jasoko du gonbidapena onartzeko edo baztertzeko.
         new: Proposamen berria
         new_proposal_state: Beste egoera bat
         participatory_texts: Testu partehartzaileak
@@ -492,6 +514,9 @@ eu:
           form:
             note: Oharra
             submit: Bidali
+          reply:
+            error: Arazo bat egon da proposamen-ohar hau erantzutean.
+            success: Proposamen-oharra zuzen sortua.
           title: Ohar pribatuak
         proposal_states:
           create:
@@ -514,8 +539,12 @@ eu:
             success: Errorea zuzen eguneratua
         proposals:
           answer:
+            bulk_answer_error: Ezin izan dira [%{proposals}] proposamenak erantzun IDen bidez erroreengatik "%{template}" txantiloia aplikatuz. Erantzunen txantiloia osagai horretarako espero den formatuarekin bat datorrela egiazta daiteke, banaka aplikatuz.
+            bulk_answer_success: '%{count} proposamenak erantzungo dira "%{template}" txantiloiak erabiliz. Mesesdez, itxaron minutu batzuetan eta eguneratu orrialdea eguneraketak ikusteko.'
+            invalid: Arazo bat izan da proposamen honi erantzutean.
             success: Proposamena ondo erantzuna.
           create:
+            invalid: Arazo bat izan da proposamen hau sortzean.
             success: Proposamena zuzen sortua.
           edit:
             title: Eguneratu proposamena
@@ -528,6 +557,7 @@ eu:
             select_a_meeting: Hautatu topaketa bat
           index:
             actions: Ekintzak
+            apply_answer_template: Erabili erantzuteko txantiloia
             assign_to_valuator: Esleitu ebaluatzaileari
             assign_to_valuator_button: Esleitu
             cancel: Utzi
@@ -535,6 +565,7 @@ eu:
             change_scope: Aldatu esparrua
             merge: Beste batean fusionatu
             merge_button: Batu
+            no_templates_available: Ez dago txantiloirik eskuragarri
             publish: Argitaratu
             publish_answers: Argitaratu erantzunak
             select_component: Hautatu osagaia
@@ -595,6 +626,7 @@ eu:
             title: Inportatu proposamenak beste osagai batetik
         proposals_merges:
           create:
+            invalid: 'Arazo bat izan da aukeratutako proposamenak bateratzeko, horietako batzuk:'
             success: Proposamen berri batean sartu dira.
         proposals_splits:
           create:
