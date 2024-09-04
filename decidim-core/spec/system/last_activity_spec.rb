@@ -112,7 +112,7 @@ describe "Last activity" do
       end
 
       context "when there are recently update old activities" do
-        let(:commentables) { create_list(:dummy_resource, 20, component:) }
+        let(:commentables) { create_list(:dummy_resource, 50, component:) }
         let(:comments) { commentables.map { |commentable| create(:comment, commentable:) } }
         let!(:action_logs) do
           comments.map do |comment|

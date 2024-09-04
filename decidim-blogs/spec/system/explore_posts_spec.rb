@@ -48,15 +48,15 @@ describe "Explore posts" do
       end
 
       context "when paginating" do
-        let(:collection_size) { 15 }
+        let(:collection_size) { 25 }
         let!(:collection) { create_list(:post, collection_size, component:) }
 
         before do
           visit_component
         end
 
-        it "lists 10 resources per page by default" do
-          expect(page).to have_selector("#blogs > a", count: 10)
+        it "lists 25 resources per page by default" do
+          expect(page).to have_selector("#blogs > a", count: 25)
           expect(page).to have_css("[data-pages] [data-page]", count: 2)
         end
       end
