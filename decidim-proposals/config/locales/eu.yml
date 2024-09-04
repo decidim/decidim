@@ -241,9 +241,18 @@ eu:
         accepted_coauthorship:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekide gisa gehitu zaituzte.
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Esleitu zaituzte "%{resource_title}" proposamenaren ebualatzaile izateko. Horrek esan nahi du datozen egunetan feedbacka eta erantzun egokia emango diezula. Begiratu <a href="%{admin_proposal_info_url}">the admin panel</a> admin panelean.
+            email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
+            email_subject: Esleitu zaituzte ebaluatzaile gisa %{resource_title} proposamenerako.
+            notification_title: Esleitu zaituzte <a href="%{resource_path}">%{resource_title}</a> proposamenaren ebaluatzaile izateko. Begiratu <a href="%{admin_proposal_info_path}"> admin. panelean.
           proposal_note_created:
+            email_intro: '% {author_name} -k ohar pribatu bat sortu du hemen: %{resources ce_title}. Begiratu <a href="%{admin_proposal_info_url}">admin panelean.'
             email_outro: Jakinarazpen hau jaso duzu proposamena ebaluatu ahal duzulako.
             email_subject: Norbaitek ohar bat utzi du %{resource_title} proposamenean.
+            notification_title: '<a href="%{author_path}">%{author_name} %{author_nickname}</a> k ohar pribatu bat sortu du hemen: <a href="%{resource_path}">%{resource_title}</a>. Begiratu <a href="%{admin_proposal_info_path}"> admin. panelean.'
+          proposal_note_mentioned:
+            email_intro: '"%{author_name}" "%{author_nickname}" k "%{resource_title}" ohar pribatuan aipatu zaitu. Begiratu <a href="%{admin_proposal_info_url}"> admin. panelean.'
         coauthor_invited:
           actions:
             accept: Onartu
