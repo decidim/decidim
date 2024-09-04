@@ -2,8 +2,7 @@
 
 module Decidim
   module ParticipatoryProcesses
-    # This class serializes a ParticipatoryProcesses so can be exported to CSV, JSON or other
-    # formats.
+    # This class serializes a ParticipatoryProcess so it can be exported to CSV for the Open Data feature.
     class OpenDataParticipatoryProcessSerializer < Decidim::Exporters::Serializer
       include Decidim::ApplicationHelper
       include Decidim::ResourceHelper
