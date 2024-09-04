@@ -33,7 +33,7 @@ extra_admin_link(
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: component_settings.participatory_texts_enabled? ? main_component_path(current_component) : proposals_path } do %>
 
   <section class="layout-main__section layout-main__heading">
-    <%= render partial: "voting_rules" %>
+    <%= render partial: "proposal_voting_rules" %>
 
     <%= cell("decidim/announcement", proposal_reason_callout_announcement, callout_styles: @proposal.proposal_state&.css_style) if @proposal.answered? && @proposal.published_state? %>
 
