@@ -41,6 +41,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     export.include_in_open_data = true
 
     export.serializer Decidim::Assemblies::AssemblySerializer
+    export.open_data_serializer Decidim::Assemblies::OpenDataAssemblySerializer
   end
 
   participatory_space.register_on_destroy_account do |user|
