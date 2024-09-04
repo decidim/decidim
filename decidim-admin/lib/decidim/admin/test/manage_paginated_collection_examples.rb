@@ -20,7 +20,6 @@ shared_examples "a paginated collection" do |options|
       within "[data-pagination]" do
         page.find("details", text: "25").click
         click_on "50"
-        click_link "50"
       end
 
       expect(page).to have_selector(".table-list tbody tr", count: 50)
