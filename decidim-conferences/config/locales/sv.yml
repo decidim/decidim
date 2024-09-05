@@ -3,13 +3,13 @@ sv:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Relaterade grupper
+        assemblies_ids: Relaterade samråd
         available_slots: Tillgängliga platser
         banner_image: Bannerbild
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_features: Kopiera funktioner
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
         hashtag: Hashtag
@@ -17,13 +17,13 @@ sv:
         location: Plats
         main_logo: Logotyp
         objectives: Mål
-        participatory_processes_ids: Relaterade dialoger
+        participatory_processes_ids: Relaterade deltagandeprocesser
         promoted: Uppmärksammad
         published_at: Publicerad
         registration_terms: Villkor för registrering
         registrations_enabled: Registrering aktiverad
-        scope_id: Omfång
-        scopes_enabled: Omfång aktiverat
+        scope_id: Indelning
+        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         sign_date: Underskriftsdatum
@@ -114,6 +114,11 @@ sv:
         new:
           create: Skapa
           title: Ny talare.
+        publish:
+          success: Konferensens talare har publicerats.
+        unpublish:
+          invalid: Det gick inte att avpublicera talaren.
+          success: Konferensens talare har avpublicerats.
         update:
           error: Det gick inte att uppdatera talaren.
           success: Talaren har uppdaterats.
@@ -474,8 +479,8 @@ sv:
         details: Detaljer
         introduction: Introduktion
         objectives: Mål
-        related_assemblies: Relaterade grupper
-        related_participatory_processes: Relaterade dialoger
+        related_assemblies: Relaterade samråd
+        related_participatory_processes: Relaterade deltagandeprocesser
     events:
       conferences:
         conference_registration_confirmed:
