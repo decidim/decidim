@@ -34,6 +34,8 @@ sv:
         hashtag: Hashtag
         hero_image: Hembild
         import_attachments: Importera bilagor
+        import_categories: Importera kategorier
+        import_components: Importera komponenter
         included_at: Inkluderad vid
         instagram: Instagram
         internal_organisation: Intern organisation
@@ -57,7 +59,8 @@ sv:
         subtitle: Underrubrik
         target: Vem deltar
         title: Titel
-        weight: Ordning
+        twitter: X
+        weight: Position i listan
         youtube: YouTube
       assembly_member:
         birthday: Födelsedag
@@ -68,8 +71,8 @@ sv:
         gender: Kön
         non_user_avatar: Profilbild
         position: Befattning
-        user_id: Användare
-        weight: Ordning
+        user_id: Användare eller grupp
+        weight: Position i listan
       assembly_user_role:
         email: E-post
         name: Namn
@@ -139,7 +142,7 @@ sv:
           success: Samrådet har importerats.
         new:
           import: Importera
-          select: Välj vilka data du vill importera
+          select: Välj vilka uppgifter du vill importera
           title: Importera samråd
       assembly_members:
         create:
@@ -283,6 +286,7 @@ sv:
             slug_help: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Sociala medier
             title: Allmän information
+            visbility: Synlighet
         assemblies_settings:
           edit:
             update: Uppdatera
@@ -304,13 +308,15 @@ sv:
             explanation: 'Instruktioner för bild:'
             image_guide: Helst en porträttbild utan text.
             non_user: Ej deltagande
-            non_user_avatar_help: Du bör få samtycke av personerna innan du publicerar dem som medlem.
+            non_user_avatar_help: Du bör få medgivande av personerna innan du lägger till dem som medlemmar.
             select_a_position: Välj en position
             select_user: Välj en deltagare
             user_type: Typ av deltagare
           index:
             filter:
               all: Allt
+              ceased: Avslutade
+              not_ceased: Ej avslutade
             filter_by: Filtrera efter
             search: Sök
         content_blocks:
@@ -357,7 +363,9 @@ sv:
       pages:
         home:
           highlighted_assemblies:
+            active_assemblies: Aktiva samråd
             assemblies_button_title: Länk till sidan över grupper som visar alla grupper
+            see_all_assemblies: Visa alla samråd
         user_profile:
           member_of:
             member_of: Medlem av
