@@ -75,7 +75,7 @@ sv:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
