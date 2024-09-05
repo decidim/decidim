@@ -99,8 +99,6 @@ module Decidim
             I18n.locale => body_with_hashtags
           },
           taxonomizations: form.taxonomizations,
-          category: form.category,
-          scope: form.scope,
           address: form.address,
           latitude: form.latitude,
           longitude: form.longitude
