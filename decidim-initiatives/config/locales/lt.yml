@@ -96,7 +96,6 @@ lt:
               accepted: Parašų užtenka
               created: Sukurta
               discarded: Atmesta
-              published: Publikuota
               rejected: Parašų neužtenka
               validating: Techninis patvirtinimas
           type_id_eq:
@@ -260,7 +259,6 @@ lt:
             new: Naujas
             photos: Nuotraukos
           update:
-            error: Įvyko klaida.
             success: Iniciatyva sėkmingai atnaujinta.
         initiatives_settings:
           edit:
@@ -274,7 +272,6 @@ lt:
             title: Nustatymai iniciatyvoms
         initiatives_type_scopes:
           create:
-            error: Įvyko klaida.
             success: Sukurta nauja sritis šiam iniciatyvų tipui.
           destroy:
             success: Sritis sėkmingai pašalinta.
@@ -285,11 +282,8 @@ lt:
             create: Sukurti
             title: Sukurti iniciatyvos tipo sritį
           update:
-            error: Įvyko klaida.
             success: Sritis atnaujinta.
         initiatives_types:
-          create:
-            error: Įvyko klaida.
           destroy:
             success: Iniciatyvos tipas sėkmingai pašalintas.
           edit:
@@ -303,7 +297,6 @@ lt:
             create: Sukurti
             title: Naujas iniciatyvos tipas
           update:
-            error: Įvyko klaida.
             success: Iniciatyvos tipas sėkmingai atnaujintas.
       admin_log:
         initiative:
@@ -321,7 +314,6 @@ lt:
         accepted: Parašų užtenka
         created: Sukurta
         discarded: Atmesta
-        published: Paskelbta
         rejected: Parašų neužtenka
         validating: Techninis patvirtinimas
       application_helper:
@@ -576,7 +568,6 @@ lt:
           accepted: Parašų užtenka
           created: Sukurta
           discarded: Atmesta
-          published: Publikuota
           rejected: Parašų neužtenka
           validating: Techninis patvirtinimas
       states:
@@ -584,7 +575,6 @@ lt:
         expired: Nebegalioja
       unavailable_scope: Sritis nepasiekiama
       update:
-        error: Įvyko klaida.
         success: Iniciatyva sėkmingai atnaujinta.
     menu:
       initiatives: Iniciatyvos

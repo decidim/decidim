@@ -29,10 +29,9 @@ module Decidim
       # Generates a visualization of users for listing conversations threads
       #
       def username_list(users, shorten: false)
-        content_tags = []
         first_users = shorten ? users.first(3) : users
-        first_users.each do |u|
-          content_tags.push(u.deleted? ? t("decidim.profile.deleted") : u.name)
+        content_tags = first_users.map do |u|
+          u.deleted? ? t("decidim.profile.deleted") : u.name
         end
 
         return content_tags.join(", ") unless shorten

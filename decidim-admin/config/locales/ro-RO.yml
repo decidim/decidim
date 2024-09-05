@@ -195,7 +195,6 @@ ro:
         verify: Verifică
       admin_terms_of_service:
         accept:
-          error: A apărut o eroare la acceptarea termenilor de utilizare a serviciului.
           success: Excelent! Ați acceptat termenii de utilizare a serviciului.
         actions:
           accept: Sunt de acord cu termenii
@@ -744,7 +743,6 @@ ro:
           success: Buletinul informativ a fost actualizat cu succes. Te rugăm să îl revizuiești înainte de a-l trimite.
       officializations:
         block:
-          error: A apărut o eroare la blocarea participantului.
           success: Participantul a fost blocat.
         create:
           success: Participantul a fost ales ca reprezentant oficial.
@@ -778,7 +776,6 @@ ro:
           show: Afișează
           title: Afișează adresa de e-mail a participantului
         unblock:
-          error: A apărut o eroare la deblocarea participantului.
           success: Participantul a fost deblocat.
       organization:
         edit:
@@ -946,6 +943,8 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestei pagini.
           success: Pagina a fost actualizată cu succes.
+      taxonomies:
+        count: Număr
       titles:
         admin_log: Jurnal de administrare
         area_types: Tipuri de zone

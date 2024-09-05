@@ -52,7 +52,7 @@ de:
         keep_authors: Behalten Sie die ursprünglichen Autoren
       valuation_assignment:
         admin_log:
-          valuator_role_id: Name des Schätzers
+          valuator_role_id: Name des Bewertenden
     errors:
       models:
         participatory_text:
@@ -128,7 +128,7 @@ de:
               validating: Technische Validierung
               withdrawn: Zurückgezogen
           valuator_role_ids_has:
-            label: Zugewiesen zu dem Schätzer
+            label: Zur Bewertung zugewiesen
           with_any_state:
             label: Beantwortet
             values:
@@ -170,7 +170,12 @@ de:
               random: Zufällig
               recent: Neueste
               with_more_authors: Mit mehr Autoren
-            geocoding_enabled: Geocoding aktiviert
+            edit_time: Vorschläge können vor Ablauf dieser Zeit von den Autoren bearbeitet werden
+            edit_time_units:
+              days: Tage
+              hours: Stunden
+              minutes: Minuten
+            geocoding_enabled: Karten aktiviert
             minimum_votes_per_user: Minimal erforderliche Anzahl Stimmen eines Abstimmenden
             new_proposal_body_template: Textvorlage für neuen Vorschlag
             new_proposal_body_template_help: Sie können den vorgefüllten Text der neuen Vorschläge bestimmen
@@ -179,11 +184,14 @@ de:
             participatory_texts_enabled: Partizipative Texte aktiviert
             participatory_texts_enabled_readonly: Die Interaktion mit dieser Einstellung ist nicht möglich, wenn Vorschläge bestehen. Bitte erstellen Sie eine neue „Vorschlagskomponente“, wenn Sie diese Funktion aktivieren möchten, oder verwerfen Sie alle importierten Vorschläge im Menü „Beteiligungstexte“, wenn Sie diese Funktion deaktivieren möchten.
             proposal_answering_enabled: Vorschlagsantworten aktiviert
-            proposal_edit_before_minutes: Vorschläge können von Autoren innerhalb dieser Zeit bearbeitet werden
             proposal_edit_time: Vorschläge bearbeiten
             proposal_edit_time_choices:
               infinite: Vorschläge können beliebig lang bearbeitet werden
               limited: Vorschläge können nach einem spezifischen Zeitfenster nicht mehr bearbeitet werden
+            proposal_edit_time_unit_options:
+              days: Tage
+              hours: Stunden
+              minutes: Minuten
             proposal_length: Maximale Länge des Haupttextes
             proposal_limit: Vorschlagslimit pro Benutzer
             proposal_wizard_step_1_help_text: Hilfetext "Erstellen"-Schritt im Vorschlagsassistenten
@@ -233,12 +241,41 @@ de:
             votes_hidden: Stimmenanzahl ausgeblendet (falls die Stimmensammlung aktiviert ist, wird die Anzahl Stimmen nicht angezeigt)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: Sie wurden als Co-AutorIn zum Vorschlag <a href="%{resource_path}">%{resource_title}</a> hinzugefügt.
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Ihnen wurde der Vorschlag "%{resource_title}" zur Bewertung zugewiesen. Das bedeutet, dass von Ihnen in den nächsten Tagen eine Rückmeldung und Einschätzung erwartet wird. Jetzt <a href="%{admin_proposal_info_url}">im Admin-Panel</a> anschauen.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
+            email_subject: Der Vorschlag %{resource_title} wurde Ihnen zur Bewertung zugewiesen.
+            notification_title: Ihnen wurde der Vorschlag <a href="%{resource_path}">%{resource_title}</a> zur Bewertung zugewiesen. Jetzt <a href="%{admin_proposal_info_path}">Admin-Panel</a> anschauen.
           proposal_note_created:
-            email_intro: Jemand hat eine Notiz zum Vorschlag "%{resource_title}" hinterlassen. Schauen Sie sie im <a href="%{admin_proposal_info_url}">Admin-Panel</a> an.
+            email_intro: '%{author_name} hat eine private Notiz unter %{resource_title} erstellt. Jetzt im <a href="%{admin_proposal_info_url}">Admin-Panel</a> anzeigen.'
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag bewerten können.
             email_subject: Jemand hat eine Notiz für Vorschlag %{resource_title} erstellt.
-            notification_title: Jemand hat eine Notiz für den Vorschlag <a href="%{resource_path}">%{resource_title}</a>erstellt. Sie können sie über das <a href="%{admin_proposal_info_path}">Admin-Panel</a> anzeigen.
+            notification_title: <a href="%{author_path}">%{author_name}</a> hat eine private Notiz unter <a href="%{resource_path}">%{resource_title}</a> erstellt. Jetzt im <a href="%{admin_proposal_info_path">Admin-Panel</a> anzeigen.
+          proposal_note_mentioned:
+            email_intro: Sie wurden in einer privaten Notiz in "%{resource_title}" von "%{author_name}" "%{author_nickname}" erwähnt. Jetzt im <a href="%{admin_proposal_info_url}">Admin-Panel</a> anzeigen.
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie in einer privaten Notiz erwähnt wurden.
+            email_subject: Jemand hat Sie in einer Notiz zum Vorschlag "%{resource_title}" erwähnt.
+            notification_title: Sie wurden in einer privaten Notiz unter <a href="%{resource_path}">"%{resource_title}"</a> von <a href="%{author_path}">%{author_name} %{author_nickname}</a> erwähnt. Jetzt im <a href="%{admin_proposal_info_path}">Admin-Panel</a> anzeigen.
+          proposal_note_replied:
+            email_intro: '%{author_name} hat deine private Notiz unter %{resource_title} beantwortet. Jetzt im <a href="%{admin_proposal_info_url}">Admin-Panel</a> anzeigen.'
+            email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Noitz sind.
+            email_subject: "%{author_name} hat auf Ihre private Notiz unter %{resource_title} geantwortet."
+            notification_title: <a href="%{author_path}">%{author_name}</a> hat Ihre private Notiz unter <a href="%{resource_path}">%{resource_title}</a> beantworter. Jetzt im <a href="%{admin_proposal_info_path">Admin-Panel</a> anzeigen.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> hat Ihre Einladung angenommen, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
+        coauthor_invited:
+          actions:
+            accept: Akzeptieren
+            decline: Ablehnen
+          email_intro: 'Sie wurden eingeladen, Co-AutorIn des Vorschlags "%{resource_title}" zu werden. Sie können die Einladung auf dieser Seite akzeptieren oder ablehnen:'
+          email_outro: Sie haben diese Mitteilung erhalten, weil die verfassende Person des Vorschlags Ihren Beitrag anerkennen möchte, indem er Sie als mitverfassende Person ernennt.
+          email_subject: Sie wurden eingeladen, als mitverfassende Person des Vorschlags "%{resource_title}" bezeichnet zu werden
+          notification_title: <a href="%{author_path}">%{author_name}</a> hat Ihre Einladung angenommen, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> hat Ihre Einladung abgelehnt, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_url}">%{resource_title}</a> akzeptiert.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
@@ -316,6 +353,8 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
           email_subject: Der Bereich des Vorschlags %{resource_title} wurde aktualisiert
           notification_title: Der Bereich des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
+        rejected_coauthorship:
+          notification_title: Sie haben die Einladung von <a href="%{author_path}">%{author_name}</a> abgelehnt, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
         voting_enabled:
           email_intro: 'Sie können über Vorschläge in %{participatory_space_title} abstimmen! Jetzt auf dieser Seite abstimmen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
@@ -380,11 +419,15 @@ de:
     proposals:
       actions:
         answer_proposal: Vorschlag beantworten
+        cancel_coauthor_invitation: Einladung zur Mitverfassung zurückziehen
+        cancel_coauthor_invitation_confirm: Sind Sie sicher, dass Sie die Einladung zur Mitverfassung zurückziehen möchten?
         delete_proposal_state_confirm: Möchten Sie diesen Status wirklich löschen?
         destroy: Status löschen
         edit_proposal: Vorschlag bearbeiten
         edit_proposal_state: Status bearbeiten
         import: Importieren von einer anderen Komponente
+        mark_as_coauthor: Als mitverfassende Person markieren
+        mark_as_coauthor_confirm: Sind Sie sicher, dass Sie diese Person als Mitverfassende markieren möchten? Die empfangende Person erhält eine Benachrichtigung, womit sie die Einladung annehmen oder ablehnen kann.
         new: Neuer Vorschlag
         new_proposal_state: Neuer Status
         participatory_texts: Partizipative Texte
@@ -473,7 +516,9 @@ de:
           form:
             note: Anmerkung
             submit: Absenden
-          leave_your_note: Anmerkung hinterlassen
+          reply:
+            error: Beim Erstellen der Antwort zu dieser Vorschlagsnotiz ist ein Fehler aufgetreten.
+            success: Antwort auf die Vorschlagsnotiz erfolgreich erstellt.
           title: Private Notizen
         proposal_states:
           create:
@@ -496,10 +541,12 @@ de:
             success: Status erfolgreich aktualisiert
         proposals:
           answer:
-            invalid: Es gab ein Problem bei der Beantwortung dieses Vorschlags.
+            bulk_answer_error: Vorschläge mit IDs [%{proposals}] konnten nicht beantwortet werden, da sie die Vorlage "%{template}" anwenden. Sie können überprüfen, ob die Antwortvorlage dem erwarteten Format für diese Komponente entspricht, indem Sie sie einzeln anwenden.
+            bulk_answer_success: '%{count} Vorschläge werden mit der Vorlage "%{template}" beantwortet. Bitte warten Sie ein paar Minuten und aktualisieren Sie die Seite, um die Updates zu sehen.'
+            invalid: Bei der Beantwortung dieses Vorschlags ist ein Problem aufgetreten.
             success: Der Vorschlag wurde erfolgreich beantwortet.
           create:
-            invalid: Beim Erstellen dieses Vorschlags ist ein Fehler aufgetreten.
+            invalid: Beim Erstellen dieses Vorschlags ist ein Problem aufgetreten.
             success: Vorschlag erfolgreich erstellt.
           edit:
             title: Vorschlag aktualisieren
@@ -512,13 +559,15 @@ de:
             select_a_meeting: Besprechung auswählen
           index:
             actions: Aktionen
-            assign_to_valuator: Zuweisen zu dem Schätzer
+            apply_answer_template: Antwortvorlage anwenden
+            assign_to_valuator: Zuweisen zur Bewertung
             assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
             change_category: Kategorie ändern
             change_scope: Umfang ändern
             merge: Zu einem neuen zusammenführen
             merge_button: Zusammenführen
+            no_templates_available: Keine Vorlagen verfügbar
             publish: Veröffentlichen
             publish_answers: Antworten veröffentlichen
             select_component: Komponente auswählen
@@ -528,7 +577,7 @@ de:
             split_button: Aufteilen
             statuses: Status
             title: Vorschläge
-            unassign_from_valuator: Zuweisung an den Schätzer zurückziehen
+            unassign_from_valuator: Zuweisung zur Bewertung zurückziehen
             unassign_from_valuator_button: Zuweisung aufheben
             update: Aktualisieren
             update_scope_button: Umfang aktualisieren
@@ -540,7 +589,7 @@ de:
             select_a_proposal: Bitte wählen Sie einen Vorschlag.
           show:
             amendments_count: Anzahl der Ergänzungen
-            assigned_valuators: Zugewiesene Schätzer
+            assigned_valuators: Zugewiesene Bewertende
             body: Haupttext
             comments_count: Anzahl der Kommentare
             documents: Unterlagen
@@ -554,8 +603,8 @@ de:
             ranking: "%{ranking} von %{total}"
             related_meetings: Ähnliche Besprechungen
             remove_assignment: Zuweisung entfernen
-            remove_assignment_confirmation: Sind Sie sicher, diesen Schätzer von diesem Vorschlag zurückzuziehen?
-            valuators: Schätzer
+            remove_assignment_confirmation: Sind Sie sicher, dass Sie den BewerterIn dieses Vorschlags entfernen möchten?
+            valuators: Bewertende
             votes_count: Anzahl Stimmen
           update_category:
             invalid: 'Diese Vorschläge gehörten bereits zur Kategorie %{subject_name}: %{proposals}.'
@@ -579,19 +628,19 @@ de:
             title: Vorschläge aus einer anderen Komponente importieren
         proposals_merges:
           create:
-            invalid: 'Es gab ein Problem beim Zusammenführen der ausgewählten Vorschläge, weil ein paar von ihnen:'
+            invalid: 'Beim Zusammenführen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
         proposals_splits:
           create:
-            invalid: 'Es gab ein Problem beim Aufteilen der ausgewählten Vorschläge, weil ein paar von ihnen:'
+            invalid: 'Beim Aufteilen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         valuation_assignments:
           create:
-            invalid: Bei der Zuweisung der Vorschläge an einen Schätzer ist ein Fehler aufgetreten.
-            success: Die Vorschläge wurden erfolgreich dem Schätzer zugewiesen.
+            invalid: Beim Zuweisen der Vorschläge zur Bewertung ist ein Problem aufgetreten.
+            success: Die Vorschläge wurden erfolgreich zur Bewertung zugewiesen.
           delete:
-            invalid: Beim Zurückziehen der Zuweisung der Vorschläge an einen Schätzer ist ein Fehler aufgetreten.
-            success: Die Zuweisung der Vorschläge wurden erfolgreich vom Schätzer zurückgezogen.
+            invalid: Bei Aufheben der Zuweisung der Vorschläge zur Einschätzung ist ein Fehler aufgetreten.
+            success: Die Zuweisung zur Bewertung der Vorschläge wurde erfolgreich aufgehoben.
       admin_log:
         proposal:
           answer: "%{user_name} beantwortete den %{resource_name} Vorschlag auf den %{space_name} Feldern"
@@ -601,8 +650,8 @@ de:
         proposal_note:
           create: "%{user_name} eine private Notiz zu dem %{resource_name} Vorschlag auf dem %{space_name} Feld hinterlassen"
         valuation_assignment:
-          create: "%{user_name} hat den Vorschlag %{resource_name} einem Schätzer zugewiesen"
-          delete: "%{user_name} hat die Zuweisung vom Vorschlag %{proposal_title} von einem Schätzer zurückgezogen"
+          create: "%{user_name} hat den Vorschlag %{resource_name} zur Bewertung zugewiesen"
+          delete: "%{user_name} hat die Zuweisung zur Bewertung des Vorschlags %{proposal_title} zurückgezogen"
       answers:
         accepted: Angenommen
         evaluating: In Bewertung
@@ -732,6 +781,19 @@ de:
       destroy_draft:
         error: Es gab Fehler beim Löschen des Vorschlagsentwurfs.
         success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.
+      invite_coauthors:
+        cancel:
+          error: Beim Zurückziehen der Einladung zur Mitverfassung ist ein Fehler aufgetreten.
+          success: Einladung zur Mitverfassung erfolgreich zurückgezogen.
+        create:
+          error: Beim Einladen zur Mitverfassung ist ein Problem aufgetreten.
+          success: "%{author_name} wurde erfolgreich zur Mitverfassung eingeladen."
+        destroy:
+          error: Beim Ablehnen der Einladung ist ein Problem aufgetreten.
+          success: Die Einladung wurde abgelehnt.
+        update:
+          error: Beim Akzeptieren der Einladung ist ein Problem aufgetreten.
+          success: Die Einladung wurde akzeptiert.
       last_activity:
         new_proposal: 'Neuer Vorschlag:'
         proposal_updated: 'Vorschlag aktualisiert:'
@@ -748,8 +810,8 @@ de:
             scope: Umfang
             state: Status
             title: Titel
-            valuator: Schätzer
-            valuators: Schätzer
+            valuator: BewerterIn
+            valuators: Bewertende
             votes: Stimmen
         proposal_state:
           css_class: CSS-Klasse

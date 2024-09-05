@@ -82,7 +82,7 @@ describe "User answers the initiative" do
               fill_in_datepicker :initiative_signature_start_date_date, with: 1.month.since(initiative.signature_end_date).strftime("%d/%m/%Y")
             end
 
-            submit_and_validate("An error has occurred")
+            submit_and_validate("There was a problem updating the initiative.")
             expect(page).to have_current_path decidim_admin_initiatives.edit_initiative_answer_path(initiative)
           end
         end

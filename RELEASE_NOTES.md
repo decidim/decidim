@@ -16,6 +16,8 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 1.2. Run these commands
 
 ```console
+sudo apt install p7zip # or the alternative installation process for your operating system. See "2.1. 7zip dependency introduction"
+bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
@@ -25,11 +27,35 @@ bin/rails db:migrate
 
 ## 2. General notes
 
+### 2.1. 7zip dependency introduction
+
+We had to migrate from an unmaintained dependency and do a wrapper for the 7zip command line. This means that you need to install 7zip in your system. You can do it by running:
+
+```bash
+sudo apt install p7zip
+```
+
+This works for Ubuntu Linux, other operating systems would need to do other command/package.
+
+You can read more about this change on PR [#13185](https://github.com/decidim/decidim/pull/13185).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
 
-### 3.1. Clean up orphaned attachment blobs
+### 3.1. Remove spring and spring-watcher-listen from your Gemfile
+
+To simplify the upgrade process, we have decided to add `spring` and `spring-watcher-listener` as hard dependencies of `decidim-dev`.
+
+Before upgrading to this version, make sure you run in your console:
+
+```bash
+bundle remove spring spring-watcher-listen
+```
+
+You can read more about this change on PR [#13235](https://github.com/decidim/decidim/pull/13235).
+
+### 3.2. Clean up orphaned attachment blobs
 
 We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that have been created for more than 1 hour and are not yet referenced by any attachment record. This helps cleaning your filesystem of unused files.
 
@@ -60,7 +86,19 @@ You can read more about this change on PR [#XXXX](https://github.com/decidim/dec
 
 ## 5. Changes in APIs
 
-### 5.1. [[TITLE OF THE CHANGE]]
+### 5.1. Decidim version number no longer disclosed through the GraphQL API by default
+
+In previous Decidim versions, you could request the running Decidim version through the following API query against the GraphQL API:
+
+```graphql
+query { decidim { version } }
+```
+
+This no longer returns the running Decidim version by default and instead it will result to `null` being reported as the version number.
+
+If you would like to re-enable exposing the Decidim version number through the GraphQL API, you may do so by setting the `DECIDIM_API_DISCLOSE_SYSTEM_VERSION` environment variable to `true`. However, this is highly discouraged but may be required for some automation or integrations.
+
+### 5.2. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

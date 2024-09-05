@@ -217,7 +217,6 @@ el:
         accepted: Αρκετές υπογραφές
         created: Δημιουργήθηκε
         discarded: Απορρίφθηκε
-        published: Δημοσιεύτηκε
         rejected: Δεν υπάρχουν αρκετές υπογραφές
         validating: Τεχνική επικύρωση
       application_helper:
@@ -353,7 +352,6 @@ el:
           accepted: Αρκετές υπογραφές
           created: Δημιουργήθηκε
           discarded: Απορρίφθηκε
-          published: Δημοσιεύτηκε
           rejected: Δεν υπάρχουν αρκετές υπογραφές
           validating: Τεχνική επικύρωση
       states:

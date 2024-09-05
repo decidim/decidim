@@ -5,7 +5,7 @@
         <h2 class="card-title"><%= t ".title", title: present(proposal).title %></h2>
       </div>
 
-      <% if defined?(Decidim::Templates) %>
+      <% if Decidim.module_installed?(:templates) %>
         <%= render "decidim/templates/admin/proposal_answer_templates/template_chooser", form: f %>
       <% end %>
 

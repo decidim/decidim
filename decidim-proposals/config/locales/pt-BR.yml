@@ -131,7 +131,6 @@ pt-BR:
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             default_sort_order_options:
               most_commented: Mais comentado
-            geocoding_enabled: Geocodificação habilitada
             minimum_votes_per_user: Mínimo de votos por usuário
             new_proposal_body_template: Novo modelo de corpo da proposta
             new_proposal_body_template_help: Você pode definir o texto pré-preenchido que as novas propostas terão
@@ -140,7 +139,6 @@ pt-BR:
             participatory_texts_enabled: Textos participativos habilitados
             participatory_texts_enabled_readonly: Não é possível interagir com esta configuração se houver propostas existentes. Por Favor, crie um novo componente `Propostas` se você quiser habilitar esta funcionalidade ou descartar todas as propostas importadas no menu `Textos Participatórios` se você quiser desativá-la.
             proposal_answering_enabled: Resposta de proposta ativada
-            proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que muitos minutos passem.
             proposal_edit_time: Editando proposta
             proposal_edit_time_choices:
               infinite: Permitir a edição de propostas por um período infinito de tempo
@@ -381,7 +379,6 @@ pt-BR:
           form:
             note: Nota
             submit: Enviar
-          leave_your_note: Deixe sua nota
           title: Notas privadas
         proposals:
           edit:
@@ -619,7 +616,6 @@ pt-BR:
           discard: Descarte este rascunho
           discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
           send: Visualização
-          title: Editar proposta de rascunho
         filters:
           activity: Minha atividade
           all: Tudo

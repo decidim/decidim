@@ -44,7 +44,7 @@ module Decidim
               question.translated_body,
               question.id,
               {
-                "disabled" => (question.question_type == "sorting" || question.id == id),
+                "disabled" => question.question_type == "sorting" || question.id == id,
                 "data-type" => question.question_type
               }
             ]

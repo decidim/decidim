@@ -202,7 +202,6 @@ fr-CA:
         verify: Vérifier
       admin_terms_of_service:
         accept:
-          error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation de l'administrateur.
           success: Félicitations ! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation
@@ -350,6 +349,8 @@ fr-CA:
       conflicts:
         attempts: Tentatives
         'false': 'Non'
+        index:
+          text: Recherche par adresse e-mail, nom ou pseudonyme.
         managed_user_name: Utilisateur représenté
         solved: Résolu
         title: Conflits de vérification
@@ -364,7 +365,6 @@ fr-CA:
         user_name: Utilisateur
       content_blocks:
         create:
-          error: Une erreur s'est produite lors de la création du bloc de contenu.
           success: Le bloc de contenu a été créé avec succès.
         destroy:
           error: Une erreur est survenue lors de la suppression de ce bloc de contenu.
@@ -783,7 +783,6 @@ fr-CA:
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
       officializations:
         block:
-          error: Une erreur s'est produite lors du blocage du participant.
           success: Participant bloqué avec succès.
         create:
           success: Utilisateur validé avec succès.
@@ -817,7 +816,6 @@ fr-CA:
           show: Afficher
           title: Afficher l'adresse e-mail du participant
         unblock:
-          error: Une erreur s'est produite lors du déblocage du participant.
           success: Participant débloqué avec succès.
       organization:
         edit:
@@ -1016,6 +1014,8 @@ fr-CA:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès.
+      taxonomies:
+        count: Compteur
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée

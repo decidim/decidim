@@ -135,7 +135,6 @@ zh-TW:
               random: 隨機
               recent: 最近
               with_more_authors: 有更多作者
-            geocoding_enabled: 地理編碼已啟用
             new_proposal_body_template: 新提案正文樣板
             new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
             new_proposal_help_text: 新提案幫助文本
@@ -143,7 +142,6 @@ zh-TW:
             participatory_texts_enabled: 參與式文字已啟用
             participatory_texts_enabled_readonly: 如果已經存在提案，則無法與此設置互動。如果您想要啟用此功能，請創建一個新的“提案組件”，或者如果要禁用此功能，請在“參與式文字”選單中放棄所有已匯入的提案。
             proposal_answering_enabled: 提案回答已啟用
-            proposal_edit_before_minutes: 在幾分鐘後，作者可以編輯提案
             proposal_edit_time: 編輯提案
             proposal_edit_time_choices:
               infinite: 允許無限時間編輯提案
@@ -191,10 +189,8 @@ zh-TW:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: 有人在提案「%{resource_title}」上留了一則留言。在<a href="%{admin_proposal_info_url}">管理員面板</a>檢查它。
             email_outro: 您收到此通知，因為您可以對提案進行評估。
             email_subject: 有人在提案 %{resource_title} 上留下了一則註記。
-            notification_title: 有人在提案「<a href="%{resource_path}">%{resource_title}</a>」上留了一則留言。請至<a href="%{admin_proposal_info_path}">管理面板</a>查看。
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} 已經被接受成為 <a href="%{resource_url}">%{resource_title}</a> 協作草稿的貢獻者。'
           email_outro: 您收到此通知，是因為您是 <a href="%{resource_url}">%{resource_title}</a> 的協作者。
@@ -395,14 +391,11 @@ zh-TW:
           form:
             note: 附註
             submit: 提交
-          leave_your_note: 留下您的註記
           title: 私有注解
         proposals:
           answer:
-            invalid: 回答這個提案時出現了問題.
             success: 提案回覆成功.
           create:
-            invalid: 創建提案時發生問題.
             success: 提案已成功建立.
           edit:
             title: 更新提案
@@ -475,18 +468,14 @@ zh-TW:
             select_states: 檢查要匯入的提案狀態。
         proposals_merges:
           create:
-            invalid: '由於其中一些提案存在問題，因此無法合併所選提案：'
             success: 已成功合併提案成為新的提案。
         proposals_splits:
           create:
-            invalid: '由於其中一些提案存在問題，因此無法分割所選提案：'
             success: 成功將提案拆分為新的提案。
         valuation_assignments:
           create:
-            invalid: 有一個錯誤在指定提案給評估者。
             success: 提案已成功分配給評估人員.
           delete:
-            invalid: 取消指派建議書給評估人員時發生錯誤.
             success: 評估員已成功取消分配提案.
       admin_log:
         proposal:
@@ -662,7 +651,6 @@ zh-TW:
           discard: 放棄此草案
           discard_confirmation: 您確定要放棄此提案草案嗎？
           send: 預覽
-          title: 編輯提案草案
         filters:
           activity: 我的活動
           all: 全部

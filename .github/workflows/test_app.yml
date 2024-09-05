@@ -8,7 +8,7 @@ on:
         type: string
       ruby_version:
         description: 'Ruby Version'
-        default: "3.2.2"
+        default: "3.3.4"
         required: false
         type: string
       working-directory:
@@ -38,6 +38,11 @@ on:
         required: false
         default: true
         type: boolean
+      chrome_version:
+        description: 'Chrome & Chromedriver version'
+        required: false
+        default: "126.0.6478.182"
+        type: string
 
 jobs:
   build_app:
@@ -49,7 +54,6 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      RUBYOPT: '-W:no-deprecated'
     services:
       validator:
         image: ghcr.io/validator/validator:latest
@@ -66,6 +70,7 @@ jobs:
           POSTGRES_PASSWORD: postgres
       redis:
         image: redis
+        ports: ["6379:6379"]
         options: >-
           --health-cmd "redis-cli ping"
           --health-interval 10s
@@ -78,7 +83,16 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ inputs.ruby_version }}
+      - run: |
+          sudo apt update
+          sudo apt install libu2f-udev
+          wget --no-verbose -O /tmp/chrome.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${{inputs.chrome_version}}-1_amd64.deb
+          sudo dpkg -i /tmp/chrome.deb
+          rm /tmp/chrome.deb
       - uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: ${{inputs.chrome_version}}
+        name: Install Chrome version ${{inputs.chrome_version}}
       - uses: actions/cache@v4
         id: app-cache
         with:
@@ -122,3 +136,4 @@ jobs:
           name: screenshots
           path: ./spec/decidim_dummy_app/tmp/screenshots
           if-no-files-found: ignore
+          overwrite: true

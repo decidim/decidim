@@ -1014,7 +1014,7 @@ shared_examples "comments blocked" do
 
       it "shows a message indicating that comments are disabled" do
         visit resource_path
-        expect(page).to have_content("Comments are disabled at this time")
+        expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
         expect(page).to have_no_content("You need to be verified to comment at this moment")
       end
     end
@@ -1030,6 +1030,26 @@ shared_examples "comments blocked" do
       visit resource_path
     end
 
+    shared_examples "can answer comments" do
+      it "can answer" do
+        visit resource_path
+        expect(page).to have_link("Comment")
+        page.find("a", text: "Comment").click
+        fill_in "Comment", with: "Test admin commenting in a closed comment."
+        click_on "Publish comment"
+        expect(page).to have_content("Test admin commenting in a closed comment.")
+
+        expect(page).to have_button("Reply")
+        first("button", text: "Reply").click
+        expect(page).to have_css(".comment-thread")
+        within first(".comment-thread") do
+          fill_in "Comment", with: "Test admin replying a closed comment."
+          click_on "Publish reply"
+        end
+        expect(page).to have_content("Test admin replying a closed comment.")
+      end
+    end
+
     context "when comments are blocked" do
       let(:active_step_id) { component.participatory_space.active_step.id }
 
@@ -1039,8 +1059,45 @@ shared_examples "comments blocked" do
 
       it "shows a message indicating that comments are disabled" do
         visit resource_path
-        expect(page).to have_content("Comments are disabled at this time")
+        expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
         expect(page).to have_no_content("You need to be verified to comment at this moment")
+      end
+
+      context "when the user is an administrator" do
+        let!(:user) { create(:user, :admin, :confirmed, organization:) }
+
+        it_behaves_like "can answer comments"
+      end
+
+      context "when the user has a role of user manager" do
+        let!(:user) { create(:user, :user_manager, :confirmed, organization:) }
+
+        it_behaves_like "can answer comments"
+      end
+
+      context "when the user has an evaluator role in the same participatory space" do
+        let!(:valuator_role) { create(:participatory_process_user_role, role: :valuator, user:, participatory_process: participatory_space) }
+
+        it_behaves_like "can answer comments"
+      end
+
+      shared_examples "evaluator role in different participatory space" do |space_type|
+        let!(:another_space_valuator_role) do
+          create(:"#{space_type}_user_role", role: :valuator, user:, "#{space_type}": create(space_type, organization:))
+        end
+
+        it "cannot answer" do
+          visit resource_path
+          expect(page).to have_content("Comments are currently disabled, only administrators can reply or post new ones.")
+          expect(page).to have_no_content("You need to be verified to comment at this moment")
+          expect(page).to have_no_css("textarea#add-comment-Proposal-1")
+        end
+      end
+
+      context "when the user has an evaluator role in a different participatory space" do
+        include_examples "evaluator role in different participatory space", :participatory_process
+        include_examples "evaluator role in different participatory space", :conference
+        include_examples "evaluator role in different participatory space", :assembly
       end
     end
   end

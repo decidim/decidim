@@ -202,7 +202,7 @@ fr:
         verify: Vérifier
       admin_terms_of_service:
         accept:
-          error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation de l'administrateur.
+          error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation relatives aux administrateurs.
           success: Félicitations ! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation
@@ -350,6 +350,8 @@ fr:
       conflicts:
         attempts: Tentatives
         'false': 'Non'
+        index:
+          text: Recherche par adresse e-mail, nom ou pseudonyme.
         managed_user_name: Utilisateur représenté
         solved: Résolu
         title: Conflits de vérification
@@ -1016,6 +1018,8 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès.
+      taxonomies:
+        count: Compteur
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée

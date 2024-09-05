@@ -133,7 +133,6 @@ pt:
               random: Aleatório
               recent: Mais recentes
               with_more_authors: Com mais autores
-            geocoding_enabled: Geocoding ativado
             new_proposal_body_template: Novo modelo de corpo de proposta
             new_proposal_body_template_help: Pode definir o texto pré-preenchido que as novas Propostas terão
             new_proposal_help_text: Novo texto de ajuda da proposta
@@ -141,7 +140,6 @@ pt:
             participatory_texts_enabled: Textos participativos ativados
             participatory_texts_enabled_readonly: Não é possível interagir com esta configuração caso existam propostas. Crie um novo "Componente de propostas" caso pretenda ativar esta característica ou elimine todas as propostas importadas no menu "Textos Participativos" caso pretenda desativá-la.
             proposal_answering_enabled: Respostas à proposta ativadas
-            proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que estes minutos passem
             proposal_edit_time: Edição de proposta
             proposal_edit_time_choices:
               infinite: Permitir editar propostas por um limite de tempo indeterminado
@@ -340,7 +338,6 @@ pt:
           form:
             note: Nota
             submit: Submeter
-          leave_your_note: Deixe a sua nota
           title: Notas privadas
         proposals:
           edit:
@@ -406,11 +403,9 @@ pt:
             select_states: Verifique os estados das propostas a importar
         proposals_merges:
           create:
-            invalid: 'Houve um problema ao fundir as propostas seleccionadas porque algumas delas:'
             success: Fundiu corretamente as propostas em uma nova.
         proposals_splits:
           create:
-            invalid: 'Houve um problema ao dividir as propostas seleccionadas porque algumas delas:'
             success: Dividiu corretamente as propostas em novas.
       admin_log:
         proposal:
@@ -571,7 +566,6 @@ pt:
           discard: Descartar este rascunho
           discard_confirmation: Tem a certeza de que deseja descartar este rascunho da proposta?
           send: Pré-visualizar
-          title: Editar Rascunho da Proposta
         filters:
           activity: A minha atividade
           all: Todos

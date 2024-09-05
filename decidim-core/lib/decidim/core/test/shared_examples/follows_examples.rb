@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
-shared_examples "follows" do
+# When using these shared examples, make sure there are no prior requests within
+# the same group of examples where this is included. Otherwise you may end up
+# in race conditions that cause these to fail as explained at:
+# https://github.com/decidim/decidim/pull/6161
+shared_examples "followable content for users" do
   before do
+    switch_to_host(organization.host)
     login_as user, scope: :user
   end
 
@@ -34,9 +39,9 @@ shared_examples "follows" do
   end
 end
 
-shared_examples "follows with a component" do
+shared_examples "followable content for users with a component" do
   include_context "with a component"
-  include_examples "follows"
+  include_examples "followable content for users"
 
   context "when the user is following the followable's participatory space" do
     before do

@@ -18,13 +18,13 @@ module Decidim
           end
           @query = Decidim::Proposals::Proposal.where(component: visible_components_from_spaces(spaces)).joins(:component)
                                                .left_outer_joins(:category)
-          @query = @query.where("decidim_proposals_proposals.created_at <= ?", end_time).accepted
+          @query = @query.where(decidim_proposals_proposals: { created_at: ..end_time }).accepted
           @query = @query.group("decidim_categorizations.id", :participatory_space_type, :participatory_space_id)
           @query
         end
 
         def quantity
-          @quantity ||= query.where("decidim_proposals_proposals.created_at >= ?", start_time).count
+          @quantity ||= query.where(decidim_proposals_proposals: { created_at: start_time.. }).count
         end
       end
     end

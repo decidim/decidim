@@ -23,7 +23,7 @@ module Decidim
       end
 
       def correct_secret_key_base?
-        Rails.application.secrets.secret_key_base&.length == 128
+        Rails.application.secret_key_base&.length == 128
       end
 
       def generated_secret_key

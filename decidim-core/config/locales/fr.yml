@@ -284,7 +284,7 @@ fr:
       dismiss: Rejeter la notification
     amendments:
       accepted:
-        error: Une erreur s'est produite lors de l'acceptation de l'amendement.
+        error: Une erreur s'est produite lors de l'acceptation de cet amendement.
         success: L'amendement a été accepté avec succès.
       amendable:
         button: Modifier %{model_name}
@@ -297,7 +297,7 @@ fr:
           one: "%{count} amendement"
           other: "%{count} amendements"
       created:
-        error: Une erreur s’est produite lors de la création du projet d'amendement.
+        error: Une erreur s'est produite lors de la création du brouillon d'amendement.
         success: Le projet d'amendement a été créé avec succès.
       destroy_draft:
         error: Il y a eu un problème de suppression du projet d'amendement.
@@ -349,7 +349,7 @@ fr:
         error: Une erreur s'est produite lors de la modification de ce projet d'amendement.
         success: Le projet d'amendement a été mis à jour avec succès.
       withdraw:
-        error: Une erreur s'est produite lors du retrait de l'amendement.
+        error: Une erreur s'est produite lors du retrait de cet amendement.
         success: L'amendement a été retiré avec succès.
       wizard_step_form:
         steps:
@@ -586,6 +586,9 @@ fr:
           sign_up: Veuillez compléter votre profil
           subtitle: Veuillez compléter le formulaire suivant afin de compléter l’inscription
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+        new_tos_fields:
+          sign_up: Créer un compte
+          sign_up_title: Finalisez la création de votre compte
       registrations:
         create:
           error: Il y a eu un problème pour créer votre compte.
@@ -1259,6 +1262,7 @@ fr:
         administrators: Administrateurs
         allow_public_contact: "Allow anyone to send me a direct message, even if I do not follow them.\nAutoriser tout le monde à m'envoyer un message direct même si je ne les suis pas."
         allow_push_notifications: Recevez des notifications push pour savoir ce qui se passe lorsque vous n'êtes pas sur la plateforme. Vous pouvez les désactiver à tout moment.
+        assigned_to_proposal: Je veux recevoir un email quand quelqu'un m'assigne une proposition à évaluer
         direct_messages: Recevoir des messages directs de n'importe qui
         email_on_moderations: Je veux recevoir un email chaque fois que quelqu'un ou qu'une ressource a été signalé à des fins de modérations.
         everything_followed: Tout ce que je suis
@@ -1277,6 +1281,7 @@ fr:
         push_notifications_reminder: Pour recevoir des notifications de la plateforme, vous devez d'abord les autoriser dans les paramètres de votre navigateur.
         receive_notifications_about: Je veux recevoir des notifications sur
         update_notifications_settings: Enregistrer les modifications
+        valuators: Évaluateurs
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
         success: Vos paramètres de notifications ont été mis à jour avec succès.
@@ -1461,6 +1466,7 @@ fr:
         close_modal: Fermer la fenêtre de dialogue
         ok: Ok
         title: Valider
+      confirm_unload: Cette page contient des modifications non enregistrées. Êtes-vous sûr(e) de vouloir quitter cette page ?
       embed:
         title: Contenu vidéo intégré
       extended_navigation_bar:
@@ -1690,6 +1696,7 @@ fr:
         message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
         subject: Instructions de déverrouillage
     omniauth_callbacks:
+      add_tos_errors: Les conditions d'utilisation doivent être acceptées afin de créer un compte.
       failure: Impossible de vous authentifier à partir de %{kind} car "%{reason}".
       success: Authentifié avec succès à partir de %{kind} compte.
     passwords:
@@ -1850,7 +1857,7 @@ fr:
       not_found: n'a pas pu être trouvé. Avez-vous créé un compte précédemment ?
       not_locked: n'était pas verrouillé
       not_saved:
-        one: 'Une erreur est survenue pendant le traitement de votre requête.'
+        one: 'Une erreur est survenue pendant le traitement de votre requête:'
         other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)

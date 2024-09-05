@@ -61,11 +61,9 @@ ru:
             announcement: Объявление
             attachments_allowed: Разрешить прикрпеленные файлы
             comments_enabled: Комментарии включены
-            geocoding_enabled: Геокодирование включено
             new_proposal_help_text: Подсказки по созданию нового предложения
             official_proposals_enabled: Включена возможность выдвигать служебные предложения
             proposal_answering_enabled: Включена возможность отвечать на предложения
-            proposal_edit_before_minutes: Предложения могут быть отредактированы авторами до того, как пройдет столько минут
             proposal_length: Предельная длина основного текста предложения
             proposal_limit: Предельное количество предложений от одного участника
             proposal_wizard_step_1_help_text: Справка мастера предложений о шаге "Создать"
@@ -131,7 +129,6 @@ ru:
           form:
             note: Примечание
             submit: Отправить
-          leave_your_note: Оставьте свое примечание
           title: Частные примечания
         proposals:
           form:
@@ -200,7 +197,6 @@ ru:
           discard: Отбросить этот черновик
           discard_confirmation: Вы действительно хотите отбросить этот черновик предложения?
           send: Предпросмотр
-          title: Редактировать черновик предложения
         filters:
           all: Все
           category: Категория

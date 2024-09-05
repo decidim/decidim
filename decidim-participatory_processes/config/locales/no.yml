@@ -175,7 +175,6 @@
           title: Kopier deltakende prosess
       participatory_process_groups:
         destroy:
-          error: Det oppstod en feil under slettingen av prosessgruppen.
           success: Prosessgruppen ble slettet.
         edit:
           title: Rediger prosessgruppe

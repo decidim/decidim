@@ -167,7 +167,10 @@ cs:
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
-            geocoding_enabled: Geokódování povoleno
+            edit_time_units:
+              days: Dní
+              hours: Hodin
+              minutes: Minut
             minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_body_template: Šablona těla nového návrhu
             new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
@@ -176,11 +179,14 @@ cs:
             participatory_texts_enabled: Povolené účastnické texty
             participatory_texts_enabled_readonly: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
             proposal_answering_enabled: Odpovídání návrhu je povoleno
-            proposal_edit_before_minutes: Návrhy mohou být editovány autory před tím, než projde hodně minut
             proposal_edit_time: Úprava návrhů
             proposal_edit_time_choices:
               infinite: Povolit úpravy návrhů na nekonečnou dobu
               limited: Povolit úpravy návrhů v konkrétním časovém rámci
+            proposal_edit_time_unit_options:
+              days: Dní
+              hours: Hodin
+              minutes: Minut
             proposal_length: Maximální délka návrhu
             proposal_limit: Limit návrhu na uživatele
             proposal_wizard_step_1_help_text: Text průvodce kroku nápovědy "Vytvořit" Návrh
@@ -212,6 +218,7 @@ cs:
               most_commented: Nejvíce komentované
               most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
+              most_voted: Nejvíce hlasovalo
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
@@ -222,14 +229,16 @@ cs:
             publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
             suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasy blokovány
+            votes_enabled: Hlasování povoleno
     events:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Někdo zanechal poznámku k návrhu "%{resource_title}". Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>.
             email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
             email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
-            notification_title: Někdo zanechal poznámku k návrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">admin panel</a>.
+        coauthor_invited:
+          actions:
+            accept: Přijmout
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel konceptu spolupráce <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Obdrželi jste toto oznámení, protože jste spolupracovníkem <a href="%{resource_url}">%{resource_title}</a>.
@@ -457,7 +466,6 @@ cs:
           form:
             note: Poznámka
             submit: Předložit
-          leave_your_note: Nechte svou poznámku
           title: Soukromé poznámky
         proposal_states:
           create:
@@ -480,10 +488,8 @@ cs:
             success: Status byl úspěšně aktualizován
         proposals:
           answer:
-            invalid: Při odpovědi na tento návrh se vyskytl problém.
             success: Návrh byl úspěšně zodpovězen.
           create:
-            invalid: Při vytváření tohoto návrhu došlo k chybě.
             success: Návrh byl úspěšně vytvořen.
           edit:
             title: Návrh aktualizace
@@ -563,18 +569,14 @@ cs:
             title: Importovat návrhy z jiné komponenty
         proposals_merges:
           create:
-            invalid: 'Při slučování vybraných návrhů došlo k chybě, protože některé z nich:'
             success: Projekty byly úspěšně sloučeny do nové.
         proposals_splits:
           create:
-            invalid: 'Vyskytl se problém s rozdělením vybraných návrhů, protože některé z nich:'
             success: Úspěšně rozdělil návrhy na nové.
         valuation_assignments:
           create:
-            invalid: Při přiřazování návrhů hodnotiteli došlo k chybě.
             success: Návrhy byly úspěšně přiřazené hodnotiteli.
           delete:
-            invalid: Došlo k chybě při odebírání návrhů od hodnotitele.
             success: Hodnotitel byl úspěšně odebrán z návrhů.
       admin_log:
         proposal:
@@ -765,7 +767,6 @@ cs:
           discard: Zrušte tento návrh
           discard_confirmation: Opravdu chcete tuto návrh zakázat?
           send: Náhled
-          title: Upravit koncept návrhu
         edit_form_fields:
           marker_added: Značka přidána na mapu.
         filters:

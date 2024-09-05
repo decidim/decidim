@@ -103,7 +103,7 @@ ca:
       comments:
         blocked_comments_for_unauthorized_user_warning: Has d'estar verificat abans de poder fer comentaris, però pots llegir els comentaris anteriors.
         blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.
-        blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però pots llegir els anteriors.
+        blocked_comments_warning: Els comentaris estan deshabilitats en aquests moments, només les administradores poden respondre o publicar-ne de nous.
         comment_details_title: Detalls del comentari
         loading: Carregant els comentaris ...
         single_comment_warning: <a href="%{url}">Mostra tots els comentaris</a>
