@@ -14,12 +14,12 @@ sv:
         hashtag: Hashtag
         hero_image: Bild till startsida
         location: Plats
-        main_logo: Huvudbild
+        main_logo: Logotyp
         objectives: Mål
         participatory_processes_ids: Relaterade dialoger
         promoted: Uppmärksammad
         published_at: Publicerad
-        registration_terms: Registreringsvillkor
+        registration_terms: Villkor för registrering
         registrations_enabled: Registrering aktiverad
         scope_id: Omfång
         scopes_enabled: Omfång aktiverat
@@ -27,7 +27,7 @@ sv:
         show_statistics: Visa statistik
         sign_date: Underskriftsdatum
         signature: Underskrift
-        signature_name: Signaturnamn
+        signature_name: Signaturens namn
         slogan: Slogan
         slug: URL-slug
         start_date: Startdatum
@@ -40,14 +40,14 @@ sv:
         weight: Ordning
       conference_partner:
         link: Länk
-        logo: Logga
+        logo: Logotyp
         name: Namn
         partner_type: Typ av partner
         weight: Ordning
       conference_registration_invite:
         email: E-post
         name: Namn
-        registration_type_id: Registreringstyp
+        registration_type_id: Typ av registrering
         user_id: Användare
       conference_registration_type:
         description: Beskrivning
@@ -55,12 +55,12 @@ sv:
         title: Titel
         weight: Ordning
       conference_speaker:
-        affiliation: Anknytning
-        avatar: Avatar
+        affiliation: Tillhörighet
+        avatar: Profilbild
         conference_meeting_ids: Relaterade möten
         full_name: Fullständigt namn
         personal_url: Personlig URL
-        position: Plats
+        position: Befattning
         short_bio: Kort biographi
         user_id: Användare
       conference_user_role:
