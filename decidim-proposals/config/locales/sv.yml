@@ -32,6 +32,7 @@ sv:
         cost_report: Kostnadsrapport
         execution_period: Genomförandeperiod
       proposals_copy:
+        copy_proposals: Jag förstår att det här importerar alla förslag från den valda komponenten till den aktuella komponenten och att det inte går att ångra.
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
         import_proposals: Importera förslag
