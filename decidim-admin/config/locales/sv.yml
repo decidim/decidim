@@ -111,7 +111,7 @@ sv:
         organization: Organisation
         plural: Flertal
       settings:
-        scope_id: Omfång
+        scope_id: Indelning
       static_page:
         allow_public_access: Tillåt tillgång utan autentisering
         changed_notably: Det har skett större förändringar.
@@ -293,7 +293,7 @@ sv:
           headers:
             actions: Åtgärder
             name: Komponentnamn
-            scope: Komponentsomfång
+            scope: Indelningar för komponenten
             type: Komponenttyp
         new:
           add: Lägg till komponent
@@ -831,7 +831,7 @@ sv:
           error: Det gick inte att radera token.
           success: Token har tagits bort.
         share_tokens:
-          help: Dessa tokens används för att offentligt dela denna opublicerade resurs till alla användare. De kommer att döljas när resursen publiceras. Klicka på tokens dela-ikon för att besöka den delbara URL.
+          help: 'Tokens används för att dela en opublicerad sida till andra användare. De kommer att döljas när sidan publiceras. Klicka på dela-ikon för token för att besöka den delade URL: en.'
           title: Delade tokens
       shared:
         gallery:
@@ -909,7 +909,7 @@ sv:
           verify_via_csv: Verifiera via CSV
       user_groups_csv_verifications:
         new:
-          example_file: 'Exempel fil:'
+          example_file: 'Exempelfil:'
           explanation: Skicka in CSV-filen. Den måste innehålla de officiella e-postadresserna till grupperna i organisationen i den första kolumnen i filen, utan kolumnrubriker. Endast grupper som har bekräftar sin e-postadress och som har en e-postadress i CSV-filen kommer att valideras.
           explanation_example: |
             acme@exempel.org
@@ -934,8 +934,8 @@ sv:
         users_count:
           admins: Administratörer
           last_day: Sista dagen
-          last_month: Förra månaden
-          last_week: Förra veckan
+          last_month: Sista månaden
+          last_week: Sista veckan
           participants: Deltagare
     metrics:
       blocked_users:
@@ -970,8 +970,8 @@ sv:
       models:
         moderation:
           fields:
-            created_at: Rapporterat den
-            deleted_resource: Borttagen resurs
+            created_at: Rapporterad
+            deleted_resource: Raderad
             hidden_at: Dold
             participatory_space: Deltagarutrymme
             report_count: Antal anmälningar
