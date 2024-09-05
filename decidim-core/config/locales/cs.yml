@@ -1207,6 +1207,7 @@ cs:
       no_notifications: Zatím žádné oznámení.
       show:
         missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
+        moderated: Obsah upraven
     notifications_digest_mailer:
       header:
         daily: Denní výběr oznámení
