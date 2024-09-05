@@ -17,7 +17,7 @@ sv:
         hero_image: Hembild
         import_steps: Importera steg
         local_area: Område
-        meta_scope: Omfångets metadata
+        meta_scope: Metadata för indelning
         participatory_process_group_id: Dialoggrupp
         participatory_process_type_id: Dialogtyp
         participatory_scope: Vad som bestäms
@@ -25,7 +25,7 @@ sv:
         promoted: Annonserad
         published_at: Publicerad
         related_process_ids: Relaterade dialoger
-        scope_id: Omfång
+        scope_id: Indelning
         scope_type_max_depth_id: Djup på omfångsfilter
         scopes_enabled: Omfång aktiverade
         short_description: Kort beskrivning
@@ -313,6 +313,7 @@ sv:
       content_blocks:
         extra_data:
           name: Metadata
+          participatory_scope: Vad som beslutas
         html:
           name: HTML-block
         html_1:
@@ -386,6 +387,7 @@ sv:
           data: Dialogdata
           developer_group: Kampanjgrupp
           meta_scope: Indelning
+          participatory_scope: Vad som beslutas
         filters:
           all_types: Alla typer
           counters:
@@ -393,8 +395,8 @@ sv:
               one: En pågående dialog
               other: "%{count} pågående dialoger"
             all:
-              one: En dialog
-              other: "%{count} dialoger"
+              one: En process
+              other: "%{count} processer"
             past:
               one: En tidigare dialog
               other: "%{count} tidigare dialoger"
