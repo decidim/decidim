@@ -113,6 +113,11 @@ sv:
         new:
           create: Skapa
           title: Ny talare.
+        publish:
+          success: Konferensens talare har publicerats.
+        unpublish:
+          invalid: Det gick inte att avpublicera talaren.
+          success: Konferensens talare har avpublicerats.
         update:
           error: Det gick inte att uppdatera talaren.
           success: Talaren har uppdaterats.
