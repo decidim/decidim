@@ -72,8 +72,8 @@
 
     <div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>">
       <div class="comment__footer-grid">
-        <%= render :actions %>
         <%= votes %>
+        <%= render :actions %>
       </div>
       <% if can_reply? %>
         <div id="panel-<%= reply_id %>" class="add-comment" data-additional-reply>
