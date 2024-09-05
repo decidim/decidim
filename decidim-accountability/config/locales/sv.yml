@@ -50,7 +50,7 @@ sv:
           results: Resultat
         import_results:
           new:
-            download_export: Ladda ner exporten som CSV
+            download_export: Ladda ner exporten som CSV-fil
             import: Importera
             info: |
               <p>Vi rekommenderar att du följer dessa steg:</p>
@@ -164,8 +164,8 @@ sv:
           errors: Fel
           errors_present: Det gick inte att importera resultat
           row_number: Rad
-          subject: Lyckad import av resultat
-          success: Lyckad import av resultat. Du kan granska resultaten i administrationsgränssnittet.
+          subject: Resultaten har importerats
+          success: Resultaten har importerats. Du kan granska resultaten i administrationsgränssnittet.
       last_activity:
         new_result_at_html: "<span>Nytt resultat på %{link}</span>"
       models:
@@ -176,7 +176,7 @@ sv:
             end_date: Slutdatum
             id: ID
             progress: Genomförande
-            scope: Omfång
+            scope: Indelning
             start_date: Startdatum
             status: Status
             title: Titel
@@ -229,7 +229,7 @@ sv:
           category_id_eq:
             label: Kategori
           scope_id_eq:
-            label: Omfång
+            label: Indelning
           status_id_eq:
             label: Status
     components:
@@ -241,13 +241,13 @@ sv:
           global:
             categories_label: Namn för "Kategorier"
             comments_enabled: Kommentarer på
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             display_progress_enabled: Visa behandling
             heading_leaf_level_results: Namn för "Projekt"
             heading_parent_level_results: Namn för "Resultat"
             intro: Intro
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
             subcategories_label: Namn för "Underkategorier"
           step:
             comments_blocked: Kommentarer blockerade
