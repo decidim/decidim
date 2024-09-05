@@ -56,7 +56,7 @@ sv:
         force_authentication: Tvinga autentisering
         force_users_to_authenticate_before_access_organization: Tvinga användare att autentisera sig innan att komma in organisationen
         from: Avsändarens e-postadress
-        github_handler: GitHub-hanterare
+        github_handler: GitHub-namn
         header_snippets: Rubriksnuttar
         highlight_alternative_color: Markera alternativ
         highlight_color: Markera
@@ -68,7 +68,7 @@ sv:
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
         host: Värd
-        instagram_handler: Instagram-hanterare
+        instagram_handler: Instagram-namn
         logo: Logo
         machine_translation_display_priority: Maskinöversättnings visnings prioritet
         machine_translation_display_priority_original: Originaltexten först
@@ -364,7 +364,7 @@ sv:
         officialized_at_null:
           label: Status
           values:
-            'false': Gjord officiell
+            'false': Har officiell status
             'true': Ej gjord officiell
         participatory_space_private_users:
           user_invitation_accepted_at_not_null:
@@ -388,7 +388,7 @@ sv:
             'false': Publicerade
             'true': Ej publicerade
         scope_id_eq:
-          label: Omfång
+          label: Indelning
         search_label: Sök
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
@@ -511,7 +511,7 @@ sv:
         newsletters: Nyhetsbrev
         participants: Deltagare
         scope_types: Omfattningstyper
-        scopes: Omfattningar
+        scopes: Indelningar
         settings: Inställningar
         static_pages: Sidor
         user_groups: Grupper
@@ -621,7 +621,7 @@ sv:
           reasons:
             does_not_belong: Hör inte hemma
             offensive: Stötande
-            spam: Skräp
+            spam: Skräppost
         reports:
           index:
             author: Författare
@@ -665,7 +665,7 @@ sv:
           confirm_delete: Vill du radera nyhetsbrevet?
           followers: 'följare '
           has_been_sent_to: 'Har skickats till: '
-          no_scopes: Inga omfång
+          no_scopes: Ingen indelning
           not_sent: Inte skickat
           participants: 'deltagare '
           segmented_to: 'Segmenterad till %{subject}: '
@@ -683,8 +683,8 @@ sv:
           none: Inga
           participants_help: Skickar nyhetsbrevet till alla bekräftade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
           recipients_count: Detta nyhetsbrev kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
-          scopes_help: Skickar nyhetsbrev till användare som har något av de valda omfången markerade under "Mina intressen" i sina konton.
-          select_scopes: Filtrera för användare som har aktiverat något av de markerade omfången under Mina intressen i sina konton.
+          scopes_help: Skickar nyhetsbrev till användare som markerat någon av de valda indelningarna under "Mina intressen".
+          select_scopes: Filtrera användare som markerat någon av de valda indelningarna under "Mina intressen".
           select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
           select_users: Välj vilka användare som ska få nyhetsbrevet
           title: Välj mottagare att skicka till
@@ -707,17 +707,17 @@ sv:
           name: Namn
           nickname: Användarnamn
           not_officialized: Ej gjord officiell
-          officialize: Gör officiell
-          officialized: Gjord officiell
-          reofficialize: Gör officiell igen
+          officialize: Ge officiell status
+          officialized: Har officiell status
+          reofficialize: Ge officiell status igen
           reports: Rapporter
           show_email: Visa e-postadress
           status: Status
           unblock: Avblockera användare
-          unofficialize: Sluta gör officiell
+          unofficialize: Återkalla officiell status
         new:
           badge: Officiellt märke
-          officialize: Gör officiell
+          officialize: Ge officiell status
           title: Gör deltagaren "%{name}" officiell
         show_email_modal:
           description: Om du behöver kontakta en deltagare direkt kan du klicka på Visa för att se deras e-postadress. Denna åtgärd kommer att loggas.
@@ -737,7 +737,7 @@ sv:
           github: GitHub
           instagram: Instagram
           rich_text_editor_in_public_views_help: I vissa textfält kan deltagare använda vissa HTML-taggar med hjälp av den rika textredigeraren.
-          social_handlers: Sociala
+          social_handlers: Sociala medier
           url: URL
           youtube: Youtube
         update:
@@ -806,10 +806,10 @@ sv:
             scope: Indelning
       scope_types:
         create:
-          error: Det gick inte att skapa en ny omfångstyp.
-          success: Omfångstypen har skapats.
+          error: Det gick inte att skapa en ny typ av indelning.
+          success: Typen av indelning har skapats.
         destroy:
-          success: Omfångstypen har tagits bort
+          success: Typen av indelning har tagits bort
         edit:
           title: Redigera omfattningstyp
           update: Uppdatera
@@ -817,12 +817,14 @@ sv:
           create: Skapa omfattningstyp
           title: Ny typ av indelning
         update:
-          error: Det gick inte att uppdatera omfångstypen.
-          success: Omfångstypen har uppdaterats
+          error: Det gick inte att uppdatera typen av indelning.
+          success: Typen av indelning har uppdaterats
       scopes:
         create:
-          error: Det gick inte att skapa ett nytt omfång.
-          success: Omfånget har skapats.
+          error: Det gick inte att skapa en ny indelning.
+          success: Indelningen har skapats.
+        destroy:
+          success: Indelningen har raderats.
         edit:
           title: Redigera omfattning
           update: Uppdatera
@@ -831,7 +833,7 @@ sv:
           title: Ny omfattning
         no_scopes: Inga omfattningar på denna nivå.
         update:
-          error: Det gick inte att uppdatera omfånget.
+          error: Det gick inte att uppdatera indelningen.
           success: Omfattningen har uppdaterats
       share_tokens:
         actions:
@@ -898,7 +900,7 @@ sv:
         panel: Administratör
         participants: Deltagare
         scope_types: Omfattningstyper
-        scopes: Omfattningar
+        scopes: Indelningar
         statistics: Aktivitet
         user_groups: Grupper
         users: Administratörer
