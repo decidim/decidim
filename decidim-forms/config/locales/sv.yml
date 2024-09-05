@@ -3,14 +3,14 @@ sv:
     attributes:
       answer:
         body: Svar
-        choices: Val
-        selected_choices: Utvalda val
+        choices: Alternativ
+        selected_choices: Valda alternativ
       question:
-        max_choices: Högst antal val
+        max_choices: Högst antal alternativ
         question_type: Typ
       questionnaire_question:
-        mandatory: Obligatorisk
-        max_characters: Teckengräns (lämna till 0 om ingen gräns)
+        mandatory: Obligatoriskt
+        max_characters: Teckengräns (skriv 0 för obegränsad)
     errors:
       models:
         answer:
@@ -21,6 +21,9 @@ sv:
               too_long: är för långt
             choices:
               missing: är inte fullständiga
+              too_many: Du kan välja maximalt %{count}.
+        questionnaire:
+          request_invalid: Det gick inte att hantera begäran. Försök igen.
   decidim:
     forms:
       admin:
@@ -49,7 +52,7 @@ sv:
               answer:
                 title: 'Svar #%{number}'
             export_response:
-              title: Undersökning_användare_svar_%{token}
+              title: survey_user_answers_%{token}
             index:
               title: "%{total} svar totalt"
             show:
@@ -57,16 +60,16 @@ sv:
           display_condition:
             answer_option: Svarsalternativ
             condition_question: Fråga
-            condition_type: Skick
+            condition_type: Villkor
             condition_types:
               answered: Besvarad
-              equal: Lika
-              match: Inkluderar text
+              equal: Lika med
+              match: Innehåller text
               not_answered: Ej besvarad
-              not_equal: Inte lika
-            condition_value: Inkluderad text
+              not_equal: Ej lika med
+            condition_value: Innehåller text
             display_condition: Visa villkor
-            mandatory: Detta villkor måste uppfyllas alltid oavsett status för andra villkor
+            mandatory: Detta villkor måste alltid uppfyllas, oavsett status för andra villkor
             remove: Radera
             save_warning: Kom ihåg att spara formuläret innan du konfigurerar visningsvillkor
             select_answer_option: Välj svarsalternativ
@@ -79,7 +82,7 @@ sv:
             add_question: Lägg till fråga
             add_separator: Lägg till avgränsare
             add_title_and_description: Lägg till titel och beskrivning
-            already_answered_warning: Frågeformuläret har redan besvarats av vissa användare så du inte kan ändra dess frågor.
+            already_answered_warning: Frågeformuläret har redan besvarats av användare och du kan inte längre ändra frågorna.
             collapse: Dölj alla frågor
             expand: Visa alla frågor
             preview: Förhandsgranska
@@ -120,8 +123,17 @@ sv:
           update:
             invalid: Det gick inte att spara formuläret.
             success: Formuläret har sparats.
+      admin_log:
+        questionnaire:
+          update: "%{user_name} uppdaterade enkäten %{resource_name}"
+      errors:
+        answer:
+          body: Innehåll kan inte vara tomt
       images:
         dimensions: "%{width} x %{height} px"
+        processors:
+          resize_and_pad: Bilden skalas om till %{dimensions}.
+          resize_to_fit: Bilden skalas om till %{dimensions}.
       question_types:
         files: Filer
         long_answer: Långt svar
@@ -132,6 +144,8 @@ sv:
         single_option: Ett alternativ
         sorting: Sortering
         title_and_description: Titel och beskrivning
+      questionnaire_answer_presenter:
+        download_attachment: Ladda ner bilaga
       questionnaires:
         answer:
           invalid: Det gick inte att besvara formuläret.
@@ -141,9 +155,13 @@ sv:
           max_choices: 'Högst antal val: %{n}'
         show:
           answer_questionnaire:
+            already_have_an_account?: Har du redan ett konto?
             are_you_new?: Ny användare?
+            sign_in_description: Logga in för att göra enkäten
+            sign_up_description: Skapa ett konto för att göra enkäten
             title: Besvara formuläret
           current_step: Steg %{step}
+          empty: Formuläret har inga frågor än.
           of_total_steps: av %{total_steps}
           questionnaire_answered:
             body: Du har redan besvarat det här formuläret.
@@ -168,7 +186,7 @@ sv:
           submit: Skicka in
       user_answers_serializer:
         body: Svar
-        completion: Slutförande
+        completion: Slutfört
         created_at: Besvarad
         id: Svars-ID
         ip_hash: IP Hash
