@@ -18,16 +18,16 @@ sv:
         import_steps: Importera steg
         local_area: Område
         meta_scope: Metadata för indelning
-        participatory_process_group_id: Dialoggrupp
-        participatory_process_type_id: Dialogtyp
+        participatory_process_group_id: Grupp av processer
+        participatory_process_type_id: Typ av processer
         participatory_scope: Vad som bestäms
         participatory_structure: Hur det bestäms
         promoted: Annonserad
         published_at: Publicerad
-        related_process_ids: Relaterade dialoger
+        related_process_ids: Relaterade processer
         scope_id: Indelning
-        scope_type_max_depth_id: Djup på omfångsfilter
-        scopes_enabled: Omfång aktiverade
+        scope_type_max_depth_id: Djup på filter
+        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         slug: URL-slug
         start_date: Startdatum
@@ -43,7 +43,7 @@ sv:
         hero_image: Bild
         local_area: Organisationsområde
         meta_scope: Metadata för indelning
-        participatory_process_ids: Relaterade dialoger
+        participatory_process_ids: Relaterade processer
         participatory_scope: Vad som beslutas
         participatory_structure: Hur det bestäms
         target: Vem deltar
@@ -68,11 +68,11 @@ sv:
   activerecord:
     models:
       decidim/participatory_process:
-        one: Dialog
-        other: Dialoger
+        one: Deltagandeprocess
+        other: Deltagandeprocesser
       decidim/participatory_process_group:
-        one: Dialoggrupp
-        other: Dialoggrupper
+        one: Grupp av deltagandeprocesser
+        other: Grupper av deltagandeprocesser
       decidim/participatory_process_step:
         one: Steg
         other: Steg
@@ -87,21 +87,21 @@ sv:
         edit: Redigera
         import_process: Importera
         moderate: Moderera
-        new_process: Ny dialog
-        new_process_group: Ny dialoggrupp
+        new_process: Ny process
+        new_process_group: Ny grupp av processer
         new_process_step: Nytt steg
-        new_process_user_role: Ny dialogadministratör
+        new_process_user_role: Ny administratör för process
         preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen
         unpublish: Avpublicera
       menu:
-        participatory_process_groups: Dialoggrupper
+        participatory_process_groups: Grupper för processer
         participatory_process_groups_submenu:
           info: Info
           landing_page: Landningssida
         participatory_process_types: Processtyper
-        participatory_processes: Dialoger
+        participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
           attachment_files: Filer
@@ -111,7 +111,7 @@ sv:
           landing_page: Landningssida
           moderations: Moderering
           private_users: Privata deltagare
-          process_admins: Dialogadministratörer
+          process_admins: Administratörer för process
           steps: Steg
       models:
         participatory_process:
@@ -120,17 +120,17 @@ sv:
             private: Privat
             published: Publicerad
             title: Titel
-          name: Dialog
+          name: Deltagandeprocess
         participatory_process_group:
           fields:
             title: Titel
-          name: Dialoggrupp
+          name: Grupp av processer
         participatory_process_step:
           fields:
             end_date: Slutdatum
             start_date: Startdatum
             title: Titel
-          name: Steg i dialog
+          name: Steg i process
         participatory_process_type:
           fields:
             created_at: Skapad den
@@ -141,7 +141,7 @@ sv:
             email: E-post
             name: Namn
             role: Roll
-          name: Administratör för dialog
+          name: Administratör för process
           roles:
             admin: Administratör
             collaborator: Medarbetare
@@ -155,7 +155,7 @@ sv:
         new:
           copy: Kopiera
           select: Välj vilka data som du vill duplicera
-          title: Duplicera dialog
+          title: Duplicera process
       participatory_process_groups:
         destroy:
           success: Dialoggruppen har raderats.
@@ -209,7 +209,7 @@ sv:
           success: Steget i deltagarprocessen har uppdaterats.
       participatory_process_types:
         edit:
-          title: Redigera dialogtyp
+          title: Redigera typ av process
           update: Uppdatera
         new:
           create: Skapa
@@ -331,8 +331,8 @@ sv:
         title:
           meta_scope: Indelning
           participatory_processes:
-            one: 1 dialog
-            other: "%{count} dialoger"
+            one: 1 process
+            other: "%{count} processer"
       show:
         title: Dialoggrupper
     participatory_process_steps:
@@ -367,7 +367,7 @@ sv:
             metadata: Metadata
             other: Andra
             related_processes: Relaterade dialoger
-            scope_type_max_depth_help: Begränsa djupet på omfångsfilter; filtret kommer att visa från allmän till den valda omfångstypen.
+            scope_type_max_depth_help: Begränsa djupet på filtret för indelningen.
             select_an_area: Välj ett område
             select_process_group: Välj en dialoggrupp
             title: Allmän information
@@ -384,7 +384,7 @@ sv:
       participatory_processes:
         description:
           area_name: Område
-          data: Dialogdata
+          data: Data från processen
           developer_group: Kampanjgrupp
           meta_scope: Indelning
           participatory_scope: Vad som beslutas
@@ -419,7 +419,7 @@ sv:
         private_space: Detta är en privat dialog
         related_processes: Relaterade dialoger
     statistics:
-      processes_count: Dialoger
+      processes_count: Processer
   layouts:
     decidim:
       participatory_process_groups:
