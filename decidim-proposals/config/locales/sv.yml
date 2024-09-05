@@ -5,7 +5,7 @@ sv:
         address: Adress
         body: Innehåll
         category_id: Kategori
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         has_address: Har adress
         scope_id: Indelning
         state: Status
@@ -18,9 +18,9 @@ sv:
         automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
         category_id: Kategori
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         has_address: Har adress
-        scope_id: Omfång
+        scope_id: Indelning
         state: Status
         suggested_hashtags: Föreslagna hashtags
         title: Titel
@@ -423,6 +423,8 @@ sv:
             success: 'Förslag som har uppdaterats till kategorin %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Dessa förslag hade redan omfånget %{subject_name}: %{proposals}.'
+            select_a_proposal: Välj ett förslag.
+            select_a_scope: Välj en indelning.
             success: 'Förslag som har uppdaterats till omfånget %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
