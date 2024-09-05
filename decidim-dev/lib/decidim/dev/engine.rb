@@ -16,6 +16,15 @@ module Decidim
           resources :nested_dummy_resources
           get :foo, on: :member
         end
+
+        devise_scope :user do
+          match(
+            "/users/auth/dev/callback",
+            to: "omniauth_callbacks#dev_callback",
+            as: "user_dev_omniauth_authorize",
+            via: [:get, :post]
+          )
+        end
       end
 
       initializer "decidim_dev.tools" do
@@ -23,6 +32,15 @@ module Decidim
         next if Rails.application.config.try(:boost_performance)
 
         ActiveSupport.on_load(:action_controller) { include Decidim::Dev::NeedsDevelopmentTools } if Rails.env.development? || ENV.fetch("DECIDIM_DEV_ENGINE", nil)
+      end
+
+      initializer "decidim_dev.mount_test_routes", before: :add_routing_paths do
+        next unless Rails.env.test?
+
+        # Required for overriding the callback route.
+        Decidim::Core::Engine.routes.prepend do
+          mount Decidim::Dev::Engine => "/"
+        end
       end
 
       initializer "decidim_dev.webpacker.assets_path" do
