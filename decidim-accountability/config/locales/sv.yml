@@ -4,7 +4,7 @@ sv:
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategori
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
         meetings_ids: Inkluderade möten
