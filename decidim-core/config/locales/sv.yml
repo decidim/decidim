@@ -13,7 +13,7 @@ sv:
         document_number: Dokumentnummer
         email: E-post
         name: Namn
-        nickname: Smeknamn
+        nickname: Användarnamn
         phone: Telefon
       message:
         body: Innehåll
