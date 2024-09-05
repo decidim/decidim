@@ -31,10 +31,10 @@
 }
 
 .comment {
-  @apply rounded-none border-l-black border-2 border-background p-3 pl-6;
+  @apply rounded-lg border-2 border-background p-3 pl-6;
 
   &__header {
-    @apply flex items-center gap-x-2 mb-3 -ml-10 -mt-6 pt-2 relative;
+    @apply flex items-center gap-x-2 mb-2 -ml-10 relative;
 
     a[href^="/profile"] > span:first-child {
       @apply z-10;
@@ -60,7 +60,7 @@
   }
 
   &-reply {
-    @apply border-2 border-background ml-3 relative;
+    @apply rounded-lg border-2 border-background ml-3 relative;
   }
 
   &-reply:empty {
@@ -75,7 +75,7 @@
 
   &-reply &,
   & &-reply {
-    @apply border-0 pr-0 mt-4 bg-gray-5 mb-0 rounded-none border-2 py-0;
+    @apply border-0 pr-0 mt-4;
   }
 
   &-thread {
