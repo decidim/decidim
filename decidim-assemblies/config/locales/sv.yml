@@ -89,7 +89,7 @@ sv:
     admin:
       actions:
         import_assembly: Importera
-        new_assembly: Ny grupp
+        new_assembly: Nytt samråd
         new_assembly_type: Ny typ av grupp
       assemblies:
         create:
@@ -135,12 +135,12 @@ sv:
           title: Duplicera grupp
       assembly_imports:
         create:
-          error: Det gick inte att importera församlingen.
-          success: Församlingen har importerats.
+          error: Det gick inte att importera samrådet.
+          success: Samrådet har importerats.
         new:
           import: Importera
           select: Välj vilka data du vill importera
-          title: Importera sammansättning
+          title: Importera samråd
       assembly_members:
         create:
           error: Det gick inte att lägga till en medlem till gruppen.
@@ -184,7 +184,7 @@ sv:
           success: Administratören för gruppen har uppdaterats.
       filters:
         decidim_assemblies_type_id_eq:
-          label: Typ av grupp
+          label: Typ av samråd
       menu:
         assemblies: Grupper
         assemblies_settings: Inställningar
@@ -250,10 +250,10 @@ sv:
         delete: "%{user_name} tog bort medlemmen %{resource_name} från gruppen %{space_name}"
         update: "%{user_name} uppdaterade medlemmen %{resource_name} i gruppen %{space_name}"
       assembly_setting:
-        update: "%{user_name} uppdaterade inställningarna för församlingarna"
+        update: "%{user_name} uppdaterade inställningarna för samråd"
       assembly_type:
         create: "%{user_name} skapade grupptypen %{resource_name}"
-        delete: "%{user_name} raderade grupptypen %{resource_name}"
+        delete: "%{user_name} raderade typen av samråd %{resource_name}"
         publish: "%{user_name} publicerade grupptypen %{resource_name}"
         unpublish: "%{user_name} avpublicerade grupptypen %{resource_name}"
         update: "%{user_name} uppdaterade grupptypen %{resource_name}"
@@ -265,12 +265,12 @@ sv:
       admin:
         assemblies:
           form:
-            announcement_help: Texten du skriver här visas för användaren direkt under gruppinformationen.
+            announcement_help: Den här texten visas direkt under informationen om samrådet.
             duration: Varaktighet
             duration_help: Om varaktigheten för gruppen är begränsad, välj ett slutdatum. Annars kommer den att visas som permanent.
             filters: Filter
             images: Bilder
-            included_at_help: Markera det datum då gruppen lades till på plattformen. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
+            included_at_help: Markera datumet när samrådet lades till på plattformen. Det behöver inte nödvändigtvis vara samma som datumet det skapades.
             metadata: Metadata
             other: Annan
             select_a_created_by: Välj en skapad av
@@ -286,14 +286,14 @@ sv:
             title: Inställningar för församlingar
         assemblies_types:
           form:
-            title: Titel
+            title: Redigera typ av samråd
         assembly_imports:
           form:
             document_legend: Lägg till ett dokument
         assembly_members:
           form:
             existing_user: Befintlig deltagare
-            explanation: 'Vägledning för bild:'
+            explanation: 'Instruktioner för bild:'
             image_guide: Helst en porträttbild utan text.
             non_user: Ej deltagande
             non_user_avatar_help: Du bör få samtycke av personerna innan du publicerar dem som medlem.
@@ -313,7 +313,7 @@ sv:
             json: JSON
       assemblies:
         show:
-          title: Om den här gruppen
+          title: Om det här samrådet
       assembly_members:
         index:
           members: Medlemmar
@@ -345,7 +345,7 @@ sv:
       index:
         title: Grupper
       last_activity:
-        new_assembly: Ny grupp
+        new_assembly: Nytt samråd
       pages:
         home:
           highlighted_assemblies:
@@ -388,16 +388,16 @@ sv:
     events:
       assemblies:
         create_assembly_member:
-          email_intro: En administratör för församlingen <a href="%{resource_url}">%{resource_name}</a> har lagt till dig som en av dess medlemmar.
-          email_outro: Du har fått denna avisering eftersom du har bjudits in till en grupp. Ta en titt på <a href="%{resource_url}">gruppsidan</a> för att bidra!
-          email_subject: Du har blivit inbjuden att vara medlem i församlingen %{resource_name}!
-          notification_title: Du har blivit registrerad som medlem i församlingen <a href="%{resource_path}">%{resource_name}</a>. Kolla <a href="%{resource_path}">mötessidan</a> för att bidra!
+          email_intro: En administratör för samrådet <a href="%{resource_url}">%{resource_name}</a> har lagt till dig som medlem.
+          email_outro: Du har fått det här meddelandet eftersom du har blivit inbjuden till ett samråd. Gå till <a href="%{resource_url}">samrådet</a> för att bidra!
+          email_subject: Du har blivit inbjuden till samrådet %{resource_name}!
+          notification_title: Du har blivit registrerad som medlem i samrådet <a href="%{resource_path}">%{resource_name}</a>. Gå till <a href="%{resource_path}">samrådet</a> för att bidra!
       assembly:
         role_assigned:
-          email_intro: Du har tilldelats som %{role} för församlingen "%{resource_title}".
-          email_outro: Du har fått det här meddelandet eftersom du är %{role} av församlingen "%{resource_title}".
-          email_subject: Du har tilldelats som %{role} för "%{resource_title}".
-          notification_title: Du har tilldelats som %{role} för montering <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: Du har tilldelats rollen %{role} för samrådet "%{resource_title}".
+          email_outro: Du har fått det här meddelandet eftersom du är %{role} i samrådet "%{resource_title}".
+          email_subject: Du har tilldelats rollen %{role} för "%{resource_title}".
+          notification_title: Du har tilldelats rollen %{role} för samrådet <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
@@ -421,7 +421,7 @@ sv:
       show:
         related_assemblies: Relaterade grupper
     statistics:
-      assemblies_count: Grupper
+      assemblies_count: Samråd
   errors:
     messages:
       cannot_be_blank: kan inte vara tomt
