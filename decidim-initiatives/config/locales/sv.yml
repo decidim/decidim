@@ -4,7 +4,7 @@ sv:
     attributes:
       initiative:
         answer: Svar
-        answer_url: Svars URL
+        answer_url: Svars-URL
         area_id: Område
         decidim_scope_id: Indelning
         decidim_user_group_id: Författare
@@ -317,7 +317,7 @@ sv:
           continue: Fortsätt
           more_information: "(Mer information)"
           select_area: Välj ett område
-          select_scope: Välj ett omfång
+          select_scope: Välj en indelning
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
@@ -485,7 +485,7 @@ sv:
       states:
         accepted: Godkända
         expired: Utgångna
-      unavailable_scope: Ej tillgängligt omfång
+      unavailable_scope: Ej tillgänglig indelning
       update:
         error: Ett fel har inträffat.
     menu:
