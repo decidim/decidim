@@ -325,7 +325,7 @@ sv:
           allowed_scope_id: Tillåtet omfång
           document_number: Dokumentnummer
           postal_code: Postnummer
-          scope_id: Omfattning
+          scope_id: Indelning
         name: Exempelbekräftelse
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
@@ -421,8 +421,8 @@ sv:
             dummy_global_translatable_text: Översättningsbar exempeltext
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter på
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
           step:
             amendment_creation_enabled: Tillåt att skapa ändringsförslag
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
@@ -1246,14 +1246,14 @@ sv:
       global: Global omfattning
       picker:
         cancel: Avbryt
-        change: Ändra valt omfång
+        change: Ändra indelning
         choose: Välj
-        currently_selected: Nuvarande valt omfång
+        currently_selected: Vald indelning
         title: Välj %{field}
       prompt: Välj en omfattning
       scopes: Omfattningar
       scopes_picker_input:
-        select_scope: 'Välj ett omfång (nuvarande: %{current})'
+        select_scope: 'Välj indelning (nuvarande: %{current})'
     search:
       results: Sökresultat
       results_found_for_term: '%{count} resultat för sökningen: "%{term}"'
@@ -1358,7 +1358,7 @@ sv:
       users_count: Deltagare
     tags:
       filter_results_for_category: 'Filtrera resultat för kategori: %{resource}'
-      filter_results_for_scope: 'Filtrera resultat för omfattning: %{resource}'
+      filter_results_for_scope: 'Filtrera resultat: %{resource}'
     translation_bar:
       help_text: "<strong>OBS:</strong> Innehåll översattes kanske automatiskt och inte är 100% korrekt."
       show_original: Visa originaltexten
