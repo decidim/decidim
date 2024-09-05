@@ -186,6 +186,10 @@ sv:
         delete_with_parent: "%{user_name} raderade omfattningen %{resource_name} inom ramen för %{parent_scope}"
         update: "%{user_name} uppdaterade omfattningen %{resource_name}"
         update_with_parent: "%{user_name} uppdaterade omfattningen %{resource_name} inom ramen för %{parent_scope}"
+      scope_type:
+        create: "%{user_name} skapade indelningen %{resource_name}"
+        delete: "%{user_name} raderade indelningen %{resource_name}"
+        update: "%{user_name} uppdaterade indelningen %{resource_name}"
       static_page:
         create: "%{user_name} skapade den statiska sidan %{resource_name}"
         delete: "%{user_name} raderade den statiska sidan %{resource_name}"
@@ -322,7 +326,7 @@ sv:
         explanation: Bli bekräftad genom att ange ett dokumentnummer som avslutas med "X"
         fields:
           allowed_postal_codes: Tillåtna postnummer (separerade med kommatecken)
-          allowed_scope_id: Tillåtet omfång
+          allowed_scope_id: Tillåten indelning
           document_number: Dokumentnummer
           postal_code: Postnummer
           scope_id: Indelning
@@ -377,7 +381,7 @@ sv:
           request_confirmation_instructions: Begär bekräftelseanvisningar
           title: Bekräfta din e-postadress
       show:
-        close_modal: Stäng modal
+        close_modal: Stäng fönster
     block_user_mailer:
       notify:
         body_1: Ditt konto har spärrats.
@@ -513,7 +517,7 @@ sv:
         newsletter_modal:
           buttons:
             check: Kontrollera och fortsätt
-            close_modal: Stäng modal
+            close_modal: Stäng fönster
             uncheck: Behåll avmarkeringen
           notice: |-
             <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
@@ -714,7 +718,7 @@ sv:
           notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       download_your_data_export:
-        click_button: 'Hämta dina data genom att klicka på Nästa.<br/>Filen kommer vara tillgänglig till och med %{date}.<br/>Du kan använda <a href="https://www.7-zip.org/">7-Zip</a> (för Windows), <a href="https://www.keka.io/en/">Keka</a> (för MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (för Linux) för att öppna den. Lösenord: %{password}'
+        click_button: 'Hämta dina data genom att klicka på länkten.<br/>Filen kommer vara tillgänglig till och med %{date}.<br/>Du kan använda <a href="https://www.7-zip.org/">7-Zip</a> (för Windows), <a href="https://www.keka.io/en/">Keka</a> (för MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (för Linux) för att öppna den. Lösenord: %{password}'
         download: Hämta
       export:
         ready: En komprimerad version av exporten är bifogad.
@@ -762,14 +766,14 @@ sv:
         error: Det finns ett fel i det här fältet.
       file_help:
         file:
-          explanation: 'Vägledning för fil:'
+          explanation: 'Instruktioner för fil:'
           message_1: Måste vara en bild eller ett dokument.
         icon:
-          explanation: 'Vägledning för ikon:'
+          explanation: 'Instruktioner för ikon:'
         image:
-          explanation: 'Vägledning för bild:'
+          explanation: 'Instruktioner för bild:'
           message_1: Helst en landskapsbild som inte har någon text.
-          message_2: Tjänsten beskär bilden.
+          message_2: Bilden kommer bli beskuren.
       file_validation:
         allowed_file_extensions: 'Tillåtna filtillägg: %{extensions}'
         max_file_size: 'Maximal filstorlek: %{megabytes}MB'
@@ -785,9 +789,9 @@ sv:
           replace: Ersätt
           save: Spara
           title: Titel
-          title_required: Titel krävs!
+          title_required: Titel måste fyllas i!
           uploaded: Uppladdad
-          validating: Bekräftar...
+          validating: Validerar...
           validation_error: Valideringsfel!
     gamification:
       all_badges_link: Se alla tillgängliga märken.
@@ -915,7 +919,7 @@ sv:
         body_1: Du är på väg att besöka en extern länk och vi vill att du ska vara försiktig med innehållet på den externa webbplatsen.
         body_2: Kontrollera länken du är på väg att besöka och se till att den är säker innan du fortsätter.
         cancel: Avbryt
-        close_modal: Stäng modal
+        close_modal: Stäng fönster
         proceed: Fortsätt
         title: Öppna extern länk
     log:
@@ -1005,7 +1009,7 @@ sv:
           ok: OK
         index:
           ago: sedan
-          close: Stäng modal
+          close: Stäng fönster
           from: Från
           groups: Mina grupper
           last_message: Senaste meddelande
@@ -1065,7 +1069,7 @@ sv:
         cta_text: Uppmaningens knapptext
         cta_url: URL för åtgärdsknapp
         interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i introduktionen, brödtexten, åtgärdsknappstexten eller ämnet och det kommer att ersättas av mottagarens namn.'
-        introduction: Introduktion
+        introduction: Inledande text
         main_image: Huvudbilden
     newsletters:
       unsubscribe:
@@ -1090,9 +1094,9 @@ sv:
         subject: Vill du fortsätta att få relevant information om %{organization_name}?
     notification_mailer:
       event_received:
-        no_translation_available: Tyvärr kunde maskinöversättningen inte hämtas när e-postmeddelandet skickades. Du kan kontrollera översättningen av originaltexten på följande länk %{link}.
-        original_text: 'Originaltext:'
-        same_language: Innehållet har skrevs i ditt valda språk (%{language}) så ingen automatisk översättning visas i detta e-post.
+        no_translation_available: Tyvärr kunde maskinöversättningen inte hämtas när e-postmeddelandet skickades. Du kan kontrollera översättningen av originaltexten med följande länk %{link}.
+        original_text: 'Ursprunglig text:'
+        same_language: Innehållet har skrivits på ditt valda språk (%{language}). Därför visas inte automatisk översättning i det här e-postmeddelandet.
         translated_text: 'Maskinöversatt text:'
     notifications:
       no_notifications: Inga meddelanden ännu.
@@ -1107,9 +1111,9 @@ sv:
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: Nyhetsbrev
         notifications_sending_frequencies:
-          daily: Dagligen
-          none: Ingen
-          real_time: Realtid
+          daily: Varje dag
+          none: Aldrig
+          real_time: Direkt
           weekly: Veckovis
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
         push_notifications: Push-meddelanden
@@ -1141,7 +1145,7 @@ sv:
           how_to_participate: Hur deltar jag i en dialog?
           meetings: Möten
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
-          more_info: Mer information
+          more_info: Mer information om %{resource_name}
           proposals: Förslag
           proposals_explanation: Lämna förslag, stötta befintliga förslag och stöd de förändringar som du vill se.
         footer_sub_hero:
@@ -1174,7 +1178,7 @@ sv:
           legend: Godkänn användarvillkoren
         refuse:
           modal_btn_exit: Jag granskar dem senare
-          modal_close: Stäng modal
+          modal_close: Stäng fönster
           modal_title: Avvisar du de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
@@ -1230,7 +1234,7 @@ sv:
         details: Detaljer
         hello: Hej %{name},
         id: ID
-        participatory_space: Plats för deltagare
+        participatory_space: Deltagarutrymme
         reason: Anledning
         report_html: <p>Följande <a href="%{url}">innehåll</a> har rapporterats.</p>
         see_report: Se rapport
@@ -1251,7 +1255,7 @@ sv:
         currently_selected: Vald indelning
         title: Välj %{field}
       prompt: Välj en omfattning
-      scopes: Omfattningar
+      scopes: Indelningar
       scopes_picker_input:
         select_scope: 'Välj indelning (nuvarande: %{current})'
     search:
@@ -1268,7 +1272,7 @@ sv:
           future: Framtida
           past: Tidigare
       filters_small_view:
-        close_modal: Stäng modal
+        close_modal: Stäng fönster
         filter: Filtrera
         filter_by: Filtrera efter
         unfold: Veckla ut
@@ -1284,7 +1288,7 @@ sv:
     shared:
       confirm_modal:
         cancel: Avbryt
-        close_modal: Stäng modal
+        close_modal: Stäng fönster
         ok: Ok
         title: Bekräfta
       embed_modal:
@@ -1295,8 +1299,8 @@ sv:
         more: Mer
         unfold: Veckla ut
       filter_form_help:
-        help: Formuläret nedan filtrerar sökresultaten dynamiskt när sökvillkoren ändras.
-        skip: Hoppa till resultat
+        help: Formuläret filtrerar sökresultaten dynamiskt när sökningen ändras.
+        skip: Gå till resultat
       flag_modal:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         close: Stäng
@@ -1322,7 +1326,7 @@ sv:
       follow_button:
         sign_in_before_follow: Logga in innan du genomför åtgärden
       login_modal:
-        close_modal: Stäng modal
+        close_modal: Stäng fönster
         please_sign_in: Logga in
         sign_up: Registrera dig
       participatory_space_filters:
@@ -1539,7 +1543,7 @@ sv:
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
         password_help: "Minst %{minimun_characters} tecken, får inte vara för vanligt (som 123456) och måste vara skilt från ditt användarnamn och din e-postadress."
-        title: Lösenordsändring
+        title: Ändra lösenord
       new:
         forgot_your_password: Glömt ditt lösenord?
         send_me_reset_password_instructions: Skicka mig anvisningar om återställning av lösenord
@@ -1605,12 +1609,12 @@ sv:
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex. ! och ?)
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
   forms:
-    correct_errors: Det finns fel på formuläret, vänligen korrigera dem för att fortsätta.
+    correct_errors: Formuläret innehåller fel. Korrigera dem för att fortsätta.
     length_validator:
       minimum:
         one: Minst %{count} tecken
         other: Minst %{count} tecken
-    required: Krävs
+    required: Obligatoriskt fält
     required_explanation: "* Obligatoriska fält är markerade med en asterisk"
   invisible_captcha:
     sentence_for_humans: Om du är människa kan du ignorera det här fältet
@@ -1627,13 +1631,13 @@ sv:
           items:
             _session_id:
               description: Tillåter webbplatser att komma ihåg användare på en webbplats när de flyttar mellan webbsidor.
-              service: Denna webbplats
+              service: Den här webbplatsen
             decidim-consent:
-              description: Lagrar information om de cookies som tillåts av användaren på denna webbplats.
-              service: Denna webbplats
+              description: Lagrar information om de cookies som tillåts av användaren på den här webbplatsen.
+              service: Den här webbplatsen
             pwaInstallPromptSeen:
               description: Lagrar status om den progressiva webbapplikationen (PWA) installationsmeddelandet har redan setts av användaren.
-              service: Denna webbplats
+              service: Den här webbplatsen
           types:
             cookie: Cookie
             local_storage: Lokal lagring
@@ -1703,7 +1707,7 @@ sv:
         sign_out: Logga ut
         title: Vill du fortsätta med din session?
       upload_modal:
-        close_modal: Stäng modal
+        close_modal: Stäng fönster
       user_menu:
         account: 'Användarkonto: %{name}'
         admin_dashboard: Adminpanel
