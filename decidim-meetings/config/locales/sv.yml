@@ -82,7 +82,7 @@ sv:
               'false': Tidigare
               'true': Kommande
           scope_id_eq:
-            label: Omfång
+            label: Indelning
           with_any_origin:
             label: Ursprung
             values:
@@ -119,8 +119,8 @@ sv:
             maps_enabled: Karta aktiverad
             registration_code_enabled: Registreringskod aktiverad
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
             terms_and_conditions_url_for_meeting_creators: Adress till användarvillkor för mötesförfattare
           step:
             announcement: Meddelande
