@@ -91,7 +91,7 @@ eu:
               accepted: Beharrezko sinadurekin
               created: Sortua
               discarded: Baztertua
-              published: Argitaratua
+              open: Zabaldu
               rejected: Beharrezko sinadurarik gabe
               validating: Baliozkotze teknikoa
           type_id_eq:
@@ -100,7 +100,6 @@ eu:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, IDaren edo egiletzaren arabera.
       initiatives_settings:
         update:
-          error: Akats bat izanda.
           success: Ekimenen ezarpenak zuzen eguneratu dira.
       menu:
         attachments: Eranskinak
@@ -265,7 +264,6 @@ eu:
             new: Beste bat
             photos: Argazkiak
           update:
-            error: Errore bat egon da.
             success: Ekimena zuzen eguneratu da.
         initiatives_settings:
           edit:
@@ -279,7 +277,6 @@ eu:
             title: Ekimenen ezarpenak
         initiatives_type_scopes:
           create:
-            error: Errore bat egon da.
             success: Beste esparru bat sortu da emandako ekimen motarako.
           destroy:
             success: Esparrua behar bezala kendu da.
@@ -290,11 +287,9 @@ eu:
             create: Sortu
             title: Sortu ekimen motaren esparrua
           update:
-            error: Errore bat egon da.
             success: Esparrua zuzen eguneratu da.
         initiatives_types:
           create:
-            error: Errore bat egon da.
             success: Beste ekimen mota bat zuzen sortua. Ekimen mota honetarako gutxienez eremu bat definitu behar duzu, egin ahal izateko.
           destroy:
             success: Ekimen mota zuzen kendu da.
@@ -311,7 +306,6 @@ eu:
             create: Sortu
             title: Beste ekimen mota bat
           update:
-            error: Errore bat egon da.
             success: Ekimen mota zuzen eguneratu da.
       admin_log:
         initiative:
@@ -329,7 +323,7 @@ eu:
         accepted: Beharrezko sinadurak lortu ditu
         created: Sortu
         discarded: Baztertuta
-        published: Argitaratutako
+        open: Zabaldu
         rejected: Beharrezko sinadurarik gabe
         validating: Balidazio teknikoa
       application_helper:
@@ -578,7 +572,7 @@ eu:
           accepted: Beharrezko sinadurekin
           created: Sortua
           discarded: Baztertua
-          published: Argitaratua
+          open: Zabaldu
           rejected: Beharrezko sinadurarik gabe
           validating: Baliozkotze teknikoa
       states:
@@ -586,7 +580,6 @@ eu:
         expired: iraungi
       unavailable_scope: Esparrua ez dago erabilgarri
       update:
-        error: Errore bat egon da.
         success: Ekimena zuzen eguneratu da.
     menu:
       initiatives: Ekimenak

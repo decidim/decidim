@@ -41,6 +41,7 @@ describe "Postal letter management" do
     switch_to_host(organization.host)
     login_as admin, scope: :user
     visit decidim_admin_postal_letter.root_path
+    expect(page).to have_content("Code by postal")
   end
 
   it "shows the list of pending verifications" do

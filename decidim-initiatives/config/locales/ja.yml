@@ -88,7 +88,7 @@ ja:
               accepted: 十分な署名
               created: 作成日
               discarded: 削除済み
-              published: 公開済
+              open: 公開
               rejected: 十分な署名がありません
               validating: 技術的検証
           type_id_eq:
@@ -97,7 +97,7 @@ ja:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
       initiatives_settings:
         update:
-          error: エラーが発生しました。
+          error: イニシアチブ設定の更新中に問題が発生しました。
           success: イニシアチブの設定が正常に更新されました。
       menu:
         attachments: 添付ファイル
@@ -262,7 +262,7 @@ ja:
             new: 新規作成
             photos: 写真
           update:
-            error: エラーが発生しました。
+            error: イニシアチブの更新中に問題がありました。
             success: イニシアチブを更新しました。
         initiatives_settings:
           edit:
@@ -276,7 +276,7 @@ ja:
             title: イニシアチブの設定
         initiatives_type_scopes:
           create:
-            error: エラーが発生しました。
+            error: イニシアチブの新しいスコープの作成中に問題が発生しました。
             success: 指定されたイニシアチブ種別の新しいスコープが作成されました。
           destroy:
             success: スコープを削除しました。
@@ -287,11 +287,11 @@ ja:
             create: 作成
             title: イニシアチブ種別のスコープを作成
           update:
-            error: エラーが発生しました。
+            error: スコープの更新中に問題が発生しました。
             success: スコープを更新しました。
         initiatives_types:
           create:
-            error: エラーが発生しました。
+            error: イニシアチブ種別の作成中に問題が発生しました。
             success: 新しいイニシアチブ種別を作成しました。このイニシアチブ種別を使用するには、少なくとも 1 つのスコープを定義する必要があります。
           destroy:
             success: イニシアチブ種別を削除しました。
@@ -308,7 +308,7 @@ ja:
             create: 作成
             title: 新しいイニシアチブ種別
           update:
-            error: エラーが発生しました。
+            error: イニシアチブ種別の更新中に問題が発生しました。
             success: イニシアチブ種別を更新しました。
       admin_log:
         initiative:
@@ -326,7 +326,7 @@ ja:
         accepted: 十分な署名
         created: 作成済み
         discarded: 破棄しました
-        published: 公開済み
+        open: 公開
         rejected: 十分な署名がありません
         validating: 技術的検証
       application_helper:
@@ -570,7 +570,7 @@ ja:
           accepted: 十分な署名
           created: 作成済み
           discarded: 破棄しました
-          published: 公開済み
+          open: 公開
           rejected: 十分な署名がありません
           validating: 技術的検証
       states:
@@ -578,7 +578,7 @@ ja:
         expired: 期限切れ
       unavailable_scope: 利用できないスコープ
       update:
-        error: エラーが発生しました。
+        error: イニシアチブの更新に問題がありました。
         success: イニシアチブを更新しました。
     menu:
       initiatives: イニシアチブ

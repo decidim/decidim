@@ -24,6 +24,7 @@ AGPL
 Ajuntament
 Ajuntamentde
 alabs
+amd
 amendables
 AMR
 andreslucena
@@ -147,6 +148,7 @@ contingut
 continuar
 contrasenya
 coopdevs
+Correu
 Cov
 Cprojects
 crdownload
@@ -465,6 +467,7 @@ LCell
 legacysupport
 Lesch
 lfo
+libu
 libicu
 libpq
 libreadline
@@ -865,6 +868,8 @@ tableize
 tagsinput
 tailwindcss
 tarekraafat
+taxonomizable
+taxonomization
 technopolitical
 templatable
 templateable
@@ -913,6 +918,7 @@ tzid
 tzip
 uber
 ucw
+udev
 ueee
 ugc
 ujs

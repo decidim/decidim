@@ -143,7 +143,6 @@ sv:
               random: Slumpmässigt
               recent: Senaste
               with_more_authors: Med fler författare
-            geocoding_enabled: Geokodning aktiverad
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
@@ -151,7 +150,6 @@ sv:
             participatory_texts_enabled: Deltagartexter är aktiverade
             participatory_texts_enabled_readonly: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag under menyn `Deltagartexter` om du vill avaktivera den.
             proposal_answering_enabled: Aktiverat svar på förslag
-            proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
             proposal_edit_time: Redigering av förslag
             proposal_edit_time_choices:
               infinite: Tillåt redigering av förslag utan tidsbegränsning
@@ -369,7 +367,6 @@ sv:
           form:
             note: Annteckning
             submit: Skicka in
-          leave_your_note: Lämna anteckningen
           title: Privata anteckningar
         proposals:
           edit:
@@ -435,11 +432,9 @@ sv:
             select_states: Kontrollera status för förslagen som ska importeras
         proposals_merges:
           create:
-            invalid: 'Det gick inte att slå samman de valda förslagen på grund av vissa av dem:'
             success: Förslagen har sammanfogats till ett nytt förslag.
         proposals_splits:
           create:
-            invalid: 'Det gick inte att dela upp de valda förslagen på grund av vissa av dem:'
             success: Förslagen har delats upp till nya förslag.
       admin_log:
         proposal:
@@ -611,7 +606,6 @@ sv:
           discard: Släng utkastet
           discard_confirmation: Vill du slänga detta utkast till förslag?
           send: Förhandsvisa
-          title: Redigera utkast till förslag
         filters:
           activity: Min aktivitet
           all: Allt

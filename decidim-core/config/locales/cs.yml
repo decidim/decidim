@@ -19,6 +19,8 @@ cs:
         body: Tělo zprávy
       report:
         details: Další komentáře
+      taxonomy:
+        name: Název taxonomie
       user:
         about: O nás
         email: Váš email
@@ -286,6 +288,10 @@ cs:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
         update: "%{user_name} aktualizovala %{resource_name} statickou stránku"
+      taxonomy:
+        create: "%{user_name} vytvořil taxonomii %{resource_name}"
+        create_with_parent: "%{user_name} vytvořil taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
+        delete: "%{user_name} odstranil %{resource_name} taxonomii"
       user:
         block: "%{user_name} zablokoval uživatele %{resource_name}"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
@@ -310,7 +316,6 @@ cs:
       dismiss: Odmítnout oznámení
     amendments:
       accepted:
-        error: Při přijímání změny došlo k chybě.
         success: Tento pozměňovací návrh byl úspěšně přijat.
       amendable:
         button: Změna %{model_name}
@@ -325,7 +330,6 @@ cs:
           many: "%{count} pozměňovacích návrhů"
           other: "%{count} pozměňovacích návrhů"
       created:
-        error: Při vytváření pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh byl úspěšně vytvořen.
       destroy_draft:
         error: Při mazání pozměňovacího návrhu došlo k potížím.
@@ -377,11 +381,11 @@ cs:
         error: Při aktualizaci pozměňovacího návrhu došlo k potížím.
         success: Pozměňovací návrh byl úspěšně aktualizován.
       withdraw:
-        error: Došlo k chybě při odebrání pozměňovacího návrhu.
         success: Pozměňovací návrh byl úspěšně stažen.
       wizard_step_form:
         steps:
           '1': Vytvořte svůj pozměňovací návrh
+          '2': Publikovat svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       document:
@@ -626,6 +630,7 @@ cs:
           log_in: Přihlásit
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
+          sign_up: Vytvořit účet
           terms: podmínky poskytování služeb
           tos_agreement: Přihlášením souhlasíte s %{link}.
           tos_title: Smluvní podmínky
@@ -1114,6 +1119,8 @@ cs:
           not_found: 'Oblast působnosti nebyla nalezena v databázi (ID: %{id})'
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Taxonomie nebyla v databázi nalezena (ID: %{id})'
     managed_users:
       expired_session: Aktuální relace správy účastníka vypršela.
     map:
@@ -1308,6 +1315,7 @@ cs:
         push_notifications_reminder: Chcete-li dostávat oznámení z platformy, musíte je nejdříve povolit v nastavení prohlížeče.
         receive_notifications_about: Chci dostávat oznámení
         update_notifications_settings: Uložit změny
+        valuators: Hodnotitelé
       update:
         error: Při aktualizaci nastavení oznámení došlo k chybě.
         success: Nastavení oznámení bylo úspěšně aktualizováno.
@@ -1445,7 +1453,6 @@ cs:
         subject: Byl ohlášen zdroj
     reports:
       create:
-        error: Při vytváření shromáždění došlo k chybě. Zkuste to znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
     resource_endorsements:
       create:
@@ -1882,11 +1889,6 @@ cs:
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
       not_locked: nebyl uzamčen
-      not_saved:
-        one: 'Při zpracování vašeho požadavku došlo k chybě:'
-        few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
-        many: 'Při zpracování vašeho požadavku došlo k mnoha chybám:'
-        other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)

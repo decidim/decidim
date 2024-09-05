@@ -126,12 +126,10 @@ gl:
               random: Ao chou
               recent: Máis recentes
               with_more_authors: Con máis autores
-            geocoding_enabled: Geocoding habilitado
             new_proposal_help_text: Nova proposta de axuda de texto
             official_proposals_enabled: Propostas oficiais habilitadas
             participatory_texts_enabled: Permitir textos participativos
             proposal_answering_enabled: Contestando a proposta habilitada
-            proposal_edit_before_minutes: As propostas poden ser editadas por autores antes de que pase moitos minutos
             proposal_length: Lonxitude máxima do corpo da proposta
             proposal_limit: Límite de proposta por usuario
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
@@ -315,7 +313,6 @@ gl:
           form:
             note: Nota
             submit: Enviar
-          leave_your_note: Deixe a súa nota
           title: Notas privadas
         proposals:
           edit:
@@ -361,11 +358,9 @@ gl:
             select_states: Comprobe os estados das propostas para importar
         proposals_merges:
           create:
-            invalid: 'Produciuse un problema ao agrupar as propostas xa que algunhas delas:'
             success: Fusionou con éxito as propostas nun novo.
         proposals_splits:
           create:
-            invalid: 'Produciuse un problema ao dividir as propostas seleccionadas xa que algunhas delas:'
             success: Reaccionou con éxito as propostas en novas.
       admin_log:
         proposal:
@@ -524,7 +519,6 @@ gl:
           discard: Descarta este borrador
           discard_confirmation: '¿Estás seguro de que desexas descartar este borrador de proposta?'
           send: Vista previa
-          title: Editar borrador de proposta
         filters:
           activity: A miña actividade
           all: Todas

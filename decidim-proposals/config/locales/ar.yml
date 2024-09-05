@@ -150,7 +150,6 @@ ar:
               random: عشوائي
               recent: الأخيرة
               with_more_authors: مع المزيد من المؤلفين
-            geocoding_enabled: تم تمكين الترميز الجغرافي
             new_proposal_body_template: نموذج جديد لمحتوى المُقتَرَح
             new_proposal_body_template_help: يمكنكم تعريف النص المعبأ مسبقاً الذي سيدرج في المقترحات الجديدة
             new_proposal_help_text: نص مساعدة اقتراح جديد
@@ -158,7 +157,6 @@ ar:
             participatory_texts_enabled: تم تمكين النصوص التشاركية
             participatory_texts_enabled_readonly: لا يمكن التفاعل مع هذا الإعداد إذا كانت هناك اقتراحات موجودة. الرجاء إنشاء "مكون مقترحات" جديد إذا كنت ترغب في تمكين هذه الميزة أو تجاهل كافة المقترحات المستوردة في قائمة "النصوص التشاركية" إذا كنت ترغب في تعطيلها.
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
-            proposal_edit_before_minutes: يمكن تحرير المقترحات من قبل المؤلفين قبل مرور عدة دقائق
             proposal_edit_time: تحرير المقترح
             proposal_edit_time_choices:
               infinite: السماح بتعديل المقترحات لفترة زمنية غير محدودة
@@ -406,7 +404,6 @@ ar:
           form:
             note: ملحوظة
             submit: خضع
-          leave_your_note: اترك ملاحظتك
           title: ملاحظات خاصة
         proposals:
           edit:
@@ -476,11 +473,9 @@ ar:
             select_states: تحقق من حالة مقترحات الاستيراد
         proposals_merges:
           create:
-            invalid: 'طرأت مشكلة في دمج الاقتراحات المحددة لأن بعضها:'
             success: دمج المقترحات بنجاح في واحدة جديدة.
         proposals_splits:
           create:
-            invalid: 'طرأت مشكلة في فصل الاقتراحات المحددة لأن بعضها:'
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
       admin_log:
         proposal:
@@ -658,7 +653,6 @@ ar:
           discard: تجاهل هذه المسودة
           discard_confirmation: هل أنت متأكد من أنك تريد التخلص من مسودة الاقتراح؟
           send: معاينة
-          title: تحرير مسودة الاقتراح
         filters:
           activity: نشاطي
           all: الكل

@@ -35,7 +35,6 @@ is-IS:
           recent: Nýleg
         title: 'Raða eftir:'
       comments:
-        blocked_comments_warning: Athugasemdir eru gerðar óvirkar á þessum tíma, en þú getur lesið þau fyrri.
         loading: Hleð inn athugasemdir ...
     events:
       comments:

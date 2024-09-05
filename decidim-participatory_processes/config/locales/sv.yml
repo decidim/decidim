@@ -158,7 +158,6 @@ sv:
           title: Duplicera dialog
       participatory_process_groups:
         destroy:
-          error: Det gick inte att radera dialoggruppen.
           success: Dialoggruppen har raderats.
         edit:
           title: Redigera dialoggrupp

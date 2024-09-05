@@ -97,7 +97,6 @@ pl:
               accepted: Wystarczająca liczba podpisów
               created: Utworzono
               discarded: Odrzucono
-              published: Opublikowano
               rejected: Niewystarczająca liczba podpisów
               validating: Walidacja techniczna
           type_id_eq:
@@ -106,7 +105,6 @@ pl:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Wyszukaj %{collection} według tytułu, opisu, ID lub nazwy autora.
       initiatives_settings:
         update:
-          error: Wystąpił błąd.
           success: Ustawienia inicjatyw zostały pomyślnie zaktualizowane.
       menu:
         attachments: Załączniki
@@ -271,7 +269,6 @@ pl:
             new: Nowy
             photos: Zdjęcia
           update:
-            error: Wystąpił błąd.
             success: Inicjatywa została zaktualizowana.
         initiatives_settings:
           edit:
@@ -285,7 +282,6 @@ pl:
             title: Ustawienia dla inicjatyw
         initiatives_type_scopes:
           create:
-            error: Wystąpił błąd.
             success: Utworzono nowy zakres dla danego typu inicjatywy.
           destroy:
             success: Zakres został pomyślnie usunięty.
@@ -296,11 +292,9 @@ pl:
             create: Utwórz
             title: Utwórz zakres typu inicjatywy
           update:
-            error: Wystąpił błąd.
             success: Zakres został zaktualizowany.
         initiatives_types:
           create:
-            error: Wystąpił błąd.
             success: Nowy typ inicjatywy został pomyślnie utworzony. Musisz zdefiniować co najmniej jeden zakres dla tego typu inicjatywy, aby można go było użyć.
           destroy:
             success: Typ inicjatywy został usunięty.
@@ -317,7 +311,6 @@ pl:
             create: Utwórz
             title: Nowy typ inicjatywy
           update:
-            error: Wystąpił błąd.
             success: Typ inicjatywy został zaktualizowany.
       admin_log:
         initiative:
@@ -335,7 +328,6 @@ pl:
         accepted: Wystarczająca liczba podpisów
         created: Utworzono
         discarded: Odrzucono
-        published: Opublikowano
         rejected: Niewystarczająca liczba podpisów
         validating: Weryfikacja techniczna
       application_helper:
@@ -594,7 +586,6 @@ pl:
           accepted: Wystarczająca liczba podpisów
           created: Utworzone
           discarded: Odrzucone
-          published: Opublikowane
           rejected: Niewystarczająca liczba podpisów
           validating: Walidacja techniczna
       states:
@@ -602,7 +593,6 @@ pl:
         expired: Przedawnione
       unavailable_scope: Niedostępny zakres
       update:
-        error: Wystąpił błąd.
         success: Inicjatywa została zaktualizowana.
     menu:
       initiatives: Inicjatywy

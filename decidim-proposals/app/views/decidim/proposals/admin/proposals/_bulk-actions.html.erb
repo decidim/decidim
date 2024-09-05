@@ -35,3 +35,6 @@
 <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/merge" %>
 <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/split" %>
 <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/publish_answers" %>
+<% if templates_available? %>
+  <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/apply_answer_template", locals: { templates: find_templates_for_select(current_component) } %>
+<% end %>

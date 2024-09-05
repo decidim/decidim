@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.2.0"
+  s.required_ruby_version = "~> 3.3.0"
 
   s.name = "decidim-dev"
   s.summary = "Decidim dev tools"
@@ -33,13 +33,18 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "capybara", "~> 3.39"
-  s.add_dependency "decidim", Decidim::Dev.version
+  s.add_dependency "decidim-admin", Decidim::Dev.version
+  s.add_dependency "decidim-api", Decidim::Dev.version
+  s.add_dependency "decidim-comments", Decidim::Dev.version
+  s.add_dependency "decidim-core", Decidim::Dev.version
+  s.add_dependency "decidim-generators", Decidim::Dev.version
+  s.add_dependency "decidim-verifications", Decidim::Dev.version
   s.add_dependency "factory_bot_rails", "~> 6.2"
   s.add_dependency "faker", "~> 3.2"
 
   s.add_dependency "bullet", "~> 7.1.6"
   s.add_dependency "byebug", "~> 11.0"
-  s.add_dependency "erb_lint", "~> 0.4.0"
+  s.add_dependency "erb_lint", "~> 0.6.0"
   s.add_dependency "i18n-tasks", "~> 1.0"
   s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
   s.add_dependency "parallel_tests", "~> 4.2"
@@ -63,6 +68,8 @@ Gem::Specification.new do |s|
   s.add_dependency "selenium-webdriver", "~> 4.9"
   s.add_dependency "simplecov", "~> 0.22.0"
   s.add_dependency "simplecov-cobertura", "~> 2.1.0"
+  s.add_dependency "spring", "~> 4.0"
+  s.add_dependency "spring-watcher-listen", "~> 2.0"
   s.add_dependency "w3c_rspec_validators", "~> 0.3.0"
   s.add_dependency "webmock", "~> 3.18"
   s.add_dependency "wisper-rspec", "~> 1.0"

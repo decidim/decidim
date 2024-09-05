@@ -170,7 +170,12 @@ fi-pl:
               random: Satunnainen
               recent: Viimeisimmät
               with_more_authors: Eniten tekijöitä
-            geocoding_enabled: Geokoodaus käytössä
+            edit_time: Ehdotuksia voi muokata tämän aikamääreen sisällä
+            edit_time_units:
+              days: Päivää
+              hours: Tuntia
+              minutes: Minuuttia
+            geocoding_enabled: Karttatoiminnot käytössä
             minimum_votes_per_user: Vähimmäisäänimäärä käyttäjää kohden
             new_proposal_body_template: Uuden ehdotuksen leipätekstin mallipohja
             new_proposal_body_template_help: Voit määritellä esitäytetyn oletustekstin, joka uusille ehdotuksille näytetään automaattisesti
@@ -179,11 +184,14 @@ fi-pl:
             participatory_texts_enabled: Ehdotusaineistot ovat käytössä
             participatory_texts_enabled_readonly: Tätä asetusta ei voi muuttaa, mikäli ehdotuksia on jo olemassa. Luo uusi "Ehdotukset-komponentti", mikäli haluat ottaa tämän ominaisuuden käyttöön tai hylkää kaikki tuodut ehdotukset "Ehdotusaineistot" -toiminnosta, mikäli haluat ottaa sen pois käytöstä.
             proposal_answering_enabled: Ehdotukseen vastaaminen käytössä
-            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän ajan sisällä (minuuttia)
             proposal_edit_time: Ehdotusten muokkaus
             proposal_edit_time_choices:
               infinite: Ehdotusten muokkaus on sallittu ilman aikarajaa
               limited: Ehdotusten muokkaus on sallittu määritetyn aikarajan sisällä niiden julkaisusta
+            proposal_edit_time_unit_options:
+              days: Päivää
+              hours: Tuntia
+              minutes: Minuuttia
             proposal_length: Ehdotuksen runkotekstin merkkien enimmäismäärä
             proposal_limit: Ehdotusten enimmäismäärä käyttäjää kohden
             proposal_wizard_step_1_help_text: Ehdotuksen luonnin "Luo" -vaiheen ohjeteksti
@@ -233,12 +241,41 @@ fi-pl:
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: Sinut on lisätty ehdotuksen <a href="%{resource_path}">%{resource_title}</a> laatijaksi.
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Sinulle on annettu arvioitavaksi ehdotus "%{resource_title}". Tämä tarkoittaa, että sinut on valtuutettu antamaan palautetta ja vastaamaan ehdotukseen tulevien päivien aikana. Tarkasta ehdotus <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska voit arvioida ehdotuksen.
+            email_subject: Sinulle on annettu arvioitavaksi ehdotus %{resource_title}.
+            notification_title: Sinulle on annettu arvioitavaksi ehdotus <a href="%{resource_path}">"%{resource_title}"</a>. Tarkasta ehdotus <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
           proposal_note_created:
-            email_intro: Joku on jättänyt muistiinpanon ehdotukseen "%{resource_title}". Tutustu siihen <a href="%{admin_proposal_info_url}">hallintapaneelin kautta</a>.
+            email_intro: '%{author_name} on luonut yksityisen muistiinpanon kohteeseen %{resource_title}. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.'
             email_outro: Saat tämän ilmoituksen, koska voit arvioida ehdotuksen.
             email_subject: Joku on jättänyt huomion ehdotukseen %{resource_title}.
-            notification_title: Joku on jättänyt muistiinpanon ehdotukseen <a href="%{resource_path}">%{resource_title}</a>. Tutustu siihen <a href="%{admin_proposal_info_path}">hallintapaneelin kautta</a>.
+            notification_title: <a href="%{author_path}">%{author_name}</a> on luonut yksityisen muistiinpanon kohteeseen <a href="%{resource_path}">%{resource_title}</a>. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
+          proposal_note_mentioned:
+            email_intro: Sinut on mainittu yksityisessä muistiinpanossa "%{resource_title}" henkilön "%{author_name}" "%{author_nickname}" toimesta. Tarkista muistiinpano <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.
+            email_outro: Tämä ilmoitus on lähetetty sinulle, koska sinut on mainittu yksityisessä muistiinpanossa.
+            email_subject: Sinut on mainittu ehdotuksen %{resource_title} muistiinpanossa.
+            notification_title: Sinut on mainittu yksityisessä muistiinpanossa <a href="%{resource_path}">%{resource_title}</a> henkilön <a href="%{author_path}">%{author_name} %{author_nickname}</a> toimesta. Tarkista se <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
+          proposal_note_replied:
+            email_intro: '%{author_name} on vastannut yksityiseen muistiinpanoon kohteessa %{resource_title}. Tarkasta muistiinpano <a href="%{admin_proposal_info_url}">hallintapaneelin</a> kautta.'
+            email_outro: Sait tämän ilmoituksen, koska olet muistiinpanon laatija.
+            email_subject: "%{author_name} on vastannut yksityiseen muistiinpanoon kohteessa %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name}%{author_nickname}</a> on vastannut yksityiseen muistiinpanoosi kohteessa <a href="%{resource_path}">%{resource_title}</a>. Tarkasta muistiinpano <a href="%{admin_proposal_info_path}">hallintapaneelin</a> kautta.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> on hyväksynyt kutsusi ehdotuksen <a href="%{resource_path}">%{resource_title}</a> laatijaksi.
+        coauthor_invited:
+          actions:
+            accept: Hyväksy
+            decline: Hylkää
+          email_intro: 'Sinut on kutsuttu ehdotuksen "%{resource_title}" laatijaksi. Voit hyväksyä tai hylätä kutsun sivulta:'
+          email_outro: Tämä ilmoitus on lähetetty sinulle, koska ehdotuksen laatija haluaa palkita panoksesi kutsumalla sinut ehdotuksen laatijaksi.
+          email_subject: Sinut on kutsuttu ehdotuksen "%{resource_title}" laatijaksi
+          notification_title: <a href="%{author_path}">%{author_name}</a> haluaa kutsua sinut ehdotuksen <a href="%{resource_path}">%{resource_title}</a> laatijaksi.
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> on hylännyt laatijakutsusi ehdotukselle <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} on hyväksytty osallistujaksi yhteistyöluonnokseen <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet osallistujana kohteessa <a href="%{resource_url}">%{resource_title}</a>.
@@ -316,6 +353,8 @@ fi-pl:
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
           email_subject: Ehdotuksen %{resource_title} teema on päivitetty
           notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> teeman.
+        rejected_coauthorship:
+          notification_title: Olet hylännyt osallistujan <a href="%{author_path}">%{author_name}</a> lähettämän laatijakutsun ehdotukselle <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
           email_intro: 'Voit äänestää ehdotuksia kohteessa %{participatory_space_title}! Aloita osallistuminen tällä sivulla:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
@@ -380,11 +419,15 @@ fi-pl:
     proposals:
       actions:
         answer_proposal: Vastaa ehdotukseen
+        cancel_coauthor_invitation: Peruuta kutsu laatijaksi
+        cancel_coauthor_invitation_confirm: Haluatko varmasti peruuttaa kutsun laatijaksi?
         delete_proposal_state_confirm: Haluatko varmasti poistaa tämän tilan?
         destroy: Poista tila
         edit_proposal: Muokkaa ehdotusta
         edit_proposal_state: Muokkaa tilaa
         import: Tuo toisesta komponentista
+        mark_as_coauthor: Merkitse laatijaksi
+        mark_as_coauthor_confirm: Haluatko varmasti merkitä tämän osallistujan laatijaksi? Hänelle lähetetään kutsu, jonka avulla hän voi joko hyväksyä tai hylätä pyyntösi.
         new: Uusi ehdotus
         new_proposal_state: Uusi tila
         participatory_texts: Ehdotusaineistot
@@ -472,7 +515,9 @@ fi-pl:
           form:
             note: Huomautus
             submit: Lähetä
-          leave_your_note: Jätä huomautuksesi
+          reply:
+            error: Muistiinpanon vastauksen luonti ehdotukselle epäonnistui.
+            success: Muistiinpanon vastauksen luonti ehdotukselle onnistui.
           title: Omat muistiinpanot
         proposal_states:
           create:
@@ -495,6 +540,8 @@ fi-pl:
             success: Tilan päivitys onnistui
         proposals:
           answer:
+            bulk_answer_error: Ehdotuksiin ID-tunnisteilla [%{proposals}] ei voitu vastata, koska vastauksen mallipohjaa "%{template}" ei voitu käyttää. Tarkasta, että vastauksen mallipohja on määritelty komponentin olettamalla tavalla vastaamalla yksittäiseen ehdotukseen mallipohjan avulla.
+            bulk_answer_success: '%{count} ehdotukseen vastataan käyttäen mallipohjaa "%{template}". Odota muutamia minuutteja ja päivitä tämä sivu nähdäksesi muutokset.'
             invalid: Ehdotukseen vastaaminen epäonnistui.
             success: Ehdotukseen vastaaminen onnistui.
           create:
@@ -511,6 +558,7 @@ fi-pl:
             select_a_meeting: Valitse tapaaminen
           index:
             actions: Toiminnot
+            apply_answer_template: Käytä vastauksen mallipohjaa
             assign_to_valuator: Anna tehtäväksi arvioijalle
             assign_to_valuator_button: Anna tehtäväksi
             cancel: Peruuta
@@ -518,6 +566,7 @@ fi-pl:
             change_scope: Vaihda teemaa
             merge: Yhdistä uuteen
             merge_button: Yhdistä
+            no_templates_available: Mallipohjia ei ole käytettävissä
             publish: Julkaise
             publish_answers: Julkaise vastaukset
             select_component: Valitse komponentti
@@ -578,18 +627,18 @@ fi-pl:
             title: Tuo ehdotuksia toisesta komponentista
         proposals_merges:
           create:
-            invalid: 'Valittujen ehdotusten yhdistäminen epäonnistui, koska:'
+            invalid: 'Ehdotusten yhdistäminen epäonnistui seuraavista syistä:'
             success: Ehdotukset yhdistettiin onnistuneesti uudeksi ehdotukseksi.
         proposals_splits:
           create:
-            invalid: 'Valittujen ehdotusten jakaminen epäonnistui, koska:'
+            invalid: 'Ehdotusten jakaminen epäonnistui seuraavista syistä:'
             success: Ehdotukset jaettiin onnistuneesti uusiksi ehdotuksiksi.
         valuation_assignments:
           create:
-            invalid: Arvioijien asettaminen ehdotuksille epäonnistui.
+            invalid: Arvioijan määritys ehdotuksille epäonnistui.
             success: Arvioijien asettaminen ehdotuksille onnistui.
           delete:
-            invalid: Arvioijien poistaminen ehdotuksilta epäonnistui.
+            invalid: Arvioijan poistaminen ehdotuksilta epäonnistui.
             success: Arvioijien poistaminen ehdotuksilta onnistui.
       admin_log:
         proposal:
@@ -731,6 +780,19 @@ fi-pl:
       destroy_draft:
         error: Ehdotusluonnoksen poistamisessa tapahtui virheistä.
         success: Ehdotusluonnos poistettiin onnistuneesti.
+      invite_coauthors:
+        cancel:
+          error: Laatijakutsun peruuttaminen epäonnistui.
+          success: Laatijakutsun peruuttaminen onnistui.
+        create:
+          error: Laatijakutsun lähettäminen epäonnistui.
+          success: "Osallistujan %{author_name} kutsuminen laatijaksi onnistui."
+        destroy:
+          error: Kutsun hylkääminen epäonnistui.
+          success: Kutsun hylkääminen onnistui.
+        update:
+          error: Kutsun hyväksyminen epäonnistui.
+          success: Kutsun hyväksyminen onnistui.
       last_activity:
         new_proposal: 'Uusi ehdotus:'
         proposal_updated: 'Ehdotusta on päivitetty:'

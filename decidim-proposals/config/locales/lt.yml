@@ -150,7 +150,6 @@ lt:
               random: Atsitiktinai
               recent: Naujausi
               with_more_authors: Turintys daugiausia autorių
-            geocoding_enabled: Geokodavimas įjungtas
             new_proposal_body_template: Naujo pasiūlymo pagrindinės dalies šablonas
             new_proposal_body_template_help: Galite nustatyti naujiuose pasiūlymuose būsimą iš anksto užpildytą tekstą
             new_proposal_help_text: Naujo pasiūlymo pagalbos tekstas
@@ -158,7 +157,6 @@ lt:
             participatory_texts_enabled: Dalyvaujamieji tekstai aktyvuoti
             participatory_texts_enabled_readonly: Jei yra pasiūlymų, negalima sąveika su šia nuostata. Sukurkite naują „Pasiūlymų komponentą“, jei norite aktyvinti šią funkciją arba, jei norite išjungti šią funkciją, visus importuotus pasiūlymus pašalinkite iš laukelio „Bendri tekstai“ meniu.
             proposal_answering_enabled: Atsakymas į pasiūlymą aktyvintas
-            proposal_edit_before_minutes: Kol nepraeis nurodytas skaičius minučių, autoriai gali keisti pasiūlymus
             proposal_edit_time: Pasiūlymų koregavimas
             proposal_edit_time_choices:
               infinite: Lesti redaguoti pasiūlymus neribotą laiką
@@ -206,10 +204,8 @@ lt:
       proposals:
         admin:
           proposal_note_created:
-            email_intro: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“. Pasitikrinkite tai <a href="%{admin_proposal_info_url}">administratoriaus srityje</a>.
             email_outro: Šį pranešimą gavote dėl to, kad galite vertinti pasiūlymą.
             email_subject: Kažkas paliko pastabą dėl pasiūlymo „%{resource_title}“.
-            notification_title: Kažkas paliko pastabą dėl pasiūlymo <a href="%{resource_path}">%{resource_title}</a>. Peržiūrėkite ją <a href="%{admin_proposal_info_path}">administratoriaus srityje</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} buvo priimtas kaip <a href="%{resource_url}">%{resource_title}</a> bendradarbiavimo juodraščio bendradarbis.'
           email_outro: Šį pranešimą gavote dėl to, kad esate <a href="%{resource_path}">%{resource_title}</a> bendraautorius.
@@ -416,14 +412,11 @@ lt:
           form:
             note: Pastaba
             submit: Pateikti
-          leave_your_note: Palikite pastabą
           title: Privačios pastabos
         proposals:
           answer:
-            invalid: Atsakant į šį pasiūlymą iškilo problema.
             success: Į pasiūlymą atsakyta.
           create:
-            invalid: Kuriant šį pasiūlymą iškilo problema.
             success: Pasiūlymas sukurtas.
           edit:
             title: Atnaujinti pasiūlymą
@@ -499,18 +492,14 @@ lt:
             select_states: Patikrinti importuoti skirtų pasiūlymų būseną
         proposals_merges:
           create:
-            invalid: 'Suliejant pasirinktus pasiūlymus iškilo problema, nes kai kurie iš jų:'
             success: Pasiūlymai sulieti į vieną naują pasiūlymą.
         proposals_splits:
           create:
-            invalid: 'Iškilo problema skaidant pasirinktus pasiūlymus, nes kai kurie iš jų:'
             success: Pasiūlymai išskaidyti į naujus.
         valuation_assignments:
           create:
-            invalid: Pavedant pasiūlymus vertintojui įvyko klaida.
             success: Pasiūlymai pavesti vertintojui.
           delete:
-            invalid: Naikinant vertintojui pavestus pasiūlymus įvyko klaida.
             success: Vertintojas sėkmingai pašalintas nuo pasiūlymų.
       admin_log:
         proposal:
@@ -698,7 +687,6 @@ lt:
           discard: Ištrinti šį juodraštį
           discard_confirmation: Ar tikrai norite ištrinti šį pasiūlymo juodraštį?
           send: Peržiūrėti
-          title: Redaguoti pasiūlymo projektą
         filters:
           activity: Mano veikla
           all: Visi

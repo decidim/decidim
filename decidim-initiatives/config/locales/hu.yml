@@ -87,7 +87,6 @@ hu:
               accepted: Elég aláírások
               created: Létrehozva
               discarded: Elvetve
-              published: Közzétéve
               rejected: Nincsen elég aláírás
               validating: Technikai érvényesítés
           type_id_eq:
@@ -251,7 +250,6 @@ hu:
             new: Új
             photos: Fotók
           update:
-            error: Hiba történt.
             success: A kezdeményezés frissítése sikeres.
         initiatives_settings:
           edit:
@@ -265,7 +263,6 @@ hu:
             title: Kezdeményezések beállításai
         initiatives_type_scopes:
           create:
-            error: Hiba történt.
             success: Az adott kezdeményezési típushoz új hatáskört hoztunk létre.
           destroy:
             success: A hatáskör eltávolítása sikeres volt.
@@ -276,11 +273,8 @@ hu:
             create: Létrehozás
             title: Kezdeményezési típus hatáskörének létrehozása
           update:
-            error: Hiba történt.
             success: A hatáskör frissítése sikeres.
         initiatives_types:
-          create:
-            error: Hiba történt.
           destroy:
             success: A kezdeményezéstípus eltávolítása sikeres.
           edit:
@@ -294,7 +288,6 @@ hu:
             create: Létrehozás
             title: Új kezdeményezéstípus
           update:
-            error: Hiba történt.
             success: A kezdeményezéstípus frissítése sikeres.
       admin_log:
         initiative:
@@ -312,7 +305,6 @@ hu:
         accepted: Elegendő aláírás
         created: Létrehozva
         discarded: Elvetve
-        published: Közzétéve
         rejected: Nincs elegendő aláírás
         validating: Technikai érvényesítés
       application_helper:
@@ -526,7 +518,6 @@ hu:
           accepted: Elegendő aláírás
           created: Létrehozva
           discarded: Elvetve
-          published: Közzétéve
           rejected: Nincs elegendő aláírás
           validating: Technikai érvényesítés
       states:

@@ -19,6 +19,8 @@ ca:
         body: Cos
       report:
         details: Comentaris addicionals
+      taxonomy:
+        name: Nom de la taxonomia
       user:
         about: Quant a
         email: El teu correu electrònic
@@ -260,6 +262,13 @@ ca:
         create: "%{user_name} ha creat la pàgina estàtica %{resource_name}"
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
         update: "%{user_name} ha actualitzat la pàgina estàtica %{resource_name}"
+      taxonomy:
+        create: "%{user_name} ha creat la taxonomia \"%{resource_name}\""
+        create_with_parent: "%{user_name} ha creat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
+        delete: "%{user_name} ha esborrat la taxonomia \"%{resource_name}\""
+        delete_with_parent: "%{user_name} ha esborrat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
+        update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
+        update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
       user:
         block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
@@ -284,11 +293,11 @@ ca:
       dismiss: Descartar notificació
     amendments:
       accepted:
-        error: S'ha produït un error en acceptar l'esmena.
+        error: Hi ha hagut un problema en acceptar l'esmena.
         success: L’esmena ha estat acceptada correctament.
       amendable:
         button: Esmenar %{model_name}
-        error: S'ha produït un error en modificar aquest recurs.
+        error: Hi ha hagut un problema en esmenar aquest recurs.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: Segur que vols promoure aquesta esmena?
         promote_help_text: Pots promocionar aquesta esmena com a una %{model_name} independent.
@@ -297,7 +306,7 @@ ca:
           one: "%{count} esmena"
           other: "%{count} esmenes"
       created:
-        error: S'ha produït un error durant la creació de l’esmena.
+        error: Hi ha hagut un problema en actualitzar l'esborrany de l'esmena.
         success: L'esborrany d’esmena ha estat creat amb èxit.
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de l'esmena.
@@ -346,7 +355,7 @@ ca:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
         success: Esborrany d'esmena actualitzat correctament.
       withdraw:
-        error: S'ha produït un error en retirar l'esmena.
+        error: Hi ha hagut un problema en retirar l'esmena.
         success: L'esmena s'ha retirat correctament.
       wizard_step_form:
         steps:
@@ -531,8 +540,8 @@ ca:
         html_content: Contingut HTML
         name: Bloc HTML
       last_activity:
-        name: Última activitat
-        title: Última activitat
+        name: Darrera activitat
+        title: Darrera activitat
         view_all: Veure-ho tot
       last_activity_settings_form:
         max_last_activity_users: Número màxim d'avatars de participants amb activitat recent a mostrar
@@ -584,6 +593,9 @@ ca:
           sign_up: Si us plau, completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la creació del teu compte
           username_help: Nom públic que apareix als teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
+        new_tos_fields:
+          sign_up: Crear un compte
+          sign_up_title: Acabar de crear el teu compte
       registrations:
         create:
           error: S'ha produït un error en crear el teu compte.
@@ -1048,7 +1060,7 @@ ca:
     last_activities:
       all: Tots els tipus d'activitats
       index:
-        last_activity: Última activitat
+        last_activity: Darrera activitat
       name: Darreres activitats
       no_activities_warning: No hi ha res a mostrar per a aquest tipus d'activitat.
     linked_resource_from:
@@ -1083,6 +1095,8 @@ ca:
           not_found: 'L''àmbit no s''ha trobat a la base de dades (ID: %{id})'
         scope_type_presenter:
           not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'No s''ha trobat la taxonomia a la base de dades (ID: %{id})'
     managed_users:
       expired_session: La sessió actual d'administració d'una participant ha caducat.
     map:
@@ -1261,6 +1275,7 @@ ca:
         administrators: Administradores
         allow_public_contact: Permetre que qualsevol participant m'enviï missatges directes, encara que no la segueixi.
         allow_push_notifications: Mostrar notificacions emergents per a saber que passa mentre no estàs a la plataforma. Pots deshabilitar-les en qualsevol moment.
+        assigned_to_proposal: Vull rebre un correu electrònic quan algú m'assigni una proposta a avaluar
         direct_messages: Rebre missatges directes de qualsevol
         email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti algo o a algú per moderació.
         everything_followed: Tot el que segueixo
@@ -1279,6 +1294,7 @@ ca:
         push_notifications_reminder: Per rebre notificacions de la plataforma, primer les has de permetre a la configuració del teu navegador.
         receive_notifications_about: Vull rebre notificacions
         update_notifications_settings: Guardar canvis
+        valuators: Avaluadores
       update:
         error: S'ha produït un error en actualitzar la configuració de les notificacions.
         success: La configuració de les notificacions s'ha actualitzat correctament.
@@ -1416,7 +1432,7 @@ ca:
         subject: Un contingut ha estat denunciat
     reports:
       create:
-        error: S'ha produït un error en denunciar el contingut. Si us plau, torna-ho a intentar.
+        error: Hi ha hagut un problema en crear l'informe d'error. Si us plau, torna-ho a provar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
     resource_endorsements:
       create:
@@ -1463,6 +1479,7 @@ ca:
         close_modal: Tancar el modal
         ok: D'acord
         title: Confirmar
+      confirm_unload: Aquesta pàgina conté canvis sense desar. Segur que vols abandonar aquesta pàgina?
       embed:
         title: Contingut del vídeo incrustat
       extended_navigation_bar:
@@ -1692,6 +1709,7 @@ ca:
         message: El teu compte s'ha bloquejat a causa d'una quantitat excessiva d'intents fallits d'inici de sessió.
         subject: Desbloqueja les instruccions
     omniauth_callbacks:
+      add_tos_errors: S'ha d'acceptar els termes i condicions d'ús per crear un compte.
       failure: No pots autenticar-te des de %{kind} perquè "%{reason}".
       success: S'ha autenticat amb èxit des del compte %{kind}.
     passwords:
@@ -1852,8 +1870,8 @@ ca:
       not_found: No s'ha pogut trobar. Has creat un compte anteriorment?
       not_locked: No estava bloquejat
       not_saved:
-        one: 'S''ha produït un error en processar la teva sol·licitud:'
-        other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
+        one: 'S''han produït un error en processar la teva sol·licitud:'
+        other: 'S''han produït múltiples errors en processar la teva sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: és massa curt (menys %{count} caràcters)

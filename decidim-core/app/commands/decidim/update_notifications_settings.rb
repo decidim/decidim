@@ -30,6 +30,7 @@ module Decidim
       current_user.notification_types = @form.notification_types
       current_user.direct_message_types = @form.direct_message_types
       current_user.email_on_moderations = @form.email_on_moderations
+      current_user.email_on_assigned_proposals = @form.email_on_assigned_proposals
       current_user.notification_settings = current_user.notification_settings.merge(@form.notification_settings)
       current_user.notifications_sending_frequency = @form.notifications_sending_frequency
     end

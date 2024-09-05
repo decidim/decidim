@@ -202,7 +202,7 @@ de:
         verify: Überprüfen
       admin_terms_of_service:
         accept:
-          error: Beim Akzeptieren der Admin-Nutzungsbedingungen ist ein Fehler aufgetreten.
+          error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
           success: Super! Sie haben die Admin-Nutzungsbedingungen akzeptiert.
         actions:
           accept: Ich stimme diesen Bedingungen zu
@@ -350,6 +350,8 @@ de:
       conflicts:
         attempts: Versuche
         'false': 'Nein'
+        index:
+          text: Suche nach bestehender E-Mail, Name oder Spitzname des Teilnehmenden.
         managed_user_name: Verwalteter Benutzer
         solved: Gelöst
         title: Überprüfungskonflikte
@@ -364,7 +366,7 @@ de:
         user_name: Nutzer
       content_blocks:
         create:
-          error: Beim Erstellen des Inhaltsblocks ist ein Fehler aufgetreten.
+          error: Beim Erstellen des Inhaltsblocks ist ein Problem aufgetreten.
           success: Inhaltsblock erfolgreich erstellt.
         destroy:
           error: Es gab ein Problem beim Löschen dieses Inhaltsblocks.
@@ -467,6 +469,9 @@ de:
             pending: Ausstehend
             rejected: Abgelehnt
             verified: Überprüft
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomie
       forms:
         file_help:
           import:
@@ -589,6 +594,7 @@ de:
         settings: Einstellungen
         static_page_topics: Themen
         static_pages: Seiten
+        taxonomies: Taxonomien
         user_groups: Benutzergruppen
         users: Benutzer
       metrics:
@@ -783,7 +789,7 @@ de:
           success: Newsletter erfolgreich aktualisiert. Bitte überprüfen Sie es vor dem Senden.
       officializations:
         block:
-          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten.
+          error: Bei der Teilnehmendenblockierung ist ein Problem aufgetreten.
           success: Teilnehmer erfolgreich blockiert.
         create:
           success: Benutzer wurde offiziell anerkannt.
@@ -817,7 +823,7 @@ de:
           show: Anzeigen
           title: E-Mail-Adresse des Teilnehmers anzeigen
         unblock:
-          error: Beim Blockieren des Teilnehmers ist ein Fehler aufgetreten.
+          error: Bei der Entblockierung des Kontos ist ein Problem aufgetreten.
           success: Blockierung des Teilnehmers wurde erfolgreich aufgehoben.
       organization:
         edit:
@@ -1016,6 +1022,51 @@ de:
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
           success: Seite wurde erfolgreich aktualisiert.
+      taxonomies:
+        actions: Aktionen
+        amount: Anzahl
+        count: Anzahl
+        create:
+          invalid: Beim Erstellen dieser Taxonomie ist ein Fehler aufgetreten.
+          success: Taxonomie wurde erfolgreich erstellt.
+        destroy:
+          invalid: Beim Löschen dieser Taxonomie ist ein Fehler aufgetreten.
+          success: Taxonomie erfolgreich gelöscht.
+        edit:
+          back: Zurück
+          description: Die Elemente dieser Taxonomie werden verwendet, um Ressourcen zu klassifizieren oder zu filtern, wie Partizipationsbereiche oder Komponenten. Per "Drag and Drop" kann die Liste neu geordnet werden.
+          new_item: Neues Element
+          no_items: Es gibt derzeit keine Elemente in dieser Taxonomie. Erstellen Sie hier eine Liste von Elementen, um Ressourcen zu klassifizieren oder zu filtern, z. B. Partizizipationsbereiche oder Komponenten. Elemente können auf bis zu drei Ebenen verschachtelt werden.
+          subtitle: Elemente in "%{taxonomy_name}"
+          title: Taxonomie "%{taxonomy_name} " bearbeiten
+          update: Aktualisieren
+        filters:
+          search_placeholder: Suchen
+        index:
+          description: Eine Taxonomie erlaubt Admins Inhalte zu kategorisieren und zu organisieren. Zum Beispiel können Sie eine Taxonomie hinzufügen, um Prozesse nach geographischem Bereichen zu klassifizieren.
+          new_taxonomy: Neue Taxonomie
+          no_items_found: Es wurden keine Taxonomien gefunden, die Ihren Suchkriterien entsprechen.
+        name: Name
+        new:
+          create: Taxonomie erstellen
+          title: Neue Taxonomie
+        no_taxonomies: Derzeit gibt es keine Taxonomien. Erstellen Sie hier eine Liste von Taxonomien und fügen Sie Elemente in jede von ihnen hinzu, um nach Ressourcen klassifizieren oder filtern zu können.
+        table:
+          to_next_page: Für die nächste Seite hinziehen
+          to_prev_page: Für die vorherige Seite hinziehen
+        taxonomy_actions:
+          confirm_destroy: Sind Sie sicher, dass Sie die Taxonomie%{Name} entfernen möchten? Dadurch werden auch alle unter dieser Texonomie geführten Elemente gelöscht. Der mit der Taxonomie verbundene Inhalt wird nicht gelöscht, sondern ausschliesslich die Klassifizierungsinformationen.
+        update:
+          invalid: Beim Aktualisieren dieser Taxonomie ist ein Fehler aufgetreten.
+          success: Taxonomie wurde erfolgreich aktualisiert.
+      taxonomy_items:
+        edit:
+          title: Element in %{taxonomy} bearbeiten
+          update: Element aktualisieren
+        new:
+          create: Element erstellen
+          none: Keine
+          title: Neues Element in %{taxonomy}
       titles:
         admin_log: Adminprotokoll
         area_types: Bereichstypen
@@ -1036,6 +1087,7 @@ de:
         scope_types: Bereichstypen
         scopes: Bereiche
         statistics: Aktivität
+        taxonomies: Taxonomien
         user_groups: Benutzergruppen
         users: Administratoren
       user_group:

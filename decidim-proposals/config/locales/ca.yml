@@ -170,7 +170,12 @@ ca:
               random: Aleatòriament
               recent: Recents
               with_more_authors: Amb més autores
-            geocoding_enabled: Geocodificació habilitada
+            edit_time: Les autores poden editar les seves propostes abans que passi aquest temps
+            edit_time_units:
+              days: Dies
+              hours: Hores
+              minutes: Minuts
+            geocoding_enabled: Mapes habilitats
             minimum_votes_per_user: Suports mínims per usuari
             new_proposal_body_template: Plantilla pel text de nova proposta
             new_proposal_body_template_help: Pots definir el text predefinit que hauria de tenir una nova proposta
@@ -179,11 +184,14 @@ ca:
             participatory_texts_enabled: Texts participatius habilitats
             participatory_texts_enabled_readonly: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
             proposal_answering_enabled: Resposta a propostes habilitada
-            proposal_edit_before_minutes: Les propostes poden ser editades per les autores abans que passin aquests minuts
             proposal_edit_time: Edició de propostes
             proposal_edit_time_choices:
               infinite: Permet l'edició de propostes durant un període infinit
               limited: Permet l'edició de propostes durant una finestra temporal específica
+            proposal_edit_time_unit_options:
+              days: Dies
+              hours: Hores
+              minutes: Minuts
             proposal_length: Longitud màxima del cos de la proposta
             proposal_limit: Límit de propostes per participant
             proposal_wizard_step_1_help_text: Text d'ajuda pel pas "Crear" de l'assistent de propostes
@@ -233,12 +241,41 @@ ca:
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: Se t'ha afegit com a coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Has estat assignada com a avaluadora de la proposta "%{resource_title}". Això vol dir que es confia en tu per donar la teva opinió i per donar una resposta adequada en els pròxims dies. Pots veure la proposta al <a href="%{admin_proposal_info_url}">taulell d'administració</a>.
+            email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
+            email_subject: Has estat assignada com a avaluadora de la proposta "%{resource_title}".
+            notification_title: Has estat assignada com a avaluadora de la proposta "<a href="%{resource_path}">%{resource_title}</a>". Pots veure la proposta al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
           proposal_note_created:
-            email_intro: Algú ha deixat una nota a la proposta "%{resource_title}". Revisa-la ara a través del <a href="%{admin_proposal_info_url}">taulell d'administració</a>.
+            email_intro: '%{author_name} ha creat una nota privada a %{resource_title}. La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
             email_outro: Reps aquesta notificació perquè pots avaluar la proposta.
             email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
-            notification_title: Algú ha deixat una nota a la proposta <a href="%{resource_path}">%{resource_title}</a>. Revisa-la ara a través del <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha creat una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+          proposal_note_mentioned:
+            email_intro: '"%{author_name}" "%{author_nickname}" t''ha esmentat a una nota privada a "%{resource_title}". La pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
+            email_outro: Has rebut aquesta notificació perquè t'han esmentat a una nota privada.
+            email_subject: Algú ha deixat una nota a la proposta %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> te ha esmentat a una nota privada a <a href="%{resource_path}">%{resource_title}</a>. La pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+          proposal_note_replied:
+            email_intro: '%{author_name} ha respost la teva nota privada a %{resource_title}. Ho pots veure al <a href="%{admin_proposal_info_url}">taulell d''administració</a>.'
+            email_outro: Has rebut aquesta notificació perquè ets l'autora de la nota privada.
+            email_subject: "%{author_name} ha respost a la teva nota privada a %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost a la teva nota privada a <a href="%{resource_path}">%{resource_title}</a>. Ho pots veure al <a href="%{admin_proposal_info_path}">taulell d'administració</a>.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha acceptat la teva invitació per a ser coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
+        coauthor_invited:
+          actions:
+            accept: Acceptar
+            decline: Rebutjar
+          email_intro: 'T''han convidat a ser coautora de la proposta "%{resource_title}". Pots acceptar o rebutjar la invitació en aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè l'autora de la proposta vol reconèixer les contribucions convertint-te en coautora.
+          email_subject: Se t'ha afegit com a coautora de la proposta "%{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name}</a> vol que la convidis a ser coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha rebutjat la teva invitació per a ser coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a>".
         collaborative_draft_access_accepted:
           email_intro: 'S''ha acceptat %{requester_name} per accedir com a contribuidora de l''esborrany col·laboratiu <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has rebut aquesta notificació perquè vas contribuir a la proposta "<a href="%{resource_url}">%{resource_title}</a>".
@@ -316,6 +353,8 @@ ca:
           email_outro: Has rebut aquesta notificació perquè vas presentar aquesta proposta.
           email_subject: S'ha actualitzat l'àmbit de la proposta %{resource_title}
           notification_title: L'àmbit de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzat per una administradora.
+        rejected_coauthorship:
+          notification_title: Heu rebutjat la invitació de <a href="%{author_path}">%{author_name}</a> per convertir-vos en coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a >".
         voting_enabled:
           email_intro: 'Pots començar a donar suports a les propostes de %{participatory_space_title}. Comença a participar a aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -380,11 +419,15 @@ ca:
     proposals:
       actions:
         answer_proposal: Respondre a la proposta
+        cancel_coauthor_invitation: Cancel·lar la invitació de coautoria
+        cancel_coauthor_invitation_confirm: Segur que vols cancel·lar la invitació de coaturia?
         delete_proposal_state_confirm: Segur que vols esborrar aquest estat?
         destroy: Esborrar estat
         edit_proposal: Edita la proposta
         edit_proposal_state: Editar estat
         import: Importar des d'un altre component
+        mark_as_coauthor: Marcar com a coautora
+        mark_as_coauthor_confirm: Segur que vols marcar aquesta usuària com a coautora? La participant rebrà una notificació per acceptar o rebutjar la invitació.
         new: Nova proposta
         new_proposal_state: Nou estat
         participatory_texts: Textos participatius
@@ -473,7 +516,9 @@ ca:
           form:
             note: Nota
             submit: Enviar
-          leave_your_note: Deixa la teva nota
+          reply:
+            error: S'ha produït un error en crear aquesta resposta a la nota privada.
+            success: La resposta a la nota privada s'ha creat amb èxit.
           title: Notes privades
         proposal_states:
           create:
@@ -496,10 +541,12 @@ ca:
             success: Estat actualitzat correctament
         proposals:
           answer:
-            invalid: Hi ha hagut un problema en respondre a aquesta proposta.
+            bulk_answer_error: No s'ha pogut respondre a les propostes amb IDs [%{proposals}] per errors aplicant la plantilla "%{template}". Pots comprovar que la plantilla de resposta coincideix amb el format esperat per a aquest component aplicant-lo individualment.
+            bulk_answer_success: 'Les propostes %{count} seran respostes fent servir la plantilla "%{template}". Si us plau, espera uns minuts i actualitza la pàgina per veure les actualitzacions.'
+            invalid: S'ha produït un error en respondre a aquesta proposta.
             success: Proposta resposta amb èxit.
           create:
-            invalid: Hi ha hagut un problema en crear aquesta proposta.
+            invalid: S'ha produït un error en crear aquesta proposta.
             success: Proposta creada correctament.
           edit:
             title: Actualitza la proposta
@@ -512,6 +559,7 @@ ca:
             select_a_meeting: Selecciona una trobada
           index:
             actions: Accions
+            apply_answer_template: Aplicar la plantilla de resposta
             assign_to_valuator: Assignar a avaluadora
             assign_to_valuator_button: Assignar
             cancel: Cancel·lar
@@ -519,6 +567,7 @@ ca:
             change_scope: Canviar àmbit
             merge: Fusionar a una nova
             merge_button: Fusionar
+            no_templates_available: No hi ha plantilles disponibles
             publish: Publica
             publish_answers: Publica respostes
             select_component: Selecciona un component
@@ -732,6 +781,19 @@ ca:
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
         success: L'esborrany de proposta s'ha eliminat correctament.
+      invite_coauthors:
+        cancel:
+          error: S'ha produït un error en cancel·lar la invitació de coautoria.
+          success: Invitació de coautoria cancel·lada amb èxit.
+        create:
+          error: S'ha produït un error en convidar a la coautora.
+          success: "S'ha convidat amb èxit a %{author_name} com a coautora."
+        destroy:
+          error: S'ha produït un error en rebutjar la invitació.
+          success: S'ha rebutjat la invitació.
+        update:
+          error: S'ha produït un problema en acceptar aquesta invitació.
+          success: S'ha acceptat la invitació.
       last_activity:
         new_proposal: 'Nova proposta:'
         proposal_updated: 'Proposta actualitzada:'
@@ -780,7 +842,7 @@ ca:
           discard: Descarta aquest esborrany
           discard_confirmation: Segur que vols descartar l'esborrany d'aquesta proposta?
           send: Vista prèvia
-          title: Edició l'esborrany de proposta
+          title: Edició l'esborrany de la proposta
         edit_form_fields:
           marker_added: Marcador afegit al mapa.
         filters:
