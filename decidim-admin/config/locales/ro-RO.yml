@@ -12,7 +12,7 @@ ro:
       attachment:
         attachment_collection_id: Dosar
         description: Descriere
-        file: Fişier
+        file: Fișier
         title: Numele fișierului sau al imaginii atașate
         weight: Poziție
       attachment_collection:
@@ -129,7 +129,7 @@ ro:
         title: Titlu
         weight: Poziție
       user_group_csv_verification:
-        file: Fişier
+        file: Fișier
     errors:
       models:
         newsletter:
@@ -200,7 +200,7 @@ ro:
           accept: Sunt de acord cu termenii
           are_you_sure: Sigur doriți să refuzați termenii de utilizare a serviciului?
           refuse: Refuz termenii
-          title: Ești de acord cu Termenii de Utilizare?
+          title: Sunt de acord cu Termenii de Utilizare
         required_review:
           alert: 'Necesar: Revizuirea actualizărilor termenilor de utilizare a serviciului'
           callout: Vă rugăm să dedicați un moment pentru a revizui Termenii de utilizare pentru admin. În caz contrar, nu veți putea administra platforma.
