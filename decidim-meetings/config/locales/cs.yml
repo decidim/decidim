@@ -376,7 +376,7 @@ cs:
         poll:
           form:
             announcement_html:
-              - 
+              - Pokud otázka obdrží odpovědi nebo je zveřejněna/uzavřena, již ji nelze upravovat.
               - Otázku můžete kdykoliv přidat.
               - 
               - 
@@ -460,6 +460,7 @@ cs:
       iframe_embed_type:
         embed_in_meeting_page: Vložit do stránky schůzky
         none: Žádný
+        open_in_live_event_page: Otevřít na stránce živé události
         open_in_new_tab: Otevřít URL v nové kartě
       last_activity:
         meeting_updated: 'Schůze aktualizována:'
@@ -549,6 +550,8 @@ cs:
           edit_close_meeting: Upravit zprávu schůzky
           edit_meeting: Upravit schůzku
           join_meeting: Připojit se ke schůzce
+          reply_poll: Odpověď ankety
+          view_poll: Zobrazit anketu
         meetings:
           no_meetings_warning: Žádná schůzka neodpovídá vašim kritériím nebo není naplánována žádná schůzka.
           upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
@@ -615,6 +618,7 @@ cs:
             title: Anketa
           index_admin:
             back_to_meeting: Zpět na schůzku
+            title: Správa ankety
         questions:
           closed_question:
             question: Otázka
