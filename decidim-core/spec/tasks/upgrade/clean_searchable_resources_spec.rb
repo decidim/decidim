@@ -12,7 +12,7 @@ describe "rake decidim:upgrade:clean:searchable_resources", type: :task do
   end
 
   context "when there are no errors" do
-    let!(:searcheables) { create_list(:searchable_resource, 8, created_at: 2.days.ago) }
+    let!(:searchables) { create_list(:searchable_resource, 8, created_at: 2.days.ago) }
 
     it "avoid removing entries" do
       expect { task.execute }.not_to change(Decidim::SearchableResource, :count)
@@ -20,11 +20,11 @@ describe "rake decidim:upgrade:clean:searchable_resources", type: :task do
   end
 
   context "when there are errors" do
-    let!(:searcheables) { create_list(:searchable_resource, 8, created_at: 2.days.ago) }
+    let!(:searchables) { create_list(:searchable_resource, 8, created_at: 2.days.ago) }
 
     context "when missing space manifests" do
       it "removes entries" do
-        invalid_entries = searcheables.collect(&:id).sample(4)
+        invalid_entries = searchables.collect(&:id).sample(4)
 
         Decidim::SearchableResource.where(id: invalid_entries).update_all(decidim_participatory_space_type: "Decidim::Dev::MissingSpace") # rubocop:disable Rails/SkipsModelValidations
 
@@ -38,7 +38,7 @@ describe "rake decidim:upgrade:clean:searchable_resources", type: :task do
 
     context "when missing component manifests" do
       it "removes entries" do
-        invalid_entries = searcheables.collect(&:id).sample(4)
+        invalid_entries = searchables.collect(&:id).sample(4)
 
         Decidim::SearchableResource.where(id: invalid_entries).each do |a|
           a.resource.component.destroy!
@@ -54,7 +54,7 @@ describe "rake decidim:upgrade:clean:searchable_resources", type: :task do
 
     context "when missing resource manifests" do
       it "removes entries" do
-        invalid_entries = searcheables.collect(&:id).sample(4)
+        invalid_entries = searchables.collect(&:id).sample(4)
 
         Decidim::SearchableResource.where(id: invalid_entries).update_all(resource_type: "Decidim::Dev::MissingResource") # rubocop:disable Rails/SkipsModelValidations
 
