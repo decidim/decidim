@@ -20,6 +20,9 @@ sv:
         scope_id: Indelning
   activerecord:
     models:
+      decidim/budgets/budget:
+        one: Budget
+        other: Budgetar
       decidim/budgets/project:
         one: Projekt
         other: Projekt
@@ -45,10 +48,19 @@ sv:
         edit: Redigera
         edit_projects: Hantera projekt
         import: Importera förslag till projekt
+        new_budget: Ny budget
+        new_project: Nytt projekt
         preview: Förhandsvisa
+        send_voting_reminders: Skicka påminnelser om att rösta
         title: Åtgärder
       admin:
         budgets:
+          create:
+            invalid: Det gick inte att skapa budgeten.
+            success: Budgeten har skapats.
+          destroy:
+            invalid: Det gick inte att radera budgeten.
+            success: Budgeten har raderats.
           edit:
             title: Redigera budget
             update: Uppdatera budget
@@ -61,6 +73,9 @@ sv:
           new:
             create: Skapa budget
             title: Ny budget
+          update:
+            invalid: Det gick inte att uppdatera budgeten.
+            success: Budgeten har uppdaterats.
         exports:
           projects: Projekt
         models:
@@ -69,34 +84,74 @@ sv:
           project:
             name: Projekt
         projects:
+          create:
+            invalid: Det gick inte att skapa projektet.
+            success: Projektet har skapats.
+          destroy:
+            success: Projektet har raderats.
           edit:
             title: Redigera projekt
             update: Uppdatera
           index:
             actions: Åtgärder
             cancel: Avbryt
+            change_budget: Ändra budget
             change_category: Ändra kategori
             change_scope: Ändra indelning
+            change_selected: Ändra status
+            deselect_implementation: Välj bort från genomförande
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
+            select_for_implementation: Välj för genomförande
             selected: Valda
+            selected_options:
+              'no': 'Nej'
+              'yes': 'Ja'
             title: Projekt
             update: Uppdatera
+            update_budget_button: Uppdatera projektets budget
             update_scope_button: Uppdatera indelning
           new:
             create: Skapa
             title: Nytt projekt
+          update:
+            invalid: Det gick inte att uppdatera projektet.
+            success: Projektet har uppdaterats.
+          update_budget:
+            invalid: 'Projekten ingår redan i samma budget eller överstiger det maximala beloppet: %{projects}.'
+            select_a_project: Välj ett projekt.
+            success: 'Projekten till budgeten %{subject_name} har uppdaterats: %{projects}.'
+          update_category:
+            invalid: 'De här projekten tillhörde redan kategorin %{subject_name}: %{projects}.'
+            select_a_category: Välj en kategori.
+            select_a_project: Välj ett projekt.
+            success: 'Projekt som tilldelats kategorin %{subject_name}: %{projects}.'
           update_scope:
             invalid: 'De här projekten tillhörde redan indelningen %{subject_name}: %{projects}.'
             select_a_project: Välj ett projekt.
             select_a_scope: Välj en indelning.
             success: 'Projekten uppdaterades till %{subject_name}: %{projects}.'
+          update_selected:
+            invalid:
+              selected: 'De här projekten har redan valts för genomförande: %{projects}.'
+              unselected: 'Projekten har redan valts bort för genomförande: %{projects}.'
+            select_a_project: Välj ett projekt.
+            select_a_selection: Välj status för genomförandet.
+            success:
+              selected: 'Projekten har valts för genomförande: %{projects}.'
+              unselected: 'Projekten har valts bort från genomförande: %{projects}.'
         proposals_imports:
+          create:
+            invalid: Det gick inte att importera förslagen till projekten.
+            success: "%{number} förslag har importerats till projekt."
           new:
             create: Importera förslag till projekt
             default_budget: Förvald budget
+            import_all_accepted_proposals: Importera alla godkända förslag
             no_components: Det finns inga andra förslagskomponenter med förslag i deltagarutrymmet som kan importeras till projekt.
+            origin_component_id: Ursprungskomponent
             select_component: Välj en komponent
+            title: Importera förslag till projekt
         reminders:
           orders:
             description: Användarna kommer få ett e-post med länkar till budgetar de har börjat rösta i.
@@ -116,16 +171,29 @@ sv:
         back_to: Tillbaka till %{component_name}
         close_modal: Stäng fönster
         continue: Fortsätt
+        more_information: Mer information om budgeten
       budgets_list:
         budgets: Budgetar
         cancel_order:
           more_than_one: dra tillbaka din röst på %{name} och börja om
           only_one: dra tillbaka din röst och börja om.
+        count:
+          one: "%{count} budget"
+          other: "%{count} budgetar"
+        empty: Det finns inga budgetar än
+        finished_message: Du har avslutat omröstningen. Tack för ditt deltagande!
         highlighted_cta: Rösta på %{name}
+        if_change_opinion: Om du har ändrat dig kan du
+        orders:
+          highest_cost: Högst kostnad
+          label: Sortera budgetar efter
+          lowest_cost: Lägst kostnad
+          random: Slumpvis ordning
         progress: Avsluta röstning
         remove_vote: Ta bort röst
         show: Visa projekt
         vote: Rösta
+        voted_on: Du har röstat på %{links}.
       limit_announcement:
         limit_reached: Du har aktiva röster i %{links}. För att rösta måste du <a href="%{landing_path}">ta bort din röst och börja om</a>.
       models:
@@ -187,6 +255,9 @@ sv:
         order_progress:
           assigned: Tilldelade
           budget: Budget
+          dynamic_help:
+            keep_adding_projects: Fortsätt lägga till projekt
+            start_adding_projects: Börja lägga till projekt
           minimum: Minst
         orders:
           highest_cost: Högst kostnad
