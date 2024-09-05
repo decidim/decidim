@@ -30,6 +30,18 @@ sv:
         cost: Kostnad
         cost_report: Kostnadsrapport
         execution_period: Genomförandesperiod
+      proposal_state:
+        bg_color: Bakgrundsfärg
+        colors:
+          blue: Blå
+          gray: Grå
+          green: Grön
+          orange: Orange
+          pink: Rosa
+          purple: Lila
+          red: Röd
+          yellow: Gul
+        text_color: Textfärg
       proposals_copy:
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
@@ -41,6 +53,10 @@ sv:
           valuator_role_id: Värderarens namn
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ogiltig dokumenttyp. Endast filer med följande tillägg är tillåtna: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -56,10 +72,12 @@ sv:
           attributes:
             base:
               not_official: Är inte officiella
+              voted: Har fått röster eller stöd
         proposals_split:
           attributes:
             base:
               not_official: Är inte officiella
+              voted: Har fått röster eller stöd
     models:
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
       decidim/proposals/admin/update_proposal_scope_event: Förslagets indelning har ändrats
@@ -93,6 +111,8 @@ sv:
             values:
               'false': Förslag
               'true': Ändringsförslag
+          proposal_state_id_eq:
+            label: Status
           scope_id_eq:
             label: Indelning
           state_eq:
@@ -137,12 +157,20 @@ sv:
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
             default_sort_order: Förvald produkt sortering
             default_sort_order_options:
+              automatic: Automatisk
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
+              most_voted: Flest röster
               random: Slumpmässigt
               recent: Senaste
               with_more_authors: Med fler författare
+            edit_time: Förslag kan redigeras av författaren inom så här många minuter
+            edit_time_units:
+              days: Dagar
+              hours: Timmar
+              minutes: Minuter
+            geocoding_enabled: Aktivera visning på karta
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
