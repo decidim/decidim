@@ -105,7 +105,7 @@ sv:
         organization: Organisation
         parent_id: Överordnad
         scope_type: Omfattningstyp
-        scope_type_id: Omfattningstyp
+        scope_type_id: Typ av indelning
       scope_type:
         name: Namn
         organization: Organisation
@@ -503,7 +503,7 @@ sv:
         moderation: Global moderering
         newsletters: Nyhetsbrev
         participants: Deltagare
-        scope_types: Omfattningstyper
+        scope_types: Typer av indelning
         scopes: Indelningar
         settings: Inställningar
         static_pages: Sidor
@@ -553,7 +553,7 @@ sv:
         scope:
           fields:
             name: Namn
-            scope_type: Omfattningstyp
+            scope_type: Typ av indelning
         scope_type:
           fields:
             name: Namn
@@ -800,10 +800,10 @@ sv:
         destroy:
           success: Typen av indelning har tagits bort
         edit:
-          title: Redigera omfattningstyp
+          title: Redigera typen av indelning
           update: Uppdatera
         new:
-          create: Skapa omfattningstyp
+          create: Skapa typ av indelning
           title: Ny typ av indelning
         update:
           error: Det gick inte att uppdatera typen av indelning.
@@ -815,15 +815,15 @@ sv:
         destroy:
           success: Indelningen har raderats.
         edit:
-          title: Redigera omfattning
+          title: Redigera indelningen
           update: Uppdatera
         new:
-          create: Skapa omfattning
-          title: Ny omfattning
-        no_scopes: Inga omfattningar på denna nivå.
+          create: Skapa indelning
+          title: Ny indelning
+        no_scopes: Inga indelningar på den här nivån.
         update:
           error: Det gick inte att uppdatera indelningen.
-          success: Omfattningen har uppdaterats
+          success: Indelningen har uppdaterats
       share_tokens:
         actions:
           confirm_destroy: Vill du ta bort den här token?
@@ -890,7 +890,7 @@ sv:
         pages: Sidor
         panel: Administratör
         participants: Deltagare
-        scope_types: Omfattningstyper
+        scope_types: Typer av indelningar
         scopes: Indelningar
         statistics: Aktivitet
         user_groups: Grupper
