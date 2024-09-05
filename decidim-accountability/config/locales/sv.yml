@@ -7,11 +7,12 @@ sv:
         decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
-        meetings_ids: Inkluderade möten
+        meetings_ids: Möten som omfattas
         progress: Genomförande
         project_ids: Projekt som omfattas
         proposals: Förslag som omfattas
         start_date: Startdatum
+        subresults: Delresultat
         title: Titel
         updated_at: Uppdaterad
       status:
@@ -39,6 +40,11 @@ sv:
         confirm_destroy: Vill du radera detta %{name}?
         destroy: Radera
         edit: Redigera
+        import: Importera från en annan komponent
+        import_csv: Importera resultat från CSV-fil
+        new_result: Nytt resultat
+        new_status: Ny status
+        new_timeline_entry: Ny post i tidslinje
         preview: Förhandsvisa
         timeline_entries: Projektutveckling
         title: Åtgärder
@@ -71,8 +77,10 @@ sv:
               </ul>
               </li>
               </ol>
+            title: Importera resultat från CSV-fil
         imports:
           create:
+            invalid: Det gick inte att importera resultaten.
             success: Importen av filen har påbörjats. Inom några minuter kommer du att få ett e-postmeddelande med importresultatet.
         models:
           result:
@@ -91,7 +99,16 @@ sv:
             no_components: Det finns inga budget-komponenter att importera projekt från i den här processen.
             origin_component_id: Ursprungskomponent
             select_component: Välj en komponent
+            success:
+              one: 1 projekt väntar på att importeras. Du får ett e-postmeddelande när det är klart.
+              other: "%{count} projekt väntar på att importeras. Du får ett e-postmeddelande när det är klart."
+            title: Importera från en annan komponent
         results:
+          create:
+            invalid: Det gick inte att skapa resultatet.
+            success: Resultatet har skapats.
+          destroy:
+            success: Resultatet har raderats.
           edit:
             title: Redigera resultat
             update: Uppdatera resultat
@@ -100,10 +117,18 @@ sv:
           new:
             create: Skapa resultat
             title: Nytt resultat
+          update:
+            invalid: Det gick inte att uppdatera resultatet.
+            success: Resultatet har uppdaterats.
         shared:
           subnav:
             statuses: Status
         statuses:
+          create:
+            invalid: Det gick inte att skapa statusen.
+            success: Statusen har skapats.
+          destroy:
+            success: Statusen har raderats.
           edit:
             title: Redigera status
             update: Uppdatera status
@@ -112,7 +137,15 @@ sv:
           new:
             create: Skapa status
             title: Ny status
+          update:
+            invalid: Det gick inte att uppdatera statusen.
+            success: Statusen har uppdaterats.
         timeline_entries:
+          create:
+            invalid: Det gick inte att skapa den här posten.
+            success: Posten har skapats.
+          destroy:
+            success: Posten har raderats.
           edit:
             title: Redigera post
             update: Uppdatera post
@@ -121,6 +154,9 @@ sv:
           new:
             create: Skapa post
             title: Ny post
+          update:
+            invalid: Det gick inte att uppdatera den här posten.
+            success: Posten har uppdaterats.
       admin_log:
         result:
           create: "%{user_name} skapade resultatet %{resource_name} i %{space_name}"
@@ -143,6 +179,7 @@ sv:
       import_mailer:
         import:
           errors: Fel
+          errors_present: Det gick inte att importera resultaten.
           row_number: Rad
           subject: Resultaten har importerats
           success: Resultaten har importerats. Du kan granska resultaten i administrationsgränssnittet.
@@ -186,6 +223,8 @@ sv:
           all: Alla
         home:
           categories_label: Kategorier
+          empty: Det finns inget resultat ännu.
+          empty_filters: Det finns inget resultat med de här kriterierna.
           subcategories_label: Underkategorier
         home_header:
           global_status: Global genomförandestatus
@@ -212,7 +251,7 @@ sv:
       accountability:
         actions:
           comment: Kommentar
-        name: Ansvarsskyldighet
+        name: Genomförande
         settings:
           global:
             comments_enabled: Kommentarer på
