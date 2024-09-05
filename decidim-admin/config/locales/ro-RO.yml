@@ -37,6 +37,9 @@ ro:
         user_group_id: Creează importuri ca
       newsletter:
         body: Conținut
+        send_to_all_users: Trimiteți către toți utilizatorii
+        send_to_followers: Trimiteți către urmăritori
+        send_to_participants: Trimiteți către participanți
         subject: Titlu
       organization:
         admin_terms_of_service_body: Corp pentru condițiile de administrare a serviciului
@@ -125,6 +128,7 @@ ro:
         weight: Poziție
       static_page_topic:
         description: Descriere
+        name: Titlul subiectului
         show_in_footer: Afișează în subsol
         title: Titlu
         weight: Poziție
@@ -189,12 +193,14 @@ ro:
         per_page: Pe pagină
         permissions: Drepturi
         reject: Respinge
+        send_me_a_test_email: Trimite-mi un e-mail de test
         share: Distribuie
         user:
           new: Administrator nou
         verify: Verifică
       admin_terms_of_service:
         accept:
+          error: A apărut o problemă la acceptarea termenilor de administrare a serviciului.
           success: Excelent! Ați acceptat termenii de utilizare a serviciului.
         actions:
           accept: Sunt de acord cu termenii
