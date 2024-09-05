@@ -232,8 +232,8 @@ sv:
           success: Administratören har uppdaterats för processen.
       participatory_processes:
         create:
-          error: Det gick inte att skapa en ny dialog.
-          success: Dialogen har skapats. Konfigurera nu dess steg.
+          error: Det gick inte att skapa en ny process.
+          success: Deltagandeprocessen har skapats. Konfigurera nu dess steg.
         edit:
           update: Uppdatera
         index:
@@ -242,43 +242,43 @@ sv:
           published: Publicerad
         new:
           create: Skapa
-          title: Ny dialog
+          title: Ny deltagandeprocess
         update:
-          error: Det gick inte att uppdatera dialogen.
-          success: Dialogen har uppdaterats.
+          error: Det gick inte att uppdatera processen.
+          success: Processen har uppdaterats.
       participatory_processes_copies:
         create:
-          error: Det gick inte att duplicera dialogen.
-          success: Dialogen har duplicerats.
+          error: Det gick inte att duplicera processen.
+          success: Processen har duplicerats.
       participatory_processes_group:
         create:
-          error: Det gick inte att skapa en ny grupp för dialoger.
-          success: Dialoggruppen har skapats.
+          error: Det gick inte att skapa en ny grupp för processer.
+          success: Gruppen har skapats.
       titles:
-        participatory_process_groups: Dialoggrupper
-        participatory_processes: Dialoger
+        participatory_process_groups: Grupper av deltagandeprocesser
+        participatory_processes: Deltagandeprocesser
       users:
         resend_invitation:
           error: Det gick inte att skicka inbjudan igen.
           success: Inbjudan har skickats om igen.
     admin_log:
       participatory_process:
-        create: "%{user_name} skapade dialogen %{resource_name}"
-        publish: "%{user_name} publicerade dialogen %{resource_name}"
-        unpublish: "%{user_name} avpublicerade dialogen %{resource_name}"
-        update: "%{user_name} uppdaterade dialogen %{resource_name}"
+        create: "%{user_name} skapade deltagandeprocessen %{resource_name}"
+        publish: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
+        unpublish: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
+        update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
       participatory_process_group:
-        create: "%{user_name} skapade dialoggruppen %{resource_name}"
-        update: "%{user_name} uppdaterade dialoggruppen %{resource_name}"
+        create: "%{user_name} skapade gruppen %{resource_name}"
+        update: "%{user_name} uppdaterade gruppen %{resource_name}"
       participatory_process_step:
-        activate: "%{user_name} aktiverade steget %{resource_name} i dialogen %{space_name}"
-        create: "%{user_name} skapade steget %{resource_name} i dialogen %{space_name}"
-        delete: "%{user_name} raderade steget %{resource_name} i dialogen %{space_name}"
-        update: "%{user_name} uppdaterade steget %{resource_name} i dialogen %{space_name}"
+        activate: "%{user_name} aktiverade steget %{resource_name} i processen %{space_name}"
+        create: "%{user_name} skapade steget %{resource_name} i processen %{space_name}"
+        delete: "%{user_name} raderade steget %{resource_name} i processen %{space_name}"
+        update: "%{user_name} uppdaterade steget %{resource_name} i processen %{space_name}"
       participatory_process_user_role:
-        create: "%{user_name} bjöd in deltagaren %{resource_name} till dialogen %{space_name}"
-        delete: "%{user_name} tog bort deltagaren %{resource_name} från dialogen %{space_name}"
-        update: "%{user_name} ändrade rollen för deltagaren %{resource_name} i dialogen %{space_name}"
+        create: "%{user_name} bjöd in deltagaren %{resource_name} till processen %{space_name}"
+        delete: "%{user_name} tog bort deltagaren %{resource_name} från processen %{space_name}"
+        update: "%{user_name} ändrade rollen för deltagaren %{resource_name} i processen %{space_name}"
     events:
       participatory_process:
         role_assigned:
@@ -299,16 +299,16 @@ sv:
     help:
       participatory_spaces:
         participatory_processes:
-          contextual: "<p>En <strong>dialog</strong> är en följd av deltagaraktiviteter (t.ex. först fylla i en undersökning, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att prioritera dem) i syfte att definiera och fatta beslut om ett visst ämne.</p> <p>Exempel på dialoger är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs kandidaterna), medborgarbudgetar (där förslag läggs fram, utvärderas ekonomiskt och röstas om inom tillgängliga medel), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning eller norm, utformningen av stadsmiljöer eller att skapa en plan för offentlig policy.</p>\n"
-          page: "<p>En <strong>dialog</strong> är en följd av deltagaraktiviteter (t.ex. först fylla i en undersökning, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att prioritera dem) i syfte att definiera och fatta beslut om ett visst ämne.</p> <p>Exempel på dialoger är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs kandidaterna), medborgarbudgetar (där förslag läggs fram, utvärderas ekonomiskt och röstas om inom tillgängliga medel), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning eller norm, utformningen av stadsmiljöer eller att skapa en plan för offentlig policy.</p>\n"
-          title: Vad är en dialog?
+          contextual: "<p>En <strong>deltagandeprocess</strong> är en följd av deltagande aktiviteter (t.ex. att först göra en enkät, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att rösta) för att definiera frågeställningar och fatta beslut inom ett visst ämne.</p> <p>Exempel på deltagandeprocesser är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs), medborgarbudgetar (där förslag läggs fram, prissätts och röstas om), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning, utformningen av stadsmiljöer eller att skapa en policyplan.</p>\n"
+          page: "<p>En <strong>deltagandeprocess</strong> är en följd av deltagande aktiviteter (t.ex. att först göra en enkät, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att rösta) för att definiera frågeställningar och fatta beslut inom ett visst ämne.</p> <p>Exempel på deltagandeprocesser är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs), medborgarbudgetar (där förslag läggs fram, prissätts och röstas om), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning, utformningen av stadsmiljöer eller att skapa en policyplan.</p>\n"
+          title: Vad är en deltagandeprocess?
     menu:
-      processes: Dialoger
+      processes: Processer
     metrics:
       participatory_processes:
-        description: Antal dialoger i organisationen
-        object: dialoger
-        title: Dialoger
+        description: Antal deltagandeprocesser i organisationen
+        object: deltagandeprocesser
+        title: Deltagandeprocesser
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -325,7 +325,7 @@ sv:
         main_data:
           name: Titel och beskrivning
         participatory_processes:
-          name: Dialoger
+          name: Deltagandeprocesser
         stats:
           name: Statistik
         title:
@@ -334,10 +334,10 @@ sv:
             one: 1 process
             other: "%{count} processer"
       show:
-        title: Dialoggrupper
+        title: Grupper av deltagandeprocesser
     participatory_process_steps:
       index:
-        process_steps: Steg i dialogen
+        process_steps: Steg i processen
     participatory_processes:
       admin:
         content_blocks:
@@ -360,27 +360,27 @@ sv:
             cta_text_help: Om den inte är på kommer knappen inte att visas.
         participatory_processes:
           form:
-            announcement_help: Texten du skriver här visas för användaren direkt under dialoginformationen.
+            announcement_help: Den här texten visas direkt under informationen om processen.
             duration: Varaktighet
             filters: Filter
             images: Bilder
             metadata: Metadata
             other: Andra
-            related_processes: Relaterade dialoger
+            related_processes: Relaterade processer
             scope_type_max_depth_help: Begränsa djupet på filtret för indelningen.
             select_an_area: Välj ett område
-            select_process_group: Välj en dialoggrupp
+            select_process_group: Välj en grupp av processer
             title: Allmän information
       content_blocks:
         highlighted_processes:
-          name: Viktiga dialoger just nu
+          name: Viktiga processer just nu
       index:
-        title: Dialoger
+        title: Deltagandeprocesser
       last_activity:
-        new_participatory_process: Ny dialog
+        new_participatory_process: Ny process
       participatory_process_steps:
         index:
-          back_to_process: Tillbaka till dialogsidan
+          back_to_process: Tillbaka till processen
       participatory_processes:
         description:
           area_name: Område
@@ -392,20 +392,20 @@ sv:
           all_types: Alla typer
           counters:
             active:
-              one: En pågående dialog
-              other: "%{count} pågående dialoger"
+              one: En pågående process
+              other: "%{count} pågående processer"
             all:
               one: En process
               other: "%{count} processer"
             past:
-              one: En tidigare dialog
-              other: "%{count} tidigare dialoger"
+              one: En tidigare process
+              other: "%{count} tidigare processer"
             upcoming:
-              one: En kommande dialog
-              other: "%{count} kommande dialoger"
+              one: En kommande process
+              other: "%{count} kommande processer"
           date: Datum
           explanations:
-            no_active_nor_upcoming_callout: Det finns inga pågående eller kommande dialoger. Här är en lista över tidigare dialoger.
+            no_active_nor_upcoming_callout: Det finns inga pågående eller kommande processer. Här är en lista över tidigare processer.
           filter_by: Visa
           names:
             active: Pågående
@@ -415,9 +415,9 @@ sv:
           see: Se
           type: Typ
       show:
-        belongs_to_group: Denna dialog tillhör
-        private_space: Detta är en privat dialog
-        related_processes: Relaterade dialoger
+        belongs_to_group: Den här processen tillhör
+        private_space: Det här är en privat process
+        related_processes: Relaterade processer
     statistics:
       processes_count: Processer
   layouts:
@@ -426,13 +426,13 @@ sv:
         participatory_process_group:
           browse: Bläddra
           browse_resource: Bläddra i processgruppen %{resource_name}
-          processes_count: 'Dialoger:'
+          processes_count: 'Processer:'
       participatory_processes:
         index:
-          promoted_processes: Viktiga dialoger just nu
+          promoted_processes: Viktiga processer just nu
         participatory_process:
           active_step: 'Aktuellt steg:'
           more_info: Mer information
           more_info_about: Mer information om processen %{resource_name}
           take_part: Delta
-          take_part_in: Delta i dialogen %{resource_name}
+          take_part_in: Delta i processen %{resource_name}
