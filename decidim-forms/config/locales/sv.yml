@@ -74,20 +74,20 @@ sv:
             save_warning: Kom ihåg att spara formuläret innan du konfigurerar visningsvillkor
             select_answer_option: Välj svarsalternativ
             select_condition_question: Välj en fråga
-            select_condition_type: Välj en villkorstyp
+            select_condition_type: Välj en typ av villkor
           edit:
             save: Spara
-            title: Redigera frågeformulär
+            title: Redigera enkät
           form:
             add_question: Lägg till fråga
-            add_separator: Lägg till separator
+            add_separator: Lägg till avgränsare
             add_title_and_description: Lägg till titel och beskrivning
             already_answered_warning: Frågeformuläret har redan besvarats av vissa användare så du inte kan ändra dess frågor.
-            collapse: Komprimera alla frågor
-            expand: Expandera alla frågor
+            collapse: Dölj alla frågor
+            expand: Visa alla frågor
             preview: Förhandsgranska
             title: Redigera formulär för %{questionnaire_for}
-            unpublished_warning: Formuläret är inte publicerat. Du kan ändra dess frågor, men det kommer att ta bort aktuella svar.
+            unpublished_warning: Formuläret har inte publicerats. Du kan ändra frågorna, men det kommer att göra att befintliga svar raderas.
           matrix_row:
             matrix_row: Rad
             remove: Ta bort
@@ -98,10 +98,10 @@ sv:
             add_display_condition_info: Spara formuläret för att konfigurera visningsvillkor
             add_matrix_row: Lägg till rad
             any: Någon
-            collapse: Komprimera
+            collapse: Dölj
             description: Beskrivning
             down: Ned
-            expand: Expandera
+            expand: Visa
             question: Fråga
             remove: Ta bort
             statement: Påstående
@@ -112,11 +112,11 @@ sv:
             separator: Avgränsare
             up: Upp
           title_and_description:
-            collapse: Kollapsa
+            collapse: Dölj
             description: Beskrivning
             down: Ner
-            expand: Expandera
-            remove: Ta bort
+            expand: Visa
+            remove: Radera
             title: Titel
             title_and_description: Titel och beskrivning
             up: Upp
@@ -129,7 +129,7 @@ sv:
         files: Filer
         long_answer: Långt svar
         matrix_multiple: Matris (flera alternativ)
-        matrix_single: Matris (Single alternativ)
+        matrix_single: Matris (ett alternativ)
         multiple_option: Flera alternativ
         short_answer: Kort svar
         single_option: Ett alternativ
@@ -138,7 +138,7 @@ sv:
       questionnaires:
         answer:
           invalid: Det gick inte att besvara formuläret.
-          max_choices_alert: Det finns för många val valda
+          max_choices_alert: För många alternativ har valts
           success: Formuläret har besvarats.
         question:
           max_choices: 'Högst antal val: %{n}'
@@ -158,10 +158,10 @@ sv:
             body: Formuläret är endast tillgängligt för privata användare
             title: Formuläret är stängt
           questionnaire_js_disabled:
-            body: Vissa av formulärens funktioner kommer att inaktiveras. För att förbättra din upplevelse, vänligen aktivera JavaScript i din webbläsare.
+            body: Vissa av formulärets funktioner kommer att inaktiveras. Aktivera JavaScript i webbläsaren för att förbättra upplevelsen.
             title: JavaScript är inaktiverat
           questionnaire_not_published:
-            body: Detta formulär är ännu inte publicerat.
+            body: Formulär är ännu inte publicerat.
           tos_agreement: Genom att delta godkänner du användarvillkoren
       step_navigation:
         show:
