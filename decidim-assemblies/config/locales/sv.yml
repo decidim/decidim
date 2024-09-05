@@ -23,7 +23,7 @@ sv:
         creation_date: Skapad datum
         decidim_area_id: Område
         decidim_assemblies_type_id: Typ av grupp
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         description: Beskrivning
         developer_group: Kampanjgrupp
         document: Dokument
@@ -39,7 +39,7 @@ sv:
         internal_organisation: Intern organisation
         is_transparent: Är transparent
         local_area: Område
-        meta_scope: Metadata för omfång
+        meta_scope: Metadata för indelning
         parent_id: Överordnad grupp
         participatory_processes_ids: Relaterade dialoger
         participatory_scope: Vad bestäms
@@ -48,8 +48,8 @@ sv:
         promoted: Uppmärksammad
         published_at: Publicerad
         purpose_of_action: Syfte med åtgärden
-        scope_id: Omfång
-        scopes_enabled: Omfång är aktiverade
+        scope_id: Indelning
+        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         slug: URL-slug
@@ -186,7 +186,7 @@ sv:
         decidim_assemblies_type_id_eq:
           label: Typ av samråd
       menu:
-        assemblies: Grupper
+        assemblies: Samråd
         assemblies_settings: Inställningar
         assemblies_submenu:
           assembly_admins: Administratörer för gruppen
@@ -230,18 +230,21 @@ sv:
             email: E-post
             name: Namn
             role: Roll
-          name: Administratör för gruppen
+          name: Administratör för samrådet
           roles:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
             valuator: Värderare
       titles:
-        assemblies: Grupper
+        assemblies: Samråd
         assemblies_types: Typer av grupper
     admin_log:
       assembly:
         create: "%{user_name} skapade gruppen %{resource_name}"
+        duplicate: "%{user_name} duplicerade samrådet %{resource_name}"
+        export: "%{user_name} exporterade samrådet %{resource_name}"
+        import: "%{user_name} importerade samrådet %{resource_name}"
         publish: "%{user_name} publicerade gruppen %{resource_name}"
         unpublish: "%{user_name} avpublicerade gruppen %{resource_name}"
         update: "%{user_name} uppdaterade gruppen %{resource_name}"
@@ -277,7 +280,8 @@ sv:
             select_an_area: Välj ett område
             select_an_assembly_type: Välj typ av gruppen
             select_parent_assembly: Välj överordnad gruppen
-            social_handlers: Socialt
+            slug_help: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+            social_handlers: Sociala medier
             title: Allmän information
         assemblies_settings:
           edit:
@@ -287,9 +291,13 @@ sv:
         assemblies_types:
           form:
             title: Redigera typ av samråd
+        assembly_copies:
+          form:
+            slug_help: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_imports:
           form:
             document_legend: Lägg till ett dokument
+            slug_help: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
             existing_user: Befintlig deltagare
@@ -343,7 +351,7 @@ sv:
         participatory: Deltagande
         working_group: Arbetsgrupp
       index:
-        title: Grupper
+        title: Samråd
       last_activity:
         new_assembly: Nytt samråd
       pages:
@@ -356,7 +364,7 @@ sv:
       show:
         area: Område
         assembly_type: Typ av grupp
-        children: Grupper
+        children: Samråd
         closing_date: Slutdatum
         composition: Sammansättning
         created_by: Skapad av
@@ -377,8 +385,9 @@ sv:
         read_less: Läs mindre
         read_more: Läs mer
         related_participatory_processes: Relaterade dialoger
-        scope: Omfång
+        scope: Indelning
         social_networks: Sociala nätverk
+        social_networks_title: Besök samrådet på
         target: Vem deltar
     assembly_members:
       assembly_member:
@@ -401,8 +410,8 @@ sv:
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>En <strong>grupp</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Grupper håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en dialog) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på grupper.</p>\n"
-          page: "<p>En <strong>grupp</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Grupper håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en dialog) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på grupper.</p>\n"
+          contextual: "<p>Ett <strong>samråd</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller inom en del av organisationen.</p> <p>Samråd håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas).</p> <p>Exempel: Ett årsmöte (som träffas en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en dialog) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocesserna) är alla exempel på samråd.</p>\n"
+          page: "<p>Ett <strong>samråd</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller inom en del av organisationen.</p> <p>Samråd håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas).</p> <p>Exempel: Ett årsmöte (som träffas en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en dialog) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocesserna) är alla exempel på samråd.</p>\n"
           title: Vad är grupper?
     log:
       value_types:
@@ -411,12 +420,12 @@ sv:
         assembly_type_presenter:
           not_found: 'Grupptypen hittades inte i databasen (ID: %{id})'
     menu:
-      assemblies: Grupper
+      assemblies: Samråd
     metrics:
       assemblies:
         description: Antal skapade grupper
         object: grupper
-        title: Grupper
+        title: Samråd
     participatory_processes:
       show:
         related_assemblies: Relaterade grupper
