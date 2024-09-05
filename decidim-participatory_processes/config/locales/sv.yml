@@ -42,9 +42,9 @@ sv:
         hashtag: Hashtag
         hero_image: Bild
         local_area: Organisationsområde
-        meta_scope: Omfångets metadata
+        meta_scope: Metadata för indelning
         participatory_process_ids: Relaterade dialoger
-        participatory_scope: Vad som bestäms
+        participatory_scope: Vad som beslutas
         participatory_structure: Hur det bestäms
         target: Vem deltar
         title: Titel
@@ -328,7 +328,7 @@ sv:
         stats:
           name: Statistik
         title:
-          meta_scope: Omfång
+          meta_scope: Indelning
           participatory_processes:
             one: 1 dialog
             other: "%{count} dialoger"
@@ -385,7 +385,7 @@ sv:
           area_name: Område
           data: Dialogdata
           developer_group: Kampanjgrupp
-          meta_scope: Omfång
+          meta_scope: Indelning
         filters:
           all_types: Alla typer
           counters:
