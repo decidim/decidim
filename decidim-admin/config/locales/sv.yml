@@ -14,7 +14,7 @@ sv:
         attachment_collection_id: Mapp
         description: Beskrivning
         file: Fil
-        title: Bilaga eller bildnamn
+        title: Bilagans eller bildens namn
         weight: Ordning
       attachment_collection:
         description: Beskrivning
@@ -353,7 +353,7 @@ sv:
           error: Det gick inte att konvertera användaren till hanterad användare.
           name: Namn
           reason: Anledning
-          success: Flytten slutfördes problemfritt.
+          success: Överföringen har slutförts.
           title: Överföring
         'true': 'Ja'
         user_name: Användare
@@ -378,22 +378,22 @@ sv:
           label: Kategori
         filter_label: Filtrera
         invitation_accepted_at_present:
-          label: Inbjudan accepterad
+          label: Inbjudan har accepterats
           values:
             'false': 'Nej'
             'true': 'Ja'
         last_sign_in_at_present:
-          label: Inloggad senast
+          label: Senast inloggad
           values:
             'false': 'Nej'
             'true': 'Ja'
         moderated_users:
           reports_reason_eq:
-            label: Grund till rapportering
+            label: Anledning till anmälan
             values:
-              does_not_belong: Tillhör inte
-              offensive: Olämpligt
-              spam: Skräp
+              does_not_belong: Opassande
+              offensive: Stötande
+              spam: Skräppost
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -404,7 +404,7 @@ sv:
             'true': Ej gjord officiell
         participatory_space_private_users:
           user_invitation_accepted_at_not_null:
-            label: Inbjudan godtagen
+            label: Inbjudan accepterades
             values:
               'false': Ej godkänd
               'true': Godkänd
@@ -429,7 +429,7 @@ sv:
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
           report_count_eq: Antal rapporteringar
-          reported_id_string_or_reported_content_cont: Sök %{collection} efter anmälningsID eller innehåll.
+          reported_id_string_or_reported_content_cont: Sök i %{collection} efter rapporteringens Id eller innehåll.
           title_cont: Sök %{collection} efter titel.
           user_name_or_user_email_cont: Sök %{collection} efter namn eller e-post.
           user_name_or_user_nickname_or_user_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
@@ -443,9 +443,9 @@ sv:
       forms:
         file_help:
           import:
-            explanation: 'Vägledning för fil:'
-            message_1: CSV, JSON och Excel (.xlsx) filer stöds
-            message_2: För CSV-filer måste separatorn mellan kolumner vara en semikolon (";")
+            explanation: 'Instruktioner för fil:'
+            message_1: Filformaten CSV, JSON och Excel (.xlsx) stöds
+            message_2: För CSV-filer ska avgräsningen mellan kolumner vara semikolon (";")
       help_sections:
         error: Det gick inte att uppdatera hjälpavsnitten
         form:
@@ -490,21 +490,21 @@ sv:
           duplicate_headers:
             detail: Kontrollera att filen innehåller alla nödvändiga kolumner och att de finns bara en gång.
             message:
-              one: 'Dubbel kolumn: %{columns}.'
-              other: 'Dubbla kolumner: %{columns}.'
+              one: 'Dubbletter av kolumn: %{columns}.'
+              other: 'Dubbletter av kolumner: %{columns}.'
           invalid_indexes:
             lines:
-              detail: Kontrollera att dessa linjer är korrekt formaterade och innehåller giltiga rader.
+              detail: Kontrollera att raderna är korrekt formaterade och innehåller giltiga uppgifter.
               message:
-                one: Hittade ett fel i importfilen vid rad %{indexes}.
-                other: Hittade ett fel i importfilen vid rader %{indexes}.
+                one: Hittade ett fel i importfilen på rad %{indexes}.
+                other: Hittade fel i importfilen på raderna %{indexes}.
             records:
-              detail: Kontrollera att den här texten är korrekt formaterad och innehåller giltiga rader.
+              detail: Kontrollera att texten är korrekt formaterad och innehåller giltiga uppgifter.
               message:
-                one: Hittade ett fel i importfilen vid ordernummer %{indexes}.
-                other: Hittade ett fel i importfilen vid ordernummer %{indexes}.
+                one: Hittade fel i importfilen vid index %{indexes}.
+                other: Hittade fel i importfilen vid index %{indexes}.
           missing_headers:
-            detail: Kontrollera att filen innehåller alla nödvändiga kolumner.
+            detail: Kontrollera att filen innehåller obligatoriska kolumner.
             message:
               one: 'Saknad kolumn: %{columns}.'
               other: 'Saknade kolumner: %{columns}.'
@@ -512,9 +512,9 @@ sv:
         example_error: Kunde inte skapa ett exempel för följande typ
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (xlsx)
           actions:
             back: Tillbaka
           download_example: Ladda ned exempel
@@ -846,8 +846,8 @@ sv:
         create:
           error: Det gick inte att skapa påminnelser.
           success:
-            one: "%{count} användare kommer påminnas."
-            other: "%{count} användare kommer påminnas."
+            one: "%{count} användare kommer få påminnelser."
+            other: "%{count} användare kommer få påminnelser."
         new:
           submit: Skicka
       resource_permissions:
@@ -859,7 +859,7 @@ sv:
       resources:
         index:
           headers:
-            scope: Omfång
+            scope: Indelning
       scope_types:
         create:
           error: Det gick inte att skapa en ny omfångstyp.
@@ -871,7 +871,7 @@ sv:
           update: Uppdatera
         new:
           create: Skapa omfattningstyp
-          title: Ny omfattning
+          title: Ny typ av indelning
         update:
           error: Det gick inte att uppdatera omfångstypen.
           success: Omfångstypen har uppdaterats
@@ -897,7 +897,7 @@ sv:
           destroy: Radera
           share: Dela
         destroy:
-          error: Det gick inte att radera den token.
+          error: Det gick inte att radera token.
           success: Token har tagits bort.
         share_tokens:
           empty: Det finns inga aktiva tokens
