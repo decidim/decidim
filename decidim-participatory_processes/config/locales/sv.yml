@@ -158,15 +158,15 @@ sv:
           title: Duplicera process
       participatory_process_groups:
         destroy:
-          success: Dialoggruppen har raderats.
+          success: Gruppen för processer har raderats.
         edit:
-          title: Redigera dialoggrupp
+          title: Redigera processgrupp
           update: Uppdatera
         new:
           create: Skapa
-          title: Ny dialoggrupp
+          title: Ny processgrupp
         update:
-          error: Det gick inte att uppdatera dialoggruppen.
+          error: Det gick inte att uppdatera processgruppen.
           success: Dialoggruppen har uppdaterats.
       participatory_process_imports:
         create:
@@ -178,34 +178,34 @@ sv:
           title: Importera dialog
       participatory_process_publications:
         create:
-          error: Det gick inte att publicera dialogen.
-          success: Dialogen har publicerats.
+          error: Det gick inte att publicera processen.
+          success: Processen har publicerats.
         destroy:
-          error: Det gick inte att avpublicera dialogen.
-          success: Dialogen har avpublicerats.
+          error: Det gick inte att avpublicera processen.
+          success: Processen har avpublicerats.
       participatory_process_step_activations:
         create:
-          error: Det gick inte att aktivera det här steget i dialogen.
-          success: Steget i dialogen har aktiverats.
+          error: Det gick inte att aktivera det här steget i deltagandeprocessen.
+          success: Steget i processen har aktiverats.
       participatory_process_steps:
         create:
-          error: Det gick inte att skapa ett nytt steg i dialogen.
-          success: Steget i deltagarprocessen har skapats.
+          error: Det gick inte att skapa ett nytt steg i processen.
+          success: Steget i processen har skapats.
         default_title: Introduktion
         destroy:
-          success: Steget i dialogen har raderats.
+          success: Steget i processen har raderats.
         edit:
-          title: Redigera steg i dialogen
+          title: Redigera steg i processen
           update: Uppdatera
         index:
           steps_title: Steg
         new:
           create: Skapa
-          title: Nytt steg i dialogen
+          title: Nytt steg i processen
         ordering:
-          error: Det gick inte att ändra ordningen på stegen i dialogen.
+          error: Det gick inte att ändra ordningen på stegen i processen.
         update:
-          error: Det gick inte att uppdatera detta steg i dialogen.
+          error: Det gick inte att uppdatera steget i processen.
           success: Steget i deltagarprocessen har uppdaterats.
       participatory_process_types:
         edit:
@@ -215,21 +215,21 @@ sv:
           create: Skapa
       participatory_process_user_roles:
         create:
-          error: Det gick inte att lägga till en deltagare till dialogen.
-          success: Administratören lades till dialogen.
+          error: Det gick inte att lägga till en deltagare till processen.
+          success: Administratören lades till processen.
         destroy:
-          success: Administratören togs bort från dialogen.
+          success: Administratören togs bort från processen.
         edit:
-          title: Uppdatera dialogadministratör
+          title: Uppdatera administratör för processen
           update: Uppdatera
         index:
-          process_admins_title: Administratörer för dialogen
+          process_admins_title: Administratörer för processen
         new:
           create: Skapa
-          title: Ny dialogadministratör
+          title: Ny administratör för processen
         update:
-          error: Det gick inte att uppdatera administratören för dialogen.
-          success: Administratören har uppdaterats för dialogen.
+          error: Det gick inte att uppdatera administratören för processen.
+          success: Administratören har uppdaterats för processen.
       participatory_processes:
         create:
           error: Det gick inte att skapa en ny dialog.
