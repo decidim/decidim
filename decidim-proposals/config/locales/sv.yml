@@ -32,6 +32,7 @@ sv:
         cost_report: Kostnadsrapport
         execution_period: Genomförandeperiod
       proposal_state:
+        announcement_title: Rubrik på svar
         bg_color: Bakgrundsfärg
         colors:
           blue: Blå
@@ -44,6 +45,7 @@ sv:
           yellow: Gul
         text_color: Textfärg
       proposals_copy:
+        copy_proposals: Jag förstår att det här importerar alla förslag från den valda komponenten till den aktuella komponenten och att det inte går att ångra.
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
         import_proposals: Importera förslag
@@ -153,6 +155,7 @@ sv:
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
+            attachments_allowed_help: Genom att aktivera alternativet kommer förslagen att vara förvalda till rutnätsläge, och den första bilden kommer att visas på kortet.
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
@@ -167,6 +170,7 @@ sv:
               recent: Senaste
               with_more_authors: Med flera författare
             geocoding_enabled: Geokodning aktiverad
+            minimum_votes_per_user: Minsta antal röster per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
