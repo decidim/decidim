@@ -239,7 +239,7 @@
   }
 
   &__reply-button {
-    @apply flex items-center gap-4;
+    @apply flex items-center justify-center gap-4;
 
     .button[aria-expanded="false"] {
       svg:first-of-type {
@@ -276,6 +276,10 @@
         @apply block;
       }
     }
+  }
+
+  &__votes-actions {
+    @apply flex justify-between;
   }
 
   &__content {

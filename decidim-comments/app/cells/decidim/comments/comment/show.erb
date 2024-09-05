@@ -72,8 +72,20 @@
 
     <div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>">
       <div class="comment__footer-grid">
-        <%= votes %>
-        <%= render :actions %>
+        <div class="comment__votes-actions">
+          <%= render :actions %>
+          <%= votes %>
+        </div>
+        <div class="comment__reply-button">
+          <% if depth.zero? && has_replies_in_children? %>
+            <button class="button button__sm button__text-secondary" data-comment-hide data-controls="comment-<%= model.id %>-replies" data-open="true" id="comment-<%= model.id %>-replies-trigger">
+              <%= icon "arrow-down-s-line" %>
+              <span data-show-comment-reply class="font-normal"><%= t("decidim.components.comment.show_replies", count: replies.size) %></span>
+              <%= icon "arrow-up-s-line" %>
+              <span data-hide-comment-reply class="font-normal"><%= t("decidim.components.comment.hide_replies", count: replies.size) %></span>
+            </button>
+          <% end %>
+        </div>
       </div>
       <% if can_reply? %>
         <div id="panel-<%= reply_id %>" class="add-comment" data-additional-reply>
