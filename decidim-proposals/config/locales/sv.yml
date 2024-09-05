@@ -31,6 +31,18 @@ sv:
         cost: Kostnad
         cost_report: Kostnadsrapport
         execution_period: Genomförandesperiod
+      proposal_state:
+        bg_color: Bakgrundsfärg
+        colors:
+          blue: Blå
+          gray: Grå
+          green: Grön
+          orange: Orange
+          pink: Rosa
+          purple: Lila
+          red: Röd
+          yellow: Gul
+        text_color: Textfärg
       proposals_copy:
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
@@ -42,6 +54,10 @@ sv:
           valuator_role_id: Värderarens namn
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ogiltig dokumenttyp. Endast filer med följande tillägg är tillåtna: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -57,13 +73,15 @@ sv:
           attributes:
             base:
               not_official: Är inte officiella
+              voted: Har fått röster eller stöd
         proposals_split:
           attributes:
             base:
               not_official: Är inte officiella
+              voted: Har fått röster eller stöd
     models:
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
-      decidim/proposals/admin/update_proposal_scope_event: Ändrat förslagets omfång
+      decidim/proposals/admin/update_proposal_scope_event: Förslagets indelning har ändrats
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
       decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
       decidim/proposals/proposal_mentioned_event: Förslag nämnt
@@ -94,6 +112,8 @@ sv:
             values:
               'false': Förslag
               'true': Ändringsförslag
+          proposal_state_id_eq:
+            label: Status
           scope_id_eq:
             label: Indelning
           state_eq:
@@ -138,9 +158,11 @@ sv:
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
             default_sort_order: Förvald produkt sortering
             default_sort_order_options:
+              automatic: Automatisk
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
+              most_voted: Flest röster
               random: Slumpmässigt
               recent: Senaste
               with_more_authors: Med fler författare
@@ -251,10 +273,10 @@ sv:
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         proposal_update_scope:
-          email_intro: 'En administratör har uppdaterat omfånget för ditt förslag "%{resource_title}", ta en titt på följande sida:'
+          email_intro: 'En administratör har uppdaterat indelningen för ditt förslag "%{resource_title}", ta en titt på följande sida:'
           email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
-          email_subject: Omfånget för förslaget %{resource_title} har uppdaterats
-          notification_title: Omfånget för förslaget <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
+          email_subject: Indelningen för förslaget %{resource_title} har uppdaterats
+          notification_title: Indelningen för förslaget <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         voting_enabled:
           email_intro: 'Du kan rösta på förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -394,7 +416,7 @@ sv:
             assign_to_valuator_button: Tilldela
             cancel: Avbryt
             change_category: Ändra kategori
-            change_scope: Ändra omfång
+            change_scope: Ändra indelning
             merge: Slå samman till ett nytt
             merge_button: Slå ihop
             publish: Publicera
@@ -407,7 +429,7 @@ sv:
             unassign_from_valuator: Ta bort tilldelning till värderare
             unassign_from_valuator_button: Ta bort tilldelning
             update: Uppdatera
-            update_scope_button: Uppdatera omfång
+            update_scope_button: Uppdatera indelning
           new:
             create: Skapa
             title: Skapa förslag
@@ -432,10 +454,10 @@ sv:
             invalid: 'Dessa förslag var redan i kategorin %{subject_name}: %{proposals}.'
             success: 'Förslag som har uppdaterats till kategorin %{subject_name}: %{proposals}.'
           update_scope:
-            invalid: 'Dessa förslag hade redan omfånget %{subject_name}: %{proposals}.'
+            invalid: 'De här förslagen tillhör redan %{subject_name}: %{proposals}.'
             select_a_proposal: Välj ett förslag.
             select_a_scope: Välj en indelning.
-            success: 'Förslag som har uppdaterats till omfånget %{subject_name}: %{proposals}.'
+            success: 'Förslag som har uppdaterats till %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: Importera förslag
@@ -517,7 +539,7 @@ sv:
           open: Öppna
           published: Publicerade
           related_to: Relaterade till
-          scope: Omfång
+          scope: Indelning
           search: Sök
           state: Status
           withdrawn: Tillbakadragna
@@ -598,7 +620,7 @@ sv:
             official_proposal: Officiellt förslag
             published_answer: Publicerat svar
             published_at: Publicerad
-            scope: Omfång
+            scope: Indelning
             state: Status
             title: Titel
             valuator: Värderare
@@ -633,7 +655,7 @@ sv:
           my_proposals: Mina förslag
           origin: Ursprung
           related_to: Relaterade till
-          scope: Omfång
+          scope: Indelning
           search: Sök
           state: Status
           type: Typ
