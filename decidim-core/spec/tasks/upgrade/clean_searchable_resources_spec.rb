@@ -21,16 +21,15 @@ describe "rake decidim:upgrade:clean:searchable_resources", type: :task do
 
   context "when there are errors" do
     let!(:searchables) { create_list(:searchable_resource, 8, created_at: 2.days.ago) }
+    let!(:invalid_entries) { searchables.collect(&:id).sample(4) }
 
     context "when missing space manifests" do
       it "removes entries" do
-        invalid_entries = searchables.collect(&:id).sample(4)
-
         Decidim::SearchableResource.where(id: invalid_entries).update_all(decidim_participatory_space_type: "Decidim::Dev::MissingSpace") # rubocop:disable Rails/SkipsModelValidations
 
         expect(Decidim::SearchableResource.count).to eq(56)
 
-        expect { task.execute }.to change(Decidim::SearchableResource, :count).by(-4)
+        expect { task.execute }.to change(Decidim::SearchableResource, :count).by(-invalid_entries.size)
 
         expect(Decidim::SearchableResource.where(id: invalid_entries).length).to eq(0)
       end
@@ -38,15 +37,13 @@ describe "rake decidim:upgrade:clean:searchable_resources", type: :task do
 
     context "when missing component manifests" do
       it "removes entries" do
-        invalid_entries = searchables.collect(&:id).sample(4)
-
         Decidim::SearchableResource.where(id: invalid_entries).each do |a|
           a.resource.component.destroy!
         end
 
         expect(Decidim::SearchableResource.count).to eq(56)
 
-        expect { task.execute }.to change(Decidim::SearchableResource, :count).by(-16)
+        expect { task.execute }.to change(Decidim::SearchableResource, :count).by(-invalid_entries.size * 4)
 
         expect(Decidim::SearchableResource.where(id: invalid_entries).length).to eq(0)
       end
@@ -54,13 +51,11 @@ describe "rake decidim:upgrade:clean:searchable_resources", type: :task do
 
     context "when missing resource manifests" do
       it "removes entries" do
-        invalid_entries = searchables.collect(&:id).sample(4)
-
         Decidim::SearchableResource.where(id: invalid_entries).update_all(resource_type: "Decidim::Dev::MissingResource") # rubocop:disable Rails/SkipsModelValidations
 
         expect(Decidim::SearchableResource.count).to eq(56)
 
-        expect { task.execute }.to change(Decidim::SearchableResource, :count).by(-4)
+        expect { task.execute }.to change(Decidim::SearchableResource, :count).by(-invalid_entries.size)
 
         expect(Decidim::SearchableResource.where(id: invalid_entries).length).to eq(0)
       end
