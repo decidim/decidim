@@ -66,14 +66,6 @@ module Decidim
     end
 
     def self.ransackable_attributes(auth_object = nil)
-      # %w(about accepted_tos_version admin admin_terms_accepted_at avatar block_id blocked blocked_at
-      #    confirmation_sent_at confirmed_at created_at current_sign_in_at current_sign_in_ip decidim_organization_id
-      #    delete_reason deleted_at digest_sent_at direct_message_types email email_on_moderations extended_data
-      #    failed_attempts followers_count following_count follows_count id  invitation_created_at
-      #    invitation_limit  invitations_count invited_by_id invited_by_type  last_sign_in_ip
-      #    locale locked_at managed name newsletter_notifications_at  notification_settings notification_types
-      #    notifications_sending_frequency officialized_as officialized_at password_updated_at personal_url previous_passwords
-      #    remember_created_at reset_password_sent_at roles sign_in_count type unconfirmed_email updated_at)
       base = %w(name email nickname last_sign_in_at)
 
       return base unless auth_object&.admin?
@@ -82,9 +74,6 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      # %w(access_grants access_tokens avatar_attachment avatar_blob blocking download_your_data_file_attachment download_your_data_file_blob followers
-      #    following_follows follows identities invited_by memberships notifications organization reminders resource_links_from resource_links_to
-      #    resource_permission searchable_resources user_groups user_moderation user_reports versions)
       []
     end
 
