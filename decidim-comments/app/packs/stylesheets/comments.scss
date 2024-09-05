@@ -199,7 +199,7 @@
   }
 
   &__actions {
-    @apply flex items-center gap-4;
+    @apply flex items-center justify-center gap-4 ml-44;
 
     .button[aria-expanded="false"] {
       svg:first-of-type {
