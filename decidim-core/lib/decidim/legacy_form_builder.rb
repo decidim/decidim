@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-# This class has been copied from foundation_rails_helper gem.
+# Copyright (c) 2015 Sébastien Gruhier (http://xilinus.com/) - MIT LICENSE
+#
+# This file has been copied from https://github.com/sgruhier/foundation_rails_helper/blob/master/lib/foundation_rails_helper/form_builder.rb
+# We have done this so we can decouple Decidim from this dependency, which is not updated to Rails 7.1
+# We also plan to fully remove Foundation CSS legacy code in the future 
 
 module Decidim
   class LegacyFormBuilder < ActionView::Helpers::FormBuilder
