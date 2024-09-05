@@ -6,10 +6,6 @@ module Decidim
     class CollaborativeDraftForm < Decidim::Proposals::ProposalForm
       def map_model(model)
         super
-
-        return unless model.categorization
-
-        self.category_id = model.categorization.decidim_category_id
       end
 
       def user_group
