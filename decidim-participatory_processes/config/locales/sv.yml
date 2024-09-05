@@ -17,19 +17,23 @@ sv:
         end_date: Slutdatum
         hashtag: Hashtag
         hero_image: Hembild
+        import_attachments: Importera bilagor
+        import_categories: Importera kategorier
+        import_components: Importera komponenter
         import_steps: Importera steg
         local_area: Område
-        meta_scope: Omfångets metadata
+        meta_scope: Metadata för indelning
         participatory_process_group_id: Processgrupp
         participatory_process_type_id: Typ av processer
         participatory_scope: Vad som bestäms
         participatory_structure: Hur det bestäms
+        private_space: Privat process
         promoted: Annonserad
         published_at: Publicerad
         related_process_ids: Relaterade processer
-        scope_id: Omfång
-        scope_type_max_depth_id: Djup på omfångsfilter
-        scopes_enabled: Omfång aktiverade
+        scope_id: Indelning
+        scope_type_max_depth_id: Djup på filter
+        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         show_metrics: Visa metrik
         show_statistics: Visa statistik
@@ -38,23 +42,23 @@ sv:
         subtitle: Underrubrik
         target: Vilka deltar
         title: Titel
-        weight: Vikt
+        weight: Position i listan
       participatory_process_group:
         description: Beskrivning
         developer_group: Kampanjgrupp
         group_url: Webbplats
         hashtag: Hashtag
         hero_image: Bild
-        local_area: Organisationsområde
+        local_area: Område
         meta_scope: Metadata för indelning
         participatory_process_ids: Relaterade processer
         participatory_scope: Vad som beslutas
-        participatory_structure: Hur det bestäms
+        participatory_structure: Hur fattas beslut
         target: Vem deltar
         title: Titel
       participatory_process_step:
-        cta_path: Uppmaningens sökväg
-        cta_text: Uppmaningens text
+        cta_path: Call to Action-sökväg
+        cta_text: Call to Action-text
         description: Beskrivning
         end_date: Slutdatum
         short_description: Kort beskrivning
@@ -66,6 +70,12 @@ sv:
         email: E-post
         name: Namn
         role: Roll
+    errors:
+      models:
+        participatory_process:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ogiltig dokumenttyp. Endast filer med följande tillägg är tillåtna: %{types}'
     models:
       decidim/participatory_process_step_activated_event: Steg aktiverat
       decidim/participatory_process_step_changed_event: Steget har ändrats
@@ -94,24 +104,30 @@ sv:
         new_process: Ny process
         new_process_group: Ny grupp för process
         new_process_step: Nytt steg
+        new_process_type: Ny typ av process
         new_process_user_role: Ny administratör för process
         preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen
+        see_process: Visa process
         unpublish: Avpublicera
+      filters:
+        decidim_participatory_process_group_id_eq:
+          label: Efter processgrupp
       menu:
         participatory_process_groups: Grupper för process
         participatory_process_groups_submenu:
           info: Info
           landing_page: Landningssida
-        participatory_process_types: Processtyper
-        participatory_processes: Dialoger
+        participatory_process_types: Typ av processer
+        participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bilagor
           categories: Kategorier
           components: Komponenter
+          info: Om processen
           landing_page: Landningssida
           moderations: Moderering
           private_users: Privata deltagare
@@ -120,6 +136,7 @@ sv:
       models:
         participatory_process:
           fields:
+            actions: Åtgärder
             created_at: Skapad
             private: Privat
             published: Publicerad
@@ -137,9 +154,9 @@ sv:
           name: Steg i process
         participatory_process_type:
           fields:
-            created_at: Skapad den
+            created_at: Skapad
             title: Titel
-          name: Processtyp
+          name: Typ av process
         participatory_process_user_role:
           fields:
             email: E-post
@@ -186,18 +203,21 @@ sv:
           error: Det gick inte att publicera processen.
           success: Processen har publicerats.
         destroy:
-          error: Det gick inte att avpublicera dialogen.
-          success: Dialogen har avpublicerats.
+          error: Det gick inte att avpublicera processen.
+          success: Processen har avpublicerats.
       participatory_process_step_activations:
         create:
-          error: Det gick inte att aktivera det här steget i dialogen.
-          success: Steget i dialogen har aktiverats.
+          error: Det gick inte att aktivera det här steget i deltagandeprocessen.
+          success: Steget i processen har aktiverats.
       participatory_process_steps:
         create:
           error: Det gick inte att skapa ett nytt steg i processen.
           success: Steget i processen har skapats.
         default_title: Introduktion
         destroy:
+          error:
+            active_step: Det aktiva steget kan inte raderas.
+            last_step: Kan inte ta bort det sista steget i en process.
           success: Steget i processen har raderats.
         edit:
           title: Redigera steg i processen
@@ -211,13 +231,22 @@ sv:
           error: Det gick inte att ändra ordningen på stegen i processen.
         update:
           error: Det gick inte att uppdatera steget i processen.
-          success: Steget i deltagarprocessen har uppdaterats.
+          success: Steget i processen har uppdaterats.
       participatory_process_types:
+        create:
+          error: Det gick inte att skapa en ny typ av process.
+          success: Typen av process har skapats.
+        destroy:
+          success: Typen av process har raderats.
         edit:
           title: Redigera typ av process
           update: Uppdatera
         new:
           create: Skapa
+          title: Ny typ av process
+        update:
+          error: Det gick inte att uppdatera typen av process.
+          success: Typen av process har uppdaterats.
       participatory_process_user_roles:
         create:
           error: Det gick inte att lägga till en deltagare till processen.
@@ -245,6 +274,7 @@ sv:
           private: Privat
           public: Offentlig
           published: Publicerad
+          unpublished: Ej publicerad
         new:
           create: Skapa
           title: Ny deltagandeprocess
@@ -261,14 +291,18 @@ sv:
           success: Gruppen har skapats.
       titles:
         participatory_process_groups: Grupper för deltagandeprocess
+        participatory_process_types: Typer av deltagandeprocesser
         participatory_processes: Deltagandeprocesser
       users:
         resend_invitation:
           error: Det gick inte att skicka inbjudan igen.
-          success: Inbjudan har skickats om igen.
+          success: Inbjudan har skickats igen.
     admin_log:
       participatory_process:
         create: "%{user_name} skapade deltagandeprocessen %{resource_name}"
+        duplicate: "%{user_name} duplicerade processen %{resource_name}"
+        export: "%{user_name} exporterade processen %{resource_name}"
+        import: "%{user_name} importerade processen %{resource_name}"
         publish: "%{user_name} publicerade deltagandeprocessen %{resource_name}"
         unpublish: "%{user_name} avpublicerade deltagandeprocessen %{resource_name}"
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
@@ -280,6 +314,10 @@ sv:
         create: "%{user_name} skapade steget %{resource_name} i processen %{space_name}"
         delete: "%{user_name} raderade steget %{resource_name} i processen %{space_name}"
         update: "%{user_name} uppdaterade steget %{resource_name} i processen %{space_name}"
+      participatory_process_type:
+        create: "%{user_name} skapade typen av process %{resource_name}"
+        delete: "%{user_name} raderade typen av process %{resource_name}"
+        update: "%{user_name} uppdaterade typen av process %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} bjöd in deltagaren %{resource_name} till processen %{space_name}"
         delete: "%{user_name} tog bort deltagaren %{resource_name} från processen %{space_name}"
@@ -287,10 +325,10 @@ sv:
     events:
       participatory_process:
         role_assigned:
-          email_intro: Du har tilldelats som %{role} för deltagarprocess "%{resource_title}".
-          email_outro: Du har fått det här meddelandet eftersom du är %{role} av deltagarprocessen "%{resource_title}".
-          email_subject: Du har tilldelats som %{role} för "%{resource_title}".
-          notification_title: Du har tilldelats %{role} för deltagarprocessen <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: Du har utsetts till %{role} för deltagandeprocessen "%{resource_title}".
+          email_outro: Du har fått det här meddelandet eftersom du är %{role} i processen "%{resource_title}".
+          email_subject: Du har tilldelats rollen %{role} för "%{resource_title}".
+          notification_title: Du har utsetts till %{role} för processen <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
           email_intro: 'Steget %{resource_title} är nu aktivt för %{participatory_space_title}. Visa det från den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
@@ -307,6 +345,10 @@ sv:
           contextual: "<p>En <strong>deltagandeprocess</strong> är en följd av deltagande aktiviteter (t.ex. att först göra en enkät, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att rösta) för att definiera och fatta beslut om ett visst ämne.</p> <p>Exempel på deltagandeprocesser är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs), medborgarbudgetar (där förslag läggs fram, prissätts och röstas om), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning, utformningen av stadsmiljöer eller att skapa en plan för offentligpolicy.</p>\n"
           page: "<p>En <strong>deltagandeprocess</strong> är en följd av deltagande aktiviteter (t.ex. att först göra en enkät, sedan lägga fram förslag, diskutera dem på fysiska eller virtuella möten och slutligen att rösta) för att definiera och fatta beslut om ett visst ämne.</p> <p>Exempel på deltagandeprocesser är: en process för val av kommittémedlemmar (där kandidaterna presenteras, diskuteras och slutligen väljs), medborgarbudgetar (där förslag läggs fram, prissätts och röstas om), en långsiktig planeringsprocess, samarbete kring ett utkast till förordning, utformningen av stadsmiljöer eller att skapa en plan för offentligpolicy.</p>\n"
           title: Vad är en deltagandeprocess?
+    log:
+      value_types:
+        participatory_process_type_presenter:
+          not_found: 'Typen av process hittades inte i databasen (ID: %{id}).'
     menu:
       processes: Processer
     metrics:
@@ -317,19 +359,23 @@ sv:
     participatory_process_groups:
       content_blocks:
         extra_data:
+          developer_group: Stödd av
           name: Metadata
           participatory_scope: Vad som beslutas
+          participatory_structure: Hur fattas beslut
+          target: Vem deltar
         html:
           name: HTML-block
         html_1:
-          name: Första HTML-block
+          name: Första HTML-blocket
         html_2:
-          name: Andra HTML-block
+          name: Andra HTML-blocket
         html_3:
-          name: Tredje HTML-block
+          name: Tredje HTML-blocket
         main_data:
           name: Titel och beskrivning
         participatory_processes:
+          active: Aktiva deltagandeprocesser
           name: Deltagandeprocesser
         stats:
           name: Statistik
@@ -350,16 +396,22 @@ sv:
             active: Aktiv
             all: Alla
             max_results: Högsta antal element att visa
+            selection_criteria: Urvalskriterier
         new_import:
           accepted_types:
             json: JSON
+        participatory_process_copies:
+          form:
+            slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadata
+            title: Om processen
             visibility: Synlighet
         participatory_process_imports:
           form:
             document_legend: Lägg till ett dokument
+            slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         participatory_process_steps:
           form:
             cta_path_help_html: 'Använd relativa sökvägar, inte fullständiga URL: er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Om fältet inte fylls i visas inte knappen. Exempel: %{url}'
@@ -375,16 +427,29 @@ sv:
             related_processes: Relaterade processer
             scope_type_max_depth_help: Begränsa djupet på filtret för indelningen.
             select_an_area: Välj ett område
+            select_participatory_process_type: Välj typ av process
             select_process_group: Välj en processgrupp
+            slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             title: Allmän information
             visbility: Synlighet
       content_blocks:
+        extra_data:
+          name: Steg & varaktighet
+        hero:
+          name: Bild och CTA
         highlighted_processes:
-          name: Viktiga dialoger just nu
+          name: Viktiga processer just nu
+        related_processes:
+          name: Relaterade processer
       index:
         title: Deltagandeprocesser
       last_activity:
         new_participatory_process: Ny process
+      pages:
+        home:
+          highlighted_processes:
+            active_spaces: Pågående processer
+            see_all_spaces: Visa alla processer
       participatory_process_steps:
         index:
           back_to_process: Tillbaka till processen
@@ -393,8 +458,12 @@ sv:
           area_name: Område
           data: Data från processen
           developer_group: Kampanjgrupp
+          local_area: Område
           meta_scope: Indelning
           participatory_scope: Vad som beslutas
+          participatory_structure: Hur fattas beslut
+          target: Vem deltar
+          title: Om processen
         filters:
           all_types: Alla typer
           counters:
@@ -412,6 +481,8 @@ sv:
               other: "%{count} kommande processer"
           date: Datum
           explanations:
+            no_active: Inga pågående processer.
+            no_active_nor_upcoming: Inga pågående eller kommande processer.
             no_active_nor_upcoming_callout: Det finns inga pågående eller kommande processer. Här är en lista över tidigare processer.
           filter_by: Visa
           names:
@@ -421,6 +492,8 @@ sv:
             upcoming: Kommande
           see: Se
           type: Typ
+        show:
+          title: Om processen
       show:
         belongs_to_group: Den här processen tillhör
         private_space: Det här är en privat process
@@ -438,7 +511,7 @@ sv:
         index:
           promoted_processes: Viktiga processer just nu
         participatory_process:
-          active_step: 'Aktuellt steg:'
+          active_step: Aktuellt steg
           more_info: Mer information
           more_info_about: Mer information om processen %{resource_name}
           take_part: Delta
