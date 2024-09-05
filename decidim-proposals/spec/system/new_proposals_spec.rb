@@ -26,7 +26,7 @@ describe "Proposals" do
       expect(page).to have_css("a[data-redirect-url='#{main_component_path(component)}/new']")
       expect(page).to have_css("a[data-dialog-open='loginModal']")
 
-      # We can not use the click_on method because it clicks the span and we need to click in the button
+      # We cannot use the click_on method because it clicks the span and we need to click in the button
       # click_on "New proposal"
       element = find("a", text: "New proposal")
       execute_script("arguments[0].click();", element)
