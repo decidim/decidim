@@ -10,7 +10,7 @@ sv:
         end_time: Slutar vid
         information_updates: Informationsuppdateringar
         instructions: Deltagaranvisningar
-        scope_id: Omfång
+        scope_id: Indelning
         start_time: Börjar vid
         title: Titel
         user_group_id: Skapa debatt som
@@ -36,8 +36,8 @@ sv:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
