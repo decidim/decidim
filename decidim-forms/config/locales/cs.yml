@@ -21,6 +21,8 @@ cs:
               too_long: je příliš dlouhý
             choices:
               missing: nejsou úplné
+        questionnaire:
+          request_invalid: Při zpracování požadavku se vyskytl problém. Zkuste to znovu.
   decidim:
     forms:
       admin:
