@@ -38,8 +38,12 @@ sv:
         user_group_id: Skapa import som
       newsletter:
         body: Innehåll
+        send_to_all_users: Skicka till alla deltagare
+        send_to_followers: Skicka till följare
+        send_to_participants: Skicka till deltagare
         subject: Ämne
       organization:
+        admin_terms_of_service_body: Innehåll till användarvillkor för administratörer
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
@@ -89,8 +93,10 @@ sv:
         secondary_hosts: Sekundära hosts
         send_welcome_notification: Skicka välkomstmeddelande
         success_color: Färdigt
+        tertiary_color: Tertiär
         time_zone: Tidszon
         tos_version: Version på användarvillkor
+        twitter_handler: Användarnamn till X
         user_groups_enabled: Aktivera grupper
         users_registration_mode: Registreringsmode
         warning_color: Varning
@@ -106,7 +112,7 @@ sv:
         organization: Organisation
         parent_id: Överordnad
         scope_type: Omfattningstyp
-        scope_type_id: Omfattningstyp
+        scope_type_id: Typ av indelning
       scope_type:
         name: Namn
         organization: Organisation
@@ -125,6 +131,7 @@ sv:
         weight: Ordning
       static_page_topic:
         description: Beskrivning
+        name: Titel för ämnesområde
         show_in_footer: Visa i sidfoten
         title: Titel
         weight: Ordning
@@ -132,6 +139,10 @@ sv:
         file: Fil
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Välj minst ett deltagarutrymme.
         organization:
           attributes:
             official_img_footer:
@@ -144,6 +155,11 @@ sv:
           attributes:
             file:
               malformed: Fel format, läs igenom instruktionerna noga och se till att filen är UTF-8 kodad.
+      new_import:
+        attributes:
+          file:
+            invalid_file: Ogiltig fil, kontrollera formatteringen.
+            invalid_mime_type: Ogiltig MIME-typ.
   activerecord:
     attributes:
       decidim/static_page:
@@ -164,6 +180,8 @@ sv:
         add: Lägg till
         attachment:
           new: Ny bifogad fil
+        attachment_collection:
+          new: Ny mapp för bilagor
         browse: Bläddra
         category:
           new: Ny kategori
@@ -178,6 +196,7 @@ sv:
         per_page: Per sida
         permissions: Behörigheter
         reject: Avvisa
+        send_me_a_test_email: Skicka ett testmeddelande till mig
         share: Dela
         user:
           new: Ny admin
@@ -185,6 +204,17 @@ sv:
       admin_terms_of_service:
         accept:
           error: Ett fel inträffade när användarvillkoren för administratörer skulle godkännas.
+          success: Bra! Du har godkänt användarvillkoren för administratörer.
+        actions:
+          accept: Jag godkänner villkoren
+          are_you_sure: Är du säker på att du vill avvisa användarvillkoren för administratörer?
+          refuse: Avvisa villkoren för administratörer
+          title: Godkänn användarvillkoren
+        required_review:
+          alert: 'Obligatoriskt: Granska användarvillkoren för administratörer'
+          callout: Var vänlig granska de uppdaterade användarvillkoren för administratörer för att kunna fortsätta använda plattformen.
+          cta: Granska dem nu.
+        title: Användarvillkor för administratörer
       area_types:
         create:
           error: Det gick inte att skapa en ny områdestyp.
@@ -391,7 +421,7 @@ sv:
           label: Indelning
         search_label: Sök
         search_placeholder:
-          name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
+          name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
           report_count_eq: Antal rapporteringar
           reported_id_string_or_reported_content_cont: Sök i %{collection} efter rapporteringens Id eller innehåll.
           title_cont: Sök %{collection} efter titel.
@@ -510,7 +540,7 @@ sv:
         moderation: Global moderering
         newsletters: Nyhetsbrev
         participants: Deltagare
-        scope_types: Omfattningstyper
+        scope_types: Typer av indelning
         scopes: Indelningar
         settings: Inställningar
         static_pages: Sidor
@@ -560,7 +590,7 @@ sv:
         scope:
           fields:
             name: Namn
-            scope_type: Omfattningstyp
+            scope_type: Typ av indelning
         scope_type:
           fields:
             name: Namn
@@ -593,7 +623,7 @@ sv:
             created_at: Skapad
             document_number: Dokumentnummer
             name: Namn
-            nickname: Smeknamn
+            nickname: Användarnamn
             phone: Telefon
             state: Status
             users_count: Antal användare
@@ -699,6 +729,10 @@ sv:
       officializations:
         block:
           error: Det gick inte att blockera deltagaren.
+        create:
+          success: Deltagaren har fått officiell status.
+        destroy:
+          success: Deltagaren har inte längre officiell status.
         index:
           actions: Åtgärder
           badge: Märke
@@ -728,6 +762,7 @@ sv:
           title: Visa deltagarens e-postadress
         unblock:
           error: Det gick inte att avblockera deltagaren.
+          success: Deltagaren har avblockerats.
       organization:
         edit:
           title: Redigera organisation
@@ -738,6 +773,7 @@ sv:
           instagram: Instagram
           rich_text_editor_in_public_views_help: I vissa textfält kan deltagare använda vissa HTML-taggar med hjälp av den rika textredigeraren.
           social_handlers: Sociala medier
+          twitter: X
           url: URL
           youtube: Youtube
         update:
@@ -748,16 +784,35 @@ sv:
           update: Uppdatera
         form:
           colors:
+            choose_color: Välj primär färg
             colors_title: Organisationsfärger
             colors_warning_html: Varning! Att ändra färgerna kan påverka tillgängligheten. Du kan kontrollera kontrasterna med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
+            explanation: Det här verktyget hjälper dig att välja ett färgschema till webbplatsen, som består av olika nyanser jämnt fördelade runt ett färghjul.
+            legend_html: Huvudsakliga applikationsfärger, baserat på en <a href="https://www.color-meanings.com/triadic-colors/">triadisk algoritm</a>. Färgen <i>sekundär</i> beräknas automatiskt från den primära färgen och den mättnad du valde.
+            saturation: Mättnad
             title: Färgväljare
+            update_suggested_colors: Uppdatera föreslagna färger
+          cta_button_path_help_html: 'Du kan ändra vad Call To Action-knappen på startsidan länkar till. Använd relativa sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Knappen visas på startsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan ha separata texter på uppmaningsknappen på hemsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen.
+          header_snippets:
+            title: HTML header snippets
           homepage_appearance_title: Redigera startsidans utseende
           homepage_highlighted_content_banner_title: Banner för uppmärksammat innehåll
           images:
             layout_appearance_title: Redigera layoutens utseende
             preview: Förhandsgranska
           omnipresent_banner_appearance_title: Redigera banner på alla sidor
+      organization_external_domain_allowlist:
+        edit:
+          update: Uppdatera
+        external_domain:
+          down: Ner
+          external_domain: Extern domän
+          remove: Radera
+          up: Upp
+        form:
+          add: Lägg till i lista över tillåtna domännamn
+          title: Tillåtna externa domäner
       participatory_space_private_users:
         create:
           error: Det gick inte att lägga till en privat deltagare i deltagarutrymmet.
@@ -774,9 +829,13 @@ sv:
       participatory_space_private_users_csv_imports:
         create:
           invalid: Det gick inte att läsa CSV-filen. Kontrollera att du har följt instruktionerna.
+          success: CSV-filen har laddats upp och vi skickar en inbjudan med e-post till deltagarna. Det kan ta en stund.
         new:
+          csv_upload:
+            title: Ladda upp din CSV-fil
           destroy:
             button: Radera alla privata deltagare
+            confirm: Är du säker på att du vill radera alla privata deltagare? Den här åtgärden kan inte ångras.
             empty: Det finns inga privata deltagare.
             explanation: Det finns %{count} privata deltagare.
             title: Radera privata deltagare
@@ -785,6 +844,7 @@ sv:
           explanation_example: |
             jon.andersson@example.org%{csv_col_sep}Jon Andersson
             jenny.andersson@example.org%{csv_col_sep}Jenny Andersson
+          title: Importera privata deltagare från en CSV-fil
           upload: Skicka
       reminders:
         create:
@@ -811,10 +871,10 @@ sv:
         destroy:
           success: Typen av indelning har tagits bort
         edit:
-          title: Redigera omfattningstyp
+          title: Redigera typen av indelning
           update: Uppdatera
         new:
-          create: Skapa omfattningstyp
+          create: Skapa typ av indelning
           title: Ny typ av indelning
         update:
           error: Det gick inte att uppdatera typen av indelning.
@@ -826,15 +886,15 @@ sv:
         destroy:
           success: Indelningen har raderats.
         edit:
-          title: Redigera omfattning
+          title: Redigera indelningen
           update: Uppdatera
         new:
-          create: Skapa omfattning
-          title: Ny omfattning
-        no_scopes: Inga omfattningar på denna nivå.
+          create: Skapa indelning
+          title: Ny indelning
+        no_scopes: Inga indelningar på den här nivån.
         update:
           error: Det gick inte att uppdatera indelningen.
-          success: Omfattningen har uppdaterats
+          success: Indelningen har uppdaterats
       share_tokens:
         actions:
           confirm_destroy: Vill du ta bort den här token?
@@ -844,9 +904,15 @@ sv:
           error: Det gick inte att radera token.
           success: Token har tagits bort.
         share_tokens:
+          empty: Det finns inga aktiva tokens.
           help: 'Tokens används för att dela en opublicerad sida till andra användare. De kommer att döljas när sidan publiceras. Klicka på dela-ikon för token för att besöka den delade URL: en.'
           title: Delade tokens
       shared:
+        adjacent_navigation:
+          next: Nästa
+          next_title: Nästa
+          previous: Föregående
+          previous_title: Föregående
         gallery:
           add_images: Lägg till bilder
           edit_images: Redigera bilder
@@ -855,6 +921,8 @@ sv:
         create:
           error: Det gick inte att skapa ett nytt ämne.
           success: Ämnet har skapats.
+        destroy:
+          success: Ämnesområdet har tagits bort.
         edit:
           title: Redigera ämne
           update: Uppdatera ämne
@@ -873,19 +941,24 @@ sv:
         destroy:
           success: Sidan har tagits bort
         edit:
+          changed_notably_help: Om markerad kommer deltagarna att bli ombedda att godkänna de nya villkoren.
+          last_notable_change: 'Senaste större ändring: %{tos_version_formatted}'
           title: Redigera sida
           update: Uppdatera
         form:
           none: Ingen
+          slug_help_html: 'Använd relativa sökvägar, inte fullständiga URL: er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Exempel: %{url}'
         index:
           last_notable_change: Senast märkbara förändring
         new:
           create: Skapa sida
           title: Ny sida
         topic:
+          empty: Det här ämnesområdet har inga sidor.
           without_topic: Sidor utan ämne
         update:
           error: Det gick inte att uppdatera sidan.
+          success: Sidan har uppdaterats.
       titles:
         admin_log: Administratörslogg
         area_types: Områdestyper
@@ -899,7 +972,7 @@ sv:
         pages: Sidor
         panel: Administratör
         participants: Deltagare
-        scope_types: Omfattningstyper
+        scope_types: Typer av indelningar
         scopes: Indelningar
         statistics: Aktivitet
         user_groups: Grupper
