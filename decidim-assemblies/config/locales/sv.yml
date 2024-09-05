@@ -58,7 +58,7 @@ sv:
         target: Vem deltar
         title: Titel
         twitter: X
-        weight: Ordning
+        weight: Position i listan
         youtube: YouTube
       assembly_member:
         birthday: Födelsedag
@@ -70,7 +70,7 @@ sv:
         non_user_avatar: Profilbild
         position: Befattning
         user_id: Användare eller grupp
-        weight: Ordning
+        weight: Position i listan
       assembly_user_role:
         email: E-post
         name: Namn
@@ -144,7 +144,7 @@ sv:
           success: Samrådet har importerats.
         new:
           import: Importera
-          select: Välj vilka data du vill importera
+          select: Välj vilka uppgifter du vill importera
           title: Importera samråd
       assembly_members:
         create:
@@ -332,7 +332,7 @@ sv:
           data: Data från samråd
           developer_group: Kampanjgrupp
           duration: Varaktighet
-          included_at: Inkluderad den
+          included_at: Inkluderad
           indefinite_duration: Permanent
           local_area: Organisationsområde
           meta_scope: Indelning
@@ -366,6 +366,8 @@ sv:
           name: Typ & varaktighet
         highlighted_assemblies:
           name: Viktiga samråd
+        related_assemblies:
+          name: Relaterade samråd
       created_by:
         city_council: Stadsfullmäktige
         others: Övriga
@@ -385,6 +387,10 @@ sv:
       last_activity:
         new_assembly: 'Nytt samråd:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Aktiva samråd
+            see_all_spaces: Visa alla samråd
         user_profile:
           member_of:
             member_of: Medlem av
