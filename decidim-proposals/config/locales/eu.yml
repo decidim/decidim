@@ -630,11 +630,14 @@ eu:
             success: Proposamen berri batean sartu dira.
         proposals_splits:
           create:
+            invalid: 'Arazo bat izan da hautatutako proposamenak zatitzeko; izan ere, horietako batzuk:'
             success: Proposamen berrietara egokitu dira.
         valuation_assignments:
           create:
+            invalid: Arazo bat izan da proposamenak ebaluatzaile bati esleitzean.
             success: Proposamenak zuzen esleituta ebaluatzaileari.
           delete:
+            invalid: Arazo bat izan da ebaluatzaile bati proposamenak desesleitzean.
             success: Proposamenentzako ebaluatzailea zuzen desesleitua.
       admin_log:
         proposal:
@@ -776,6 +779,19 @@ eu:
       destroy_draft:
         error: Arazo bat egon da proposamenaren zirriborroa ezabatzean.
         success: Proposamenaren zirriborroa zuzen ezabatu da.
+      invite_coauthors:
+        cancel:
+          error: Arazo bat izan da egilekide-gonbidapena ezeztatzean.
+          success: Egilekide-gonbidapena behar bezala ezeztatua.
+        create:
+          error: Arazo bat izan da egilekidea gonbidatzean.
+          success: "%{author_name} zuzen gonbdatu da egilekide gisa."
+        destroy:
+          error: Arazo bat izan da gonbidapena baztertzean.
+          success: Gonbidapena baztertua.
+        update:
+          error: Arazo bat izan da gonbidapena onartzean.
+          success: Gonbidapena onartua.
       last_activity:
         new_proposal: 'Beste proposamen bat:'
         proposal_updated: 'Poposamena eguneratua:'
