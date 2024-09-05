@@ -67,7 +67,7 @@ bundle exec decidim:attachments:cleanup
 
 You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
 
-### 3.2. [[TITLE OF THE ACTION]]
+### 3.3. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
