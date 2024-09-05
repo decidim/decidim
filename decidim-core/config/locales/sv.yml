@@ -108,7 +108,7 @@ sv:
         other: "%{count} dagar"
       x_hours:
         one: 1 timme
-        other: "%{count} minuter"
+        other: "%{count} timmar"
       x_minutes:
         one: 1 minut
         other: "%{count} minuter"
@@ -138,7 +138,7 @@ sv:
       download_your_data_export:
         file_no_exists: Filen finns inte
       email_change:
-        body2: Vill du att vi ska skicka verifieringsmailet igen? %{resend_link} eller %{cancel_link}.
+        body2: Vill du skicka verifieringsmailet igen? %{resend_link} eller %{cancel_link}.
         cancel: avbryt
         cancel_error: Kunde inte avbryta ändringen av e-postadressen.
         send_again: Skicka igen
@@ -186,7 +186,7 @@ sv:
         update: "%{user_name} uppdaterade organisationsinställningarna"
       participatory_space_private_user:
         create: "%{user_name} uppmanade %{resource_name} att vara en privat deltagare"
-        create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV"
+        create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV-fil"
         delete: "%{user_name} tog deltagaren %{resource_name} som en privat deltagare"
       scope:
         create: "%{user_name} skapade omfattningen %{resource_name}"
@@ -214,7 +214,7 @@ sv:
         verify: "%{user_name} verifierade gruppen %{resource_name}"
         verify_via_csv: "%{user_name} verifierade gruppen %{resource_name} via en CSV-fil"
       user_moderation:
-        unreport: "%{user_name} avrapporterade en %{resource_type} - %{unreported_user_name}"
+        unreport: "%{user_name} tog tillbaka anmälan av %{resource_type} - %{unreported_user_name}"
     alert:
       dismiss: Avfärda avisering
     amendments:
@@ -501,7 +501,7 @@ sv:
       authorizations:
         new:
           authorize: Auktorisera ansökan
-          by_organization_link_html: <small class="heading-small">av %{link}</small>
+          by_organization_link_html: av %{link}
           cancel: Avbryt
           publish_content: Publicera innehåll åt dig
           see_email: Se din e-postadress
@@ -510,7 +510,7 @@ sv:
           this_application_will_be_able_to: 'Detta program kommer att kunna:'
           this_application_will_not_be_able_to: 'Det här programmet kommer inte att kunna:'
           update_profile: Uppdatera din profil
-          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
+          wants_to_use_your_account_html: "%{application_name} vill använda ditt konto"
     download_your_data:
       export:
         ready: Klar
@@ -530,7 +530,7 @@ sv:
       endorsed_by: Gillad av…
     errors:
       internal_server_error:
-        copied: Text kopierad!
+        copied: Texten har kopierats!
         date_and_time: Datum och tid
         reference: Referens
         title: Det uppstod ett problem med vår server
@@ -646,18 +646,18 @@ sv:
           notification_title: Du har tagits bort från gruppen <a href="%{resource_path}">%{user_group_name}</a>.
         user_group_created:
           email_intro: En ny användargrupp har skapats med namnet %{user_group_name}. Du kan nu verifiera den i <a href="%{groups_admin_url}">admin-panelen</a>.
-          email_outro: Du har fått detta meddelande eftersom du är administratör för plattformen.
+          email_outro: Du har fått det här meddelandet eftersom du är administratör för plattformen.
           email_subject: En ny användargrupp har skapats
-          notification_title: '%{user_group_name} användargrupp har skapats. Du kan nu verifiera den i <a href="%{groups_admin_path}">admin-panelen</a>.'
+          notification_title: Användargruppen %{user_group_name} har skapats. Du kan nu verifiera den i <a href="%{groups_admin_path}">administratörspanelen</a>.
         user_group_updated:
-          email_intro: En användargrupp med namnet %{user_group_name} har uppdaterat sin profil och lämnar den overifierad. Du kan nu verifiera det i <a href="%{groups_admin_url}">admin-panelen</a>.
-          email_outro: Du har fått detta meddelande eftersom du är administratör för plattformen.
+          email_intro: En användargrupp med namnet %{user_group_name} har uppdaterat sin profil, vilket gör gruppen overifierad. Du kan nu verifiera den i <a href="%{groups_admin_url}">administratörspanelen</a>.
+          email_outro: Du har fått det här meddelandet eftersom du är administratör för plattformen.
           email_subject: En användargrupp har uppdaterat sin profil
-          notification_title: '%{user_group_name} användargrupp har uppdaterat sin profil och lämnar den overifierad. Du kan nu verifiera den i <a href="%{groups_admin_path}">administratörspanelen</a>.'
+          notification_title: Användargruppen %{user_group_name} har uppdaterat sin profil, vilket gör den overifierad. Du kan nu verifiera den i <a href="%{groups_admin_path}">administratörspanelen</a>.
       reports:
         resource_hidden:
           email_intro: En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
-          email_outro: Du har fått det här meddelandet eftersom du är en författare till detta innehåll.
+          email_outro: Du har fått det här meddelandet eftersom du är en författare till det här innehållet.
           email_subject: Din %{resource_type} har tagits bort
           notification_title: |-
             En administratör tog bort din %{resource_type} eftersom den har rapporterats som %{report_reasons}.
