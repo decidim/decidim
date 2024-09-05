@@ -168,8 +168,16 @@ module Decidim::ParticipatoryProcesses
         let!(:attachment_collection) { create(:attachment_collection, collection_for: resource) }
         let!(:attachment) { create(:attachment, attached_to: resource, attachment_collection:) }
 
-        it "does not include the attachment" do
-          expect(subject.serialize[:attachments]).to be_nil
+        it "includes the attachment" do
+          serialized_participatory_process_attachment = subject.serialize[:attachments][:files].first
+
+          expect(serialized_participatory_process_attachment).to be_a(Hash)
+
+          expect(serialized_participatory_process_attachment).to include(id: attachment.id)
+          expect(serialized_participatory_process_attachment).to include(title: attachment.title)
+          expect(serialized_participatory_process_attachment).to include(weight: attachment.weight)
+          expect(serialized_participatory_process_attachment).to include(description: attachment.description)
+          expect(serialized_participatory_process_attachment[:remote_file_url]).to be_blob_url(resource.attachments.first.file.blob)
         end
       end
     end

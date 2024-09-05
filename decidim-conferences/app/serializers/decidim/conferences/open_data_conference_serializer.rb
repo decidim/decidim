@@ -40,6 +40,10 @@ module Decidim
           scope: {
             id: conference.scope.try(:id),
             name: conference.scope.try(:name) || empty_translatable
+          },
+          attachments: {
+            attachment_collections: serialize_attachment_collections,
+            files: serialize_attachments
           }
         }
       end
@@ -72,6 +76,38 @@ module Decidim
             name: subcategory.try(:name),
             description: subcategory.try(:description),
             parent_id: subcategory.try(:parent_id)
+          }
+        end
+      end
+
+      def serialize_attachment_collections
+        return unless conference.attachment_collections.any?
+
+        conference.attachment_collections.map do |collection|
+          {
+            id: collection.try(:id),
+            name: collection.try(:name),
+            weight: collection.try(:weight),
+            description: collection.try(:description)
+          }
+        end
+      end
+
+      def serialize_attachments
+        return unless conference.attachments.any?
+
+        conference.attachments.map do |attachment|
+          {
+            id: attachment.try(:id),
+            title: attachment.try(:title),
+            weight: attachment.try(:weight),
+            description: attachment.try(:description),
+            attachment_collection: {
+              name: attachment.attachment_collection.try(:name),
+              weight: attachment.attachment_collection.try(:weight),
+              description: attachment.attachment_collection.try(:description)
+            },
+            remote_file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url
           }
         end
       end

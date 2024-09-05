@@ -86,8 +86,16 @@ module Decidim::Conferences
         let!(:attachment_collection) { create(:attachment_collection, collection_for: resource) }
         let!(:attachment) { create(:attachment, attached_to: resource, attachment_collection:) }
 
-        it "does not include the attachment" do
-          expect(subject.serialize[:attachments]).to be_nil
+        it "includes the attachment" do
+          serialized_conference_attachments = subject.serialize[:attachments][:files].first
+
+          expect(serialized_conference_attachments).to be_a(Hash)
+
+          expect(serialized_conference_attachments).to include(id: attachment.id)
+          expect(serialized_conference_attachments).to include(title: attachment.title)
+          expect(serialized_conference_attachments).to include(weight: attachment.weight)
+          expect(serialized_conference_attachments).to include(description: attachment.description)
+          expect(serialized_conference_attachments[:remote_file_url]).to be_blob_url(resource.attachments.first.file.blob)
         end
       end
     end

@@ -67,6 +67,10 @@ module Decidim
           },
 
           assembly_categories: serialize_categories,
+          attachments: {
+            attachment_collections: serialize_attachment_collections,
+            files: serialize_attachments
+          },
           announcement: assembly.announcement
         }
       end
@@ -99,6 +103,38 @@ module Decidim
             name: subcategory.try(:name),
             description: subcategory.try(:description),
             parent_id: subcategory.try(:parent_id)
+          }
+        end
+      end
+
+      def serialize_attachment_collections
+        return unless assembly.attachment_collections.any?
+
+        assembly.attachment_collections.map do |collection|
+          {
+            id: collection.try(:id),
+            name: collection.try(:name),
+            weight: collection.try(:weight),
+            description: collection.try(:description)
+          }
+        end
+      end
+
+      def serialize_attachments
+        return unless assembly.attachments.any?
+
+        assembly.attachments.map do |attachment|
+          {
+            id: attachment.try(:id),
+            title: attachment.try(:title),
+            weight: attachment.try(:weight),
+            description: attachment.try(:description),
+            attachment_collection: {
+              name: attachment.attachment_collection.try(:name),
+              weight: attachment.attachment_collection.try(:weight),
+              description: attachment.attachment_collection.try(:description)
+            },
+            remote_file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url
           }
         end
       end

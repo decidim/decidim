@@ -55,7 +55,11 @@ module Decidim
             title: participatory_process.participatory_process_type.try(:title) || empty_translatable
           },
           participatory_process_steps: serialize_participatory_process_steps,
-          participatory_process_categories: serialize_categories
+          participatory_process_categories: serialize_categories,
+          attachments: {
+            attachment_collections: serialize_attachment_collections,
+            files: serialize_attachments
+          }
         }
       end
 
@@ -139,11 +143,6 @@ module Decidim
             remote_file_url: Decidim::AttachmentPresenter.new(attachment).attachment_file_url
           }
         end
-      end
-
-      def serialize_components
-        serializer = Decidim::Exporters::ParticipatorySpaceComponentsSerializer.new(@participatory_process)
-        serializer.run
       end
     end
   end
