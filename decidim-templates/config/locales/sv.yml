@@ -11,18 +11,47 @@ sv:
     admin:
       menu:
         templates: Mallar
+      templates:
+        actions:
+          new_template: Ny mall
+        apply:
+          error: Det gick inte att tillämpa mallen.
+          success: Mallen har tillämpats.
+        copy:
+          error: Det gick inte att kopiera mallen.
+          success: Mallen har kopierats.
+        create:
+          error: Det gick inte att skapa mallen.
+          success: Mallen har skapats.
+        destroy:
+          success: Mallen har tagits bort.
+        empty: Det finns inga mallar ännu.
+        fetch:
+          error: Kunde inte hitta mallen. Ladda om sidan.
+        missing_resource: "(saknad resurs)"
+        update:
+          error: Det gick inte att uppdatera mallen.
+          success: Mallen har uppdaterats.
       titles:
+        template_types:
+          questionnaires: Mallar för enkäter
         templates: Mallar
     models:
+      questionnaire_template:
+        fields:
+          questions: Antal frågor
+          title: Titel på enkät
       template:
         fields:
-          created_at: Skapad den
+          created_at: Skapad
         name: Mall
     templates:
       admin:
         block_user_templates:
           form:
             save: Spara
+          index:
+            confirm_delete: Är det säkert att du vill ta bort mallen?
         proposal_answer_templates:
           form:
             save: Spara
@@ -35,7 +64,7 @@ sv:
             edit: Redigera
             questionnaire: Enkät
           preview:
-            current_step: Steg %{step} av
+            current_step: Steg %{step}
             of_total_steps: av %{total_steps}
       template_types:
         questionnaires: Enkäter
