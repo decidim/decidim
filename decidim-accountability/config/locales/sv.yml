@@ -48,13 +48,13 @@ sv:
           results: Resultat
         import_results:
           new:
-            download_export: Ladda ner exporten som CSV
+            download_export: Ladda ner exporten som CSV-fil
             import: Importera
             info: |
-              <p>Vi rekommenderar att du följer dessa steg:</p>
+              <p>Vi rekommenderar att du följer de här stegen:</p>
               <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Skapa statusarna för de resultat</a> som du vill lägga till</li>
-              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> via denna administratörspanel innan du använder Import, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
+              <li><a href='%{link_new_status}' target='_blank'>Skapa status för de resultat</a> som du vill lägga till</li>
+              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> från administratörspanelen innan du importerar, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
               <li>%{link_export_csv}</li>
               <li>Genomför ändringarna lokalt. Du kan endast ändra följande kolumner i CSV-filen:
               <ul>
@@ -88,7 +88,7 @@ sv:
             new_items:
               one: 1 valt projekt kommer att importeras
               other: "%{count} valda projekt kommer att importeras"
-            no_components: Det finns inga budgetkomponenter i detta deltagande utrymme för att exportera projekt till resultat.
+            no_components: Det finns inga budget-komponenter att importera projekt från i den här processen.
             origin_component_id: Ursprungskomponent
             select_component: Välj en komponent
         results:
@@ -144,15 +144,15 @@ sv:
         import:
           errors: Fel
           row_number: Rad
-          subject: Lyckad import av resultat
-          success: Lyckad import av resultat. Du kan granska resultaten i administrationsgränssnittet.
+          subject: Resultaten har importerats
+          success: Resultaten har importerats. Du kan granska resultaten i administrationsgränssnittet.
       import_projects_mailer:
         import:
           added_projects:
             one: Ett resultat importerades från projekt.
             other: "%{count} resultat importerades från projekt."
           subject: Projekten har importerats
-          success: Projekten har importerats till resultat. Du kan se resultaten i administrationsgränssnittet.
+          success: Projekten har importerats till resultat i %{component_name}. Du kan se resultaten i administrationsgränssnittet.
       last_activity:
         new_result: 'Nytt resultat:'
       models:
@@ -163,7 +163,7 @@ sv:
             end_date: Slutdatum
             id: ID
             progress: Genomförande
-            scope: Omfång
+            scope: Indelning
             start_date: Startdatum
             status: Status
             title: Titel
@@ -205,7 +205,7 @@ sv:
           category_id_eq:
             label: Kategori
           scope_id_eq:
-            label: Omfång
+            label: Indelning
           status_id_eq:
             label: Status
     components:
@@ -216,11 +216,11 @@ sv:
         settings:
           global:
             comments_enabled: Kommentarer på
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             display_progress_enabled: Visa behandling
             intro: Intro
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
           step:
             comments_blocked: Kommentarer blockerade
     events:
