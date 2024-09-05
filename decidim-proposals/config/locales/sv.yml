@@ -8,7 +8,7 @@ sv:
         category_id: Kategori
         decidim_scope_id: Omfång
         has_address: Har adress
-        scope_id: Omfattning
+        scope_id: Indelning
         state: Status
         title: Titel
         user_group_id: Skapa samarbetsutkast som
@@ -21,7 +21,7 @@ sv:
         category_id: Kategori
         decidim_scope_id: Omfång
         has_address: Har adress
-        scope_id: Omfattning
+        scope_id: Omfång
         state: Status
         suggested_hashtags: Föreslagna hashtags
         title: Titel
@@ -95,7 +95,7 @@ sv:
               'false': Förslag
               'true': Ändringsförslag
           scope_id_eq:
-            label: Omfång
+            label: Indelning
           state_eq:
             label: Status
             values:
@@ -161,8 +161,8 @@ sv:
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
             threshold_per_proposal: Tröskel per förslag
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
