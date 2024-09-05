@@ -10,7 +10,7 @@ sv:
       project:
         budget_amount: Belopp
         decidim_category_id: Kategori
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         description: Beskrivning
         proposal_ids: Relaterade förslag
         proposals: Förslag
@@ -76,6 +76,7 @@ sv:
             actions: Åtgärder
             cancel: Avbryt
             change_category: Ändra kategori
+            change_scope: Ändra indelning
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
             selected: Valda
@@ -85,6 +86,11 @@ sv:
           new:
             create: Skapa
             title: Nytt projekt
+          update_scope:
+            invalid: 'De här projekten tillhörde redan indelningen %{subject_name}: %{projects}.'
+            select_a_project: Välj ett projekt.
+            select_a_scope: Välj en indelning.
+            success: 'Projekten uppdaterades till %{subject_name}: %{projects}.'
         proposals_imports:
           new:
             create: Importera förslag till projekt
@@ -171,7 +177,7 @@ sv:
           title: Du har ännu inte röstat
         filters:
           category: Kategori
-          scope: Omfång
+          scope: Indelning
           search: Sök
           status: Status
           status_values:
