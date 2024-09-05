@@ -36,7 +36,6 @@ module Decidim
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      # %w(participatory_space reportable reports versions)
       []
     end
   end
