@@ -99,9 +99,6 @@ gl:
         start_exploring: comezar a explorar
       csv_census:
         admin:
-          census:
-            create:
-              error: Produciuse un erro ao importar o censo.
           destroy:
             title: Elimine todos os datos do censo
           index:

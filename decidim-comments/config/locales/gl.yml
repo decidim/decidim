@@ -82,7 +82,6 @@ gl:
       comments:
         blocked_comments_for_unauthorized_user_warning: Tes de estar verificado para poder comentar neste intre, porén podes ler os comentarios anteriores.
         blocked_comments_for_user_warning: Non podes comentar neste momento, pero podes ler os anteriores.
-        blocked_comments_warning: Os comentarios están desactivados neste momento, pero podes ler os anteriores.
         comment_details_title: Detalles do comentario
         loading: Cargando comentarios ...
         single_comment_warning: <a href="%{url}">Ver todos os comentarios</a>

@@ -99,7 +99,6 @@ ro:
       comments:
         blocked_comments_for_unauthorized_user_warning: Trebuie să fii verificat pentru a trimite comentarii în acest moment, dar le poți citi pe cele anterioare.
         blocked_comments_for_user_warning: Nu poți comenta în acest moment, dar le poți citi pe cele anterioare.
-        blocked_comments_warning: Comentariile sunt dezactivate în acest moment, dar le poți citi pe cele anterioare.
         comment_details_title: Detaliile comentariului
         loading: Se încarcă comentariile...
         single_comment_warning: <a href="%{url}">Vezi toate comentariile</a>

@@ -129,7 +129,6 @@ tr:
             collaborative_drafts_enabled: Ortak çalışma taslakları etkin
             comments_enabled: Yorumlar etkin
             comments_max_length: Maksimum yorum uzunluğu (Varsayılan değer için 0 bırakın)
-            geocoding_enabled: Coğrafi kod etkin
             new_proposal_body_template: Yeni teklif gövdesi şablonu
             new_proposal_body_template_help: Yeni Tekliflerin sahip olacağı önceden doldurulmuş metni tanımlayabilirsiniz
             new_proposal_help_text: Yeni teklif yardım metni
@@ -585,7 +584,6 @@ tr:
           discard: Bu taslağı sil
           discard_confirmation: Bu teklif taslağını silmek istediğinizden emin misiniz?
           send: Ön izleme
-          title: Teklif Taslağını Düzenle
         edit_form_fields:
           marker_added: haritaya İşaretçi eklendi.
         filters:

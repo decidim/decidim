@@ -663,7 +663,7 @@ de:
         transparent: Transparent
         withdraw: Zurückgezogen
       withdraw:
-        error: Beim Zurückziehen der Veranstaltung ist ein Fehler aufgetreten.
+        error: Bei der Zurückziehen der Veranstaltung ist ein Problem aufgetreten.
         success: Die Verantstaltung wurde erfolgreich zurückgezogen.
     metrics:
       meetings:
