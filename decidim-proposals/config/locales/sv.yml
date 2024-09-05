@@ -21,7 +21,7 @@ sv:
         category_id: Kategori
         decidim_scope_id: Indelning
         has_address: Har adress
-        scope_id: Omfång
+        scope_id: Indelning
         state: Status
         suggested_hashtags: Föreslagna hashtags
         title: Titel
@@ -42,6 +42,10 @@ sv:
           valuator_role_id: Handläggarens namn
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ogiltig dokumenttyp. Endast filer med följande tillägg är tillåtna: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -144,6 +148,7 @@ sv:
             comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
             default_sort_order: Förvald produkt sortering
             default_sort_order_options:
+              automatic: Automatisk
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
@@ -194,6 +199,7 @@ sv:
             creation_enabled: Deltagare kan skapa förslag
             default_sort_order: Förvald produkt sortering
             default_sort_order_options:
+              automatic: Automatisk
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
