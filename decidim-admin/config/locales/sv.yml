@@ -14,7 +14,7 @@ sv:
         attachment_collection_id: Mapp
         description: Beskrivning
         file: Fil
-        title: Bilaga eller bildnamn
+        title: Bilagans eller bildens namn
         weight: Ordning
       attachment_collection:
         description: Beskrivning
@@ -320,7 +320,7 @@ sv:
           email: E-post
           name: Namn
           reason: Anledning
-          success: Flytten slutfördes problemfritt.
+          success: Överföringen har slutförts.
           title: Överföring
         'true': 'Ja'
         user_name: Användare
@@ -342,22 +342,22 @@ sv:
           label: Kategori
         filter_label: Filtrera
         invitation_accepted_at_present:
-          label: Inbjudan accepterad
+          label: Inbjudan har accepterats
           values:
             'false': 'Nej'
             'true': 'Ja'
         last_sign_in_at_present:
-          label: Inloggad senast
+          label: Senast inloggad
           values:
             'false': 'Nej'
             'true': 'Ja'
         moderated_users:
           reports_reason_eq:
-            label: Grund till rapportering
+            label: Anledning till anmälan
             values:
-              does_not_belong: Tillhör inte
-              offensive: Olämpligt
-              spam: Skräp
+              does_not_belong: Opassande
+              offensive: Stötande
+              spam: Skräppost
         moderations:
           reportable_type_string_eq:
             label: Typ
@@ -368,7 +368,7 @@ sv:
             'true': Ej gjord officiell
         participatory_space_private_users:
           user_invitation_accepted_at_not_null:
-            label: Inbjudan godtagen
+            label: Inbjudan accepterades
             values:
               'false': Ej godkänd
               'true': Godkänd
@@ -393,7 +393,7 @@ sv:
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller smeknamn.
           report_count_eq: Antal rapporteringar
-          reported_id_string_or_reported_content_cont: Sök %{collection} efter anmälningsID eller innehåll.
+          reported_id_string_or_reported_content_cont: Sök i %{collection} efter rapporteringens Id eller innehåll.
           title_cont: Sök %{collection} efter titel.
           user_name_or_user_nickname_or_user_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
         state_eq:
@@ -406,9 +406,9 @@ sv:
       forms:
         file_help:
           import:
-            explanation: 'Vägledning för fil:'
-            message_1: CSV, JSON och Excel (.xlsx) filer stöds
-            message_2: För CSV-filer måste separatorn mellan kolumner vara en semikolon (";")
+            explanation: 'Instruktioner för fil:'
+            message_1: Filformaten CSV, JSON och Excel (.xlsx) stöds
+            message_2: För CSV-filer ska avgräsningen mellan kolumner vara semikolon (";")
       help_sections:
         form:
           save: Spara
@@ -450,29 +450,29 @@ sv:
           duplicate_headers:
             detail: Kontrollera att filen innehåller alla nödvändiga kolumner och att de finns bara en gång.
             message:
-              one: 'Dubbel kolumn: %{columns}.'
-              other: 'Dubbla kolumner: %{columns}.'
+              one: 'Dubbletter av kolumn: %{columns}.'
+              other: 'Dubbletter av kolumner: %{columns}.'
           invalid_indexes:
             lines:
-              detail: Kontrollera att dessa linjer är korrekt formaterade och innehåller giltiga rader.
+              detail: Kontrollera att raderna är korrekt formaterade och innehåller giltiga uppgifter.
               message:
-                one: Hittade ett fel i importfilen vid rad %{indexes}.
-                other: Hittade ett fel i importfilen vid rader %{indexes}.
+                one: Hittade ett fel i importfilen på rad %{indexes}.
+                other: Hittade fel i importfilen på raderna %{indexes}.
             records:
-              detail: Kontrollera att den här texten är korrekt formaterad och innehåller giltiga rader.
+              detail: Kontrollera att texten är korrekt formaterad och innehåller giltiga uppgifter.
               message:
-                one: Hittade ett fel i importfilen vid ordernummer %{indexes}.
-                other: Hittade ett fel i importfilen vid ordernummer %{indexes}.
+                one: Hittade fel i importfilen vid index %{indexes}.
+                other: Hittade fel i importfilen vid index %{indexes}.
           missing_headers:
-            detail: Kontrollera att filen innehåller alla nödvändiga kolumner.
+            detail: Kontrollera att filen innehåller obligatoriska kolumner.
             message:
               one: 'Saknad kolumn: %{columns}.'
               other: 'Saknade kolumner: %{columns}.'
         new:
           accepted_mime_types:
-            csv: csv
-            json: json
-            xlsx: xlsx
+            csv: CSV
+            json: JSON
+            xlsx: Excel (xlsx)
           actions:
             back: Tillbaka
           download_example: Ladda ned exempel
@@ -749,7 +749,7 @@ sv:
         form:
           colors:
             colors_title: Organisationsfärger
-            colors_warning_html: Varning! Att ändra dessa färger kan bryta minska kontrasterna och tillgängligheten. Du kan kontrollera kontrasten i ditt val med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
+            colors_warning_html: Varning! Att ändra färgerna kan påverka tillgängligheten. Du kan kontrollera kontrasterna med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
             title: Färgväljare
           cta_button_text_help: Du kan ha separata texter på uppmaningsknappen på hemsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen.
           homepage_appearance_title: Redigera startsidans utseende
@@ -780,8 +780,8 @@ sv:
             empty: Det finns inga privata deltagare.
             explanation: Det finns %{count} privata deltagare.
             title: Radera privata deltagare
-          example_file: 'Exempel fil:'
-          explanation: 'Skicka in din CSV-fil. Den måste ha två kolumner över de användare som du vill lägga till deltagarutrymmet, utan rubriker, med e-postadressen i den första kolumnen i filen och namnet i den sista kolumnen i filen. Undvik olämpliga karaktärer som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
+          example_file: 'Exempelfil:'
+          explanation: 'Skicka din CSV-fil. Den behöver ha två kolumner för användare som du vill lägga till, utan rubriker, med e-postadressen i den första kolumnen och namnet i den sista kolumnen. Undvik specialtecken som `<>?%&^*#@()[]=+:;"{}\|` i användarnamn.'
           explanation_example: |
             jon.andersson@example.org%{csv_col_sep}Jon Andersson
             jenny.andersson@example.org%{csv_col_sep}Jenny Andersson
@@ -790,8 +790,8 @@ sv:
         create:
           error: Det gick inte att skapa påminnelser.
           success:
-            one: "%{count} användare kommer påminnas."
-            other: "%{count} användare kommer påminnas."
+            one: "%{count} användare kommer få påminnelser."
+            other: "%{count} användare kommer få påminnelser."
         new:
           submit: Skicka
       resource_permissions:
@@ -803,7 +803,7 @@ sv:
       resources:
         index:
           headers:
-            scope: Omfång
+            scope: Indelning
       scope_types:
         create:
           error: Det gick inte att skapa en ny omfångstyp.
@@ -815,7 +815,7 @@ sv:
           update: Uppdatera
         new:
           create: Skapa omfattningstyp
-          title: Ny omfattning
+          title: Ny typ av indelning
         update:
           error: Det gick inte att uppdatera omfångstypen.
           success: Omfångstypen har uppdaterats
@@ -839,7 +839,7 @@ sv:
           destroy: Radera
           share: Dela
         destroy:
-          error: Det gick inte att radera den token.
+          error: Det gick inte att radera token.
           success: Token har tagits bort.
         share_tokens:
           help: Dessa tokens används för att offentligt dela denna opublicerade resurs till alla användare. De kommer att döljas när resursen publiceras. Klicka på tokens dela-ikon för att besöka den delbara URL.
