@@ -11,7 +11,7 @@ sv:
         scope_id: Indelning
         state: Status
         title: Titel
-        user_group_id: Skapa samarbetsutkast som
+        user_group_id: Skapa gemensamt utkast som
       proposal:
         address: Adress
         answer: Svar
@@ -30,7 +30,7 @@ sv:
         answer: Svar
         cost: Kostnad
         cost_report: Kostnadsrapport
-        execution_period: Genomförandesperiod
+        execution_period: Genomförandeperiod
       proposals_copy:
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
@@ -111,10 +111,10 @@ sv:
               accepted: Accepterat
               evaluating: Utvärderas
               not_answered: Ej besvarade
-              published: Publicerad
-              rejected: Avvisad
+              published: Publicerade
+              rejected: Avvisade
               validating: Teknisk validering
-              withdrawn: Tillbakadragen
+              withdrawn: Återkallade
           valuator_role_ids_has:
             label: Tilldelad till handläggare
           with_any_state:
@@ -130,7 +130,7 @@ sv:
           amend: Ändra
           comment: Kommentera
           create: Skapa
-          endorse: Instäm
+          endorse: Stöd
           vote: Stötta
           vote_comment: Rösta på en kommentar
           withdraw: Dra tillbaka
@@ -145,17 +145,17 @@ sv:
             can_accumulate_supports_beyond_threshold: Kan samla in stöd bortom tröskeln
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
-            default_sort_order: Förvald produkt sortering
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+            default_sort_order: Förvald sortering
             default_sort_order_options:
               automatic: Automatisk
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
               most_voted: Mest stödda
-              random: Slumpmässigt
+              random: Slumpvis
               recent: Senaste
-              with_more_authors: Med fler författare
+              with_more_authors: Med flera författare
             geocoding_enabled: Geokodning aktiverad
             minimum_votes_per_user: Minsta antal stöd per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
@@ -207,8 +207,8 @@ sv:
               random: Slumpmässigt
               recent: Senaste
               with_more_authors: Med fler författare
-            endorsements_blocked: Instämmanden är blockerade
-            endorsements_enabled: Instämmanden aktiverade
+            endorsements_blocked: Stöd är blockerade
+            endorsements_enabled: Stöd är aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
             publish_answers_immediately: Publicera svar på förslag omedelbart
             suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
@@ -257,6 +257,7 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har accepterats.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har accepterats. Läs svaret på den här sidan:'
+            email_outro: Du har fått det här meddelande eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
             email_subject: Ett förslag som du följer har godkänts
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har accepterats.
         proposal_evaluating:
@@ -267,6 +268,7 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> utvärderas.
           follower:
             email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
+            email_outro: Du har fått det här meddelande eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
             email_subject: Ett förslag som du följer utvärderas
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> utvärderas.
         proposal_mentioned:
@@ -290,6 +292,7 @@ sv:
             notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har avslagits.
           follower:
             email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
+            email_outro: Du har fått det här meddelande eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
             email_subject: Ett förslag som du följer har avvisats
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
         proposal_update_category:
@@ -340,6 +343,7 @@ sv:
           description_own: Du har skapat %{score} förslag.
           name: Förslag
           next_level_in: Nå nästa nivå genom att skapa %{score} till förslag!
+          unearned_another: Den här deltagaren har inte skapat några förslag än.
           unearned_own: Du har inte skapat några förslag än.
     metrics:
       accepted_proposals:
@@ -378,6 +382,14 @@ sv:
           proposal_comments: Kommentarer
           proposals: Förslag
         imports:
+          help:
+            answers: |
+              Importdokumentet ska innehålla följande kolumnnamn vid CSV eller Excel-filer, eller nyckelnamn vid JSON-filer:
+              <ul>
+              <li><b>id:</b> ID för förslaget att svara</li>
+              <li><b>stat:</b> En av "godkänd", "utvärdering", eller "avvisade"</li>
+              <li><b>svar/:</b> Svar på engelska. Beror på din plattforms språkkonfiguration.</li>
+              </ul>
           label:
             answers: Importera svar från en fil
             proposals: Importerar förslag från en fil
@@ -388,6 +400,9 @@ sv:
             proposals:
               one: förslag
               other: förslag
+          title:
+            answers: Importera svar från en fil
+            proposals: Importerar förslag från en fil
         models:
           proposal:
             name: Förslag
@@ -412,8 +427,12 @@ sv:
               md: Markdown
               odt: ODT
             bottom_hint: "(Du kommer att kunna förhandsvisa och sortera dokumentavsnitt)"
+            document_legend: 'Lägg till ett dokument som är mindre än 2MB, varje avsnitt upp till 3 nivåers djup kommer användas in till förslagen. Möjliga format är: %{valid_mime_types}'
             title: LÄGG TILL DOKUMENT
             upload_document: Skicka in dokument
+          publish:
+            invalid: Det gick inte att publicera förslagen.
+            success: Alla förslag har publicerats.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
@@ -429,6 +448,9 @@ sv:
             rejected: Avvisat
             title: Svar på förslaget %{title}
         proposal_notes:
+          create:
+            error: Det gick inte att skapa en anteckningen till förslaget.
+            success: Förslagsanteckning skapades.
           form:
             note: Annteckning
             submit: Skicka in
@@ -669,7 +691,7 @@ sv:
             title: Titel
             valuator: Handläggare
             valuators: Handläggare
-            votes: Stöd
+            votes: Röster
       participatory_text_proposal:
         alternative_title: Det finns inga deltagartexter just nu
         buttons:
@@ -688,7 +710,7 @@ sv:
           title: Färdigställ ditt förslag
         dynamic_map_instructions:
           description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
-          instructions: Nu kan du flytta markören på kartan.
+          instructions: Du kan flytta markören på kartan.
         edit:
           add_documents: Lägga till dokument
           attachment_legend: "(Frivilligt) Lägg till en bilaga"
@@ -723,9 +745,10 @@ sv:
           new_proposal: Nytt förslag
           see_all: Se alla förslag
           see_all_withdrawn: Se alla tillbakadragna förslag
-          text_banner: Du tittar på listan över förslag som dragits tillbaka av deras författare. %{go_back_link}.
+          text_banner: Du visar förslag som dragits tillbaka av sin författare. %{go_back_link}.
         new:
           send: Fortsätt
+          title: Skapa ditt förslag
         orders:
           label: 'Ordna förslag efter:'
           most_commented: Mest kommenterade
@@ -749,6 +772,9 @@ sv:
             other: Du kommer att kunna redigera förslaget upp till %{count} minuter efter att förslaget har publicerats. När det tidsfönstret passerat kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
+        proposals:
+          empty: Det finns inga förslag ännu.
+          empty_filters: Det finns inga förslag med de här kriterierna.
         show:
           answer: Svara
           changes_at_title: Ändring till %{title}
@@ -838,6 +864,6 @@ sv:
         proposal_project: 'Förslag som ingår i dessa projekt:'
         proposal_result: 'Förslag som ingår i dessa resultat:'
     statistics:
-      proposals_accepted: Godkända Förslag
+      proposals_accepted: Godkända förslag
       proposals_count: Förslag
       supports_count: Stöd
