@@ -782,6 +782,11 @@ en:
       destroy_draft:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
+      exit_modal:
+        cancel: Back
+        exit: Other proposals
+        message: You have to give %{number} more votes between different proposals for your votes to be taken into account.
+        title: Remember you have %{number} votes left
       invite_coauthors:
         cancel:
           error: There was a problem canceling the co-author invitation.
