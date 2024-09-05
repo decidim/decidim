@@ -22,7 +22,7 @@ describe "rake decidim:upgrade:clean:action_logs", type: :task do
 
       context "when errors in Component" do
         it "removes entries" do
-          Decidim::ActionLog.where(id: invalid_entries).update_all(resource_type: "Decidim::Component") # rubocop:disable Rails/SkipsModelValidations
+          Decidim::ActionLog.where(id: invalid_entries).update_all(resource_type: "Decidim::Component", resource_id: Time.now.to_i) # rubocop:disable Rails/SkipsModelValidations
 
           expect(Decidim::ActionLog.count).to eq(8)
           expect(Decidim::ActionLog.where(resource_type: "Decidim::Component").count).to eq(4)
