@@ -192,12 +192,16 @@ sv:
         create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV"
         delete: "%{user_name} tog deltagaren %{resource_name} som en privat deltagare"
       scope:
-        create: "%{user_name} skapade omfattningen %{resource_name}"
-        create_with_parent: "%{user_name} skapade omfattningen %{resource_name} inom ramen för %{parent_scope}"
-        delete: "%{user_name} raderade omfattningen %{resource_name}"
-        delete_with_parent: "%{user_name} raderade omfattningen %{resource_name} inom ramen för %{parent_scope}"
-        update: "%{user_name} uppdaterade omfattningen %{resource_name}"
-        update_with_parent: "%{user_name} uppdaterade omfattningen %{resource_name} inom ramen för %{parent_scope}"
+        create: "%{user_name} skapade indelningen %{resource_name}"
+        create_with_parent: "%{user_name} skapade indelningen %{resource_name} inom %{parent_scope}"
+        delete: "%{user_name} raderade indelningen %{resource_name}"
+        delete_with_parent: "%{user_name} raderade indelningen %{resource_name} inom %{parent_scope}"
+        update: "%{user_name} uppdaterade indelningen %{resource_name}"
+        update_with_parent: "%{user_name} uppdaterade indelningen %{resource_name} inom %{parent_scope}"
+      scope_type:
+        create: "%{user_name} skapade indelningen %{resource_name}"
+        delete: "%{user_name} raderade indelningen %{resource_name}"
+        update: "%{user_name} uppdaterade indelningen %{resource_name}"
       static_page:
         create: "%{user_name} skapade den statiska sidan %{resource_name}"
         delete: "%{user_name} raderade den statiska sidan %{resource_name}"
@@ -319,7 +323,7 @@ sv:
           allowed_scope_id: Tillåtet omfång
           document_number: Dokumentnummer
           postal_code: Postnummer
-          scope_id: Omfattning
+          scope_id: Indelning
         name: Exempelbekräftelse
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
@@ -402,8 +406,8 @@ sv:
             dummy_global_translatable_text: Översättningsbar exempeltext
             enable_pads_creation: Aktivera skapande av memo
             resources_permissions_enabled: Resursbehörigheter på
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
           step:
             amendment_creation_enabled: Tillåt att skapa ändringsförslag
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
@@ -452,7 +456,7 @@ sv:
       metrics:
         name: Organisationsmetrik
       participatory_space_metrics:
-        name: Metriker
+        name: Deltagande i siffror
       participatory_space_stats:
         name: Statistik
       social_networks_metadata:
@@ -844,7 +848,7 @@ sv:
     help:
       main_topic:
         default_page:
-          content: "<p>I %{organization} kan du delta och besluta om olika ämnen genom de områden som visas i toppmenyn: dialoger, grupper, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
+          content: "<p>I %{organization} kan du delta och besluta i de deltagandeprocesser som visas i toppmenyn: processer, samråd, namninsamlingar och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten med mera.</p>\n"
           title: Vad kan jag göra i %{organization}?
         description: Läs mer om %{organization}.
         title: Allmän hjälp
@@ -877,9 +881,9 @@ sv:
         area_type_presenter:
           not_found: 'Områdestypen hittades inte i databasen (ID: %{id})'
         scope_presenter:
-          not_found: 'Omfattningen hittades inte i databasen (ID: %{id})'
+          not_found: 'Indelningen hittades inte i databasen (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Omfattningstypen hittades inte i databasen (ID: %{id})'
+          not_found: 'Typen av indelning hittades inte i databasen (ID: %{id})'
     managed_users:
       expired_session: Den aktuella administrationsperioden för en användare har förfallit.
     map:
@@ -1045,7 +1049,7 @@ sv:
         extended:
           debates: Debatter
           debates_explanation: Debattera och diskutera, dela dina åsikter och berika de relevanta ämnena.
-          how_to_participate: Hur deltar jag i en dialog?
+          how_to_participate: Hur deltar jag i en process?
           meetings: Möten
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
           more_info: Mer information
@@ -1069,8 +1073,8 @@ sv:
         topics: Ämnesområden
       participatory_space:
         metrics:
-          headline: Metrik
-          link: Visa alla metrik
+          headline: Deltagande i siffror
+          link: Visa allt
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
@@ -1136,17 +1140,17 @@ sv:
       create:
         error: Det gick inte att stämma in.
     scopes:
-      global: Global omfattning
+      global: Global indelning
       picker:
         cancel: Avbryt
-        change: Ändra valt omfång
+        change: Ändra indelning
         choose: Välj
-        currently_selected: Nuvarande valt omfång
+        currently_selected: Vald indelning
         title: Välj %{field}
-      prompt: Välj en omfattning
-      scopes: Omfattningar
+      prompt: Välj en indelning
+      scopes: Indelningar
       scopes_picker_input:
-        select_scope: 'Välj ett omfång (nuvarande: %{current})'
+        select_scope: 'Välj indelning (nuvarande: %{current})'
     search:
       name: Sök
       results: Sökresultat
@@ -1210,7 +1214,7 @@ sv:
         filters:
           area: Område
           areas: Områden
-          scope: Omfång
+          scope: Indelning
           select_an_area: Välj ett område
       progress: Framsteg
       public_participation:
@@ -1241,7 +1245,7 @@ sv:
       users_count: Deltagare
     tags:
       filter_results_for_category: 'Filtrera resultat för kategori: %{resource}'
-      filter_results_for_scope: 'Filtrera resultat för omfattning: %{resource}'
+      filter_results_for_scope: 'Filtrera resultat: %{resource}'
     translation_bar:
       help_text: "<strong>OBS:</strong> Innehåll översattes kanske automatiskt och inte är 100% korrekt."
       show_original: Visa originaltexten
@@ -1263,6 +1267,7 @@ sv:
     user_interests:
       show:
         my_interests: Mina intressen
+        no_scopes: Organisationen har inga indelningar än!
         select_your_interests: Välj ämnen du är intresserad av för att få information om relevanta händelser under fliken Tidslinje på din profilsida.
         update_my_interests: Uppdatera mina intressen
       update:
@@ -1423,7 +1428,7 @@ sv:
         urlLabel: Video-URL
     inputDialog:
       buttons:
-        cancel: Avbryta
+        cancel: Avbryt
         remove: Ta bort
         save: Spara
     toolbar:
@@ -1471,6 +1476,7 @@ sv:
     messages:
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
       content_type_allowlist_error: ogiltig filtyp
+      cycle_detected: överordnade indelningar kan inte vara samma som underindelningarna
       expired: har förfallit, men du kan begära en ny
       file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
       invalid_time_zone: är inte en giltig tidszon
