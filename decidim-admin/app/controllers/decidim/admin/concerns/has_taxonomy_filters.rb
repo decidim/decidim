@@ -101,7 +101,7 @@ module Decidim
           end
 
           def root_taxonomies
-            @root_taxonomies ||= current_organization.taxonomies.where(parent_id: nil)
+            @root_taxonomies ||= current_organization.taxonomies.roots
           end
 
           # Implement and return a valid (registered) participatory space manifest as a symbol (ie: :assemblies)

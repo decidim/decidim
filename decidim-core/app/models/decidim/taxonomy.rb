@@ -39,6 +39,7 @@ module Decidim
     validate :validate_max_children_levels
 
     default_scope { order(:weight) }
+    scope :roots, -> { where(parent_id: nil) }
 
     ransacker_i18n :name
 

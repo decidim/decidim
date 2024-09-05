@@ -218,14 +218,6 @@ module Decidim
                          label: decidim_sanitize_translated(taxonomy_filter.name),
                          id: taxonomy_filter.id)
           end
-          # TODO: to remove after completing taxonomization EPIC!
-          # if current_component.has_subscopes?
-          #   items.append(method: :with_any_scope, collection: filter_scopes_values, label: t("decidim.proposals.proposals.filters.scope"), id: "scope")
-          # end
-          # TODO: to remove after completing taxonomization EPIC!
-          # if current_component.categories.any?
-          #   items.append(method: :with_any_category, collection: filter_categories_values, label: t("decidim.proposals.proposals.filters.category"), id: "category")
-          # end
           if component_settings.official_proposals_enabled
             items.append(method: :with_any_origin, collection: filter_origin_values, label: t("decidim.proposals.proposals.filters.origin"), id: "origin")
           end

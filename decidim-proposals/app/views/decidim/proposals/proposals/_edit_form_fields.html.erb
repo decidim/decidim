@@ -37,20 +37,9 @@
 <% end %>
 
 <% if @form.taxonomy_filters&.any? %>
-  <div id="panel-taxonomies" class="card-section">
   <% @form.taxonomy_filters.each do |filter| %>
-    <div class="row column">
-      <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
-    </div>
+    <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
   <% end %>
-<% end %>
-
-<% if @form.categories&.any? %>
-  <%= form.categories_select :category_id, @form.categories, include_blank: t("decidim.proposals.proposals.edit.select_a_category") %>
-<% end %>
-
-<% if current_component.has_subscopes? %>
-  <%= scopes_select_field form, :scope_id, root: current_component.scope %>
 <% end %>
 
 <% if component_settings.attachments_allowed? && (new_proposal || @proposal) %>
