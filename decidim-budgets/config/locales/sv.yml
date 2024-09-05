@@ -11,7 +11,7 @@ sv:
       project:
         budget_amount: Belopp
         decidim_category_id: Kategori
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         description: Beskrivning
         proposal_ids: Relaterade förslag
         proposals: Förslag
@@ -92,6 +92,7 @@ sv:
             actions: Åtgärder
             cancel: Avbryt
             change_category: Ändra kategori
+            change_scope: Ändra indelning
             finished_orders: Avslutade omröstningar
             pending_orders: Pågående omröstningar
             selected: Valda
@@ -104,6 +105,9 @@ sv:
           update:
             invalid: Det gick inte att uppdatera projektet
             success: Projektet har uppdaterats
+          update_scope:
+            invalid: 'De här projekten tillhörde redan indelningen %{subject_name}: %{projects}.'
+            success: 'Projekten uppdaterades till %{subject_name}: %{projects}.'
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen till projekten
@@ -166,7 +170,7 @@ sv:
           fields:
             category: Kategori
             id: ID
-            scope: Omfång
+            scope: Indelning
             title: Titel
       order_summary_mailer:
         order_summary:
@@ -227,7 +231,7 @@ sv:
           title: Du har ännu inte röstat
         filters:
           category: Kategori
-          scope: Omfång
+          scope: Indelning
           search: Sök
           status: Status
           status_values:
