@@ -2,7 +2,7 @@ sv:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Relaterade grupper
+        assemblies_ids: Relaterade samråd
         available_slots: Tillgängliga platser
         banner_image: Bannerbild
         copy_categories: Kopiera kategorier
@@ -16,7 +16,7 @@ sv:
         location: Plats
         main_logo: Logotyp
         objectives: Mål
-        participatory_processes_ids: Relaterade dialoger
+        participatory_processes_ids: Relaterade deltagandeprocesser
         promoted: Uppmärksammad
         published_at: Publicerad
         registration_terms: Villkor för registrering
@@ -473,8 +473,8 @@ sv:
         details: Detaljer
         introduction: Introduktion
         objectives: Mål
-        related_assemblies: Relaterade grupper
-        related_participatory_processes: Relaterade dialoger
+        related_assemblies: Relaterade samråd
+        related_participatory_processes: Relaterade deltagandeprocesser
     events:
       conferences:
         conference_registration_confirmed:
