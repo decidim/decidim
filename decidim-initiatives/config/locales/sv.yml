@@ -6,7 +6,7 @@ sv:
         answer: Svar
         answer_url: Svars URL
         area_id: Område
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         decidim_user_group_id: Författare
         description: Beskrivning
         hashtag: Hashtag
@@ -43,7 +43,7 @@ sv:
         undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
         validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
       initiatives_type_scope:
-        decidim_scopes_id: Omfång
+        decidim_scopes_id: Indelningar
       initiatives_vote:
         date_of_birth: Födelsedatum
         document_number: Dokumentnummer
@@ -132,7 +132,7 @@ sv:
             initiative_title: Initiativtitel
             name_and_surname: Namn och efternamn
             postal_code: Postnummer
-            scope: Omfång
+            scope: Indelning
             time_and_date: Tid och datum
             timestamp: Tidsstämpel
       titles:
@@ -435,7 +435,7 @@ sv:
           area: Område
           author: Författare
           myself: Mina initiativ
-          scope: Omfattning
+          scope: Indelning
           search: Sök
           state: Status
           type: Typ
