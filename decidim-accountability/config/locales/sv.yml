@@ -53,10 +53,10 @@ sv:
             download_export: Ladda ner exporten som CSV-fil
             import: Importera
             info: |
-              <p>Vi rekommenderar att du följer dessa steg:</p>
+              <p>Vi rekommenderar att du följer de här stegen:</p>
               <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Skapa statusarna för de resultat</a> som du vill lägga till</li>
-              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> via denna administratörspanel innan du använder Import, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
+              <li><a href='%{link_new_status}' target='_blank'>Skapa status för de resultat</a> som du vill lägga till</li>
+              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> från administratörspanelen innan du importerar, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
               <li>%{link_export_csv}</li>
               <li>Genomför ändringarna lokalt. Du kan endast ändra följande kolumner i CSV-filen:
               <ul>
