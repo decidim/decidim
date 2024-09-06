@@ -104,12 +104,12 @@ en:
         one: Proposal
         other: Proposals
       decidim/proposals/proposal/budget_text: The proposal %{link} was created
+      decidim/proposals/proposal/import_from_proposal_text: 'It became this proposal:'
       decidim/proposals/proposal/import_to_proposal_text: This proposal was created
-      decidim/proposals/proposal/import_from_proposal_text: ADD THE PROPER TEXT HERE
-      decidim/proposals/proposal/merge_to_proposal_text: 'It became this proposal:'
-      decidim/proposals/proposal/merge_from_proposal_text: 'ADD THE PROPER TEXT HERE:'
-      decidim/proposals/proposal/split_to_proposal_text: 'This proposal was created:'
+      decidim/proposals/proposal/merge_from_proposal_text: 'It became this proposal:'
+      decidim/proposals/proposal/merge_to_proposal_text: 'This proposal was created:'
       decidim/proposals/proposal/split_from_proposal_text: 'It became this proposal:'
+      decidim/proposals/proposal/split_to_proposal_text: 'This proposal was created:'
       decidim/proposals/proposal_note:
         one: Note
         other: Notes
@@ -793,8 +793,9 @@ en:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
       creation:
-        imported_and_splitted_text: It became this proposal
+        imported_text: It became this proposal
         merged_text: They became this proposal
+        splitted_text: It became this proposal
         text: This proposal was created
       destroy_draft:
         error: There was a problem deleting the collaborative draft.

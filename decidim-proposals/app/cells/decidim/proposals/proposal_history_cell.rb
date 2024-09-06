@@ -71,10 +71,12 @@ module Decidim
       end
 
       def add_proposal_creation_item(items)
-        creation_text = if history_items_contains?(:merged_from_component)
+        creation_text = if history_items_contains?(:merged_to_component)
                           t("decidim.proposals.creation.merged_text")
                         elsif history_items_contains?(:splitted_to_component)
-                          t("decidim.proposals.creation.imported_and_splitted_text")
+                          t("decidim.proposals.creation.splitted_text")
+                        elsif history_items_contains?(:copied_to_component)
+                          t("decidim.proposals.creation.imported_text")
                         else
                           t("decidim.proposals.creation.text")
                         end
