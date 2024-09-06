@@ -64,6 +64,21 @@ export default class CommentsComponent {
   }
 
   /**
+     * Adds the behaviour for the drop down order section within comments.
+     * @public
+     * @returns {Void} - Returns nothing
+     */
+  dropdownBehaviour() {
+    const $orderSelect = this.$element.find("#order-select");
+
+    if ($orderSelect.length) {
+      $orderSelect.on("change", (event) => {
+        $(event.currentTarget).closest("form").submit();
+      });
+    }
+  }
+
+  /**
    * Adds a new thread to the comments section.
    * @public
    * @param {String} threadHtml - The HTML content for the thread.

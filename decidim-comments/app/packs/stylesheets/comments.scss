@@ -22,7 +22,7 @@
   }
 
   &__header {
-    @apply flex flex-col md:flex-row md:items-center gap-x-2 mb-4;
+    @apply flex justify-between md:flex-row md:items-center mb-4;
   }
 
   .author__avatar-container {
@@ -195,7 +195,7 @@
   }
 
   &-order-by {
-    @apply ml-auto grid grid-cols-4 place-items-center mt-4 md:mt-0;
+    @apply ml-auto flex place-items-center md:mt-0;
   }
 
   &__actions {
