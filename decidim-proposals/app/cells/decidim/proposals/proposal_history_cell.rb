@@ -59,10 +59,14 @@ module Decidim
         return if resources.blank?
 
         resources.each do |resource|
+          if text_key == "decidim/proposals/proposal/import_to_proposal_text"
+            link = link_to(decidim_sanitize_translated(resource.title[I18n.locale.to_s]), resource_locator(resource).path,
+                           class: "underline decoration-current text-secondary font-semibold")
+          end
           items << {
             id: "#{link_name}_#{resource.id}",
             date: resource.updated_at,
-            text: t(text_key, scope: "activerecord.models", count: 1),
+            text: link ? t(text_key, scope: "activerecord.models", link:) : t(text_key, scope: "activerecord.models"),
             icon: resource_type_icon_key(icon_key),
             url: resource_locator(resource).path,
             resource:
