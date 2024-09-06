@@ -18,9 +18,9 @@ module Decidim
       end
 
       def url_extra_params
+        return options[:url_extra_params] if options[:url_extra_params]
         return {} unless defined?(current_component)
         return {} if current_component == meeting.component
-        return {} if current_component.manifest_name == "accountability"
 
         { previous_space: "#{current_space.class}##{current_space.id}" }
       end
