@@ -39,7 +39,7 @@ module Decidim
                        .published
                        .not_hidden
                        .only_amendables
-                       .includes(:category, :scope, :attachments, :coauthorships)
+                       .includes(:taxonomies, :attachments, :coauthorships)
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
@@ -207,9 +207,7 @@ module Decidim
           with_any_origin: nil,
           activity: "all",
           with_any_taxonomy: nil,
-          with_any_category: nil,
           with_any_state: default_states,
-          with_any_scope: nil,
           related_to: "",
           type: "all"
         }

@@ -21,6 +21,21 @@ module Decidim
       validate :no_root_taxonomies
       validate :taxonomies_belong_to_organization
 
+      scope :with_taxonomy, ->(taxonomy_id) { includes(:taxonomy).references(:decidim_taxonomies).where("? = ANY(decidim_taxonomies.part_of)", taxonomy_id) }
+
+      scope :with_any_taxonomy, lambda { |*original_taxonomy_ids|
+        taxonomy_ids = original_taxonomy_ids.flatten
+        return self if taxonomy_ids.include?("all")
+
+        clean_taxonomy_ids = taxonomy_ids
+
+        conditions = []
+        conditions << "#{table_name}.decidim_taxonomy_id IS NULL" if clean_taxonomy_ids.delete("global")
+        conditions.concat(["? = ANY(decidim_taxonomies.part_of)"] * clean_taxonomy_ids.count) if clean_taxonomy_ids.any?
+
+        includes(:taxonomies).references(:decidim_taxonomies).where(Arel.sql(conditions.join(" OR ")).to_s, *clean_taxonomy_ids.map(&:to_i))
+      }
+
       private
 
       def no_root_taxonomies

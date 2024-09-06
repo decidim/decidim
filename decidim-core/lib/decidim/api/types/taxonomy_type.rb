@@ -11,9 +11,11 @@ module Decidim
       field :children, [Decidim::Core::TaxonomyType], "The children of this taxonomy.", null: false
       field :parent, Decidim::Core::TaxonomyType, "The parent of this taxonomy.", null: true
 
+      # rubocop:disable Naming/PredicateName
       def is_root
         object.root?
       end
+      # rubocop:enable Naming/PredicateName
     end
   end
 end

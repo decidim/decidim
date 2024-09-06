@@ -10,6 +10,8 @@ module Decidim
     include Decidim::Traceable
 
     before_create :set_default_weight
+    before_validation :update_part_of, on: :update
+    after_create_commit :create_part_of
 
     translatable_fields :name
 
@@ -83,6 +85,23 @@ module Decidim
       return if weight.present?
 
       self.weight = Taxonomy.where(parent_id:).count
+    end
+
+    def create_part_of
+      build_part_of
+      save if changed?
+    end
+
+    def update_part_of
+      build_part_of
+    end
+
+    def build_part_of
+      if parent
+        part_of.clear.append(id).concat(parent.reload.part_of)
+      else
+        part_of.clear.append(id)
+      end
     end
 
     def validate_max_children_levels
