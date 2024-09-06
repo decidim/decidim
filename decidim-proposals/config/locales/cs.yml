@@ -171,6 +171,7 @@ cs:
               days: Dní
               hours: Hodin
               minutes: Minut
+            geocoding_enabled: Mapy povoleny
             minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_body_template: Šablona těla nového návrhu
             new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
@@ -194,6 +195,7 @@ cs:
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
             threshold_per_proposal: Prah na návrh
+            vote_limit: Limit hlasů na účastníka
           step:
             amendment_creation_enabled: Umožnit pozměnění a doplnění
             amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
@@ -233,12 +235,24 @@ cs:
     events:
       proposals:
         admin:
+          proposal_assigned_to_valuator:
+            email_subject: Byl jste přiřazen jako hodnotitel k návrhu %{resource_title}.
           proposal_note_created:
             email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
             email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
+          proposal_note_mentioned:
+            email_subject: Někdo vás zmínil v poznámce k návrhu %{resource_title}.
+          proposal_note_replied:
+            email_intro: '%{author_name} odpověděl na vaši soukromou poznámku v %{resource_title}. Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>.'
+            email_outro: Obdrželi jste toto oznámení, protože jste autorem poznámky.
         coauthor_invited:
           actions:
             accept: Přijmout
+            decline: Odmítnout
+          email_intro: 'Byli jste pozváni jako spoluautor návrhu "%{resource_title}". Pozvánku můžete přijmout nebo odmítnout na této stránce:'
+          email_outro: Obdrželi jste toto oznámení, protože autor návrhu chce uznat vaše příspěvky tím, že se stanete spoluautorem.
+          email_subject: Byli jste pozváni, abyste se stal spoluautorem návrhu "%{resource_title} "
+          notification_title: <a href="%{author_path}">%{author_name}</a> by vás chtěl pozvat jako spoluautora návrhu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel konceptu spolupráce <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Obdrželi jste toto oznámení, protože jste spolupracovníkem <a href="%{resource_url}">%{resource_title}</a>.
@@ -334,7 +348,7 @@ cs:
         proposal_votes:
           conditions:
             - Procházejte a strávte nějaký čas čtením nápadů jiných lidí
-            - 
+            - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
         proposals:
           conditions:
             - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
@@ -374,6 +388,8 @@ cs:
         edit_proposal: Upravit návrh
         edit_proposal_state: Upravit stav
         import: Import z jiné součásti
+        mark_as_coauthor: Označit jako spoluautora
+        mark_as_coauthor_confirm: Opravdu chcete tohoto uživatele označit jako spoluautora? Příjemce obdrží oznámení, aby přijal nebo odmítl pozvánku.
         new: Nový návrh
         new_proposal_state: Nový status
         participatory_texts: Participující texty
@@ -466,6 +482,8 @@ cs:
           form:
             note: Poznámka
             submit: Předložit
+          reply:
+            error: Při vytváření poznámky k tomuto návrhu došlo k chybě.
           title: Soukromé poznámky
         proposal_states:
           create:
@@ -502,6 +520,7 @@ cs:
             select_a_meeting: Vyberte schůzku
           index:
             actions: Akce
+            apply_answer_template: Použít šablonu odpovědi
             assign_to_valuator: Přiřadit hodnotiteli
             assign_to_valuator_button: Přiřadit
             cancel: Zrušit
@@ -509,6 +528,7 @@ cs:
             change_scope: Změnit rozsah
             merge: Sloučit do nového
             merge_button: Spojit
+            no_templates_available: Žádné šablony nejsou k dispozici
             publish: Publikovat
             publish_answers: Publikovat odpovědi
             select_component: Vyberte součást
@@ -577,6 +597,7 @@ cs:
           create:
             success: Návrhy byly úspěšně přiřazené hodnotiteli.
           delete:
+            invalid: Při odebírání návrhů od hodnotitele došlo k chybě.
             success: Hodnotitel byl úspěšně odebrán z návrhů.
       admin_log:
         proposal:
@@ -722,6 +743,19 @@ cs:
       destroy_draft:
         error: Došlo k chybám s vymazáním návrhového návrhu.
         success: Koncept návrhu byl úspěšně smazán.
+      invite_coauthors:
+        cancel:
+          error: Při rušení pozvánky spoluautora došlo k chybě.
+          success: Pozvánka spoluautora byla úspěšně zrušena.
+        create:
+          error: Při pozvání spoluautora došlo k chybě.
+          success: "%{author_name} byl úspěšně pozván jako spoluautor."
+        destroy:
+          error: Při odmítání pozvánky došlo k chybě.
+          success: Pozvánka byla zamítnuta.
+        update:
+          error: Při přijímání pozvánky došlo k chybě.
+          success: Pozvánka byla přijata.
       last_activity:
         new_proposal: 'Nový návrh:'
         proposal_updated: 'Návrh aktualizován:'
@@ -751,6 +785,9 @@ cs:
         buttons:
           amend: Pozměnit
           comment: Komentář
+      proposal_votes:
+        create:
+          error: Při hlasování o návrhu došlo k chybě.
       proposals:
         dynamic_map_instructions:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
@@ -767,6 +804,7 @@ cs:
           discard: Zrušte tento návrh
           discard_confirmation: Opravdu chcete tuto návrh zakázat?
           send: Náhled
+          title: Upravit koncept návrhu
         edit_form_fields:
           marker_added: Značka přidána na mapu.
         filters:
@@ -789,6 +827,7 @@ cs:
             few: "%{count} návrhů"
             many: "%{count} návrhů"
             other: "%{count} návrhů"
+          grid_mode: Mřížka
           list_mode: Režim seznamu
           new_proposal: Nový návrh
           see_all: Zobrazit všechny návrhy
@@ -847,9 +886,16 @@ cs:
           withdraw_proposal: Návrh stáhnout
         update:
           title: Aktualizovat návrh
+        vote_button:
+          already_voted: Již hlasovalo
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: Každý návrh může sshromáždit více než %{limit} hlasů
+          minimum_votes_per_user:
+            given_enough_votes: Dali jste dostatek hlasů.
           proposal_limit:
             description: Můžete vytvořit až %{limit} návrhů.
+          title: 'Hlasy podléhají těmto pravidlům:'
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům
