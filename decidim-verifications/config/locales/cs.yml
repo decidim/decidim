@@ -77,6 +77,11 @@ cs:
             - Na adresu zasíláte dopis s ověřovacím kódem.
             - Označte dopis jako odeslaný.
             - Jakmile označíte dopis jako odeslaný, uživatel bude schopen kód zadat a tím se ověřit.
+        sms:
+          help:
+            - Účastníci požádají o zaslání ověřovacího kódu na svůj telefon.
+            - Musí zaadat kód, který bude ověřen.
+            - Pokud kód neobdrží, mohou o něj znovu požádat.
       csv_census:
         explanation: Získejte ověření pomocí členství v organizaci.
         name: Členství organizace
