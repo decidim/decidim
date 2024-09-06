@@ -189,6 +189,7 @@ cs:
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
             threshold_per_proposal: Prah na návrh
+            vote_limit: Limit hlasů na účastníka
           step:
             amendment_creation_enabled: Umožnit pozměnění a doplnění
             amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
@@ -328,7 +329,7 @@ cs:
         proposal_votes:
           conditions:
             - Procházejte a strávte nějaký čas čtením nápadů jiných lidí
-            - 
+            - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
         proposals:
           conditions:
             - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
@@ -752,6 +753,9 @@ cs:
         buttons:
           amend: Pozměnit
           comment: Komentář
+      proposal_votes:
+        create:
+          error: Při hlasování o návrhu došlo k chybě.
       proposals:
         dynamic_map_instructions:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
@@ -768,6 +772,7 @@ cs:
           discard: Zrušte tento návrh
           discard_confirmation: Opravdu chcete tuto návrh zakázat?
           send: Náhled
+          title: Upravit koncept návrhu
         edit_form_fields:
           marker_added: Značka přidána na mapu.
         filters:
@@ -790,6 +795,7 @@ cs:
             few: "%{count} návrhů"
             many: "%{count} návrhů"
             other: "%{count} návrhů"
+          grid_mode: Mřížka
           list_mode: Režim seznamu
           new_proposal: Nový návrh
           see_all: Zobrazit všechny návrhy
@@ -848,9 +854,16 @@ cs:
           withdraw_proposal: Návrh stáhnout
         update:
           title: Aktualizovat návrh
+        vote_button:
+          already_voted: Již hlasovalo
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: Každý návrh může sshromáždit více než %{limit} hlasů
+          minimum_votes_per_user:
+            given_enough_votes: Dali jste dostatek hlasů.
           proposal_limit:
             description: Můžete vytvořit až %{limit} návrhů.
+          title: 'Hlasy podléhají těmto pravidlům:'
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům
