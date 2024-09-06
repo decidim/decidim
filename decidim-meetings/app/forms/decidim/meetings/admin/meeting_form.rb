@@ -79,9 +79,7 @@ module Decidim
           end
         end
 
-        def private_non_transparent_space?
-          current_component.private_non_transparent_space?
-        end
+        delegate :private_non_transparent_space?, to: :current_component
 
         def number_of_services
           services.size
