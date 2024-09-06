@@ -943,8 +943,6 @@ en:
             description: Each proposal can accumulate more than %{limit} votes
           minimum_votes_per_user:
             description: You have to distribute a minimum of %{votes} supports among different proposals so that your supports are taken into account.
-            given_enough_votes: You have given enough votes.
-            votes_remaining: You have to vote %{remaining_votes} more proposals for your votes to be taken into account.
           proposal_limit:
             description: You can create up to %{limit} proposals.
           threshold_per_proposal:
