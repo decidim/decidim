@@ -9,8 +9,5 @@
       <% end %>
     </select>
     <input type="hidden" name="commentable_gid" value="<%= model.to_signed_global_id.to_s %>">
-    <noscript>
-      <%= submit_tag "Update Order" %>
-    </noscript>
   <% end %>
 </div>
