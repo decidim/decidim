@@ -3,7 +3,7 @@
     <label for="order-select" class="hidden">Order comments by</label>
     <select name="order" id="order-select" class="comment-order-by__dropdown" onchange="this.form.submit()">
       <% available_orders.each do |order_value| %>
-        <option value="<%= order_value %>" <%= 'selected' if order_value == order %>>
+        <option value="<%= order_value %>" <%= "selected" if order_value == order %>>
           <%= t("decidim.components.comment_order_selector.order.#{order_value}") %>
         </option>
       <% end %>
