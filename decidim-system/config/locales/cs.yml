@@ -266,6 +266,8 @@ cs:
       system_checks:
         active_job_queue:
           decidim_documentation: Dokumentace Decidim
+        secret_key:
+          success: Tajný klíč je správně nakonfigurován.
       titles:
         dashboard: Ovládací panel
         decidim: Decidim
