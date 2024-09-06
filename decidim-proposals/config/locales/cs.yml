@@ -793,6 +793,7 @@ cs:
           discard: Zrušte tento návrh
           discard_confirmation: Opravdu chcete tuto návrh zakázat?
           send: Náhled
+          title: Upravit koncept návrhu
         filters:
           activity: Moje aktivita
           all: Vše
