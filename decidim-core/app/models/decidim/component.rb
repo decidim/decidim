@@ -99,12 +99,12 @@ module Decidim
     end
 
     def private_non_transparent_space?
-      return true unless participatory_space.private_space?
+      return false unless participatory_space.private_space?
 
       if participatory_space.respond_to?(:is_transparent?)
         !participatory_space.is_transparent?
       else
-        false
+        true
       end
     end
 
