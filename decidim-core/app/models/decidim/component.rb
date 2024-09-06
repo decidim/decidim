@@ -98,6 +98,16 @@ module Decidim
       participatory_space.can_participate?(user)
     end
 
+    def private_non_transparent_space?
+      return true unless participatory_space.private_space?
+
+      if participatory_space.respond_to?(:is_transparent?)
+        !participatory_space.is_transparent?
+      else
+        false
+      end
+    end
+
     # Public: Public URL for component with given share token as query parameter
     def shareable_url(share_token)
       EngineRouter.main_proxy(self).root_path(self, share_token: share_token.token)

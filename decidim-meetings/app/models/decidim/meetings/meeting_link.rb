@@ -15,15 +15,7 @@ module Decidim
                    .joins(:meeting_links)
                    .where("decidim_meetings_meeting_links.component": component)
                    .filter do |meeting|
-          space = meeting.component.participatory_space
-
-          next true unless space.private_space?
-
-          if space.respond_to?(:is_transparent?)
-            space.is_transparent?
-          else
-            false
-          end
+          !meeting.component.private_non_transparent_space?
         end
 
         Meeting.where(id: meetings.map(&:id))
