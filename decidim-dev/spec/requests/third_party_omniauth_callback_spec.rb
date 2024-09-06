@@ -24,7 +24,7 @@ RSpec.describe "Omniauth callback" do
 
   let(:oauth_hash) do
     {
-      provider: "dev",
+      provider: "test",
       uid:,
       info: {
         name: "Custom Auth",
@@ -39,7 +39,7 @@ RSpec.describe "Omniauth callback" do
   end
 
   describe "POST callback" do
-    let(:request_path) { "/users/auth/dev/callback" }
+    let(:request_path) { "/users/auth/test/callback" }
 
     let(:uid) { "12345" }
     let(:email) { "user@custom.example.org" }
