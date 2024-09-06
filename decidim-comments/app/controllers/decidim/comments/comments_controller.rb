@@ -7,6 +7,7 @@ module Decidim
     class CommentsController < Decidim::Comments::ApplicationController
       include Decidim::ResourceHelper
       include Decidim::SkipTimeoutable
+      include Decidim::Comments::Orderable
 
       prepend_before_action :skip_timeout, only: :index
       before_action :authenticate_user!, only: [:create]
