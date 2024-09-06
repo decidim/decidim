@@ -59,7 +59,7 @@ module Decidim
         def links_for(proposal)
           return proposal unless form.same_component?
 
-          proposal.linked_resources(:proposals, %w(copied_from_component splitted_from_component merged_from_component))
+          proposal.linked_resources(:proposals, "splitted_from_component")
         end
       end
     end

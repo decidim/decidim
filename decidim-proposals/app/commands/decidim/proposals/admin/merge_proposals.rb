@@ -46,7 +46,7 @@ module Decidim
 
         def previous_links
           @previous_links ||= form.proposals.flat_map do |proposal|
-            proposal.linked_resources(:proposals, %w(copied_from_component splitted_from_component merged_from_component))
+            proposal.linked_resources(:proposals, "merged_from_component")
           end
         end
 

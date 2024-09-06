@@ -104,9 +104,12 @@ en:
         one: Proposal
         other: Proposals
       decidim/proposals/proposal/budget_text: The proposal %{link} was created
-      decidim/proposals/proposal/import_proposal_text: This proposal was created
-      decidim/proposals/proposal/merge_proposal_text: 'It became this proposal:'
-      decidim/proposals/proposal/split_proposal_text: 'This proposal was created:'
+      decidim/proposals/proposal/import_to_proposal_text: This proposal was created
+      decidim/proposals/proposal/import_from_proposal_text: ADD THE PROPER TEXT HERE
+      decidim/proposals/proposal/merge_to_proposal_text: 'It became this proposal:'
+      decidim/proposals/proposal/merge_from_proposal_text: 'ADD THE PROPER TEXT HERE:'
+      decidim/proposals/proposal/split_to_proposal_text: 'This proposal was created:'
+      decidim/proposals/proposal/split_from_proposal_text: 'It became this proposal:'
       decidim/proposals/proposal_note:
         one: Note
         other: Notes

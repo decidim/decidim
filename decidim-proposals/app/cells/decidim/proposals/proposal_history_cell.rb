@@ -27,19 +27,35 @@ module Decidim
         return @history_items if @history_items.present?
 
         @history_items = []
-        add_linked_resources_items(@history_items, :projects, "included_proposals", "decidim/budgets/project/text", "Decidim::Budgets::Project")
-        add_linked_resources_items(@history_items, :results, "included_proposals", "decidim/accountability/result/text", "Decidim::Accountability::Result")
-        add_linked_resources_items(@history_items, :meetings, "proposals_from_meeting", "decidim/meetings/meeting/text", "Decidim::Meetings::Meeting")
-        add_linked_resources_items(@history_items, :proposals, "copied_from_component", "decidim/proposals/proposal/import_proposal_text", "Decidim::Proposals::Proposal")
-        add_linked_resources_items(@history_items, :proposals, "splitted_from_component", "decidim/proposals/proposal/split_proposal_text", "Decidim::Proposals::Proposal")
-        add_linked_resources_items(@history_items, :proposals, "merged_from_component", "decidim/proposals/proposal/merge_proposal_text", "Decidim::Proposals::Proposal")
+        # linked resources generate from this proposal
+        resources = @model.linked_resources_from(:proposals, "copied_from_component")
+        add_linked_resources_items(@history_items, resources, "copied_from_component", "decidim/proposals/proposal/import_from_proposal_text", "Decidim::Proposals::Proposal")
+        resources = @model.linked_resources_from(:proposals, "splitted_from_component")
+        add_linked_resources_items(@history_items, resources, "splitted_from_component", "decidim/proposals/proposal/split_from_proposal_text", "Decidim::Proposals::Proposal")
+        resources = @model.linked_resources_from(:proposals, "merged_from_component")
+        add_linked_resources_items(@history_items, resources, "merged_from_component", "decidim/proposals/proposal/merge_from_proposal_text", "Decidim::Proposals::Proposal")
+
+        resources = @model.linked_resources(:projects, "included_proposals")
+        add_linked_resources_items(@history_items, resources, "included_proposals", "decidim/budgets/project/text", "Decidim::Budgets::Project")
+        resources = @model.linked_resources(:results, "included_proposals")
+        add_linked_resources_items(@history_items, resources, "included_proposals", "decidim/accountability/result/text", "Decidim::Accountability::Result")
+        resources = @model.linked_resources(:meetings, "proposals_from_meeting")
+        add_linked_resources_items(@history_items, resources, "proposals_from_meeting", "decidim/meetings/meeting/text", "Decidim::Meetings::Meeting")
+
+        # linked resource generate to this proposal
+        resources = @model.linked_resources_to(:proposals, "copied_from_component")
+        add_linked_resources_items(@history_items, resources, "copied_to_component", "decidim/proposals/proposal/import_to_proposal_text", "Decidim::Proposals::Proposal")
+        resources = @model.linked_resources_to(:proposals, "splitted_from_component")
+        add_linked_resources_items(@history_items, resources, "splitted_to_component", "decidim/proposals/proposal/split_to_proposal_text", "Decidim::Proposals::Proposal")
+        resources = @model.linked_resources_to(:proposals, "merged_from_component")
+        add_linked_resources_items(@history_items, resources, "merged_to_component", "decidim/proposals/proposal/merge_to_proposal_text", "Decidim::Proposals::Proposal")
+
         add_proposal_creation_item(@history_items) if @history_items.any?
 
         @history_items.sort_by! { |item| item[:date] }
       end
 
-      def add_linked_resources_items(items, resource_type, link_name, text_key, icon_key)
-        resources = @model.linked_resources(resource_type, link_name)
+      def add_linked_resources_items(items, resources, link_name, text_key, icon_key)
         return if resources.blank?
 
         resources.each do |resource|
@@ -57,7 +73,7 @@ module Decidim
       def add_proposal_creation_item(items)
         creation_text = if history_items_contains?(:merged_from_component)
                           t("decidim.proposals.creation.merged_text")
-                        elsif history_items_contains?(:splitted_from_component) || history_items_contains?(:copied_from_component)
+                        elsif history_items_contains?(:splitted_to_component)
                           t("decidim.proposals.creation.imported_and_splitted_text")
                         else
                           t("decidim.proposals.creation.text")
