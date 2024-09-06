@@ -14,6 +14,7 @@ module Decidim
       helper Decidim::ResourceVersionsHelper
       helper Decidim::ShortLinkHelper
       include Decidim::AttachmentsHelper
+      include Decidim::SanitizeHelper
 
       helper_method :meetings, :meeting, :registration, :search, :tab_panel_items
 
@@ -185,8 +186,8 @@ module Decidim
           "meetings.show.redirect_notice",
           scope: "decidim.meetings",
           previous_space_url: request.referer,
-          previous_space_name: translated_attribute(previous_space.title),
-          current_space_name: translated_attribute(current_component.participatory_space.title)
+          previous_space_name: decidim_escape_translated(previous_space.title),
+          current_space_name: decidim_escape_translated(current_component.participatory_space.title)
         )
       end
 
