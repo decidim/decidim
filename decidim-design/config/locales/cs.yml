@@ -169,6 +169,7 @@ cs:
         debate_l: Rozprava L
         debate_s: Rozprava S
         debates: Rozpravy
+        debates_cards_text: Použít jinou šablonu pro blok obrázků
         default: Výchozí
         default_description: Volání buňky bez dalších argumentů, pouze samotného uživatele.
         demo: Demo
