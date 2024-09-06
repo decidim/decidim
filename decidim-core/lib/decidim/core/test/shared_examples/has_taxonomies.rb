@@ -2,7 +2,7 @@
 
 shared_examples_for "has taxonomies" do
   describe "taxonomies" do
-    context "when valid taxomomies are assigned" do
+    context "when valid taxonomies are assigned" do
       let(:taxonomy) { create(:taxonomy, :with_parent, organization: subject.organization) }
       before do
         subject.taxonomies = [taxonomy]

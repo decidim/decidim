@@ -561,7 +561,6 @@ en:
             attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
             delete_attachment: Delete attachment
-            select_a_category: Select a category
             select_a_meeting: Select a meeting
           index:
             actions: Actions
@@ -702,7 +701,6 @@ en:
         edit:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
-          select_a_category: Please select a category
           send: Send
           title: Edit collaborative draft
         empty: There are no collaborative drafts yet
@@ -841,7 +839,6 @@ en:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
           edit_documents: Edit documents
-          select_a_category: Please select a category
           send: Send
           title: Edit proposal
         edit_draft:
