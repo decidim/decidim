@@ -30,7 +30,9 @@ module Decidim
         add_linked_resources_items(@history_items, :projects, "included_proposals", "decidim/budgets/project/text", "Decidim::Budgets::Project")
         add_linked_resources_items(@history_items, :results, "included_proposals", "decidim/accountability/result/text", "Decidim::Accountability::Result")
         add_linked_resources_items(@history_items, :meetings, "proposals_from_meeting", "decidim/meetings/meeting/text", "Decidim::Meetings::Meeting")
-        add_linked_resources_items(@history_items, :proposals, "copied_from_component", "decidim/proposals/proposal/text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, :proposals, "copied_from_component", "decidim/proposals/proposal/import_proposal_text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, :proposals, "splitted_from_component", "decidim/proposals/proposal/split_proposal_text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, :proposals, "merged_from_component", "decidim/proposals/proposal/merge_proposal_text", "Decidim::Proposals::Proposal")
         add_proposal_creation_item(@history_items) if @history_items.any?
 
         @history_items.sort_by! { |item| item[:date] }
@@ -53,12 +55,25 @@ module Decidim
       end
 
       def add_proposal_creation_item(items)
+        creation_text = if history_items_contains?(:merged_from_component)
+                          t("decidim.proposals.creation.merged_text")
+                        elsif history_items_contains?(:splitted_from_component) || history_items_contains?(:copied_from_component)
+                          t("decidim.proposals.creation.imported_and_splitted_text")
+                        else
+                          t("decidim.proposals.creation.text")
+                        end
         items << {
           id: "proposal_creation",
           date: @model.created_at,
-          text: t("decidim.proposals.creation.text"),
+          text: creation_text,
           icon: resource_type_icon_key("Decidim::Proposals::Proposal")
         }
+      end
+
+      def history_items_contains?(link_name)
+        return false if @history_items.blank?
+
+        @history_items.any? { |item| item[:id].include?(link_name.to_s) }
       end
     end
   end
