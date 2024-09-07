@@ -12,6 +12,13 @@
       </th>
     </tr>
     </thead>
+    <%#
+     If you ever reach this template as source of inspiration for a table row drag and drop functionality,
+     please divert to a simpler solution, like the one in admin components table. This is a custom implementation as
+     it has the capability of nesting elements (a draggable within a draggable) so that you can arrange the main children,
+     and the children of children
+     Please note, it is not a functionality that allows you to move a child of a node, as child of another node.
+    %>
     <tbody class="js-sortable js-draggable-root" data-draggable-handle=".js-drag-handle" data-draggable-accept-from=".js-draggable-root" data-sort-url="<%= reorder_taxonomies_path %>" role="rowgroup">
       <% if path = path_to_prev_page(collection) %>
         <tr class="draggable-taxonomy change-page" data-prev-page="<%= path %>" data-taxonomy-id="<%= collection.page(collection.prev_page).per(per_page).last&.id %>"><td colspan="2"><%= t(".to_prev_page") %></td></tr>
