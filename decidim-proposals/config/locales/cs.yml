@@ -209,6 +209,7 @@ cs:
             creation_enabled: Účastníci mohou vytvářet návrhy
             creation_enabled_readonly: Toto nastavení je zakázáno, když aktivujete funkci Participativní texty. Chcete-li návrhy nahrát jako participativní text, klikněte na tlačítko Participativní texty a postupujte podle pokynů.
             default_sort_order: Výchozí řazení návrhu
+            default_sort_order_help: Automaticky znamená, že pokud je hlasování povoleno, návrhy se zobrazují seřazené náhodně, a pokud je hlasování zablokováno, pak se zobrazují seřazené podle počtu hlasů.
             default_sort_order_options:
               automatic: Automaticky
               most_commented: Nejvíce komentované
@@ -226,6 +227,7 @@ cs:
             suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasy blokovány
             votes_enabled: Hlasování povoleno
+            votes_hidden: Skryté hlasy (pokud jsou hlasy povoleny, zaškrtnutím této položky se počet hlasů skryje)
     events:
       proposals:
         admin:
