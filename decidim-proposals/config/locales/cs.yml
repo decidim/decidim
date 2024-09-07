@@ -236,17 +236,28 @@ cs:
             votes_hidden: Skryté hlasy (pokud jsou hlasy povoleny, zaškrtnutím této položky se počet hlasů skryje)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: Byli jste přidáni jako spoluautor návrhu <a href="%{resource_path}">%{resource_title}</a>.
         admin:
           proposal_assigned_to_valuator:
+            email_intro: Byli jste přiděleni jako hodnotitel k nnávrhu "%{resource_title}". To znamená, že vám důvěřujeme, že jim v příštích dnech poskytnete zpětnou vazbu a náležitou odpověď. Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.
+            email_outro: Obdrželi jste toto oznámení, protože můžete návrh hhodnotit.
             email_subject: Byl jste přiřazen jako hodnotitel k návrhu %{resource_title}.
+            notification_title: Byli jste přiřazeni jako hodnotitel k nnávrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
           proposal_note_created:
+            email_intro: '%{author_name} vytvořil soukromou poznámku v %{resource_title}. Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.'
             email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
             email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil soukromou poznámku v <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
           proposal_note_mentioned:
+            email_intro: Byli jste zmíněni v soukromé poznámce v "%{resource_title}" od "%{author_name}"%{author_nickname}". Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.
+            email_outro: Obdrželi jste toto oznámení, protože jste byli zmíněni v soukromé poznámce.
             email_subject: Někdo vás zmínil v poznámce k návrhu %{resource_title}.
+            notification_title: Byl jste zmíněn v soukromé poznámce v <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
           proposal_note_replied:
             email_intro: '%{author_name} odpověděl na vaši soukromou poznámku v %{resource_title}. Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>.'
             email_outro: Obdrželi jste toto oznámení, protože jste autorem poznámky.
+            email_subject: "%{author_name} odpověděl na vaši soukromou poznámku v %{resource_title}."
         coauthor_invited:
           actions:
             accept: Přijmout
