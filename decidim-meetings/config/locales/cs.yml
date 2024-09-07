@@ -620,6 +620,7 @@ cs:
             title: Správa ankety
         questions:
           closed_question:
+            announcement: Odpovědi na tuto otázku byly uzavřeny.
             question: Otázka
             question_results: Výsledky
           index:
@@ -634,6 +635,7 @@ cs:
             sent: Odesláno
             statuses:
               closed: Výsledky byly odeslány (uzavřeny)
+              published: Odesláno (otevřeno)
               unpublished: Čeká na odeslání
           published_question:
             max_choices_alert: Je vybráno příliš mnoho možností
