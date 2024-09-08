@@ -381,6 +381,11 @@ cs:
           update: Aktualizovat
       dashboard:
         pending_moderations:
+          anouncement:
+            one: Je zde %{count} čekající na moderování
+            few: Jsou zde %{count} čekající na moderování
+            many: Je zde %{count} čekajících na moderování
+            other: Je tu %{count} čekajících na moderování
           goto_moderation: Přejít na globální moderaci
           title: Čekající moderování
         show:
