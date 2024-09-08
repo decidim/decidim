@@ -74,10 +74,12 @@ cs:
           attributes:
             base:
               not_official: Nejsou oficiální
+              voted: Obdrželi hlasy nebo potvrzení
         proposals_split:
           attributes:
             base:
               not_official: Nejsou oficiální
+              voted: Obdrželi hlasy nebo potvrzení
     models:
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
@@ -154,10 +156,13 @@ cs:
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
+            attachments_allowed_help: Povolením této možnosti se návrhy nastaví na režim mřížky a na kartě se objeví první obrázek.
+            can_accumulate_votes_beyond_threshold: Lze hromadit hlasy za hranicí
             collaborative_drafts_enabled: Společné koncepty povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             default_sort_order: Výchozí řazení návrhu
+            default_sort_order_help: Automaticky znamená, že pokud je hlasování povoleno, návrhy se zobrazují seřazené náhodně, a pokud je hlasování zablokováno, pak se zobrazují seřazené podle počtu hlasů.
             default_sort_order_options:
               automatic: Automaticky
               most_commented: Nejvíce komentované
@@ -167,6 +172,7 @@ cs:
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
+            edit_time: Návrhy mohou autoři upravit dříve, než uplyne tato doba
             edit_time_units:
               days: Dní
               hours: Hodin
@@ -258,6 +264,9 @@ cs:
             email_intro: '%{author_name} odpověděl na vaši soukromou poznámku v %{resource_title}. Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>.'
             email_outro: Obdrželi jste toto oznámení, protože jste autorem poznámky.
             email_subject: "%{author_name} odpověděl na vaši soukromou poznámku v %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpověděl na vaši soukromou poznámku v <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> přijal vaši pozvánku, aby se stal spoluautorem návrhu <a href="%{resource_path}">%{resource_title}</a>.
         coauthor_invited:
           actions:
             accept: Přijmout
@@ -266,6 +275,8 @@ cs:
           email_outro: Obdrželi jste toto oznámení, protože autor návrhu chce uznat vaše příspěvky tím, že se stanete spoluautorem.
           email_subject: Byli jste pozváni, abyste se stal spoluautorem návrhu "%{resource_title} "
           notification_title: <a href="%{author_path}">%{author_name}</a> by vás chtěl pozvat jako spoluautora návrhu <a href="%{resource_path}">%{resource_title}</a>.
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> odmítl vaši pozvánku, aby se stal spoluautorem návrhu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel konceptu spolupráce <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Obdrželi jste toto oznámení, protože jste spolupracovníkem <a href="%{resource_url}">%{resource_title}</a>.
@@ -343,6 +354,8 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
           email_subject: Rámec návrhu %{resource_title} byl aktualizován
           notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> byl aktualizován správcem.
+        rejected_coauthorship:
+          notification_title: Odmítli jste pozvání od <a href="%{author_path}">%{author_name}</a>, abyste se stali spoluautorem návrhu <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
     gamification:
