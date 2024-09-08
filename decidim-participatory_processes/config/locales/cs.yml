@@ -227,6 +227,11 @@ cs:
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
           cta_deprecated:
+            body_html: |-
+              Konfigurace CTA prostřednictvím fáze participativního procesu je s novým designem zastaralá.
+              Nyní se to děje na <b>vstupní stránce</b> pomocí bloku obsahu <b>Hero mapa a obrázek</b>.
+              Nechali jsme zde pro vás migraci CTA, které potřebujete. Pole <i>Cesta výzvy k akci</i> a
+              <i>Text výzvy k akci</i> bude v příští verzi odstraněn.
             title: Zastaralá CTA
           title: Úprava kroku procesu participace
           update: Aktualizace
