@@ -21,19 +21,32 @@ module Decidim
       validate :no_root_taxonomies
       validate :taxonomies_belong_to_organization
 
-      scope :with_taxonomy, ->(taxonomy_id) { includes(:taxonomy).references(:decidim_taxonomies).where("? = ANY(decidim_taxonomies.part_of)", taxonomy_id) }
+      # finds taxonomizables belonging to a specific taxonomy
+      scope :with_taxonomy, ->(taxonomy_id) { includes(:taxonomies).references(:decidim_taxonomies).where("? = ANY(decidim_taxonomies.part_of)", taxonomy_id) }
 
-      scope :with_any_taxonomy, lambda { |*original_taxonomy_ids|
-        taxonomy_ids = original_taxonomy_ids.flatten
-        return self if taxonomy_ids.include?("all")
+      # finds taxonomizables belonging to any of the taxonomies specified
+      scope :with_taxonomies, lambda { |*taxonomy_ids|
+        conditions = ["? = ANY(part_of)"] * taxonomy_ids.count
+        taxonomies = Decidim::Taxonomy.where(conditions.join(" OR "), *taxonomy_ids)
+        joins(:taxonomies).where(decidim_taxonomies: { id: taxonomies })
+      }
 
-        clean_taxonomy_ids = taxonomy_ids
+      # finds taxonomizables belonging to all groups of taxonomies specified, each group is an array of taxonomy ids that are ORed together
+      scope :with_any_taxonomies, lambda { |*taxonomy_groups|
+        return with_taxonomies(*taxonomy_groups) unless taxonomy_groups.first.is_a?(Array)
 
-        conditions = []
-        conditions << "#{table_name}.decidim_taxonomy_id IS NULL" if clean_taxonomy_ids.delete("global")
-        conditions.concat(["? = ANY(decidim_taxonomies.part_of)"] * clean_taxonomy_ids.count) if clean_taxonomy_ids.any?
+        queries = []
+        taxonomy_groups.each do |root_id, taxonomy_ids|
+          taxonomy_ids = taxonomy_ids.flatten.filter(&:present?)
+          next if taxonomy_ids.empty?
 
-        includes(:taxonomies).references(:decidim_taxonomies).where(Arel.sql(conditions.join(" OR ")).to_s, *clean_taxonomy_ids.map(&:to_i))
+          taxonomy_ids = [root_id] if taxonomy_ids.include?("all")
+
+          queries << with_taxonomies(*taxonomy_ids)
+        end
+        return self if queries.empty?
+
+        queries.reduce(:merge).distinct
       }
 
       private
