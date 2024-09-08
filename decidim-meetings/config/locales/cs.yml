@@ -378,8 +378,8 @@ cs:
             announcement_html:
               - Pokud otázka obdrží odpovědi nebo je zveřejněna/uzavřena, již ji nelze upravovat.
               - Otázku můžete kdykoliv přidat.
-              - 
-              - 
+              - Průzkum bude ukončen po zveřejnění výsledků všech vytvořených otázek.
+              - Navštivte <a href='%{admin_link}'>stránku administrace anket</a> pro odeslání dotazů a publikování výsledků.
         registrations:
           edit:
             save: Uložit
@@ -619,6 +619,7 @@ cs:
           index_admin:
             back_to_meeting: Zpět na schůzku
             title: Správa ankety
+            view_poll: Zobrazit anketu
         questions:
           closed_question:
             announcement: Odpovědi na tuto otázku byly uzavřeny.
