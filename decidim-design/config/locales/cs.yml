@@ -252,6 +252,7 @@ cs:
         usage_typography_4: Odkazy a tlačítka
         value: Hodnota
         variations: Variace
+        variations_description: Existují tři různé verze této buňky. Každý z nich lépe zapadá do kontextu, který se zobrazuje.
         variations_text: Pokud jde o druh činnosti, buňka by mohla vykazovat odlišný obsah, uvést různé zdroje, zda patří do participačního prostoru či nikoli, má autora či nikoli.
       home:
         index:
