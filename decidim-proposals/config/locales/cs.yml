@@ -185,6 +185,7 @@ cs:
             proposal_wizard_step_1_help_text: Text průvodce kroku nápovědy "Vytvořit" Návrh
             proposal_wizard_step_2_help_text: Text průvodce kroku nápovědy "Porovnat" návrhy
             proposal_wizard_step_3_help_text: Text průvodce kroku nápovědy „Dokončit“ Návrh
+            proposal_wizard_step_4_help_text: Text nápovědy ke kroku "Zveřejnit" průvodce návrhem
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
