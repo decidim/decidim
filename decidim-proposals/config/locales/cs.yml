@@ -540,6 +540,7 @@ cs:
           answer:
             success: Návrh byl úspěšně zodpovězen.
           create:
+            invalid: Při vytváření tohoto návrhu došlo k chybě.
             success: Návrh byl úspěšně vytvořen.
           edit:
             title: Návrh aktualizace
@@ -564,6 +565,7 @@ cs:
             publish: Publikovat
             publish_answers: Publikovat odpovědi
             select_component: Vyberte součást
+            select_valuators: Vyberte jednoho nebo více hodnotitelů
             selected: vybraný
             split: Rozdělit návrhy
             split_button: Rozdělit
