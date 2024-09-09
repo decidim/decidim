@@ -476,7 +476,7 @@ eu:
           apple: Gehitu Appleren egutegira
           full_details_html: Xehetasun guztiak edukitzeko, zoaz hona %{link}
           google: Gehitu Googleren egutegira
-          outlook: Ireki Outlooken egutegia
+          outlook: Gehitu Outlooken egutegira
         count:
           meetings_count:
             one: "topaketa 1"
@@ -663,6 +663,7 @@ eu:
         transparent: Gardena
         withdraw: Kenduta
       withdraw:
+        error: Arazo bat izan da topaketa kentzean.
         success: Zuzenketa zuzen kendu da.
     metrics:
       meetings:

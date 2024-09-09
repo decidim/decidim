@@ -65,12 +65,17 @@ ro:
           against: Împotrivă
           in_favor: Pentru
         cancel_reply: Anulează răspunsul
+        comment_label: Comentariu %{comment_id}
         confirm_destroy: Sigur dorești să ştergi acest comentariu?
         delete: Șterge
         deleted_at: Comentariu șters la %{date}
         deleted_user: Participant șters
         edit: Actualizare
         edited: Actualizat
+        hide_replies:
+          one: Ascundeți răspunsul
+          few: Ascundeți %{count} răspunsuri
+          other: Ascundeți %{count} răspunsuri
         moderated_at: Comentariu moderat pe %{date}
         reply: Răspunde
         report:

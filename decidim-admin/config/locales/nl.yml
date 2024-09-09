@@ -274,7 +274,6 @@ nl:
           headers:
             actions: Acties
             name: Naam onderdeel
-            scope: Onderdeel scope
             type: Onderdeel type
         new:
           add: Voeg onderdeel toe

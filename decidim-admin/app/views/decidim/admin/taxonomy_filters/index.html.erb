@@ -1,0 +1,23 @@
+<% add_decidim_page_title(t("taxonomy_filters", scope: "decidim.admin.titles")) %>
+
+<div class="card" aria-labelledby="taxonomy_filters-title">
+  <div class="item_show__header">
+    <div class="w-full">
+      <h1 class="item_show__header-title" id="taxonomy_filters-title">
+        <%= t "decidim.admin.titles.taxonomy_filters" %>
+      </h1>
+
+      <p class="mt-2 text-gray-600">
+        <%= t(".description") %>
+      </p>
+    </div>
+  </div>
+
+  <div class="card-section p-4">
+    <% if collection.any? %>
+      <%= render "decidim/admin/taxonomy_filters/table" %>
+    <% else %>
+      <p><%= t(".empty") %></p>
+    <% end %>
+  </div>
+</div>

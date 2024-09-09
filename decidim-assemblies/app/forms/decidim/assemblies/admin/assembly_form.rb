@@ -9,6 +9,7 @@ module Decidim
       class AssemblyForm < Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
+        include Decidim::Admin::HasTaxonomyFormAttributes
 
         CREATED_BY = %w(city_council public others).freeze
 
@@ -83,6 +84,10 @@ module Decidim
         validates :weight, presence: true
 
         alias organization current_organization
+
+        def participatory_space_manifest
+          :assemblies
+        end
 
         def ensure_parent_cannot_be_child
           return if id.blank?

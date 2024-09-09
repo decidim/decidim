@@ -334,7 +334,6 @@ ja:
           headers:
             actions: アクション
             name: コンポーネント名
-            scope: コンポーネントのスコープ
             type: コンポーネントタイプ
         new:
           add: コンポーネントを追加

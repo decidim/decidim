@@ -202,6 +202,7 @@ cs:
         verify: Ověřit
       admin_terms_of_service:
         accept:
+          error: Při přijímání podmínek služby administrátora došlo k chybě.
           success: Skvělé! Přijali jste administrátorské podmínky použití.
         actions:
           accept: Souhlasím s podmínkami
@@ -333,7 +334,6 @@ cs:
           headers:
             actions: Akce
             name: Název komponenty
-            scope: Oblast působnosti komponenty
             type: Typ komponenty
         new:
           add: Přidat komponentu
@@ -365,6 +365,7 @@ cs:
         user_name: Uživatel
       content_blocks:
         create:
+          error: Při vytváření bloku obsahu došlo k chybě.
           success: Blok obsahu byl úspěšně vytvořen.
         destroy:
           error: Při pokusu o odstranění tohoto bloku obsahu došlo k chybě.
@@ -378,6 +379,11 @@ cs:
           update: Aktualizovat
       dashboard:
         pending_moderations:
+          announcement:
+            one: Je zde %{count} čekající na moderování
+            few: Jsou zde %{count} čekající na moderování
+            many: Je zde %{count} čekajících na moderování
+            other: Je tu %{count} čekajících na moderování
           goto_moderation: Přejít na globální moderaci
           title: Čekající moderování
         show:
@@ -792,6 +798,7 @@ cs:
           success: Zpravodaj byl úspěšně aktualizován. Před odesláním jej prosím zkontrolujte.
       officializations:
         block:
+          error: Při blokování účastníka došlo k chybě.
           success: Účastník byl úspěšně zablokován.
         create:
           success: Účastník úspěšně oficiálně zaregistrován.
@@ -825,6 +832,7 @@ cs:
           show: Zobrazit
           title: Zobrazit e-mailovou adresu účastníka
         unblock:
+          error: Při odblokování účastníka došlo k chybě.
           success: Účastník byl úspěšně odblokován.
       organization:
         edit:
@@ -1048,6 +1056,7 @@ cs:
         index:
           description: Taxonomie umožňuje administrátorům kategorizovat a uspořádat obsah. Například přidat taxonomii pro klasifikaci procesů podle geografického rozsahu.
           new_taxonomy: Nová taxonomie
+          no_items_found: Nebyly nalezeny žádné taxonomie odpovídající kritériím vyhledávání.
         name: Název
         new:
           create: Vytvořit taxonomii
