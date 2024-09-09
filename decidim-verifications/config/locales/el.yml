@@ -91,9 +91,6 @@ el:
         start_exploring: ξεκινήστε την εξερεύνηση
       csv_census:
         admin:
-          census:
-            create:
-              error: Παρουσιάστηκε σφάλμα κατά την εισαγωγή απογραφής.
           destroy:
             title: Διαγραφή όλων των δεδομένων απογραφής
           index:
