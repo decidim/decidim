@@ -1574,6 +1574,7 @@ en:
     tags:
       filter_results_for_category: 'Filter results for category: %{resource}'
       filter_results_for_scope: 'Filter results for scope: %{resource}'
+      filter_results_for_taxonomy: 'Filter results for: %{resource}'
     taxonomies:
       prompt: Select from "%{name}"
     translation_bar:

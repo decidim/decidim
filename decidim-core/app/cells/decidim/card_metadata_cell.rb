@@ -128,6 +128,17 @@ module Decidim
       }
     end
 
+    def taxonomy_items
+      return [] unless resource.is_a?(Taxonomizable) && resource.taxonomies.any?
+
+      resource.taxonomies.map do |taxonomy|
+        {
+          text: translated_attribute(taxonomy.name),
+          icon: resource_type_icon_key("Decidim::Taxonomy")
+        }
+      end
+    end
+
     def enable_links?
       return false unless options.has_key?(:links)
 

@@ -184,6 +184,7 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Amendment", icon: "git-branch-line", category: "activity", description: "Amendment", engine: :core)
         Decidim.icons.register(name: "Decidim::Category", icon: "price-tag-3-line", description: "Category", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::Scope", icon: "scan-line", description: "Scope", category: "activity", engine: :core)
+        Decidim.icons.register(name: "Decidim::Taxonomy", icon: "scan-line", description: "Taxonomy", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::User", icon: "user-line", description: "User", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::UserGroup", icon: "group-line", description: "User Group", category: "activity", engine: :core)
         Decidim.icons.register(name: "follow", icon: "notification-3-line", description: "Follow", category: "action", engine: :core)

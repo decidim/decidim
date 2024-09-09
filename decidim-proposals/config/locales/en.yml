@@ -813,6 +813,7 @@ en:
             published_at: Published at
             scope: Scope
             state: Status
+            taxonomies: Taxonomies
             title: Title
             valuator: Valuator
             valuators: Valuators

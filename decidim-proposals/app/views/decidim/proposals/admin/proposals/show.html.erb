@@ -83,30 +83,18 @@
 
       </div>
       <div class="component__show_grid-item">
-        <% if proposal.category.present? %>
+        <% if proposal.taxonomies.present? %>
           <div class="card-section">
             <div class="row column">
-              <span class="component__show-title"><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></span>
-              <div class="flex items-center gap-x-2 mt-2">
-                <%= icon "price-tag-3-line", class: "fill-gray" %>
-                <p class="component__show-icon-text">
-                  <%= translated_attribute proposal.category.name %>
-                </p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-
-        <% if proposal.scope.present? %>
-          <div class="card-section">
-            <div class="row column">
-              <span class="component__show-title"><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></span>
-              <div class="flex items-center gap-x-2 mt-2">
-                <%= icon "scan-line", class: "fill-gray" %>
-                <p class="component__show-icon-text">
-                  <%= translated_attribute proposal.scope.name %>
-                </p>
-              </div>
+              <span class="component__show-title"><%= t("models.proposal.fields.taxonomies", scope: "decidim.proposals") %></span>
+              <% proposal.taxonomies.each do |taxonomy| %>
+                <div class="flex items-center gap-x-2 mt-2">
+                  <%= icon "price-tag-3-line", class: "fill-gray" %>
+                  <p class="component__show-icon-text">
+                    <%= translated_attribute taxonomy.name %>
+                  </p>
+                </div>
+              <% end %>
             </div>
           </div>
         <% end %>
