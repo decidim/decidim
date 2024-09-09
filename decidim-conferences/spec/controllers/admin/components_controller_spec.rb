@@ -34,6 +34,7 @@ module Decidim
         end
 
         it_behaves_like "a reorder components controller", slug_attribute: :conference_slug
+        it_behaves_like "a components controller to hide", slug_attribute: :conference_slug
 
         describe "PATCH update" do
           let(:component_params) do
