@@ -22,6 +22,8 @@ fr-CA:
             choices:
               missing: ne sont pas complets
               too_many: Vous pouvez choisir un maximum de %{count}.
+        questionnaire:
+          request_invalid: Une erreur s'est produite lors du traitement de la requête. Veuillez essayer à nouveau.
   decidim:
     forms:
       admin:

@@ -256,6 +256,13 @@ eu:
         create: "%{user_name} k %{resource_name} orri estatikoa sortu du"
         delete: "%{user_name} k %{resource_name} orri estatikoa ezabatu du"
         update: "%{user_name} k %{resource_name} orri estatikoa eguneratu du"
+      taxonomy:
+        create: "%{user_name} k %{resource_name} taxonomia sortu du"
+        create_with_parent: "%{user_name} k %{resource_name} taxonomia sortu du %{parent_taxonomy} taxonomia barruan"
+        delete: "%{user_name} k %{resource_name} taxonomia ezabatu du"
+        delete_with_parent: "%{user_name} k %{resource_name} taxonomia ezabatu du %{parent_taxonomy} taxonomia barruan"
+        update: "%{user_name} k %{resource_name} taxonomia eguneratu du"
+        update_with_parent: "%{user_name} k %{resource_name} taxonomia eeguneratu du %{parent_taxonomy} taxonomia barruan"
       user:
         block: "%{user_name} k %{resource_name} erabiltzailea blokeatu du"
         invite: "%{user_name} k %{resource_name} parte-hartzailea gonbidatu du %{role} rolarekin"
@@ -280,6 +287,7 @@ eu:
       dismiss: Baztertu jakinarazpena
     amendments:
       accepted:
+        error: Arazo bat izan da zuzenketa onartzean.
         success: Aldaketa ongi onartu da.
       amendable:
         button: Zuzendu %{model_name}
@@ -288,6 +296,7 @@ eu:
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
       created:
+        error: Arazo bat izan da zuzenketaren zirriborroa sortzean.
         success: Zuzenketa-zirriborroa zuzen sortu da.
       destroy_draft:
         error: Arazo bat egon da zuzenketa-zirriborroa ezabatzean.
@@ -339,6 +348,7 @@ eu:
         error: Arazoa egon da zuzenketa-zirriborroa eguneratzean.
         success: Zuzenketa-zirriborroa zuzen eguneratu da.
       withdraw:
+        error: Arazo bat izan da zuzenketa kentzean.
         success: Zuzenketa zuzen kendu da.
       wizard_step_form:
         steps:
@@ -576,6 +586,9 @@ eu:
           sign_up: Mesedez, osatu zure profila
           subtitle: Mesedez, bete hurrengo formularioa kontua sortzen amaitzeko
           username_help: Zure mezuetan agertuko den izen publikoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
+        new_tos_fields:
+          sign_up: Sortu kontu bat
+          sign_up_title: Amaitu sortzen zure kontua
       registrations:
         create:
           error: Arazo bat izan da kontua sortzean.
@@ -900,9 +913,9 @@ eu:
         extension_allowlist: 'Onartutako formatuak: %{extensions}'
       upload:
         labels:
-          add_attachment: Erantsi eranskina
-          add_file: Erantsi fitxategiak
-          add_image: Erantsi irudia
+          add_attachment: Gehitu eranskina
+          add_file: Gehitu fitxategiak
+          add_image: Gehitu irudia
           edit_image: Editatu irudia
           error: Akatsa!
           file_size_too_large: 'Fitxategiaren tamaina handiegia da! Maximun fitxategiaren tamaina: %{megabytes}} MB'
@@ -1072,6 +1085,8 @@ eu:
           not_found: 'Esparrua ez da aurkitu (ID: %{id}) datu-basean'
         scope_type_presenter:
           not_found: 'Esparru mota ez da aurkitu (ID: %{id}) datu-basean'
+        taxonomy_presenter:
+          not_found: 'Taxonomia ez da aurkitu (ID: %{id}) datu-basean'
     managed_users:
       expired_session: Parte-hartzaile baten egungo administrazio-saioa iraungi egin da.
     map:
@@ -1250,6 +1265,7 @@ eu:
         administrators: Administratzaileak
         allow_public_contact: Baimendu edozein parte-hartzailek bidali diezadala mezu zuzena, nahiz eta nik jarraitu ez.
         allow_push_notifications: Bidali mezuak plataforman ez zaudenean zer gertatzen den jakiteko. Nahi duzunean desgaitu ditzakezu.
+        assigned_to_proposal: Mezu elektroniko bat jaso nahi dut norbaitek ebaluatzeko proposamen bat ematen didanean
         direct_messages: Jaso edonoren mezu zuzenak
         email_on_moderations: Mezu elektroniko bat jaso nahi dut zerbait neurriz erreportatzen den bakoitzean.
         everything_followed: Jarraitzen dudan guztia
@@ -1268,6 +1284,7 @@ eu:
         push_notifications_reminder: Plataformaren jakinarazpenak jasotzeko, lehen zure nabigatzailearen konfigurazioan baimendu behar dituzu.
         receive_notifications_about: Jakinarazpenak jaso nahi ditut
         update_notifications_settings: Gorde aldaketak
+        valuators: Ebaluatzaileak
       update:
         error: Arazo bat egon da zure jakinarazpenen konfigurazioa eguneratzean.
         success: Jakinarazpenen konfigurazioa zuzen eguneratu da.
@@ -1405,6 +1422,7 @@ eu:
         subject: Eduki bat salatua izan da
     reports:
       create:
+        error: Arazo bat izan da txostena sortzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
     resource_endorsements:
       create:
@@ -1451,6 +1469,7 @@ eu:
         close_modal: Itxi leihoa
         ok: Ados
         title: Baieztatu
+      confirm_unload: Orrialde honetan gorde gabeko aldaketak daude. Ziur zaude orri hau utzi nahi duzula?
       embed:
         title: Bideo-eduki txertatuak
       extended_navigation_bar:
@@ -1680,6 +1699,7 @@ eu:
         message: Kontua blokeatu zaizu gehiegitan saitu zarelako, lortu gabe, saioa hasten.
         subject: Desblokeatu argibideak
     omniauth_callbacks:
+      add_tos_errors: Zerbitzuaren baldintzak onartu behar dira kontu bat sortzeko.
       failure: Ezin izan da autentifikatu %{kind} "%{reason}" delako.
       success: '%{kind} kontutik behar bezala egiaztatua.'
     passwords:
@@ -1839,6 +1859,9 @@ eu:
       nesting_too_deep: ezin da egon azpikategoria batean
       not_found: ezin izan da aurkitu. Lehenago konturik sortu duzu?
       not_locked: ez zen blokeatuta
+      not_saved:
+        one: 'Errore bat izan da zure eskaera prozesatzean:'
+        other: 'Errore batzuk egon dira zure eskaera prozesatzean:'
       too_many_marks: puntuazio markako jarraipen gehiegi erabiltzen ari da (adib. eta?)
       too_much_caps: letra larri gehiegi erabiltzen ari da (testuaren% 25 baino gehiago)
       too_short: laburregia da (gutxienez %{count} karaktere behar dira)
