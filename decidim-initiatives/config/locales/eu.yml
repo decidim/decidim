@@ -433,7 +433,7 @@ eu:
         attachment_legend: "(Aukerakoa) Gehitu eranskina"
         edit_documents: Editatu dokumentuak
         edit_image: Editatu irudia
-        image_legend: "(Aukerakoa) Erantsi irudi bat"
+        image_legend: "(Aukerakoa) Gehitu irudi bat"
       index:
         uninitialized: Administratzaile batek oraindik ez ditu ekimenak konfiguratu.
       initiative_signatures:
