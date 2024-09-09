@@ -103,6 +103,7 @@ module Decidim
         Decidim.icons.register(name: "account-pin-circle-line", icon: "account-pin-circle-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "award-line", icon: "award-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "eye-2-line", icon: "eye-2-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "eye-close", icon: "eye-close-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "group-line", icon: "group-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "team-line", icon: "team-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "apps-2-line", icon: "apps-2-line", category: "system", description: "", engine: :core)
