@@ -5,9 +5,9 @@ sv:
       account:
         delete_reason: Skäl att ta bort ditt konto
       common:
-        created_at: Skapad den
+        created_at: Skapad
       conversation:
-        body: Innehåll
+        body: Spara
       group:
         about: Om
         avatar: Profilbild
@@ -46,7 +46,7 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/promoted_to_admin_event: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
-      decidim/resource_endorsed_event: Resurs instämd
+      decidim/resource_endorsed_event: Innehållet har fått stöd
       decidim/resource_hidden_event: Dolt innehåll
       decidim/user_group_created_event: Användargrupp skapad
       decidim/welcome_notification_event: Välkomstmeddelande
@@ -338,20 +338,20 @@ sv:
         documents: Dokument
         related_documents: Relaterade dokument
       photo:
-        alt: Mediabild
+        alt: Mediebild
         title: Bild
       photos:
         photos: Bilder
         related_photos: Relaterade bilder
     author:
-      avatar: 'Avatar: %{name}'
+      avatar: 'Profilbild: %{name}'
       comments:
         one: kommentar
         other: kommentarer
       endorsements:
         one: instämmande
         other: instämmanden
-      official_author: Officiella
+      official_author: Officiell
     authorization_handlers:
       another_dummy_authorization_handler:
         fields:
@@ -369,7 +369,7 @@ sv:
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
       errors:
-        duplicate_authorization: En deltagare är redan behörig med samma data.
+        duplicate_authorization: En deltagare är redan auktoriserad med samma data. En administratör kommer att kontakta dig för att verifiera dina uppgifter.
       expired_at: Förföll vid %{timestamp}
       expires_at: Förfaller vid %{timestamp}
       foo_authorization:
@@ -427,7 +427,7 @@ sv:
           debate: Debatt
           initiative: Initiativ
           meeting: Möte
-          order: Röster
+          order: Budgetomröstning
           post: Inlägg
           proposal: Förslag
           question: Fråga
@@ -461,11 +461,11 @@ sv:
     contact: Kontakt
     content_blocks:
       cta:
-        name: Bild, text och Åtgärdsknapp
+        name: Bild, text och Call to Action-knapp
       cta_settings_form:
         background_image: Bakgrundsbild
-        button_text: Uppmaningens text
-        button_url: Uppmaningens URL
+        button_text: Text på knapp
+        button_url: Knappens länk
         description: Beskrivning
       footer_sub_hero:
         name: Sidfot sub hero banner
@@ -1031,9 +1031,9 @@ sv:
           error: Konversationen har inte startat. Försök igen senare.
         error_modal:
           close: Stäng fönster
-          correct_errors: Rätta alla fel och försök igen.
-          intro: 'De följande fel fanns i ditt meddelande:'
-          ok: OK
+          correct_errors: Vänligen korrigera felen och försök igen.
+          intro: 'Det fanns följande fel med ditt meddelande:'
+          ok: Ok
         index:
           new_conversation: Nytt samtal
           next: Nästa
@@ -1083,19 +1083,19 @@ sv:
     newsletter_templates:
       basic_only_text:
         body_preview: 'Dummy text för innehåll: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
-        name: Grundläggande (endast text)
+        name: Enkel (endast text)
       basic_only_text_settings_form:
         body: Innehåll
-        interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i brödtexten eller ämnet och det kommer att ersättas av mottagarens namn.'
+        interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i innehållet eller ämnet och det kommer att ersättas av mottagarens namn.'
       image_text_cta:
         body_preview: 'Dummy text för innehåll: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Uppmaningens text
         introduction_preview: 'Dummy text för introduktion: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
-        name: Bild, text och Åtgärdsknapp
+        name: Bild, text och knapp
       image_text_cta_settings_form:
         body: Innehåll
-        cta_text: Uppmaningens knapptext
-        cta_url: URL för åtgärdsknapp
+        cta_text: Text på knapp
+        cta_url: Knappens länk
         interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i introduktionen, brödtexten, åtgärdsknappstexten eller ämnet och det kommer att ersättas av mottagarens namn.'
         introduction: Inledande text
         main_image: Huvudbilden
@@ -1108,6 +1108,8 @@ sv:
         unsubscribe: Avprenumerera
     newsletters_opt_in:
       unathorized: Länken är tyvärr inte längre tillgänglig.
+      update:
+        success: Inställningarna för nyhetsbrevet har ändrats.
     newsletters_opt_in_mailer:
       notify:
         body_1: Behandlingen och skyddet av personuppgifter blir allt viktigare för oss alla. Med den nya dataskyddsförordningen (GDPR) per den 25 maj 2018 har individer större kontroll över sina personuppgifter. Därför behöver vi ett "OK" från dig för att fortsätta att skicka relevant information om aktiviteterna i %{organization_name}.
@@ -1125,7 +1127,13 @@ sv:
         translated_text: 'Maskinöversatt text:'
     notifications:
       no_notifications: Inga meddelanden ännu.
+      show:
+        missing_event: Hoppsan, det här meddelandet tillhör ett objekt som inte längre är tillgängligt. Du kan kasta det.
+        moderated: Innehåll modererat
     notifications_digest_mailer:
+      header:
+        daily: Dagligt sammandrag
+        weekly: Veckovis sammandrag
       hello: Hej %{name},
     notifications_settings:
       show:
@@ -1149,6 +1157,7 @@ sv:
     offline:
       name: Offline
       show:
+        message_2: Vänligen försök igen senare.
         retry: Försök igen
     open_data:
       not_available_yet: De öppna datafilerna är ännu inte tillgängliga, var vänlig försök igen om några minuter.
@@ -1313,14 +1322,20 @@ sv:
         close: Stäng
         description: Vad är olämpligt med användaren?
         does_not_belong: Innehåller olaglig information, hot om självmord, personuppgifter eller något annat som inte hör hemma på %{organization_name}.
+        hide: Dölj allt innehåll
         offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
         report: Rapportera
         spam: Innehåller klickbete, reklam, bedrägerier eller skriptbottar.
         title: Rapportera olämplig användare
       floating_help:
         help: Hjälp
+      follow_button:
+        log_in_before_follow: Logga in innan du utför denna åtgärd
       login_modal:
+        please_log_in: Logga in
         sign_up: Registrera dig
+      mentions_modal:
+        remove_recipient: Ta bort mottagare %{name}
       participatory_space_filters:
         filters:
           area: Område
@@ -1345,6 +1360,7 @@ sv:
         copy_share_link_message: Länken kopierades.
         share: Dela
         share_link: Dela länk
+        share_to: Dela till %{service}
     statistics:
       comments_count: Kommentarer
       endorsements_count: Instämmanden
@@ -1364,6 +1380,7 @@ sv:
     user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
     user_conversations:
       create:
+        error: Meddelandet kunde inte skapas. Försök igen senare.
         existing_error: Meddelandet kunde inte skapas. Konversationen finns redan, försök igen nu.
         success: Samtalet startades framgångsrikt!
       index:
@@ -1392,6 +1409,12 @@ sv:
         greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hej %{admin},
         subject: En ny användare har rapporterats på %{organization_name}
+    user_update_mailer:
+      notify:
+        greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+        hello: Hej %{user}
+        update_fields: "%{updates} och %{last_update}"
+      subject: Ditt konto har uppdaterats
     version:
       show:
         back_to_resource: Gå tillbaka
@@ -1407,6 +1430,7 @@ sv:
       show:
         version_index: Version %{index} av %{total}
     welcome_notification:
+      default_body: <p>Hej {{name}}! Tack för att du har gått med i {{organization}} och välkommen!</p><ul><li>Om du vill få en uppfattning om vad du kan göra här, ta en titt på avsnittet <a href="{{help_url}}">Hjälp</a>.</li><li>När du har läst hjälpavsnittet får du ditt första märke. Här är en <a href="{{badges_url}}">lista över alla märken</a> du kan få som deltagare i {{organization}}</li><li>Sist men inte minst, få andra personer att gå med och dela upplevelsen av ett aktivt deltagande i {{organization}}. Ta fram förslag, lämna kommentarer, debattera, fundera på hur du kan bidra till det allmännas bästa, lägg fram argument för att övertyga, lyssna och läs för att bli övertygad, uttryck dina idéer på ett konkret och direkt sätt, svara tålmodigt och beslutsamt, försvara dina idéer och ha ett öppet sinne för att samarbeta och haka på andras idéer.</li></ul>
       default_subject: Tack för att du gick med i {{organization}}!
     wizard_step_form:
       wizard_aside:
@@ -1429,10 +1453,12 @@ sv:
       last_attempt: Du har ett försök kvar innan ditt konto blir låst.
       locked: Ditt konto är låst.
       not_found_in_database: Ogiltig %{authentication_keys} eller ogiltigt lösenord.
+      timeout: Din session har upphört att gälla. Vänligen logga in igen om du vill fortsätta.
       unauthenticated: Du behöver logga in eller skapa ett konto innan du kan fortsätta.
     invitations:
       edit:
         header: Slutför att skapa ditt konto
+        nickname_help: Ditt användarnamn för %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
       invitation_removed: Din inbjudan har tagits bort.
@@ -1452,6 +1478,7 @@ sv:
         subject: Bekräftelsesanvisningar
       email_changed:
         greeting: Hej %{recipient}!
+        message: Vi kontaktar dig för att meddela att din e-postadress ändras till %{email}.
         subject: E-post ändrad
       invitation_instructions:
         accept: Godkänn inbjudan
@@ -1464,18 +1491,27 @@ sv:
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_private_user: Någon har bjudit in dig som privatperson till %{application}, du kan godkänna detta via länken nedan.
         subject: Anvisningar om inbjudningar
+      invite_collaborator:
+        subject: Du har blivit inbjuden att samarbeta på %{organization}
+      invite_private_user:
+        subject: Du har blivit inbjuden till en privat deltagarprocess på %{organization}
+      organization_admin_invitation_instructions:
+        subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
         greeting: Hej %{recipient}!
+        message: Vi kontaktar dig för att meddela dig att ditt lösenord har ändrats.
         subject: Lösenord ändrat
       reset_password_instructions:
         action: Ändra mitt lösenord
         greeting: Hej %{recipient}!
         instruction: Någon har begärt en länk för att ändra ditt lösenord, och du kan göra det genom länken nedan.
+        instruction_2: Om du inte har begärt detta, vänligen ignorera detta mail.
         subject: Anvisningar om att återställa lösenord
       unlock_instructions:
         action: Lås upp mitt konto
         greeting: Hej %{recipient}!
         instruction: 'Lås upp ditt konto med länken nedan:'
+        message: Ditt konto har låsts på grund av ett alltför stort antal misslyckade inloggningsförsök.
         subject: Anvisningar för att låsa upp
     omniauth_callbacks:
       failure: Kunde inte autentisera dig från %{kind} eftersom "%{reason}".
@@ -1485,6 +1521,9 @@ sv:
         change_my_password: Ändra mitt lösenord
         confirm_new_password: Bekräfta nytt lösenord
         new_password: Nytt lösenord
+        old_password_help: För att bekräfta ändringarna av ditt konto, vänligen ange ditt nuvarande lösenord.
+        password_help: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste skilja sig från ditt användarnamn och din e-postadress."
+        password_help_admin: "Minst %{minimum_characters} tecken, får inte vara för vanligt (som 123456) och måste skilja sig från ditt användarnamn och din e-postadress."
         title: Ändra lösenord
       new:
         forgot_your_password: Glömt ditt lösenord?
@@ -1504,13 +1543,19 @@ sv:
       update_needs_confirmation: Kontot har uppdaterats, men vi måste verifiera din nya e-postadress. Kontrollera din e-post och följ länken som bekräftar din nya e-postadress.
       updated: Ditt konto har uppdaterats.
     sessions:
+      already_signed_out: Du är utloggad.
       new:
         log_in: Logga in
+      signed_in: Loggade in.
+      signed_out: Du är utloggad.
     shared:
       links:
         back: Tillbaka
+        didn_t_receive_confirmation_instructions: Fick du inga bekräftelseinstruktioner?
+        didn_t_receive_unlock_instructions: Fick du inga instruktioner om hur du låser upp ditt konto?
         forgot_your_password: Glömt ditt lösenord?
         log_in: Logga in
+        log_in_with_provider: Logga in med %{provider}
         sign_up: Registrera dig
       minimum_password_length:
         one: "(minst %{count} tecken)"
@@ -1520,11 +1565,21 @@ sv:
         resend_unlock_instructions: Skicka anvisningarna om att låsa upp igen
       send_instructions: Du kommer att få ett e-brev med anvisningar om hur du låser upp ditt konto inom några minuter.
       send_paranoid_instructions: Om ditt konto finns, får du ett e-brev med instruktioner om hur du låser upp det på några minuter.
+      unlocked: Ditt konto har låsts upp. Logga in för att fortsätta.
   doorkeeper:
     scopes:
       public: Din offentliga information.
   editor:
     extensions:
+      image:
+        altLabel: Alternativ text för bilden
+        nodeView:
+          resizer:
+            control:
+              resize: Ändra storlek på bild (%position%)
+            position:
+              bottomLeft: nedre vänstra hörnet
+              bottomRight: nedre högra hörnet
       link:
         bubbleMenu:
           edit: Redigera
@@ -1690,6 +1745,8 @@ sv:
       notifications_dashboard:
         mark_all_as_read: Markera allt som läst
         mark_as_read: Markera som läst
+      offline_banner:
+        cache_version_page: Hoppsan! Ditt nätverk är offline. Detta är en tidigare cachad version av sidan, innehållet är kanske inte uppdaterat.
       shared:
         layout_item:
           next: Nästa
@@ -1698,16 +1755,19 @@ sv:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
+        x: "%{organization} på X"
         youtube: "%{organization} på YouTube"
       timeout_modal:
         body: Du har varit inaktiv i %{minutes} minuter. Om du fortsätter att vara inaktiv kommer du automatiskt att loggas ut för din egen säkerhet.
         continue_session: Förtsätt med din session
+        log_out: Logga ut
         title: Vill du fortsätta med din session?
       user_menu:
         account: 'Användarkonto: %{name}'
         admin_dashboard: Adminpanel
         configuration: Konfiguration
         conversations: Konversationer
+        log_out: Logga ut
         notifications: Meddelanden
         profile: Mitt konto
         public_profile: Min offentliga profil
@@ -1726,6 +1786,7 @@ sv:
     name: Svenska
     name_with_error: Svenska (fel!)
   password_validator:
+    denied: nekas
     domain_included_in_password: är för likt detta domännamn
     email_included_in_password: är för likt din e-post
     fallback: är inte giltigt
@@ -1733,13 +1794,16 @@ sv:
     nickname_included_in_password: är för likt ditt användarnamn
     not_enough_unique_characters: har inte tillräckligt med unika tecken
     password_not_allowed: är ej tillåtet
+    password_repeated: kan inte återanvända tidigare lösenord
     password_too_common: är för vanligt
     password_too_long: är för långt
     password_too_short: är för kort
   ransack:
     predicates:
       dtgt: efter
+      dtgteq: efter eller lika med
       dtlt: före
+      dtlteq: före eller lika med
   social_share_button:
     delicious: Delicious
     douban: Douban
@@ -1762,6 +1826,7 @@ sv:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
@@ -1780,8 +1845,10 @@ sv:
             accept_until_format: "%B %d, %Y %I:%M %p"
       long: "%B %d, %Y kl.%H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
+      long_with_particles: "%B %d, %Y kl. %H:%M"
       short: "%d/%m/%Y kl.%H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Raderingar
