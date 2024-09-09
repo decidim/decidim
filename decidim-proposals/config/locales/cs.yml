@@ -75,10 +75,12 @@ cs:
           attributes:
             base:
               not_official: Nejsou oficiální
+              voted: Obdrželi hlasy nebo potvrzení
         proposals_split:
           attributes:
             base:
               not_official: Nejsou oficiální
+              voted: Obdrželi hlasy nebo potvrzení
     models:
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
@@ -155,10 +157,13 @@ cs:
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
+            attachments_allowed_help: Povolením této možnosti se návrhy nastaví na režim mřížky a na kartě se objeví první obrázek.
+            can_accumulate_votes_beyond_threshold: Lze hromadit hlasy za hranicí
             collaborative_drafts_enabled: Společné koncepty povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             default_sort_order: Výchozí řazení návrhu
+            default_sort_order_help: Automaticky znamená, že pokud je hlasování povoleno, návrhy se zobrazují seřazené náhodně, a pokud je hlasování zablokováno, pak se zobrazují seřazené podle počtu hlasů.
             default_sort_order_options:
               automatic: Automaticky
               most_commented: Nejvíce komentované
@@ -185,10 +190,12 @@ cs:
             proposal_length: Maximální délka návrhu
             proposal_limit: Limit návrhu na uživatele
             proposal_wizard_step_1_help_text: Text průvodce kroku nápovědy "Vytvořit" Návrh
+            proposal_wizard_step_2_help_text: Text nápovědy ke kroku "Zveřejnit" průvodce návrhem
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
             threshold_per_proposal: Prah na návrh
+            vote_limit: Limit hlasů na účastníka
           step:
             amendment_creation_enabled: Umožnit pozměnění a doplnění
             amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
@@ -208,6 +215,7 @@ cs:
             creation_enabled: Účastníci mohou vytvářet návrhy
             creation_enabled_readonly: Toto nastavení je zakázáno, když aktivujete funkci Participativní texty. Chcete-li návrhy nahrát jako participativní text, klikněte na tlačítko Participativní texty a postupujte podle pokynů.
             default_sort_order: Výchozí řazení návrhu
+            default_sort_order_help: Automaticky znamená, že pokud je hlasování povoleno, návrhy se zobrazují seřazené náhodně, a pokud je hlasování zablokováno, pak se zobrazují seřazené podle počtu hlasů.
             default_sort_order_options:
               automatic: Automaticky
               most_commented: Nejvíce komentované
@@ -225,6 +233,7 @@ cs:
             suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasy blokovány
             votes_enabled: Hlasování povoleno
+            votes_hidden: Skryté hlasy (pokud jsou hlasy povoleny, zaškrtnutím této položky se počet hlasů skryje)
     events:
       proposals:
         admin:
@@ -311,7 +320,10 @@ cs:
           email_subject: Rámec návrhu %{resource_title} byl aktualizován
           notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> byl aktualizován správcem.
         voting_enabled:
+          email_intro: 'Hlasovat o návrzích můžete v %{participatory_space_title}! Začněte se účastnit na této stránce:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Hlasování o návrhu bylo zahájeno pro %{participatory_space_title}
+          notification_title: Nyní můžete začít <a href="%{resource_path}">hlasovat o návrzích</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -328,7 +340,9 @@ cs:
         proposal_votes:
           conditions:
             - Procházejte a strávte nějaký čas čtením nápadů jiných lidí
-            - 
+            - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
+          description: Tento odznak se uděluje, když hlasujete pro návrhy ostatních.
+          description_another: Tento účastník hlasoval pro %{score} návrhů.
         proposals:
           conditions:
             - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
@@ -509,6 +523,7 @@ cs:
             publish: Publikovat
             publish_answers: Publikovat odpovědi
             select_component: Vyberte součást
+            select_valuators: Vyberte jednoho nebo více hodnotitelů
             selected: vybraný
             split: Rozdělit návrhy
             split_button: Rozdělit
@@ -752,6 +767,9 @@ cs:
         buttons:
           amend: Pozměnit
           comment: Komentář
+      proposal_votes:
+        create:
+          error: Při hlasování o návrhu došlo k chybě.
       proposals:
         dynamic_map_instructions:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
@@ -768,6 +786,7 @@ cs:
           discard: Zrušte tento návrh
           discard_confirmation: Opravdu chcete tuto návrh zakázat?
           send: Náhled
+          title: Upravit koncept návrhu
         edit_form_fields:
           marker_added: Značka přidána na mapu.
         filters:
@@ -790,6 +809,7 @@ cs:
             few: "%{count} návrhů"
             many: "%{count} návrhů"
             other: "%{count} návrhů"
+          grid_mode: Mřížka
           list_mode: Režim seznamu
           new_proposal: Nový návrh
           see_all: Zobrazit všechny návrhy
@@ -848,9 +868,16 @@ cs:
           withdraw_proposal: Návrh stáhnout
         update:
           title: Aktualizovat návrh
+        vote_button:
+          already_voted: Již hlasovalo
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: Každý návrh může sshromáždit více než %{limit} hlasů
+          minimum_votes_per_user:
+            given_enough_votes: Dali jste dostatek hlasů.
           proposal_limit:
             description: Můžete vytvořit až %{limit} návrhů.
+          title: 'Hlasy podléhají těmto pravidlům:'
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům

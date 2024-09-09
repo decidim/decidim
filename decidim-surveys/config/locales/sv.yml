@@ -23,9 +23,9 @@ sv:
             announcement: Meddelande
             clean_after_publish: Ta bort svar vid publicering av enkäten
             ends_at: Svar accepterade tills
-            ends_at_help: Lämna tomt för inget slutdatum
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            ends_at_help: Lämna tomt för att inte ha något slutdatum
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
             starts_at: Svar accepterade från
             starts_at_help: Lämna tomt för inget startdatum
           step:
@@ -54,13 +54,23 @@ sv:
       answers_count: Svar
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Om du publicerar komponenten kommer alla resultat att tas bort.
         exports:
           survey_user_answers: Svar från enkätdeltagarna
         surveys:
           update:
             invalid: Det gick inte att spara enkäten.
             success: Enkäten har sparats.
+      last_activity:
+        new_survey: 'Ny enkät:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Du har besvarat enkäten %{questionnaire_title} för %{participatory_space}
+        export_name: Enkätsvar
       surveys:
         answer:
           invalid: Det gick inte att besvara enkäten.
+          spam_detected: Det gick inte att svara på formuläret. Kanske har du varit för snabb, kan du försöka igen?
           success: Enkäten har besvarats.

@@ -619,6 +619,7 @@ cs:
           complete_profile: Dokončit profil
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           sign_up: Prosím, vyplňte svůj profil
+          subtitle: Vyplňte prosím následující formulář pro dokončení vytvoření účtu
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
       registrations:
         create:
@@ -629,6 +630,7 @@ cs:
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
           sign_up: Vytvořit účet
+          subtitle: Pro účast na platformě vytvořte účet.
           terms: podmínky poskytování služeb
           tos_agreement: Přihlášením souhlasíte s %{link}.
           tos_title: Smluvní podmínky
@@ -638,6 +640,7 @@ cs:
           are_you_new?: Jste na platformě poprvé?
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
+          sign_up_disabled: Vytvoření účtu je zakázáno, pro přístup můžete použít existující účet.
         user:
           timed_out: Byli jste neaktivní příliš dlouho a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se prosím znovu.
       shared:
@@ -915,10 +918,16 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
+        participatory_space: Sleduje <span>%{resource_name}</span>
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
     forms:
+      attachment_link:
+        explanation: Pokyny pro odkazy na přílohy
+        help_messages:
+          - Akceptovány jsou pouze správné formáty URL.
+          - Vezměte prosím na vědomí, že odkazy musí být veřejné, aby k nim měli přístup všichni účastníci.
       errors:
         decidim/user:
           password: Heslo je příliš krátké.
@@ -1274,9 +1283,11 @@ cs:
         same_language: Obsah byl zveřejněn ve vašem preferovaném jazyce (%{language}), proto se v tomto e-mailu nezobrazuje automatický překlad.
         translated_text: 'Automaticky přeložený text:'
     notifications:
+      action_error: Při aktualizaci oznámení došlo k chybě.
       no_notifications: Zatím žádné oznámení.
       show:
         missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
+        moderated: Obsah upraven
     notifications_digest_mailer:
       header:
         daily: Denní výběr oznámení
@@ -1884,6 +1895,7 @@ cs:
       long_words: obsahuje slova, která jsou příliš dlouhá (přes 35 znaků)
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
+      not_found: se nepodařilo najít. Vytvořili jste si účet již dříve?
       not_locked: nebyl uzamčen
       not_saved:
         one: 'Při zpracování vašeho požadavku došlo k chybě:'
