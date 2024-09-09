@@ -14,6 +14,7 @@ module Decidim::Comments
     let(:component) { create(:component, participatory_space: participatory_process) }
     let(:commentable) { create(:dummy_resource, component:) }
     let(:comment) { create(:comment, commentable:) }
+    let(:created_at) { Time.current }
 
     context "when rendering" do
       it "renders the card" do
@@ -24,7 +25,7 @@ module Decidim::Comments
         expect(subject).to have_css("button[data-dialog-open='loginModal'][title='#{I18n.t("decidim.components.comment.report.action")}']")
         expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
         expect(subject).to have_content(comment.body.values.first)
-        expect(subject).to have_content("less than a minute")
+        expect(subject).to have_content(created_at.strftime("%d/%m/%Y"))
         expect(subject).to have_content(comment.author.name)
 
         expect(subject).not_to have_css(".add-comment")
@@ -85,7 +86,7 @@ module Decidim::Comments
           expect(subject).to have_css("a[href='/processes/#{participatory_process.slug}/f/#{component.id}/dummy_resources/#{commentable.id}?commentId=#{comment.id}#comment_#{comment.id}']")
           expect(subject).to have_content("Edited")
           expect(subject).to have_content(comment.body.values.first)
-          expect(subject).to have_content("less than a minute")
+          expect(subject).to have_content(created_at.strftime("%d/%m/%Y"))
           expect(subject).to have_content(comment.author.name)
 
           expect(subject).not_to have_css(".add-comment")
