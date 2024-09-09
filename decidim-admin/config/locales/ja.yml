@@ -329,12 +329,15 @@ ja:
           default_step_settings: デフォルトのステップ設定
           global_settings: グローバル設定
           step_settings: ステップの設定
+        hide:
+          success: コンポーネントはメニューから非表示になりました。
         index:
           add: コンポーネントを追加
           headers:
             actions: アクション
             name: コンポーネント名
             type: コンポーネントタイプ
+            visibility: 可視性
         new:
           add: コンポーネントを追加
           title: 'コンポーネントを追加: %{name}'
@@ -346,6 +349,10 @@ ja:
         update:
           error: このコンポーネントの更新中に問題が発生しました。
           success: コンポーネントは正常に更新されました。
+        visibility_label:
+          menu_hidden: メニュー非表示
+          published: 公開済
+          unpublished: 未公開
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
