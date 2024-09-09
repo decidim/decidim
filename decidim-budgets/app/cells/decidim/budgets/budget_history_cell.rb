@@ -19,9 +19,19 @@ module Decidim
 
       def add_history_items
         resources = @model.linked_resources(:proposals, "included_proposals")
-        add_linked_resources_items(@history_items, resources, "included_proposals", "decidim/proposals/proposal/budget_text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "included_proposals",
+                                     text_key: "decidim/proposals/proposal/budget_text",
+                                     icon_key: "Decidim::Proposals::Proposal",
+                                     index: [0, 1]
+                                   })
         resources = @model.linked_resources(:results, "included_projects")
-        add_linked_resources_items(@history_items, resources, "included_projects", "decidim/accountability/result/budget_text", "Decidim::Accountability::Result")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "included_projects",
+                                     text_key: "decidim/accountability/result/budget_text",
+                                     icon_key: "Decidim::Accountability::Result",
+                                     index: [0, 1]
+                                   })
         add_budget_creation_item(@history_items) if @history_items.any?
       end
 

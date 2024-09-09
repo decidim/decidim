@@ -8,11 +8,23 @@ module Decidim
 
       def add_history_items
         resources = @model.linked_resources(:proposals, "included_proposals")
-        add_linked_resources_items(@history_items, resources, "included_proposals", "decidim/accountability/result/proposal_ids", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "included_proposals",
+                                     text_key: "decidim/accountability/result/proposal_ids",
+                                     icon_key: "Decidim::Proposals::Proposal"
+                                   })
         resources = @model.linked_resources(:projects, "included_projects")
-        add_linked_resources_items(@history_items, resources, "included_projects", "decidim/accountability/result/project_ids", "Decidim::Budgets::Project")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "included_projects",
+                                     text_key: "decidim/accountability/result/project_ids",
+                                     icon_key: "Decidim::Budgets::Project"
+                                   })
         resources = @model.linked_resources(:meetings, "meetings_through_proposals")
-        add_linked_resources_items(@history_items, resources, "meetings_through_proposals", "decidim/accountability/result/meetings_ids", "Decidim::Meetings::Meeting")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "meetings_through_proposals",
+                                     text_key: "decidim/accountability/result/meetings_ids",
+                                     icon_key: "Decidim::Meetings::Meeting"
+                                   })
         add_result_creation_item(@history_items) if @history_items.any?
       end
 

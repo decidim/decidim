@@ -20,26 +20,62 @@ module Decidim
       def add_history_items
         # linked resources generate from this proposal
         resources = @model.linked_resources_from(:proposals, "copied_from_component")
-        add_linked_resources_items(@history_items, resources, "copied_from_component", "decidim/proposals/proposal/import_from_proposal_text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "copied_from_component",
+                                     text_key: "decidim/proposals/proposal/import_from_proposal_text",
+                                     icon_key: "Decidim::Proposals::Proposal"
+                                   })
         resources = @model.linked_resources_from(:proposals, "splitted_from_component")
-        add_linked_resources_items(@history_items, resources, "splitted_from_component", "decidim/proposals/proposal/split_from_proposal_text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "splitted_from_component",
+                                     text_key: "decidim/proposals/proposal/split_from_proposal_text", icon_key: "Decidim::Proposals::Proposal"
+                                   })
         resources = @model.linked_resources_from(:proposals, "merged_from_component")
-        add_linked_resources_items(@history_items, resources, "merged_from_component", "decidim/proposals/proposal/merge_from_proposal_text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "merged_from_component",
+                                     text_key: "decidim/proposals/proposal/merge_from_proposal_text",
+                                     icon_key: "Decidim::Proposals::Proposal"
+                                   })
 
         resources = @model.linked_resources(:projects, "included_proposals")
-        add_linked_resources_items(@history_items, resources, "included_proposals", "decidim/budgets/project/text", "Decidim::Budgets::Project")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "included_proposals",
+                                     text_key: "decidim/budgets/project/text",
+                                     icon_key: "Decidim::Budgets::Project"
+                                   })
         resources = @model.linked_resources(:results, "included_proposals")
-        add_linked_resources_items(@history_items, resources, "included_proposals", "decidim/accountability/result/text", "Decidim::Accountability::Result")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "included_proposals",
+                                     text_key: "decidim/accountability/result/text",
+                                     icon_key: "Decidim::Accountability::Result"
+                                   })
         resources = @model.linked_resources(:meetings, "proposals_from_meeting")
-        add_linked_resources_items(@history_items, resources, "proposals_from_meeting", "decidim/meetings/meeting/text", "Decidim::Meetings::Meeting")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "proposals_from_meeting",
+                                     text_key: "decidim/meetings/meeting/text",
+                                     icon_key: "Decidim::Meetings::Meeting"
+                                   })
 
         # linked resource generate to this proposal
         resources = @model.linked_resources_to(:proposals, "copied_from_component")
-        add_linked_resources_items(@history_items, resources, "copied_to_component", "decidim/proposals/proposal/import_to_proposal_text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "copied_to_component",
+                                     text_key: "decidim/proposals/proposal/import_to_proposal_text",
+                                     icon_key: "Decidim::Proposals::Proposal",
+                                     index: [0]
+                                   })
         resources = @model.linked_resources_to(:proposals, "splitted_from_component")
-        add_linked_resources_items(@history_items, resources, "splitted_to_component", "decidim/proposals/proposal/split_to_proposal_text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "splitted_to_component",
+                                     text_key: "decidim/proposals/proposal/split_to_proposal_text",
+                                     icon_key: "Decidim::Proposals::Proposal"
+                                   })
         resources = @model.linked_resources_to(:proposals, "merged_from_component")
-        add_linked_resources_items(@history_items, resources, "merged_to_component", "decidim/proposals/proposal/merge_to_proposal_text", "Decidim::Proposals::Proposal")
+        add_linked_resources_items(@history_items, resources, {
+                                     link_name: "merged_to_component",
+                                     text_key: "decidim/proposals/proposal/merge_to_proposal_text",
+                                     icon_key: "Decidim::Proposals::Proposal"
+                                   })
 
         add_proposal_creation_item(@history_items) if @history_items.any?
       end

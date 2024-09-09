@@ -25,19 +25,24 @@ module Decidim
       raise NotImplemented
     end
 
-    def add_linked_resources_items(items, resources, link_name, text_key, icon_key)
+    def add_linked_resources_items(items, resources, options)
       return if resources.blank?
 
-      resources.each do |resource|
+      index_list = options[:index] || []
+
+      resources.each_with_index do |resource, idx|
         title = decidim_sanitize_translated(resource.title[I18n.locale.to_s])
         url = resource_locator(resource).path
         link = link_to(title, url, class: "underline decoration-current text-secondary font-semibold")
 
+        extra_class = index_list.include?(idx) ? "resource_history__line_large" : ""
+
         items << {
-          id: "#{link_name}_#{resource.id}",
+          id: "#{options[:link_name]}_#{resource.id}",
           date: resource.updated_at,
-          text: t(text_key, scope: "activerecord.models", link:),
-          icon: resource_type_icon_key(icon_key)
+          text: t(options[:text_key], scope: "activerecord.models", link:),
+          icon: resource_type_icon_key(options[:icon_key]),
+          extra_class:
         }
       end
     end
