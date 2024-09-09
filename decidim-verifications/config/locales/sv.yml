@@ -3,18 +3,22 @@ sv:
   activemodel:
     attributes:
       config:
-        available_methods: Tillgängliga metoder
+        available_methods: Tillgängliga alternativ
         offline: Offline
         offline_explanation: Anvisningar för verifiering offline
-        online: Uppkopplad
+        online: Digital
+      confirmation:
+        verification_code: Verifieringskod
       id_document_information:
-        document_number: ID-nummer (med bokstav)
+        document_number: Dokumentnummer (med brev)
         document_type: Typ av ID-handling
       id_document_upload:
-        document_number: ID-nummer (med bokstav)
+        document_number: Dokumentnummer (med brev)
         document_type: Typ av ID-handling
         user: Deltagare
         verification_attachment: Inläst kopia av ID-handlingen
+      mobile_phone:
+        mobile_phone_number: Mobilnummer
       offline_confirmation:
         email: Deltagarens e-post
       postal_letter_address:
@@ -24,6 +28,12 @@ sv:
       postal_letter_postage:
         full_address: Fullständig adress
         verification_code: Verifieringskod
+    errors:
+      models:
+        census_data:
+          attributes:
+            file:
+              malformed: Felaktig importfil, läs igenom anvisningarna noga och se till att filen är UTF-8 kodad.
   decidim:
     admin:
       menu:
@@ -35,9 +45,16 @@ sv:
             confirm: Återkallande av auktorisering före datum kan inte ångras. Vill du fortsätta?
             confirm_all: Det går inte att ångra återkallande av alla auktoriseringar. Vill du fortsätta?
           destroy_nok: Det gick inte att återkalla auktoriseringar.
+          destroy_ok: Alla matchade auktoriseringar har återkallats.
           info: Det finns totalt %{count} verifierade deltagare.
           no_data: Inga verifierade deltagare
+          title: Återkallande av auktoriseringar
         authorization_workflows: Auktoriseringar
+    admin_log:
+      organization:
+        update_id_documents_config: "%{user_name} uppdaterade konfiguration för verifikation av identitetshandlingar"
+      user:
+        grant_id_documents_offline_verification: "%{user_name} verifierade %{resource_name} hjälp av offlineverifiering av identitetshandlingar"
     authorization_handlers:
       admin:
         csv_census:
@@ -69,11 +86,16 @@ sv:
       postal_letter:
         explanation: Vi skickar dig ett brev med en kod som du måste ange så att vi kan verifiera din adress
         name: Kod via fysiskt brev
+    events:
+      verifications:
+        verify_with_managed_user:
+          email_outro: Kontrollera <a href="%{conflicts_url}">Verifieringars konfliktlista</a> och kontakta deltagaren för att verifiera deras uppgifter och lösa problemet.
+          email_subject: Kunde inte verifiera försök mot en annan deltagare
     verifications:
       authorizations:
         authorization_metadata:
-          info: 'Detta är data för den nuvarande verifieringen:'
-          no_data_stored: Ingen data lagrad.
+          info: 'Följande är uppgifter för den aktuella verifieringen:'
+          no_data_stored: Inga lagrade uppgifter.
         create:
           error: Det gick inte att skapa auktoriseringen.
           success: Du har auktoriserats.
@@ -89,7 +111,7 @@ sv:
             dummy_authorization_workflow: Verifiera med exemplet på arbetsflöde för auktorisering
             id_documents: Verifiera dig genom att skicka in din identitetshandling
             postal_letter: Verifiera dig genom att ta emot en verifieringskod via fysiskt brev
-            sms: Bli verifierad genom att ta emot en SMS-verifieringskod
+            sms: Bli verifierad genom att få en verifieringskod med SMS
           title: Verifiera din identitet
           verify_with_these_options: 'Det här är de tillgängliga alternativen för att verifiera din identitet:'
         index:
@@ -125,6 +147,7 @@ sv:
             title: Aktuella medlemsuppgifter
           instructions:
             body: För att göra detta måste du öppna systemadministrationen och lägga till godkännande via csv_census till organisationen
+            title: Du måste aktivera medlemsregister via CSV för organisationen
           new:
             file: ".csv-fil med e-postadresser"
             info: 'Måste vara en fil i CSV-format med bara en kolumn med e-postadressen:'
@@ -140,6 +163,9 @@ sv:
             one: Deltagande är begränsat till deltagare med postnummer %{postal_codes}.
             other: 'Deltagande är begränsat till deltagare med något av följande postnummer: %{postal_codes}.'
           scope: Deltagandet är begränsat till deltagare inom %{scope_name}.
+          user_postal_codes:
+            one: Deltagandet är begränsat till deltagare med postnumret %{postal_codes} och ditt postnummer är %{user_postal_code}.
+            other: 'Deltagandet är begränsat till deltagare med något av följande postnummer: %{postal_codes}. Ditt postnummer är %{user_postal_code}.'
           user_scope: Deltagandet är begränsat till deltagare med inom %{scope_name} och du tillhör %{user_scope_name}.
       id_documents:
         admin:
@@ -195,6 +221,10 @@ sv:
           new:
             send: Begär verifiering
             title: Skicka in din identitetshandling
+          update:
+            error: Det gick inte att skicka in Id-handlingen igen.
+            success: Dokumentet har laddats upp igen.
+        identification_number: Personnummer
         passport: Pass
       postal_letter:
         admin:
