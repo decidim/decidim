@@ -656,7 +656,7 @@ eu:
           error: Arazo bat izan da lankidetza-zirriborroak sortzean.
           success: Zirriborro kolaboratiboa sortu da.
         edit:
-          attachment_legend: "(Aukerakoa) Erantsi fitxategi bat"
+          attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
           back: Atzera
           select_a_category: Mesedez, hautatu kategoria bat
           send: Bidali
@@ -790,7 +790,7 @@ eu:
           description: Koordenatuak eguneratu egingo dira 'aurrebistaratu' botoian klik egiten duzunean. Baina helbidea ez da aldatzen.
           instructions: Kokapena mugitu ahal duzu mapan.
         edit:
-          add_documents: Erantsi dokumentuak
+          add_documents: Gehitu dokumentuak
           add_image: Gehitu argazki bat
           attachment_legend: "(Aukerakoa) Gehitu eranskina"
           back: Atzera
