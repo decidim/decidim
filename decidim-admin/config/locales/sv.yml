@@ -701,7 +701,7 @@ sv:
             does_not_belong: Opassande
             hidden_during_block: Dold vid blockering av deltagare
             offensive: Stötande
-            spam: Skräp
+            spam: Skräppost
         reports:
           index:
             author: Författare
