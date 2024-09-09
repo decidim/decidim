@@ -103,7 +103,7 @@ shared_examples "manage proposals" do
             expect(page).to have_content("New proposal: #{translated(attributes[:title])}")
 
             within "#filters" do
-              find("span", text: "Proposal", match: :first).click
+              find("a", class: "filter", text: "Proposal", match: :first).click
             end
             expect(page).to have_content("New proposal: #{translated(attributes[:title])}")
           end

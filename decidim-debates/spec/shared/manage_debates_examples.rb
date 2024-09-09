@@ -123,7 +123,7 @@ RSpec.shared_examples "manage debates" do
     expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
 
     within "#filters" do
-      find("span", text: "Debate", match: :first).click
+      find("a", class: "filter", text: "Debate", match: :first).click
     end
     expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
   end

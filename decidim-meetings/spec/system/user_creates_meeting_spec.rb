@@ -125,7 +125,7 @@ describe "User creates meeting" do
           expect(page).to have_content("New meeting: #{meeting_title}")
 
           within "#filters" do
-            find("span", text: "Meeting", match: :first).click
+            find("a", class: "filter", text: "Meeting", match: :first).click
           end
 
           expect(page).to have_content("New meeting: #{meeting_title}")
