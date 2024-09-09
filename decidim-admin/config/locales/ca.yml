@@ -329,12 +329,15 @@ ca:
           default_step_settings: Configuració per defecte
           global_settings: Configuració global
           step_settings: Configuració de fase
+        hide:
+          success: El component s'ha amagat correctament del menú.
         index:
           add: Afegeix un component
           headers:
             actions: Accions
             name: Nom del component
             type: Tipus de component
+            visibility: Visibilitat
         new:
           add: Afegeix un component
           title: 'Afegir component: %{name}'
@@ -346,6 +349,10 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest component.
           success: El component s'ha actualitzat correctament.
+        visibility_label:
+          menu_hidden: Menú amagat
+          published: Publicat
+          unpublished: Despublicat
       conflicts:
         attempts: Intents
         'false': 'No'
