@@ -334,7 +334,6 @@ ca:
           headers:
             actions: Accions
             name: Nom del component
-            scope: Àmbit del component
             type: Tipus de component
         new:
           add: Afegeix un component
