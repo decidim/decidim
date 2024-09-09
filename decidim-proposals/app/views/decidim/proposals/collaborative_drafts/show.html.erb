@@ -1,9 +1,9 @@
 <% add_decidim_page_title(t("name", scope: "decidim.proposals.collaborative_drafts")) %>
-<% add_decidim_meta_tags({
-                           description: present(@collaborative_draft).body,
-                           title: present(@collaborative_draft).title,
-                           url: collaborative_draft_url(@collaborative_draft.id)
-                         }) %>
+<% add_decidim_meta_tags(
+  description: present(@collaborative_draft).body,
+  title: present(@collaborative_draft).title,
+  url: collaborative_draft_url(@collaborative_draft.id),
+  resource: @collaborative_draft) %>
 
 <%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <%= append_javascript_pack_tag "decidim_proposals" %>

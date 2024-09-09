@@ -1,10 +1,10 @@
 <% provide(:title, translated_attribute(post.title)) %>
 
-<% add_decidim_meta_tags({
-                           title: translated_attribute(post.title),
-                           description: translated_attribute(post.body),
-                           url: post_url(post.id)
-                         }) %>
+<% add_decidim_meta_tags(
+  title: translated_attribute(post.title),
+  description: translated_attribute(post.body),
+  url: post_url(post.id),
+  resource: post) %>
 
 <%
   edit_link(

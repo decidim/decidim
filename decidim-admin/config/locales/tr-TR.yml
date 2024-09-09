@@ -244,7 +244,6 @@ tr:
           headers:
             actions: Eylemler
             name: Bileşen Adı
-            scope: Bileşen kapsamı
             type: Bileşen tipi
         new:
           add: Bileşen ekle
