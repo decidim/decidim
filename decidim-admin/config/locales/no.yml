@@ -274,7 +274,6 @@
           headers:
             actions: Handlinger
             name: Komponentnavn
-            scope: Komponenttype
             type: Komponenttype
         new:
           add: Legg til komponent
