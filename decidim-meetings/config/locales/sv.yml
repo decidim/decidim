@@ -13,8 +13,8 @@ sv:
         video_url: Video-URL
       meeting:
         address: Adress
-        available_slots: Tillgängliga platser för detta möte
-        customize_registration_email: Anpassa e-post för registrering
+        available_slots: Lediga platser för detta möte
+        customize_registration_email: Anpassa e-postmeddelandet för registrering
         decidim_category_id: Kategori
         decidim_scope_id: Indelning
         decidim_user_group_id: Användargrupp
@@ -23,16 +23,16 @@ sv:
         id: ID
         iframe_embed_type: Typ av inbäddad iframe
         location: Plats
-        location_hints: Detaljer om platsen
-        online_meeting_url: URL för onlinemötet
+        location_hints: Vägbeskrivning
+        online_meeting_url: Länk till digitalt möte
         organizer_gid: Skapa som
         organizer_id: Organisatör
         private_meeting: Privat möte
-        registration_email_custom_content: Custom text i anmälningse-post
+        registration_email_custom_content: Anpassat e-postinnehåll för registrering
         registration_form_enabled: Registreringsformulär aktiverat
         registration_terms: Registreringsvillkor
         registration_type: Typ av registrering
-        registration_url: URL för anmälan
+        registration_url: Anmälningslänk
         registrations_enabled: Registreringar aktiverade
         reserved_slots: Tillgängliga platser för mötet
         start_time: Starttid
@@ -115,7 +115,7 @@ sv:
             values:
               hybrid: Hybrid
               in_person: Fysiska
-              online: Digitalt
+              online: Digitala
       meeting_copies:
         create:
           error: Det gick inte att duplicera mötet.
@@ -224,14 +224,14 @@ sv:
         new: Nytt möte
         preview: Förhandsvisa
         registrations: Registreringar
-        title: Handlingar
+        title: Åtgärder
       admin:
         agenda:
           agenda_item:
             add_agenda_item_child: Lägg till delpunkt på dagordningen
-            agenda_item: Dagordningspunkt
+            agenda_item: Punkt på dagordningen
             agenda_item_children: Delpunkter på dagordningen
-            down: Ned
+            down: Ner
             remove: Ta bort
             up: Upp
           agenda_item_child:
@@ -271,9 +271,9 @@ sv:
             error: Det gick inte att bjuda in deltagaren till mötet.
             success: Deltagaren har bjudits in att delta i mötet.
           form:
-            attendee_type: Deltagartyp
+            attendee_type: Typ av deltagare
             existing_user: Befintlig deltagare
-            invite: Bjuda in
+            invite: Inbjudan
             invite_explanation: Deltagaren kommer att bli inbjuden att delta i mötet och även till organisationen.
             non_user: Icke befintlig deltagare
             select_user: Välj deltagare
@@ -309,7 +309,7 @@ sv:
             title: Redigera möte
             update: Uppdatera
           form:
-            address_help: 'Adress: anger en plats för Geocoder'
+            address_help: 'Adress: anger en plats för visning på karta'
             disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
             location_help: 'Plats: meddelande till användarna som anger mötesplats'
             location_hints_help: 'Ytterligare vägbeskrivning. Till exempel till en lokal eller lösenord till ett digitalt möte.'
@@ -398,12 +398,23 @@ sv:
           all: Alla
         filter_scope_values:
           all: Alla
+      calendar:
+        meeting_to_event:
+          read_more: Läs mer om mötet
       calendar_modal:
         calendar_url: Kalender-URL
         close_window: Stäng fönster
         copy_calendar_url: Kopiera
+        copy_calendar_url_clarification: Kopiera kalenderlänken
         copy_calendar_url_copied: Kopierad!
+        copy_calendar_url_description: Du kan visa publicerade möten i din kalender. Kopiera och klistra in länken i din kalender med hjälp av "Lägg till ny kalender från en URL".
+        copy_calendar_url_message: Länken kopierades.
         export_calendar: Exportera kalender
+      close_meeting_reminder_mailer:
+        close_meeting_reminder:
+          body: Mötet <a href="%{meeting_path}">"%{meeting_title}"</a> väntar på att avslutas. Lägg till en rapport från mötet med knappen "Avsluta möte".
+          greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
+          hello: Hej %{username},
       conference_venues: Konferenslokaler
       content_blocks:
         upcoming_meetings:
@@ -429,6 +440,7 @@ sv:
         new_meeting_at_html: "<span>Nytt möte på %{link}</span>"
       layouts:
         live_event:
+          administrate: Administrera
           close: stäng
           questions: Frågor
       mailer:
@@ -466,7 +478,7 @@ sv:
           update: Uppdatera
         filters:
           activity: Min aktivitet
-          all: Allt
+          all: Alla
           category: Kategori
           date: Datum
           date_values:
@@ -474,45 +486,45 @@ sv:
             past: Tidigare
             upcoming: Kommande
           my_meetings: Mina möten
-          origin: Ursprung
+          origin: Ursprungligt
           origin_values:
             all: Alla
-            official: Officiell
+            official: Officiella
             participants: Deltagare
             user_groups: Grupper
           scope: Indelning
           search: Sök
           type: Typ
           type_values:
-            all: Allt
+            all: Alla
             hybrid: Hybrid
             in_person: Fysiska
-            online: Online
+            online: Digitala
         filters_small_view:
           close_modal: Stäng fönstret
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
         form:
-          address_help: 'Adress: som används av Geocoder för att hitta platsen'
-          available_slots_help: Lämna det till 0 om du har obegränsade platser
+          address_help: 'Adress: ange en plats för visning på karta'
+          available_slots_help: Låt det stå 0 om du har obegränsat antal platser
           create_as: Skapa möte som
           disclaimer: 'Disclaimer: När du använder ett externt anmälningssystem är du medveten om att administratörerna för %{organization} inte är ansvariga för de data som tillhandahålls av användarna till den externa tjänsten.'
-          location_help: 'Plats: meddelande riktat till de användare som antyder platsen att träffas på'
-          location_hints_help: 'Tips för att hitta platsen: ytterligare information. Exempel: våningen om det är ett fysiskt möte eller möteslösenordet om det är ett online möte.'
-          online_meeting_url_help: 'Länk: tillåt deltagare att koppla sig direct till ditt möte'
-          registration_url_help: 'Länk: tillåt deltagare att registrera sig på en extern tjänst'
+          location_help: 'Plats: mötesplats för deltagare'
+          location_hints_help: 'Ytterligare vägbeskrivning. Till exempel till en lokal eller lösenord till ett digitalt möte.'
+          online_meeting_url_help: 'Länk: låt deltagare ansluta sig direkt till mötet'
+          registration_url_help: 'Länk: låt deltagare registrera sig via en extern tjänst'
           select_a_category: Välj en kategori
-          select_a_meeting_type: Välj mötestyp
-          select_a_registration_type: Välj en registreringsmetod
-          select_an_iframe_access_level: Välj vem får tillgång till denna iframe
+          select_a_meeting_type: Välj typ av möte
+          select_a_registration_type: Välj sätt att registrera sig
+          select_an_iframe_access_level: Välj vem som får tillgång till iframe
           show_embedded_iframe_help: 'Endast ett fåtal tjänster tillåter inbäddade möten eller live-event: %{domains}'
         index:
-          click_here: Se alla möten
+          click_here: Visa alla möten
           new_meeting: Nytt möte
-          see_all: Se alla möten
-          see_all_withdrawn: Se alla tillbakadragna möten
-          text_banner: Du tittar på listan över möten som dragits tillbaka av sina författare. %{go_back_link}.
+          see_all: Visa alla möten
+          see_all_withdrawn: Visa alla inställda möten
+          text_banner: Du visar möten som ställts in av sin arrangör. %{go_back_link}.
         meeting_minutes:
           related_information: Relaterad information
         meetings:
@@ -531,12 +543,14 @@ sv:
           close_meeting: Stäng mötet
           contributions: Antal bidrag
           date: Datum
+          edit_close_meeting: Redigera mötesrapport
           edit_meeting: Redigera möte
+          join: Gå med i mötet
           leave: Avbryt din registrering
-          leave_confirmation: Är du säker på att du vill avboka från detta möte?
-          link_available_soon: Länk snart tillgänglig
+          leave_confirmation: Är du säker på att du vill avbryta din anmälan till mötet?
+          link_available_soon: Länk kommer snart
           link_closed: Länken till mötet kommer finnas tillgänglig några minuter innan det börjar
-          live_event: Detta möte händer nu
+          live_event: Mötet pågår just nu
           meeting_minutes: Mötesprotokoll
           micro_camera_permissions_warning: När du klickar på knappen nedan kommer du att bli ombedd om mikrofon och/eller kamera och du kommer att ansluta till videokonferensen
           no_slots_available: Inga platser kvar
@@ -586,6 +600,7 @@ sv:
             empty_questions: Under hela mötet kommer några frågor att skickas och du kommer kunna svara på dem. De kommer att visas här.
           index_admin:
             admin_dashboard: Adminpanel
+            edit: Redigera i admin-panelen
             question: Fråga
             received_answer: mottaget svar
             received_answers: mottagna svar
@@ -610,7 +625,7 @@ sv:
           registration_code: Din registreringskod är %{code}.
       registration_type:
         on_different_platform: På en annan plattform
-        on_this_platform: På den plattform
+        on_this_platform: På den här plattformen
         registration_disabled: Registrering inaktiverad
       registrations:
         create:
@@ -625,11 +640,11 @@ sv:
       type_of_meeting:
         hybrid: Hybrid
         in_person: Fysiska
-        online: Online
+        online: Digitala
       types:
         private_meeting: Privat möte
         transparent: Transparent
-        withdraw: Tillbakadragna
+        withdraw: Inställda
       versions:
         back_to_resource: Gå tillbaka till mötet
       withdraw:
