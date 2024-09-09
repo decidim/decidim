@@ -8,13 +8,19 @@
         <% if index < history_items.size - 1 %>
           <span class="<%= item[:id] == "proposal_creation" ? "proposal_history_cell__line_short" : "proposal_history_cell__line_long" %>"></span>
         <% end %>
+        <% if item[:resource].present? %>
+          <% resource_title = item[:resource].title[I18n.locale.to_s] %>
+          <% if item[:text].include?(resource_title) %>
+            <span class="proposal_history_cell__line_large"></span>
+          <% end %>
+        <% end %>
       </div>
       <div class="proposal_history_cell__item_content">
         <span class="proposal_history_cell__item_date"><%= item[:date].strftime("%d/%m/%Y %H:%M") %></span>
         <p class="flex flex-col lg:flex-none lg:block"><%= item[:text].html_safe %></p>
         <% if item[:resource].present? %>
           <% resource_title = item[:resource].title[I18n.locale.to_s] %>
-          <% unless item[:text].include?(resource_title) %> 
+          <% unless item[:text].include?(resource_title) %>
             <ul>
               <li>
                 <%= link_to decidim_sanitize_translated(item[:resource].title), item[:url], class: "underline decoration-current text-secondary font-semibold" %>
