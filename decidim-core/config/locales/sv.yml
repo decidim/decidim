@@ -14,7 +14,7 @@ sv:
         document_number: Dokumentnummer
         email: E-post
         name: Namn
-        nickname: Smeknamn
+        nickname: Användarnamn
         phone: Telefon
       message:
         body: Innehåll
@@ -189,12 +189,12 @@ sv:
         create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV-fil"
         delete: "%{user_name} tog deltagaren %{resource_name} som en privat deltagare"
       scope:
-        create: "%{user_name} skapade omfattningen %{resource_name}"
-        create_with_parent: "%{user_name} skapade omfattningen %{resource_name} inom ramen för %{parent_scope}"
-        delete: "%{user_name} raderade omfattningen %{resource_name}"
-        delete_with_parent: "%{user_name} raderade omfattningen %{resource_name} inom ramen för %{parent_scope}"
-        update: "%{user_name} uppdaterade omfattningen %{resource_name}"
-        update_with_parent: "%{user_name} uppdaterade omfattningen %{resource_name} inom ramen för %{parent_scope}"
+        create: "%{user_name} skapade indelningen %{resource_name}"
+        create_with_parent: "%{user_name} skapade indelningen %{resource_name} inom %{parent_scope}"
+        delete: "%{user_name} raderade indelningen %{resource_name}"
+        delete_with_parent: "%{user_name} raderade indelningen %{resource_name} inom %{parent_scope}"
+        update: "%{user_name} uppdaterade indelningen %{resource_name}"
+        update_with_parent: "%{user_name} uppdaterade indelningen %{resource_name} inom %{parent_scope}"
       scope_type:
         create: "%{user_name} skapade indelningen %{resource_name}"
         delete: "%{user_name} raderade indelningen %{resource_name}"
@@ -822,7 +822,7 @@ sv:
     help:
       main_topic:
         default_page:
-          content: "<p>I %{organization} kan du delta och besluta om olika ämnen genom de områden som visas i toppmenyn: dialoger, grupper, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten och andra åtgärder.</p>\n"
+          content: "<p>I %{organization} kan du delta och besluta i de deltagandeprocesser som visas i toppmenyn: processer, samråd, namninsamlingar och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten med mera.</p>\n"
           title: Vad kan jag göra i %{organization}?
     last_activities:
       all: Alla aktivitetstyper
@@ -853,9 +853,9 @@ sv:
         area_type_presenter:
           not_found: 'Områdestypen hittades inte i databasen (ID: %{id})'
         scope_presenter:
-          not_found: 'Omfattningen hittades inte i databasen (ID: %{id})'
+          not_found: 'Indelningen hittades inte i databasen (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Omfattningstypen hittades inte i databasen (ID: %{id})'
+          not_found: 'Typen av indelning hittades inte i databasen (ID: %{id})'
     managed_users:
       expired_session: Den aktuella administrationsperioden för en användare har förfallit.
     map:
@@ -1021,7 +1021,7 @@ sv:
         extended:
           debates: Debatter
           debates_explanation: Debattera och diskutera, dela dina åsikter och berika de relevanta ämnena.
-          how_to_participate: Hur deltar jag i en dialog?
+          how_to_participate: Hur deltar jag i en process?
           meetings: Möten
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
           more_info: Mer information om %{resource_name}
@@ -1109,14 +1109,14 @@ sv:
       create:
         error: Det gick inte att stämma in.
     scopes:
-      global: Global omfattning
+      global: Global indelning
       picker:
         cancel: Avbryt
         change: Ändra indelning
         choose: Välj
         currently_selected: Vald indelning
         title: Välj %{field}
-      prompt: Välj en omfattning
+      prompt: Välj en indelning
       scopes: Indelningar
       scopes_picker_input:
         select_scope: 'Välj indelning (nuvarande: %{current})'
