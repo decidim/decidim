@@ -334,7 +334,6 @@ fr:
           headers:
             actions: Actions
             name: Nom de la fonctionnalité
-            scope: Secteur de la fonctionnalité
             type: Type de fonctionnalité
         new:
           add: Ajouter une fonctionnalité
