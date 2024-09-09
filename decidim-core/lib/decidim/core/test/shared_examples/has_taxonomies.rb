@@ -43,7 +43,7 @@ shared_examples_for "has taxonomies" do
         expect(described_class.with_taxonomy(root_taxonomy.id)).to eq([subject])
       end
 
-      it "retuns empty if not in the taxonomy" do
+      it "returns empty if not in the taxonomy" do
         expect(described_class.with_taxonomy(another_taxonomy.id)).to be_empty
       end
     end
@@ -54,7 +54,7 @@ shared_examples_for "has taxonomies" do
         expect(described_class.with_taxonomies(root_taxonomy.id, another_taxonomization.id)).to eq([subject])
       end
 
-      it "retuns empty if not in the taxonomy" do
+      it "returns empty if not in the taxonomy" do
         expect(described_class.with_taxonomies(another_taxonomy.id)).to be_empty
       end
     end
@@ -68,14 +68,14 @@ shared_examples_for "has taxonomies" do
       let(:third_taxonomy) { create(:taxonomy, parent: third_root_taxonomy, organization: subject.organization) }
       let!(:third_taxonomization) { create(:taxonomization, taxonomizable: subject, taxonomy: third_taxonomy) }
 
-      it "returns the taxonomizable matchin all subsets" do
+      it "returns the taxonomizable matching all subsets" do
         subset1 = [root_taxonomy.id, [taxonomy.id, another_taxonomy.id]]
         subset2 = [second_root_taxonomy.id, [second_taxonomy.id]]
         subset3 = [third_root_taxonomy.id, [third_taxonomy.id]]
         expect(described_class.with_any_taxonomies(subset1, subset2, subset3)).to eq([subject])
       end
 
-      it "retuns empty if one subset is missing" do
+      it "returns empty if one subset is missing" do
         subset1 = [root_taxonomy.id, [missing_taxonomy.id]]
         subset2 = [second_root_taxonomy.id, [second_taxonomy.id]]
         subset3 = [third_root_taxonomy.id, [third_taxonomy.id]]

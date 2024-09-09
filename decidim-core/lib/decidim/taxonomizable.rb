@@ -42,11 +42,12 @@ module Decidim
 
           taxonomy_ids = [root_id] if taxonomy_ids.include?("all")
 
-          queries << with_taxonomies(*taxonomy_ids).arel
+          queries << with_taxonomies(*taxonomy_ids)
         end
         return self if queries.empty?
+        return queries.first if queries.count == 1
 
-        subquery = queries.reduce do |memo, query|
+        subquery = queries.map(&:arel).reduce do |memo, query|
           Arel::Nodes::Intersect.new(memo, query)
         end
 

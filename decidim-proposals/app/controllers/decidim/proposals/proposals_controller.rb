@@ -54,7 +54,7 @@ module Decidim
           @voted_proposals = if current_user
                                ProposalVote.where(
                                  author: current_user,
-                                 proposal: @proposals.pluck(:id)
+                                 proposal: @proposals.pluck("decidim_proposals_proposals.id")
                                ).pluck(:decidim_proposal_id)
                              else
                                []
@@ -206,7 +206,7 @@ module Decidim
           search_text_cont: "",
           with_any_origin: nil,
           activity: "all",
-          with_any_taxonomy: nil,
+          with_any_taxonomies: nil,
           with_any_state: default_states,
           related_to: "",
           type: "all"

@@ -144,7 +144,7 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_taxonomy: nil,
+          with_any_taxonomies: nil,
           with_any_state: %w(open),
           related_to: ""
         }

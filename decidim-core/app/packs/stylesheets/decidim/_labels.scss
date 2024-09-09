@@ -23,16 +23,4 @@
   &.reverse {
     @apply bg-gray-2 text-white;
   }
-
-  &.primary {
-    @apply text-[var(--primary)];
-  }
-
-  &.secondary {
-    @apply text-[var(--secondary)];
-  }
-
-  &.tertiary {
-    @apply text-[var(--tertiary)];
-  }
 }
