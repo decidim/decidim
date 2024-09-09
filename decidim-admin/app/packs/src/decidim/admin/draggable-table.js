@@ -20,7 +20,7 @@ $(() => {
 
       const parent = children[0].parentNode;
       const sortUrl = parent.dataset.sortUrl;
-      const order = children.map((child) => child.dataset.componentId);
+      const order = children.map((child) => child.dataset.recordId);
 
       $.ajax({
         method: "PUT",

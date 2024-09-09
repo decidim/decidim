@@ -1,5 +1,5 @@
 <% if user_role_config.component_is_accessible?(component.manifest_name) %>
-  <tr class="draggable-content component-<%= component.id %>" draggable="true" data-component-id="<%= component.id %>">
+  <tr class="draggable-content component-<%= component.id %>" draggable="true" data-record-id="<%= component.id %>">
     <td class="text-center dragging-handle">
       <span><%= icon "draggable", class: "fill-black" %></span>
     </td>
