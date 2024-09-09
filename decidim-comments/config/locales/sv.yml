@@ -4,7 +4,7 @@ sv:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
-      decidim/comments/comment_upvoted_event: Kommentar uppröstad
+      decidim/comments/comment_upvoted_event: Positiva kommentarer
       decidim/comments/reply_created_event: Svar till en kommentar
       decidim/comments/user_group_mentioned_event: Nämn
       decidim/comments/user_mentioned_event: Nämn
@@ -119,7 +119,7 @@ sv:
           email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.
         comment_by_followed_user_group:
-          email_intro: 'Gruppen %{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den på denna sida:'
+          email_intro: 'Gruppen %{author_name} har lämnat en kommentar i %{resource_title}. Du kan läsa den här:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{author_name}. Du kan sluta följa den här gruppen från dess profilsida.
           email_subject: Det finns en ny kommentar av %{author_name} i %{resource_title}
           notification_title: Det finns en ny kommentar av <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>.

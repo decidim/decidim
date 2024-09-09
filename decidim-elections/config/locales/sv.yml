@@ -35,7 +35,7 @@ sv:
         description: Beskrivning
         end_time: Omröstningen avslutas
         promoted: Annonserad
-        scope_id: Omfång
+        scope_id: Indelning
         start_time: Omröstningen börjar
         title: Titel
         voting_type: Rösttyp
@@ -465,7 +465,7 @@ sv:
           main_data:
             name: Titel och beskrivning
           metrics:
-            name: Omröstningsmetrik
+            name: Omröstningsstatistik
         index:
           published: Publicerad
         menu:

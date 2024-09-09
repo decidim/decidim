@@ -78,6 +78,11 @@ cs:
         deleted_user: Vymazaný účastník
         edit: Upravit
         edited: Upraveno
+        hide_replies:
+          one: Skrýt odpověď
+          few: Skrýt {count} odpovědi
+          many: Skrýt {count} odpovědí
+          other: Skrýt {count} odpovědí
         moderated_at: Komentář moderován dne %{date}
         reply: Odpověď
         report:
