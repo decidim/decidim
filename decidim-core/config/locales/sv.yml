@@ -5,9 +5,9 @@ sv:
       account:
         delete_reason: Skäl att ta bort ditt konto
       common:
-        created_at: Skapad den
+        created_at: Skapad
       conversation:
-        body: Innehåll
+        body: Spara
       group:
         about: Om
         avatar: Profilbild
@@ -43,7 +43,7 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/promoted_to_admin_event: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
-      decidim/resource_endorsed_event: Resurs instämd
+      decidim/resource_endorsed_event: Innehållet har fått stöd
       decidim/resource_hidden_event: Dolt innehåll
       decidim/user_group_created_event: Användargrupp skapad
       decidim/welcome_notification_event: Välkomstmeddelande
@@ -339,7 +339,7 @@ sv:
       photos:
         related_photos: Relaterade bilder
     author:
-      avatar: 'Avatar: %{name}'
+      avatar: 'Profilbild: %{name}'
       avatar_multiuser: Avatar för flera användare
       comments:
         one: kommentar
@@ -347,7 +347,7 @@ sv:
       endorsements:
         one: instämmande
         other: instämmanden
-      official_author: Officiella
+      official_author: Officiell
     authorization_handlers:
       another_dummy_authorization_handler:
         explanation: Bli bekräftad genom att ange ett passnummer som inleds med "A"
@@ -367,7 +367,7 @@ sv:
       dummy_authorization_workflow:
         name: Dummy-arbetsflöde för bekräftelse
       errors:
-        duplicate_authorization: En deltagare är redan behörig med samma data.
+        duplicate_authorization: En deltagare är redan auktoriserad med samma data. En administratör kommer att kontakta dig för att verifiera dina uppgifter.
       expired_at: Förföll vid %{timestamp}
       expires_at: Förfaller vid %{timestamp}
       foo_authorization:
@@ -438,7 +438,7 @@ sv:
           debate: Debatt
           initiative: Initiativ
           meeting: Möte
-          order: Röster
+          order: Budgetomröstning
           post: Inlägg
           proposal: Förslag
           question: Fråga
@@ -472,11 +472,11 @@ sv:
     contact: Kontakt
     content_blocks:
       cta:
-        name: Bild, text och Åtgärdsknapp
+        name: Bild, text och Call to Action-knapp
       cta_settings_form:
         background_image: Bakgrundsbild
-        button_text: Uppmaningens text
-        button_url: Uppmaningens URL
+        button_text: Text på knapp
+        button_url: Knappens länk
         description: Beskrivning
       footer_sub_hero:
         name: Sidfot sub hero banner
@@ -1047,9 +1047,9 @@ sv:
           error: Konversationen har inte startat. Försök igen senare
         error_modal:
           close: Stäng fönster
-          correct_errors: Rätta alla fel och försök igen.
-          intro: 'De följande fel fanns i ditt meddelande:'
-          ok: OK
+          correct_errors: Vänligen korrigera felen och försök igen.
+          intro: 'Det fanns följande fel med ditt meddelande:'
+          ok: Ok
         index:
           ago: sedan
           close: Stäng fönster
@@ -1098,19 +1098,19 @@ sv:
     newsletter_templates:
       basic_only_text:
         body_preview: 'Dummy text för innehåll: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
-        name: Grundläggande (endast text)
+        name: Enkel (endast text)
       basic_only_text_settings_form:
         body: Innehåll
-        interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i brödtexten eller ämnet och det kommer att ersättas av mottagarens namn.'
+        interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i innehållet eller ämnet och det kommer att ersättas av mottagarens namn.'
       image_text_cta:
         body_preview: 'Dummy text för innehåll: Maecenas ac nisl vitae lectus pretium facilisis. Etiam facilisis sem nibh, sit amet rutrum mi aliquam nec. Sed id urna at nisl pretium mollis eu vel velit. Proin vitae suscipit urna, sed faucibus urna. Pellentesque id libero vulputate ipsum scelerisque suscipit. Nam aliquam sodales mi sit amet cursus. Donec mattis faucibus purus. Aenean tincidunt porta lorem ac commodo. Vestibulum in mollis mi. Morbi eros erat, cursus ut tortor sit amet, imperdiet dapibus arcu. Suspendisse id egestas enim. In eget magna sed enim efficitur elementum sit amet aliquam quam. Donec fermentum metus eget urna luctus pulvinar.'
         cta_text_preview: Uppmaningens text
         introduction_preview: 'Dummy text för introduktion: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque fringilla nisl tellus. Donec sed mi dui. Sed efficitur libero a felis tempor sollicitudin. Nullam vestibulum fringilla felis, id efficitur lorem sagittis et. Vivamus aliquam maximus velit vel dapibus. Mauris pellentesque, enim eu varius lacinia, risus ante rutrum ipsum, non lobortis augue lorem quis urna. Aenean et malesuada arcu.'
-        name: Bild, text och Åtgärdsknapp
+        name: Bild, text och knapp
       image_text_cta_settings_form:
         body: Innehåll
-        cta_text: Uppmaningens knapptext
-        cta_url: URL för åtgärdsknapp
+        cta_text: Text på knapp
+        cta_url: Knappens länk
         interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i introduktionen, brödtexten, åtgärdsknappstexten eller ämnet och det kommer att ersättas av mottagarens namn.'
         introduction: Inledande text
         main_image: Huvudbilden
@@ -1143,7 +1143,13 @@ sv:
         translated_text: 'Maskinöversatt text:'
     notifications:
       no_notifications: Inga meddelanden ännu.
+      show:
+        missing_event: Hoppsan, det här meddelandet tillhör ett objekt som inte längre är tillgängligt. Du kan kasta det.
+        moderated: Innehåll modererat
     notifications_digest_mailer:
+      header:
+        daily: Dagligt sammandrag
+        weekly: Veckovis sammandrag
       hello: Hej %{name},
     notifications_settings:
       show:
@@ -1372,6 +1378,8 @@ sv:
         close_modal: Stäng fönster
         please_sign_in: Logga in
         sign_up: Registrera dig
+      mentions_modal:
+        remove_recipient: Ta bort mottagare %{name}
       participatory_space_filters:
         filters:
           areas: Områden
@@ -1517,6 +1525,7 @@ sv:
     invitations:
       edit:
         header: Slutför att skapa ditt konto
+        nickname_help: Ditt användarnamn för %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
       invitation_removed: Din inbjudan har tagits bort.
@@ -1743,6 +1752,7 @@ sv:
         facebook: "%{organization} på Facebook"
         github: "%{organization} på GitHub"
         instagram: "%{organization} på Instagram"
+        x: "%{organization} på X"
         youtube: "%{organization} på YouTube"
       timeout_modal:
         body: Du har varit inaktiv i %{minutes} minuter. Om du fortsätter att vara inaktiv kommer du automatiskt att loggas ut för din egen säkerhet.
@@ -1783,6 +1793,7 @@ sv:
     nickname_included_in_password: är för likt ditt användarnamn
     not_enough_unique_characters: har inte tillräckligt med unika tecken
     password_not_allowed: är ej tillåtet
+    password_repeated: kan inte återanvända tidigare lösenord
     password_too_common: är för vanligt
     password_too_long: är för långt
     password_too_short: är för kort
@@ -1808,6 +1819,7 @@ sv:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
