@@ -329,12 +329,15 @@ es-MX:
           default_step_settings: Configuraciones de paso predeterminadas
           global_settings: Ajustes globales
           step_settings: Configuración de paso
+        hide:
+          success: El componente se ha ocultado correctamente del menú.
         index:
           add: Agregar componente
           headers:
             actions: Comportamiento
             name: Nombre del componente
             type: Tipo de componente
+            visibility: Visibilidad
         new:
           add: Agregar componente
           title: 'Agregar componente: %{name}'
@@ -346,6 +349,10 @@ es-MX:
         update:
           error: Se ha producido un error al actualizar este componente.
           success: El componente se actualizó con éxito.
+        visibility_label:
+          menu_hidden: Menú oculto
+          published: Publicado
+          unpublished: Despublicado
       conflicts:
         attempts: Intentos
         'false': 'No'
