@@ -169,7 +169,7 @@ sv:
             proposal_edit_time: Redigering av förslag
             proposal_edit_time_choices:
               infinite: Tillåt redigering av förslag utan tidsbegränsning
-              limited: Tillåt redigering av förslag med tidsbegränsning
+              limited: Tillåt redigering av förslag med inom så här lång tid
             proposal_length: Maximal längd på förslagets innehåll
             proposal_limit: Förslagsgräns per deltagare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
@@ -188,10 +188,10 @@ sv:
             amendment_promotion_enabled_help: Författare av ändringsförslag kommer att kunna lägga fram det avvisade ändringsförslaget som ett förslag.
             amendment_reaction_enabled: Reagera på ändringar är aktiverat
             amendment_reaction_enabled_help: Förslagsförfattarna kan anta eller avvisa deltagarnas ändringsförslag.
-            amendments_visibility: Ändringens synlighet
+            amendments_visibility: Synlighet för ändringsförslag
             amendments_visibility_choices:
-              all: Ändringar är synliga för alla
-              participants: Ändringsförslagen är endast synliga för författarna
+              all: Ändringsförslag är synliga för alla
+              participants: Ändringsförslag är endast synliga för författarna
             amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
             announcement: Meddelande
             answers_with_costs: Tillåt kostnader i svar på förslag
