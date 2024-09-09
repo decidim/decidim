@@ -1,4 +1,7 @@
 <%= render layout: "layouts/decidim/shared/layout_item" do %>
+
+  <%= render partial: "schema_org_event_meeting" %>
+
   <section class="layout-main__section layout-main__heading">
     <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
 
