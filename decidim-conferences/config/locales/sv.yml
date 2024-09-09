@@ -3,14 +3,14 @@ sv:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Relaterade grupper
+        assemblies_ids: Relaterade samråd
         available_slots: Tillgängliga platser
         banner_image: Bannerbild
         consultations_ids: Relaterade samråd
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_features: Kopiera funktioner
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
         hashtag: Hashtag
@@ -18,13 +18,13 @@ sv:
         location: Plats
         main_logo: Logotyp
         objectives: Mål
-        participatory_processes_ids: Relaterade dialoger
+        participatory_processes_ids: Relaterade deltagandeprocesser
         promoted: Uppmärksammad
         published_at: Publicerad
         registration_terms: Villkor för registrering
         registrations_enabled: Registrering aktiverad
-        scope_id: Omfång
-        scopes_enabled: Omfång aktiverat
+        scope_id: Indelning
+        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         sign_date: Underskriftsdatum
@@ -523,9 +523,9 @@ sv:
         details: Detaljer
         introduction: Introduktion
         objectives: Mål
-        related_assemblies: Relaterade grupper
+        related_assemblies: Relaterade samråd
         related_consultations: Relaterade samråd
-        related_participatory_processes: Relaterade dialoger
+        related_participatory_processes: Relaterade deltagandeprocesser
     events:
       conferences:
         conference_registration_confirmed:
