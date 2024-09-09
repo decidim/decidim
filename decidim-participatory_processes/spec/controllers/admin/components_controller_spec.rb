@@ -27,13 +27,13 @@ module Decidim
 
         let(:space) { participatory_process }
 
-        it_behaves_like "a reorder components controller", slug_attribute: :participatory_process_slug
-
         before do
           request.env["decidim.current_organization"] = organization
           request.env["decidim.current_participatory_process"] = participatory_process
           sign_in current_user
         end
+
+        it_behaves_like "a reorder components controller", slug_attribute: :participatory_process_slug
 
         describe "PATCH update" do
           let(:component_params) do

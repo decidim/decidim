@@ -27,13 +27,13 @@ module Decidim
 
         let(:space) { conference }
 
-        it_behaves_like "a reorder components controller", slug_attribute: :conference_slug
-
         before do
           request.env["decidim.current_organization"] = organization
           request.env["decidim.current_conference"] = conference
           sign_in current_user
         end
+
+        it_behaves_like "a reorder components controller", slug_attribute: :conference_slug
 
         describe "PATCH update" do
           let(:component_params) do
