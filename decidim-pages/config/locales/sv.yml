@@ -28,7 +28,7 @@ sv:
             title: Redigera sida
           update:
             invalid: Det gick inte att spara sidan.
-            success: Sidan sparades framgångsrikt.
+            success: Sidan har sparats.
       home:
         sub_hero:
           register_title: Skapa ett konto
