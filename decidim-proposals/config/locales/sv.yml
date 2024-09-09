@@ -148,6 +148,7 @@ sv:
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             default_sort_order: Förvald sortering
+            default_sort_order_help: Automatiskt betyder att om röstning är aktiverat kommer förslagen sorteras slumpmässigt, och om röstning är avstängt kommer de att sorteras efter mest valda.
             default_sort_order_options:
               automatic: Automatisk
               most_commented: Mest kommenterade
@@ -176,6 +177,7 @@ sv:
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
             proposal_wizard_step_2_help_text: Hjälptext till steget "Jämför" i förslagsguiden
             proposal_wizard_step_3_help_text: Hjälptext till steget "Komplettera" i förslagsguiden
+            proposal_wizard_step_4_help_text: Hjälptext för steget ”Publicera” i förslagsguiden
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
@@ -198,20 +200,23 @@ sv:
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Deltagare kan skapa förslag
-            default_sort_order: Förvald produkt sortering
+            creation_enabled_readonly: Den här inställningen är inaktiverad när du aktiverar funktionen Kollaborativa Texter. För att ladda upp förslag som kollaborativa klickar du på knappen Kollaborativa Texter och följer instruktionerna.
+            default_sort_order: Förvald sortering
+            default_sort_order_help: Automatiskt betyder att om röstning är aktiverat kommer förslagen sorteras slumpmässigt, och om röstning är avstängt kommer de att sorteras efter mest valda.
             default_sort_order_options:
               automatic: Automatisk
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
               most_voted: Mest stödda
-              random: Slumpmässigt
+              random: Slumpvis
               recent: Senaste
-              with_more_authors: Med fler författare
+              with_more_authors: Med flera författare
             endorsements_blocked: Stöd är blockerade
             endorsements_enabled: Stöd är aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
             publish_answers_immediately: Publicera svar på förslag omedelbart
+            publish_answers_immediately_help_html: 'Tänk på att om du svarar på förslag som inte är aktiverade, kommer du att behöva publicera dem manuellt genom att välja dem och använda åtgärden för publicering. För mer information om hur det här fungerar, se <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
             suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
             votes_blocked: Stöd blockerat
             votes_enabled: Stöd aktiverat
@@ -221,8 +226,8 @@ sv:
         admin:
           proposal_note_created:
             email_intro: Någon har skrivit en anteckning om förslaget "%{resource_title}". Läs den i <a href="%{admin_proposal_info_url}">administratörspanelen</a>.
-            email_outro: Du har fått detta meddelande eftersom du kan värdera förslaget.
-            email_subject: Någon lämnade en anteckning på förslag %{resource_title}.
+            email_outro: Du har fått det här meddelandet eftersom du kan sätta pris på förslaget.
+            email_subject: Någon skrev en anteckning till förslaget %{resource_title}.
             notification_title: Någon har skrivit en anteckning om förslaget <a href="%{resource_path}">%{resource_title}</a>. Läs den i <a href="%{admin_proposal_info_path}">administratörspanelen</a>.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har fått tillgång till och är accepterad som bidragsgivare till %{resource_title}."
@@ -366,12 +371,12 @@ sv:
     participatory_spaces:
       highlighted_proposals:
         last: Senaste förslag
-        see_all: Visa alla (%{count})
+        see_all: Visa alla förslag
     proposals:
       actions:
         answer_proposal: Besvara förslag
         edit_proposal: Redigera förslag
-        import: Importera från en annan komponent
+        import: Importera förslag från en annan komponent
         new: Nytt förslag
         participatory_texts: Deltagartexter
         show: Visa förslag
@@ -396,7 +401,7 @@ sv:
             proposals: Importerar förslag från en fil
           resources:
             answers:
-              one: svar till förslaget
+              one: svar på förslag
               other: svar till förslaget
             proposals:
               one: förslag
