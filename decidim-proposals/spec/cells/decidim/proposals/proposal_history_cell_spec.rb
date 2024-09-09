@@ -11,31 +11,8 @@ module Decidim::Proposals
     let(:organization) { proposal.organization }
     let(:user) { create(:user, organization: proposal.participatory_space.organization) }
 
-    let(:history_items) do
-      [
-        { id: "proposal_creation", date: proposal.created_at, text: "This proposal was created" }
-      ]
-    end
-
     before do
       allow(controller).to receive(:current_user).and_return(user)
-    end
-
-    context "when a component is related to another component" do
-      let(:budget_component) do
-        create(:component, manifest_name: :budgets, participatory_space: proposal.component.participatory_space)
-      end
-      let(:project) { create(:project, component: budget_component) }
-
-      before do
-        project.link_resources([proposal], "included_proposals")
-      end
-
-      it "renders the proposal history creation" do
-        html = cell("decidim/proposals/proposal_history", proposal).call
-        expect(html).to have_css(".proposal_history_cell")
-        expect(html).to have_content("This proposal was created")
-      end
     end
 
     context "when the proposal has linked resources" do

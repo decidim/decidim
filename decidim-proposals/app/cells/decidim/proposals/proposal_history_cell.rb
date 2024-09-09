@@ -15,8 +15,6 @@ module Decidim
     #     proposal
     #   )
     class ProposalHistoryCell < Decidim::ResourceHistoryCell
-      include Decidim::Proposals::ApplicationHelper
-
       private
 
       def add_history_items

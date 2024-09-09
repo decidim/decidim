@@ -4,14 +4,15 @@ module Decidim
   module Accountability
     # This cell renders a project
     class ResultHistoryCell < Decidim::ResourceHistoryCell
-      include Decidim::Accountability::ApplicationHelper
-
       private
 
       def add_history_items
-        add_linked_resources_items(@history_items, :proposals, "included_proposals", "result.proposals", "Decidim::Proposals::Proposal")
-        add_linked_resources_items(@history_items, :projects, "included_projects", "result.project_ids", "Decidim::Budgets::Project")
-        add_linked_resources_items(@history_items, :meetings, "meetings_through_proposals", "result.meetings_ids", "Decidim::Meetings::Meeting")
+        resources = @model.linked_resources(:proposals, "included_proposals")
+        add_linked_resources_items(@history_items, resources, "included_proposals", "decidim/accountability/result/proposal_ids", "Decidim::Proposals::Proposal")
+        resources = @model.linked_resources(:projects, "included_projects")
+        add_linked_resources_items(@history_items, resources, "included_projects", "decidim/accountability/result/project_ids", "Decidim::Budgets::Project")
+        resources = @model.linked_resources(:meetings, "meetings_through_proposals")
+        add_linked_resources_items(@history_items, resources, "meetings_through_proposals", "decidim/accountability/result/meetings_ids", "Decidim::Meetings::Meeting")
         add_result_creation_item(@history_items) if @history_items.any?
       end
 

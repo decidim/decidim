@@ -2,6 +2,10 @@
 
 module Decidim
   class ResourceHistoryCell < Decidim::ViewModel
+    include Decidim::Budgets::ApplicationHelper
+    include Decidim::Proposals::ApplicationHelper
+    include Decidim::Accountability::ApplicationHelper
+
     def show
       render
     end

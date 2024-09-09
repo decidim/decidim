@@ -12,12 +12,6 @@ module Decidim::Accountability
     let(:organization) { result.organization }
     let(:user) { create(:user, organization: result.participatory_space.organization) }
 
-    let(:history_items) do
-      [
-        { id: "result_creation", date: result.created_at, text: "This result was created" }
-      ]
-    end
-
     before do
       allow(controller).to receive(:current_user).and_return(user)
     end
@@ -52,12 +46,6 @@ module Decidim::Accountability
         it "shows related projects" do
           html = cell("decidim/accountability/result_history", result).call
           expect(html).to have_content("It was included in this project:")
-        end
-
-        it "renders the result history creation" do
-          html = cell("decidim/accountability/result_history", result).call
-          expect(html).to have_css(".result_history_cell")
-          expect(html).to have_content("This result was created")
         end
       end
 

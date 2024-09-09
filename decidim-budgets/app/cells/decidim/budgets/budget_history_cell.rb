@@ -15,13 +15,13 @@ module Decidim
     #     budget
     #   )
     class BudgetHistoryCell < Decidim::ResourceHistoryCell
-      include Decidim::Budgets::ApplicationHelper
-
       private
 
       def add_history_items
-        add_linked_resources_items(@history_items, :proposals, "included_proposals", "decidim/proposals/proposal/budget_text", "Decidim::Proposals::Proposal")
-        add_linked_resources_items(@history_items, :results, "included_projects", "decidim/accountability/result/budget_text", "Decidim::Accountability::Result")
+        resources = @model.linked_resources(:proposals, "included_proposals")
+        add_linked_resources_items(@history_items, resources, "included_proposals", "decidim/proposals/proposal/budget_text", "Decidim::Proposals::Proposal")
+        resources = @model.linked_resources(:results, "included_projects")
+        add_linked_resources_items(@history_items, resources, "included_projects", "decidim/accountability/result/budget_text", "Decidim::Accountability::Result")
         add_budget_creation_item(@history_items) if @history_items.any?
       end
 

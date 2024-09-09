@@ -8,10 +8,7 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_date: End date
-        meetings_ids: 'It was discussed in this meeting: %{link}'
         progress: Progress
-        project_ids: 'It was included in this project: %{link}'
-        proposals: 'It was included in this proposal: %{link}'
         start_date: Start date
         subresults: Subresults
         title: Title
@@ -34,6 +31,9 @@ en:
         one: Result
         other: Results
       decidim/accountability/result/budget_text: This result %{link} was included
+      decidim/accountability/result/meetings_ids: 'It was discussed in this meeting: %{link}'
+      decidim/accountability/result/project_ids: 'It was included in this project: %{link}'
+      decidim/accountability/result/proposal_ids: 'It was included in this proposal: %{link}'
   decidim:
     accountability:
       actions:

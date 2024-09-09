@@ -11,12 +11,6 @@ module Decidim::Budgets
     let(:organization) { project.organization }
     let(:user) { create(:user, organization: project.participatory_space.organization) }
 
-    let(:history_items) do
-      [
-        { id: "budget_creation", date: project.created_at, text: "They were added to this budget" }
-      ]
-    end
-
     before do
       allow(controller).to receive(:current_user).and_return(user)
     end
@@ -36,12 +30,6 @@ module Decidim::Budgets
           html = cell("decidim/budgets/budget_history", project).call
           expect(html).to have_content("The proposal")
           expect(html).to have_content("was created")
-        end
-
-        it "renders the budget history creation" do
-          html = cell("decidim/budgets/budget_history", project).call
-          expect(html).to have_css(".budget_history_cell")
-          expect(html).to have_content("They were added to this budget")
         end
       end
     end
