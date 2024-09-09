@@ -332,7 +332,6 @@ pt-BR:
           headers:
             actions: Ações
             name: Nome do componente
-            scope: Escopo de componente
             type: Tipo de componente
         new:
           add: Adicionar componente
