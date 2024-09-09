@@ -61,7 +61,7 @@ sv:
         one: Ändring
         other: Ändringar
       decidim/endorsement:
-        one: Instämmande
+        one: Stöd
         other: Instämmanden
       decidim/user:
         one: Deltagare
@@ -142,7 +142,10 @@ sv:
         body2: Vill du skicka verifieringsmailet igen? %{resend_link} eller %{cancel_link}.
         cancel: avbryt
         cancel_error: Kunde inte avbryta ändringen av e-postadressen.
+        cancel_successfully: E-poständringen avbröts.
+        resend_error: Kunde inte skicka bekräftelsemeddelandet.
         send_again: Skicka igen
+        title: Verifiering av e-poständringar
       show:
         available_locales_helper: Välj det språk du vill använda på plattformen och få i notiserna
         change_password: Ändra lösenord
@@ -156,6 +159,7 @@ sv:
         cancel: Avbryt
       password_change:
         alert: Du måste ändra ditt lösenord för att kunna fortsätta
+        notification: Admin-användare måste ändra sitt lösenord efter %{days} dagar.
     admin_log:
       area:
         create: "%{user_name} skapade området %{resource_name}"
@@ -238,7 +242,9 @@ sv:
         unblock: "%{user_name} avblockerade användaren %{resource_name}"
         unofficialize: "%{user_name} gjorde deltagaren %{resource_name} inofficiell"
       user_group:
+        block: "%{user_name} blockerade användargruppen %{resource_name}"
         reject: "%{user_name} avvisade gruppverifieringen för %{resource_name}"
+        unblock: "%{user_name} avblockerad användargruppen %{resource_name}"
         verify: "%{user_name} verifierade gruppen %{resource_name}"
         verify_via_csv: "%{user_name} verifierade gruppen %{resource_name} via en CSV-fil"
       user_moderation:
@@ -324,6 +330,7 @@ sv:
           '1': Skapa ändringsförslag
           '2': Jämför ändringsförslag
           '3': Slutför ändringsförslaget
+          '4': Publicera ditt ändringsförslag
     anonymous_user: Anonym
     application:
       collection:
@@ -489,8 +496,8 @@ sv:
         name: Banner för uppmärksammat innehåll
       highlighted_elements_settings_form:
         orders:
-          label: 'Sortera element efter:'
-          random: Slumpmässig
+          label: 'Sortering:'
+          random: Slumpvis
           recent: Senaste
       how_to_participate:
         name: Hur du deltar
@@ -519,7 +526,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Komplettera profil
-          nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
+          nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
           sign_up: Var god slutför din profil
           subtitle: Slutför registreringen genom att fylla i följande formulär
           username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
@@ -530,7 +537,7 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få enstaka nyhetsbrev med relevant information
           newsletter_title: Kontakttillstånd
-          nickname_help: Ditt alias i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
+          nickname_help: Ditt användarnamn i %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
           sign_in: Logga in
           sign_up: Registrera dig
           sign_up_as:
@@ -553,7 +560,7 @@ sv:
           buttons:
             check: Kontrollera och fortsätt
             close_modal: Stäng fönster
-            uncheck: Behåll avmarkeringen
+            uncheck: Behåll avmarkerad
           notice: |-
             <p>Hej, är du säker på att du inte vill få nyhetsbrevet?<br>
             Överväg gärna en gång till att markera kryssrutan för nyhetsbrev nedan.<br>
@@ -592,7 +599,7 @@ sv:
         success: Bilden har laddats upp
       drag_and_drop_help: Lägg till bilder genom att dra och släppa eller klistra in dem.
     endorsable:
-      endorsements: Instämmanden
+      endorsements: Stöd
       endorsements_count: Antal Endorsements
     endorsement_buttons_cell:
       already_endorsed: Instämt
@@ -810,13 +817,18 @@ sv:
           message_1: Måste vara en bild eller ett dokument.
         icon:
           explanation: 'Instruktioner för ikon:'
+          message_1: Måste vara en kvadratisk bild.
+          message_2: Den rekommenderade storleken för denna bild är 512x512.
         image:
           explanation: 'Instruktioner för bild:'
           message_1: Helst en landskapsbild som inte har någon text.
           message_2: Bilden kommer bli beskuren.
       file_validation:
         allowed_file_extensions: 'Tillåtna filtillägg: %{extensions}'
+        max_file_dimension: 'Maximal upplösning: %{resolution} pixlar'
         max_file_size: 'Maximal filstorlek: %{megabytes}MB'
+      files:
+        extension_allowlist: 'Godkända format: %{extensions}'
       upload:
         labels:
           add_attachment: Lägg till bilaga
@@ -825,6 +837,7 @@ sv:
           cancel: Avbryt
           edit_image: Redigera bild
           error: Fel!
+          file_size_too_large: 'Filen är för stor! Största filstorlek: %{megabytes}MB'
           remove: Ta bort
           replace: Ersätt
           save: Spara
@@ -833,6 +846,8 @@ sv:
           uploaded: Uppladdad
           validating: Validerar...
           validation_error: Valideringsfel!
+      upload_help:
+        explanation: Instruktioner för %{attribute}
     gamification:
       all_badges_link: Se alla tillgängliga märken.
       badges:
@@ -1003,13 +1018,13 @@ sv:
         comanagers_new_conversation:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
-          intro: "%{manager} har startat en ny konversation i namnet %{group}. Klicka här för att se den:"
+          intro: "%{manager} har startat en ny konversation som %{group}. Klicka här för att se den:"
           outro: Njut av decidim!
           subject: "%{manager} har startat en ny konversation som %{group}"
         comanagers_new_message:
           admin_in_group: Du får detta eftersom du är administratör i %{group}.
           greeting: Hi, %{recipient}!
-          intro: "%{manager} har postat nya meddelanden i en konversation i namnet %{group}. Klicka här för att se dem:"
+          intro: "%{manager} har postat nya meddelanden i en konversation som %{group}. Klicka här för att se dem:"
           outro: Njut av decidim!
           subject: "%{manager} har skickat nya meddelanden som %{group}"
         new_conversation:
@@ -1028,7 +1043,7 @@ sv:
           greeting: Hi, %{recipient}!
           intro: "%{sender} har postat nya meddelanden i en konversation med gruppen %{group}. Klicka här för att se den:"
           outro: Njut av decidim!
-          subject: "%{group} har nya meddelanden från %{sender}"
+          subject: "%{group} har fått nya meddelanden från %{sender}"
         new_message:
           greeting: Hej %{recipient}!
           intro: "%{sender} har lagt upp nya meddelanden i er konversation. Klicka här för att se dem:"
@@ -1111,9 +1126,9 @@ sv:
         body: Innehåll
         cta_text: Text på knapp
         cta_url: Knappens länk
-        interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i introduktionen, brödtexten, åtgärdsknappstexten eller ämnet och det kommer att ersättas av mottagarens namn.'
+        interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i innehållet eller ämnet och det kommer att ersättas av mottagarens namn.'
         introduction: Inledande text
-        main_image: Huvudbilden
+        main_image: Huvudbild
     newsletters:
       unsubscribe:
         check_subscription: Om du vill ändra dina inställningar kan du göra det på <a href="%{link}" target="_blank">konfigurationssidan</a>
@@ -1151,19 +1166,29 @@ sv:
         daily: Dagligt sammandrag
         weekly: Veckovis sammandrag
       hello: Hej %{name},
+      intro:
+        daily: 'Det här är meddelandena från senaste dagen baserat på aktiviteterna du följer:'
+        weekly: 'Det här är meddelandena från senaste veckan baserat på aktiviteterna du följer:'
+      outro: Du har fått de här meddelandena eftersom du följer det här innehållet eller dess författare. Du kan sluta följa dem från deras respektive sidor.
+      see_more: Visa fler meddelanden
+      subject: Det här är din e-postsammanfattning
     notifications_settings:
       show:
         administrators: Administratörer
         allow_public_contact: Tillåt alla att skicka direktmeddelanden till mig, även de som jag inte följer.
         direct_messages: Ta emot direktmeddelanden från alla
+        email_on_moderations: Jag vill få ett e-postmeddelande varje gång något eller någon rapporteras för moderering.
         everything_followed: Allt jag följer
         newsletter_notifications: Jag vill få nyhetsbrev
         newsletters: Nyhetsbrev
+        notification_settings:
+          close_meeting_reminder: Jag vill få e-postpåminnelser om opublicerade sammanfattningar från slutna möten
         notifications_sending_frequencies:
           daily: Varje dag
           none: Aldrig
           real_time: Direkt
           weekly: Veckovis
+        notifications_sending_frequency: Hur ofta vill du få e-postmeddelanden?
         own_activity: Min egen verksamhet, som när någon kommenterar mitt förslag eller nämner mig
         push_notifications: Push-meddelanden
         receive_notifications_about: Jag vill få notiser om
@@ -1198,6 +1223,7 @@ sv:
           proposals: Förslag
           proposals_explanation: Lämna förslag, stötta befintliga förslag och stöd de förändringar som du vill se.
         footer_sub_hero:
+          footer_sub_hero_body: Låt oss skapa ett mer öppet, transparent och deltagande samhälle.<br /> Gå med, delta och fatta beslut.
           footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
           register: Registrera dig
         hero:
@@ -1224,14 +1250,18 @@ sv:
           error: Det uppstod ett problem med att godkänna villkoren.
           success: Tack! Du har godkänt användarvillkoren.
         form:
+          agreement: Jag godkänner villkoren
           legend: Godkänn användarvillkoren
         refuse:
+          modal_btn_continue: Godkänn villkoren och fortsätt
           modal_btn_exit: Jag granskar dem senare
+          modal_button: Avvisa villkoren
           modal_close: Stäng fönster
           modal_title: Avvisar du de uppdaterade användarvillkoren?
         required_review:
           alert: Vi har uppdaterat våra användarvillkor, var god och granska dem.
           body: Var snäll och granska uppdateringarna i våra användarvillkor. Annars kommer du inte att kunna använda plattformen.
+          title: 'Obligatoriskt: Granska uppdateringarna av våra användarvillkor'
     participatory_space_private_users:
       not_allowed: Du har inte rätt att se det här innehållet
     profile:
@@ -1359,15 +1389,15 @@ sv:
         reason: Anledning
         report: Rapportera
         spam: Innehåller klickbete, reklam, bedrägerier eller skräpprogramvara.
-        title: Rapportera ett problem
+        title: Rapportera olämpligt innehåll
       flag_user_modal:
         already_reported: Det här innehållet har redan rapporterats och kommer att granskas av en administratör.
         close: Stäng
         description: Vad är olämpligt med användaren?
         does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
-        offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
+        offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
         report: Rapportera
-        spam: Innehåller klickbete, reklam, bedrägerier eller skriptbottar.
+        spam: Innehåller clickbait, reklam, bedrägerier eller botar.
         title: Rapportera olämplig användare
       floating_help:
         close: Stäng hjälp
@@ -1385,7 +1415,7 @@ sv:
           areas: Områden
           select_an_area: Välj ett område
       public_participation:
-        public_participation: Gör mitt deltagande synligt
+        public_participation: Visa mitt deltagande offentligt
       reference:
         reference: 'Referens: %{reference}'
       represent_user_group:
@@ -1397,14 +1427,14 @@ sv:
       share_modal:
         close_window: Stäng fönster
         copy_share_link: Kopiera
-        copy_share_link_clarification: Kopiera länk
+        copy_share_link_clarification: Kopiera delningslänk till urklipp
         copy_share_link_copied: Kopierad!
         copy_share_link_message: Länken kopierades.
         share: Dela
         share_link: Dela länk
     statistics:
       comments_count: Kommentarer
-      endorsements_count: Instämmanden
+      endorsements_count: Stöd
       followers_count: Följare
       headline: Statistik
       no_stats: Det finns ingen statistik ännu.
@@ -1415,15 +1445,15 @@ sv:
       filter_results_for_category: 'Filtrera resultat för kategori: %{resource}'
       filter_results_for_scope: 'Filtrera resultat: %{resource}'
     translation_bar:
-      help_text: "<strong>OBS:</strong> Innehåll översattes kanske automatiskt och inte är 100% korrekt."
+      help_text: "<strong>Obs:</strong> Innehåll kan ha översatts automatiskt och inte vara 100% korrekt."
       show_original: Visa originaltexten
-      show_translated: Visa maskinöversatt texten
+      show_translated: Visa maskinöversatt text
     user_contact_disabled: Deltagaren tar inte emot inte direktmeddelanden.
     user_conversations:
       create:
         error: Meddelandet kunde inte skapas. Försök igen senare
         existing_error: Meddelandet kunde inte skapas. Konversationen finns redan, försök igen nu.
-        success: Samtalet startades framgångsrikt!
+        success: Konversationen har startat!
       index:
         add_max_users: 'Lägg till användare i samtalet: högst 9'
         add_users_placeholder: Sök...
@@ -1464,7 +1494,7 @@ sv:
       notify:
         body_1: Användaren %{user} har rapporterats av %{token}
         body_2: 'Anledning: %{reason}'
-        details: Detaljer från användaren
+        details: Uppgifter om användaren
         greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hej %{admin},
         subject: En ny användare har rapporterats på %{organization_name}
@@ -1475,7 +1505,7 @@ sv:
         number_of_versions: Versioner
         show_all_versions: Visa alla versioner
         version_author: Version författare
-        version_created_at: Version skapad den
+        version_created_at: Version skapad
         version_number: Versionsnummer
         version_number_out_of_total: "%{current_version} av %{total_count}"
     version_author:
@@ -1643,6 +1673,7 @@ sv:
       public: Din offentliga information.
   errors:
     messages:
+      allowed_file_content_types: 'endast filer med följande tillägg är tillåtna: %{types}'
       already_confirmed: var redan bekräftat, försök att logga in
       confirmation_period_expired: behöver bekräftas inom %{period}, be om en ny
       content_type_allowlist_error: ogiltig filtyp
@@ -1660,6 +1691,8 @@ sv:
         other: 'Det finns flera fel i din begäran:'
       too_many_marks: använder för många på varandra följande skiljetecken (t.ex. ! och ?)
       too_much_caps: använder för många stora bokstäver (över 25% av texten)
+      too_short: är för kort (under %{count} tecken)
+      url_format: Denna URL har ett felaktigt format
   forms:
     correct_errors: Formuläret innehåller fel. Korrigera dem för att fortsätta.
     length_validator:
@@ -1682,7 +1715,7 @@ sv:
             type: Typ
           items:
             _session_id:
-              description: Tillåter webbplatser att komma ihåg användare på en webbplats när de flyttar mellan webbsidor.
+              description: Tillåter webbplatser att komma ihåg användare på en webbplats när de växlar mellan webbsidor.
               service: Den här webbplatsen
             decidim-consent:
               description: Lagrar information om de cookies som tillåts av användaren på den här webbplatsen.
@@ -1698,17 +1731,17 @@ sv:
           accept_only_essential: Acceptera endast nödvändig
           description: Vi använder cookies på vår webbplats för att förbättra webbplatsens prestanda och innehåll. Med hjälp av cookies kan vi erbjuda en mer individuell användarupplevelse och sociala mediekanaler.
           settings: Inställningar
-          title: Information om de cookies som används på webbplatsen
+          title: Information om cookies som används på webbplatsen
         modal:
           accept_all: Acceptera alla
           accept_only_essential: Acceptera endast nödvändig
           analytics:
-            description: Dessa cookies används för att mäta och analysera webbplatsens publik för att förbättra webbplatsen.
+            description: Dessa cookies används för att mäta och analysera webbplatsens besökare för att förbättra webbplatsen.
             title: Analys och statistik
           description: Vi använder cookies för att säkerställa grundläggande funktioner på webbplatsen och för att förbättra din upplevelse online. Du kan när som helst konfigurera och acceptera användningen av cookies och ändra dina samtyckesalternativ.
           essential:
-            description: Dessa cookies möjliggör viktiga funktioner på webbplatsen och hjälper till att hålla sina användare säkrade. De sparas automatiskt i webbläsaren och kan inte inaktiveras.
-            title: Nödvändigt
+            description: Dessa cookies möjliggör viktiga funktioner på webbplatsen och hjälper till att hålla dess användare säkra. De sparas automatiskt i webbläsaren och kan inte inaktiveras.
+            title: Nödvändiga
           marketing:
             description: Dessa cookies samlar in information om hur du använder webbplatsen och de kan användas för att ge dig mer personlig marknadsföring på de olika webbplatser du använder.
             title: Marknadsföring
@@ -1716,18 +1749,18 @@ sv:
             description: Dessa cookies gör det möjligt för webbplatsen att komma ihåg de val du gjort tidigare på denna webbplats för att ge en mer personlig upplevelse för webbplatsens användare.
             title: Preferenser
           save_settings: Spara inställningar
-          title: Cookie-inställningar
+          title: Inställningar för cookies
           toggle: Växla %{consent_category}
         warning:
           all_categories: alla cookies
           change_settings: Ändra cookie-inställningar
-          consent_required: Du måste aktivera %{categories} för att kunna se innehållet.
+          consent_required: Du behöver aktivera %{categories} för att kunna se innehållet.
       edit_link:
         edit: Redigera
       footer:
-        cc_by_license: Creative Commons licens
+        cc_by_license: Creative Commons-licens
         data_consent_settings: Cookie-inställningar
-        decidim_logo: Decidim logotyp
+        decidim_logo: Decidims logotyp
         download_open_data: Hämta öppna datafiler
         made_with_open_source: Webbplats skapad med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
@@ -1756,9 +1789,9 @@ sv:
         youtube: "%{organization} på YouTube"
       timeout_modal:
         body: Du har varit inaktiv i %{minutes} minuter. Om du fortsätter att vara inaktiv kommer du automatiskt att loggas ut för din egen säkerhet.
-        continue_session: Förtsätt med din session
+        continue_session: Fortsätt sessionen
         sign_out: Logga ut
-        title: Vill du fortsätta med din session?
+        title: Vill du fortsätta din session?
       upload_modal:
         close_modal: Stäng fönster
       user_menu:
@@ -1847,9 +1880,9 @@ sv:
     dropdown:
       choose_diff_view_html: 'HTML-visningsläge:'
       choose_diff_view_mode: 'Visningsläge för jämförelse:'
-      option_escaped: Utflykt
+      option_escaped: Escaped
       option_split: Sida vid sida
-      option_unescaped: Orymt
+      option_unescaped: Unescaped
       option_unified: Sammanslagen
   views:
     pagination:
