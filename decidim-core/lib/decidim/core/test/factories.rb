@@ -415,6 +415,10 @@ FactoryBot.define do
       slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
     end
 
+    trait :public do
+      allow_public_access { true }
+    end
+
     trait :tos do
       slug { "terms-of-service" }
       after(:create) do |tos_page|

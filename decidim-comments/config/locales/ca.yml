@@ -38,7 +38,7 @@ ca:
           error: S'ha produït un error en votar el comentari.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Inicia sessió</a> o <a href="%{sign_up_url}">crea un compte</a>per afegir el teu comentari.
+        account_message: <a href="%{sign_in_url}">Inicia sessió</a> o <a href="%{sign_up_url}">crea un compte</a> per afegir el teu comentari.
         form:
           body:
             label: Comentari
@@ -103,7 +103,7 @@ ca:
       comments:
         blocked_comments_for_unauthorized_user_warning: Has d'estar verificat abans de poder fer comentaris, però pots llegir els comentaris anteriors.
         blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.
-        blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però pots llegir els anteriors.
+        blocked_comments_warning: Els comentaris estan deshabilitats en aquests moments, només les administradores poden respondre o publicar-ne de nous.
         comment_details_title: Detalls del comentari
         loading: Carregant els comentaris ...
         single_comment_warning: <a href="%{url}">Mostra tots els comentaris</a>

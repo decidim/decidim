@@ -60,6 +60,9 @@ module Decidim
           resources :categories, except: [:show]
 
           resources :components do
+            collection do
+              put :reorder
+            end
             resource :permissions, controller: "component_permissions"
             member do
               put :publish
@@ -70,6 +73,7 @@ module Decidim
             end
             collection do
               get :deleted, to: "components#deleted"
+              put :hide
             end
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do

@@ -23,7 +23,7 @@ de:
               missing: sind nicht vollständig
               too_many: Sie können ein Maximum von %{count} auswählen.
         questionnaire:
-          request_invalid: Beim Bearbeiten der Anfrage ist ein Fehler aufgetreten. Bitte versuchen Sie es nochmal.
+          request_invalid: Bei der Verarbeitung der Anfrage ist ein Fehler auftreten. Bitte versuchen Sie es erneut.
   decidim:
     forms:
       admin:

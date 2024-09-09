@@ -21,8 +21,6 @@ el:
               too_long: είναι πολύ μεγάλο
             choices:
               missing: δεν έχουν ολοκληρωθεί
-        questionnaire:
-          request_invalid: Παρουσιάστηκε σφάλμα κατά τον χειρισμό του αιτήματος. Παρακαλώ δοκιμάστε ξανά.
   decidim:
     forms:
       admin:
