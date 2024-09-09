@@ -329,12 +329,15 @@ fi:
           default_step_settings: Vaiheiden oletusasetukset
           global_settings: Yleiset asetukset
           step_settings: Vaiheiden asetukset
+        hide:
+          success: Komponentin piilottaminen valikosta onnistui.
         index:
           add: Lisää komponentti
           headers:
             actions: Toiminnot
             name: Komponentin nimi
             type: Komponentin tyyppi
+            visibility: Näkyvyys
         new:
           add: Lisää komponentti
           title: 'Lisää komponentti: %{name}'
@@ -346,6 +349,10 @@ fi:
         update:
           error: Komponentin päivitys epäonnistui.
           success: Komponentin päivitys onnistui.
+        visibility_label:
+          menu_hidden: Piilotettu valikosta
+          published: Julkaistu
+          unpublished: Julkaisematon
       conflicts:
         attempts: Yritykset
         'false': 'Ei'
