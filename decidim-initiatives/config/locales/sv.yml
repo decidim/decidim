@@ -32,6 +32,7 @@ sv:
         banner_image: Bannerbild
         child_scope_threshold_enabled: Aktivera underskrifter för underliggande indelningar
         collect_user_extra_fields: Samla in deltagarens personuppgifter vid underskrift
+        comments_enabled: Aktivera kommentarer
         custom_signature_end_date_enabled: Möjliggör för författare att välja slutet på signatursinsamlingsperioden
         description: Beskrivning
         document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer på underskrifter
@@ -63,6 +64,7 @@ sv:
             attachment:
               file: Filen är ogiltig
               needs_to_be_reattached: Måste återknytas
+              title: Titeln får inte vara tom
   activerecord:
     models:
       decidim/initiative:
@@ -89,18 +91,27 @@ sv:
               accepted: Tillräckligt många underskrifter
               created: Skapad
               discarded: Förkastad
+              open: Öppna
               rejected: Inte tillräckligt många underskrifter
               validating: Teknisk validering
           type_id_eq:
             label: Typ
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
+      initiatives_settings:
+        update:
+          error: Det gick inte att uppdatera inställningarna för initiativ.
       menu:
         attachments: Bilagor
+        committee_members: Kampanjmedlemmar
         information: Information
         initiative_type_scopes: Indelningar för namninsamlingar
         initiatives: Initiativ
+        initiatives_menu:
+          see_initiative: Visa initiativ
         initiatives_settings: Inställningar
+        initiatives_submenu:
+          info: Om det här initiativet
         initiatives_types: Initiativtyper
         moderations: Moderering
       models:
@@ -153,6 +164,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Slutdatumet för underskrift om initiativet har skjutits fram!
           notification_title: Slutdatum för att skriva under initiativet <a href="%{resource_path}">%{resource_title}</a> har skjutits fram.
+        initiative_sent_to_technical_validation:
+          email_intro: Initiativet "%{resource_title}" har skickats till teknisk validering. Kolla in det i <a href="%{admin_initiative_url}">adminpanelen</a>
+          email_outro: Du har fått det här meddelandet eftersom du är administratör för plattformen.
+          email_subject: Initiativet "%{resource_title}" har skickats till teknisk validering.
+          notification_title: Initiativet "%{resource_title}" har skickats till teknisk validering. Kolla in det i <a href="%{admin_initiative_path}">adminpanelen</a>
         milestone_completed:
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har uppnått %{percentage}% underskrifter!
@@ -175,8 +191,10 @@ sv:
             - Följ stegen för att skapa ett nytt initiativ
           description: Detta märke beviljas när du startar nya initiativ och samarbetar med andra för att genomföra dem.
           description_another: Användaren har publicerat %{score} initiativ.
+          description_own: Du har publicerat %{score} initiativ.
           name: Publicerade initiativ
           next_level_in: Nå nästa nivå genom att publicera %{score} till initiativ!
+          unearned_another: Den här deltagaren har inte fått några initiativ publicerade än.
           unearned_own: Du har ännu inte publicerat några initiativ.
     help:
       participatory_spaces:
@@ -202,6 +220,8 @@ sv:
           index:
             approve: Godkänn
             confirm_revoke: Är du säker?
+            invite_to_committee_help: Dela den här länken för att bjuda in andra deltagare till kampanjgruppen.
+            no_members_yet: Det finns inga medlemmar i kampanjgruppen.
             revoke: Återkalla
             title: Kommittémedlemmar
         content_blocks:
@@ -213,6 +233,10 @@ sv:
               most_recent: Senaste
         exports:
           initiatives: Initiativ
+        index:
+          initiatives_types:
+            alert_html: "<p>Du måste skapa minst en initiativtyp så att deltagarna kan börja skapa initiativ.</p><p> %{link}</p>"
+            button: Ny typ av initiativ
         initiatives:
           edit:
             accept: Godkänn initiativ
@@ -223,6 +247,7 @@ sv:
             export_votes: Exportera underskrifter
             reject: Avvisa initiativ
             send_to_technical_validation: Skicka till teknisk validering
+            success: Initiativet har skickats till teknisk validering.
             update: Uppdatera
           form:
             settings: Inställningar
@@ -236,14 +261,22 @@ sv:
             edit: Redigera
             new: Ny
             photos: Foton
+          update:
+            error: Det gick inte att uppdatera initiativet.
+            success: Initiativet har uppdaterats.
         initiatives_settings:
           edit:
             update: Uppdatera
           form:
             comments: Mest kommenterade
+            date: Senaste
+            publication_date: Senast publicerade
             random: Slumpmässigt
+            signatures: Mest underskrifter
+            title: Inställningar för initiativ
         initiatives_type_scopes:
           create:
+            error: Det gick inte att skapa ett nytt utrymme för initiativet.
             success: En ny indelning har skapats för namninsamlingen.
           destroy:
             success: Indelningen har tagit borts.
@@ -257,6 +290,11 @@ sv:
             error: Det gick inte att uppdatera indelningen.
             success: Indelningen har uppdaterats.
         initiatives_types:
+          create:
+            error: Det gick inte att skapa initiativtypen.
+            success: En ny initiativtyp har skapats. Du måste ange minst ett utrymme för denna initiativtyp för att den ska användas.
+          destroy:
+            success: Initiativtypen har tagits bort.
           edit:
             update: Uppdatera
           form:
@@ -267,16 +305,26 @@ sv:
           new:
             create: Skapa
             title: Ny initiativtyp
+          update:
+            error: Det gick inte att skapa initiativtypen.
+            success: Initiativtypen har uppdaterats.
       admin_log:
         initiative:
           publish: "%{user_name} publicerade initiativet %{resource_name}"
           send_to_technical_validation: "%{user_name} skickade initiativet %{resource_name} till teknisk validering"
           unpublish: "%{user_name} förkastade initiativet %{resource_name}"
           update: "%{user_name} uppdaterade initiativet %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} uppdaterade inställningarna för initiativen"
+        initiatives_type:
+          create: "%{user_name} skapade initiativtypen %{resource_name}"
+          delete: "%{user_name} tog bort initiativtypen %{resource_name}"
+          update: "%{user_name} uppdaterade initiativtypen %{resource_name}"
       admin_states:
         accepted: Nog med signaturer
         created: Skapad
         discarded: Förkastade
+        open: Öppna
         rejected: Inte tillräckligt med signaturer
         validating: Teknisk validering
       application_helper:
@@ -290,8 +338,11 @@ sv:
         filter_type_values:
           all: Alla
       committee_requests:
+        approve:
+          success: Begäran har godkänts.
         new:
           continue: Fortsätta
+          help_text: Du är på väg att ansöka om att bli medlem i kampanjgruppen för detta initiativ.
         spawn:
           success: Din förfrågan har skickats till författaren av initiativet.
       content_blocks:
