@@ -187,7 +187,7 @@ sv:
             proposal_edit_time: Redigering av förslag
             proposal_edit_time_choices:
               infinite: Tillåt redigering av förslag utan tidsbegränsning
-              limited: Tillåt redigering av förslag med tidsbegränsning
+              limited: Tillåt redigering av förslag med inom så här lång tid
             proposal_edit_time_unit_options:
               days: Dagar
               hours: Timmar
@@ -208,10 +208,10 @@ sv:
             amendment_promotion_enabled_help: Författare av ändringsförslag kommer att kunna lägga fram det avvisade ändringsförslaget som ett förslag.
             amendment_reaction_enabled: Reagera på ändringar är aktiverat
             amendment_reaction_enabled_help: Förslagsförfattarna kan anta eller avvisa deltagarnas ändringsförslag.
-            amendments_visibility: Ändringens synlighet
+            amendments_visibility: Synlighet för ändringsförslag
             amendments_visibility_choices:
-              all: Ändringar är synliga för alla
-              participants: Ändringsförslagen är endast synliga för författarna
+              all: Ändringsförslag är synliga för alla
+              participants: Ändringsförslag är endast synliga för författarna
             amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
             announcement: Meddelande
             answers_with_costs: Tillåt kostnader i svar på förslag
@@ -941,17 +941,24 @@ sv:
             votes_remaining: Du behöver rösta på ytterligare %{remaining_votes} förslag för att dina röster ska räknas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
+          threshold_per_proposal:
+            description: Förslag behöver få minst %{limit} röster för accepteras.
+          title: 'Följande regler gäller för omröstningar:'
           vote_limit:
             description: Du kan rösta upp till %{limit} förslag.
+            votes: Saknar %{number} röster
         wizard_aside:
           back: Tillbaka
           back_from_step_1: Tillbaka till förslag
+          back_from_step_2: Tillbaka till redigering
         wizard_steps:
           current_step: Nuvarande steg
           step_1: Skapa ditt förslag
+          step_2: Publicera ditt förslag
           title: Steg för att skapa förslag
       proposals_picker:
         choose_proposals: Välj förslag
+        no_proposals: Inga förslag matchar dina sökkriterier eller så finns det inte några förslag.
       publish:
         error: Det gick inte att publicera förslaget.
         success: Förslag har publicerats.
@@ -966,6 +973,9 @@ sv:
       versions:
         index:
           title: Versioner
+      withdraw:
+        errors:
+          has_votes: Förslaget kan inte dras tillbaka eftersom det redan har fått röster.
     resource_links:
       copied_from_component:
         proposal_proposal: Relaterade förslag
