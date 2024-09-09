@@ -506,7 +506,7 @@ ja:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
           see_all: すべてのミーティングを見る
-          see_all_withdrawn: 撤回されたすべてのミーティングを見る
+          see_all_withdrawn: 取り消したすべてのミーティングを見る
           text_banner: 作成者が取り消したミーティングの一覧を表示しています． %{go_back_link}
         meeting:
           close_meeting: ミーティングを終了する
