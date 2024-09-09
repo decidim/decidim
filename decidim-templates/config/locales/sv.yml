@@ -38,6 +38,8 @@ sv:
       admin:
         questionnaire_templates:
           choose:
+            create_from_template: Skapa från mall
+            description: Du håller på att skapa en ny enkät. Du kan välja en fördefinierad mall och ändra den efteråt.
             label: Välj mall
             placeholder: Välj mall
             skip_template: Hoppa över
@@ -46,8 +48,19 @@ sv:
             questionnaire: Enkät
           form:
             save: Spara
+            title: Mall för enkät %{questionnaire_for}
+          index:
+            confirm_delete: Är du säker på att du vill ta bort mallen?
+            title: Mallar för enkäter
           preview:
             current_step: Steg %{step}
             of_total_steps: av %{total_steps}
+            tos_agreement: Genom att delta godkänner du användarvillkoren
+      admin_log:
+        template:
+          create: "%{user_name} skapade enkätmallen %{resource_name}"
+          delete: "%{user_name} raderade enkätmallen %{resource_name}"
+          duplicate: "%{user_name} duplicerade enkätmallen %{resource_name}"
+          update: "%{user_name} uppdaterade enkätmallen %{resource_name}"
       template_types:
         questionnaires: Enkäter
