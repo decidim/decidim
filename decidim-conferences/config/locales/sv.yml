@@ -3,7 +3,7 @@ sv:
   activemodel:
     attributes:
       conference:
-        assemblies_ids: Relaterade grupper
+        assemblies_ids: Relaterade samråd
         available_slots: Tillgängliga platser
         banner_image: Bannerbild
         copy_categories: Kopiera kategorier
@@ -480,7 +480,7 @@ sv:
         details: Detaljer
         introduction: Introduktion
         objectives: Mål
-        related_assemblies: Relaterade grupper
+        related_assemblies: Relaterade samråd
         related_participatory_processes: Relaterade deltagandeprocesser
     events:
       conferences:
