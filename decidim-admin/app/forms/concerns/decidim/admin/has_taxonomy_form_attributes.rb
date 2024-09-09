@@ -35,9 +35,8 @@ module Decidim
         def taxonomies_belong_to_current_organization
           return if compact_taxonomies.empty?
 
-          compact_taxonomies.each do |taxonomy_id|
-            taxonomy = Decidim::Taxonomy.find(taxonomy_id)
-            next if taxonomy.organization == current_organization
+          Decidim::Taxonomy.where(id: compact_taxonomies).find_each do |taxonomy|
+            next if taxonomy.decidim_organization_id == current_organization.id
 
             errors.add(:taxonomies, :invalid)
           end

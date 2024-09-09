@@ -5,6 +5,7 @@ module Decidim
     # A form object to create or update areas.
     class TaxonomyFilterForm < Form
       include TranslatableAttributes
+      Item = Struct.new(:name, :value, :children)
 
       attribute :root_taxonomy_id, Integer
 
@@ -67,7 +68,7 @@ module Decidim
 
       def map_items_collection(taxonomy)
         taxonomy.children.map do |item|
-          OpenStruct.new(
+          Item.new(
             name: translated_attribute(item.name),
             value: item.id,
             children: map_items_collection(item)

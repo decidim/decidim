@@ -32,15 +32,15 @@ module Decidim::Admin
       it "returns the items collection" do
         expect(subject.items_collection).to eq(
           [
-            OpenStruct.new(
+            Decidim::Admin::TaxonomyFilterForm::Item.new(
               name: translated(taxonomy_child.name),
               value: taxonomy_child.id,
               children: [
-                OpenStruct.new(
+                Decidim::Admin::TaxonomyFilterForm::Item.new(
                   name: translated(taxonomy_grandchild.name),
                   value: taxonomy_grandchild.id,
                   children: [
-                    OpenStruct.new(
+                    Decidim::Admin::TaxonomyFilterForm::Item.new(
                       name: translated(taxonomy_item.name),
                       value: taxonomy_item.id,
                       children: []
