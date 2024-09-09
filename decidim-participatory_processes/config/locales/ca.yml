@@ -96,6 +96,7 @@ ca:
         duplicate: Duplicar
         edit: Editar
         import_process: Importar
+        menu_hidden: Amagar
         moderate: Moderar
         new_process: Nou procés
         new_process_group: Nou grup de processos
