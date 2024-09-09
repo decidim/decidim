@@ -5,20 +5,21 @@ sv:
       debate:
         category_id: Kategori
         closed_at: Avslutades
-        conclusions: Sammanfattning
+        conclusions: Slutsatser
         decidim_category_id: Kategori
         description: Beskrivning
         end_time: Slutar vid
-        information_updates: Informationsuppdateringar
-        instructions: Deltagaranvisningar
+        information_updates: Uppdatering av uppgifter
+        instructions: Instruktioner för att delta
         scope_id: Indelning
-        start_time: Börjar vid
+        start_time: Startdatum
         title: Titel
         user_group_id: Skapa debatt som
     models:
       decidim/debates/close_debate_event: Debatten avslutades
       decidim/debates/create_debate_event: Debatt
       decidim/debates/creation_disabled_event: Debatter avaktiverade
+      decidim/debates/creation_enabled_event: Skapande av debatter aktiverat
   activerecord:
     models:
       decidim/debates/debate:
@@ -30,7 +31,7 @@ sv:
         actions:
           comment: Kommentera
           create: Skapa
-          endorse: Instäm
+          endorse: Stöd
         name: Debatter
         settings:
           global:
@@ -42,8 +43,9 @@ sv:
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
-            endorsements_blocked: Instämmanden är blockerade
-            endorsements_enabled: Instämmanden aktiverade
+            creation_enabled: Deltagarna kan skapa debatter
+            endorsements_blocked: Stöd är blockerade
+            endorsements_enabled: Stöd är aktiverade
     debates:
       actions:
         close: Stäng
@@ -108,6 +110,9 @@ sv:
           success: Debatten har skapats.
         debate:
           participate: Delta
+        debates:
+          empty: Det finns inga debatter ännu.
+          empty_filters: Det finns inga debatter med de här kriterierna.
         edit:
           back: Tillbaka
           save: Spara ändringar
@@ -153,7 +158,7 @@ sv:
           close_debate: Avsluta debatt
           date: Datum
           debate_closed: Avslutade
-          debate_conclusions_are: 'Debatten avslutades %{date} med följande sammanfattning:'
+          debate_conclusions_are: 'Debatten avslutades %{date} med följande slutsatser:'
           edit_conclusions: Redigera slutsatser
           edit_debate: Redigera debatt
           groups_count: Grupper
@@ -184,6 +189,13 @@ sv:
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hej,
+              En ny debatt, "%{resource_title}", har skapats i %{participatory_space_title}, ta en titt och bidra:
+            email_outro: Du har fått detta meddelande eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+            email_subject: Ny debatt "%{resource_title}" i %{participatory_space_title}
+            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades i <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
           user_followers:
             email_intro: |-
               Hej,
@@ -208,10 +220,10 @@ sv:
             email_subject: Debatten "%{resource_title}" avslutades
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> stängdes.
           follower:
-            email_intro: 'Debatten "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
-            email_outro: Du har fått det här meddelandet eftersom du följer debatten "%{resource_title}". Du kan sluta följa det på föregående länk.
-            email_subject: Debatten "%{resource_title}" stängdes
-            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> stängdes.
+            email_intro: 'Debatten "%{resource_title}" avslutades. Du kan läsa slutsatserna på debattsidan:'
+            email_outro: Du har fått det här meddelandet eftersom du följer debatten "%{resource_title}". Du kan sluta följa den med föregående länk.
+            email_subject: Debatten "%{resource_title}" avslutades
+            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> avslutades.
     gamification:
       badges:
         commented_debates:
