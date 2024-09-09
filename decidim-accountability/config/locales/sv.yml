@@ -5,7 +5,7 @@ sv:
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategori
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
         progress: Genomförande
@@ -236,7 +236,7 @@ sv:
       accountability:
         actions:
           comment: Kommentar
-        name: Ansvarsskyldighet
+        name: Genomförande
         settings:
           global:
             categories_label: Namn för "Kategorier"

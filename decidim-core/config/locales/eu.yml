@@ -830,9 +830,9 @@ eu:
         extension_allowlist: 'Onartutako formatuak: %{extensions}'
       upload:
         labels:
-          add_attachment: Erantsi eranskina
-          add_file: Erantsi fitxategiak
-          add_image: Erantsi irudia
+          add_attachment: Gehitu eranskina
+          add_file: Gehitu fitxategiak
+          add_image: Gehitu irudia
           cancel: Ezeztatu
           edit_image: Editatu irudia
           error: Akatsa!

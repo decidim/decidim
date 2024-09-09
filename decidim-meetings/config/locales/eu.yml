@@ -469,7 +469,7 @@ eu:
           close_window: Itxi leihoa
           full_details_html: Xehetasun guztiak edukitzeko, zoaz hona %{link}
           google: Gehitu Googleren egutegira
-          outlook: Ireki Outlooken egutegia
+          outlook: Gehitu Outlooken egutegira
         count:
           meetings_count:
             one: "topaketa 1"
