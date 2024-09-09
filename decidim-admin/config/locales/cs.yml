@@ -335,6 +335,7 @@ cs:
             actions: Akce
             name: Název komponenty
             type: Typ komponenty
+            visibility: Viditelnost
         new:
           add: Přidat komponentu
           title: 'Přidat komponentu: %{name}'
@@ -346,6 +347,9 @@ cs:
         update:
           error: Při aktualizaci této komponenty došlo k chybě.
           success: Komponenta byla úspěšně aktualizována.
+        visibility_label:
+          published: Zveřejněno
+          unpublished: Nezveřejněno
       conflicts:
         attempts: Pokusy
         'false': 'Ne'
