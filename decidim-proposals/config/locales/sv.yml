@@ -155,10 +155,12 @@ sv:
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
             attachments_allowed_help: Genom att aktivera alternativet kommer förslagen att vara förvalda till rutnätsläge, och den första bilden kommer att visas på kortet.
+            can_accumulate_votes_beyond_threshold: Kan få röster utöver den satta gränsen
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             default_sort_order: Förvald sortering
+            default_sort_order_help: Automatiskt betyder att om röstning är aktiverat kommer förslagen sorteras slumpmässigt, och om röstning är avstängt kommer de att sorteras efter mest valda.
             default_sort_order_options:
               automatic: Automatisk
               most_commented: Mest kommenterade
@@ -193,10 +195,12 @@ sv:
             proposal_length: Maximal längd på förslagets innehåll
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
+            proposal_wizard_step_2_help_text: Hjälptext för steget ”Publicera” i förslagsguiden
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
             threshold_per_proposal: Tröskel per förslag
+            vote_limit: Antal röster per deltagare
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
             amendment_creation_enabled_help: Deltagare kan ändra förslag.
@@ -214,30 +218,46 @@ sv:
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Deltagare kan skapa förslag
-            default_sort_order: Förvald produkt sortering
+            creation_enabled_readonly: Den här inställningen är inaktiverad när du aktiverar funktionen Kollaborativa Texter. För att ladda upp förslag som kollaborativa klickar du på knappen Kollaborativa Texter och följer instruktionerna.
+            default_sort_order: Förvald sortering
+            default_sort_order_help: Automatiskt betyder att om röstning är aktiverat kommer förslagen sorteras slumpmässigt, och om röstning är avstängt kommer de att sorteras efter mest valda.
             default_sort_order_options:
               automatic: Automatisk
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
               most_voted: Flest röster
-              random: Slumpmässigt
+              random: Slumpvis
               recent: Senaste
-              with_more_authors: Med fler författare
+              with_more_authors: Med flera författare
             endorsements_blocked: Stöd är blockerade
             endorsements_enabled: Stöd är aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
             publish_answers_immediately: Publicera svar på förslag omedelbart
+            publish_answers_immediately_help_html: 'Tänk på att om du svarar på förslag som inte är aktiverade, kommer du att behöva publicera dem manuellt genom att välja dem och använda åtgärden för publicering. För mer information om hur det här fungerar, se <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
             suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
             votes_blocked: Röster blockerade
             votes_enabled: Röster aktiverade
             votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: Du har lagts till som medförfattare till förslaget <a href="%{resource_path}">%{resource_title}</a>.
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Du har gjorts till handläggare för förslaget "%{resource_title}". Det innebär att du har fått förtroendet att ge feedback och ett uppföljande svar under de kommande dagarna. Kolla in det på <a href="%{admin_proposal_info_url}">adminpanelen</a>.
+            email_outro: Du har fått det här meddelandet eftersom du kan sätta pris på förslaget.
+            email_subject: Du har gjorts till handläggare för att värdera förslaget %{resource_title}.
+            notification_title: Du har gjorts till handläggare för att värdera förslaget <a href="%{resource_path}">%{resource_title}</a>. Kolla in det <a href="%{admin_proposal_info_path}">i adminpanelen</a>.
           proposal_note_created:
-            email_outro: Du har fått detta meddelande eftersom du kan värdera förslaget.
-            email_subject: Någon lämnade en anteckning på förslag %{resource_title}.
+            email_intro: '%{author_name} har skapat en privat anteckning till %{resource_title}. Kolla in den i <a href="%{admin_proposal_info_url}">adminpanelen</a>.'
+            email_outro: Du har fått det här meddelandet eftersom du kan sätta pris på förslaget.
+            email_subject: Någon skrev en anteckning till förslaget %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> har gjort en privat anteckning till <a href="%{resource_path}">%{resource_title}</a>. Kolla in den i <a href="%{admin_proposal_info_path}">adminpanelen</a>.
+          proposal_note_mentioned:
+            email_intro: Du har nämnts i en privat anteckning till "%{resource_title}" av "%{author_name}" "%{author_nickname}". Kolla in det i <a href="%{admin_proposal_info_url}">adminpanelen</a>.
+            email_outro: Du har fått den här meddelandet eftersom du har nämnts i en privat anteckning.
+            email_subject: Någon nämnde dig i en anteckning till förslaget %{resource_title}.
         collaborative_draft_access_accepted:
           email_subject: "%{requester_name} har fått tillgång till och är accepterad som bidragsgivare till %{resource_title}."
           notification_title: <a href="%{requester_path}">%{requester_name} %{requester_nickname}</a> har <strong>fått tillgång till och accepterats som bidragsgivare till</strong> det gemensamma utkastet <a href="%{resource_path}">%{resource_title}</a>.
@@ -360,7 +380,7 @@ sv:
     participatory_spaces:
       highlighted_proposals:
         last: Senaste förslag
-        see_all: Visa alla (%{count})
+        see_all: Visa alla förslag
     proposals:
       actions:
         answer_proposal: Besvara förslag
@@ -370,7 +390,7 @@ sv:
         destroy: Ta bort status
         edit_proposal: Redigera förslag
         edit_proposal_state: Redigera status
-        import: Importera från en annan komponent
+        import: Importera förslag från en annan komponent
         mark_as_coauthor: Markera som medförfattare
         mark_as_coauthor_confirm: Är du säker på att du vill markera den här användaren som medförfattare? Mottagaren kommer att få ett meddelande om att acceptera eller avböja inbjudan.
         new: Nytt förslag
