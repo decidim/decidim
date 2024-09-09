@@ -270,7 +270,6 @@ it:
           headers:
             actions: Azioni
             name: Nome del componente
-            scope: Ambito del componente
             type: Tipo di componente
         new:
           add: Aggiungi componente
@@ -791,6 +790,8 @@ it:
           without_topic: Pagine senza argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.
+      taxonomies:
+        count: Conteggio
       titles:
         admin_log: Registro di amministrazione
         area_types: Tipi di ambito territoriale

@@ -21,6 +21,7 @@ bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
+bin/rails decidim:upgrade:clean:invalid_records
 ```
 
 ### 1.3. Follow the steps and commands detailed in these notes
@@ -39,7 +40,30 @@ This works for Ubuntu Linux, other operating systems would need to do other comm
 
 You can read more about this change on PR [#13185](https://github.com/decidim/decidim/pull/13185).
 
-### 2.2. Ransack upgrade
+### 2.2. Cleanup invalid resources
+
+While upgrading various instances to latest Decidim version, we have noticed there are some records that may not be present anymore. As a result, the application would generate a lot of errors, in both frontend and Backend.
+
+In order to fix these errors, we have introduced a new rake task, aiming to fix the errors by removing invalid data.
+
+In your console you can run:
+
+```bash
+bin/rails decidim:upgrade:clean:invalid_records
+```
+
+If you have a big installation having multiple records, many users etc, you can split the clean up task as follows:
+
+```bash
+bin/rails decidim:upgrade:clean:searchable_resources
+bin/rails decidim:upgrade:clean:notifications
+bin/rails decidim:upgrade:clean:follows
+bin/rails decidim:upgrade:clean:action_logs
+```
+
+You can read more about this change on PR [#13237](https://github.com/decidim/decidim/pull/13237).
+
+### 2.3. Ransack upgrade
 
 As part of Rails upgrade to version 7.1, we upgraded Ransack gem to version 4.2. Ransack has introduced a new security policy that requires mandatory allowlisting for the attributes and associations needed by search engine. If you have a regular Decidim installation, you can skip this step.
 

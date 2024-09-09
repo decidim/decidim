@@ -99,7 +99,6 @@ bg:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Търсете в %{collection} по заглавие, описание, идент. № или име на автора.
       initiatives_settings:
         update:
-          error: Възникна грешка.
           success: Настройките на инициативите са актуализирани успешно.
       menu:
         attachments: Прикачени файлове
@@ -260,7 +259,6 @@ bg:
             new: Ново
             photos: Снимки
           update:
-            error: Възникна грешка.
             success: Инициативата беше актуализирана успешно.
         initiatives_settings:
           edit:
@@ -274,7 +272,6 @@ bg:
             title: Настройки за инициативи
         initiatives_type_scopes:
           create:
-            error: Възникна грешка.
             success: Създаден е нов обхват за дадения тип инициатива.
           destroy:
             success: Обхватът беше премахнат успешно.
@@ -285,11 +282,8 @@ bg:
             create: Създаване
             title: Създаване на обхват на типа инициатива
           update:
-            error: Възникна грешка.
             success: Обхватът беше актуализиран успешно.
         initiatives_types:
-          create:
-            error: Възникна грешка.
           destroy:
             success: Типът инициатива беше премахнат успешно.
           edit:
@@ -305,7 +299,6 @@ bg:
             create: Създаване
             title: Нов тип инициатива
           update:
-            error: Възникна грешка.
             success: Типът инициатива беше актуализиран успешно.
       admin_log:
         initiative:
@@ -578,7 +571,6 @@ bg:
         expired: Изтекло
       unavailable_scope: Недостъпен обхват
       update:
-        error: Възникна грешка.
         success: Инициативата беше актуализирана успешно.
     menu:
       initiatives: Инициативи

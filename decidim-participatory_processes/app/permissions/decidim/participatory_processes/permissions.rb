@@ -38,6 +38,7 @@ module Decidim
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
+        taxonomy_filter_action?
         participatory_process_type_action?
 
         return permission_action unless process
@@ -259,6 +260,14 @@ module Decidim
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
+      end
+
+      def taxonomy_filter_action?
+        return unless permission_action.subject == :taxonomy_filter
+        return disallow! unless user.admin?
+
+        # in the future we might want to prevent destruction if participatory processes are associated with the current taxonomy
+        allow!
       end
 
       def participatory_process_type_action?

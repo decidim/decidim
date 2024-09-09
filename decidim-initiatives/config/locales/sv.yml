@@ -3,14 +3,15 @@ sv:
     attributes:
       initiative:
         answer: Svar
-        answer_url: Svars URL
+        answer_url: Svars-URL
         area_id: Område
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         decidim_user_group_id: Författare
         description: Beskrivning
         hashtag: Hashtag
         offline_votes: Fysiska underskrifter
-        scope_id: Omfång
+        offline_votes_for_scope: Personliga underskrifter för %{scope_name}
+        scope_id: Indelning
         signature_end_date: Insamling av underskrifter avslutas
         signature_start_date: Insamling av underskrifter påbörjas
         signature_type: Typ av underskrifter att samla in
@@ -29,6 +30,7 @@ sv:
         area_enabled: Gör det möjligt för författare att välja området för deras initiativ
         attachments_enabled: Aktivera bilagor
         banner_image: Bannerbild
+        child_scope_threshold_enabled: Aktivera underskrifter för underliggande indelningar
         collect_user_extra_fields: Samla in deltagarens personuppgifter vid underskrift
         custom_signature_end_date_enabled: Möjliggör för författare att välja slutet på signatursinsamlingsperioden
         description: Beskrivning
@@ -36,13 +38,15 @@ sv:
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta antal kommittémedlemmar
         online_signature_enabled: Digitala signaturer är aktiverade
+        only_global_scope_enabled: Tillåt endast skapande av globala indelningar för namninsamlingar
         promoting_committee_enabled: Tillåt kampanjutskott
         signature_type: Signaturtyp
         title: Titel
         undo_online_signatures_enabled: Tillåt deltagare att ångra sina online-underskrifter
         validate_sms_code_on_votes: Lägg till SMS-validering till signeringsprocessen
       initiatives_type_scope:
-        decidim_scopes_id: Omfång
+        decidim_scopes_id: Indelningar
+        supports_required: Stöd som krävs
       initiatives_vote:
         date_of_birth: Födelsedatum
         document_number: Dokumentnummer
@@ -74,6 +78,7 @@ sv:
     admin:
       actions:
         new_initiative_type: Ny initiativtyp
+        new_initiative_type_scope: Skapa indelning för namninsamling
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -93,6 +98,7 @@ sv:
       menu:
         attachments: Bilagor
         information: Information
+        initiative_type_scopes: Indelningar för namninsamlingar
         initiatives: Initiativ
         initiatives_settings: Inställningar
         initiatives_types: Initiativtyper
@@ -108,7 +114,7 @@ sv:
             title: Initiativ
         initiatives_type_scope:
           fields:
-            scope: Omfång
+            scope: Indelning
             supports_required: Underskrifter krävs
           name: Initiativtypens omfång
         initiatives_types:
@@ -128,7 +134,7 @@ sv:
             initiative_title: Initiativtitel
             name_and_surname: Namn och efternamn
             postal_code: Postnummer
-            scope: Omfång
+            scope: Indelning
             time_and_date: Tid och datum
             timestamp: Tidsstämpel
       titles:
@@ -237,12 +243,19 @@ sv:
             comments: Mest kommenterade
             random: Slumpmässigt
         initiatives_type_scopes:
+          create:
+            success: En ny indelning har skapats för namninsamlingen.
+          destroy:
+            success: Indelningen har tagit borts.
           edit:
             title: Redigera initiativtypens omfång
             update: Uppdatera
           new:
             create: Skapa
             title: Skapa omfång till initiativtyp
+          update:
+            error: Det gick inte att uppdatera indelningen.
+            success: Indelningen har uppdaterats.
         initiatives_types:
           edit:
             update: Uppdatera
@@ -290,7 +303,7 @@ sv:
           continue: Fortsätt
           more_information: "(Mer information)"
           select_area: Välj ett område
-          select_scope: Välj ett omfång
+          select_scope: Välj en indelning
         finish:
           back: Tillbaka
           back_to_initiatives: Tillbaka till initiativ
@@ -371,7 +384,7 @@ sv:
           area: Område
           author: Författare
           myself: Mina initiativ
-          scope: Omfattning
+          scope: Indelning
           state: Status
           type: Typ
         index_header:
@@ -414,7 +427,7 @@ sv:
         show:
           area: Område
           edit: Redigera
-          scope: Omfång
+          scope: Indelning
           send_to_technical_validation: Skicka till teknisk validering
           state: Status
           type: Typ
@@ -456,7 +469,7 @@ sv:
       states:
         accepted: Godkända
         expired: Utgångna
-      unavailable_scope: Ej tillgängligt omfång
+      unavailable_scope: Ej tillgänglig indelning
     menu:
       initiatives: Initiativ
     resources:
