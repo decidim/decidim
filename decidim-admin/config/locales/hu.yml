@@ -332,7 +332,6 @@ hu:
           headers:
             actions: Műveletek
             name: Elem neve
-            scope: Komponens hatóköre
             type: Elem típusa
         new:
           add: Elem hozzáadása

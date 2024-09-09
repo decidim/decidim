@@ -326,7 +326,6 @@ sv:
           headers:
             actions: Åtgärder
             name: Komponentnamn
-            scope: Indelningar för komponenten
             type: Komponenttyp
         new:
           add: Lägg till komponent

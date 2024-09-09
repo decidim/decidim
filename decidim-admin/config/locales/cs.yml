@@ -334,7 +334,6 @@ cs:
           headers:
             actions: Akce
             name: Název komponenty
-            scope: Oblast působnosti komponenty
             type: Typ komponenty
         new:
           add: Přidat komponentu

@@ -267,7 +267,6 @@ ar:
           headers:
             actions: أفعال
             name: اسم المكون
-            scope: مجال المكون
             type: نوع المكون
         new:
           add: إضافة عنصر
