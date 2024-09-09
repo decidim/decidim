@@ -36,12 +36,15 @@ sv:
       decidim/demoted_membership: Inte längre en gruppadministratör
       decidim/gamification/badge_earned_event: Intjänat märke
       decidim/gamification/level_up_event: Du har gått upp i nivå
+      decidim/invited_to_group_event: Inbjuden till grupp
       decidim/join_request_accepted_event: Förfrågan att gå med har godkänts
       decidim/join_request_rejected_event: Förfrågan att gå med har avvisats
       decidim/profile_updated_event: Profilen har uppdaterats
       decidim/promote_to_admin: Befordrad till gruppadministratör
+      decidim/promoted_to_admin_event: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
       decidim/resource_endorsed_event: Resurs instämd
+      decidim/resource_hidden_event: Dolt innehåll
       decidim/user_group_created_event: Användargrupp skapad
       decidim/welcome_notification_event: Välkomstmeddelande
   activerecord:
@@ -71,7 +74,10 @@ sv:
     'true': 'Ja'
   carrierwave:
     errors:
+      file_cannot_be_processed: Filen kan inte bearbetas
+      file_resolution_too_large: Filupplösningen är för stor
       file_size_too_large: Filen är för stor
+      not_inside_organization: Filen är inte kopplad till någon organisation
   date:
     formats:
       decidim_short: "%d/%m/%Y"
@@ -88,6 +94,12 @@ sv:
         one: ungefär 1 månad
         other: ungefär %{count} månader
       half_a_minute: en halv minut
+      less_than_x_minutes:
+        one: mindre än en minut
+        other: mindre än %{count} minuter
+      less_than_x_seconds:
+        one: mindre än en sekund
+        other: mindre än %{count} sekunder
       x_days:
         one: 1 dag
         other: "%{count} dagar"
@@ -149,11 +161,31 @@ sv:
         create: "%{user_name} skapade området %{resource_name}"
         delete: "%{user_name} raderade området %{resource_name}"
         update: "%{user_name} uppdaterade området %{resource_name}"
+      area_type:
+        create: "%{user_name} skapade typen av område %{resource_name}"
+        delete: "%{user_name} raderade typen av område %{resource_name}"
+        update: "%{user_name} uppdaterade typen av område %{resource_name}"
+      attachment:
+        create: "%{user_name} skapade bilagan %{resource_name}"
+        delete: "%{user_name} tog bort bilagan %{resource_name}"
+        update: "%{user_name} uppdaterade bilagan %{resource_name}"
+      attachment_collection:
+        create: "%{user_name} skapade samlingen av bilagor %{resource_name}"
+        delete: "%{user_name} tog bort samlingen av bilagor %{resource_name}"
+        update: "%{user_name} uppdaterade samlingen av bilagor %{resource_name}"
+      category:
+        create: "%{user_name} lade till kategorin %{resource_name} i utrymmet %{space_name}"
+        delete: "%{user_name} tog bort kategorin %{resource_name} från utrymmet %{space_name}"
+        update: "%{user_name} uppdaterade kategorin %{resource_name} i utrymmet %{space_name}"
       component:
         create: "%{user_name} lade till komponenten %{resource_name} till utrymmet %{space_name}"
         delete: "%{user_name} tog bort komponenten %{resource_name} från utrymmet %{space_name}"
+        export_component: "%{user_name} exporterade %{resource_name} %{component_name} i %{space_name} som %{format_name}"
         publish: "%{user_name} publicerade komponenten %{resource_name} i utrymmet %{space_name}"
         unpublish: "%{user_name} avpublicerade komponenten %{resource_name} från utrymmet %{space_name}"
+        update_permissions_with_space: "%{user_name} uppdaterade behörigheterna för %{resource_name} i %{space_name}"
+      contextual_help_section:
+        update: "%{user_name} uppdaterade hjälpsidorna %{resource_name}"
       helpers:
         answers: svar
         comments: kommentarer
@@ -175,6 +207,7 @@ sv:
         update: "%{user_name} uppdaterade OAuth-applikationen %{resource_name}"
       organization:
         update: "%{user_name} uppdaterade organisationsinställningarna"
+        update_external_domain: "%{user_name} uppdaterade organisationens externa domäner"
       participatory_space_private_user:
         create: "%{user_name} uppmanade %{resource_name} att vara en privat deltagare"
         create_via_csv: "%{user_name} bjöd in %{resource_name} till att vara en privat deltagare via CSV-fil"
@@ -491,6 +524,8 @@ sv:
           subtitle: Slutför registreringen genom att fylla i följande formulär
           username_help: Offentligt namn som visas i dina inlägg. Du kan ange ett annat namn än ditt eget, om du vill vara anonym.
       registrations:
+        create:
+          error: Det gick inte att skapa ditt konto.
         new:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få enstaka nyhetsbrev med relevant information
@@ -716,6 +751,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{nickname}. Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: "%{nickname} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
+        user_officialized:
+          email_intro: Deltagaren %{name} (%{nickname}) har fått officiell status.
+          email_outro: Du har fått detta meddelande eftersom du är administratör i organisationen.
+          email_subject: "%{name} har fått officiell status"
+          notification_title: Deltagaren %{name} (%{nickname}) har fått officiell status.
     export_mailer:
       download_your_data_export:
         click_button: 'Hämta dina data genom att klicka på länkten.<br/>Filen kommer vara tillgänglig till och med %{date}.<br/>Du kan använda <a href="https://www.7-zip.org/">7-Zip</a> (för Windows), <a href="https://www.keka.io/en/">Keka</a> (för MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (för Linux) för att öppna den. Lösenord: %{password}'
@@ -928,9 +968,12 @@ sv:
         create_with_space: "%{user_name} skapade %{resource_name} i %{space_name}"
         delete: "%{user_name} raderade %{resource_name}"
         delete_with_space: "%{user_name} raderade %{resource_name} i %{space_name}"
+        publish_with_space: "%{user_name} publicerade %{resource_name} i %{space_name}"
         unknown_action: "%{user_name} utförde en åtgärd på %{resource_name}"
         unknown_action_with_space: "%{user_name} utförde en åtgärd på %{resource_name} i %{space_name}"
+        unpublish_with_space: "%{user_name} avpublicerade %{resource_name} i %{space_name}"
         update: "%{user_name} uppdaterade %{resource_name}"
+        update_permissions_with_space: "%{user_name} uppdaterade behörigheterna för %{resource_name} i %{space_name}"
         update_with_space: "%{user_name} uppdaterade %{resource_name} i %{space_name}"
       value_types:
         area_presenter:
