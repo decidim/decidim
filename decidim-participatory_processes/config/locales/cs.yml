@@ -102,6 +102,7 @@ cs:
         duplicate: Duplikát
         edit: Upravit
         import_process: Importovat
+        menu_hidden: Skrýt
         moderate: Moderovat
         new_process: Nový proces
         new_process_group: Nová skupina procesů
