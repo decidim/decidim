@@ -33,6 +33,7 @@ sv:
         banner_image: Bannerbild
         child_scope_threshold_enabled: Aktivera underskrifter för underliggande indelningar
         collect_user_extra_fields: Samla in deltagarens personuppgifter vid underskrift
+        comments_enabled: Aktivera kommentarer
         custom_signature_end_date_enabled: Möjliggör för författare att välja slutet på signatursinsamlingsperioden
         description: Beskrivning
         document_number_authorization_handler: Bemyndigande att verifiera dokumentnummer på underskrifter
@@ -99,6 +100,7 @@ sv:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Sök %{collection} med titel, beskrivning, ID eller författarnamn.
       menu:
         attachments: Bilagor
+        committee_members: Kampanjmedlemmar
         components: Komponenter
         information: Information
         initiatives: Initiativ
@@ -155,6 +157,11 @@ sv:
           email_outro: Du har fått det här meddelandet eftersom du följer %{resource_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Slutdatumet för underskrift om initiativet har skjutits fram!
           notification_title: Slutdatum för att skriva under initiativet <a href="%{resource_path}">%{resource_title}</a> har skjutits fram.
+        initiative_sent_to_technical_validation:
+          email_intro: Initiativet "%{resource_title}" har skickats till teknisk validering. Kolla in det i <a href="%{admin_initiative_url}">adminpanelen</a>
+          email_outro: Du har fått det här meddelandet eftersom du är administratör för plattformen.
+          email_subject: Initiativet "%{resource_title}" har skickats till teknisk validering.
+          notification_title: Initiativet "%{resource_title}" har skickats till teknisk validering. Kolla in det i <a href="%{admin_initiative_path}">adminpanelen</a>
         milestone_completed:
           affected_user:
             email_intro: Ditt initiativ %{resource_title} har uppnått %{percentage}% underskrifter!
@@ -252,7 +259,11 @@ sv:
             update: Uppdatera
           form:
             comments: Mest kommenterade
+            date: Senaste
+            publication_date: Senast publicerade
             random: Slumpmässigt
+            signatures: Mest underskrifter
+            title: Inställningar för initiativ
         initiatives_type_scopes:
           create:
             error: Ett fel har inträffat
@@ -300,6 +311,12 @@ sv:
           send_to_technical_validation: "%{user_name} skickade initiativet %{resource_name} till teknisk validering"
           unpublish: "%{user_name} förkastade initiativet %{resource_name}"
           update: "%{user_name} uppdaterade initiativet %{resource_name}"
+        initiatives_settings:
+          update: "%{user_name} uppdaterade inställningarna för initiativen"
+        initiatives_type:
+          create: "%{user_name} skapade initiativtypen %{resource_name}"
+          delete: "%{user_name} tog bort initiativtypen %{resource_name}"
+          update: "%{user_name} uppdaterade initiativtypen %{resource_name}"
       admin_states:
         accepted: Nog med signaturer
         created: Skapad
@@ -322,9 +339,13 @@ sv:
         filter_type_values:
           all: Alla
       committee_requests:
+        approve:
+          success: Begäran har godkänts.
         new:
           continue: Fortsätta
           help_text: Du kommer att be att få bli medlem av initiativets kampanjutskott
+        revoke:
+          success: Förfrågan har återkallats.
         spawn:
           success: Din förfrågan har skickats till författaren av initiativet.
       content_blocks:
