@@ -184,16 +184,16 @@ module Decidim
 
     describe "cycles validation" do
       subject(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
-      let(:subtaxonomy) { create(:taxonomy, parent: taxonomy) }
-      let(:subsubtaxonomy) { create(:taxonomy, parent: subtaxonomy) }
+      let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy) }
+      let(:sub_sub_taxonomy) { create(:taxonomy, parent: sub_taxonomy) }
 
       it "do not allows two taxonomies cycles" do
-        taxonomy.parent = subtaxonomy
+        taxonomy.parent = sub_taxonomy
         expect(subject).to be_invalid
       end
 
       it "do not allows three taxonomies cycles" do
-        taxonomy.parent = subsubtaxonomy
+        taxonomy.parent = sub_sub_taxonomy
         expect(subject).to be_invalid
       end
     end
