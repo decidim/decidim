@@ -73,7 +73,7 @@ sv:
           comment: Kommentera
           create: Skapa
           destroy: Radera
-          endorse: Instäm
+          endorse: Stöd
           update: Uppdatera
         name: Blogg
         settings:
@@ -85,7 +85,7 @@ sv:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade
             endorsements_blocked: Instämmanden är blockerade
-            endorsements_enabled: Instämmanden tillåtna
+            endorsements_enabled: Stöd är aktiverade
     events:
       blogs:
         post_created:
