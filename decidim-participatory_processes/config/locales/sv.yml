@@ -14,7 +14,7 @@ sv:
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
-        hero_image: Hembild
+        hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
         import_components: Importera komponenter
@@ -96,6 +96,7 @@ sv:
         duplicate: Duplicera
         edit: Redigera
         import_process: Importera
+        menu_hidden: Dölj
         moderate: Moderera
         new_process: Ny process
         new_process_group: Ny grupp av processer
@@ -216,6 +217,12 @@ sv:
             last_step: Kan inte ta bort det sista steget i en process.
           success: Steget i processen har raderats.
         edit:
+          cta_deprecated:
+            body_html: |-
+              Konfigurering av Call to Action görs inte längre via stegen i deltagarprocessen i den här versionen.
+              Det görs istället på <b>Landningssidan</b>, med hjälp av <b>hero- och bild-</b>innehållsblocket.
+              Det här finns kvar för att du ska kunna migrera de CTAs som du behöver. Fälten <i>Call to Action-länk</i> och <i>Call to Action-text</i> kommer att tas bort i nästa version.
+            title: Call to Action från tidigare version
           title: Redigera steg i processen
           update: Uppdatera
         index:
@@ -426,6 +433,7 @@ sv:
             select_participatory_process_type: Välj typ av process
             select_process_group: Välj en grupp av processer
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+            taxonomies: Kategorisering
             title: Allmän information
             visibility: Synlighet
       content_blocks:
