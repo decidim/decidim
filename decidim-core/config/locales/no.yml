@@ -168,15 +168,13 @@
       dismiss: Avvis varsling
     amendments:
       accepted:
-        error: En feil oppstod under godkjenningen av endringen.
         success: Endringen ble godtatt.
       amendable:
         button: Endre %{model_name}
-        error: Det oppsto feil under endringen av denne resurssen.
+        error: Det oppstod et problem med å endre denne ressursen.
         promote_button: Promoter til %{model_name}
         promote_confirm_text: Er du sikker på at du vil forfremme denne emendasjonen?
       created:
-        error: En feil oppstod mens du lagde endrings utkast.
         success: Endrings utkastet har blitt opprettet.
       destroy_draft:
         error: Det oppsto et problem med å slette endrings utkastet.
@@ -945,7 +943,6 @@
         subject: En ressurs er blitt rapportert
     reports:
       create:
-        error: Det oppstod en feil under opprettelsen av rapporten. Vennligs, prøv igjen senere.
         success: Rapporten har blitt opprettet og vil bli gjennomgått av en administrator.
     resource_endorsements:
       create:
@@ -1215,9 +1212,6 @@
       long_words: inneholder ord som er for lange (over 35 tegn)
       must_start_with_caps: må starte med en stor bokstav
       not_locked: var ikke låst
-      not_saved:
-        one: 'Det oppstod en feil under behandling av forespørselen din:'
-        other: 'Det oppsto flere feil med å behandle forespørselen din:'
       too_many_marks: bruker for mange påfølgende skilletegn (f.eks. ! og ?)
       too_much_caps: bruker for mange store bokstaver (over 25% av teksten)
   forms:
