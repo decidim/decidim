@@ -156,10 +156,12 @@ sv:
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
             attachments_allowed_help: Genom att aktivera alternativet kommer förslagen att vara förvalda till rutnätsläge, och den första bilden kommer att visas på kortet.
+            can_accumulate_votes_beyond_threshold: Kan få röster utöver den satta gränsen
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             default_sort_order: Förvald sortering
+            default_sort_order_help: Automatiskt betyder att om röstning är aktiverat kommer förslagen sorteras slumpmässigt, och om röstning är avstängt kommer de att sorteras efter mest valda.
             default_sort_order_options:
               automatic: Automatisk
               most_commented: Mest kommenterade
@@ -186,10 +188,12 @@ sv:
             proposal_length: Maximal längd på förslagets innehåll
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
+            proposal_wizard_step_2_help_text: Hjälptext för steget ”Publicera” i förslagsguiden
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
             threshold_per_proposal: Tröskel per förslag
+            vote_limit: Antal röster per deltagare
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
             amendment_creation_enabled_help: Deltagare kan ändra förslag.
@@ -207,7 +211,9 @@ sv:
             automatic_hashtags: Hashtags läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Deltagare kan skapa förslag
+            creation_enabled_readonly: Den här inställningen är inaktiverad när du aktiverar funktionen Kollaborativa Texter. För att ladda upp förslag som kollaborativa klickar du på knappen Kollaborativa Texter och följer instruktionerna.
             default_sort_order: Förvald produkt sortering
+            default_sort_order_help: Automatiskt betyder att om röstning är aktiverat kommer förslagen sorteras slumpmässigt, och om röstning är avstängt kommer de att sorteras efter mest valda.
             default_sort_order_options:
               automatic: Automatisk
               most_commented: Mest kommenterade
