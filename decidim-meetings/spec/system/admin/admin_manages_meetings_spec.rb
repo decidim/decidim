@@ -62,7 +62,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       expect(page).to have_content("New meeting: #{decidim_sanitize_translated(meeting.title)}")
 
       within "#filters" do
-        find("span", text: "Meeting", match: :first).click
+        find("a", class: "filter", text: "Meeting", match: :first).click
       end
       expect(page).to have_content("New meeting: #{decidim_sanitize_translated(meeting.title)}")
     end
