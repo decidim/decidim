@@ -44,62 +44,62 @@ sv:
         alert_color: Larm
         available_authorizations: Tillgängliga auktoriseringar
         badges_enabled: Aktivera märken
-        comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+        comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
         cta_button_path: Uppmaningens knappsökväg
         cta_button_text: Uppmaningens knapptext
         customize_welcome_notification: Anpassa välkomstmeddelande
         default_locale: Förvalt språk och region
         description: Beskrivning
         enable_omnipresent_banner: Visa banner på alla sidor
-        enable_participatory_space_filters: Aktivera filter för dialoger
-        facebook_handler: Facebook-hanterare
+        enable_participatory_space_filters: Aktivera filter för processer
+        facebook_handler: Facebook-namn
         favicon: Ikon
-        force_authentication: Tvinga autentisering
-        force_users_to_authenticate_before_access_organization: Tvinga användare att autentisera sig innan att komma in organisationen
+        force_authentication: Kräv autentisering
+        force_users_to_authenticate_before_access_organization: Kräv inloggning för att få åtkomst till organisationen
         from: Avsändarens e-postadress
         github_handler: GitHub-namn
-        header_snippets: Rubriksnuttar
-        highlight_alternative_color: Markera alternativ
-        highlight_color: Markera
-        highlighted_content_banner_action_subtitle: Undertitel för Åtgärdsknapp
-        highlighted_content_banner_action_title: Titel för Åtgärdsknapp
-        highlighted_content_banner_action_url: URL för åtgärdsknapp
-        highlighted_content_banner_enabled: Visa den markerade innehållsbannern
+        header_snippets: HTML header snippets
+        highlight_alternative_color: Alternativ accentfärg
+        highlight_color: Accentfärg
+        highlighted_content_banner_action_subtitle: Undertitel på knapp
+        highlighted_content_banner_action_title: Titel på knapp
+        highlighted_content_banner_action_url: URL för knapp
+        highlighted_content_banner_enabled: Visa bannern för utvalt innehåll
         highlighted_content_banner_image: Bild
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
-        host: Värd
+        host: Host
         instagram_handler: Instagram-namn
         logo: Logo
-        machine_translation_display_priority: Maskinöversättnings visnings prioritet
-        machine_translation_display_priority_original: Originaltexten först
-        machine_translation_display_priority_translation: Översatt texten först
+        machine_translation_display_priority: Prioritet för visning av maskinöversättning
+        machine_translation_display_priority_original: Ursprunglig text först
+        machine_translation_display_priority_translation: Översatt text först
         name: Namn
-        official_img_footer: Officiell logo sidfot
+        official_img_footer: Logotyp till sidfot
         official_img_header: Officiell logoyp till sidhuvud
-        official_url: Officiell URL
+        official_url: Organisationens webbplats
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
-        organization_admin_email: Organisationsadministratörens e-postadress
-        organization_admin_name: Organisationsadministratörens namn
-        organization_locales: Organisationsspråk
+        organization_admin_email: Administratörens e-postadress
+        organization_admin_name: Administratörens namn
+        organization_locales: Språk
         primary_color: Primär
         reference_prefix: Referensprefix
-        rich_text_editor_in_public_views: Aktivera rik textredigering för deltagare
+        rich_text_editor_in_public_views: Aktivera formatering av text för deltagare
         secondary_color: Sekundär
         secondary_hosts: Sekundära hosts
         send_welcome_notification: Skicka välkomstmeddelande
-        success_color: Färdigt
+        success_color: Lyckad
         time_zone: Tidszon
-        tos_version: Version på användarvillkor
+        tos_version: Version av användarvillkoren
         twitter_handler: Användarnamn till X
         user_groups_enabled: Aktivera grupper
-        users_registration_mode: Registreringsmode
+        users_registration_mode: Inställning för registrering
         warning_color: Varning
-        welcome_notification_body: Välkomstmeddelandets brödtext
+        welcome_notification_body: Välkomstmeddelande
         welcome_notification_subject: Välkomstmeddelandets ämnesrad
-        youtube_handler: YouTube-hanterare
+        youtube_handler: YouTube-namn
       participatory_space_private_user:
         email: E-post
         name: Namn
@@ -108,7 +108,7 @@ sv:
         name: Namn
         organization: Organisation
         parent_id: Överordnad
-        scope_type: Omfattningstyp
+        scope_type: Typ av indelning
         scope_type_id: Typ av indelning
       scope_type:
         name: Namn
@@ -117,20 +117,20 @@ sv:
       settings:
         scope_id: Indelning
       static_page:
-        allow_public_access: Tillåt tillgång utan autentisering
+        allow_public_access: Tillåt åtkomst utan inloggning
         changed_notably: Det har skett större förändringar.
         content: Innehåll
         organization: Organisation
         show_in_footer: Visa i sidfoten
-        slug: URL slug
+        slug: URL-slug
         title: Titel
-        topic_id: Ämne
-        weight: Ordning
+        topic_id: Ämnesområde
+        weight: Position i listan
       static_page_topic:
         description: Beskrivning
         show_in_footer: Visa i sidfoten
         title: Titel
-        weight: Ordning
+        weight: Position i listan
       user_group_csv_verification:
         file: Fil
     errors:
@@ -183,8 +183,8 @@ sv:
         browse: Bläddra
         category:
           new: Ny kategori
-        export: Exportera alla
-        export-selection: Exportera markering
+        export: Exportera allt
+        export-selection: Exportera markerade
         import: Importera
         manage: Hantera
         new: Ny %{name}
@@ -197,7 +197,7 @@ sv:
         reject: Avvisa
         share: Dela
         user:
-          new: Ny admin
+          new: Ny administratör
         verify: Kontrollera
       admin_terms_of_use:
         accept:
@@ -233,7 +233,7 @@ sv:
           error: Det gick inte att skapa ett nytt område.
           success: Området har har skapats.
         destroy:
-          has_spaces: Det finns redan deltagarutrymmen för detta område. Se till att inget utrymme refererar till detta område innan du tar bort det.
+          has_spaces: Det finns redan deltagarutrymmen för det här området. Se till att inget utrymme refererar till området innan du tar bort det.
           success: Området har tagits bort
         edit:
           title: Redigera område
@@ -268,7 +268,7 @@ sv:
           error: Det gick inte att skapa en ny bilaga.
           success: Bilagan har skapats.
         destroy:
-          success: Bilagan förstördes.
+          success: Bilagan har raderats.
         edit:
           title: Redigera bilaga
           update: Uppdatera
@@ -281,14 +281,14 @@ sv:
           error: Det gick inte att uppdatera bilagan.
           success: Bilagan har uppdaterats.
       attachments_privacy_warning:
-        message: Var försiktig när du arbetar med bilagor i ett privat utrymme. En deltagare skulle kunna dela detta dokument utanför plattformen.
+        message: Var försiktig när du arbetar med bilagor i ett privat utrymme. En deltagare skulle kunna dela dokumentet utanför plattformen.
       autocomplete:
         no_results: Hittade inga resultat
         search_prompt: Sök genom att skriva minst tre tecken
       block_user:
         new:
           action: Blockera konto och skicka motivering
-          description: Att blockera en användare kommer att göra dess konto oanvändbart, du kan skriva din motivering och riktlinjer för hur du anser att du skulle överväga att avblockera användaren.
+          description: Om du blockerar en användare blir kontot oanvändbart. Du kan skriva en motivering och riktlinjer för vad som krävs för att häva blockeringen.
           justification: Motivering
           title: Blockera användare %{name}
       categories:
@@ -319,7 +319,7 @@ sv:
           error: Det gick inte att skapa komponenten.
           success: Komponenten har skapats.
         destroy:
-          error: Ett fel uppstod när komponenten skulle förstöras.
+          error: Det gick inte att radera komponenten.
           success: Komponenten har raderats.
         edit:
           title: Redigera komponent
@@ -366,6 +366,8 @@ sv:
           view_more_logs: Visa fler loggar
           welcome: Välkommen till Adminpanelen.
       domain_whitelist:
+        form:
+          domain_too_short: Domännamnet är för kort
         update:
           error: Vitlistans uppdatering misslyckades
           success: Domäns vitlista har uppdaterats
@@ -434,7 +436,7 @@ sv:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
           report_count_eq: Antal rapporteringar
           reported_id_string_or_reported_content_cont: Sök i %{collection} efter rapporteringens Id eller innehåll.
-          title_cont: Sök %{collection} efter titel.
+          title_cont: Sök i %{collection} efter titel.
           user_name_or_user_email_cont: Sök %{collection} efter namn eller e-post.
           user_name_or_user_nickname_or_user_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
         state_eq:
@@ -475,7 +477,7 @@ sv:
       impersonations:
         close_session:
           error: Det gick inte att stänga sessionen med den hanterade användaren.
-          success: Den nuvarande perioden att uppträda som någon annan har avslutats.
+          success: Hanteringen av användaren har avslutats.
         create:
           error: Det gick inte att hantera användaren.
           success: Den hanterade användaren har skapats.
@@ -521,7 +523,7 @@ sv:
             xlsx: Excel (xlsx)
           actions:
             back: Tillbaka
-          download_example: Ladda ned exempel
+          download_example: Ladda ner exempel
           download_example_format: Exempel som %{name}
           file_legend: Lägg till en fil som kommer importeras.
           import: Importera
@@ -539,17 +541,18 @@ sv:
             new_managed_user_promotion: Befordra ny hanterad användare
             promote: Befordra
       menu:
-        admin_log: Adminaktivitetslogg
+        admin_log: Aktivitetslogg
         admins: Administratörer
         appearance: Utseende
         area_types: Typer av område
         areas: Områden
-        configuration: Konfiguration
+        configuration: Inställningar
         dashboard: Adminpanel
+        external_domain_whitelist: Tillåtna externa domäner
         help_sections: Hjälpavsnitt
         homepage: Hemsida
         impersonations: Uppträd som
-        moderation: Global moderering
+        moderation: Moderering
         newsletters: Nyhetsbrev
         participants: Deltagare
         reported_users: Rapporterade användare
@@ -561,7 +564,7 @@ sv:
         users: Deltagare
       metrics:
         metrics:
-          see_more_metrics: Visa fler metrik
+          see_more_metrics: Se fler mätvärden
       models:
         area:
           fields:
@@ -610,10 +613,10 @@ sv:
             plural: Flertal
         share_token:
           fields:
-            created_at: Skapad den
+            created_at: Skapad
             expires_at: Förfaller den
-            last_used_at: Användes senast
-            times_used: Antal användningar
+            last_used_at: Senast använd
+            times_used: Använd antal gånger
             token: Token
             user: Skapad av
         static_page:
@@ -651,39 +654,42 @@ sv:
           nickname: Användarnamn
           reason: Anledning
           reports: Antal anmälningar
+          title: Rapporterade deltagare
         report:
           reasons:
-            does_not_belong: Tillhör inte
-            offensive: Offensivt
-            spam: Skräp
+            does_not_belong: Opassande
+            offensive: Stötande
+            spam: Skräppost
         tabs:
           blocked: Blockerad
-          unblocked: Icke blockerade
+          unblocked: Ej blockerade
       moderations:
+        index:
+          title: Rapporterat innehåll
         report:
           reasons:
-            does_not_belong: Hör inte hemma
+            does_not_belong: Opassande
             offensive: Stötande
             spam: Skräppost
         reports:
           index:
             author: Författare
-            callout_html: Ett innehåll visas i modereringspanelen när det har blivit signerat av en användare (kan vara vem som helst med ett registrerat konto) genom att klicka på %{icon} flaggan bredvid innehållet.
-            content_original_language: Innehållets originalspråk
+            callout_html: Innehåll hamnar i modereringslistan när det rapporterats av en användare (vem som helst med ett konto), som klickat på %{icon} flaggan vid innehållet.
+            content_original_language: Originalspråk för innehåll
             participatory_space: Deltagarutrymme
             reported_content: Rapporterat innehåll
-            see_current: Se nuvarande
-            see_original: Se original
+            see_current: Visa nuvarande
+            see_original: Visa ursprungligt
             title: Anmälningar
           show:
-            report_details: Anledningsdetaljer
-            report_language: Anmälningsspråk
+            report_details: Motivering
+            report_language: Språk för anmälan
             report_reason: Anledning
-            title: Anmälningsdetaljer
+            title: Motivering
       newsletter_templates:
         index:
           preview_template: Förhandsvisa
-          title: Nyhetsbrev mallar
+          title: Mallar för nyhetsbrev
           use_template: Använd den här mallen
         show:
           preview: 'Förhandsgranska mall: %{template_name}'
@@ -722,10 +728,10 @@ sv:
           all_users_help: Skickar nyhetsbrevet till alla bekräftade användare.
           confirm_deliver: Vill du skicka nyhetsbrevet? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
-          followers_help: Skickar nyhetsbrevet till alla bekräftade användare som följer något av de markerade deltagarutrymmena i listan.
+          followers_help: Skickar nyhetsbrevet till alla verifierade användare som följer något av de markerade deltagarutrymmena i listan.
           none: Inga
-          participants_help: Skickar nyhetsbrevet till alla bekräftade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
-          recipients_count: Detta nyhetsbrev kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
+          participants_help: Skickar nyhetsbrevet till alla verifierade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
+          recipients_count: Nyhetsbrevet kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
           scopes_help: Skickar nyhetsbrev till användare som markerat någon av de valda indelningarna under "Mina intressen".
           select_scopes: Filtrera användare som markerat någon av de valda indelningarna under "Mina intressen".
           select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
@@ -739,7 +745,7 @@ sv:
           no_recipients: Inga mottagare för det här urvalet
         show:
           preview: Förhandsvisa
-          select_recipients_to_deliver: Välj mottagare att leverera till
+          select_recipients_to_deliver: Välj mottagare
           subject: Ämne
         update:
           error: Det gick inte att uppdatera nyhetsbrevet.
@@ -804,15 +810,15 @@ sv:
           update: Uppdatera
         form:
           colors:
-            colors_title: Organisationsfärger
+            colors_title: Organisationens färger
             colors_warning_html: Varning! Att ändra dessa färger kan bryta minska kontrasterna och tillgängligheten. Du kan kontrollera kontrasten i ditt val med <a href="%{link}">WebAIM Contrast Checker</a> eller andra liknande verktyg.
             header_snippets_help: Lägg till saker i HTML-huvudet med detta fält. Den vanligaste användningen är att integrera tjänster från tredje part som kräver särskild JavaScript eller CSS. Du kan också lägga till extra meta-taggar i HTML-koden. Märk att detta endast kommer att läggas in på offentliga sidor, inte i administratörsdelen.
           cta_button_path_help: 'Du kan ändra vad Call To Action-knappen på startsidan länkar till. Använd relativa sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Knappen visas på startsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
-          cta_button_text_help: Du kan ha separata texter på uppmaningsknappen på hemsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Uppmaningsknappen visas på hemsidan mellan välkomsttexten och beskrivningen.
+          cta_button_text_help: Du kan ha separata texter på Call to Action-knappen på startsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Call to Action-knappen visas på startsidan mellan välkomsttexten och beskrivningen.
           homepage_appearance_title: Redigera startsidans utseende
           homepage_highlighted_content_banner_title: Banner för uppmärksammat innehåll
           images:
-            layout_appearance_title: Redigera layoutens utseende
+            layout_appearance_title: Redigera layout
             preview: Förhandsgranska
           omnipresent_banner_appearance_title: Redigera banner på alla sidor
       organization_external_domain_whitelist:
@@ -826,6 +832,10 @@ sv:
         form:
           add: Lägg till i vitlistan
           title: Vitlista för externa domäner
+      organization_homepage:
+        edit:
+          active_content_blocks: Aktiva innehållsblock
+          inactive_content_blocks: Inaktiva innehållsblock
       organization_homepage_content_blocks:
         edit:
           update: Uppdatera
@@ -972,9 +982,10 @@ sv:
         areas: Områden
         authorization_workflows: Verifieringsmetoder
         dashboard: Adminpanel
+        edit_organization_appearance: Redigera startsidans utseende
         impersonatable_users: Hanterbara deltagare
         impersonations: Deltagarhantering
-        metrics: Metrik
+        metrics: Deltagande i siffror
         pages: Sidor
         panel: Administratör
         participants: Deltagare
@@ -1055,14 +1066,14 @@ sv:
       admin:
         reportable:
           hide:
-            invalid: Det gick inte att dölja resursen.
-            success: Resursen har dolts.
+            invalid: Det gick inte att dölja innehållet.
+            success: Innehållet har dolts.
           unhide:
-            invalid: Det gick inte att sluta dölja resursen.
-            success: Resursen är inte längre dold.
+            invalid: Det gick inte att sluta dölja innehållet.
+            success: Innehållet är inte längre dolt.
           unreport:
-            invalid: Det gick inte att ta bort rapporten om resursen.
-            success: Resursen är inte längre rapporterad.
+            invalid: Det gick inte att ta bort rapporten om innehållet.
+            success: Innehållet är inte längre rapporterat.
       models:
         moderation:
           fields:
@@ -1073,12 +1084,12 @@ sv:
             report_count: Antal
             reportable_id: ID
             reportable_type: Typ
-            reported_content_url: Rapporterad innehållsadress
+            reported_content_url: Länk till rapporterat innehåll
             reports: Rapporter
             visit_url: Besök URL
         report:
           fields:
-            details: Anledningsdetaljer
+            details: Motivering
             locale: Språk
             reason: Anledning
   errors:
@@ -1088,7 +1099,7 @@ sv:
     decidim:
       admin:
         global_moderations:
-          title: Global moderering
+          title: Moderering
         newsletters:
           title: Nyhetsbrev
         settings:
