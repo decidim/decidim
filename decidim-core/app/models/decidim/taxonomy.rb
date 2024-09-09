@@ -39,6 +39,7 @@ module Decidim
     validates :name, presence: true
     validates :weight, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
     validate :validate_max_children_levels
+    validate :forbid_cycles
 
     default_scope { order(:weight) }
     scope :roots, -> { where(parent_id: nil) }
@@ -85,6 +86,12 @@ module Decidim
       return if weight.present?
 
       self.weight = Taxonomy.where(parent_id:).count
+    end
+
+    def forbid_cycles
+      return unless parent_id
+
+      errors.add(:parent_id, :invalid) if parent.part_of.include?(id)
     end
 
     def create_part_of

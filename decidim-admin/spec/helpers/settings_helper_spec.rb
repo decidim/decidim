@@ -30,7 +30,6 @@ module Decidim
         allow(view).to receive(:current_organization).and_return(organization)
         allow(view).to receive(:current_participatory_space_manifest).and_return(current_participatory_space.manifest)
         allow(view).to receive(:decidim_sanitize_translated).and_return("A text")
-        # allow(form).to receive(:object_name).and_return(:foo)
         allow(nil).to receive(:html_safe).and_return("")
       end
 
