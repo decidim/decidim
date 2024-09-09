@@ -381,6 +381,10 @@ cs:
             - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
           description: Tento odznak se uděluje, když hlasujete pro návrhy ostatních.
           description_another: Tento účastník hlasoval pro %{score} návrhů.
+          description_own: Hlasovali jste pro %{score} návrhy.
+          next_level_in: Hlasujte pro %{score} další návrhy pro dosažení další úrovně!
+          unearned_another: Tento uživatel zatím nehlasoval pro žádné návrhy.
+          unearned_own: Zatím jste nehlasovali pro žádné návrhy.
         proposals:
           conditions:
             - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
@@ -406,6 +410,7 @@ cs:
         object: návrhy
         title: Návrhy
       votes:
+        description: Počet hlasů pro návrhy
         object: hlasy
         title: Hlasy
     participatory_spaces:
@@ -415,6 +420,8 @@ cs:
     proposals:
       actions:
         answer_proposal: Odpověď na návrh
+        cancel_coauthor_invitation: Zrušit pozvánku spoluautora
+        cancel_coauthor_invitation_confirm: Opravdu chcete zrušit pozvánku spoluautora?
         delete_proposal_state_confirm: Opravdu chcete odstranit tento stav?
         destroy: Odstranit stav
         edit_proposal: Upravit návrh
@@ -516,6 +523,7 @@ cs:
             submit: Předložit
           reply:
             error: Při vytváření poznámky k tomuto návrhu došlo k chybě.
+            success: Odpověď na návrh byla úspěšně vytvořena.
           title: Soukromé poznámky
         proposal_states:
           create:
@@ -538,6 +546,9 @@ cs:
             success: Status byl úspěšně aktualizován
         proposals:
           answer:
+            bulk_answer_error: Návrhy s ID [%{proposals}] nemohly být zodpovězeny kvůli chybám při použití šablony "%{template}". Můžete zkontrolovat, že šablona odpovědi odpovídá očekávanému formátu této komponenty, a to individuálně.
+            bulk_answer_success: 'Na %{count} návrhy bude odpovězeno pomocí šablony „%{template}“. Počkejte prosím několik minut a obnovte stránku, abyste viděli aktualizace.'
+            invalid: Při odpovědi na tento návrh došlo k chybě.
             success: Návrh byl úspěšně zodpovězen.
           create:
             invalid: Při vytváření tohoto návrhu došlo k chybě.
@@ -916,12 +927,16 @@ cs:
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
+          withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, dokud neobdržíte žádný hlas. Návrh není vymazán, objeví se v seznamu stažených návrhů.
           withdraw_confirmation_html: Jste si jisti, že chcete stáhnout tento návrh?<br><br><strong>Tuto akci nelze zrušit!</strong>
           withdraw_proposal: Návrh stáhnout
         update:
           title: Aktualizovat návrh
         vote_button:
           already_voted: Již hlasovalo
+          no_votes_remaining: Žádné zbývající hlasy
+          vote: Hlasovat
+          votes_blocked: Hlasování zakázáno
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Každý návrh může sshromáždit více než %{limit} hlasů
