@@ -184,7 +184,7 @@ sv:
             proposal_edit_time: Redigering av förslag
             proposal_edit_time_choices:
               infinite: Tillåt redigering av förslag utan tidsbegränsning
-              limited: Tillåt redigering av förslag med tidsbegränsning
+              limited: Tillåt redigering av förslag med inom så här lång tid
             proposal_length: Maximal längd på förslagets innehåll
             proposal_limit: Förslagsgräns per deltagare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
@@ -201,10 +201,10 @@ sv:
             amendment_promotion_enabled_help: Författare av ändringsförslag kommer att kunna lägga fram det avvisade ändringsförslaget som ett förslag.
             amendment_reaction_enabled: Reagera på ändringar är aktiverat
             amendment_reaction_enabled_help: Förslagsförfattarna kan anta eller avvisa deltagarnas ändringsförslag.
-            amendments_visibility: Ändringens synlighet
+            amendments_visibility: Synlighet för ändringsförslag
             amendments_visibility_choices:
-              all: Ändringar är synliga för alla
-              participants: Ändringsförslagen är endast synliga för författarna
+              all: Ändringsförslag är synliga för alla
+              participants: Ändringsförslag är endast synliga för författarna
             amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
             announcement: Meddelande
             answers_with_costs: Tillåt kostnader i svar på förslag
@@ -651,6 +651,8 @@ sv:
           select_a_category: Välj en kategori
           send: Skicka
           title: Redigera gemensamt utkast
+        empty: Det finns inga gemensamma utkast ännu
+        empty_filters: Det finns inget gemensamt utkast med de här kriterierna
         filters:
           all: Alla
           amendment: Ändringsförslag
@@ -671,6 +673,7 @@ sv:
           count:
             one: "%{count} gemensamt utkast"
             other: "%{count} gemensamma utkast"
+        name: Gemensamma utkast
         new:
           add_file: Lägg till fil
           edit_file: Redigera fil
@@ -685,14 +688,17 @@ sv:
         requests:
           accepted_request:
             error: Kunde inte godkännas som samarbetspartner, försök igen senare.
+            success: "@%{user} har godkänts som medskapare."
           access_requested:
             error: Din begäran kunde inte behandlas, försök igen senare.
+            success: Din förfrågan om samarbete har skickats.
           collaboration_requests:
             accept_request: Godkänn
             reject_request: Avvisa
             title: Förfrågningar om samarbete
           rejected_request:
             error: Kunde inte avvisas som samarbetspartner, försök igen senare.
+            success: "@%{user} har avvisats som medskapare."
         show:
           edit: Redigera gemensamt utkast
           final_proposal: Färdigt förslag
@@ -700,6 +706,7 @@ sv:
           hidden_authors_count:
             one: och %{count} mer person
             other: och %{count} fler personer
+          info-message: Det här är ett <strong>gemensamt utkast</strong> till ett förslag. Det innebär att du kan hjälpa författarna med att utforma förslaget genom kommentarsfältet nedan eller bidra till förslaget direkt genom att begära redigeringsåtkomst. När författarna till förslaget ger dig åtkomst kan du göra ändringar av utkastet.
           publish: Publicera
           publish_info: Publicera den här versionen av utkastet eller
           published_proposal: Publicerat förslag
@@ -745,11 +752,19 @@ sv:
             valuator: Handläggare
             valuators: Handläggare
             votes: Röster
+        proposal_state:
+          css_class: CSS-klass
+          title: Status
+      new:
+        limit_reached: Ni kan inte skapa nya förslag eftersom ni har överskridit gränsen för antal förslag.
       participatory_text_proposal:
         alternative_title: Det finns inga kollaborativa texter just nu
         buttons:
           amend: Ändra
           comment: Kommentar
+      proposal_votes:
+        create:
+          error: Det gick inte att rösta på förslaget.
       proposals:
         dynamic_map_instructions:
           description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
@@ -766,6 +781,9 @@ sv:
           discard: Släng utkastet
           discard_confirmation: Vill du slänga detta utkast till förslag?
           send: Förhandsvisa
+          title: Redigera utkast till förslag
+        edit_form_fields:
+          marker_added: Markör tillagd på kartan.
         filters:
           activity: Min aktivitet
           all: Allt
@@ -785,6 +803,7 @@ sv:
           count:
             one: "%{count} förslag"
             other: "%{count} förslag"
+          grid_mode: Rutnätsläge
           list_mode: Listvy
           new_proposal: Nytt förslag
           see_all: Se alla förslag
@@ -836,12 +855,14 @@ sv:
           proposal_accepted_reason: 'Förslaget har accepterats eftersom:'
           proposal_in_evaluation_reason: Förslaget utvärderas
           proposal_rejected_reason: 'Förslaget har avslagits på grund av att:'
+          withdraw_btn_hint: Om du ändrar dig kan du återkalla förslaget, så länge det inte har fått någon röst. Förslaget raderas inte, utan står med i listan över återkallade förslag.
           withdraw_confirmation_html: Är du säker på att du vill dra tillbaka förslaget?<br><br><strong>Denna åtgärd kan inte ångras!</strong>
           withdraw_proposal: Dra tillbaka förslaget
         update:
           title: Uppdatera förslag
         vote_button:
           already_voted: Redan röstat
+          already_voted_hover: Dra tillbaka röst
           maximum_votes_reached: Röstningsgränsen uppnådd
           no_votes_remaining: Inga röster kvar
           vote: Rösta
@@ -851,19 +872,32 @@ sv:
             one: Röst
             other: Röster
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: Varje förslag kan få mer än %{limit} röster
+          minimum_votes_per_user:
+            description: Du måste lägga minst %{votes} röster på olika förslag.
+            given_enough_votes: Du har lagt alla dina röster.
+            votes_remaining: Du behöver rösta på ytterligare %{remaining_votes} förslag för att dina röster ska räknas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
+          threshold_per_proposal:
+            description: Förslag behöver få minst %{limit} röster för accepteras.
+          title: 'Följande regler gäller för omröstningar:'
           vote_limit:
             description: Du kan rösta upp till %{limit} förslag.
+            votes: Saknar %{number} röster
         wizard_aside:
           back: Tillbaka
           back_from_step_1: Tillbaka till förslag
+          back_from_step_2: Tillbaka till redigering
         wizard_steps:
           current_step: Nuvarande steg
           step_1: Skapa ditt förslag
+          step_2: Publicera ditt förslag
           title: Steg för att skapa förslag
       proposals_picker:
         choose_proposals: Välj förslag
+        no_proposals: Inga förslag matchar dina sökkriterier eller så finns det inte några förslag.
       publish:
         error: Det gick inte att publicera förslaget.
         success: Förslag har publicerats.
@@ -878,6 +912,9 @@ sv:
       versions:
         index:
           title: Versioner
+      withdraw:
+        errors:
+          has_votes: Förslaget kan inte dras tillbaka eftersom det redan har fått röster.
     resource_links:
       copied_from_component:
         proposal_proposal: Relaterade förslag
