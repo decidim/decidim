@@ -294,6 +294,7 @@ sv:
             select_parent_assembly: Välj överordnat samråd
             slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
             social_handlers: Sociala medier
+            taxonomies: Kategorier
             title: Allmän information
             visibility: Synlighet
         assemblies_types:
