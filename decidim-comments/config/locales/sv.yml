@@ -4,7 +4,7 @@ sv:
     models:
       decidim/comments/comment_by_followed_user_event: Kommentar
       decidim/comments/comment_created_event: Kommentar
-      decidim/comments/comment_upvoted_event: Positiva kommentarer
+      decidim/comments/comment_upvoted_event: Uppröstad kommentarer
       decidim/comments/reply_created_event: Svar till en kommentar
       decidim/comments/user_group_mentioned_event: Nämn
       decidim/comments/user_mentioned_event: Nämn
@@ -22,7 +22,7 @@ sv:
         shared:
           availability_fields:
             enabled: Kommentarer aktiverade
-            end_time: Kommentarer aktiverade till
+            end_time: Kommentarer aktiverade till och med
             start_time: Kommentarer aktiverade från och med
       comments:
         create:
@@ -51,28 +51,28 @@ sv:
           user_group_id:
             label: Kommentera som
         opinion:
-          label: Din åsikt om detta ämne
+          label: Din åsikt om frågan
           negative: Negativ
-          negative_selected: Din åsikt om detta ämne är negativ
+          negative_selected: Din åsikt om frågan är negativ
           neutral: Neutral
-          neutral_selected: Din åsikt om detta ämne är neutral
+          neutral_selected: Din åsikt om frågan är neutral
           positive: Positiv
-          positive_selected: Din åsikt om detta ämne är positiv
+          positive_selected: Din åsikt om frågan är positiv
         remaining_characters: "%{count} tecken kvar"
         remaining_characters_1: "%{count} tecken kvar"
-        title: Lägg till din kommentar
+        title: Lämna din kommentar
       comment:
         alignment:
           against: Mot
           in_favor: För
-        confirm_destroy: Är du säker på att du vill ta bort denna kommentar?
+        confirm_destroy: Är du säker på att du vill ta bort kommentaren?
         delete: Radera
-        deleted_at: Kommentar borttagen den %{date}
+        deleted_at: Kommentar borttagen %{date}
         deleted_user: Raderad deltagare
         edit: Redigera
         edited: Redigerad
         hide_replies: Göm svar
-        moderated_at: Kommentar modererad den %{date}
+        moderated_at: Kommentar modererad %{date}
         reply: Svara
         report:
           action: Rapportera
@@ -82,8 +82,8 @@ sv:
           details: Ytterligare kommentarer
           reasons:
             does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tycker inte hör hemma på %{organization_name}.
-            offensive: Innehåller rasism, sexism, skällsord, personliga attacker, dödshot, uppmaningar att begå självmord eller någon form av hatpropaganda.
-            spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
+            offensive: Innehåller rasism, sexism, personangrepp, mordhot, uppmaning att begå självmord eller hets mot folkgrupp.
+            spam: Innehåller clickbait, reklam, bedrägerier eller botar.
           title: Rapportera olämpligt innehåll
         show_replies:
           one: Visa svar
@@ -107,16 +107,16 @@ sv:
         single_comment_warning: <a href="%{url}">Visa alla kommentarer</a>
         single_comment_warning_title: Du visar en enda kommentar
         title:
-          one: "%{count} kommentarer"
+          one: "%{count} kommentar"
           other: "%{count} kommentarer"
       down_vote_button:
-        text: Jag håller inte med om denna kommentar
+        text: Jag instämmer inte i denna kommentar
       edit_comment_modal_form:
         close: Stäng
         form:
           body:
             label: Kommentar
-            placeholder: Vad tycker du om detta?
+            placeholder: Vad tycker du?
           submit: Skicka
         title: Redigera din kommentar
       up_vote_button:
@@ -141,13 +141,13 @@ sv:
         comment_downvoted:
           email_intro: Din kommentar i "%{resource_title}" har blivit nedröstad. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
           email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
-          email_subject: Din kommentar i "%{resource_title}" har nedröstats.
-          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har nedröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_subject: Din kommentar till "%{resource_title}" har röstats ned.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> till "%{resource_title}" har röstats ned. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
         comment_upvoted:
-          email_intro: Din kommentar i "%{resource_title}" har uppröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
-          email_outro: Du har fått det här meddelandet eftersom du är författare till denna kommentar.
-          email_subject: Din kommentar i "%{resource_title}" har uppröstats.
-          notification_title: Din <a href="%{resource_path}">kommentar</a> i "%{resource_title}" har uppröstats. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_intro: Din kommentar i "%{resource_title}" har röstats upp. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
+          email_outro: Du har fått det här meddelandet eftersom du är författare till kommentaren.
+          email_subject: Din kommentar till "%{resource_title}" har röstats upp.
+          notification_title: Din <a href="%{resource_path}">kommentar</a> till "%{resource_title}" har röstats upp. Den har nu totalt %{upvotes} uppröster och %{downvotes} nedröster.
         reply_created:
           email_intro: "%{author_name} har svarat din kommentar i %{resource_title}. Du kan läsa den på den här sidan:"
           email_outro: Du har fått denna notis eftersom din kommentar blev besvarad.
