@@ -1,0 +1,20 @@
+<ul class="resource_history">
+  <% history_items.each_with_index do |item, index| %>
+    <li class="resource_history__item">
+      <div class="resource_history__item_icon">
+        <div class="<%= item[:id] == "#{history_cell_id}_creation" ? "resource_history__item_icon-creation" : "" %>">
+          <%= icon item[:icon], class: item[:id] == "#{history_cell_id}_creation" ? "fill-current text-white" : "fill-current text-secondary" %>
+        </div>
+        <% if index < history_items.size - 1 %>
+          <span class="<%= item[:id] == "#{history_cell_id}_creation" ? "resource_history__line_short" : "resource_history__line_long" %>"></span>
+        <% end %>
+      </div>
+      <div class="resource_history__item_content">
+        <span class="resource_history__item_date"><%= item[:date].strftime("%d/%m/%Y %H:%M") %></span>
+        <p class="flex flex-col lg:flex-none lg:block">
+         <%= item[:text] %>
+        </p>
+      </div>
+    </li>
+  <% end %>
+</ul>

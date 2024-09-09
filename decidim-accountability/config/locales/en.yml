@@ -8,10 +8,10 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_date: End date
-        meetings_ids: 'It was discussed in this meeting:'
+        meetings_ids: 'It was discussed in this meeting: %{link}'
         progress: Progress
-        project_ids: 'It was included in this project:'
-        proposals: 'It was included in this proposal:'
+        project_ids: 'It was included in this project: %{link}'
+        proposals: 'It was included in this proposal: %{link}'
         start_date: Start date
         subresults: Subresults
         title: Title

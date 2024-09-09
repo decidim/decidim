@@ -15,28 +15,10 @@ module Decidim
         render template
       end
 
-      private
-
-      def template
-        @template ||= options[:template] || :show
-      end
-
-      def title
-        decidim_escape_translated result.title
-      end
-
-      def description
-        decidim_sanitize_admin translated_attribute(result.description)
-      end
-
-      def scope
-        current_scope.presence
-      end
-
       def tab_panel_items
         [
           {
-            enabled: ResultHistoryCell.new(result).send(:history_items).any?,
+            enabled: ResultHistoryCell.new(result).history_items.any?,
             id: "included_history",
             text: t("decidim/history/history", scope: "activerecord.models", count: 2),
             icon: resource_type_icon_key("history"),
@@ -60,6 +42,24 @@ module Decidim
             args: ["decidim/accountability/results", result.children]
           }
         ] + attachments_tab_panel_items(result)
+      end
+
+      private
+
+      def template
+        @template ||= options[:template] || :show
+      end
+
+      def title
+        decidim_escape_translated result.title
+      end
+
+      def description
+        decidim_sanitize_admin translated_attribute(result.description)
+      end
+
+      def scope
+        current_scope.presence
       end
     end
   end
