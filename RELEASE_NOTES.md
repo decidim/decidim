@@ -79,7 +79,7 @@ This works for Ubuntu Linux, other operating systems would need to do other comm
 
 You can read more about this change on PR [#13185](https://github.com/decidim/decidim/pull/13185).
 
-### 2.2. Cleanup invalid resources
+### 2.6. Cleanup invalid resources
 
 While upgrading various instances to latest Decidim version, we have noticed there are some records that may not be present anymore. As a result, the application would generate a lot of errors, in both frontend and Backend.
 
