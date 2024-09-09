@@ -343,6 +343,10 @@ cs:
             - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
           description: Tento odznak se uděluje, když hlasujete pro návrhy ostatních.
           description_another: Tento účastník hlasoval pro %{score} návrhů.
+          description_own: Hlasovali jste pro %{score} návrhy.
+          next_level_in: Hlasujte pro %{score} další návrhy pro dosažení další úrovně!
+          unearned_another: Tento uživatel zatím nehlasoval pro žádné návrhy.
+          unearned_own: Zatím jste nehlasovali pro žádné návrhy.
         proposals:
           conditions:
             - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
@@ -368,6 +372,7 @@ cs:
         object: návrhy
         title: Návrhy
       votes:
+        description: Počet hlasů pro návrhy
         object: hlasy
         title: Hlasy
     participatory_spaces:
@@ -864,12 +869,16 @@ cs:
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
+          withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, dokud neobdržíte žádný hlas. Návrh není vymazán, objeví se v seznamu stažených návrhů.
           withdraw_confirmation_html: Jste si jisti, že chcete stáhnout tento návrh?<br><br><strong>Tuto akci nelze zrušit!</strong>
           withdraw_proposal: Návrh stáhnout
         update:
           title: Aktualizovat návrh
         vote_button:
           already_voted: Již hlasovalo
+          no_votes_remaining: Žádné zbývající hlasy
+          vote: Hlasovat
+          votes_blocked: Hlasování zakázáno
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Každý návrh může sshromáždit více než %{limit} hlasů
