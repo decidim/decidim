@@ -331,7 +331,6 @@ ro:
           headers:
             actions: Acțiuni
             name: Numele componentei
-            scope: Domeniul componentei
             type: Tipul componentei
         new:
           add: Adaugă componentă

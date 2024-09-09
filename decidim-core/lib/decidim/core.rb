@@ -30,6 +30,7 @@ module Decidim
   autoload :Coauthorable, "decidim/coauthorable"
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
+  autoload :Taxonomizable, "decidim/taxonomizable"
   autoload :Scopable, "decidim/scopable"
   autoload :ScopableParticipatorySpace, "decidim/scopable_participatory_space"
   autoload :ScopableComponent, "decidim/scopable_component"

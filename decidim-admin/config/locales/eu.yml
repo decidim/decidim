@@ -334,7 +334,6 @@ eu:
           headers:
             actions: Ekintzak
             name: Osagaiaren izena
-            scope: Osagaiaren esparrua
             type: Osagai mota
         new:
           add: Gehitu osagaia

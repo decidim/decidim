@@ -324,7 +324,6 @@ zh-TW:
           headers:
             actions: 操作
             name: 組件名稱
-            scope: 組件作用域
             type: 組件類型
         new:
           add: 新增元件

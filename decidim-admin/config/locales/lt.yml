@@ -327,7 +327,6 @@ lt:
           headers:
             actions: Veiksmai
             name: Komponento pavadinimas
-            scope: Komponento apimtis
             type: Komponento tipas
         new:
           add: Pridėti komponentą

@@ -280,7 +280,6 @@ ko:
           headers:
             actions: 작업
             name: 구성 요소 이름
-            scope: 구성 요소 범위
             type: 구성 요소 유형
         new:
           add: 구성 요소 추가
