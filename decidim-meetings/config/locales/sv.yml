@@ -16,7 +16,7 @@ sv:
         available_slots: Tillgängliga platser för detta möte
         customize_registration_email: Anpassa e-post för registrering
         decidim_category_id: Kategori
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         decidim_user_group_id: Användargrupp
         description: Beskrivning
         end_time: Sluttid
@@ -470,7 +470,7 @@ sv:
             official: Officiell
             participants: Deltagare
             user_groups: Grupper
-          scope: Omfång
+          scope: Indelning
           search: Sök
           type: Typ
           type_values:
