@@ -171,6 +171,7 @@ sv:
           default: Standard?
           enabled: Aktiverad
           locale: Språk
+          secondary_hosts_hint: Ange var och en på en ny rad.
           title: Ny organisation
         omniauth_settings:
           decidim:
