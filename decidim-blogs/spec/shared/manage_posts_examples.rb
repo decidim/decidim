@@ -67,7 +67,7 @@ shared_examples "manage posts" do |audit_check: true|
     expect(page).to have_content("New post: #{translated(attributes[:title])}")
 
     within "#filters" do
-      find("span", text: "Post", match: :first).click
+      find("a", class: "filter", text: "Post", match: :first).click
     end
     expect(page).to have_content("New post: #{translated(attributes[:title])}")
   end

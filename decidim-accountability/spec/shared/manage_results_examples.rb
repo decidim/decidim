@@ -86,7 +86,7 @@ shared_examples "manage results" do
       expect(page).to have_content("New result: #{translated(attributes[:title])}")
 
       within "#filters" do
-        find("span", text: "Result", match: :first).click
+        find("a", class: "filter", text: "Result", match: :first).click
       end
       expect(page).to have_content("New result: #{translated(attributes[:title])}")
     end

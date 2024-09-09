@@ -224,7 +224,7 @@ shared_examples "proposals wizards" do |options|
         expect(page).to have_content("New proposal: #{translated(proposal_draft.title)}")
 
         within "#filters" do
-          find("span", text: "Proposal", match: :first).click
+          find("a", class: "filter", text: "Proposal", match: :first).click
         end
         expect(page).to have_content("New proposal: #{translated(proposal_draft.title)}")
       end

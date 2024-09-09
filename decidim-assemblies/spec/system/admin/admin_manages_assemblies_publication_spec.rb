@@ -26,7 +26,7 @@ describe "Admin manages assembly publication" do
     expect(page).to have_content("New assembly: #{title}")
 
     within "#filters" do
-      find("span", text: "Assembly", match: :first).click
+      find("a", class: "filter", text: "Assembly", match: :first).click
     end
     expect(page).to have_content("New assembly: #{title}")
   end

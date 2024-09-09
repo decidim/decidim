@@ -26,7 +26,7 @@ describe "Admin manages participatory process publication" do
     expect(page).to have_content("New participatory process: #{title}")
 
     within "#filters" do
-      find("span", text: "Participatory process", match: :first).click
+      find("a", class: "filter", text: "Participatory process", match: :first).click
     end
     expect(page).to have_content("New participatory process: #{title}")
   end

@@ -506,7 +506,7 @@ shared_examples "comments" do
         expect(page).to have_content("New comment: #{content}")
 
         within "#filters" do
-          find("span", text: "Comment", match: :first).click
+          find("a", class: "filter", text: "Comment", match: :first).click
         end
         expect(page).to have_content("New comment: #{content}")
       end
