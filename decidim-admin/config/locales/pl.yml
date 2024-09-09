@@ -333,7 +333,6 @@ pl:
           headers:
             actions: Działania
             name: Nazwa komponentu
-            scope: Zakres komponentu
             type: Typ komponentu
         new:
           add: Dodaj komponent

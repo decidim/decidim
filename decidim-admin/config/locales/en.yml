@@ -330,13 +330,15 @@ en:
           default_step_settings: Default step settings
           global_settings: Global settings
           step_settings: Step settings
+        hide:
+          success: The component has been successfully hidden from the menu.
         index:
           add: Add component
           headers:
             actions: Actions
             name: Component name
-            scope: Component scope
             type: Component type
+            visibility: Visibility
         new:
           add: Add component
           title: 'Add component: %{name}'
@@ -356,6 +358,10 @@ en:
         update:
           error: There was a problem updating this component.
           success: The component was updated successfully.
+        visibility_label:
+          menu_hidden: Menu hidden
+          published: Published
+          unpublished: Unpublished
       conflicts:
         attempts: Attempts
         'false': 'No'

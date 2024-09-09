@@ -334,7 +334,6 @@ es:
           headers:
             actions: Acciones
             name: Nombre del componente
-            scope: Ámbito del componente
             type: Tipo de componente
         new:
           add: Agregar un componente

@@ -270,7 +270,6 @@ pt:
           headers:
             actions: Ações
             name: Nome do componente
-            scope: Âmbito do componente
             type: Tipo de componente
         new:
           add: Adicionar componente

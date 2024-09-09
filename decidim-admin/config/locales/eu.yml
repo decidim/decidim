@@ -202,6 +202,7 @@ eu:
         verify: Egiaztatu
       admin_terms_of_service:
         accept:
+          error: Arazoa izan da zerbitzuaren baldintzak onartzean.
           success: Ederto! Onartu dituzu zerbitzuaren administrazio-baldintzak.
         actions:
           accept: Bat nator baldintzekin
@@ -333,7 +334,6 @@ eu:
           headers:
             actions: Ekintzak
             name: Osagaiaren izena
-            scope: Osagaiaren esparrua
             type: Osagai mota
         new:
           add: Gehitu osagaia
@@ -349,6 +349,8 @@ eu:
       conflicts:
         attempts: Saiakerak
         'false': 'Ez'
+        index:
+          text: Bilatu gaur egungo erabiltzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
         managed_user_name: Erabiltzaile kudeatua
         solved: Ebatzita
         title: Egiaztapen-arazoak
@@ -363,6 +365,7 @@ eu:
         user_name: Erabiltzailea
       content_blocks:
         create:
+          error: Arazo bat izan da edukien blokea sortzean.
           success: Eduki-blokea zuzen sortua.
         destroy:
           error: Arazoa izan da eduki-bloke hau ezabatzen saiatzean
@@ -776,6 +779,7 @@ eu:
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
       officializations:
         block:
+          error: Arazo bat izan da parte-hartzailea blokeatzean.
           success: Parte-hartzailea zuzen blokeatua.
         create:
           success: Pate-hartzailea zuzen ofizializatua.
@@ -809,6 +813,7 @@ eu:
           show: Erakutsi
           title: Erakutsi parte-hartzailearen helbide elektronikoa
         unblock:
+          error: Arazo bat izan da parte-hartzailea desblokeatzean.
           success: Parte-hartzailea zuzen desblokeatua.
       organization:
         edit:
@@ -1013,15 +1018,42 @@ eu:
           success: Kategoria zuzen sortua.
         destroy:
           invalid: Arazo bat egon da osagai hau ezabatzean.
+          success: Taxonomia behar bezala suntsitua.
         edit:
           back: Atzera
+          description: Taxonomia honetako elementuak baliabideak sailkatzeko edo iragazteko erabiliko dira, hala nola espazio edo osagai parte-hartzaileak. Arrastatu eta utzi zerrenda berrantolatzeko.
           new_item: Elementu berria
+          no_items: Gaur egun ez dago taxonomia honetako elementurik. Sortu hemen elementuen zerrenda bat baliabideak sailkatzeko edo iragazteko, hala nola espazio edo osagai parte-hartzaileak. Elementuak hiru mailatan sailka daitezke.
+          subtitle: 'Elementuak hemen: "%{taxonomy_name}"'
+          title: Editatu "%{taxonomy_name}" taxonomia
           update: Gorde
         filters:
           search_placeholder: Bilatu
         index:
+          description: Taxonomiak edukiak sailkatzeko eta antolatzeko aukera ematen die administratuei. Adibidez, gehitu taxonomia bat prozesuak sailkatzeko eremu geografikoaren arabera.
           new_taxonomy: Taxonomia berria
+          no_items_found: Ez dago bilaketa-irizpidearekin bat datorren taxonomiarik.
         name: Izena
+        new:
+          create: Sortu taxonomia
+          title: Beste taxonomia bat
+        no_taxonomies: Gaur egun ez dago taxonomiarik. Sortu taxonomien zerrenda bat hemen, eta zehaztu elementuak horietako bakoitzean baliabideak sailkatzeko edo iragazteko.
+        table:
+          to_next_page: Arrastatu hurrengo orrira
+          to_prev_page: Arrastatu aurreko orrira
+        taxonomy_actions:
+          confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula? Honek elementu txiki guztiak ere ezabatuko ditu.
+        update:
+          invalid: Arazo bat izan da taxonomia hau eguneratzean.
+          success: Taxonomia zuzen eguneratua.
+      taxonomy_items:
+        edit:
+          title: 'Editatu elementua hemen: %{taxonomy}'
+          update: Eguneratu elementua
+        new:
+          create: Sortu elementua
+          none: Bat ere ez
+          title: 'Beste elementu bat hemen: %{taxonomy}'
       titles:
         admin_log: Administratzaile-erregistroa
         area_types: Arlo motak

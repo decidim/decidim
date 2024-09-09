@@ -270,7 +270,6 @@ lb:
           headers:
             actions: Aktionen
             name: Komponentenname
-            scope: Komponentenbereich
             type: Komponententyp
         new:
           add: Komponente hinzufügen
