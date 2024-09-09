@@ -73,7 +73,7 @@
   </div>
 
   <div class="card mt-4">
-    <%= link_to deleted_proposals_path, class: "flex items-center text-secondary" do %>
+    <%= link_to deleted_proposals_path, class: "button button__sm button__transparent-secondary" do %>
       <%= icon "delete-bin-line", class: "mr-2 fill-current text-secondary", role: "img" %>
       <%= t("actions.view_deleted_proposals",  scope: "decidim.proposals.admin") %>
       <span class="ml-2">

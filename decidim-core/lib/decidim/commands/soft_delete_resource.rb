@@ -20,7 +20,6 @@ module Decidim
 
         run_before_hooks
         soft_delete_resource
-        enqueue_soft_delete_job_for_associated_objects
         run_after_hooks
 
         broadcast(:ok, resource)
@@ -43,10 +42,6 @@ module Decidim
         ) do
           resource.trash!
         end
-      end
-
-      def enqueue_soft_delete_job_for_associated_objects
-        Decidim::SoftDeleteAssociatedResourcesJob.perform_later(resource.id, resource.class.to_s, current_user.id)
       end
 
       # Any extra params that you want to pass to the traceability service.
