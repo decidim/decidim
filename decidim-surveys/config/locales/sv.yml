@@ -23,9 +23,9 @@ sv:
             announcement: Meddelande
             clean_after_publish: Ta bort svar vid publicering av enkäten
             ends_at: Svar accepterade tills
-            ends_at_help: Lämna tomt för inget slutdatum
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            ends_at_help: Lämna tomt för att inte ha något slutdatum
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
             starts_at: Svar accepterade från
             starts_at_help: Lämna tomt för inget startdatum
           step:
@@ -54,6 +54,9 @@ sv:
       answers_count: Svar
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Om du publicerar komponenten kommer alla resultat att tas bort.
         exports:
           survey_user_answers: Svar från enkätdeltagarna
         surveys:

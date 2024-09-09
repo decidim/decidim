@@ -11,12 +11,28 @@ sv:
     admin:
       menu:
         templates: Mallar
+      templates:
+        apply:
+          error: Det gick inte att tillämpa mallen.
+        copy:
+          error: Det gick inte att kopiera mallen.
+        create:
+          error: Det gick inte att skapa mallen.
+        empty: Det finns inga mallar ännu.
+        update:
+          error: Det gick inte att uppdatera mallen.
       titles:
+        template_types:
+          questionnaires: Mallar för enkäter
         templates: Mallar
     models:
+      questionnaire_template:
+        fields:
+          questions: Antal frågor
+          title: Titel på enkät
       template:
         fields:
-          created_at: Skapad den
+          created_at: Skapad
         name: Mall
     templates:
       admin:
@@ -31,7 +47,7 @@ sv:
           form:
             save: Spara
           preview:
-            current_step: Steg %{step} av
+            current_step: Steg %{step}
             of_total_steps: av %{total_steps}
       template_types:
         questionnaires: Enkäter

@@ -5,6 +5,7 @@ sv:
       post:
         body: Innehåll
         decidim_author_id: Författare
+        published_at: Publicerad
         title: Titel
     models:
       decidim/blogs/create_post_event: Nytt blogginlägg
@@ -43,6 +44,11 @@ sv:
           update:
             invalid: Det gick inte att spara inlägget.
             success: Inlägget har sparats
+      admin_log:
+        post:
+          create: "%{user_name} skapade blogginlägget %{resource_name} i %{space_name}"
+          delete: "%{user_name} raderade blogginlägget %{resource_name} från %{space_name}"
+          update: "%{user_name} uppdaterade blogginlägget %{resource_name} i %{space_name}"
       last_activity:
         new_post_at_html: "<span>Nytt inlägg på %{link}</span>"
       models:
@@ -54,6 +60,8 @@ sv:
             official_blog_post: Officiellt inlägg
             title: Titel
       posts:
+        index:
+          empty: Det finns inga inlägg ännu.
         show:
           back: Tillbaka till listan
           comments: Kommentarer
@@ -75,7 +83,7 @@ sv:
           global:
             announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
           step:
             announcement: Meddelande
             comments_blocked: Kommentarer blockerade

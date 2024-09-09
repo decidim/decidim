@@ -13,7 +13,7 @@ ro:
       attachment:
         attachment_collection_id: Dosar
         description: Descriere
-        file: Fişier
+        file: Fișier
         title: Numele fișierului sau al imaginii atașate
         weight: Poziție
       attachment_collection:
@@ -131,7 +131,7 @@ ro:
         title: Titlu
         weight: Poziție
       user_group_csv_verification:
-        file: Fişier
+        file: Fișier
     errors:
       models:
         newsletter:
@@ -736,6 +736,9 @@ ro:
           select_scopes: Filtrați utilizatorii care au activat oricare dintre domeniile selectate în setările privind „Interesele mele” din contul lor.
           select_spaces: Selectează spațiile pentru segmentarea buletinului informativ
           select_users: Selectează utilizatorii cărora vrei să trimiți buletinul informativ
+          send_to_all_users: Trimiteți către toți utilizatorii
+          send_to_followers: Trimiteți către urmăritori
+          send_to_participants: Trimiteți către participanți
           title: Selectează destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
