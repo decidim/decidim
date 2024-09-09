@@ -175,6 +175,7 @@ eu:
           title: Bikoiztu prozesu parte-hartzailea
       participatory_process_groups:
         destroy:
+          error: Arazo bat izan da prozesu parte-hartzaile multzoa ezabatzean.
           success: Prozesu parte-hartzaileen taldea zuzen ezabatua.
         edit:
           title: Editatu prozesu-taldea

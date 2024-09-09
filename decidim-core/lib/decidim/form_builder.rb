@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 
-require "foundation_rails_helper/form_builder"
-
 module Decidim
   # This custom FormBuilder adds fields needed to deal with translatable fields,
   # following the conventions set on `Decidim::TranslatableAttributes`.
-  class FormBuilder < FoundationRailsHelper::FormBuilder
+  class FormBuilder < LegacyFormBuilder
     include ActionView::Context
     include Decidim::TranslatableAttributes
     include Decidim::Map::Autocomplete::FormBuilder
@@ -98,7 +96,7 @@ module Decidim
       field attribute, options do |opts|
         opts[:autocomplete] ||= :off
         opts[:class] ||= "input-group-field"
-        method(__method__).super_method.super_method.call(attribute, opts)
+        super(attribute, opts)
       end
     end
 
@@ -378,7 +376,7 @@ module Decidim
       custom_label(attribute, options[:label], options[:label_options], field_before_label: true) do
         options.delete(:label)
         options.delete(:label_options)
-        @template.check_box(@object_name, attribute, objectify_options(options.except(:help_text)), checked_value, unchecked_value)
+        super(attribute, options.except(:help_text), checked_value, unchecked_value)
       end + error_and_help_text(attribute, options)
     end
 

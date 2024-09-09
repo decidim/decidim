@@ -334,7 +334,6 @@ fi-pl:
           headers:
             actions: Toiminnot
             name: Komponentin nimi
-            scope: Komponentin teema
             type: Komponentin tyyppi
         new:
           add: Lisää komponentti
