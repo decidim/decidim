@@ -20,6 +20,10 @@ module Decidim::Assemblies
       end
 
       let(:hero_image) { my_assembly.hero_image }
+      let!(:taxonomizations) do
+        2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: my_assembly) }
+      end
+      let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
       let(:banner_image) { my_assembly.banner_image }
       let(:params) do
         {
@@ -66,7 +70,8 @@ module Decidim::Assemblies
             instagram_handler: my_assembly.instagram_handler,
             youtube_handler: my_assembly.youtube_handler,
             github_handler: my_assembly.github_handler,
-            announcement: my_assembly.announcement
+            announcement: my_assembly.announcement,
+            taxonomies: [taxonomy.id, taxonomizations.first.taxonomy.id]
           }.merge(attachment_params)
         }
       end
@@ -153,6 +158,12 @@ module Decidim::Assemblies
           my_assembly.reload
 
           expect(my_assembly.title["en"]).to eq("Foo title")
+        end
+
+        it "updates the taxonomizations" do
+          expect(my_assembly.reload.taxonomies).to contain_exactly(taxonomizations.first.taxonomy, taxonomizations.second.taxonomy)
+          command.call
+          expect(my_assembly.reload.taxonomies).to contain_exactly(taxonomy, taxonomizations.first.taxonomy)
         end
 
         it "traces the action", versioning: true do
