@@ -2,6 +2,55 @@
 
 # Changelog
 
+## [0.28.3](https://github.com/decidim/decidim/tree/0.28.3)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-core**: Backport 'Prevent cached signed global IDs from expiring' to v0.28 [\#13232](https://github.com/decidim/decidim/pull/13232)
+- **decidim-accountability**, **decidim-admin**, **decidim-budgets**, **decidim-conferences**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Backport 'Fix clickable area in dropdowns' to v0.28 [\#13233](https://github.com/decidim/decidim/pull/13233)
+- **decidim-core**, **decidim-elections**, **decidim-generators**: Backport 'Implements 7zip as a CLI wrapper' to v0.28 [\#13234](https://github.com/decidim/decidim/pull/13234)
+- **decidim-core**: Backport 'Send welcome notifications for omniauth users' to v0.28 [\#13240](https://github.com/decidim/decidim/pull/13240)
+- **decidim-admin**: Backport 'Pagination and search on conflicts page' to v0.28 [\#13242](https://github.com/decidim/decidim/pull/13242)
+- **decidim-meetings**: Backport 'Allow admin tags in meeting minutes' to v0.28 [\#13241](https://github.com/decidim/decidim/pull/13241)
+- **decidim-admin**, **decidim-assemblies**, **decidim-blogs**, **decidim-conferences**, **decidim-core**, **decidim-initiatives**, **decidim-participatory processes**, **decidim-system**: Backport 'Improve ActiveStorage asset linking performance' to v0.28 [\#13228](https://github.com/decidim/decidim/pull/13228)
+- **decidim-admin**: Backport 'Overwrite admin "Cell" -helper method' to v0.28 [\#13262](https://github.com/decidim/decidim/pull/13262)
+- Backport 'Lock Chrome and ChromeDriver to 126.0.6478.182' to v0.28 [\#13309](https://github.com/decidim/decidim/pull/13309)
+- Backport 'Fix google-chrome-stable installation in CI' to v0.28 [\#13327](https://github.com/decidim/decidim/pull/13327)
+- **decidim-core**: Backport 'Fix deprecation warnings from SASS' to v0.28 [\#13320](https://github.com/decidim/decidim/pull/13320)
+- **decidim-proposals**: Backport 'Fix proposals' preview spacing' to v0.28 [\#13326](https://github.com/decidim/decidim/pull/13326)
+- **decidim-core**, **decidim-proposals**: Backport 'Fix character counter disposition and spacing with WYSIWYG' to v0.28 [\#13325](https://github.com/decidim/decidim/pull/13325)
+- **decidim-admin**, **decidim-generators**, **decidim-proposals**, **decidim-templates**: Backport 'Fix exceptions with `decidim-templates` when not added explicitly ' to v0.28 [\#13324](https://github.com/decidim/decidim/pull/13324)
+- Backport 'Add overwrite parameter to upload-artifact' to v0.28 [\#13323](https://github.com/decidim/decidim/pull/13323)
+- **decidim-admin**: Backport 'Fix deleting a component which has reminders associated with it' to v0.28 [\#13329](https://github.com/decidim/decidim/pull/13329)
+- **decidim-dev**: Backport 'Disable search engine choice window for ChromeDriver in system specs' to v0.28 [\#13330](https://github.com/decidim/decidim/pull/13330)
+- **decidim-core**: Backport 'Prevent malformed URLs in online/hybrid meetings' to v0.28 [\#13331](https://github.com/decidim/decidim/pull/13331)
+- **decidim-dev**, **decidim-generators**: Backport 'Add spring as dependency' to v0.28 [\#13322](https://github.com/decidim/decidim/pull/13322)
+- **decidim-assemblies**, **decidim-budgets**, **decidim-conferences**, **decidim-core**, **decidim-debates**, **decidim-initiatives**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**: Backport 'Fix flaky spec with follow button in participatory spaces' to v0.28 [\#13346](https://github.com/decidim/decidim/pull/13346)
+- **decidim-core**: Backport 'Fix exporting of the open data file' to v0.28 [\#13345](https://github.com/decidim/decidim/pull/13345)
+- **decidim-admin**, **decidim-assemblies**, **decidim-blogs**, **decidim-comments**, **decidim-conferences**, **decidim-core**, **decidim-initiatives**, **decidim-participatory processes**, **decidim-proposals**: Backport 'Remove pagination configuration initializer' to v0.28 [\#13321](https://github.com/decidim/decidim/pull/13321)
+- **decidim-core**: Backport 'Fix results per page display in pagination' to v0.28 [\#13347](https://github.com/decidim/decidim/pull/13347)
+- **decidim-core**, **decidim-dev**: Backport 'Add manifest name check for spaces and components' to v0.28 [\#13359](https://github.com/decidim/decidim/pull/13359)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Backport 'Fix clickable area in dropdowns' to v0.28 [\#13233](https://github.com/decidim/decidim/pull/13233)
+
+### Internal
+
+Nothing.
+
 ## [0.28.2](https://github.com/decidim/decidim/tree/0.28.2)
 
 ### Added
