@@ -96,6 +96,7 @@ fi-pl:
         duplicate: Kopioi
         edit: Muokkaa
         import_process: Tuo
+        menu_hidden: Piilota
         moderate: Moderoi
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
