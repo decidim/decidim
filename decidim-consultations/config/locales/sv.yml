@@ -4,7 +4,7 @@ sv:
     attributes:
       consultation:
         banner_image: Bannerbild
-        decidim_highlighted_scope_id: Markerat omfång
+        decidim_highlighted_scope_id: Utvald indelning
         description: Beskrivning
         end_voting_date: Omröstningen avslutas
         introductory_image: Introduktionsbild
@@ -23,14 +23,14 @@ sv:
         instructions: Ytterligare anvisningar för röstning
         max_votes: Max antal röster
         min_votes: Minsta antal röster
-        origin_scope: Omfång
+        origin_scope: Indelning
         origin_title: Ursprung
         origin_url: Ursprungs-URL
         participatory_scope: Deltagaromfång
         promoter_group: Kampanjgrupp
         question_context: Kontext
         reference: Referens
-        scope: Kommundelsområde
+        scope: Stadsdel
         slug: URL-slug
         subtitle: Underrubrik
         vote: Externt omröstningssystem
