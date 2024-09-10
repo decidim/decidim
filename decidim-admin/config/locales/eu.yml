@@ -329,12 +329,15 @@ eu:
           default_step_settings: Faseen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
           step_settings: Ezarpenen faseak
+        hide:
+          success: Osagaia zuzen ezkutatu da menutik.
         index:
           add: Gehitu osagaia
           headers:
             actions: Ekintzak
             name: Osagaiaren izena
             type: Osagai mota
+            visibility: Ikusgarritasuna
         new:
           add: Gehitu osagaia
           title: 'Gehitu osagaia: %{name}'
@@ -346,6 +349,10 @@ eu:
         update:
           error: Arazo bat egon da osagai hau eguneratzean.
           success: Osagaia zuzen eguneratua.
+        visibility_label:
+          menu_hidden: Menu ezkutua
+          published: Argitaratua
+          unpublished: Despublikatua
       conflicts:
         attempts: Saiakerak
         'false': 'Ez'
@@ -585,6 +592,7 @@ eu:
         static_page_topics: Gaiak
         static_pages: Orriak
         taxonomies: Taxonomiak
+        taxonomy_filters: Taxonomia-iragazkiak
         user_groups: Erabiltzaile-taldeak
         users: Parte-hartzaileak 
       metrics:
@@ -1046,6 +1054,17 @@ eu:
         update:
           invalid: Arazo bat izan da taxonomia hau eguneratzean.
           success: Taxonomia zuzen eguneratua.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Beste taxonomia-iragazki bat
+        callout:
+          modify_taxonomy_html: Taxonomia hau edo bere elementuak aldatu behar badituzu, egin ezazu Taxonomiak ataleko <a href="%{url}">Taxonomies</a> ezarpenen bidez.
+        create:
+          error: Arazo bai izan da taxonomia-iragazki hau sortzean.
+          success: Taxonomia-iragazkia zuzen sortua.
+        destroy:
+          error: Arazo bat izan da taxonomia-iragazki hau suntsitzean.
+          success: Taxonomia-iragazkia behar bezala suntsitua.
       taxonomy_items:
         edit:
           title: 'Editatu elementua hemen: %{taxonomy}'
