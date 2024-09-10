@@ -1594,6 +1594,7 @@ pt-BR:
         change_my_password: Mudar minha senha
         confirm_new_password: Confirme a nova senha
         new_password: Nova senha
+        title: Senha alterada
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
@@ -1603,6 +1604,8 @@ pt-BR:
       updated_not_active: Sua senha foi alterada com sucesso.
     registrations:
       destroyed: Tchau! Sua conta foi cancelada com sucesso. Esperamos te ver novamente em breve.
+      new:
+        sign_up: Criar uma conta
       signed_up: Bem vinda! Você se inscreveu com sucesso.
       signed_up_but_inactive: Você se inscreveu com sucesso. No entanto, não poderíamos fazer o seu login porque sua conta ainda não está ativada.
       signed_up_but_locked: Você se inscreveu com sucesso. No entanto, não poderíamos fazer login porque sua conta está bloqueada.
@@ -1610,8 +1613,11 @@ pt-BR:
       update_needs_confirmation: Você atualizou sua conta com sucesso, mas precisamos confirmar seu novo endereço de e-mail. Por favor, verifique seu e-mail e siga o link de confirmação para confirmar seu novo endereço de e-mail.
       updated: Sua conta foi atualizada com sucesso.
     sessions:
+      already_signed_out: Sessão encerrada com sucesso.
       new:
         log_in: Iniciar sessão
+      signed_in: Login realizado com sucesso!
+      signed_out: Sessão encerrada com sucesso.
     shared:
       links:
         back: Costas
@@ -1620,6 +1626,7 @@ pt-BR:
         forgot_your_password: Esqueceu sua senha?
         log_in: Iniciar sessão
         log_in_with_provider: Iniciar sessão com %{provider}
+        sign_up: Criar uma conta
       minimum_password_length:
         one: "(Mínimo de%{count} caracteres)"
         other: "(%{count} caracteres no mínimo)"
@@ -1628,12 +1635,27 @@ pt-BR:
         resend_unlock_instructions: Reenvie as instruções de desbloqueio
       send_instructions: Você receberá um e-mail com instruções sobre como desbloquear sua conta em alguns minutos.
       send_paranoid_instructions: Se a sua conta existir, você receberá um e-mail com instruções sobre como desbloqueá-lo em alguns minutos.
+      unlocked: Sua conta foi desbloqueada com sucesso. Por favor, entre para continuar.
   doorkeeper:
     scopes:
       public: Sua informação pública.
   editor:
     extensions:
+      image:
+        altLabel: Texto alternativo da imagem
+        nodeView:
+          resizer:
+            control:
+              resize: Redimensionar imagem (%position%)
+            position:
+              bottomLeft: canto inferior esquerdo
+              bottomRight: canto inferior direito
+              topLeft: canto superior esquerdo
+              topRight: canto superior direito
+        uploadError: O upload do arquivo falhou.
       link:
+        bubbleMenu:
+          edit: Editar
         hrefLabel: Link URL
         targets:
           blank: Nova aba
@@ -1672,16 +1694,24 @@ pt-BR:
       '1': Padrão
       '2': Claro
       '3': Luz média
+      '5': Médio-Escuro
+      choose: Escolha um tom de pele
   errors:
     messages:
       allowed_file_content_types: 'apenas arquivos com as seguintes extensões são permitidos: %{types}'
+      already_confirmed: já foi confirmada, tente fazer login
+      blank: não pode estar em branco
+      cannot_be_blank: não pode estar em branco
       confirmation_period_expired: precisa ser confirmado dentro de %{period}, solicite um novo
       content_type_allowlist_error: o tipo de arquivo não é válido
+      empty: não pode estar vazio
       expired: expirou, solicite um novo
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
       invalid_time_zone: não é um fuso horário válido
       long_words: contém palavras muito longas (mais de 35 caracteres)
       must_start_with_caps: deve começar com letra maiúscula
+      nesting_too_deep: não pode estar dentro de uma subcategoria
+      not_found: não foi possível encontrar. Você criou uma conta anteriormente?
       not_locked: não estava trancado
       not_saved:
         one: 'Houve um erro ao processar seu pedido:'
@@ -1704,11 +1734,14 @@ pt-BR:
   layouts:
     decidim:
       announcements:
+        view_less: Exibir menos
         view_more: Mais informações
       data_consent:
         details:
           columns:
             description: Descrição
+            name: Nome
+            service: Serviço
             type: Tipo
           items:
             _session_id:
@@ -1727,6 +1760,7 @@ pt-BR:
           accept_all: Aceitar todas
           accept_only_essential: Aceitar apenas o essencial
           description: Utilizamos cookies neste site para amelhorar o desempenho da página. As cookies nos permitem oferecer uma experiência mais personalizada ao usuário e aos canais de redes sociais.
+          settings: Configurações
           title: Informações sobre os cookies utilizados no site
         modal:
           accept_all:
@@ -1762,6 +1796,8 @@ pt-BR:
         log_in: Iniciar sessão
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         resources: Recursos
+        sign_up: Criar uma conta
+        terms_of_service: Termos de serviço
       header:
         log_in: Iniciar sessão
         main_menu: Menu principal
@@ -1786,12 +1822,14 @@ pt-BR:
       timeout_modal:
         body: Você está inativo por %{minutes} minutos. Se você continuar inativo, será automaticamente desconectado para sua própria segurança.
         continue_session: Continuar sessão
+        log_out: Sair
         title: Deseja continuar sua sessão?
       user_menu:
         account: 'Conta de usuário: %{name}'
         admin_dashboard: Painel de administração
         configuration: Configurações
         conversations: Conversas
+        log_out: Sair
         notifications: Notificações
         profile: Minha conta
         public_profile: Meu perfil público
@@ -1810,6 +1848,7 @@ pt-BR:
     name: Português brasileiro
     name_with_error: Português brasileiro (erro!)
   password_validator:
+    denied: foi negado
     domain_included_in_password: é muito semelhante a este nome de domínio
     email_included_in_password: é muito parecido com o seu email
     fallback: não é válido
@@ -1821,6 +1860,12 @@ pt-BR:
     password_too_common: é muito comum
     password_too_long: é muito longo
     password_too_short: é muito curto
+  ransack:
+    predicates:
+      dtgt: depois
+      dtgteq: depois ou igual a
+      dtlt: antes
+      dtlteq: antes ou igual a
   social_share_button:
     delicious: Delicioso
     douban: Douban
@@ -1843,8 +1888,12 @@ pt-BR:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
+    buttons:
+      close: Fechar
+      reset: Resetar
     formats:
       day_of_month: "%b %d"
       day_of_week: "%a"
@@ -1857,6 +1906,8 @@ pt-BR:
         mailer:
           invitation_instructions:
             accept_until_format: "%B %d, %Y %I:%M %p"
+      help:
+        time_format: 'Formato: hh:mm'
       long: "%B %d, %Y %H:%M"
       long_dashed: "%Y-%m-%d %H:%M:%S"
       short: "%d/%m/%Y %H:%M"
@@ -1876,6 +1927,7 @@ pt-BR:
     pagination:
       next_title: Link para a próxima página
       pagination: Paginação
+      previous: Anterior
       previous_title: Link para a página anterior
       title: 'Número da página: '
       truncate: "&hellip;"
