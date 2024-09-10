@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Budgets
-  describe BudgetHistoryCell, type: :cell do
+  describe ProjectHistoryCell, type: :cell do
     controller Decidim::Budgets::ProjectsController
     let!(:project) { create(:project) }
     let(:participatory_space) { project.participatory_space }

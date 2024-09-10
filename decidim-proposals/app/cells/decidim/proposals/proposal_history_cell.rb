@@ -19,7 +19,7 @@ module Decidim
 
       private
 
-      def add_history_items
+      def linked_resources_items
         # linked resources generate from this proposal
         [
           {

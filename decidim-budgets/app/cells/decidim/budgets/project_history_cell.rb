@@ -2,19 +2,19 @@
 
 module Decidim
   module Budgets
-    # This cell is used to render the budget history panel of a resource
+    # This cell is used to render the project history panel of a resource
     # inside a tab of a show view
     #
-    # The `model` must be a resource to get the budget history from.and is expected to
-    # respond to budget history method
+    # The `model` must be a resource to get the project history from.and is expected to
+    # respond to project history method
     #
     # Example:
     #
     #   cell(
-    #     "decidim/budget_history",
+    #     "decidim/project_history",
     #     budget
     #   )
-    class BudgetHistoryCell < Decidim::ResourceHistoryCell
+    class ProjectHistoryCell < Decidim::ResourceHistoryCell
       def linked_resources_items
         [
           {
