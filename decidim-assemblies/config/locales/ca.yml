@@ -294,6 +294,7 @@ ca:
             select_parent_assembly: Selecciona una assemblea mare
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
+            taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
         assemblies_types:
