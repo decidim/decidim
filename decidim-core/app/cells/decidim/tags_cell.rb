@@ -10,7 +10,7 @@ module Decidim
   #
   class TagsCell < Decidim::ViewModel
     def show
-      render if taxonomies.any?
+      render if category? || scope? || taxonomies.any?
     end
 
     def category
@@ -28,6 +28,8 @@ module Decidim
     end
 
     def taxonomies
+      return [] unless model.respond_to?(:taxonomies)
+
       @taxonomies ||= model.taxonomies.map do |taxonomy|
         {
           name: decidim_sanitize_translated(taxonomy.name),

@@ -137,4 +137,30 @@ describe Decidim::TagsCell, type: :cell do
       expect(html).to have_content(translated(category.name))
     end
   end
+
+  context "when resources has a taxonomies" do
+    let(:root_taxonomy) { create(:taxonomy, organization:) }
+    let(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+
+    let(:proposal_no_taxonomies) { create(:proposal, component: component_proposals) }
+    let(:proposal_taxonomized) { create(:proposal, component: component_proposals, taxonomies: [taxonomy]) }
+
+    it "renders the taxonomy of a proposal" do
+      html = cell("decidim/tags", proposal_taxonomized, context: { extra_classes: ["tags--proposal"] }).call
+      expect(html).to have_css(".tag-container.tags--proposal")
+      expect(html).to have_content(decidim_sanitize_translated(taxonomy.name))
+    end
+
+    it "renders the correct filtering link" do
+      html = cell("decidim/tags", proposal_taxonomized, context: { extra_classes: ["tags--proposal"] }).call
+      path = Decidim::ResourceLocatorPresenter.new(proposal_taxonomized).index
+      query = { filter: { "with_any_taxonomies[#{root_taxonomy.id}]" => [taxonomy.id] } }.to_query
+      expect(html).to have_css(%(a[href="#{path}?#{query}"]))
+    end
+
+    it "does not render the taxonomies of a proposal if not present" do
+      html = cell("decidim/tags", proposal_no_taxonomies, context: { extra_classes: ["tags--proposal"] }).call
+      expect(html).to have_no_css(".tag-container.tags--proposal")
+    end
+  end
 end
