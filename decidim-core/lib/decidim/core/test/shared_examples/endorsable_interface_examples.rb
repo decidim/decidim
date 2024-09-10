@@ -16,8 +16,6 @@ shared_examples_for "endorsable interface" do
 
     it "returns the endorsements this query has received" do
       endorsement_names = response["endorsements"].map { |endorsement| endorsement["name"] }
-      pp "endorsement_names: #{endorsement_names}"
-      pp "expected endorsement_names #{model.endorsements.map(&:author).map(&:name)}"
       expect(endorsement_names).to include(*model.endorsements.map(&:author).map(&:name))
     end
   end
