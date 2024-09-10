@@ -23,6 +23,7 @@ FactoryBot.define do
     organization
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
+    deleted_at { nil }
     meta_scope { generate_localized_word(:participatory_process_meta_scope, skip_injection:) }
     developer_group { generate_localized_title(:participatory_process_developer_group, skip_injection:) }
     local_area { generate_localized_title(:participatory_process_local_area, skip_injection:) }
@@ -45,6 +46,10 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :trashed do
+      deleted_at { Time.current }
     end
 
     trait :private do
