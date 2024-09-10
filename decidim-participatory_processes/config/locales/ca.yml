@@ -433,6 +433,7 @@ ca:
             select_participatory_process_type: Selecciona un tipus de procés
             select_process_group: Selecciona un grup de processos
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
       content_blocks:
