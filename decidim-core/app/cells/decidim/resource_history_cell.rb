@@ -29,7 +29,7 @@ module Decidim
       return if resources.blank?
 
       resources.each do |resource|
-        title = decidim_sanitize_translated(resource.title[I18n.locale.to_s])
+        title = decidim_sanitize_translated(resource.title)
         url = resource_locator(resource).path
         link = link_to(title, url, class: "underline decoration-current text-secondary font-semibold")
 

@@ -77,7 +77,7 @@ module Decidim
                                      icon_key: "Decidim::Proposals::Proposal"
                                    })
 
-        add_proposal_creation_item(@history_items) if @history_items.any?
+        add_proposal_creation_item(@history_items)
       end
 
       def add_proposal_creation_item(items)
