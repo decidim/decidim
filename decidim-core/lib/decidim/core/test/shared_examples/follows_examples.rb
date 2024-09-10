@@ -14,6 +14,8 @@ shared_examples "followable content for users" do
     context "when user clicks the Follow button" do
       it "makes the user follow the followable" do
         visit followable_path
+        find("#dropdown-trigger-resource-#{followable.id}").click
+
         expect do
           click_on "Follow"
           expect(page).to have_content "Stop following"
@@ -30,6 +32,8 @@ shared_examples "followable content for users" do
     context "when user clicks the Follow button" do
       it "makes the user follow the followable" do
         visit followable_path
+        find("#dropdown-trigger-resource-#{followable.id}").click
+
         expect do
           click_on "Stop following"
           expect(page).to have_content "Follow"
@@ -51,6 +55,8 @@ shared_examples "followable content for users with a component" do
     context "when user clicks the Follow button" do
       it "makes the user follow the followable" do
         visit followable_path
+        find("#dropdown-trigger-resource-#{followable.id}").click
+
         expect do
           click_on "Follow"
           expect(page).to have_content "Stop following"
