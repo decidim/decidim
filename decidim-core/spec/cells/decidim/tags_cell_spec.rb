@@ -143,17 +143,17 @@ describe Decidim::TagsCell, type: :cell do
     let(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
 
     let(:proposal_no_taxonomies) { create(:proposal, component: component_proposals) }
-    let(:proposal_taxonomized) { create(:proposal, component: component_proposals, taxonomies: [taxonomy]) }
+    let(:proposal_taxonomies) { create(:proposal, component: component_proposals, taxonomies: [taxonomy]) }
 
     it "renders the taxonomy of a proposal" do
-      html = cell("decidim/tags", proposal_taxonomized, context: { extra_classes: ["tags--proposal"] }).call
+      html = cell("decidim/tags", proposal_taxonomies, context: { extra_classes: ["tags--proposal"] }).call
       expect(html).to have_css(".tag-container.tags--proposal")
       expect(html).to have_content(decidim_sanitize_translated(taxonomy.name))
     end
 
     it "renders the correct filtering link" do
-      html = cell("decidim/tags", proposal_taxonomized, context: { extra_classes: ["tags--proposal"] }).call
-      path = Decidim::ResourceLocatorPresenter.new(proposal_taxonomized).index
+      html = cell("decidim/tags", proposal_taxonomies, context: { extra_classes: ["tags--proposal"] }).call
+      path = Decidim::ResourceLocatorPresenter.new(proposal_taxonomies).index
       query = { filter: { "with_any_taxonomies[#{root_taxonomy.id}]" => [taxonomy.id] } }.to_query
       expect(html).to have_css(%(a[href="#{path}?#{query}"]))
     end
