@@ -139,6 +139,7 @@ cs:
           show: Zobrazit pokročilá nastavení
         create:
           error: Při vytváření nové organizace došlo k chybě.
+          error_invitation: Při vytváření nové organizace došlo k chybě. Zkontrolujte jméno správce organizace.
           success: Organizace byla úspěšně vytvořena.
         edit:
           secondary_hosts_hint: Zadejte každý z nich do nového řádku
