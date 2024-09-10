@@ -14,7 +14,7 @@ module Decidim
         add_linked_resources_items(item[:resources], item)
       end
 
-      @history_items << creation_item if linked_resources_items.any?
+      @history_items << creation_item if @history_items.any?
 
       @history_items.sort_by! { |item| item[:date] }
     end
@@ -35,7 +35,7 @@ module Decidim
     end
 
     def render?
-      linked_resources_items.any?
+      linked_resources_items.any? { |item| item[:resources].present? }
     end
 
     private
