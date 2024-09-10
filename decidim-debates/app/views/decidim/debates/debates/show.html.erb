@@ -29,7 +29,7 @@ edit_link(
     <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
     <div class="layout-author">
       <div class="relative flex items-center justify-center w-full">
-        <div class="w-1/2 flex items-center gap-4">
+        <div class="w-10/12 flex items-center gap-4">
           <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
           <% if debate.closed? %>
             <span class="success label">

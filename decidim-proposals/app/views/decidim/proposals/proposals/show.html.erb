@@ -48,7 +48,7 @@ extra_admin_link(
     <% unless component_settings.participatory_texts_enabled? %>
       <div class="layout-author">
         <div class="relative flex items-center justify-center w-full">
-          <div class="w-1/2 flex items-center gap-4">
+          <div class="w-10/12 flex items-center gap-4">
             <%= cell "decidim/coauthorships", @proposal, context_actions: [:date] %>
 
             <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
