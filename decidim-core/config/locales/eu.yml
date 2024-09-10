@@ -263,6 +263,13 @@ eu:
         delete_with_parent: "%{user_name} k %{resource_name} taxonomia ezabatu du %{parent_taxonomy} taxonomia barruan"
         update: "%{user_name} k %{resource_name} taxonomia eguneratu du"
         update_with_parent: "%{user_name} k %{resource_name} taxonomia eeguneratu du %{parent_taxonomy} taxonomia barruan"
+      taxonomy_filter:
+        create: "% {user_name} -k iragazki bat sortu du %{resources ce_name} taxonomian oinarrituta"
+        create_with_filter_items_count: "%{user_name}-k iragazkia sortu du %{baliabide_name} taxonomian oinarrituta, %{filter_items_count} filtroarekin, \n%{space_manifest_name} -rako\n"
+        delete: "%{user_name} -k iragazki bat ezabatu zuen %{resources ce_name} taxonomian oinarrituta"
+        delete_with_filter_items_count: "%{user_name} -k iragazki bat ezabatu du %{baliabide_name} taxonomian oinarrituta, %{filter_items_count} filtroarekin, %{space_manifest_name} -rako"
+        update: "%{user_name} k eguneratu du %{resources ce_name} taxonomian oinarritutako iragazkia"
+        update_with_filter_items_count: "%{user_name}-keguneratu du %{baliabide_name} taxonomian oinarritutako iragazkia, %{filter_items_count} filtroarekin, \n%{space_manifest_name} -rako\n"
       user:
         block: "%{user_name} k %{resource_name} erabiltzailea blokeatu du"
         invite: "%{user_name} k %{resource_name} parte-hartzailea gonbidatu du %{role} rolarekin"
