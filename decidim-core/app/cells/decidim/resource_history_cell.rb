@@ -28,21 +28,16 @@ module Decidim
     def add_linked_resources_items(items, resources, options)
       return if resources.blank?
 
-      index_list = options[:index] || []
-
-      resources.each_with_index do |resource, idx|
+      resources.each do |resource|
         title = decidim_sanitize_translated(resource.title[I18n.locale.to_s])
         url = resource_locator(resource).path
         link = link_to(title, url, class: "underline decoration-current text-secondary font-semibold")
-
-        extra_class = index_list.include?(idx) ? "resource_history__line_large" : ""
 
         items << {
           id: "#{options[:link_name]}_#{resource.id}",
           date: resource.updated_at,
           text: t(options[:text_key], scope: "activerecord.models", link:),
-          icon: resource_type_icon_key(options[:icon_key]),
-          extra_class:
+          icon: resource_type_icon_key(options[:icon_key])
         }
       end
     end
@@ -51,6 +46,10 @@ module Decidim
       return false if @history_items.blank?
 
       @history_items.any? { |item| item[:id].include?(link_name.to_s) }
+    end
+
+    def history_cell_id
+      raise NotImplemented
     end
   end
 end

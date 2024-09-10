@@ -28,7 +28,8 @@ module Decidim
         resources = @model.linked_resources_from(:proposals, "splitted_from_component")
         add_linked_resources_items(@history_items, resources, {
                                      link_name: "splitted_from_component",
-                                     text_key: "decidim/proposals/proposal/split_from_proposal_text", icon_key: "Decidim::Proposals::Proposal"
+                                     text_key: "decidim/proposals/proposal/split_from_proposal_text",
+                                     icon_key: "Decidim::Proposals::Proposal"
                                    })
         resources = @model.linked_resources_from(:proposals, "merged_from_component")
         add_linked_resources_items(@history_items, resources, {
@@ -61,8 +62,7 @@ module Decidim
         add_linked_resources_items(@history_items, resources, {
                                      link_name: "copied_to_component",
                                      text_key: "decidim/proposals/proposal/import_to_proposal_text",
-                                     icon_key: "Decidim::Proposals::Proposal",
-                                     index: [0]
+                                     icon_key: "Decidim::Proposals::Proposal"
                                    })
         resources = @model.linked_resources_to(:proposals, "splitted_from_component")
         add_linked_resources_items(@history_items, resources, {
