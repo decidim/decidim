@@ -63,7 +63,6 @@ shared_examples "manage trashed resource" do |resource_name|
     login_as user, scope: :user
   end
 
-
   context "when the #{resource_name} is trashed" do
     before do
       visit trash_path
