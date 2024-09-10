@@ -202,6 +202,7 @@ fr-CA:
         verify: Vérifier
       admin_terms_of_service:
         accept:
+          error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation relatives aux administrateurs.
           success: Félicitations ! Vous avez accepté les conditions d'utilisation administrateur.
         actions:
           accept: J'accepte les conditions d'utilisation
@@ -333,7 +334,6 @@ fr-CA:
           headers:
             actions: Actions
             name: Nom de la fonctionnalité
-            scope: Secteur de la fonctionnalité
             type: Type de fonctionnalité
         new:
           add: Ajouter une fonctionnalité
@@ -365,6 +365,7 @@ fr-CA:
         user_name: Utilisateur
       content_blocks:
         create:
+          error: Une erreur s'est produite lors de la création du bloc de contenu.
           success: Le bloc de contenu a été créé avec succès.
         destroy:
           error: Une erreur est survenue lors de la suppression de ce bloc de contenu.
@@ -783,6 +784,7 @@ fr-CA:
           success: Newsletter mise à jour avec succès. Veuillez la vérifier avant de l'envoyer.
       officializations:
         block:
+          error: Une erreur s'est produite lors du blocage du participant.
           success: Participant bloqué avec succès.
         create:
           success: Utilisateur validé avec succès.
@@ -816,6 +818,7 @@ fr-CA:
           show: Afficher
           title: Afficher l'adresse e-mail du participant
         unblock:
+          error: Une erreur s'est produite lors du déblocage du participant.
           success: Participant débloqué avec succès.
       organization:
         edit:

@@ -1,4 +1,6 @@
-<% add_decidim_meta_tags(title: t("participatory_processes.index.title", scope: "decidim")) %>
+<% add_decidim_meta_tags(
+  title: t("participatory_processes.index.title", scope: "decidim"),
+  resource: current_participatory_space) %>
 
 <%
 edit_link(

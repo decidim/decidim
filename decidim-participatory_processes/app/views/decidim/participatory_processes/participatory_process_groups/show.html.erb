@@ -1,5 +1,7 @@
 <% add_decidim_page_title(translated_attribute(group.title)) %>
-<% add_decidim_meta_tags(title: t("participatory_process_groups.show.title", scope: "decidim")) %>
+<% add_decidim_meta_tags(
+  title: t("participatory_process_groups.show.title", scope: "decidim"),
+  resource: group) %>
 
 <%
   edit_link(

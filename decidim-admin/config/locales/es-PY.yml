@@ -334,7 +334,6 @@ es-PY:
           headers:
             actions: Comportamiento
             name: Nombre del componente
-            scope: Ámbito del componente
             type: Tipo de componente
         new:
           add: Agregar componente
