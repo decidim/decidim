@@ -1640,6 +1640,7 @@ pt-BR:
         new_password: Nova senha
         password_help: "O mínimo de %{minimun_characters} caracteres, não deve ser muito comum (por exemplo, 123456) e deve ser diferente do seu apelido e do seu email."
         password_help_admin: "Mínimo de caracteres %{minimun_characters}, não deve ser muito comum (por exemplo, 123456) deve ser diferente do seu nome de usuário e seu e-mail e deve ser diferente das senhas antigas."
+        title: Senha alterada
       new:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Envie-me as instruções de redefinição de senha
@@ -1725,6 +1726,8 @@ pt-BR:
         details:
           columns:
             description: Descrição
+            name: Nome
+            service: Serviço
             type: Tipo
           items:
             _session_id:
@@ -1743,6 +1746,7 @@ pt-BR:
           accept_all: Aceitar todas
           accept_only_essential: Aceitar apenas o essencial
           description: Utilizamos cookies neste site para amelhorar o desempenho da página. As cookies nos permitem oferecer uma experiência mais personalizada ao usuário e aos canais de redes sociais.
+          settings: Configurações
           title: Informações sobre os cookies utilizados no site
         modal:
           accept_all:
@@ -1864,6 +1868,7 @@ pt-BR:
     weibo: Sina Weibo
     whatsapp_app: WhatsApp
     whatsapp_web: WhatsApp
+    x: X
     xing: Xing
   time:
     formats:
