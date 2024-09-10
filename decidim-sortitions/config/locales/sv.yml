@@ -3,7 +3,7 @@ sv:
   activemodel:
     attributes:
       sortition:
-        additional_info: Information om tilldelningen
+        additional_info: Information om lottningen
         decidim_category_id: Kategorier för de förslag som du vill tillämpa lottningen på
         decidim_proposals_component_id: Förslagen
         dice: Tärningskast. Slå en sexsidig tärning inför vittnen, eller använd ett annat sätt att slumpmässigt skapa ett tal från 1 till 6, och skriv in resultatet. Detta bidrar till kvalitén och garanterar resultatets slumpmässighet
@@ -26,7 +26,7 @@ sv:
         settings:
           global:
             comments_enabled: Kommentarer aktiverade
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
     events:
       sortitions:
         sortition_created:
