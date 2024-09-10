@@ -286,7 +286,7 @@ module Decidim
       def tab_panel_items
         @tab_panel_items ||= [
           {
-            enabled: ProposalHistoryCell.new(@proposal).history_items.any?,
+            enabled: ProposalHistoryCell.new(@proposal).render?,
             id: "included_history",
             text: t("decidim/history/history", scope: "activerecord.models", count: 2),
             icon: resource_type_icon_key("history"),

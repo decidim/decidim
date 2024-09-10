@@ -15,26 +15,25 @@ module Decidim
     #     budget
     #   )
     class BudgetHistoryCell < Decidim::ResourceHistoryCell
-      private
-
-      def add_history_items
-        resources = @model.linked_resources(:proposals, "included_proposals")
-        add_linked_resources_items(@history_items, resources, {
-                                     link_name: "included_proposals",
-                                     text_key: "decidim/proposals/proposal/budget_text",
-                                     icon_key: "Decidim::Proposals::Proposal"
-                                   })
-        resources = @model.linked_resources(:results, "included_projects")
-        add_linked_resources_items(@history_items, resources, {
-                                     link_name: "included_projects",
-                                     text_key: "decidim/accountability/result/budget_text",
-                                     icon_key: "Decidim::Accountability::Result"
-                                   })
-        add_budget_creation_item(@history_items) if @history_items.any?
+      def linked_resources_items
+        [
+          {
+            resources: @model.linked_resources(:proposals, "included_proposals"),
+            link_name: "included_proposals",
+            text_key: "decidim/proposals/proposal/budget_text",
+            icon_key: "Decidim::Proposals::Proposal"
+          },
+          {
+            resources: @model.linked_resources(:results, "included_projects"),
+            link_name: "included_projects",
+            text_key: "decidim/accountability/result/budget_text",
+            icon_key: "Decidim::Accountability::Result"
+          }
+        ]
       end
 
-      def add_budget_creation_item(items)
-        items << {
+      def creation_item
+        {
           id: "budget_creation",
           date: @model.created_at,
           text: t("decidim.budgets.creation.text"),

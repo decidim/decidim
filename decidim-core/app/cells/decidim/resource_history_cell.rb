@@ -2,10 +2,6 @@
 
 module Decidim
   class ResourceHistoryCell < Decidim::ViewModel
-    include Decidim::Budgets::ApplicationHelper
-    include Decidim::Proposals::ApplicationHelper
-    include Decidim::Accountability::ApplicationHelper
-
     def show
       render
     end
@@ -14,18 +10,37 @@ module Decidim
       return @history_items if @history_items.present?
 
       @history_items = []
-      add_history_items
+      linked_resources_items.each do |item|
+        add_linked_resources_items(item[:resources], item)
+      end
+
+      @history_items << creation_item if linked_resources_items.any?
 
       @history_items.sort_by! { |item| item[:date] }
     end
 
-    private
-
-    def add_history_items
-      raise NotImplemented
+    # return an unique id to identify the type of history cell
+    def history_cell_id
+      raise NotImplementedError
     end
 
-    def add_linked_resources_items(items, resources, options)
+    # return an array of linked resources to show in the history
+    def linked_resources_items
+      raise NotImplementedError
+    end
+
+    # return the creation item to show in the history, it will be added only if there are linked resources
+    def creation_item
+      raise NotImplementedError
+    end
+
+    def render?
+      linked_resources_items.any?
+    end
+
+    private
+
+    def add_linked_resources_items(resources, options)
       return if resources.blank?
 
       resources.each do |resource|
@@ -33,7 +48,7 @@ module Decidim
         url = resource_locator(resource).path
         link = link_to(title, url, class: "underline decoration-current text-secondary font-semibold")
 
-        items << {
+        @history_items << {
           id: "#{options[:link_name]}_#{resource.id}",
           date: resource.updated_at,
           text: t(options[:text_key], scope: "activerecord.models", link:),
@@ -46,10 +61,6 @@ module Decidim
       return false if @history_items.blank?
 
       @history_items.any? { |item| item[:id].include?(link_name.to_s) }
-    end
-
-    def history_cell_id
-      raise NotImplemented
     end
   end
 end

@@ -4,32 +4,34 @@ module Decidim
   module Accountability
     # This cell renders a project
     class ResultHistoryCell < Decidim::ResourceHistoryCell
-      private
+      include Decidim::Accountability::ApplicationHelper
 
-      def add_history_items
-        resources = @model.linked_resources(:proposals, "included_proposals")
-        add_linked_resources_items(@history_items, resources, {
-                                     link_name: "included_proposals",
-                                     text_key: "decidim/accountability/result/proposal_ids",
-                                     icon_key: "Decidim::Proposals::Proposal"
-                                   })
-        resources = @model.linked_resources(:projects, "included_projects")
-        add_linked_resources_items(@history_items, resources, {
-                                     link_name: "included_projects",
-                                     text_key: "decidim/accountability/result/project_ids",
-                                     icon_key: "Decidim::Budgets::Project"
-                                   })
-        resources = @model.linked_resources(:meetings, "meetings_through_proposals")
-        add_linked_resources_items(@history_items, resources, {
-                                     link_name: "meetings_through_proposals",
-                                     text_key: "decidim/accountability/result/meetings_ids",
-                                     icon_key: "Decidim::Meetings::Meeting"
-                                   })
-        add_result_creation_item(@history_items) if @history_items.any?
+      def linked_resources_items
+        [
+          {
+            resources: @model.linked_resources(:proposals, "included_proposals"),
+
+            link_name: "included_proposals",
+            text_key: "decidim/accountability/result/proposal_ids",
+            icon_key: "Decidim::Proposals::Proposal"
+          },
+          {
+            resources: @model.linked_resources(:projects, "included_projects"),
+            link_name: "included_projects",
+            text_key: "decidim/accountability/result/project_ids",
+            icon_key: "Decidim::Budgets::Project"
+          },
+          {
+            resources: @model.linked_resources(:meetings, "meetings_through_proposals"),
+            link_name: "meetings_through_proposals",
+            text_key: "decidim/accountability/result/meetings_ids",
+            icon_key: "Decidim::Meetings::Meeting"
+          }
+        ]
       end
 
-      def add_result_creation_item(items)
-        items << {
+      def creation_item
+        {
           id: "result_creation",
           date: @model.created_at,
           text: t("decidim.accountability.creation.text"),
