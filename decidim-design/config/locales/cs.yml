@@ -143,6 +143,8 @@ cs:
       helpers:
         accountability: Odpovědnost
         activity: Aktivita
+        address_description: Adresa buňky obdrží zdroj a vyhledá geolokalizovatelné atributy, aby se vytvořilo specifické označení.
+        address_description_2: V závislosti na typu obsahu může být adresa online url. V takových případech jsou zobrazené informace zcela stejné, ale ve tvaru tak, aby se přizpůsobily.
         argument: Parametr
         assemblies: Shromáždění
         assembly_g: Shromáždění G
@@ -180,6 +182,8 @@ cs:
         disabled: Deaktivován
         dropdowns: Rozbalovací nabídky
         dropdowns_demo_1_description: 'Následující příklad nebude patrný na počítači, ale na mobilu ano:'
+        dropdowns_demo_description_html: 'Tato javascript funkce je rozšířena o malé css, pomocí pojmenování: skrytý obsah MUSÍ být <code>id</code> počínaje <i>dropdown-menu</i>.'
+        dropdowns_description_html: Stahovací nabídky jsou javascript funkce dostupná díky externí knihovně s názvem %{link}.
         dropdowns_usage_1_description: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
         dropdowns_usage_description: 'Rozevírací nabídka vyžaduje dva prvky:'
         dropdowns_usage_description_html: 1. Uživatelsky proveditelný prvek, s atributy <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
