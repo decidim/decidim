@@ -329,6 +329,8 @@ cs:
           default_step_settings: Výchozí nastavení kroku
           global_settings: Globální nastavení
           step_settings: Nastavení kroku
+        hide:
+          success: Komponenta byla úspěšně skryta z menu.
         index:
           add: Přidat komponentu
           headers:
@@ -348,6 +350,7 @@ cs:
           error: Při aktualizaci této komponenty došlo k chybě.
           success: Komponenta byla úspěšně aktualizována.
         visibility_label:
+          menu_hidden: Menu skryto
           published: Zveřejněno
           unpublished: Nezveřejněno
       conflicts:
@@ -608,6 +611,7 @@ cs:
         static_page_topics: Témata
         static_pages: Stránky
         taxonomies: Taxonomie
+        taxonomy_filters: Filtry taxonomie
         user_groups: Skupiny
         users: Účastníci
       metrics:
@@ -1074,6 +1078,16 @@ cs:
         update:
           invalid: Při aktualizaci této taxonomie došlo k chybě.
           success: Taxonomie byla úspěšně aktualizována.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nový filtr taxonomie
+        callout:
+          modify_taxonomy_html: Pokud potřebujete změnit tuto taxonomii nebo její položky, proveďte to prostřednictvím nastavení konfigurace v sekci <a href="%{url}">Taxonomie</a>.
+        create:
+          error: Při vytváření tohoto filtru taxonomie došlo k chybě.
+          success: Filtr taxonomie byl úspěšně vytvořen.
+        destroy:
+          error: Při mazání tohoto filtru taxonomie došlo k chybě.
       taxonomy_items:
         edit:
           title: Upravit položku v %{taxonomy}
