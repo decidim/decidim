@@ -269,6 +269,13 @@ ca:
         delete_with_parent: "%{user_name} ha esborrat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
         update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
+      taxonomy_filter:
+        create: "En/na %{user_name} ha creat un filtre basat en la taxonomia \"%{resource_name}\""
+        create_with_filter_items_count: "En/na %{user_name} ha creat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
+        delete: "En/na %{user_name} ha eliminat un filtre basat en la taxonomia \"%{resource_name}\""
+        delete_with_filter_items_count: "En/na %{user_name} ha eliminat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
+        update: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\""
+        update_with_filter_items_count: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
       user:
         block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
@@ -1557,6 +1564,8 @@ ca:
     tags:
       filter_results_for_category: 'Resultats al filtrar per la categoria: %{resource}'
       filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
+    taxonomies:
+      prompt: Seleccionar de "%{name}"
     translation_bar:
       help_text: "<strong>Advertència:</strong> Pot ser que el contingut sigui traduït automàticament i no sigui 100% acurat."
       show_original: Mostra el text original
