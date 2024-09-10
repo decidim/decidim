@@ -52,8 +52,10 @@
     </section>
   <% end %>
 
+  <%= cell("decidim/tags", meeting) %>
+
   <section class="layout-main__section layout-main__buttons" data-buttons>
-    <%= render partial: "actions" %>
+    <%= cell "decidim/comments_button", nil %>
   </section>
 
   <%= pad_iframe_for meeting %>
