@@ -28,8 +28,6 @@ en:
         one: Project
         other: Projects
   decidim:
-    resource:
-      controls_label: Resource controls
     admin:
       filters:
         projects:
