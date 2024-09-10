@@ -74,7 +74,7 @@ module Decidim
       def items
         @items ||= [
           {
-            enabled: BudgetHistoryCell.new(@project).send(:history_items).any?,
+            enabled: BudgetHistoryCell.new(@project).history_items.any?,
             id: "included_history",
             text: t("decidim/history/history", scope: "activerecord.models", count: 2),
             icon: resource_type_icon_key("history"),
