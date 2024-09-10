@@ -21,7 +21,8 @@
           is_root_check_box: is_blank_root,
           id: data_checkboxes_tree_id,
           namespace: form.options[:namespace],
-          parent_id:
+          parent_id:,
+          object: form.object
         ),
         leaf.value.to_s,
         nil

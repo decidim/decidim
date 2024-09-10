@@ -216,7 +216,7 @@ module Decidim
             items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
                          collection: filter_taxonomy_values_for(taxonomy_filter),
                          label: decidim_sanitize_translated(taxonomy_filter.name),
-                         id: taxonomy_filter.id)
+                         id: "taxonomy")
           end
           if component_settings.official_proposals_enabled
             items.append(method: :with_any_origin, collection: filter_origin_values, label: t("decidim.proposals.proposals.filters.origin"), id: "origin")
