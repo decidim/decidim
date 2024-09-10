@@ -69,6 +69,9 @@ edit_link(
       <% end %>
     <% end %>
     <%= cell "decidim/comments_button", nil %>
+    <div class="ml-auto lg:ml-0">
+      <%= cell "decidim/share_button", nil %>
+    </div>
   </section>
   <%= cell "decidim/endorsers_list", debate, layout: :full %>
 
@@ -119,9 +122,6 @@ edit_link(
         </div>
       </div>
     </div>
-  </section>
-  <section class="layout-aside__section actions__secondary">
-    <%= cell "decidim/share_button", nil %>
   </section>
 
   <% end %>
