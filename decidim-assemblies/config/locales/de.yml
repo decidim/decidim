@@ -294,6 +294,7 @@ de:
             select_parent_assembly: Übergeordnetes Gremium auswählen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
+            taxonomies: Taxonomien
             title: Allgemeine Information
             visibility: Sichtbarkeit
         assemblies_types:
