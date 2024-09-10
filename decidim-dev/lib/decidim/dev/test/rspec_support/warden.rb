@@ -10,6 +10,7 @@ module Decidim
     #
     def relogin_as(user, scope: :user)
       logout scope
+      sleep 0.5
 
       login_as user, scope:
     end
