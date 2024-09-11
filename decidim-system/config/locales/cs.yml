@@ -32,6 +32,10 @@ cs:
           attributes:
             redirect_uri:
               must_be_ssl: URI přesměrování musí být SSL URI
+        organization:
+          attributes:
+            password:
+              secret_key: Abyste mohli toto pole uložit, musíte definovat proměnnou prostředí SECRET_KEY_BASE.
   decidim:
     system:
       actions:
@@ -257,6 +261,8 @@ cs:
           success: Organizace byla úspěšně aktualizována.
         users_registration_mode:
           disabled: Přístup lze provádět pouze s externími účty
+          enabled: Povolit účastníkům vytvořit účet a přihlásit se
+          existing: Nepovolovat účastníkům vytvářet účet, ale umožnit stávajícím účastníkům přihlásit se
       shared:
         notices:
           no_organization_warning_html: Abyste mohli začít, musíte vytvořit organizaci. Před pokračováním se ujistěte, že jste si přečetli %{guide}.
@@ -267,7 +273,10 @@ cs:
       system_checks:
         active_job_queue:
           decidim_documentation: Dokumentace Decidim
+          error: Fronta ActiveJob není nakonfigurována. Toto není doporučené provozní nastavení. Přečtěte si více na %{error_extra}.
+          success: Fronta ActiveJob je nakonfigurována správně.
         secret_key:
+          error: 'Tajný klíč není správně definován. Uložte prosím do proměnné prostředí SECRET_KEY_BASE a restartujte server: %{error_extra}'
           success: Tajný klíč je správně nakonfigurován.
       titles:
         dashboard: Ovládací panel
