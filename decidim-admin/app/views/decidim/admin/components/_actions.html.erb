@@ -60,7 +60,7 @@
       <% if component.published? %>
         <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
       <% else %>
-        <%= icon_link_to "delete-bin-line", url_for(action: :soft_delete, id: component, controller: "components"), t("actions.soft_delete", scope: "decidim.admin", resources_count:), method: :patch, class: "action-icon--delete", data: { confirm: (t("actions.confirm_delete_component", scope: "decidim.admin", resources_count: resources_count))} %>
+        <%= icon_link_to "delete-bin-line", url_for(action: :soft_delete, id: component, controller: "components"), t("actions.soft_delete", scope: "decidim.admin", resources_count:), method: :patch, class: "action-icon--delete", data: { confirm: (t("actions.confirm_delete_component", scope: "decidim.admin", resources_count:)) } %>
       <% end %>
     <% end %>
   <% end %>

@@ -10,7 +10,7 @@
     </thead>
     <tbody>
     <% collection.each do |conference| %>
-      <%= render partial: "conference_row", locals: { conference:, view: view } %>
+      <%= render partial: "conference_row", locals: { conference:, view: } %>
     <% end %>
     </tbody>
   </table>

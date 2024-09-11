@@ -22,7 +22,7 @@
     <tbody>
     <% assemblies.each do |assembly| %>
       <% next unless allowed_to? :list, :assembly, assembly: assembly %>
-      <%= render partial: "assembly_row", locals: { assembly:, view: view } %>
+      <%= render partial: "assembly_row", locals: { assembly:, view: } %>
     <% end %>
     </tbody>
   </table>
