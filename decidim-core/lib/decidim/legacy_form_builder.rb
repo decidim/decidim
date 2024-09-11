@@ -117,6 +117,12 @@ module Decidim
       object.respond_to?(:errors) && object.errors[attribute].present?
     end
 
+    def default_label_text(object, attribute)
+      return object.class.human_attribute_name(attribute) if object.class.respond_to?(:human_attribute_name)
+
+      attribute.to_s.humanize
+    end
+
     def decrement_input_size(input, column, options)
       return unless options.present? && options.has_key?(column)
 

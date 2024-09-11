@@ -16,11 +16,14 @@ module Decidim
       # @see Ransack::Nodes::Node#translate
       # @see Ransack::Nodes::Grouping#translate
       def default_label_text(object, attribute, i18n_options = {})
-        return object.translate(attribute, i18n_options.reverse_merge(include_associations: true)) if object.respond_to?(:translate)
+        if object.respond_to?(:translate)
+          return object.translate(
+            attribute,
+            i18n_options.reverse_merge(include_associations: true)
+          )
+        end
 
-        return object.class.human_attribute_name(attribute) if object.class.respond_to?(:human_attribute_name)
-
-        attribute.to_s.humanize
+        super(object, attribute)
       end
 
       # Passes the `:i18n` options for the default_label_text method from the
