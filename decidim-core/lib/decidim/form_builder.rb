@@ -524,7 +524,7 @@ module Decidim
         )
       end
     end
-    
+
     private
 
     # Private: Override from FoundationRailsHelper in order to render
