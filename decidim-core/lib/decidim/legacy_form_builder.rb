@@ -2,7 +2,7 @@
 
 # Copyright (c) 2015 Sébastien Gruhier (http://xilinus.com/) - MIT LICENSE
 #
-# This file has been copied from https://github.com/sgruhier/foundation_rails_helper/blob/master/lib/foundation_rails_helper/form_builder.rb
+# This file has been copied and modified from https://github.com/sgruhier/foundation_rails_helper/blob/master/lib/foundation_rails_helper/form_builder.rb
 # We have done this so we can decouple Decidim from this dependency, which is not updated to Rails 7.1
 # We also plan to fully remove Foundation CSS legacy code in the future
 
@@ -121,55 +121,6 @@ module Decidim
       return object.class.human_attribute_name(attribute) if object.class.respond_to?(:human_attribute_name)
 
       attribute.to_s.humanize
-    end
-
-    def decrement_input_size(input, column, options)
-      return unless options.present? && options.has_key?(column)
-
-      input.send("#{column}=",
-                 (input.send(column) - options.fetch(column).to_i))
-      input.send("changed?=", true)
-    end
-
-    def calculate_input_size(prefix_options, postfix_options)
-      input_size =
-        OpenStruct.new(changed?: false, small: 12, medium: 12, large: 12)
-      %w(small medium large).each do |size|
-        decrement_input_size(input_size, size.to_sym, prefix_options)
-        decrement_input_size(input_size, size.to_sym, postfix_options)
-      end
-
-      input_size
-    end
-
-    def field_label(attribute, options)
-      return "".html_safe unless auto_labels || options[:label]
-
-      custom_label(attribute, options[:label], options[:label_options])
-    end
-
-    def field(attribute, options, html_options = nil)
-      raise "Getting through"
-      html = field_label(attribute, options)
-      class_options = html_options || options
-
-      if error?(attribute)
-        class_options[:class] = class_options[:class].to_s
-        class_options[:class] += " is-invalid-input"
-      end
-
-      options.delete(:label)
-      options.delete(:label_options)
-      help_text = options.delete(:help_text)
-      prefix = options.delete(:prefix)
-      postfix = options.delete(:postfix)
-
-      html += wrap_prefix_and_postfix(yield(class_options), prefix, postfix)
-      html + error_and_help_text(attribute, options.merge(help_text:))
-    end
-
-    def auto_labels
-      @options[:auto_labels].presence || true
     end
   end
 end
