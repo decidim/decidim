@@ -143,6 +143,7 @@ module Decidim
     end
 
     def field(attribute, options, html_options = nil)
+      raise "Getting through"
       html = field_label(attribute, options)
       class_options = html_options || options
 
