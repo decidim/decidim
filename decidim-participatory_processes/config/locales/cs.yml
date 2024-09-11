@@ -442,6 +442,7 @@ cs:
             select_participatory_process_type: Vyberte typ procesu
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
       content_blocks:
