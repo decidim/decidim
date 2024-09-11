@@ -13,5 +13,5 @@
 <% if view == :deleted %>
   <%= icon_link_to "refresh-line", restore_proposal_path(proposal), t("actions.restore", scope: "decidim.proposals.admin"), method: :patch, class: "action-icon--restore" %>
   <% else %>
-  <%= icon_link_to "delete-bin-line", soft_delete_proposal_path(proposal), t("actions.soft_delete",  scope: "decidim.proposals.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_proposal", scope: "decidim.proposals.admin") } %>
+  <%= icon_link_to "delete-bin-line", soft_delete_proposal_path(proposal), t("actions.soft_delete", scope: "decidim.proposals.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_proposal", scope: "decidim.proposals.admin") } %>
 <% end %>
