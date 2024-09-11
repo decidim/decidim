@@ -10,9 +10,8 @@ module Decidim
   class LegacyFormBuilder < ActionView::Helpers::FormBuilder
     include ActionView::Helpers::TagHelper
     include ActionView::Helpers::OutputSafetyHelper
-    %w(file_field email_field text_field text_area telephone_field phone_field
-       url_field number_field date_field datetime_field datetime_local_field
-       month_field week_field time_field range_field search_field color_field)
+    %w(file_field email_field text_field text_area url_field
+       number_field date_field datetime_field search_field color_field)
       .each do |method_name|
       define_method(method_name) do |*args|
         attribute = args[0]
@@ -118,32 +117,6 @@ module Decidim
       object.respond_to?(:errors) && object.errors[attribute].present?
     end
 
-    def default_label_text(object, attribute)
-      return object.class.human_attribute_name(attribute) if object.class.respond_to?(:human_attribute_name)
-
-      attribute.to_s.humanize
-    end
-
-    def custom_label(attribute, text, options)
-      return block_given? ? yield.html_safe : "".html_safe if text == false
-
-      text = default_label_text(object, attribute) if text.nil? || text == true
-      text = safe_join([yield, text.html_safe]) if block_given?
-      label(attribute, text, options || {})
-    end
-
-    def column_classes(_options)
-      "columns"
-    end
-
-    def tag_from_options(name, options)
-      return "".html_safe unless options && options[:value].present?
-
-      content_tag(:div,
-                  content_tag(:span, options[:value], class: name),
-                  class: column_classes(options).to_s)
-    end
-
     def decrement_input_size(input, column, options)
       return unless options.present? && options.has_key?(column)
 
@@ -161,26 +134,6 @@ module Decidim
       end
 
       input_size
-    end
-
-    def wrap_prefix_and_postfix(block, prefix_options, postfix_options)
-      prefix = tag_from_options("prefix", prefix_options)
-      postfix = tag_from_options("postfix", postfix_options)
-
-      input_size = calculate_input_size(prefix_options, postfix_options)
-      klass = column_classes(input_size.marshal_dump).to_s
-      input = content_tag(:div, block, class: klass)
-
-      return block unless input_size.changed?
-
-      content_tag(:div, prefix + input + postfix, class: "row collapse")
-    end
-
-    def error_and_help_text(attribute, options = {})
-      html = ""
-      html += content_tag(:p, options[:help_text], class: "help-text") if options[:help_text]
-      html += error_for(attribute, options) || ""
-      html.html_safe
     end
 
     def field_label(attribute, options)

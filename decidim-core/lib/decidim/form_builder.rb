@@ -868,7 +868,7 @@ module Decidim
 
       content_tag(:span,
                   content_tag(:span, options[:value], class: name),
-                  class: column_classes(options).to_s)
+                  class: "columns")
     end
 
     # Private: Wraps the prefix and postfix for the field. Overridden from
@@ -880,7 +880,7 @@ module Decidim
       postfix = tag_from_options("postfix", postfix_options)
 
       input_size = calculate_input_size(prefix_options, postfix_options)
-      klass = column_classes(input_size.marshal_dump).to_s
+      klass = "columns"
       input = content_tag(:span, block, class: klass)
 
       return block unless input_size.changed?
