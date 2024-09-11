@@ -9,14 +9,14 @@ describe "rake decidim:upgrade:clean:categories", type: :task do
     end
 
     context "when there are no errors" do
-      let!(:entries) { create_list(:dummy_resource, 8, created_at: 2.days.ago) }
+      let!(:entries) { create_list(:dummy_resource, 8, :with_categories) }
 
       it "avoid removing entries" do
         expect { task.execute }.not_to change(Decidim::Categorization, :count)
       end
 
       context "when running without issues" do
-        let!(:entries) { create_list(:dummy_resource, 8, created_at: 2.days.ago) }
+        let!(:entries) { create_list(:dummy_resource, 8, :with_categories) }
         let(:invalid) { entries.sample(4) }
         let!(:invalid_entries) { invalid.collect(&:categorization).collect(&:id) }
 
@@ -34,7 +34,7 @@ describe "rake decidim:upgrade:clean:categories", type: :task do
     end
 
     context "when there are errors" do
-      let!(:entries) { create_list(:dummy_resource, 8, created_at: 2.days.ago) }
+      let!(:entries) { create_list(:dummy_resource, 8, :with_categories) }
       let!(:invalid_entries) { entries.collect(&:categorization).collect(&:id).sample(4) }
 
       context "when missing categorization classes" do
