@@ -218,6 +218,10 @@ describe "Organizations" do
               developer: {
                 enabled: false,
                 icon: "phone"
+              },
+              test: {
+                enabled: false,
+                icon: "tools-line"
               }
             }
           )
