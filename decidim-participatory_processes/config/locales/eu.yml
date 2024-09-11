@@ -96,6 +96,7 @@ eu:
         duplicate: Bikoiztu
         edit: Editatu
         import_process: Inportatu
+        menu_hidden: Ezkutatu
         moderate: Moderatu
         new_process: Beste prozesu bat
         new_process_group: Beste prozesu-talde bat
@@ -433,6 +434,7 @@ eu:
             select_participatory_process_type: Aukeratu prozesu-mota bat
             select_process_group: Hautatu prozesu-talde bat
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+            taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
       content_blocks:
