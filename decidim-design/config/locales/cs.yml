@@ -176,9 +176,11 @@ cs:
         conferences: Konference
         context: Kontext
         context_description: Tato buňka zobrazuje některé informace o uživateli. Je to vizuální nápověda k identifikaci zdroje/tvůrce obsahu. Po najetí myší se zobrazí nápověda s dalšími informacemi a odkazy na její profil.
+        context_description_2: Pro zdroje se tato buňka objevuje pod hlavní položkou. U jiného obsahu se objeví vedle samotného obsahu.
         debate_l: Rozprava L
         debate_s: Rozprava S
         debates: Rozpravy
+        debates_cards_html: Použito na kartě <i>Debaty</i>
         debates_cards_text: Použít jinou šablonu pro blok obrázků
         default: Výchozí
         default_description: Volání buňky bez dalších argumentů, pouze samotného uživatele.
@@ -189,6 +191,7 @@ cs:
         disabled: Deaktivován
         dropdowns: Rozbalovací nabídky
         dropdowns_demo_1_description: 'Následující příklad nebude patrný na počítači, ale na mobilu ano:'
+        dropdowns_demo_description: Stahovací nabídky se používají v celé aplikaci pro zmenšení velkých, snadno čitelných nabídek pro stolní zařízení, ale pro mobilní zařízení jsou příliš obsáhlé.
         dropdowns_demo_description_html: 'Tato javascript funkce je rozšířena o malé css, pomocí pojmenování: skrytý obsah MUSÍ být <code>id</code> počínaje <i>dropdown-menu</i>.'
         dropdowns_description_html: Stahovací nabídky jsou javascript funkce dostupná díky externí knihovně s názvem %{link}.
         dropdowns_usage_1_description: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
@@ -241,6 +244,10 @@ cs:
         sortitions: Losování
         source_code: Zdrojový kód
         state: Stav
+        tab_panels_usage_description_html: "<strong>povoleno</strong>: <i>Boolean</i>. Podmíněné vykreslení záložky"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>řetězec</i>. Jedinečné Id"
+        tab_panels_usage_description_remixicon_html: "<strong>ikona</strong>: <i>řetězec</i>. Klávesa Remixicon"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>řetězec</i>. Název karty"
         tailwind: Tailwind název
         text: Text
         transparent: Průhledný
@@ -263,6 +270,7 @@ cs:
         usage_typography_4: Odkazy a tlačítka
         value: Hodnota
         variations: Variace
+        variations_cards_description: Každá karta bude vypadat jinak než s ohledem na vlastnosti zobrazeného dokumentu. Toto chování můžete přepsat v konkrétní buňce.
         variations_description: Existují tři různé verze této buňky. Každý z nich lépe zapadá do kontextu, který se zobrazuje.
         variations_text: Pokud jde o druh činnosti, buňka by mohla vykazovat odlišný obsah, uvést různé zdroje, zda patří do participačního prostoru či nikoli, má autora či nikoli.
       home:
