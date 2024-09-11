@@ -495,6 +495,7 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, organization:, skip_injection:) }
     manifest_name { "dummy" }
     published_at { Time.current }
+    deleted_at { nil }
     settings do
       {
         dummy_global_translatable_text: generate_localized_title(:dummy_global_translatable_text, skip_injection:),
