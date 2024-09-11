@@ -11,9 +11,11 @@ module Decidim
   class EndorsersListCell < Decidim::ViewModel
     include ApplicationHelper
 
-    MAX_ITEMS_STACKED = 3
+    MAX_ITEMS_STACKED = 8
 
     def show
+      return if visible_endorsers.count.zero?
+
       return render :full if full_list?
 
       render
@@ -46,6 +48,16 @@ module Decidim
 
     def base_relation
       @base_relation ||= model.endorsements.for_listing.includes(:author, :user_group)
+    end
+
+    def voted_by_me?
+      model.endorsed_by?(current_user)
+    end
+
+    def display_link(text)
+      link_to(text, "#",
+              class: "text-sm font-semibold text-secondary inline-block first-letter:uppercase",
+              data: { "dialog-open": "endorsersModal-#{model.id}" })
     end
   end
 end
