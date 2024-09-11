@@ -382,6 +382,7 @@ cs:
           description: Tento odznak se uděluje, když hlasujete pro návrhy ostatních.
           description_another: Tento účastník hlasoval pro %{score} návrhů.
           description_own: Hlasovali jste pro %{score} návrhy.
+          name: Hlasy k návrhům
           next_level_in: Hlasujte pro %{score} další návrhy pro dosažení další úrovně!
           unearned_another: Tento uživatel zatím nehlasoval pro žádné návrhy.
           unearned_own: Zatím jste nehlasovali pro žádné návrhy.
@@ -612,6 +613,7 @@ cs:
             remove_assignment: Odstranit přiřazení
             remove_assignment_confirmation: Jste si jisti, že chcete odstranit hodnotitele z tohoto návrhu?
             valuators: Hodnotitelé
+            votes_count: Počet hlasů
           update_category:
             invalid: 'Tyto návrhy se již jmenují %{subject_name} v kategorii: %{proposals}.'
             select_a_category: Vyberte kategorii.
@@ -937,6 +939,7 @@ cs:
           title: Aktualizovat návrh
         vote_button:
           already_voted: Již hlasovalo
+          already_voted_hover: Odebrat hlas
           no_votes_remaining: Žádné zbývající hlasy
           vote: Hlasovat
           votes_blocked: Hlasování zakázáno
