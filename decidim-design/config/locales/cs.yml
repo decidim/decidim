@@ -35,6 +35,7 @@ cs:
           title: Dialogy
           usage_description: Dialog vyžaduje dva prvky
           usage_description_2_html: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
+          usage_description_html: 1. Uživatelsky proveditelný prvek, s data-attribute <code>data-dialog-open="example"</code>, kde je příkladem <code>id</code> modalu.
         follow:
           title: Sledovat
         forms:
@@ -127,8 +128,12 @@ cs:
           not_required: Nevyžadováno
           properties: Vlastnosti
           right_aside: Vpravo
+          section_p_breakpoints: 'Pro správu maximální citlivosti elementů spoléháme na výchozí třídu `container` Tailwind, která udává následující zarážky:'
           section_p_code: Při implementaci nových modulů máte některé pomocníky, které vám automaticky poskytují kód potřebný k nastavení HTML struktury. Měli byste použít tyto pomocníky namísto přímého použití prvků div s třídami, abyste zachovali konzistenci.
           section_p_code_html: Základní rozložení můžete najít v %{link_section_code}
+          section_p_desktop: Souřadnicová síť pro desktop se skládá z 12 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 48px
+          section_p_mobile: Souřadnicová síť pro mobilní zařízení se skládá ze 4 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 16px. Pro velikosti menší než 320px jsou tyto okraje nastaveny na 8px
+          section_p_tablet: Souřadnicová síť pro tablet je složena z 8 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 24px
           tablet: Tablet
           title: Rozložení
         typography:
@@ -154,7 +159,9 @@ cs:
         background: Pozadí a okraje
         base: Podklad
         block_text: Použít extra_data blok
+        blog_cards_html: Použito na kartě <i>Blogy</i>
         blogs: Blogy
+        budget_card_html: Použito na kartě <i>Rozpočet projektů</i>. Tato karta vyžaduje, aby se správně zobrazila aktiva modulu, tj. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
         budgets: Rozpočty
         callout_description: Tento atribut použije stav na oznámení. Ve výchozím nastavení používá sekundární barvu.
         card_g: Karta G
