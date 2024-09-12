@@ -3,7 +3,7 @@ ro:
   activemodel:
     attributes:
       account:
-        delete_reason: Motivul pentru a-ți șterge contul
+        delete_reason: Motivul pentru care vă ștergeți contul
       common:
         created_at: Creat la
       conversation:
@@ -35,7 +35,7 @@ ro:
       decidim/component_published_event: Componentă activă
       decidim/demoted_membership: Nu mai este un administrator de grup
       decidim/gamification/badge_earned_event: Insignă câștigată
-      decidim/gamification/level_up_event: Ai crescut în nivel
+      decidim/gamification/level_up_event: Ați crescut în nivel
       decidim/invited_to_group_event: Invitat în grup
       decidim/join_request_accepted_event: Cerere de înscriere acceptată
       decidim/join_request_rejected_event: Cerere de înscriere respinsă
@@ -95,7 +95,7 @@ ro:
   decidim:
     accessibility:
       external_link: Link extern
-      front_page_link: Du-te la prima pagină
+      front_page_link: Mergeți la prima pagină
       logo: "Sigla oficială a %{organization}"
       skip_button: Salt la conținutul principal
     account:
@@ -105,7 +105,7 @@ ro:
         confirm:
           close: Închide fereastra
           ok: Da, vreau să îmi șterg contul
-          question: Sigur dorești să-ți ștergi contul?
+          question: Sigur doriți să vă ștergeți contul?
           title: Șterge contul meu
         explanation: Care este motivul pentru care dorești să-ți ștergi (opțional).
         leaving_authorizations_behind: Unele date asociate autorizării dvs. vor fi salvate pentru securitate. Dacă creați un alt cont și autorizați din nou, aceste date vor fi recuperate în noul dvs. cont.
@@ -739,7 +739,7 @@ ro:
           filename: Nume fișier
           remove: Șterge
           replace: Înlocuiește
-          save: Salvează
+          save: Salvați
           title: Titlu
           title_required: Titlul este obligatoriu!
         select_file: Selectaţi fişierul
@@ -1028,7 +1028,7 @@ ro:
           register: Inregistrare
         hero:
           participate: Participă
-          participate_title: Participă la procesele platformei
+          participate_title: Participați la procesele platformei
           welcome: Bine ai venit la %{organization}!
         statistics:
           headline: Starea curentă a %{organization}
