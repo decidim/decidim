@@ -575,12 +575,6 @@ module Decidim
     {}
   end
 
-  # This config parameter is used to set the default amount of time after which the unattached blobs
-  # are cleaned up. The default value is 60 minutes.
-  config_accessor :clean_up_unattached_blobs_after do
-    60.minutes
-  end
-
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #

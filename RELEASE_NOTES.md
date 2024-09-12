@@ -86,7 +86,7 @@ We have added a new task that helps you clean the orphaned attachment blobs. Thi
 You can run the task with the following command:
 
 ```bash
-bundle exec decidim:attachments:cleanup
+bin/rails decidim:upgrade:attachments_cleanup
 ```
 
 You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)

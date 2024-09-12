@@ -382,10 +382,6 @@ Decidim.configure do |config|
   # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
   config.content_security_policies_extra = {}
 
-  # This config parameter is used to set the default amount of time after which the unattached blobs
-  # are cleaned up. The default value is 60 minutes.
-  # config.clean_up_unattached_blobs_after = 60.minutes
-
   # Admin admin password configurations
   Rails.application.secrets.dig(:decidim, :admin_password, :strong).tap do |strong_pw|
     # When the strong password is not configured, default to true
