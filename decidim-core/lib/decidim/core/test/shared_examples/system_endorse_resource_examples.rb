@@ -170,7 +170,7 @@ shared_examples "Endorse resource system specs" do
           visit_resource
         end
 
-        context "when organization dissalows user groups" do
+        context "when organization is not allowing user groups" do
           let(:user_groups_enabled) { false }
 
           it "is able to endorse the resource" do
