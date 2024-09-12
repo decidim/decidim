@@ -3,7 +3,7 @@ ro:
   activemodel:
     attributes:
       account:
-        delete_reason: Motivul pentru a-ți șterge contul
+        delete_reason: Motivul pentru care vă ștergeți contul
       common:
         created_at: Creat la
       conversation:
@@ -91,7 +91,7 @@ ro:
   decidim:
     accessibility:
       external_link: Link extern
-      front_page_link: Du-te la prima pagină
+      front_page_link: Mergeți la prima pagină
       logo: "Sigla oficială a %{organization}"
       skip_button: Salt la conținutul principal
     account:
@@ -101,7 +101,7 @@ ro:
         confirm:
           close: Închide fereastra
           ok: Da, vreau să îmi șterg contul
-          question: Sigur dorești să-ți ștergi contul?
+          question: Sigur doriți să vă ștergeți contul?
           title: Șterge contul meu
         explanation: Care este motivul pentru care dorești să-ți ștergi (opțional).
       destroy:
