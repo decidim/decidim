@@ -6,16 +6,19 @@ function updateEndorsementBlock() {
   var $endorsementListGrid = document.getElementById('endorser-list-<%= resource.id %>');
 
   var $endorsersModal = document.getElementById('endorsersModal-<%= resource.id %>');
-  if ($endorsersModal.length > 0){
+
+  if ($endorsersModal !== null) {
     $endorsersModal.remove();
   }
 
-  $endorsementListGrid.outerHTML = '<%= j(cell("decidim/endorsers_list", resource)).strip.html_safe %>';
+  if ($endorsementListGrid !== null) {
+    $endorsementListGrid.outerHTML = '<%= j(cell("decidim/endorsers_list", resource)).strip.html_safe %>';
+  }
 
   <%# If the endorsement button displays a modal to select the identity to endorse only the content of the button %>
   <%# has to be updated to maintain the function of the button to open the modal. Otherwise the button has to be fully %>
   <%# updated because the form request also changes %>
-  if ($endorsementIdentitiesButton.length === 0) {
+  if ($endorsementIdentitiesButton === null) {
     $endorsementButton.outerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).show).strip.html_safe %>';
   } else {
     $endorsementIdentitiesButton.innerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).button_content).strip.html_safe %>';
