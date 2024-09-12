@@ -16,9 +16,11 @@ module Decidim
           signature_type: resource.signature_type,
           signatures: resource.supports_count,
           scope: {
+            id: resource.scope&.id, 
             name: resource.scope&.name
           },
           type: {
+            id: resource.type&.id,
             title: resource.type&.title
           },
           authors: {
@@ -26,6 +28,7 @@ module Decidim
             name: resource.author_users.map(&:name)
           },
           area: {
+            id: resource.area&.id,
             name: resource.area&.name
           }
         }
