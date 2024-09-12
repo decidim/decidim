@@ -949,6 +949,7 @@ en:
             description: You have to distribute a minimum of %{votes} supports among different proposals so that your supports are taken into account.
           proposal_limit:
             description: You can create up to %{limit} proposals.
+          success: Your votes have been successfully accepted
           threshold_per_proposal:
             description: In order to be validated proposals need to reach %{limit} votes.
           title: Rules of participation

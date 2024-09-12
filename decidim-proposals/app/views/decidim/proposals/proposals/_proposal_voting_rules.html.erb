@@ -1,5 +1,5 @@
 <% if show_voting_rules? %>
-  <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
+  <% if @voted_proposals ? @voted_proposals.include?(@proposal.id) : @proposal.voted_by?(current_user) %>
     <% announcement_body = capture do %>
       <div class="editor-content">
         <p><%= t("already_vote.description", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)) %></p>
@@ -10,6 +10,30 @@
       title: t("already_vote.title", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)),
       body: announcement_body },
       callout_class: "secondary") %>
+  <% elsif @proposal.maximum_votes_reached? && !@proposal.can_accumulate_votes_beyond_threshold && current_component.participatory_space.can_participate?(current_user) %>
+    <%= flash[:notice] = I18n.t("success", scope: "decidim.proposals.proposals.voting_rules") %>
+
+    <div id="proposal-voting-rules" class="flash flex-col p-0 gap-0">
+      <button id="dropdown-trigger-proposal-voting-rules" data-component="dropdown" data-target="dropdown-menu-proposal-voting-rules" class="flash__title">
+          <%= t("title", scope: "decidim.proposals.proposals.voting_rules") %>
+          <%= icon "arrow-down-s-line" %>
+          <%= icon "arrow-up-s-line" %>
+      </button>
+
+      <div class="flash__message">
+        <div class="text-base editor-content">
+          <ul id="dropdown-menu-proposal-voting-rules" class="mt-0 mb-2">
+            <% if vote_limit_enabled? %>
+              <li><%= t("vote_limit.description", scope: "decidim.proposals.proposals.voting_rules", limit: component_settings.vote_limit) %></li>
+            <% end %>
+
+            <% if minimum_votes_per_user_enabled? %>
+              <li><%= t("minimum_votes_per_user.description", scope: "decidim.proposals.proposals.voting_rules", votes: minimum_votes_per_user) %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
   <% else %>
     <div id="proposal-voting-rules" class="flash flex-col p-0 gap-0">
       <button id="dropdown-trigger-proposal-voting-rules" data-component="dropdown" data-target="dropdown-menu-proposal-voting-rules" class="flash__title">
