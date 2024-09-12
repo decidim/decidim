@@ -6,10 +6,11 @@ describe "Filter Proposals", :slow do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create(:category, participatory_space: participatory_process) }
-  let!(:scope) { create(:scope, organization:) }
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let!(:taxonomy) { create(:taxonomy, skip_injection: true, parent: root_taxonomy, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, space_manifest: component.participatory_space.manifest.name) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_item: taxonomy, taxonomy_filter:) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   context "when caching is enabled", :caching do
     before do
@@ -112,51 +113,42 @@ describe "Filter Proposals", :slow do
     end
   end
 
-  context "when filtering proposals by SCOPE" do
-    let!(:scope2) { create(:scope, organization: participatory_process.organization) }
-    let!(:proposals) { create_list(:proposal, 2, component:, scope:) }
+  context "when filtering proposals by TAXONOMY" do
+    let!(:taxonomy2) { create(:taxonomy, skip_injection: true, name: { en: "Taxonomy name" }, parent: root_taxonomy, organization:) }
+    let!(:taxonomy_filter_item2) { create(:taxonomy_filter_item, taxonomy_item: taxonomy2, taxonomy_filter:) }
+    let!(:proposals) { create_list(:proposal, 2, component:, taxonomies: [taxonomy]) }
     let(:first_proposal) { proposals.first }
     let(:last_proposal) { proposals.last }
     let!(:proposal_comment) { create(:comment, commentable: first_proposal) }
     let!(:proposal_follow) { create(:follow, followable: last_proposal) }
 
     before do
-      create(:proposal, component:, scope: scope2)
-      create(:proposal, component:, scope: nil)
+      component.update!(settings: { taxonomy_filters: [taxonomy_filter.id] })
+      create(:proposal, component:, taxonomies: [taxonomy2])
+      create(:proposal, component:, taxonomies: [])
       visit_component
     end
 
-    it "can be filtered by scope" do
+    it "can be filtered by taxonomy" do
       within "form.new_filter" do
-        expect(page).to have_content(/Scope/i)
+        expect(page).to have_content(/Taxonomy name/i)
       end
     end
 
-    context "when selecting the global scope" do
+    context "when selecting one taxonomy" do
       it "lists the filtered proposals", :slow do
-        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
+        within "#dropdown-menu-filters div.filter-container", text: "Taxonomy name" do
           uncheck "All"
-          check "Global"
-        end
-
-        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
-      end
-    end
-
-    context "when selecting one scope" do
-      it "lists the filtered proposals", :slow do
-        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
-          uncheck "All"
-          check scope.name[I18n.locale.to_s]
+          check decidim_sanitize_translated(taxonomy.name)
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 2)
       end
 
       it "can be ordered by most commented and most followed after filtering" do
-        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
+        within "#dropdown-menu-filters div.filter-container", text: "Taxonomy name" do
           uncheck "All"
-          check scope.name[I18n.locale.to_s]
+          check decidim_sanitize_translated(taxonomy.name)
         end
 
         within "#dropdown-menu-order" do
@@ -175,52 +167,15 @@ describe "Filter Proposals", :slow do
       end
     end
 
-    context "when selecting the global scope and another scope" do
-      it "lists the filtered proposals", :slow do
-        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
+    context "when unselecting the selected taxonomy" do
+      it "lists the filtered proposals" do
+        within "#dropdown-menu-filters div.filter-container", text: "Taxonomy name" do
           uncheck "All"
-          check "Global"
-          check scope.name[I18n.locale.to_s]
+          check decidim_sanitize_translated(taxonomy.name)
+          check "All"
         end
 
         expect(page).to have_css("[id^='proposals__proposal']", count: 3)
-      end
-    end
-
-    context "when unselecting the selected scope" do
-      it "lists the filtered proposals" do
-        within "#dropdown-menu-filters div.filter-container", text: "Scope" do
-          uncheck "All"
-          check scope.name[I18n.locale.to_s]
-          check "Global"
-          uncheck scope.name[I18n.locale.to_s]
-        end
-
-        expect(page).to have_css("[id^='proposals__proposal']", count: 1)
-      end
-    end
-
-    context "when process is related to a scope" do
-      let(:participatory_process) { scoped_participatory_process }
-
-      it "cannot be filtered by scope" do
-        visit_component
-
-        within "form.new_filter" do
-          expect(page).to have_no_content(/Scope/i)
-        end
-      end
-
-      context "with subscopes" do
-        let!(:subscopes) { create_list(:subscope, 5, parent: scope) }
-
-        it "can be filtered by scope" do
-          visit_component
-
-          within "form.new_filter" do
-            expect(page).to have_content(/Scope/i)
-          end
-        end
       end
     end
   end
@@ -356,71 +311,6 @@ describe "Filter Proposals", :slow do
         within "form.new_filter" do
           expect(page).to have_no_content(/Status/i)
         end
-      end
-    end
-  end
-
-  context "when filtering proposals by CATEGORY", :slow do
-    context "when the user is logged in" do
-      let!(:category2) { create(:category, participatory_space: participatory_process) }
-      let!(:category3) { create(:category, participatory_space: participatory_process) }
-      let!(:proposal1) { create(:proposal, component:, category:) }
-      let!(:proposal2) { create(:proposal, component:, category: category2) }
-      let!(:proposal3) { create(:proposal, component:, category: category3) }
-      let!(:proposal4) { create(:proposal, component:, category:) }
-      let!(:proposal1_comment) { create(:comment, commentable: proposal1) }
-      let!(:proposal4_follow) { create(:follow, followable: proposal4) }
-
-      before do
-        login_as user, scope: :user
-      end
-
-      it "can be filtered by a category" do
-        visit_component
-
-        within "#dropdown-menu-filters div.filter-container", text: "Category" do
-          uncheck "All"
-          check decidim_escape_translated(category.name)
-        end
-
-        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-      end
-
-      it "can be filtered by two categories" do
-        visit_component
-
-        within "#dropdown-menu-filters div.filter-container", text: "Category" do
-          uncheck "All"
-          check decidim_escape_translated(category.name)
-          check decidim_escape_translated(category2.name)
-        end
-
-        expect(page).to have_css("[id^='proposals__proposal']", count: 3)
-      end
-
-      it "can be ordered by most commented and most followed after filtering" do
-        visit_component
-
-        within "#dropdown-menu-filters div.filter-container", text: "Category" do
-          uncheck "All"
-          check decidim_escape_translated(category.name)
-        end
-
-        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-
-        within "#dropdown-menu-order" do
-          click_on "Most commented"
-        end
-
-        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(proposal1.title))
-
-        within "#dropdown-menu-order" do
-          click_on "Most followed"
-        end
-
-        expect(page).to have_css("[id^='proposals__proposal']", count: 2)
-        expect(page).to have_css("[id^='proposals__proposal']:first-child", text: translated(proposal4.title))
       end
     end
   end
