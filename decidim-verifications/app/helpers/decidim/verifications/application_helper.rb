@@ -47,6 +47,12 @@ module Decidim
         renew_modal_authorizations_path(handler: authorization.name)
       end
 
+      def authorizations_back_path(user, redirect_url: nil)
+        return redirect_url if redirect_url == decidim_verifications.onboarding_pending_authorizations_path && pending_onboarding_action?(user)
+
+        decidim_verifications.authorizations_path
+      end
+
       def granted_authorization_explanation(authorization)
         expiration_timestamp = authorization.expires_at.presence && l(authorization.expires_at, format: :long_with_particles)
         if authorization.expired?
