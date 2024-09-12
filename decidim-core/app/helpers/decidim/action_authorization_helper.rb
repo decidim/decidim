@@ -48,38 +48,6 @@ module Decidim
       authorized_to(:button, nil, arguments, block)
     end
 
-    # Public: Returns an action text which can be wrapped inside a verification
-    # pending message if the authorization status is not completed yet. The
-    # method accepts a Proc for the action text and the proc is called passing
-    # the authorization status
-    #
-    # action_text          - A String or a Proc. If a Proc is provided and
-    #                        admits an argument the authorization_status
-    #                        argument is passed to the Proc when evaluated.
-    # authorization_status - A Decidim::ActionAuthorizer::AuthorizationStatusCollection
-    #                        or nil. This class is returned by the
-    #                        action_authorized_to helper method.
-    #
-    # Returns a String with the text.
-    def pending_verifications_message(action_text, authorization_status)
-      if action_text.is_a?(Proc)
-        action_text.arity < 1 ? capture(&action_text) : capture(authorization_status, &action_text)
-      else
-        return action_text if authorization_status.blank?
-        return action_text if [:ok, :unauthorized].include?(authorization_status.global_code)
-
-        # The position where the action is interpolated in the "verify your account to 'act'"
-        # message is obtained to determine if the first letter of its text should be downcased
-        action_index = t("verify_to", scope: "decidim.core.actions", action: "%%%%").strip.index("%%%%")
-        if action_index.positive? && /\A[[:upper:]][^[[:upper:]]]*\z/.match?(action_text)
-          action_text = action_text.dup
-          action_text[0] = action_text[0].downcase
-        end
-
-        t("verify_to", scope: "decidim.core.actions", action: action_text)
-      end
-    end
-
     private
 
     # rubocop: disable Metrics/PerceivedComplexity
@@ -120,10 +88,11 @@ module Decidim
 
       html_options["onclick"] = "event.preventDefault();" if url == ""
 
-      message = pending_verifications_message(body, authorization_status)
-      message = content_tag(:span, message) unless block
-
-      send("#{tag}_to", message, url, html_options)
+      if block
+        send("#{tag}_to", url, html_options, &body)
+      else
+        send("#{tag}_to", content_tag(:span, body), url, html_options)
+      end
     end
     # rubocop: enable Metrics/PerceivedComplexity
 
