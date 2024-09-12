@@ -139,7 +139,7 @@ en:
         onboarding_pending:
           completed_verifications: You have been successfully authorized
           granted_verifications: Granted verifications
-          onboarding_message_html: You are almost ready to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
+          onboarding_message_html: You are almost ready to %{action} on the <strong>%{resource_title}</strong> %{resource_name}. Please verify your account by completing the following authorizations.
           pending_admin_approval_verifications: Pending admin approval verifications
           pending_verifications: Pending verifications
           unauthorized: You are not authorized to %{action} in this resource
