@@ -248,13 +248,9 @@ describe "Vote Proposal", slow: true do
             click_on proposal_title
           end
 
-          it "displays a message to verify in the vote button" do
-            expect(page).to have_button("Verify your account to vote")
-          end
-
           it "shows a modal dialog" do
             within "#proposal-#{proposal.id}-vote-button" do
-              click_on "Verify your account to vote"
+              click_on "Vote"
             end
 
             expect(page).to have_content("Authorization required")
