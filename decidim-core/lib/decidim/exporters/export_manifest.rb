@@ -15,7 +15,7 @@ module Decidim
       # A setting to choose if the collection exported by this manifest should
       # be included in the open data export available for all users.
       #
-      # Optionally, you can define an specific serializer using the `open_data_serializer` method
+      # Optionally, you can define a specific serializer using the `open_data_serializer` method
       # to have a granular control on which fields are added to the open data export.
       # This is specially useful for ParticipatorySpaces, as the serializer is used for the
       # export/import feature, and we do not want to publish some of the data available there
