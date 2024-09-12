@@ -68,12 +68,12 @@ module Decidim
       authorization_status = get_authorization_status(action, resource, permissions_holder)
 
       if !current_user
-        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder, url, html_options)))
+        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder, url, html_options.merge(tag:))))
         html_options["data-dialog-open"] = "loginModal"
 
         url = "#"
       elsif authorization_status&.ok? == false
-        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder, url, html_options)))
+        html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder, url, html_options.merge(tag:))))
         if multiple_pending_steps?(authorization_status)
           tag = "link"
           html_options["method"] = "post"
@@ -166,9 +166,10 @@ module Decidim
       }.compact
     end
 
-    def valid_redirect(path, html_options = {})
+    def valid_redirect(path, opts = {})
+      return if opts[:tag]&.to_sym == :button
       return if path == "#"
-      return if html_options[:method].present? && html_options[:method].to_s != "get"
+      return if opts[:method].present? && opts[:method].to_s != "get"
 
       path
     end
