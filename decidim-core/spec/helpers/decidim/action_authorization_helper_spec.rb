@@ -17,7 +17,6 @@ module Decidim
     let(:widget_text) { "Act" }
     let(:path) { "fake_path" }
     let(:path_as_action_or_href) { /(action|href)="#{path}"/ }
-    let(:verification_required_widget_text) { "Verify your account to act" }
 
     before do
       allow(helper).to receive(:current_component).and_return(component)
@@ -32,16 +31,11 @@ module Decidim
           let(:authorized) { false }
           let(:global_code) { false }
 
-          if params[:with_automatic_authorization_required_message]
-            it "wraps the action with an authorization required message" do
-              expect(subject).not_to include(widget_text)
-              expect(subject).to include(verification_required_widget_text)
-            end
-          else
-            it "does not wrap the action with an authorization required message" do
-              expect(subject).to include(widget_text)
-              expect(subject).not_to include(verification_required_widget_text)
-            end
+          it "renders a widget toggling the authorization modal" do
+            expect(subject).not_to match(path_as_action_or_href)
+            expect(subject).to include('data-dialog-open="authorizationModal"')
+            expect(subject).to include("data-dialog-remote-url=\"/authorization_modals/#{action}/f/#{component.id}\"")
+            expect(subject).to include(*params[:widget_parts])
           end
 
           context "and there is only an authorization related to the action" do
@@ -153,13 +147,13 @@ module Decidim
       context "when called with text" do
         subject(:rendered) { helper.action_authorized_link_to(action, widget_text, path, resource:, permissions_holder:) }
 
-        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<a), with_automatic_authorization_required_message: true
+        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<a)
       end
 
       context "when called with a block" do
         subject(:rendered) { helper.action_authorized_link_to(action, path, resource:, permissions_holder:) { widget_text } }
 
-        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<a), with_automatic_authorization_required_message: false
+        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<a)
       end
     end
 
@@ -167,13 +161,13 @@ module Decidim
       context "when called with text" do
         subject(:rendered) { helper.action_authorized_button_to(action, widget_text, path, resource:, permissions_holder:) }
 
-        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<input type="submit"), with_automatic_authorization_required_message: true
+        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<input type="submit")
       end
 
       context "when called with a block" do
         subject(:rendered) { helper.action_authorized_button_to(action, path, resource:, permissions_holder:) { widget_text } }
 
-        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<input type="submit"), with_automatic_authorization_required_message: false
+        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<button type="submit")
       end
     end
 
@@ -181,13 +175,13 @@ module Decidim
       context "when called with text" do
         subject(:rendered) { helper.logged_link_to(widget_text, path, resource:) }
 
-        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<a), with_automatic_authorization_required_message: false
+        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<a)
       end
 
       context "when called with a block" do
         subject(:rendered) { helper.logged_link_to(path, resource:) { widget_text } }
 
-        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<a), with_automatic_authorization_required_message: false
+        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<a)
       end
     end
 
@@ -195,13 +189,13 @@ module Decidim
       context "when called with text" do
         subject(:rendered) { helper.logged_button_to(widget_text, path, resource:) }
 
-        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<input type="submit"), with_automatic_authorization_required_message: false
+        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<input type="submit")
       end
 
       context "when called with a block" do
         subject(:rendered) { helper.logged_button_to(path, resource:) { widget_text } }
 
-        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<input type="submit"), with_automatic_authorization_required_message: false
+        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<button type="submit"), with_automatic_authorization_required_message: false
       end
     end
   end
