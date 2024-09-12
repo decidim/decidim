@@ -27,7 +27,7 @@ module Decidim
       # finds taxonomizables belonging to any of the taxonomies specified
       scope :with_taxonomies, lambda { |*taxonomy_ids|
         conditions = ["? = ANY(part_of)"] * taxonomy_ids.count
-        taxonomies = Decidim::Taxonomy.where(conditions.join(" OR "), *taxonomy_ids)
+        taxonomies = Decidim::Taxonomy.where(conditions.join(" OR "), *taxonomy_ids.map(&:to_i))
         joins(:taxonomies).where(decidim_taxonomies: { id: taxonomies })
       }
 
