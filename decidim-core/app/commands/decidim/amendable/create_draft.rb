@@ -42,7 +42,6 @@ module Decidim
       # A first version will be created in step 4: publish
       # for diff rendering in the amendment control version
       def create_emendation!
-        raise "FOO BAR"
         PaperTrail.request(enabled: false) do
           @emendation = Decidim.traceability.perform_action!(
             :create,
@@ -55,6 +54,7 @@ module Decidim
             emendation.body = { I18n.locale => form.emendation_params.with_indifferent_access[:body] }
             emendation.component = amendable.component
             emendation.add_author(current_user, user_group)
+            emendation.category = amendable.category if amendable.respond_to?(:category)
             emendation.save!
             emendation
           end
