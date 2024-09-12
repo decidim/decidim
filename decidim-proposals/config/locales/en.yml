@@ -939,6 +939,10 @@ en:
             one: Vote
             other: Votes
         voting_rules:
+          already_vote:
+            title: You have %{number} supports left
+            description: Remember that you still have to give %{number} supports between different proposals so that your supports are taken into account.
+            see_other_proposals: See other proposals
           can_accumulate_votes_beyond_threshold:
             description: Each proposal can accumulate more than %{limit} votes
           minimum_votes_per_user:

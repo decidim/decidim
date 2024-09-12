@@ -137,7 +137,7 @@
 #proposal-voting-rules {
   [id="dropdown-menu-proposal-voting-rules"] {
     &[aria-hidden="true"] {
-      @apply hidden md:flex;
+      @apply hidden;
     }
   }
 
