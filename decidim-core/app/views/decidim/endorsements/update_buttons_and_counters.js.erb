@@ -6,7 +6,9 @@ function updateEndorsementBlock() {
   var $endorsementListGrid = document.getElementById('endorser-list-<%= resource.id %>');
 
   var $endorsersModal = document.getElementById('endorsersModal-<%= resource.id %>');
-  $endorsersModal.remove();
+  if ($endorsersModal.length > 0){
+    $endorsersModal.remove();
+  }
 
   $endorsementListGrid.outerHTML = '<%= j(cell("decidim/endorsers_list", resource)).strip.html_safe %>';
 

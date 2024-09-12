@@ -1,7 +1,7 @@
 <%= decidim_modal id: "endorsersModal-#{model.id}", class: "endorsers-list__modal" do %>
   <div data-dialog-container>
     <%= icon "like" %>
-    <h2 id="dialog-title-endorsersModal" tabindex="-1" data-dialog-title><%= t(".title") %></h2>
+    <h2 id="dialog-title-endorsersModal" tabindex="-1" data-dialog-title><%= t("decidim.endorsers_list.title") %></h2>
     <div>
       <% full_endorsers.each do |author| %>
         <div class="list-item__author">

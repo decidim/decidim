@@ -8,9 +8,9 @@
 
     <div class="text-center">
       <div class="endorsers-list__text">
-        <%= t(".endorsed_by",
-              visible: display_link(voted_by_me? ? t(".you") : visible_endorsers.first.try(:name)),
-              others: display_link(t(".others", count: endorsers_count - 1)),
+        <%= t("decidim.endorsers_list.endorsed_by",
+              visible: display_link(voted_by_me? ? t("decidim.endorsers_list.you") : visible_endorsers.first.try(:name)),
+              others: display_link(t("decidim.endorsers_list.others", count: endorsers_count - 1)),
               count: endorsers_count
             ) %>
       </div>
