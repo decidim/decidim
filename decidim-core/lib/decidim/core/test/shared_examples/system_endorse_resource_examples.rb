@@ -165,7 +165,7 @@ shared_examples "Endorse resource system specs" do
         end
 
         before do
-          organization.update(user_groups_enabled: )
+          organization.update(user_groups_enabled:)
           login_as user, scope: :user
           visit_resource
         end
@@ -246,7 +246,6 @@ shared_examples "Endorse resource system specs" do
             end
           end
         end
-
       end
     end
   end
