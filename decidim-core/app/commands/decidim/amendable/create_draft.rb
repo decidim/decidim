@@ -42,6 +42,7 @@ module Decidim
       # A first version will be created in step 4: publish
       # for diff rendering in the amendment control version
       def create_emendation!
+        raise "FOO BAR"
         PaperTrail.request(enabled: false) do
           @emendation = Decidim.traceability.perform_action!(
             :create,
