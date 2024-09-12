@@ -19,6 +19,7 @@ en:
         automatic_hashtags: Hashtags automatically added
         body: Body
         category_id: Category
+        decidim_proposals_proposal_state_id: State
         decidim_scope_id: Scope
         has_address: Has address
         scope_id: Scope
