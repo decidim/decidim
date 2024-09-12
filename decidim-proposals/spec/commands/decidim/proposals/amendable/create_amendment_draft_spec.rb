@@ -44,8 +44,8 @@ module Decidim
 
           amendable.reload
 
-          expect(Decidim::Amendment.last.draft?).to be_true
-          expect(amendable.class.last.published?).to be_false
+          expect(Decidim::Amendment.last).to be_draft
+          expect(amendable.class.last).not_to be_published
           expect(amendable.emendations.count).to eq(1)
           expect(amendable.category.id).to eq(category.id)
           expect(amendable.emendations.first.category.id).to eq(category.id)
