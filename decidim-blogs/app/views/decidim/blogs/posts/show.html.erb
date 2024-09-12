@@ -32,7 +32,12 @@
     <% end %>
 
     <div class="layout-author">
-      <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :compact %>
+      <div class="relative flex items-center justify-center w-full">
+        <div class="w-10/12 flex items-center gap-4">
+          <%= cell "decidim/author", post_presenter.author, from: post, context_actions: [:date], layout: :compact %>
+        </div>
+        <%= render "decidim/shared/resource_kebab", resource: post %>
+      </div>
     </div>
   </section>
 

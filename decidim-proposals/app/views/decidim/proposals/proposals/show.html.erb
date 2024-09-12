@@ -47,11 +47,16 @@ extra_admin_link(
 
     <% unless component_settings.participatory_texts_enabled? %>
       <div class="layout-author">
-        <%= cell "decidim/coauthorships", @proposal, context_actions: [:date] %>
+        <div class="relative flex items-center justify-center w-full">
+          <div class="w-10/12 flex items-center gap-4">
+            <%= cell "decidim/coauthorships", @proposal, context_actions: [:date] %>
 
-        <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
-          <%= cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text) %>
-        <% end %>
+            <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
+              <%= cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text) %>
+            <% end %>
+          </div>
+          <%= render "decidim/shared/resource_kebab", resource: @proposal %>
+        </div>
       </div>
     <% end %>
   </section>

@@ -27,6 +27,7 @@ describe "Report Proposal" do
 
     it "reports the resource" do
       visit reportable_path
+      find("#dropdown-trigger-resource-#{reportable.id}").click
 
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
       find(%(button[data-dialog-open="flagModal"])).click
