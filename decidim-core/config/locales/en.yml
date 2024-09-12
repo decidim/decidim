@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       account:
@@ -143,6 +144,8 @@ en:
         one: 1 second
         other: "%{count} seconds"
   decidim:
+    machine_translations:
+      automatic: automatic translation in %{locale_name}
     accessibility:
       external_link: External link
       front_page_link: Go to front page
