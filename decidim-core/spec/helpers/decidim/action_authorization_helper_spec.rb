@@ -82,7 +82,11 @@ module Decidim
               expect(subject).to include('href="/authorizations/renew_onboarding_data"')
               expect(subject).to include("data-onboarding-permissions-holder=\"#{component.to_gid}\"")
               expect(subject).to include("data-onboarding-action=\"#{action}\"")
-              expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+              if params[:includes_redirect_data]
+                expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+              else
+                expect(subject).not_to include("data-onboarding-redirect-path=\"#{path}\"")
+              end
               expect(subject).to match(/\A<a /)
             end
 
@@ -96,7 +100,11 @@ module Decidim
                 expect(subject).to include("data-onboarding-model=\"#{resource.to_gid}\"")
                 expect(subject).not_to include("data-onboarding-permissions-holder=\"#{component.to_gid}\"")
                 expect(subject).to include("data-onboarding-action=\"#{action}\"")
-                expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+                if params[:includes_redirect_data]
+                  expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+                else
+                  expect(subject).not_to include("data-onboarding-redirect-path=\"#{path}\"")
+                end
                 expect(subject).to match(/\A<a /)
               end
             end
@@ -113,7 +121,11 @@ module Decidim
                 expect(subject).to include("data-onboarding-model=\"#{resource.to_gid}\"")
                 expect(subject).to include("data-onboarding-permissions-holder=\"#{resource.to_gid}\"")
                 expect(subject).to include("data-onboarding-action=\"#{action}\"")
-                expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+                if params[:includes_redirect_data]
+                  expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+                else
+                  expect(subject).not_to include("data-onboarding-redirect-path=\"#{path}\"")
+                end
                 expect(subject).to match(/\A<a /)
               end
             end
@@ -147,13 +159,13 @@ module Decidim
       context "when called with text" do
         subject(:rendered) { helper.action_authorized_link_to(action, widget_text, path, resource:, permissions_holder:) }
 
-        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<a)
+        it_behaves_like "an action authorization widget helper", has_action: true, includes_redirect_data: true, widget_parts: %w(<a)
       end
 
       context "when called with a block" do
         subject(:rendered) { helper.action_authorized_link_to(action, path, resource:, permissions_holder:) { widget_text } }
 
-        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<a)
+        it_behaves_like "an action authorization widget helper", has_action: true, includes_redirect_data: true, widget_parts: %w(<a)
       end
     end
 
@@ -161,13 +173,13 @@ module Decidim
       context "when called with text" do
         subject(:rendered) { helper.action_authorized_button_to(action, widget_text, path, resource:, permissions_holder:) }
 
-        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<input type="submit")
+        it_behaves_like "an action authorization widget helper", has_action: true, includes_redirect_data: false, widget_parts: %w(<input type="submit")
       end
 
       context "when called with a block" do
         subject(:rendered) { helper.action_authorized_button_to(action, path, resource:, permissions_holder:) { widget_text } }
 
-        it_behaves_like "an action authorization widget helper", has_action: true, widget_parts: %w(<button type="submit")
+        it_behaves_like "an action authorization widget helper", has_action: true, includes_redirect_data: false, widget_parts: %w(<button type="submit")
       end
     end
 
@@ -175,13 +187,13 @@ module Decidim
       context "when called with text" do
         subject(:rendered) { helper.logged_link_to(widget_text, path, resource:) }
 
-        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<a)
+        it_behaves_like "an action authorization widget helper", has_action: false, includes_redirect_data: true, widget_parts: %w(<a)
       end
 
       context "when called with a block" do
         subject(:rendered) { helper.logged_link_to(path, resource:) { widget_text } }
 
-        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<a)
+        it_behaves_like "an action authorization widget helper", has_action: false, includes_redirect_data: true, widget_parts: %w(<a)
       end
     end
 
@@ -189,13 +201,13 @@ module Decidim
       context "when called with text" do
         subject(:rendered) { helper.logged_button_to(widget_text, path, resource:) }
 
-        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<input type="submit")
+        it_behaves_like "an action authorization widget helper", has_action: false, includes_redirect_data: false, widget_parts: %w(<input type="submit")
       end
 
       context "when called with a block" do
         subject(:rendered) { helper.logged_button_to(path, resource:) { widget_text } }
 
-        it_behaves_like "an action authorization widget helper", has_action: false, widget_parts: %w(<button type="submit"), with_automatic_authorization_required_message: false
+        it_behaves_like "an action authorization widget helper", has_action: false, includes_redirect_data: false, widget_parts: %w(<button type="submit")
       end
     end
   end
