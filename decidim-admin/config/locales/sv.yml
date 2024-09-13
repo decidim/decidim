@@ -469,7 +469,7 @@ sv:
           title_cont: Sök i %{collection} efter titel.
           user_name_or_user_nickname_or_user_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
         state_eq:
-          label: Län
+          label: Status
           values:
             all: Alla
             pending: Väntande
