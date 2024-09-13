@@ -1,13 +1,15 @@
 <div class="comment-order-by">
-  <%= form_with url: decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s), method: :get, local: true do %>
-    <label for="order-select"><%= t("decidim.components.comment.sort_by") %></label>
-    <select name="order" id="order-select" onchange="this.form.submit()">
-      <% available_orders.each do |order_value| %>
-        <option value="<%= order_value %>" <%= "selected" if order_value == params[:order] %>>
-          <%= t("decidim.components.comment_order_selector.order.#{order_value}") %>
+  <%= form_with url: "#" do %>
+    <label for="order"><%= t("decidim.components.comment.sort_by") %></label>
+    <select aria-label="Owrder" data-order-comment-select="true">
+       <% available_orders.each do |order_value| %>
+        <option
+           value="<%= order_value %>"
+           <%= "selected" if order_value == order %>
+           data-order-comment-url="<%= decidim_comments.comments_path(commentable_gid: model.to_signed_global_id.to_s, order: order_value, reload: 1) %>">
+           <%= t("decidim.components.comment_order_selector.order.#{order_value}") %>
         </option>
-      <% end %>
+       <% end %>
     </select>
-    <input type="hidden" name="commentable_gid" value="<%= model.to_signed_global_id.to_s %>">
   <% end %>
 </div>

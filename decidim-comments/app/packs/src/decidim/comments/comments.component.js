@@ -43,6 +43,7 @@ export default class CommentsComponent {
           $(".add-comment textarea", this.$element).prop("disabled", false);
         });
       }
+      this._initializeSortDropdown();
     }
   }
 
@@ -60,21 +61,6 @@ export default class CommentsComponent {
       $(".add-comment textarea", this.$element).off("input.decidim-comments");
       $(".add-comment form", this.$element).off("submit.decidim-comments");
       $(".add-comment textarea", this.$element).each((_i, el) => el.removeEventListener("emoji.added", this._onTextInput));
-    }
-  }
-
-  /**
-     * Adds the behaviour for the drop down order section within comments.
-     * @public
-     * @returns {Void} - Returns nothing
-     */
-  dropdownBehaviour() {
-    const $orderSelect = this.$element.find("#order-select");
-
-    if ($orderSelect.length) {
-      $orderSelect.on("change", (event) => {
-        $(event.currentTarget).closest("form").submit();
-      });
     }
   }
 
@@ -331,5 +317,29 @@ export default class CommentsComponent {
     } else {
       $submit.attr("disabled", "disabled");
     }
+  }
+
+  /**
+  * Adds the behaviour for the drop down order section within comments.
+  * @private
+  * @returns {Void} - Returns nothing
+  */
+  _initializeSortDropdown() {
+    const orderSelect = document.querySelector("[data-order-comment-select]");
+
+    if (!orderSelect) {
+      return;
+    }
+
+    orderSelect.addEventListener("change", function(event) {
+      const selectedOption = orderSelect.querySelector(`[value=${event.target.value}`);
+      const orderUrl = selectedOption.dataset.orderCommentUrl;
+
+      Rails.ajax({
+        url: orderUrl,
+        type: "GET",
+        error: (data) => (console.error(data))
+      });
+    });
   }
 }
