@@ -11,6 +11,7 @@ describe "Proposals" do
   let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let!(:user) { create(:user, :confirmed, organization:) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
@@ -40,7 +41,7 @@ describe "Proposals" do
                  :with_creation_enabled,
                  manifest:,
                  participatory_space: participatory_process,
-                 settings: { taxonomy_filters: [taxonomy_filter.id] })
+                 settings: { taxonomy_filters: taxonomy_filter_ids })
         end
 
         let(:proposal_draft) { create(:proposal, :draft, component:, users: [user]) }
@@ -68,6 +69,30 @@ describe "Proposals" do
           expect(page).to have_author(user.name)
         end
 
+        context "when no taxonomy filter is selected" do
+          let(:taxonomy_filter_ids) { [] }
+
+          it "creates a proposal without taxonomies" do
+            visit edit_draft_proposal_path(component, proposal_draft)
+
+            within ".edit_proposal" do
+              fill_in :proposal_title, with: "More sidewalks and less roads"
+              fill_in :proposal_body, with: "Cities need more people, not more cars"
+              expect(page).to have_no_content(decidim_sanitize_translated(root_taxonomy.name))
+
+              find("*[type=submit]").click
+            end
+
+            click_on "Publish"
+
+            expect(page).to have_content("successfully")
+            expect(page).to have_content("More sidewalks and less roads")
+            expect(page).to have_content("Cities need more people, not more cars")
+            expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
+            expect(page).to have_author(user.name)
+          end
+        end
+
         context "when geocoding is enabled", :serves_geocoding_autocomplete do
           let!(:component) do
             create(:proposal_component,
@@ -76,7 +101,7 @@ describe "Proposals" do
                    participatory_space: participatory_process,
                    settings: {
                      geocoding_enabled: true,
-                     taxonomy_filters: [taxonomy_filter.id]
+                     taxonomy_filters: taxonomy_filter_ids
                    })
           end
 
@@ -202,7 +227,7 @@ describe "Proposals" do
                      participatory_space: participatory_process,
                      settings: {
                        geocoding_enabled: true,
-                       taxonomy_filters: [taxonomy_filter.id]
+                       taxonomy_filters: taxonomy_filter_ids
                      })
             end
 

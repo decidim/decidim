@@ -13,8 +13,6 @@ shared_examples "manage taxonomy filters in settings" do
   end
 
   context "when taxonomy filter exist" do
-    let!(:taxonomy_filter) { create(:taxonomy_filter, space_manifest:, root_taxonomy:) }
-    let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item:) }
     before do
       click_on "Configure"
     end
@@ -36,6 +34,8 @@ shared_examples "manage taxonomy filters in settings" do
   end
 
   context "when taxonomy filter does not exist" do
+    let(:taxonomy_filter_item) { nil }
+    let(:taxonomy_filter) { nil }
     before do
       click_on "Configure"
     end
@@ -47,9 +47,6 @@ shared_examples "manage taxonomy filters in settings" do
   end
 
   context "when a taxonomy filter is already in settings" do
-    let!(:taxonomy_filter) { create(:taxonomy_filter, space_manifest:, root_taxonomy:) }
-    let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item:) }
-
     before do
       component.update!(settings: { taxonomy_filters: [taxonomy_filter.id.to_s] })
       click_on "Configure"

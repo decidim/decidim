@@ -49,7 +49,6 @@ describe "Collaborative drafts" do
 
         it "creates a new collaborative draft", :slow do
           visit new_collaborative_draft_path
-          visit new_collaborative_draft_path
 
           within ".new_collaborative_draft" do
             fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
@@ -64,6 +63,30 @@ describe "Collaborative drafts" do
           expect(page).to have_content("Cities need more people, not more cars")
           expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
           expect(page).to have_author(user.name)
+        end
+
+        context "when no taxonomy filter is selected" do
+          let(:taxonomy_filter_ids) { [] }
+
+          it "creates a proposal without taxonomies" do
+            visit new_collaborative_draft_path
+
+            within ".new_collaborative_draft" do
+              fill_in :collaborative_draft_title, with: "More sidewalks and less roads"
+              fill_in :collaborative_draft_body, with: "Cities need more people, not more cars"
+              expect(page).to have_no_content(decidim_sanitize_translated(root_taxonomy.name))
+
+              find("*[type=submit]").click
+            end
+
+            click_on "Publish"
+
+            expect(page).to have_content("successfully")
+            expect(page).to have_content("More sidewalks and less roads")
+            expect(page).to have_content("Cities need more people, not more cars")
+            expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
+            expect(page).to have_author(user.name)
+          end
         end
 
         context "when there are errors on the form", :slow do
@@ -216,7 +239,6 @@ describe "Collaborative drafts" do
                      manifest:,
                      participatory_space: participatory_process,
                      settings: {
-                       collaborative_drafts_enabled: true,
                        geocoding_enabled: true,
                        collaborative_drafts_enabled: true
                      })
