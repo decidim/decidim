@@ -29,6 +29,7 @@ pt-BR:
         show_statistics: Mostre estatisticas
         sign_date: Data de assinatura
         signature: Assinatura
+        signature_name: Nome da assinatura
         slogan: Slogan
         slug: Lesma de URL
         start_date: Data de início
@@ -37,11 +38,13 @@ pt-BR:
         date: Data
         link: Link
         title: Título
+        weight: Posição de ordem
       conference_partner:
         link: Link
         logo: Logo
         name: Nome
         partner_type: Tipo de parceiro
+        weight: Posição de ordem
       conference_registration_invite:
         email: E-mail
         name: Nome
@@ -51,12 +54,15 @@ pt-BR:
         description: Descrição
         price: Preço
         title: Título
+        weight: Posição de ordem
       conference_speaker:
         affiliation: Afiliação
         avatar: Avatar
         conference_meeting_ids: Reuniões relacionadas
         full_name: Nome completo
+        personal_url: URL pessoal
         position: Posição
+        short_bio: Perfil curto
         user_id: Usuário
       conference_user_role:
         email: O email
@@ -127,6 +133,8 @@ pt-BR:
         edit:
           title: Atualize o usuário da conferência.
           update: Atualizar
+        index:
+          conference_admins_title: Administradores da conferência
         new:
           create: Crio
           title: Novo usuário da conferência.
