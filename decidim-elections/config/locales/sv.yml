@@ -34,7 +34,7 @@ sv:
         banner_image: Bannerbild
         description: Beskrivning
         end_time: Omröstningen avslutas
-        promoted: Annonserad
+        promoted: Utvald
         scope_id: Indelning
         start_time: Omröstningen börjar
         title: Titel
@@ -371,7 +371,7 @@ sv:
             status: Status
       orders:
         label: Sortera omröstningar efter
-        older: Äldre
+        older: Äldsta
         recent: Senaste
       trustee_zone:
         elections:
@@ -515,7 +515,7 @@ sv:
             header:
               name: Omröstningsbanner
             metrics:
-              name: Omröstningsmetrik
+              name: Omröstningen i siffror
         index:
           published: Publicerad
         landing_page:
@@ -631,7 +631,7 @@ sv:
             update: Uppdatera
           form:
             banner_image: Bannerbild
-            promoted: Annonserad
+            promoted: Utvald
             slug: Slug
             title: Titel
             voting_type:
@@ -657,7 +657,7 @@ sv:
       content_blocks:
         landing_page:
           metrics:
-            heading: Metrik
+            heading: Deltagande i siffror
           polling_stations:
             heading: Vallokaler
           timeline:
