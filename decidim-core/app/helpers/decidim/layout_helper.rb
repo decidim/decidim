@@ -129,6 +129,28 @@ module Decidim
       }
     end
 
+    # Renders a view with the customizable CSS variables in two flavours:
+    # 1. as a hexadecimal valid CSS color (ie: #ff0000)
+    # 2. as a disassembled RGB components (ie: 255 0 0)
+    #
+    # Example:
+    #
+    # --primary: #ff0000;
+    # --primary-rgb: 255 0 0
+    #
+    # Hexadecimal variables can be used as a normal CSS color:
+    #
+    # color: var(--primary)
+    #
+    # While the disassembled variant can be used where you need to manipulate
+    # the color somehow (ie: adding a background transparency):
+    #
+    # background-color: rgba(var(--primary-rgb), 0.5)
+    def organization_colors
+      css = current_organization.colors.each.map { |k, v| "--#{k}: #{v};--#{k}-rgb: #{v[1..2].hex} #{v[3..4].hex} #{v[5..6].hex};" }.join
+      render partial: "layouts/decidim/organization_colors", locals: { css: }
+    end
+
     def current_user_unread_data
       return {} if current_user.blank?
 
@@ -137,6 +159,14 @@ module Decidim
         d.merge!(unread_conversations: true) if current_user.unread_conversations.any?
         d.merge!(unread_items: d.present?)
       end
+    end
+
+    def organization_description_label
+      @organization_description_label ||= if empty_organization_description?
+                                            t("decidim.pages.home.footer_sub_hero.footer_sub_hero_body_html")
+                                          else
+                                            decidim_sanitize_admin(translated_attribute(current_organization.description))
+                                          end
     end
 
     def current_url(params = request.parameters)
@@ -154,6 +184,12 @@ module Decidim
     end
 
     private
+
+    def empty_organization_description?
+      organization_description = translated_attribute(current_organization.description)
+
+      organization_description.blank? || organization_description == "<p></p>"
+    end
 
     def each_decidim_engine
       Rails.application.railties.each do |engine|
