@@ -295,7 +295,7 @@ shared_examples_for "a resource search with taxonomies" do |factory_name|
     end
   end
 
-  context "when a subtaxonomy is selected" do
+  context "when a sub_taxonomy is selected" do
     let(:taxonomy_ids) { [child_taxonomy.id] }
 
     it "includes only resources for that taxonomy" do
