@@ -5,8 +5,7 @@ module Decidim
     # This cell is used to render the proposal history panel of a resource
     # inside a tab of a show view
     #
-    # The `model` must be a resource to get the proposal history from.and is expected to
-    # respond to proposal history method
+    # The `model` must be a proposal resource to get the history from.
     #
     # Example:
     #

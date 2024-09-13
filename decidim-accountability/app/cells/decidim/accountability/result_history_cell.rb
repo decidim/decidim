@@ -2,7 +2,17 @@
 
 module Decidim
   module Accountability
-    # This cell renders a project
+    # This cell is used to render a result history panel of a resource
+    # inside a tab of a show view
+    #
+    # The `model` must be an accountability result resource to get the history from.
+    #
+    # Example:
+    #
+    #   cell(
+    #     "decidim/result_history",
+    #     result
+    #   )
     class ResultHistoryCell < Decidim::ResourceHistoryCell
       include Decidim::Accountability::ApplicationHelper
 

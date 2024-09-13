@@ -5,8 +5,7 @@ module Decidim
     # This cell is used to render the project history panel of a resource
     # inside a tab of a show view
     #
-    # The `model` must be a resource to get the project history from.and is expected to
-    # respond to project history method
+    # The `model` must be a project's budget resource to get the history from.
     #
     # Example:
     #
