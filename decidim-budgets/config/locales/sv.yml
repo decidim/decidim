@@ -350,7 +350,7 @@ sv:
               one: 'Rösta på en: låt deltagare rösta i valfri budget, men bara i en.'
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
             highlighted_heading: Markerad rubrik
             landing_page_content: Landningssida för budgetar
             list_heading: Rubrik för lista
