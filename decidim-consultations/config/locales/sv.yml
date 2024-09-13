@@ -34,7 +34,7 @@ sv:
         slug: URL-slug
         subtitle: Underrubrik
         vote: Externt omröstningssystem
-        what_is_decided: Vad som bestäms
+        what_is_decided: Vad beslutas
       response:
         decidim_consultations_response_group_id: Grupp
     errors:
@@ -322,8 +322,8 @@ sv:
     help:
       participatory_spaces:
         consultations:
-          contextual: "<p>Ett <strong>samråd</strong> är ett utrymme där du kan ställa en tydlig fråga till alla personer som bildar en organisation, där du kan be att få medverka i samrådet, samt sätta igång och hantera debatten för eller emot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av omröstningarna.</p> <p>Exempel: Samråden kan handla om nästan allting som påverkar en organisation: till exempel att ändra organisationens namn eller logotyp med flera alternativa förslag, rösta ja eller nej om att bli en del av en större organisation, anta eller avvisa en ny strategisk plan eller resultatet från en arbetsgrupp, eller besluta om förtroendevalda ska kunna sitta högst en, två eller tre mandatperioder.</p>\n"
-          page: "<p>Ett <strong>samråd</strong> är ett utrymme där du kan ställa en tydlig fråga till alla personer som bildar en organisation, där du kan be att få medverka i samrådet, samt sätta igång och hantera debatten för eller emot ett svar. När samrådsdatumet anländer kan du rösta och publicera resultatet av omröstningarna.</p> <p>Exempel: Samråden kan handla om nästan allting som påverkar en organisation: till exempel att ändra organisationens namn eller logotyp med flera alternativa förslag, rösta ja eller nej om att bli en del av en större organisation, anta eller avvisa en ny strategisk plan eller resultatet från en arbetsgrupp, eller besluta om förtroendevalda ska kunna sitta högst en, två eller tre mandatperioder.</p>\n"
+          contextual: "<p>En <strong>konsultation</strong> är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, anrop om att delta i samrådet, gnista och beordra debatten för eller emot ett svar. När samrådsdatumet kommer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Samråden kan handla om nästan vilken aspekt som helst som påverkar en organisation: några exempel ändrar organisationens namn eller logotyp som erbjuder flera alternativ, besluta Ja eller Nej att bli en del av en större organisation, bekräfta eller avvisa en ny strategisk plan eller resultatet av en arbetsgrupp, eller fastställa om positionerna ska förbli högst 1, 2 eller 3 mandat.</p>\n"
+          page: "<p>En <strong>konsultation</strong> är ett utrymme som låter dig ställa en tydlig fråga till alla personer som bildar en organisation, anrop om att delta i samrådet, gnista och beordra debatten för eller emot ett svar. När samrådsdatumet kommer kan du rösta och publicera resultatet av rösterna.</p> <p>Exempel: Samråden kan handla om nästan vilken aspekt som helst som påverkar en organisation: några exempel ändrar organisationens namn eller logotyp som erbjuder flera alternativ, besluta Ja eller Nej att bli en del av en större organisation, bekräfta eller avvisa en ny strategisk plan eller resultatet av en arbetsgrupp, eller fastställa om positionerna ska förbli högst 1, 2 eller 3 mandat.</p>\n"
           title: Vad är samråd?
     menu:
       consultations: Samråd
