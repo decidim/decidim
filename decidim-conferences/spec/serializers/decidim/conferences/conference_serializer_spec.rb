@@ -17,7 +17,6 @@ module Decidim::Conferences
         expect(serialized).to include(id: resource.id)
         expect(serialized).to include(slug: resource.slug)
         expect(serialized).to include(hashtag: resource.hashtag)
-        expect(serialized).to include(decidim_organization_id: resource.decidim_organization_id)
         expect(serialized).to include(title: resource.title)
         expect(serialized).to include(slogan: resource.slogan)
         expect(serialized).to include(reference: resource.reference)
@@ -57,7 +56,7 @@ module Decidim::Conferences
         let!(:category) { create(:category, participatory_space: resource) }
 
         it "includes the categories" do
-          serialized_conference_categories = subject.serialize[:conference_categories].first
+          serialized_conference_categories = subject.serialize[:categories].first
           expect(serialized_conference_categories).to be_a(Hash)
 
           expect(serialized_conference_categories).to include(id: category.id)
@@ -70,7 +69,7 @@ module Decidim::Conferences
           let!(:subcategory) { create(:subcategory, parent: category, participatory_space: resource) }
 
           it "includes the categories" do
-            serialized_conference_categories = subject.serialize[:conference_categories].first
+            serialized_conference_categories = subject.serialize[:categories].first
 
             expect(serialized_conference_categories).to be_a(Hash)
 

@@ -31,7 +31,6 @@ module Decidim::ParticipatoryProcesses
         expect(serialized).to include(participatory_scope: resource.participatory_scope)
         expect(serialized).to include(participatory_structure: resource.participatory_structure)
         expect(serialized).to include(target: resource.target)
-        expect(serialized).to include(private_space: resource.private_space)
         expect(serialized).to include(promoted: resource.promoted)
         expect(serialized).to include(scopes_enabled: resource.scopes_enabled)
       end
@@ -139,7 +138,7 @@ module Decidim::ParticipatoryProcesses
         let!(:category) { create(:category, participatory_space: resource) }
 
         it "includes the categories" do
-          serialized_participatory_process_categories = subject.serialize[:participatory_process_categories].first
+          serialized_participatory_process_categories = subject.serialize[:categories].first
           expect(serialized_participatory_process_categories).to be_a(Hash)
 
           expect(serialized_participatory_process_categories).to include(id: category.id)
@@ -152,7 +151,7 @@ module Decidim::ParticipatoryProcesses
           let!(:subcategory) { create(:subcategory, parent: category, participatory_space: resource) }
 
           it "includes the categories" do
-            serialized_participatory_process_categories = subject.serialize[:participatory_process_categories].first
+            serialized_participatory_process_categories = subject.serialize[:categories].first
 
             expect(serialized_participatory_process_categories).to be_a(Hash)
 

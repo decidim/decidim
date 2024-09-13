@@ -2,8 +2,11 @@
 
 module Decidim
   module Initiatives
-    class OpenDataInitiativeSerializer < Decidim::Exporters::Serializer
-      # Serializes an initiative
+    class OpenDataInitiativeSerializer < Decidim::Exporters::ParticipatorySpaceSerializer
+      # Public: Exports a hash with the serialized data for this initiative.
+      #
+      # Note that we do not merge the original serialize method here, as the Initiative
+      # model does not have the same attributes as the other Spaces models.
       def serialize
         {
           reference: resource.reference,

@@ -17,7 +17,6 @@ module Decidim::Assemblies
         expect(serialized).to include(id: resource.id)
         expect(serialized).to include(slug: resource.slug)
         expect(serialized).to include(hashtag: resource.hashtag)
-        expect(serialized).to include(decidim_organization_id: resource.decidim_organization_id)
         expect(serialized).to include(title: resource.title)
         expect(serialized).to include(subtitle: resource.subtitle)
         expect(serialized).to include(weight: resource.weight)
@@ -98,7 +97,7 @@ module Decidim::Assemblies
         let!(:category) { create(:category, participatory_space: resource) }
 
         it "includes the categories" do
-          serialized_assembly_categories = subject.serialize[:assembly_categories].first
+          serialized_assembly_categories = subject.serialize[:categories].first
           expect(serialized_assembly_categories).to be_a(Hash)
 
           expect(serialized_assembly_categories).to include(id: category.id)
@@ -111,7 +110,7 @@ module Decidim::Assemblies
           let!(:subcategory) { create(:subcategory, parent: category, participatory_space: resource) }
 
           it "includes the categories" do
-            serialized_assembly_categories = subject.serialize[:assembly_categories].first
+            serialized_assembly_categories = subject.serialize[:categories].first
 
             expect(serialized_assembly_categories).to be_a(Hash)
 
