@@ -113,7 +113,6 @@ module Decidim
                 image/*
                 application/pdf
                 application/rtf
-                text/markdown
                 text/plain
               ),
               "admin" => %w(
