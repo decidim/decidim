@@ -164,7 +164,7 @@ sv:
             terms_and_conditions_url_for_meeting_creators: URL till användarvillkor för de som skapar möten
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
             creation_enabled_for_participants: Låt deltagare skapa möten
             creation_enabled_for_user_groups: Låt användargrupper skapa möten
     events:
