@@ -24,7 +24,7 @@ sv:
         name: Lottningar
         settings:
           global:
-            comments_enabled: Kommentarer aktiverade
+            comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
     events:
       sortitions:
