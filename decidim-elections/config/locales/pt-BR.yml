@@ -253,6 +253,7 @@ pt-BR:
             success: Pergunta criada com sucesso.
           destroy:
             invalid: Houve um problema ao excluir esta pergunta.
+            success: Pergunta eliminada com sucesso.
           edit:
             title: Editar pergunta
             update: Atualizar pergunta
@@ -261,8 +262,12 @@ pt-BR:
           new:
             create: Criar questão
             title: Nova questão
+          update:
+            invalid: Ocorreu um erro ao atualizar esta questão.
+            success: Pergunta atualizada com sucesso.
         steps:
           create_election:
+            census: Censo
             errors:
               census_codes_generated: Códigos de acesso do censo não foram gerados.
               census_frozen: Códigos de acesso do censo não foram exportados.
@@ -292,20 +297,26 @@ pt-BR:
               time_before: A instalação está sendo feita <strong>pelo menos %{hours} horas</strong> antes do início da eleição.
               trustees_number: O espaço participativo tem <strong> pelo menos %{number} agentes fiduciários com chave pública</strong>.
             submit: Configurar eleição
+            success: Eleição enviada com sucesso para o Quadro de Notas.
             title: Configurar eleição
             trustees: Agentes fiduciários da Eleição
           created:
+            invalid: Houve um problema ao iniciar a cerimônia de inicial.
             submit: Inicie a cerimônia de chaves
+            success: Pedido de cerimônia inicial foi enviado com sucesso para o Quadro de Notas.
             title: Eleição criada
             trustees: Agentes fiduciários
           key_ceremony:
+            continue: Continuar
             title: Cerimônia de chave
           key_ceremony_ended:
             errors:
               time_before: A eleição está pronta para começar. Você tem que esperar até %{hours} horas antes da hora de início (%{start_time}) para iniciar o período de votação.
+            invalid: Houve um problema ao iniciar o período de votação.
             requirements:
               time_before: A eleição começará em breve. Você pode iniciar o período de votação manualmente ou ele será iniciado automaticamente antes da hora inicial, às %{start_time}.
             submit: Iniciar período de votação
+            success: O pedido de período de votação foi enviado com sucesso para o Quadro de Notas.
             title: Preparado para começar
           processing: Processando...
           results_published:
@@ -323,9 +334,12 @@ pt-BR:
             result: Resultado
             selected: Selecionado
             submit: Publicar resultados
+            success: A publicação requerida foi enviada com sucesso para o Quadro de Boletim.
             title: Resultados calculados
           tally_started:
             continue: Continuar
+            invalid: Houve um problema ao relatar o síndico desaparecido.
+            mark_as_missing: Marcar como faltando
             title: Processo de registro
           vote:
             errors:
