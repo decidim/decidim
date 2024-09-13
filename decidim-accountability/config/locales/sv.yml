@@ -254,7 +254,7 @@ sv:
         name: Genomförande
         settings:
           global:
-            comments_enabled: Kommentarer på
+            comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             display_progress_enabled: Visa behandling
             intro: Intro
