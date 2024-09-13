@@ -215,7 +215,7 @@ sv:
             amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
             announcement: Meddelande
             answers_with_costs: Tillåt kostnader i svar på förslag
-            automatic_hashtags: Hashtags läggs till i alla förslag
+            automatic_hashtags: Hashtags som läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Deltagare kan skapa förslag
             creation_enabled_readonly: Den här inställningen är inaktiverad när du aktiverar funktionen Kollaborativa Texter. För att ladda upp förslag som kollaborativa klickar du på knappen Kollaborativa Texter och följer instruktionerna.
@@ -235,7 +235,7 @@ sv:
             proposal_answering_enabled: Svar på förslag aktiverat
             publish_answers_immediately: Publicera svar på förslag omedelbart
             publish_answers_immediately_help_html: 'Tänk på att om du svarar på förslag som inte är aktiverade, kommer du att behöva publicera dem manuellt genom att välja dem och använda åtgärden för publicering. För mer information om hur det här fungerar, se <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
-            suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
+            suggested_hashtags: Tips på hashtags till deltagarnas förslag
             votes_blocked: Röster blockerade
             votes_enabled: Röster aktiverade
             votes_hidden: Dölj antal röster (om röster är aktiverade, kommer antalet röster att döljas)
@@ -822,7 +822,7 @@ sv:
         alternative_title: Det finns inga kollaborativa texter just nu
         buttons:
           amend: Ändra
-          comment: Kommentar
+          comment: Kommentera
       proposal_votes:
         create:
           error: Det gick inte att rösta på förslaget.
