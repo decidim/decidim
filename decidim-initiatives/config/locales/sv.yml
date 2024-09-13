@@ -354,7 +354,7 @@ sv:
           success: Din förfrågan har skickats till författaren av initiativet.
       content_blocks:
         highlighted_initiatives:
-          name: Viktiga initiativ
+          name: Viktiga initiativ just nu
       create_initiative:
         fill_data:
           back: Tillbaka
