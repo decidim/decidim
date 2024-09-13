@@ -8,7 +8,7 @@ namespace :decidim do
 
       clean_up_unattached_blobs_after_in_minutes = args[:clean_up_unattached_blobs_after_in_minutes].to_i
 
-      ActiveStorage::Blob.unattached.where(created_at: ..clean_up_unattached_blobs_after_in_minutes.ago).find_each(batch_size: 100, &:purge_later)
+      ActiveStorage::Blob.unattached.where(created_at: ..clean_up_unattached_blobs_after_in_minutes.minutes.ago).find_each(batch_size: 100, &:purge_later)
     end
   end
 end
