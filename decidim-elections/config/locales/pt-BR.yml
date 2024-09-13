@@ -340,16 +340,23 @@ pt-BR:
             continue: Continuar
             invalid: Houve um problema ao relatar o síndico desaparecido.
             mark_as_missing: Marcar como faltando
+            mark_as_missing_description: Todos os curadores devem participar desse processo, mas se um curador não puder participar do processo, você pode marcá-lo como ausente.
+            success: O relatório do curador ausente foi enviado com sucesso ao Quadro de Avisos.
             title: Processo de registro
+            undo_mark_as_missing: Um curador marcado como perdido por erro será capaz de participar antes da conclusão do processo. Podem proceder como de costume, e a marca que falta será ignorada.
           vote:
             errors:
               time_after: A eleição ainda está em curso. Você tem que esperar até o fim do período de votação (%{end_time}).
+            invalid: Houve um problema ao terminar o período de votação.
             requirements:
               time_after: A eleição terminou. Você pode terminar o período de votação manualmente ou terminará automaticamente em alguns minutos.
             submit: Fim período de votação
+            success: Período de votação final foi enviado com sucesso para o Quadro de Notas.
             title: Período de votação
           vote_ended:
+            invalid: Houve um problema ao iniciar a apuração.
             submit: Iniciar a apuração
+            success: O início da apuração foi enviado com sucesso para o Quadro de Notas.
             text: A votação terminou. Você pode iniciar a apuração agora.
             title: O período de votação terminou
           vote_stats:
@@ -380,6 +387,7 @@ pt-BR:
             success: Curador %{trustee} atualizado com sucesso.
       admin_log:
         election:
+          create: "%{user_name} resultado criado %{resource_name} em %{space_name}"
           report_missing_trustee: "%{user_name} relatou %{trustee_name} como um fiduciário ausente durante o concurso para a eleição %{resource_name} de %{space_name} no Bulletin Board"
       connection:
         failed:
@@ -442,6 +450,7 @@ pt-BR:
           verifiable_results:
             checksum: 'Verificação de arquivo SHA256:'
             description:
+              not_ready: O arquivo eleitoral verificável e o checksum SHA256 ainda não estão disponíveis. Assim que os resultados forem publicados, você poderá verificar esta eleição.
               ready: 'Aqui, você tem a opção de verificar as eleições. Primeiro, você precisa baixar o arquivo e ter certeza de que ele não foi corrompido. Para fazer isso, execute o seguinte comando e verifique se a saída corresponde ao checksum:'
             how_to_verify: 'Uma vez que você baixou o arquivo e tenha certeza que tudo está correto, você pode prosseguir para executar o verificador universal. Clonar <a href=''https://github.com/decidim/decidim-bulletin-board''>este repositório</a> e, na pasta raiz, execute o seguinte comando:'
             title: Verificar resultados da eleição
@@ -455,6 +464,7 @@ pt-BR:
         filters:
           active: Ativo
           all: Todos
+          date: Encontro
           finished: Finalizado
           upcoming: Próximos
         preview:
@@ -491,6 +501,7 @@ pt-BR:
       feedback:
         answer:
           invalid: Houve um problema ao enviar seu feedback.
+          spam_detected: Houve algum problema ao responder ao formulário. Talvez você tenha sido rápido demais, pode tentar novamente?
           success: Feedback enviado com sucesso.
       models:
         answer:
@@ -554,18 +565,26 @@ pt-BR:
             title: Restaurar chaves eleitorais para %{election}
             upload_election_keys: Upload das chaves eleitorais
           tally_started_steps:
+            back: Costas
             description: Os resultados para esta eleição estão sendo calculados no Quadro de Notas. Para completar este processo, é necessário a sua participação como um curador.
             keys:
               end_tally: Apuração encerrada
               tally:
                 cast: Transmissão de apuração
                 share: Compartilhar apuração
+            list:
+              status: Status
+              task: Tarefa
             process_warning: Depois que o processo for iniciado, você não deverá sair desta página até que o processo termine. Levará vários minutos, pois todos os fiduciários deverão estar conectados para completá-lo.
+            start: Iniciar
             status:
               completed: Concluído
               pending: Pendente
               processing: Processando
             title: Apuração para %{election}
+          update:
+            error: O status da eleição não foi atualizado.
+            success: 'O status da eleição é: %{status}.'
         menu:
           trustee_zone: Zona dos curadores
         no_bulletin_board:
@@ -591,13 +610,21 @@ pt-BR:
               generate_legend: Você precisa gerar um par de chaves de identificação para participar das eleições como um Trustee.
               generate_legend_1: Depois de pressionar o botão, você deve baixar o arquivo com as chaves de identificação geradas.
               generate_legend_2: Copie o arquivo baixado para um dispositivo USB limpo
+              generate_legend_3: Certifique-se de que seu computador não tenha uma cópia do arquivo (por exemplo, verifique as pastas Downloads e Desktop).
               generate_legend_4: Faça outra cópia do arquivo em um dispositivo externo diferente e armazene-o em um lugar muito seguro.
               submit: Enviar
               submit_legend: Depois de seguir todos os passos explicados acima, complete o processo enviando a chave de identificação pública para o servidor.
               submit_title: Enviar a chave de identificação pública
               title: Chaves de identificação de curadores
               upload: Envie suas chaves de identificação
+              upload_error:
+                invalid_format: O arquivo enviado não contém nenhuma chave de identificação.
+                invalid_key: As chaves de identificação no arquivo enviado não podem ser carregadas.
+                invalid_public_key: As chaves de identificação no arquivo enviado não correspondem à chave de identificação pública armazenada.
+              upload_legend: O servidor possui suas chaves de identificação pública, mas seu navegador ainda não as têm. Você precisa importar o arquivo com as suas chaves de identificação para o seu computador, a partir do "backup" que você criou após gerá-las.
+            not_supported_browser_description: Parece que você está usando um navegador da web que não pode ser usado para atuar como um curador. Certifique-se de estar usando a versão mais recente do seu navegador, ou tente usar qualquer um dos navegadores mais populares para conseguir completar suas tarefas de confiança.
             not_supported_browser_title: Atualize o navegador para agir como um curador
+            trustee_role_description: Você foi designado para agir como um curador em algumas das eleições realizadas nesta plataforma.
           update:
             success: Sua chave pública de identificação foi armazenada com sucesso.
       votes:
@@ -639,6 +666,8 @@ pt-BR:
         header:
           ballot_decision: Transmita ou audite seu voto
           confirm: Confirme seu voto
+          election: Eleição
+          register: Registrar-se
         messages:
           invalid_token: A sua sessão na cabine de votação não é válida. Tente votar novamente.
           not_allowed: Não está autorizado a votar nesta eleição neste momento.
@@ -675,6 +704,7 @@ pt-BR:
             title: Verifique seu voto
           success:
             header: Voto localizado!
+            info: Seu voto criptografado está na urna %{link}.
         voting_step:
           back: Voltar
           continue: Próxima
