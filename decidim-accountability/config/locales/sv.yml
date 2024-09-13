@@ -261,7 +261,7 @@ sv:
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
           step:
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
     events:
       accountability:
         proposal_linked:
