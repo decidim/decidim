@@ -42,6 +42,7 @@ shared_examples "followable content for users" do
     end
   end
 end
+
 shared_examples "followable space content for users" do
   before do
     switch_to_host(organization.host)
