@@ -97,7 +97,7 @@ sv:
         order:
           best_rated: Bästa betyg
           most_discussed: Mest diskuterade
-          older: Äldre
+          older: Äldsta
           recent: Senaste
         title: 'Sortera efter:'
       comments:
