@@ -1,7 +1,7 @@
 <div class="comment-order-by">
   <%= form_with url: "#" do %>
     <label for="order"><%= t("decidim.components.comment.sort_by") %></label>
-    <select aria-label="Owrder" data-order-comment-select="true">
+    <select aria-label="Order" data-order-comment-select="true">
        <% available_orders.each do |order_value| %>
         <option
            value="<%= order_value %>"
