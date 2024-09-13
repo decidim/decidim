@@ -6,18 +6,25 @@ module Decidim
       # Serializes an initiative
       def serialize
         {
-          id: resource.id,
+          reference: resource.reference,
           title: resource.title,
           description: resource.description,
           state: resource.state,
           created_at: resource.created_at,
           published_at: resource.published_at,
+          signature_start_date: resource.signature_start_date,
           signature_end_date: resource.signature_end_date,
           signature_type: resource.signature_type,
           signatures: resource.supports_count,
+          answer: resource.answer,
+          answered_at: resource.answered_at,
+          answer_url: resource.answer_url,
+          hashtag: resource.hashtag,
+          first_progress_notification_at: resource.first_progress_notification_at,
+          second_progress_notification_at: resource.second_progress_notification_at,
           scope: {
-            id: resource.scope&.id, 
-            name: resource.scope&.name
+            id: resource.scope.try(:id),
+            name: resource.scope.try(:name) || empty_translatable
           },
           type: {
             id: resource.type&.id,
@@ -28,8 +35,8 @@ module Decidim
             name: resource.author_users.map(&:name)
           },
           area: {
-            id: resource.area&.id,
-            name: resource.area&.name
+            id: resource.area.try(:id),
+            name: resource.area.try(:name) || empty_translatable
           }
         }
       end

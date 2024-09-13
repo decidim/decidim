@@ -10,8 +10,8 @@ module Decidim::Initiatives
     let(:serialized) { subject.serialize }
 
     describe "#serialize" do
-      it "includes the id" do
-        expect(serialized).to include(id: initiative.id)
+      it "includes the reference" do
+        expect(serialized).to include(reference: initiative.reference)
       end
 
       it "includes the title" do
@@ -34,6 +34,10 @@ module Decidim::Initiatives
         expect(serialized).to include(published_at: initiative.published_at)
       end
 
+      it "includes the signature_start_date" do
+        expect(serialized).to include(signature_start_date: initiative.signature_start_date)
+      end
+
       it "includes the signature_end_date" do
         expect(serialized).to include(signature_end_date: initiative.signature_end_date)
       end
@@ -46,8 +50,40 @@ module Decidim::Initiatives
         expect(serialized).to include(signatures: initiative.supports_count)
       end
 
+      it "includes the answer" do
+        expect(serialized).to include(answer: initiative.answer)
+      end
+
+      it "includes the answered_at" do
+        expect(serialized).to include(answered_at: initiative.answered_at)
+      end
+
+      it "includes the answer_url" do
+        expect(serialized).to include(answer_url: initiative.answer_url)
+      end
+
+      it "includes the hashtag" do
+        expect(serialized).to include(hashtag: initiative.hashtag)
+      end
+
+      it "includes the first_progress_notification_at timestamp" do
+        expect(serialized).to include(first_progress_notification_at: initiative.first_progress_notification_at)
+      end
+
+      it "includes the second_progress_notification_at timestamp" do
+        expect(serialized).to include(second_progress_notification_at: initiative.second_progress_notification_at)
+      end
+
+      it "includes the scope id" do
+        expect(serialized[:scope]).to include(id: initiative.scope.id)
+      end
+
       it "includes the scope name" do
         expect(serialized[:scope]).to include(name: initiative.scope.name)
+      end
+
+      it "includes the type id" do
+        expect(serialized[:type]).to include(id: initiative.type.id)
       end
 
       it "includes the type title" do
@@ -60,6 +96,10 @@ module Decidim::Initiatives
 
       it "includes the authors' names" do
         expect(serialized[:authors]).to include(name: initiative.author_users.map(&:name))
+      end
+
+      it "includes the area id" do
+        expect(serialized[:area]).to include(id: initiative.area.id)
       end
 
       it "includes the area name" do
