@@ -139,9 +139,11 @@ pt-BR:
           show: Exibir configurações avançadas
         create:
           error: Ocorreu um erro ao criar uma nova organização.
+          error_invitation: Ocorreu um erro ao criar uma nova organização. Revise o nome do administrador da organização.
           success: Organização criada com sucesso.
         edit:
           secondary_hosts_hint: Insira cada um deles em uma nova linha
+          title: Editar organização
         file_upload_settings:
           content_types:
             admin_hint: Esses tipos MIME são permitidos para uploads de seções do admin. Os usuários de administração devem estar cientes dos riscos de carregar alguns formatos de documento, então você pode esperar que eles sejam mais cautelosos com o envio de arquivos.
