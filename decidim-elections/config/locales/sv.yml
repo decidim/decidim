@@ -561,7 +561,7 @@ sv:
           voting:
             fields:
               created_at: Skapad den
-              promoted: Uppmärksammad
+              promoted: Utvald
               published: Publicerad
               title: Titel
         monitoring_committee_election_results:
