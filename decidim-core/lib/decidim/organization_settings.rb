@@ -104,7 +104,7 @@ module Decidim
         {
           "upload" => {
             "allowed_file_extensions" => {
-              "default" => %w(jpg jpeg png webp pdf rtf txt md),
+              "default" => %w(jpg jpeg png webp pdf rtf txt),
               "admin" => %w(jpg jpeg png webp pdf doc docx xls xlsx ppt pptx ppx rtf txt odt ott odf otg ods ots csv json md),
               "image" => %w(jpg jpeg png webp)
             },
