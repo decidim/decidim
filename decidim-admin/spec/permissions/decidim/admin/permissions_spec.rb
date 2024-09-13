@@ -354,6 +354,14 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "soft delete" do
+    let(:action_subject) { :soft_delete }
+
+    context "when any action" do
+      it { is_expected.to be true }
+    end
+  end
+
   shared_examples "can perform any action for" do |action_subject_name|
     let(:action_subject) { action_subject_name }
 

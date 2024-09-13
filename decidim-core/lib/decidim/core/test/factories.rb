@@ -526,6 +526,10 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
+    trait :trashed do
+      deleted_at { Time.current }
+    end
+
     trait :with_amendments_enabled do
       settings do
         {

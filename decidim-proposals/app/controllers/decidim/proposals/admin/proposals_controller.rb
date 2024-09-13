@@ -137,12 +137,12 @@ module Decidim
 
           Admin::UpdateProposal.call(@form, @proposal) do
             on(:ok) do |_proposal|
-              flash[:notice] = t("proposals.update.success", scope: "decidim.admin")
+              flash[:notice] = t("proposals.update.success", scope: "decidim")
               redirect_to proposals_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = t("proposals.update.error", scope: "decidim.admin")
+              flash.now[:alert] = t("proposals.update.error", scope: "decidim")
               render :edit
             end
           end

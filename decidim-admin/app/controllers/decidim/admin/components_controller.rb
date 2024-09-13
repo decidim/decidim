@@ -140,7 +140,7 @@ module Decidim
 
       def soft_delete
         @component = query_scope.find(params[:id])
-        enforce_permission_to :soft_delete, :component, component: @component
+        enforce_permission_to :soft_delete, :soft_delete, component: @component
 
         Decidim::Commands::SoftDeleteResource.call(@component, current_user) do
           on(:ok) do
@@ -161,7 +161,7 @@ module Decidim
 
       def restore
         @component = deleted_components.find(params[:id])
-        enforce_permission_to :restore, :component, component: @component
+        enforce_permission_to :restore, :restore_component, component: @component
 
         Decidim::Commands::RestoreResource.call(@component, current_user) do
           on(:ok) do

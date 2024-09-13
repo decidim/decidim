@@ -64,10 +64,13 @@ module Decidim
             permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
           end
 
-          allow! if permission_action.subject == :taxonomy_item
+          unless current_participatory_space_is_initiative?
+            allow! if permission_action.subject == :soft_delete
+            allow! if permission_action.subject == :deleted_components
+            allow! if permission_action.subject == :restore_component
+          end
 
-          allow_soft_delete? if permission_action.subject == :component && permission_action.action == :soft_delete
-          allow_show_deleted? if permission_action.subject == :deleted_components && permission_action.action == :deleted
+          allow! if permission_action.subject == :taxonomy_item
         end
 
         permission_action
@@ -277,14 +280,6 @@ module Decidim
 
       def current_participatory_space_is_initiative?
         current_participatory_space.is_a?(Decidim::Initiative)
-      end
-
-      def allow_soft_delete?
-        toggle_allow(!current_participatory_space_is_initiative?)
-      end
-
-      def allow_show_deleted?
-        toggle_allow(!current_participatory_space_is_initiative?)
       end
     end
   end
