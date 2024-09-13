@@ -279,7 +279,7 @@ sv:
         orders:
           highest_cost: Högst kostnad
           label: Sortera projekt efter
-          lowest_cost: Lägsta kostnad
+          lowest_cost: Lägst kostnad
           most_voted: Mest röster
           random: Slumpvis ordning
           selected: Valda
@@ -337,8 +337,8 @@ sv:
             scopes_enabled: Aktivera indelningar
             title: Titel
             total_budget: Total budget
-            vote_minimum_budget_projects_number: Minsta antal projekt att rösta om
-            vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta om'
+            vote_minimum_budget_projects_number: Minsta antal projekt att rösta på
+            vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta på'
             vote_rule_selected_projects_enabled: 'Aktivera regel: Minsta och högsta antal projekt att rösta på'
             vote_rule_threshold_percent_enabled: 'Aktivera regel: Lägsta procentandel av budget'
             vote_selected_projects_maximum: Maximalt antal projekt att välja
