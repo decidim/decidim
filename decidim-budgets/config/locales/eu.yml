@@ -319,7 +319,7 @@ eu:
               errors:
                 budget_voting_rule_only_one: Soilik bozketa-arau bat gaitu behar da.
                 budget_voting_rule_required: Bozketarako arau bat behar da.
-            geocoding_enabled: Geokodifikazioa gaitua
+            geocoding_enabled: Mapak gaituta
             landing_page_content: Aurrekontuen hasierako orria
             more_information_modal: '"Informazio gehiago"ren modala'
             projects_per_page: Orrialde bakoitzeko proiektuak

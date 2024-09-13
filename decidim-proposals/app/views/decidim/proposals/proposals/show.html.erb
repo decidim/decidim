@@ -1,8 +1,8 @@
-<% add_decidim_meta_tags({
-                           description: present(@proposal).body,
-                           title: present(@proposal).title,
-                           url: proposal_url(@proposal.id)
-                         }) %>
+<% add_decidim_meta_tags(
+  description: present(@proposal).body,
+  title: present(@proposal).title,
+  url: proposal_url(@proposal.id),
+  resource: @proposal) %>
 
 <%
 edit_link(
@@ -87,6 +87,8 @@ extra_admin_link(
   <section class="layout-main__section">
     <%= cell "decidim/amendable/amendments", @proposal %>
   </section>
+
+  <%= cell "decidim/tags", @proposal %>
 
   <%= render partial: "actions" %>
 

@@ -21,8 +21,9 @@ cs:
               too_long: je příliš dlouhý
             choices:
               missing: nejsou úplné
+              too_many: Můžete si vybrat maximálně %{count}.
         questionnaire:
-          request_invalid: Při zpracování požadavku došlo k chybě. Zkuste to prosím znovu.
+          request_invalid: Při zpracování požadavku se vyskytl problém. Zkuste to znovu.
   decidim:
     forms:
       admin:

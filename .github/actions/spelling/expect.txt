@@ -357,6 +357,7 @@ gpu
 gql
 Graphi
 graphiql
+Gruhier
 groupless
 grup
 gsutil
@@ -467,6 +468,7 @@ LCell
 legacysupport
 Lesch
 lfo
+libu
 libicu
 libpq
 libreadline
@@ -917,6 +919,7 @@ tzid
 tzip
 uber
 ucw
+udev
 ueee
 ugc
 ujs

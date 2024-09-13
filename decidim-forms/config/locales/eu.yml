@@ -23,7 +23,7 @@ eu:
               missing: ez dira osatu
               too_many: Gehienez, %{count} aukeratu ahal duzu.
         questionnaire:
-          request_invalid: Errore bat egon da eskaera bidaltzean. Mesedez, saiatu berriro.
+          request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, saiatu berriro.
   decidim:
     forms:
       admin:
