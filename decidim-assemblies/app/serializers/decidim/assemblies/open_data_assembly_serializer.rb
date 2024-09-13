@@ -47,7 +47,10 @@ module Decidim
             youtube_handler: resource.youtube_handler,
             github_handler: resource.github_handler,
             created_by_other: resource.created_by_other,
-            decidim_assemblies_type_id: resource.decidim_assemblies_type_id,
+            assembly_type: {
+              id: resource.assembly_type.try(:id),
+              title: resource.assembly_type.try(:title) || empty_translatable
+            }
           }
         )
       end

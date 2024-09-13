@@ -51,7 +51,6 @@ module Decidim::Assemblies
         expect(serialized).to include(youtube_handler: resource.youtube_handler)
         expect(serialized).to include(github_handler: resource.github_handler)
         expect(serialized).to include(created_by_other: resource.created_by_other)
-        expect(serialized).to include(decidim_assemblies_type_id: resource.decidim_assemblies_type_id)
       end
 
       context "when assembly has area" do
@@ -87,6 +86,24 @@ module Decidim::Assemblies
 
           expect(serialized_scope).to include(id: resource.scope.id)
           expect(serialized_scope).to include(name: resource.scope.name)
+        end
+      end
+
+      context "when assembly has type" do
+        let(:assembly_type) { create(:assemblies_type, organization: resource.organization) }
+
+        before do
+          resource.assembly_type = assembly_type
+          resource.save
+        end
+
+        it "includes the assembly type" do
+          serialized_assembly_type = subject.serialize[:assembly_type]
+
+          expect(serialized_assembly_type).to be_a(Hash)
+
+          expect(serialized_assembly_type).to include(id: resource.assembly_type.id)
+          expect(serialized_assembly_type).to include(title: resource.assembly_type.title)
         end
       end
 
