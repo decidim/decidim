@@ -26,17 +26,13 @@ extra_admin_link(
 <% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <% append_javascript_pack_tag "decidim_proposals" %>
 
-<% content_for :item_header do %>
-  <%if show_voting_rules? %>
-    <%= render partial: "proposal_voting_rules" %>
-  <% end %>
-<% end %>
-
 <% content_for :aside do %>
   <%= render partial: "proposal_aside" %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: component_settings.participatory_texts_enabled? ? main_component_path(current_component) : proposals_path } do %>
+
+  <%= render partial: "update_proposal_voting_rules" %>
 
   <section class="layout-main__section layout-main__heading">
     <% unless vote_limit_enabled? && remaining_votes_count_for(current_user) == 0 && current_component.participatory_space.can_participate?(current_user) %>
