@@ -20,7 +20,7 @@ sv:
       admin:
         shared:
           availability_fields:
-            enabled: Kommentarer aktiverade
+            enabled: Aktivera kommentarer
             end_time: Kommentarer aktiverade till och med
             start_time: Kommentarer aktiverade från och med
       comments:
