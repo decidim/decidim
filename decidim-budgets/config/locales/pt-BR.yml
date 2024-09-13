@@ -141,6 +141,7 @@ pt-BR:
           new:
             create: Importar propostas para projetos
             default_budget: Orçamento padrão
+            import_all_accepted_proposals: Importar todas as propostas aceitas
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas para projetos.
             origin_component_id: Componente de origem
             select_component: Selecione um componente
@@ -178,6 +179,8 @@ pt-BR:
         highlighted_cta: Votar em %{name}
         if_change_opinion: Se você mudou de ideia, você pode
         my_budgets: Meus orçamentos
+        progress: Terminar votação
+        show: Ver projetos
         vote: Voto
         voted_on: Você votou em %{links}
       last_activity:
@@ -193,6 +196,8 @@ pt-BR:
             total_budget: Orçamento total
         project:
           fields:
+            category: Categoria
+            id: ID
             scope: Âmbito
             title: Título
       order_summary_mailer:
@@ -249,6 +254,7 @@ pt-BR:
         exit_modal:
           cancel: Voltar à votação
           close_modal: Fechar modal
+          exit: Sair da votação
           message: Seu voto não foi registrado porque você ainda não concluiu o processo de votação. Tem certeza que deseja sair da votação?
           title: Você ainda não votou
         filters:
