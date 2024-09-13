@@ -129,28 +129,28 @@ sv:
           amend: Ändra
           comment: Kommentera
           create: Skapa
-          endorse: Stöd
+          endorse: Gilla
           vote: Stötta
           vote_comment: Rösta på en kommentar
           withdraw: Dra tillbaka
         name: Förslag
         settings:
           global:
-            amendments_enabled: Ändringar möjliga
-            amendments_enabled_help: Om aktivt, konfigurera ändringsfunktioner till varje steg.
+            amendments_enabled: Aktivera ändringsförslag
+            amendments_enabled_help: Aktivera för kunna konfigurera ändringsförslag för varje steg.
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
-            can_accumulate_supports_beyond_threshold: Kan samla in stöd bortom tröskeln
-            collaborative_drafts_enabled: Samarbetsutkast aktiverat
-            comments_enabled: Kommentarer aktiverade
+            can_accumulate_supports_beyond_threshold: Kan få stöd utöver den satta gränsen
+            collaborative_drafts_enabled: Aktivera gemensamma utkast
+            comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             default_sort_order: Förvald sortering
             default_sort_order_help: Förinställt innebär att om stödet är aktiverat kommer förslagen sorteras slumpmässigt, och om stöden är blockerade kommer de att sorteras efter mest stödda.
             default_sort_order_options:
               default: Förinställt
               most_commented: Mest kommenterade
-              most_endorsed: Mest stöd
+              most_endorsed: Mest gillat
               most_followed: Mest följda
               most_voted: Mest stödda
               random: Slumpvis
@@ -160,9 +160,9 @@ sv:
             minimum_votes_per_user: Minsta antal stöd per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
-            new_proposal_help_text: Hjälptext om nya förslag
-            official_proposals_enabled: Officiella förslag aktiverade
-            participatory_texts_enabled: Kollaborativa texter är aktiverade
+            new_proposal_help_text: Hjälptext till nya förslag
+            official_proposals_enabled: Aktivera officiella förslag
+            participatory_texts_enabled: Aktivera kollaborativa texter
             participatory_texts_enabled_readonly: Det går inte att ändra den här inställningen om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag under menyn `Kollaborativa texter` om du vill avaktivera den.
             proposal_answering_enabled: Aktivera svar på förslag
             proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
@@ -175,12 +175,12 @@ sv:
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
             proposal_wizard_step_2_help_text: Hjälptext till steget "Jämför" i förslagsguiden
             proposal_wizard_step_3_help_text: Hjälptext till steget "Komplettera" i förslagsguiden
-            proposal_wizard_step_4_help_text: Hjälptext för steget ”Publicera” i förslagsguiden
+            proposal_wizard_step_4_help_text: Hjälptext till steget ”Publicera” i förslagsguiden
             resources_permissions_enabled: Behörigheter kan ställas in för varje förslag
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
             threshold_per_proposal: Minsta antal per förslag
-            vote_limit: Stödgräns per deltagare
+            vote_limit: Max antal stöd varje deltagare kan ge
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
             amendment_creation_enabled_help: Deltagare kan ändra förslag.
@@ -204,14 +204,14 @@ sv:
             default_sort_order_options:
               default: Förinställt
               most_commented: Mest kommenterade
-              most_endorsed: Mest stöd
+              most_endorsed: Mest gillat
               most_followed: Mest följda
               most_voted: Mest stödda
               random: Slumpvis
               recent: Senaste
               with_more_authors: Med flera författare
-            endorsements_blocked: Stöd är blockerade
-            endorsements_enabled: Stöd är aktiverade
+            endorsements_blocked: Blockera gilla-markeringar
+            endorsements_enabled: Aktivera gilla-markeringar
             proposal_answering_enabled: Svar på förslag aktiverat
             publish_answers_immediately: Publicera svar på förslag omedelbart
             suggested_hashtags: Tips på hashtags till deltagarnas förslag
@@ -262,7 +262,7 @@ sv:
           email_subject: Det är nu möjligt att skapa förslag i %{participatory_space_title}
           notification_title: Nu kan du lägga fram <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Du kan stödja förslag på %{participatory_space_title}! Börja att delta på den här sidan:'
+          email_intro: 'Du kan gilla förslag på %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Stöd till förslag har startat för %{participatory_space_title}
           notification_title: Du kan nu börja att <a href="%{resource_path}">instämma i förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -369,9 +369,9 @@ sv:
         object: förslag
         title: Accepterade förslag
       endorsements:
-        description: Antal stöd till förslag
-        object: stöd
-        title: Stöd
+        description: Antal gilla-markeringar för förslag
+        object: gilla-markeringar
+        title: Gilla-markeringar
       proposals:
         description: Antal förslag
         object: förslag
@@ -534,9 +534,9 @@ sv:
             comments_positive_count: För
             created_at: Skapelsedatum
             documents: Dokument
-            endorsements_count: Antal stöd
-            endorsements_ranking: Sortera efter instämmanden
-            endorsers: Stöd
+            endorsements_count: Antal som gilla-markeringar
+            endorsements_ranking: Sortera efter gillat
+            endorsers: Gillar
             link: Länk
             n_more_endorsers:
               one: och 1 till
@@ -835,7 +835,7 @@ sv:
         orders:
           label: 'Ordna förslag efter:'
           most_commented: Mest kommenterade
-          most_endorsed: Mest stöd
+          most_endorsed: Mest gillat
           most_followed: Mest följda
           most_voted: Mest stöd
           random: Slumpvis
@@ -870,7 +870,7 @@ sv:
           changes_at_title: Ändring till %{title}
           comments: Kommentarer
           edit_proposal: Redigera förslag
-          endorsements_list: Lista över instämmanden
+          endorsements_list: Lista över gilla-markeringar
           estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
             one: och %{count} till person
