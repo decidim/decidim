@@ -76,14 +76,6 @@ module Decidim
               html_opts)
       end
     end
-
-    def grouped_collection_select(attribute, collection, group_method, group_label_method, option_key_method, option_value_method, options = {}, html_options = {})
-      field attribute, options, html_options do |html_opts|
-        html_options[:autocomplete] ||= :off
-        super(attribute, collection, group_method, group_label_method,
-              option_key_method, option_value_method, options, html_opts)
-      end
-    end
     # rubocop:enable Metrics/ParameterLists
 
     def autocomplete(attribute, url, options = {})
