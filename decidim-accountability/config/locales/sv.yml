@@ -227,7 +227,7 @@ sv:
           empty_filters: Det finns inget resultat med de här kriterierna.
           subcategories_label: Underkategorier
         home_header:
-          global_status: Global genomförandestatus
+          global_status: Status för genomförande
         nav_breadcrumb:
           global: Globalt genomförande
         no_results: Det finns inga projekt
@@ -250,7 +250,7 @@ sv:
     components:
       accountability:
         actions:
-          comment: Kommentar
+          comment: Kommentera
         name: Genomförande
         settings:
           global:
