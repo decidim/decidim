@@ -141,6 +141,8 @@ pt-BR:
               selected: 'Estes projetos foram selecionados com sucesso para a implementação: %{projects}.'
               unselected: 'Estes projetos foram desselecionados da implementação com sucesso: %{projects}.'
         proposals_imports:
+          create:
+            success: ""
           new:
             create: Importar propostas para projetos
             default_budget: Orçamento padrão
