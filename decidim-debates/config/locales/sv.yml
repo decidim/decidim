@@ -41,7 +41,7 @@ sv:
             scopes_enabled: Aktivera indelningar
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
             creation_enabled: Deltagarna kan skapa debatter
             endorsements_blocked: Blockera gilla-markeringar
             endorsements_enabled: Aktivera gilla-markeringar
