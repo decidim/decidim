@@ -83,7 +83,7 @@ sv:
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
             endorsements_blocked: Blockera gilla-markeringar
             endorsements_enabled: Aktivera gilla-markeringar
     events:
