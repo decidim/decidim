@@ -156,7 +156,7 @@ sv:
               random: Slumpvis
               recent: Senaste
               with_more_authors: Med flera författare
-            geocoding_enabled: Geokodning aktiverad
+            geocoding_enabled: Aktivera visning på karta
             minimum_votes_per_user: Minsta antal stöd per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
@@ -195,7 +195,7 @@ sv:
             amendments_visibility_help: Om alternativet "Ändringsförslag visas endast för sina författare" är markerat måste deltagaren vara inloggad för att kunna se ändringarna.
             announcement: Meddelande
             answers_with_costs: Tillåt kostnader i svar på förslag
-            automatic_hashtags: Hashtags läggs till i alla förslag
+            automatic_hashtags: Hashtags som läggs till i alla förslag
             comments_blocked: Kommentarer blockerade
             creation_enabled: Deltagare kan skapa förslag
             creation_enabled_readonly: Den här inställningen är inaktiverad när du aktiverar funktionen Kollaborativa Texter. För att ladda upp förslag som kollaborativa klickar du på knappen Kollaborativa Texter och följer instruktionerna.
@@ -214,7 +214,7 @@ sv:
             endorsements_enabled: Stöd är aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
             publish_answers_immediately: Publicera svar på förslag omedelbart
-            suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
+            suggested_hashtags: Tips på hashtags till deltagarnas förslag
             votes_blocked: Stöd blockerat
             votes_enabled: Stöd aktiverat
             votes_hidden: Stöd dolda (om stöd är aktiverade, kommer detta att gömma antalet stöd)
@@ -763,7 +763,7 @@ sv:
         alternative_title: Det finns inga kollaborativa texter just nu
         buttons:
           amend: Ändra
-          comment: Kommentar
+          comment: Kommentera
           comments: Kommentarer
       proposal_votes:
         create:
