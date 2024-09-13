@@ -486,7 +486,7 @@ sv:
             dummy_global_attribute1: Dummy Attribut 1
             dummy_global_attribute2: Dummy Attribut 2
             dummy_global_translatable_text: Översättningsbar exempeltext
-            enable_pads_creation: Aktivera skapande av memo
+            enable_pads_creation: Aktivera gemensamma anteckningar
             resources_permissions_enabled: Resursbehörigheter på
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
@@ -520,7 +520,7 @@ sv:
         background_image: Bakgrundsbild
         welcome_text: Välkomsttext
       highlighted_content_banner:
-        name: Banner för uppmärksammat innehåll
+        name: Banner med utvalt innehåll
       highlighted_elements_settings_form:
         components:
           all: Alla
@@ -545,7 +545,7 @@ sv:
       metadata:
         name: Metadata
       metrics:
-        name: Organisationsmetrik
+        name: Organisationsdata
       participatory_space_metrics:
         name: Deltagande i siffror
       participatory_space_stats:
@@ -566,7 +566,7 @@ sv:
       stats:
         name: Organisationsstatistik
       sub_hero:
-        name: Sub hjälte banner
+        name: Banner under huvudbilden
     core:
       actions:
         login_before_access: Du behöver logga in för att komma åt det här innehållet.
@@ -1290,13 +1290,13 @@ sv:
       home:
         extended:
           debates: Debatter
-          debates_explanation: Debattera och diskutera, dela dina åsikter och berika de relevanta ämnena.
+          debates_explanation: Debattera och diskutera, dela dina åsikter och bidra till intressanta samtal.
           how_to_participate: Hur deltar jag i en process?
           meetings: Möten
           meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
           more_info: Mer information om %{resource_name}
           proposals: Förslag
-          proposals_explanation: Lämna förslag, stötta befintliga förslag och stöd de förändringar som du vill se.
+          proposals_explanation: Lämna förslag, rösta på befintliga förslag och stöd de förändringar som du vill se.
         footer_sub_hero:
           footer_sub_hero_body_html: Låt oss skapa ett mer öppet, transparent och deltagande samhälle.<br /> Gå med, delta och fatta beslut.
           footer_sub_hero_headline: Välkommen till %{organization} deltagarplattform.
