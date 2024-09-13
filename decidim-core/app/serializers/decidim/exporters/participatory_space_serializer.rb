@@ -3,7 +3,7 @@
 module Decidim
   module Exporters
     # This class serves as the base class for the serializers that export
-    # particiaptory spaces.
+    # participatory spaces.
     class ParticipatorySpaceSerializer < Decidim::Exporters::Serializer
       include Decidim::ApplicationHelper
       include Decidim::ResourceHelper
