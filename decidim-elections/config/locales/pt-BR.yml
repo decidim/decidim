@@ -261,6 +261,7 @@ pt-BR:
             success: Questão atualizada com sucesso
         steps:
           create_election:
+            census: Censo
             errors:
               census_codes_generated: Códigos de acesso do censo não foram gerados.
               census_frozen: Códigos de acesso do censo não foram exportados.
@@ -300,6 +301,7 @@ pt-BR:
             title: Eleição criada
             trustees: Agentes fiduciários
           key_ceremony:
+            continue: Continuar
             title: Cerimônia de chave
           key_ceremony_ended:
             errors:
@@ -331,6 +333,7 @@ pt-BR:
           tally_started:
             continue: Continuar
             invalid: Houve um problema ao relatar o síndico desaparecido
+            mark_as_missing: Marcar como faltando
             mark_as_missing_description: Todos os curadores devem participar desse processo, mas se um síndico não puder participar do processo, você pode marcá-lo como ausente.
             success: O relatório do síndico ausente foi enviado com sucesso ao Quadro de Avisos
             title: Processo de registro
