@@ -710,6 +710,7 @@ pt-BR:
           continue: Próxima
       warnings:
         no_elections_warning: Nenhuma eleição corresponde aos seus critérios de pesquisa ou não há nenhuma eleição agendada.
+        no_scheduled_elections_warning: Atualmente, não há eleições agendadas, mas aqui podem encontrar uma lista de todas as últimas eleições.
     events:
       elections:
         election_published:
@@ -720,15 +721,18 @@ pt-BR:
         trustees:
           new_election:
             email_intro: Você foi adicionado como curador para a eleição %{resource_title}.
+            email_outro: Você recebeu esta notificação porque foi adicionado como curador da eleição %{resource_title}.
             email_subject: Você é um curador às eleições %{resource_title}..
             notification_title: Você é um curador pela eleição de <a href="%{resource_path}">%{resource_title}</a>.
           new_trustee:
             email_intro: Um administrador adicionou você como curador em %{resource_name}. Você deve criar sua chave pública <a href='%{trustee_zone_url}'>na sua zona de curador</a>
+            email_outro: Você recebeu esta notificação porque foi adicionado como curador por %{resource_name}.
             email_subject: Você é um curador por %{resource_name}.
             notification_title: Você é um curador de <a href="%{participatory_space_url}">%{resource_name}</a>.
         votes:
           accepted_votes:
             email_intro: 'Seu voto foi aceito! Usando o seu token de voto: %{encrypted_vote_hash}, você pode verificar seu voto <a href="%{verify_url}">aqui</a>.'
+            email_outro: Você recebeu esta notificação porque votou na eleição %{resource_name}.
             email_subject: Seu voto para %{resource_name} foi aceito.
             notification_title: 'Seu voto foi aceito. Verifique o seu voto <a href="%{verify_url}">aqui</a> usando o seu token de voto: %{encrypted_vote_hash}'
       votings:
@@ -749,18 +753,29 @@ pt-BR:
           title: O que são votações?
     menu:
       votings: Votações
+    participatory_spaces:
+      related_elections:
+        see_all: Todas as eleições
     statistics:
       elections_count: Eleições
       votings_count: Votações
     votings:
       admin:
         ballot_styles:
+          create:
+            error: Ocorreu um erro ao criar este estilo de cédula.
+            success: Estilo de cédula criado com sucesso.
+          destroy:
+            invalid: Ocorreu um erro ao excluir este estilo de cédula.
+            success: Estilo de cédula deletado com sucesso.
           edit:
             title: Editar estilo da cédula
             update: Atualizar
           form:
+            code_help: 'Dica: o código é a ligação entre o censo e um estilo de boleto. Ao carregar os dados do censo, será atribuído a cada entrada um estilo de voto correspondendo ao código.'
             election: Eleição
             questions: Perguntas para este estilo de cédula
+            questions_help: 'Dica: selecione as questões dos componentes da eleição a serem apresentados aos eleitores atribuídos a este estilo de cédula.'
           index:
             actions:
               confirm_destroy: Você tem certeza?
@@ -768,10 +783,14 @@ pt-BR:
               edit: Editar
               title: Ações
             associated_census_data: Entradas associadas de censo
+            explanation_callout: Um estilo de cédula especifica quais perguntas um eleitor será apresentado no estante. Num estilo de cédula, pode-se escolher as questões que os componentes eleitorais desta votação pertencem a uma cédula. O código de estilo da cédula é usada para combinar com o voto de um eleitor do censo com o voto que será apresentado na cabina. Não crie nenhum estilo de cédula se quiser sempre apresentar todas as perguntas.
             title: Estilo de cédula
           new:
             create: Criar
             title: Criar estilo de cédula
+          update:
+            invalid: Ocorreu um erro ao atualizar este estilo de cédula.
+            success: Estilo de cédula atualizado com sucesso.
         content_blocks:
           attachments_and_folders:
             name: Anexos e pastas de votação
@@ -785,6 +804,8 @@ pt-BR:
             name: Bloco de votação html 2
           html_block_3:
             name: Bloco de votação html 3
+          main_data:
+            name: Título e descrição
           metrics:
             name: Métricas de votação
           polling_stations:
@@ -797,6 +818,7 @@ pt-BR:
             name: Linha do tempo da votação
         index:
           published: Publicado
+          unpublished: Despublicado
         menu:
           votings: Votações
           votings_submenu:
@@ -863,8 +885,15 @@ pt-BR:
             publish_results: Publicar resultados
             publishing: Publicando resultados...
           update:
+            invalid: Ocorreu um erro ao publicar os resultados.
             rejected: A publicação dos resultados foi rejeitada pelo quadro de avisos. Tente novamente ou entre em contato com o administrador do sistema.
+            success: Os resultados foram publicados com sucesso.
         monitoring_committee_members:
+          create:
+            invalid: Houve um problema ao criar este membro do comitê de monitoramento.
+            success: Membro do comitê de monitoramento criado com sucesso.
+          destroy:
+            invalid: Houve um problema ao excluir este membro do comitê de monitoramento.
           form:
             existing_user: Usuário existente
             non_user: Convidar novo usuário
@@ -895,6 +924,8 @@ pt-BR:
           show:
             change_polling_station: Voltar para estações de votação
             monitoring_committee_notes: Observações do Comitê de Monitoramento
+          validate:
+            success: O fechamento foi validado corretamente.
         monitoring_committee_verify_elections:
           index:
             download: Download
@@ -905,6 +936,11 @@ pt-BR:
             not_available: Não disponível ainda
             title: Eleições
         polling_officers:
+          create:
+            invalid: Houve um problema ao criar este Agente de Enquete.
+          destroy:
+            invalid: Houve um problema ao excluir este oficial de enquete.
+            success: Agente de enquete excluído com sucesso.
           form:
             existing_user: Usuário existente
             non_user: Convidar novo usuário
@@ -919,7 +955,14 @@ pt-BR:
             title: Criar agente de enquete
           polling_officers_picker:
             choose_polling_officers: Escolher agentes de enquete
+            no_polling_officers: Nenhum agente de enquete corresponde aos seus critérios de pesquisa ou não há nenhum agente de enquete.
         polling_stations:
+          create:
+            invalid: Houve um problema ao criar esta estação de voto.
+            success: Estação de voto criada com sucesso.
+          destroy:
+            invalid: Houve um problema ao excluir esta estação de voto.
+            success: Estação de voto excluída com sucesso.
           edit:
             title: Editar estação de voto
             update: Atualizar estação de voto
@@ -928,12 +971,16 @@ pt-BR:
             location_help: 'Local: mensagem direcionada aos eleitores implicando o local exato da estação de voto'
             location_hints_help: 'Dicas de localização: informações adicionais. Exemplo: o piso do edifício onde a estação de voto está localizada.'
             polling_station_managers_help: 'Gerentes das estações de voto: os oficiais que atuarão como gestores das estações de voto. Assegure-se de que os oficiais já foram criados nos Agentes de Enquete e de que eles ainda não estão atribuídos a outra estação de voto'
+            polling_station_president_help: 'Oficial da estação de voto: o oficial que atuará como presidente da estação de voto. Verifique se o oficial já foi criado em Agentes de enquete e que ele(a) ainda não está atribuído a outra estação de voto'
             select_president: Selecione um Agente de Enquete como presidente da estação de voto
           index:
             title: Estações de votação
           new:
             create: Criar
             title: Criar estação de votação
+          update:
+            invalid: Houve um problema ao atualizar esta estação de voto.
+            success: Estação de voto atualizada com sucesso.
         titles:
           votings: Votações
         votings:
@@ -941,7 +988,12 @@ pt-BR:
             confirm_destroy: Você tem certeza?
             destroy: Destruir
             new_voting: Novo espaço de votação
+          create:
+            invalid: Tem havido um problema ao criar esta votação.
+            success: Votação criada com sucesso.
           edit:
+            add_election_component: Você não tem nenhuma eleição configurada para este voto. Por favor adicione-a na seção Componentes.
+            assign_missing_officers: Existem estações de votação sem Presidente e/ou gerentes. Por favor atribua-as a partir da seção estações de enquete.
             update: Atualizar
           form:
             banner_image: Imagem de banner
@@ -1064,6 +1116,7 @@ pt-BR:
             info_text: Por favor, introduza o número total de respostas para cada questão.
             modal_ballots_results_count_error:
               close_modal: Fechar
+              info_text: O número total de cédulas não corresponde ao número total de envelopes. Revise o total de votos.
               title: Total de cédulas não somados
             save_recount: Salvar recontagem
             total_ballots: Total de cédulas
@@ -1077,6 +1130,7 @@ pt-BR:
             modal_ballots_count_error:
               btn_validate_total: Validar a recontagem total de votos
               info_explanation_text: 'Por favor, reveja o número total de votos. Se o número total estiver incorreto, você deve fornecer uma explicação para o Comité de Acompanhamento:'
+              info_text: O número total de cédulas (envelopes) introduzidos não corresponde ao registro de pessoas que votaram nesta Estação.
               message_for_monitoring_committee: Mensagem para o Comitê de Monitoramento
               review_recount: Revisar a recontagem
               text_area_placeholder: Por favor, digite sua mensagem
@@ -1091,9 +1145,11 @@ pt-BR:
             info_text: Encerramento eleitoral da estação de voto.
           sign:
             cancel: Cancelar
+            check_box: Eu revisei isso e é o mesmo que o certificado de fechamento eleitoral físico
             confirm: Ok, continuar
             error: Ocorreu um erro. Por favor, tente novamente.
             heading: Recontagem de votos - Assinatura de encerramento
+            info_text: Se você continuar, você não poderá mais modificar nenhuma das informações, esta ação não poderá ser desfeita.
             submit: Assine o fechamento
             success: Encerramento assinado com sucesso.
           update:
@@ -1106,6 +1162,7 @@ pt-BR:
             census_verified_with_online_vote: Este usuário já votou online. Se eles votarem em pessoa, os votos anteriores serão invalidados e esta será a votação definitiva.
             complete_voting: Votação concluída
             identify_another: Identificar outro usuário
+            questions_title: 'Ela tem o direito de votar nas seguintes perguntas:'
             questions_title_voted: 'Este participante já votou online e tem direito a votar nas seguintes perguntas:'
             voted: O usuário votou
           create:
@@ -1161,6 +1218,7 @@ pt-BR:
         actions:
           confirm_destroy: Você tem certeza?
           destroy: Excluir
+          new: Criar agente de enquete
           title: Ações
         roles:
           manager: Gerente
@@ -1185,6 +1243,7 @@ pt-BR:
       votings:
         access_code_modal:
           email: Enviar por e-mail para %{email}
+          info: Você precisa de um Código de Acesso para participar. Se você não recebeu um por correio postal, podemos enviar um novo para você.
           no_email: Nenhum e-mail disponível
           no_sms: Nenhum número de telefone disponível
           sms: Enviar por SMS para %{sms}
@@ -1200,6 +1259,7 @@ pt-BR:
           success:
             access_link: via e-mail.
             access_link_with_sms: por SMS ou e-mail.
+            info: Você já deve ter recebido seu código de acesso por e-mail. Caso você não o tenha, você pode solicitá-lo aqui
             title: Seus dados do censo estão corretos!
           title: Posso votar?
         check_fields:
@@ -1237,13 +1297,17 @@ pt-BR:
           access_code: Código de Acesso
           access_code_placeholder: Código de Acesso
           ask_for_a_new_one: Peça um novo.
+          dont_have_access_code: Não tem um código de acesso?
           form_title: 'Preencha o formulário seguinte para acessar a votação:'
           start_voting: Começar a votar
           title: Identificar com meus dados do recenseamento de voto
+        no_census_contact_information: Ainda não há nenhuma informação de contato.
         orders:
           label: 'Classificar votos por:'
           random: Aleatório
           recent: Mais recente
+        send_access_code:
+          invalid: Houve um problema ao enviar o Código de Acesso.
         show:
           title: Sobre esta votação
       votings_m:
