@@ -396,7 +396,7 @@ sv:
       admin:
         content_blocks:
           highlighted_processes:
-            active: Aktiv
+            active: Pågående
             all: Alla
             max_results: Högsta antal element att visa
             selection_criteria: Urvalskriterier
