@@ -45,7 +45,7 @@ sv:
         parent_id: Överordnat samråd
         participatory_processes_ids: Relaterade deltagandeprocesser
         participatory_scope: Vad bestäms
-        participatory_structure: Hur bestäms det
+        participatory_structure: Hur fattas beslut
         private_space: Privat utrymme
         promoted: Uppmärksammad
         published_at: Publicerad
@@ -341,7 +341,7 @@ sv:
         working_group: Arbetsgrupp
       content_blocks:
         highlighted_assemblies:
-          name: Viktiga samråd
+          name: Viktiga samråd just nu
       created_by:
         city_council: Stadsfullmäktige
         others: Övriga
@@ -363,7 +363,7 @@ sv:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiva samråd
+            active_assemblies: Pågående samråd
             assemblies_button_title: Länk till sidan över grupper som visar alla grupper
             see_all_assemblies: Visa alla samråd
         user_profile:
@@ -387,7 +387,7 @@ sv:
           'true': transparent
         local_area: Område
         participatory_scope: Vad bestäms
-        participatory_structure: Hur bestäms det
+        participatory_structure: Hur fattas beslut
         private_space: Det här är ett privat samråd
         purpose_of_action: Syfte med åtgärden
         read_less: Läs mindre
@@ -449,9 +449,9 @@ sv:
           more_info: Mer information
           take_part: Delta
         index:
-          children: 'Grupper: '
+          children: 'Samråd: '
           organizational_chart: Organisationsschema
-          promoted_assemblies: Viktiga samråd
+          promoted_assemblies: Viktiga samråd just nu
           reset_chart: Återställ
         order_by_assemblies:
           assemblies:
