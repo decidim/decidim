@@ -87,6 +87,25 @@ module Decidim
             expect(component.reload.deleted_at).to be_nil
           end
         end
+
+        describe "GET deleted" do
+          let(:deleted_component) { create(:component, :trashed, participatory_space: participatory_process) }
+          let!(:active_component) { create(:component, participatory_space: participatory_process) }
+
+          it "lists only deleted components" do
+            get :deleted, params: { participatory_process_slug: participatory_process.slug }
+
+            expect(response).to have_http_status(:ok)
+            expect(controller.send(:deleted_components)).not_to include(active_component)
+            expect(controller.send(:deleted_components)).to contain_exactly(deleted_component)
+          end
+
+          it "renders the deleted components template" do
+            get :deleted, params: { participatory_process_slug: participatory_process.slug }
+
+            expect(response).to render_template(:deleted)
+          end
+        end
       end
     end
   end
