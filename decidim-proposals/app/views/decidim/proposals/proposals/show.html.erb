@@ -55,7 +55,7 @@ extra_admin_link(
               <%= cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text) %>
             <% end %>
           </div>
-          <%= render "decidim/shared/resource_kebab", resource: @proposal %>
+          <%= render "decidim/shared/resource_actions", resource: @proposal %>
         </div>
       </div>
     <% end %>

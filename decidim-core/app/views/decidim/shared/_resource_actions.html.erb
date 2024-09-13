@@ -3,7 +3,9 @@
           data-component="dropdown"
           data-target="dropdown-menu-resource-<%= resource.id %>"
           aria-label="<%= t("decidim.resource.controls_label") %>">
-    &#8942;
+    <span class="sr-only"><%= t("decidim.resource.controls_label") %></span>
+    <%= icon "more-2-fill" %>
+    <%= icon "more-2-fill" %>
   </button>
   <div id="dropdown-menu-resource-<%= resource.id %>" aria-hidden="true">
     <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4" role="menu">
