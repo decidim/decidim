@@ -37,13 +37,13 @@ sv:
         date: Datum
         link: Länk
         title: Titel
-        weight: Ordning
+        weight: Position i listan
       conference_partner:
         link: Länk
         logo: Logotyp
         name: Namn
         partner_type: Typ av partner
-        weight: Ordning
+        weight: Position i listan
       conference_registration_invite:
         email: E-post
         name: Namn
@@ -53,7 +53,7 @@ sv:
         description: Beskrivning
         price: Pris
         title: Titel
-        weight: Ordning
+        weight: Position i listan
       conference_speaker:
         affiliation: Tillhörighet
         avatar: Profilbild
