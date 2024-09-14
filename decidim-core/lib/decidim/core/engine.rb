@@ -194,6 +194,7 @@ module Decidim
         Decidim.icons.register(name: "profile", icon: "team-line", description: "Groups", category: "profile", engine: :core)
         Decidim.icons.register(name: "user_group", icon: "team-line", description: "Groups", category: "profile", engine: :core)
         Decidim.icons.register(name: "link", icon: "link", description: "web / URL", category: "profile", engine: :core)
+        Decidim.icons.register(name: "unlink", icon: "link-unlink-m", description: "Unlink", category: "profile", engine: :core)
         Decidim.icons.register(name: "following", icon: "eye-2-line", description: "Following", category: "profile", engine: :core)
         Decidim.icons.register(name: "activity", icon: "bubble-chart-line", description: "Activity", category: "profile", engine: :core)
         Decidim.icons.register(name: "followers", icon: "group-line", description: "Followers", category: "profile", engine: :core)

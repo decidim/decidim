@@ -177,6 +177,11 @@ FactoryBot.define do
     end
   end
 
+  factory :meeting_link, class: "Decidim::Meetings::MeetingLink" do
+    meeting
+    component
+  end
+
   factory :registration, class: "Decidim::Meetings::Registration" do
     transient do
       skip_injection { false }
