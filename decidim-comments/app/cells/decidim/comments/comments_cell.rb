@@ -150,13 +150,16 @@ module Decidim
         model.try(:participatory_space)
       end
 
+      def onboarding_action_params
+        if model.try(:component).present? || current_component.present?
+          { resource: model }
+        else
+          { resource: model, permissions_holder: model }
+        end
+      end
+
       def blocked_comments_for_unauthorized_user_warning_link
-        options = if current_component.present?
-                    { resource: model }
-                  else
-                    { resource: model, permissions_holder: model }
-                  end
-        action_authorized_link_to(:comment, commentable_path, options) do
+        action_authorized_link_to(:comment, commentable_path, onboarding_action_params) do
           t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
         end
       end

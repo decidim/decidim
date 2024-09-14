@@ -34,8 +34,14 @@
       </button>
     <% end %>
   <% else %>
-    <%= authorized_vote_modal_button(initiative, remote: true, class: "button button__xl w-full button__secondary") do %>
-      <%= verification_label %>
-    <% end %>
+    <%= action_authorized_link_to(
+      :vote,
+      t("vote", scope: "decidim.initiatives.initiatives.vote_cabin"),
+      steps ? initiative_signatures_path(initiative_slug: current_initiative.slug) : initiative_path(current_initiative),
+      resource: current_initiative,
+      permissions_holder: current_initiative.type,
+      authorizations_modal_path: authorization_sign_modal_initiative_path(current_initiative),
+      class: "button button__xl w-full button__secondary"
+    ) %>
   <% end %>
 <% end %>

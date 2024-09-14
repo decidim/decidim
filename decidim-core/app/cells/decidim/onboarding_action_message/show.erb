@@ -1,0 +1,15 @@
+<div id="onboarding-messages-container" class="container">
+  <div class="flash info" data-closable>
+    <div class="flash__icon">
+      <%= info_icon %>
+    </div>
+
+    <div class="flash__message">
+      <%= message_text %>
+    </div>
+
+    <%= button_to decidim_verifications.clear_onboarding_data_authorizations_path, form_class: "close-button", role: :button, method: :delete, remote: true, data: { close: "" } do %>
+      <%= close_icon %>
+    <% end %>
+  </div>
+</div>

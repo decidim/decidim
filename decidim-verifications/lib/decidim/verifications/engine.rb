@@ -12,9 +12,11 @@ module Decidim
         authenticate(:user) do
           resources :authorizations, only: [:new, :create, :index] do
             collection do
-              get :first_login
+              get :onboarding_pending
               get :renew_modal
               get :renew
+              post :renew_onboarding_data
+              delete :clear_onboarding_data
             end
           end
 

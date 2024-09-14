@@ -4,7 +4,9 @@
   <div id="proposal-<%= proposal.id %>-vote-button">
     <% if !current_user %>
       <% if current_settings.votes_blocked? %>
-        <%= action_authorized_button_to :vote, t("decidim.proposals.proposals.vote_button.votes_blocked"), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:), resource: proposal, class: "column button light button--sc disabled", disabled: true %>
+        <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:), resource: proposal, class: "column button light button--sc disabled", disabled: true do %>
+          <%= t("decidim.proposals.proposals.vote_button.votes_blocked") %>
+        <% end %>
       <% else %>
         <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list:), resource: proposal, class: "column button light button--sc", data: { disable: true, "redirect-url": proposal_path(proposal) } do %>
           <%= t("decidim.proposals.proposals.vote_button.vote") %>

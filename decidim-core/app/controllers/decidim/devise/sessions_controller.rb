@@ -24,6 +24,8 @@ module Decidim
             validator = PasswordValidator.new({ attributes: :password })
             user.update!(password_updated_at: nil) unless validator.validate_each(user, :password, sign_in_params[:password])
           end
+
+          store_onboarding_cookie_data!(user)
         end
       end
 
