@@ -133,7 +133,7 @@ module Decidim
                       locale
                     end
 
-      locale_name = "#{I18n.t(postfix, locale_name: , locale: )}" unless postfix.blank?
+      locale_name = I18n.t(postfix, locale_name:, locale:) if postfix.present?
 
       "#{label} (#{locale_name})"
     end
