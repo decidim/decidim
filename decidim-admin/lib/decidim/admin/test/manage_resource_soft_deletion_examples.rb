@@ -16,12 +16,17 @@ shared_examples "manage soft deletable component or space" do |resource_name|
     end
 
     it "moves the #{resource_name} to the trash and displays success message" do
-      expect(page).to have_content(translated(resource.title))
+      within "table" do
+        expect(page).to have_content(title[:en])
+      end
 
       accept_confirm { click_on "Soft delete" }
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_no_content(translated(resource.title))
+
+      within "table" do
+        expect(page).to have_no_content(title[:en])
+      end
     end
   end
 
@@ -48,7 +53,7 @@ shared_examples "manage soft deletable resource" do |resource_name|
   it "moves the #{resource_name} to the trash and displays success message" do
     resource_row = "tr[data-id='#{resource.id}']"
 
-    expect(page).to have_content(translated(resource.title))
+    expect(page).to have_content(title[:en])
 
     within(resource_row) do
       accept_confirm { click_on "Soft delete" }
@@ -57,7 +62,7 @@ shared_examples "manage soft deletable resource" do |resource_name|
     expect(page).to have_admin_callout("successfully")
 
     within "table" do
-      expect(page).to have_no_content(translated(resource.title))
+      expect(page).to have_no_content(title[:en])
     end
   end
 end
@@ -76,7 +81,9 @@ shared_examples "manage trashed resource" do |resource_name|
     end
 
     it "displays the #{resource_name} in the trash" do
-      expect(page).to have_content(translated(resource.title))
+      within "table" do
+        expect(page).to have_content(title[:en])
+      end
     end
 
     it "restores the #{resource_name} from the trash" do
@@ -84,7 +91,9 @@ shared_examples "manage trashed resource" do |resource_name|
 
       expect(page).to have_admin_callout("successfully")
       visit trash_path
-      expect(page).to have_no_content(translated(resource.title))
+      within "table" do
+        expect(page).to have_no_content(title[:en])
+      end
     end
   end
 end
