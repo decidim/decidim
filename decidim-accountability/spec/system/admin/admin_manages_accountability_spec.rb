@@ -48,4 +48,14 @@ describe "Admin manages accountability" do
 
     it_behaves_like "manage timeline"
   end
+
+  describe "soft delete result" do
+    let(:admin_resource_path) { current_path }
+    let(:trash_path) { "#{admin_resource_path}/results/deleted" }
+    let(:title) { { en: "My new result" } }
+    let!(:resource) { create(:result, component:, deleted_at:, title:) }
+
+    it_behaves_like "manage soft deletable resource", "result"
+    it_behaves_like "manage trashed resource", "result"
+  end
 end

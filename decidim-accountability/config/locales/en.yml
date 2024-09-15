@@ -38,7 +38,9 @@ en:
       actions:
         attachment_collections: Folders
         attachments: Attachments
+        confirm_delete_result: Are you sure you want to delete this result?
         confirm_destroy: Are you sure you want to delete this %{name}?
+        deleted_results_info: Deleted results can be restored from the trash.
         destroy: Delete
         edit: Edit
         import: Import projects from another component
@@ -47,8 +49,11 @@ en:
         new_status: New status
         new_timeline_entry: New timeline entry
         preview: Preview
+        restore: Restore
+        soft_delete: Soft delete
         timeline_entries: Project evolution
         title: Actions
+        view_deleted_results: View deleted results
       admin:
         exports:
           result_comments: Comments
@@ -109,6 +114,8 @@ en:
           create:
             invalid: There was a problem creating this result.
             success: Result successfully created.
+          deleted:
+            title: Deleted results
           destroy:
             success: Result successfully deleted.
           edit:
@@ -122,6 +129,12 @@ en:
           update:
             invalid: There was a problem updating this result.
             success: Result successfully updated.
+          restore:
+            error: There was a problem restoring this result.
+            success: Result successfully restored.
+          soft_delete:
+            error: There was a problem soft deleting this result.
+            success: Result successfully deleted.
         shared:
           subnav:
             statuses: Statuses

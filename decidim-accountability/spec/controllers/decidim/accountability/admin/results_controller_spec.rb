@@ -39,6 +39,34 @@ module Decidim
             expect(subject).to render_template("decidim/accountability/admin/results/index")
           end
         end
+
+        describe "PATCH soft_delete" do
+          it "soft deletes a result" do
+            patch(:soft_delete, params:)
+
+            expect(result.reload.deleted_at).not_to be_nil
+            expect(response).to redirect_to(results_path(parent_id: result.parent_id))
+          end
+        end
+
+        describe "PATCH restore" do
+          it "restores a soft deleted result" do
+            result.trash!
+            patch(:restore, params:)
+
+            expect(result.reload.deleted_at).to be_nil
+            expect(response).to redirect_to(results_path(parent_id: result.parent_id))
+          end
+        end
+
+        describe "GET deleted" do
+          it "renders the deleted view" do
+            get :deleted
+
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template("decidim/accountability/admin/results/deleted")
+          end
+        end
       end
     end
   end

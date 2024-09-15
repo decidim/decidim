@@ -16,12 +16,12 @@ shared_examples "manage soft deletable component or space" do |resource_name|
     end
 
     it "moves the #{resource_name} to the trash and displays success message" do
-      expect(page).to have_css("td a", text: translated(title))
+      expect(page).to have_content(translated(resource.title))
 
       accept_confirm { click_on "Soft delete" }
 
-      expect(page).to have_content("successfully")
-      expect(page).to have_no_css("td a", text: translated(title))
+      expect(page).to have_admin_callout("successfully")
+      expect(page).to have_no_content(translated(resource.title))
     end
   end
 
@@ -46,12 +46,19 @@ shared_examples "manage soft deletable resource" do |resource_name|
   end
 
   it "moves the #{resource_name} to the trash and displays success message" do
-    expect(page).to have_css("td a", text: translated(title))
+    resource_row = "tr[data-id='#{resource.id}']"
 
-    accept_confirm { click_on "Soft delete" }
+    expect(page).to have_content(translated(resource.title))
 
-    expect(page).to have_content("successfully")
-    expect(page).to have_no_css("td a", text: translated(title))
+    within(resource_row) do
+      accept_confirm { click_on "Soft delete" }
+    end
+
+    expect(page).to have_admin_callout("successfully")
+
+    within "table" do
+      expect(page).to have_no_content(translated(resource.title))
+    end
   end
 end
 
@@ -69,15 +76,15 @@ shared_examples "manage trashed resource" do |resource_name|
     end
 
     it "displays the #{resource_name} in the trash" do
-      expect(page).to have_css("td a", text: translated(title))
+      expect(page).to have_content(translated(resource.title))
     end
 
     it "restores the #{resource_name} from the trash" do
       click_on "Restore"
 
-      expect(page).to have_content("successfully restored")
+      expect(page).to have_admin_callout("successfully")
       visit trash_path
-      expect(page).to have_no_css("td a", text: translated(title))
+      expect(page).to have_no_content(translated(resource.title))
     end
   end
 end

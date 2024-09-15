@@ -14,7 +14,13 @@ module Decidim
       routes do
         resources :statuses
         resources :results, except: [:show] do
+          member do
+            patch :soft_delete
+            patch :restore
+          end
+
           get :proposals_picker, on: :collection
+          get :deleted, on: :collection
 
           resources :attachment_collections, except: [:show]
           resources :attachments, except: [:show]
