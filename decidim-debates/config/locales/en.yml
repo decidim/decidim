@@ -49,11 +49,16 @@ en:
     debates:
       actions:
         close: Close
+        confirm_delete_debate: Are you sure you want to delete this debate?
         confirm_destroy: Are you sure?
+        deleted_debate_info: Deleted debate can be restored from the trash.
         destroy: Delete
         edit: Edit
         new: New debate
+        restore: Restore
+        soft_delete: Soft delete
         title: Actions
+        view_deleted_debates: View deleted debates
       admin:
         debate_closes:
           edit:
@@ -63,6 +68,8 @@ en:
           create:
             invalid: There was a problem creating the debate.
             success: Debate successfully created.
+          deleted:
+            title: Deleted debates
           destroy:
             success: Debate successfully deleted.
           edit:
@@ -80,6 +87,12 @@ en:
           update:
             invalid: There was a problem updating this debate.
             success: Debate successfully updated.
+          restore:
+            error: There was a problem restoring this debate.
+            success: Debate successfully restored.
+          soft_delete:
+            error: There was a problem soft deleting this debate.
+            success: Debate successfully deleted.
         exports:
           comments: Comments
       admin_log:

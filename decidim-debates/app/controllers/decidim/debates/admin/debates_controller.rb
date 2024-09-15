@@ -7,7 +7,7 @@ module Decidim
       class DebatesController < Decidim::Debates::Admin::ApplicationController
         helper Decidim::ApplicationHelper
 
-        helper_method :debates
+        helper_method :debates, :deleted_debates
 
         def index
           enforce_permission_to :read, :debate
@@ -71,14 +71,54 @@ module Decidim
           redirect_to debates_path
         end
 
+        def soft_delete
+          enforce_permission_to(:soft_delete, :debate, debate:)
+
+          Decidim::Commands::SoftDeleteResource.call(debate, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("debates.soft_delete.success", scope: "decidim.debates.admin")
+              redirect_to debates_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("debates.soft_delete.invalid", scope: "decidim.debates.admin")
+              redirect_to debates_path
+            end
+          end
+        end
+
+        def restore
+          enforce_permission_to(:restore, :debate, debate:)
+
+          Decidim::Commands::RestoreResource.call(debate, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("debates.restore.success", scope: "decidim.debates.admin")
+              redirect_to deleted_debates_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = I18n.t("debates.restore.invalid", scope: "decidim.debates.admin")
+              redirect_to deleted_debates_path
+            end
+          end
+        end
+
+        def deleted
+          enforce_permission_to :read, :debate
+        end
+
         private
 
         def debates
-          @debates ||= Debate.where(component: current_component).not_hidden
+          @debates ||= Debate.where(component: current_component, deleted_at: nil).not_hidden
+        end
+
+        def deleted_debates
+          @deleted_debates ||= Debate.where(component: current_component).trashed
         end
 
         def debate
-          @debate ||= debates.find(params[:id])
+          @debate ||= Debate.find_by(component: current_component, id: params[:id])
         end
       end
     end
