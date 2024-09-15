@@ -13,6 +13,24 @@ module Decidim
         str = wrap_lines(@diff.map { |line| wrap_line(line) })
         ActionView::Base.new(ActionView::LookupContext.new(nil), {}, nil).sanitize(str, tags: TAGS)
       end
+
+      private
+
+      def wrap_line(line)
+        cleaned = clean_line(line)
+        case line
+        when /^(---|\+\+\+|\\\\)/
+          "    <li class=\"diff-comment\"><div>#{line.chomp}</div></li>"
+        when /^\+/
+          "    <li class=\"ins\"><ins>#{cleaned}</ins></li>"
+        when /^-/
+          "    <li class=\"del\"><del>#{cleaned}</del></li>"
+        when /^ /
+          "    <li class=\"unchanged\"><div>#{cleaned}</div></li>"
+        when /^@@/
+          "    <li class=\"diff-block-info\"><div>#{line.chomp}</div></li>"
+        end
+      end
     end
 
     # Adding a new method to Diffy::Format so we can pass the

@@ -57,7 +57,11 @@ module Decidim
         )
       end
 
+      return diff unless values.last.has_key?("machine_translations")
+
       values.last.fetch("machine_translations").each_key do |locale, _value|
+        next unless I18n.available_locales.include?(locale.to_sym)
+
         first_value = values.first.try(:[], "machine_translations").try(:[], locale)
         last_value = values.last.try(:[], "machine_translations").try(:[], locale)
 
