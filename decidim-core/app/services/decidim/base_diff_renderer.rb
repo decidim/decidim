@@ -125,6 +125,7 @@ module Decidim
     end
 
     # Returns a String.
+    # i18n-tasks-use t("decidim.machine_translations.automatic")
     def generate_i18n_label(attribute, locale, postfix = "")
       label = I18n.t(attribute, scope: i18n_scope)
       locale_name = if I18n.available_locales.include?(locale.to_sym)
