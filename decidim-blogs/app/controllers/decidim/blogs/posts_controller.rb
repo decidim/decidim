@@ -32,9 +32,9 @@ module Decidim
 
       def posts
         @posts ||= if current_user&.admin?
-                     Post.where(component: current_component)
+                     Post.where(component: current_component, deleted_at: nil)
                    else
-                     Post.published.where(component: current_component)
+                     Post.published.where(component: current_component, deleted_at: nil)
                    end
       end
 

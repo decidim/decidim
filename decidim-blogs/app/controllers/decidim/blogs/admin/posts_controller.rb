@@ -8,6 +8,8 @@ module Decidim
         helper UserGroupHelper
         helper PostsHelper
 
+        helper_method :deleted_posts
+
         def new
           enforce_permission_to :create, :blogpost
           @form = form(PostForm).instance
@@ -63,10 +65,50 @@ module Decidim
           end
         end
 
+        def soft_delete
+          enforce_permission_to :soft_delete, :blogpost, blogpost: post
+
+          Decidim::Commands::SoftDeleteResource.call(post, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("posts.soft_delete.success", scope: "decidim.blogs.admin")
+              redirect_to posts_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("posts.soft_delete.invalid", scope: "decidim.blogs.admin")
+              redirect_to posts_path
+            end
+          end
+        end
+
+        def restore
+          enforce_permission_to :restore, :blogpost, blogpost: post
+
+          Decidim::Commands::RestoreResource.call(post, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("posts.restore.success", scope: "decidim.blogs.admin")
+              redirect_to posts_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("posts.restore.invalid", scope: "decidim.blogs.admin")
+              redirect_to deleted_posts_path
+            end
+          end
+        end
+
+        def deleted
+          enforce_permission_to :index, :blogpost
+        end
+
         private
 
         def post
           @post ||= Blogs::Post.find_by(component: current_component, id: params[:id])
+        end
+
+        def deleted_posts
+          @deleted_posts ||= Post.where(component: current_component).trashed.page(params[:page]).per(15)
         end
       end
     end

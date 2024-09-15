@@ -18,6 +18,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Traceable
       include Loggable
+      include Decidim::SoftDeletable
 
       component_manifest_name "blogs"
 
