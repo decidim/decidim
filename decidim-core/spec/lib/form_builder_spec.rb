@@ -950,65 +950,13 @@ module Decidim
     end
 
     # legacy form builder specs
-
-    it "should have FoundationRailsHelper::FormHelper as default buidler" do
-      expect(builder.class).to eq Decidim::FormBuilder
-    end
-
     it "should display labels by default" do
       node = Capybara.string builder.text_field(:slug)
       expect(node).to have_css("label[for='resource_slug']", text: "Slug")
     end
-    #
-    # it "should display labels if auto_labels option is true" do
-    #   form_for(@author, auto_labels: true) do |builder|
-    #     node = Capybara.string builder.text_field(:login)
-    #     expect(node).to have_css('label[for="author_login"]', text: "Login")
-    #   end
-    # end
-    #
-    # it "should display labels if no auto_labels option" do
-    #   form_for(@author, html: { class: "myclass" }) do |builder|
-    #     node = Capybara.string builder.text_field(:login)
-    #     expect(node).to have_css('label[for="author_login"]', text: "Login")
-    #   end
-    # end
-    #
-    # it "shouldn't display labels if auto_labels option is false" do
-    #   options = { html: { class: "myclass" }, auto_labels: false }
-    #
-    #   form_for(@author, options) do |builder|
-    #     node = Capybara.string builder.text_field(:login)
-    #     expect(node).to_not have_css('label[for="author_login"]', text: "Login")
-    #   end
-    # end
-    #
-    # it "should display labels if :auto_labels is set to nil" do
-    #   form_for(@author, auto_labels: nil) do |builder|
-    #     node = Capybara.string builder.text_field(:login)
-    #     expect(node).to have_css('label[for="author_login"]', text: "Login")
-    #   end
-    # end
-    #
-    # it "should display labels if :auto_labels is set to a string" do
-    #   form_for(@author, auto_labels: "false") do |builder|
-    #     node = Capybara.string builder.text_field(:login)
-    #     expect(node).to have_css('label[for="author_login"]', text: "Login")
-    #   end
-    # end
-    #
-    # it "shouldn't display labels if :auto_labels false at configuration time" do
-    #   allow(FoundationRailsHelper)
-    #     .to receive_message_chain(:configuration, :auto_labels).and_return(false)
-    #
-    #   form_for(@author) do |builder|
-    #     node = Capybara.string builder.text_field(:login)
-    #     expect(node).not_to have_css('label[for="author_login"]', text: "Login")
-    #   end
-    # end
 
     describe "label" do
-      context "when there aren't any errors and no class option is passed" do
+      context "when there are not any errors and no class option is passed" do
         it "should not have a class attribute" do
           node = Capybara.string builder.text_field(:slug)
           expect(node).to have_css('label:not([class=""])')
@@ -1337,7 +1285,7 @@ module Decidim
         end
       end
 
-      context "when there aren't any errors and no class option is passed" do
+      context "when there are not any errors and no class option is passed" do
         it "should not have a class attribute" do
           node = Capybara.string builder.text_field(:slug)
           expect(node).to have_css('input:not([class=""])')
@@ -1446,7 +1394,7 @@ module Decidim
         expect(parsed.css('select.is-invalid-input[name="resource[scopes]"]')).not_to be_empty
       end
 
-      # N.B. check_box and radio_button inputs don't have the is-invalid-input
+      # N.B. check_box and radio_button inputs do not have the is-invalid-input
       # class applied
       it "should display HTML errors when the option is specified" do
         slug = ['required <a href="link_target">link</a>']
