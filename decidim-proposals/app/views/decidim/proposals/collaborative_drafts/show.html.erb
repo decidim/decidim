@@ -44,7 +44,11 @@
 
   <%= attachments_for @collaborative_draft %>
 
-  <%= render partial: "actions" %>
+  <%= cell "decidim/tags", @collaborative_draft %>
+
+  <section class="layout-main__section layout-main__buttons" data-buttons>
+    <%= cell "decidim/comments_button", nil %>
+  </section>
 
   <% content_for :item_footer do %>
     <%= comments_for @collaborative_draft %>

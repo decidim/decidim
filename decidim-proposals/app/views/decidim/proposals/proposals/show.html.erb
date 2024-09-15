@@ -88,6 +88,8 @@ extra_admin_link(
     <%= cell "decidim/amendable/amendments", @proposal %>
   </section>
 
+  <%= cell "decidim/tags", @proposal %>
+
   <%= render partial: "actions" %>
 
   <% content_for :item_footer do %>
