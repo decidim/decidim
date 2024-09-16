@@ -15,20 +15,20 @@ sv:
         description: Beskrivning
         file: Fil
         title: Bilagans eller bildens namn
-        weight: Ordning
+        weight: Position i listan
       attachment_collection:
         description: Beskrivning
         name: Namn
-        weight: Ordning
+        weight: Position i listan
       category:
         description: Beskrivning
         name: Namn
         parent_id: Överordnad
-        weight: Ordning
+        weight: Position i listan
       component:
         name: Namn
         published_at: Publicerad
-        weight: Ordning
+        weight: Position i listan
       external_domain:
         value: Värde
       help_section:
@@ -440,7 +440,7 @@ sv:
           user_name_or_user_email_cont: Sök %{collection} efter namn eller e-post.
           user_name_or_user_nickname_or_user_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
         state_eq:
-          label: Län
+          label: Status
           values:
             all: Alla
             pending: Väntande
@@ -797,7 +797,7 @@ sv:
           facebook: Facebook
           github: GitHub
           instagram: Instagram
-          rich_text_editor_in_public_views_help: I vissa textfält kan deltagare använda vissa HTML-taggar med hjälp av den rika textredigeraren.
+          rich_text_editor_in_public_views_help: I vissa textområden kommer deltagarna att kunna infoga några HTML-taggar med hjälp av textredigeraren.
           social_handlers: Sociala medier
           twitter: X
           url: URL
@@ -816,7 +816,7 @@ sv:
           cta_button_path_help: 'Du kan ändra vad Call To Action-knappen på startsidan länkar till. Använd relativa sökvägar, inte fullständiga URL:er här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste inledas med en bokstav. Knappen visas på startsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan ha separata texter på Call to Action-knappen på startsidan för varje tillgängligt språk i organisationen. Om det inte anges kommer det förvalda värdet att användas. Call to Action-knappen visas på startsidan mellan välkomsttexten och beskrivningen.
           homepage_appearance_title: Redigera startsidans utseende
-          homepage_highlighted_content_banner_title: Banner för uppmärksammat innehåll
+          homepage_highlighted_content_banner_title: Banner med utvalt innehåll
           images:
             layout_appearance_title: Redigera layout
             preview: Förhandsgranska
