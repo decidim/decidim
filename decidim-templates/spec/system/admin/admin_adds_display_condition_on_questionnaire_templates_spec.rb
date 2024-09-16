@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin adds display condition to template's questionniaire question" do
+describe "Admin adds display condition to template's questionnaire question" do
   let!(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:template) { create(:questionnaire_template, organization:) }
