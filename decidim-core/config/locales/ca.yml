@@ -1441,6 +1441,8 @@ ca:
       create:
         error: Hi ha hagut un problema en crear l'informe d'error. Si us plau, torna-ho a provar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
+    resource:
+      controls_label: Controls de recursos
     resource_endorsements:
       create:
         error: S'ha produït un error durant l'acció d'adhesió.
