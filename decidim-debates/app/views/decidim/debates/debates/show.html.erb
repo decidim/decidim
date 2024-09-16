@@ -28,12 +28,17 @@ edit_link(
 
     <% debate_presenter = Decidim::Debates::DebatePresenter.new(debate) %>
     <div class="layout-author">
-      <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
-      <% if debate.closed? %>
-        <span class="success label">
-          <%= t("debate_closed", scope: "decidim.debates.debates.show") %>
-        </span>
-      <% end %>
+      <div class="relative flex items-center justify-center w-full">
+        <div class="w-10/12 flex items-center gap-4">
+          <%= cell "decidim/author", debate_presenter.author, skip_profile_link: true %>
+          <% if debate.closed? %>
+            <span class="success label">
+              <%= t("debate_closed", scope: "decidim.debates.debates.show") %>
+            </span>
+          <% end %>
+        </div>
+        <%= render "decidim/shared/resource_actions", resource: debate %>
+      </div>
     </div>
   </section>
 
@@ -116,9 +121,7 @@ edit_link(
     </div>
   </section>
   <section class="layout-aside__section actions__secondary">
-    <%= follow_button_for(debate) %>
     <%= cell "decidim/share_button", nil %>
-    <%= cell "decidim/report_button", debate %>
   </section>
 
   <% end %>

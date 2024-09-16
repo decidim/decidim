@@ -129,7 +129,7 @@ describe "Conferences" do
     end
   end
 
-  it_behaves_like "followable content for users" do
+  it_behaves_like "followable space content for users" do
     let(:conference) { base_conference }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:followable) { conference }
