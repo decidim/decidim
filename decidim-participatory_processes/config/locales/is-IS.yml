@@ -155,6 +155,8 @@ is:
             title: Almennar upplýsingar
       index:
         title: Þátttökuferli
+      last_activity:
+        new_participatory_process: Nýtt þátttökuferli
       show:
         private_space: Þetta er einkarekið ferli
         related_processes: Tengd ferli
