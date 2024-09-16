@@ -132,7 +132,7 @@ sv:
           comment: Kommentera
           create: Skapa
           endorse: Gilla
-          vote: Stötta
+          vote: Stöd
           vote_comment: Rösta på en kommentar
           withdraw: Dra tillbaka
         name: Förslag
@@ -198,7 +198,7 @@ sv:
             announcement: Meddelande
             answers_with_costs: Tillåt kostnader i svar på förslag
             automatic_hashtags: Hashtags som läggs till i alla förslag
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
             creation_enabled: Deltagare kan skapa förslag
             creation_enabled_readonly: Den här inställningen är inaktiverad när du aktiverar funktionen Kollaborativa Texter. För att ladda upp förslag som kollaborativa klickar du på knappen Kollaborativa Texter och följer instruktionerna.
             default_sort_order: Förvald sortering
@@ -214,13 +214,13 @@ sv:
               with_more_authors: Med flera författare
             endorsements_blocked: Blockera gilla-markeringar
             endorsements_enabled: Aktivera gilla-markeringar
-            proposal_answering_enabled: Svar på förslag aktiverat
+            proposal_answering_enabled: Aktivera svar på förslag
             publish_answers_immediately: Publicera svar på förslag omedelbart
             publish_answers_immediately_help_html: 'Tänk på att om du svarar på förslag som inte är aktiverade, kommer du att behöva publicera dem manuellt genom att välja dem och använda åtgärden för publicering. För mer information om hur det här fungerar, se <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
             suggested_hashtags: Tips på hashtags till deltagarnas förslag
             votes_blocked: Stöd blockerat
-            votes_enabled: Stöd aktiverat
-            votes_hidden: Stöd dolda (om stöd är aktiverade, kommer detta att gömma antalet stöd)
+            votes_enabled: Aktivera stöd
+            votes_hidden: Dölj stöd (om stöd är aktiverade, kommer detta att dölja antalet stöd)
     events:
       proposals:
         admin:
@@ -352,7 +352,7 @@ sv:
           description: Du får detta märke när du stöder förslag från andra.
           description_another: Denna användare har gett stöd till %{score} förslag.
           description_own: Du har gett stöd till %{score} förslag.
-          name: Stött förslag
+          name: Stöd för förslag
           next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
           unearned_another: Den här deltagaren har inte gett sitt stöd till några förslag än.
           unearned_own: Du har inte gett stöd till några förslag än.
@@ -853,12 +853,12 @@ sv:
         update:
           title: Uppdatera förslag
         vote_button:
-          already_voted: Redan stött
+          already_voted: Stöds redan
           already_voted_hover: Dra tillbaka stöd
           maximum_votes_reached: Uppnått stödgränsen
           no_votes_remaining: Inga stöd kvar
           vote: Stöd
-          votes_blocked: Stöd är avaktiverat
+          votes_blocked: Avaktivera stöd
         votes_count:
           count:
             one: STÖDER
