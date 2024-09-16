@@ -24,10 +24,10 @@ sv:
         meta_scope: Metadata för indelning
         participatory_process_group_id: Grupp av processer
         participatory_process_type_id: Typ av processer
-        participatory_scope: Vad som bestäms
-        participatory_structure: Hur det bestäms
+        participatory_scope: Vad beslutas
+        participatory_structure: Hur fattas beslut
         private_space: Privat process
-        promoted: Annonserad
+        promoted: Utvald
         published_at: Publicerad
         related_process_ids: Relaterade processer
         scope_id: Indelning
@@ -49,13 +49,13 @@ sv:
         local_area: Område
         meta_scope: Metadata för indelning
         participatory_process_ids: Relaterade processer
-        participatory_scope: Vad som beslutas
+        participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
         target: Vem deltar
         title: Titel
       participatory_process_step:
-        cta_path: Call to Action-sökväg
-        cta_text: Call to Action-text
+        cta_path: Sökväg för knapp
+        cta_text: Text till knapp
         description: Beskrivning
         end_date: Slutdatum
         short_description: Kort beskrivning
@@ -378,7 +378,7 @@ sv:
         main_data:
           name: Titel och beskrivning
         participatory_processes:
-          active: Aktiva deltagandeprocesser
+          active: Pågående deltagandeprocesser
           name: Deltagandeprocesser
         stats:
           name: Statistik
@@ -396,7 +396,7 @@ sv:
       admin:
         content_blocks:
           highlighted_processes:
-            active: Aktiv
+            active: Pågående
             all: Alla
             max_results: Högsta antal element att visa
             selection_criteria: Urvalskriterier
@@ -418,7 +418,7 @@ sv:
         participatory_process_steps:
           form:
             cta_path_help_html: 'Använd relativa sökvägar, inte fullständiga URL:er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Om fältet inte fylls i visas inte knappen. Exempel: %{url}'
-            cta_text_help: Om den inte är på kommer knappen inte att visas.
+            cta_text_help: Om fältet är tomt visas inte knappen.
         participatory_processes:
           form:
             announcement_help: Den här texten visas direkt under informationen om processen.
@@ -447,7 +447,7 @@ sv:
       index:
         title: Deltagandeprocesser
       last_activity:
-        new_participatory_process: Ny process
+        new_participatory_process: Ny deltagandeprocess
       pages:
         home:
           highlighted_processes:
