@@ -288,7 +288,7 @@ sv:
             images: Bilder
             included_at_help: Markera datumet när samrådet lades till på plattformen. Det behöver inte nödvändigtvis vara samma som datumet det skapades.
             metadata: Metadata
-            other: Annan
+            other: Övrigt
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
             select_an_assembly_type: Välj typ av samråd
