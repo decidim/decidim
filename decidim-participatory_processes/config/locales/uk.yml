@@ -288,6 +288,8 @@ uk:
           name: Висвітлені рухи
       index:
         title: Рухи співучасті
+      last_activity:
+        new_participatory_process: Додати рух співучасті
       pages:
         home:
           highlighted_processes:
