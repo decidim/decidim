@@ -59,6 +59,8 @@ en:
         post:
           create: "%{user_name} created the %{resource_name} blog post in %{space_name}"
           delete: "%{user_name} deleted the %{resource_name} blog post from %{space_name}"
+          restore: "%{user_name} restored the %{resource_name} blog post in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} blog post in %{space_name} to the trash"
           update: "%{user_name} updated the %{resource_name} blog post in %{space_name}"
       content_blocks:
         highlighted_posts:

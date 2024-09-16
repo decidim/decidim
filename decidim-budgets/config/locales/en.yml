@@ -187,10 +187,14 @@ en:
         budget:
           create: "%{user_name} created the %{resource_name} budget in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} budget in the %{space_name} space"
+          restore: "%{user_name} restored the %{resource_name} budget in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} budget in %{space_name} to the trash"
           update: "%{user_name} updated the %{resource_name} budget in the %{space_name} space"
         project:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
+          restore: "%{user_name} restored the %{resource_name} project in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} project in %{space_name} to the trash"
           update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
       budget_information_modal:
         back_to: Back to %{component_name}

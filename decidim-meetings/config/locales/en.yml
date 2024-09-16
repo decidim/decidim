@@ -417,6 +417,8 @@ en:
           create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
           export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
+          restore: "%{user_name} restored the %{resource_name} meeting in %{space_name} space"
+          soft_delete: "%{user_name} moved the %{resource_name} meeting in %{space_name} space to the trash"
           update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
           value_types:
             organizer_presenter:
