@@ -166,6 +166,8 @@ is:
             title: Almennar upplýsingar
       index:
         title: Þátttökuferli
+      last_activity:
+        new_participatory_process: Nýtt þátttökuferli
       participatory_processes:
         index:
           loading: Loading niðurstöður ...
