@@ -446,8 +446,6 @@ fi-pl:
           name: Liittyvät prosessit
       index:
         title: Osallisuusprosessit
-      last_activity:
-        new_participatory_process: Uusi osallisuusprosessi
       pages:
         home:
           highlighted_processes:
