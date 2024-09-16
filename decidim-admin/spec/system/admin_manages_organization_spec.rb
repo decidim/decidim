@@ -152,7 +152,7 @@ describe "Admin manages organization" do
       context "when the admin terms of service content has an image with an alt tag" do
         let(:another_organization) { create(:organization) }
         let(:image) { create(:attachment, attached_to: another_organization) }
-        let(:image_url) { image.attached_uploader(:file).url(host: organization_host) }
+        let(:image_url) { image.attached_uploader(:file).url }
         let(:organization_host) { "example.lvh.me" }
         let(:organization) do
           create(
