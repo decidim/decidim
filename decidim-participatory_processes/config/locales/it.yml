@@ -385,7 +385,7 @@ it:
       index:
         title: Processi partecipativi
       last_activity:
-        new_participatory_process: Nuovo processo partecipativo
+        new_participatory_process: Nuovo processo partecipativo.
       pages:
         home:
           highlighted_processes:
