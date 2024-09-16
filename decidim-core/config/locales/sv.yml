@@ -46,7 +46,7 @@ sv:
       decidim/promote_to_admin: Befordrad till gruppadministratör
       decidim/promoted_to_admin_event: Befordrad till gruppadministratör
       decidim/removed_from_group: Borttagen från gruppen
-      decidim/resource_endorsed_event: Innehållet har fått stöd
+      decidim/resource_endorsed_event: Innehållet gillas
       decidim/resource_hidden_event: Dolt innehåll
       decidim/user_group_created_event: Användargrupp skapad
       decidim/welcome_notification_event: Välkomstmeddelande
@@ -67,8 +67,8 @@ sv:
         one: Ändring
         other: Ändringar
       decidim/endorsement:
-        one: Stöd
-        other: Instämmanden
+        one: Gilla-markering
+        other: Gilla-markeringar
       decidim/user:
         one: Deltagare
         other: Deltagare
@@ -379,7 +379,7 @@ sv:
         one: kommentar
         other: kommentarer
       endorsements:
-        one: instämmande
+        one: gilla-markeringar
         other: instämmanden
       official_author: Officiell
     authorization_handlers:
@@ -480,8 +480,8 @@ sv:
         name: Dummy Component
         settings:
           global:
-            amendments_enabled: Ändringsförslag är möjliga
-            comments_enabled: Kommentarer på
+            amendments_enabled: Aktivera ändringsförslag
+            comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal längd på kommentarer
             dummy_global_attribute1: Dummy Attribut 1
             dummy_global_attribute2: Dummy Attribut 2
@@ -495,7 +495,7 @@ sv:
             amendment_promotion_enabled: Tillåt att annonsera ändringsförslag
             amendment_reaction_enabled: Tillåt reaktioner på ändringsförslag
             amendments_visibility: Synlighet för ändringsförslag
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
             dummy_step_attribute1: Dummy Step Attribut 1
             dummy_step_attribute2: Dummy Step Attribut 2
             dummy_step_translatable_text: Översättningsbar text för exempelsteg
@@ -541,7 +541,7 @@ sv:
       last_activity_settings_form:
         max_last_activity_users: Maximalt antal profilbilder med ny aktivitet att visa
       main_data:
-        name: Primär data
+        name: Viktig information
       metadata:
         name: Metadata
       metrics:
@@ -819,10 +819,10 @@ sv:
             </br>
             <i>%{resource_content}</i>
       resource_endorsed:
-        email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, har just instämt med "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
+        email_intro: '%{endorser_name} %{endorser_nickname}, som du följer, gillar "%{resource_title}" och vi tror att du kan vara intresserad. Ta en titt och bidra:'
         email_outro: Du har fått det här meddelandet eftersom du följer %{endorser_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
-        email_subject: "%{endorser_nickname} har gjort ett nytt instämmande"
-        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> har instämt med <a href="%{resource_path}">%{resource_title}</a>.
+        email_subject: "%{endorser_nickname} har gillat något nytt"
+        notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> gillar <a href="%{resource_path}">%{resource_title}</a>.
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">Profilsidan</a> för %{name} (%{nickname}), som du följer, har uppdaterats.
@@ -1414,7 +1414,7 @@ sv:
         success: Rapporten har skapats och kommer att granskas av en administratör.
     resource_endorsements:
       create:
-        error: Det gick inte att stämma in.
+        error: Det gick inte att gilla.
     scopes:
       global: Global indelning
       picker:
@@ -1524,7 +1524,7 @@ sv:
         share_to: Dela till %{service}
     statistics:
       comments_count: Kommentarer
-      endorsements_count: Stöd
+      endorsements_count: Gilla-markeringar
       followers_count: Följare
       headline: Statistik
       no_stats: Det finns ingen statistik ännu.
