@@ -433,6 +433,7 @@ fi-pl:
             select_participatory_process_type: Valitse prosessityyppi
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            taxonomies: Luokittelut
             title: Yleistä tietoa
             visibility: Näkyvyys
       content_blocks:
@@ -446,6 +447,8 @@ fi-pl:
           name: Liittyvät prosessit
       index:
         title: Osallisuusprosessit
+      last_activity:
+        new_participatory_process: 'Uusi osallistumisprosessi:'
       pages:
         home:
           highlighted_processes:
