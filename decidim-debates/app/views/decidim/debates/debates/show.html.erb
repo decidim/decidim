@@ -37,7 +37,7 @@ edit_link(
             </span>
           <% end %>
         </div>
-        <%= render "decidim/shared/resource_kebab", resource: debate %>
+        <%= render "decidim/shared/resource_actions", resource: debate %>
       </div>
     </div>
   </section>
@@ -120,8 +120,7 @@ edit_link(
       </div>
     </div>
   </section>
-
-  <% end %>
+<% end %>
 
   <% content_for :item_footer do %>
     <%= comments_for debate %>
