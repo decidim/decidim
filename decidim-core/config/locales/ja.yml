@@ -256,6 +256,13 @@ ja:
         delete_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を削除しました"
         update: "%{user_name} がタクソノミー %{resource_name} を更新しました"
         update_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を更新しました"
+      taxonomy_filter:
+        create: "%{user_name} がタクソノミー %{resource_name} に基づいたフィルターを作成しました"
+        create_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを作成しました"
+        delete: "%{user_name} がタクソノミー %{resource_name} に基づいたフィルターを削除しました"
+        delete_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを削除しました"
+        update: "%{user_name} はタクソノミー %{resource_name} に基づいてフィルターを更新しました"
+        update_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを更新しました"
       user:
         block: "%{user_name} がユーザー %{resource_name} をブロックしました"
         invite: "%{user_name} が参加者 %{resource_name} をロール %{role} で招待しました"
@@ -1539,6 +1546,8 @@ ja:
     tags:
       filter_results_for_category: 'カテゴリの検索結果: %{resource}'
       filter_results_for_scope: 'スコープの検索結果: %{resource}'
+    taxonomies:
+      prompt: '"%{name}"から選択'
     translation_bar:
       help_text: "<strong>警告:</strong>内容は自動的に翻訳されている場合があり、100%正確ではありません。"
       show_original: 元テキストを表示する
