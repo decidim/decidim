@@ -448,6 +448,8 @@ eu:
           name: Elkarrekin lotutako prozesuak
       index:
         title: Prozesu parte-hartzaileak
+      last_activity:
+        new_participatory_process: 'Beste prozesu parte-hartzaile bat:'
       pages:
         home:
           highlighted_processes:
