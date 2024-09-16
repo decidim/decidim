@@ -99,6 +99,14 @@ shared_examples "manage proposals" do
             end
             visit decidim_admin.root_path
             expect(page).to have_content("created the #{translated(attributes[:title])} proposal")
+
+            visit decidim.last_activities_path
+            expect(page).to have_content("New proposal: #{translated(attributes[:title])}")
+
+            within "#filters" do
+              find("a", class: "filter", text: "Proposal", match: :first).click
+            end
+            expect(page).to have_content("New proposal: #{translated(attributes[:title])}")
           end
         end
 
