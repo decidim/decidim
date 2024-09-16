@@ -516,8 +516,8 @@ shared_examples_for "an application with configurable env vars" do
       "cors_enabled" => true,
       "consent_cookie_name" => ":weird-consent-cookie-name:",
       "cache_key_separator" => ":",
-      "cache_expiry_time" => 33,
-      "stats_cache_expiry_time" => 15,
+      "cache_expiry_time" => 1980,
+      "stats_cache_expiry_time" => 900,
       "expire_session_after" => 2700, # 45 minutes
       "enable_remember_me" => false,
       "session_timeout_interval" => 33,
