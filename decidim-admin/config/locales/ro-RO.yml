@@ -971,6 +971,9 @@ ro:
           update: Actualizare filtru taxonomie
         form:
           select_taxonomy: Selectați o taxonomie
+        index:
+          description: Un filtru de taxonomie permite administratorilor să sorteze si să filtreze spațiile participative pe baza unei taxonomii. De exemplu, adăugați un filtru de taxonomie pentru a sorta procesele în funcție de aria geografică.
+          empty: Momentan nu există filtre de taxonomie. Creați o listă de filtre de taxonomie aici pentru a sorta și filtra spațiile participative bazate pe taxonomie.
         new:
           back: Înapoi
           create: Creați filtru taxonomie
