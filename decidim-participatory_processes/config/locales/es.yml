@@ -448,8 +448,6 @@ es:
           name: Procesos relacionados
       index:
         title: Procesos participativos
-      last_activity:
-        new_participatory_process: Nuevo proceso participativo
       pages:
         home:
           highlighted_processes:
