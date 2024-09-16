@@ -269,6 +269,8 @@ ru:
           name: Рекомендуемые движения
       index:
         title: Движения соучастия
+      last_activity:
+        new_participatory_process: Добавить движение соучастия
       participatory_processes:
         filters:
           counters:
