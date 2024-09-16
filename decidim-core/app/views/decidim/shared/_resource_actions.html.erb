@@ -4,6 +4,7 @@
           data-target="dropdown-menu-resource-<%= resource.id %>"
           aria-label="<%= t("decidim.resource.controls_label") %>">
     <span class="sr-only"><%= t("decidim.resource.controls_label") %></span>
+    <%# NOTE: having two times the icon call is intentional, as that is how the `dropdown` CSS code is done %>
     <%= icon "more-2-fill" %>
     <%= icon "more-2-fill" %>
   </button>
