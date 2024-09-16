@@ -1,0 +1,41 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <div>
+        <%= link_to decidim_escape_translated(budget.title), budgets_path %> &gt;
+        <%= t(".title") %>
+        <span id="js-selected-resources-count" class="component-counter" title="<%= t("decidim.budgets.admin.projects.index.selected") %>"></span>
+      </div>
+      <%= render partial: "bulk-actions" %>
+    </h1>
+  </div>
+  <%= admin_filter_selector(:projects) %>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+      <tr>
+        <th><%= check_box_tag "projects_bulk", "all", false, class: "js-check-all" %></th>
+        <th><%= sort_link(query, :id, t("models.project.fields.id", scope: "decidim.budgets"), default_order: :desc) %></th>
+        <th class="!text-left"><%= sort_link(query, :title, t("models.project.fields.title", scope: "decidim.budgets")) %></th>
+        <th><%= sort_link(query, :category_name, t("models.project.fields.category", scope: "decidim.budgets") ) %></th>
+        <% if current_component.has_subscopes? %>
+          <%= th_scope_sort_link %>
+        <% end %>
+        <th><%= sort_link(query, :confirmed_orders_count, t("index.confirmed_orders_count")) %></th>
+        <th><%= sort_link(query, :selected, t("projects.index.selected", scope: "decidim.budgets.admin")) %></th>
+        <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
+          <th><%= t("models.project.fields.map", scope: "decidim.budgets") %></th>
+        <% end %>
+        <th><%= t("actions.title", scope: "decidim.budgets") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% deleted_projects.each do |project| %>
+        <%= render partial: "project-tr", locals: { project:, view: :deleted } %>
+      <% end %>
+      </tbody>
+    </table>
+    <%= decidim_paginate projects %>
+  </div>
+</div>

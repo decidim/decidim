@@ -6,7 +6,7 @@ module Decidim
       # This controller allows the create or update a budget.
       class BudgetsController < Admin::ApplicationController
         helper_method :budgets, :budget, :finished_orders, :pending_orders,
-                      :users_with_pending_orders, :users_with_finished_orders
+                      :users_with_pending_orders, :users_with_finished_orders, :deleted_budgets
 
         def new
           enforce_permission_to :create, :budget
@@ -68,14 +68,58 @@ module Decidim
           redirect_to budgets_path
         end
 
+        def soft_delete
+          enforce_permission_to(:soft_delete, :budget, budget:)
+
+          Decidim::Commands::SoftDeleteResource.call(budget, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("budgets.soft_delete.success", scope: "decidim.budgets.admin")
+
+              redirect_to budgets_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("budgets.soft_delete.invalid", scope: "decidim.budgets.admin")
+
+              redirect_to budgets_path
+            end
+          end
+        end
+
+        def restore
+          enforce_permission_to(:restore, :budget, budget:)
+
+          Decidim::Commands::RestoreResource.call(budget, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("budgets.restore.success", scope: "decidim.budgets.admin")
+
+              redirect_to deleted_budgets_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("budgets.restore.invalid", scope: "decidim.budgets.admin")
+
+              redirect_to deleted_budgets_path
+            end
+          end
+        end
+
+        def deleted
+          enforce_permission_to(:read, :budget)
+        end
+
         private
 
         def budgets
-          @budgets ||= Budget.where(component: current_component).order(weight: :asc)
+          @budgets ||= Budget.where(component: current_component).not_deleted.order(weight: :asc)
+        end
+
+        def deleted_budgets
+          @deleted_budgets ||= Budget.where(component: current_component).trashed
         end
 
         def budget
-          @budget ||= budgets.find_by(id: params[:id])
+          @budget ||= Budget.where(component: current_component).find_by(id: params[:id])
         end
 
         def orders

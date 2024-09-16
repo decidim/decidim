@@ -73,6 +73,56 @@ module Decidim
             end
           end
         end
+
+        describe "PATCH soft_delete" do
+          let(:component) { create(:budgets_component) }
+          let!(:project) { create(:project, component:) }
+
+          it "soft deletes the project" do
+            expect(Decidim::Commands::SoftDeleteResource).to receive(:call).with(project, user).and_call_original
+
+            patch :soft_delete, params: { budget_id: project.budget.id, id: project.id }
+
+            expect(response).to redirect_to budget_projects_path(project.budget)
+            expect(flash[:notice]).not_to be_empty
+            expect(project.reload.deleted_at).not_to be_nil
+          end
+        end
+
+        describe "PATCH restore" do
+          let(:component) { create(:budgets_component) }
+          let!(:project) { create(:project, component:, deleted_at: Time.current) }
+
+          it "restores the project" do
+            expect(Decidim::Commands::RestoreResource).to receive(:call).with(project, user).and_call_original
+
+            patch :restore, params: { budget_id: project.budget.id, id: project.id }
+
+            expect(response).to redirect_to deleted_budget_projects_path(project.budget)
+            expect(flash[:notice]).not_to be_empty
+            expect(project.reload.deleted_at).to be_nil
+          end
+        end
+
+        describe "GET deleted" do
+          let(:component) { create(:budgets_component) }
+          let!(:deleted_project) { create(:project, component:, deleted_at: Time.current) }
+          let!(:active_project) { create(:project, component:) }
+
+          it "lists only deleted projects" do
+            get :deleted, params: { budget_id: deleted_project.budget.id }
+
+            expect(response).to have_http_status(:ok)
+            expect(controller.view_context.deleted_projects).to include(deleted_project)
+            expect(controller.view_context.deleted_projects).not_to include(active_project)
+          end
+
+          it "renders the deleted projects template" do
+            get :deleted, params: { budget_id: deleted_project.budget.id }
+
+            expect(response).to render_template(:deleted)
+          end
+        end
       end
     end
   end

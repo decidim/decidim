@@ -46,15 +46,15 @@ en:
           new:
             create: Create
             title: Create post
-          update:
-            invalid: There was a problem saving the post.
-            success: Post successfully saved.
           restore:
             error: There was a problem restoring this post.
             success: Post successfully restored.
           soft_delete:
             error: There was a problem soft deleting this post.
             success: Post successfully deleted.
+          update:
+            invalid: There was a problem saving the post.
+            success: Post successfully saved.
       admin_log:
         post:
           create: "%{user_name} created the %{resource_name} blog post in %{space_name}"

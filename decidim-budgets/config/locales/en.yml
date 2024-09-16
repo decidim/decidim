@@ -44,7 +44,11 @@ en:
       actions:
         attachment_collections: Folders
         attachments: Attachments
+        confirm_delete_budget: Are you sure you want to delete this budget?
+        confirm_delete_project: Are you sure you want to delete this project?
         confirm_destroy: Are you sure you want to delete this project?
+        deleted_budgets_info: Deleted budgets can be restored from the trash.
+        deleted_projects_info: Deleted projects can be restored from the trash.
         destroy: Delete
         edit: Edit
         edit_projects: Manage projects
@@ -52,13 +56,19 @@ en:
         new_budget: New budget
         new_project: New project
         preview: Preview
+        restore: Restore
         send_voting_reminders: Send voting reminders
+        soft_delete: Soft delete
         title: Actions
+        view_deleted_budgets: View deleted budgets
+        view_deleted_projects: View deleted projects
       admin:
         budgets:
           create:
             invalid: There was a problem creating this budget.
             success: Budget successfully created.
+          deleted:
+            title: Deleted budgets
           destroy:
             invalid: There was a problem deleting this budget.
             success: Budget successfully deleted.
@@ -74,6 +84,12 @@ en:
           new:
             create: Create budget
             title: New budget
+          restore:
+            error: There was a problem restoring this budget.
+            success: Budget successfully restored.
+          soft_delete:
+            error: There was a problem soft deleting this budget.
+            success: Budget successfully deleted.
           update:
             invalid: There was a problem updating this budget.
             success: Budget successfully updated.
@@ -88,6 +104,8 @@ en:
           create:
             invalid: There was a problem creating this project.
             success: Project successfully created.
+          deleted:
+            title: Deleted projects
           destroy:
             success: Project successfully deleted.
           edit:
@@ -115,6 +133,12 @@ en:
           new:
             create: Create
             title: New project
+          restore:
+            invalid: There was a problem restoring this project.
+            success: Project successfully restored.
+          soft_delete:
+            invalid: There was a problem soft deleting this project.
+            success: Project successfully deleted.
           update:
             invalid: There was a problem updating this project.
             success: Project successfully updated.

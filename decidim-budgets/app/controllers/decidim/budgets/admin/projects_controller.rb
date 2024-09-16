@@ -10,7 +10,7 @@ module Decidim
         helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
         helper Decidim::Budgets::ProjectsHelper
 
-        helper_method :projects, :finished_orders, :pending_orders, :present, :project_ids
+        helper_method :projects, :finished_orders, :pending_orders, :present, :project_ids, :deleted_projects
 
         def collection
           @collection ||= budget.projects.page(params[:page]).per(15)
@@ -182,10 +182,50 @@ module Decidim
           end
         end
 
+        def soft_delete
+          enforce_permission_to(:soft_delete, :project, project:)
+
+          Decidim::Commands::SoftDeleteResource.call(project, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("projects.soft_delete.success", scope: "decidim.budgets.admin")
+              redirect_to budget_projects_path(budget)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("projects.soft_delete.invalid", scope: "decidim.budgets.admin")
+              redirect_to budget_projects_path(budget)
+            end
+          end
+        end
+
+        def restore
+          enforce_permission_to(:restore, :project, project:)
+
+          Decidim::Commands::RestoreResource.call(project, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("projects.restore.success", scope: "decidim.budgets.admin")
+              redirect_to deleted_budget_projects_path(budget)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("projects.restore.invalid", scope: "decidim.budgets.admin")
+              redirect_to deleted_budget_projects_path(budget)
+            end
+          end
+        end
+
+        def deleted
+          enforce_permission_to :read, :project
+        end
+
         private
 
         def projects
-          @projects ||= filtered_collection
+          @projects ||= filtered_collection.not_deleted
+        end
+
+        def deleted_projects
+          @deleted_projects ||= filtered_collection.trashed
         end
 
         def orders
@@ -217,7 +257,7 @@ module Decidim
         end
 
         def project
-          @project ||= projects.find(params[:id])
+          @project ||= filtered_collection.find(params[:id])
         end
 
         def update_projects_bulk_response_successful(response, subject, extra = {})

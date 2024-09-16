@@ -1,0 +1,28 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+    </h1>
+  </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+      <tr>
+        <th><%= t("models.budget.fields.name", scope: "decidim.budgets") %></th>
+        <th><%= t("models.budget.fields.total_budget", scope: "decidim.budgets") %></th>
+        <th><%= t("models.budget.fields.projects_count", scope: "decidim.budgets") %></th>
+        <% if current_component.has_subscopes? %>
+          <%= th_resource_scope_label %>
+        <% end %>
+        <th><%= t("actions.title", scope: "decidim.budgets") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% deleted_budgets.each do |budget| %>
+        <%= render partial: "decidim/budgets/admin/budgets/budget-tr", locals: { budget:, view: :deleted } %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
