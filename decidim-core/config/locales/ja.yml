@@ -1423,6 +1423,8 @@ ja:
       create:
         error: レポートの作成中に問題が発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
+    resource:
+      controls_label: リソースコントロール
     resource_endorsements:
       create:
         error: オススメする際に問題がありました。
