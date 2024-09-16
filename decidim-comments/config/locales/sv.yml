@@ -21,7 +21,7 @@ sv:
       admin:
         shared:
           availability_fields:
-            enabled: Kommentarer aktiverade
+            enabled: Aktivera kommentarer
             end_time: Kommentarer aktiverade till och med
             start_time: Kommentarer aktiverade från och med
       comments:
@@ -98,7 +98,7 @@ sv:
         order:
           best_rated: Bästa betyg
           most_discussed: Mest diskuterade
-          older: Äldre
+          older: Äldsta
           recent: Senaste
         title: 'Sortera efter:'
       comments:
