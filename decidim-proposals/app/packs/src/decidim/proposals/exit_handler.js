@@ -1,7 +1,7 @@
 const allowExitFrom = ($el) => {
   if ($el.attr("id") === "exit-proposal-notification-link") {
     return true;
-  } 
+  }
 
   return false;
 }

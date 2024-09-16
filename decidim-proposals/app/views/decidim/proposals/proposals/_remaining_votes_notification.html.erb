@@ -1,8 +1,12 @@
-<% announcement_body = capture do %>
-  <div class="editor-content">
-    <p><%= t("already_vote.description", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)) %></p>
-    <%= link_to(t("already_vote.see_other_proposals", scope: "decidim.proposals.proposals.voting_rules"), proposals_path) %>
-  </div>
-<% end %>
+<% if remaining_votes_count_for(current_user) != 0  %>
+  <% announcement_body = capture do %>
+    <div class="editor-content">
+      <p><%= t("already_vote.description", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)) %></p>
+      <%= link_to(t("already_vote.see_other_proposals", scope: "decidim.proposals.proposals.voting_rules"), proposals_path) %>
+    </div>
+  <% end %>
 
-<%= cell("decidim/announcement", { title: t("already_vote.title", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)), body: announcement_body }, callout_class: "secondary") %>
+  <%= cell("decidim/announcement", { title: t("already_vote.title", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)), body: announcement_body }, callout_class: "secondary", id: "remainig-votes-notification") %>
+<% else %>
+  <%= render partial: "proposal_voting_rules" %>
+<% end %>
