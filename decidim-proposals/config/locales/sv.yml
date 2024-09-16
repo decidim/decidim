@@ -209,7 +209,7 @@ sv:
             announcement: Meddelande
             answers_with_costs: Tillåt kostnader i svar på förslag
             automatic_hashtags: Hashtags som läggs till i alla förslag
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
             creation_enabled: Deltagare kan skapa förslag
             creation_enabled_readonly: Den här inställningen är inaktiverad när du aktiverar funktionen Kollaborativa Texter. För att ladda upp förslag som kollaborativa klickar du på knappen Kollaborativa Texter och följer instruktionerna.
             default_sort_order: Förvald sortering
@@ -225,7 +225,7 @@ sv:
               with_more_authors: Med flera författare
             endorsements_blocked: Blockera gilla-markeringar
             endorsements_enabled: Aktivera gilla-markeringar
-            proposal_answering_enabled: Svar på förslag aktiverat
+            proposal_answering_enabled: Aktivera svar på förslag
             publish_answers_immediately: Publicera svar på förslag omedelbart
             publish_answers_immediately_help_html: 'Tänk på att om du svarar på förslag som inte är aktiverade, kommer du att behöva publicera dem manuellt genom att välja dem och använda åtgärden för publicering. För mer information om hur det här fungerar, se <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">proposals'' answers documentation page</a>.'
             suggested_hashtags: Tips på hashtags till deltagarnas förslag
