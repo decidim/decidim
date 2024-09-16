@@ -33,7 +33,7 @@ shared_examples "manage resource share tokens" do
 
       expect(page).to have_content("Token created successfully")
       expect(page).to have_css("tbody tr", count: 1)
-      within "tbody tr:last-child td:first-child" do
+      within "tbody tr:last-child td", text: last_token.token do
         expect(page).to have_content(last_token.token)
       end
       within "tbody tr:last-child td:nth-child(2)" do
@@ -60,7 +60,7 @@ shared_examples "manage resource share tokens" do
 
       expect(page).to have_content("Token created successfully")
       expect(page).to have_css("tbody tr", count: 1)
-      within "tbody tr:last-child td:first-child" do
+      within "tbody tr:last-child td", text: last_token.token do
         expect(page).to have_content("CUSTOM-TOKEN")
       end
       within "tbody tr:last-child td:nth-child(2)" do
@@ -74,6 +74,7 @@ shared_examples "manage resource share tokens" do
 
   context "when there are tokens" do
     let!(:share_tokens) { create_list(:share_token, 3, token_for: resource, organization:, registered_only: true) }
+    let(:last_token) { share_tokens.last }
 
     before do
       visit_share_tokens_page
@@ -95,10 +96,10 @@ shared_examples "manage resource share tokens" do
     end
 
     it "can edit a share token" do
-      within "tbody tr:first-child td:nth-child(3)" do
+      within "tbody tr", text: last_token.token do
         expect(page).to have_content("Yes")
       end
-      within ".share_tokens tbody tr:first-child" do
+      within ".share_tokens tbody tr", text: last_token.token do
         click_on "Edit"
       end
 
@@ -115,16 +116,16 @@ shared_examples "manage resource share tokens" do
 
       expect(page).to have_content("Token updated successfully")
       expect(page).to have_css("tbody tr", count: 3)
-      within "tbody tr:first-child td:nth-child(2)" do
+      within "tbody tr", text: last_token.token do
         expect(page).to have_content(1.day.from_now.strftime("%d/%m/%Y 00:00"))
       end
-      within "tbody tr:first-child td:nth-child(3)" do
+      within "tbody tr", text: last_token.token do
         expect(page).to have_content("No")
       end
     end
 
     it "allows copying the share link from the share token" do
-      within ".share_tokens tbody tr:first-child" do
+      within ".share_tokens tbody tr", text: last_token.token do
         click_on "Copy link"
         expect(page).to have_content("Copied!")
         expect(page).to have_css("[data-clipboard-copy-label]")
@@ -135,7 +136,7 @@ shared_examples "manage resource share tokens" do
 
     it "has a share link for each token" do
       urls = share_tokens.map(&:url)
-      within ".share_tokens tbody tr:first-child" do
+      within ".share_tokens tbody tr", text: last_token.token do
         share_window = window_opened_by { click_on "Preview" }
 
         within_window share_window do
@@ -145,17 +146,17 @@ shared_examples "manage resource share tokens" do
     end
 
     it "has a share button that opens the share url for the resource" do
-      within ".share_tokens tbody tr:first-child" do
+      within ".share_tokens tbody tr", text: last_token.token do
         share_window = window_opened_by { click_on "Preview", wait: 2 }
 
         within_window share_window do
-          expect(current_url).to include(share_tokens.first.url)
+          expect(current_url).to include(last_token.url)
         end
       end
     end
 
     it "can delete tokens" do
-      within ".share_tokens tbody tr:first-child" do
+      within ".share_tokens tbody tr", text: last_token.token do
         accept_confirm { click_on "Delete" }
       end
 
