@@ -5,7 +5,4 @@
   </div>
 <% end %>
 
-<%= cell("decidim/announcement", {
-  title: t("already_vote.title", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)),
-  body: announcement_body },
-  callout_class: "secondary") %>
+<%= cell("decidim/announcement", { title: t("already_vote.title", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)), body: announcement_body }, callout_class: "secondary") %>
