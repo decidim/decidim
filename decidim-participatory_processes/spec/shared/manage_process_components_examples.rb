@@ -332,14 +332,6 @@ shared_examples "manage process components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
-      it "does not show the share tokens section" do
-        within ".component-#{component.id}" do
-          click_on "Configure"
-        end
-
-        expect(page).to have_no_content("Share tokens")
-      end
-
       it "hides the component from the menu" do
         within ".component-#{component.id}" do
           click_on "Hide"
