@@ -63,6 +63,12 @@ bin/rails decidim:upgrade:clean:action_logs
 
 You can read more about this change on PR [#13237](https://github.com/decidim/decidim/pull/13237).
 
+### 2.3. Refactor of `decidim:upgrade:fix_orphan_categorizations` task
+
+As of [#13380](https://github.com/decidim/decidim/pull/13380), the task named `decidim:upgrade:fix_orphan_categorizations` has been renamed to `decidim:upgrade:clean:categories` and has been included in the main `decidim:upgrade:clean:invalid_records` task.
+
+You can read more about this change on PR [#13380](https://github.com/decidim/decidim/pull/13380).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.

@@ -171,6 +171,10 @@ module Decidim
           followers: resource.participatory_space.followers
         )
 
+        Decidim.traceability.perform_action!(:publish, resource, admin_user, visibility: "all") do
+          resource.publish!
+        end
+
         Decidim::Comments::Seed.comments_for(resource)
 
         resource
