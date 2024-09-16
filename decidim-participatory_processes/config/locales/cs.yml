@@ -456,8 +456,6 @@ cs:
           name: Související procesy
       index:
         title: Participativní procesy
-      last_activity:
-        new_participatory_process: Nový participační proces
       pages:
         home:
           highlighted_processes:
