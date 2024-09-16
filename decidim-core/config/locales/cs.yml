@@ -406,6 +406,7 @@ cs:
         visit_link: Navštívit odkaz
       documents:
         component_documents:
+          dummy: Zástupné dokumenty ke komponentům
           meetings: Dokumenty ze schůzky
         documents: Dokumenty
         related_documents: Související dokumenty
