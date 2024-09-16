@@ -4,9 +4,9 @@ sv:
     attributes:
       close_meeting:
         attendees_count: Antal deltagare
-        attending_organizations: Lista över organisationer som deltog
+        attending_organizations: Lista med organisationer som deltog
         audio_url: Ljud-URL
-        closing_report: Anteckningar
+        closing_report: Protokoll
         closing_visible: Är synlig
         contributions_count: Antal bidrag
         proposal_ids: Förslag som skapades på mötet
@@ -74,7 +74,7 @@ sv:
       decidim/meetings/close_meeting_event: Möte avslutat
       decidim/meetings/create_meeting_event: Möte
       decidim/meetings/meeting_registrations_enabled_event: Registreringar aktiverade
-      decidim/meetings/meeting_registrations_over_percentage_event: Registreringar över gränsen
+      decidim/meetings/meeting_registrations_over_percentage_event: Registreringar över mötets kapacitet
       decidim/meetings/upcoming_meeting_event: Kommande möte
       decidim/meetings/update_meeting_event: Möte uppdaterat
   activerecord:
@@ -83,8 +83,8 @@ sv:
         one: Möte
         other: Möten
       decidim/meetings/minutes:
-        one: Anteckning
-        other: Anteckningar
+        one: Protokoll
+        other: Protokoll
       decidim/meetings/registration:
         one: Registrering
         other: Registreringar
@@ -134,20 +134,20 @@ sv:
         settings:
           global:
             announcement: Meddelande
-            comments_enabled: Kommentarer aktiverade
+            comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             creation_enabled_for_participants: Deltagarna kan skapa möten
             default_registration_terms: Villkor för standardregistrering
-            enable_pads_creation: Aktivera skapande av memo
+            enable_pads_creation: Aktivera gemensamma anteckningar
             maps_enabled: Aktivera visning på karta
             registration_code_enabled: Aktivera registreringskod
-            resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje möte
+            resources_permissions_enabled: Behörigheter kan ställas in för varje möte
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
             terms_and_conditions_url_for_meeting_creators: URL till användarvillkor för de som skapar möten
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
             creation_enabled_for_participants: Låt deltagare skapa möten
             creation_enabled_for_user_groups: Låt användargrupper skapa möten
     events:
@@ -166,26 +166,26 @@ sv:
         meeting_created:
           button_text: Anmälan till mötet
           email_intro: Mötet "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan avfölja det vid föregående länk.
+          email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta följa det med föregående länk.
           email_subject: Nytt möte har lagts till i %{participatory_space_title}
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
         meeting_registration_confirmed:
           notification_title: Din anmälan till mötet <a href="%{resource_url}">%{resource_title}</a> har bekräftats. Din anmälningskod är %{registration_code}.
         meeting_registrations_over_percentage:
           email_intro: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%.
-          email_outro: Du har fått den här notifikationen eftersom du är en administratör för mötets deltagandeutrymme.
+          email_outro: Du har fått det här meddelandet eftersom du är en administratör för mötets deltagandeutrymme.
           email_subject: De tilldelade platserna för mötet "%{resource_title}" är över %{percentage}%
           notification_title: De tilldelade platserna för mötet <a href="%{resource_path}">%{resource_title}</a> är över %{percentage}%.
         meeting_updated:
-          email_intro: 'Mötet "%{resource_title}" uppdaterades. Du kan läsa den nya versionen från sin sida:'
-          email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan avfölja det från föregående länk.
+          email_intro: 'Mötet "%{resource_title}" uppdaterades. Du kan se den nya versionen på mötessidan:'
+          email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det från föregående länk.
           email_subject: Mötet "%{resource_title}" uppdaterades
           notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> uppdaterades.
         registration_code_validated:
           email_intro: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats.
-          email_outro: Du har fått det här meddelandet eftersom din registreringskod för mötet "%{resource_title}" har validerats.
+          email_outro: Du har fått det här meddelandet eftersom din anmälningskod till mötet "%{resource_title}" har validerats.
           email_subject: Din anmälningskod "%{registration_code}" till mötet "%{resource_title}" har validerats
-          notification_title: Din registreringskod "%{registration_code}" för mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
+          notification_title: Din anmälningskod "%{registration_code}" till mötet <a href="%{resource_path}">%{resource_title}</a> har validerats.
         registrations_enabled:
           email_intro: 'Mötet "%{resource_title}" har aktiverat registreringar. Du kan registrera dig själv på dess sida:'
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
@@ -194,8 +194,8 @@ sv:
         upcoming_meeting:
           email_intro: Mötet "%{resource_title}" börjar om mindre än 48 timmar.
           email_outro: Du har fått det här meddelandet eftersom du följer mötet "%{resource_title}". Du kan sluta följa det på föregående länk.
-          email_subject: Mötet "%{resource_title}" börjar om färre än 48 timmar.
-          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar inom mindre än 48 timmar.
+          email_subject: Mötet "%{resource_title}" börjar om mindre än 48 timmar.
+          notification_title: Mötet <a href="%{resource_path}">%{resource_title}</a> startar om mindre än 48 timmar.
     forms:
       meetings:
         attendees_count_help_text: Glöm inte att räkna det totala antalet deltagare på mötet, oavsett om det är på plats, digitalt eller ett hybridmöte.
@@ -217,7 +217,7 @@ sv:
         attachment_collections: Mappar
         attachments: Bifogade filer
         close: Stäng
-        confirm_destroy: Är du säker på att du vill radera detta möte?
+        confirm_destroy: Är du säker på att du vill radera mötet?
         destroy: Radera
         edit: Redigera
         invalid_destroy:
@@ -240,7 +240,7 @@ sv:
             up: Upp
           agenda_item_child:
             agenda_item_child: Delpunkt på dagordningen
-            down: Ned
+            down: Ner
             remove: Ta bort
             up: Upp
           create:
@@ -248,10 +248,10 @@ sv:
             success: Dagordningen har skapats.
           edit:
             title: Redigera dagordning
-            update: Uppdatering
+            update: Uppdatera
           form:
             add_agenda_item: Lägg till punkt på dagordning
-            agenda_items: Dagordningspunkter
+            agenda_items: Punkter på dagordningen
             end_date: Slutdatum
             start_date: Startdatum
           new:
@@ -294,7 +294,7 @@ sv:
         meeting_closes:
           edit:
             close: Stäng
-            title: Stäng mötet
+            title: Avsluta möte
         meetings:
           close:
             invalid: Det gick inte att avsluta mötet.
@@ -371,21 +371,21 @@ sv:
             title: Anmälningar
           update:
             invalid: Det gick inte att spara inställningarna för anmälan.
-            success: Mötesregistreringsinställningarna har sparats.
+            success: Inställningarna för registrering till mötet har sparats.
           validate_registration_code:
             invalid: Denna registreringskod är ogiltig.
             success: Registreringskoden validerades.
       admin_log:
         invite:
-          create: "%{user_name} uppmanade %{attendee_name} att gå med mötet %{resource_name} på platsen %{space_name}"
-          deleted: "%{user_name} objudna %{attendee_name} från att gå med möte %{resource_name} på platsen %{space_name}"
-          update: "%{user_name} uppmanade %{attendee_name} att gå med möte %{resource_name} på platsen %{space_name}"
+          create: "%{user_name} uppmanade %{attendee_name} att gå på mötet %{resource_name} för %{space_name}"
+          deleted: "%{user_name} drog tillbaka inbjudan till %{attendee_name} för att gå på mötet %{resource_name} för %{space_name}"
+          update: "%{user_name} uppmanade %{attendee_name} att gå på mötet %{resource_name} för %{space_name}"
         meeting:
-          close: "%{user_name} stängde %{resource_name} mötet på platsen %{space_name}"
-          create: "%{user_name} skapade %{resource_name} mötet på platsen %{space_name}"
-          delete: "%{user_name} raderade mötet %{resource_name} på platsen %{space_name}"
-          export_registrations: "%{user_name} exporterade registreringen av %{resource_name} mötet på platsen %{space_name}"
-          update: "%{user_name} uppdaterade mötet %{resource_name} på platsen %{space_name}"
+          close: "%{user_name} stängde mötet %{resource_name} för %{space_name}"
+          create: "%{user_name} skapade mötet %{resource_name} för %{space_name}"
+          delete: "%{user_name} raderade mötet %{resource_name} för %{space_name}"
+          export_registrations: "%{user_name} exporterade anmälningarna till mötet %{resource_name} för %{space_name}"
+          update: "%{user_name} uppdaterade mötet %{resource_name} för %{space_name}"
           value_types:
             organizer_presenter:
               not_found: 'Arrangören hittades inte i databasen (ID: %{id})'
@@ -413,7 +413,7 @@ sv:
           body: Mötet <a href="%{meeting_path}">"%{meeting_title}"</a> väntar på att avslutas. Lägg till en rapport från mötet med knappen "Avsluta möte".
           greetings: Hälsningar,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Hej %{username},
-      conference_venues: Konferenslokaler
+      conference_venues: Möteslokaler
       content_blocks:
         upcoming_meetings:
           name: Kommande möten
