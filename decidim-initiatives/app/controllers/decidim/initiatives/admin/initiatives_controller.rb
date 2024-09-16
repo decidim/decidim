@@ -65,6 +65,7 @@ module Decidim
 
           PublishInitiative.call(current_initiative, current_user) do
             on(:ok) do
+              flash[:notice] = I18n.t("initiatives.publish.success", scope: "decidim.initiatives.admin")
               redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
             end
           end
@@ -76,6 +77,7 @@ module Decidim
 
           UnpublishInitiative.call(current_initiative, current_user) do
             on(:ok) do
+              flash[:notice] = I18n.t("initiatives.unpublish.success", scope: "decidim.initiatives.admin")
               redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
             end
           end
@@ -86,6 +88,7 @@ module Decidim
           enforce_permission_to :discard, :initiative, initiative: current_initiative
           DiscardInitiative.call(current_initiative, current_user) do
             on(:ok) do
+              flash[:notice] = I18n.t("initiatives.discard.success", scope: "decidim.initiatives.admin")
               redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
             end
           end
@@ -96,6 +99,7 @@ module Decidim
           enforce_permission_to :accept, :initiative, initiative: current_initiative
           AcceptInitiative.call(current_initiative, current_user) do
             on(:ok) do
+              flash[:notice] = I18n.t("initiatives.accept.success", scope: "decidim.initiatives.admin")
               redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
             end
           end
@@ -106,6 +110,7 @@ module Decidim
           enforce_permission_to :reject, :initiative, initiative: current_initiative
           RejectInitiative.call(current_initiative, current_user) do
             on(:ok) do
+              flash[:notice] = I18n.t("initiatives.reject.success", scope: "decidim.initiatives.admin")
               redirect_to decidim_admin_initiatives.edit_initiative_path(current_initiative)
             end
           end
