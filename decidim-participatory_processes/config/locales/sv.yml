@@ -422,7 +422,7 @@ sv:
             filters: Filter
             images: Bilder
             metadata: Metadata
-            other: Andra
+            other: Övrigt
             related_processes: Relaterade processer
             scope_type_max_depth_help: Begränsa djupet på filtret för indelningen.
             select_an_area: Välj ett område
