@@ -429,6 +429,7 @@ ja:
             select_participatory_process_type: プロセスの種別を選択
             select_process_group: 参加型プロセス グループを選択
             slug_help_html: 'URLスラグは、この参加型プロセスを指すURLを生成するために使用されます。英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+            taxonomies: タクソノミー
             title: 一般情報
             visibility: 公開範囲
       content_blocks:
@@ -442,6 +443,8 @@ ja:
           name: 関連するプロセス
       index:
         title: 参加型プロセス
+      last_activity:
+        new_participatory_process: '新しい参加型プロセス:'
       pages:
         home:
           highlighted_processes:
