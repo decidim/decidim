@@ -106,52 +106,6 @@ module Decidim::Assemblies
           expect(serialized_assembly_type).to include(title: resource.assembly_type.title)
         end
       end
-
-      context "when assembly has categories" do
-        let!(:category) { create(:category, participatory_space: resource) }
-
-        it "includes the categories" do
-          serialized_assembly_categories = subject.serialize[:categories].first
-          expect(serialized_assembly_categories).to be_a(Hash)
-
-          expect(serialized_assembly_categories).to include(id: category.id)
-          expect(serialized_assembly_categories).to include(name: category.name)
-          expect(serialized_assembly_categories).to include(description: category.description)
-          expect(serialized_assembly_categories).to include(parent_id: category.parent_id)
-        end
-
-        context "when category has subcategories" do
-          let!(:subcategory) { create(:subcategory, parent: category, participatory_space: resource) }
-
-          it "includes the categories" do
-            serialized_assembly_categories = subject.serialize[:categories].first
-
-            expect(serialized_assembly_categories).to be_a(Hash)
-
-            expect(serialized_assembly_categories).to include(id: category.id)
-            expect(serialized_assembly_categories).to include(name: category.name)
-            expect(serialized_assembly_categories).to include(description: category.description)
-            expect(serialized_assembly_categories).to include(parent_id: category.parent_id)
-          end
-        end
-      end
-
-      context "when assembly has attachments" do
-        let!(:attachment_collection) { create(:attachment_collection, collection_for: resource) }
-        let!(:attachment) { create(:attachment, attached_to: resource, attachment_collection:) }
-
-        it "includes the attachment" do
-          serialized_assembly_attachment = subject.serialize[:attachments][:files].first
-
-          expect(serialized_assembly_attachment).to be_a(Hash)
-
-          expect(serialized_assembly_attachment).to include(id: attachment.id)
-          expect(serialized_assembly_attachment).to include(title: attachment.title)
-          expect(serialized_assembly_attachment).to include(weight: attachment.weight)
-          expect(serialized_assembly_attachment).to include(description: attachment.description)
-          expect(serialized_assembly_attachment[:remote_file_url]).to be_blob_url(resource.attachments.first.file.blob)
-        end
-      end
     end
   end
 end

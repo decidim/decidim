@@ -23,13 +23,7 @@ module Decidim
           hashtag: resource.hashtag,
           short_description: resource.short_description,
           description: resource.description,
-          promoted: resource.promoted,
-          categories: serialize_categories,
-          attachments: {
-            attachment_collections: serialize_attachment_collections,
-            files: serialize_attachments
-          }
-
+          promoted: resource.promoted
         }
       end
 
