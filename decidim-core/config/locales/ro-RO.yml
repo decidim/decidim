@@ -209,7 +209,9 @@ ro:
         update: "%{user_name} a actualizat pagina statică %{resource_name}"
       taxonomy_filter:
         create: "%{user_name} a creat un filtru bazat pe taxonomia %{resource_name}"
+        create_with_filter_items_count: "%{user_name} a actualizat un filtru bazat pe taxonomia %{resource_name} ce conține %{filter_items_count} elemente pentru spațiul participativ %{space_manifest_name}"
         delete: "%{user_name} a șters un filtru bazat pe %{resource_name}"
+        delete_with_filter_items_count: "%{user_name} a șters un filtru bazat pe taxonomia %{resource_name} ce conține %{filter_items_count} elemente pentru spațiul participativ %{space_manifest_name}"
         update: "%{user_name} a actualizat un filtru bazat pe taxonomia %{resource_name}"
         update_with_filter_items_count: "%{user_name} a actualizat un filtru bazat pe taxonomia %{resource_name} ce conține %{filter_items_count} elemente pentru spațiul participativ %{space_manifest_name}"
       user:
