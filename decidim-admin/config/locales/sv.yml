@@ -1084,9 +1084,9 @@ sv:
       users_statistics:
         users_count:
           admins: Administratörer
-          last_day: Sista dagen
-          last_month: Sista månaden
-          last_week: Sista veckan
+          last_day: Senaste dagen
+          last_month: Senaste månaden
+          last_week: Senaste veckan
           no_users_count_statistics_yet: Det finns ännu ingen statistik över antal användare ännu.
           participants: Deltagare
     forms:
