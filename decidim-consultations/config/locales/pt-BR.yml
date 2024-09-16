@@ -351,7 +351,7 @@ pt-BR:
         contextual_help: Selecione uma opção.
         title: 'Consulta: suporte a perguntas'
       vote_modal_confirm:
-        change: mudança
+        change: Mudança
         close_modal: Fechar modal
         confirm: confirme
         contextual_help: Por favor, confirme a opção selecionada.
