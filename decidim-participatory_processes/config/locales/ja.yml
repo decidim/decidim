@@ -442,8 +442,6 @@ ja:
           name: 関連するプロセス
       index:
         title: 参加型プロセス
-      last_activity:
-        new_participatory_process: 参加型プロセス
       pages:
         home:
           highlighted_processes:
