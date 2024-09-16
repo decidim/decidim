@@ -477,8 +477,8 @@ shared_examples_for "an application with configurable env vars" do
       "cors_enabled" => false,
       "consent_cookie_name" => "decidim-consent",
       "cache_key_separator" => "/",
-      "cache_expiry_time" => nil,
-      "stats_cache_expiry_time" => 10,
+      "cache_expiry_time" => 86400, # 1 day
+      "stats_cache_expiry_time" => 600, # 10 minutes
       "expire_session_after" => 1800, # 30 minutes
       "enable_remember_me" => true,
       "session_timeout_interval" => 10,
