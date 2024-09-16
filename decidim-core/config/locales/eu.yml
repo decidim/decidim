@@ -1431,6 +1431,8 @@ eu:
       create:
         error: Arazo bat izan da txostena sortzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
+    resource:
+      controls_label: Baliabideen kontrolak
     resource_endorsements:
       create:
         error: Arazo bat egon da atxikimendu-ekintzan zehar.
