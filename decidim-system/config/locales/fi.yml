@@ -31,6 +31,10 @@ fi:
           attributes:
             redirect_uri:
               must_be_ssl: Uudelleenohjaus osoite (URI) on oltava SSL-muotoinen osoite (URI)
+        organization:
+          attributes:
+            password:
+              secret_key: Sinun täytyy määritellä SECRET_KEY_BASE ympäristömuuttuja, jotta voit tallentaa tämän kentän.
   decidim:
     system:
       actions:
@@ -63,6 +67,7 @@ fi:
         show:
           admins: Hallintakäyttäjät
           current_organizations: Nykyiset organisaatiot
+          system_checks: Järjestelmän tarkastukset
       default_pages:
         placeholders:
           content: Lisää merkityksellistä sisältöä staattiselle sivulle %{page} hallintapaneelista.
@@ -83,7 +88,7 @@ fi:
             did_not_receive_unlock_instructions?: Etkö saanut ohjeita tilin lukituksen poistoon?
             forgot_your_password?: Unohditko salasanasi?
             log_in: Kirjaudu sisään
-            sign_up: Rekisteröidy
+            sign_up: Luo tili
       menu:
         admins: Hallinnoijat
         dashboard: Hallintapaneeli
@@ -138,6 +143,7 @@ fi:
           show: Näytä lisäasetukset
         create:
           error: Uuden organisaation luonti epäonnistui.
+          error_invitation: Uuden organisaation luominen epäonnistui. Tarkasta organisaation hallintakäyttäjän nimi.
           success_html: |
             <p>
               Organisaation luonti onnistui.
@@ -187,8 +193,8 @@ fi:
             Tyyliosoitteet (style-src) rajaavat ne URL-osoitteet, joita voidaan ladata <style>-elementteihin.
             Palvelu lisää automaattisesti arvon "'self' 'unsafe-inline'", mutta voit lisätä halutessasi muita arvoja. Jätä arvo tyhjäksi, jos et tiedä, mitä se tarkoittaa.
         edit:
-          confirm_resend_invitation: Haluatko varmasti lähettää kutsun uudelleen?
-          resend_invitation: Lähetä kutsu uudelleen
+          confirm_resend_invitation: Haluatko varmasti lähettää kutsun uudestaan?
+          resend_invitation: Lähetä kutsu uudestaan
           secondary_hosts_hint: Syötä jokainen niistä omalle rivilleen
           title: Muokkaa organisaatiota
         file_upload_settings:
@@ -244,7 +250,7 @@ fi:
           fieldsets:
             sender: Lähettäjä
           instructions:
-            from_label: 'Sähköpostin lähettäjä on: "organisaatiosi-nimi <your-organization@example.org>". Jätä tyhjäksi käyttääksesi "Sähköpostiosoite" -kentän arvoa lähettäjän nimenä.'
+            from_label: 'Sähköpostin lähettäjä on: "organisaation-nimi <organisaation-sahkoposti@example.org>". Jätä tyhjäksi käyttääksesi "Sähköpostiosoite" -kentän arvoa lähettäjän nimenä.'
           placeholder:
             from_email: sinun-organisaatiosi@example.org
             from_label: organisaatiosi-nimi
@@ -253,15 +259,23 @@ fi:
           success: Organisaation päivitys onnistui.
         users_registration_mode:
           disabled: Pääsy alustalle ainoastaan ulkoisilla tileillä
-          enabled: Salli rekisteröityminen ja sisäänkirjautuminen käyttäjille
-          existing: Älä anna osallistujien rekisteröityä, mutta salli olemassa olevien osallistujien kirjautua sisään
+          enabled: Salli osallistujien luoda käyttäjätilejä ja kirjautua sisään
+          existing: Älä salli osallistujien käyttäjätilien luontia, mutta salli olemassa olevien osallistujien sisäänkirjautuminen
       shared:
         notices:
           no_organization_warning_html: Sinun on luotava organisaatio päästäksesi alkuun. Muista lukea %{guide} ennen jatkamista.
           our_getting_started_guide: aloitusoppaamme
         organizations_list:
-          confirm_resend_invitation: Haluatko varmasti lähettää kutsun uudelleen?
-          resend_invitation: Lähetä kutsu uudelleen
+          confirm_resend_invitation: Haluatko varmasti lähettää kutsun uudestaan?
+          resend_invitation: Lähetä kutsu uudestaan
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Decidimin dokumentaatio
+          error: ActiveJob-jonoa ei ole määritetty. Tätä ei suositella tuotantoympäristöissä. Lue lisää %{error_extra}.
+          success: ActiveJob-jono on määritetty oikein.
+        secret_key:
+          error: 'Salainen avain ei ole määritelty oikein. Lisää arvo ympäristömuuttujaan SECRET_KEY_BASE ja käynnistä palvelin uudestaan: %{error_extra}'
+          success: Salainen avain on määritetty oikein.
       titles:
         dashboard: Hallintapaneeli
         decidim: Decidim

@@ -43,13 +43,21 @@ module Decidim
       )
     end
 
+    def mobile_breadcrumb_root_menu
+      @mobile_breadcrumb_root_menu ||= ::Decidim::BreadcrumbRootMenuPresenter.new(
+        :mobile_menu,
+        self,
+        container_options: { class: "menu-bar__main-dropdown__menu" }
+      )
+    end
+
     def footer_menu
       @footer_menu ||= ::Decidim::FooterMenuPresenter.new(
         :menu,
         self,
         element_class: "font-semibold underline",
         active_class: "is-active",
-        container_options: { class: "space-y-4 break-inside-avoid" },
+        container_options: { class: "space-y-4 break-inside-avoid", role: :menu },
         label: t("layouts.decidim.footer.decidim_title")
       )
     end

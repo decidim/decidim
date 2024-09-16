@@ -89,7 +89,6 @@ module Decidim
         params = case type
                  when :hybrid
                    params.merge(
-                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
                      type_of_meeting: :hybrid,
                      online_meeting_url: "https://www.youtube.com/watch?v=f6JMgJAQ2tc",
                      iframe_access_level: :all,
@@ -97,7 +96,6 @@ module Decidim
                    )
                  when :online
                    params.merge(
-                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
                      location: nil,
                      location_hints: nil,
                      latitude: nil,
@@ -109,7 +107,6 @@ module Decidim
                    )
                  when :online_live_event
                    params.merge(
-                     end_time: Time.zone.now + [rand(1..4).hours, rand(1..20).days].sample,
                      location: nil,
                      location_hints: nil,
                      latitude: nil,
@@ -160,12 +157,27 @@ module Decidim
       def create_meeting!(component:, type: :in_person, author_type: :official)
         params = meeting_params(component:, type:, author_type:)
 
-        Decidim.traceability.create!(
+        resource = Decidim.traceability.create!(
           Decidim::Meetings::Meeting,
           admin_user,
           params,
           visibility: "all"
         )
+
+        Decidim::EventsManager.publish(
+          event: "decidim.events.meetings.meeting_created",
+          event_class: Decidim::Meetings::CreateMeetingEvent,
+          resource:,
+          followers: resource.participatory_space.followers
+        )
+
+        Decidim.traceability.perform_action!(:publish, resource, admin_user, visibility: "all") do
+          resource.publish!
+        end
+
+        Decidim::Comments::Seed.comments_for(resource)
+
+        resource
       end
 
       def create_service!(meeting:)

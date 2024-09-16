@@ -14,6 +14,17 @@ module Decidim
         end
       end
 
+      def self.register_mobile_menu!
+        Decidim.menu :mobile_menu do |menu|
+          menu.add_item :assemblies,
+                        I18n.t("menu.assemblies", scope: "decidim"),
+                        decidim_assemblies.assemblies_path,
+                        position: 2.2,
+                        if: OrganizationPublishedAssemblies.new(current_organization, current_user).any?,
+                        active: :inclusive
+        end
+      end
+
       def self.register_home_content_block_menu!
         Decidim.menu :home_content_block_menu do |menu|
           menu.add_item :assemblies,
@@ -33,7 +44,8 @@ module Decidim
                         icon_name: "government-line",
                         position: 2.2,
                         active: is_active_link?(decidim_admin_assemblies.assemblies_path) ||
-                                is_active_link?(decidim_admin_assemblies.assemblies_types_path),
+                                is_active_link?(decidim_admin_assemblies.assemblies_types_path) ||
+                                is_active_link?(decidim_admin_assemblies.assembly_filters_path),
                         if: allowed_to?(:enter, :space_area, space_name: :assemblies)
         end
       end
@@ -154,6 +166,14 @@ module Decidim
                         active: is_active_link?(decidim_admin_assemblies.new_import_path),
                         icon_name: "price-tag-3-line",
                         if: allowed_to?(:import, :assembly)
+
+          menu.add_item :taxonomy_filters,
+                        I18n.t("menu.taxonomy_filters", scope: "decidim.admin"),
+                        decidim_admin_assemblies.assembly_filters_path,
+                        position: 3,
+                        icon_name: "price-tag-3-line",
+                        if: allowed_to?(:manage, :taxonomy_filter),
+                        active: is_active_link?(decidim_admin_assemblies.assembly_filters_path)
 
           menu.add_item :assemblies_types,
                         I18n.t("menu.assemblies_types", scope: "decidim.admin"),

@@ -1,5 +1,7 @@
 <% add_decidim_page_title(translated_attribute(group.title)) %>
-<% add_decidim_meta_tags(title: t("participatory_process_groups.show.title", scope: "decidim")) %>
+<% add_decidim_meta_tags(
+  title: t("participatory_process_groups.show.title", scope: "decidim"),
+  resource: group) %>
 
 <%
   edit_link(
@@ -10,11 +12,11 @@
   )
 %>
 
-<div class="participatory-space__container">
+<main class="participatory-space__container">
   <% active_content_blocks.each do |content_block| %>
     <% next unless content_block.manifest %>
     <%= cell content_block.manifest.cell, content_block %>
   <% end %>
-</div>
+</main>
 
 <%= append_javascript_pack_tag "decidim_participatory_processes" %>

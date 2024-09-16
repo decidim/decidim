@@ -8,7 +8,9 @@ module Decidim
       helper Decidim::TraceabilityHelper
       helper Decidim::Accountability::BreadcrumbHelper
 
-      helper_method :results, :result, :first_class_categories, :count_calculator, :nav_paths
+      helper_method :results, :result, :first_class_categories, :count_calculator
+
+      before_action :set_controller_breadcrumb
 
       def show
         raise ActionController::RoutingError, "Not Found" unless result
@@ -29,24 +31,6 @@ module Decidim
         @result ||= search_collection.includes(:timeline_entries).find_by(id: params[:id])
       end
 
-      def next_result
-        return if search_collection.size < 2
-
-        search_collection.order(:start_date, :id).where(Decidim::Accountability::Result.arel_table[:id].gt(result.id)).first
-      end
-
-      def prev_result
-        return if search_collection.size < 2
-
-        search_collection.order(:start_date, :id).where(Decidim::Accountability::Result.arel_table[:id].lt(result.id)).last
-      end
-
-      def nav_paths
-        return {} if result.blank?
-
-        { prev_path: prev_result, next_path: next_result }.compact_blank.transform_values { |result| result_path(result) }
-      end
-
       def search_collection
         Result.where(component: current_component)
       end
@@ -65,6 +49,24 @@ module Decidim
 
       def count_calculator(scope_id, category_id)
         Decidim::Accountability::ResultsCalculator.new(current_component, scope_id, category_id).count
+      end
+
+      def controller_breadcrumb_items
+        @controller_breadcrumb_items ||= []
+      end
+
+      def set_controller_breadcrumb
+        controller_breadcrumb_items << breadcrumb_item
+      end
+
+      def breadcrumb_item
+        return {} if result&.parent.blank?
+
+        {
+          label: translated_attribute(result.parent.title),
+          url: result_path(result.parent),
+          active: true
+        }
       end
     end
   end

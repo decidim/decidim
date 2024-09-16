@@ -59,13 +59,11 @@ el:
   decidim:
     admin:
       actions:
-        manage: Διαχείριση
         new_initiative_type: Νέος τύπος πρωτοβουλίας
       filters:
         search_placeholder:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Αναζήτηση συλλογής %{collection} με βάση τον τίτλο, την περιγραφή, το αναγνωριστικό ή το όνομα συντάκτη.
       menu:
-        components: Στοιχεία
         information: Πληροφορίες
         initiatives: Πρωτοβουλίες
         initiatives_types: Τύποι πρωτοβουλίας
@@ -219,7 +217,6 @@ el:
         accepted: Αρκετές υπογραφές
         created: Δημιουργήθηκε
         discarded: Απορρίφθηκε
-        published: Δημοσιεύτηκε
         rejected: Δεν υπάρχουν αρκετές υπογραφές
         validating: Τεχνική επικύρωση
       application_helper:
@@ -355,7 +352,6 @@ el:
           accepted: Αρκετές υπογραφές
           created: Δημιουργήθηκε
           discarded: Απορρίφθηκε
-          published: Δημοσιεύτηκε
           rejected: Δεν υπάρχουν αρκετές υπογραφές
           validating: Τεχνική επικύρωση
       states:

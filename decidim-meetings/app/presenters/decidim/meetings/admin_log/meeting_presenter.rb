@@ -15,10 +15,6 @@ module Decidim
       class MeetingPresenter < Decidim::Log::BasePresenter
         private
 
-        def resource_presenter
-          @resource_presenter ||= Decidim::Meetings::Log::ResourcePresenter.new(action_log.resource, h, action_log.extra["resource"])
-        end
-
         def diff_fields_mapping
           {
             address: :string,

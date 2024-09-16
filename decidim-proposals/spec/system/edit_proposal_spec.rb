@@ -76,7 +76,7 @@ describe "Edit proposals" do
             within "[data-filename='Exampledocument.pdf']" do
               click_on("Remove")
             end
-            click_on "Next"
+            click_on "Save"
           end
 
           click_on "Send"
@@ -101,7 +101,7 @@ describe "Edit proposals" do
               within "[data-filename='Exampledocument.pdf']" do
                 find("input[type='text']").set(attachment_file_title)
               end
-              click_on "Next"
+              click_on "Save"
             end
             click_on "Send"
             expect(page).to have_css("[data-alert-box].success")
@@ -126,7 +126,7 @@ describe "Edit proposals" do
             expect(page).to have_content("Required fields are marked with an asterisk")
             click_on("Edit documents")
             within "[data-dialog]" do
-              click_on("Next")
+              click_on("Save")
             end
             click_on("Send")
             expect(page).to have_content("Proposal successfully updated.")
@@ -148,7 +148,7 @@ describe "Edit proposals" do
             expect(page).to have_content("Required fields are marked with an asterisk")
             click_on("Edit documents")
             within "[data-dialog]" do
-              click_on("Next")
+              click_on("Save")
             end
             click_on("Send")
             expect(page).to have_content("Proposal successfully updated.")
@@ -186,7 +186,7 @@ describe "Edit proposals" do
       end
     end
 
-    context "with geocoding enabled" do
+    context "with maps enabled" do
       let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
       let(:address) { "6 Villa des Nymphéas 75020 Paris" }
       let(:new_address) { "6 rue Sorbier 75020 Paris" }

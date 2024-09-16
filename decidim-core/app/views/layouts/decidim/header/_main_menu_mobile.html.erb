@@ -1,0 +1,12 @@
+<button id="main-dropdown-summary-mobile" class="main-bar__links-mobile__trigger p-0"
+                                          data-component="dropdown"
+                                          data-target="dropdown-menu-main-mobile">
+  <%= icon "menu-line" %><span class="sr-only"><%= t("main_menu", scope: "layouts.decidim.header") %></span>
+  <%= icon "close-line" %>
+</button>
+
+<div id="dropdown-menu-main-mobile" class="main-bar__links-mobile__dropdown main-bar__links-mobile__dropdown-before" aria-hidden="true">
+  <%= render partial: "layouts/decidim/header/menu_breadcrumb_main_dropdown_mobile", locals: { id: "breadcrumb-main-dropdown-mobile" } %>
+</div>
+
+<%= render partial: "layouts/decidim/header/main_links_mobile_item_account" %>

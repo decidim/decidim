@@ -79,7 +79,6 @@ eu:
   decidim:
     admin:
       actions:
-        manage: Kudeatu
         new_initiative_type: Beste ekimen mota bat
         new_initiative_type_scope: Beste ekimen mota bat esparruan
       filters:
@@ -92,7 +91,7 @@ eu:
               accepted: Beharrezko sinadurekin
               created: Sortua
               discarded: Baztertua
-              published: Argitaratua
+              open: Zabaldu
               rejected: Beharrezko sinadurarik gabe
               validating: Baliozkotze teknikoa
           type_id_eq:
@@ -101,12 +100,11 @@ eu:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Bilatu %{collection} izenburuaren, deskribapenaren, IDaren edo egiletzaren arabera.
       initiatives_settings:
         update:
-          error: Akats bat izanda.
+          error: Arazo bat izan da ekimenen konfigurazioak eguneratzean.
           success: Ekimenen ezarpenak zuzen eguneratu dira.
       menu:
         attachments: Eranskinak
         committee_members: Batzorde-kideak
-        components: Osagaiak
         information: informazioa
         initiative_type_scopes: Ekimen motaren esparruak
         initiatives: Ekimenak
@@ -238,6 +236,10 @@ eu:
               most_recent: Azkenak
         exports:
           initiatives: Ekimenak
+        index:
+          initiatives_types:
+            alert_html: "<p>Gutxienez, ekimen mota bat sortu behar duzu, parte-hartzaileak ekimenak sortzen hasi ahal izateko.</p><p> %{link}</p>"
+            button: Beste ekimen mota bat
         initiatives:
           edit:
             accept: Onartu ekimena
@@ -263,7 +265,7 @@ eu:
             new: Beste bat
             photos: Argazkiak
           update:
-            error: Errore bat egon da.
+            error: Arazo bat izan da ekimena eguneratzean.
             success: Ekimena zuzen eguneratu da.
         initiatives_settings:
           edit:
@@ -277,7 +279,7 @@ eu:
             title: Ekimenen ezarpenak
         initiatives_type_scopes:
           create:
-            error: Errore bat egon da.
+            error: Arazo bat izan da hautatutako ekimenerako eremu berri bat sortzean.
             success: Beste esparru bat sortu da emandako ekimen motarako.
           destroy:
             success: Esparrua behar bezala kendu da.
@@ -288,12 +290,12 @@ eu:
             create: Sortu
             title: Sortu ekimen motaren esparrua
           update:
-            error: Errore bat egon da.
+            error: Arazo bat izan da esparrua eguneratzean.
             success: Esparrua zuzen eguneratu da.
         initiatives_types:
           create:
-            error: Errore bat egon da.
-            success: Beste ekimen mota bat zuzen sortu da.
+            error: Arazo bat izan da ekimen mota sortzean.
+            success: Beste ekimen mota bat zuzen sortua. Ekimen mota honetarako gutxienez eremu bat definitu behar duzu, egin ahal izateko.
           destroy:
             success: Ekimen mota zuzen kendu da.
           edit:
@@ -309,7 +311,7 @@ eu:
             create: Sortu
             title: Beste ekimen mota bat
           update:
-            error: Errore bat egon da.
+            error: Arazo bat izan da ekimen mota eguneratzean.
             success: Ekimen mota zuzen eguneratu da.
       admin_log:
         initiative:
@@ -327,7 +329,7 @@ eu:
         accepted: Beharrezko sinadurak lortu ditu
         created: Sortu
         discarded: Baztertuta
-        published: Argitaratutako
+        open: Zabaldu
         rejected: Beharrezko sinadurarik gabe
         validating: Balidazio teknikoa
       application_helper:
@@ -430,7 +432,7 @@ eu:
         attachment_legend: "(Aukerakoa) Gehitu eranskina"
         edit_documents: Editatu dokumentuak
         edit_image: Editatu irudia
-        image_legend: "(Aukerakoa) Erantsi irudi bat"
+        image_legend: "(Aukerakoa) Gehitu irudi bat"
       index:
         uninitialized: Administratzaile batek oraindik ez ditu ekimenak konfiguratu.
       initiative_signatures:
@@ -576,7 +578,7 @@ eu:
           accepted: Beharrezko sinadurekin
           created: Sortua
           discarded: Baztertua
-          published: Argitaratua
+          open: Zabaldu
           rejected: Beharrezko sinadurarik gabe
           validating: Baliozkotze teknikoa
       states:
@@ -584,7 +586,7 @@ eu:
         expired: iraungi
       unavailable_scope: Esparrua ez dago erabilgarri
       update:
-        error: Errore bat egon da.
+        error: Arazo bat izan da ekimena eguneratzean.
         success: Ekimena zuzen eguneratu da.
     menu:
       initiatives: Ekimenak

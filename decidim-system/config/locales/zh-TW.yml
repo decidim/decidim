@@ -165,8 +165,6 @@ zh-TW:
         smtp_settings:
           fieldsets:
             sender: 寄件者
-          instructions:
-            from_label: '郵件發送者將會是："您的組織名稱 <your-organization@example.org>"。若要使用「電子郵件地址」作為標籤，請留空.'
           placeholder:
             from_email: your-organization@example.org
             from_label: 你的組織名稱
@@ -175,8 +173,6 @@ zh-TW:
           success: 組織已成功更新。
         users_registration_mode:
           disabled: 只能使用外部帳戶進行存取
-          enabled: 允許參與者註冊和登錄
-          existing: 不允許參與者註冊，但允許現有參與者登錄
       shared:
         notices:
           no_organization_warning_html: 你必須先建立一個組織才能開始。請確認在繼續前已閱讀 %{guide}。

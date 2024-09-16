@@ -54,7 +54,7 @@ module Decidim
         let(:query) { "{ bannerImage }" }
 
         it "returns the banner image field" do
-          expect(response["bannerImage"]).to eq(model.attached_uploader(:banner_image).path)
+          expect(response["bannerImage"]).to be_blob_url(model.banner_image.blob)
         end
       end
 
@@ -124,7 +124,8 @@ module Decidim
         end
 
         context "when there are initiatives" do
-          let(:initiatives) { create_list(:initiative, initiatives_type: model, organization: :current_organization) }
+          let(:scoped_type) { create(:initiatives_type_scope, type: model) }
+          let!(:initiatives) { create_list(:initiative, 5, scoped_type:, organization: model.organization) }
 
           it "returns the initiatives" do
             ids = response["initiatives"].map { |item| item["id"] }

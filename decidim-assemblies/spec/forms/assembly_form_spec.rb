@@ -2,6 +2,7 @@
 
 require "spec_helper"
 
+# rubocop:disable RSpec/MultipleMemoizedHelpers
 module Decidim
   module Assemblies
     module Admin
@@ -42,7 +43,6 @@ module Decidim
         end
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-        let(:show_statistics) { true }
         let(:private_space) { true }
         let(:purpose_of_action) do
           {
@@ -106,6 +106,11 @@ module Decidim
         end
         let(:parent_id) { nil }
         let(:assembly_id) { nil }
+        let(:root_taxonomy) { create(:taxonomy, organization:) }
+        let!(:taxonomies) { create_list(:taxonomy, 3, parent: root_taxonomy, organization:) }
+        let!(:taxonomy_filter1) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:) }
+        let!(:taxonomy_filter2) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:) }
+        let!(:taxonomy_filter3) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:) }
         let(:attributes) do
           {
             "assembly" => {
@@ -124,7 +129,6 @@ module Decidim
               "hero_image" => attachment,
               "banner_image" => attachment,
               "slug" => slug,
-              "show_statistics" => show_statistics,
               "private_space" => private_space,
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],
@@ -157,13 +161,26 @@ module Decidim
               "parent_id" => parent_id,
               "announcement_en" => announcement[:en],
               "announcement_es" => announcement[:es],
-              "announcement_ca" => announcement[:ca]
+              "announcement_ca" => announcement[:ca],
+              "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
         end
 
         context "when everything is OK" do
           it { is_expected.to be_valid }
+        end
+
+        it "returns taxonomizations and taxonomies" do
+          expect(subject.taxonomizations.map(&:taxonomy_id)).to eq([taxonomies.first.id, taxonomies.second.id])
+          expect(subject.root_taxonomies).to eq([root_taxonomy])
+          expect(subject.taxonomy_filters).to contain_exactly(taxonomy_filter1, taxonomy_filter2)
+        end
+
+        context "when taxonomies belong to another organization" do
+          let!(:taxonomies) { create_list(:taxonomy, 3) }
+
+          it { is_expected.not_to be_valid }
         end
 
         context "when attachment (hero_image or banner_image) is too big" do
@@ -306,7 +323,6 @@ module Decidim
                 scope: assembly.scope,
                 area: assembly.area,
                 errors: assembly.errors,
-                show_statistics: assembly.show_statistics,
                 participatory_processes_ids: nil,
                 purpose_of_action: assembly.purpose_of_action,
                 composition: assembly.composition,
@@ -337,7 +353,6 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        # rubocop:disable RSpec/MultipleMemoizedHelpers
         context "when the parent is also a grandchild" do
           let(:assembly) { create(:assembly, organization:) }
           let(:attributes) do
@@ -367,7 +382,6 @@ module Decidim
                 scope: assembly.scope,
                 area: assembly.area,
                 errors: assembly.errors,
-                show_statistics: assembly.show_statistics,
                 participatory_processes_ids: nil,
                 purpose_of_action: assembly.purpose_of_action,
                 composition: assembly.composition,
@@ -398,8 +412,8 @@ module Decidim
 
           it { is_expected.not_to be_valid }
         end
-        # rubocop:enable RSpec/MultipleMemoizedHelpers
       end
     end
   end
 end
+# rubocop:enable RSpec/MultipleMemoizedHelpers

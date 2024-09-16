@@ -41,15 +41,18 @@ import "src/decidim/vizzs"
 import "src/decidim/responsive_horizontal_tabs"
 import "src/decidim/security/selfxss_warning"
 import "src/decidim/session_timeouter"
-import "src/decidim/confirm"
 import "src/decidim/results_listing"
 import "src/decidim/impersonation"
 import "src/decidim/gallery"
 import "src/decidim/direct_uploads/upload_field"
 import "src/decidim/data_consent"
+import "src/decidim/abide_form_validator_fixer"
 import "src/decidim/sw"
+import "src/decidim/sticky_header"
+import "src/decidim/attachments"
 
 // local deps that require initialization
+import ConfirmDialog, { initializeConfirm } from "src/decidim/confirm"
 import formDatePicker from "src/decidim/datepicker/form_datepicker"
 import Configuration from "src/decidim/configuration"
 import ExternalLink from "src/decidim/external_link"
@@ -62,6 +65,7 @@ import addInputEmoji, { EmojiButton } from "src/decidim/input_emoji"
 import FocusGuard from "src/decidim/focus_guard"
 import backToListLink from "src/decidim/back_to_list"
 import markAsReadNotifications from "src/decidim/notifications"
+import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
 import selectActiveIdentity from "src/decidim/identity_selector_dialog"
 import createTooltip from "src/decidim/tooltips"
@@ -85,6 +89,7 @@ window.Decidim = window.Decidim || {
   addInputEmoji,
   EmojiButton,
   Dialogs,
+  ConfirmDialog,
   announceForScreenReader
 };
 
@@ -117,6 +122,8 @@ window.initFoundation = (element) => {
   });
 };
 
+// Confirm initialization needs to happen before Rails.start()
+initializeConfirm();
 Rails.start()
 
 /**
@@ -169,6 +176,7 @@ const initializer = (element = document) => {
   backToListLink(element.querySelectorAll(".js-back-to-list"));
 
   markAsReadNotifications(element)
+  handleNotificationActions(element)
 
   scrollToLastChild(element)
 
@@ -191,6 +199,8 @@ const initializer = (element = document) => {
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
+
+  document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
 
 // If no jQuery is used the Tribute feature used in comments to autocomplete

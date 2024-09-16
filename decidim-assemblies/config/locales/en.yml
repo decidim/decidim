@@ -51,7 +51,6 @@ en:
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
-        show_statistics: Show statistics
         slug: URL slug
         special_features: Special features
         subtitle: Subtitle
@@ -210,7 +209,7 @@ en:
           info: About this assembly
           landing_page: Landing page
           moderations: Moderations
-          private_users: Private users
+          private_users: Private participants
           see_assembly: See assembly
         assemblies_types: Assemblies types
       models:
@@ -296,6 +295,7 @@ en:
             select_parent_assembly: Select parent assembly
             slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
+            taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
         assemblies_types:

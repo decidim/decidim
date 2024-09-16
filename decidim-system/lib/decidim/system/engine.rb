@@ -7,7 +7,6 @@ require "devise"
 require "devise-i18n"
 require "decidim/core"
 require "decidim/system/menu"
-require "foundation_rails_helper"
 
 module Decidim
   module System
@@ -27,6 +26,10 @@ module Decidim
 
       initializer "decidim_system.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer "decidim_system.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::System::Engine.root}/app/cells")
       end
     end
   end

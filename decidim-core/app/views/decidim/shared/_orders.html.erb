@@ -1,4 +1,4 @@
-<button class="order-by__button" id="dropdown-trigger-order" data-component="dropdown" data-target="dropdown-menu-order" data-open="false" data-disabled-md="true">
+<button class="order-by__button" id="dropdown-trigger-order" data-component="dropdown" data-target="dropdown-menu-order" data-open-md="true">
   <%= icon "arrow-down-s-line" %>
   <%= icon "arrow-up-s-line" %>
   <span><%= t("#{i18n_scope}.label") %></span>
@@ -8,6 +8,7 @@
     <%= order_link order_name,
                    i18n_scope:,
                    title: t("#{i18n_scope}.label"),
+                   role: :menuitem,
                    class: "button button__sm button__text-secondary #{order_name == order ? "underline font-bold" : "font-normal"}" %>
   <% end %>
 </div>

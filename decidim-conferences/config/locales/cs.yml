@@ -132,6 +132,12 @@ cs:
         new:
           create: Vytvořit
           title: Nový řečník konference.
+        publish:
+          invalid: Při publikování tohoto řečníka došlo k chybě.
+          success: Řečník konference byl úspěšně zveřejněn.
+        unpublish:
+          invalid: Při rušení publikování tohoto řečníka došlo k chybě.
+          success: Řečník konference byl úspěšně zneveřejněn.
         update:
           error: Při této konferenci došlo k chybě při aktualizaci řečníka.
           success: Řečník konference byl úspěšně aktualizován.

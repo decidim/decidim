@@ -68,7 +68,6 @@ pt-BR:
   decidim:
     admin:
       actions:
-        manage: Gerenciar
         new_initiative_type: Novo tipo de iniciativa
       filters:
         initiatives:
@@ -80,7 +79,6 @@ pt-BR:
               accepted: Assinaturas suficientes
               created: Criado
               discarded: Descartado
-              published: Publicado
               rejected: Não há assinaturas suficientes
               validating: Validação técnica
           type_id_eq:
@@ -93,7 +91,6 @@ pt-BR:
       menu:
         attachments: Anexos
         committee_members: Membros do Comitê
-        components: Componentes
         information: Em formação
         initiatives: Iniciativas
         initiatives_types: Tipos de iniciativa
@@ -282,7 +279,6 @@ pt-BR:
         accepted: Assinaturas suficientes
         created: Criada
         discarded: Descartado
-        published: Publicados
         rejected: Não há assinaturas suficientes
         validating: Validação técnica
       application_helper:
@@ -514,7 +510,6 @@ pt-BR:
           accepted: Assinaturas suficientes
           created: Criado
           discarded: Descartado
-          published: Publicados
           rejected: Não há assinaturas suficientes
           validating: Validação técnica
       states:

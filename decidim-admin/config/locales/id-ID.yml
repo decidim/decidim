@@ -111,6 +111,7 @@ id:
       actions:
         add: Menambahkan
         browse: Jelajahi
+        manage: Mengelola
         permissions: Izin
         reject: Menolak
         verify: Memeriksa
@@ -532,6 +533,8 @@ id:
           without_topic: Halaman tanpa topik
         update:
           error: Terjadi kesalahan saat memperbarui halaman ini.
+      taxonomies:
+        count: Menghitung
       titles:
         admin_log: Log admin
         area_types: Tipe area

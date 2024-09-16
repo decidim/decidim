@@ -10,6 +10,7 @@ module Decidim
         notifications_from_own_activity:,
         notifications_sending_frequency:,
         email_on_moderations:,
+        email_on_assigned_proposals:,
         newsletter_notifications:,
         allow_public_contact:
       ).with_context(
@@ -22,6 +23,7 @@ module Decidim
     let(:notifications_from_followed) { "1" }
     let(:notifications_from_own_activity) { "1" }
     let(:email_on_moderations) { "1" }
+    let(:email_on_assigned_proposals) { "1" }
     let(:newsletter_notifications) { "1" }
     let(:allow_public_contact) { "1" }
     let(:notifications_sending_frequency) { "real_time" }

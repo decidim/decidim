@@ -76,7 +76,6 @@ ja:
   decidim:
     admin:
       actions:
-        manage: 管理
         new_initiative_type: 新しいイニシアチブ種別
         new_initiative_type_scope: 新しいイニシアチブ種別のスコープ
       filters:
@@ -89,7 +88,7 @@ ja:
               accepted: 十分な署名
               created: 作成日
               discarded: 削除済み
-              published: 公開済
+              open: 公開
               rejected: 十分な署名がありません
               validating: 技術的検証
           type_id_eq:
@@ -98,12 +97,11 @@ ja:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: '%{collection} をタイトル、説明、ID、または著者名で検索します。'
       initiatives_settings:
         update:
-          error: エラーが発生しました。
+          error: イニシアチブ設定の更新中に問題が発生しました。
           success: イニシアチブの設定が正常に更新されました。
       menu:
         attachments: 添付ファイル
         committee_members: 委員会メンバー
-        components: コンポーネント
         information: 情報
         initiative_type_scopes: イニシアチブ種別のスコープ
         initiatives: イニシアチブ
@@ -235,6 +233,10 @@ ja:
               most_recent: 新着順
         exports:
           initiatives: イニシアチブ
+        index:
+          initiatives_types:
+            alert_html: "<p>参加者がイニシアチブを作成できるように、少なくとも1つのイニシアチブ種別を作成する必要があります。</p><p> %{link}</p>"
+            button: 新しいイニシアチブ種別
         initiatives:
           edit:
             accept: イニシアチブを承認する
@@ -260,7 +262,7 @@ ja:
             new: 新規作成
             photos: 写真
           update:
-            error: エラーが発生しました。
+            error: イニシアチブの更新中に問題がありました。
             success: イニシアチブを更新しました。
         initiatives_settings:
           edit:
@@ -274,8 +276,8 @@ ja:
             title: イニシアチブの設定
         initiatives_type_scopes:
           create:
-            error: エラーが発生しました。
-            success: 指定されたイニシアチブタイプの新しいスコープが作成されました。
+            error: イニシアチブの新しいスコープの作成中に問題が発生しました。
+            success: 指定されたイニシアチブ種別の新しいスコープが作成されました。
           destroy:
             success: スコープを削除しました。
           edit:
@@ -285,14 +287,14 @@ ja:
             create: 作成
             title: イニシアチブ種別のスコープを作成
           update:
-            error: エラーが発生しました。
+            error: スコープの更新中に問題が発生しました。
             success: スコープを更新しました。
         initiatives_types:
           create:
-            error: エラーが発生しました。
-            success: 新しいイニシアチブタイプが正常に作成されました。
+            error: イニシアチブ種別の作成中に問題が発生しました。
+            success: 新しいイニシアチブ種別を作成しました。このイニシアチブ種別を使用するには、少なくとも 1 つのスコープを定義する必要があります。
           destroy:
-            success: イニシアチブタイプを削除しました。
+            success: イニシアチブ種別を削除しました。
           edit:
             update: 更新
           form:
@@ -306,8 +308,8 @@ ja:
             create: 作成
             title: 新しいイニシアチブ種別
           update:
-            error: エラーが発生しました。
-            success: イニシアチブタイプを更新しました。
+            error: イニシアチブ種別の更新中に問題が発生しました。
+            success: イニシアチブ種別を更新しました。
       admin_log:
         initiative:
           publish: "%{user_name} が %{resource_name} イニシアチブを公開しました"
@@ -317,14 +319,14 @@ ja:
         initiatives_settings:
           update: "%{user_name} がイニシアチブの設定を更新しました"
         initiatives_type:
-          create: "%{user_name} が %{resource_name} イニシアチブタイプを作成しました"
-          delete: "%{user_name} が %{resource_name} イニシアチブタイプを削除しました"
-          update: "%{user_name} は %{resource_name} イニシアチブタイプを更新しました"
+          create: "%{user_name} が %{resource_name} イニシアチブ種別を作成しました"
+          delete: "%{user_name} が %{resource_name} イニシアチブ種別を削除しました"
+          update: "%{user_name} は %{resource_name} イニシアチブ種別を更新しました"
       admin_states:
         accepted: 十分な署名
         created: 作成済み
         discarded: 破棄しました
-        published: 公開済み
+        open: 公開
         rejected: 十分な署名がありません
         validating: 技術的検証
       application_helper:
@@ -568,7 +570,7 @@ ja:
           accepted: 十分な署名
           created: 作成済み
           discarded: 破棄しました
-          published: 公開済み
+          open: 公開
           rejected: 十分な署名がありません
           validating: 技術的検証
       states:
@@ -576,7 +578,7 @@ ja:
         expired: 期限切れ
       unavailable_scope: 利用できないスコープ
       update:
-        error: エラーが発生しました。
+        error: イニシアチブの更新に問題がありました。
         success: イニシアチブを更新しました。
     menu:
       initiatives: イニシアチブ

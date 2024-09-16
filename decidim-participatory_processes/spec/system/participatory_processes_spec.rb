@@ -5,8 +5,6 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Participatory Processes" do
   let(:organization) { create(:organization) }
-  let(:show_metrics) { true }
-  let(:show_statistics) { true }
   let(:hashtag) { true }
   let(:base_description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
   let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
@@ -17,9 +15,7 @@ describe "Participatory Processes" do
       :active,
       organization:,
       description: base_description,
-      short_description:,
-      show_metrics:,
-      show_statistics:
+      short_description:
     )
   end
 
@@ -206,6 +202,13 @@ describe "Participatory Processes" do
     end
   end
 
+  it_behaves_like "followable content for users" do
+    let!(:participatory_process) { base_process }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let(:followable) { participatory_process }
+    let(:followable_path) { decidim_participatory_processes.participatory_process_path(participatory_process) }
+  end
+
   context "when going to the participatory process page" do
     let!(:participatory_process) { base_process }
     let!(:proposals_component) { create(:component, :published, participatory_space: participatory_process, manifest_name: :proposals) }
@@ -236,14 +239,6 @@ describe "Participatory Processes" do
           create(:content_block, organization:, scope_name: :participatory_process_homepage, manifest_name:, scoped_resource_id: participatory_process.id)
         end
         visit decidim_participatory_processes.participatory_process_path(participatory_process)
-      end
-
-      describe "follow button" do
-        let!(:user) { create(:user, :confirmed, organization:) }
-        let(:followable) { participatory_process }
-        let(:followable_path) { decidim_participatory_processes.participatory_process_path(participatory_process) }
-
-        include_examples "follows"
       end
 
       context "when requesting the process path" do
@@ -361,11 +356,13 @@ describe "Participatory Processes" do
           end
 
           context "and the process statistics are enabled" do
-            let(:blocks_manifests) { [:stats] }
+            let(:blocks_manifests) { [:hero, :stats] }
 
             it "the stats for those components are visible" do
               expect(page).to have_css("[data-statistic]", count: 3)
             end
+
+            it_behaves_like "accessible page"
           end
 
           context "and the process statistics are not enabled" do
@@ -379,8 +376,6 @@ describe "Participatory Processes" do
           end
 
           context "and the process metrics are not enabled" do
-            let(:show_metrics) { false }
-
             it "the metrics for the participatory processes are not rendered" do
               expect(page).to have_no_css("h4", text: "METRICS")
             end

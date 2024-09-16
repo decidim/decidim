@@ -79,7 +79,6 @@ es-MX:
   decidim:
     admin:
       actions:
-        manage: Gestionar
         new_initiative_type: Nuevo tipo de iniciativa
         new_initiative_type_scope: Añadir ámbito del tipo de iniciativa
       filters:
@@ -92,7 +91,7 @@ es-MX:
               accepted: Con las firmas necesarias
               created: Creada
               discarded: Descartada
-              published: Publicada
+              open: Abierta
               rejected: No ha conseguido las firmas necesarias
               validating: Validación técnica
           type_id_eq:
@@ -101,12 +100,11 @@ es-MX:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
       initiatives_settings:
         update:
-          error: Se ha producido un error.
+          error: Se produjo un problema al actualizar la configuración de las iniciativas.
           success: La configuración de las iniciativas se ha actualizado correctamente.
       menu:
         attachments: Adjuntos
         committee_members: Miembros de la comisión
-        components: Componentes
         information: Información
         initiative_type_scopes: Ámbitos del tipo de iniciativa
         initiatives: Iniciativas
@@ -238,6 +236,10 @@ es-MX:
               most_recent: Más recientes
         exports:
           initiatives: Iniciativas
+        index:
+          initiatives_types:
+            alert_html: "<p>Tienes que crear por lo menos un tipo de iniciativa para que las participantes puedan empezar a crear sus iniciativas.</p><p>%{link}</p>"
+            button: Nuevo tipo de iniciativa
         initiatives:
           edit:
             accept: Aceptar iniciativa
@@ -263,7 +265,7 @@ es-MX:
             new: Nueva
             photos: Fotos
           update:
-            error: Se ha producido un error.
+            error: Se ha producido un error al actualizar la iniciativa.
             success: La iniciativa se ha actualizado correctamente.
         initiatives_settings:
           edit:
@@ -277,7 +279,7 @@ es-MX:
             title: Configuración de iniciativas
         initiatives_type_scopes:
           create:
-            error: Se ha producido un error.
+            error: Se ha producido un error al crear un nuevo ámbito para la iniciativa seleccionada.
             success: Se ha creado un nuevo ámbito para el tipo de iniciativa dado.
           destroy:
             success: El ámbito ha sido eliminado con éxito.
@@ -288,12 +290,12 @@ es-MX:
             create: Crear
             title: Crear alcance del tipo de iniciativa
           update:
-            error: Se ha producido un error.
+            error: Se ha producido un error al actualizar el ámbito.
             success: El ámbito ha sido actualizado con éxito.
         initiatives_types:
           create:
-            error: Se ha producido un error.
-            success: Se ha creado correctamente un nuevo tipo de iniciativa.
+            error: Se ha producido un error al crear el tipo de iniciativa.
+            success: Un nuevo tipo de iniciativa ha sido creado con éxito. Necesitas definir al menos un ámbito para este tipo de iniciativa para que se pueda utilizar.
           destroy:
             success: El tipo de iniciativa se ha eliminado correctamente.
           edit:
@@ -309,7 +311,7 @@ es-MX:
             create: Crear
             title: Nuevo tipo de iniciativa
           update:
-            error: Se ha producido un error.
+            error: Se ha producido un error al actualizar el tipo de iniciativa.
             success: El tipo de iniciativa se ha actualizado correctamente.
       admin_log:
         initiative:
@@ -327,7 +329,7 @@ es-MX:
         accepted: Ha conseguido las firmas
         created: Creado
         discarded: Descartado
-        published: Publicado
+        open: Abierta
         rejected: No ha conseguido las firmas necesarias
         validating: Validación técnica
       application_helper:
@@ -463,7 +465,7 @@ es-MX:
             other: y %{count} personas más
         committee_members:
           approve: Aprobar
-          confirm_approve: '¿Seguro que quieres añadir este miembro?'
+          confirm_approve: '¿Seguro que quieres añadir a este miembro?'
           confirm_revoke: '¿Seguro que quieres revocar este miembro?'
           invite_to_committee_help: Comparte este enlace para invitar a otras participantes a la comisión promotora.
           link: Enlace
@@ -576,7 +578,7 @@ es-MX:
           accepted: Con las firmas necesarias
           created: Creada
           discarded: Descartada
-          published: Publicada
+          open: Abiertas
           rejected: No ha conseguido las firmas
           validating: Validación técnica
       states:
@@ -584,7 +586,7 @@ es-MX:
         expired: Caducado
       unavailable_scope: Alcance no disponible
       update:
-        error: Se ha producido un error.
+        error: Se ha producido un error al actualizar la iniciativa.
         success: La iniciativa se ha actualizado correctamente.
     menu:
       initiatives: Iniciativas

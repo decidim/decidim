@@ -54,11 +54,15 @@ module Decidim
 
         scope "/initiatives/:initiative_slug" do
           resources :components do
+            collection do
+              put :reorder
+            end
             resource :permissions, controller: "component_permissions"
             member do
               put :publish
               put :unpublish
               get :share
+              put :hide
             end
             resources :exports, only: :create
           end

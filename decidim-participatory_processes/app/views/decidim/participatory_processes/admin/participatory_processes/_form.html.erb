@@ -86,10 +86,6 @@
         <div class="columns">
           <%= form.upload :hero_image, button_class: "button button__sm button__transparent-secondary" %>
         </div>
-
-        <div class="columns">
-          <%= form.upload :banner_image, button_class: "button button__sm button__transparent-secondary" %>
-        </div>
       </div>
     </div>
   </div>
@@ -104,14 +100,12 @@
       </button>
     </div>
     <div id="panel-metadata" class="card-section">
-      <div class="row">
-        <div class="columns">
-          <%= form.translated :text_field, :developer_group, aria: { label: :developer_group } %>
-        </div>
+      <div class="row column">
+        <%= form.translated :text_field, :developer_group, aria: { label: :developer_group } %>
+      </div>
 
-        <div class="columns">
-          <%= form.translated :text_field, :local_area, aria: { label: :local_area } %>
-        </div>
+      <div class="row column">
+        <%= form.translated :text_field, :local_area, aria: { label: :local_area } %>
       </div>
 
       <div class="row column">
@@ -129,6 +123,24 @@
       <div class="row column">
         <%= form.translated :text_field, :participatory_structure, aria: { label: :participatory_structure } %>
       </div>
+    </div>
+  </div>
+
+  <div class="card" data-component="accordion" id="accordion-taxonomies">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-taxonomies" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="taxonomies">
+          <%= t("taxonomies", scope: "decidim.participatory_processes.admin.participatory_processes.form") %>
+        </h2>
+      </button>
+    </div>
+    <div id="panel-taxonomies" class="card-section">
+      <% @form.taxonomy_filters.each do |filter| %>
+        <div class="row column">
+          <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+        </div>
+      <% end %>
     </div>
   </div>
 
@@ -227,14 +239,6 @@
     </div>
 
     <div id="panel-other" class="card-section">
-      <div class="row column">
-        <%= form.check_box :show_statistics %>
-      </div>
-
-      <div class="row column">
-        <%= form.check_box :show_metrics %>
-      </div>
-
       <% if @form.participatory_process_types_for_select.present? %>
         <div class="row column">
           <%= form.select(

@@ -38,7 +38,7 @@ es-MX:
           error: Ha habido errores al votar el comentario.
     components:
       add_comment_form:
-        account_message: Para añadir un comentario, <a href="%{sign_in_url}">inicia tu sesión </a> o <a href="%{sign_up_url}">regístrate</a>.
+        account_message: <a href="%{sign_in_url}">Inicia sesión</a> o <a href="%{sign_up_url}">crea una cuenta</a> para añadir tu comentario.
         form:
           body:
             label: Comentario
@@ -64,13 +64,18 @@ es-MX:
           against: En contra
           in_favor: A favor
         cancel_reply: Cancelar respuesta
+        comment_label: Comentario %{comment_id}
+        comment_label_reply: Comentario %{comment_id} (responder al comentario %{parent_comment_id})
         confirm_destroy: '¿Seguro que quieres eliminar este comentario?'
+        controls_label: Controles de comentarios
         delete: Eliminar
         deleted_at: Comentario eliminado el %{date}
         deleted_user: Usuario eliminado
         edit: Editar
         edited: Editado
-        hide_replies: Ocultar respuestas
+        hide_replies:
+          one: Ocultar respuesta
+          other: Ocultar %{count} respuestas
         moderated_at: Comentario moderado el %{date}
         reply: Respuesta
         report:
@@ -98,7 +103,7 @@ es-MX:
       comments:
         blocked_comments_for_unauthorized_user_warning: Necesitas estar verificada para comentar en este momento, pero puedes leer los comentarios anteriores.
         blocked_comments_for_user_warning: No puede hacer comentarios en este momento, pero puede leer los anteriores.
-        blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
+        blocked_comments_warning: Los comentarios están desactivados en estos momentos, solo las administradoras pueden responder o publicar nuevos.
         comment_details_title: Detalles del comentario
         loading: Cargando los comentarios ...
         single_comment_warning: <a href="%{url}">Ver todos los comentarios</a>

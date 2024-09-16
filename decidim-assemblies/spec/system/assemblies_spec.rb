@@ -5,7 +5,6 @@ require "decidim/core/test/shared_examples/has_contextual_help"
 
 describe "Assemblies" do
   let(:organization) { create(:organization) }
-  let(:show_statistics) { true }
 
   let(:description) { { en: "Description", ca: "Descripció", es: "Descripción" } }
   let(:short_description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
@@ -25,7 +24,6 @@ describe "Assemblies" do
       internal_organisation:,
       composition:,
       closing_date_reason:,
-      show_statistics:,
       blocks_manifests:
     )
   end
@@ -147,6 +145,13 @@ describe "Assemblies" do
     end
   end
 
+  it_behaves_like "followable content for users" do
+    let(:assembly) { base_assembly }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let(:followable) { assembly }
+    let(:followable_path) { decidim_assemblies.assembly_path(assembly) }
+  end
+
   describe "when going to the assembly page" do
     let!(:assembly) { base_assembly }
     let!(:proposals_component) { create(:component, :published, participatory_space: assembly, manifest_name: :proposals) }
@@ -164,14 +169,6 @@ describe "Assemblies" do
     context "and requesting the assembly path with main data and type and duration blocks active" do
       before do
         visit decidim_assemblies.assembly_path(assembly)
-      end
-
-      describe "follow button" do
-        let!(:user) { create(:user, :confirmed, organization:) }
-        let(:followable) { assembly }
-        let(:followable_path) { decidim_assemblies.assembly_path(assembly) }
-
-        include_examples "follows"
       end
 
       context "when hero, main_data extra_data, metadata and dates_metadata blocks are enabled" do
@@ -264,7 +261,6 @@ describe "Assemblies" do
       end
 
       context "and the process statistics are enabled with stats block active" do
-        let(:show_statistics) { true }
         let(:blocks_manifests) { [:stats] }
 
         it "renders the stats for those components are visible" do
@@ -274,17 +270,6 @@ describe "Assemblies" do
             expect(page).to have_no_css(".statistic__title", text: "Meetings")
             expect(page).to have_no_css(".statistic__number", text: "0")
           end
-        end
-      end
-
-      context "and the process statistics are not enable with stats block active" do
-        let(:show_statistics) { false }
-        let(:blocks_manifests) { [:stats] }
-
-        it "does not render the stats for those components that are not visible" do
-          expect(page).to have_no_css("h2.h2", text: "Statistics")
-          expect(page).to have_no_css(".statistic__title", text: "Proposals")
-          expect(page).to have_no_css(".statistic__number", text: "3")
         end
       end
 

@@ -14,7 +14,6 @@ id:
           attributes:
             choices:
               missing: tidak lengkap
-              too_many: terlalu banyak
   decidim:
     forms:
       admin:

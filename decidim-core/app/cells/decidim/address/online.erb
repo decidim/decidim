@@ -5,8 +5,8 @@
       <div class="address">
         <div class="address__location"><%= t(model.type_of_meeting, scope: "decidim.meetings.meetings.filters.type_values") %></div>
         <% if display_online_meeting_url? %>
-          <a href="<%= model.online_meeting_url %>" target="_blank" rel="noopener noreferrer" class="address__hints underline break-all">
-            <%= model.online_meeting_url %>
+          <a href="<%= online_meeting_url %>" target="_blank" rel="noopener noreferrer" class="address__hints underline break-all">
+            <%= online_meeting_url %>
           <% end %>
           </a>
       </div>

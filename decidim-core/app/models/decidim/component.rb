@@ -14,7 +14,10 @@ module Decidim
 
     belongs_to :participatory_space, polymorphic: true
 
-    default_scope { order(arel_table[:weight].asc, arel_table[:manifest_name].asc) }
+    scope :registered_component_manifests, -> { where(manifest_name: Decidim.component_registry.manifests.collect(&:name)) }
+    scope :registered_space_manifests, -> { where(participatory_space_type: Decidim.participatory_space_registry.manifests.collect(&:model_class_name)) }
+
+    default_scope { registered_component_manifests.registered_space_manifests.order(arel_table[:weight].asc, arel_table[:manifest_name].asc) }
 
     delegate :organization, :categories, to: :participatory_space
 
@@ -58,7 +61,7 @@ module Decidim
       {
         :host => organization.host,
         :component_id => id,
-        "#{participatory_space.underscored_name}_slug".to_sym => participatory_space.slug
+        :"#{participatory_space.underscored_name}_slug" => participatory_space.slug
       }
     end
 

@@ -172,7 +172,7 @@ en:
         back_to: Back to %{component_name}
         close_modal: Close modal
         continue: Continue
-        more_information: More information
+        more_information: More information about budget
       budgets_list:
         budgets: Budgets
         cancel_order:
@@ -329,7 +329,7 @@ en:
               errors:
                 budget_voting_rule_only_one: Only one voting rule must be enabled.
                 budget_voting_rule_required: One voting rule is required.
-            geocoding_enabled: Geocoding enabled
+            geocoding_enabled: Maps enabled
             landing_page_content: Budgets landing page
             more_information_modal: More information modal
             projects_per_page: Projects per page

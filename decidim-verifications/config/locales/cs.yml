@@ -43,7 +43,7 @@ cs:
           destroy:
             confirm: Zrušení před datem autorizace nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
             confirm_all: Zrušení všech autorizací nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
-          destroy_nok: Při rušení autorizace došlo k chybě.
+          destroy_nok: Při odebírání autorizací došlo k chybě.
           destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny.
           info: Celkem je %{count} ověřených účastníků.
           no_data: Žádní ověření účastníci.
@@ -60,6 +60,10 @@ cs:
           help:
             - Administrátoři nahrávají CSV s e-maily přijatých účastníků.
             - Pouze účastníci s e-mailem v souboru CSV mohou být ověřeni.
+        default:
+          help:
+            - 
+            - Vývojář musí definovat pomoc v překladu (i18n) klíč "%{authorization_handler}"
         id_documents:
           help:
             - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
@@ -72,6 +76,11 @@ cs:
             - Na adresu zasíláte dopis s ověřovacím kódem.
             - Označte dopis jako odeslaný.
             - Jakmile označíte dopis jako odeslaný, uživatel bude schopen kód zadat a tím se ověřit.
+        sms:
+          help:
+            - Účastníci požádají o zaslání ověřovacího kódu na svůj telefon.
+            - Musí zaadat kód, který bude ověřen.
+            - Pokud kód neobdrží, mohou o něj znovu požádat.
       csv_census:
         explanation: Získejte ověření pomocí členství v organizaci.
         name: Členství organizace
@@ -137,7 +146,6 @@ cs:
         admin:
           census:
             create:
-              error: Při importu členů organizace došlo k chybě.
               success: 'Počet úspěšně importovaných položek: %{count} (počet chyb: %{errors}).'
             destroy_all:
               success: Všechna data seznamu členů byly smazány.

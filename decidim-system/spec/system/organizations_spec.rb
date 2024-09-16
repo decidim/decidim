@@ -49,7 +49,7 @@ describe "Organizations" do
         fill_in "Organization admin email", with: "mayor@example.org"
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
-        choose "Allow participants to register and login"
+        choose "Allow participants to create an account and log in"
         check "Example authorization (Direct)"
         click_on "Create organization & invite admin"
 
@@ -84,6 +84,25 @@ describe "Organizations" do
 
           click_on "Show advanced settings"
           expect(page).to have_content("You need to define the SECRET_KEY_BASE environment variable to be able to save this field")
+        end
+      end
+
+      context "with an invalid organization admin name" do
+        before do
+          click_on "Organizations"
+          click_on "New"
+        end
+
+        it "does not create an organization" do
+          fill_in "Name", with: "Citizen Corp 2"
+          fill_in "Reference prefix", with: "CCORP"
+          fill_in "Organization admin name", with: "system@example.org"
+
+          click_on "Create organization & invite admin"
+
+          within ".flash__message", match: :first do
+            expect(page).to have_content("There was a problem creating a new organization. Review your organization admin name.")
+          end
         end
       end
     end
@@ -157,7 +176,7 @@ describe "Organizations" do
         fill_in_i18n :update_organization_name, "#update_organization-name-tabs", en: "Citizens Rule!"
         fill_in "Host", with: "www.example.org"
         fill_in "Secondary hosts", with: "foobar.example.org\n\rbar.example.org"
-        choose "Do not allow participants to register, but allow existing participants to login"
+        choose "Do not allow participants to create an account, but allow existing participants to log in"
         check "Example authorization (Direct)"
 
         click_on "Show advanced settings"
@@ -215,6 +234,10 @@ describe "Organizations" do
               developer: {
                 enabled: false,
                 icon: "phone"
+              },
+              test: {
+                enabled: false,
+                icon: "tools-line"
               }
             }
           )

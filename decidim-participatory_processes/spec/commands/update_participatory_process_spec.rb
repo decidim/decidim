@@ -6,6 +6,10 @@ module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcess do
     describe "call" do
       let(:my_process) { create(:participatory_process) }
+      let!(:taxonomizations) do
+        2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization: my_process.organization), taxonomizable: my_process) }
+      end
+      let(:taxonomy) { create(:taxonomy, :with_parent, organization: my_process.organization) }
       let(:params) do
         {
           participatory_process: {
@@ -33,16 +37,14 @@ module Decidim::ParticipatoryProcesses
             area: my_process.area,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
-            show_metrics: my_process.show_metrics,
-            show_statistics: my_process.show_statistics,
-            private_space: my_process.private_space
+            private_space: my_process.private_space,
+            taxonomies: [taxonomy.id, taxonomizations.first.taxonomy.id]
           }.merge(attachment_params)
         }
       end
       let(:attachment_params) do
         {
-          hero_image: my_process.hero_image.blob,
-          banner_image: my_process.banner_image.blob
+          hero_image: my_process.hero_image.blob
         }
       end
       let(:user) { create(:user, :admin, :confirmed, organization: my_process.organization) }
@@ -80,7 +82,6 @@ module Decidim::ParticipatoryProcesses
           allow(form).to receive(:invalid?).and_return(false)
           expect(my_process).to receive(:valid?).at_least(:once).and_return(false)
           my_process.errors.add(:hero_image, "File resolution is too large")
-          my_process.errors.add(:banner_image, "File resolution is too large")
         end
 
         it "broadcasts invalid" do
@@ -91,13 +92,18 @@ module Decidim::ParticipatoryProcesses
           command.call
 
           expect(form.errors[:hero_image]).not_to be_empty
-          expect(form.errors[:banner_image]).not_to be_empty
         end
       end
 
       describe "when the form is valid" do
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
+        end
+
+        it "updates the taxonomizations" do
+          expect(my_process.reload.taxonomies).to contain_exactly(taxonomizations.first.taxonomy, taxonomizations.second.taxonomy)
+          command.call
+          expect(my_process.reload.taxonomies).to contain_exactly(taxonomy, taxonomizations.first.taxonomy)
         end
 
         it "updates the participatory process" do
@@ -128,40 +134,6 @@ module Decidim::ParticipatoryProcesses
 
             linked_processes = my_process.linked_participatory_space_resources(:participatory_process, "related_processes")
             expect(linked_processes).to contain_exactly(another_process)
-          end
-        end
-
-        context "when no homepage image is set" do
-          let(:attachment_params) do
-            {
-              banner_image: my_process.banner_image.blob
-            }
-          end
-
-          it "does not replace the homepage image" do
-            expect(my_process).not_to receive(:hero_image=)
-
-            command.call
-            my_process.reload
-
-            expect(my_process.hero_image.attached?).to be true
-          end
-        end
-
-        context "when no banner image is set" do
-          let(:attachment_params) do
-            {
-              hero_image: my_process.hero_image.blob
-            }
-          end
-
-          it "does not replace the banner image" do
-            expect(my_process).not_to receive(:banner_image=)
-
-            command.call
-            my_process.reload
-
-            expect(my_process.banner_image.attached?).to be true
           end
         end
       end

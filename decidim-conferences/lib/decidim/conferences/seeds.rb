@@ -93,6 +93,7 @@ module Decidim
               end,
               twitter_handle: ::Faker::Twitter.unique.screen_name,
               personal_url: ::Faker::Internet.url,
+              published_at: Time.current,
               conference:
             )
           end

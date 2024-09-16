@@ -6,8 +6,8 @@ module Decidim::Admin
   describe UpdateHelpSections do
     let(:organization) { create(:organization, external_domain_allowlist: []) }
     let(:user) { create(:user, organization:) }
-    let(:form) { Decidim::Admin::HelpSectionsForm.from_params(attributes) }
-    let(:command) { described_class.new(form, organization, user) }
+    let(:form) { Decidim::Admin::HelpSectionsForm.from_params(attributes).with_context(current_user: user) }
+    let(:command) { described_class.new(form, organization) }
     let(:attributes) do
       {
         sections: {

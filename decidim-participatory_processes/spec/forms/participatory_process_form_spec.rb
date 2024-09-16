@@ -9,6 +9,11 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         let(:organization) { create(:organization) }
+        let(:root_taxonomy) { create(:taxonomy, organization:) }
+        let!(:taxonomies) { create_list(:taxonomy, 3, parent: root_taxonomy, organization:) }
+        let!(:taxonomy_filter1) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:) }
+        let!(:taxonomy_filter2) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:) }
+        let!(:taxonomy_filter3) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:) }
         let(:title) do
           {
             en: "Title",
@@ -40,8 +45,6 @@ module Decidim
         end
         let(:slug) { "slug" }
         let(:attachment) { upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) }
-        let(:show_metrics) { true }
-        let(:show_statistics) { true }
         let(:attributes) do
           {
             "participatory_process" => {
@@ -59,10 +62,8 @@ module Decidim
               "short_description_es" => short_description[:es],
               "short_description_ca" => short_description[:ca],
               "hero_image" => attachment,
-              "banner_image" => attachment,
               "slug" => slug,
-              "show_metrics" => show_metrics,
-              "show_statistics" => show_statistics
+              "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
         end
@@ -71,7 +72,19 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when banner_image is too big" do
+        it "returns taxonomizations and taxonomies" do
+          expect(subject.taxonomizations.map(&:taxonomy_id)).to eq([taxonomies.first.id, taxonomies.second.id])
+          expect(subject.root_taxonomies).to eq([root_taxonomy])
+          expect(subject.taxonomy_filters).to contain_exactly(taxonomy_filter1, taxonomy_filter2)
+        end
+
+        context "when taxonomies belong to another organization" do
+          let!(:taxonomies) { create_list(:taxonomy, 3) }
+
+          it { is_expected.not_to be_valid }
+        end
+
+        context "when hero_image is too big" do
           before do
             organization.settings.tap do |settings|
               settings.upload.maximum_file_size.default = 5

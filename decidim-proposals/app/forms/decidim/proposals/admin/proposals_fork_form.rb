@@ -39,7 +39,7 @@ module Decidim
 
           proposals.each do |proposal|
             errors_set << :not_official unless proposal.official?
-            errors_set << :supported if proposal.votes.any? || proposal.endorsements.any?
+            errors_set << :voted if proposal.votes.any? || proposal.endorsements.any?
           end
 
           errors_set.each { |error| errors.add(:base, error) } if errors_set.any?

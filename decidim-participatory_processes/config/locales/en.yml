@@ -5,7 +5,6 @@ en:
       participatory_process:
         announcement: Announcement
         area_id: Area
-        banner_image: Banner image
         copy_categories: Copy categories
         copy_components: Copy components
         copy_steps: Copy steps
@@ -35,8 +34,6 @@ en:
         scope_type_max_depth_id: Scope filter depth
         scopes_enabled: Scopes enabled
         short_description: Short description
-        show_metrics: Show metrics
-        show_statistics: Show statistics
         slug: URL slug
         start_date: Start date
         subtitle: Subtitle
@@ -100,6 +97,7 @@ en:
         duplicate: Duplicate
         edit: Edit
         import_process: Import
+        menu_hidden: Hide
         moderate: Moderate
         new_process: New process
         new_process_group: New process group
@@ -179,7 +177,7 @@ en:
           title: Duplicate participatory process
       participatory_process_groups:
         destroy:
-          error: There was an error while destroying the Participatory process group.
+          error: There was a problem while destroying the participatory process group.
           success: Participatory process group successfully deleted.
         edit:
           title: Edit process group
@@ -437,6 +435,7 @@ en:
             select_participatory_process_type: Select a process type
             select_process_group: Select a process group
             slug_help_html: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            taxonomies: Taxonomies
             title: General Information
             visibility: Visibility
       content_blocks:

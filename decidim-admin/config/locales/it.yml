@@ -150,6 +150,7 @@ it:
         export: Esporta tutto
         export-selection: Esporta selezione
         import: Importazione
+        manage: Gestisci
         newsletter:
           new: Nuova newsletter
         participatory_space_private_user:
@@ -269,7 +270,6 @@ it:
           headers:
             actions: Azioni
             name: Nome del componente
-            scope: Ambito del componente
             type: Tipo di componente
         new:
           add: Aggiungi componente
@@ -429,6 +429,7 @@ it:
         appearance: Aspetto
         area_types: Tipi di ambito territoriale
         areas: Ambiti territoriali
+        components: Componenti
         configuration: Configurazione
         help_sections: Sezioni di Aiuto
         homepage: Homepage
@@ -789,6 +790,8 @@ it:
           without_topic: Pagine senza argomento
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.
+      taxonomies:
+        count: Conteggio
       titles:
         admin_log: Registro di amministrazione
         area_types: Tipi di ambito territoriale

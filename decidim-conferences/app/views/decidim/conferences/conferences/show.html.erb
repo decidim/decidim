@@ -1,9 +1,9 @@
-<% add_decidim_meta_tags({
-                           title: translated_attribute(current_participatory_space.title),
-                           image_url: current_participatory_space.attached_uploader(:hero_image).path,
-                           description: translated_attribute(current_participatory_space.short_description),
-                           url: conference_url(current_participatory_space)
-                         }) %>
+<% add_decidim_meta_tags(
+  title: translated_attribute(current_participatory_space.title),
+  image_url: resolve_meta_image_url(current_participatory_space),
+  description: translated_attribute(current_participatory_space.short_description),
+  url: conference_url(current_participatory_space),
+  resource: current_participatory_space) %>
 
 <%
 edit_link(
@@ -24,12 +24,12 @@ edit_link(
 
   <%= content_for :aside do %>
     <div class="conference__nav-container">
-      <button id="dropdown-trigger-conference" data-component="dropdown" data-target="dropdown-menu-conference" data-auto-close="true" data-disabled-md="true" data-scroll-to-menu="true">
+      <button id="dropdown-trigger-conference" data-component="dropdown" data-target="dropdown-menu-conference" data-auto-close="true" data-scroll-to-menu="true">
         <span><%= t("decidim.searches.filters.jump_to") %></span>
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
       </button>
-      <ul id="dropdown-menu-conference" class="conference__nav">
+      <ul id="dropdown-menu-conference" class="conference__nav" aria-hidden="true">
         <%= render partial: "layouts/decidim/conferences/conference_nav_item", collection: conference_nav_items(current_participatory_space), as: :item %>
       </ul>
     </div>

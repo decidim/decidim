@@ -11,9 +11,42 @@ module Decidim
       def call
         print "Creating seeds for decidim-core...\n" unless Rails.env.test? # rubocop:disable Rails/Output
 
+        Rails.application.reloader.reload! if Rails.application.reloader.check!
         reset_column_information
 
+        ActiveJob::Base.queue_adapter = :inline
+
         organization = create_organization!
+
+        if organization.taxonomies.none?
+          taxonomy = create_taxonomy!(name: "Scopes", parent: nil)
+          3.times do
+            sub_taxonomy = create_taxonomy!(name: ::Faker::Address.state, parent: taxonomy)
+
+            5.times do
+              create_taxonomy!(name: ::Faker::Address.city, parent: sub_taxonomy)
+            end
+          end
+
+          taxonomy = create_taxonomy!(name: "Areas", parent: nil)
+          sub_taxonomy = create_taxonomy!(name: "Territorial", parent: taxonomy)
+          3.times do
+            create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
+          end
+          sub_taxonomy = create_taxonomy!(name: "Sectorial", parent: taxonomy)
+          5.times do
+            create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
+          end
+
+          taxonomy = create_taxonomy!(name: "Categories", parent: nil)
+          3.times do
+            sub_taxonomy = create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: taxonomy)
+
+            5.times do
+              create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: sub_taxonomy)
+            end
+          end
+        end
 
         if organization.top_scopes.none?
           province = create_scope_type!(name: "province", plural: "provinces")
@@ -78,7 +111,7 @@ module Decidim
 
         oauth_application.organization_logo.attach(io: File.open(File.join(seeds_root, "homepage_image.jpg")), filename: "organization_logo.jpg", content_type: "image/jpeg")
 
-        Decidim::System::CreateDefaultContentBlocks.call(organization)
+        Decidim::ContentBlocksCreator.new(organization).create_default!
 
         hero_content_block = Decidim::ContentBlock.find_by(organization:, manifest_name: :hero, scope_name: :homepage)
         hero_content_block.images_container.background_image = create_blob!(seeds_file: "homepage_image.jpg", filename: "homepage_image.jpg", content_type: "image/jpeg")
@@ -115,12 +148,9 @@ module Decidim
         ].sample
 
         colors = {
-          alert: "#e7131a",
           primary: primary_color,
           secondary: secondary_color,
-          tertiary: tertiary_color,
-          success: "#28a745",
-          warning: "#ffb703"
+          tertiary: tertiary_color
         }
 
         Decidim::Organization.first || Decidim::Organization.create!(

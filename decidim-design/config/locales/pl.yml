@@ -3,6 +3,69 @@ pl:
   decidim:
     design:
       components:
+        accordions:
+          content_panel: Zawartość panelu
+          demo: Wersja demonstracyjna
+          demo_description: W całej aplikacji używane są akordiony, głównie do pokazania/ukrycia zawartości w zakładkach lub zwinięcia/rozwinięcia widocznych tekstów.
+          description_accordions_html: Akordiony to funkcja javascript dostępna dzięki bibliotece zewnętrznej o nazwie %{link_code} a11y-accordion-component.
+          github_source_html: Kod źródłowy na GitHub %{github_link}
+          panel: Panel
+          title: Listy rozwijane (akordiony)
+          trigger: Wyzwalacz
+          usage: Użycie
+          usage_p: Akordion wymaga co najmniej trzech elementów
+          usage_p_1_html: 1. Wrapper <code>div</code>, z atrybutem data-attribute <code>data-component="accordion"</code>, na wszystkich dostępnych wyzwalaczach i panelach.
+          usage_p_2_html: 2. Element wyzwalający, z którego może skorzystać użytkownik (jak przez przycisk), wskazujący na zwijany element przez <code>data-controls="panel"</code>, gdzie <i>panel</i> jest <code>id</code> panelu.
+          usage_p_3_html: 3. Ukrywany element, którego <code>id</code> odpowiada wartości data-controls, do której odnosi się wyzwalacz.
+        activities:
+          activities: Aktywności
+        address:
+          title: Adres
+        announcement:
+          iam_an_announcement: Jestem ogłoszeniem
+          this_is_the_body: To jest ciało
+          this_is_the_title: To jest tytuł
+          title: Ogłoszenie
+        author:
+          title: Autor
+        buttons:
+          description_html: 'Przyciski są budowane przy użyciu różnych kombinacji klas CSS: klasy <code>button</code>, rozmiaru i koloru.'
+          title: Przyciski
+        cards:
+          title: Karty
+        dialogs:
+          dialog_demo_description_html: Dialogi lub komponenty modalne są zaimplementowane przez pomocnika Rails <code>decidim_modal</code>.
+          dialogs_description_html: Dialogi są funkcją javascript dostępną dzięki bibliotece zewnętrznej o nazwie <a href="https://github.com/jonathanlevaillant/a11y-dialog-component" target="_blank" rel="noopener noreferrer">a11y-dialog-component</a>.
+          tips_description: 'Aby wyświetlić złożony modal, pasujący do stylów, użyj następującego kodu:'
+          tips_description_html: Zwróć uwagę na <i>data-attributes</i> oraz <i>identyfikatory</i>. Na przykład, identyfikator <code>[data-dialog-title]</code> rozpoczyna się od <i>dialog-title</i> oraz <i>identyfikatora modala</i>.
+          title: Okna dialogowe
+          usage_description: Okno dialogowe wymaga dwóch elementów
+          usage_description_2_html: 2. Element modalny, którego <code>id</code> odpowiada wartości data-target, do której odnosi się wyzwalacz.
+          usage_description_html: 1. Element wykonalny przez użytkownika, z atrybutem data-attribute <code>data-dialog-open="example"</code>, gdzie przykładem jest <code>id</code> modala.
+        follow:
+          title: Obserwuj
+        forms:
+          disabled: Nieaktywny
+          emojis: Emotikony
+          emojis_description: Działa tylko w polu tekstowym
+          errors: Błędy
+          errors_description: Nie dotyczy wyboru
+          header_alert: Ta strona pochodzi ze starego widoku. Zawartość jest nieaktualna.
+          help_texts: Teksty pomocy
+          html_regular_inputs: Regularne pola wejściowe HTML
+          min_max_length: Min./maks. długość
+          min_max_length_description: Działa tylko dla wejścia type='text' i obszaru tekstowego (textarea)
+          multiselect: Wielokrotny wybór
+          multiselect_description_html: Wielokrotne zaznaczenia to funkcja javascript dostępna dzięki bibliotece zewnętrznej o nazwie <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
+          regular_inputs_description: 'Wyświetla tylko wspólne typy, pełna dostępna lista: date, datetime-local, email, month, number, password, search, tel, text, time, url, week'
+          textarea_required: Wymagane pole tekstowe
+          title: Formularze
+        report:
+          title: Zgłoś
+        share:
+          title: Udostępnij
+        tab_panels:
+          title: Panele kart
         tooltips:
           demo: Wersja demonstracyjna
           demo_description: Aby ten komponent działał, uczestnik musi najechać kursorem na element.
@@ -15,12 +78,45 @@ pl:
           usage_p_2_html: '2. Opcjonalna klasa z symbolem, na którym będzie wyświetlany tooltip. Możliwe wartości to: <code>:góra</code>, <code>:dół</code>, <code>:prawo</code>, lub <code>:lewo</code>.'
           usage_p_3_html: 3. Blok z ciągiem znaków, na który użytkownik musi najechać kursorem, aby został wyświetlony.
       foundations:
+        accessibility:
+          accessibility_labels: Etykiety dostępności
+          accessibility_labels_paragraph: Przy definiowaniu elementów zawsze upewnij się, że mają sens dla użytkowników czytnika ekranu.
+          accessibility_title: Dostępność
+          adjacent_links: Przyległe linki
+          adjacent_links_header: Przylegające linki dla tego samego zasobu
+          adjacent_links_paragraph: Jeśli ten sam zasób ma wiele sąsiadujących linków wskazujących no niego, utrudnia to takim użytkownikom spojrzenie na stronę, ponieważ mogą oni przejść przez wiele linków, aby dotrzeć do następnego zasobu.
+          color_contrast: Kontrast kolorów
+          color_contrast_paragraph: Podczas tworzenia interfejsów użytkownika lub modyfikowania kolorów, zawsze upewnij się, że nie naruszasz dostępności swoimi zmianami. Możesz użyć narzędzia do sprawdzania kontrastu kolorów, aby upewnić się, że kolory mają wystarczający kontrast względem koloru tła, na którym są wyświetlane.
+          decidim_follows_html: Decidim jest zgodny z wytycznymi <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
+          dynamic_changes_header: Dynamiczna funkcjonalność zmienia kontekst strony w sposób nieintuicyjny
+          dynamic_changes_paragraph: Zmiany w formularzu danych wejściowych nie powinny automatycznie zmieniać kontekstu strony.
+          elements_hidden: Ukryte elementy
+          elements_hidden_header: Elementy ukryte w API ułatwień dostępu
+          elements_hidden_paragraph: Aby ukryć element przed technologiami wspomagającymi, użyj w nim atrybutu aria-hidden="true".
+          heading_on: Nagłówek w ważnych sekcjach
+          here_link: tutaj
+          illogical_heading_order: Nielogiczna kolejność nagłówków
+          illogical_heading_paragraph: Każda strona powinna mieć logiczną kolejność nagłówków podczas używania elementów nagłówka <h1>, <h2>, <h3>, <h4>, <h5> i <h6>.
+          important_sections_heading: Nagłówek w ważnych sekcjach
+          important_sections_paragraph: Bardzo ważne jest, aby każda ważna sekcja strony miała nagłówek ułatwiający zrozumienie, jakie ważne sekcje znajdują się na stronie tylko poprzez przeglądanie jej nagłówków.
+          links_and_buttons: Linki i przyciski
+          links_and_buttons_paragraph: Elementy kotwicy (tj. odnośniki) mają na celu połączenie z różnymi stronami lub zakotwiczenie pozycji na stronie. Jeśli element ma na celu np. otwarcie na tej stronie niektórych ukrytych elementów, powinieneś (powinnaś) zamiast tego użyć elementu <button>.
+          see_further_info_html: Zobacz dalsze informacje %{link}
+          unique_h1: Unikalny H1
+          unique_h1_paragraph: Każda strona powinna mieć unikalny nagłówek H1
+          use_aria: Użyj ARIA
+          use_aria_header: Użyj atrybutów ARIA tam, gdzie to możliwe
+          use_aria_paragraph: Wiele elementów, które zapewniają interaktywną funkcjonalność na stronie internetowej, wymaga od nich atrybutów ARIA, aby stały się one dostępne.
         color:
           color_header: Kolor
           description_p1: Zapewniamy podstawową paletę kolorów, która umożliwia dokonywanie prostych modyfikacji. Możesz zmienić paletę podstawową w obszarze administracyjnym lub w pliku konfiguracyjnym Tailwind, jeśli potrzebujesz bardziej zaawansowanych modyfikacji.
           description_p2_html: Podczas dostosowywania kolorów pamiętaj o %{contrast_link}. Możesz sprawdzić wybrany kontrast za pomocą %{checker_link} lub innych podobnych narzędzi.
           wcag_compliant_rations: Współczynnik kontrastu zgodny z WCAG 2.1 AA
           wcag_contrast_checker: Sprawdzanie kontrastu WebAIM
+        iconography:
+          description_iconography: Używamy ikon, aby wzmocnić znaczenie akcji, tytułów itp.
+          description_iconography_html: 'Używamy biblioteki open source Remixicon: %{iconography_link}'
+          title: Ikonografia
         layout:
           breakpoint: Punkt przerwania
           breakpoints: Punkty przerwania
@@ -47,15 +143,162 @@ pl:
           section_p_tablet: System siatki w wersji na tablet składa się z 8 elastycznych kolumn z odstępem między kolumnami wynoszącym 16 pikseli oraz lewym i prawym marginesem wynoszącym 24 pikseli
           tablet: Tablet
           title: Układ
+        typography:
+          description: Niniejsze wytyczne podsumowują sposób korzystania z typografii w Decidim i służą jako strażnik dla projektantów do swobodnego projektowania z myślą o najlepszych praktykach typograficznych.
+          headings:
+            characters: Znaków na linię
+            layout: Kolumny układu
+            size: Rozmiar
+          title: Typografia
+          typefaces_description_1: Decidim używa Source Sans Pro jako podstawowego typu czcionki. Ten typ obsługuje 310 języków
+          typefaces_description_2: Ta czcionka jest licencjonowana na licencji Open Font License
       helpers:
+        accountability: Rozliczalność
+        accountability_cards_html: Używane przez karty <i>rozliczalności projektów</i>. Ta karta wymaga zasobów modułu, aby zostać wyświetlona poprawnie, tj. <code>append_stylesheet_pack_tag \"decidim_accountability\"</code>
+        activity: Aktywność
+        address_description: Komórka adresu odbiera zasób i przeszukuje geolokalizowalne atrybuty, aby renderować konkretny kod.
+        address_description_2: W zależności od rodzaju treści adres może być adresem internetowym. W takich przypadkach wyświetlane informacje są całkiem identyczne, ale podlegają kształtowaniu, aby je dopasować.
+        ally_link: a11y-dropdown-component
+        argument: Argument
+        assemblies: Zgromadzenia
+        assembly_g: Zestaw G
+        assembly_s: Zestaw S
+        avatar: Awatar
+        avatar_description: Jest ona używana, gdy istnieją wąskie przestrzenie, gdzie autor jest informacją drugorzędną.
         background: Tło i obramowanie
         base: Baza
+        block_text: Użyj bloku extra_data
+        blog_cards_html: Używane przez karty <i>blogów</i>
+        blogs: Blogi
+        budget_card_html: Używane przez karty <i>projektów budżetów</i>. Ta karta wymaga poprawnego wyświetlania zasobów modułu, tj. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
+        budgets: Budżety
+        callout_class: Klasa wywołania
+        callout_description: Ten atrybut stosuje status ogłoszenia. Domyślnie używa koloru drugorzędnego.
+        card_g: Karta G
+        card_l: Karta L
+        card_s: Karta S
+        collaborative_draft_l: Wspólny szkic L
+        colors: Kolory
+        compact: Kompaktowy
+        compact_description: Ta wersja autora jest wspólnym sposobem identyfikacji twórcy zasobów.
+        conference_g: Konferencja G
+        conference_s: Konferencja S
+        conferences: Konferencje
+        context: Kontekst
+        context_description: Ta komórka wyświetla informacje o użytkowniku. Jest to wizualna pomoc w identyfikacji twórcy zasobów/treści. Najechanie myszą wyświetla podpowiedź z dalszymi informacjami i linkami do jego lub jej profilu.
+        context_description_2: W przypadku zasobów, ta komórka pojawia się pod głównym nagłówkiem. W przypadku innych treści pojawia się obok samej treści.
+        debate_l: Debata L
+        debate_s: Debata S
+        debates: Debaty
+        debates_cards_html: Używane przez karty <i>Debat</i>
+        debates_cards_text: Użyj innego szablonu dla bloku obrazu
+        default: Domyślny
+        default_description: Wywołanie komórki bez dodatkowych argumentów, z wyjątkiem samego użytkownika.
+        demo: Wersja demonstracyjna
+        demo_text: 'Ta komórka odbiera model elementów LastActivity i wyświetla następujące elementy:'
+        demo_text_2: Używane przez ostatnią stronę aktywności, w bloku zawartości i w rozwijanych listach.
+        description: Opis
+        disabled: Wyłączony
+        dropdowns: Listy rozwijane
+        dropdowns_demo_1_description: 'Poniższy przykład nie będzie widoczny na komputerze stacjonarnym, ale mobilnym:'
+        dropdowns_demo_description: Rozwijane listy są używane w aplikacji w celu zwijania dużych, łatwych do odczytania menu dla urządzeń stacjonarnych, ale zbyt rozbudowanych dla urządzeń mobilnych.
+        dropdowns_demo_description_html: 'Ta funkcja javascript jest rozszerzona o małe css, przez konwencję nazewniczą: ukrywalna zawartość MUSI ZAWIERAĆ <code>id</code> zaczynając od menu rozwijanego <i>dropdown-menu</i>.'
+        dropdowns_description_html: Listy rozwijane są funkcją javascript dostępną dzięki bibliotece zewnętrznej o nazwie %{link}.
+        dropdowns_usage_1_description: 2. Element ukryty, którego <code>id</code> odpowiada wartości docelowej danych, do której odnosi się wyzwalacz.
+        dropdowns_usage_description: 'Lista rozwijana wymaga dwóch elementów:'
+        dropdowns_usage_description_html: 1. Element wywoływany przez użytkownika, z atrybutami danych <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
+        dummy_description: Opis zasobu Dummy
+        dummy_title: Tytuł zasobu Dummy
+        follow_button: Przycisk podążania
+        follower_description_html: Upewnij się, że część <code>decidim/shared/login_modal</code> jest obecna w DOM. Ta część jest umieszczona w układzie aplikacji, gdy użytkownik jest zalogowany.
         form_elements: Elementy formularza
+        generic_cards: Karty ogólne
+        grid: Siatka
         hex_code: Kod szesnastkowy
+        highlight: Wyróżnienie
+        highlight_description: Używane przez zasoby, które pozwalają na podświetlenie
+        html_tips: Podpowiedzi HTML
+        icons: Ikony
+        image_and_description: Obraz i opis
+        initiative_g: inicjatywa_g
+        initiative_s: inicjatywa_s
+        initiatives: Inicjatywy
+        list: Lista
         main_colors: Kolory główne
+        meeting_l: Spotkanie L
+        meeting_s: Spotkanie S
+        meetings: Spotkania
+        meetings_html: Używane przez karty <i>Spotkań</i>
+        metadata_items: Elementy metadanych
+        metadata_text: Każdy zasób definiuje własne elementy metadanych
+        participatory_process_g: Proces partycypacyjny G
+        participatory_process_group_g: Grupy procesów partycypacyjnych G
+        participatory_process_group_s: Grupy procesów partycypacyjnych S
+        participatory_process_s: Proces partycypacyjny S
+        participatory_processes: Procesy partycypacyjne
+        plain_text: Jestem zwykłym tekstem
+        plain_text_description: Jako pierwszy argument można podać zarówno prosty tekst, jak i obiekt haszujący
+        plain_text_vs_hash: Zwykły tekst vs hash
+        post_g: Post G
+        post_l: Post L
+        post_s: Post S
+        project_l: Projekt L
+        project_s: Projekt S
+        proposal_l: Propozycja L
+        proposal_s: Propozycja S
+        proposals: Propozycje
+        report_button: Przycisk Zgłoś
+        report_usage_description: Przycisk zgłoszenia uruchamia okno modalne, aby oznaczyć bieżący zasób.
+        result_l: Wynik L
         rgba_code: Kod RGBA
+        search: Szukanie
+        send: Wyślij
+        share_button: Przycisk udostępniania
+        share_usage_description_html: Upewnij się, że część <code>decidim/shared/share_modal</code> jest obecna w DOM. Ta część jest umieszczona w układzie aplikacji.
+        sizes: Rozmiary
+        sortition_l: sortition_l
+        sortitions: Wybory przez losowanie
+        source_code: Kod źródłowy
         state: Stan
+        tab_panels_context_description: Ten komponent panelu kart gromadzi wszystkie powiązane treści lub inne zasoby głównego elementu wyświetlanego, aby zaoszczędzić przestrzeń pionową. Kliknięcie karty aktywuje utworzony panel, aby wyświetlić zawartość.
+        tab_panels_context_description_html: Głównie jest używany w <i>layout_item</i> lub <i>layout_center</i>, po głównej zawartości zasobu.
+        tab_panels_usage_description: 'Ten komponent odbiera tablicę hashów i zmienia kolejność wyjścia każdego elementu w strukturę panelu zakładek. Dostępne właściwości dla każdego panelu:'
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Argumenty dla poprzedniej metody"
+        tab_panels_usage_description_html: "<strong>włączone</strong>: <i>Boolean</i>. Warunkowo renderowanie karty"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>String</i>. Unikalne id"
+        tab_panels_usage_description_rails_html: "<strong>method</strong>: <i>Symbol</i>. Każda funkcja, którą rails rozumie"
+        tab_panels_usage_description_remixicon_html: "<strong>icon</strong>: <i>String</i>. Klucz Remixicon"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>String</i>. Tytuł karty"
         tailwind: Nazwa Tailwind
+        text: Tekst
+        transparent: Przeźroczysty
+        transparent_description: 'W przypadku ciemniejszego tła:'
+        types: Typy
+        typography_texts: Typografia i teksty
+        usage: Użycie
+        usage_background_1: Pomijając tło
+        usage_background_2: Wybrane tło filtra paska bocznego
+        usage_background_3: Domyślny kolor ikon
+        usage_background_4: Linie i separatory
+        usage_background_5: Tło stopki
+        usage_background_6: Tło układu administratora
+        usage_base_1: Główne tło komponentu nawigacyjnego\nMenu nawigacyjne na stronie głównej i w przestrzeni domowej (głównej)
+        usage_base_2: Główny kolor linków i przycisków
+        usage_base_3: Graficzne ozdoby i kolor akcentu\nRamka kart i list dla najechania myszą
+        usage_formelements_1: Domyślne tło elementów wejściowych
+        usage_formelements_2: Tło elementów wejściowych w zablokowanym stanie
+        usage_state_1: Ramka informacji o sukcesie\nWypełnienie ikony ostrzeżenia\nTło przycisku na wiadomości o sukcesie
+        usage_state_2: Obramowanie ostrzeżenia
+        usage_state_3: Obramowanie ostrzeżenia\nWypełnienie ikony ostrzeżenia
+        usage_typography_1: Nagłówki i tytuły sekcji
+        usage_typography_2: Tekst w linii
+        usage_typography_3: Tekst nad ciemnym tłem
+        usage_typography_4: Linki i przyciski
+        value: Wartość
+        variations: Odmiany
+        variations_cards_description: Każda karta będzie wyglądała inaczej w odniesieniu do właściwości wyświetlanego zasobu. Możesz nadpisać takie zachowanie w określonej komórce.
+        variations_description: Istnieją trzy różne wersje tej komórki. Każda z nich lepiej pasuje do kontekstu, który jest wyświetlany.
+        variations_text: W odniesieniu do rodzaju działalności komórka może pokazywać różne treści, przedstawiając odrębne zasoby, niezależnie od tego, czy należy do przestrzeni uczestniczącej, czy nie, ma autora czy nie.
       home:
         index:
           by_sharing_principles: Dzieląc się zasadami, filozofią, i przesłaniem, które stoją za decyzjami dotyczącymi projektowania, chcemy zainspirować społeczność do konsekwentnego zaangażowania, abyśmy mogli zapewnić uczestnikom jak najlepsze doświadczenia.

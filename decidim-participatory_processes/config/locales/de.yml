@@ -4,7 +4,6 @@ de:
       participatory_process:
         announcement: Ankündigung
         area_id: Bereich
-        banner_image: Banner-Bild
         copy_categories: Kategorien kopieren
         copy_components: Komponenten kopieren
         copy_steps: Phasen kopieren
@@ -34,8 +33,6 @@ de:
         scope_type_max_depth_id: Umfang-Filtertiefe
         scopes_enabled: Themenbereiche aktiviert
         short_description: Kurzbeschreibung
-        show_metrics: Metriken anzeigen
-        show_statistics: Statistiken anzeigen
         slug: URL-Slug
         start_date: Startdatum
         subtitle: Untertitel
@@ -166,7 +163,7 @@ de:
             admin: Administrator
             collaborator: Mitarbeiter
             moderator: Moderator
-            valuator: Schätzer
+            valuator: Bewertende
         user:
           fields:
             invitation_accepted_at: Einladung akzeptiert am

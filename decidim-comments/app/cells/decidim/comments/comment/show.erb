@@ -11,7 +11,7 @@
         <%== cell("decidim/author", author_presenter) %>
       </span>
       <span class="text-gray-2 text-sm">
-        <%= time_tag created_at, time_ago_in_words(created_at) %>
+        <%= time_tag created_at, format: :decidim_short %>
       </span>
       <% if edited? %>
         <span class="label">
@@ -50,6 +50,13 @@
                   <span><%= t("decidim.components.comment.delete") %></span>
                 <% end %>
               </li>
+            <% end %>
+            <% if(extra_actions) %>
+              <% extra_actions.each do |action| %>
+                <li>
+                  <%= link_to(*action) %>
+                </li>
+              <% end %>
             <% end %>
           </ul>
         </div>

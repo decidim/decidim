@@ -19,6 +19,8 @@ ca:
         body: Cos
       report:
         details: Comentaris addicionals
+      taxonomy:
+        name: Nom de la taxonomia
       user:
         about: Quant a
         email: El teu correu electrònic
@@ -260,6 +262,13 @@ ca:
         create: "%{user_name} ha creat la pàgina estàtica %{resource_name}"
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
         update: "%{user_name} ha actualitzat la pàgina estàtica %{resource_name}"
+      taxonomy:
+        create: "%{user_name} ha creat la taxonomia \"%{resource_name}\""
+        create_with_parent: "%{user_name} ha creat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
+        delete: "%{user_name} ha esborrat la taxonomia \"%{resource_name}\""
+        delete_with_parent: "%{user_name} ha esborrat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
+        update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
+        update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
       user:
         block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
@@ -284,11 +293,11 @@ ca:
       dismiss: Descartar notificació
     amendments:
       accepted:
-        error: S'ha produït un error en acceptar l'esmena.
+        error: Hi ha hagut un problema en acceptar l'esmena.
         success: L’esmena ha estat acceptada correctament.
       amendable:
         button: Esmenar %{model_name}
-        error: S'ha produït un error en modificar aquest recurs.
+        error: Hi ha hagut un problema en esmenar aquest recurs.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: Segur que vols promoure aquesta esmena?
         promote_help_text: Pots promocionar aquesta esmena com a una %{model_name} independent.
@@ -296,12 +305,8 @@ ca:
         title:
           one: "%{count} esmena"
           other: "%{count} esmenes"
-      compare_draft:
-        continue: Continua
-        no_similars_found: No s’han trobat esmenes semblants.
-        title: Esmenes similars
       created:
-        error: S'ha produït un error durant la creació de l’esmena.
+        error: Hi ha hagut un problema en actualitzar l'esborrany de l'esmena.
         success: L'esborrany d’esmena ha estat creat amb èxit.
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de l'esmena.
@@ -350,19 +355,21 @@ ca:
         error: S'ha produït un error en actualitzar l'esborrany de l'esmena.
         success: Esborrany d'esmena actualitzat correctament.
       withdraw:
-        error: S'ha produït un error en retirar l'esmena.
+        error: Hi ha hagut un problema en retirar l'esmena.
         success: L'esmena s'ha retirat correctament.
       wizard_step_form:
         steps:
           '1': Crea la teva esmena
-          '2': Compara la teva esmena
-          '3': Completa la teva esmena
-          '4': Publica la teva esmena
+          '2': Publica la teva esmena
     anonymous_user: Anònim
     application:
       document:
         download: Descarregar fitxer
+        visit_link: Visita l'enllaç
       documents:
+        component_documents:
+          dummy: Documents sobre components ficticis
+          meetings: Documents sobre trobades
         documents: Documents
         related_documents: Documents relacionats
       photo:
@@ -533,8 +540,8 @@ ca:
         html_content: Contingut HTML
         name: Bloc HTML
       last_activity:
-        name: Última activitat
-        title: Última activitat
+        name: Darrera activitat
+        title: Darrera activitat
         view_all: Veure-ho tot
       last_activity_settings_form:
         max_last_activity_users: Número màxim d'avatars de participants amb activitat recent a mostrar
@@ -584,8 +591,11 @@ ca:
           complete_profile: Completa el perfil
           nickname_help: El teu àlies a %{organization}. Només pot contenir lletres, números, '-' and '_'.
           sign_up: Si us plau, completa el teu perfil
-          subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
+          subtitle: Si us plau, omple el següent formulari per tal de completar la creació del teu compte
           username_help: Nom públic que apareix als teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
+        new_tos_fields:
+          sign_up: Crear un compte
+          sign_up_title: Acabar de crear el teu compte
       registrations:
         create:
           error: S'ha produït un error en crear el teu compte.
@@ -594,8 +604,8 @@ ca:
           log_in: Entra
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           newsletter_title: Permís de contacte
-          sign_up: Registra't
-          subtitle: Crea un compte per poder participar en els debats i donar suport a les propostes.
+          sign_up: Crea un compte
+          subtitle: Crea un compte per participar en la plataforma.
           terms: els termes i condicions d'ús
           tos_agreement: En registrar-te acceptes %{link}.
           tos_title: Termes del servei
@@ -605,7 +615,7 @@ ca:
           are_you_new?: Ets nova a la plataforma?
           register: Crea't un compte
           sign_in_disabled: Pots accedir amb un compte extern.
-          sign_up_disabled: El registre està deshabilitat, pots fer servir un compte existent per accedir-hi.
+          sign_up_disabled: La creació de comptes està deshabilitada, pots fer servir un compte existent per accedir-hi.
         user:
           timed_out: Has estat sense activitat durant massa temps i la teva sessió s'ha tancat automàticament. Si vols continuar participant, torna a iniciar sessió.
       shared:
@@ -882,6 +892,11 @@ ca:
         button: Deixar de seguir
         error: S'ha produït un error en deixar de seguir aquest recurs.
     forms:
+      attachment_link:
+        explanation: Guia per enllaços adjunts
+        help_messages:
+          - Només s'accepten format d'URL correctes.
+          - Tingues en compte que els enllaços han de ser públics perquè tots els participants hi puguin accedir.
       errors:
         decidim/user:
           password: La contrasenya és massa curta.
@@ -917,6 +932,7 @@ ca:
           filename: Nom del fitxer
           remove: Eliminar
           replace: Reemplaçar
+          save: Desar
           title: Títol
           title_required: Un títol és necessari!
           uploaded: Pujat
@@ -1040,11 +1056,11 @@ ca:
           content: "<p>A %{organization} pots participar i decidir sobre diferents temes, a través dels espais que veus al menú superior: Processos, Assemblees, Iniciatives, Consultes.</p> <p>Dins de cada un trobaràs diferents opcions per participar: fer propostes - a nivell individual o amb altres persones -, prendre part en debats, prioritzar projectes a executar, assistir a trobades presencials i altres accions.</p>\n"
           title: Què puc fer a %{organization}?
         description: Llegeix més sobre %{organization}.
-        title: Ajuda general
+        title: General
     last_activities:
       all: Tots els tipus d'activitats
       index:
-        last_activity: Última activitat
+        last_activity: Darrera activitat
       name: Darreres activitats
       no_activities_warning: No hi ha res a mostrar per a aquest tipus d'activitat.
     linked_resource_from:
@@ -1079,6 +1095,8 @@ ca:
           not_found: 'L''àmbit no s''ha trobat a la base de dades (ID: %{id})'
         scope_type_presenter:
           not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'No s''ha trobat la taxonomia a la base de dades (ID: %{id})'
     managed_users:
       expired_session: La sessió actual d'administració d'una participant ha caducat.
     map:
@@ -1236,9 +1254,11 @@ ca:
         same_language: El contingut s'ha publicat en la teva llengua de preferència (%{language}), és per això que no es mostra cap traducció automàtica en aquest correu electrònic.
         translated_text: 'Text de la traducció automàtica:'
     notifications:
+      action_error: S'ha produït un error en actualitzar les notificacions.
       no_notifications: Encara no hi ha notificacions.
       show:
         missing_event: Vaja, aquesta notificació pertany a un element que ja no està disponible. Pots descartar-la.
+        moderated: Contingut moderat
     notifications_digest_mailer:
       header:
         daily: Resum diari de notificacions
@@ -1255,6 +1275,7 @@ ca:
         administrators: Administradores
         allow_public_contact: Permetre que qualsevol participant m'enviï missatges directes, encara que no la segueixi.
         allow_push_notifications: Mostrar notificacions emergents per a saber que passa mentre no estàs a la plataforma. Pots deshabilitar-les en qualsevol moment.
+        assigned_to_proposal: Vull rebre un correu electrònic quan algú m'assigni una proposta a avaluar
         direct_messages: Rebre missatges directes de qualsevol
         email_on_moderations: Vull rebre un correu electrònic cada cop que es reporti algo o a algú per moderació.
         everything_followed: Tot el que segueixo
@@ -1273,6 +1294,7 @@ ca:
         push_notifications_reminder: Per rebre notificacions de la plataforma, primer les has de permetre a la configuració del teu navegador.
         receive_notifications_about: Vull rebre notificacions
         update_notifications_settings: Guardar canvis
+        valuators: Avaluadores
       update:
         error: S'ha produït un error en actualitzar la configuració de les notificacions.
         success: La configuració de les notificacions s'ha actualitzat correctament.
@@ -1311,7 +1333,7 @@ ca:
           headline: Estat actual de %{organization}
         sub_hero:
           register: Registra't
-          register_title: Registra't per crear un compte
+          register_title: Crea un compte
       index:
         standalone_pages: Pàgines
         subheading: Navega per les pàgines d'ajuda de %{name}
@@ -1410,7 +1432,7 @@ ca:
         subject: Un contingut ha estat denunciat
     reports:
       create:
-        error: S'ha produït un error en denunciar el contingut. Si us plau, torna-ho a intentar.
+        error: Hi ha hagut un problema en crear l'informe d'error. Si us plau, torna-ho a provar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
     resource_endorsements:
       create:
@@ -1457,6 +1479,7 @@ ca:
         close_modal: Tancar el modal
         ok: D'acord
         title: Confirmar
+      confirm_unload: Aquesta pàgina conté canvis sense desar. Segur que vols abandonar aquesta pàgina?
       embed:
         title: Contingut del vídeo incrustat
       extended_navigation_bar:
@@ -1494,7 +1517,7 @@ ca:
         log_in_before_follow: Si us plau, inicia sessió abans de realitzar aquesta acció
       login_modal:
         please_log_in: Si us plau, inicia la sessió
-        sign_up: Registra't
+        sign_up: Crea un compte
       mentions_modal:
         remove_recipient: Eliminar destinatària %{name}
       participatory_space_filters:
@@ -1621,7 +1644,7 @@ ca:
       locked: El teu compte està bloquejat.
       not_found_in_database: El %{authentication_keys} o la contrasenya no són vàlids.
       timeout: La teva sessió ha expirat. Si us plau, torna a iniciar-la per continuar.
-      unauthenticated: Cal iniciar sessió o registrar-te abans de continuar.
+      unauthenticated: Cal iniciar sessió o crear un compte abans de continuar.
     invitations:
       edit:
         header: Acabar de crear el teu compte
@@ -1686,6 +1709,7 @@ ca:
         message: El teu compte s'ha bloquejat a causa d'una quantitat excessiva d'intents fallits d'inici de sessió.
         subject: Desbloqueja les instruccions
     omniauth_callbacks:
+      add_tos_errors: S'ha d'acceptar els termes i condicions d'ús per crear un compte.
       failure: No pots autenticar-te des de %{kind} perquè "%{reason}".
       success: S'ha autenticat amb èxit des del compte %{kind}.
     passwords:
@@ -1708,7 +1732,7 @@ ca:
     registrations:
       destroyed: El teu compte s'ha cancel·lat correctament. Esperem tornar-te a veure aviat.
       new:
-        sign_up: Registra't
+        sign_up: Crea un compte
       signed_up: Benvinguda! Has iniciat la sessió amb èxit.
       signed_up_but_inactive: Has iniciat la sessió amb èxit. Tanmateix, no hem pogut iniciar la sessió perquè el teu compte encara no està activat.
       signed_up_but_locked: T'has registrat amb èxit. Tanmateix, no has pogut iniciar la sessió perquè el teu compte està bloquejat.
@@ -1729,7 +1753,7 @@ ca:
         forgot_your_password: Has oblidat la teva contrasenya?
         log_in: Entra
         log_in_with_provider: Inicia sessió amb %{provider}
-        sign_up: Registra't
+        sign_up: Crea un compte
       minimum_password_length:
         one: "(Mínim de%{count} caràcters)"
         other: "(Mínim de%{count} caràcters)"
@@ -1843,11 +1867,11 @@ ca:
       long_words: conté paraules massa llargues (més de 35 caràcters)
       must_start_with_caps: ha de començar amb una lletra majúscula
       nesting_too_deep: no pot estar dins d'una subcategoria
-      not_found: No es pot trobar. Us heu inscrit prèviament?
+      not_found: No s'ha pogut trobar. Has creat un compte anteriorment?
       not_locked: No estava bloquejat
       not_saved:
-        one: 'S''ha produït un error en processar la teva sol·licitud:'
-        other: 'S''han produït múltiples errors en processar la vostra sol·licitud:'
+        one: 'S''han produït un error en processar la teva sol·licitud:'
+        other: 'S''han produït múltiples errors en processar la teva sol·licitud:'
       too_many_marks: Estàs fent servir massa signes de puntuació consecutius (p. ex. i?)
       too_much_caps: Estàs utilitzant massa lletres majúscules (més del 25% del text)
       too_short: és massa curt (menys %{count} caràcters)
@@ -1928,8 +1952,8 @@ ca:
         log_in: Entra
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
         resources: Recursos
-        sign_up: Registra't
-        terms_and_conditions: Termes i condicions
+        sign_up: Crea un compte
+        terms_of_service: Termes i condicions d'ús
       header:
         log_in: Entra
         main_menu: Menú principal
@@ -1945,10 +1969,6 @@ ca:
         mark_as_read: Marcar com a llegit
       offline_banner:
         cache_version_page: Ostres! La teva xarxa està desconnectada. El que estàs veient és una versió prèvia de la pàgina desada a la memòria cau i podria ser que el contingut no estigui actualitzat.
-      shared:
-        layout_item:
-          next: Següent tema
-          prev: Tema anterior
       social_media_links:
         facebook: "%{organization} a Facebook"
         github: "%{organization} a GitHub"

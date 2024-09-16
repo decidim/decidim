@@ -21,7 +21,7 @@ module Decidim
 
         context "when everything is ok" do
           it "unpublishes the initiative" do
-            expect { subject.call }.to change(initiative, :state).from("published").to("discarded")
+            expect { subject.call }.to change(initiative, :state).from("open").to("discarded")
           end
 
           it "traces the action", versioning: true do

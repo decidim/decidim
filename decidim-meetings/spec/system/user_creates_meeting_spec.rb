@@ -120,6 +120,15 @@ describe "User creates meeting" do
           expect(page).to have_content(meeting_start_time)
           expect(page).to have_content(meeting_end_time)
           expect(page).to have_css("[data-author]", text: user.name)
+
+          visit decidim.last_activities_path
+          expect(page).to have_content("New meeting: #{meeting_title}")
+
+          within "#filters" do
+            find("a", class: "filter", text: "Meeting", match: :first).click
+          end
+
+          expect(page).to have_content("New meeting: #{meeting_title}")
         end
 
         context "when using the front-end geocoder" do
@@ -228,7 +237,7 @@ describe "User creates meeting" do
             expect(page).to have_content(meeting_address)
             expect(page).to have_content(meeting_start_time)
             expect(page).to have_content(meeting_end_time)
-            expect(page).to have_css(".button", text: "Register")
+            expect(page).to have_no_css(".button", text: "Register")
             expect(page).to have_css("[data-author]", text: user_group.name)
           end
         end

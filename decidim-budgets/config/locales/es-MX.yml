@@ -168,7 +168,7 @@ es-MX:
         back_to: Volver a %{component_name}
         close_modal: Cierra el modal
         continue: Continuar
-        more_information: Más información
+        more_information: Más información sobre el presupuesto
       budgets_list:
         budgets: Presupuestos
         cancel_order:
@@ -181,6 +181,11 @@ es-MX:
         finished_message: Has terminado el proceso de votación. ¡Gracias por participar!
         highlighted_cta: Votar en %{name}
         if_change_opinion: Si has cambiado de opinión, puedes %{cancel_link}.
+        orders:
+          highest_cost: Coste más elevado
+          label: Ordenar proyectos por
+          lowest_cost: Coste más bajo
+          random: Orden aleatorio
         progress: Finalizar votación
         remove_vote: Eliminar el voto
         show: Ver proyectos
@@ -267,7 +272,7 @@ es-MX:
           projects_rule_maximum_only:
             description: Selecciona hasta %{maximum_number} proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
           vote_threshold_percent_rule:
-            description: Selecciona al menos %{minimum_budget} com los proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
+            description: Asigna al menos %{minimum_budget} a los proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.
         orders:
           highest_cost: Mayor coste
           label: Ordenar proyectos por
@@ -320,7 +325,7 @@ es-MX:
               errors:
                 budget_voting_rule_only_one: Solo debe habilitarse una norma de votación.
                 budget_voting_rule_required: Se requiere una norma para la votación.
-            geocoding_enabled: Geolocalización habilitada
+            geocoding_enabled: Mapas habilitados
             landing_page_content: Página de inicio de presupuestos
             more_information_modal: Modal de "Más información"
             projects_per_page: Proyectos por página

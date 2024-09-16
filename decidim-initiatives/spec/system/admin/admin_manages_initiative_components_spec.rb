@@ -7,6 +7,7 @@ describe "Admin manages initiative components" do
   let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   let!(:initiative) { create(:initiative, organization:) }
+  let!(:attributes) { attributes_for(:component, participatory_space: initiative) }
 
   before do
     switch_to_host(organization.host)
@@ -28,9 +29,7 @@ describe "Admin manages initiative components" do
           fill_in_i18n(
             :component_name,
             "#component-name-tabs",
-            en: "My component",
-            ca: "El meu component",
-            es: "Mi componente"
+            **attributes[:name].except("machine_translations")
           )
 
           within ".global-settings" do
@@ -57,12 +56,17 @@ describe "Admin manages initiative components" do
 
     it "is successfully created" do
       expect(page).to have_admin_callout("Component created successfully.")
-      expect(page).to have_content("My component")
+      expect(page).to have_content(translated(attributes[:name]))
+    end
+
+    it "has a successful admin log" do
+      visit decidim_admin.root_path
+      expect(page).to have_content("created #{translated(attributes[:name])} in #{translated(initiative.title)}")
     end
 
     context "and then edit it" do
       before do
-        within "tr", text: "My component" do
+        within "tr", text: translated(attributes[:name]) do
           page.find(".action-icon--configure").click
         end
       end
@@ -111,9 +115,7 @@ describe "Admin manages initiative components" do
         fill_in_i18n(
           :component_name,
           "#component-name-tabs",
-          en: "My updated component",
-          ca: "El meu component actualitzat",
-          es: "Mi componente actualizado"
+          **attributes[:name].except("machine_translations")
         )
 
         within ".global-settings" do
@@ -128,9 +130,9 @@ describe "Admin manages initiative components" do
       end
 
       expect(page).to have_admin_callout("The component was updated successfully.")
-      expect(page).to have_content("My updated component")
+      expect(page).to have_content(translated(attributes[:name]))
 
-      within "tr", text: "My updated component" do
+      within "tr", text: translated(attributes[:name]) do
         page.find(".action-icon--configure").click
       end
 
@@ -141,6 +143,9 @@ describe "Admin manages initiative components" do
       within ".default-step-settings" do
         expect(all("input[type=checkbox]").first).to be_checked
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("updated #{translated(attributes[:name])} in #{translated(initiative.title)}")
     end
   end
 
@@ -172,10 +177,11 @@ describe "Admin manages initiative components" do
 
   context "when publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: initiative, published_at:)
+      create(:component, participatory_space: initiative, published_at:, visible:)
     end
 
     let(:published_at) { nil }
+    let(:visible) { true }
 
     before do
       switch_to_host(organization.host)
@@ -200,9 +206,24 @@ describe "Admin manages initiative components" do
     context "when the component is published" do
       let(:published_at) { Time.current }
 
+      it "hides the component from the menu" do
+        within ".component-#{component.id}" do
+          click_on "Hide"
+        end
+
+        within ".component-#{component.id}" do
+          expect(page).to have_css(".action-icon--menu-hidden")
+        end
+      end
+    end
+
+    context "when the component is hidden from the menu" do
+      let(:published_at) { Time.current }
+      let(:visible) { false }
+
       it "unpublishes the component" do
         within ".component-#{component.id}" do
-          page.find(".action-icon--unpublish").click
+          click_on "Unpublish"
         end
 
         within ".component-#{component.id}" do

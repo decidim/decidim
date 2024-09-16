@@ -97,6 +97,14 @@ module Decidim
       )
     end
 
+    def create_taxonomy!(name:, parent:)
+      Decidim::Taxonomy.create!(
+        name: Decidim::Faker::Localized.literal(name),
+        organization:,
+        parent:
+      )
+    end
+
     def create_category!(participatory_space:)
       Decidim::Category.create!(
         name: Decidim::Faker::Localized.sentence(word_count: 5),
@@ -148,6 +156,10 @@ module Decidim
       file_number = format("%03d", rand(1...100))
 
       create_blob!(seeds_file: "avatars/#{file_number}.jpg", filename: "#{file_number}.jpg", content_type: "image/jpeg")
+    end
+
+    def create_follow!(user, followable)
+      Decidim::Follow.create!(followable:, user:)
     end
   end
 end

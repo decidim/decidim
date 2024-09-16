@@ -4,7 +4,6 @@ cs:
       participatory_process:
         announcement: Oznámení
         area_id: Oblast
-        banner_image: Obrázek banneru
         copy_categories: Kopírovat kategorie
         copy_components: Kopírování komponent
         copy_steps: Kopírování kroků
@@ -34,8 +33,6 @@ cs:
         scope_type_max_depth_id: Hloubka filtru rozsahu
         scopes_enabled: Oblasti působnosti povoleny
         short_description: Stručný popis
-        show_metrics: Zobrazit metriku
-        show_statistics: Zobrazit statistiky
         slug: URL slug
         start_date: Datum zahájení
         subtitle: Podtitul
@@ -184,7 +181,7 @@ cs:
           title: Duplicitní participační proces
       participatory_process_groups:
         destroy:
-          error: Došlo k chybě při zrušení skupiny účastnických procesů.
+          error: Došlo k chybě při zničení skupiny participačních procesů.
           success: Účastní skupina procesů byla úspěšně smazána.
         edit:
           title: Upravit skupinu procesů
@@ -226,6 +223,11 @@ cs:
           success: Úspěšný krok procesu byl úspěšně smazán.
         edit:
           cta_deprecated:
+            body_html: |-
+              Konfigurace CTA prostřednictvím fáze participativního procesu je s novým designem zastaralá.
+              Nyní se to děje na <b>vstupní stránce</b> pomocí bloku obsahu <b>Hero mapa a obrázek</b>.
+              Nechali jsme zde pro vás migraci CTA, které potřebujete. Pole <i>Cesta výzvy k akci</i> a
+              <i>Text výzvy k akci</i> bude v příští verzi odstraněn.
             title: Zastaralá CTA
           title: Úprava kroku procesu participace
           update: Aktualizace

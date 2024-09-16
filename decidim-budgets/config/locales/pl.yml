@@ -167,7 +167,7 @@ pl:
         back_to: Wróć do %{component_name}
         close_modal: Zamknij okno
         continue: Dalej
-        more_information: Więcej informacji
+        more_information: Więcej informacji na temat budżetu
       budgets_list:
         budgets: Budżety
         cancel_order:
@@ -177,6 +177,11 @@ pl:
         finished_message: Zakończyłeś proces głosowania. Dziękujemy za udział!
         highlighted_cta: Głosuj na %{name}
         if_change_opinion: W przypadku zmiany zdania można
+        orders:
+          highest_cost: Najwyższy koszt
+          label: Sortuj budżety według
+          lowest_cost: Najniższy koszt
+          random: Kolejność losowa
         progress: Zakończ głosowanie
         remove_vote: Usuń głos
         show: Zobacz projekty
@@ -317,7 +322,6 @@ pl:
               errors:
                 budget_voting_rule_only_one: Może być włączona tylko jedna reguła głosowania.
                 budget_voting_rule_required: Wymagana jest jedna reguła głosowania.
-            geocoding_enabled: Włączono geokodowanie
             landing_page_content: Strona główna budżetów
             more_information_modal: Więcej informacji
             projects_per_page: Projektów na stronie

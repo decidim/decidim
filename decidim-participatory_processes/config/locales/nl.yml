@@ -4,7 +4,6 @@ nl:
       participatory_process:
         announcement: Aankondiging
         area_id: Onderwerp
-        banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
         copy_components: Kopieer onderdelen
         copy_steps: Kopieer stappen
@@ -27,8 +26,6 @@ nl:
         scope_type_max_depth_id: Scope filterdiepte
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
-        show_metrics: Toon statistieken
-        show_statistics: Toon statistieken
         slug: URL pad
         start_date: Startdatum
         subtitle: Ondertitel
@@ -148,7 +145,6 @@ nl:
           title: Inspraakproces dupliceren
       participatory_process_groups:
         destroy:
-          error: Er is een fout opgetreden tijdens het vernietigen van de Participatory procesgroep.
           success: Participatieve procesgroep succesvol verwijderd.
         edit:
           title: Bewerk groep

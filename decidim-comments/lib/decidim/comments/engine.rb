@@ -4,7 +4,6 @@ require "rails"
 require "active_support/all"
 
 require "decidim/core"
-require "foundation_rails_helper"
 
 require "decidim/comments/query_extensions"
 require "decidim/comments/mutation_extensions"

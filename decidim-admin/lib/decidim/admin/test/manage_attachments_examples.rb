@@ -26,7 +26,19 @@ shared_examples "manage attachments examples" do
       expect(page).to have_css("input#attachment_description_en[value='#{translated(attachment.description, locale: :en)}']")
       expect(page).to have_css("input#attachment_weight[value='#{attachment.weight}']")
       expect(page).to have_select("attachment_attachment_collection_id", selected: translated(attachment_collection.name, locale: :en))
-      expect(page).to have_css("img[src~='#{attachment.url}']")
+
+      # The image's URL changes every time it is requested because the disk
+      # service generates a unique URL based on the expiry time of the link.
+      # This expiry time is calculated at the time when the URL is requested
+      # which is why it changes every time to different URL. This changes the
+      # JSON encoded file identifier which includes the expiry time as well as
+      # the digest of the URL because the digest is calculated based on the
+      # passed data.
+      filename = attachment.file.blob.filename
+      within %([data-active-uploads] [data-filename="#{filename}"]) do
+        src = page.find("img")["src"]
+        expect(src).to be_blob_url(attachment.file.blob)
+      end
     end
 
     it "can add attachments without a collection to a process" do
@@ -53,6 +65,42 @@ shared_examples "manage attachments examples" do
       dynamically_attach_file(:attachment_file, Decidim::Dev.asset("Exampledocument.pdf"))
 
       within ".new_attachment" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within "#attachments table" do
+        expect(page).to have_text("Very Important Document")
+      end
+    end
+
+    it "can add attachments with a link to a process" do
+      click_on "New attachment"
+
+      within ".new_attachment" do
+        fill_in_i18n(
+          :attachment_title,
+          "#attachment-title-tabs",
+          en: "Very Important Document",
+          es: "Documento Muy Importante",
+          ca: "Document Molt Important"
+        )
+
+        fill_in_i18n(
+          :attachment_description,
+          "#attachment-description-tabs",
+          en: "This document contains important information",
+          es: "Este documento contiene información importante",
+          ca: "Aquest document conté informació important"
+        )
+      end
+
+      within ".new_attachment" do
+        find_by_id("trigger-link").click
+
+        fill_in "attachment[link]", with: "https://example.com/docs.pdf"
+
         find("*[type=submit]").click
       end
 

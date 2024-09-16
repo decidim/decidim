@@ -93,7 +93,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to edit the proposal draft" do
-          expect(page).to have_content("Edit Proposal Draft")
+          expect(page).to have_content("Edit proposal draft")
         end
       end
 
@@ -217,6 +217,18 @@ shared_examples "proposals wizards" do |options|
         end
       end
 
+      it "shows the activity logs" do
+        click_on "Publish"
+
+        visit decidim.last_activities_path
+        expect(page).to have_content("New proposal: #{translated(proposal_draft.title)}")
+
+        within "#filters" do
+          find("a", class: "filter", text: "Proposal", match: :first).click
+        end
+        expect(page).to have_content("New proposal: #{translated(proposal_draft.title)}")
+      end
+
       it "shows a preview" do
         expect(page).to have_content(proposal_title)
         expect(page).to have_content(user.name)
@@ -239,7 +251,7 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "redirects to edit the proposal draft" do
-          expect(page).to have_content("Edit Proposal Draft")
+          expect(page).to have_content("Edit proposal draft")
         end
       end
 

@@ -40,7 +40,6 @@ ro:
           error: A apărut o problemă la votarea comentariului.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Conectați-vă cu contul dumneavoastră</a> sau <a href="%{sign_up_url}">înregistrați-vă</a> pentru a adăuga un comentariu.
         form:
           body:
             label: Comentariu
@@ -66,13 +65,17 @@ ro:
           against: Împotrivă
           in_favor: Pentru
         cancel_reply: Anulează răspunsul
+        comment_label: Comentariu %{comment_id}
         confirm_destroy: Sigur dorești să ştergi acest comentariu?
         delete: Șterge
         deleted_at: Comentariu șters la %{date}
         deleted_user: Participant șters
         edit: Actualizare
         edited: Actualizat
-        hide_replies: Ascundeți răspunsurile
+        hide_replies:
+          one: Ascundeți răspunsul
+          few: Ascundeți %{count} răspunsuri
+          other: Ascundeți %{count} răspunsuri
         moderated_at: Comentariu moderat pe %{date}
         reply: Răspunde
         report:
@@ -101,7 +104,6 @@ ro:
       comments:
         blocked_comments_for_unauthorized_user_warning: Trebuie să fii verificat pentru a trimite comentarii în acest moment, dar le poți citi pe cele anterioare.
         blocked_comments_for_user_warning: Nu poți comenta în acest moment, dar le poți citi pe cele anterioare.
-        blocked_comments_warning: Comentariile sunt dezactivate în acest moment, dar le poți citi pe cele anterioare.
         comment_details_title: Detaliile comentariului
         loading: Se încarcă comentariile...
         single_comment_warning: <a href="%{url}">Vezi toate comentariile</a>

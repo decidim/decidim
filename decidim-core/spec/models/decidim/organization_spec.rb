@@ -22,6 +22,10 @@ module Decidim
           enabled: true,
           client_id: nil,
           client_secret: nil
+        },
+        test: {
+          enabled: true,
+          icon: "tools-line"
         }
       }
     end
@@ -264,6 +268,18 @@ module Decidim
         let(:favicon_path) { Decidim::Dev.asset("icon.png") }
 
         it_behaves_like "creates correct favicon variants"
+      end
+    end
+
+    describe "#to_sgid" do
+      subject { sgid }
+
+      let(:organization) { create(:organization) }
+      let(:sgid) { travel_to(5.years.ago) { organization.to_sgid.to_s } }
+
+      it "does not expire" do
+        located = GlobalID::Locator.locate_signed(subject)
+        expect(located).to eq(organization)
       end
     end
   end

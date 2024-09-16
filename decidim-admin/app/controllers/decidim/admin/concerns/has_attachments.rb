@@ -31,7 +31,7 @@ module Decidim
             enforce_permission_to(:create, :attachment, attached_to:)
             @form = form(::Decidim::Admin::AttachmentForm).from_params(params, attached_to:)
 
-            CreateAttachment.call(@form, attached_to, current_user) do
+            CreateAttachment.call(@form, attached_to) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachments.create.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -56,7 +56,7 @@ module Decidim
             enforce_permission_to(:update, :attachment, attachment:)
             @form = form(::Decidim::Admin::AttachmentForm).from_params(attachment_params, attached_to:)
 
-            UpdateAttachment.call(@attachment, @form, current_user) do
+            UpdateAttachment.call(@attachment, @form) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachments.update.success", scope: "decidim.admin")
                 redirect_to action: :index

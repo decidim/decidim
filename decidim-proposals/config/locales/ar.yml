@@ -60,12 +60,10 @@ ar:
           attributes:
             base:
               not_official: غير رسمية
-              supported: قد تلقى الدعم أو المصادقة
         proposals_split:
           attributes:
             base:
               not_official: غير رسمية
-              supported: قد تلقى الدعم أو المصادقة
     models:
       decidim/proposals/admin/update_proposal_category_event: تم تغيير فئة الاقتراح
       decidim/proposals/admin/update_proposal_scope_event: تم تغيير نطاق الاقتراح
@@ -97,13 +95,6 @@ ar:
         few: ملاحظات
         many: ملاحظات
         other: ملاحظات
-      decidim/proposals/proposal_vote:
-        zero: الدعم
-        one: الدعم
-        two: الدعم
-        few: الدعم
-        many: الدعم
-        other: الدعم
   decidim:
     admin:
       filters:
@@ -137,7 +128,7 @@ ar:
           comment: تعليق
           create: إنشاء
           endorse: تأييد
-          vote: الدعم
+          vote: تصويت
           vote_comment: التصويت على التعليق
           withdraw: سحب
         name: اقتراحات
@@ -148,23 +139,17 @@ ar:
             amendments_wizard_help_text: نص مساعدة معالج التعديلات
             announcement: إعلان
             attachments_allowed: السماح للمرفقات
-            can_accumulate_supports_beyond_threshold: يمكن أن تتراكم الدعم وراء العتبة
             collaborative_drafts_enabled: تم تمكين المسودات التعاونية
             comments_enabled: تم تمكين التعليقات
             comments_max_length: الحد الأقصى لطول التعليقات (اترك 0 لاستعمال القيمة الافتراضية)
             default_sort_order: التصنيف الافتراضي للاقتراح
-            default_sort_order_help: الافتراضي يعني أنه إذا تم تمكين الدعم، سيتم عرض المقترحات عشوائياً، وإذا تم حظر الدعم، فسيتم فرزها حسب الأكثر دعم.
             default_sort_order_options:
-              default: الافتراضي
               most_commented: صاحبة الأكثر تعليقات
               most_endorsed: صاحبة أكثر تأييدات
               most_followed: صاحبة أكثر متابعات
-              most_voted: صاحبة أكثر دعم
               random: عشوائي
               recent: الأخيرة
               with_more_authors: مع المزيد من المؤلفين
-            geocoding_enabled: تم تمكين الترميز الجغرافي
-            minimum_votes_per_user: الحد الأدنى من الدعم لكل مستخدم
             new_proposal_body_template: نموذج جديد لمحتوى المُقتَرَح
             new_proposal_body_template_help: يمكنكم تعريف النص المعبأ مسبقاً الذي سيدرج في المقترحات الجديدة
             new_proposal_help_text: نص مساعدة اقتراح جديد
@@ -172,7 +157,6 @@ ar:
             participatory_texts_enabled: تم تمكين النصوص التشاركية
             participatory_texts_enabled_readonly: لا يمكن التفاعل مع هذا الإعداد إذا كانت هناك اقتراحات موجودة. الرجاء إنشاء "مكون مقترحات" جديد إذا كنت ترغب في تمكين هذه الميزة أو تجاهل كافة المقترحات المستوردة في قائمة "النصوص التشاركية" إذا كنت ترغب في تعطيلها.
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
-            proposal_edit_before_minutes: يمكن تحرير المقترحات من قبل المؤلفين قبل مرور عدة دقائق
             proposal_edit_time: تحرير المقترح
             proposal_edit_time_choices:
               infinite: السماح بتعديل المقترحات لفترة زمنية غير محدودة
@@ -180,14 +164,10 @@ ar:
             proposal_length: الحد الأقصى لطول الاقتراح المقترح
             proposal_limit: حد الاقتراح لكل مشارك
             proposal_wizard_step_1_help_text: اقتراح الاقتراح "إنشاء" نص مساعدة الخطوة
-            proposal_wizard_step_2_help_text: اقتراح الاقتراح "قارن" نص خطوة المساعدة
-            proposal_wizard_step_3_help_text: نص اقتراح "إكمال" تعليمات نص المعالج
-            proposal_wizard_step_4_help_text: اقتراح الاقتراح "نشر" نص تعليمات الخطوة
             resources_permissions_enabled: يمكن تعيين أذونات الإجراءات لكل اقتراح
             scope_id: نطاق
             scopes_enabled: النطاقات مفعلة
             threshold_per_proposal: عتبة لكل اقتراح
-            vote_limit: حد الدعم لكل مشارك
           step:
             amendment_creation_enabled: إنشاء التعديلات مُفعّلة
             amendment_creation_enabled_help: يمكن للمشارِك إدخال تعديلات على المقتَرَحات.
@@ -207,13 +187,10 @@ ar:
             creation_enabled: يمكن للمشارِكين إنشاء اقتراحات
             creation_enabled_readonly: يتم تعطيل هذا الإعداد عند تفعيل وظيفة النصوص التشاركية. لتحميل الاقتراحات كنص تشاركي، يرجى النقر على زر النصوص التشاركية واتباع التعليمات.
             default_sort_order: التصنيف الافتراضي للاقتراح
-            default_sort_order_help: الافتراضي يعني أنه إذا تم تمكين الدعم، سيتم عرض المقترحات عشوائياً، وإذا تم حظر الدعم، فسيتم فرزها حسب الأكثر دعم.
             default_sort_order_options:
-              default: الافتراضي
               most_commented: صاحبة الأكثر تعليقات
               most_endorsed: صاحبة أكثر تأييدات
               most_followed: صاحبة أكثر متابعات
-              most_voted: صاحبة أكثر دعم
               random: عشوائي
               recent: الأخيرة
               with_more_authors: مع المزيد من المؤلفين
@@ -222,9 +199,6 @@ ar:
             proposal_answering_enabled: تم تمكين الرد على الاقتراح
             publish_answers_immediately: نشر إجابات الاقتراح على الفور
             suggested_hashtags: اقترح علامات التصنيف للمشاركين لتقديم مقترحات جديدة
-            votes_blocked: يدعم المحظورة
-            votes_enabled: يدعم تمكين
-            votes_hidden: يدعم مخفي (إذا تم تمكين الدعم ، سيؤدي تحديد هذا إلى إخفاء عدد الدعم)
     events:
       proposals:
         admin:
@@ -294,10 +268,7 @@ ar:
           email_subject: تم تحديث نطاق الاقتراح %{resource_title}
           notification_title: نطاق الاقتراح <a href="%{resource_path}">%{resource_title}</a> تم تحديثه من قبل مدير.
         voting_enabled:
-          email_intro: 'يمكنك دعم المقترحات في %{participatory_space_title}! ابدأ المشاركة في هذه الصفحة:'
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
-          email_subject: بدأ دعم الاقتراح لمدة %{participatory_space_title}
-          notification_title: يمكنك الآن بدء <a href="%{resource_path}">دعم المقترحات</a> في <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -314,13 +285,7 @@ ar:
         proposal_votes:
           conditions:
             - تصفح وقضاء بعض الوقت في قراءة اقتراحات الآخرين
-            - قدم الدعم للمقترحات التي تحبها أو تجدها مثيرة للاهتمام
-          description: تُمنح هذه الشارة عند دعم اقتراحات الآخرين.
-          description_another: قدم هذا المشارك الدعم إلى %{score} مقترحات.
-          description_own: لقد قدمت الدعم إلى %{score} مقترحات.
-          name: يدعم الاقتراح
-          next_level_in: تقديم الدعم ل %{score} مقترحات أخرى للوصول إلى المستوى التالي!
-          unearned_own: لقد قدمت الدعم لأية مقترحات حتى الآن.
+            - 
         proposals:
           conditions:
             - اختر مساحة المشاركة التي تهمك مع تمكين تقديم المقترحات
@@ -345,9 +310,7 @@ ar:
         object: اقتراحات
         title: اقتراحات
       votes:
-        description: عدد الدعم للمقترحات
-        object: الدعم
-        title: الدعم
+        object: أصوات
     participatory_spaces:
       highlighted_proposals:
         see_all: شاهد الكل (%{count})
@@ -441,7 +404,6 @@ ar:
           form:
             note: ملحوظة
             submit: خضع
-          leave_your_note: اترك ملاحظتك
           title: ملاحظات خاصة
         proposals:
           edit:
@@ -497,7 +459,6 @@ ar:
             remove_assignment: إزالة التعيين
             remove_assignment_confirmation: هل أنت متأكد من أنك تريد إزالة المُقيِّم من هذا الاقتراح؟
             valuators: المُقيِّمون
-            votes_count: يدعم العد
           update_category:
             invalid: 'هذه الاقتراحات تحتوي بالفعل على فئة %{subject_name}: %{proposals}.'
             success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{subject_name}: %{proposals}.'
@@ -512,11 +473,9 @@ ar:
             select_states: تحقق من حالة مقترحات الاستيراد
         proposals_merges:
           create:
-            invalid: 'طرأت مشكلة في دمج الاقتراحات المحددة لأن بعضها:'
             success: دمج المقترحات بنجاح في واحدة جديدة.
         proposals_splits:
           create:
-            invalid: 'طرأت مشكلة في فصل الاقتراحات المحددة لأن بعضها:'
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
       admin_log:
         proposal:
@@ -678,17 +637,7 @@ ar:
         buttons:
           amend: تعديل
           comment: تعليق
-      proposal_votes:
-        create:
-          error: كانت هناك مشكلة في دعم الاقتراح.
       proposals:
-        compare:
-          continue: استمر
-          no_similars_found: أحسنت! لم يتم العثور على مقترحات مماثلة
-          title: مقترحات مماثلة
-        complete:
-          send: إرسال
-          title: أكمل اقتراحك
         dynamic_map_instructions:
           description: سيتم تحديث الإحداثيات لدى النقر على زر "السابق". غير أن العنوان لن يتغير.
           instructions: يمكنك تحريك النقطة على الخريطة.
@@ -704,7 +653,6 @@ ar:
           discard: تجاهل هذه المسودة
           discard_confirmation: هل أنت متأكد من أنك تريد التخلص من مسودة الاقتراح؟
           send: معاينة
-          title: تحرير مسودة الاقتراح
         filters:
           activity: نشاطي
           all: الكل
@@ -717,7 +665,6 @@ ar:
           search: بحث
           state: الحالة
           type: نوع
-          voted: أيد
         index:
           click_here: عرض جميع الاقتراحات
           collaborative_drafts_list: الوصول إلى المسودات التعاونية
@@ -740,7 +687,6 @@ ar:
           most_commented: الأكثر تعليقًا عليها
           most_endorsed: التي تحصلت على أكبر دعم
           most_followed: الأكثر متابَعة
-          most_voted: التي تحصلت على أكبر دعم
           random: عشوائية
           recent: الأخيرة
           with_more_authors: مع المزيد من المؤلفين
@@ -780,50 +726,21 @@ ar:
           proposal_accepted_reason: 'تم قبول هذا الاقتراح بسبب:'
           proposal_in_evaluation_reason: هذا الاقتراح قيد التقييم
           proposal_rejected_reason: 'تم رفض هذا الاقتراح بسبب:'
-          withdraw_btn_hint: يمكنك سحب اقتراحك إذا غيرت رأيك ، طالما أنك لم تتلق أي دعم. لم يتم حذف الاقتراح ، وسوف يظهر في قائمة المقترحات المسحوبة.
           withdraw_confirmation_html: هل أنت متأكد من أنك تريد سحب هذا الاقتراح؟<br><br><strong>لا يمكن إلغاء هذا الإجراء!</strong>
           withdraw_proposal: سحب الاقتراح
         update:
           title: تحديث الإقتراح
         vote_button:
-          already_voted: معتمد بالفعل
-          already_voted_hover: سحب الدعم
-          maximum_votes_reached: تم الوصول إلى حد الدعم
-          no_votes_remaining: لا يدعم المتبقية
-          vote: الدعم
-          votes_blocked: يدعم المعوقين
-        votes_count:
-          count:
-            zero: يدعم
-            one: الدعم
-            two: يدعم
-            few: يدعم
-            many: يدعم
-            other: يدعم
+          vote: صوِّت
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: كل اقتراح يمكن أن تتراكم أكثر من %{limit} يدعم
-          minimum_votes_per_user:
-            description: يجب عليك توزيع ما لا يقل عن %{votes} دعما بين المقترحات المختلفة.
-            supports_remaining: يجب عليك دعم %{remaining_votes} مقترحات أخرى ليتم أخذها في الاعتبار.
           proposal_limit:
             description: يمكنك إنشاء ما يصل إلى %{limit} مقترحات.
-          title: 'الدعامات تخضع للقواعد التالية:'
-          vote_limit:
-            description: يمكنك دعم ما يصل إلى %{limit} مقترحات.
-            votes: الدعم
         wizard_aside:
           back: الى الخلف
           back_from_step_1: العودة إلى الاقتراحات
-          back_from_step_2: العودة إلى الاقتراحات
-          back_from_step_3: العودة إلى مقارنة الاقتراحات
-          back_from_step_4: العودة إلى تحرير المسودة
         wizard_steps:
           current_step: الخطوة الحالية
           step_1: إنشاء اقتراحك
-          step_2: قارن
-          step_3: إكمال
-          step_4: انشر اقتراحك
           title: خطوات إنشاء الاقتراحات
       proposals_picker:
         choose_proposals: اختيار الاقتراحات
@@ -852,4 +769,4 @@ ar:
     statistics:
       proposals_accepted: الاقتراحات الموافق عليها
       proposals_count: الاقتراحات
-      supports_count: الدعم
+      votes_count: الأصوات

@@ -5,14 +5,14 @@ module Decidim
     # A command with all the business logic when creating a new participatory space
     # private user in the system.
     class CreateParticipatorySpacePrivateUser < Decidim::Command
+      delegate :current_user, to: :form
       # Public: Initializes the command.
       #
       # form - A form object with the params.
       # private_user_to - The private_user_to that will hold the
       #   user role
-      def initialize(form, current_user, private_user_to, via_csv: false)
+      def initialize(form, private_user_to, via_csv: false)
         @form = form
-        @current_user = current_user
         @private_user_to = private_user_to
         @via_csv = via_csv
       end
@@ -39,7 +39,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :private_user_to, :current_user, :user
+      attr_reader :form, :private_user_to, :user
 
       def create_private_user
         action = @via_csv ? "create_via_csv" : "create"
@@ -62,7 +62,7 @@ module Decidim
         return @existing_user if defined?(@existing_user)
 
         @existing_user = User.find_by(
-          email: form.email,
+          email: form.email.downcase,
           organization: private_user_to.organization
         )
 

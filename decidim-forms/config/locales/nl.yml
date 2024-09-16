@@ -16,7 +16,6 @@ nl:
           attributes:
             choices:
               missing: zijn niet compleet
-              too_many: zijn te veel
   decidim:
     forms:
       admin:

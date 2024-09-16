@@ -5,12 +5,12 @@ sv:
         address: Adress
         body: Innehåll
         category_id: Kategori
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         has_address: Har adress
-        scope_id: Omfattning
+        scope_id: Indelning
         state: Status
         title: Titel
-        user_group_id: Skapa samarbetsutkast som
+        user_group_id: Skapa gemensamt utkast som
       proposal:
         address: Adress
         answer: Svar
@@ -18,9 +18,9 @@ sv:
         automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
         category_id: Kategori
-        decidim_scope_id: Omfång
+        decidim_scope_id: Indelning
         has_address: Har adress
-        scope_id: Omfattning
+        scope_id: Indelning
         state: Status
         suggested_hashtags: Föreslagna hashtags
         title: Titel
@@ -29,8 +29,22 @@ sv:
         answer: Svar
         cost: Kostnad
         cost_report: Kostnadsrapport
-        execution_period: Genomförandesperiod
+        execution_period: Genomförandeperiod
+      proposal_state:
+        announcement_title: Rubrik på svar
+        bg_color: Bakgrundsfärg
+        colors:
+          blue: Blå
+          gray: Grå
+          green: Grön
+          orange: Orange
+          pink: Rosa
+          purple: Lila
+          red: Röd
+          yellow: Gul
+        text_color: Textfärg
       proposals_copy:
+        copy_proposals: Jag förstår att det här importerar alla förslag från den valda komponenten till den aktuella komponenten och att det inte går att ångra.
         origin_component_id: Komponent att kopiera förslagen från
       proposals_import:
         import_proposals: Importera förslag
@@ -41,6 +55,10 @@ sv:
           valuator_role_id: Värderarens namn
     errors:
       models:
+        participatory_text:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ogiltig dokumenttyp. Endast filer med följande tillägg är tillåtna: %{types}'
         proposal:
           attributes:
             add_documents:
@@ -56,15 +74,15 @@ sv:
           attributes:
             base:
               not_official: Är inte officiella
-              supported: Har fått stöd eller instämmande
+              voted: Har fått röster eller stöd
         proposals_split:
           attributes:
             base:
               not_official: Är inte officiella
-              supported: Har fått stöd eller instämmande
+              voted: Har fått röster eller stöd
     models:
       decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
-      decidim/proposals/admin/update_proposal_scope_event: Ändrat förslagets omfång
+      decidim/proposals/admin/update_proposal_scope_event: Förslagets indelning har ändrats
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
       decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
       decidim/proposals/proposal_mentioned_event: Förslag nämnt
@@ -82,8 +100,8 @@ sv:
         one: Anteckning
         other: Anteckningar
       decidim/proposals/proposal_vote:
-        one: Stöd
-        other: Stöd
+        one: Röst
+        other: Röster
   decidim:
     admin:
       filters:
@@ -95,18 +113,20 @@ sv:
             values:
               'false': Förslag
               'true': Ändringsförslag
+          proposal_state_id_eq:
+            label: Status
           scope_id_eq:
-            label: Omfång
+            label: Indelning
           state_eq:
             label: Status
             values:
               accepted: Accepterat
               evaluating: Utvärderas
               not_answered: Ej besvarade
-              published: Publicerad
-              rejected: Avvisad
+              published: Publicerade
+              rejected: Avvisade
               validating: Teknisk validering
-              withdrawn: Tillbakadragen
+              withdrawn: Återkallade
           valuator_role_ids_has:
             label: Tilldelad till värderare
           with_any_state:
@@ -122,8 +142,8 @@ sv:
           amend: Ändra
           comment: Kommentera
           create: Skapa
-          endorse: Instäm
-          vote: Stötta
+          endorse: Stöd
+          vote: Rösta
           vote_comment: Rösta på en kommentar
           withdraw: Dra tillbaka
         name: Förslag
@@ -134,23 +154,27 @@ sv:
             amendments_wizard_help_text: Hjälptext för guiden för ändringsförslag
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
-            can_accumulate_supports_beyond_threshold: Kan samla in stöd bortom tröskeln
+            attachments_allowed_help: Genom att aktivera alternativet kommer förslagen att vara förvalda till rutnätsläge, och den första bilden kommer att visas på kortet.
             collaborative_drafts_enabled: Samarbetsutkast aktiverat
             comments_enabled: Kommentarer aktiverade
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
-            default_sort_order: Förvald produkt sortering
-            default_sort_order_help: Förinställt innebär att om stödet är aktiverat kommer förslagen sorteras slumpmässigt, och om stöden är blockerade kommer de att sorteras efter mest stödda.
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
+            default_sort_order: Förvald sortering
             default_sort_order_options:
-              default: Förinställt
+              automatic: Automatisk
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
-              most_voted: Mest stödda
-              random: Slumpmässigt
+              most_voted: Flest röster
+              random: Slumpvis
               recent: Senaste
-              with_more_authors: Med fler författare
-            geocoding_enabled: Geokodning aktiverad
-            minimum_votes_per_user: Minsta antal stöd per användare
+              with_more_authors: Med flera författare
+            edit_time: Förslag kan redigeras av författaren inom så här många minuter
+            edit_time_units:
+              days: Dagar
+              hours: Timmar
+              minutes: Minuter
+            geocoding_enabled: Aktivera visning på karta
+            minimum_votes_per_user: Minsta antal röster per användare
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext om nya förslag
@@ -158,22 +182,21 @@ sv:
             participatory_texts_enabled: Deltagartexter är aktiverade
             participatory_texts_enabled_readonly: Det går inte att ändra denna inställning om det finns befintliga förslag. Skapa en ny `Förslagskomponent` om du vill aktivera funktionen, eller kasta alla importerade förslag under menyn `Deltagartexter` om du vill avaktivera den.
             proposal_answering_enabled: Aktiverat svar på förslag
-            proposal_edit_before_minutes: Förslag kan redigeras av författare inom så här många minuter
             proposal_edit_time: Redigering av förslag
             proposal_edit_time_choices:
               infinite: Tillåt redigering av förslag utan tidsbegränsning
               limited: Tillåt redigering av förslag med tidsbegränsning
+            proposal_edit_time_unit_options:
+              days: Dagar
+              hours: Timmar
+              minutes: Minuter
             proposal_length: Maximal längd på förslagets innehåll
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Hjälptext till steget "Skapa" i förslagsguiden
-            proposal_wizard_step_2_help_text: Hjälptext till steget "Jämför" i förslagsguiden
-            proposal_wizard_step_3_help_text: Hjälptext till steget "Komplettera" i förslagsguiden
-            proposal_wizard_step_4_help_text: Förslagsguidens hjälptext för steg "Publicera"
             resources_permissions_enabled: Åtgärdsbehörigheter kan ställas in för varje förslag
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
             threshold_per_proposal: Tröskel per förslag
-            vote_limit: Stödgräns per deltagare
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
             amendment_creation_enabled_help: Deltagare kan ändra förslag.
@@ -192,24 +215,23 @@ sv:
             comments_blocked: Kommentarer blockerade
             creation_enabled: Deltagare kan skapa förslag
             default_sort_order: Förvald produkt sortering
-            default_sort_order_help: Förinställt innebär att om stödet är aktiverat kommer förslagen sorteras slumpmässigt, och om stöden är blockerade kommer de att sorteras efter mest stödda.
             default_sort_order_options:
-              default: Förinställt
+              automatic: Automatisk
               most_commented: Mest kommenterade
               most_endorsed: Mest instämda i
               most_followed: Mest följda
-              most_voted: Mest stödda
+              most_voted: Flest röster
               random: Slumpmässigt
               recent: Senaste
               with_more_authors: Med fler författare
-            endorsements_blocked: Instämmanden är blockerade
-            endorsements_enabled: Instämmanden aktiverade
+            endorsements_blocked: Stöd är blockerade
+            endorsements_enabled: Stöd är aktiverade
             proposal_answering_enabled: Svar på förslag aktiverat
             publish_answers_immediately: Publicera svar på förslag omedelbart
             suggested_hashtags: Förslag på hashtags för nya förslag till deltagare
-            votes_blocked: Stöd blockerat
-            votes_enabled: Stöd aktiverat
-            votes_hidden: Stöd dolda (om stöd är aktiverade, kommer detta att gömma antalet stöd)
+            votes_blocked: Röster blockerade
+            votes_enabled: Röster aktiverade
+            votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
     events:
       proposals:
         admin:
@@ -256,21 +278,33 @@ sv:
           email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
           email_outro: Du har fått det här meddelandet eftersom du följer "%{participatory_space_title}". Du kan sluta att ta emot meddelanden genom att följa föregående länk.
           email_subject: Nytt förslag "%{resource_title}" lades till %{participatory_space_title}
+        proposal_state_changed:
+          affected_user:
+            email_outro: Du har fått det här meddelandet eftersom du förslagslämnare av %{resource_title}".
+            email_subject: Ditt förslag har ändrat status (%{state})
+            notification_title: Ditt förslag <a href="%{resource_path}">%{resource_title}</a> har ändrat status till "%{state}".
+          follower:
+            email_intro: 'Förslaget "%{resource_title}" har ändrat status till "%{state}". Du kan läsa svaret här:'
+            email_outro: Du har fått det här meddelande eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
+            email_subject: Ett förslag som du följer har ändrat status (%{state})
+            notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har ändrat status till "%{state}".
         proposal_update_category:
           email_intro: 'En administratör har uppdaterat kategorin för ditt förslag "%{resource_title}", ta en titt på följande sida:'
           email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         proposal_update_scope:
-          email_intro: 'En administratör har uppdaterat omfånget för ditt förslag "%{resource_title}", ta en titt på följande sida:'
+          email_intro: 'En administratör har uppdaterat indelningen för ditt förslag "%{resource_title}", ta en titt på följande sida:'
           email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
-          email_subject: Omfånget för förslaget %{resource_title} har uppdaterats
-          notification_title: Omfånget för förslaget <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
+          email_subject: Indelningen för förslaget %{resource_title} har uppdaterats
+          notification_title: Indelningen för förslaget <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
+        rejected_coauthorship:
+          notification_title: Du har avböjt inbjudan från <a href="%{author_path}">%{author_name}</a> att bli medförfattare till förslaget <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
-          email_intro: 'Du kan stödja förslag i %{participatory_space_title}! Börja delta på den här sidan:'
+          email_intro: 'Du kan rösta på förslag på %{participatory_space_title}! Börja delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
-          email_subject: Förslagsstöd har påbörjats för %{participatory_space_title}
-          notification_title: Du kan nu börja att <a href="%{resource_path}">stödja förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Omröstning för förslag har börjat för %{participatory_space_title}
+          notification_title: Du kan nu börja <a href="%{resource_path}">röstningsförslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -287,13 +321,14 @@ sv:
         proposal_votes:
           conditions:
             - Bläddra runt och ägna lite tid åt att läsa andras förslag
-            - Ge stöd till de förslag som du tycker om eller tycker är intressanta
-          description: Du får detta märke när du stöder förslag från andra.
-          description_another: Denna användare har gett stöd till %{score} förslag.
-          description_own: Du har gett stöd till %{score} förslag.
-          name: Stött förslag
-          next_level_in: Ge stöd till %{score} fler förslag för att nå nästa nivå!
-          unearned_own: Du har inte gett stöd till några förslag än.
+            - Rösta på de förslag du gillar
+          description: Det här märket får du när du röstar på andras förslag.
+          description_another: Deltagaren har röstat på %{score} förslag.
+          description_own: Du har röstat på %{score} förslag.
+          name: Röster på förslaget
+          next_level_in: Rösta på %{score} fler förslag för att nå nästa nivå!
+          unearned_another: Deltagaren har inte röstat på några förslag än.
+          unearned_own: Du har ännu inte röstat på några förslag än.
         proposals:
           conditions:
             - Välj det deltagarutrymme där inlämning av förslag är aktiverat som är av intresse
@@ -303,6 +338,7 @@ sv:
           description_own: Du har skapat %{score} förslag.
           name: Förslag
           next_level_in: Nå nästa nivå genom att skapa %{score} till förslag!
+          unearned_another: Den här deltagaren har inte skapat några förslag än.
           unearned_own: Du har inte skapat några förslag än.
     metrics:
       accepted_proposals:
@@ -318,9 +354,9 @@ sv:
         object: förslag
         title: Förslag
       votes:
-        description: Antal stöd till förslag
-        object: stöd
-        title: Stöd
+        description: Antal röster på förslag
+        object: röster
+        title: Röster
     participatory_spaces:
       highlighted_proposals:
         last: Senaste förslag
@@ -328,9 +364,17 @@ sv:
     proposals:
       actions:
         answer_proposal: Besvara förslag
+        cancel_coauthor_invitation: Avbryt inbjudan till medförfattare
+        cancel_coauthor_invitation_confirm: Är du säker på att du vill avbryta inbjudan till medförfattaren?
+        delete_proposal_state_confirm: Är du säker på att du vill ta bort den här statusen?
+        destroy: Ta bort status
         edit_proposal: Redigera förslag
+        edit_proposal_state: Redigera status
         import: Importera från en annan komponent
+        mark_as_coauthor: Markera som medförfattare
+        mark_as_coauthor_confirm: Är du säker på att du vill markera den här användaren som medförfattare? Mottagaren kommer att få ett meddelande om att acceptera eller avböja inbjudan.
         new: Nytt förslag
+        new_proposal_state: Ny status
         participatory_texts: Deltagartexter
         show: Visa förslag
         title: Åtgärder
@@ -341,6 +385,14 @@ sv:
           proposal_comments: Kommentarer
           proposals: Förslag
         imports:
+          help:
+            answers: |
+              Importdokumentet ska innehålla följande kolumnnamn vid CSV eller Excel-filer, eller nyckelnamn vid JSON-filer:
+              <ul>
+              <li><b>id:</b> ID för förslaget att svara</li>
+              <li><b>stat:</b> En av "godkänd", "utvärdering", eller "avvisade"</li>
+              <li><b>svar/:</b> Svar på engelska. Beror på din plattforms språkkonfiguration.</li>
+              </ul>
           label:
             answers: Importera svar från en fil
             proposals: Importerar förslag från en fil
@@ -351,6 +403,9 @@ sv:
             proposals:
               one: förslag
               other: förslag
+          title:
+            answers: Importera svar från en fil
+            proposals: Importerar förslag från en fil
         models:
           proposal:
             name: Förslag
@@ -375,8 +430,12 @@ sv:
               md: Markdown
               odt: ODT
             bottom_hint: "(Du kommer att kunna förhandsvisa och sortera dokumentavsnitt)"
+            document_legend: 'Lägg till ett dokument som är mindre än 2MB, varje avsnitt upp till 3 nivåers djup kommer användas in till förslagen. Möjliga format är: %{valid_mime_types}'
             title: LÄGG TILL DOKUMENT
             upload_document: Skicka in dokument
+          publish:
+            invalid: Det gick inte att publicera förslagen.
+            success: Alla förslag har publicerats.
           sections:
             article: "<em>Artikel</em>"
             section: "<em>Avsnitt:</em> <strong>%{title}</strong>"
@@ -388,11 +447,35 @@ sv:
             answer_proposal: Svara
             title: Svar på förslaget %{title}
         proposal_notes:
+          create:
+            error: Det gick inte att skapa en anteckningen till förslaget.
+            success: Förslagsanteckning skapades.
           form:
             note: Annteckning
             submit: Skicka in
-          leave_your_note: Lämna anteckningen
+          reply:
+            error: Det gick inte att skapa en anteckningen till förslaget.
+            success: Förslagsanteckning skapades.
           title: Privata anteckningar
+        proposal_states:
+          create:
+            error: Det gick inte att skapa status
+            success: Statusen skapades
+          destroy:
+            success: Statusen raderades
+          edit:
+            title: Redigera status
+            update: Uppdatera
+          form:
+            preview: Förhandsgranska
+          index:
+            title: Statusar
+          new:
+            create: Skapa
+            title: Ny status
+          update:
+            error: Fel vid uppdatering av status
+            success: Statusen har uppdaterats
         proposals:
           edit:
             title: Uppdatera förslag
@@ -409,7 +492,7 @@ sv:
             assign_to_valuator_button: Tilldela
             cancel: Avbryt
             change_category: Ändra kategori
-            change_scope: Ändra omfång
+            change_scope: Ändra indelning
             merge: Slå samman till ett nytt
             merge_button: Slå ihop
             publish: Publicera
@@ -422,7 +505,7 @@ sv:
             unassign_from_valuator: Ta bort tilldelning till värderare
             unassign_from_valuator_button: Ta bort tilldelning
             update: Uppdatera
-            update_scope_button: Uppdatera omfång
+            update_scope_button: Uppdatera indelning
           new:
             create: Skapa
             title: Skapa förslag
@@ -443,13 +526,14 @@ sv:
             remove_assignment: Ta bort tilldelning
             remove_assignment_confirmation: Vill du ta bort värderaren från förslaget?
             valuators: Värderare
-            votes_count: Antal stöd
           update_category:
             invalid: 'Dessa förslag var redan i kategorin %{subject_name}: %{proposals}.'
             success: 'Förslag som har uppdaterats till kategorin %{subject_name}: %{proposals}.'
           update_scope:
-            invalid: 'Dessa förslag hade redan omfånget %{subject_name}: %{proposals}.'
-            success: 'Förslag som har uppdaterats till omfånget %{subject_name}: %{proposals}.'
+            invalid: 'De här förslagen tillhör redan %{subject_name}: %{proposals}.'
+            select_a_proposal: Välj ett förslag.
+            select_a_scope: Välj en indelning.
+            success: 'Förslag som har uppdaterats till %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: Importera förslag
@@ -458,11 +542,9 @@ sv:
             select_states: Kontrollera status för förslagen som ska importeras
         proposals_merges:
           create:
-            invalid: 'Det gick inte att slå samman de valda förslagen på grund av vissa av dem:'
             success: Förslagen har sammanfogats till ett nytt förslag.
         proposals_splits:
           create:
-            invalid: 'Det gick inte att dela upp de valda förslagen på grund av vissa av dem:'
             success: Förslagen har delats upp till nya förslag.
       admin_log:
         proposal:
@@ -526,7 +608,7 @@ sv:
           open: Öppna
           published: Publicerade
           related_to: Relaterade till
-          scope: Omfång
+          scope: Indelning
           search: Sök
           state: Status
           withdrawn: Tillbakadragna
@@ -607,31 +689,21 @@ sv:
             official_proposal: Officiellt förslag
             published_answer: Publicerat svar
             published_at: Publicerad
-            scope: Omfång
+            scope: Indelning
             state: Status
             title: Titel
             valuator: Värderare
             valuators: Värderare
-            votes: Stöd
+            votes: Röster
       participatory_text_proposal:
         alternative_title: Det finns inga deltagartexter just nu
         buttons:
           amend: Ändra
           comment: Kommentar
-      proposal_votes:
-        create:
-          error: Det gick inte att stödja förslaget.
       proposals:
-        compare:
-          continue: Fortsätt
-          no_similars_found: Bra gjort! Hittade inga liknande förslag
-          title: Liknande förslag
-        complete:
-          send: Skicka
-          title: Färdigställ ditt förslag
         dynamic_map_instructions:
           description: Koordinaterna uppdateras när du klickar på knappen 'Förhandsgranska'. Adressen ändras dock inte.
-          instructions: Nu kan du flytta markören på kartan.
+          instructions: Du kan flytta markören på kartan.
         edit:
           add_documents: Lägga till dokument
           attachment_legend: "(Frivilligt) Lägg till en bilaga"
@@ -644,7 +716,6 @@ sv:
           discard: Släng utkastet
           discard_confirmation: Vill du slänga detta utkast till förslag?
           send: Förhandsvisa
-          title: Redigera utkast till förslag
         filters:
           activity: Min aktivitet
           all: Allt
@@ -653,29 +724,31 @@ sv:
           my_proposals: Mina förslag
           origin: Ursprung
           related_to: Relaterade till
-          scope: Omfång
+          scope: Indelning
           search: Sök
           state: Status
           type: Typ
-          voted: Stöder
+          voted: Röstade
         index:
           click_here: Se alla förslag
           collaborative_drafts_list: Visa gemensamma utkast
           count:
             one: "%{count} förslag"
             other: "%{count} förslag"
+          list_mode: Listvy
           new_proposal: Nytt förslag
           see_all: Se alla förslag
           see_all_withdrawn: Se alla tillbakadragna förslag
-          text_banner: Du tittar på listan över förslag som dragits tillbaka av deras författare. %{go_back_link}.
+          text_banner: Du visar förslag som dragits tillbaka av sin författare. %{go_back_link}.
         new:
           send: Fortsätt
+          title: Skapa ditt förslag
         orders:
           label: 'Ordna förslag efter:'
           most_commented: Mest kommenterade
           most_endorsed: Mest instämda i
           most_followed: Mest följda
-          most_voted: Mest stöd
+          most_voted: Mest röstade
           random: Slumpmässig
           recent: Senaste
           with_more_authors: Med fler författare
@@ -693,6 +766,9 @@ sv:
             other: Du kommer att kunna redigera förslaget upp till %{count} minuter efter att förslaget har publicerats. När det tidsfönstret passerat kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
+        proposals:
+          empty: Det finns inga förslag ännu.
+          empty_filters: Det finns inga förslag med de här kriterierna.
         show:
           answer: Svara
           changes_at_title: Ändring till %{title}
@@ -710,46 +786,31 @@ sv:
           proposal_accepted_reason: 'Detta förslag har accepterats eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att:'
-          withdraw_btn_hint: Du kan dra tillbaka ett förslag om du ändrar dig, så länge som det inte har fått något stöd. Förslaget raderas inte utan kommer att visas i listan över förslag som dragits tillbaka.
           withdraw_confirmation_html: Är du säker på att du vill dra tillbaka förslaget?<br><br><strong>Denna åtgärd kan inte ångras!</strong>
           withdraw_proposal: Dra tillbaka förslaget
         update:
           title: Uppdatera förslag
         vote_button:
-          already_voted: Redan stött
-          already_voted_hover: Dra tillbaka stöd
-          maximum_votes_reached: Uppnått stödgränsen
-          no_votes_remaining: Inga stöd kvar
-          vote: Stöd
-          votes_blocked: Stöd är avaktiverat
+          already_voted: Redan röstat
+          maximum_votes_reached: Röstningsgränsen uppnådd
+          no_votes_remaining: Inga röster kvar
+          vote: Rösta
+          votes_blocked: Röstning inaktiverad
         votes_count:
           count:
-            one: STÖDER
-            other: STÖDER
+            one: Röst
+            other: Röster
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Varje förslag kan samla mer än %{limit} stöd
-          minimum_votes_per_user:
-            description: Du måste fördela minst %{votes} stöd mellan olika förslag.
-            supports_remaining: Du måste stödja ytterligare %{remaining_votes} förslag för att dina stöd ska beaktas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
-          title: 'Stöd är föremål för följande regler:'
           vote_limit:
-            description: Du kan stödja upp till %{limit} förslag.
-            votes: Stöder
+            description: Du kan rösta upp till %{limit} förslag.
         wizard_aside:
           back: Tillbaka
           back_from_step_1: Tillbaka till förslag
-          back_from_step_2: Tillbaka till förslag
-          back_from_step_3: Tillbaka för att jämföra förslag
-          back_from_step_4: Tillbaka för att redigera utkast
         wizard_steps:
           current_step: Nuvarande steg
           step_1: Skapa ditt förslag
-          step_2: Jämför
-          step_3: Komplettera
-          step_4: Publicera ditt förslag
           title: Steg för att skapa förslag
       proposals_picker:
         choose_proposals: Välj förslag
@@ -776,6 +837,6 @@ sv:
         proposal_project: 'Förslag som ingår i dessa projekt:'
         proposal_result: 'Förslag som ingår i dessa resultat:'
     statistics:
-      proposals_accepted: Godkända Förslag
+      proposals_accepted: Godkända förslag
       proposals_count: Förslag
-      supports_count: Stöd
+      votes_count: Röster

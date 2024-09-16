@@ -15,8 +15,12 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   let(:meeting_start_time) { base_date.utc.strftime("%H:%M") }
   let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d/%m/%Y") }
   let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
+  let(:attributes) { attributes_for(:meeting, component: current_component) }
 
-  include_context "when managing a component as an admin"
+  include_context "when managing a component as an admin" do
+    let(:participatory_process) { create(:participatory_process, :published, :with_steps, organization:) }
+    let!(:component) { create(:component, :published, manifest:, participatory_space:) }
+  end
 
   before do
     stub_geocoding(address, [latitude, longitude])
@@ -53,6 +57,14 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         expect(page).to have_css(".action-icon--unpublish")
       end
+
+      visit decidim.last_activities_path
+      expect(page).to have_content("New meeting: #{decidim_sanitize_translated(meeting.title)}")
+
+      within "#filters" do
+        find("a", class: "filter", text: "Meeting", match: :first).click
+      end
+      expect(page).to have_content("New meeting: #{decidim_sanitize_translated(meeting.title)}")
     end
 
     context "with enriched content" do
@@ -156,13 +168,12 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
 
     within ".edit_meeting" do
-      fill_in_i18n(
-        :meeting_title,
-        "#meeting-title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
-      )
+      fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+
+      fill_in_i18n(:meeting_location, "#meeting-location-tabs", **attributes[:location].except("machine_translations"))
+      fill_in_i18n(:meeting_location_hints, "#meeting-location_hints-tabs", **attributes[:location_hints].except("machine_translations"))
+      fill_in_i18n_editor(:meeting_description, "#meeting-description-tabs", **attributes[:description].except("machine_translations"))
+
       fill_in_geocoding :meeting_address, with: address
 
       find("*[type=submit]").click
@@ -171,8 +182,11 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_admin_callout("successfully")
 
     within "table" do
-      expect(page).to have_content("My new title")
+      expect(page).to have_content(translated(attributes[:title]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("updated the #{translated(attributes[:title])} meeting on the")
   end
 
   it "sets registration enabled to true when registration type is on this platform" do
@@ -269,37 +283,13 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   it "creates a new meeting", :serves_geocoding_autocomplete do
     click_on "New meeting"
 
-    fill_in_i18n(
-      :meeting_title,
-      "#meeting-title-tabs",
-      en: "My meeting",
-      es: "Mi meeting",
-      ca: "El meu meeting"
-    )
+    fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
 
     select "In person", from: :meeting_type_of_meeting
 
-    fill_in_i18n(
-      :meeting_location,
-      "#meeting-location-tabs",
-      en: "Location",
-      es: "Location",
-      ca: "Location"
-    )
-    fill_in_i18n(
-      :meeting_location_hints,
-      "#meeting-location_hints-tabs",
-      en: "Location hints",
-      es: "Location hints",
-      ca: "Location hints"
-    )
-    fill_in_i18n_editor(
-      :meeting_description,
-      "#meeting-description-tabs",
-      en: "A longer description",
-      es: "Descripción más larga",
-      ca: "Descripció més llarga"
-    )
+    fill_in_i18n(:meeting_location, "#meeting-location-tabs", **attributes[:location].except("machine_translations"))
+    fill_in_i18n(:meeting_location_hints, "#meeting-location_hints-tabs", **attributes[:location_hints].except("machine_translations"))
+    fill_in_i18n_editor(:meeting_description, "#meeting-description-tabs", **attributes[:description].except("machine_translations"))
 
     fill_in_geocoding :meeting_address, with: address
     fill_in_services
@@ -321,8 +311,11 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     expect(page).to have_admin_callout("successfully")
 
     within "table" do
-      expect(page).to have_content("My meeting")
+      expect(page).to have_content(translated(attributes[:title]))
     end
+
+    visit decidim_admin.root_path
+    expect(page).to have_content("created the #{translated(attributes[:title])} meeting on the")
   end
 
   context "when using the front-end geocoder", :serves_geocoding_autocomplete do
@@ -564,6 +557,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
 
+        check "Is visible"
         click_on "Close"
       end
 
@@ -571,6 +565,23 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         expect(page).to have_content("Yes")
+      end
+
+      meeting.reload
+      meeting.update(closing_report: {
+                       en: %(The meeting was great! <img src="https://www.example.org/foobar.png" />),
+                       es: "El encuentro fue genial",
+                       ca: "La trobada va ser genial"
+                     })
+
+      visit decidim_participatory_process_meetings.meeting_path(
+        participatory_process_slug: meeting.participatory_space.slug,
+        component_id: meeting.component.id,
+        id: meeting.id
+      )
+
+      within ".meeting__agenda-item__description" do
+        expect(page).to have_css("img")
       end
     end
 

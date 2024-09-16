@@ -19,6 +19,8 @@ fi-pl:
         body: Viestin teksti
       report:
         details: Lisätiedot
+      taxonomy:
+        name: Luokittelun nimi
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
@@ -260,6 +262,13 @@ fi-pl:
         create: "%{user_name} loi staattisen sivun %{resource_name}"
         delete: "%{user_name} poisti staattisen sivun %{resource_name}"
         update: "%{user_name} päivitti staattista sivua %{resource_name}"
+      taxonomy:
+        create: "%{user_name} loi luokittelun %{resource_name}"
+        create_with_parent: "%{user_name} loi kohteen %{resource_name} luokittelun %{parent_taxonomy} alle"
+        delete: "%{user_name} poisti luokittelun %{resource_name}"
+        delete_with_parent: "%{user_name} poisti kohteen %{resource_name} luokittelun %{parent_taxonomy} alta"
+        update: "%{user_name} päivitti luokittelua %{resource_name}"
+        update_with_parent: "%{user_name} päivitti kohdetta %{resource_name} luokittelun %{parent_taxonomy} alla"
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
@@ -284,7 +293,7 @@ fi-pl:
       dismiss: Piilota ilmoitus
     amendments:
       accepted:
-        error: Muutoksen hyväksyntä epäonnistui.
+        error: Muutoksen hyväksyminen epäonnistui.
         success: Muutoksen hyväksyntä onnistui.
       amendable:
         button: Muuta %{model_name}
@@ -296,12 +305,8 @@ fi-pl:
         title:
           one: "%{count} muutos"
           other: "%{count} muutosta"
-      compare_draft:
-        continue: Jatka
-        no_similars_found: Samankaltaisia muutoksia ei löytynyt.
-        title: Samankaltaiset muutokset
       created:
-        error: Muutosluonnoksen lisäys epäonnistui.
+        error: Muutoksen luonti epäonnistui.
         success: Muutosluonnoksen lisäys onnistui.
       destroy_draft:
         error: Muutosluonnoksen poisto epäonnistui.
@@ -358,14 +363,16 @@ fi-pl:
       wizard_step_form:
         steps:
           '1': Luo muutos
-          '2': Vertaile muutostasi
-          '3': Viimeistele muutoksesi
-          '4': Julkaise muutoksesi
+          '2': Julkaise muutoksesi
     anonymous_user: Anonyymi
     application:
       document:
         download: Lataa tiedosto
+        visit_link: Avaa linkki
       documents:
+        component_documents:
+          dummy: Esimerkkikomponentin asiakirjat
+          meetings: Tapaamisten asiakirjat
         documents: Asiakirjat
         related_documents: Liittyvät dokumentit
       photo:
@@ -570,7 +577,7 @@ fi-pl:
         name: Hero-kuvan alabanneri
     core:
       actions:
-        login_before_access: Kirjaudu tilillesi ennen käyttöä.
+        login_before_access: Sinun täytyy kirjautua sisään ennen tämän toiminnon suorittamista.
         unauthorized: Tiliäsi ei ole vahvistettu tämän toiminnon suorittamiseen.
       application_helper:
         filter_area_values:
@@ -587,8 +594,11 @@ fi-pl:
           complete_profile: Viimeistele profiilisi
           nickname_help: Nimimerkkisi palvelussa %{organization}. Voi sisältää ainoastaan kirjaimia, numeroita sekä yhdysmerkkejä "-" ja alaviivoja "_".
           sign_up: Viimeistele profiilsi
-          subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
+          subtitle: Täytä seuraava lomake viimeistelläksesi tilisi luonnin
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
+        new_tos_fields:
+          sign_up: Luo tili
+          sign_up_title: Viimeistele tilin luominen
       registrations:
         create:
           error: Käyttäjätilin luonti epäonnistui.
@@ -597,8 +607,8 @@ fi-pl:
           log_in: Kirjaudu sisään
           newsletter: Vastaanota silloin tällöin olennaista tietoa sisältävä uutiskirje
           newsletter_title: Yhteydenottolupa
-          sign_up: Rekisteröidy
-          subtitle: Rekisteröidy osallistuaksesi keskusteluihin ja kannattaaksesi ehdotuksia.
+          sign_up: Luo tili
+          subtitle: Luo tili osallistuaksesi tällä alustalla.
           terms: käyttöehdot
           tos_agreement: Rekisteröitymällä palveluun hyväksyt %{link}.
           tos_title: Käyttöehdot
@@ -608,7 +618,7 @@ fi-pl:
           are_you_new?: Uusi käyttäjä?
           register: Rekisteröidy
           sign_in_disabled: Voit käyttää ulkoista tiliä.
-          sign_up_disabled: Rekisteröityminen on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
+          sign_up_disabled: Tilien luonti on poistettu käytöstä, mutta voit kirjautua olemassaolevalla käyttäjätilillä.
         user:
           timed_out: Palvelua ei ole käytetty hetkeen, minkä takia sinut on kirjattu palvelusta ulos automaattisesti. Jos haluat jatkaa palvelun käyttöä, kirjaudu uudestaan sisään.
       shared:
@@ -882,6 +892,11 @@ fi-pl:
         button: Lopeta seuranta
         error: Tämän kohteen seuraamisen lopetuksessa tapahtui virhe.
     forms:
+      attachment_link:
+        explanation: Ohjeet liitetiedostojen linkeille
+        help_messages:
+          - Ainoastaan oikeanmuotoiset URL-osoitteet hyväksytään.
+          - Huomioi, että linkkien tulee olla julkisia, jotta kaikki osallistujat voivat käyttää niitä.
       errors:
         decidim/user:
           password: Salasana on liian lyhyt.
@@ -891,7 +906,7 @@ fi-pl:
         file:
           explanation: 'Tiedoston ohjeistus:'
           message_1: On oltava kuva tai asiakirja.
-          message_2: Kuvina käytä mieluiten vaakasuintaisia kuvia, palvelu rajaa kuvaa.
+          message_2: Kuvina käytä mieluiten vaakasuuntaisia kuvia, palvelu rajaa kuvaa.
         icon:
           explanation: 'Ikonin ohjeistus:'
           message_1: On oltava neliömuotoinen kuva.
@@ -917,6 +932,7 @@ fi-pl:
           filename: Tiedoston nimi
           remove: Poista
           replace: Korvaa
+          save: Tallenna
           title: Tiedosto-otsikko
           title_required: Tiedosto-otsikko tarvitaan!
           uploaded: Ladattu
@@ -1040,7 +1056,7 @@ fi-pl:
           content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallisuustilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
           title: Mitä voin tehdä palvelussa %{organization}?
         description: Lue lisää palvelusta %{organization}.
-        title: Yleisiä ohjeita
+        title: Yleiset asiat
     last_activities:
       all: Kaikki tapahtumatyypit
       index:
@@ -1079,6 +1095,8 @@ fi-pl:
           not_found: 'Teemaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Luokittelua ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
     map:
@@ -1236,9 +1254,11 @@ fi-pl:
         same_language: Sisältö on lisätty toivomallasi kielellä (%{language}), minkä takia tässä viestissä ei näytetä automaattista käännöstä.
         translated_text: 'Automaattisesti käännetty teksti:'
     notifications:
+      action_error: Ilmoitusasetusten päivitys epäonnistui.
       no_notifications: Ei vielä ilmoituksia.
       show:
         missing_event: Hups, tämä ilmoitus kuuluu kohteeseen, joka ei ole enää käytettävissä. Voit merkitä sen luetuksi.
+        moderated: Sisältö moderoitu
     notifications_digest_mailer:
       header:
         daily: Päivittäinen ilmoitusyhteenveto
@@ -1255,6 +1275,7 @@ fi-pl:
         administrators: Hallintakäyttäjät
         allow_public_contact: Salli kenen tahansa lähettää minulle yksityisviestejä, vaikka en seuraisi heitä.
         allow_push_notifications: Vastaanota push-ilmoituksia, mikäli haluat tietää, mitä alustalla tapahtuu, kun et ole paikalla. Voit poistaa ne käytöstä milloin tahansa.
+        assigned_to_proposal: Haluan saada sähköpostia, kun joku antaa minulle ehdotuksen arvioitavaksi
         direct_messages: Vastaanota yksityisviestejä kaikilta
         email_on_moderations: Haluan saada sähköpostia aina, kun jotain tai joku käyttäjä ilmoitetaan moderoitavaksi.
         everything_followed: Kaikki mitä seuraan
@@ -1273,6 +1294,7 @@ fi-pl:
         push_notifications_reminder: Mikäli haluat vastaanottaa push-ilmoituksia alustalta, sinun on sallittava ne ensin selaimesi asetuksista tälle sivustolle.
         receive_notifications_about: Haluan saada ilmoituksia
         update_notifications_settings: Tallenna muutokset
+        valuators: Arvioijat
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
         success: Ilmoitusasetuksesi päivitettiin onnistuneesti.
@@ -1280,7 +1302,7 @@ fi-pl:
       name: Offline
       show:
         message_1: Verkkoyhteytesi näyttää olevan poissa käytöstä tällä hetkellä.
-        message_2: Yritä myöhemmin uudelleen.
+        message_2: Yritä myöhemmin uudestaan.
         retry: Yritä uudestaan
     open_data:
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
@@ -1311,7 +1333,7 @@ fi-pl:
           headline: '%{organization} numeroina'
         sub_hero:
           register: Rekisteröidy
-          register_title: Luo oma tili alustalle
+          register_title: Luo tili
       index:
         standalone_pages: Sivut
         subheading: Selaa palvelun %{name} tietosivuja
@@ -1377,7 +1399,7 @@ fi-pl:
           manage_user_group_admins: Hallinnoi ylläpitäjiä
           manage_user_group_users: Hallinnoi jäseniä
           message: Viesti
-          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
+          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
         create_user_group: Luo ryhmä
         edit_profile: Muokkaa profiilia
@@ -1410,7 +1432,7 @@ fi-pl:
         subject: Resurssi on ilmoitettu
     reports:
       create:
-        error: Ilmoituksen luonnissa tapahtui virhe. Yritä uudestaan.
+        error: Ilmoituksen luonti epäonnistui. Yritä uudestaan.
         success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
     resource_endorsements:
       create:
@@ -1443,7 +1465,7 @@ fi-pl:
           past: Menneet
       filters_small_view:
         filter: Suodata
-        filter_and_search: Suodata ja hae
+        filter_and_search: Suodatus ja haku
         filter_by: Suodata
       results:
         view_all: Näytä kaikki (%{count})
@@ -1457,6 +1479,7 @@ fi-pl:
         close_modal: Sulje ikkuna
         ok: OK
         title: Vahvista
+      confirm_unload: Sinulla on tallentamattomia muutoksia. Oletko varma, että haluat poistua tältä sivulta?
       embed:
         title: Upotettu videosisältö
       extended_navigation_bar:
@@ -1494,7 +1517,7 @@ fi-pl:
         log_in_before_follow: Kirjaudu sisään ennen tämän toiminnon suorittamista
       login_modal:
         please_log_in: Kirjaudu sisään
-        sign_up: Rekisteröidy
+        sign_up: Luo tili
       mentions_modal:
         remove_recipient: Poista vastaanottaja %{name}
       participatory_space_filters:
@@ -1621,7 +1644,7 @@ fi-pl:
       locked: Tunnuksesi on lukittu.
       not_found_in_database: Virheellinen %{authentication_keys} tai salasana.
       timeout: Istuntosi on vanhentunut, ole hyvä ja kirjaudu sisään jatkaaksesi.
-      unauthenticated: Sinun pitää kirjautua sisään tai rekisteröityä ennen kuin voit jatkaa.
+      unauthenticated: Sinun pitää kirjautua sisään tai luoda tili ennen kuin voit jatkaa.
     invitations:
       edit:
         header: Viimeistele tilisi
@@ -1687,6 +1710,7 @@ fi-pl:
         message: Tilisi on lukittu liian monen epäonnistuneen kirjautumisyrityksen vuoksi.
         subject: Avaa ohjeet
     omniauth_callbacks:
+      add_tos_errors: Tilin luominen edellyttää käyttöehtojen hyväksyntää.
       failure: Sisäänkirjautuminen epäonnistui palvelulla %{kind} koska "%{reason}".
       success: Kirjauduit onnistuneesti sisään %{kind} -tilillä.
     passwords:
@@ -1709,7 +1733,7 @@ fi-pl:
     registrations:
       destroyed: Hei hei! Tilisi on poistettu onnistuneesti. Toivomme näkevämme sinut pian uudelleen.
       new:
-        sign_up: Rekisteröidy
+        sign_up: Luo tili
       signed_up: Tervetuloa! Olet kirjautunut sisään onnistuneesti.
       signed_up_but_inactive: Olet rekisteröitynyt palveluun onnistuneesti. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi ei ole vielä aktivoitu.
       signed_up_but_locked: Olet rekisteröitynyt palveluun onnistuneesti. Emme kuitenkaan voineet kirjata sinua sisään, koska tilisi on lukittu.
@@ -1730,7 +1754,7 @@ fi-pl:
         forgot_your_password: Unohditko salasanasi?
         log_in: Kirjaudu sisään
         log_in_with_provider: Kirjaudu sisään %{provider}-palvelulla
-        sign_up: Rekisteröidy
+        sign_up: Luo tili
       minimum_password_length:
         one: "(vähintään %{count} merkki)"
         other: "(vähintään %{count} merkkiä)"
@@ -1830,7 +1854,7 @@ fi-pl:
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
-      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudelleen
+      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudestaan
       blank: ei voi olla tyhjä
       cannot_be_blank: ei voi olla tyhjä
       confirmation: ei täsmää kentän %{attribute} kanssa
@@ -1844,11 +1868,8 @@ fi-pl:
       long_words: sisältää liian pitkiä sanoja (yli 35 merkkiä)
       must_start_with_caps: tulee alkaa isolla kirjaimella
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
-      not_found: ei löydetty. Oletko jo rekisteröitynyt?
+      not_found: ei löytynyt. Oletko luonut tilin aikaisemmin?
       not_locked: ei lukittu
-      not_saved:
-        one: 'Virhe käsiteltäessä pyyntöä:'
-        other: 'Virheitä käsiteltäessä pyyntöä:'
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle %{count} merkkiä)
@@ -1929,8 +1950,8 @@ fi-pl:
         log_in: Kirjaudu sisään
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
         resources: Resurssit
-        sign_up: Rekisteröidy
-        terms_and_conditions: Käyttöehdot
+        sign_up: Luo tili
+        terms_of_service: Käyttöehdot
       header:
         log_in: Kirjaudu sisään
         main_menu: Päävalikko
@@ -1946,10 +1967,6 @@ fi-pl:
         mark_as_read: Merkitse luetuiksi
       offline_banner:
         cache_version_page: Hups! Verkkoyhteytesi on kytketty pois päältä. Tämä on aiemmin välimuistissa oleva versio vierailemasi sivusta, jonka sisältö ei välttämättä ole ajan tasalla.
-      shared:
-        layout_item:
-          next: Seuraava kohde
-          prev: Edellinen kohde
       social_media_links:
         facebook: "%{organization} Facebookissa"
         github: "%{organization} GitHubissa"

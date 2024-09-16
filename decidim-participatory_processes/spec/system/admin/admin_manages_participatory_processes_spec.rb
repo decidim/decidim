@@ -4,7 +4,9 @@ require "spec_helper"
 
 describe "Admin manages participatory processes", versioning: true do
   include_context "when admin administrating a participatory process"
+  include_context "with taxonomy filters context"
 
+  let(:space_manifest) { "participatory_processes" }
   let!(:participatory_process_groups) do
     create_list(:participatory_process_group, 3, organization:)
   end
@@ -55,6 +57,8 @@ describe "Admin manages participatory processes", versioning: true do
 
     let(:image2_filename) { "city2.jpeg" }
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
+    let(:attributes) { attributes_for(:participatory_process, organization:) }
+    let(:last_participatory_process) { Decidim::ParticipatoryProcess.last }
 
     before do
       click_on "New process"
@@ -66,37 +70,23 @@ describe "Admin manages participatory processes", versioning: true do
 
     it "creates a new participatory process" do
       within ".new_participatory_process" do
-        fill_in_i18n(
-          :participatory_process_title,
-          "#participatory_process-title-tabs",
-          en: "My participatory process",
-          es: "Mi proceso participativo",
-          ca: "El meu procés participatiu"
-        )
-        fill_in_i18n(
-          :participatory_process_subtitle,
-          "#participatory_process-subtitle-tabs",
-          en: "Subtitle",
-          es: "Subtítulo",
-          ca: "Subtítol"
-        )
-        fill_in_i18n_editor(
-          :participatory_process_short_description,
-          "#participatory_process-short_description-tabs",
-          en: "Short description",
-          es: "Descripción corta",
-          ca: "Descripció curta"
-        )
-        fill_in_i18n_editor(
-          :participatory_process_description,
-          "#participatory_process-description-tabs",
-          en: "A longer description",
-          es: "Descripción más larga",
-          ca: "Descripció més llarga"
-        )
+        fill_in_i18n(:participatory_process_title, "#participatory_process-title-tabs", **attributes[:title].except("machine_translations"))
+        fill_in_i18n(:participatory_process_subtitle, "#participatory_process-subtitle-tabs", **attributes[:subtitle].except("machine_translations"))
+        fill_in_i18n_editor(:participatory_process_short_description, "#participatory_process-short_description-tabs", **attributes[:short_description].except("machine_translations"))
+        fill_in_i18n_editor(:participatory_process_description, "#participatory_process-description-tabs", **attributes[:description].except("machine_translations"))
+        fill_in_i18n_editor(:participatory_process_announcement, "#participatory_process-announcement-tabs", **attributes[:announcement].except("machine_translations"))
+
+        fill_in_i18n(:participatory_process_developer_group, "#participatory_process-developer_group-tabs", **attributes[:developer_group].except("machine_translations"))
+        fill_in_i18n(:participatory_process_local_area, "#participatory_process-local_area-tabs", **attributes[:local_area].except("machine_translations"))
+        fill_in_i18n(:participatory_process_meta_scope, "#participatory_process-meta_scope-tabs", **attributes[:meta_scope].except("machine_translations"))
+        fill_in_i18n(:participatory_process_target, "#participatory_process-target-tabs", **attributes[:target].except("machine_translations"))
+        fill_in_i18n(:participatory_process_participatory_scope, "#participatory_process-participatory_scope-tabs", **attributes[:participatory_scope].except("machine_translations"))
+        fill_in_i18n(:participatory_process_participatory_structure, "#participatory_process-participatory_structure-tabs", **attributes[:participatory_structure].except("machine_translations"))
 
         group_title = participatory_process_groups.first.title["en"]
         select group_title, from: :participatory_process_participatory_process_group_id
+
+        select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
 
         fill_in :participatory_process_slug, with: "slug"
         fill_in :participatory_process_hashtag, with: "#hashtag"
@@ -104,19 +94,22 @@ describe "Admin manages participatory processes", versioning: true do
       end
 
       dynamically_attach_file(:participatory_process_hero_image, image1_path)
-      dynamically_attach_file(:participatory_process_banner_image, image2_path)
 
       within ".new_participatory_process" do
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
+      expect(last_participatory_process.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
         expect(page).to have_content("Phases")
         expect(page).to have_content("Introduction")
       end
+
+      visit decidim_admin.root_path
+      expect(page).to have_content("created the #{translated(attributes[:title])} participatory process")
     end
   end
 
@@ -136,11 +129,20 @@ describe "Admin manages participatory processes", versioning: true do
         click_on "About this process"
       end
 
+      select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
+
       click_on "Update"
 
       expect(page).to have_admin_callout("successfully")
-      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:hero_image).path}']")
-      expect(page).to have_css("img[src*='#{participatory_process3.attached_uploader(:banner_image).path}']")
+      expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
+      expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Select from \"#{decidim_sanitize_translated(another_root_taxonomy.name)}\"")
+      expect(participatory_process3.reload.taxonomies).to contain_exactly(taxonomy)
+
+      hero_blob = participatory_process3.hero_image.blob
+      within %([data-active-uploads] [data-filename="#{hero_blob.filename}"]) do
+        src = page.find("img")["src"]
+        expect(src).to be_blob_url(hero_blob)
+      end
     end
   end
 end

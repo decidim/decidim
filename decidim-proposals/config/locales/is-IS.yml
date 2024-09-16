@@ -26,18 +26,12 @@ is-IS:
           global:
             announcement: Tilkynning
             attachments_allowed: Leyfa viðhengi
-            can_accumulate_supports_beyond_threshold: Getur safnað stuðning fyrirfram þröskuld
             comments_enabled: Athugasemdir virkt
-            geocoding_enabled: Geocoding virkt
             new_proposal_help_text: Ný tillaga hjálpartexta
             official_proposals_enabled: Opinberar tillögur virkar
             proposal_answering_enabled: Tillaga svarað virkt
-            proposal_edit_before_minutes: Tillögur má breyta af höfundum áður en þessi mörg mínútur fara fram
             proposal_length: Hámark umsóknar lengd líkamans
             proposal_wizard_step_1_help_text: Tillaga töframaður "Búa til" skref hjálpartexta
-            proposal_wizard_step_2_help_text: Tillaga töframaður "Bera saman" skref hjálpartexta
-            proposal_wizard_step_3_help_text: Tillaga töframaður "Complete" skref hjálpartexta
-            proposal_wizard_step_4_help_text: Tillaga "Birta" skref hjálpartexti
             threshold_per_proposal: Gildi fyrir hverja tillögu
           step:
             announcement: Tilkynning
@@ -91,7 +85,6 @@ is-IS:
           form:
             note: Athugaðu
             submit: Senda inn
-          leave_your_note: Skildu athugasemdina þína
           title: Einkaskilaboð
         proposals:
           form:
@@ -141,12 +134,6 @@ is-IS:
             title: Titill
             votes: Atkvæði
       proposals:
-        compare:
-          no_similars_found: Vel gert! Engar svipaðar tillögur fundust
-          title: Svipaðar tillögur
-        complete:
-          send: Senda
-          title: Ljúka tillögu þinni
         edit:
           back: Til baka
           select_a_category: Vinsamlegast veldu flokk
@@ -156,7 +143,6 @@ is-IS:
           discard: Fargaðu þessari drög
           discard_confirmation: Ertu viss um að þú viljir fleygja þessari tillögu drög?
           send: Preview
-          title: Breyta tillögu drög
         filters:
           category: Flokkur
           origin: Uppruni
@@ -184,17 +170,11 @@ is-IS:
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin
           proposal_rejected_reason: 'Þessi tillaga hefur verið hafnað vegna þess að:'
-          withdraw_btn_hint: Þú getur afturkallað tillöguna þína ef þú skiptir um skoðun, svo lengi sem þú hefur ekki fengið stuðning. Tillagan er ekki eytt, hún mun birtast á lista yfir afturkallað tillögur.
           withdraw_proposal: Afturkalla tillögu
         voting_rules:
-          can_accumulate_supports_beyond_threshold:
-            description: Hver tillaga getur safnast meira en %{limit} styður
           proposal_limit:
             description: Þú getur búið til allt að %{limit} tillögur.
         wizard_aside:
           back: Til baka
         wizard_steps:
           step_1: Búðu til tillöguna þína
-          step_2: Bera saman
-          step_3: Heill
-          step_4: Birta tillöguna þína

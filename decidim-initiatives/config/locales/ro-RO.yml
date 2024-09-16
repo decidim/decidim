@@ -75,7 +75,6 @@ ro:
   decidim:
     admin:
       actions:
-        manage: Gestionează
         new_initiative_type: Noul tip de inițiativă
       filters:
         initiatives:
@@ -87,7 +86,6 @@ ro:
               accepted: Semnături suficiente
               created: Creat
               discarded: Respins
-              published: Publicat
               rejected: Semnături insuficiente
               validating: Validarea tehnică
           type_id_eq:
@@ -97,7 +95,6 @@ ro:
       menu:
         attachments: Atașamente
         committee_members: Membrii comitetului
-        components: Componente
         information: Informații
         initiatives: Inițiative
         initiatives_types: Tipuri de inițiative
@@ -244,7 +241,6 @@ ro:
             new: Nou
             photos: Poze
           update:
-            error: A apărut o eroare.
             success: Inițiativa a fost actualizată cu succes.
         initiatives_settings:
           edit:
@@ -257,7 +253,6 @@ ro:
             title: Setări pentru inițiative
         initiatives_type_scopes:
           create:
-            error: A apărut o eroare.
             success: A fost creat un nou domeniu de interes pentru un anumit tip de inițiativă.
           destroy:
             success: Domeniul de interes a fost eliminat cu succes.
@@ -268,7 +263,6 @@ ro:
             create: Creează
             title: Creează tipul domeniului pentru inițiative
           update:
-            error: A apărut o eroare.
             success: Domeniul de interes a fost actualizat cu succes.
         initiatives_types:
           edit:
@@ -291,7 +285,6 @@ ro:
         accepted: Semnături suficiente
         created: Creat
         discarded: Respins
-        published: Publicate
         rejected: Semnături insuficiente
         validating: Validarea tehnică
       application_helper:
@@ -507,7 +500,6 @@ ro:
           accepted: Semnături suficiente
           created: Creat
           discarded: Respins
-          published: Publicat
           rejected: Semnături insuficiente
           validating: Validarea tehnică
       states:

@@ -30,10 +30,7 @@ module Decidim
           colors: {
             primary: form.primary_color,
             secondary: form.secondary_color,
-            tertiary: form.tertiary_color,
-            success: form.success_color,
-            warning: form.warning_color,
-            alert: form.alert_color
+            tertiary: form.tertiary_color
           }.compact_blank
         }
       end

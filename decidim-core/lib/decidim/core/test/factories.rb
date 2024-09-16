@@ -202,6 +202,7 @@ FactoryBot.define do
     accepted_tos_version { organization.tos_version }
     notifications_sending_frequency { "real_time" }
     email_on_moderations { true }
+    email_on_assigned_proposals { true }
     password_updated_at { Time.current }
     previous_passwords { [] }
     extended_data { {} }
@@ -414,6 +415,10 @@ FactoryBot.define do
       slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
     end
 
+    trait :public do
+      allow_public_access { true }
+    end
+
     trait :tos do
       slug { "terms-of-service" }
       after(:create) do |tos_page|
@@ -472,6 +477,11 @@ FactoryBot.define do
       file { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
       content_type { "application/pdf" }
       file_size { 17_525 }
+    end
+
+    trait :with_link do
+      file { nil }
+      link { Faker::Internet.url }
     end
   end
 
@@ -622,6 +632,56 @@ FactoryBot.define do
     organization
   end
 
+  factory :taxonomy, class: "Decidim::Taxonomy" do
+    transient do
+      skip_injection { false }
+    end
+
+    name { generate_localized_title(:taxonomy_name, skip_injection:) }
+    organization
+    parent { nil }
+    weight { nil }
+
+    trait :with_parent do
+      parent { create(:taxonomy, organization:, skip_injection:) }
+    end
+
+    trait :with_children do
+      transient do
+        children_count { 3 }
+      end
+
+      after(:create) do |taxonomy, evaluator|
+        create_list(:taxonomy, evaluator.children_count, parent: taxonomy, organization: taxonomy.organization)
+      end
+    end
+  end
+
+  factory :taxonomization, class: "Decidim::Taxonomization" do
+    taxonomy { association(:taxonomy, :with_parent) }
+    taxonomizable { association(:dummy_resource) }
+  end
+
+  factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
+    root_taxonomy { association(:taxonomy) }
+    space_manifest { "participatory_processes" }
+
+    trait :with_items do
+      transient do
+        items_count { 3 }
+      end
+
+      after(:create) do |taxonomy_filter, evaluator|
+        create_list(:taxonomy_filter_item, evaluator.items_count, taxonomy_filter:)
+      end
+    end
+  end
+
+  factory :taxonomy_filter_item, class: "Decidim::TaxonomyFilterItem" do
+    taxonomy_filter
+    taxonomy_item { association(:taxonomy, parent: taxonomy_filter.root_taxonomy) }
+  end
+
   factory :coauthorship, class: "Decidim::Coauthorship" do
     transient do
       skip_injection { false }
@@ -730,6 +790,11 @@ FactoryBot.define do
       {
         some_extra_data: "1"
       }
+    end
+
+    trait :proposal_coauthor_invite do
+      event_name { "decidim.events.proposals.coauthor_invited" }
+      event_class { "Decidim::Proposals::CoauthorInvitedEvent" }
     end
   end
 

@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
     "homepage_uri" => "https://decidim.org",
     "source_code_uri" => "https://github.com/decidim/decidim"
   }
-  s.required_ruby_version = "~> 3.2.0"
+  s.required_ruby_version = "~> 3.3.0"
 
   s.name = "decidim-dev"
   s.summary = "Decidim dev tools"
@@ -33,13 +33,18 @@ Gem::Specification.new do |s|
   end
 
   s.add_dependency "capybara", "~> 3.39"
-  s.add_dependency "decidim", Decidim::Dev.version
+  s.add_dependency "decidim-admin", Decidim::Dev.version
+  s.add_dependency "decidim-api", Decidim::Dev.version
+  s.add_dependency "decidim-comments", Decidim::Dev.version
+  s.add_dependency "decidim-core", Decidim::Dev.version
+  s.add_dependency "decidim-generators", Decidim::Dev.version
+  s.add_dependency "decidim-verifications", Decidim::Dev.version
   s.add_dependency "factory_bot_rails", "~> 6.2"
   s.add_dependency "faker", "~> 3.2"
 
   s.add_dependency "bullet", "~> 7.1.6"
   s.add_dependency "byebug", "~> 11.0"
-  s.add_dependency "erb_lint", "~> 0.4.0"
+  s.add_dependency "erb_lint", "~> 0.6.0"
   s.add_dependency "i18n-tasks", "~> 1.0"
   s.add_dependency "nokogiri", "~> 1.16", ">= 1.16.2"
   s.add_dependency "parallel_tests", "~> 4.2"
@@ -51,16 +56,20 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec_junit_formatter", "~> 0.6.0"
   s.add_dependency "rspec-rails", "~> 6.0"
   s.add_dependency "rspec-retry", "~> 0.6.2"
-  s.add_dependency "rubocop", "~> 1.57.0"
-  s.add_dependency "rubocop-capybara", "~> 2.20"
+  s.add_dependency "rubocop", "~> 1.65.0"
+  s.add_dependency "rubocop-capybara", "~> 2.21"
+  s.add_dependency "rubocop-factory_bot", "~> 2.26"
   s.add_dependency "rubocop-faker", "~> 1.1"
-  s.add_dependency "rubocop-performance", "~> 1.20"
-  s.add_dependency "rubocop-rails", "~> 2.23"
-  s.add_dependency "rubocop-rspec", "~> 2.26"
+  s.add_dependency "rubocop-performance", "~> 1.21"
+  s.add_dependency "rubocop-rails", "~> 2.25"
+  s.add_dependency "rubocop-rspec", "~> 3.0"
+  s.add_dependency "rubocop-rspec_rails", "~> 2.30"
   s.add_dependency "rubocop-rubycw", "~> 0.1"
   s.add_dependency "selenium-webdriver", "~> 4.9"
   s.add_dependency "simplecov", "~> 0.22.0"
   s.add_dependency "simplecov-cobertura", "~> 2.1.0"
+  s.add_dependency "spring", "~> 4.0"
+  s.add_dependency "spring-watcher-listen", "~> 2.0"
   s.add_dependency "w3c_rspec_validators", "~> 0.3.0"
   s.add_dependency "webmock", "~> 3.18"
   s.add_dependency "wisper-rspec", "~> 1.0"

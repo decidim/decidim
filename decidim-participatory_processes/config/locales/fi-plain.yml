@@ -4,7 +4,6 @@ fi-pl:
       participatory_process:
         announcement: Ilmoitus
         area_id: Alue
-        banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
         copy_components: Kopioi komponentit
         copy_steps: Kopioi vaiheet
@@ -34,8 +33,6 @@ fi-pl:
         scope_type_max_depth_id: Teema-suodattimen syvyys
         scopes_enabled: Teemat käytössä
         short_description: Lyhyt kuvaus
-        show_metrics: Näytä tilastot
-        show_statistics: Näytä tilastot
         slug: URL-tunniste
         start_date: Alkamispäivä
         subtitle: Alaotsikko
@@ -178,7 +175,7 @@ fi-pl:
           title: Kopioi osallisuusprosessi
       participatory_process_groups:
         destroy:
-          error: Osallisuusprosessien ryhmän poisto epäonnistui.
+          error: Osallistumistilojen ryhmän poisto epäonnistui.
           success: Osallisuusprosessiryhmä poistettiin onnistuneesti.
         edit:
           title: Muokkaa prosessiryhmää

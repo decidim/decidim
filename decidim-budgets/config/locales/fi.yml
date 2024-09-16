@@ -120,7 +120,7 @@ fi:
           update_budget:
             invalid: 'Nämä hankkeet ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
             select_a_project: Valitse hanke.
-            success: 'Seuraavat hankkeet päivitettiin onnistuneesti budjettiin %{subject_name}: %{projects}.'
+            success: 'Seuraavat hankkeet päivitys onnistui budjetissa %{subject_name}: %{projects}.'
           update_category:
             invalid: 'Näillä hankkeilla oli jo aihepiiri %{subject_name}: %{projects}.'
             select_a_category: Valitse aihepiiri.
@@ -143,7 +143,7 @@ fi:
         proposals_imports:
           create:
             invalid: Ehdotusten tuominen hankkeiksi epäonnistui.
-            success: "%{number} ehdotusta tuotiin onnistuneesti hankkeiksi."
+            success: "%{number} ehdotuksen tuonti hankkeiksi onnistui."
           new:
             create: Tuo ehdotuksia hankkeiksi
             default_budget: Oletusbudjetti
@@ -171,7 +171,7 @@ fi:
         back_to: Takaisin %{component_name}
         close_modal: Sulje ikkuna
         continue: Jatka
-        more_information: Lisätietoa
+        more_information: Lisätietoja budjetista
       budgets_list:
         budgets: Budjetit
         cancel_order:
@@ -184,6 +184,11 @@ fi:
         finished_message: Olet äänestänyt. Kiitos osallistumisestasi!
         highlighted_cta: Äänestä budjetista %{name}
         if_change_opinion: Jos olet muuttanut mieltäsi, voit
+        orders:
+          highest_cost: Kallein ensin
+          label: Järjestä budjetit
+          lowest_cost: Edullisin ensin
+          random: Satunnainen järjestys
         progress: Viimeistele äänestys
         remove_vote: Poista ääni
         show: Näytä hankkeet
@@ -323,7 +328,7 @@ fi:
               errors:
                 budget_voting_rule_only_one: Ainoastaan yksi äänestyssääntö voi olla kerrallaan valittuna.
                 budget_voting_rule_required: Yksi äänestyssääntö on valittava.
-            geocoding_enabled: Geokoodaus käytössä
+            geocoding_enabled: Karttatoiminnot käytössä
             landing_page_content: Budjetoinnin aloitussivun teksti
             more_information_modal: Lisätietoikkunan teksti
             projects_per_page: Hankkeet sivua kohden

@@ -4,15 +4,16 @@ module Decidim
   module Amendable
     # A command with all the business logic when a user updates and amendment draft.
     class UpdateDraft < Decidim::Command
+      delegate :current_user, to: :form
+
       # Public: Initializes the command.
       #
-      # form         - A form object with the params.
+      # form - A form object with the params.
       def initialize(form)
         @form = form
         @amendment = form.amendment
         @amender = form.amender
         @emendation = form.emendation
-        @current_user = form.current_user
         @user_group = Decidim::UserGroup.find_by(id: form.user_group_id)
       end
 
@@ -35,7 +36,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :amendment, :amender, :emendation, :current_user, :user_group
+      attr_reader :form, :amendment, :amender, :emendation, :user_group
 
       # Prevent PaperTrail from creating an additional version
       # in the amendment multi-step creation process (step 3: complete)

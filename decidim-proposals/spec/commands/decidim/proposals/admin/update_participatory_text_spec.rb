@@ -23,10 +23,9 @@ module Decidim
             proposals
           end
           let(:proposal_modifications) do
-            modifs = []
             new_positions = [3, 1, 2]
-            proposals.each do |proposal|
-              modifs << Decidim::Proposals::Admin::ParticipatoryTextProposalForm.new(
+            proposals.map do |proposal|
+              Decidim::Proposals::Admin::ParticipatoryTextProposalForm.new(
                 id: proposal.id,
                 position: new_positions.shift,
                 title: ::Faker::Books::Lovecraft.fhtagn,
@@ -36,7 +35,6 @@ module Decidim
                 current_component:
               )
             end
-            modifs
           end
           let(:form) do
             instance_double(

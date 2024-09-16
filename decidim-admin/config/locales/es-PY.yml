@@ -187,6 +187,7 @@ es-PY:
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
+        manage: Gestionar
         newsletter:
           new: Nuevo boletín
         participatory_space_private_user:
@@ -194,14 +195,14 @@ es-PY:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
-        send_me_a_test_email: Enviarme un correo electrónico de prueba
+        send_me_a_test_email: Envíame un correo electrónico de prueba
         share: Compartir
         user:
           new: Nueva administradora
         verify: Verificar
       admin_terms_of_service:
         accept:
-          error: Ha habido un error al aceptar los Términos y Condiciones de administración.
+          error: Se ha producido un problema al aceptar los términos de servicio de administración.
           success: '¡Genial! Has aceptado los términos del servicio de administración.'
         actions:
           accept: Estoy de acuerdo con los términos
@@ -287,7 +288,7 @@ es-PY:
       block_user:
         new:
           action: Bloquear cuenta y enviar justificación
-          already_reported_html: Continuando con esta acción también esconderás todos los contenidos de la participante.
+          already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de la participante.
           description: El bloqueo de una usuaria dejará su cuenta inutilizable. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearla.
           justification: Justificación
           title: Bloquear a la usuaria %{name}
@@ -317,7 +318,7 @@ es-PY:
         create:
           error: Hubo un error al crear este componente.
           success: Componente creado con éxito.
-          success_landing_page: Componente creado con éxito. Puedes añadir un bloque de contenido para este componente en la ppágina de inicio del espacio de participación. <a href="%{landing_page_path}">Ve a la página de inicio</a> para configurarla.
+          success_landing_page: Componente creado con éxito. Puedes añadir un bloque de contenido para este componente en la página de inicio del espacio de participación. <a href="%{landing_page_path}">Ve a la página de inicio</a> para configurarla.
         destroy:
           error: Ha habido un error al eliminar este componente.
           success: Componente borrado con éxito.
@@ -333,7 +334,6 @@ es-PY:
           headers:
             actions: Comportamiento
             name: Nombre del componente
-            scope: Ámbito del componente
             type: Tipo de componente
         new:
           add: Agregar componente
@@ -349,12 +349,14 @@ es-PY:
       conflicts:
         attempts: Intentos
         'false': 'No'
+        index:
+          text: Buscar por correo electrónico, nombre o alias.
         managed_user_name: Usuario gestionado
         solved: Resuelto
         title: Conflictos de verificación
         transfer:
           email: Correo electrónico
-          error: Hubo un problema transfiriendo la participante actual a una participante gestionada.
+          error: Se ha producido un error transfiriendo la participante actual a una participante gestionada.
           name: Nombre
           reason: Motivo
           success: La transferencia actual se ha completado correctamente.
@@ -449,6 +451,7 @@ es-PY:
           values:
             'false': Publicada
             'true': Sin publicar
+        remove_all: Eliminar todos
         scope_id_eq:
           label: Ámbito
         search_label: Buscar
@@ -465,6 +468,9 @@ es-PY:
             pending: Pendiente
             rejected: Rechazado
             verified: Verificado
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomía
       forms:
         file_help:
           import:
@@ -569,6 +575,7 @@ es-PY:
         appearance: Apariencia
         area_types: Tipos de área
         areas: Áreas
+        components: Componentes
         configuration: Configuración
         content: Contenido reportado
         external_domain_allowlist: Dominios externos permitidos
@@ -582,10 +589,11 @@ es-PY:
         reported_users: Participantes reportadas
         scope_types: Tipos de ámbito
         scopes: Ámbitos
-        see_site: Ver el sitio web
+        see_site: Ver sitio
         settings: Configuración
         static_page_topics: Temas
         static_pages: Páginas
+        taxonomies: Taxonomías
         user_groups: Grupos de usuarios
         users: Usuarios
       metrics:
@@ -773,7 +781,7 @@ es-PY:
         show:
           preview: Previsualizar
           select_recipients_to_deliver: Selecciona los destinatarios
-          send_me_a_test_email: Enviarme un correo electrónico de prueba
+          send_me_a_test_email: Envíame un correo electrónico de prueba
           subject: Asunto
         update:
           error: Se ha producido un error al actualizar este boletín.
@@ -845,10 +853,10 @@ es-PY:
             saturation: Saturación
             title: Selector de color
             update_suggested_colors: Actualizar a los colores sugeridos
-          cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el Botón de Acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El Botón de Acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
+          cta_button_path_help_html: 'Puedes redirigir la dirección donde enlaza el botón de acción principal de la página de inicio donde desees. Usa rutas parciales, no URLs completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets:
-            header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lea más sobre <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
+            header_snippets_help_html: Utiliza este campo para añadir cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieren JavaScript o CSS adicionales. También, puedes usarlo para añadir meta-etiquetas extra al HTML. Ten en cuenta que esto sólo será renderizado en páginas públicas, no en la sección de administración. Si el código interactúa con APIs externas o no cumple con las pautas de seguridad de la aplicación, será necesario cambiar la Política de Seguridad del Contenido. Lee más sobre esto <a href="https://docs.decidim.org/develop/en/customize/content_security_policy">en el sitio de documentación</a>.
             title: Fragmentos de código HTML de cabecera
           homepage_appearance_title: Editar apariencia de página de inicio
           homepage_highlighted_content_banner_title: Banner de contenido resaltado
@@ -962,6 +970,11 @@ es-PY:
           help: Estos tokens se utilizan para compartir públicamente este recurso no publicado a cualquier usuario. Se ocultarán cuando se publique el recurso. Haz clic en el icono de compartir el token para visitar la URL compartible.
           title: Compartir tokens
       shared:
+        adjacent_navigation:
+          next: Siguiente
+          next_title: Siguiente elemento
+          previous: Anterior
+          previous_title: Anterior elemento
         gallery:
           add_images: Añadir imágenes
           edit_images: Editar imagenes
@@ -1008,6 +1021,51 @@ es-PY:
         update:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
+      taxonomies:
+        actions: Acciones
+        amount: Importe
+        count: Recuento
+        create:
+          invalid: Se ha producido un error al crear esta taxonomía.
+          success: Taxonomía creada correctamente.
+        destroy:
+          invalid: Se ha producido un error al eliminar esta taxonomía.
+          success: Taxonomía eliminada correctamente.
+        edit:
+          back: Atrás
+          description: Los elementos de esta taxonomía se utilizarán para clasificar o filtrar recursos, tales como espacios participativos o componentes. Puedes ordenar el listado arrastrando los elementos.
+          new_item: Nuevo elemento
+          no_items: Actualmente no hay elementos en esta taxonomía. Crea una lista de elementos para clasificar o filtrar recursos, tales como espacios participativos o componentes. Los elementos pueden anidarse hasta tres niveles.
+          subtitle: Elementos en "%{taxonomy_name}"
+          title: Editar la taxonomía "%{taxonomy_name}"
+          update: Actualizar
+        filters:
+          search_placeholder: Buscar
+        index:
+          description: Una taxonomía permite a las administradoras categorizar y organizar el contenido. Por ejemplo, añadir una taxonomía para clasificar procesos por ámbito geográfico.
+          new_taxonomy: Nueva taxonomía
+          no_items_found: No se encontraron taxonomías que coincidan con los criterios de búsqueda.
+        name: Nombre
+        new:
+          create: Crear taxonomía
+          title: Nueva taxonomía
+        no_taxonomies: Actualmente no hay taxonomías. Crea una lista de taxonomías y define sus elementos para clasificar o filtrar recursos.
+        table:
+          to_next_page: Pasa a la siguiente página
+          to_prev_page: Pasa a la página anterior
+        taxonomy_actions:
+          confirm_destroy: '¿Seguro que quieres eliminar "%{name}"? También se eliminarán todos los elementos incluidos en esta.'
+        update:
+          invalid: Se ha producido un error al actualizar esta taxonomía.
+          success: Taxonomía actualizada correctamente.
+      taxonomy_items:
+        edit:
+          title: Editar elemento en "%{taxonomy}"
+          update: Actualizar el elemento
+        new:
+          create: Crear un elemento
+          none: Ninguno
+          title: Editar elemento en "%{taxonomy}"
       titles:
         admin_log: Registro de actividad de administradores
         area_types: Tipos de área
@@ -1028,6 +1086,7 @@ es-PY:
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         statistics: Actividad
+        taxonomies: Taxonomías
         user_groups: Grupos de usuarios
         users: Administradoras
       user_group:

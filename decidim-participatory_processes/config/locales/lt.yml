@@ -4,7 +4,6 @@ lt:
       participatory_process:
         announcement: Pranešimas
         area_id: Aplinka
-        banner_image: Reklamjuostės paveikslėlis
         copy_categories: Kopijuoti kategorijas
         copy_components: Kopijuoti komponentus
         copy_steps: Kopijuoti veiksmus
@@ -34,8 +33,6 @@ lt:
         scope_type_max_depth_id: Srities filtro gylis
         scopes_enabled: Sritys įjungtos
         short_description: Trumpas aprašymas
-        show_metrics: Rodyti metriką
-        show_statistics: Rodyti statistiką
         slug: URL priedas
         start_date: Pradžios data
         subtitle: Paantraštė
@@ -178,7 +175,6 @@ lt:
           title: Dubliuoti dalyvaujamąjį procesą
       participatory_process_groups:
         destroy:
-          error: Naikinant Dalyvaujamojo proceso grupę įvyko klaida.
           success: Dalyvaujamojo proceso grupė pašalinta.
         edit:
           title: Keisti procesų grupę

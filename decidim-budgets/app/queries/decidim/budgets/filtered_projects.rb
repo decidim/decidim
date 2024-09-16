@@ -28,8 +28,8 @@ module Decidim
       # by a range of dates.
       def query
         projects = Decidim::Budgets::Project.where(budget: budgets)
-        projects = projects.where("created_at >= ?", @start_at) if @start_at.present?
-        projects = projects.where("created_at <= ?", @end_at) if @end_at.present?
+        projects = projects.where(created_at: @start_at..) if @start_at.present?
+        projects = projects.where(created_at: ..@end_at) if @end_at.present?
         projects
       end
 

@@ -58,7 +58,6 @@
       "en": "Vel qui.",
       "es": "Et molestiae."
     },
-    "show_statistics": false,
     "scopes_enabled": true,
     "private_space": false,
     "reference": "PhD-ASSE-2020-01-1",
@@ -509,7 +508,7 @@
           "proposal_length": 500,
           "proposal_edit_before_minutes": 5,
           "threshold_per_proposal": 0,
-          "can_accumulate_supports_beyond_threshold": false,
+          "can_accumulate_votes_beyond_threshold": false,
           "proposal_answering_enabled": true,
           "official_proposals_enabled": true,
           "comments_enabled": true,

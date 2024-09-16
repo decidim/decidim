@@ -4,7 +4,6 @@ fr-CA:
       participatory_process:
         announcement: Annonce
         area_id: Périmètre d'assemblée
-        banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
         copy_steps: Copier les étapes
@@ -34,8 +33,6 @@ fr-CA:
         scope_type_max_depth_id: Profondeur du filtre de portée
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
-        show_metrics: Afficher les métriques
-        show_statistics: Montrer les statistiques
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre

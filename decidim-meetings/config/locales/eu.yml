@@ -146,6 +146,7 @@ eu:
         actions:
           comment: Iruzkina
           join: Parte hartu
+          reply_poll: Erantzun inkesta
         name: Topaketak
         settings:
           global:
@@ -362,6 +363,13 @@ eu:
           update:
             invalid: Arazo bat egon da topaketa-inkesta hau eguneratzean.
             success: Topaketaren inkesta zuzen eguneratua.
+        poll:
+          form:
+            announcement_html:
+              - Galdera batek erantzunak jasotzen dituenean edo argitaratuta/itxita dagoenean, jada ezin da editatu.
+              - Edozein unetan gehitu ahal duzu galdera bat.
+              - Inkesta itxi egingo da sortutako galdera guztien emaitzak argitaratzen direnean.
+              - Bisitatu <a href='% {admin_link}'>inkestak administratzeko orria </a>, galderak bidali eta emaitzak argitaratzeko.
         registrations:
           edit:
             save: Gorde
@@ -423,7 +431,7 @@ eu:
           body: <a href="%{meeting_path}">"%{meeting_title}"</a> topaketa ixteko dago. Mesedez, gehitu bilerari buruzko txosten bat "Itxi bilera" botoia erabiliz.
           greetings: Agur, <br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
           hello: Kaixo %{username},
-          subject: Zure topaketa itxi dezakezu %{organization_name}-ren gaineko txosten batekin
+          subject: Zuk orain "%{meeting_title}" topaketa itxi ahal duzu txosten batekin
       conference_venues: Hitzaldi aretoak
       content_blocks:
         upcoming_meetings:
@@ -440,16 +448,14 @@ eu:
       iframe_embed_type:
         embed_in_meeting_page: Topaketa-orrian txertatuta
         none: Bat ere ez
-        open_in_live_event_page: Ireki zuzeneko ekitaldi-orrian (inkesta aukeratuekin)
+        open_in_live_event_page: Ireki zuzeneko ekitaldiaren orrian
         open_in_new_tab: Ireki URL fitxa berri batean
       last_activity:
         meeting_updated: 'Topaketa eguneratua:'
         new_meeting: 'Beste topaketa bat:'
       layouts:
         live_event:
-          administrate: Administratu
           close: itxi
-          questions: Galderak
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -470,7 +476,7 @@ eu:
           apple: Gehitu Appleren egutegira
           full_details_html: Xehetasun guztiak edukitzeko, zoaz hona %{link}
           google: Gehitu Googleren egutegira
-          outlook: Ireki Outlooken egutegia
+          outlook: Gehitu Outlooken egutegira
         count:
           meetings_count:
             one: "topaketa 1"
@@ -530,6 +536,8 @@ eu:
           edit_close_meeting: Editatu topaketaren txostena
           edit_meeting: Editatu topaketa
           join_meeting: Izena eman
+          reply_poll: Erantzun inkesta
+          view_poll: Ikusi inkesta
         meetings:
           no_meetings_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago topaketa programaturik.
           upcoming_meetings_warning: Orain ez dago topaketa programaturik, baina aurreko topaketak ikus ditzakezu.
@@ -588,13 +596,22 @@ eu:
             start_time: Hasiera-data
             title: Titulua
       polls:
+        answers:
+          index:
+            administrate: Administratu
+            title: Inkesta
+          index_admin:
+            back_to_meeting: Itzuli topaketara
+            title: Administratu inkesta
+            view_poll: Ikusi inkesta
         questions:
           closed_question:
-            question_results: Galderaren emaitzak
+            announcement: Galdera honetarako erantzunak itxi egin dira.
+            question: Galdera
+            question_results: Emaitzak
           index:
             empty_questions: Topaketa honetan zehar, galdera batzuk bidaliko dira eta erantzun ahal izango dituzu. Hemen erakutsiko dira.
           index_admin:
-            admin_dashboard: Administrazio-panela
             edit: Editatu administrazio-panelean
             question: Galdera
             received_answer: jasotako erantzuna
@@ -602,6 +619,10 @@ eu:
             results: Emaitzak
             send: Bidali
             sent: Bidalita
+            statuses:
+              closed: Emaitzak bidalita (itxita)
+              published: Bidalita (zabalik)
+              unpublished: Bidaltzeko zain
           published_question:
             max_choices_alert: Aukera gehiegi hautatuta da
             question: Galdera
@@ -642,7 +663,7 @@ eu:
         transparent: Gardena
         withdraw: Kenduta
       withdraw:
-        error: Errore bat egon da topaketa bertan behera uztean.
+        error: Arazo bat izan da topaketa kentzean.
         success: Zuzenketa zuzen kendu da.
     metrics:
       meetings:

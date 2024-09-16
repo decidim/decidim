@@ -53,16 +53,20 @@ module Decidim
         OpenStruct.new(
           text: translated_attribute(cta_settings.button_text),
           path: cta_settings.button_url,
-          image_url: block.images_container.attached_uploader(:background_image).path(variant: :big)
+          image_url: block.images_container.attached_uploader(:background_image).variant_url(:big)
         )
       end
 
       # Items to display in the navigation of a process
       def process_nav_items(participatory_space)
-        components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
+        components = participatory_space
+                     .components
+                     .published.or(Decidim::Component.where(id: try(:current_component)))
+                     .where(visible: true)
 
         components.map do |component|
           {
+            id: component.id,
             name: decidim_escape_translated(component.name),
             url: main_component_path(component),
             active: is_active_link?(main_component_path(component), :inclusive)

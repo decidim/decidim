@@ -18,7 +18,12 @@ module Decidim
         resources :conferences, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "conference_publications", only: [:create, :destroy]
           resources :copies, controller: "conference_copies", only: [:new, :create]
-          resources :speakers, controller: "conference_speakers"
+          resources :speakers, controller: "conference_speakers" do
+            member do
+              put :publish
+              put :unpublish
+            end
+          end
           resources :partners, controller: "partners", except: [:show]
           resources :media_links, controller: "media_links"
           resources :registration_types, controller: "registration_types" do
@@ -55,11 +60,15 @@ module Decidim
           resources :categories, except: [:show]
 
           resources :components do
+            collection do
+              put :reorder
+            end
             resource :permissions, controller: "component_permissions"
             member do
               put :publish
               put :unpublish
               get :share
+              put :hide
             end
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do
