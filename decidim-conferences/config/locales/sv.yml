@@ -19,7 +19,7 @@ sv:
         main_logo: Logotyp
         objectives: Mål
         participatory_processes_ids: Relaterade deltagandeprocesser
-        promoted: Uppmärksammad
+        promoted: Utvald
         published_at: Publicerad
         registration_terms: Villkor för registrering
         registrations_enabled: Registrering aktiverad
@@ -60,7 +60,7 @@ sv:
         avatar: Profilbild
         conference_meeting_ids: Relaterade möten
         full_name: Fullständigt namn
-        personal_url: Personlig URL
+        personal_url: Personlig hemsida
         position: Befattning
         short_bio: Kort biographi
         user_id: Användare
@@ -202,7 +202,7 @@ sv:
         conference:
           fields:
             created_at: Skapad
-            promoted: Uppmärksammad
+            promoted: Utvald
             published: Publicerad
             title: Titel
         conference_speaker:
