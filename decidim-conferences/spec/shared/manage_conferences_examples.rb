@@ -8,6 +8,7 @@ shared_examples "manage conferences" do
     let(:image2_filename) { "city2.jpeg" }
     let(:image2_path) { Decidim::Dev.asset(image2_filename) }
     let(:attributes) { attributes_for(:conference) }
+    let(:last_conference) { Decidim::Conference.last }
 
     before do
       click_on "New conference"
@@ -26,6 +27,8 @@ shared_examples "manage conferences" do
         fill_in_i18n_editor(:conference_description, "#conference-description-tabs", **attributes[:description].except("machine_translations"))
         fill_in_i18n_editor(:conference_objectives, "#conference-objectives-tabs", **attributes[:objectives].except("machine_translations"))
 
+        select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
+
         fill_in :conference_weight, with: 1
         fill_in :conference_slug, with: "slug"
         fill_in :conference_hashtag, with: "#hashtag"
@@ -42,6 +45,7 @@ shared_examples "manage conferences" do
       end
 
       expect(page).to have_admin_callout("successfully")
+      expect(last_conference.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_conferences.conferences_path
@@ -73,10 +77,14 @@ shared_examples "manage conferences" do
         fill_in_i18n_editor(:conference_short_description, "#conference-short_description-tabs", **attributes[:short_description].except("machine_translations"))
         fill_in_i18n_editor(:conference_description, "#conference-description-tabs", **attributes[:description].except("machine_translations"))
         fill_in_i18n_editor(:conference_objectives, "#conference-objectives-tabs", **attributes[:objectives].except("machine_translations"))
+        select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
         find("*[type=submit]").click
       end
 
       expect(page).to have_admin_callout("successfully")
+      expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
+      expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Select from \"#{decidim_sanitize_translated(another_root_taxonomy.name)}\"")
+      expect(conference.reload.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
         expect(page).to have_css("input[value='#{translated(attributes[:title])}']")

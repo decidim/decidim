@@ -9,6 +9,7 @@ module Decidim
       class ConferenceForm < Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
+        include Decidim::Admin::HasTaxonomyFormAttributes
 
         translatable_attribute :title, String
         translatable_attribute :slogan, String
@@ -59,6 +60,10 @@ module Decidim
 
         def map_model(model)
           self.scope_id = model.decidim_scope_id
+        end
+
+        def participatory_space_manifest
+          :conferences
         end
 
         def scope

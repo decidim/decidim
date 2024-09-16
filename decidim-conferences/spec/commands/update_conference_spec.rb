@@ -6,6 +6,10 @@ module Decidim::Conferences
   describe Admin::UpdateConference do
     describe "call" do
       let(:my_conference) { create(:conference) }
+      let!(:taxonomizations) do
+        2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization: my_conference.organization), taxonomizable: my_conference) }
+      end
+      let(:taxonomy) { create(:taxonomy, :with_parent, organization: my_conference.organization) }
       let(:user) { create(:user, :admin, :confirmed, organization: my_conference.organization) }
       let!(:participatory_processes) do
         create_list(
@@ -50,6 +54,7 @@ module Decidim::Conferences
             start_date: my_conference.start_date,
             end_date: my_conference.end_date,
             errors: my_conference.errors,
+            taxonomies: [taxonomy.id, taxonomizations.first.taxonomy.id],
             show_statistics: my_conference.show_statistics,
             registrations_enabled: my_conference.registrations_enabled,
             available_slots: my_conference.available_slots,
@@ -117,6 +122,12 @@ module Decidim::Conferences
       describe "when the form is valid" do
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
+        end
+
+        it "updates the taxonomizations" do
+          expect(my_conference.reload.taxonomies).to contain_exactly(taxonomizations.first.taxonomy, taxonomizations.second.taxonomy)
+          command.call
+          expect(my_conference.reload.taxonomies).to contain_exactly(taxonomy, taxonomizations.first.taxonomy)
         end
 
         it "updates the conference" do

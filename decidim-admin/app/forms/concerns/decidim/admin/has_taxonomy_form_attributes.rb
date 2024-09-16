@@ -27,7 +27,7 @@ module Decidim
                                   all_taxonomy_filters.where(id: current_component.settings.taxonomy_filters)
                                 else
                                   all_taxonomy_filters
-            end
+                                end
         end
 
         def all_taxonomy_filters
