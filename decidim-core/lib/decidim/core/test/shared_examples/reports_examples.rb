@@ -9,7 +9,7 @@ shared_examples "logged in user reports content" do
     context "and the user has not reported the resource yet" do
       it "reports the resource" do
         visit reportable_path
-
+        find("#dropdown-trigger-resource-#{reportable.id}").click
         expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
         find(%(button[data-dialog-open="flagModal"])).click
         expect(page).to have_css(".flag-modal", visible: :visible)
@@ -44,6 +44,7 @@ shared_examples "higher user role hides" do
     it "reports the resource" do
       visit reportable_path
 
+      find("#dropdown-trigger-resource-#{reportable.id}").click
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
       find(%(button[data-dialog-open="flagModal"])).click
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -67,6 +68,7 @@ shared_examples "higher user role does not have hide" do
     it "reports the resource" do
       visit reportable_path
 
+      find("#dropdown-trigger-resource-#{reportable.id}").click
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
       find(%(button[data-dialog-open="flagModal"])).click
       expect(page).to have_css(".flag-modal", visible: :visible)
@@ -85,6 +87,7 @@ shared_examples "reports" do
 
       expect(page).to have_no_css("html.is-disabled")
 
+      find("#dropdown-trigger-resource-#{reportable.id}").click
       click_on "Report"
 
       expect(page).to have_css("html.is-disabled")
@@ -103,6 +106,7 @@ shared_examples "reports" do
     it "cannot report it twice" do
       visit reportable_path
 
+      find("#dropdown-trigger-resource-#{reportable.id}").click
       expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
       find(%(button[data-dialog-open="flagModal"])).click
       expect(page).to have_css(".flag-modal", visible: :visible)

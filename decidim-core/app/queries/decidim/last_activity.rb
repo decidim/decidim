@@ -56,10 +56,16 @@ module Decidim
 
         condition = if klass.include?(Decidim::HasPrivateUsers)
                       Arel.sql(
-                        [
-                          "decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'",
-                          "decidim_action_logs.participatory_space_id IN (#{Arel.sql(klass.visible_for(current_user).select(:id).to_sql)})"
-                        ].join(" AND ")
+                        <<~SQL.squish
+                          (
+                            decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}' AND#{" "}
+                            decidim_action_logs.participatory_space_id IN (#{Arel.sql(klass.visible_for(current_user).select(:id).to_sql)})
+                          ) OR#{" "}
+                          (
+                            decidim_action_logs.resource_type = '#{manifest.model_class_name}' AND#{" "}
+                            decidim_action_logs.resource_id IN (#{Arel.sql(klass.visible_for(current_user).select(:id).to_sql)})
+                          )
+                        SQL
                       ).to_s
                     else
                       Arel.sql("decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'").to_s
