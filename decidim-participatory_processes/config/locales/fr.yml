@@ -447,8 +447,6 @@ fr:
           name: Concertations liées
       index:
         title: Concertations
-      last_activity:
-        new_participatory_process: Nouvelle concertation
       pages:
         home:
           highlighted_processes:
