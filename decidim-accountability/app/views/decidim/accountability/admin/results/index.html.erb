@@ -63,7 +63,7 @@
       </thead>
       <tbody>
         <% results.each do |result| %>
-          <%= render partial: "decidim/accountability/admin/results/result-tr", locals: { result: result, view: :index } %>
+          <%= render partial: "decidim/accountability/admin/results/result-tr", locals: { result:, view: :index } %>
         <% end %>
       </tbody>
     </table>

@@ -43,7 +43,7 @@
       </thead>
       <tbody>
       <% deleted_results.each do |result| %>
-        <%= render partial: "decidim/accountability/admin/results/result-tr", locals: { result: result, view: :deleted } %>
+        <%= render partial: "decidim/accountability/admin/results/result-tr", locals: { result:, view: :deleted } %>
       <% end %>
       </tbody>
     </table>

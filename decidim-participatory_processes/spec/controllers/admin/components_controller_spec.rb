@@ -89,7 +89,7 @@ module Decidim
         end
 
         describe "GET deleted" do
-          let(:deleted_component) { create(:component, :trashed, participatory_space: participatory_process) }
+          let!(:deleted_component) { create(:component, :trashed, participatory_space: participatory_process) }
           let!(:active_component) { create(:component, participatory_space: participatory_process) }
 
           it "lists only deleted components" do

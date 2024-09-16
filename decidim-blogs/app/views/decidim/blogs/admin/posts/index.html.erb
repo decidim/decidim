@@ -20,7 +20,7 @@
       </thead>
       <tbody>
         <% posts.created_at_desc.each do |post| %>
-          <%= render partial: "decidim/blogs/admin/posts/post-tr", locals: { post: post, view: :index } %>
+          <%= render partial: "decidim/blogs/admin/posts/post-tr", locals: { post:, view: :index } %>
         <% end %>
       </tbody>
     </table>

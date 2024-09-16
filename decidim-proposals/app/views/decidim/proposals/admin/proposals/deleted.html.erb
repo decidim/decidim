@@ -4,7 +4,6 @@
     <h1 class="item_show__header-title"><%= t(".title") %></h1>
   </div>
   <%= admin_filter_selector(filter_prefix_key) %>
-  <% if @deleted_proposals.present? %>
     <div class="table-scroll mt-8">
       <table class="table-list">
         <thead>
@@ -53,11 +52,12 @@
         </tr>
         </thead>
         <tbody>
-        <% @deleted_proposals.each do |proposal| %>
-          <%= render partial: "proposal-tr", locals: { proposal:, view: :deleted } %>
+        <% if @deleted_proposals.present? %>
+          <% @deleted_proposals.each do |proposal| %>
+            <%= render partial: "proposal-tr", locals: { proposal:, view: :deleted } %>
+          <% end %>
         <% end %>
         </tbody>
       </table>
     </div>
-  <% end %>
 </div>
