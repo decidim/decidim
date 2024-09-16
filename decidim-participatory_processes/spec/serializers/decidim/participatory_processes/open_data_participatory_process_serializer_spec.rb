@@ -108,31 +108,6 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_participatory_process_group[:remote_hero_image_url]).to be_blob_url(resource.participatory_process_group.hero_image.blob)
         end
       end
-
-      context "when process has steps" do
-        let(:step) { create(:participatory_process_step) }
-
-        before do
-          resource.steps << step
-          resource.save
-        end
-
-        it "includes the participatory_process_steps" do
-          serialized_participatory_process_steps = subject.serialize[:participatory_process_steps].first
-
-          expect(serialized_participatory_process_steps).to be_a(Hash)
-
-          expect(serialized_participatory_process_steps).to include(id: step.id)
-          expect(serialized_participatory_process_steps).to include(title: step.title)
-          expect(serialized_participatory_process_steps).to include(description: step.description)
-          expect(serialized_participatory_process_steps).to include(start_date: step.start_date)
-          expect(serialized_participatory_process_steps).to include(end_date: step.end_date)
-          expect(serialized_participatory_process_steps).to include(cta_path: step.cta_path)
-          expect(serialized_participatory_process_steps).to include(cta_text: step.cta_text)
-          expect(serialized_participatory_process_steps).to include(active: step.active)
-          expect(serialized_participatory_process_steps).to include(position: step.position)
-        end
-      end
     end
   end
 end

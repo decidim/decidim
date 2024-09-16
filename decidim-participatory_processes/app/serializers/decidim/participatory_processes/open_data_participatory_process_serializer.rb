@@ -37,30 +37,9 @@ module Decidim
             participatory_process_type: {
               id: resource.participatory_process_type.try(:id),
               title: resource.participatory_process_type.try(:title) || empty_translatable
-            },
-            participatory_process_steps: serialize_participatory_process_steps
+            }
           }
         )
-      end
-
-      private
-
-      def serialize_participatory_process_steps
-        return unless resource.steps.any?
-
-        resource.steps.map do |step|
-          {
-            id: step.try(:id),
-            title: step.try(:title),
-            description: step.try(:description),
-            start_date: step.try(:start_date),
-            end_date: step.try(:end_date),
-            cta_path: step.try(:cta_path),
-            cta_text: step.try(:cta_text),
-            active: step.active,
-            position: step.position
-          }
-        end
       end
     end
   end
