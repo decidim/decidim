@@ -6,7 +6,7 @@ describe "Admin manages initiative publication" do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:organization) { create(:organization) }
 
-  # To be published, the initiative needs to be in the :validting state
+  # To be published, the initiative needs to be in the :validating state
   let!(:initiative) { create(:initiative, :validating, organization:) }
 
   let(:admin_page_path) { decidim_admin_initiatives.edit_initiative_path(participatory_space) }
@@ -15,13 +15,14 @@ describe "Admin manages initiative publication" do
   let(:participatory_space) { initiative }
 
   # We cannot use the shared example "manage participatory space publications"
-  # as Initiatives have some differences in comparison qwith the other spaces:
+  # as Initiatives have some differences in comparison with the other spaces:
   #
   # - Initiatives are not published/unpublished, they are validated
   # - There is a modal to confirm the publish/unpublish
   # - The public collection path is still visible even though there are not initiatives
-  # - The initiative is visible for administrators even when it is ubnpublished
-  # #
+  # - The initiative is visible for administrators even when it is unpublished
+  #
+  # That is why I copied and adapted that shared example to this file.
 
   describe "manage initiative publications" do
     before do
