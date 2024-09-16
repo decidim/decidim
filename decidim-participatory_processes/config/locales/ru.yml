@@ -288,6 +288,8 @@ ru:
           name: Рекомендуемые движения
       index:
         title: Движения соучастия
+      last_activity:
+        new_participatory_process: Добавить движение соучастия
       pages:
         home:
           highlighted_processes:
