@@ -7,18 +7,9 @@ module Decidim
     end
 
     def call
-      if @form.invalid?
-        remove_invalid_file
-        return broadcast(:invalid, @form.errors)
-      end
+      return broadcast(:invalid, @form.errors) if @form.invalid?
 
       broadcast(:ok)
-    end
-
-    private
-
-    def remove_invalid_file
-      @form.blob.purge_later if @form.blob.present?
     end
   end
 end
