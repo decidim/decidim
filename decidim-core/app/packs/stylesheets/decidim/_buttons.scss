@@ -67,7 +67,7 @@
   }
 
   &.is-hover,
-  &:not([disabled]):not([class*="button__text"]):hover {
+  &:not([disabled]):not([class*="button__text"]):not(label):hover {
     @apply text-white;
 
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),

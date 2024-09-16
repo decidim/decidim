@@ -202,7 +202,7 @@ describe "Participatory Processes" do
     end
   end
 
-  it_behaves_like "followable content for users" do
+  it_behaves_like "followable space content for users" do
     let!(:participatory_process) { base_process }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:followable) { participatory_process }
