@@ -355,7 +355,7 @@ sv:
           success: Din förfrågan har skickats till författaren av initiativet.
       content_blocks:
         highlighted_initiatives:
-          name: Viktiga initiativ
+          name: Viktiga initiativ just nu
       create_initiative:
         fill_data:
           back: Tillbaka
@@ -413,10 +413,10 @@ sv:
           email_subject: Nytt initiativ från %{author_nickname}
           notification_title: Initiativet <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         endorse_initiative_event:
-          email_intro: "%{author_name} %{author_nickname}, som du följer, har instämt i följande initiativ. Kanske du vill bidra till diskussionen:"
+          email_intro: "%{author_name} %{author_nickname}, som du följer, gillar följande initiativ. Kanske du vill bidra till diskussionen:"
           email_outro: Du har fått det här meddelandet eftersom du följer %{author_nickname}. Du kan sluta att ta emot meddelanden via föregående länk.
-          email_subject: '%{author_nickname} instämmer i Initiativet'
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> stöder initiativet <a href="%{resource_path}">%{resource_title}</a>.
+          email_subject: '%{author_nickname} gillar Initiativet'
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> gillar initiativet <a href="%{resource_path}">%{resource_title}</a>.
         revoke_membership_request:
           email_intro: "%{author_nickname} avslog din ansökan om att ingå i kampanjgruppen för följande initiativ %{resource_title}."
           email_outro: 'Du har fått det här meddelandet eftersom du är författaren av initiativet %{resource_title}.'
