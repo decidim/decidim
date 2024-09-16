@@ -205,7 +205,7 @@ sv:
           categories_label: Kategorier
           subcategories_label: Underkategorier
         home_header:
-          global_status: Global genomförandestatus
+          global_status: Status för genomförande
         nav_breadcrumb:
           global: Globalt genomförande
         search:
@@ -235,12 +235,12 @@ sv:
     components:
       accountability:
         actions:
-          comment: Kommentar
+          comment: Kommentera
         name: Genomförande
         settings:
           global:
             categories_label: Namn för "Kategorier"
-            comments_enabled: Kommentarer på
+            comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             display_progress_enabled: Visa behandling
             heading_leaf_level_results: Namn för "Projekt"
@@ -250,7 +250,7 @@ sv:
             scopes_enabled: Aktivera indelningar
             subcategories_label: Namn för "Underkategorier"
           step:
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
     events:
       accountability:
         proposal_linked:
