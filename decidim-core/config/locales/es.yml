@@ -1441,6 +1441,8 @@ es:
       create:
         error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: El contenido se ha denunciado con éxito y será revisado por una administradora.
+    resource:
+      controls_label: Controles de recursos
     resource_endorsements:
       create:
         error: Se ha producido un error durante la acción de adhesión.
