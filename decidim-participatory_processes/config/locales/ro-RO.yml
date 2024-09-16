@@ -400,12 +400,15 @@ ro:
             select_an_area: Selectează o zonă
             select_participatory_process_type: Selectați un tip de proces
             select_process_group: Selectează un grup de proces
+            taxonomies: Taxonomii
             title: Informaţii generale
       content_blocks:
         highlighted_processes:
           name: Procese evidențiate
       index:
         title: Procese participative
+      last_activity:
+        new_participatory_process: 'Proces participativ nou:'
       participatory_process_steps:
         index:
           back_to_process: Înapoi la pagina de proces
