@@ -699,7 +699,7 @@ sv:
         show:
           back: Tillbaka
           edit: Redigera gemensamt utkast
-          final_proposal: sista förslaget
+          final_proposal: färdigt förslag
           final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga förslaget
           hidden_authors_count:
             one: och %{count} mer person
