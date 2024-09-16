@@ -11,7 +11,7 @@ sv:
         assembly_type_other: Annan typ av samråd
         banner_image: Bannerbild
         closing_date: Slutdatum
-        closing_date_reason: Skäl till slutdatum
+        closing_date_reason: Anledning till avslut
         composition: Sammansättning
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
@@ -34,20 +34,20 @@ sv:
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
         import_components: Importera komponenter
-        included_at: Inkluderad vid
+        included_at: Publicerad
         instagram: Instagram
-        internal_organisation: Intern organisation
+        internal_organisation: Organisation
         is_transparent: Är transparent
         local_area: Område
         meta_scope: Metadata för indelning
         parent_id: Överordnat samråd
         participatory_processes_ids: Relaterade deltagandeprocesser
         participatory_scope: Vad bestäms
-        participatory_structure: Hur bestäms det
+        participatory_structure: Hur fattas beslut
         private_space: Privat utrymme
-        promoted: Uppmärksammad
+        promoted: Utvald
         published_at: Publicerad
-        purpose_of_action: Syfte med åtgärden
+        purpose_of_action: Syfte
         scope_id: Indelning
         scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
@@ -222,7 +222,7 @@ sv:
             actions: Åtgärder
             created_at: Skapad
             private: Privat
-            promoted: Uppmärksammad
+            promoted: Utvald
             published: Publicerad
             title: Titel
           name: Samråd
@@ -335,7 +335,7 @@ sv:
           indefinite_duration: Permanent
           local_area: Område
           meta_scope: Indelning
-          participatory_scope: Vad som beslutas
+          participatory_scope: Vad beslutas
           participatory_structure: Hur fattas beslut
           target: Vilka deltar
           title: Om samrådet
@@ -364,7 +364,7 @@ sv:
         extra_data:
           name: Typ & varaktighet
         highlighted_assemblies:
-          name: Viktiga samråd
+          name: Viktiga samråd just nu
         related_assemblies:
           name: Relaterade samråd
       created_by:
@@ -388,7 +388,7 @@ sv:
       pages:
         home:
           highlighted_assemblies:
-            active_spaces: Aktiva samråd
+            active_spaces: Pågående samråd
             see_all_spaces: Visa alla samråd
         user_profile:
           member_of:
@@ -447,7 +447,7 @@ sv:
           more_info: Mer information
           take_part: Delta
         index:
-          promoted_assemblies: Viktiga samråd
+          promoted_assemblies: Viktiga samråd just nu
         metadata:
           children_item:
             one: "%{count} samråd"
