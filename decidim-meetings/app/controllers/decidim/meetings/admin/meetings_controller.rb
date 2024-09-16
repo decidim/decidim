@@ -7,7 +7,7 @@ module Decidim
       class MeetingsController < Admin::ApplicationController
         include Decidim::Meetings::Admin::Filterable
 
-        helper_method :blank_service
+        helper_method :blank_service, :deleted_meetings
 
         def new
           enforce_permission_to :create, :meeting
@@ -110,18 +110,58 @@ module Decidim
           end
         end
 
+        def soft_delete
+          enforce_permission_to(:soft_delete, :meeting, meeting:)
+
+          Decidim::Commands::SoftDeleteResource.call(meeting, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("meetings.soft_delete.success", scope: "decidim.meetings.admin")
+              redirect_to meetings_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("meetings.soft_delete.invalid", scope: "decidim.meetings.admin")
+              redirect_to meetings_path
+            end
+          end
+        end
+
+        def restore
+          enforce_permission_to(:restore, :meeting, meeting:)
+
+          Decidim::Commands::RestoreResource.call(meeting, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("meetings.restore.success", scope: "decidim.meetings.admin")
+              redirect_to meetings_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("meetings.restore.invalid", scope: "decidim.meetings.admin")
+              redirect_to deleted_meetings_path
+            end
+          end
+        end
+
+        def deleted
+          enforce_permission_to :read, :meeting
+        end
+
         private
 
         def meetings
-          @meetings ||= filtered_collection
+          @meetings ||= filtered_collection.not_deleted
         end
 
         def meeting
-          @meeting ||= meetings.find(params[:id])
+          @meeting ||= Meeting.where(component: current_component).find(params[:id])
         end
 
         def collection
           @collection ||= Meeting.where(component: current_component).published.not_hidden
+        end
+
+        def deleted_meetings
+          @deleted_meetings ||= filtered_collection.trashed
         end
 
         def meeting_form

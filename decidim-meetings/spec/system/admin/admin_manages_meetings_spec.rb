@@ -399,8 +399,13 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
   end
 
-  describe "deleting a meeting" do
+  describe "soft deleting a meeting" do
     let!(:meeting2) { create(:meeting, component: current_component) }
+    let(:admin_resource_path) { current_path }
+    let(:trash_path) { "#{admin_resource_path}/meetings/deleted" }
+    let(:title) { { en: "My new meeting" } }
+    let!(:resource) { create(:meeting, component:, deleted_at:, title:) }
+    let(:deleted_at) { nil }
 
     before do
       visit current_path
@@ -408,7 +413,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     it "deletes a meeting" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting2).title do
-        accept_confirm { click_on "Delete" }
+        accept_confirm { click_on "Soft delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -417,6 +422,9 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
         expect(page).to have_no_content(Decidim::Meetings::MeetingPresenter.new(meeting2).title)
       end
     end
+
+    it_behaves_like "manage soft deletable resource", "meeting"
+    it_behaves_like "manage trashed resource", "meeting"
   end
 
   context "when geocoding is disabled", :configures_map do

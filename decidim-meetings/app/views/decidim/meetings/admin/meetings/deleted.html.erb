@@ -1,0 +1,49 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+    </h1>
+  </div>
+
+  <%= admin_filter_selector(:meetings) %>
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+      <tr>
+        <th>
+          <%= sort_link(query, :id, t("models.meeting.fields.id", scope: "decidim.meetings"), default_order: :desc ) %>
+        </th>
+        <th class="!text-left">
+          <%= sort_link(query, :translated_title, t("models.meeting.fields.title", scope: "decidim.meetings"), default_order: :desc ) %>
+        </th>
+        <th>
+          <%= sort_link(query, :start_time, t("models.meeting.fields.start_time", scope: "decidim.meetings"), default_order: :desc ) %>
+        </th>
+        <th>
+          <%= sort_link(query, :end_time, t("models.meeting.fields.end_time", scope: "decidim.meetings"), default_order: :desc ) %>
+        </th>
+        <th>
+          <%= sort_link(query, :closed, t("models.meeting.fields.closed", scope: "decidim.meetings"), default_order: :desc ) %>
+        </th>
+        <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
+          <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
+        <% end %>
+        <% if resource_with_scopes_enabled? %>
+          <th>
+            <%= sort_link(query, :scope_name, t("models.proposal.fields.scope", scope: "decidim.proposals") ) %>
+          </th>
+        <% end %>
+        <th><%= t("actions.title", scope: "decidim.meetings") %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% deleted_meetings.each do |meeting| %>
+        <%= render partial: "decidim/meetings/admin/meetings/meeting-tr", locals: { meeting:, view: :deleted } %>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= decidim_paginate deleted_meetings %>

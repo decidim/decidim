@@ -43,4 +43,51 @@ describe Decidim::Meetings::Admin::MeetingsController do
       end
     end
   end
+
+  describe "PATCH #soft_delete" do
+    it "soft deletes the meeting" do
+      expect(Decidim::Commands::SoftDeleteResource).to receive(:call).with(meeting, user).and_call_original
+
+      patch :soft_delete, params: { id: meeting.id }
+
+      expect(response).to redirect_to(meetings_path)
+      expect(flash[:notice]).to eq(I18n.t("meetings.soft_delete.success", scope: "decidim.meetings.admin"))
+      expect(meeting.reload.deleted_at).not_to be_nil
+    end
+  end
+
+  describe "PATCH #restore" do
+    before do
+      meeting.update!(deleted_at: Time.current)
+    end
+
+    it "restores the meeting" do
+      expect(Decidim::Commands::RestoreResource).to receive(:call).with(meeting, user).and_call_original
+
+      patch :restore, params: { id: meeting.id }
+
+      expect(response).to redirect_to(meetings_path)
+      expect(flash[:notice]).to eq(I18n.t("meetings.restore.success", scope: "decidim.meetings.admin"))
+      expect(meeting.reload.deleted_at).to be_nil
+    end
+  end
+
+  describe "GET #deleted" do
+    let!(:deleted_meeting) { create(:meeting, component: meeting_component, deleted_at: Time.current) }
+    let!(:active_meeting) { create(:meeting, component: meeting_component) }
+
+    it "lists only deleted meetings" do
+      get :deleted
+
+      expect(response).to have_http_status(:ok)
+      expect(controller.view_context.deleted_meetings).to include(deleted_meeting)
+      expect(controller.view_context.deleted_meetings).not_to include(active_meeting)
+    end
+
+    it "renders the deleted template" do
+      get :deleted
+
+      expect(response).to render_template(:deleted)
+    end
+  end
 end
