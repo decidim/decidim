@@ -556,7 +556,7 @@ module Decidim
   # This is the maximum time that the cache will be stored. If nil, the cache will be stored indefinitely.
   # Currently, cache is applied in the Cells where the method `cache_hash` is defined.
   config_accessor :cache_expiry_time do
-    nil
+    24.hours
   end
 
   # Same as before, but specifically for cell displaying stats
