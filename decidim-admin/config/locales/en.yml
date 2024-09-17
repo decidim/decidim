@@ -192,7 +192,6 @@ en:
             <li class="font-bold">%{resources_count} resources</li>
           </ul>
           If you change your mind, you can restore it later.
-        confirm_delete_title: Delete component '%{component_name}'
         export: Export all
         export-selection: Export selection
         import: Import
@@ -350,7 +349,6 @@ en:
             name: Component name
             scope: Component scope
             type: Component type
-            visibility: Visibility
         new:
           add: Add component
           title: 'Add component: %{name}'
@@ -360,7 +358,7 @@ en:
           invalid: There was a problem restoring this component.
           success: The component has been successfully restored.
         soft_delete:
-          error: There was a problem deleting this component.
+          invalid: There was a problem deleting this component.
           success: The component has been deleted successfully.
         title: Components
         unpublish:

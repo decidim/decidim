@@ -94,7 +94,6 @@ en:
         configure: Configure
         confirm_delete_process: Are you sure you want to delete this process? If you change your mind, you can restore it later.
         confirm_destroy: Confirm delete
-        confirm_restore: Confirm restore
         destroy: Delete
         duplicate: Duplicate
         edit: Edit
@@ -278,12 +277,6 @@ en:
         create:
           error: There was a problem creating a new participatory process.
           success: Participatory process successfully created. Configure now its phases.
-        deleted:
-          actions:
-            restore: Restore
-          heading: Deleted participatory processes
-          name: Deleted participatory processes
-          no_deleted_processes: There are no deleted participatory processes.
         edit:
           update: Update
         index:
@@ -295,10 +288,10 @@ en:
           create: Create
           title: New participatory process
         restore:
-          error: There was a problem while restoring the participatory process.
+          invalid: There was a problem while restoring the participatory process.
           success: Participatory process successfully restored.
         soft_delete:
-          error: There was a problem while deleting the participatory process.
+          invalid: There was a problem while deleting the participatory process.
           success: Participatory process has been successfully deleted.
         update:
           error: There was a problem updating this participatory process.

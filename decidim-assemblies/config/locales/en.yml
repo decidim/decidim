@@ -105,12 +105,6 @@ en:
         create:
           error: There was a problem creating a new assembly.
           success: Assembly created successfully.
-        deleted:
-          actions:
-            restore: Restore
-          heading: Deleted assemblies
-          name: Deleted assemblies
-          no_deleted_assemblies: There are no deleted assemblies.
         edit:
           update: Update
         index:
@@ -122,10 +116,10 @@ en:
           create: Create
           title: New assembly
         restore:
-          error: There was a problem while restoring the assembly.
+          invalid: There was a problem while restoring the assembly.
           success: Assembly has been successfully restored.
         soft_delete:
-          error: There was a problem while deleting the assembly.
+          invalid: There was a problem while deleting the assembly.
           success: Assembly has been successfully deleted.
         update:
           error: There was a problem updating this assembly.
