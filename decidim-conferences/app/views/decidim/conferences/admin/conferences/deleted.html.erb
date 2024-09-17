@@ -1,5 +1,6 @@
 <% add_decidim_page_title(t("conferences_deleted", scope: "decidim.admin.titles")) %>
-<div class="item_show__header">
+<%= admin_tabs(:admin_participatory_processes_menu).render %>
+<div class="mb-6">
   <h1 class="item_show__header-title">
     <%= t "conferences.deleted.title", scope: "decidim.admin" %>
   </h1>
