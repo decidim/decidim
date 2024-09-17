@@ -552,7 +552,7 @@ module Decidim
       private
 
       def copied_from_other_component?
-        linked_resources(:proposals, "copied_from_component").any?
+        linked_resources(:proposals, %w(splitted_from_component merged_from_component copied_from_component)).any?
       end
     end
   end

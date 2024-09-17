@@ -139,7 +139,7 @@ module Decidim::ParticipatoryProcesses
         let!(:category) { create(:category, participatory_space: resource) }
 
         it "includes the categories" do
-          serialized_participatory_process_categories = subject.serialize[:participatory_process_categories].first
+          serialized_participatory_process_categories = subject.serialize[:categories].first
           expect(serialized_participatory_process_categories).to be_a(Hash)
 
           expect(serialized_participatory_process_categories).to include(id: category.id)
@@ -152,7 +152,7 @@ module Decidim::ParticipatoryProcesses
           let!(:subcategory) { create(:subcategory, parent: category, participatory_space: resource) }
 
           it "includes the categories" do
-            serialized_participatory_process_categories = subject.serialize[:participatory_process_categories].first
+            serialized_participatory_process_categories = subject.serialize[:categories].first
 
             expect(serialized_participatory_process_categories).to be_a(Hash)
 

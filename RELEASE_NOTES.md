@@ -69,7 +69,17 @@ As of [#13380](https://github.com/decidim/decidim/pull/13380), the task named `d
 
 You can read more about this change on PR [#13380](https://github.com/decidim/decidim/pull/13380).
 
-### 2.4. Ransack upgrade
+### 2.4 Cells expiration time
+
+Now the cache expiration time is configurable via initializers/ENV variables.
+
+Decidim uses cache in some HTML views (usually under the `cells/` folder). In the past the cache had no expiration time, now it is configurable using the ENV var `DECIDIM_CACHE_EXPIRATION_TIME` (this var expects an integer specifying the number of minutes for which the cache is valid).
+
+Also note, that now it comes with a default value of 24 hours (1440 minutes).
+
+You can read more about this change on PR [#13402](https://github.com/decidim/decidim/pull/13402).
+
+### 2.5. Ransack upgrade
 
 As part of Rails upgrade to version 7.1, we upgraded Ransack gem to version 4.2. Ransack has introduced a new security policy that requires mandatory allowlisting for the attributes and associations needed by search engine. If you have a regular Decidim installation, you can skip this step.
 
