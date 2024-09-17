@@ -1,7 +1,7 @@
-<div role="complementary" class="<%= 'layout-item-complementary' if vote_limit_enabled? %>">
+<div role="complementary" class="<%= "layout-item-complementary" if vote_limit_enabled? %>">
   <%= yield :item_header %>
 </div>
-<div class="layout-item <%= 'lg:pt-4' if vote_limit_enabled? %>">
+<div class="layout-item <%= "lg:pt-4" if vote_limit_enabled? %>">
   <main class="layout-item__main">
     <% if params[:included_in] %>
       <%= render partial: "layouts/decidim/shared/linked_resource" %>

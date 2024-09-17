@@ -38,7 +38,7 @@
       $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
 
       if($successVoteNotification[0]) {
-        morphdom($successVoteNotification[0], '<%= j(cell("decidim/announcement", t("success", scope: "decidim.proposals.proposals.voting_rules"), callout_class: "success", id: "success-proposal-vote")) %>');
+        morphdom($successVoteNotification[0], '<%= j(render partial: "decidim/proposals/proposals/notification_alert_box").strip.html_safe %>');
       }
 
       if($proposalVotingRules[0]) {

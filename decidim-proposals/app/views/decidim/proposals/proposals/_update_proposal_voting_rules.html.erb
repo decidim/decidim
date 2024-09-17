@@ -2,7 +2,7 @@
   <% if @voted_proposals ? @voted_proposals.include?(@proposal.id) : @proposal.voted_by?(current_user) %>
     <%= render partial: "remaining_votes_notification" %>
   <% elsif remaining_votes_count_for(current_user) == 0 && current_component.participatory_space.can_participate?(current_user) %>
-    <%= cell("decidim/announcement", t("success", scope: "decidim.proposals.proposals.voting_rules"), callout_class: "success", id: "success-proposal-vote") %>
+    <%= render partial: "notification_alert_box" %>
     <%= render partial: "proposal_voting_rules" %>
   <% else %>
     <%= render partial: "proposal_voting_rules" %>
