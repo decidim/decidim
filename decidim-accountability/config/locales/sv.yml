@@ -7,10 +7,7 @@ sv:
         decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
-        meetings_ids: Möten som omfattas
         progress: Genomförande
-        project_ids: Projekt som omfattas
-        proposals: Förslag som omfattas
         start_date: Startdatum
         subresults: Delresultat
         title: Titel
