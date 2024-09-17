@@ -90,7 +90,7 @@ fi:
             values:
               accepted: Tarpeeksi allekirjoituksia
               created: Luotu
-              discarded: Hylätyt
+              discarded: Perutut
               published: Julkaistut
               rejected: Liian vähän allekirjoituksia
               validating: Teknisessä validoinnissa
@@ -237,7 +237,7 @@ fi:
             accept: Hyväksy aloite
             confirm: Oletko varma?
             confirm_send_to_technical_validation: Oletko varma?
-            discard: Hylkää aloite
+            discard: Peru aloite
             export_pdf_signatures: Vie allekirjoitukset PDF-asiakirjaan
             export_votes: Lataa allekirjoitukset
             reject: Torju aloite
@@ -317,7 +317,7 @@ fi:
         initiative:
           publish: "%{user_name} julkaisi aloitteen %{resource_name}"
           send_to_technical_validation: "%{user_name} lähetti aloitteen %{resource_name} tekniseen tarkastukseen"
-          unpublish: "%{user_name} hylkäsi aloitteen %{resource_name}"
+          unpublish: "%{user_name} perui aloitteen %{resource_name}"
           update: "%{user_name} päivitti aloitetta %{resource_name}"
         initiatives_settings:
           update: "%{user_name} päivitti aloitteiden asetuksia"
@@ -328,7 +328,7 @@ fi:
       admin_states:
         accepted: Tarpeeksi allekirjoituksia
         created: Luotu
-        discarded: Hylätty
+        discarded: Peruttu
         published: Julkaistu
         rejected: Liian vähän allekirjoituksia
         validating: Teknisessä tarkastuksessa
@@ -597,7 +597,7 @@ fi:
         badge_name:
           accepted: Tarpeeksi allekirjoituksia
           created: Luotu
-          discarded: Hylätty
+          discarded: Peruttu
           published: Julkaistu
           rejected: Liian vähän allekirjoituksia
           validating: Teknisessä tarkastuksessa
