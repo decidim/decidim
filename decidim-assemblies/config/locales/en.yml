@@ -105,6 +105,8 @@ en:
         create:
           error: There was a problem creating a new assembly.
           success: Assembly created successfully.
+        deleted:
+          title: Deleted assemblies
         edit:
           update: Update
         index:

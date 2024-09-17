@@ -159,6 +159,8 @@ en:
         create:
           error: There was a problem creating this conference.
           success: Conference successfully created.
+        deleted:
+          title: Deleted conferences
         edit:
           update: Update
         exports:

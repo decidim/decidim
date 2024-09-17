@@ -80,6 +80,10 @@ shared_examples "manage trashed resource" do |resource_name|
       visit trash_path
     end
 
+    it "shows page title" do
+      expect(page).to have_content("Deleted #{resource_name.pluralize}")
+    end
+
     it "displays the #{resource_name} in the trash" do
       within "table" do
         expect(page).to have_content(title[:en])
