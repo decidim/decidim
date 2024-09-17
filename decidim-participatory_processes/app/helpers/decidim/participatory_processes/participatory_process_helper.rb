@@ -75,7 +75,6 @@ module Decidim
       end
 
       def filter_sections
-        console
         items = [
           { method: :with_date, collection: filter_dates_values, label: t("decidim.participatory_processes.participatory_processes.filters.date"), id: "date" },
           { method: :with_any_type, collection: filter_types_values, label: t("decidim.participatory_processes.participatory_processes.filters.type"), id: "type" }
