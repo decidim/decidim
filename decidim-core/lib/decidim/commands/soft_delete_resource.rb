@@ -20,6 +20,7 @@ module Decidim
 
         run_before_hooks
         soft_delete_resource
+        send_notification_to_authors
         run_after_hooks
 
         broadcast(:ok, resource)
@@ -42,6 +43,22 @@ module Decidim
         ) do
           resource.trash!
         end
+      end
+
+      def send_notification_to_authors
+        coauthors = resource.coauthorships.map do |coauthorship|
+          coauthorship.decidim_author_type.constantize.find(coauthorship.decidim_author_id)
+        end
+        recipients = resource.authors + coauthors
+
+        return if recipients.empty?
+
+        Decidim::EventsManager.publish(
+          event: "decidim.events.resources.soft_deleted",
+          event_class: Decidim::SoftDeleteResourceEvent,
+          resource:,
+          affected_users: recipients.uniq
+        )
       end
 
       # Any extra params that you want to pass to the traceability service.

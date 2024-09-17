@@ -28,6 +28,12 @@ module Decidim
         expect(action_log.version).to be_present
         expect(action_log.action).to eq("soft_delete")
       end
+
+      it "sends a notification to the authors" do
+        expect(subject).to receive(:send_notification_to_authors)
+
+        subject.call
+      end
     end
 
     context "when the resource is invalid" do
