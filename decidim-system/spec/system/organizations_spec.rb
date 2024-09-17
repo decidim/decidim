@@ -236,10 +236,11 @@ describe "Organizations" do
               enabled: false,
               icon: "phone"
             },
-          test: {
-                enabled: false,
-                icon: "tools-line"
-              }}
+            test: {
+              enabled: false,
+              icon: "tools-line"
+            }
+          }
         )
 
         # Reload the UpdateOrganizationForm
