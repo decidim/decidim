@@ -158,7 +158,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("proposals.soft_delete.error", scope: "decidim.proposals.admin")
+              flash[:alert] = I18n.t("proposals.soft_delete.invalid", scope: "decidim.proposals.admin")
               redirect_to proposals_path
             end
           end
@@ -174,7 +174,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("proposals.restore.error", scope: "decidim.proposals.admin")
+              flash[:alert] = I18n.t("proposals.restore.invalid", scope: "decidim.proposals.admin")
               redirect_to deleted_proposals_path
             end
           end

@@ -357,7 +357,7 @@ en:
         publish:
           success: The component has been successfully published.
         restore:
-          error: There was a problem restoring this component.
+          invalid: There was a problem restoring this component.
           success: The component has been successfully restored.
         soft_delete:
           error: There was a problem deleting this component.

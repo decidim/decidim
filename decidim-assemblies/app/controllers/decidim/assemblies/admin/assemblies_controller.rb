@@ -79,7 +79,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("assemblies.soft_delete.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("assemblies.soft_delete.invalid", scope: "decidim.admin")
               redirect_to assemblies_path
             end
           end
@@ -95,7 +95,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("assemblies.restore.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("assemblies.restore.invalid", scope: "decidim.admin")
               redirect_to deleted_assemblies_path
             end
           end

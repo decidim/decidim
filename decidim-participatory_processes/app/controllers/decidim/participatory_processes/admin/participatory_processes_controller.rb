@@ -87,7 +87,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("participatory_processes.soft_delete.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("participatory_processes.soft_delete.invalid", scope: "decidim.admin")
               redirect_to participatory_processes_path
             end
           end
@@ -103,7 +103,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("participatory_processes.restore.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("participatory_processes.restore.invalid", scope: "decidim.admin")
               redirect_to deleted_participatory_processes_path
             end
           end

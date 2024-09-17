@@ -85,10 +85,10 @@ en:
             create: Create debate
             title: New debate
           restore:
-            error: There was a problem restoring this debate.
+            invalid: There was a problem restoring this debate.
             success: Debate successfully restored.
           soft_delete:
-            error: There was a problem soft deleting this debate.
+            invalid: There was a problem soft deleting this debate.
             success: Debate successfully deleted.
           update:
             invalid: There was a problem updating this debate.

@@ -127,10 +127,10 @@ en:
             create: Create result
             title: New result
           restore:
-            error: There was a problem restoring this result.
+            invalid: There was a problem restoring this result.
             success: Result successfully restored.
           soft_delete:
-            error: There was a problem soft deleting this result.
+            invalid: There was a problem soft deleting this result.
             success: Result successfully deleted.
           update:
             invalid: There was a problem updating this result.

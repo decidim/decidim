@@ -47,10 +47,10 @@ en:
             create: Create
             title: Create post
           restore:
-            error: There was a problem restoring this post.
+            invalid: There was a problem restoring this post.
             success: Post successfully restored.
           soft_delete:
-            error: There was a problem soft deleting this post.
+            invalid: There was a problem soft deleting this post.
             success: Post successfully deleted.
           update:
             invalid: There was a problem saving the post.

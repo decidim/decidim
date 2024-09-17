@@ -85,10 +85,10 @@ en:
             create: Create budget
             title: New budget
           restore:
-            error: There was a problem restoring this budget.
+            invalid: There was a problem restoring this budget.
             success: Budget successfully restored.
           soft_delete:
-            error: There was a problem soft deleting this budget.
+            invalid: There was a problem soft deleting this budget.
             success: Budget successfully deleted.
           update:
             invalid: There was a problem updating this budget.

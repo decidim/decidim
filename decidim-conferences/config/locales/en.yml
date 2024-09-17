@@ -172,7 +172,7 @@ en:
           create: Create
           title: Conference
         restore:
-          error: There was a problem restoring this conference.
+          invalid: There was a problem restoring this conference.
           success: Conference successfully restored.
         soft_delete:
           error: There was a problem moving this conference to trash.

@@ -78,7 +78,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("conferences.soft_delete.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("conferences.soft_delete.invalid", scope: "decidim.admin")
               redirect_to conferences_path
             end
           end
@@ -93,7 +93,7 @@ module Decidim
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("conferences.restore.error", scope: "decidim.admin")
+              flash[:alert] = I18n.t("conferences.restore.invalid", scope: "decidim.admin")
               redirect_to conferences_path
             end
           end
