@@ -46,10 +46,11 @@ module Decidim
       end
 
       def send_notification_to_authors
-        coauthors = resource.coauthorships.map do |coauthorship|
+        coauthors = resource.try(:coauthorships)&.map do |coauthorship|
           coauthorship.decidim_author_type.constantize.find(coauthorship.decidim_author_id)
-        end
-        recipients = resource.authors + coauthors
+        end || []
+
+        recipients = resource.try(:authors).to_a + coauthors
 
         return if recipients.empty?
 
