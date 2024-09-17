@@ -26,7 +26,7 @@
     </table>
   </div>
   <div class="card mt-4">
-    <%= link_to deleted_posts_path, class: "button button__sm button__transparent-secondary" do %>
+    <%= link_to deleted_posts_path, class: "button button__sm button__transparent-secondary button__deleted-resources" do %>
       <%= icon "delete-bin-line", class: "mr-2 fill-current text-secondary", role: "img" %>
       <%= t("actions.view_deleted_posts", scope: "decidim.blogs") %>
       <span class="ml-2">

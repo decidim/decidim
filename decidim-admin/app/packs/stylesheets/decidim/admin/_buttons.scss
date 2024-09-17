@@ -1,0 +1,11 @@
+.button__deleted-resources {
+  @apply cursor-pointer;
+
+  svg {
+    @apply fill-secondary;
+  }
+
+  &:hover svg {
+    @apply fill-white;
+  }
+}
