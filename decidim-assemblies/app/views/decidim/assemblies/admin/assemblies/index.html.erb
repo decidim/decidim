@@ -19,8 +19,8 @@
   <%= render partial: "assemblies_table", locals: { assemblies: @assemblies, view: :index } %>
 
   <div class="mt-4">
-    <%= link_to deleted_assemblies_path, class: "button button__sm button__transparent-secondary button__deleted-resources" do %>
-      <%= icon "delete-bin-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+    <%= link_to deleted_assemblies_path, class: "flex items-center underline text-secondary" do %>
+      <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
       <%= t("actions.view_deleted_assemblies", scope: "decidim.admin") %>
       <span class="ml-2">
       <%= icon_with_tooltip("information-line", t("tooltips.deleted_assemblies_info", scope: "decidim.admin")) %>
