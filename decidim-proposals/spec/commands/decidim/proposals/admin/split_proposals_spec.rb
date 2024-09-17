@@ -56,7 +56,7 @@ module Decidim
               command.call
               new_proposals = Proposal.where(component: target_component)
 
-              linked = proposals.first.linked_resources(:proposals, "copied_from_component")
+              linked = proposals.first.linked_resources(:proposals, "splitted_from_component")
 
               expect(linked).to match_array(new_proposals)
             end

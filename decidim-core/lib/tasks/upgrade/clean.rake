@@ -8,12 +8,13 @@ namespace :decidim do
         :"decidim:upgrade:clean:searchable_resources",
         :"decidim:upgrade:clean:notifications",
         :"decidim:upgrade:clean:follows",
+        :"decidim:upgrade:clean:categories",
         :"decidim:upgrade:clean:action_logs"
       ]
 
       desc "Removes any action logs belonging to invalid resources"
       task :action_logs, [] => :environment do
-        puts "=== Deleting Action logs\n"
+        logger.info("=== Deleting Action logs")
         invalid = 0
         Decidim::ActionLog.find_each do |log|
           log.participatory_space if log.participatory_space_type.present?
@@ -33,12 +34,12 @@ namespace :decidim do
           log.delete
           invalid += 1
         end
-        puts "===== Deleted #{invalid} invalid action logs\n"
+        logger.info("===== Deleted #{invalid} invalid action logs")
       end
 
       desc "Removes any follows belonging to invalid resources"
       task :follows, [] => :environment do
-        puts "=== Deleting Follows\n"
+        logger.info("=== Deleting Follows")
         invalid = 0
         Decidim::Follow.find_each do |follow|
           follow.followable
@@ -54,12 +55,12 @@ namespace :decidim do
           follow.delete
           invalid += 1
         end
-        puts "===== Deleted #{invalid} invalid follows\n"
+        logger.info("===== Deleted #{invalid} invalid follows")
       end
 
       desc "Removes any notifications belonging to invalid resources"
       task :notifications, [] => :environment do
-        puts "=== Deleting Notification\n"
+        logger.info("=== Deleting Notification")
         invalid = 0
         Decidim::Notification.find_each do |notification|
           # Check if the resource class still exists
@@ -70,13 +71,13 @@ namespace :decidim do
           notification.destroy
           invalid += 1
         end
-        puts "===== Deleted #{invalid} invalid notifications\n"
+        logger.info("===== Deleted #{invalid} invalid notifications")
       end
 
       desc "Removes any resources from search index that do not exist"
       task :searchable_resources, [] => :environment do
-        puts "=== Deleting Searchable results\n"
-        puts "==== Deleting invalid spaces \n"
+        logger.info("=== Deleting Searchable results")
+        logger.info("==== Deleting invalid spaces ")
         invalid = 0
         Decidim::SearchableResource.where.not(decidim_participatory_space_type: nil).find_each do |search|
           search.decidim_participatory_space
@@ -84,9 +85,9 @@ namespace :decidim do
           search.destroy!
           invalid += 1
         end
-        puts "===== Deleted #{invalid} invalid spaces\n"
+        logger.info("===== Deleted #{invalid} invalid spaces")
 
-        puts "==== Deleting invalid resources from search index \n"
+        logger.info("==== Deleting invalid resources from search index ")
         invalid = 0
         Decidim::SearchableResource.find_each do |search|
           next unless search.resource.respond_to?(:component)
@@ -98,17 +99,28 @@ namespace :decidim do
           search.destroy!
           invalid += 1
         end
-        puts "===== Deleted #{invalid} invalid resources\n"
+        logger.info("===== Deleted #{invalid} invalid resources")
       end
-    end
 
-    desc "Removes orphan categorizations"
-    task fix_orphan_categorizations: :environment do
-      logger = Logger.new($stdout)
-      logger.info("Removing orphan categorizations...")
+      desc "Removes any categorizations belonging to invalid resources"
+      task categories: :environment do
+        logger.info("=== Removing orphan categorizations...")
+        invalid = 0
 
-      Decidim::Categorization.find_each do |categorization|
-        categorization.destroy if categorization.categorizable.nil?
+        Decidim::Categorization.find_each do |categorization|
+          next unless categorization.categorizable.nil?
+
+          invalid += 1
+          categorization.destroy
+        rescue NameError
+          categorization.destroy!
+          invalid += 1
+        end
+        logger.info("===== Deleted #{invalid} invalid resources")
+      end
+
+      def logger
+        @logger ||= Logger.new($stdout)
       end
     end
   end
