@@ -138,6 +138,7 @@ module Decidim
         Decidim::Proposals::Proposal
         Decidim::Surveys::Survey
         Decidim::Assembly
+        Decidim::Conference
         Decidim::Initiative
         Decidim::ParticipatoryProcess
       ).select do |klass|
@@ -154,7 +155,16 @@ module Decidim
     end
 
     def self.publicable_public_resource_types
-      @publicable_public_resource_types ||= public_resource_types.select { |klass| klass.constantize.column_names.include?("published_at") }
+      @publicable_public_resource_types ||= public_resource_types
+                                            .select { |klass| klass.constantize.column_names.include?("published_at") } - publicable_exceptions
+    end
+
+    def self.publicable_exceptions
+      @publicable_exceptions = %w(
+        Decidim::Blogs::Post
+      ).select do |klass|
+        klass.safe_constantize.present?
+      end
     end
 
     def self.ransackable_scopes(auth_object = nil)
