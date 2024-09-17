@@ -8,8 +8,6 @@ is-IS:
         description: Lýsing
         end_date: Loka dagsetning
         progress: Framfarir
-        project_ids: Innifalið verkefni
-        proposals: Innifalið tillögur
         start_date: Upphafsdagur
         title: Titill
         updated_at: Uppfært á
