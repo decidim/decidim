@@ -70,6 +70,10 @@ module Decidim
 
     # DiffRenderer class for the current_version's item; falls back to `BaseDiffRenderer`.
     def diff_renderer_class
+      renderer_class = "#{current_version.item_type}DiffRenderer".safe_constantize
+
+      return renderer_class if renderer_class
+
       if current_version.item_type.deconstantize == "Decidim"
         "#{current_version.item_type.pluralize}::DiffRenderer".constantize
       else
