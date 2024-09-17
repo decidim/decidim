@@ -7,10 +7,7 @@ fi:
         decidim_scope_id: Teema
         description: Kuvaus
         end_date: Päättymispäivä
-        meetings_ids: Sisällytetyt tapaamiset
         progress: Edistyminen
-        project_ids: Liitetyt hankkeet
-        proposals: Sisällytetyt ehdotukset
         start_date: Alkamispäivä
         subresults: Alitulokset
         title: Otsikko
