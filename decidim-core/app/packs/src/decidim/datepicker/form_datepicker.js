@@ -32,7 +32,7 @@ export default function formDatePicker(input) {
   helpTextContainer.setAttribute("class", "datepicker__help-text-container");
 
   const helpTextDate = document.createElement("span");
-  helpTextContainer.setAttribute("class", "birthday__wrapper-text");
+  helpTextContainer.setAttribute("class", "help-text datepicker__help-date");
   helpTextContainer.innerText = i18nDateHelp.date_format;
 
   const helpTextTime = document.createElement("span");
