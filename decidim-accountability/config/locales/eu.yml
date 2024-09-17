@@ -7,10 +7,7 @@ eu:
         decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Bukaera-data
-        meetings_ids: Honekin lotutako topaketak
         progress: Aurrerapena
-        project_ids: Barne dauden proiektuak
-        proposals: Barne dauden proposamenak
         start_date: Hasiera-data
         subresults: Azpiemaitzak
         title: Izenburua
