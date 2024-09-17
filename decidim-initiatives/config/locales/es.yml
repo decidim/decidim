@@ -241,6 +241,10 @@ es:
             alert_html: "<p>Tienes que crear por lo menos un tipo de iniciativa para que las participantes puedan empezar a crear sus iniciativas.</p><p>%{link}</p>"
             button: Nuevo tipo de iniciativa
         initiatives:
+          accept:
+            success: La iniciativa se ha aceptado correctamente.
+          discard:
+            success: La iniciativa se ha descartado correctamente.
           edit:
             accept: Aceptar iniciativa
             confirm: '¿Estás seguro?'
@@ -264,6 +268,12 @@ es:
             edit: Editar
             new: Nueva
             photos: Fotos
+          publish:
+            success: La iniciativa se ha publicado correctamente.
+          reject:
+            success: La iniciativa se ha rechazado correctamente.
+          unpublish:
+            success: La iniciativa se ha despublicado correctamente.
           update:
             error: Se ha producido un error al actualizar la iniciativa.
             success: La iniciativa se ha actualizado correctamente.
