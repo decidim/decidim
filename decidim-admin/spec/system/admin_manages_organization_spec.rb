@@ -177,9 +177,9 @@ describe "Admin manages organization" do
                 <button type="button" aria-label="Resize image (bottom left corner)" data-image-resizer-control="bottom-left"></button>
                 <button type="button" aria-label="Resize image (bottom right corner)" data-image-resizer-control="bottom-right"></button>
                 <div data-image-resizer-dimensions="">
-                  <span data-image-resizer-dimension="width" data-image-resizer-dimension-value="512"></span>
+                  <span data-image-resizer-dimension="width" data-image-resizer-dimension-value=""></span>
                   ×
-                  <span data-image-resizer-dimension="height" data-image-resizer-dimension-value="342"></span></div>
+                  <span data-image-resizer-dimension="height" data-image-resizer-dimension-value=""></span></div>
                 <div class="editor-content-image" data-image=""><img src="#{image_url}" alt="foo bar"></div>
               </div>
             </div>
