@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples_for "a participatory space search with taxonomies" do |factory_name|
   let(:factory_params) do
     space_params
