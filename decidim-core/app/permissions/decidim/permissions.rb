@@ -162,9 +162,6 @@ module Decidim
     end
 
     def user_can_preview_component?
-      puts "PERMISSION ACTION: #{permission_action.inspect}"
-      puts context[:share_token]
-      puts user.inspect
       return allow! if context[:share_token].present? && Decidim::ShareToken.use!(token_for: component, token: context[:share_token], user:)
     rescue ActiveRecord::RecordNotFound, StandardError
       nil

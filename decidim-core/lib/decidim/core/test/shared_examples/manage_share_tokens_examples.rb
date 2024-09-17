@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "visit resource share tokens" do
-  let!(:share_token) { create(:share_token, token_for: resource, organization:, user:, registered_only: true) }
+  let!(:share_token) { create(:share_token, token_for: resource, organization:, user:, registered_only: true, token: SecureRandom.hex(32)) }
 
   before do
     visit_resource_page
@@ -90,7 +90,7 @@ shared_examples "manage resource share tokens" do
       share_tokens.each do |share_token|
         within ".share_tokens tbody" do
           expect(page).to have_content share_token.token
-          expect(page).to have_content share_token.expires_at
+          expect(page).to have_content share_token.expires_at.to_s
         end
       end
     end
