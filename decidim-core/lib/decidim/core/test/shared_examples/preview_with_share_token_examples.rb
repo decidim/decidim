@@ -13,7 +13,7 @@ shared_examples "visit unpublished resource with a share token" do
   end
 
   context "when a share_token is provided" do
-    let(:share_token) { create(:share_token, token_for: resource) }
+    let!(:share_token) { create(:share_token, token_for: resource) }
     let(:params) { { share_token: share_token.token } }
 
     before do
@@ -37,7 +37,7 @@ shared_examples "visit unpublished resource with a share token" do
     end
 
     context "when an invalid share_token is provided" do
-      let(:share_token) { create(:share_token, :expired, token_for: resource) }
+      let!(:share_token) { create(:share_token, :expired, token_for: resource) }
 
       it "does not allow visiting resource" do
         expect(page).to have_content "You are not authorized"
@@ -46,7 +46,7 @@ shared_examples "visit unpublished resource with a share token" do
     end
 
     context "when the token requires the user to be registered" do
-      let(:share_token) { create(:share_token, token_for: resource, registered_only: true) }
+      let!(:share_token) { create(:share_token, token_for: resource, registered_only: true) }
 
       it "does not allow visiting resource" do
         expect(page).to have_content "You are not authorized"
@@ -60,6 +60,10 @@ shared_examples "visit unpublished resource with a share token" do
           login_as user, scope: :user
           uri = URI(resource_path)
           uri.query = URI.encode_www_form(params.to_a)
+          puts "SPEC: before"
+          puts uri
+          puts share_token.inspect
+          puts user.inspect
           visit uri
         end
 
