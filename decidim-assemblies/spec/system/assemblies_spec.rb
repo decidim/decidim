@@ -145,7 +145,7 @@ describe "Assemblies" do
     end
   end
 
-  it_behaves_like "followable content for users" do
+  it_behaves_like "followable space content for users" do
     let(:assembly) { base_assembly }
     let!(:user) { create(:user, :confirmed, organization:) }
     let(:followable) { assembly }

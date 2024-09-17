@@ -14,6 +14,8 @@ shared_examples "followable content for users" do
     context "when user clicks the Follow button" do
       it "makes the user follow the followable" do
         visit followable_path
+        find("#dropdown-trigger-resource-#{followable.id}").click
+
         expect do
           click_on "Follow"
           expect(page).to have_content "Stop following"
@@ -30,6 +32,45 @@ shared_examples "followable content for users" do
     context "when user clicks the Follow button" do
       it "makes the user follow the followable" do
         visit followable_path
+        find("#dropdown-trigger-resource-#{followable.id}").click
+
+        expect do
+          click_on "Stop following"
+          expect(page).to have_content "Follow"
+        end.to change(Decidim::Follow, :count).by(-1)
+      end
+    end
+  end
+end
+
+shared_examples "followable space content for users" do
+  before do
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+  end
+
+  context "when not following the followable" do
+    context "when user clicks the Follow button" do
+      it "makes the user follow the followable" do
+        visit followable_path
+
+        expect do
+          click_on "Follow"
+          expect(page).to have_content "Stop following"
+        end.to change(Decidim::Follow, :count).by(1)
+      end
+    end
+  end
+
+  context "when the user is following the followable" do
+    before do
+      create(:follow, followable:, user:)
+    end
+
+    context "when user clicks the Follow button" do
+      it "makes the user follow the followable" do
+        visit followable_path
+
         expect do
           click_on "Stop following"
           expect(page).to have_content "Follow"
@@ -51,6 +92,8 @@ shared_examples "followable content for users with a component" do
     context "when user clicks the Follow button" do
       it "makes the user follow the followable" do
         visit followable_path
+        find("#dropdown-trigger-resource-#{followable.id}").click
+
         expect do
           click_on "Follow"
           expect(page).to have_content "Stop following"
