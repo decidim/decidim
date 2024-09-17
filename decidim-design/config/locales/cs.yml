@@ -166,9 +166,11 @@ cs:
         conference_s: Konference S
         conferences: Konference
         context: Kontext
+        context_description: Tato buňka zobrazuje některé informace o uživateli. Je to vizuální nápověda k identifikaci zdroje/tvůrce obsahu. Po najetí myší se zobrazí nápověda s dalšími informacemi a odkazy na její profil.
         debate_l: Rozprava L
         debate_s: Rozprava S
         debates: Rozpravy
+        debates_cards_text: Použít jinou šablonu pro blok obrázků
         default: Výchozí
         default_description: Volání buňky bez dalších argumentů, pouze samotného uživatele.
         demo: Demo
@@ -250,6 +252,7 @@ cs:
         usage_typography_4: Odkazy a tlačítka
         value: Hodnota
         variations: Variace
+        variations_description: Existují tři různé verze této buňky. Každý z nich lépe zapadá do kontextu, který se zobrazuje.
         variations_text: Pokud jde o druh činnosti, buňka by mohla vykazovat odlišný obsah, uvést různé zdroje, zda patří do participačního prostoru či nikoli, má autora či nikoli.
       home:
         index:

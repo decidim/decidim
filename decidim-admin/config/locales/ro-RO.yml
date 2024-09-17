@@ -12,7 +12,7 @@ ro:
       attachment:
         attachment_collection_id: Dosar
         description: Descriere
-        file: Fişier
+        file: Fișier
         title: Numele fișierului sau al imaginii atașate
         weight: Poziție
       attachment_collection:
@@ -37,6 +37,9 @@ ro:
         user_group_id: Creează importuri ca
       newsletter:
         body: Conținut
+        send_to_all_users: Trimiteți către toți utilizatorii
+        send_to_followers: Trimiteți către urmăritori
+        send_to_participants: Trimiteți către participanți
         subject: Titlu
       organization:
         admin_terms_of_service_body: Corp pentru condițiile de administrare a serviciului
@@ -125,11 +128,12 @@ ro:
         weight: Poziție
       static_page_topic:
         description: Descriere
+        name: Titlul subiectului
         show_in_footer: Afișează în subsol
         title: Titlu
         weight: Poziție
       user_group_csv_verification:
-        file: Fişier
+        file: Fișier
     errors:
       models:
         newsletter:
@@ -189,18 +193,20 @@ ro:
         per_page: Pe pagină
         permissions: Drepturi
         reject: Respinge
+        send_me_a_test_email: Trimite-mi un e-mail de test
         share: Distribuie
         user:
           new: Administrator nou
         verify: Verifică
       admin_terms_of_service:
         accept:
+          error: A apărut o problemă la acceptarea termenilor de administrare a serviciului.
           success: Excelent! Ați acceptat termenii de utilizare a serviciului.
         actions:
           accept: Sunt de acord cu termenii
           are_you_sure: Sigur doriți să refuzați termenii de utilizare a serviciului?
           refuse: Refuz termenii
-          title: Ești de acord cu Termenii de Utilizare?
+          title: Sunt de acord cu Termenii de Utilizare
         required_review:
           alert: 'Necesar: Revizuirea actualizărilor termenilor de utilizare a serviciului'
           callout: Vă rugăm să dedicați un moment pentru a revizui Termenii de utilizare pentru admin. În caz contrar, nu veți putea administra platforma.
@@ -280,6 +286,7 @@ ro:
       block_user:
         new:
           action: Blochează contul și trimite justificarea
+          already_reported_html: Continuând cu această acțiune veți ascunde de asemenea conținutul participanților.
           description: Blocarea unui utilizator va face contul său inutilizabil. Poți să furnizezi în justificarea ta orice instrucțiuni cu privire la modul în care vei lua în considerare deblocarea utilizatorului.
           justification: Justificare
           title: Blochează utilizatorul %{name}
@@ -324,7 +331,6 @@ ro:
           headers:
             actions: Acțiuni
             name: Numele componentei
-            scope: Domeniul componentei
             type: Tipul componentei
         new:
           add: Adaugă componentă
