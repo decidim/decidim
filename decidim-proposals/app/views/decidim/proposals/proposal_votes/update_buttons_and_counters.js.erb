@@ -28,7 +28,7 @@
     morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');
 
     <% if @voted_proposals ? @voted_proposals.include?(@proposal.id) : @proposal.voted_by?(current_user) %>
-      if $remainingVotesNotification[0] {
+      if($remainingVotesNotification[0]) {
         morphdom($$remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>');
       }
     <% end %>
@@ -37,18 +37,18 @@
       $notVotedButtons.attr('disabled', true);
       $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
 
-      if $successVoteNotification[0] {
+      if($successVoteNotification[0]) {
         morphdom($successVoteNotification[0], '<%= j(cell("decidim/announcement", t("success", scope: "decidim.proposals.proposals.voting_rules"), callout_class: "success", id: "success-proposal-vote")) %>');
       }
 
-      if $proposalVotingRules[0] {
+      if($proposalVotingRules[0]) {
         morphdom($proposalVotingRules[0], '<%= j(render partial: "decidim/proposals/proposals/proposal_voting_rules").strip.html_safe %>');
       }
     <% else %>
       $notVotedButtons.attr('disabled', false);
       $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
 
-      if $exitProposalModal[0] {
+      if($exitProposalModal[0]) {
         morphdom($exitProposalModal[0], '<%= j(render partial: "decidim/proposals/proposals/exit_modal").strip.html_safe %>');
       }
     <% end %>

@@ -168,3 +168,11 @@
     }
   }
 }
+
+.layout-item-complementary {
+  @apply container grid grid-cols-1 lg:grid-cols-12;
+
+  .item_voting_rules {
+    @apply lg:col-start-2 lg:col-span-10;
+  }
+}
