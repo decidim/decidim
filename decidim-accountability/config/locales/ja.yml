@@ -7,10 +7,7 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         end_date: 終了日
-        meetings_ids: 含まれるミーティング
         progress: 進捗状況
-        project_ids: 含まれるプロジェクト
-        proposals: 含まれる提案
         start_date: 開始日
         subresults: 結果（サブ）
         title: タイトル
