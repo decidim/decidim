@@ -78,6 +78,14 @@
   @apply block text-sm text-gray-2 font-normal prose-a:text-secondary prose-a:underline;
 }
 
+.birthday__wrapper {
+  @apply flex text-sm text-gray-2 font-normal prose-a:text-secondary prose-a:underline;
+
+  &-text {
+    @apply flex -mt-8;
+  }
+}
+
 .form__wrapper {
   @apply flex flex-col py-10 gap-10 last:pb-0;
 
