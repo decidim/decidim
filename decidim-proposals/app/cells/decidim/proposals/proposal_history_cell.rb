@@ -24,38 +24,38 @@ module Decidim
           {
             resources: @model.linked_resources_from(:proposals, "copied_from_component"),
             link_name: "copied_from_component",
-            text_key: "decidim/proposals/proposal/import_from_proposal_text",
+            text_key: "decidim.proposals.proposal.import_from_proposal_text",
             icon_key: "Decidim::Proposals::Proposal"
           },
           {
             resources: @model.linked_resources_from(:proposals, "splitted_from_component"),
             link_name: "splitted_from_component",
-            text_key: "decidim/proposals/proposal/split_from_proposal_text",
+            text_key: "decidim.proposals.proposal.split_from_proposal_text",
             icon_key: "Decidim::Proposals::Proposal"
           },
           {
             resources: @model.linked_resources_from(:proposals, "merged_from_component"),
             link_name: "merged_from_component",
-            text_key: "decidim/proposals/proposal/merge_from_proposal_text",
+            text_key: "decidim.proposals.proposal.merge_from_proposal_text",
             icon_key: "Decidim::Proposals::Proposal"
           },
           {
 
             resources: @model.linked_resources(:projects, "included_proposals"),
             link_name: "included_proposals",
-            text_key: "decidim/budgets/project/text",
+            text_key: "decidim.budgets.project.text",
             icon_key: "Decidim::Budgets::Project"
           },
           {
             resources: @model.linked_resources(:results, "included_proposals"),
             link_name: "included_proposals",
-            text_key: "decidim/accountability/result/text",
+            text_key: "decidim.accountability.result.text",
             icon_key: "Decidim::Accountability::Result"
           },
           {
             resources: @model.linked_resources(:meetings, "proposals_from_meeting"),
             link_name: "proposals_from_meeting",
-            text_key: "decidim/meetings/meeting/text",
+            text_key: "decidim.meetings.meeting.text",
             icon_key: "Decidim::Meetings::Meeting"
           },
           {
@@ -63,19 +63,19 @@ module Decidim
             # linked resource generate to this proposal
             resources: @model.linked_resources_to(:proposals, "copied_from_component"),
             link_name: "copied_to_component",
-            text_key: "decidim/proposals/proposal/import_to_proposal_text",
+            text_key: "decidim.proposals.proposal.import_to_proposal_text",
             icon_key: "Decidim::Proposals::Proposal"
           },
           {
             resources: @model.linked_resources_to(:proposals, "splitted_from_component"),
             link_name: "splitted_to_component",
-            text_key: "decidim/proposals/proposal/split_to_proposal_text",
+            text_key: "decidim.proposals.proposal.split_to_proposal_text",
             icon_key: "Decidim::Proposals::Proposal"
           },
           {
             resources: @model.linked_resources_to(:proposals, "merged_from_component"),
             link_name: "merged_to_component",
-            text_key: "decidim/proposals/proposal/merge_to_proposal_text",
+            text_key: "decidim.proposals.proposal.merge_to_proposal_text",
             icon_key: "Decidim::Proposals::Proposal"
           }
         ]

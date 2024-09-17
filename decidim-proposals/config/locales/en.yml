@@ -91,25 +91,22 @@ en:
       decidim/proposals/voting_enabled_event: Proposal voting enabled
   activerecord:
     models:
-      decidim/accountability/result/text: 'It was added to this result: %{link}'
-      decidim/budgets/project/text: 'It was added to this budget: %{link}'
-      decidim/history/history:
-        one: History
-        other: History
-      decidim/meetings/meeting/text: 'It was discussed in this meeting: %{link}'
+      decidim:
+        proposals:
+          proposal:
+            budget_text: The proposal %{link} was created
+            import_from_proposal_text: 'It became this proposal: %{link}'
+            import_to_proposal_text: This proposal %{link} was created
+            merge_from_proposal_text: 'It became this proposal: %{link}'
+            merge_to_proposal_text: 'This proposal was created: %{link}'
+            split_from_proposal_text: 'It became this proposal: %{link}'
+            split_to_proposal_text: 'This proposal was created: %{link}'
       decidim/proposals/collaborative_draft:
         one: Collaborative draft
         other: Collaborative drafts
       decidim/proposals/proposal:
         one: Proposal
         other: Proposals
-      decidim/proposals/proposal/budget_text: The proposal %{link} was created
-      decidim/proposals/proposal/import_from_proposal_text: 'It became this proposal: %{link}'
-      decidim/proposals/proposal/import_to_proposal_text: This proposal %{link} was created
-      decidim/proposals/proposal/merge_from_proposal_text: 'It became this proposal: %{link}'
-      decidim/proposals/proposal/merge_to_proposal_text: 'This proposal was created: %{link}'
-      decidim/proposals/proposal/split_from_proposal_text: 'It became this proposal: %{link}'
-      decidim/proposals/proposal/split_to_proposal_text: 'This proposal was created: %{link}'
       decidim/proposals/proposal_note:
         one: Note
         other: Notes

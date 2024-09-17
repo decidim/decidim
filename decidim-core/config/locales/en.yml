@@ -65,6 +65,10 @@ en:
         password_confirmation: Password confirmation
         remember_me: Remember me
     models:
+      decidim:
+        history:
+          one: History
+          other: History
       decidim/amendment:
         one: Amendment
         other: Amendments

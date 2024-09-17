@@ -22,19 +22,19 @@ module Decidim
             resources: @model.linked_resources(:proposals, "included_proposals"),
 
             link_name: "included_proposals",
-            text_key: "decidim/accountability/result/proposal_ids",
+            text_key: "decidim.accountability.result.proposal_ids",
             icon_key: "Decidim::Proposals::Proposal"
           },
           {
             resources: @model.linked_resources(:projects, "included_projects"),
             link_name: "included_projects",
-            text_key: "decidim/accountability/result/project_ids",
+            text_key: "decidim.accountability.result.project_ids",
             icon_key: "Decidim::Budgets::Project"
           },
           {
             resources: @model.linked_resources(:meetings, "meetings_through_proposals"),
             link_name: "meetings_through_proposals",
-            text_key: "decidim/accountability/result/meetings_ids",
+            text_key: "decidim.accountability.result.meetings_ids",
             icon_key: "Decidim::Meetings::Meeting"
           }
         ]

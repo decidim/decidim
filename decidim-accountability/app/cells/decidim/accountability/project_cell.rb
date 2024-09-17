@@ -20,7 +20,7 @@ module Decidim
           {
             enabled: ResultHistoryCell.new(result).render?,
             id: "included_history",
-            text: t("decidim/history/history", scope: "activerecord.models", count: 2),
+            text: t("decidim.history", scope: "activerecord.models", count: 2),
             icon: resource_type_icon_key("history"),
             method: :cell,
             args: ["decidim/accountability/result_history", result]

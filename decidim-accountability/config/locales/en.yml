@@ -27,13 +27,17 @@ en:
       decidim/accountability/result_progress_updated_event: Result progress updated
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: This result %{link} was included
+            meetings_ids: 'It was discussed in this meeting: %{link}'
+            project_ids: 'It was included in this project: %{link}'
+            proposal_ids: 'It was included in this proposal: %{link}'
+            text: 'It was added to this result: %{link}'
       decidim/accountability/result:
         one: Result
         other: Results
-      decidim/accountability/result/budget_text: This result %{link} was included
-      decidim/accountability/result/meetings_ids: 'It was discussed in this meeting: %{link}'
-      decidim/accountability/result/project_ids: 'It was included in this project: %{link}'
-      decidim/accountability/result/proposal_ids: 'It was included in this proposal: %{link}'
   decidim:
     accountability:
       actions:

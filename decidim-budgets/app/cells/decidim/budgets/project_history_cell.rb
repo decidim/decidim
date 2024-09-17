@@ -19,13 +19,13 @@ module Decidim
           {
             resources: @model.linked_resources(:proposals, "included_proposals"),
             link_name: "included_proposals",
-            text_key: "decidim/proposals/proposal/budget_text",
+            text_key: "decidim.proposals.proposal.budget_text",
             icon_key: "Decidim::Proposals::Proposal"
           },
           {
             resources: @model.linked_resources(:results, "included_projects"),
             link_name: "included_projects",
-            text_key: "decidim/accountability/result/budget_text",
+            text_key: "decidim.accountability.result.budget_text",
             icon_key: "Decidim::Accountability::Result"
           }
         ]

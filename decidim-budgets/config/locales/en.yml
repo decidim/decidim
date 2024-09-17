@@ -21,6 +21,10 @@ en:
         scope_id: Scope
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'It was added to this budget: %{link}'
       decidim/budgets/budget:
         one: Budget
         other: Budgets
