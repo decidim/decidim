@@ -64,6 +64,10 @@ ca:
         password_confirmation: Confirmació de la contrasenya
         remember_me: Recorda'm
     models:
+      decidim:
+        history:
+          one: Historial
+          other: Historial
       decidim/amendment:
         one: Esmena
         other: Esmenes
