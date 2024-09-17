@@ -6,7 +6,7 @@
     f.append(method: :with_any_category, collection: filter_categories_values, label: t("decidim.meetings.meetings.filters.category"), id: "category") if filter_options[:categories]
     f.append(method: :with_any_global_category, collection: directory_filter_categories_values, label: t("decidim.meetings.meetings.filters.category"), id: "category") if filter_options[:directory_categories]
     f.append(method: :with_any_origin, collection: filter_origin_values, label: t("decidim.meetings.meetings.filters.origin"), id: "origin") if filter_options[:origin]
-    f.append(method: :with_any_space, collection: directory_meeting_spaces_values, label: t("meetings.directory.meetings.index.decidim"), id: "space_type") if filter_options[:space_type]
+    f.append(method: :with_any_space, collection: directory_meeting_spaces_values, label: t("decidim.meetings.directory.meetings.index.space_type"), id: "space_type") if filter_options[:space_type]
     f.append(method: :activity, collection: activity_filter_values, label: t("decidim.meetings.meetings.filters.activity"), id: "activity", type: :radio_buttons) if filter_options[:activity]
   end %>
 

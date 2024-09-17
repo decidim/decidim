@@ -60,14 +60,14 @@ module Decidim
 
         toggle_allow(user.admin? || can_manage_assembly?(role: :admin) || can_manage_assembly?(role: :collaborator))
       end
-      
+
       def assembly_filters_action?
         return unless permission_action.subject == :taxonomy_filter
         return disallow! unless user.admin?
-        
+
         allow!
       end
-      
+
       def assemblies_type_action?
         return unless [:assembly_type, :assemblies_type].include? permission_action.subject
         return disallow! unless user.admin?
