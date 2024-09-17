@@ -64,6 +64,10 @@ fi:
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
     models:
+      decidim:
+        history:
+          one: Historia
+          other: Historia
       decidim/amendment:
         one: muutos
         other: Muutokset
