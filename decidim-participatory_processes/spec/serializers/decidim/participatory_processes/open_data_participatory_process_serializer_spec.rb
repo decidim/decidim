@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
-  describe ParticipatoryProcessSerializer do
+  describe OpenDataParticipatoryProcessSerializer do
     let(:resource) { create(:participatory_process) }
 
     subject { described_class.new(resource) }
@@ -31,7 +31,6 @@ module Decidim::ParticipatoryProcesses
         expect(serialized).to include(participatory_scope: resource.participatory_scope)
         expect(serialized).to include(participatory_structure: resource.participatory_structure)
         expect(serialized).to include(target: resource.target)
-        expect(serialized).to include(private_space: resource.private_space)
         expect(serialized).to include(promoted: resource.promoted)
         expect(serialized).to include(scopes_enabled: resource.scopes_enabled)
       end
@@ -107,77 +106,6 @@ module Decidim::ParticipatoryProcesses
           expect(serialized_participatory_process_group).to include(title: resource.participatory_process_group.title)
           expect(serialized_participatory_process_group).to include(description: resource.participatory_process_group.description)
           expect(serialized_participatory_process_group[:remote_hero_image_url]).to be_blob_url(resource.participatory_process_group.hero_image.blob)
-        end
-      end
-
-      context "when process has steps" do
-        let(:step) { create(:participatory_process_step) }
-
-        before do
-          resource.steps << step
-          resource.save
-        end
-
-        it "includes the participatory_process_steps" do
-          serialized_participatory_process_steps = subject.serialize[:participatory_process_steps].first
-
-          expect(serialized_participatory_process_steps).to be_a(Hash)
-
-          expect(serialized_participatory_process_steps).to include(id: step.id)
-          expect(serialized_participatory_process_steps).to include(title: step.title)
-          expect(serialized_participatory_process_steps).to include(description: step.description)
-          expect(serialized_participatory_process_steps).to include(start_date: step.start_date)
-          expect(serialized_participatory_process_steps).to include(end_date: step.end_date)
-          expect(serialized_participatory_process_steps).to include(cta_path: step.cta_path)
-          expect(serialized_participatory_process_steps).to include(cta_text: step.cta_text)
-          expect(serialized_participatory_process_steps).to include(active: step.active)
-          expect(serialized_participatory_process_steps).to include(position: step.position)
-        end
-      end
-
-      context "when process has categories" do
-        let!(:category) { create(:category, participatory_space: resource) }
-
-        it "includes the categories" do
-          serialized_participatory_process_categories = subject.serialize[:categories].first
-          expect(serialized_participatory_process_categories).to be_a(Hash)
-
-          expect(serialized_participatory_process_categories).to include(id: category.id)
-          expect(serialized_participatory_process_categories).to include(name: category.name)
-          expect(serialized_participatory_process_categories).to include(description: category.description)
-          expect(serialized_participatory_process_categories).to include(parent_id: category.parent_id)
-        end
-
-        context "when category has subcategories" do
-          let!(:subcategory) { create(:subcategory, parent: category, participatory_space: resource) }
-
-          it "includes the categories" do
-            serialized_participatory_process_categories = subject.serialize[:categories].first
-
-            expect(serialized_participatory_process_categories).to be_a(Hash)
-
-            expect(serialized_participatory_process_categories).to include(id: category.id)
-            expect(serialized_participatory_process_categories).to include(name: category.name)
-            expect(serialized_participatory_process_categories).to include(description: category.description)
-            expect(serialized_participatory_process_categories).to include(parent_id: category.parent_id)
-          end
-        end
-      end
-
-      context "when process has attachments" do
-        let!(:attachment_collection) { create(:attachment_collection, collection_for: resource) }
-        let!(:attachment) { create(:attachment, attached_to: resource, attachment_collection:) }
-
-        it "includes the attachment" do
-          serialized_participatory_process_attachment = subject.serialize[:attachments][:files].first
-
-          expect(serialized_participatory_process_attachment).to be_a(Hash)
-
-          expect(serialized_participatory_process_attachment).to include(id: attachment.id)
-          expect(serialized_participatory_process_attachment).to include(title: attachment.title)
-          expect(serialized_participatory_process_attachment).to include(weight: attachment.weight)
-          expect(serialized_participatory_process_attachment).to include(description: attachment.description)
-          expect(serialized_participatory_process_attachment[:remote_file_url]).to be_blob_url(resource.attachments.first.file.blob)
         end
       end
     end

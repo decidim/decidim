@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Assemblies
-    # This class serializes an Assembly so it can be exported to CSV, JSON or other formats.
-    class AssemblySerializer < Decidim::Assemblies::OpenDataAssemblySerializer
-      # Public: Exports a hash with the serialized data for this assembly.
+  module Conferences
+    # This class serializes a Conference so it can be exported to CSV, JSON or other formats.
+    class ConferenceSerializer < Decidim::Conferences::OpenDataConferenceSerializer
+      # Public: Exports a hash with the serialized data for this conference.
       def serialize
         super.merge(
           {
@@ -13,7 +13,6 @@ module Decidim
               attachment_collections: serialize_attachment_collections,
               files: serialize_attachments
             },
-            private_space: resource.private_space,
             weight: resource.weight,
             components: serialize_components
           }
