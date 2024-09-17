@@ -10,6 +10,6 @@ describe "Admin manages participatory process soft delete" do
   let(:title) { { en: "My space" } }
   let!(:resource) { create(:participatory_process, deleted_at:, title:, organization:) }
 
-  it_behaves_like "manage soft deletable component or space", "participatory space"
-  it_behaves_like "manage trashed resource", "participatory space"
+  it_behaves_like "manage soft deletable component or space", "participatory process"
+  it_behaves_like "manage trashed resource", "participatory process"
 end
