@@ -50,6 +50,22 @@ module Decidim
         scope.where(id: from).or(scope.where(id: to))
       end
 
+      def linked_resources_from(resource_name, link_name, component_published: true)
+        scope = sibling_scope(resource_name, component_published:)
+
+        scope
+          .joins(:resource_links_from)
+          .where(decidim_resource_links: { name: link_name, to_id: id, to_type: self.class.name })
+      end
+
+      def linked_resources_to(resource_name, link_name, component_published: true)
+        scope = sibling_scope(resource_name, component_published:)
+
+        scope
+          .joins(:resource_links_to)
+          .where(decidim_resource_links: { name: link_name, from_id: id, from_type: self.class.name })
+      end
+
       # Builds an ActiveRecord::Relation in order to load all the resources
       # that are in the same parent as this model.
       #

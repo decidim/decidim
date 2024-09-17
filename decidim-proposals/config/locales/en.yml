@@ -91,6 +91,16 @@ en:
       decidim/proposals/voting_enabled_event: Proposal voting enabled
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: The proposal %{link} was created
+            import_from_proposal_text: 'It became this proposal: %{link}'
+            import_to_proposal_text: This proposal %{link} was created
+            merge_from_proposal_text: 'It became this proposal: %{link}'
+            merge_to_proposal_text: 'This proposal was created: %{link}'
+            split_from_proposal_text: 'It became this proposal: %{link}'
+            split_to_proposal_text: 'This proposal was created: %{link}'
       decidim/proposals/collaborative_draft:
         one: Collaborative draft
         other: Collaborative drafts
@@ -779,6 +789,11 @@ en:
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
+      creation:
+        imported_text: It became this proposal
+        merged_text: They became this proposal
+        splitted_text: It became this proposal
+        text: This proposal was created
       destroy_draft:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
