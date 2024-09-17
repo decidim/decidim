@@ -5,7 +5,7 @@ require "decidim/dev/test/rspec_support/tom_select"
 
 describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_map: true do
   let(:manifest_name) { "meetings" }
-  let!(:meeting) { create(:meeting, :published, scope:, services: [], component: current_component) }
+  let!(:meeting) { create(:meeting, :published, services: [], component: current_component) }
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
@@ -16,8 +16,15 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   let(:meeting_end_date) { ((base_date + 2.days) + 1.month).strftime("%d/%m/%Y") }
   let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
   let(:attributes) { attributes_for(:meeting, component: current_component) }
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   include_context "when managing a component as an admin"
+
+  let!(:component) { create(:component, manifest:, participatory_space:, settings: { taxonomy_filters: taxonomy_filter_ids }) }
 
   before do
     stub_geocoding(address, [latitude, longitude])
@@ -25,7 +32,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   describe "listing meetings" do
     it "lists the meetings by start date" do
-      old_meeting = create(:meeting, scope:, services: [], component: current_component, start_time: 2.years.ago)
+      old_meeting = create(:meeting, services: [], component: current_component, start_time: 2.years.ago)
       visit current_path
 
       expect(page).to have_css("tbody tr:first-child", text: Decidim::Meetings::MeetingPresenter.new(meeting).title)
@@ -127,7 +134,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       let(:organization) { create(:organization, available_locales: [:en]) }
       let(:component) { create(:component, manifest_name:, organization:) }
       let!(:meeting) do
-        create(:meeting, scope:, services: [], component:,
+        create(:meeting, services: [], component:,
                          title: { en: "Title" }, description: { en: "Description" })
       end
 
@@ -250,7 +257,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   end
 
   it "allows the user to preview an unpublished meeting" do
-    unpublished_meeting = create(:meeting, scope:, services: [], component: current_component)
+    unpublished_meeting = create(:meeting, services: [], component: current_component)
     visit current_path
 
     meeting_path = resource_locator(unpublished_meeting).path
@@ -290,8 +297,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
     fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
 
-    select translated(scope.name), from: :meeting_decidim_scope_id
-    select translated(category.name), from: :meeting_decidim_category_id
+    select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
     within ".new_meeting" do
       find("*[type=submit]").click
@@ -301,6 +307,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_content(translated(taxonomy.name))
     end
 
     visit decidim_admin.root_path
@@ -504,8 +511,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
       fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
 
-      select translated(scope.name), from: :meeting_decidim_scope_id
-      select translated(category.name), from: :meeting_decidim_category_id
+      select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
       within ".new_meeting" do
         find("*[type=submit]").click

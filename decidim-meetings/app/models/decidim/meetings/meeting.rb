@@ -12,6 +12,7 @@ module Decidim
       include Decidim::HasReference
       include Decidim::ScopableResource
       include Decidim::HasCategory
+      include Decidim::Taxonomizable
       include Decidim::Followable
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Comments::HasAvailabilityAttributes
@@ -370,7 +371,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_type, :with_any_date, :with_any_space, :with_any_origin, :with_any_scope, :with_any_category, :with_any_global_category]
+        [:with_any_type, :with_any_date, :with_any_space, :with_any_origin, :with_any_taxonomies, :with_any_global_category]
       end
 
       def self.ransack(params = {}, options = {})

@@ -151,6 +151,11 @@ en:
         name: Meetings
         settings:
           global:
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
+            clear_all: Clear all
+            no_taxonomy_filters_found: No taxonomy filters found.
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             announcement: Announcement
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
@@ -596,6 +601,7 @@ en:
             official_meeting: Official meeting
             start_time: Start date
             title: Title
+            taxonomies: Taxonomies
       polls:
         answers:
           index:
