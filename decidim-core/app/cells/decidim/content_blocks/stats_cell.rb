@@ -17,7 +17,7 @@ module Decidim
       end
 
       def cache_expiry_time
-        10.minutes
+        Decidim.stats_cache_expiry_time
       end
     end
   end
