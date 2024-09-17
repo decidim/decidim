@@ -57,7 +57,7 @@
 
   &__date-column,
   &__time-column {
-    @apply flex-1 w-1/2 relative;
+    @apply flex-1 w-1/2 -mt-6 relative;
 
     > input {
       @apply h-9;

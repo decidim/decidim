@@ -32,8 +32,8 @@ export default function formDatePicker(input) {
   helpTextContainer.setAttribute("class", "datepicker__help-text-container");
 
   const helpTextDate = document.createElement("span");
-  helpTextContainer.setAttribute("class", "help-text datepicker__help-date");
-  helpTextContainer.innerText = i18nDateHelp.date_format;
+  helpTextDate.setAttribute("class", "help-text datepicker__help-date");
+  helpTextDate.innerText = i18nDateHelp.date_format;
 
   const helpTextTime = document.createElement("span");
   helpTextTime.setAttribute("class", "help-text datepicker__help-time");
@@ -55,7 +55,7 @@ export default function formDatePicker(input) {
   };
 
   if (!input.getAttribute("hide_help")) {
-    row.before(helpTextContainer);
+    label.appendChild(helpTextContainer);
   };
 
   if (formats.time === 12) {
