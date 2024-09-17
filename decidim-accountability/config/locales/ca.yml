@@ -26,6 +26,14 @@ ca:
       decidim/accountability/result_progress_updated_event: Progrés del resultat actualitzat
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: S'ha inclòs aquest resultat %{link}
+            meetings_ids: 'Es va debatre a aquesta trobada: %{link}'
+            project_ids: 'Es va incloure en aquest projecte: %{link}'
+            proposal_ids: 'Es va incloure en aquesta proposta: %{link}'
+            text: 'Es va afegir a aquest resultat: %{link}'
       decidim/accountability/result:
         one: Resultat
         other: Resultats
@@ -173,6 +181,8 @@ ca:
       content_blocks:
         highlighted_results:
           results: Resultats
+      creation:
+        text: Aquest resultat ha estat creat
       import_mailer:
         import:
           errors: Errors
