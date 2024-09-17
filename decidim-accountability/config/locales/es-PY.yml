@@ -7,10 +7,7 @@ es-PY:
         decidim_scope_id: Ámbito
         description: Descripción
         end_date: Fin
-        meetings_ids: Encuentros relacionados
         progress: Progreso
-        project_ids: Proyectos incluidos
-        proposals: Propuestas incluidas
         start_date: Inicio
         subresults: Subresultados
         title: Título
