@@ -26,13 +26,15 @@ extra_admin_link(
 <% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <% append_javascript_pack_tag "decidim_proposals" %>
 
+<% content_for :item_header do %>
+  <%= render partial: "update_proposal_voting_rules" %>
+<% end %>
+
 <% content_for :aside do %>
   <%= render partial: "proposal_aside" %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_item", locals: { back_path: component_settings.participatory_texts_enabled? ? main_component_path(current_component) : proposals_path } do %>
-
-  <%= render partial: "update_proposal_voting_rules" %>
 
   <section class="layout-main__section layout-main__heading">
     <% unless vote_limit_enabled? && remaining_votes_count_for(current_user) == 0 && current_component.participatory_space.can_participate?(current_user) %>
@@ -97,14 +99,14 @@ extra_admin_link(
   <% content_for :item_footer do %>
     <%= comments_for @proposal %>
 
-     <ul class="metadata__container layout-main__section" data-metadata-footer>
-       <%= content_tag :li, resource_reference(@proposal), class: "metadata__item" %>
-       <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_version_path(@proposal, @proposal.versions.count)), class: "metadata__item" %>
+    <ul class="metadata__container layout-main__section" data-metadata-footer>
+      <%= content_tag :li, resource_reference(@proposal), class: "metadata__item" %>
+      <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_version_path(@proposal, @proposal.versions.count)), class: "metadata__item" %>
 
-       <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
-       <%= content_tag :li, class: "metadata__item" do %>
-         <%= content_tag :button, t("decidim.fingerprint.check"), data: { dialog_open: fingerprint_id } %>
-       <% end %>
+      <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
+      <%= content_tag :li, class: "metadata__item" do %>
+        <%= content_tag :button, t("decidim.fingerprint.check"), data: { dialog_open: fingerprint_id } %>
+      <% end %>
     </ul>
     <%= decidim_modal id: fingerprint_id, class: "fingerprint-modal" do %>
       <div data-dialog-container>
