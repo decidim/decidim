@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Initiatives
-  describe InitiativeSerializer do
+  describe OpenDataInitiativeSerializer do
     subject { described_class.new(initiative) }
 
     let(:initiative) { create(:initiative, :with_area) }
