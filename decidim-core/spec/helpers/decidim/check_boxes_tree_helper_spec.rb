@@ -39,7 +39,7 @@ module Decidim
             data: { checkboxes_tree: "with_any_whatever_" },
             include_hidden: false,
             label: "<span>All</span>",
-            label_options: { "data-global-checkbox": "", value: "" },
+            label_options: { "data-global-checkbox": "", value: "", for: "_" },
             multiple: true,
             value: ""
           }
@@ -69,7 +69,7 @@ module Decidim
             label: "<span>An option</span>",
             multiple: true,
             include_hidden: false,
-            label_options: { "data-children-checkbox": "with_any_whatever_", value: "an_option" }
+            label_options: { "data-children-checkbox": "with_any_whatever_", value: "an_option", for: "_" }
           }
         end
 
@@ -90,7 +90,7 @@ module Decidim
 
       it "returns all the taxonomies" do
         expect(root).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
-        expect(leaf.value).to eq("")
+        expect(leaf.value).to eq(root_taxonomy.id)
         expect(nodes.count).to eq(5)
       end
 

@@ -221,6 +221,7 @@ module Decidim::Conferences
             remove_hero_image: false,
             banner_image: nil,
             remove_banner_image: false,
+            taxonomizations: [],
             promoted: my_conference.promoted,
             show_statistics: my_conference.show_statistics,
             registrations_enabled: my_conference.registrations_enabled,

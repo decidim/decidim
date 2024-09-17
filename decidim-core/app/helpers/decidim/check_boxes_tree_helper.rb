@@ -23,7 +23,7 @@ module Decidim
       }
       options.merge!(checkbox_options)
       # as taxonomies work with a nested array of values, we need to manually check if the value is checked
-      matches = options[:id].match(/^with_any_taxonomies_([0-9]+)__taxonomy_([0-9]+)/)
+      matches = options[:id]&.match(/^with_any_taxonomies_([0-9]+)__taxonomy_([0-9]+)/)
       if matches.present? && object.respond_to?(:with_any_taxonomies) && object.with_any_taxonomies&.dig(matches[1]).is_a?(Array)
         options[:checked] = object.with_any_taxonomies[matches[1]].include?(value.to_s)
       end
