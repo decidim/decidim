@@ -139,27 +139,6 @@ module ActiveStorage
             expect(response).to have_http_status(:unprocessable_entity)
           end
         end
-
-        context "when extension and mimetype differs from the content file" do
-          let(:extensions) { %w(pdf) }
-          let(:content_types) { %w(application/pdf) }
-          let(:blob) do
-            {
-              filename: "odt_file_reported_as.pdf",
-              byte_size: 6,
-              checksum: Digest::MD5.base64digest("odt_file_reported_as.pdf"),
-              content_type: "application/pdf"
-            }
-          end
-
-          it "returns renders unprocessable entity" do
-            post(:create, params:)
-
-            expect(response).to have_http_status(:success)
-
-            pp ActiveStorage::Blob.last.inspect
-          end
-        end
       end
     end
   end
