@@ -78,6 +78,10 @@ eu:
       decidim/meetings/update_meeting_event: Topaketa eguneratua
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: '%{link} topaketan eztabaidatu da'
       decidim/meetings/meeting:
         one: Topaketa
         other: Topaketak
