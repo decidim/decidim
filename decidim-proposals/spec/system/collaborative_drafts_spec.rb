@@ -29,7 +29,6 @@ describe "Explore Collaborative Drafts", versioning: true do
   let!(:taxonomy3) { create(:taxonomy, skip_injection: true, parent: root_taxonomy, organization:) }
   let(:taxonomies) { [taxonomy] }
   let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
-  let!(:taxonomy_filter_item1) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let!(:taxonomy_filter_item2) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy2) }
   let!(:taxonomy_filter_item3) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy3) }
   let!(:collaborative_draft) { create(:collaborative_draft, :open, component:, taxonomies:, users: [author]) }
