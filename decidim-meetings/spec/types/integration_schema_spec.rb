@@ -9,7 +9,10 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Meetings" }
 
   let!(:current_component) { create(:meeting_component, participatory_space: participatory_process) }
-  let!(:meeting) { create(:meeting, :published, :withdrawn, :not_official, :with_services, :closed_with_minutes, closing_visible:, component: current_component, category:) }
+  let(:root_taxonomy) { create(:taxonomy, organization: participatory_process.organization) }
+  let(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: participatory_process.organization) }
+  let(:taxonomies) { [taxonomy] }
+  let!(:meeting) { create(:meeting, :published, :withdrawn, :not_official, :with_services, :closed_with_minutes, closing_visible:, component: current_component, taxonomies:) }
   let!(:agenda) { create(:agenda, :with_agenda_items, meeting:) }
   let!(:invite) { create(:invite, :accepted, meeting:) }
   let(:closing_visible) { true }
@@ -23,7 +26,7 @@ describe "Decidim::Api::QueryType" do
       "attachments" => [],
       "attendeeCount" => meeting.attendees_count,
       "attendingOrganizations" => meeting.attending_organizations,
-      "category" => { "id" => meeting.category.id.to_s },
+      "taxonomies" => [{ "id" => meeting.taxonomies.first.id.to_s }],
       "closed" => true,
       "closingReport" => closing_visible ? { "translation" => meeting.closing_report[locale] } : nil,
       "isWithdrawn" => true,
@@ -51,7 +54,6 @@ describe "Decidim::Api::QueryType" do
       "registrationTerms" => { "translation" => meeting.registration_terms[locale] },
       "registrationsEnabled" => false,
       "remainingSlots" => 0,
-      "scope" => nil,
       "services" => meeting.services.map do |s|
         {
           "description" => { "translation" => s.description[locale] },
@@ -101,7 +103,7 @@ describe "Decidim::Api::QueryType" do
               }
               attendeeCount
               attendingOrganizations
-              category {
+              taxonomies {
                 id
               }
               closed
@@ -148,9 +150,6 @@ describe "Decidim::Api::QueryType" do
               }
               registrationsEnabled
               remainingSlots
-              scope {
-                id
-              }
               services{
                 description {
                   translation(locale: "#{locale}")
@@ -197,7 +196,7 @@ describe "Decidim::Api::QueryType" do
           }
           attendeeCount
           attendingOrganizations
-          category {
+          taxonomies {
             id
           }
           closed
@@ -244,9 +243,6 @@ describe "Decidim::Api::QueryType" do
           }
           registrationsEnabled
           remainingSlots
-          scope {
-            id
-          }
           services{
             description {
               translation(locale: "#{locale}")
