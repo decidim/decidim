@@ -50,7 +50,7 @@ module Decidim
           coauthorship.decidim_author_type.constantize.find(coauthorship.decidim_author_id)
         end || []
 
-        recipients = resource.try(:authors).to_a + coauthors
+        recipients = (resource.try(:authors) || [resource.try(:author)]).compact + coauthors
 
         return if recipients.empty?
 
