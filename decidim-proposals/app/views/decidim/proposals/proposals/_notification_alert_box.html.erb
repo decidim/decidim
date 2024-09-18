@@ -1,1 +1,1 @@
-<%= alert_box(t("success", scope: "decidim.proposals.proposals.voting_rules"), :success, true, { id: "success-proposal-vote", class: "flash success#{ " hidden" unless remaining_votes_count_for(current_user) == 0 }" }) %>
+<%= alert_box(t("success", scope: "decidim.proposals.proposals.voting_rules"), :success, true, { id: "success-proposal-vote", class: "flash success#{ " hidden" if remaining_minimum_votes_count_for(current_user) != 0 }" }) %>

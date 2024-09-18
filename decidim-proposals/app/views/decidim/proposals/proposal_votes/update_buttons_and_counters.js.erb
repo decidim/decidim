@@ -20,7 +20,7 @@
     var $notVotedButtons = $('.card__button.button').not('.success');
     var $proposalVotingRules = $('#proposal-voting-rules');
     var $remainingVotesNotification = $('#remaining-votes-notification');
-    var $successVoteNotification = document.getElementById('success-proposal-vote');
+    var $successVoteNotification = $('#success-proposal-vote');
     var $exitProposalModal = $('#exit-proposal-notification');
 
     if($remainingVotesCount[0]) { 
@@ -30,32 +30,37 @@
     <% if remaining_votes_count_for(current_user) == 0 %>
       $notVotedButtons.attr('disabled', true);
       $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
+    <% else %>
+      $notVotedButtons.attr('disabled', false);
+      $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
+    <% end %>
 
-      if($successVoteNotification[0]) {
-        morphdom($successVoteNotification[0], '<%= j(render partial: "decidim/proposals/proposals/notification_alert_box").strip.html_safe %>')
-      }
-    
+    <% if remaining_minimum_votes_count_for(current_user) == 0 %>
+      $successVoteNotification.removeClass("hidden");
+
       if($proposalVotingRules[0]) {
         morphdom($proposalVotingRules[0], '<%= j(render partial: "decidim/proposals/proposals/proposal_voting_rules").strip.html_safe %>');
       }
     <% else %>
-      $notVotedButtons.attr('disabled', false);
-      $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
-
       if ($remainingVotesNotification[0]) {
         morphdom($remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>')
       }
+
+      $successVoteNotification.addClass("hidden");
 
       if ($exitProposalModal[0]) {
         morphdom($exitProposalModal[0], '<%= j(render partial: "decidim/proposals/proposals/exit_modal").strip.html_safe %>')
       }
     <% end %>
 
-    <% if !@proposal.voted_by?(current_user) %>
-      if($proposalVotingRules[0]) {
-        morphdom($proposalVotingRules[0], '<%= j(render partial: "decidim/proposals/proposals/proposal_voting_rules").strip.html_safe %>');
-      }
+    <% if @proposal.voted_by?(current_user) && remaining_minimum_votes_count_for(current_user) == 0 %>
+      $proposalVotingRules.removeClass("hidden").addClass("block");
+    <% elsif @proposal.voted_by?(current_user) %>
+      $proposalVotingRules.addClass("hidden").removeClass("block");
+    <% else %>
+      $proposalVotingRules.removeClass("hidden").addClass("block");
     <% end %>
+
   }());
 <% end %>
 
