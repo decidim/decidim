@@ -82,7 +82,7 @@ module Decidim
       end
 
       def related_proposals
-        proposal.linked_resources(:proposals, "copied_from_component").map do |proposal|
+        proposal.linked_resources(:proposals, %w(copied_from_component merged_from_component splitted_from_component)).map do |proposal|
           Decidim::ResourceLocatorPresenter.new(proposal).url
         end
       end

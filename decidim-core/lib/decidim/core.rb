@@ -13,6 +13,7 @@ module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :TranslatableResource, "decidim/translatable_resource"
   autoload :JsonbAttributes, "decidim/jsonb_attributes"
+  autoload :LegacyFormBuilder, "decidim/legacy_form_builder"
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
@@ -29,6 +30,7 @@ module Decidim
   autoload :Coauthorable, "decidim/coauthorable"
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
+  autoload :Taxonomizable, "decidim/taxonomizable"
   autoload :Scopable, "decidim/scopable"
   autoload :ScopableParticipatorySpace, "decidim/scopable_participatory_space"
   autoload :ScopableComponent, "decidim/scopable_component"
@@ -549,6 +551,17 @@ module Decidim
   # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
   config_accessor :cache_key_separator do
     "/"
+  end
+
+  # This is the maximum time that the cache will be stored. If nil, the cache will be stored indefinitely.
+  # Currently, cache is applied in the Cells where the method `cache_hash` is defined.
+  config_accessor :cache_expiry_time do
+    24.hours
+  end
+
+  # Same as before, but specifically for cell displaying stats
+  config_accessor :stats_cache_expiry_time do
+    10.minutes
   end
 
   # Enable/Disable the service worker

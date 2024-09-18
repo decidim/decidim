@@ -1,8 +1,8 @@
-<% add_decidim_meta_tags({
-                           description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
-                           title: decidim_escape_translated(sortition.title),
-                           url: sortition_url(sortition.to_param)
-                         }) %>
+<% add_decidim_meta_tags(
+  description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
+  title: decidim_escape_translated(sortition.title),
+  url: sortition_url(sortition.to_param),
+  resource: sortition) %>
 
 <%
 edit_link(

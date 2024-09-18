@@ -6,6 +6,10 @@ module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcess do
     describe "call" do
       let(:my_process) { create(:participatory_process) }
+      let!(:taxonomizations) do
+        2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization: my_process.organization), taxonomizable: my_process) }
+      end
+      let(:taxonomy) { create(:taxonomy, :with_parent, organization: my_process.organization) }
       let(:params) do
         {
           participatory_process: {
@@ -33,7 +37,8 @@ module Decidim::ParticipatoryProcesses
             area: my_process.area,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
-            private_space: my_process.private_space
+            private_space: my_process.private_space,
+            taxonomies: [taxonomy.id, taxonomizations.first.taxonomy.id]
           }.merge(attachment_params)
         }
       end
@@ -93,6 +98,12 @@ module Decidim::ParticipatoryProcesses
       describe "when the form is valid" do
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
+        end
+
+        it "updates the taxonomizations" do
+          expect(my_process.reload.taxonomies).to contain_exactly(taxonomizations.first.taxonomy, taxonomizations.second.taxonomy)
+          command.call
+          expect(my_process.reload.taxonomies).to contain_exactly(taxonomy, taxonomizations.first.taxonomy)
         end
 
         it "updates the participatory process" do

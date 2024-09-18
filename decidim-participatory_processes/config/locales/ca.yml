@@ -175,7 +175,7 @@ ca:
           title: Duplica procés participatiu
       participatory_process_groups:
         destroy:
-          error: Hi ha hagut un error eliminant aquest grup de processos participatius.
+          error: Hi ha hagut un error en eliminar el grup de processos participatius.
           success: El grup de processos participatius s'ha eliminat correctament.
         edit:
           title: Edita grup de procés

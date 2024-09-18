@@ -17,7 +17,6 @@ module Decidim::Assemblies
         expect(serialized).to include(id: resource.id)
         expect(serialized).to include(slug: resource.slug)
         expect(serialized).to include(hashtag: resource.hashtag)
-        expect(serialized).to include(decidim_organization_id: resource.decidim_organization_id)
         expect(serialized).to include(title: resource.title)
         expect(serialized).to include(subtitle: resource.subtitle)
         expect(serialized).to include(weight: resource.weight)
@@ -54,7 +53,6 @@ module Decidim::Assemblies
         expect(serialized).to include(youtube_handler: resource.youtube_handler)
         expect(serialized).to include(github_handler: resource.github_handler)
         expect(serialized).to include(created_by_other: resource.created_by_other)
-        expect(serialized).to include(decidim_assemblies_type_id: resource.decidim_assemblies_type_id)
         expect(serialized).to include(announcement: resource.announcement)
       end
 
@@ -94,11 +92,29 @@ module Decidim::Assemblies
         end
       end
 
+      context "when assembly has type" do
+        let(:assembly_type) { create(:assemblies_type, organization: resource.organization) }
+
+        before do
+          resource.assembly_type = assembly_type
+          resource.save
+        end
+
+        it "includes the assembly type" do
+          serialized_assembly_type = subject.serialize[:assembly_type]
+
+          expect(serialized_assembly_type).to be_a(Hash)
+
+          expect(serialized_assembly_type).to include(id: resource.assembly_type.id)
+          expect(serialized_assembly_type).to include(title: resource.assembly_type.title)
+        end
+      end
+
       context "when assembly has categories" do
         let!(:category) { create(:category, participatory_space: resource) }
 
         it "includes the categories" do
-          serialized_assembly_categories = subject.serialize[:assembly_categories].first
+          serialized_assembly_categories = subject.serialize[:categories].first
           expect(serialized_assembly_categories).to be_a(Hash)
 
           expect(serialized_assembly_categories).to include(id: category.id)
@@ -111,7 +127,7 @@ module Decidim::Assemblies
           let!(:subcategory) { create(:subcategory, parent: category, participatory_space: resource) }
 
           it "includes the categories" do
-            serialized_assembly_categories = subject.serialize[:assembly_categories].first
+            serialized_assembly_categories = subject.serialize[:categories].first
 
             expect(serialized_assembly_categories).to be_a(Hash)
 

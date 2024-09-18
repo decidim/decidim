@@ -1,4 +1,8 @@
-<% add_decidim_page_title(t("name", scope: "decidim.proposals.collaborative_drafts")) %>
+<% add_decidim_meta_tags(
+  description: translated_attribute(current_participatory_space.short_description),
+  title: component_name,
+  url: proposals_url,
+  resource: current_component) %>
 
 <%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <%= append_javascript_pack_tag "decidim_proposals" %>
