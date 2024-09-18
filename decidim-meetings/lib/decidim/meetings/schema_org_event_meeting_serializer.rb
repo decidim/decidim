@@ -4,6 +4,7 @@ module Decidim
   module Meetings
     class SchemaOrgEventMeetingSerializer < Decidim::Exporters::Serializer
       include Decidim::TranslationsHelper
+      include Decidim::SanitizeHelper
       include ActionView::Helpers::UrlHelper
 
       # Public: Initializes the serializer with a meeting.
@@ -19,8 +20,8 @@ module Decidim
         attributes = {
           "@context": "https://schema.org",
           "@type": "Event",
-          name: translated_attribute(meeting.title),
-          description: translated_attribute(meeting.description),
+          name: decidim_escape_translated(meeting.title),
+          description: decidim_escape_translated(meeting.description),
           startDate: meeting.start_time.iso8601,
           endDate: meeting.end_time.iso8601,
           organizer:,
@@ -59,7 +60,7 @@ module Decidim
       def organizer_organization
         {
           "@type": "Organization",
-          name: translated_attribute(meeting.author.name),
+          name: decidim_escape_translated(meeting.author.name),
           url: EngineRouter.new("decidim", router_options).root_url
         }
       end
@@ -67,7 +68,7 @@ module Decidim
       def organizer_user
         {
           "@type": "Person",
-          name: meeting.author.name,
+          name: decidim_escape_translated(meeting.author.name),
           url: EngineRouter.new("decidim", router_options).profile_url(meeting.author.nickname)
         }
       end
@@ -99,7 +100,7 @@ module Decidim
       def location_postal_address
         address = {
           "@type": "PostalAddress",
-          streetAddress: translated_attribute(meeting.address)
+          streetAddress: decidim_escape_translated(meeting.address)
         }
 
         address = address.merge({ addressLocality: geocoder_city }) if geocoder_city.present?
@@ -109,7 +110,7 @@ module Decidim
 
         {
           "@type": "Place",
-          name: translated_attribute(meeting.location),
+          name: decidim_escape_translated(meeting.location),
           address:
         }
       end

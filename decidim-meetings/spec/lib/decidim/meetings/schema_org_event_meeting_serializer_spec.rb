@@ -39,11 +39,11 @@ module Decidim::Meetings
       end
 
       it "serializes the name" do
-        expect(serialized).to include(name: meeting.title["en"])
+        expect(serialized).to include(name: decidim_escape_translated(meeting.title))
       end
 
       it "serializes the description" do
-        expect(serialized).to include(description: meeting.description["en"])
+        expect(serialized).to include(description: decidim_escape_translated(meeting.description))
       end
 
       it "serializes the startDate" do
@@ -94,7 +94,7 @@ module Decidim::Meetings
 
           it "serializes the location" do
             expect(serialized[:location][:@type]).to eq("Place")
-            expect(serialized[:location][:name]).to eq(translated_attribute(meeting.location))
+            expect(serialized[:location][:name]).to eq(decidim_escape_translated(meeting.location))
             expect(serialized[:location][:address][:@type]).to eq("PostalAddress")
             expect(serialized[:location][:address][:streetAddress]).to eq(translated_attribute(meeting.address))
             expect(serialized[:location][:address][:addressLocality]).to eq("New York City")
@@ -117,7 +117,7 @@ module Decidim::Meetings
 
             it "returns the location without the address details" do
               expect(serialized[:location][:address][:@type]).to eq("PostalAddress")
-              expect(serialized[:location][:address][:streetAddress]).to eq(translated_attribute(meeting.address))
+              expect(serialized[:location][:address][:streetAddress]).to eq(decidim_escape_translated(meeting.address))
               expect(serialized[:location][:address].keys).to eq([:@type, :streetAddress])
             end
           end
@@ -145,9 +145,9 @@ module Decidim::Meetings
 
           it "serializes both locations" do
             expect(serialized[:location].first[:@type]).to eq("Place")
-            expect(serialized[:location].first[:name]).to eq(translated_attribute(meeting.location))
+            expect(serialized[:location].first[:name]).to eq(decidim_escape_translated(meeting.location))
             expect(serialized[:location].first[:address][:@type]).to eq("PostalAddress")
-            expect(serialized[:location].first[:address][:streetAddress]).to eq(translated_attribute(meeting.address))
+            expect(serialized[:location].first[:address][:streetAddress]).to eq(decidim_escape_translated(meeting.address))
             expect(serialized[:location].first[:address][:addressLocality]).to eq("New York City")
             expect(serialized[:location].first[:address][:addressRegion]).to eq("New York")
             expect(serialized[:location].first[:address][:postalCode]).to eq("10001")
