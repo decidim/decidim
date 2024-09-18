@@ -19,7 +19,7 @@
 
   <%= resource_permissions_link(debate) %>
 
-  <% if allowed_to? :delete, :debate, debate: debate %>
+  <% if allowed_to? :soft_delete, :debate, debate: debate %>
     <%= icon_link_to "delete-bin-line", soft_delete_debate_path(debate), t("actions.soft_delete", scope: "decidim.debates"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_debate", scope: "decidim.debates") } %>
   <% else %>
     <span class="action-space icon"></span>

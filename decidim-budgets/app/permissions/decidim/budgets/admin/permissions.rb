@@ -12,9 +12,9 @@ module Decidim
             case permission_action.action
             when :create, :read, :export
               allow!
-            when :update
+            when :update, :soft_delete
               toggle_allow(budget)
-            when :delete, :publish, :unpublish, :soft_delete
+            when :delete, :publish, :unpublish
               toggle_allow(budget && budget.projects.empty?)
             when :restore
               permission_action.allow! if budget.present? && budget.trashed?

@@ -63,22 +63,7 @@
   <%= resource_permissions_link(meeting) %>
 
   <% if allowed_to? :soft_delete, :meeting, meeting: meeting %>
-    <% if present(meeting).authored_proposals.empty? %>
-      <%= icon_link_to "delete-bin-line", soft_delete_meeting_path(meeting), t("actions.soft_delete", scope: "decidim.meetings"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_meeting", scope: "decidim.meetings") } %>
-    <% else %>
-      <%=
-        content_tag(:button,
-                    :class => ["action-icon", "action-icon--remove", "destroy-meeting-alert"],
-                    "data-invalid-destroy-message" => t("actions.invalid_destroy.proposals_count", count: present(meeting).authored_proposals.size, scope: "decidim.meetings"),
-                    "data-proposal-titles" => present(meeting).formatted_proposals_titles) do
-          content_tag(:span,
-                      data: { tooltip: true, disable_hover: false, click_open: false },
-                      title: t("actions.destroy", scope: "decidim.meetings")) do
-            icon("delete-bin-line")
-          end
-        end
-      %>
-    <% end %>
+    <%= icon_link_to "delete-bin-line", soft_delete_meeting_path(meeting), t("actions.soft_delete", scope: "decidim.meetings"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_meeting", scope: "decidim.meetings") } %>
   <% else %>
     <span class="action-space icon"></span>
   <% end %>

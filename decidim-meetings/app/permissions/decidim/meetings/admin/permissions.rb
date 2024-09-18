@@ -38,7 +38,7 @@ module Decidim
         def allowed_meeting_action?
           return unless permission_action.subject == :meeting
 
-          return disallow! if meeting && !meeting.official?
+          return disallow! if meeting && !meeting.official? && [:soft_delete, :restore].exclude?(permission_action.action)
 
           case permission_action.action
           when :close, :copy, :destroy, :export_registrations, :update, :read_invites, :soft_delete
