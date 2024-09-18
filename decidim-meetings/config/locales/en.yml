@@ -155,22 +155,22 @@ en:
         name: Meetings
         settings:
           global:
-            taxonomy_filters: Select filters for the component
-            taxonomy_filters_add: Add filter
-            clear_all: Clear all
-            no_taxonomy_filters_found: No taxonomy filters found.
-            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             announcement: Announcement
+            clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             creation_enabled_for_participants: Participants can create meetings
             default_registration_terms: Default registration terms
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             enable_pads_creation: Enable pads creation
             maps_enabled: Maps enabled
+            no_taxonomy_filters_found: No taxonomy filters found.
             registration_code_enabled: Registration code enabled
             resources_permissions_enabled: Actions permissions can be set for each meeting
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
             terms_and_conditions_url_for_meeting_creators: Terms and conditions URL for meeting creators
           step:
             announcement: Announcement
@@ -420,8 +420,6 @@ en:
         questionnaire:
           update: "%{user_name} updated the questionnaire for the %{meeting_name} meeting"
       application_helper:
-        filter_category_values:
-          all: All
         filter_meeting_space_values:
           all: All
       calendar:
@@ -531,7 +529,6 @@ en:
           location_hints_help: 'Location hints: additional info. Example: the floor of the building if it is an in-person meeting, or the meeting password if it is an online meeting with restricted access.'
           online_meeting_url_help: 'Link: allow participants to connect directly to your meeting'
           registration_url_help: 'Link: allow participants to go on the external service you are using for registrations'
-          select_a_category: Please select a category
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
           select_an_iframe_access_level: Please select an iframe access level
@@ -604,8 +601,8 @@ en:
             map: Map
             official_meeting: Official meeting
             start_time: Start date
-            title: Title
             taxonomies: Taxonomies
+            title: Title
       polls:
         answers:
           index:
