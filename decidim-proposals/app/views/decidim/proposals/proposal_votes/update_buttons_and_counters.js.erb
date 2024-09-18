@@ -29,7 +29,7 @@
 
     <% if @voted_proposals ? @voted_proposals.include?(@proposal.id) : @proposal.voted_by?(current_user) %>
       if($remainingVotesNotification[0]) {
-        morphdom($$remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>');
+        morphdom($remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>');
       }
     <% end %>
 

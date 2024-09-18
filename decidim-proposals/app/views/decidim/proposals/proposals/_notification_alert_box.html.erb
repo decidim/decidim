@@ -1,6 +1,8 @@
-    <%= alert_box(
-    t("success", scope: "decidim.proposals.proposals.voting_rules"),
-    "success",
-    true, 
-    { id: "success-proposal-vote" }
-    ) %>
+<%= alert_box(
+t("success", scope: "decidim.proposals.proposals.voting_rules"),
+"success",
+true, 
+{ id: "success-proposal-vote" }
+) do %>
+  <%= flash_icon("success") %>
+<% end %>
