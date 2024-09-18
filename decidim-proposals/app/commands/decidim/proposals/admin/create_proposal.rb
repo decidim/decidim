@@ -58,6 +58,9 @@ module Decidim
             action_user: form.current_user
           )
           @attached_to = @proposal
+          Decidim.traceability.perform_action!(:publish, @proposal, form.current_user, visibility: "all") do
+            @proposal.update!(published_at: Time.current)
+          end
         end
 
         def attributes
@@ -71,8 +74,7 @@ module Decidim
             address: form.address,
             latitude: form.latitude,
             longitude: form.longitude,
-            created_in_meeting: form.created_in_meeting,
-            published_at: Time.current
+            created_in_meeting: form.created_in_meeting
           }
         end
 

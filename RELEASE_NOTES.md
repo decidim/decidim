@@ -63,6 +63,20 @@ bin/rails decidim:upgrade:clean:action_logs
 
 You can read more about this change on PR [#13237](https://github.com/decidim/decidim/pull/13237).
 
+### 2.3. Refactor of `decidim:upgrade:fix_orphan_categorizations` task
+
+As of [#13380](https://github.com/decidim/decidim/pull/13380), the task named `decidim:upgrade:fix_orphan_categorizations` has been renamed to `decidim:upgrade:clean:categories` and has been included in the main `decidim:upgrade:clean:invalid_records` task.
+
+You can read more about this change on PR [#13380](https://github.com/decidim/decidim/pull/13380).
+
+### 2.4
+
+Now the cache expiration time is configurable via initializers/ENV variables.
+
+Decidim uses cache in some HTML views (usually under the `cells/` folder). In the past the cache had no expiration time, now it is configurable using the ENV var `DECIDIM_CACHE_EXPIRATION_TIME` (this var expects an integer specifying the number of minutes for which the cache is valid).
+
+Also note, that now it comes with a default value of 24 hours (1440 minutes).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.

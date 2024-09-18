@@ -65,6 +65,10 @@ en:
         password_confirmation: Password confirmation
         remember_me: Remember me
     models:
+      decidim:
+        history:
+          one: History
+          other: History
       decidim/amendment:
         one: Amendment
         other: Amendments
@@ -1454,6 +1458,8 @@ en:
       create:
         error: There was a problem creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+    resource:
+      controls_label: Resource controls
     resource_endorsements:
       create:
         error: There was a problem during the endorsement action.

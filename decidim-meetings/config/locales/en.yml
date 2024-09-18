@@ -79,6 +79,10 @@ en:
       decidim/meetings/update_meeting_event: Meeting updated
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'It was discussed in this meeting: %{link}'
       decidim/meetings/meeting:
         one: Meeting
         other: Meetings
