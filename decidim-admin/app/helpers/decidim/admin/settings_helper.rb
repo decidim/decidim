@@ -249,7 +249,8 @@ module Decidim
       end
 
       def current_taxonomy_filters
-        @current_taxonomy_filters ||= TaxonomyFilter.for(current_participatory_space_manifest.name).map do |filter|
+        manifest_name = defined?(current_participatory_space_manifest) ? current_participatory_space_manifest.name : current_participatory_space.manifest.name
+        @current_taxonomy_filters ||= TaxonomyFilter.for(manifest_name).map do |filter|
           ["#{decidim_sanitize_translated(filter.name)} (#{filter.filter_items_count})", filter.id]
         end
       end
