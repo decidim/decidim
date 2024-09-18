@@ -561,8 +561,6 @@ module Decidim
       end
 
       help_text = options.delete(:help_text)
-      prefix = options.delete(:prefix)
-      postfix = options.delete(:postfix)
 
       class_options = extract_validations(attribute, options).merge(class_options)
 
@@ -571,7 +569,7 @@ module Decidim
       content = content.html_safe
 
       html = error_and_help_text(attribute, options.merge(help_text:))
-      html + wrap_prefix_and_postfix(content, prefix, postfix)
+      html + content
     end
 
     # rubocop: disable Metrics/CyclomaticComplexity
@@ -868,24 +866,7 @@ module Decidim
 
       content_tag(:span,
                   content_tag(:span, options[:value], class: name),
-                  class: column_classes(options).to_s)
-    end
-
-    # Private: Wraps the prefix and postfix for the field. Overridden from
-    # FoundationRailsHelper to make the generated HTML valid since these
-    # elements are printed within <label> elements and <div>'s are not allowed
-    # there.
-    def wrap_prefix_and_postfix(block, prefix_options, postfix_options)
-      prefix = tag_from_options("prefix", prefix_options)
-      postfix = tag_from_options("postfix", postfix_options)
-
-      input_size = calculate_input_size(prefix_options, postfix_options)
-      klass = column_classes(input_size.marshal_dump).to_s
-      input = content_tag(:span, block, class: klass)
-
-      return block unless input_size.changed?
-
-      content_tag(:span, prefix + input + postfix, class: "row collapse")
+                  class: "columns")
     end
 
     def language_selector_select(locales, tabs_id, name)

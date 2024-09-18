@@ -67,7 +67,7 @@
   }
 
   &.is-hover,
-  &:not([disabled]):not([class*="button__text"]):hover {
+  &:not([disabled]):not([class*="button__text"]):not(label):hover {
     @apply text-white;
 
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
@@ -96,5 +96,24 @@
 
   &__pill--count {
     @apply rounded-full bg-secondary text-white inline-grid place-items-center h-[18px] w-[18px] ml-2 text-xs;
+  }
+}
+
+.layout-main__buttons {
+  .button {
+    &__sm {
+      @apply text-2xl [&:not([class*="button\\_\\_text"])]:px-1.5 [&:not([class*="button\\_\\_text"])]:py-1.5 gap-1.5
+      lg:text-sm lg:[&:not([class*="button\\_\\_text"])]:px-4;
+
+      span {
+        @apply hidden lg:flex;
+      }
+    }
+
+    &__transparent {
+      &-secondary {
+        @apply p-0 border-0 lg:border lg:border-secondary;
+      }
+    }
   }
 }
