@@ -40,6 +40,7 @@ module Decidim
       end
 
       # rubocop:disable Metrics/ParameterLists
+      # rubocop:disable Metrics/CyclomaticComplexity
       def filter_sections(date: false, type: false, origin: false, taxonomies: false, space_type: false, activity: false)
         @filter_sections ||= begin
           items = []
@@ -69,10 +70,9 @@ module Decidim
         end
       end
       # rubocop:enable Metrics/ParameterLists
+      # rubocop:enable Metrics/CyclomaticComplexity
 
-      def available_taxonomy_filters
-        current_component.taxonomy_filters
-      end
+      delegate :available_taxonomy_filters, to: :current_component
 
       # Options to filter meetings by activity.
       def activity_filter_values

@@ -85,7 +85,7 @@ RSpec.describe "Meeting directory search" do
       end
     end
 
-    context "and a subtaxonomy is selected" do
+    context "and a sub taxonomy is selected" do
       let(:taxonomy_ids) { { taxonomy2.parent_id => [child_taxonomy.id] } }
 
       it "displays only resources for that taxonomy" do
