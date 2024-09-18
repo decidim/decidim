@@ -90,6 +90,16 @@ eu:
       decidim/proposals/voting_enabled_event: Proposamenaren botoa gaituta
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: '%{link} proposamena sortu da'
+            import_from_proposal_text: '%{link} proposamen bihurtu da'
+            import_to_proposal_text: '%{link} proposamena sortu da'
+            merge_from_proposal_text: '%{link} proposamen bihurtu da'
+            merge_to_proposal_text: '%{link} proposamena sortu da'
+            split_from_proposal_text: '%{link} proposamen bihurtu da'
+            split_to_proposal_text: '%{link} proposamena sortu da'
       decidim/proposals/collaborative_draft:
         one: Zirriborro kolaboratzailea
         other: Zirriborro kolaboratzaileak
