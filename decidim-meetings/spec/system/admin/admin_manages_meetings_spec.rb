@@ -24,10 +24,9 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
   include_context "when managing a component as an admin"
 
-  let!(:component) { create(:component, manifest:, participatory_space:, settings: { taxonomy_filters: taxonomy_filter_ids }) }
-
   before do
     stub_geocoding(address, [latitude, longitude])
+    component.update!(settings: { taxonomy_filters: taxonomy_filter_ids })
   end
 
   describe "listing meetings" do
@@ -312,6 +311,45 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
 
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} meeting on the")
+  end
+
+  context "when no taxonomy filter is selected" do
+    let(:taxonomy_filter_ids) { [] }
+
+    it "creates a meeting without taxonomies" do
+      click_on "New meeting"
+
+      fill_in_i18n(:meeting_title, "#meeting-title-tabs", **attributes[:title].except("machine_translations"))
+
+      select "In person", from: :meeting_type_of_meeting
+
+      fill_in_i18n(:meeting_location, "#meeting-location-tabs", **attributes[:location].except("machine_translations"))
+      fill_in_i18n(:meeting_location_hints, "#meeting-location_hints-tabs", **attributes[:location_hints].except("machine_translations"))
+      fill_in_i18n_editor(:meeting_description, "#meeting-description-tabs", **attributes[:description].except("machine_translations"))
+
+      fill_in_geocoding :meeting_address, with: address
+      fill_in_services
+
+      select "Registration disabled", from: :meeting_registration_type
+
+      fill_in_datepicker :meeting_start_time_date, with: meeting_start_date
+      fill_in_timepicker :meeting_start_time_time, with: meeting_start_time
+      fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
+      fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
+
+      expect(page).to have_no_content(decidim_sanitize_translated(root_taxonomy.name))
+
+      within ".new_meeting" do
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("successfully")
+
+      within "table" do
+        expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_no_content(translated(taxonomy.name))
+      end
+    end
   end
 
   context "when using the front-end geocoder", :serves_geocoding_autocomplete do
