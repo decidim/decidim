@@ -215,7 +215,7 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
-            valuator: Värderare
+            valuator: Handläggare
         media_link:
           fields:
             date: Datum
