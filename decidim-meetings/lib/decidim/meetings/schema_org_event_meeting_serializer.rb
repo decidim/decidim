@@ -97,17 +97,20 @@ module Decidim
       end
 
       def location_postal_address
+        address = {
+          "@type": "PostalAddress",
+          streetAddress: translated_attribute(meeting.address)
+        }
+
+        address = address.merge({ addressLocality: geocoder_city }) if geocoder_city.present?
+        address = address.merge({ addressRegion: geocoder_state }) if geocoder_state.present?
+        address = address.merge({ postalCode: geocoder_postal_code }) if geocoder_postal_code.present?
+        address = address.merge({ addressCountry: geocoder_country }) if geocoder_country.present?
+
         {
           "@type": "Place",
           name: translated_attribute(meeting.location),
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: translated_attribute(meeting.address),
-            addressLocality: geocoder_city,
-            addressRegion: geocoder_state,
-            postalCode: geocoder_postal_code,
-            addressCountry: geocoder_country
-          }
+          address:
         }
       end
 

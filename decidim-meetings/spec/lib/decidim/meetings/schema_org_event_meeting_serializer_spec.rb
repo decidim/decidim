@@ -102,6 +102,25 @@ module Decidim::Meetings
             expect(serialized[:location][:address][:postalCode]).to eq("10001")
             expect(serialized[:location][:address][:addressCountry]).to eq("United States of America")
           end
+
+          context "when the geocoder does not work" do
+            let(:geocoder_response) do
+              [
+                {
+                  lat: "40.7504928941818",
+                  lon: "-73.993466492276",
+                  display_name: "Madison Square Garden, West 31st Street, Long Island City, New York City, New York, 10001, United States of America",
+                  type: "stadium"
+                }
+              ]
+            end
+
+            it "returns the location without the address details" do
+              expect(serialized[:location][:address][:@type]).to eq("PostalAddress")
+              expect(serialized[:location][:address][:streetAddress]).to eq(translated_attribute(meeting.address))
+              expect(serialized[:location][:address].keys).to eq([:@type, :streetAddress])
+            end
+          end
         end
 
         context "with online meeting" do
