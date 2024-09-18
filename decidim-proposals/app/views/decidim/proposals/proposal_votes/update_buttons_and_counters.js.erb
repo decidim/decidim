@@ -18,29 +18,23 @@
   (function() {
     var $remainingVotesCount = $('#remaining-votes-count');
     var $notVotedButtons = $('.card__button.button').not('.success');
-    var $proposalVotingRules = $('#proposal-voting-rules')
-    var $remainingVotesNotification = $('#remaining-votes-notification')
-    var $successVoteNotification = $('#success-proposal-vote')
-    var $exitProposalModal = $('#exit-proposal-notification')
+    var $proposalVotingRules = $('#proposal-voting-rules');
+    var $remainingVotesNotification = $('#remaining-votes-notification');
+    var $successVoteNotification = document.getElementById('success-proposal-vote');
+    var $exitProposalModal = $('#exit-proposal-notification');
 
-    if(!$remainingVotesCount[0]) { return; }
-
-    morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');
-
-    <% if @voted_proposals ? @voted_proposals.include?(@proposal.id) : @proposal.voted_by?(current_user) %>
-      if($remainingVotesNotification[0]) {
-        morphdom($remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>');
-      }
-    <% end %>
+    if($remainingVotesCount[0]) { 
+      morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');  
+    }
 
     <% if remaining_votes_count_for(current_user) == 0 %>
       $notVotedButtons.attr('disabled', true);
       $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.no_votes_remaining") %>');
 
       if($successVoteNotification[0]) {
-        morphdom($successVoteNotification[0], '<%= j(render partial: "decidim/proposals/proposals/notification_alert_box").strip.html_safe %>');
+        morphdom($successVoteNotification[0], '<%= j(render partial: "decidim/proposals/proposals/notification_alert_box").strip.html_safe %>')
       }
-
+    
       if($proposalVotingRules[0]) {
         morphdom($proposalVotingRules[0], '<%= j(render partial: "decidim/proposals/proposals/proposal_voting_rules").strip.html_safe %>');
       }
@@ -48,8 +42,18 @@
       $notVotedButtons.attr('disabled', false);
       $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
 
-      if($exitProposalModal[0]) {
-        morphdom($exitProposalModal[0], '<%= j(render partial: "decidim/proposals/proposals/exit_modal").strip.html_safe %>');
+      if ($remainingVotesNotification[0]) {
+        morphdom($remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>')
+      }
+
+      if ($exitProposalModal[0]) {
+        morphdom($exitProposalModal[0], '<%= j(render partial: "decidim/proposals/proposals/exit_modal").strip.html_safe %>')
+      }
+    <% end %>
+
+    <% if !@proposal.voted_by?(current_user) %>
+      if($proposalVotingRules[0]) {
+        morphdom($proposalVotingRules[0], '<%= j(render partial: "decidim/proposals/proposals/proposal_voting_rules").strip.html_safe %>');
       }
     <% end %>
   }());
@@ -58,7 +62,8 @@
 <% if show_voting_rules? %>
   (function() {
     var $votingRules = $('.voting-rules');
-    if(!$votingRules[0]) { return; }
-    morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
+    if($votingRules[0]) { 
+      morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
+    }
   }());
 <% end %>

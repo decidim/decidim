@@ -1,17 +1,12 @@
-<% if remaining_votes_count_for(current_user) != 0 %>
-  <%= alert_box(
-    message(
-      content_tag(:div, class: "") do
-        concat content_tag(:strong, t("already_vote.title", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)))
-        concat content_tag(:p, t("already_vote.description", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)))
-        concat link_to(t("already_vote.see_other_proposals", scope: "decidim.proposals.proposals.voting_rules"), proposals_path)
-      end
-    ),
-    "secondary",
-    true, 
-    { id: "remaining-votes-notification" }
-  ) %>
-<% else %>
-  <%= render partial: "notification_alert_box" %>
-  <%= render partial: "proposal_voting_rules" %>
-<% end %>
+<%= alert_box(
+  message(
+    content_tag(:div, class: "") do
+      concat content_tag(:strong, t("already_vote.title", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)))
+      concat content_tag(:p, t("already_vote.description", scope: "decidim.proposals.proposals.voting_rules", number: remaining_votes_count_for(current_user)))
+      concat link_to(t("already_vote.see_other_proposals", scope: "decidim.proposals.proposals.voting_rules"), proposals_path)
+    end
+  ),
+  :secondary,
+  true, 
+  { id: "remaining-votes-notification", class: "flash secondary#{ " hidden" unless @proposal.voted_by?(current_user) && remaining_votes_count_for(current_user) != 0 }" }
+) %>
