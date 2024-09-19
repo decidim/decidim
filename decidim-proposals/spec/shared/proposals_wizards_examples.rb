@@ -117,11 +117,12 @@ shared_examples "proposals wizards" do |options|
         end
 
         it "displays the attachments correctly" do
+          click_on "Images"
           within "#panel-images" do
             expect(find("img")["alt"]).to eq(".jpg")
           end
 
-          click_on("trigger-documents")
+          click_on "Documents"
           within "#panel-documents" do
             expect(find("a.card__list-title")["innerHTML"]).to include("&lt;svg onload=alert('ALERT')&gt;.pdf")
           end

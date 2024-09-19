@@ -195,6 +195,8 @@ shared_context "with application env vars" do
       "DECIDIM_SERVICE_WORKER_ENABLED" => "true",
       "DECIDIM_CONSENT_COOKIE_NAME" => ":weird-consent-cookie-name:",
       "DECIDIM_CACHE_KEY_SEPARATOR" => ":",
+      "DECIDIM_CACHE_EXPIRATION_TIME" => "33",
+      "DECIDIM_STATS_CACHE_EXPIRATION_TIME" => "15",
       "DECIDIM_EXPIRE_SESSION_AFTER" => "45",
       "DECIDIM_ENABLE_REMEMBER_ME" => "",
       "DECIDIM_SESSION_TIMEOUT_INTERVAL" => "33",
@@ -301,6 +303,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim service_worker_enabled) => true,
       %w(decidim consent_cookie_name) => "decidim-consent",
       %w(decidim cache_key_separator) => "/",
+      %w(decidim cache_expiry_time) => 1440,
+      %w(decidim stats_cache_expiry_time) => 10,
       %w(decidim expire_session_after) => 30,
       %w(decidim enable_remember_me) => "auto",
       %w(decidim session_timeout_interval) => 10,
@@ -395,6 +399,8 @@ shared_examples_for "an application with configurable env vars" do
       %w(decidim service_worker_enabled) => true,
       %w(decidim consent_cookie_name) => ":weird-consent-cookie-name:",
       %w(decidim cache_key_separator) => ":",
+      %w(decidim cache_expiry_time) => 33,
+      %w(decidim stats_cache_expiry_time) => 15,
       %w(decidim expire_session_after) => 45,
       %w(decidim enable_remember_me) => false,
       %w(decidim session_timeout_interval) => 33,
@@ -471,6 +477,8 @@ shared_examples_for "an application with configurable env vars" do
       "cors_enabled" => false,
       "consent_cookie_name" => "decidim-consent",
       "cache_key_separator" => "/",
+      "cache_expiry_time" => 86_400, # 1 day
+      "stats_cache_expiry_time" => 600, # 10 minutes
       "expire_session_after" => 1800, # 30 minutes
       "enable_remember_me" => true,
       "session_timeout_interval" => 10,
@@ -508,6 +516,8 @@ shared_examples_for "an application with configurable env vars" do
       "cors_enabled" => true,
       "consent_cookie_name" => ":weird-consent-cookie-name:",
       "cache_key_separator" => ":",
+      "cache_expiry_time" => 1980,
+      "stats_cache_expiry_time" => 900,
       "expire_session_after" => 2700, # 45 minutes
       "enable_remember_me" => false,
       "session_timeout_interval" => 33,
