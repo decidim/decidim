@@ -27,10 +27,57 @@ module Decidim
           expect(serialized).to include(id: debate.id)
         end
 
-        # TODO: add implementatiion
-        it "serializes the author" do
-          skip
-          # expect(serialized).to include(author: debate.title)
+        describe "author" do
+          context "when it is an official debate" do
+            let!(:debate) { create(:debate, :official) }
+
+            before do
+              component.participatory_space.organization.update!(name: { en: "My organization" })
+              debate.reload
+            end
+
+            it "serializes the organization name" do
+              expect(serialized[:author]).to include(name: "My organization")
+            end
+
+            it "serializes the link to the organization" do
+              expect(serialized[:author]).to include(url: root_url)
+            end
+          end
+
+          context "when it is a user" do
+            let!(:debate) { create(:debate, :participant_author) }
+
+            before do
+              debate.author.update!(name: "John Doe")
+              debate.reload
+            end
+
+            it "serializes the user name" do
+              expect(serialized[:author]).to include(name: "John Doe")
+            end
+
+            it "serializes the link to its profile" do
+              expect(serialized[:author]).to include(url: profile_url(debate.author.nickname))
+            end
+          end
+
+          context "when it is a user group" do
+            let!(:debate) { create(:debate, :user_group_author) }
+
+            before do
+              debate.author.update!(name: "ACME", nickname: "acme")
+              debate.reload
+            end
+
+            it "serializes the user name of the user group" do
+              expect(serialized[:author]).to include(name: "ACME")
+            end
+
+            it "serializes the link to the profile of the user group" do
+              expect(serialized[:author]).to include(url: profile_url("acme"))
+            end
+          end
         end
 
         it "serializes the title" do
@@ -103,6 +150,18 @@ module Decidim
         it "serializes the comments enabled" do
           expect(serialized).to include(comments_enabled: debate.comments_enabled)
         end
+      end
+
+      def profile_url(nickname)
+        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+      end
+
+      def root_url
+        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
+      end
+
+      def host
+        debate.organization.host
       end
     end
   end

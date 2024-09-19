@@ -17,9 +17,9 @@ module Decidim
       def serialize
         {
           id: debate.id,
-          # author: {
-          #   **author_fields
-          # },
+          author: {
+            **author_fields
+          },
           title: debate.title,
           description: debate.description,
           instructions: debate.instructions,
@@ -64,17 +64,10 @@ module Decidim
       end
 
       def author_fields
-        # FIXME: adapt from proposals with single author
-        is_author_user_group = resource.coauthorships.map(&:decidim_user_group_id).any?
-
         {
-          id: resource.authors.map(&:id),
-          name: resource.authors.map do |author|
-            author_name(is_author_user_group ? resource.coauthorships.first.user_group : author)
-          end,
-          url: resource.authors.map do |author|
-            author_url(is_author_user_group ? resource.coauthorships.first.user_group : author)
-          end
+          id: resource.author.id,
+          name: author_name(resource.author),
+          url: author_url(resource.author)
         }
       end
 
@@ -88,6 +81,18 @@ module Decidim
         else
           root_url # is a Decidim::Organization
         end
+      end
+
+      def profile_url(nickname)
+        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+      end
+
+      def root_url
+        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
+      end
+
+      def host
+        resource.organization.host
       end
     end
   end

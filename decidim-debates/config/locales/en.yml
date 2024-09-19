@@ -81,7 +81,8 @@ en:
             invalid: There was a problem updating this debate.
             success: Debate successfully updated.
         exports:
-          comments: Comments
+          debate_comments: Comments
+          debates: Debates
       admin_log:
         debate:
           close: "%{user_name} closed the %{resource_name} debate on the %{space_name} space"

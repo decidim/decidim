@@ -69,12 +69,14 @@ Decidim.register_component(:debates) do |component|
     exports.serializer Decidim::Debates::DebateSerializer
   end
 
-  component.exports :comments do |exports|
+  component.exports :debate_comments do |exports|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Debates::Debate, component_instance
-      )
+      ).includes(:author, :user_group, root_commentable: { component: { participatory_space: :organization } })
     end
+
+    exports.include_in_open_data = true
 
     exports.serializer Decidim::Comments::CommentSerializer
   end
