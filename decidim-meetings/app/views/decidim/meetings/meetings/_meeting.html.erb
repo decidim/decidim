@@ -1,11 +1,11 @@
 <%= render layout: "layouts/decidim/shared/layout_item" do %>
   <section class="layout-main__section layout-main__heading">
       <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
+      <%= cell "decidim/meetings/dates_and_map", meeting %>
       <div class="block md:hidden">
         <%= render partial: "meeting_aside" %>
       </div>
 
-      <%= cell "decidim/meetings/dates_and_map", meeting %>
       <%= render partial: "meeting_poll_actions", locals: { mobile: true } %>
 
       <div class="layout-author">
