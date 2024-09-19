@@ -330,6 +330,8 @@ export default class CommentsComponent {
     if (!orderSelect) {
       return;
     }
+    orderSelect.style.fontWeight = "bold";
+    orderSelect.style.borderColor = "black";
 
     orderSelect.addEventListener("change", function(event) {
       const selectedOption = orderSelect.querySelector(`[value=${event.target.value}`);
