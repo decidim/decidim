@@ -329,6 +329,76 @@ describe "Vote Proposal", slow: true do
           end
         end
       end
+
+      context "when participant has a minimum number of votes per proposal" do
+        let(:vote_limit) { 8 }
+        let(:minimum_votes_per_user) { 5 }
+
+        let!(:component) do
+          create(:proposal_component,
+                 :with_votes_enabled,
+                 participatory_space: participatory_process,
+                 settings:)
+        end
+        let(:settings) do
+          {
+            minimum_votes_per_user:,
+            vote_limit:
+          }
+        end
+
+        it "shows the voting rules" do
+          visit_component
+
+          expect(page).to have_css("#voting-rules")
+          expect(page).to have_content("You can support up to 8 proposals.")
+          expect(page).to have_content("You have to distribute a minimum of 5 supports among different proposals so that your supports are taken into account.")
+
+          click_on proposal_title
+
+          expect(page).to have_css("#proposal-voting-rules")
+        end
+
+        it "shows a modal dialog" do
+          visit_component
+          click_on proposal_title
+          first("a", text: "Proposals").click
+
+          expect(page).to have_content("Remember you have 5 votes left")
+          expect(page).to have_content("You have to give 5 more votes between different proposals for your votes to be taken into account.")
+        end
+
+        context "when participant vote" do
+          let!(:vote_limit) { 4 }
+          let!(:minimum_votes_per_user) { 2 }
+
+          before do
+            visit_component
+            click_on proposal_title
+            click_on "Vote"
+          end
+
+          it "shows a notification indicating how many votes participant has left to give" do
+            expect(page).to have_content("You have 1 supports left")
+            expect(page).to have_content("Remember that you still have to give 1 supports between different proposals so that your supports are taken into account.")
+          end
+        end
+
+        context "when participant has voted for the minimum number of proposals" do
+          let!(:vote_limit) { 2 }
+          let!(:minimum_votes_per_user) { 1 }
+
+          before do
+            visit_component
+            click_on proposal_title
+            click_on "Vote"
+          end
+
+          it "shows a notification indicating that participant have correctly given all the minimum votes" do
+            expect(page).to have_content("Your votes have been successfully accepted")
+          end
+        end
+      end
     end
 
     context "when the proposal is rejected", :slow do

@@ -26,7 +26,7 @@ extra_admin_link(
 <% append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <% append_javascript_pack_tag "decidim_proposals" %>
 
-<% content_for :item_header do %> 
+<% content_for :item_header do %>
 <div class="<%= "layout-item-complementary" if show_voting_rules? %>">
   <%= render partial: "update_proposal_voting_rules" %>
   </div>
