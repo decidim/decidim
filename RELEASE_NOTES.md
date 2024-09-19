@@ -81,7 +81,9 @@ Also note, that now it comes with a default value of 24 hours (1440 minutes).
 
 These are one time actions that need to be done after the code is updated in the production database.
 
+
 ### 3.1. Remove spring and spring-watcher-listen from your Gemfile
+
 
 To simplify the upgrade process, we have decided to add `spring` and `spring-watcher-listener` as hard dependencies of `decidim-dev`.
 
@@ -93,9 +95,16 @@ bundle remove spring spring-watcher-listen
 
 You can read more about this change on PR [#13235](https://github.com/decidim/decidim/pull/13235).
 
-### 3.2. [[TITLE OF THE ACTION]]
+### 3.2. Remove the follows of ex private users
 
-You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
+To delete the follows of ex private users of non transparent assemblies or processes, run
+
+```console
+bundle exec rake decidim:upgrade:fix_deleted_private_follows
+```
+
+You can read more about this change on PR [#12878](https://github.com/decidim/decidim/pull/12878).
 
 ## 4. Scheduled tasks
 
