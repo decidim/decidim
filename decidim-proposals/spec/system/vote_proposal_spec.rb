@@ -180,16 +180,14 @@ describe "Vote Proposal", slow: true do
                      participatory_space: participatory_process)
             end
 
-            it "shows the remaining votes counter" do
+            it "shows the voting rules" do
               visit_component
 
               expect(page).to have_css("#voting-rules")
-              expect(page).to have_css("#remaining-votes-count")
 
               click_on proposal_title
 
-              expect(page).to have_css("#voting-rules")
-              expect(page).to have_css("#remaining-votes-count")
+              expect(page).to have_css("#proposal-voting-rules")
             end
           end
 
@@ -228,8 +226,6 @@ describe "Vote Proposal", slow: true do
               click_on "Vote"
               expect(page).to have_button("Already voted")
             end
-
-            expect(page).to have_content("Remaining 9 votes")
           end
         end
 
@@ -280,8 +276,6 @@ describe "Vote Proposal", slow: true do
             within "#proposal-#{proposal.id}-votes-count" do
               expect(page).to have_content("0\nVotes")
             end
-
-            expect(page).to have_content("Remaining 10 votes")
           end
         end
 
