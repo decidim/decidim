@@ -1,5 +1,7 @@
-<div class="item_voting_rules">
-  <%= render partial: "remaining_votes_notification" %>
-  <%= render partial: "notification_alert_box" %>
-  <%= render partial: "proposal_voting_rules" %>
-</div>
+<% if vote_limit_enabled? %>
+  <div class="item_voting_rules">
+    <%= render partial: "remaining_votes_notification" %>
+    <%= render partial: "notification_alert_box" %>
+    <%= render partial: "proposal_voting_rules" %>
+  </div>
+<% end %>
