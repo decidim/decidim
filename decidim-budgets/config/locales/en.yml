@@ -21,6 +21,10 @@ en:
         scope_id: Scope
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'It was added to this budget: %{link}'
       decidim/budgets/budget:
         one: Budget
         other: Budgets
@@ -196,6 +200,8 @@ en:
         vote: Vote
         voted_budgets: Voted budgets
         voted_on: You have voted on %{links}.
+      creation:
+        text: They were added to this budget
       last_activity:
         new_vote_at: New budgeting vote at
       limit_announcement:
