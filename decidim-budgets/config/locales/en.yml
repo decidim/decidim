@@ -376,6 +376,26 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: The %{resource_title} budget is now active for %{participatory_space_title}.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> budget is now active for %{participatory_space_title}.
+    open_data:
+      help:
+        budgets:
+          id: The unique identifier of the project
+          category: The category of the project (e.g. "Culture")
+          scope: The scope of the project (e.g. "City")
+          participatory_space: To which space (e.g. Participatory Process, or Assembly) this project belongs to
+          component: The component that the project belongs to
+          title: The title of the project
+          description: The description of the project
+          budget: To which group of projects (e.g. "2021 Budget") this project belongs to
+          budget_amount: The total amount of the budget for this project
+          confirmed_votes: The number of confirmed votes this project has received
+          comments: The number of comments this project has received
+          created_at: The date and time when the project was created
+          url: The URL of the project
+          address: The address of the project (if any)
+          related_proposals: The related proposals to this project
+          related_proposal_titles: The titles of the related proposals
+          related_proposal_urls: The URLs of the related proposals
     orders:
       checkout:
         error: There was a problem processing your vote.
