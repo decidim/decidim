@@ -68,6 +68,7 @@
     <% end %>
   <% end %>
 
+
   <% if registration.present? && registration.meeting.component.settings.registration_code_enabled %>
     <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "coupon-line" } do %>
       <h3 class="meeting__aside-block__title"><%= registration_code_help_text %></h3>
@@ -88,7 +89,7 @@
       <% end %>
     <% end %>
   <% end %>
-  <%= cell "decidim/meetings/cancel_registration_meeting_button", meeting, hide_modal: local_assigns[:hide_modal] %>
+  <%= cell "decidim/meetings/cancel_registration_meeting_button", meeting %>
 </section>
 <% end %>
 
