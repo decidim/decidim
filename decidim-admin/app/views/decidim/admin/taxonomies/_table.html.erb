@@ -22,7 +22,7 @@
 
      For cases when you need more control you can use the second implementation, which is the one used here.
      It uses the "js-sortable" class to initialize the element and allows you to use all the options documented in https://github.com/lukasoppermann/html5sortable as [data-sortable-OPTION] in the html.
-     Take into account, that, if using the second option, you need to implement the "sortupdate" event by yourself (see  decidim-admin/app/views/decidim/admin/taxonomies/_table.html.erb for an example). This allows you to control the return of the request for instance.
+     Take into account, that, if using the second option, you need to implement the "sortupdate" event by yourself (see this file for an example). This allows you to control the return of the request for instance.
     %>
     <tbody class="js-sortable js-draggable-root" data-draggable-handle=".js-drag-handle" data-draggable-accept-from=".js-draggable-root" data-sort-url="<%= reorder_taxonomies_path %>" role="rowgroup">
       <% if path = path_to_prev_page(collection) %>
