@@ -89,16 +89,6 @@ describe "Admin manages budgets" do
         expect(page).to have_no_content(translated(budget.title))
       end
     end
-
-    context "when the budget has projects" do
-      let!(:budget) { create(:budget, :with_projects, component: current_component) }
-
-      it "cannot delete the budget" do
-        within "tr", text: translated(budget.title) do
-          expect(page).to have_no_css(".action-icon--remove")
-        end
-      end
-    end
   end
 
   describe "when managing a budget with scopes" do

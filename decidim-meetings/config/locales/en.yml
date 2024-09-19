@@ -237,7 +237,6 @@ en:
         close: Close
         confirm_delete_meeting: Are you sure you want to delete this meeting?
         deleted_meetings_info: Deleted meetings can be restored from the trash.
-        destroy: Delete
         edit: Edit
         invalid_destroy:
           proposals_count:
