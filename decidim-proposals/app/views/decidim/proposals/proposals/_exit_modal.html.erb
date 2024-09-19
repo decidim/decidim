@@ -1,6 +1,6 @@
 <% if current_user && vote_limit_enabled? %>
   <%= decidim_modal id: "exit-proposal-notification" do %>
-    <div data-dialog-container>
+    <div data-dialog-container class="<%= "hidden" if remaining_minimum_votes_count_for(current_user) == 0 %>">
       <%= icon "information-line" %>
       <h3 class="h3 text-base" id="dialog-title-exit-proposal-notification" tabindex="-1" data-dialog-title>
         <%= t("title", scope: "decidim.proposals.exit_modal", number: remaining_minimum_votes_count_for(current_user)) %>

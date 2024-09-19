@@ -18,10 +18,6 @@
   (function() {
     var $remainingVotesCount = $('#remaining-votes-count');
     var $notVotedButtons = $('.card__button.button').not('.success');
-    var $proposalVotingRules = $('#proposal-voting-rules');
-    var $remainingVotesNotification = $('#remaining-votes-notification');
-    var $successVoteNotification = $('#success-proposal-vote');
-    var $exitProposalModal = $('#exit-proposal-notification');
 
     if($remainingVotesCount[0]) {
       morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');
@@ -34,6 +30,19 @@
       $notVotedButtons.attr('disabled', false);
       $notVotedButtons.val('<%= t("decidim.proposals.proposals.vote_button.vote") %>');
     <% end %>
+  }());
+<% end %>
+
+<% if show_voting_rules? %>
+  (function() {
+    var $proposalVotingRules = $('#proposal-voting-rules');
+    var $remainingVotesNotification = $('#remaining-votes-notification');
+    var $successVoteNotification = $('#success-proposal-vote');
+    var $exitProposalModal = $('#exit-proposal-notification');
+    var $votingRules = $('.voting-rules');
+    if($votingRules[0]) {
+      morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
+    }
 
     <% if remaining_minimum_votes_count_for(current_user) == 0 %>
       $successVoteNotification.removeClass("hidden");
@@ -50,6 +59,9 @@
 
       if ($exitProposalModal[0]) {
         morphdom($exitProposalModal[0], '<%= j(render partial: "decidim/proposals/proposals/exit_modal").strip.html_safe %>')
+        if(window.Decidim.currentDialogs["exit-proposal-notification"] && window.Decidim.currentDialogs["exit-proposal-notification"].dialog) {
+          window.Decidim.currentDialogs["exit-proposal-notification"].dialog.innerHTML = $exitProposalModal[0].innerHTML;
+        }
       }
     <% end %>
 
@@ -60,15 +72,5 @@
     <% else %>
       $proposalVotingRules.removeClass("hidden").addClass("block");
     <% end %>
-
-  }());
-<% end %>
-
-<% if show_voting_rules? %>
-  (function() {
-    var $votingRules = $('.voting-rules');
-    if($votingRules[0]) {
-      morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
-    }
   }());
 <% end %>
