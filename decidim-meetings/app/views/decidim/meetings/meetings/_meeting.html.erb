@@ -10,7 +10,7 @@
 
       <div class="layout-author">
         <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: nil, layout: :compact %>
-
+      </div>
     <% if meeting.private_meeting? || meeting.withdrawn? %>
       <div class="layout-author block">
         <% if meeting.private_meeting? %>
