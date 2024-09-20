@@ -945,7 +945,6 @@ sv:
           title_required: Titel måste fyllas i!
           uploaded: Uppladdad
           validating: Validerar...
-          validation_error: Valideringsfel!
         select_file: Välj fil
       upload_help:
         dropzone: Släpp filer här eller klicka på knappen för att ladda upp
