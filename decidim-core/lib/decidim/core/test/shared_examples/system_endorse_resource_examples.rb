@@ -25,7 +25,7 @@ shared_examples "Endorse resource system specs" do
   end
 
   context "when endorsements are not enabled" do
-    let(:component_traits) { [:with_votes_enabled, :with_endorsements_disabled] }
+    let(:component_traits) { [:with_endorsements_disabled] }
 
     context "when the user is not logged in" do
       it "does not show the endorse resource button and counts" do
@@ -51,17 +51,17 @@ shared_examples "Endorse resource system specs" do
 
     it "shows the endorsements count and the endorse button is disabled" do
       visit_resource
-      expect(page).to have_css("[data-buttons] button[disabled='true']")
+      expect(page).to have_css("#resource-#{resource.id}-endorsement-block button[disabled='true']")
     end
   end
 
   context "when endorsements are enabled" do
-    let(:component_traits) { [:with_votes_enabled, :with_endorsements_enabled] }
+    let(:component_traits) { [:with_endorsements_enabled] }
 
     context "when the user is not logged in" do
       it "is given the option to sign in" do
         visit_resource
-        within "[data-buttons]", match: :first do
+        within "#resource-#{resource.id}-endorsement-block" do
           click_on "Like"
         end
 
@@ -77,7 +77,7 @@ shared_examples "Endorse resource system specs" do
       context "when the resource is not endorsed yet" do
         it "is able to endorse the resource" do
           visit_resource
-          within "[data-buttons]" do
+          within "#resource-#{resource.id}-endorsement-block" do
             click_on "Like"
             expect(page).to have_button("Dislike")
           end
@@ -89,7 +89,7 @@ shared_examples "Endorse resource system specs" do
 
         it "is not able to endorse it again" do
           visit_resource
-          within "[data-buttons]" do
+          within "#resource-#{resource.id}-endorsement-block" do
             expect(page).to have_button("Dislike")
             expect(page).to have_no_button("Like")
           end
@@ -97,7 +97,7 @@ shared_examples "Endorse resource system specs" do
 
         it "is able to undo the endorsement" do
           visit_resource
-          within "[data-buttons]" do
+          within "#resource-#{resource.id}-endorsement-block" do
             click_on "Dislike"
             expect(page).to have_button("Like")
           end
@@ -124,7 +124,7 @@ shared_examples "Endorse resource system specs" do
         context "when user is NOT verified" do
           it "is NOT able to endorse" do
             visit_resource
-            within "[data-buttons]", match: :first do
+            within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
             end
             expect(page).to have_css("#authorizationModal", visible: :visible)
@@ -142,10 +142,108 @@ shared_examples "Endorse resource system specs" do
 
           it "IS able to endorse", :slow do
             visit_resource
-            within "[data-buttons]", match: :first do
+            within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
             end
             expect(page).to have_button("Dislike")
+          end
+        end
+      end
+
+      context "when user being a part of a group" do
+        let(:component_traits) { [:with_endorsements_enabled] }
+        let!(:user_group) do
+          create(
+            :user_group,
+            :verified,
+            name: "Tester's Organization",
+            nickname: "test_org",
+            email: "t.mail.org@example.org",
+            users: [user],
+            organization:
+          )
+        end
+
+        before do
+          organization.update(user_groups_enabled:)
+          login_as user, scope: :user
+          visit_resource
+        end
+
+        context "when organization is not allowing user groups" do
+          let(:user_groups_enabled) { false }
+
+          it "is able to endorse the resource" do
+            within "#resource-#{resource.id}-endorsement-block" do
+              click_on "Like"
+              expect(page).to have_button("Dislike")
+            end
+          end
+        end
+
+        context "when organization allows user groups" do
+          let(:user_groups_enabled) { true }
+
+          it "opens a modal where you select identity as a user or a group" do
+            click_on "Like"
+            expect(page).to have_content("Select identity")
+            expect(page).to have_content("Tester's Organization")
+            expect(page).to have_content(user.name)
+          end
+
+          def add_likes
+            click_on "Like"
+            within "#user-identities" do
+              click_on "Tester's Organization"
+              click_on user.name
+              click_on "Done"
+            end
+            visit_resource
+            click_on "Dislike"
+          end
+
+          context "when both identities picked" do
+            it "likes the post as a group and a user" do
+              add_likes
+
+              within ".identities-modal__list" do
+                expect(page).to have_css(".is-selected", count: 2)
+              end
+            end
+          end
+
+          context "when like cancelled as a user" do
+            it "does not cancel group like" do
+              add_likes
+              find(".is-selected", match: :first).click
+              click_on "Done"
+              visit current_path
+              click_on "Like"
+
+              within ".identities-modal__list" do
+                expect(page).to have_css(".is-selected", count: 1)
+                within ".is-selected" do
+                  expect(page).to have_content("Tester's Organization")
+                end
+              end
+            end
+          end
+
+          context "when like cancelled as a group" do
+            it "does not cancel user like" do
+              add_likes
+              page.all(".is-selected")[1].click
+              click_on "Done"
+              visit current_path
+              click_on "Dislike"
+
+              within ".identities-modal__list" do
+                expect(page).to have_css(".is-selected", count: 1)
+                within ".is-selected" do
+                  expect(page).to have_text(user.name, exact: true)
+                end
+              end
+            end
           end
         end
       end
