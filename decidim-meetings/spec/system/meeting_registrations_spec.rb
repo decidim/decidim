@@ -249,7 +249,6 @@ describe "Meeting registrations" do
             visit_meeting
 
             click_on "Register"
-
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "I represent a group"
               expect(page).to have_content "Show my attendance publicly"
@@ -366,6 +365,7 @@ describe "Meeting registrations" do
         visit_meeting
 
         click_on "Cancel your registration"
+
         within ".meeting__cancelation-modal" do
           click_on "Cancel your registration"
         end
