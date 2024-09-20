@@ -987,7 +987,6 @@ cs:
           title_required: Název je povinný!
           uploaded: Nahráno
           validating: Probíhá ověřování...
-          validation_error: Chyba ověření!
         select_file: Vyberte soubor
       upload_help:
         dropzone: Přetáhněte soubory sem nebo klikněte na tlačítko pro nahrání
