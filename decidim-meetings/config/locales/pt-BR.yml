@@ -635,7 +635,6 @@ pt-BR:
         transparent: Transparente
         withdraw: Retirado
       withdraw:
-        error: Ocorreu um erro ao retirar a reunião.
         success: A reunião foi retirada com sucesso.
     metrics:
       meetings:

@@ -45,8 +45,10 @@ cs:
           errors_description: Nepoužije se pro výběr
           header_alert: Tato stránka pochází ze starého zobrazení. Obsah je zastaralý.
           help_texts: Texty nápovědy
+          html_regular_inputs: Běžné vstupy HTML
           min_max_length: Min/Max délka
           min_max_length_description: Funguje pouze pro vstupní typ='text' a textarea
+          multiselect: Vícenásobný výběr
           regular_inputs_description: 'Zobrazí pouze běžné typy, úplný dostupný seznam: datum, datetime-local, e-mail, měsíc, číslo, heslo, vyhledávání, tel, text, čas, url, týden'
           textarea_required: je vyžadováno textové pole
           title: Formuláře
@@ -164,9 +166,11 @@ cs:
         conference_s: Konference S
         conferences: Konference
         context: Kontext
+        context_description: Tato buňka zobrazuje některé informace o uživateli. Je to vizuální nápověda k identifikaci zdroje/tvůrce obsahu. Po najetí myší se zobrazí nápověda s dalšími informacemi a odkazy na její profil.
         debate_l: Rozprava L
         debate_s: Rozprava S
         debates: Rozpravy
+        debates_cards_text: Použít jinou šablonu pro blok obrázků
         default: Výchozí
         default_description: Volání buňky bez dalších argumentů, pouze samotného uživatele.
         demo: Demo
@@ -248,6 +252,8 @@ cs:
         usage_typography_4: Odkazy a tlačítka
         value: Hodnota
         variations: Variace
+        variations_description: Existují tři různé verze této buňky. Každý z nich lépe zapadá do kontextu, který se zobrazuje.
+        variations_text: Pokud jde o druh činnosti, buňka by mohla vykazovat odlišný obsah, uvést různé zdroje, zda patří do participačního prostoru či nikoli, má autora či nikoli.
       home:
         index:
           by_sharing_principles: Sdílením zásad, filosofie a zdůvodnění rozhodnutí týkajících se designu chceme komunitě umožnit, aby přispívala důsledně a dosáhla co nejlepší zkušenosti účastníků.

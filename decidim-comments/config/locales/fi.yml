@@ -25,7 +25,7 @@ fi:
             start_time: Kommentointi sallittu alkaen
       comments:
         create:
-          error: Kommentin luotaessa tapahtui virhe.
+          error: Kommentin luonti epäonnistui.
         delete:
           error: Kommenttia ei voitu poistaa.
         update:
@@ -103,7 +103,7 @@ fi:
       comments:
         blocked_comments_for_unauthorized_user_warning: Tilisi tulee olla varmennettu, jotta voit kommentoida tällä hetkellä. Voit kuitenkin lukea muiden jättämiä kommentteja.
         blocked_comments_for_user_warning: Et voi kommentoida tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
-        blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
+        blocked_comments_warning: Kommentit on tällä hetkellä pois käytöstä, vain hallintakäyttäjät voivat vastata tai lähettää uusia kommentteja.
         comment_details_title: Kommentin yksityiskohdat
         loading: Ladataan kommentteja ...
         single_comment_warning: <a href="%{url}">Näytä kaikki kommentit</a>
@@ -126,7 +126,7 @@ fi:
     events:
       comments:
         comment_by_followed_user:
-          email_intro: "%{author_name} on jättänyt kommentin kohteessa %{resource_title}. Voit lukea sen täältä:"
+          email_intro: "%{author_name} on jättänyt kommentin kohteessa %{resource_title}. Voit lukea sen sivulta:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{author_name}. Voit perua seuraamisen kyseisen käyttäjän profiilisivulta.
           email_subject: '%{author_name} on jättänyt uuden kommentin kohteessa %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohteessa <a href="%{resource_path}">%{resource_title}</a>.
@@ -136,7 +136,7 @@ fi:
           email_subject: '%{author_name} on jättänyt uuden kommentin kohteessa %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on jättänyt uuden kommentin kohteessa <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          email_intro: "%{resource_title} on kommentoitu. Voit lukea kommentin tällä sivulla:"
+          email_intro: "%{resource_title} on kommentoitu. Voit lukea kommentin sivulta:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{resource_title}" tai sen kirjoittajaa. Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
           email_subject: '%{author_name} on jättänyt uuden kommentin kohteessa %{resource_title}'
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a>on jättänyt uuden kommentin kohteessa <a href="%{resource_path}">%{resource_title}</a>
@@ -151,7 +151,7 @@ fi:
           email_subject: Kommenttisi kohteessa "%{resource_title}" sai äänen.
           notification_title: <a href="%{resource_path}">Kommenttisi</a> kohteessa "%{resource_title}" sai äänen. Sillä on yhteensä %{upvotes} ääntä ja %{downvotes} miinusääntä.
         reply_created:
-          email_intro: "%{author_name} on vastannut kommentiisi kohdassa %{resource_title}. Voit lukea sen tällä sivulla:"
+          email_intro: "%{author_name} on vastannut kommentiisi kohdassa %{resource_title}. Voit lukea sen sivulta:"
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska kommenttiisi vastattiin.
           email_subject: "%{author_name} on vastannut kommentiisi %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> on vastannut kommentiisi kohdassa <a href="%{resource_path}">%{resource_title}</a>

@@ -23,7 +23,7 @@ describe "Interact with commenters" do
     context "when the user is the commenter" do
       it "has no actions" do
         within "#comment_#{author_comment.id}" do
-          click_on "…"
+          find("#dropdown-trigger-toggle-context-menu-#{author_comment.id}").click
           expect(page).to have_no_content("Mark as co-author")
         end
       end
@@ -35,7 +35,7 @@ describe "Interact with commenters" do
       it "author can invite" do
         expect(page).to have_content("2 comments")
         within "#comment_#{comment.id}" do
-          click_on "…"
+          find("#dropdown-trigger-toggle-context-menu-#{comment.id}").click
           perform_enqueued_jobs do
             accept_confirm { click_on("Mark as co-author") }
           end
@@ -44,7 +44,7 @@ describe "Interact with commenters" do
         expect(page).to have_content("successfully invited as a co-author")
 
         within "#comment_#{comment.id}" do
-          click_on "…"
+          find("#dropdown-trigger-toggle-context-menu-#{comment.id}").click
           expect(page).to have_link("Cancel co-author invitation")
           expect(page).to have_no_content("Mark as co-author")
         end
@@ -62,7 +62,7 @@ describe "Interact with commenters" do
 
       it "author can cancel invitation" do
         within "#comment_#{comment.id}" do
-          click_on "…"
+          find("#dropdown-trigger-toggle-context-menu-#{comment.id}").click
           perform_enqueued_jobs do
             accept_confirm { click_on("Cancel co-author invitation") }
           end
@@ -71,7 +71,7 @@ describe "Interact with commenters" do
         expect(page).to have_content("Co-author invitation successfully canceled")
 
         within "#comment_#{comment.id}" do
-          click_on "…"
+          find("#dropdown-trigger-toggle-context-menu-#{comment.id}").click
           expect(page).to have_link("Mark as co-author")
           expect(page).to have_no_content("Cancel co-author invitation")
         end

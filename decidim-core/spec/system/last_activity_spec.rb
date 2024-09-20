@@ -102,7 +102,7 @@ describe "Last activity" do
 
       it "allows filtering by type" do
         within "#filters" do
-          find("label", text: "Comment").click
+          click_on("Comment")
         end
 
         expect(page).to have_content(translated(comment.commentable.title))

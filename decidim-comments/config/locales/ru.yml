@@ -60,7 +60,6 @@ ru:
         title: 'Упорядочить по:'
       comments:
         blocked_comments_for_user_warning: Сейчас вам недоступно комментирование, но вы можете прочесть предыдущие комментарии.
-        blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие.
         loading: Загрузка комментариев ...
     events:
       comments:

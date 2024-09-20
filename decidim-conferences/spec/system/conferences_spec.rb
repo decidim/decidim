@@ -129,6 +129,13 @@ describe "Conferences" do
     end
   end
 
+  it_behaves_like "followable space content for users" do
+    let(:conference) { base_conference }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let(:followable) { conference }
+    let(:followable_path) { decidim_conferences.conference_path(conference) }
+  end
+
   describe "when going to the conference page" do
     let!(:conference) { base_conference }
     let!(:proposals_component) { create(:component, :published, participatory_space: conference, manifest_name: :proposals) }
@@ -143,14 +150,6 @@ describe "Conferences" do
 
     it "has a sidebar" do
       expect(page).to have_css(".conference__nav-container")
-    end
-
-    describe "follow button" do
-      let!(:user) { create(:user, :confirmed, organization:) }
-      let(:followable) { conference }
-      let(:followable_path) { decidim_conferences.conference_path(conference) }
-
-      include_examples "follows"
     end
 
     describe "conference venues" do

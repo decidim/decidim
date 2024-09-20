@@ -25,6 +25,10 @@ module Decidim
           client_id: nil,
           client_secret: nil,
           icon: "phone"
+        },
+        test: {
+          enabled: true,
+          icon: "tools-line"
         }
       }
     end

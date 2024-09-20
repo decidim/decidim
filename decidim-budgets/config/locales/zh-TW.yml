@@ -271,7 +271,6 @@ zh-TW:
               errors:
                 budget_voting_rule_only_one: 僅能啟用一個投票規則。
                 budget_voting_rule_required: 必須啟用一種投票規則
-            geocoding_enabled: 地理編碼已啟用
             landing_page_content: 預算網頁首頁
             more_information_modal: 更多資訊彈出式視窗
             projects_per_page: 每頁顯示專案

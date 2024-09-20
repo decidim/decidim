@@ -10,12 +10,12 @@
 
   <div class="vertical-tabs">
     <nav aria-label="menu-vertical">
-      <button id="dropdown-trigger-profile" data-component="dropdown" data-target="dropdown-menu-profile">
+      <button id="dropdown-trigger-profile" data-open-md="true" data-component="dropdown" data-target="dropdown-menu-profile">
         <span><%= user_menu.active_item&.label || t("decidim.searches.filters.jump_to") %></span>
         <%= icon "arrow-down-s-line" %>
         <%= icon "arrow-up-s-line" %>
       </button>
-      <ul id="dropdown-menu-profile" class="vertical-tabs__list" aria-hidden="true">
+      <ul id="dropdown-menu-profile" class="vertical-tabs__list">
         <%= user_menu.render %>
       </ul>
     </nav>

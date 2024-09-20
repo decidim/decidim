@@ -103,7 +103,7 @@ es-MX:
       comments:
         blocked_comments_for_unauthorized_user_warning: Necesitas estar verificada para comentar en este momento, pero puedes leer los comentarios anteriores.
         blocked_comments_for_user_warning: No puede hacer comentarios en este momento, pero puede leer los anteriores.
-        blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
+        blocked_comments_warning: Los comentarios están desactivados en estos momentos, solo las administradoras pueden responder o publicar nuevos.
         comment_details_title: Detalles del comentario
         loading: Cargando los comentarios ...
         single_comment_warning: <a href="%{url}">Ver todos los comentarios</a>

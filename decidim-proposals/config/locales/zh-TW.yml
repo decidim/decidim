@@ -135,7 +135,6 @@ zh-TW:
               random: 隨機
               recent: 最近
               with_more_authors: 有更多作者
-            geocoding_enabled: 地理編碼已啟用
             new_proposal_body_template: 新提案正文樣板
             new_proposal_body_template_help: 您可以定義新提案預先填寫的文字
             new_proposal_help_text: 新提案幫助文本
@@ -395,10 +394,8 @@ zh-TW:
           title: 私有注解
         proposals:
           answer:
-            invalid: 回答這個提案時出現了問題.
             success: 提案回覆成功.
           create:
-            invalid: 創建提案時發生問題.
             success: 提案已成功建立.
           edit:
             title: 更新提案
@@ -471,18 +468,14 @@ zh-TW:
             select_states: 檢查要匯入的提案狀態。
         proposals_merges:
           create:
-            invalid: '由於其中一些提案存在問題，因此無法合併所選提案：'
             success: 已成功合併提案成為新的提案。
         proposals_splits:
           create:
-            invalid: '由於其中一些提案存在問題，因此無法分割所選提案：'
             success: 成功將提案拆分為新的提案。
         valuation_assignments:
           create:
-            invalid: 有一個錯誤在指定提案給評估者。
             success: 提案已成功分配給評估人員.
           delete:
-            invalid: 取消指派建議書給評估人員時發生錯誤.
             success: 評估員已成功取消分配提案.
       admin_log:
         proposal:
@@ -658,7 +651,6 @@ zh-TW:
           discard: 放棄此草案
           discard_confirmation: 您確定要放棄此提案草案嗎？
           send: 預覽
-          title: 編輯提案草案
         filters:
           activity: 我的活動
           all: 全部

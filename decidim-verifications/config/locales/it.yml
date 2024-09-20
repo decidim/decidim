@@ -99,9 +99,6 @@ it:
         start_exploring: comincia ad esplorare
       csv_census:
         admin:
-          census:
-            create:
-              error: Si è verificato un errore durante l'importazione del censimento.
           destroy:
             title: Elimina tutti i dati del censimento
           index:

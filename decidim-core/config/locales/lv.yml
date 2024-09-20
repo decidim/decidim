@@ -143,15 +143,12 @@ lv:
         verify_via_csv: "%{user_name} verificēja grupu %{resource_name}, izmantojot CSV failu"
     amendments:
       accepted:
-        error: Grozījumu apstiprināšanas laikā radās kļūda.
         success: Grozījumi ir veiksmīgi apstiprināti.
       amendable:
         button: Grozīt %{model_name}
-        error: Vienuma grozījumu veikšanas laikā radusies kļūda.
         promote_button: Paaugstināt līdz %{model_name}
         promote_confirm_text: Vai tiešām vēlaties atbalstīt šo labojumu?
       created:
-        error: Grozījuma melnraksta veidošanas laikā radās kļūda.
         success: Grozījuma melnraksts ir veiksmīgi izveidots.
       destroy_draft:
         error: Grozījuma melnraksta dzēšanas laikā radās kļūda.
@@ -812,7 +809,6 @@ lv:
         subject: Par vienumu ir ziņots
     reports:
       create:
-        error: Ziņojuma izveides laikā radās kļūda. Lūdzu, mēģiniet vēlreiz.
         success: Ziņojums ir veiksmīgi izveidots, un to pārskatīs administrators.
     resource_endorsements:
       create:
@@ -1027,10 +1023,6 @@ lv:
       long_words: satur vārdus, kas ir pārāk gari (vairāk nekā 35 rakstzīmes)
       must_start_with_caps: jāsākas ar lielo burtu
       not_locked: netika bloķēts
-      not_saved:
-        zero: 'Apstrādājot jūsu pieprasījumu, radās vairākas kļūdas:'
-        one: 'Apstrādājot jūsu pieprasījumu, radās kļūda:'
-        other: 'Apstrādājot jūsu pieprasījumu, radās vairākas kļūdas:'
       too_many_marks: izmanto pārāk daudz secīgu pieturzīmju (piemēram,! un ?)
       too_much_caps: izmanto pārāk daudz lielo burtu (vairāk nekā 25 % no teksta)
   invisible_captcha:

@@ -6,6 +6,10 @@
       @apply py-14;
     }
 
+    &.is-disabled label.button__secondary {
+      @apply text-gray-2 bg-background-3 border border-gray-2 cursor-not-allowed;
+    }
+
     &-container {
       @apply space-y-4;
     }

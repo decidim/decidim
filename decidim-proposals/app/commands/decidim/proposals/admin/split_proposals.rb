@@ -53,13 +53,13 @@ module Decidim
           )
 
           proposals_to_link = links_for(original_proposal)
-          split_proposal.link_resources(proposals_to_link, "copied_from_component")
+          split_proposal.link_resources(proposals_to_link, "splitted_from_component")
         end
 
         def links_for(proposal)
           return proposal unless form.same_component?
 
-          proposal.linked_resources(:proposals, "copied_from_component")
+          proposal.linked_resources(:proposals, "splitted_from_component")
         end
       end
     end

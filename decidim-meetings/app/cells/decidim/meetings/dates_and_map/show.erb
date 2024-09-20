@@ -1,6 +1,6 @@
 <div class="meeting__calendar-container">
   <div class="meeting__calendar meeting__calendar__lg">
-    <div class="meeting__calendar-month">
+    <div class="meeting__calendar-month mb-4">
       <span><%= l(start_time, format: !same_month? ? "%b" : "%B") %></span>
       <span class="meeting__calendar-separator"><%= "-" if !same_month? %></span>
       <span><%= l(end_time, format: "%b") if !same_month? %></span>

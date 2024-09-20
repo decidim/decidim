@@ -10,11 +10,11 @@
   }
 
   .dragger {
-    @apply text-2xl cursor-ns-resize;
+    @apply text-2xl;
   }
 
   td {
-    @apply align-top;
+    @apply align-top cursor-ns-resize;
 
     &.js-drag-handle .dragger {
       @apply mt-1;

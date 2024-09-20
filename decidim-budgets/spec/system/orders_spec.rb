@@ -664,9 +664,11 @@ describe "Orders" do
         visit_budget
         click_on translated(project.title)
 
+        expect(page).to have_content("History")
+
         proposals.each do |proposal|
-          expect(page).to have_content(translated(proposal.title))
-          expect(page).to have_content(proposal.creator_author.name)
+          expect(page).to have_content(decidim_sanitize_translated(proposal.title))
+          expect(page).to have_no_content(proposal.creator_author.name)
           expect(page).to have_content(proposal.endorsements.size)
         end
       end

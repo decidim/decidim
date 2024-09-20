@@ -344,6 +344,8 @@ ga:
           none: Ceann ar Bith
         new:
           title: Leathanach nua
+      taxonomies:
+        count: Líon
       titles:
         areas: Ceantair
         authorization_workflows: Modhanna deimhnithe

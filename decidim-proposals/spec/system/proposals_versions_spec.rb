@@ -102,5 +102,31 @@ describe "Explore versions", versioning: true do
         end
       end
     end
+
+    it "show the correct state" do
+      form_params = {
+        internal_state: "evaluating",
+        answer: { en: "Foo" },
+        cost: 2000,
+        cost_report: { en: "Cost report" },
+        execution_period: { en: "Execution period" }
+      }
+      form = Decidim::Proposals::Admin::ProposalAnswerForm.from_params(form_params).with_context(
+        current_user: proposal.authors.first,
+        current_component: proposal.component,
+        current_organization: proposal.component.organization
+      )
+      Decidim::Proposals::Admin::AnswerProposal.call(form, proposal)
+
+      visit current_path
+      click_on("Version 3 of 3")
+
+      within "#diff-for-state" do
+        expect(page).to have_content("State")
+        within ".diff > ul > .ins" do
+          expect(page).to have_content("Evaluating")
+        end
+      end
+    end
   end
 end

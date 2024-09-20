@@ -40,7 +40,7 @@ describe "Proposals in process home" do
         hidden_proposals_titles = hidden_proposals.map(&:title).map { |title| translated(title) }
         withdrawn_proposals_titles = withdrawn_proposals.map(&:title).map { |title| translated(title) }
 
-        highlighted_proposals = page.all(".card--proposal .card__title").map(&:text)
+        highlighted_proposals = page.all("#participatory-process-homepage-highlighted-proposals .card__list-title").map(&:text)
         expect(proposals_titles).to include(*highlighted_proposals)
         expect(drafted_proposals_titles).not_to include(*highlighted_proposals)
         expect(hidden_proposals_titles).not_to include(*highlighted_proposals)
@@ -58,7 +58,7 @@ describe "Proposals in process home" do
           expect(page).to have_css("[id^='proposals__proposal']", count: highlighted_proposals)
 
           proposals_titles = proposals.map(&:title).map { |title| translated(title) }
-          highlighted_proposals = page.all(".card--proposal .card__title").map(&:text)
+          highlighted_proposals = page.all("#participatory-process-homepage-highlighted-proposals .card__list-title").map(&:text)
           expect(proposals_titles).to include(*highlighted_proposals)
         end
       end

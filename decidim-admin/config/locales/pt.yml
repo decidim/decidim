@@ -270,7 +270,6 @@ pt:
           headers:
             actions: Ações
             name: Nome do componente
-            scope: Âmbito do componente
             type: Tipo de componente
         new:
           add: Adicionar componente
@@ -784,6 +783,8 @@ pt:
           without_topic: Páginas sem tópico
         update:
           error: Ocorreu um problema ao atualizar esta página.
+      taxonomies:
+        count: Contagem
       titles:
         admin_log: Registo de administrador
         area_types: Tipos de área

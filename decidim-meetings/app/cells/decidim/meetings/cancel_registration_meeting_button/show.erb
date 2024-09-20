@@ -1,4 +1,6 @@
-<%= render :cancelation_modal %>
+<% unless options[:hide_modal] %>
+  <%= render :cancelation_modal %>
+<% end %>
 <%= action_authorized_button_to(
   :join,
   "#",

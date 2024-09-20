@@ -23,7 +23,7 @@ ca:
               missing: no estan complets
               too_many: Pots triar un màxim de %{count} opcions.
         questionnaire:
-          request_invalid: Hi ha hagut un problema gestionant la petició. Si us plau, torna-ho a provar.
+          request_invalid: Hi ha hagut un problema en gestionar la sol·licitud. Si us plau, torna-ho a provar.
   decidim:
     forms:
       admin:

@@ -73,6 +73,7 @@ Most commonly used concerns are:
 - `Decidim::ScopableParticipatorySpace`
 - `Decidim::ScopableResource`
 - `Decidim::Searchable`
+- `xref:develop:taxonomies.adoc[Decidim::Taxonomizable]`
 - `xref:develop:share_tokens.adoc[Decidim::ShareableWithToken]`
 - `xref:develop:traceable.adoc[Decidim::Traceable]`
 - `xref:develop:machine_translations.adoc[Decidim::TranslatableAttributes]`

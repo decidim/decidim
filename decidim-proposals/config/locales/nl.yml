@@ -116,7 +116,6 @@ nl:
               random: Willekeurig
               recent: Meest recent
               with_more_authors: Met meer auteurs
-            geocoding_enabled: Geolocatie ingeschakeld
             new_proposal_body_template: Nieuw voorstel lichaamssjabloon
             new_proposal_body_template_help: U kunt de door voorgevulde tekst definiëren die de nieuwe voorstellen zullen hebben
             new_proposal_help_text: Hulptekst bij de creatie van een nieuw voorstel
@@ -401,11 +400,9 @@ nl:
             select_states: Controleer de status van de voorstellen om te importeren
         proposals_merges:
           create:
-            invalid: 'Er is een probleem opgetreden bij het samenvoegen van de geselecteerde voorstellen omdat:'
             success: De voorstellen zijn succesvol samengevoegd tot een nieuwe.
         proposals_splits:
           create:
-            invalid: 'Er is een probleem opgetreden bij het splitsen van de geselecteerde voorstellen omdat:'
             success: De voorstellen succesvol gesplitst in nieuwe.
       admin_log:
         proposal:
@@ -567,7 +564,6 @@ nl:
           discard: Verwijder dit concept
           discard_confirmation: Weet je zeker dat je dit voorstel wilt verwijderen?
           send: Voorbeeldweergave
-          title: Bewerk voorstel
         filters:
           activity: Mijn activiteit
           all: Alle

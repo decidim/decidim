@@ -12,6 +12,7 @@ cs:
         project_ids: Zahrnuté projekty
         proposals: Zahrnuté návrhy
         start_date: Datum zahájení
+        subresults: Dílčí výsledky
         title: Titul
         updated_at: Aktualizováno v
       status:

@@ -148,15 +148,12 @@ sk:
         verify_via_csv: "%{user_name} overil skupinu %{resource_name} cez CSV súbor"
     amendments:
       accepted:
-        error: Pri prijímaní zmeny došlo k chybe.
         success: Tento pozmeňovací návrh bol úspešne prijatý.
       amendable:
         button: Zmena %{model_name}
-        error: Pri zmene tohto zdroja sa vyskytla chyba.
         promote_button: Propagujte na %{model_name}
         promote_confirm_text: Naozaj chcete túto emisiu podporiť?
       created:
-        error: Pri vytváraní pozmeňovacieho návrhu došlo k chybe.
         success: Pozmeňovací návrh bol úspešne vytvorený.
       destroy_draft:
         error: Pri mazaní pozmeňovacieho návrhu sa vyskytol problém.
@@ -801,7 +798,6 @@ sk:
         subject: Bol ohlásený zdroj
     reports:
       create:
-        error: Pri vytváraní zostavy sa vyskytla chyba. Skúste to znova.
         success: Správa bola úspešne vytvorená a bude kontrolovaná administrátorom.
     resource_endorsements:
       create:
@@ -996,11 +992,6 @@ sk:
       long_words: obsahuje slová, ktoré sú príliš dlhé (cez 35 znakov)
       must_start_with_caps: musí začínať veľkým písmenom
       not_locked: nebola zamknutá
-      not_saved:
-        one: 'Pri spracovaní vašej požiadavky došlo k chybe:'
-        few: 'Pri spracovaní vašej požiadavky došlo k niekoľkým chybám:'
-        many: 'Pri spracovaní vašej požiadavky došlo k mnohým chybám:'
-        other: 'Pri spracovaní vašej požiadavky došlo k nejakým chybám:'
       too_many_marks: používa príliš veľa po sebe idúcich interpunkčných znamienok (napr.! a?)
       too_much_caps: používa príliš veľa veľkých písmen (viac ako 25% textu)
   forms:

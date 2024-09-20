@@ -1,9 +1,8 @@
-<% add_decidim_meta_tags({
-                           image_url: current_initiative.type.attached_uploader(:banner_image).url,
-                           description: translated_attribute(current_initiative.description),
-                           title: translated_attribute(current_initiative.title),
-                           url: initiative_url(current_initiative.id)
-                         }) %>
+<% add_decidim_meta_tags(
+  description: translated_attribute(current_initiative.description),
+  title: translated_attribute(current_initiative.title),
+  url: initiative_url(current_initiative.id),
+  resource: current_initiative) %>
 
 <%
 edit_link(
@@ -210,7 +209,7 @@ edit_link(
   <% if current_initiative.commentable? && current_initiative.published? %>
     <%= cell "decidim/comments_button", nil, display: current_initiative.commentable? && current_initiative.published? %>
   <% end %>
-  <div class="ml-auto">
+  <div class="ml-auto lg:ml-0">
     <%= cell "decidim/share_button", nil %>
   </div>
 </section>

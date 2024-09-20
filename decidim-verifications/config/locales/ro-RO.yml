@@ -103,9 +103,6 @@ ro:
         start_exploring: începe explorarea
       csv_census:
         admin:
-          census:
-            create:
-              error: A apărut o eroare la importarea recensământului.
           destroy:
             title: Şterge toate datele recensământului
           index:

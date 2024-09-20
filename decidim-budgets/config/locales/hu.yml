@@ -308,7 +308,6 @@ hu:
               errors:
                 budget_voting_rule_only_one: Csak egy szavazási szabály állítható be.
                 budget_voting_rule_required: Egy szavazási szabályra szükség van.
-            geocoding_enabled: Geokódolás engedélyezve
             landing_page_content: A költségvetések kezdőlapja
             more_information_modal: További információ modális ablak
             projects_per_page: Projektek oldalanként

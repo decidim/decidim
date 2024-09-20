@@ -202,7 +202,7 @@ ja:
         verify: 確認する
       admin_terms_of_service:
         accept:
-          error: 管理者向け利用規約に同意する際にエラーが発生しました。
+          error: 管理者の利用規約に同意中に問題が発生しました。
           success: 素晴らしい！あなたは管理者向け利用規約に同意しました。
         actions:
           accept: 利用規約に同意する
@@ -334,7 +334,6 @@ ja:
           headers:
             actions: アクション
             name: コンポーネント名
-            scope: コンポーネントのスコープ
             type: コンポーネントタイプ
         new:
           add: コンポーネントを追加
@@ -350,6 +349,8 @@ ja:
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
+        index:
+          text: 現在のユーザーのメールアドレス、名前、ニックネームで検索します。
         managed_user_name: 管理対象ユーザー
         solved: 解決済み
         title: 確認の競合
@@ -364,7 +365,7 @@ ja:
         user_name: ユーザー
       content_blocks:
         create:
-          error: コンテンツブロックの作成中にエラーが発生しました。
+          error: コンテンツブロックの作成中に問題が発生しました。
           success: コンテンツブロックを作成しました。
         destroy:
           error: コンテンツブロックの削除中に問題が発生しました。
@@ -466,6 +467,9 @@ ja:
             pending: 保留中
             rejected: 拒否
             verified: 確認済み
+        taxonomies:
+          taxonomy_id_eq:
+            label: タクソノミー
       forms:
         file_help:
           import:
@@ -584,6 +588,7 @@ ja:
         settings: 設定
         static_page_topics: トピック
         static_pages: ページ
+        taxonomies: タクソノミー
         user_groups: グループ
         users: 参加者
       metrics:
@@ -778,7 +783,7 @@ ja:
           success: ニュースレターは正常に更新されました。送信する前に確認してください。
       officializations:
         block:
-          error: 参加者のブロック中にエラーが発生しました。
+          error: 参加者のブロック中に問題が発生しました。
           success: 参加者をブロックしました。
         create:
           success: 参加者が公式化されました。
@@ -812,7 +817,7 @@ ja:
           show: 表示
           title: 参加者のメールアドレスを表示
         unblock:
-          error: 参加者のブロック解除中にエラーが発生しました。
+          error: 参加者のブロック解除中に問題が発生しました。
           success: 参加者のブロックを解除しました。
       organization:
         edit:
@@ -1010,6 +1015,51 @@ ja:
         update:
           error: このページの更新中に問題が発生しました。
           success: ページが更新されました。
+      taxonomies:
+        actions: アクション
+        amount: 合計
+        count: カウント
+        create:
+          invalid: タクソノミーの作成中に問題が発生しました。
+          success: タクソノミーを作成しました。
+        destroy:
+          invalid: タクソノミーの削除中に問題が発生しました。
+          success: タクソノミーを削除しました。
+        edit:
+          back: 戻る
+          description: このタクソノミーのアイテムは、参加型スペースやコンポーネントなどのリソースを分類したりフィルターするために使用されます。 リストの順番を変更するにはドラッグアンドドロップを使用してください。
+          new_item: 新しい項目
+          no_items: このタクソノミーには現状アイテムがありません。アイテムのリストを作成して、参加型スペースやコンポーネントなどのリソースを分類またはフィルタリングできます。アイテムは最大3レベルまで入れ子にできます。
+          subtitle: '"%{taxonomy_name}" の項目'
+          title: タクソノミー「%{taxonomy_name} 」を編集
+          update: 更新
+        filters:
+          search_placeholder: 検索
+        index:
+          description: タクソノミーを使用すると、管理者がコンテンツを分類および整理できます。例えば、プロセスを地理的範囲で分類するためにタクソノミーを追加できます。
+          new_taxonomy: 新しいタクソノミー
+          no_items_found: 検索条件に一致するタクソノミーが見つかりませんでした。
+        name: 名前
+        new:
+          create: タクソノミーを作成
+          title: 新しいタクソノミー
+        no_taxonomies: 現在、タクソノミーはありません。ここでタクソノミーのリストを作成し、それぞれにアイテムを定義してリソースを分類またはフィルタリングします。
+        table:
+          to_next_page: 次のページにドラッグ
+          to_prev_page: 前のページにドラッグ
+        taxonomy_actions:
+          confirm_destroy: '%{name} を削除してもよろしいですか？全ての子アイテムも削除されます。'
+        update:
+          invalid: タクソノミーの更新中に問題が発生しました。
+          success: タクソノミーを更新しました。
+      taxonomy_items:
+        edit:
+          title: '%{taxonomy} の項目を編集'
+          update: 項目の更新
+        new:
+          create: 項目の作成
+          none: なし
+          title: '%{taxonomy} の新しいアイテム'
       titles:
         admin_log: 管理者ログ
         area_types: エリア種別
@@ -1030,6 +1080,7 @@ ja:
         scope_types: スコープ種別
         scopes: スコープ
         statistics: アクティビティ
+        taxonomies: タクソノミー
         user_groups: グループ
         users: 管理者
       user_group:

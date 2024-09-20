@@ -15,6 +15,7 @@ describe "AdminAccess" do
 
   context "when the user is a visitor" do
     it "shows the unauthenticated message" do
+      sleep 2
       visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
 
       expect(page).to have_content "You need to log in or create an account before continuing."

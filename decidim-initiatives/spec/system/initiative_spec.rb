@@ -219,14 +219,13 @@ describe "Initiative" do
         it_behaves_like "initiative does not show send to technical validation"
       end
     end
+  end
 
-    describe "follow button" do
-      let!(:user) { create(:user, :confirmed, organization:) }
-      let(:followable) { initiative }
-      let(:followable_path) { decidim_initiatives.initiative_path(initiative) }
-
-      include_examples "follows"
-    end
+  it_behaves_like "followable space content for users" do
+    let(:initiative) { base_initiative }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let(:followable) { initiative }
+    let(:followable_path) { decidim_initiatives.initiative_path(initiative) }
   end
 
   describe "initiative components" do

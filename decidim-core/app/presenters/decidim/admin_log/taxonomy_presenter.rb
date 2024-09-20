@@ -34,10 +34,6 @@ module Decidim
         end
       end
 
-      def i18n_labels_taxonomy
-        "activemodel.attributes.taxonomy"
-      end
-
       def i18n_params
         super.merge(
           parent_taxonomy: h.translated_attribute(parent_name)

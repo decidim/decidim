@@ -32,6 +32,7 @@ module Decidim
     def cache_hash
       hash = []
       hash.push(I18n.locale)
+      hash.push(only_button? ? 1 : 0)
       hash.push(current_user.try(:id))
       hash.push(model.reported_by?(current_user) ? 1 : 0)
       hash.push(model.class.name.gsub("::", ":"))

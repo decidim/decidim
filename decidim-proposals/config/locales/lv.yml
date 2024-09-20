@@ -93,7 +93,6 @@ lv:
             attachments_allowed: Atļaut pielikumus
             collaborative_drafts_enabled: Sadarbības projekti iespējoti
             comments_enabled: Komentāri ir iespējoti
-            geocoding_enabled: Ģeokodēšana iespējota
             new_proposal_body_template: Jauna priekšlikuma veidne
             new_proposal_body_template_help: Jūs varat definēt jau gatavu jauno priekšlikumu tekstu
             new_proposal_help_text: Jaunu priekšlikumu palīdzības teksts
@@ -500,7 +499,6 @@ lv:
           discard: Atmest šo melnrakstu
           discard_confirmation: Vai tiešām vēlaties atmest šo grozījuma melnrakstu?
           send: Priekšskatīt
-          title: Rediģēt priekšlikuma projektu
         filters:
           activity: Mana aktivitāte
           all: Visi

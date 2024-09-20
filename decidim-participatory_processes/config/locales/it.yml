@@ -145,7 +145,6 @@ it:
           title: Duplica il processo partecipativo
       participatory_process_groups:
         destroy:
-          error: Si è verificato un errore durante la cancellazione del gruppo di processi partecipativi.
           success: Gruppo di processi partecipativi cancellato con successo.
         edit:
           title: Aggiorna un gruppo di processi

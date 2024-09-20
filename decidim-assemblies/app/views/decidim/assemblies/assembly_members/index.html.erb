@@ -1,6 +1,7 @@
 <% add_decidim_page_title(t("assembly_members.index.title", scope: "decidim")) %>
-<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
-
+<% add_decidim_meta_tags(
+     title: translated_attribute(current_participatory_space.title),
+     resource: current_participatory_space) %>
 <%
 edit_link(
   decidim_admin_assemblies.assembly_members_path(current_participatory_space.slug),

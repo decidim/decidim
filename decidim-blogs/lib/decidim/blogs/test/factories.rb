@@ -14,6 +14,22 @@ FactoryBot.define do
     name { generate_component_name(participatory_space.organization.available_locales, :blogs, skip_injection:) }
     manifest_name { :blogs }
     participatory_space { create(:participatory_process, :with_steps, skip_injection:, organization:) }
+
+    trait :with_endorsements_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: true }
+        }
+      end
+    end
+
+    trait :with_endorsements_disabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: false }
+        }
+      end
+    end
   end
 
   factory :post, class: "Decidim::Blogs::Post" do

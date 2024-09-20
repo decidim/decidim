@@ -21,17 +21,44 @@ describe Decidim::AddressCell, type: :cell do
 
   let(:icondata_address) { subject.find(".address") }
 
-  before do
-    allow(model).to receive(:location_hints).and_return location_hints
-    allow(model).to receive(:location).and_return location
+  context "with a location" do
+    before do
+      allow(model).to receive(:location_hints).and_return location_hints
+      allow(model).to receive(:location).and_return location
+    end
+
+    it "renders a resource address and related fields" do
+      expect(icondata_address).to have_content(address_text)
+      expect(icondata_address).to have_content(hint_text)
+      expect(icondata_address).to have_content(location_text)
+      expect(icondata_address.to_s).not_to match(/<script>/i)
+      expect(icondata_address).to have_no_content(model.latitude)
+      expect(icondata_address).to have_no_content(model.longitude)
+    end
   end
 
-  it "renders a resource address and related fields" do
-    expect(icondata_address).to have_content(address_text)
-    expect(icondata_address).to have_content(hint_text)
-    expect(icondata_address).to have_content(location_text)
-    expect(icondata_address.to_s).not_to match(/<script>/i)
-    expect(icondata_address).to have_no_content(model.latitude)
-    expect(icondata_address).to have_no_content(model.longitude)
+  context "with an online meeting url" do
+    let(:my_cell) { cell("decidim/address", model, online: true) }
+    let(:model) { create(:dummy_resource) }
+    let(:online_meeting_url) { "https://decidim.org" }
+
+    before do
+      allow(model).to receive(:online?).and_return true
+      allow(model).to receive(:type_of_meeting).and_return :online
+      allow(model).to receive(:iframe_access_level_allowed_for_user?).and_return true
+      allow(model).to receive(:online_meeting_url).and_return online_meeting_url
+    end
+
+    it "renders the URL" do
+      expect(subject).to have_content "https://decidim.org"
+    end
+
+    context "with a malformed URL" do
+      let(:online_meeting_url) { "https://decidim.org/?v=h<script>alert(1)</script>" }
+
+      it "renders the escaped URL" do
+        expect(subject).to have_content "https://decidim.org/?v=h%3Cscript%3Ealert(1)%3C/script%3E"
+      end
+    end
   end
 end

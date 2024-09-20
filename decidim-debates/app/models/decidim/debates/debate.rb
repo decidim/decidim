@@ -214,14 +214,11 @@ module Decidim
       end
 
       def self.ransackable_attributes(_auth_object = nil)
-        %w(closed_at comments_count comments_enabled conclusions created_at decidim_author_id decidim_author_type decidim_component_id decidim_scope_id
-           decidim_user_group_id description end_time endorsements_count follows_count id image information_updates instructions last_comment_at
-           last_comment_by_id last_comment_by_type reference search_text start_time title updated_at)
+        %w(search_text title description)
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(author categorization category comment_threads comments component endorsements followers follows last_comment_by moderation reports
-           resource_links_from resource_links_to resource_permission scope searchable_resources user_group versions)
+        %w(category scope)
       end
 
       private

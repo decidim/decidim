@@ -202,7 +202,6 @@ hu:
         verify: Ellenőrzés
       admin_terms_of_service:
         accept:
-          error: Hiba történt az admin szolgáltatási feltételek elfogadása során.
           success: Nagyszerű! Ön elfogadta az adminisztrátori felhasználási feltételeket.
         actions:
           accept: Egyetértek a feltételekkel
@@ -333,7 +332,6 @@ hu:
           headers:
             actions: Műveletek
             name: Elem neve
-            scope: Komponens hatóköre
             type: Elem típusa
         new:
           add: Elem hozzáadása
@@ -363,7 +361,6 @@ hu:
         user_name: Felhasználó
       content_blocks:
         create:
-          error: Hiba történt a tartalom blokk létrehozásakor.
           success: A tartalmi blokk sikeresen létrehozva.
         destroy:
           error: Probléma merült fel a tartalmi blokk törlésével kapcsolatban.
@@ -777,7 +774,6 @@ hu:
           success: Hírlevél frissítse sikeres volt. Ellenőrizd le, mielőtt elküldenéd.
       officializations:
         block:
-          error: Hiba történt a résztvevő blokkolásában.
           success: A résztvevő sikeresen blokkolva.
         create:
           success: A résztvevő sikeresen hivatalossá vált.
@@ -811,7 +807,6 @@ hu:
           show: Megjelenítés
           title: A résztvevő e-mail címének megjelenítése
         unblock:
-          error: Hiba történt a résztvevő blokkolásának feloldásában.
           success: A résztvevő blokkolása sikeresen feloldva.
       organization:
         edit:
@@ -999,6 +994,8 @@ hu:
         update:
           error: Hiba történt az oldal frissítése során.
           success: Az oldal módosítása sikeres.
+      taxonomies:
+        count: Számol
       titles:
         admin_log: Admin napló
         area_types: Terület típusok

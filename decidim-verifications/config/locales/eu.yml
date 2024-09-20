@@ -43,7 +43,7 @@ eu:
           destroy:
             confirm: Data horren aurreko baimenak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
             confirm_all: Baimen guztiak baliogabetzea ezin da desegin. Ziur zaude jarraitu nahi duzula?
-          destroy_nok: Arazo bat izan da baimen guztiak baliogabetzean.
+          destroy_nok: Arazo bat izn da baimenak ezeztatzean.
           destroy_ok: Bat datozen baimen guztiak zuzen ezeztatu dira.
           info: Guztira %{count} parte-hartzaile egiaztatuta daude.
           no_data: Ez dago parte-hartzaile egiaztaturik.
@@ -157,7 +157,7 @@ eu:
         admin:
           census:
             create:
-              error: Errore bat egon da errolda inportatzean.
+              error: Arazo bat izan da erroldak inportatzean.
               success: Zuzen inportatutako %{count} itemak (%{errors} errors).
             destroy_all:
               success: Erroldako datu guztiak ezabatu dira.

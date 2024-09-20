@@ -32,11 +32,16 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
   end
 
   participatory_space.exports :assemblies do |export|
-    export.collection do |assembly|
-      Decidim::Assembly.where(id: assembly.id).includes(:area, :scope, :attachment_collections, :categories)
+    export.collection do
+      Decidim::Assembly
+        .public_spaces
+        .includes(:area, :scope, :attachment_collections, :categories)
     end
 
+    export.include_in_open_data = true
+
     export.serializer Decidim::Assemblies::AssemblySerializer
+    export.open_data_serializer Decidim::Assemblies::OpenDataAssemblySerializer
   end
 
   participatory_space.register_on_destroy_account do |user|

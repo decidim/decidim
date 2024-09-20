@@ -598,7 +598,6 @@ el:
         transparent: Διαφανής
         withdraw: Αποσύρθηκε
       withdraw:
-        error: Προέκυψε σφάλμα κατά την απόσυρση της συνάντησης.
         success: Η συνάντηση αποσύρθηκε με επιτυχία.
     metrics:
       meetings:

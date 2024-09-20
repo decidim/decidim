@@ -1,5 +1,5 @@
 <div id="<%= id %>" class="filter-container">
-  <button id="dropdown-trigger-resource" data-component="dropdown" data-target="dropdown-menu-resource" data-auto-close="true">
+  <button id="dropdown-trigger-resource" data-component="dropdown" data-target="dropdown-menu-resource" data-open-md="true">
     <% resource_types.each do |resource_type| %>
       <span data-value="<%= resource_type[0] %>" class="<%= "is-active" if filter_param == resource_type[0] %>">
         <%= text_with_resource_icon(*resource_type) %>
@@ -8,15 +8,14 @@
     <%= icon "arrow-down-s-line" %>
     <%= icon "arrow-up-s-line" %>
   </button>
-  <%= filter_form_for filter, form_path, :class => "new_filter", :id => "dropdown-menu-resource", "aria-hidden" => true do |form| %>
-    <%= form.collection_radio_buttons(
-          filter_param_key,
-          resource_types,
-          :first,
-          :last,
-          { checked: filter_param }
-        ) do |builder|
-            builder.label { builder.radio_button(class: "reset-defaults", hidden: true) + content_tag(:span, text_with_resource_icon(builder.value, builder.text), class: "filter") }
-      end %>
-  <% end %>
+  <ul id="dropdown-menu-resource">
+    <% resource_types.each do |resource_type| %>
+      <li role="menuitem">
+        <%= link_to decidim.last_activities_path(filter: { with_resource_type: resource_type[0] } ), class: "filter#{" is-active" if filter_param == resource_type[0]}" do %>
+          <span class="sr-only"><%= resource_type[1] %></span>
+          <%= text_with_resource_icon(*resource_type) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 </div>

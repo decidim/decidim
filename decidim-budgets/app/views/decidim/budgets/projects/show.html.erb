@@ -1,7 +1,7 @@
 <% add_decidim_meta_tags(
   title: translated_attribute(project.title),
-  description: translated_attribute(project.description)
-) %>
+  description: translated_attribute(project.description),
+  resource: project) %>
 
 <%
 edit_link(
@@ -37,9 +37,17 @@ edit_link(
         </div>
       <% end %>
       <%= cell("decidim/budgets/project_selected_status", project, as_label: true) %>
-      <h1 class="h1 decorator budget__definition-project__title editor-content">
-        <%= decidim_sanitize translated_attribute project.title %>
-      </h1>
+
+      <div class="layout-author">
+        <div class="relative flex items-center justify-center w-full">
+          <div class="w-10/12 flex items-center gap-4">
+            <h1 class="h1 decorator budget__definition-project__title editor-content">
+              <%= decidim_sanitize translated_attribute project.title %>
+            </h1>
+          </div>
+          <%= render "decidim/shared/resource_actions", resource: project, skip_report: true %>
+        </div>
+      </div>
     </section>
     <section class="layout-main__section">
       <div class="editor-content">
@@ -67,10 +75,14 @@ edit_link(
         </div>
       <% end %>
     </section>
+
+    <%= cell("decidim/tags", project) %>
+
     <section class="layout-main__section layout-main__buttons" data-buttons>
       <%= cell "decidim/comments_button", nil %>
-      <div class="ml-auto">
-        <%= cell "decidim/budgets/project_tags", project %>
+
+      <div class="ml-auto lg:ml-0">
+        <%= cell "decidim/share_button", nil %>
       </div>
     </section>
 
@@ -87,10 +99,6 @@ edit_link(
         <div class="budget__definition-data__number">
           <%= budget_to_currency project.budget_amount %>
         </div>
-      </section>
-      <section class="layout-aside__section actions__secondary">
-        <%= render partial: "decidim/shared/follow_button", class: "text-center", locals: { followable: project, large: false } %>
-        <%= cell "decidim/share_button", nil %>
       </section>
     <% end %>
     <% content_for :item_footer do %>

@@ -2,6 +2,7 @@
 
 require "spec_helper"
 
+# rubocop:disable RSpec/MultipleMemoizedHelpers
 module Decidim
   module Assemblies
     module Admin
@@ -105,6 +106,11 @@ module Decidim
         end
         let(:parent_id) { nil }
         let(:assembly_id) { nil }
+        let(:root_taxonomy) { create(:taxonomy, organization:) }
+        let!(:taxonomies) { create_list(:taxonomy, 3, parent: root_taxonomy, organization:) }
+        let!(:taxonomy_filter1) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:) }
+        let!(:taxonomy_filter2) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:) }
+        let!(:taxonomy_filter3) { create(:taxonomy_filter, space_manifest: "participatory_processes", root_taxonomy:) }
         let(:attributes) do
           {
             "assembly" => {
@@ -155,13 +161,26 @@ module Decidim
               "parent_id" => parent_id,
               "announcement_en" => announcement[:en],
               "announcement_es" => announcement[:es],
-              "announcement_ca" => announcement[:ca]
+              "announcement_ca" => announcement[:ca],
+              "taxonomies" => [taxonomies.first.id, taxonomies.second.id]
             }
           }
         end
 
         context "when everything is OK" do
           it { is_expected.to be_valid }
+        end
+
+        it "returns taxonomizations and taxonomies" do
+          expect(subject.taxonomizations.map(&:taxonomy_id)).to eq([taxonomies.first.id, taxonomies.second.id])
+          expect(subject.root_taxonomies).to eq([root_taxonomy])
+          expect(subject.taxonomy_filters).to contain_exactly(taxonomy_filter1, taxonomy_filter2)
+        end
+
+        context "when taxonomies belong to another organization" do
+          let!(:taxonomies) { create_list(:taxonomy, 3) }
+
+          it { is_expected.not_to be_valid }
         end
 
         context "when attachment (hero_image or banner_image) is too big" do
@@ -397,3 +416,4 @@ module Decidim
     end
   end
 end
+# rubocop:enable RSpec/MultipleMemoizedHelpers

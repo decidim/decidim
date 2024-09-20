@@ -55,7 +55,6 @@ zh-CN:
         title: '排序方式：'
       comments:
         blocked_comments_for_user_warning: 您此时无法评论，但您可以阅读前面的评论。
-        blocked_comments_warning: 评论此时被禁用，但您可以阅读前面的评论。
         comment_details_title: 评论详情
         loading: 正在加载评论...
         single_comment_warning_title: 您正在看到一个评论

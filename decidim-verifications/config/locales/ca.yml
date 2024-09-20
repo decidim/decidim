@@ -157,7 +157,7 @@ ca:
         admin:
           census:
             create:
-              error: S'ha produït un error en la importació del cens.
+              error: S'ha produït un error en importar del cens.
               success: S'han importat correctament %{count} elements (%{errors} errors).
             destroy_all:
               success: S'han eliminat totes les dades del cens.

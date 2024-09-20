@@ -1,11 +1,9 @@
 <%= render layout: "layouts/decidim/shared/layout_item" do %>
   <%= cell("decidim/accountability/project", result) %>
+  <%= cell("decidim/tags", result) %>
 
   <section class="layout-main__section layout-main__buttons" data-buttons>
     <%= cell "decidim/comments_button", nil %>
-    <div class="ml-auto">
-      <%= cell "decidim/tags", result %>
-    </div>
   </section>
 
   <% content_for :aside do %>

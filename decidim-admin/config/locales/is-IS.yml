@@ -450,6 +450,8 @@ is-IS:
           update: Uppfæra
         new:
           title: Ný síða
+      taxonomies:
+        count: Telja
       titles:
         admin_log: Admin log
         area_types: Svæði tegundir

@@ -61,11 +61,15 @@ module Decidim
             resources :categories, except: [:show]
 
             resources :components do
+              collection do
+                put :reorder
+              end
               resource :permissions, controller: "component_permissions"
               member do
                 put :publish
                 put :unpublish
                 get :share
+                put :hide
               end
               resources :exports, only: :create
               resources :imports, only: [:new, :create] do
@@ -83,14 +87,14 @@ module Decidim
               resources :reports, controller: "moderations/reports", only: [:index, :show]
             end
           end
-        end
 
-        scope "/conferences/:conference_slug/components/:component_id/manage" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.admin_engine
+          scope "/conferences/:conference_slug/components/:component_id/manage" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.admin_engine
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.admin_engine, at: "/", as: "decidim_admin_conference_#{manifest.name}"
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.admin_engine, at: "/", as: "decidim_admin_conference_#{manifest.name}"
+              end
             end
           end
         end

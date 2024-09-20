@@ -242,6 +242,10 @@ en:
             alert_html: "<p>You must create at least one initiative type so participants can start creating initiatives.</p><p> %{link}</p>"
             button: New initiative type
         initiatives:
+          accept:
+            success: The initiative has been successfully accepted.
+          discard:
+            success: The initiative has been successfully discarded.
           edit:
             accept: Accept initiative
             confirm: Are you sure?
@@ -265,6 +269,12 @@ en:
             edit: Edit
             new: New
             photos: Photos
+          publish:
+            success: The initiative has been successfully published.
+          reject:
+            success: The initiative has been successfully rejected.
+          unpublish:
+            success: The initiative has been successfully unpublished.
           update:
             error: There was a problem updating the initiative.
             success: The initiative has been successfully updated.

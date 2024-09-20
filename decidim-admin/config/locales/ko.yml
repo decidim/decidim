@@ -170,7 +170,6 @@ ko:
         verify: 인증
       admin_terms_of_service:
         accept:
-          error: 관리자 서비스 약관을 수락하는 동안 오류가 발생했습니다.
           success: 좋습니다! 관리자 서비스 약관을 수락했습니다.
         actions:
           accept: 약관에 동의합니다
@@ -281,7 +280,6 @@ ko:
           headers:
             actions: 작업
             name: 구성 요소 이름
-            scope: 구성 요소 범위
             type: 구성 요소 유형
         new:
           add: 구성 요소 추가
@@ -310,7 +308,6 @@ ko:
         user_name: 사용자
       content_blocks:
         create:
-          error: 콘텐츠 블록을 만드는 동안 오류가 발생했습니다.
           success: 콘텐츠 블록이 성공적으로 작성되었습니다.
         destroy:
           error: 이 콘텐츠 블록을 삭제하는 동안 문제가 발생했습니다.
@@ -575,7 +572,6 @@ ko:
           success: 뉴스레터가 성공적으로 업데이트되었습니다. 검토 후 보내주시기 바랍니다.
       officializations:
         block:
-          error: 참가자를 차단하는 동안 오류가 발생했습니다.
           success: 참가자가 성공적으로 차단되었습니다.
         index:
           badge: 뱃지
@@ -591,8 +587,6 @@ ko:
           hidden: 숨겨짐
           show: 표시
           title: 참가자의 이메일 주소 보기
-        unblock:
-          error: 참가자를 차단 해제하는 동안 오류가 발생했습니다.
       organization_appearance:
         form:
           colors:

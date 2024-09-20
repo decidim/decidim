@@ -30,13 +30,14 @@
   <div class="table-scroll">
     <table class="table-list">
       <thead>
+        <th></th>
         <th><%= t(".headers.name") %></th>
         <th><%= t(".headers.type") %></th>
-        <%= th_resource_scope_label(t(".headers.scope")) %>
+        <th><%= t(".headers.visibility") %></th>
         <th><%= t(".headers.actions") %></th>
       </thead>
 
-      <tbody>
+      <tbody class="draggable-table" data-sort-url="<%= reorder_components_path %>" data-draggable-table>
         <%= render partial: "component", collection: @components %>
       </tbody>
     </table>

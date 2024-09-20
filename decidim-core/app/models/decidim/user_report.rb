@@ -20,7 +20,7 @@ module Decidim
     end
 
     def self.ransackable_attributes(_auth_object = nil)
-      %w(created_at details id reason updated_at user_id user_moderation_id)
+      %w(reason)
     end
 
     private

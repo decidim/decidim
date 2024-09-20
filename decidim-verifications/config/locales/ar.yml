@@ -72,9 +72,6 @@ ar:
         start_exploring: البدء في استكشاف
       csv_census:
         admin:
-          census:
-            create:
-              error: حدث خطأ أثناء استيراد التعداد.
           destroy:
             title: احذف جميع بيانات التعداد
           index:

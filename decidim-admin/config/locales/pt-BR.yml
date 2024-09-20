@@ -202,7 +202,6 @@ pt-BR:
         verify: Verificar
       admin_terms_of_service:
         accept:
-          error: Houve um erro ao aceitar os termos de serviço de administrador. 
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
           accept: Concordo com estes termos
@@ -333,7 +332,6 @@ pt-BR:
           headers:
             actions: Ações
             name: Nome do componente
-            scope: Escopo de componente
             type: Tipo de componente
         new:
           add: Adicionar componente
@@ -362,7 +360,6 @@ pt-BR:
         user_name: Usuário
       content_blocks:
         create:
-          error: Ocorreu um erro ao criar o bloco de conteúdo.
           success: Bloco de conteúdo criado com sucesso.
         destroy:
           error: Ocorreu um problema ao tentar excluir esse bloco de conteúdo.
@@ -773,7 +770,6 @@ pt-BR:
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
       officializations:
         block:
-          error: Houve um erro ao bloquear o usuário.
           success: Participante bloqueado com sucesso.
         create:
           success: Participante oficializado com sucesso.
@@ -807,7 +803,6 @@ pt-BR:
           show: Mostrar
           title: Mostrar endereço de e-mail do participante
         unblock:
-          error: Ocorreu um erro ao desbloquear o participante.
           success: Participante desbloqueado com sucesso.
       organization:
         edit:
@@ -1001,6 +996,8 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso.
+      taxonomies:
+        count: Contagem
       titles:
         admin_log: Log de administração
         area_types: Tipos de área

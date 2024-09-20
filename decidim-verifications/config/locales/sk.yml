@@ -90,9 +90,6 @@ sk:
         start_exploring: začať skúmať
       csv_census:
         admin:
-          census:
-            create:
-              error: Pri importe sčítaní došlo k chybe.
           destroy:
             title: Zmazať všetky dáta sčítania
           index:

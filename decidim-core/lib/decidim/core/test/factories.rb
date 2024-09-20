@@ -415,6 +415,10 @@ FactoryBot.define do
       slug { Decidim::StaticPage::DEFAULT_PAGES.sample }
     end
 
+    trait :public do
+      allow_public_access { true }
+    end
+
     trait :tos do
       slug { "terms-of-service" }
       after(:create) do |tos_page|
@@ -639,7 +643,7 @@ FactoryBot.define do
     weight { nil }
 
     trait :with_parent do
-      association :parent, factory: :taxonomy
+      parent { create(:taxonomy, organization:, skip_injection:) }
     end
 
     trait :with_children do
@@ -649,8 +653,6 @@ FactoryBot.define do
 
       after(:create) do |taxonomy, evaluator|
         create_list(:taxonomy, evaluator.children_count, parent: taxonomy, organization: taxonomy.organization)
-        taxonomy.reload
-        taxonomy.update(weight: taxonomy.children.count)
       end
     end
   end
@@ -658,6 +660,26 @@ FactoryBot.define do
   factory :taxonomization, class: "Decidim::Taxonomization" do
     taxonomy { association(:taxonomy, :with_parent) }
     taxonomizable { association(:dummy_resource) }
+  end
+
+  factory :taxonomy_filter, class: "Decidim::TaxonomyFilter" do
+    root_taxonomy { association(:taxonomy) }
+    space_manifest { "participatory_processes" }
+
+    trait :with_items do
+      transient do
+        items_count { 3 }
+      end
+
+      after(:create) do |taxonomy_filter, evaluator|
+        create_list(:taxonomy_filter_item, evaluator.items_count, taxonomy_filter:)
+      end
+    end
+  end
+
+  factory :taxonomy_filter_item, class: "Decidim::TaxonomyFilterItem" do
+    taxonomy_filter
+    taxonomy_item { association(:taxonomy, parent: taxonomy_filter.root_taxonomy) }
   end
 
   factory :coauthorship, class: "Decidim::Coauthorship" do

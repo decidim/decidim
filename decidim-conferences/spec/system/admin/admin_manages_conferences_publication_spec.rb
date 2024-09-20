@@ -11,4 +11,23 @@ describe "Admin manages conference publication" do
   let!(:participatory_space) { conference }
 
   it_behaves_like "manage participatory space publications"
+
+  it "displays the entry in last activities" do
+    participatory_space.update(title: { en: title })
+    participatory_space.unpublish!
+    participatory_space.reload
+
+    switch_to_host(organization.host)
+    login_as user, scope: :user
+    visit admin_page_path
+    click_on "Publish"
+
+    visit decidim.last_activities_path
+    expect(page).to have_content("New conference: #{title}")
+
+    within "#filters" do
+      find("a", class: "filter", text: "Conference", match: :first).click
+    end
+    expect(page).to have_content("New conference: #{title}")
+  end
 end

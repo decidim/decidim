@@ -138,6 +138,7 @@ module Decidim
         Decidim::Proposals::Proposal
         Decidim::Surveys::Survey
         Decidim::Assembly
+        Decidim::Conference
         Decidim::Initiative
         Decidim::ParticipatoryProcess
       ).select do |klass|
@@ -154,7 +155,16 @@ module Decidim
     end
 
     def self.publicable_public_resource_types
-      @publicable_public_resource_types ||= public_resource_types.select { |klass| klass.constantize.column_names.include?("published_at") }
+      @publicable_public_resource_types ||= public_resource_types
+                                            .select { |klass| klass.constantize.column_names.include?("published_at") } - publicable_exceptions
+    end
+
+    def self.publicable_exceptions
+      @publicable_exceptions = %w(
+        Decidim::Blogs::Post
+      ).select do |klass|
+        klass.safe_constantize.present?
+      end
     end
 
     def self.ransackable_scopes(auth_object = nil)
@@ -165,13 +175,14 @@ module Decidim
       base + [:with_participatory_space]
     end
 
-    def self.ransackable_attributes(_auth_object = nil)
-      %w(action created_at decidim_area_id decidim_component_id decidim_organization_id decidim_scope_id decidim_user_id extra id
-         participatory_space_id participatory_space_type resource_id resource_type updated_at version_id visibility)
+    def self.ransackable_attributes(auth_object = nil)
+      return [] unless auth_object&.admin?
+
+      %w(created_at)
     end
 
     def self.ransackable_associations(_auth_object = nil)
-      %w(area component organization participatory_space resource scope user version)
+      %w(user)
     end
 
     # Overwrites the method so that records cannot be modified.

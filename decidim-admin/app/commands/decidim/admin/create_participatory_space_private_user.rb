@@ -62,7 +62,7 @@ module Decidim
         return @existing_user if defined?(@existing_user)
 
         @existing_user = User.find_by(
-          email: form.email,
+          email: form.email.downcase,
           organization: private_user_to.organization
         )
 

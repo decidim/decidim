@@ -254,7 +254,6 @@ is-IS:
         subject: Úrræði hafa verið tilkynntar
     reports:
       create:
-        error: Villa kom upp við gerð skýrslunnar. Vinsamlegast reyndu aftur.
         success: Skýrslan hefur verið búin til með góðum árangri og það verður endurskoðað af stjórnanda.
     scopes:
       global: Global umfang

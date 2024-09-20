@@ -30,6 +30,7 @@ module Decidim
       helper Decidim::DecidimFormHelper
       helper Decidim::ReplaceButtonsHelper
       helper Decidim::ScopesHelper
+      helper Decidim::TaxonomiesHelper
       helper Decidim::TranslationsHelper
       helper Decidim::LanguageChooserHelper
       helper Decidim::ComponentPathHelper

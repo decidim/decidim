@@ -1,8 +1,8 @@
-<% add_decidim_meta_tags({
-                           title: present(meeting).title,
-                           description: present(meeting).description,
-                           url: meeting_url(meeting.id)
-                         }) %>
+<% add_decidim_meta_tags(
+  title: present(meeting).title,
+  description: present(meeting).description,
+  url: meeting_url(meeting.id),
+  resource: meeting) %>
 
 <%= append_javascript_pack_tag "decidim_meetings" %>
 <%= append_stylesheet_pack_tag "decidim_meetings" %>

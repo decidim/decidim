@@ -90,9 +90,6 @@ lv:
         start_exploring: sāciet izpētīt
       csv_census:
         admin:
-          census:
-            create:
-              error: Importējot skaitīšanu, radās kļūda.
           destroy:
             title: Dzēst visus skaitīšanas datus
           index:

@@ -81,7 +81,6 @@ pt:
       comments:
         blocked_comments_for_unauthorized_user_warning: Precisa de estar verificado para comentar neste momento, mas pode ler os precedentes.
         blocked_comments_for_user_warning: Não pode comentar neste momento, mas pode ler os anteriores.
-        blocked_comments_warning: Os comentários estão desativados neste momento, mas pode ler os anteriores.
         comment_details_title: Detalhes do comentário
         loading: A carregar comentários ...
         single_comment_warning: <a href="%{url}">Ver todos os comentários</a>

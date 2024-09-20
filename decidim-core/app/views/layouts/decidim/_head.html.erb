@@ -2,7 +2,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <% available_locales.each do |locale| %>
-  <link rel="alternate" href="<%= url_for(request.parameters.merge(locale:)) %>" hreflang="<%= locale %>">
+  <link rel="alternate" href="<%= current_url(request.parameters.merge(locale:)) %>" hreflang="<%= locale %>">
 <% end %>
 
 <meta name="twitter:card" content="summary_large_image">

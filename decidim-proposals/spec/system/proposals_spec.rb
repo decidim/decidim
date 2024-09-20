@@ -259,7 +259,7 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_i18n_content(meeting.title)
+        expect(page).to have_i18n_content(decidim_sanitize_translated(meeting.title))
       end
     end
 
@@ -278,7 +278,7 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_i18n_content(result.title)
+        expect(page).to have_i18n_content(decidim_sanitize_translated(result.title))
       end
     end
 
@@ -341,7 +341,9 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_no_content("Accepted")
+        within ".layout-author" do
+          expect(page).to have_no_content("Accepted")
+        end
         expect(page).to have_no_content("This proposal has been accepted")
         expect(page).not_to have_i18n_content(proposal.answer)
       end
@@ -384,7 +386,7 @@ describe "Proposals" do
       visit_component
       click_on proposal_title
 
-      expect(page).to have_i18n_content(project.title)
+      expect(page).to have_i18n_content(decidim_sanitize_translated(project.title))
     end
   end
 
@@ -720,6 +722,38 @@ describe "Proposals" do
 
         expect(page).to have_no_css(".card__grid-img img[src*='proposal_image_placeholder.svg']")
         expect(page).to have_css(".card__grid-img img")
+      end
+    end
+
+    context "when proposal does not have history" do
+      let!(:proposal) { create(:proposal, component:) }
+
+      it "shows the proposal with no history panel" do
+        visit_component
+        click_on proposal_title
+
+        expect(page).to have_no_content("History")
+        expect(page).to have_no_content("This proposal was created")
+      end
+    end
+
+    context "when proposal have history" do
+      let!(:proposal) { create(:proposal, component:) }
+      let(:budget_component) do
+        create(:component, manifest_name: :budgets, participatory_space: proposal.component.participatory_space)
+      end
+      let(:project) { create(:project, component: budget_component) }
+
+      before do
+        project.link_resources([proposal], "included_proposals")
+      end
+
+      it "shows the proposal with history panel" do
+        visit_component
+        click_on proposal_title
+
+        expect(page).to have_content("History")
+        expect(page).to have_content("This proposal was created")
       end
     end
   end

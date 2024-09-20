@@ -159,7 +159,6 @@ it:
       dismiss: Rimuovi notifica
     amendments:
       accepted:
-        error: Si è verificato un errore durante l'accettazione dell'emendamento.
         success: L'emendamento è stato accettato con successo.
       amendable:
         button: Modificare %{model_name}
@@ -167,7 +166,6 @@ it:
         promote_button: Promuovi a %{model_name}
         promote_confirm_text: Sei sicuro di voler promuovere questa emendazione?
       created:
-        error: Si è verificato un errore durante la creazione della proposta di emendamento.
         success: La proposta di emendamento è stata creata con successo.
       destroy_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
@@ -378,6 +376,9 @@ it:
           nickname_help: Il tuo alias in %{organization} può contenere solo lettere, numeri, '-' e '_'.
           sign_up: Completa il tuo profilo
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
+        new_tos_fields:
+          sign_up: Crea un account
+          sign_up_title: Completa l'impostazione del tuo account
       registrations:
         new:
           already_have_an_account?: Hai già un account?
@@ -934,7 +935,6 @@ it:
         subject: Un contenuto è stato denunciato
     reports:
       create:
-        error: Si è verificato un un errore. Ti preghiamo di riprovare.
         success: Il report è stato creato e sarà rivisto da un amministratore.
     resource_endorsements:
       create:
@@ -1153,6 +1153,7 @@ it:
         instruction: 'Clicca sul link sottostante per sbloccare il tuo account:'
         subject: Sblocca le istruzioni
     omniauth_callbacks:
+      add_tos_errors: I termini di servizio devono essere accettati per creare un account.
       failure: Impossibile autenticare da %{kind} perché "%{reason}".
       success: Autenticato con successo da account %{kind}.
     passwords:
@@ -1204,9 +1205,6 @@ it:
       long_words: contiene parole troppo lunghe (oltre 35 caratteri)
       must_start_with_caps: deve iniziare con una lettera maiuscola
       not_locked: non era bloccato
-      not_saved:
-        one: 'Si è verificato un errore durante l''elaborazione della tua richiesta:'
-        other: 'Ci sono stati molteplici errori durante l''elaborazione della tua richiesta:'
       too_many_marks: sta usando troppi segni di punteggiatura consecutivi (ad esempio! e?)
       too_much_caps: usa troppe lettere maiuscole (oltre il 25% del testo)
   forms:

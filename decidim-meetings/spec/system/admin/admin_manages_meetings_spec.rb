@@ -17,7 +17,10 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   let(:meeting_end_time) { (base_date + 4.hours).strftime("%H:%M") }
   let(:attributes) { attributes_for(:meeting, component: current_component) }
 
-  include_context "when managing a component as an admin"
+  include_context "when managing a component as an admin" do
+    let(:participatory_process) { create(:participatory_process, :published, :with_steps, organization:) }
+    let!(:component) { create(:component, :published, manifest:, participatory_space:) }
+  end
 
   before do
     stub_geocoding(address, [latitude, longitude])
@@ -54,6 +57,14 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         expect(page).to have_css(".action-icon--unpublish")
       end
+
+      visit decidim.last_activities_path
+      expect(page).to have_content("New meeting: #{decidim_sanitize_translated(meeting.title)}")
+
+      within "#filters" do
+        find("a", class: "filter", text: "Meeting", match: :first).click
+      end
+      expect(page).to have_content("New meeting: #{decidim_sanitize_translated(meeting.title)}")
     end
 
     context "with enriched content" do

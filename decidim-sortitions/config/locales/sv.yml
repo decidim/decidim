@@ -10,18 +10,18 @@ sv:
         title: Titel
         witnesses: Vittnen
     models:
-      decidim/sortitions/create_sortition_event: Tilldelning
+      decidim/sortitions/create_sortition_event: Lottning
   activerecord:
     models:
       decidim/sortitions/sortition:
-        one: Tilldelning
-        other: Tilldelningar
+        one: Lottning
+        other: Lottningar
   decidim:
     components:
       sortitions:
         actions:
           comment: Kommentera
-        name: Tilldelningar
+        name: Lottningar
         settings:
           global:
             comments_enabled: Kommentarer aktiverade
@@ -65,7 +65,7 @@ sv:
             all_categories: Alla kategorier
             select_proposal_component: Välj förslagen som ska behandlas
           index:
-            title: Tilldelningar
+            title: Lottningar
           new:
             create: Skapa
             title: Ny tilldelning

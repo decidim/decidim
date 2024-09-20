@@ -54,7 +54,6 @@ id:
         title: 'Dipesan oleh:'
       comments:
         blocked_comments_for_user_warning: Anda tidak dapat berkomentar saat ini, tetapi Anda dapat membaca yang sebelumnya.
-        blocked_comments_warning: Komentar dinonaktifkan saat ini, tetapi Anda dapat membaca yang sebelumnya.
         loading: Memuat komentar ...
     events:
       comments:
