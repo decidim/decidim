@@ -84,7 +84,7 @@ sv:
     models:
       decidim/assembly:
         one: Samråd
-        other: Grupper
+        other: Samråd
       decidim/assembly_member:
         one: Medlem i samråd
         other: Medlemmar i samråd
