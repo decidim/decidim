@@ -18,6 +18,7 @@ ca:
         automatic_hashtags: Hashtags afegits automàticament
         body: Cos
         category_id: Categoria
+        decidim_proposals_proposal_state_id: Estat
         decidim_scope_id: Àmbit
         has_address: Té adreça
         scope_id: Àmbit
