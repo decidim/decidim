@@ -252,6 +252,7 @@ pt-BR:
       filters:
         active: Ativo
         all: Todos
+        date: Data
         finished: Acabado
         search: Pesquisa
         upcoming: próximos
@@ -353,13 +354,18 @@ pt-BR:
       vote_modal_confirm:
         change: Mudança
         close_modal: Fechar modal
-        confirm: confirme
+        confirm: Confirme
         contextual_help: Por favor, confirme a opção selecionada.
         title: 'Consulta: confirme o suporte'
     resources:
       consultations:
         actions:
+          comment: Comentário
           vote: Votar
+      question:
+        actions:
+          comment: Comentário
+          vote: Voto
     statistics:
       consultations_count: Consultas
       votes_count: Votos
