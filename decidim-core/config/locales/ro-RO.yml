@@ -88,6 +88,14 @@ ro:
   datetime:
     distance_in_words:
       half_a_minute: jumătate de minut
+      x_days:
+        one: 1 zi
+        few: "%{count} zile"
+        other: "%{count} zile"
+      x_seconds:
+        one: 1 secundă
+        few: "%{count} secunde"
+        other: "%{count} secunde"
   decidim:
     accessibility:
       external_link: Link extern
