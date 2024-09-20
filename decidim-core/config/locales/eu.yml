@@ -934,7 +934,6 @@ eu:
           title_required: Izenburua behar da!
           uploaded: Igota
           validating: Balidatzen...
-          validation_error: Errorea baliozkotzean!
         select_file: Hautatu fitxategia
       upload_help:
         dropzone: Bota artxiboak hona edo egin klik igotzeko
