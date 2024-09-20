@@ -456,6 +456,16 @@ take over user accounts.
 |80
 |No
 
+|DECIDIM_CACHE_EXPIRATION_TIME
+|The default number of minutes where a cache in Decidim will be applied (currently Decidim applies cache to some pieces of html called cells). If empty has no expiration time (but you can clear the cache anytime with the command `rails tmp:clear`). Note that zero ("0") is different than an empty string and it will disable the cache completely.
+|1440
+|No
+
+|DECIDIM_STATS_CACHE_EXPIRATION_TIME
+|Same as before but for the default number of minutes for html that displays stats.
+|10
+|No
+
 |DECIDIM_MAXIMUM_ATTACHMENT_SIZE
 |The maximum file size of an attachment (in Megabytes).
 

@@ -152,6 +152,7 @@ module Decidim
         Decidim.icons.register(name: "arrow-up-s-fill", icon: "arrow-up-s-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "treasure-map-line", icon: "treasure-map-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "chat-new-line", icon: "chat-new-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "history", icon: "history-line", category: "system", description: "History timeline", engine: :core)
         Decidim.icons.register(name: "draft-line", icon: "draft-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "user-voice-line", icon: "user-voice-line", category: "system", description: "", engine: :core)
 
@@ -278,6 +279,12 @@ module Decidim
 
       initializer "decidim_core.exceptions_app" do |app|
         app.config.exceptions_app = Decidim::Core::Engine.routes
+      end
+
+      initializer "decidim_core.direct_uploader_paths", after: "decidim_core.exceptions_app" do |_app|
+        config.to_prepare do
+          ActiveStorage::DirectUploadsController.include Decidim::DirectUpload
+        end
       end
 
       initializer "decidim_core.locales" do |app|

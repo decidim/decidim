@@ -49,6 +49,10 @@ describe "Meeting poll administration" do
   let!(:poll) { create(:poll, meeting:) }
   let!(:questionnaire) { create(:meetings_poll_questionnaire, questionnaire_for: poll) }
 
+  before do
+    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
+  end
+
   context "when all questions are unpublished" do
     let!(:question_multiple_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_multiple_option_question, question_type: "multiple_option") }
     let!(:question_single_option) { create(:meetings_poll_question, :unpublished, questionnaire:, body: body_single_option_question, question_type: "single_option") }
