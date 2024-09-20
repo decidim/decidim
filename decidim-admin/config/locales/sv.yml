@@ -158,7 +158,7 @@ sv:
       new_import:
         attributes:
           file:
-            invalid_file: Ogiltig fil, kontrollera formatteringen.
+            invalid_file: Ogiltig fil, kontrollera formateringen.
             invalid_mime_type: Ogiltig MIME-typ.
   activerecord:
     attributes:
