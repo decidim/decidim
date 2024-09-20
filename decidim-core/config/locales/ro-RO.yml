@@ -92,6 +92,14 @@ ro:
   datetime:
     distance_in_words:
       half_a_minute: jumătate de minut
+      x_days:
+        one: 1 zi
+        few: "%{count} zile"
+        other: "%{count} zile"
+      x_seconds:
+        one: 1 secundă
+        few: "%{count} secunde"
+        other: "%{count} secunde"
   decidim:
     accessibility:
       external_link: Link extern
@@ -238,6 +246,11 @@ ro:
         error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
+      amendments:
+        title:
+          one: "%{count} amendament"
+          few: "%{count} amendamente"
+          other: "%{count} amendamente"
       compare_draft:
         continue: Continuă
         no_similars_found: Nu există amendamente similare.
