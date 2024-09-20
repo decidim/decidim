@@ -14,6 +14,8 @@ module Decidim
 
       before_action :check_permissions
 
+      def index; end
+
       def check_permissions
         render :no_permission unless action_authorized_to(:answer, resource: survey).ok?
       end
