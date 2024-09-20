@@ -18,6 +18,7 @@ es-PY:
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         category_id: Categoría
+        decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
         scope_id: Ámbito
