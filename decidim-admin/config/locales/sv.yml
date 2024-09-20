@@ -88,7 +88,7 @@ sv:
         organization_locales: Språk
         primary_color: Primär
         reference_prefix: Referensprefix
-        rich_text_editor_in_public_views: Aktivera formattering av text för deltagare
+        rich_text_editor_in_public_views: Aktivera formatering av text för deltagare
         secondary_color: Sekundär
         secondary_hosts: Sekundära hosts
         send_welcome_notification: Skicka välkomstmeddelande
@@ -158,7 +158,7 @@ sv:
       new_import:
         attributes:
           file:
-            invalid_file: Ogiltig fil, kontrollera formatteringen.
+            invalid_file: Ogiltig fil, kontrollera formateringen.
             invalid_mime_type: Ogiltig MIME-typ.
   activerecord:
     attributes:
