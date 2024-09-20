@@ -22,6 +22,7 @@ bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:clean:invalid_records
+bin/rails decidim_proposals:upgrade:set_categories
 ```
 
 ### 1.3. Follow the steps and commands detailed in these notes
@@ -99,6 +100,16 @@ end
 
 You can read more about this change on PR [#13196](https://github.com/decidim/decidim/pull/13196).
 
+### 2.6. Amendments category fix
+
+We have identified a bug in the filtering system, as the amendments created did not share the category with the proposal it amended. This fix aims to fix historic data. To fix it, you need to run:
+
+```shell
+bin/rails decidim_proposals:upgrade:set_categories
+```
+
+You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
@@ -115,7 +126,19 @@ bundle remove spring spring-watcher-listen
 
 You can read more about this change on PR [#13235](https://github.com/decidim/decidim/pull/13235).
 
-### 3.2. [[TITLE OF THE ACTION]]
+### 3.2. Clean up orphaned attachment blobs
+
+We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that have been created for more than 1 hour and are not yet referenced by any attachment record. This helps cleaning your filesystem of unused files.
+
+You can run the task with the following command:
+
+```bash
+bin/rails decidim:upgrade:attachments_cleanup
+```
+
+You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
+
+### 3.3. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
