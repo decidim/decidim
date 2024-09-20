@@ -289,6 +289,7 @@ pt-BR:
       block_user:
         new:
           action: Bloquear conta e enviar justificativa
+          already_reported_html: Continuar com essa ação também resultará na ocultação o conteúdo de todos os participantes.
           description: Bloquear um usuário irá tornar sua conta inutilizável. Você pode fornecer em sua justificação quaisquer diretrizes sobre como você poderia considerar desbloquear o usuário.
           justification: Justificativa
           title: Bloquear usuário %{name}
@@ -350,6 +351,8 @@ pt-BR:
       conflicts:
         attempts: Tentativas
         'false': 'Não'
+        index:
+          text: Pesquisar por e-mail, nome ou apelido do usuário.
         managed_user_name: Usuário gerenciado
         solved: Resolvido
         title: Conflitos de verificação
