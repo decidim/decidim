@@ -948,6 +948,7 @@ es:
           title_required: '¡Se requiere un título!'
           uploaded: Subido
           validating: Validando...
+          validation_error: '¡Error en la validación! Por favor, comprueba que el archivo tenga una extensión o tamaño permitidos.'
         select_file: Seleccione un archivo
       upload_help:
         dropzone: Arrastra los archivos aquí o haz clic en el botón para subirlos
