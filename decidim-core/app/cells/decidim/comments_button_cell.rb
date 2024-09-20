@@ -23,7 +23,7 @@ module Decidim
     end
 
     def path
-      "#comments"
+      "#add-comment-anchor"
     end
 
     def text
