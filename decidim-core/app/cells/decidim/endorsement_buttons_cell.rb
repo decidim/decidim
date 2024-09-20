@@ -69,7 +69,7 @@ module Decidim
     end
 
     def user_has_verified_groups?
-      current_user && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
+      current_user && current_organization.user_groups_enabled? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any?
     end
 
     def endorse_translated
