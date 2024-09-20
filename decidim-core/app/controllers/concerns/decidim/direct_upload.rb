@@ -16,9 +16,8 @@ module Decidim
 
     protected
 
-    def verify_organization; end
-
     def validate_direct_upload
+      # We skip the validation if we are in system panel. `current_admin` refers to the main system admin user.
       return if current_admin.present?
 
       head :unprocessable_entity unless [
