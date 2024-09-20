@@ -276,7 +276,7 @@ sv:
             date: Senaste
             publication_date: Senast publicerade
             random: Slumpvis
-            signatures: Mest underskrifter
+            signatures: Flest underskrifter
             title: Inställningar för initiativ
         initiatives_type_scopes:
           create:
@@ -532,11 +532,11 @@ sv:
           before_send_to_technical_validation_announcement: 'Innan du skickar ditt initiativ för teknisk validering behöver du lägga till %{count} fler medlemmar i kampanjgruppen.<br/><br/>Dela denna länk med de personer du vill ha med i din kampanj: %{href}'
           confirm: Du kommer att skicka initiativet till en administratör för att granska och publicera det. När det har publicerats kommer du inte att kunna redigera det. Vill du gå vidare?
           edit: Redigera
-          initiative_data: Initiativ data
+          initiative_data: Om initiativet
           scope: Indelning
           send_to_technical_validation: Skicka till teknisk validering
           send_to_technical_validation_announcement: Om allt ser ok, klicka på "Skicka till teknisk validering" för att en administratör ska granska och publicera ditt initiativ
-          signature_collection: Signatursamling
+          signature_collection: Typ av underskrifter
           state: Status
           type: Typ
         signatures_count:
