@@ -6,7 +6,12 @@
     <%= render partial: "meeting_poll_actions", locals: { mobile: true } %>
 
     <div class="layout-author">
-      <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: nil, layout: :compact %>
+      <div class="relative flex items-center justify-center w-full">
+        <div class="w-10/12 flex items-center gap-4">
+          <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: nil, layout: :compact %>
+        </div>
+        <%= render "decidim/shared/resource_actions", resource: meeting %>
+      </div>
 
       <% if meeting.private_meeting? %>
         <span class="<%= meeting_type_badge_css_class("private") %> label">
@@ -56,6 +61,10 @@
 
   <section class="layout-main__section layout-main__buttons" data-buttons>
     <%= cell "decidim/comments_button", nil %>
+
+    <div class="ml-auto lg:ml-0">
+      <%= cell "decidim/share_button", nil %>
+    </div>
   </section>
 
   <%= pad_iframe_for meeting %>
