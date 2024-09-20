@@ -64,6 +64,10 @@ es-MX:
         password_confirmation: Confirmación de contraseña
         remember_me: Recuérdame
     models:
+      decidim:
+        history:
+          one: Historial
+          other: Historial
       decidim/amendment:
         one: Enmienda
         other: Enmiendas
