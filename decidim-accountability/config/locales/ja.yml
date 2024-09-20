@@ -26,6 +26,10 @@ ja:
       decidim/accountability/result_progress_updated_event: 結果の進捗状況が更新されました
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: 結果 %{link} は含まれていました
       decidim/accountability/result:
         other: 結果
   decidim:
@@ -170,6 +174,8 @@ ja:
       content_blocks:
         highlighted_results:
           results: 結果
+      creation:
+        text: 結果が作成されました
       import_mailer:
         import:
           errors: エラー
