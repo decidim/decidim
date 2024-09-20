@@ -264,7 +264,7 @@ sv:
             date: Senaste
             publication_date: Senast publicerade
             random: Slumpvis
-            signatures: Mest underskrifter
+            signatures: Flest underskrifter
             title: Inställningar för initiativ
         initiatives_type_scopes:
           create:
