@@ -307,7 +307,7 @@ describe Decidim::Initiatives::Admin::Permissions do
       context "when user is not an admin" do
         let(:user) { create(:user, organization:) }
 
-        it { is_expected.to be true }
+        it { is_expected.to be false }
       end
     end
 

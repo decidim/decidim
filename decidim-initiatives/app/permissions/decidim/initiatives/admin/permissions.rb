@@ -30,9 +30,9 @@ module Decidim
             return permission_action
           end
 
+          initiative_filters_action?
           return permission_action unless user.admin?
 
-          initiative_filters_action?
           initiative_type_action?
           initiative_type_scope_action?
           initiative_committee_action?
@@ -53,6 +53,7 @@ module Decidim
 
         def initiative_filters_action?
           return unless permission_action.subject == :taxonomy_filter
+
           return disallow! unless user.admin?
 
           allow!
