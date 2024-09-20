@@ -9,7 +9,7 @@ ja:
         decidim_scope_id: スコープ
         has_address: 住所有り
         scope_id: 対象範囲
-        state: 都道府県：
+        state: 状態
         title: タイトル
         user_group_id: 共同草案として作成します
       import_participatory_text:
@@ -24,7 +24,7 @@ ja:
         decidim_scope_id: スコープ
         has_address: 住所有り
         scope_id: 対象範囲
-        state: 都道府県：
+        state: 状態
         suggested_hashtags: 推奨ハッシュタグ
         title: タイトル
         user_group_id: 次のように提案を作成
@@ -114,7 +114,7 @@ ja:
               validating: 技術的検証
               withdrawn: 撤回
           state_null:
-            label: 都道府県：
+            label: 状態
             values:
               'true': 応答がありません
           valuator_role_ids_has:
