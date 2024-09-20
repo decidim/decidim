@@ -122,6 +122,22 @@ module Decidim
         }
       end
 
+      def percentage_item
+        {
+          text: display_percentage(result.progress)
+          # icon: "percent-fill"
+        }
+      end
+
+      def result_items_for_map
+        [comments_count_item, endorsements_count_item, percentage_item].compact_blank.map do |item|
+          {
+            text: item[:text].to_s.html_safe,
+            icon: item[:icon].present? ? icon(item[:icon]).html_safe : nil
+          }
+        end
+      end
+
       def has_dates?
         start_date.present? && end_date.present?
       end
