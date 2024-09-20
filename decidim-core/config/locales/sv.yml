@@ -1546,7 +1546,7 @@ sv:
       already_authenticated: Du är redan inloggad.
       inactive: Ditt konto är inte aktiverat än.
       invalid: Ogiltigt %{authentication_keys} eller lösenord.
-      invited: Du har en inbjudan som väntar, slutför att skapa ditt konto genom att godkänna den.
+      invited: Du har en väntande inbjudan, acceptera den för att slutföra skapandet av ditt konto.
       last_attempt: Du har ett försök kvar innan ditt konto blir låst.
       locked: Ditt konto är låst.
       not_found_in_database: Ogiltig %{authentication_keys} eller ogiltigt lösenord.
@@ -1554,7 +1554,7 @@ sv:
       unauthenticated: Du måste logga in eller registrera dig innan du fortsätter.
     invitations:
       edit:
-        header: Slutför att skapa ditt konto
+        header: Slutför skapandet av ditt konto
         nickname_help: Ditt användarnamn för %{organization}. Kan bara innehålla bokstäver, siffror, '-' och '_'.
         submit_button: Spara
         subtitle: Om du godkänner inbjudan väljer du ditt användarnamn och lösenord.
