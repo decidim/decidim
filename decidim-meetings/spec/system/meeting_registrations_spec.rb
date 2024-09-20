@@ -31,6 +31,7 @@ describe "Meeting registrations" do
   end
 
   before do
+    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     meeting.update!(
       registrations_enabled:,
       registration_form_enabled:,
