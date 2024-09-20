@@ -81,6 +81,9 @@ ro:
     'false': 'Nu'
     'true': 'Da'
   date:
+    buttons:
+      close: Închideți
+      select: Selectați
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -90,6 +93,14 @@ ro:
   datetime:
     distance_in_words:
       half_a_minute: jumătate de minut
+      x_days:
+        one: 1 zi
+        few: "%{count} zile"
+        other: "%{count} zile"
+      x_seconds:
+        one: 1 secundă
+        few: "%{count} secunde"
+        other: "%{count} secunde"
   decidim:
     accessibility:
       external_link: Link extern
@@ -207,6 +218,13 @@ ro:
         create: "%{user_name} a creat pagina statică %{resource_name}"
         delete: "%{user_name} a șters pagina statică %{resource_name}"
         update: "%{user_name} a actualizat pagina statică %{resource_name}"
+      taxonomy:
+        create: "%{user_name} a creat taxonomia %{resource_name}"
+        create_with_parent: "%{user_name} a creat taxonomia %{resource_name} în interiorul taxonomiei %{parent_taxonomy}"
+        delete: "%{user_name} a șters taxonomia %{resource_name}"
+        delete_with_parent: "%{user_name} a șters taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
+        update: "%{user_name} a actualizat taxonomia %{resource_name}"
+        update_with_parent: "%{user_name} a actualizat taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
       taxonomy_filter:
         create: "%{user_name} a creat un filtru bazat pe taxonomia %{resource_name}"
         create_with_filter_items_count: "%{user_name} a actualizat un filtru bazat pe taxonomia %{resource_name} ce conține %{filter_items_count} elemente pentru spațiul participativ %{space_manifest_name}"
@@ -241,7 +259,13 @@ ro:
         button: Fă un amendament pentru %{model_name}
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
+      amendments:
+        title:
+          one: "%{count} amendament"
+          few: "%{count} amendamente"
+          other: "%{count} amendamente"
       created:
+        error: A apărut o problemă la crearea ciornei de amendament.
         success: Ciorna de amendament a fost creată cu succes.
       destroy_draft:
         error: A apărut o eroare la ștergerea ciornei de amendament.
