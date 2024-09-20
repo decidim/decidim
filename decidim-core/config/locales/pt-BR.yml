@@ -420,6 +420,7 @@ pt-BR:
           title: A autorização expirou
         incomplete:
           cancel: Cancelar
+          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reautorize porque não temos os seguintes dados:'
           invalid_field: "%{field}"
           reauthorize: Reautorizar
           title: Reautorize
@@ -895,6 +896,7 @@ pt-BR:
           filename: Nome Arquivo
           remove: Remover
           replace: Substituir
+          save: Salvar
           title: Título
           title_required: Título é obrigatório!
           uploaded: Carregado
@@ -1928,6 +1930,7 @@ pt-BR:
       option_unified: Unificado
   views:
     pagination:
+      next: Próxima
       next_title: Link para a próxima página
       pagination: Paginação
       previous: Anterior
