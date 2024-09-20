@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "decidim/env"
 require "decidim/api/engine"
 require "decidim/api/types"
 

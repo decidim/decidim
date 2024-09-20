@@ -402,7 +402,7 @@ module Decidim
   # want to use the same uploads place for both staging and production
   # environments, but in different folders.
   config_accessor :base_uploads_path do
-    Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH", nil).default_or_present_if_exists
+    Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").to_s if Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").present?
   end
 
   # The name of the class to deliver SMS codes to users.
