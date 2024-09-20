@@ -948,7 +948,6 @@ ca:
           title_required: Un títol és necessari!
           uploaded: Pujat
           validating: Validant...
-          validation_error: Error de validació!
         select_file: Selecciona un fitxer
       upload_help:
         dropzone: Arrossega-hi els arxius o fes clic per a pujar-los
