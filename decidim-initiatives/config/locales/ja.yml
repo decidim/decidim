@@ -10,8 +10,8 @@ ja:
         decidim_user_group_id: 作成者
         description: 説明
         hashtag: ハッシュタグ
-        offline_votes: In-personal 署名
-        offline_votes_for_scope: '%{scope_name} の In-personal 署名'
+        offline_votes: 対面署名
+        offline_votes_for_scope: '%{scope_name} の 対面署名'
         scope_id: スコープ
         signature_end_date: 署名の収集期間の終了
         signature_start_date: 署名の収集期間の開始
