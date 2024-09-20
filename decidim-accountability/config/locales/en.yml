@@ -259,6 +259,7 @@ en:
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             display_progress_enabled: Display progress
+            geocoding_enabled: Maps enabled
             intro: Intro
             scope_id: Scope
             scopes_enabled: Scopes enabled

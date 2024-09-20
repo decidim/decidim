@@ -55,7 +55,8 @@ module Decidim
 
       initializer "decidim_core.register_icons", after: "decidim_core.add_social_share_services" do
         Decidim.icons.register(name: "phone-line", icon: "phone-line", category: "system", description: "", engine: :core)
-
+        Decidim.icons.register(name: "more-2-fill", icon: "more-2-fill", category: "system", description: "Resource Action button", engine: :core)
+        Decidim.icons.register(name: "more-fill", icon: "more-fill", category: "system", description: "Resource Action button", engine: :core)
         Decidim.icons.register(name: "upload-cloud-2-line", icon: "upload-cloud-2-line", category: "system",
                                description: "Upload cloud 2 line used in attachments form", engine: :core)
         Decidim.icons.register(name: "arrow-right-line", icon: "arrow-right-line", category: "system",
