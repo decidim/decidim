@@ -22,6 +22,7 @@ bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:clean:invalid_records
+bin/rails decidim_proposals:upgrade:set_categories
 ```
 
 ## 2. General notes
@@ -60,6 +61,16 @@ bin/rails decidim:upgrade:clean:action_logs
 ```
 
 You can read more about this change on PR [#13237](https://github.com/decidim/decidim/pull/13237).
+
+### 2.4. Amendments category fix
+
+We have identified a bug in the filtering system, as the amendments created did not share the category with the proposal it amended. This fix aims to fix historic data. To fix it, you need to run:
+
+```shell
+bin/rails decidim_proposals:upgrade:set_categories
+```
+
+You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
 
 ## 3. One time actions
 
