@@ -85,7 +85,7 @@
         <%= render layout: "decidim/meetings/layouts/aside_block", locals: { emoji: "star-line" } do %>
           <h3 class="meeting__aside-block__title"><%= translated_attribute(service["title"]) %></h3>
           <div class="meeting__aside-block__text"><%= translated_attribute(service["description"]) %></div>
-        <% end %> 
+        <% end %>
       <% end %>
     <% end %>
     <%= cell "decidim/meetings/cancel_registration_meeting_button", meeting, hide_modal: local_assigns[:hide_modal] %>
