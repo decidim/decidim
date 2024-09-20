@@ -333,7 +333,7 @@ ca:
             json: JSON
       assemblies:
         show:
-          title: Sobre aquesta assemblea
+          title: Quant a aquesta assemblea
       assembly_members:
         index:
           members: Membres
