@@ -437,7 +437,7 @@ describe "Explore meetings", :slow do
         start_time: date.beginning_of_day,
         end_time: date.end_of_day
       )
-
+      stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
       visit resource_locator(meeting).path
     end
 

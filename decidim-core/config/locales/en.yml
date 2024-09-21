@@ -961,7 +961,7 @@ en:
           title_required: Title is required!
           uploaded: Uploaded
           validating: Validating...
-          validation_error: Validation error!
+          validation_error: Validation error! Check that the file has an allowed extension or size.
         select_file: Select file
       upload_help:
         dropzone: Drop files here or click the button to upload

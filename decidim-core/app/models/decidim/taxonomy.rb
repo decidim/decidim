@@ -58,6 +58,14 @@ module Decidim
       [:search_by_name]
     end
 
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(id name parent_id)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(children)
+    end
+
     def translated_name
       Decidim::TaxonomyPresenter.new(self).translated_name
     end
