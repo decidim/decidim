@@ -236,7 +236,11 @@ module Decidim
 
   # Whether SSL should be forced or not.
   config_accessor :force_ssl do
-    Decidim::Env.new("DECIDIM_FORCE_SSL", Rails.env.starts_with?("production") || Rails.env.starts_with?("staging")).present?
+    if Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s == "auto"
+      Rails.env.starts_with?("production") || Rails.env.starts_with?("staging")
+    else
+      Decidim::Env.new("DECIDIM_FORCE_SSL").present?
+    end
   end
 
   # Having this on true will change the way the svg assets are being served.
@@ -251,7 +255,7 @@ module Decidim
 
   # Exposes a configuration option: The application default locale.
   config_accessor :default_locale do
-    Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").to_s
+    (Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").presence || :en).to_s
   end
 
   # Disable the redirection to the external host when performing redirect back
@@ -323,7 +327,11 @@ module Decidim
 
   # Exposes a configuration option: the currency unit
   config_accessor :currency_unit do
-    Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").to_s
+    if Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").present?
+      Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").to_s
+    else
+      "€"
+    end
   end
 
   # Exposes a configuration option: The image uploader quality.
@@ -343,7 +351,11 @@ module Decidim
 
   # Allow organization's administrators to track newsletter links
   config_accessor :track_newsletter_links do
-    Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").present?
+    if Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto").default_or_present_if_exists.to_s == "auto"
+      true
+    else
+      Decidim.force_ssl
+    end
   end
 
   # Time that download your data files are available in server
@@ -380,7 +392,11 @@ module Decidim
   # If set to true, users have option to "remember me". Notice that expire_session_after will not take
   # effect when the user wants to be remembered.
   config_accessor :enable_remember_me do
-    Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").present?
+    if Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists.to_s == "auto"
+      true
+    else
+      Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists
+    end
   end
 
   # Defines how often session_timeouter.js checks time between current moment and last request
