@@ -14,6 +14,7 @@ module Decidim
       end
       let(:invalid) { false }
       let(:errors) { [] }
+      let(:io) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
 
       describe "when form is valid" do
         it "broadcasts ok" do

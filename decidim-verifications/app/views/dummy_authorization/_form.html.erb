@@ -11,7 +11,9 @@
   <%= form.hidden_field :handler_name %>
   <%= form.text_field :document_number %>
   <%= form.text_field :postal_code %>
-  <%= form.date_field :birthday %>
-
+  <div class="row">
+    <%= form.date_field :birthday %>
+  </div>
   <%= scopes_select_field(form, :scope_id) %>
 </div>
+git

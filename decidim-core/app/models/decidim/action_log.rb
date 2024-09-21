@@ -138,6 +138,7 @@ module Decidim
         Decidim::Proposals::Proposal
         Decidim::Surveys::Survey
         Decidim::Assembly
+        Decidim::Conference
         Decidim::Initiative
         Decidim::ParticipatoryProcess
       ).select do |klass|
@@ -172,6 +173,16 @@ module Decidim
 
       # Add extra scopes for admins for the admin panel searches
       base + [:with_participatory_space]
+    end
+
+    def self.ransackable_attributes(auth_object = nil)
+      return [] unless auth_object&.admin?
+
+      %w(created_at)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(user)
     end
 
     # Overwrites the method so that records cannot be modified.
