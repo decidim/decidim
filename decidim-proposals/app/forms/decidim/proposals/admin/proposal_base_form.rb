@@ -8,7 +8,7 @@ module Decidim
         include Decidim::TranslatableAttributes
         include Decidim::AttachmentAttributes
         include Decidim::ApplicationHelper
-        include Decidim::Admin::HasTaxonomyFormAttributes
+        include Decidim::HasTaxonomyFormAttributes
 
         mimic :proposal
 

@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     class BaseMeetingForm < Decidim::Form
-      include Decidim::Admin::HasTaxonomyFormAttributes
+      include Decidim::HasTaxonomyFormAttributes
 
       attribute :address, String
       attribute :latitude, Float

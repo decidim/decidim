@@ -9,7 +9,7 @@ module Decidim
       class ConferenceForm < Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
-        include Decidim::Admin::HasTaxonomyFormAttributes
+        include Decidim::HasTaxonomyFormAttributes
 
         translatable_attribute :title, String
         translatable_attribute :slogan, String
