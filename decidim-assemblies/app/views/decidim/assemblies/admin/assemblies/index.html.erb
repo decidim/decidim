@@ -65,6 +65,13 @@
               <% end %>
             </td>
             <td class="table-list__state">
+
+            <% if allowed_to? :read, :share_tokens, current_participatory_space: assembly %>
+              <%= icon_link_to "share-line", decidim_admin_assemblies.assembly_share_tokens_path(assembly), t("actions.share_tokens", scope: "decidim.admin"), class: "action-icon--new" %>
+            <% else %>
+              <span class="action-space icon"></span>
+            <% end %>
+
               <% if assembly.published? %>
                 <span class="label success !text-sm"><%= t("assemblies.index.published", scope: "decidim.admin") %></span>
               <% else %>

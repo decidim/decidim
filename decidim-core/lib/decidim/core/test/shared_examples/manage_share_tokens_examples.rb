@@ -1,20 +1,5 @@
 # frozen_string_literal: true
 
-shared_examples "visit resource share tokens" do
-  let!(:share_token) { create(:share_token, token_for: resource, organization:, user:, registered_only: true, token: SecureRandom.hex(32)) }
-
-  before do
-    visit_resource_page
-  end
-
-  it "has a share button that opens the share tokens admin" do
-    click_on "Share"
-    expect(page).to have_content("Sharing tokens for: #{resource_name}")
-    expect(page).to have_css("tbody tr", count: 1)
-    expect(page).to have_content(share_token.token)
-  end
-end
-
 shared_examples "manage resource share tokens" do
   context "when there are no tokens" do
     let(:last_token) { Decidim::ShareToken.last }
@@ -23,15 +8,15 @@ shared_examples "manage resource share tokens" do
     end
 
     it "displays empty message" do
-      expect(page).to have_content "There are no active tokens"
+      expect(page).to have_content "There are no active private share links"
     end
 
     it "can create a new token with default options" do
-      click_on "New token"
+      click_on "New private share link"
 
       click_on "Create"
 
-      expect(page).to have_content("Token created successfully")
+      expect(page).to have_content("Private share link created successfully")
       expect(page).to have_css("tbody tr", count: 1)
       within "tbody tr:last-child td", text: last_token.token do
         expect(page).to have_content(last_token.token)
@@ -45,7 +30,7 @@ shared_examples "manage resource share tokens" do
     end
 
     it "can create a new token with custom options" do
-      click_on "New token"
+      click_on "New private share link"
 
       find_by_id("share_token_automatic_token_false").click
       find_by_id("share_token_no_expiration_false").click
@@ -58,7 +43,7 @@ shared_examples "manage resource share tokens" do
       fill_in_timepicker :share_token_expires_at_time, with: "00:00"
       click_on "Create"
 
-      expect(page).to have_content("Token created successfully")
+      expect(page).to have_content("Private share link created successfully")
       expect(page).to have_css("tbody tr", count: 1)
       within "tbody tr:last-child td", text: last_token.token do
         expect(page).to have_content("CUSTOM-TOKEN")
@@ -73,7 +58,7 @@ shared_examples "manage resource share tokens" do
   end
 
   context "when there are tokens" do
-    let!(:share_tokens) { create_list(:share_token, 3, token_for: resource, organization:, registered_only: true) }
+    let!(:share_tokens) { create_list(:share_token, 3, :with_token, token_for: resource, organization:, registered_only: true) }
     let(:last_token) { share_tokens.last }
 
     before do
@@ -103,7 +88,7 @@ shared_examples "manage resource share tokens" do
         click_on "Edit"
       end
 
-      expect(page).to have_content("Edit sharing tokens for: #{resource_name}")
+      expect(page).to have_content("Edit private share links for: #{resource_name}")
       find_by_id("share_token_no_expiration_false").click
       find_by_id("share_token_registered_only_false").click
       click_on "Update"
@@ -114,7 +99,7 @@ shared_examples "manage resource share tokens" do
 
       click_on "Update"
 
-      expect(page).to have_content("Token updated successfully")
+      expect(page).to have_content("Private share link updated successfully")
       expect(page).to have_css("tbody tr", count: 3)
       within "tbody tr", text: last_token.token do
         expect(page).to have_content(1.day.from_now.strftime("%d/%m/%Y 00:00"))
@@ -160,13 +145,13 @@ shared_examples "manage resource share tokens" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("Token successfully destroyed")
+      expect(page).to have_admin_callout("Private share link successfully destroyed")
       expect(page).to have_css("tbody tr", count: 2)
     end
   end
 
   context "when there are many pages" do
-    let!(:share_tokens) { create_list(:share_token, 26, token_for: resource, organization:) }
+    let!(:share_tokens) { create_list(:share_token, 26, :with_token, token_for: resource, organization:) }
 
     before do
       visit_share_tokens_page
@@ -195,15 +180,11 @@ shared_examples "manage component share tokens" do
 
   def visit_share_tokens_page
     visit components_path
-    click_on "Components"
-    click_on "Share"
+    within ".table-list" do
+      click_on "Private shares"
+    end
   end
 
-  def visit_resource_page
-    visit components_path
-  end
-
-  it_behaves_like "visit resource share tokens"
   it_behaves_like "manage resource share tokens"
 end
 
@@ -217,14 +198,9 @@ shared_examples "manage participatory space share tokens" do
   end
 
   def visit_share_tokens_page
-    visit participatory_space_path
-    click_on "Share tokens"
+    visit participatory_spaces_path
+    click_on "Private shares"
   end
 
-  def visit_resource_page
-    visit participatory_space_path
-  end
-
-  it_behaves_like "visit resource share tokens"
   it_behaves_like "manage resource share tokens"
 end

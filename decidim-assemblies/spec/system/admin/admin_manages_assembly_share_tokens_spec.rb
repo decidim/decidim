@@ -8,6 +8,7 @@ describe "Admin manages assembly share tokens" do
   let!(:assembly) { create(:assembly, organization:, private_space: true) }
   let(:participatory_space) { assembly }
   let(:participatory_space_path) { decidim_admin_assemblies.edit_assembly_path(assembly) }
+  let(:participatory_spaces_path) { decidim_admin_assemblies.assemblies_path }
 
   it_behaves_like "manage participatory space share tokens"
 
