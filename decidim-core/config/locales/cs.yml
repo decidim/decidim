@@ -64,6 +64,12 @@ cs:
         password_confirmation: Potvrzení hesla
         remember_me: Zapamatuj si mě
     models:
+      decidim:
+        history:
+          one: Historie
+          few: Historie
+          many: Historie
+          other: Historie
       decidim/amendment:
         one: Pozměňovací návrh
         few: Změny
@@ -987,6 +993,7 @@ cs:
           title_required: Název je povinný!
           uploaded: Nahráno
           validating: Probíhá ověřování...
+          validation_error: Chyba ověření! Zkontrolujte, zda má soubor povolenou příponu nebo velikost.
         select_file: Vyberte soubor
       upload_help:
         dropzone: Přetáhněte soubory sem nebo klikněte na tlačítko pro nahrání
@@ -1483,6 +1490,8 @@ cs:
       create:
         error: Při vytváření zprávy došlo k chybě. Zkuste to prosím znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
+    resource:
+      controls_label: Ovládání zdrojů
     resource_endorsements:
       create:
         error: Během akce schválení došlo k chybě.
@@ -1923,6 +1932,11 @@ cs:
       nesting_too_deep: nemůže být uvnitř podkategorie
       not_found: se nepodařilo najít. Vytvořili jste si účet již dříve?
       not_locked: nebyl uzamčen
+      not_saved:
+        one: 'Při zpracování vašeho požadavku došlo k chybě:'
+        few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
+        many: 'Při zpracování vašeho požadavku došlo k několika chybám:'
+        other: 'Při zpracování vašeho požadavku došlo k několika chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)
