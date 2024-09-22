@@ -18,6 +18,7 @@ cs:
         automatic_hashtags: Hashtagy automaticky přidány
         body: Tělo
         category_id: Kategorie
+        decidim_proposals_proposal_state_id: Stav
         decidim_scope_id: Rozsah
         has_address: Má adresu
         scope_id: Oblast působnosti
@@ -90,6 +91,13 @@ cs:
       decidim/proposals/voting_enabled_event: Hlasování návrhu je povoleno
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Návrh %{link} byl vytvořen
+            import_to_proposal_text: Tento návrh %{link} byl vytvořen
+            merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
+            split_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
       decidim/proposals/collaborative_draft:
         one: Návrh spolupráce
         few: Společné návrhy
@@ -790,6 +798,8 @@ cs:
       create:
         error: Při ukládání návrhu došlo k chybám.
         success: Návrh byl úspěšně vytvořen. Uloženo jako návrh.
+      creation:
+        imported_text: Stalo se z něj tento návrh
       destroy_draft:
         error: Došlo k chybám s vymazáním návrhového návrhu.
         success: Koncept návrhu byl úspěšně smazán.
