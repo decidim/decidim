@@ -28,6 +28,9 @@ module Decidim
             end
           end
         end
+
+        # post :locate, to: "geolocation#locate"
+        post "/locate", to: "geolocation#locate"
         resources :collaborative_drafts, except: [:destroy] do
           member do
             post :request_access, controller: "collaborative_draft_collaborator_requests"

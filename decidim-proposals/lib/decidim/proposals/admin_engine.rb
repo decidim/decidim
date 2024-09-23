@@ -44,6 +44,8 @@ module Decidim
           end
         end
 
+        post :locate, to: "/decidim/proposals/geolocation#locate", as: :locate
+
         root to: "proposals#index"
       end
 

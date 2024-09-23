@@ -9,6 +9,8 @@ module Decidim
       # Provides all the necessary functionality to initialize the front-end
       # geocoding autocompletion functionality.
       class Builder < Decidim::Map::Frontend::Builder
+        delegate :current_component, :content_tag, :asset_pack_path, to: :template
+
         # Displays the geocoding field element's markup for the view.
         #
         # @param object_name [String, Symbol] The name for the object for which
@@ -18,14 +20,43 @@ module Decidim
         # @param options [Hash] Extra options for the field.
         # @return [String] The field element's markup.
         def geocoding_field(object_name, method, options = {})
-          options[:autocomplete] ||= "off"
+          return original_geocoding_field(object_name, method, options) unless show_my_location_button?
 
           append_assets
-          template.text_field(
-            object_name,
-            method,
-            options.merge("data-decidim-geocoding" => view_options.to_json)
-          )
+          template.snippets.add(:decidim_proposals_geocoding_scripts, template.append_javascript_pack_tag("decidim_proposals_geocoding"))
+
+          options[:autocomplete] ||= "off"
+          options[:class] ||= "input-group-field"
+
+          template.content_tag(:div, class: "geocoding-container") do
+            template.text_field(
+              object_name,
+              method,
+              options.merge("data-decidim-geocoding" => view_options.to_json)
+            ) +
+              template.content_tag(:div, class: "input-group-button user-device-location") do
+                template.content_tag(:button, class: "button button__sm md:button__sm button__text-secondary mt-2", type: "button", data: {
+                                       input: "#{object_name}_#{method}",
+                                       latitude: "#{object_name}_latitude",
+                                       longitude: "#{object_name}_longitude",
+                                       error_no_location: I18n.t("errors.no_device_location", scope: "decidim.proposals.forms"),
+                                       error_unsupported: I18n.t("errors.device_not_supported", scope: "decidim.proposals.forms"),
+                                       url: template.url_for(controller: "/decidim/proposals/geolocation", action: "locate")
+                                     }) do
+                  template.icon("map-pin-line", role: "img", "aria-hidden": true) + " #{I18n.t("use_my_location", scope: "decidim.proposals.forms")}"
+                end
+              end
+          end
+        end
+
+        alias original_geocoding_field geocoding_field
+
+        private
+
+        def show_my_location_button?
+          return unless template.respond_to?(:current_component)
+
+          Decidim::Proposals.show_my_location_button.include?(template.current_component.manifest_name.to_sym)
         end
       end
 
