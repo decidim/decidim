@@ -14,6 +14,8 @@ describe "Admin manages budgets" do
     visit_component_admin
   end
 
+  it_behaves_like "manage taxonomy filters in settings"
+
   describe "admin form" do
     before { click_on "New budget" }
 
