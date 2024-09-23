@@ -9,8 +9,6 @@ module Decidim::Budgets
     let(:budget) { create(:budget) }
     let(:project) { create(:project, budget:) }
     let(:organization) { budget.component.organization }
-    let(:scope) { create(:scope, organization:) }
-    let(:category) { create(:category, participatory_space: budget.component.participatory_space) }
     let(:participatory_process) { budget.component.participatory_space }
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
     let(:uploaded_photos) { [] }
@@ -19,6 +17,9 @@ module Decidim::Budgets
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:current_photos) { [] }
+    let!(:taxonomizations) do
+      2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: meeting) }
+    end
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
@@ -37,8 +38,7 @@ module Decidim::Budgets
         description: { en: "description" },
         budget_amount: 10_000_000,
         proposal_ids: proposals.map(&:id),
-        scope:,
-        category:,
+        taxonomizations:,
         selected:,
         photos: current_photos,
         add_photos: uploaded_photos,
@@ -68,9 +68,9 @@ module Decidim::Budgets
         expect(project.scope).to eq scope
       end
 
-      it "sets the category" do
+      it "sets the taxonomies" do
         subject.call
-        expect(project.category).to eq category
+        expect(project.reload.taxonomies).to match_array(taxonomizations.map(&:taxonomy))
       end
 
       it "traces the action", versioning: true do
