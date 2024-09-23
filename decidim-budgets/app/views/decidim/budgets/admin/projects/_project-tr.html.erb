@@ -13,7 +13,7 @@
     <% end %>
   </td>
   <td>
-    <%= project.taxonomies.map{ |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
+    <%= project.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
   </td>
   <% if current_component.has_subscopes? %>
     <%= td_resource_scope_for(project.scope) %>
