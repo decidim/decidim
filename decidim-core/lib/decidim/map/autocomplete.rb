@@ -41,7 +41,7 @@ module Decidim
                                        longitude: "#{object_name}_longitude",
                                        error_no_location: I18n.t("errors.no_device_location", scope: "decidim.proposals.forms"),
                                        error_unsupported: I18n.t("errors.device_not_supported", scope: "decidim.proposals.forms"),
-                                       url: template.url_for(controller: "/decidim/proposals/geolocation", action: "locate")
+                                       url: template.url_for(controller: "geolocation", action: "locate")
                                      }) do
                   template.icon("map-pin-line", role: "img", "aria-hidden": true) + " #{I18n.t("use_my_location", scope: "decidim.proposals.forms")}"
                 end

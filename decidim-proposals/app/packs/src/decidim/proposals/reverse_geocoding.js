@@ -32,8 +32,6 @@ $(() => {
         const coordinates  = [position.coords.latitude, position.coords.longitude];
         // reverse geolocation
         $.post(url, { latitude: coordinates[0], longitude: coordinates[1] }, (data) => {
-          console.log("Received data:", data);
-          console.log("URL:", url);
           $input.val(data.address)
         })
         setLocating($this, false);
