@@ -22,7 +22,7 @@
 <% if @form.geocoding_enabled? %>
   <div id="address_input">
     <div class="address-fill">
-      <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address") %>
+      <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address"),  data: { screen_reader_announcement: t("decidim.proposals.proposals.edit_form_fields.marker_added") } %>
     </div>
     <div id="address_map" class="proposal__container">
       <p class="help-text">

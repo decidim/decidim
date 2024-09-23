@@ -26,7 +26,7 @@ describe "User location button" do
   end
 
   shared_examples "uses device location" do
-    context "when geocoding_enabled"  do
+    context "when geocoding_enabled" do
       let(:geocoding_enabled) { true }
 
       it "has my location button" do
