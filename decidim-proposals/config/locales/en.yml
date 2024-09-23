@@ -148,6 +148,9 @@ en:
               state_published: Answered
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
+    application:
+      geocoding:
+        unconfigured: Geocoding is not configured!
     components:
       proposals:
         actions:

@@ -8,38 +8,42 @@ describe "User location button" do
   let!(:component) do
     create(:proposal_component,
            :with_extra_hashtags,
-           participatory_space: participatory_process)
+           participatory_space: participatory_process,
+           settings: { geocoding_enabled: })
   end
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:proposal) { Decidim::Proposals::Proposal.last }
   let(:address) { "Plaça Santa Jaume, 1, 08002 Barcelona" }
   let(:latitude) { 41.3825 }
   let(:longitude) { 2.1772 }
-  let(:all_manifests) { [:proposals, :meetings] }
-  let(:manifests) { all_manifests }
+  let(:manifest) { [:proposals] }
 
   before do
     stub_geocoding(address, [latitude, longitude])
-    allow(Decidim::Proposals).to receive(:show_my_location_button).and_return(manifests)
+    allow(Decidim::Proposals).to receive(:show_my_location_button).and_return(manifest)
     switch_to_host(organization.host)
     login_as user, scope: :user
   end
 
   shared_examples "uses device location" do
-    it "has my location button" do
-      expect(page).to have_button("Use my current location")
-    end
+    context "when geocoding_enabled"  do
+      let(:geocoding_enabled) { true }
 
-    context "when option disabled" do
-      let(:manifests) { all_manifests - [component.manifest_name.to_sym] }
+      it "has my location button" do
+        expect(page).to have_button("Use my current location")
+      end
 
-      it "does not has the location button" do
-        expect(page).to have_no_button("Use my current location")
+      context "when option disabled" do
+        let(:geocoding_enabled) { false }
+
+        it "does not has the location button" do
+          expect(page).to have_no_button("Use my current location")
+        end
       end
     end
   end
 
-  describe "#proposals", :serves_geocoding_autocomplete do
+  describe "when public", :serves_geocoding_autocomplete do
     before do
       visit_component
       click_link_or_button "New proposal"
