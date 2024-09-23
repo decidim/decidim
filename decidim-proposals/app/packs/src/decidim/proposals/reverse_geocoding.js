@@ -15,16 +15,16 @@ $(() => {
     }
   }
 
-  $(".user-device-location button").on("click", (e) => {
-    const $this = $(e.target);
+  $(".user-device-location button").on("click", (event) => {
+    const $this = $(event.target);
     if ($this.is(":disabled")) {
       return;
     }
 
-    const $input = $(`#${e.target.dataset.input}`);
-    const errorNoLocation = e.target.dataset.errorNoLocation;
-    const errorUnsupported = e.target.dataset.errorUnsupported;
-    const url = e.target.dataset.url;
+    const $input = $(`#${event.target.dataset.input}`);
+    const errorNoLocation = event.target.dataset.errorNoLocation;
+    const errorUnsupported = event.target.dataset.errorUnsupported;
+    const url = event.target.dataset.url;
 
     if (navigator.geolocation) {
       setLocating($this, true);
