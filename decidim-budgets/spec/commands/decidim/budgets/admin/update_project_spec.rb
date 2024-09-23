@@ -18,7 +18,7 @@ module Decidim::Budgets
     let(:longitude) { 2.1234 }
     let(:current_photos) { [] }
     let!(:taxonomizations) do
-      2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: meeting) }
+      2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: project) }
     end
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)
@@ -63,11 +63,6 @@ module Decidim::Budgets
         expect(translated(project.title)).to eq "title"
       end
 
-      it "sets the scope" do
-        subject.call
-        expect(project.scope).to eq scope
-      end
-
       it "sets the taxonomies" do
         subject.call
         expect(project.reload.taxonomies).to match_array(taxonomizations.map(&:taxonomy))
@@ -79,7 +74,7 @@ module Decidim::Budgets
           .with(
             project,
             current_user,
-            hash_including(:scope, :category, :title, :description, :budget_amount)
+            hash_including(:taxonomizations, :title, :description, :budget_amount)
           )
           .and_call_original
 
