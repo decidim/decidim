@@ -1,17 +1,5 @@
 .geocoding-container {
-  @apply sm:flex sm:items-end;
-
-  .autoComplete_wrapper {
-    @apply w-full mb-2 sm:m-0 sm:mr-2;
-  }
-
-  .user-device-location {
-    button {
-      @apply whitespace-nowrap p-2 w-full sm:w-auto;
-
-      svg {
-        margin-right: 0.2rem;
-      }
-    }
+  .user-device-location button {
+    @apply mt-4;
   }
 }

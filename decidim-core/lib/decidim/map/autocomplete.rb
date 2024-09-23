@@ -24,6 +24,7 @@ module Decidim
 
           append_assets
           template.snippets.add(:decidim_proposals_geocoding_scripts, template.append_javascript_pack_tag("decidim_proposals_geocoding"))
+          template.snippets.add(:decidim_proposals_geocoding_styles, template.append_stylesheet_pack_tag("decidim_proposals_geocoding"))
 
           options[:autocomplete] ||= "off"
           options[:class] ||= "input-group-field"
@@ -35,7 +36,7 @@ module Decidim
               options.merge("data-decidim-geocoding" => view_options.to_json)
             ) +
               template.content_tag(:div, class: "input-group-button user-device-location") do
-                template.content_tag(:button, class: "button button__sm md:button__sm button__text-secondary mt-2", type: "button", data: {
+                template.content_tag(:button, class: "button button__sm md:button__sm button__text-secondary", type: "button", data: {
                                        input: "#{object_name}_#{method}",
                                        latitude: "#{object_name}_latitude",
                                        longitude: "#{object_name}_longitude",
