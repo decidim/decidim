@@ -49,6 +49,9 @@ module Decidim::Accountability
         component: project_component
       )
     end
+    let(:address) { "Carrer de Muntaner, 152, 08021 Barcelona" }
+    let(:latitude) { 41.38879 }
+    let(:longitude) { 2.15899 }
     let(:form) do
       double(
         invalid?: invalid,
@@ -65,7 +68,10 @@ module Decidim::Accountability
         current_user: user,
         parent_id: nil,
         external_id:,
-        weight:
+        weight:,
+        address:,
+        latitude:,
+        longitude:
       )
     end
     let(:invalid) { false }

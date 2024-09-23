@@ -14,10 +14,6 @@ module Decidim
         __getobj__
       end
 
-      def result_path
-        Decidim::ResourceLocatorPresenter.new(result).path
-      end
-
       # Render the result title
       #
       # links - should render hashtags as links?
