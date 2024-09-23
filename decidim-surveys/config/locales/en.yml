@@ -54,6 +54,11 @@ en:
       answers_count: Answers
     surveys:
       actions:
+        confirm_destroy: Are you sure you want to delete this %{name}?
+        destroy: Destroy
+        edit: Edit
+        new_survey: New survey
+        preview: Preview
         title: Actions
       admin:
         component:

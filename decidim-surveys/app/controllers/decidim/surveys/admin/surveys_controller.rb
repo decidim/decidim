@@ -52,7 +52,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= Survey.where(component: current_component).published.not_hidden
+          @collection ||= Survey.where(component: current_component)
         end
       end
     end

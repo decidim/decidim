@@ -15,6 +15,7 @@ module Decidim
         get "/answers", to: "surveys#index", as: :index_survey
         get "/answer_options", to: "surveys#answer_options", as: :answer_options_survey
         put "/", to: "surveys#update", as: :survey
+        resources :surveys, only: [:show, :index, :new, :create, :edit, :update]
         root to: "surveys#index"
       end
 
