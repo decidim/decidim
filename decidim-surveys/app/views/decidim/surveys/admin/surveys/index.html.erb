@@ -1,0 +1,37 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header item_show__header--with-action-options">
+    <h1 class="item_show__header-title">
+      <div>
+        <%= t(".title") %>
+      </div>
+      <div class="flex items-center gap-x-4">
+
+      </div>
+    </h1>
+  </div>
+  <div class="table-scroll mt-8">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th><%= t("models.survey.fields.title", scope: "decidim.surveys") %></th>
+          <th><%= t("models.survey.fields.questions", scope: "decidim.surveys") %></th>
+          <th><%= t("models.survey.fields.answers", scope: "decidim.surveys") %></th>
+          <th><%= t("models.survey.fields.status", scope: "decidim.surveys") %></th>
+          <th><%= t("actions.title", scope: "decidim.surveys") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% surveys.each do |survey| %>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

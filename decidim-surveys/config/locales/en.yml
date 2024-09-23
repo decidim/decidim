@@ -53,6 +53,8 @@ en:
     statistics:
       answers_count: Answers
     surveys:
+      actions:
+        title: Actions
       admin:
         component:
           actions:
@@ -60,11 +62,20 @@ en:
         exports:
           survey_user_answers: Survey participant answers
         surveys:
+          index:
+            title: Surveys
           update:
             invalid: There was a problem saving the survey.
             success: Survey successfully saved.
       last_activity:
         new_survey: 'New survey:'
+      models:
+        survey:
+          fields:
+            answers: Answers
+            questions: Questions
+            status: Status
+            title: Title
       survey_confirmation_mailer:
         confirmation:
           body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}

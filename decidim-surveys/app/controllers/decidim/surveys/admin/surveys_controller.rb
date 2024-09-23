@@ -7,6 +7,11 @@ module Decidim
       class SurveysController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswers
+        include Decidim::Surveys::Admin::Filterable
+
+        helper_method :surveys
+
+        def index; end
 
         def edit
           enforce_permission_to(:update, :questionnaire, questionnaire:)
@@ -38,8 +43,16 @@ module Decidim
           "decidim.surveys.admin.surveys"
         end
 
+        def surveys
+          @surveys ||= filtered_collection
+        end
+
         def survey
-          @survey ||= Survey.find_by(component: current_component)
+          @survey ||= surveys.find(params[:id])
+        end
+
+        def collection
+          @collection ||= Survey.where(component: current_component).published.not_hidden
         end
       end
     end
