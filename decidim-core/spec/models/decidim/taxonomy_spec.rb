@@ -183,14 +183,14 @@ module Decidim
         expect(result).not_to include(sub_taxonomy1)
       end
 
-      it "returns taxonomies and subtaxonomies matching the part_of" do
+      it "returns taxonomies and sub taxonomies matching the part_of" do
         result = described_class.part_of(taxonomy1.id)
         expect(result).to include(taxonomy1)
         expect(result).to include(sub_taxonomy1)
         expect(result).not_to include(taxonomy2)
       end
 
-      it "returns subtaxonomies matching the part_of" do
+      it "returns sub taxonomies matching the part_of" do
         result = described_class.part_of(sub_taxonomy1.id)
         expect(result).to include(sub_taxonomy1)
         expect(result).not_to include(taxonomy1)
