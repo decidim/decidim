@@ -9,7 +9,7 @@ module Decidim
       # Provides all the necessary functionality to initialize the front-end
       # geocoding autocompletion functionality.
       class Builder < Decidim::Map::Frontend::Builder
-        delegate :current_component, :content_tag, :asset_pack_path, to: :template
+        delegate :icon, :content_tag, :asset_pack_path, to: :template
 
         # Renders the geocoding field element for the view. If the component supports
         # geolocation (as determined by `show_my_location_button?`), the field will include
@@ -52,7 +52,7 @@ module Decidim
                                        error_unsupported: I18n.t("errors.device_not_supported", scope: "decidim.proposals.forms"),
                                        url: Decidim::Core::Engine.routes.url_helpers.locate_path
                                      }) do
-                  template.icon("map-pin-line", role: "img", "aria-hidden": true) + " #{I18n.t("use_my_location", scope: "decidim.proposals.forms")}"
+                  icon("map-pin-line", role: "img", "aria-hidden": true) + " #{I18n.t("use_my_location", scope: "decidim.proposals.forms")}"
                 end
               end
           end

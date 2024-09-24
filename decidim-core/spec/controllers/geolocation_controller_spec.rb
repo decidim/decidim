@@ -25,7 +25,6 @@ module Decidim
     let(:json) { response.parsed_body }
 
     before do
-      # stub_geocoding(address, [latitude, longitude])
       allow(Geocoder).to receive(:search).and_return(result)
       request.env["decidim.current_organization"] = organization
       sign_in current_user, scope: :user
