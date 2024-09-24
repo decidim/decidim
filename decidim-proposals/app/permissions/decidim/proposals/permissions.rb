@@ -10,8 +10,6 @@ module Decidim
         return Decidim::Proposals::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
-        allow! if permission_action.action == :locate && permission_action.subject == :geolocation
-
         case permission_action.subject
         when :proposal
           apply_proposal_permissions(permission_action)
