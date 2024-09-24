@@ -15,45 +15,24 @@ describe "Admin filters, searches, and paginates projects" do
     find("a[title='Manage projects']").click
   end
 
-  context "when filtering by scope" do
-    let!(:scope1) { create(:scope, organization: component.organization, name: { "en" => "Scope1" }) }
-    let!(:scope2) { create(:scope, organization: component.organization, name: { "en" => "Scope2" }) }
-    let!(:project_with_scope1) { create(:project, budget:, scope: scope1) }
-    let!(:project_with_scope2) { create(:project, budget:, scope: scope2) }
-    let(:project_with_scope1_title) { translated(project_with_scope1.title) }
-    let(:project_with_scope2_title) { translated(project_with_scope2.title) }
+  context "when filtering by taxonomy" do
+    let!(:taxonomy1) { create(:taxonomy, :with_parent, organization: component.organization, name: { "en" => "Taxonomy1" }) }
+    let!(:taxonomy2) { create(:taxonomy, :with_parent, organization: component.organization, name: { "en" => "Taxonomy2" }) }
+    let!(:project_with_taxonomy1) { create(:project, budget:, taxonomies: [taxonomy1]) }
+    let!(:project_with_taxonomy2) { create(:project, budget:, taxonomies: [taxonomy2]) }
+    let(:project_with_taxonomy1_title) { translated(project_with_taxonomy1.title) }
+    let(:project_with_taxonomy2_title) { translated(project_with_taxonomy2.title) }
 
     before { visit current_path }
 
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
-      let(:in_filter) { project_with_scope1_title }
-      let(:not_in_filter) { project_with_scope2_title }
+    it_behaves_like "a filtered collection", options: "Taxonomy", filter: "Taxonomy1" do
+      let(:in_filter) { project_with_taxonomy1_title }
+      let(:not_in_filter) { project_with_taxonomy2_title }
     end
 
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope2" do
-      let(:in_filter) { project_with_scope2_title }
-      let(:not_in_filter) { project_with_scope1_title }
-    end
-  end
-
-  context "when filtering by category" do
-    let!(:category1) { create(:category, participatory_space:, name: { "en" => "Category1" }) }
-    let!(:category2) { create(:category, participatory_space:, name: { "en" => "Category2" }) }
-    let!(:project_with_category1) { create(:project, budget:, category: category1) }
-    let!(:project_with_category2) { create(:project, budget:, category: category2) }
-    let(:project_with_category1_title) { translated(project_with_category1.title) }
-    let(:project_with_category2_title) { translated(project_with_category2.title) }
-
-    before { visit current_path }
-
-    it_behaves_like "a filtered collection", options: "Category", filter: "Category1" do
-      let(:in_filter) { project_with_category1_title }
-      let(:not_in_filter) { project_with_category2_title }
-    end
-
-    it_behaves_like "a filtered collection", options: "Category", filter: "Category2" do
-      let(:in_filter) { project_with_category2_title }
-      let(:not_in_filter) { project_with_category1_title }
+    it_behaves_like "a filtered collection", options: "Taxonomy", filter: "Taxonomy2" do
+      let(:in_filter) { project_with_taxonomy2_title }
+      let(:not_in_filter) { project_with_taxonomy1_title }
     end
   end
 

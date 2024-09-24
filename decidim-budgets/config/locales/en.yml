@@ -44,6 +44,8 @@ en:
             values:
               'false': Selected for implementation
               'true': Not selected for implementation
+          taxonomies_id_eq:
+            label: Taxonomy
     budgets:
       actions:
         attachment_collections: Folders
@@ -217,8 +219,8 @@ en:
           fields:
             id: ID
             map: Map
-            title: Title
             taxonomies: Taxonomies
+            title: Title
       order_summary_mailer:
         order_summary:
           selected_projects: 'The projects that you have selected are:'
