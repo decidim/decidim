@@ -288,7 +288,7 @@ describe Decidim::Assemblies::Permissions do
     it_behaves_like(
       "access for roles",
       org_admin: true,
-      admin: true,
+      admin: false,
       collaborator: false,
       moderator: false,
       valuator: false
