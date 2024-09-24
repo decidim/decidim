@@ -30,6 +30,10 @@ ja:
         accountability:
           result:
             budget_text: 結果 %{link} は含まれていました
+            meetings_ids: 'このミーティングで議論されました: %{link}'
+            project_ids: 'このプロジェクトに含まれていました： %{link}'
+            proposal_ids: 'この提案に含まれました： %{link}'
+            text: 'この結果に追加されました： %{link}'
       decidim/accountability/result:
         other: 結果
   decidim:
