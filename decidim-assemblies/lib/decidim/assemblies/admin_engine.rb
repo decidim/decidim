@@ -40,7 +40,7 @@ module Decidim
           end
 
           collection do
-            get :deleted, to: "assemblies#deleted"
+            get :manage_trash, to: "assemblies#manage_trash"
             resources :imports, controller: "assembly_imports", only: [:new, :create]
           end
 
@@ -65,7 +65,7 @@ module Decidim
               patch :restore
             end
             collection do
-              get :deleted, to: "components#deleted"
+              get :manage_trash, to: "components#manage_trash"
               put :hide
             end
             resources :exports, only: :create

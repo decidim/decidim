@@ -14,7 +14,7 @@ module Decidim
       routes do
         resources :budgets do
           collection do
-            get :deleted
+            get :manage_trash
           end
 
           member do
@@ -29,7 +29,7 @@ module Decidim
               post :update_selected
               post :update_budget
               resource :proposals_import, only: [:new, :create]
-              get :deleted
+              get :manage_trash
             end
 
             member do

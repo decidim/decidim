@@ -72,12 +72,12 @@ describe Decidim::Meetings::Admin::MeetingsController do
     end
   end
 
-  describe "GET #deleted" do
+  describe "GET #manage_trash" do
     let!(:deleted_meeting) { create(:meeting, component: meeting_component, deleted_at: Time.current) }
     let!(:active_meeting) { create(:meeting, component: meeting_component) }
 
     it "lists only deleted meetings" do
-      get :deleted
+      get :manage_trash
 
       expect(response).to have_http_status(:ok)
       expect(controller.view_context.deleted_meetings).to include(deleted_meeting)
@@ -85,9 +85,9 @@ describe Decidim::Meetings::Admin::MeetingsController do
     end
 
     it "renders the deleted template" do
-      get :deleted
+      get :manage_trash
 
-      expect(response).to render_template(:deleted)
+      expect(response).to render_template(:manage_trash)
     end
   end
 end

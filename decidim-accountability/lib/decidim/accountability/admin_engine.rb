@@ -20,7 +20,7 @@ module Decidim
           end
 
           get :proposals_picker, on: :collection
-          get :deleted, on: :collection
+          get :manage_trash, on: :collection
 
           resources :attachment_collections, except: [:show]
           resources :attachments, except: [:show]

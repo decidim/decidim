@@ -104,7 +104,7 @@ describe Decidim::Proposals::Admin::ProposalsController do
     let!(:active_proposal) { create(:proposal, component:) }
 
     it "lists only deleted proposals" do
-      get :deleted
+      get :manage_trash
 
       expect(response).to have_http_status(:ok)
       expect(assigns(:deleted_proposals)).not_to include(active_proposal)
@@ -112,9 +112,9 @@ describe Decidim::Proposals::Admin::ProposalsController do
     end
 
     it "renders the deleted proposals template" do
-      get :deleted
+      get :manage_trash
 
-      expect(response).to render_template(:deleted)
+      expect(response).to render_template(:manage_trash)
     end
   end
 end

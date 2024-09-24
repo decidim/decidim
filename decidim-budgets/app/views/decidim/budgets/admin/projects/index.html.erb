@@ -37,7 +37,7 @@
       </tbody>
     </table>
     <div class="card mt-4">
-      <%= link_to deleted_budget_projects_path(budget), class: "flex items-center underline text-secondary" do %>
+      <%= link_to manage_trash_budget_projects_path(budget), class: "flex items-center underline text-secondary" do %>
         <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
         <%= t("actions.view_deleted_projects", scope: "decidim.budgets") %>
         <span class="ml-2">

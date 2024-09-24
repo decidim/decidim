@@ -97,7 +97,7 @@ module Decidim
           let!(:active_component) { create(:component, participatory_space: assembly) }
 
           it "lists only deleted components" do
-            get :deleted, params: { assembly_slug: assembly.slug }
+            get :manage_trash, params: { assembly_slug: assembly.slug }
 
             expect(response).to have_http_status(:ok)
             expect(controller.send(:deleted_components)).not_to include(active_component)
@@ -105,9 +105,9 @@ module Decidim
           end
 
           it "renders the deleted components template" do
-            get :deleted, params: { assembly_slug: assembly.slug }
+            get :manage_trash, params: { assembly_slug: assembly.slug }
 
-            expect(response).to render_template(:deleted)
+            expect(response).to render_template(:manage_trash)
           end
         end
       end

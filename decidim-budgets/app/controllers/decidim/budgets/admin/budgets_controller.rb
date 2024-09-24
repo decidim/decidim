@@ -104,8 +104,8 @@ module Decidim
           end
         end
 
-        def deleted
-          enforce_permission_to(:read, :budget)
+        def manage_trash
+          enforce_permission_to(:manage_trash, :budget)
         end
 
         private

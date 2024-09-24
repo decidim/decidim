@@ -58,7 +58,7 @@ module Decidim
           end
 
           collection do
-            get :deleted, to: "conferences#deleted"
+            get :manage_trash, to: "conferences#manage_trash"
           end
 
           resources :attachment_collections, controller: "conference_attachment_collections", except: [:show]
@@ -81,7 +81,7 @@ module Decidim
               patch :restore
             end
             collection do
-              get :deleted, to: "components#deleted"
+              get :manage_trash, to: "components#manage_trash"
               put :hide
             end
             resources :exports, only: :create

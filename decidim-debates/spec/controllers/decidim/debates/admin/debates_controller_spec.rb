@@ -55,7 +55,7 @@ module Decidim
           let(:deleted_debates) { controller.view_context.deleted_debates }
 
           it "lists only deleted debates" do
-            get :deleted
+            get :manage_trash
 
             expect(response).to have_http_status(:ok)
             expect(deleted_debates).to include(deleted_debate)
@@ -63,9 +63,9 @@ module Decidim
           end
 
           it "renders the deleted debates template" do
-            get :deleted
+            get :manage_trash
 
-            expect(response).to render_template(:deleted)
+            expect(response).to render_template(:manage_trash)
           end
         end
       end

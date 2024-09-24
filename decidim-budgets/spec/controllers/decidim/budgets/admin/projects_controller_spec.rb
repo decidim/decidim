@@ -110,7 +110,7 @@ module Decidim
           let!(:active_project) { create(:project, component:) }
 
           it "lists only deleted projects" do
-            get :deleted, params: { budget_id: deleted_project.budget.id }
+            get :manage_trash, params: { budget_id: deleted_project.budget.id }
 
             expect(response).to have_http_status(:ok)
             expect(controller.view_context.deleted_projects).to include(deleted_project)
@@ -118,9 +118,9 @@ module Decidim
           end
 
           it "renders the deleted projects template" do
-            get :deleted, params: { budget_id: deleted_project.budget.id }
+            get :manage_trash, params: { budget_id: deleted_project.budget.id }
 
-            expect(response).to render_template(:deleted)
+            expect(response).to render_template(:manage_trash)
           end
         end
       end

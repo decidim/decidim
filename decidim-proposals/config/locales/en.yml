@@ -554,7 +554,7 @@ en:
           create:
             invalid: There was a problem creating this proposal.
             success: Proposal successfully created.
-          deleted:
+          manage_trash:
             title: Deleted proposals
           edit:
             title: Update proposal

@@ -23,7 +23,7 @@ module Decidim
             post :publish_answers
             post :update_scope
             post :update_multiple_answers, controller: "proposal_answers"
-            get :deleted, controller: "proposals"
+            get :manage_trash, controller: "proposals"
             resource :proposals_import, only: [:new, :create]
             resource :proposals_merge, only: [:create]
             resource :proposals_split, only: [:create]

@@ -109,9 +109,9 @@ module Decidim
           end
         end
 
-        def deleted
-          enforce_permission_to :read, :process_list
-          render :deleted
+        def manage_trash
+          enforce_permission_to :manage_trash, :process
+          render :manage_trash
         end
 
         private

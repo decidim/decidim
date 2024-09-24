@@ -30,7 +30,7 @@ en:
           create:
             invalid: There was a problem creating this post.
             success: Post successfully created.
-          deleted:
+          manage_trash:
             title: Deleted posts
           destroy:
             success: Post successfully deleted.

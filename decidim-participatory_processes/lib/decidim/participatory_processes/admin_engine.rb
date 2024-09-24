@@ -48,7 +48,7 @@ module Decidim
           resource :export, controller: "participatory_process_exports", only: :create
 
           collection do
-            get :deleted, to: "participatory_processes#deleted"
+            get :manage_trash, to: "participatory_processes#manage_trash"
             resources :imports, controller: "participatory_process_imports", only: [:new, :create]
           end
           resource :landing_page, only: [:edit, :update], controller: "participatory_process_landing_page" do
@@ -72,7 +72,7 @@ module Decidim
               patch :restore
             end
             collection do
-              get :deleted, to: "components#deleted"
+              get :manage_trash, to: "components#manage_trash"
               put :hide
             end
             resources :exports, only: :create

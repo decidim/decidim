@@ -88,12 +88,12 @@ module Decidim
           end
         end
 
-        describe "GET deleted" do
+        describe "GET manage_trash" do
           let!(:deleted_component) { create(:component, :trashed, participatory_space: participatory_process) }
           let!(:active_component) { create(:component, participatory_space: participatory_process) }
 
           it "lists only deleted components" do
-            get :deleted, params: { participatory_process_slug: participatory_process.slug }
+            get :manage_trash, params: { participatory_process_slug: participatory_process.slug }
 
             expect(response).to have_http_status(:ok)
             expect(controller.send(:deleted_components)).not_to include(active_component)
@@ -101,9 +101,9 @@ module Decidim
           end
 
           it "renders the deleted components template" do
-            get :deleted, params: { participatory_process_slug: participatory_process.slug }
+            get :manage_trash, params: { participatory_process_slug: participatory_process.slug }
 
-            expect(response).to render_template(:deleted)
+            expect(response).to render_template(:manage_trash)
           end
         end
       end

@@ -113,8 +113,8 @@ module Decidim
           end
         end
 
-        def deleted
-          enforce_permission_to(:deleted, :result)
+        def manage_trash
+          enforce_permission_to(:manage_trash, :result)
         end
 
         private

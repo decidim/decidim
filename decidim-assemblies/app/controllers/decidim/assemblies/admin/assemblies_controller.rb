@@ -91,12 +91,12 @@ module Decidim
           Decidim::Commands::RestoreResource.call(current_assembly, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("assemblies.restore.success", scope: "decidim.admin")
-              redirect_to deleted_assemblies_path
+              redirect_to manage_trash_assemblies_path
             end
 
             on(:invalid) do
               flash[:alert] = I18n.t("assemblies.restore.invalid", scope: "decidim.admin")
-              redirect_to deleted_assemblies_path
+              redirect_to manage_trash_assemblies_path
             end
           end
         end

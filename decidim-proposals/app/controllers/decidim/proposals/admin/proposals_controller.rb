@@ -180,8 +180,8 @@ module Decidim
           end
         end
 
-        def deleted
-          enforce_permission_to :deleted, :deleted_proposals
+        def manage_trash
+          enforce_permission_to :manage_trash, :deleted_proposals
 
           @deleted_proposals = filtered_collection.trashed
         end

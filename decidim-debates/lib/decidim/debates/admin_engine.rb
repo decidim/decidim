@@ -20,7 +20,7 @@ module Decidim
             patch :restore
           end
 
-          get :deleted, on: :collection
+          get :manage_trash, on: :collection
         end
         root to: "debates#index"
       end

@@ -103,8 +103,8 @@ module Decidim
           end
         end
 
-        def deleted
-          enforce_permission_to :read, :debate
+        def manage_trash
+          enforce_permission_to :manage_trash, :debate
         end
 
         private

@@ -142,7 +142,7 @@ module Decidim
           end
         end
 
-        def deleted
+        def manage_trash
           enforce_permission_to :read, :meeting
         end
 

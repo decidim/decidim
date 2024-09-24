@@ -10,7 +10,7 @@ module Decidim
           case permission_action.subject
           when :budget
             case permission_action.action
-            when :create, :read, :export
+            when :create, :read, :export, :manage_trash
               allow!
             when :update, :soft_delete
               toggle_allow(budget)
@@ -21,7 +21,7 @@ module Decidim
             end
           when :project, :projects
             case permission_action.action
-            when :create, :import_proposals, :project_category, :read
+            when :create, :import_proposals, :project_category, :manage_trash
               permission_action.allow!
             when :update, :destroy, :soft_delete
               permission_action.allow! if project.present?

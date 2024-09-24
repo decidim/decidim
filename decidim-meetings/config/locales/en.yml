@@ -316,7 +316,7 @@ en:
           create:
             invalid: There was a problem creating this meeting.
             success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
-          deleted:
+          manage_trash:
             title: Deleted meetings
           destroy:
             invalid:

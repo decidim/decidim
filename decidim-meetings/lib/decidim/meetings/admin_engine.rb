@@ -37,7 +37,7 @@ module Decidim
           resources :attachments, except: [:show]
           resources :copies, controller: "meeting_copies", only: [:new, :create]
           resource :poll, only: [:edit, :update], controller: "meetings_poll"
-          get :deleted, on: :collection
+          get :manage_trash, on: :collection
         end
         root to: "meetings#index"
       end

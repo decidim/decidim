@@ -277,7 +277,7 @@ en:
         create:
           error: There was a problem creating a new participatory process.
           success: Participatory process successfully created. Configure now its phases.
-        deleted:
+        manage_trash:
           title: Deleted participatory processes
         edit:
           update: Update

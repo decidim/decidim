@@ -97,8 +97,8 @@ module Decidim
           end
         end
 
-        def deleted
-          enforce_permission_to :index, :blogpost
+        def manage_trash
+          enforce_permission_to :manage_trash, :blogpost
         end
 
         private

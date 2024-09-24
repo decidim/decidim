@@ -14,7 +14,7 @@ module Decidim
         resources :posts do
           resources :attachment_collections, except: [:show]
           resources :attachments, except: [:show]
-          get :deleted, on: :collection
+          get :manage_trash, on: :collection
 
           member do
             patch :soft_delete

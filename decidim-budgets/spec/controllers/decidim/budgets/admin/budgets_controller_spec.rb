@@ -50,7 +50,7 @@ module Decidim
           let!(:active_budget) { create(:budget, component:) }
 
           it "lists only deleted budgets" do
-            get :deleted
+            get :manage_trash
 
             expect(response).to have_http_status(:ok)
             expect(controller.view_context.deleted_budgets).to include(deleted_budget)
@@ -58,9 +58,9 @@ module Decidim
           end
 
           it "renders the deleted budgets template" do
-            get :deleted
+            get :manage_trash
 
-            expect(response).to render_template(:deleted)
+            expect(response).to render_template(:manage_trash)
           end
         end
       end

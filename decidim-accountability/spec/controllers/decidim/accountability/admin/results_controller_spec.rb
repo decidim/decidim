@@ -60,8 +60,8 @@ module Decidim
         end
 
         describe "GET deleted" do
-          it "renders the deleted view" do
-            get :deleted
+          it "renders the manage_trash view" do
+            get :manage_trash
 
             expect(response).to have_http_status(:ok)
             expect(subject).to render_template("decidim/accountability/admin/results/deleted")

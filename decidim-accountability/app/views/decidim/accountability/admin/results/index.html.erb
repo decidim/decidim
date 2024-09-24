@@ -33,34 +33,7 @@
   <%= admin_filter_selector(:results) %>
   <div class="table-scroll">
     <table class="table-list">
-      <thead>
-        <tr>
-          <th>
-            <%= sort_link(query, :id, t("models.result.fields.id", scope: "decidim.accountability"), default_order: :desc ) %>
-          </th>
-          <th class="!text-left">
-            <%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %>
-          </th>
-          <th>
-            <%= sort_link(query, :category_name, t("models.result.fields.category", scope: "decidim.accountability") ) %>
-          </th>
-          <% if resource_with_scopes_enabled? %>
-            <th>
-              <%= sort_link(query, :scope_name, t("models.result.fields.scope", scope: "decidim.accountability") ) %>
-            </th>
-          <% end %>
-          <th>
-            <%= sort_link(query, :status_name, t("models.result.fields.status", scope: "decidim.accountability") ) %>
-          </th>
-          <th>
-            <%= sort_link(query, :progress, t("models.result.fields.progress", scope: "decidim.accountability") ) %>
-          </th>
-          <th>
-            <%= sort_link(query, :created_at, t("models.result.fields.created_at", scope: "decidim.accountability") ) %>
-          </th>
-          <th><%= t("actions.title", scope: "decidim.accountability") %></th>
-        </tr>
-      </thead>
+      <%= render partial: "decidim/accountability/admin/results/results-thead", locals: { query: query } %>
       <tbody>
         <% results.each do |result| %>
           <%= render partial: "decidim/accountability/admin/results/result-tr", locals: { result:, view: :index } %>
@@ -70,7 +43,7 @@
   </div>
 
   <div class="card mt-4">
-    <%= link_to deleted_results_path, class: "flex items-center underline" do %>
+    <%= link_to manage_trash_results_path, class: "flex items-center underline text-secondary" do %>
       <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
       <%= t("actions.view_deleted_results", scope: "decidim.accountability") %>
       <span class="ml-2">

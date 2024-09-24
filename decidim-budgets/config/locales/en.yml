@@ -64,7 +64,7 @@ en:
           create:
             invalid: There was a problem creating this budget.
             success: Budget successfully created.
-          deleted:
+          manage_trash:
             title: Deleted budgets
           destroy:
             invalid: There was a problem deleting this budget.
@@ -101,7 +101,7 @@ en:
           create:
             invalid: There was a problem creating this project.
             success: Project successfully created.
-          deleted:
+          manage_trash:
             title: Deleted projects
           destroy:
             success: Project successfully deleted.
