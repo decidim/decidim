@@ -49,6 +49,7 @@ module Decidim
     scope :search_by_name, lambda { |name|
       where("name ->> ? ILIKE ?", I18n.locale.to_s, "%#{name}%")
     }
+
     scope :part_of, lambda { |id|
       where("part_of @> ARRAY[?]", id.to_i)
     }

@@ -43,6 +43,20 @@ shared_context "with filterable context" do
     end
   end
 
+  def page_has_content(text)
+    text = [text] unless text.is_a?(Array)
+    text.each do |t|
+      expect(page).to have_content(t)
+    end
+  end
+
+  def page_has_no_content(text)
+    text = [text] unless text.is_a?(Array)
+    text.each do |t|
+      expect(page).to have_no_content(t)
+    end
+  end
+
   shared_examples "paginating a collection" do
     unless block_given?
       let!(:collection) do
@@ -54,9 +68,13 @@ shared_context "with filterable context" do
   end
 
   shared_examples "searching by text" do
-    before { search_by_text(ActionView::Base.full_sanitizer.sanitize(text)) }
-
-    it { expect(page).to have_content(ActionView::Base.full_sanitizer.sanitize(text)) }
+    it "finds content" do
+      txt = text.is_a?(Array) ? text : [text]
+      txt.each do |t|
+        search_by_text(ActionView::Base.full_sanitizer.sanitize(t))
+        page_has_content(ActionView::Base.full_sanitizer.sanitize(t))
+      end
+    end
 
     after { search_by_text("") }
   end
@@ -64,8 +82,8 @@ shared_context "with filterable context" do
   shared_examples "a filtered collection" do |options:, filter:|
     before { apply_filter(options, filter) }
 
-    it { expect(page).to have_content(in_filter) }
-    it { expect(page).to have_no_content(not_in_filter) }
+    it { page_has_content(in_filter) }
+    it { page_has_no_content(not_in_filter) }
 
     it_behaves_like "searching by text" do
       let(:text) { in_filter }
@@ -74,8 +92,8 @@ shared_context "with filterable context" do
     context "when removing applied filter" do
       before { remove_applied_filter(filter) }
 
-      it { expect(page).to have_content(in_filter) }
-      it { expect(page).to have_content(not_in_filter) }
+      it { page_has_content(in_filter) }
+      it { page_has_content(not_in_filter) }
 
       it_behaves_like "searching by text" do
         let(:text) { not_in_filter }
@@ -86,8 +104,8 @@ shared_context "with filterable context" do
   shared_examples "a sub-filtered collection" do |option1:, option2:, filter:|
     before { apply_sub_filter(option1, option2, filter) }
 
-    it { expect(page).to have_content(in_filter) }
-    it { expect(page).to have_no_content(not_in_filter) }
+    it { page_has_content(in_filter) }
+    it { page_has_no_content(not_in_filter) }
 
     it_behaves_like "searching by text" do
       let(:text) { in_filter }
@@ -96,8 +114,8 @@ shared_context "with filterable context" do
     context "when removing applied filter" do
       before { remove_applied_filter(filter) }
 
-      it { expect(page).to have_content(in_filter) }
-      it { expect(page).to have_content(not_in_filter) }
+      it { page_has_content(in_filter) }
+      it { page_has_content(not_in_filter) }
 
       it_behaves_like "searching by text" do
         let(:text) { not_in_filter }
