@@ -312,10 +312,14 @@ module Decidim
           value_presence = ->(v) { v.present? }
           minute_start = ->(v) { v.to_time.strftime("%Y-%m-%dT%H:%M:00") }
           minute_end = ->(v) { v.to_time.strftime("%Y-%m-%dT%H:%M:59") }
+          integer_presence = ->(v) { v.to_i.positive? }
+          array_cast = ->(v) { Arel.sql("ARRAY[#{v.to_i}]") }
           config.add_predicate("dtgt", arel_predicate: "gt", formatter: minute_start, validator: value_presence, type: :datetime)
           config.add_predicate("dtlt", arel_predicate: "lt", formatter: minute_end, validator: value_presence, type: :datetime)
           config.add_predicate("dtgteq", arel_predicate: "gteq", formatter: minute_start, validator: value_presence, type: :datetime)
           config.add_predicate("dtlteq", arel_predicate: "lteq", formatter: minute_end, validator: value_presence, type: :datetime)
+          # this allows to search for an integer inside a column that is an array
+          config.add_predicate("contains", arel_predicate: "contains", formatter: array_cast, validator: integer_presence)
         end
       end
 

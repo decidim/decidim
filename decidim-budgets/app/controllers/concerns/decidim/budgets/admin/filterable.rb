@@ -26,6 +26,7 @@ module Decidim
           def filters
             [
               :taxonomies_id_eq,
+              :taxonomies_part_of_contains,
               :selected_at_null
             ]
           end
@@ -33,6 +34,7 @@ module Decidim
           def filters_with_values
             {
               taxonomies_id_eq: taxonomy_ids_hash(available_root_taxonomies),
+              taxonomies_part_of_contains: taxonomy_ids_hash(available_root_taxonomies),
               selected_at_null: [true, false]
             }
           end

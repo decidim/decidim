@@ -218,7 +218,7 @@ module Decidim
         # Array<Symbol> of filters that implement a method to find translations.
         # Useful when translations cannot be found in i18n or come from a Model.
         def dynamically_translated_filters
-          [:scope_id_eq, :category_id_eq, :taxonomies_id_eq]
+          [:scope_id_eq, :category_id_eq, :taxonomies_id_eq, :taxonomies_part_of_contains]
         end
 
         def find_dynamic_translation(filter, value)
@@ -236,6 +236,8 @@ module Decidim
         def translated_taxonomies_id_eq(id)
           translated_attribute(taxonomies.find_by(id:).name)
         end
+
+        alias_method :translated_taxonomies_part_of_contains, :translated_taxonomies_id_eq
       end
     end
   end

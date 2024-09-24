@@ -49,17 +49,20 @@ module Decidim
     scope :search_by_name, lambda { |name|
       where("name ->> ? ILIKE ?", I18n.locale.to_s, "%#{name}%")
     }
+    scope :part_of, lambda { |id|
+      where("part_of @> ARRAY[?]", id.to_i)
+    }
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::TaxonomyPresenter
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:search_by_name]
+      [:search_by_name, :part_of]
     end
 
     def self.ransackable_attributes(_auth_object = nil)
-      %w(id name parent_id)
+      %w(id name parent_id part_of)
     end
 
     def self.ransackable_associations(_auth_object = nil)

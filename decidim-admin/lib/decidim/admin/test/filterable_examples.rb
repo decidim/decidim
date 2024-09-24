@@ -17,6 +17,19 @@ shared_context "with filterable context" do
     end
   end
 
+  def apply_sub_filter(option1, option2, filter)
+    within(".filters__section") do
+      find_link("Filter").hover
+      find_link(option1).hover
+      within ".submenu > .is-active > .submenu" do
+        find_link(option2).hover
+        within ".submenu > .is-active > .submenu" do
+          click_on(filter)
+        end
+      end
+    end
+  end
+
   def remove_applied_filter(filter)
     within("[data-applied-filters-tags] .label", text: /#{filter}/i) do
       click_on("Cancel")
@@ -50,6 +63,28 @@ shared_context "with filterable context" do
 
   shared_examples "a filtered collection" do |options:, filter:|
     before { apply_filter(options, filter) }
+
+    it { expect(page).to have_content(in_filter) }
+    it { expect(page).to have_no_content(not_in_filter) }
+
+    it_behaves_like "searching by text" do
+      let(:text) { in_filter }
+    end
+
+    context "when removing applied filter" do
+      before { remove_applied_filter(filter) }
+
+      it { expect(page).to have_content(in_filter) }
+      it { expect(page).to have_content(not_in_filter) }
+
+      it_behaves_like "searching by text" do
+        let(:text) { not_in_filter }
+      end
+    end
+  end
+
+  shared_examples "a sub-filtered collection" do |option1:, option2:, filter:|
+    before { apply_sub_filter(option1, option2, filter) }
 
     it { expect(page).to have_content(in_filter) }
     it { expect(page).to have_no_content(not_in_filter) }

@@ -12,23 +12,21 @@ module Decidim
       end
 
       def available_taxonomy_filters
-        return [] unless has_taxonomy_settings?
+        return Decidim::TaxonomyFilter.none unless has_taxonomy_settings?
 
-        @available_taxonomy_filters ||= settings.taxonomy_filters.filter_map do |id|
-          Decidim::TaxonomyFilter.find_by(id:)
-        end
+        @available_taxonomy_filters ||= Decidim::TaxonomyFilter.where(id: settings.taxonomy_filters)
       end
 
       def available_root_taxonomies
-        return [] unless has_taxonomy_settings?
+        return Decidim::Taxonomy.none unless has_taxonomy_settings?
 
-        Decidim::Taxonomy.roots.where(id: available_taxonomy_filters.map(&:root_taxonomy_id))
+        @available_root_taxonomies ||= Decidim::Taxonomy.roots.where(id: available_taxonomy_filters.map(&:root_taxonomy_id))
       end
 
       def available_taxonomy_ids
         return [] unless has_taxonomy_settings?
 
-        Decidim::TaxonomyFilterItem.where(taxonomy_filter_id: settings.taxonomy_filters).pluck(:taxonomy_item_id)
+        @available_taxonomy_ids ||= Decidim::TaxonomyFilterItem.where(taxonomy_filter_id: settings.taxonomy_filters).pluck(:taxonomy_item_id)
       end
     end
   end

@@ -45,7 +45,9 @@ en:
               'false': Selected for implementation
               'true': Not selected for implementation
           taxonomies_id_eq:
-            label: Taxonomy
+            label: In taxonomy
+          taxonomies_part_of_contains:
+            label: In taxonomy or children
     budgets:
       actions:
         attachment_collections: Folders
