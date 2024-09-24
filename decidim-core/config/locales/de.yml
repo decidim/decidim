@@ -64,6 +64,10 @@ de:
         password_confirmation: Bestätigung des Passworts
         remember_me: Angemeldet bleiben
     models:
+      decidim:
+        history:
+          one: Verlauf
+          other: Verlauf
       decidim/amendment:
         one: Änderungsantrag
         other: Änderungsanträge
