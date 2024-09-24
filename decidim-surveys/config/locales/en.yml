@@ -67,6 +67,9 @@ en:
         exports:
           survey_user_answers: Survey participant answers
         surveys:
+          create:
+            invalid: There was a problem creating the survey.
+            success: Survey successfully created.
           index:
             title: Surveys
           new:

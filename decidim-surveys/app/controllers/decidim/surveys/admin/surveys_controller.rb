@@ -18,9 +18,7 @@ module Decidim
         end
 
         def create
-          @form = form(Decidim::Forms::Admin::QuestionnaireForm).from_params(params, current_component:)
-
-          Decidim::Surveys::Admin::CreateSurvey.call(@form) do
+          Decidim::Surveys::CreateSurvey.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("surveys.create.success", scope: "decidim.surveys.admin")
               redirect_to surveys_path
@@ -36,11 +34,11 @@ module Decidim
         def edit
           enforce_permission_to(:update, :questionnaire, questionnaire:)
 
-          @form = form(Decidim::Forms::Admin::QuestionnaireForm).instance(questionnaire)
+          @form = form(Decidim::Forms::Admin::QuestionnaireForm).from_model(survey.questionnaire)
         end
 
         def questionnaire_for
-          survey
+          survey.questionnaire
         end
 
         # Specify the public url from which the survey can be viewed and answered
@@ -68,7 +66,7 @@ module Decidim
         end
 
         def survey
-          @survey ||= surveys.find(params[:id])
+          @survey ||= collection.find(params[:id])
         end
 
         def collection
