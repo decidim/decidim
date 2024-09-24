@@ -2,9 +2,9 @@
 
 require "spec_helper"
 
-module Decidim::Proposals
+module Decidim
   describe GeolocationController do
-    routes { Decidim::Proposals::Engine.routes }
+    routes { Decidim::Core::Engine.routes }
 
     let(:organization) { create(:organization) }
     let(:current_user) { create(:user, :confirmed, organization:) }
@@ -12,9 +12,7 @@ module Decidim::Proposals
     let(:params) do
       {
         latitude:,
-        longitude:,
-        component_id: component.id,
-        participatory_process_slug: component.participatory_space.slug
+        longitude:
       }
     end
 
@@ -30,9 +28,6 @@ module Decidim::Proposals
       # stub_geocoding(address, [latitude, longitude])
       allow(Geocoder).to receive(:search).and_return(result)
       request.env["decidim.current_organization"] = organization
-      allow(controller).to receive(:current_component).and_return(component)
-      allow(controller).to receive(:current_component).and_return(component)
-      allow(controller).to receive(:current_participatory_space).and_return(component.participatory_space)
       sign_in current_user, scope: :user
     end
 
