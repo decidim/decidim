@@ -328,8 +328,6 @@ en:
           error: There was a problem creating this component.
           success: Component created successfully.
           success_landing_page: Component created successfully. You can add a content block for this component in the home of the space. Go to <a href="%{landing_page_path}">Landing page</a> to configure it.
-        manage_trash:
-          title: Deleted components
         destroy:
           error: There was a problem destroying this component.
           success: Component deleted successfully.
@@ -349,6 +347,8 @@ en:
             name: Component name
             scope: Component scope
             type: Component type
+        manage_trash:
+          title: Deleted components
         new:
           add: Add component
           title: 'Add component: %{name}'

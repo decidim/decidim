@@ -38,7 +38,7 @@ describe "Admin manages posts" do
 
   describe "soft delete post" do
     let(:admin_resource_path) { current_path }
-    let(:trash_path) { "#{admin_resource_path}/posts/deleted" }
+    let(:trash_path) { "#{admin_resource_path}/posts/manage_trash" }
     let(:title) { { en: "My new result" } }
     let!(:resource) { create(:post, component:, deleted_at:, title:) }
 

@@ -64,8 +64,6 @@ en:
           create:
             invalid: There was a problem creating this budget.
             success: Budget successfully created.
-          manage_trash:
-            title: Deleted budgets
           destroy:
             invalid: There was a problem deleting this budget.
             success: Budget successfully deleted.
@@ -78,6 +76,8 @@ en:
             title: Budgets
             users_with_finished_orders: Users with finished votes
             users_with_pending_orders: Users with pending votes
+          manage_trash:
+            title: Deleted budgets
           new:
             create: Create budget
             title: New budget
@@ -101,8 +101,6 @@ en:
           create:
             invalid: There was a problem creating this project.
             success: Project successfully created.
-          manage_trash:
-            title: Deleted projects
           destroy:
             success: Project successfully deleted.
           edit:
@@ -127,6 +125,8 @@ en:
             update: Update
             update_budget_button: Update project's budget
             update_scope_button: Update scope
+          manage_trash:
+            title: Deleted projects
           new:
             create: Create
             title: New project

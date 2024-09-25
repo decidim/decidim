@@ -64,7 +64,8 @@ module Decidim
             get :manage_trash
 
             expect(response).to have_http_status(:ok)
-            expect(subject).to render_template("decidim/accountability/admin/results/deleted")
+
+            expect(subject).to render_template(:manage_trash)
           end
         end
       end

@@ -316,8 +316,6 @@ en:
           create:
             invalid: There was a problem creating this meeting.
             success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
-          manage_trash:
-            title: Deleted meetings
           destroy:
             invalid:
               proposals_count:
@@ -340,6 +338,8 @@ en:
             select_an_iframe_access_level: Please select an iframe access level
           index:
             title: Meetings
+          manage_trash:
+            title: Deleted meetings
           new:
             create: Create
             title: Create meeting

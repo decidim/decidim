@@ -159,8 +159,6 @@ en:
         create:
           error: There was a problem creating this conference.
           success: Conference successfully created.
-        manage_trash:
-          title: Deleted conferences
         edit:
           update: Update
         exports:
@@ -170,6 +168,8 @@ en:
         index:
           published: Published
           unpublished: Unpublished
+        manage_trash:
+          title: Deleted conferences
         new:
           create: Create
           title: Conference

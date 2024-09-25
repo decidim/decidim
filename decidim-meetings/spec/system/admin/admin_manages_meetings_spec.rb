@@ -402,7 +402,7 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
   describe "soft deleting a meeting" do
     let!(:meeting2) { create(:meeting, component: current_component) }
     let(:admin_resource_path) { current_path }
-    let(:trash_path) { "#{admin_resource_path}/meetings/deleted" }
+    let(:trash_path) { "#{admin_resource_path}/meetings/manage_trash" }
     let(:title) { { en: "My new meeting" } }
     let!(:resource) { create(:meeting, component:, deleted_at:, title:) }
     let(:deleted_at) { nil }

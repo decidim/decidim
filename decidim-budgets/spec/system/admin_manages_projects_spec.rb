@@ -129,7 +129,7 @@ describe "Admin manages projects" do
 
     describe "soft delete a projects" do
       let(:admin_resource_path) { current_path }
-      let(:trash_path) { "#{admin_resource_path}/deleted" }
+      let(:trash_path) { "#{admin_resource_path}/manage_trash" }
       let(:title) { { en: "My projects" } }
       let!(:budget) { create(:budget, component: current_component) }
       let!(:resource) { create(:project, budget:, deleted_at:, title:) }

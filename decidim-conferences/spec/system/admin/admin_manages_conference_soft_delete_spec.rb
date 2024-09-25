@@ -6,7 +6,7 @@ describe "Admin manages conference soft delete" do
   let!(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:organization) { create(:organization) }
   let(:admin_resource_path) { decidim_admin_conferences.conferences_path }
-  let(:trash_path) { decidim_admin_conferences.deleted_conferences_path }
+  let(:trash_path) { decidim_admin_conferences.manage_trash_conferences_path }
   let(:title) { { en: "My space" } }
   let!(:resource) { create(:conference, deleted_at:, title:, organization:) }
 

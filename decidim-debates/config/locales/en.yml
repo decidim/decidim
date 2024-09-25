@@ -65,8 +65,6 @@ en:
           create:
             invalid: There was a problem creating the debate.
             success: Debate successfully created.
-          manage_trash:
-            title: Deleted debates
           destroy:
             success: Debate successfully deleted.
           edit:
@@ -78,6 +76,8 @@ en:
             open: Open (No start or end times)
           index:
             title: Debates
+          manage_trash:
+            title: Deleted debates
           new:
             create: Create debate
             title: New debate

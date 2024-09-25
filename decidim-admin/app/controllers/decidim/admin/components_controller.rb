@@ -6,7 +6,7 @@ module Decidim
     # admin panel.
     #
     class ComponentsController < Decidim::Admin::ApplicationController
-      helper_method :manifest, :current_participatory_space, :initiative?, :deleted_components
+      helper_method :manifest, :deleted_components
 
       def index
         enforce_permission_to :read, :component

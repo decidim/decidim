@@ -24,7 +24,7 @@ describe "Admin manages debates" do
 
   describe "soft delete debates" do
     let(:admin_resource_path) { current_path }
-    let(:trash_path) { "#{admin_resource_path}/debates/deleted" }
+    let(:trash_path) { "#{admin_resource_path}/debates/manage_trash" }
     let(:title) { { en: "My new result" } }
     let!(:resource) { create(:debate, component:, deleted_at:, title:) }
 

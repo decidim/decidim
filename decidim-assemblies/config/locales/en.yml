@@ -105,8 +105,6 @@ en:
         create:
           error: There was a problem creating a new assembly.
           success: Assembly created successfully.
-        manage_trash:
-          title: Deleted assemblies
         edit:
           update: Update
         index:
@@ -114,6 +112,8 @@ en:
           public: Public
           published: Published
           unpublished: Unpublished
+        manage_trash:
+          title: Deleted assemblies
         new:
           create: Create
           title: New assembly

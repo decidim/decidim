@@ -554,8 +554,6 @@ en:
           create:
             invalid: There was a problem creating this proposal.
             success: Proposal successfully created.
-          manage_trash:
-            title: Deleted proposals
           edit:
             title: Update proposal
             update: Update
@@ -589,6 +587,8 @@ en:
             unassign_from_valuator_button: Unassign
             update: Update
             update_scope_button: Update Scope
+          manage_trash:
+            title: Deleted proposals
           new:
             create: Create
             title: Create proposal

@@ -9,7 +9,7 @@ describe "Admin manages assembly components" do
 
   describe "Soft delete" do
     let(:admin_resource_path) { decidim_admin_assemblies.components_path(assembly) }
-    let(:trash_path) { decidim_admin_assemblies.deleted_components_path(assembly) }
+    let(:trash_path) { decidim_admin_assemblies.manage_trash_components_path(assembly) }
     let(:title) { { en: "My component" } }
     let!(:resource) { create(:component, manifest_name: "proposals", participatory_space: assembly, deleted_at:, name: title) }
 

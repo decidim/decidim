@@ -51,7 +51,7 @@ describe "Admin manages accountability" do
 
   describe "soft delete result" do
     let(:admin_resource_path) { current_path }
-    let(:trash_path) { "#{admin_resource_path}/results/deleted" }
+    let(:trash_path) { "#{admin_resource_path}/results/manage_trash" }
     let(:title) { { en: "My new result" } }
     let!(:resource) { create(:result, component:, deleted_at:, title:) }
 

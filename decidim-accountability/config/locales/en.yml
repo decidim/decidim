@@ -114,8 +114,6 @@ en:
           create:
             invalid: There was a problem creating this result.
             success: Result successfully created.
-          manage_trash:
-            title: Deleted results
           destroy:
             success: Result successfully deleted.
           edit:
@@ -123,6 +121,8 @@ en:
             update: Update result
           index:
             title: Results
+          manage_trash:
+            title: Deleted results
           new:
             create: Create result
             title: New result

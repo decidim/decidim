@@ -30,8 +30,6 @@ en:
           create:
             invalid: There was a problem creating this post.
             success: Post successfully created.
-          manage_trash:
-            title: Deleted posts
           destroy:
             success: Post successfully deleted.
           edit:
@@ -40,6 +38,8 @@ en:
           index:
             not_published_yet: Not published yet.
             title: Posts
+          manage_trash:
+            title: Deleted posts
           new:
             create: Create
             title: Create post
