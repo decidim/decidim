@@ -39,10 +39,12 @@ module Decidim
           Admin::UpdateSurvey.call(@form, survey, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("update.success", scope: i18n_flashes_scope)
+              redirect_to(surveys_path) && return
             end
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
+              render action: "edit"
             end
           end
         end
