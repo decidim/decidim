@@ -62,6 +62,8 @@ en:
           create:
             invalid: There was a problem creating the survey.
             success: Survey successfully created.
+          destroy:
+            success: Survey successfully deleted.
           index:
             title: Surveys
           new:

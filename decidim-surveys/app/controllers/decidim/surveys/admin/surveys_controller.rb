@@ -15,9 +15,9 @@ module Decidim
 
         def create
           Decidim::Surveys::CreateSurvey.call(current_component) do
-            on(:ok) do
+            on(:ok) do |survey|
               flash[:notice] = I18n.t("surveys.create.success", scope: "decidim.surveys.admin")
-              redirect_to surveys_path
+              redirect_to edit_survey_path(survey)
             end
 
             on(:invalid) do
@@ -29,8 +29,32 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :questionnaire, questionnaire:)
+          @form = form(Admin::SurveyForm).from_model(survey)
+        end
 
-          @form = form(Decidim::Forms::Admin::QuestionnaireForm).from_model(survey.questionnaire)
+        def update
+          params["published_at"] = Time.current if params.has_key? "save_and_publish"
+          @form = form(Admin::SurveyForm).from_params(params)
+
+          Admin::UpdateSurvey.call(@form, survey, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("update.success", scope: i18n_flashes_scope)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
+            end
+          end
+        end
+
+        def destroy
+          Decidim::Commands::DestroyResource.call(survey, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("surveys.destroy.success", scope: "decidim.surveys.admin")
+
+              redirect_to surveys_path
+            end
+          end
         end
 
         def questionnaire_for
@@ -66,7 +90,7 @@ module Decidim
         end
 
         def collection
-          @collection ||= Survey.where(component: current_component)
+          @collection ||= Decidim::Surveys::Survey.where(component: current_component)
         end
       end
     end

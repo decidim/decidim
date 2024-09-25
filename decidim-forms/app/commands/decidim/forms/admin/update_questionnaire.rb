@@ -36,13 +36,7 @@ module Decidim
         def update_questionnaire
           @questionnaire.update!(title: @form.title,
                                  description: @form.description,
-                                 tos: @form.tos,
-                                 allow_answers: @form.allow_answers,
-                                 allow_unregistered: @form.allow_unregistered,
-                                 starts_at: @form.starts_at,
-                                 ends_at: @form.ends_at,
-                                 clean_after_publish: @form.clean_after_publish,
-                                 announcement: @form.announcement)
+                                 tos: @form.tos)
         end
       end
     end

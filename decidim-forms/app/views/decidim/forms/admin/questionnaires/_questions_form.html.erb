@@ -67,14 +67,6 @@
       <% end %>
     <% end %>
   </div>
-
-  <% if questionnaire.questions_editable? %>
-    <div class="mt-4">
-      <button class="button button__sm button__secondary add-question"><%= t(".add_question") %></button>
-      <button class="button button__sm button__secondary add-separator"><%= t(".add_separator") %></button>
-      <button class="button button__sm button__secondary add-title-and-description"><%= t(".add_title_and_description") %></button>
-    </div>
-  <% end %>
 </div>
 
 <%= append_javascript_pack_tag "decidim_forms_admin" %>

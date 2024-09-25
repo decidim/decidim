@@ -88,13 +88,14 @@ en:
           edit:
             save: Save
             title: Edit questionnaire
-          form:
-            add_question: Add question
+          edit_questions:
             add_separator: Add separator
             add_title_and_description: Add title and description
+            add_question: Add question
+            save: Save
+            title: Est error.> Questions
+          form:
             already_answered_warning: The form is already answered by some users so you cannot modify its questions.
-            collapse: Collapse all questions
-            expand: Expand all questions
             preview: Preview
             title: Edit form for %{questionnaire_for}
             unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
@@ -116,6 +117,9 @@ en:
             remove: Remove
             statement: Statement
             up: Up
+          questions_form:
+            collapse: Collapse all questions
+            expand: Expand all questions
           separator:
             down: Down
             remove: Remove

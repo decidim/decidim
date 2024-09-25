@@ -14,7 +14,12 @@ module Decidim
         get "/answer/:session_token/export", to: "surveys#export_response", as: :export_response_survey
         get "/answers", to: "surveys#index", as: :index_survey
         get "/answer_options", to: "surveys#answer_options", as: :answer_options_survey
-        resources :surveys, only: [:show, :index, :create, :edit, :update], except: [:new]
+        resources :surveys, except: [:new] do
+          member do
+            get :edit_questions
+            patch :update_questions
+          end
+        end
         root to: "surveys#index"
       end
 

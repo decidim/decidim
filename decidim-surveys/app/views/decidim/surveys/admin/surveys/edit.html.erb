@@ -6,8 +6,8 @@
 
   <div class="item__edit item__edit-1col">
     <div class="item__edit-form">
-      <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form-defaults form edit_questionnaire" }) do |form| %>
-        <%= render partial: "decidim/forms/admin/questionnaires/form", object: form %>
+      <%= decidim_form_for(@form, url: survey_path(@survey), html: { class: "form-defaults form edit_questionnaire" }) do |form| %>
+        <%= render partial: "form", object: form %>
         <div class="item__edit-sticky">
           <div class="item__edit-sticky-container">
             <%= form.submit t("save", scope: "decidim.forms.admin.questionnaires.edit"), class: "button button__sm button__secondary" %>

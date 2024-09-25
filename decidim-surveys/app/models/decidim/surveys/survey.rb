@@ -14,18 +14,6 @@ module Decidim
 
       validates :questionnaire, presence: true
 
-      def clean_after_publish?
-        component.settings.clean_after_publish?
-      end
-
-      def starts_at
-        component.settings.starts_at
-      end
-
-      def ends_at
-        component.settings.ends_at
-      end
-
       def open?
         return true if starts_at.blank? && ends_at.blank?
         return true if ends_at.blank? && starts_at.past?
