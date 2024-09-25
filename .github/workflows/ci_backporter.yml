@@ -33,5 +33,5 @@ jobs:
           bundler-cache: true
       - run: gem install decidim-maintainers_toolbox
         name: Install toolbox
-      - run: decidim-action-backporter --github-token=${{ secrets.GITHUB_TOKEN }}  --pull_request_id= ${{ github.event.pull_request.number }}
+      - run: decidim-action-backporter --github-token=${{ secrets.GITHUB_TOKEN }}  --pull_request_id=${{ github.event.pull_request.number }}
         name: Create
