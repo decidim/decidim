@@ -49,7 +49,7 @@ module Decidim
           end
         end
 
-        describe "GET deleted" do
+        describe "GET manage_trash" do
           let!(:deleted_debate) { create(:debate, component:, deleted_at: Time.current) }
           let!(:active_debate) { create(:debate, component:) }
           let(:deleted_debates) { controller.view_context.deleted_debates }

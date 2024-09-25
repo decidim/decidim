@@ -53,7 +53,7 @@ module Decidim
           end
         end
 
-        describe "GET deleted" do
+        describe "GET manage_trash" do
           let!(:deleted_post) { create(:post, component:, deleted_at: Time.current) }
           let!(:active_post) { create(:post, component:) }
           let(:deleted_posts) { controller.view_context.deleted_posts }

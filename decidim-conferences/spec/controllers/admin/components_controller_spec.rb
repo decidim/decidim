@@ -92,7 +92,7 @@ module Decidim
           end
         end
 
-        describe "GET deleted" do
+        describe "GET manage_trash" do
           let!(:deleted_component) { create(:component, :trashed, participatory_space: conference) }
           let!(:active_component) { create(:component, participatory_space: conference) }
 

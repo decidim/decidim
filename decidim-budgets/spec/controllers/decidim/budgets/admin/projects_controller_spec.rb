@@ -104,7 +104,7 @@ module Decidim
           end
         end
 
-        describe "GET deleted" do
+        describe "GET manage_trash" do
           let(:component) { create(:budgets_component) }
           let!(:deleted_project) { create(:project, component:, deleted_at: Time.current) }
           let!(:active_project) { create(:project, component:) }

@@ -59,7 +59,7 @@ module Decidim
           end
         end
 
-        describe "GET deleted" do
+        describe "GET manage_trash" do
           it "renders the manage_trash view" do
             get :manage_trash
 

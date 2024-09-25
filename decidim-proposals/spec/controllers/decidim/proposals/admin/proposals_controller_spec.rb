@@ -98,7 +98,7 @@ describe Decidim::Proposals::Admin::ProposalsController do
     end
   end
 
-  describe "GET deleted" do
+  describe "GET manage_trash" do
     let(:component) { create(:proposal_component) }
     let!(:deleted_proposal) { create(:proposal, component:, deleted_at: Time.current) }
     let!(:active_proposal) { create(:proposal, component:) }
