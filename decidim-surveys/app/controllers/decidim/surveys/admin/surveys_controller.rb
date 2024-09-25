@@ -18,7 +18,7 @@ module Decidim
         end
 
         def create
-          Decidim::Surveys::CreateSurvey.call(@form) do
+          Decidim::Surveys::CreateSurvey.call(@current_component) do
             on(:ok) do
               flash[:notice] = I18n.t("surveys.create.success", scope: "decidim.surveys.admin")
               redirect_to surveys_path

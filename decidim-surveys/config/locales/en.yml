@@ -57,6 +57,7 @@ en:
         confirm_destroy: Are you sure you want to delete this %{name}?
         destroy: Destroy
         edit: Edit
+        manage_questions: Manage questions
         new_survey: New survey
         preview: Preview
         title: Actions
@@ -73,8 +74,8 @@ en:
           index:
             title: Surveys
           new:
-            title: New survey
             create: Create
+            title: New survey
           update:
             invalid: There was a problem saving the survey.
             success: Survey successfully saved.
@@ -87,6 +88,9 @@ en:
             questions: Questions
             status: Status
             title: Title
+          status:
+            closed: Closed
+            open: Open
       survey_confirmation_mailer:
         confirmation:
           body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}

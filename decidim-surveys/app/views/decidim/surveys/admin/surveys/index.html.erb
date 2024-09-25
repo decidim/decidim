@@ -21,14 +21,15 @@
       <tbody>
         <% surveys.each do |survey| %>
           <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= decidim_sanitize_translated(survey.title) %></td>
+            <td><%= survey.questionnaire.questions.size %></td>
+            <td><%= survey.questionnaire.answers.size %></td>
+            <td><%= survey.open? ? t("models.survey.status.open", scope: "decidim.surveys") : t("models.survey.status.closed", scope: "decidim.surveys") %></td>
             <td class="table-list__actions">
                 <%= icon_link_to "pencil-line", edit_survey_path(survey), t("actions.edit", scope: "decidim.surveys"), class: "action-icon--edit" %>
-                <%= icon_link_to "file-copy-line", "#", t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <%= icon_link_to "survey-line", "#", t("actions.manage_questions", scope: "decidim.surveys"), class: "action-icon--copy" %>
                 <%= icon_link_to "eye-line", resource_locator(survey).path, t("actions.preview", scope: "decidim.surveys"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
+                <%= icon_link_to "key-2-line", "#", t("actions.permissions", scope: "decidim.admin"), class: "action-icon--permissions" %>
                 <%= icon_link_to "delete-bin-line", survey_path(survey), t("actions.destroy", scope: "decidim.surveys"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.surveys") } %>
             </td>
           </tr>
