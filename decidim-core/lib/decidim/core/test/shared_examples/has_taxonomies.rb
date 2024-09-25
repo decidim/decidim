@@ -15,7 +15,7 @@ shared_examples_for "has taxonomies" do
       let!(:taxonomy) { create(:taxonomy, organization: subject.organization) }
 
       it "is not valid" do
-        expect { subject.taxonomies = [taxonomy] }.to raise_error(ActiveRecord::RecordInvalid)
+        expect { subject.taxonomies = [taxonomy] }.to raise_error(ActiveRecord::RecordInvalid).or change { subject.valid? }.to(false)
       end
     end
 

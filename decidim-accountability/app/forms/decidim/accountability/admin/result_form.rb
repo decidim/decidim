@@ -7,12 +7,11 @@ module Decidim
       class ResultForm < Decidim::Form
         include TranslatableAttributes
         include TranslationsHelper
+        include HasTaxonomyFormAttributes
 
         translatable_attribute :title, String
         translatable_attribute :description, String
 
-        attribute :decidim_scope_id, Integer
-        attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]
         attribute :project_ids, Array[Integer]
         attribute :start_date, Decidim::Attributes::LocalizedDate
@@ -27,20 +26,16 @@ module Decidim
 
         validates :progress, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 100 }, if: ->(form) { form.progress.present? }
 
-        validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
-
-        validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
-
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
         validates :status, presence: true, if: ->(form) { form.decidim_accountability_status_id.present? }
-
-        delegate :categories, to: :current_component
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
           self.project_ids = model.linked_resources(:projects, "included_projects").pluck(:id)
-          self.decidim_category_id = model.category.try(:id)
+        end
+
+        def participatory_space_manifest
+          @participatory_space_manifest ||= current_component.participatory_space.manifest.name
         end
 
         def proposals
@@ -53,24 +48,6 @@ module Decidim
         def projects
           @projects ||= Decidim.find_resource_manifest(:projects).try(:resource_scope, current_component)&.order(title: :asc)
                                &.select(:title, :id)&.map { |a| [a.title[I18n.locale.to_s], a.id] }
-        end
-
-        # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
-        #
-        # Returns a Decidim::Scope
-        def scope
-          @scope ||= @attributes["decidim_scope_id"].value ? current_component.scopes.find_by(id: @attributes["decidim_scope_id"].value) : current_component.scope
-        end
-
-        # Scope identifier
-        #
-        # Returns the scope identifier related to the result
-        def decidim_scope_id
-          super || scope&.id
-        end
-
-        def category
-          @category ||= categories.find_by(id: decidim_category_id)
         end
 
         def parent
