@@ -40,7 +40,7 @@ module Decidim
               resource: initiative,
               affected_users: [initiative.author],
               force_send: true,
-              extra: { applicant: current_user }
+              extra: { applicant: { id: current_user.id } }
             )
 
           command.call
