@@ -15,6 +15,7 @@ jobs:
   backport:
     name: "Backporter"
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     if: >
       github.base_ref == 'develop' &&
       github.event.pull_request.merged &&
@@ -27,6 +28,9 @@ jobs:
         )
       )
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
@@ -35,3 +39,4 @@ jobs:
         name: Install toolbox
       - run: decidim-action-backporter --github-token=${{ secrets.GITHUB_TOKEN }}  --pull_request_id=${{ github.event.pull_request.number }}
         name: Create
+        shell: "bash"
