@@ -8,18 +8,10 @@
   </div>
   <div class="table-scroll">
     <table class="table-list">
-      <thead>
-      <tr>
-        <th><%= t("models.debate.fields.title", scope: "decidim.debates") %></th>
-        <th><%= t("models.debate.fields.start_time", scope: "decidim.debates") %></th>
-        <th><%= t("models.debate.fields.end_time", scope: "decidim.debates") %></th>
-        <%= th_resource_scope_label %>
-        <th><%= t("actions.title", scope: "decidim.debates") %></th>
-      </tr>
-      </thead>
+      <%= render partial: "debates-thead" %>
       <tbody>
       <% deleted_debates.each do |debate| %>
-        <%= render partial: "decidim/debates/admin/debates/debate-tr", locals: { debate:, view: :deleted } %>
+        <%= render partial: "debate-tr", locals: { debate:, view: :deleted } %>
       <% end %>
       </tbody>
     </table>

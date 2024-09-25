@@ -17,20 +17,10 @@
   </div>
   <div class="table-scroll">
     <table class="table-list">
-      <thead>
-        <tr>
-          <th><%= t("models.budget.fields.name", scope: "decidim.budgets") %></th>
-          <th><%= t("models.budget.fields.total_budget", scope: "decidim.budgets") %></th>
-          <th><%= t("models.budget.fields.projects_count", scope: "decidim.budgets") %></th>
-          <% if current_component.has_subscopes? %>
-           <%= th_resource_scope_label %>
-          <% end %>
-          <th><%= t("actions.title", scope: "decidim.budgets") %></th>
-        </tr>
-      </thead>
+      <%= render partial: "budgets-thead" %>
       <tbody>
         <% budgets.each do |budget| %>
-          <%= render partial: "decidim/budgets/admin/budgets/budget-tr", locals: { budget:, view: :index } %>
+          <%= render partial: "budget-tr", locals: { budget:, view: :index } %>
         <% end %>
       </tbody>
     </table>

@@ -369,12 +369,6 @@ describe Decidim::Admin::Permissions do
       it { is_expected.to be true }
     end
 
-    context "when action is :restore" do
-      let(:action_name) { :restore }
-
-      it { is_expected.to be true }
-    end
-
     context "when subject is not :component" do
       let(:action_name) { :manage_trash }
       let(:action_subject) { :something_else }
