@@ -62,6 +62,12 @@ module Decidim
               end
             end
 
+            def edit_answers
+              @form = form(Admin::QuestionnaireForm).from_model(questionnaire)
+            end
+
+            def update_answers; end
+
             def answer_options
               respond_to do |format|
                 format.json do

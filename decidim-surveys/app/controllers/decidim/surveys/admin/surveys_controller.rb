@@ -13,12 +13,8 @@ module Decidim
 
         def index; end
 
-        def new
-          @form = form(Decidim::Forms::Admin::QuestionnaireForm).instance
-        end
-
         def create
-          Decidim::Surveys::CreateSurvey.call(@current_component) do
+          Decidim::Surveys::CreateSurvey.call(current_component) do
             on(:ok) do
               flash[:notice] = I18n.t("surveys.create.success", scope: "decidim.surveys.admin")
               redirect_to surveys_path
@@ -26,7 +22,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("surveys.create.invalid", scope: "decidim.surveys.admin")
-              render action: "new"
+              render action: "index"
             end
           end
         end
@@ -38,7 +34,7 @@ module Decidim
         end
 
         def questionnaire_for
-          survey.questionnaire
+          survey
         end
 
         # Specify the public url from which the survey can be viewed and answered
