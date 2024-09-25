@@ -16,7 +16,18 @@ jobs:
     name: "Backporter"
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    # the below IF structure checks:
+    #  - PR repository must be the official Decidim repository ( decidim/decidim )
+    #  - default branch (develop)
+    #  - if the PR in discussion is already merged
+    #  - and does not the `no-backport` label
+    #  - AND
+    #     - trigger event is a close ( like in merge )
+    #     - OR
+    #     - trigger event adding a label AND any of the labels in the PR is a `type: fix`
+    # Checking if there is an existing backport PR falls in decidim-action-backporter responsibility
     if: >
+      github.repository == 'decidim/decidim' &&
       github.base_ref == 'develop' &&
       github.event.pull_request.merged &&
       !contains(github.event.pull_request.labels.*.name, 'no-backport')
