@@ -60,7 +60,8 @@
             </div>
             <div class="card-section">
               <div class="row column">
-                <%= scopes_picker_filter f, :scope_ids, help_text: t(".scopes_help") %>
+                <%= scopes_select_field f, :scope_ids %>
+                <%= t(".scopes_help") %>
               </div>
             </div>
           </div>
