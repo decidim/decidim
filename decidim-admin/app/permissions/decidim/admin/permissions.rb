@@ -64,7 +64,15 @@ module Decidim
             permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
           end
 
-          allow! if soft_delete_action? && !current_participatory_space_is_initiative?
+          if soft_delete_action?
+            if current_participatory_space_is_initiative?
+              disallow!
+            else
+              allow_restore?
+              allow! if permission_action.action == :soft_delete
+              allow! if permission_action.action == :manage_trash
+            end
+          end
 
           allow! if permission_action.subject == :taxonomy_item
         end
@@ -274,12 +282,22 @@ module Decidim
         context.fetch(:participatory_space, nil)
       end
 
+      def component
+        context.fetch(:component, nil)
+      end
+
       def current_participatory_space_is_initiative?
         current_participatory_space.is_a?(Decidim::Initiative)
       end
 
+      def allow_restore?
+        return unless permission_action.action == :restore
+
+        toggle_allow(component&.trashed?)
+      end
+
       def soft_delete_action?
-        permission_action.subject == :component && permission_action.action.in?([:manage_trash, :restore])
+        permission_action.subject == :component && permission_action.action.in?([:manage_trash, :restore, :soft_delete])
       end
     end
   end

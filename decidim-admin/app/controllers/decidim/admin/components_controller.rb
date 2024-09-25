@@ -156,7 +156,7 @@ module Decidim
       end
 
       def manage_trash
-        enforce_permission_to :manage_trash, :component
+        enforce_permission_to :manage_trash, :component, participatory_space: current_participatory_space
       end
 
       def restore

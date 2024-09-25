@@ -47,21 +47,17 @@
     <span class="action-space icon"></span>
   <% end %>
 
-  <% if current_participatory_space.is_a?(Decidim::Initiative) %>
-    <% if allowed_to?(:destroy, :component, component: component) %>
-      <%= icon_link_to "delete-bin-line", url_for(action: :destroy, id: component, controller: "components"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
-    <% else %>
-      <span class="action-space icon"></span>
-    <% end %>
-  <% else %>
-    <% if allowed_to?(:soft_delete, :component, component: component) %>
-      <% resources_count = component.primary_stat || 0 %>
+  <% if allowed_to?(:soft_delete, :component, component: component) %>
+    <% resources_count = component.primary_stat || 0 %>
 
-      <% if component.published? %>
-        <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
-      <% else %>
-        <%= icon_link_to "delete-bin-line", url_for(action: :soft_delete, id: component, controller: "components"), t("actions.soft_delete", scope: "decidim.admin", resources_count:), method: :patch, class: "action-icon--delete", data: { confirm: (t("actions.confirm_delete_component", scope: "decidim.admin", resources_count:)) } %>
-      <% end %>
+    <% if component.published? %>
+      <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
+    <% else %>
+      <%= icon_link_to "delete-bin-line", url_for(action: :soft_delete, id: component, controller: "components"), t("actions.soft_delete", scope: "decidim.admin", resources_count:), method: :patch, class: "action-icon--delete", data: { confirm: (t("actions.confirm_delete_component", scope: "decidim.admin", resources_count:)) } %>
     <% end %>
+  <% elsif allowed_to?(:destroy, :component, component: component) %>
+    <%= icon_link_to "delete-bin-line", url_for(action: :destroy, id: component, controller: "components"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
+  <% else %>
+    <span class="action-space icon"></span>
   <% end %>
 <% end %>
