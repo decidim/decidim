@@ -86,6 +86,7 @@ describe "User creates meeting" do
 
         it "creates a new meeting", :slow do
           stub_geocoding(meeting_address, [latitude, longitude])
+          stub_geocoding_coordinates([latitude, longitude])
           visit_component
 
           click_on "New meeting"
@@ -120,6 +121,15 @@ describe "User creates meeting" do
           expect(page).to have_content(meeting_start_time)
           expect(page).to have_content(meeting_end_time)
           expect(page).to have_css("[data-author]", text: user.name)
+
+          visit decidim.last_activities_path
+          expect(page).to have_content("New meeting: #{meeting_title}")
+
+          within "#filters" do
+            find("a", class: "filter", text: "Meeting", match: :first).click
+          end
+
+          expect(page).to have_content("New meeting: #{meeting_title}")
         end
 
         context "when using the front-end geocoder" do
@@ -130,6 +140,7 @@ describe "User creates meeting" do
             address_field: :meeting_address
           ) do
             before do
+              stub_geocoding_coordinates([3.345, 4.456])
               # Prepare the view for submission (other than the address field)
               visit_component
 
@@ -156,6 +167,7 @@ describe "User creates meeting" do
 
           it "creates a new meeting", :slow do
             stub_geocoding(meeting_address, [latitude, longitude])
+            stub_geocoding_coordinates([latitude, longitude])
 
             visit_component
 
@@ -194,6 +206,7 @@ describe "User creates meeting" do
 
           it "creates a new meeting with registrations on this platform", :slow do
             stub_geocoding(meeting_address, [latitude, longitude])
+            stub_geocoding_coordinates([latitude, longitude])
 
             visit_component
 

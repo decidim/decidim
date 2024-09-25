@@ -50,6 +50,10 @@ def invite_existing_user(user)
 end
 
 shared_examples "manage invites" do
+  before do
+    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
+  end
+
   describe "inviting an attendee" do
     context "when registrations are not enabled" do
       it "cannot invite people to join a meeting" do

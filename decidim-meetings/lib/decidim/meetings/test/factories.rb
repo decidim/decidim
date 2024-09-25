@@ -68,6 +68,8 @@ FactoryBot.define do
     trait :online do
       type_of_meeting { :online }
       online_meeting_url { "https://decidim.org" }
+      latitude { nil }
+      longitude { nil }
     end
 
     trait :hybrid do

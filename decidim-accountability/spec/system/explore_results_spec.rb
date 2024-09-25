@@ -367,25 +367,27 @@ describe "Explore results", :versioning do
         end
 
         it "shows the tab" do
-          expect(page).to have_content("Included proposals")
+          expect(page).to have_content("History")
         end
 
         it "shows related proposals" do
           proposals.each do |proposal|
-            expect(page).to have_content(translated(proposal.title))
-            expect(page).to have_content(proposal.creator_author.name)
+            expect(page).to have_content(decidim_sanitize_translated(proposal.title))
+            expect(page).to have_no_content(proposal.creator_author.name)
             expect(page).to have_content(proposal.votes.size)
           end
         end
 
         it "the result is mentioned in the proposal page" do
-          click_on translated(proposal.title)
-          expect(page).to have_i18n_content(result.title)
+          click_on decidim_sanitize_translated(proposal.title)
+
+          expect(page).to have_i18n_content(decidim_sanitize_translated(result.title))
         end
 
         it "a banner links back to the result" do
-          click_on translated(proposal.title)
-          expect(page).to have_content("Included in #{translated(result.title)}")
+          click_on decidim_sanitize_translated(proposal.title)
+
+          expect(page).to have_content(decidim_sanitize_translated(result.title))
         end
       end
 
@@ -403,18 +405,18 @@ describe "Explore results", :versioning do
         end
 
         it "shows the tab" do
-          expect(page).to have_content("Included projects")
+          expect(page).to have_content("History")
         end
 
         it "shows related projects" do
           projects.each do |project|
-            expect(page).to have_content(translated(project.title))
+            expect(page).to have_content(decidim_sanitize_translated(project.title))
           end
         end
 
         it "the result is mentioned in the project page" do
-          click_on translated(project.title)
-          expect(page).to have_i18n_content(result.title)
+          click_on decidim_sanitize_translated(project.title)
+          expect(page).to have_i18n_content(decidim_sanitize_translated(result.title))
         end
       end
 
@@ -426,28 +428,29 @@ describe "Explore results", :versioning do
         let(:meeting) { meetings.first }
 
         before do
+          stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
           result.link_resources(meetings, "meetings_through_proposals")
           visit current_path
         end
 
         it "shows the tab" do
-          expect(page).to have_content("Included meetings")
+          expect(page).to have_content("History")
         end
 
         it "shows related meetings" do
           meetings.each do |meeting|
-            expect(page).to have_i18n_content(meeting.title)
+            expect(page).to have_i18n_content(decidim_sanitize_translated(meeting.title))
           end
         end
 
         it "the result is mentioned in the meeting page" do
-          click_on translated(meeting.title)
-          expect(page).to have_i18n_content(result.title)
+          click_on decidim_sanitize_translated(meeting.title)
+          expect(page).to have_i18n_content(translated(result.title))
         end
 
         it "a banner links back to the result" do
-          click_on translated(meeting.title)
-          expect(page).to have_content("Included in #{translated(result.title)}")
+          click_on decidim_sanitize_translated(meeting.title)
+          expect(page).to have_content(translated(result.title))
         end
       end
 

@@ -374,6 +374,18 @@ module Decidim
         [:with_any_type, :with_any_date, :with_any_space, :with_any_origin, :with_any_scope, :with_any_category, :with_any_global_category]
       end
 
+      def self.ransackable_attributes(auth_object = nil)
+        base = %w(description id_string search_text title)
+
+        return base unless auth_object&.admin?
+
+        base + %w(is_upcoming closed_at)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(category scope)
+      end
+
       def self.ransack(params = {}, options = {})
         MeetingSearch.new(self, params, options)
       end

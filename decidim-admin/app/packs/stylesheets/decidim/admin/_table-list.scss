@@ -115,7 +115,11 @@
     }
 
     .dragging-handle {
-      @apply cursor-move;
+      @apply cursor-ns-resize align-top p-3;
+
+      .dragger {
+        @apply text-2xl;
+      }
     }
   }
 }

@@ -17,13 +17,13 @@ module Decidim
         end
 
         def new
-          enforce_permission_to :create, :assembly
+          enforce_permission_to :create, :assembly, assembly: parent_assembly
           @form = form(AssemblyForm).instance
           @form.parent_id = params[:parent_id]
         end
 
         def create
-          enforce_permission_to :create, :assembly
+          enforce_permission_to :create, :assembly, assembly: parent_assembly
           @form = form(AssemblyForm).from_params(params)
 
           CreateAssembly.call(@form) do
@@ -66,7 +66,7 @@ module Decidim
         end
 
         def copy
-          enforce_permission_to :create, :assembly
+          enforce_permission_to :create, :assembly, assembly: collection.find_by(id: params[:parent_id])
         end
 
         def soft_delete
@@ -120,7 +120,22 @@ module Decidim
         alias current_participatory_space current_assembly
 
         def parent_assembly
-          @parent_assembly ||= collection.find_by(id: ransack_params[:parent_id_eq])
+          @parent_assembly ||= collection.find_by(id: parent_assembly_id)
+        end
+
+        def parent_assembly_id
+          # Return the parent_id from Ransack parameters if it exists
+          return ransack_params[:parent_id_eq] if ransack_params[:parent_id_eq].present?
+
+          # If the assembly parameter is present, return its parent_id
+          return assembly_parent_id if params[:assembly].present?
+
+          # Otherwise, return the parent_id from the params hash
+          return params[:parent_id]
+        end
+
+        def assembly_parent_id
+          params[:assembly][:parent_id]
         end
 
         def assembly_params

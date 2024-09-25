@@ -618,6 +618,7 @@ en:
         static_page_topics: Topics
         static_pages: Pages
         taxonomies: Taxonomies
+        taxonomy_filters: Taxonomy filters
         user_groups: Groups
         users: Participants
       metrics:
@@ -1082,6 +1083,43 @@ en:
         update:
           invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: New taxonomy filter
+        callout:
+          modify_taxonomy_html: If you need to modify this taxonomy or its items, do it through the configuration settings in the <a href="%{url}">Taxonomies</a> section.
+        create:
+          error: There was a problem creating this taxonomy filter.
+          success: Taxonomy filter created successfully.
+        destroy:
+          error: There was a problem destroying this taxonomy filter.
+          success: Taxonomy filter successfully destroyed.
+        edit:
+          back: Back
+          items: "%{count} items selected"
+          no_items: No items ara available for this taxonomies. You can create items in the taxonomy configuration settings.
+          title: Edit taxonomy filter
+          update: Update taxonomy filter
+        form:
+          select_taxonomy: Select a taxonomy
+        index:
+          description: A taxonomy filter allows admins to sort and filter participatory spaces based on a taxonomy. For example, add a taxonomy filter to sort processes by geographical scope.
+          empty: There are currently no taxonomy filters. Create a list of taxonomy filters here to sort and filter participatory spaces based on a taxonomy.
+        new:
+          back: Back
+          create: Create taxonomy filter
+          items: "%{count} items available"
+          title: New taxonomy filter
+        table:
+          actions: Actions
+          confirm_destroy: Are you sure you want to delete the filter %{name}?
+          count: Number of items
+          destroy: Delete
+          edit: Edit
+          name: Name
+        update:
+          error: There was a problem updating this taxonomy filter.
+          success: Taxonomy filter updated successfully.
       taxonomy_items:
         edit:
           title: Edit item in %{taxonomy}
@@ -1111,6 +1149,7 @@ en:
         scopes: Scopes
         statistics: Activity
         taxonomies: Taxonomies
+        taxonomy_filters: Taxonomy filters
         user_groups: Groups
         users: Administrators
       tooltips:
