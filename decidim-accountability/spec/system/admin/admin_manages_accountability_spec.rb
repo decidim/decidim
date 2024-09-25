@@ -13,6 +13,8 @@ describe "Admin manages accountability" do
     visit_component_admin
   end
 
+  it_behaves_like "manage taxonomy filters in settings"
+
   describe "results" do
     it_behaves_like "manage results"
     it_behaves_like "export results"
