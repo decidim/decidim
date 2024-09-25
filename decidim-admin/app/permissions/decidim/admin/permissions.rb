@@ -279,7 +279,7 @@ module Decidim
       end
 
       def current_participatory_space
-        context.fetch(:participatory_space, nil)
+        context.fetch(:participatory_space, nil) || component&.participatory_space
       end
 
       def component
