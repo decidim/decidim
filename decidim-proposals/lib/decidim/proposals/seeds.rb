@@ -63,7 +63,7 @@ module Decidim
           settings: {
             vote_limit: 0,
             attachments_allowed: [true, false].sample,
-            amendments_enabled: [true, false].sample,
+            amendments_enabled: participatory_space.id.odd?,
             collaborative_drafts_enabled: true
           },
           step_settings:
