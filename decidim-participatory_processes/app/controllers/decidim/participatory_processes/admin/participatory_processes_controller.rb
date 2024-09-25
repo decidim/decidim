@@ -99,12 +99,12 @@ module Decidim
           Decidim::Commands::RestoreResource.call(current_participatory_process, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_processes.restore.success", scope: "decidim.admin")
-              redirect_to deleted_participatory_processes_path
+              redirect_to manage_trash_participatory_processes_path
             end
 
             on(:invalid) do
               flash[:alert] = I18n.t("participatory_processes.restore.invalid", scope: "decidim.admin")
-              redirect_to deleted_participatory_processes_path
+              redirect_to manage_trash_participatory_processes_path
             end
           end
         end

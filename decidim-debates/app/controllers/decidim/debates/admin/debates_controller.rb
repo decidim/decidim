@@ -93,12 +93,12 @@ module Decidim
           Decidim::Commands::RestoreResource.call(debate, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("debates.restore.success", scope: "decidim.debates.admin")
-              redirect_to deleted_debates_path
+              redirect_to manage_trash_debates_path
             end
 
             on(:invalid) do
               flash[:alert] = I18n.t("debates.restore.invalid", scope: "decidim.debates.admin")
-              redirect_to deleted_debates_path
+              redirect_to manage_trash_debates_path
             end
           end
         end

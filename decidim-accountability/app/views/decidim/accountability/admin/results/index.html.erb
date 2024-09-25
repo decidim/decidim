@@ -33,7 +33,7 @@
   <%= admin_filter_selector(:results) %>
   <div class="table-scroll">
     <table class="table-list">
-      <%= render partial: "decidim/accountability/admin/results/results-thead", locals: { query: query } %>
+      <%= render partial: "decidim/accountability/admin/results/results-thead", locals: { query: } %>
       <tbody>
         <% results.each do |result| %>
           <%= render partial: "decidim/accountability/admin/results/result-tr", locals: { result:, view: :index } %>

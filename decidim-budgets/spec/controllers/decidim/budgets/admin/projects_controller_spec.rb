@@ -98,7 +98,7 @@ module Decidim
 
             patch :restore, params: { budget_id: project.budget.id, id: project.id }
 
-            expect(response).to redirect_to deleted_budget_projects_path(project.budget)
+            expect(response).to redirect_to manage_trash_budget_projects_path(project.budget)
             expect(flash[:notice]).not_to be_empty
             expect(project.reload.deleted_at).to be_nil
           end

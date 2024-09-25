@@ -355,10 +355,31 @@ describe Decidim::Admin::Permissions do
   end
 
   describe "soft delete" do
-    let(:action_subject) { :soft_delete }
+    let(:action_subject) { :component }
 
-    context "when any action" do
+    context "when action is :soft_delete" do
+      let(:action_name) { :soft_delete }
+
       it { is_expected.to be true }
+    end
+
+    context "when action is :manage_trash" do
+      let(:action_name) { :manage_trash }
+
+      it { is_expected.to be true }
+    end
+
+    context "when action is :restore" do
+      let(:action_name) { :restore }
+
+      it { is_expected.to be true }
+    end
+
+    context "when subject is not :component" do
+      let(:action_name) { :manage_trash }
+      let(:action_subject) { :something_else }
+
+      it_behaves_like "permission is not set"
     end
   end
 

@@ -108,7 +108,7 @@ module Decidim
             on(:invalid) do
               flash[:alert] = I18n.t("results.restore.invalid", scope: "decidim.accountability.admin")
 
-              redirect_to deleted_results_path
+              redirect_to manage_trash_results_path
             end
           end
         end

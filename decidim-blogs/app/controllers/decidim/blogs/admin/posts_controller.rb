@@ -92,7 +92,7 @@ module Decidim
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("posts.restore.invalid", scope: "decidim.blogs.admin")
-              redirect_to deleted_posts_path
+              redirect_to manage_trash_posts_path
             end
           end
         end

@@ -93,13 +93,13 @@ module Decidim
             on(:ok) do
               flash[:notice] = I18n.t("budgets.restore.success", scope: "decidim.budgets.admin")
 
-              redirect_to deleted_budgets_path
+              redirect_to manage_trash_budgets_path
             end
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("budgets.restore.invalid", scope: "decidim.budgets.admin")
 
-              redirect_to deleted_budgets_path
+              redirect_to manage_trash_budgets_path
             end
           end
         end

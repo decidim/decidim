@@ -92,7 +92,7 @@ describe Decidim::Proposals::Admin::ProposalsController do
 
       patch :restore, params: { id: deleted_proposal.id }
 
-      expect(response).to redirect_to(deleted_proposals_path)
+      expect(response).to redirect_to(manage_trash_proposals_path)
       expect(flash[:notice]).to eq(I18n.t("proposals.restore.success", scope: "decidim.proposals.admin"))
       expect(deleted_proposal.reload.deleted_at).to be_nil
     end

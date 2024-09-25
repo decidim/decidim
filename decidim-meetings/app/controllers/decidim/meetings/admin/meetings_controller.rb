@@ -132,12 +132,12 @@ module Decidim
           Decidim::Commands::RestoreResource.call(meeting, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("meetings.restore.success", scope: "decidim.meetings.admin")
-              redirect_to deleted_meetings_path
+              redirect_to manage_trash_meetings_path
             end
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("meetings.restore.invalid", scope: "decidim.meetings.admin")
-              redirect_to deleted_meetings_path
+              redirect_to manage_trash_meetings_path
             end
           end
         end

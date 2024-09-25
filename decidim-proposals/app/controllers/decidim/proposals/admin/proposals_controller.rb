@@ -170,12 +170,12 @@ module Decidim
           Decidim::Commands::RestoreResource.call(proposal, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("proposals.restore.success", scope: "decidim.proposals.admin")
-              redirect_to deleted_proposals_path
+              redirect_to manage_trash_proposals_path
             end
 
             on(:invalid) do
               flash[:alert] = I18n.t("proposals.restore.invalid", scope: "decidim.proposals.admin")
-              redirect_to deleted_proposals_path
+              redirect_to manage_trash_proposals_path
             end
           end
         end

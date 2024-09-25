@@ -43,7 +43,7 @@ module Decidim
 
             patch(:restore, params:)
 
-            expect(response).to redirect_to deleted_debates_path
+            expect(response).to redirect_to manage_trash_debates_path
             expect(flash[:notice]).to eq(I18n.t("debates.restore.success", scope: "decidim.debates.admin"))
             expect(debate.reload.deleted_at).to be_nil
           end

@@ -204,12 +204,12 @@ module Decidim
           Decidim::Commands::RestoreResource.call(project, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("projects.restore.success", scope: "decidim.budgets.admin")
-              redirect_to deleted_budget_projects_path(budget)
+              redirect_to manage_trash_budget_projects_path(budget)
             end
 
             on(:invalid) do
               flash.now[:alert] = I18n.t("projects.restore.invalid", scope: "decidim.budgets.admin")
-              redirect_to deleted_budget_projects_path(budget)
+              redirect_to manage_trash_budget_projects_path(budget)
             end
           end
         end

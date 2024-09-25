@@ -66,7 +66,7 @@ describe Decidim::Meetings::Admin::MeetingsController do
 
       patch :restore, params: { id: meeting.id }
 
-      expect(response).to redirect_to(deleted_meetings_path)
+      expect(response).to redirect_to(manage_trash_meetings_path)
       expect(flash[:notice]).to eq(I18n.t("meetings.restore.success", scope: "decidim.meetings.admin"))
       expect(meeting.reload.deleted_at).to be_nil
     end
