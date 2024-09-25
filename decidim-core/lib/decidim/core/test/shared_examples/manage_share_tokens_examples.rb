@@ -8,15 +8,15 @@ shared_examples "manage resource share tokens" do
     end
 
     it "displays empty message" do
-      expect(page).to have_content "There are no active private share links"
+      expect(page).to have_content "There are no active access links"
     end
 
     it "can create a new token with default options" do
-      click_on "New private share link"
+      click_on "New access link"
 
       click_on "Create"
 
-      expect(page).to have_content("Private share link created successfully")
+      expect(page).to have_content("Access link created successfully")
       expect(page).to have_css("tbody tr", count: 1)
       within "tbody tr:last-child td", text: last_token.token do
         expect(page).to have_content(last_token.token)
@@ -30,7 +30,7 @@ shared_examples "manage resource share tokens" do
     end
 
     it "can create a new token with custom options" do
-      click_on "New private share link"
+      click_on "New access link"
 
       find_by_id("share_token_automatic_token_false").click
       find_by_id("share_token_no_expiration_false").click
@@ -43,7 +43,7 @@ shared_examples "manage resource share tokens" do
       fill_in_timepicker :share_token_expires_at_time, with: "00:00"
       click_on "Create"
 
-      expect(page).to have_content("Private share link created successfully")
+      expect(page).to have_content("Access link created successfully")
       expect(page).to have_css("tbody tr", count: 1)
       within "tbody tr:last-child td", text: last_token.token do
         expect(page).to have_content("CUSTOM-TOKEN")
@@ -88,7 +88,7 @@ shared_examples "manage resource share tokens" do
         click_on "Edit"
       end
 
-      expect(page).to have_content("Edit private share links for: #{resource_name}")
+      expect(page).to have_content("Edit access links for: #{resource_name}")
       find_by_id("share_token_no_expiration_false").click
       find_by_id("share_token_registered_only_false").click
       click_on "Update"
@@ -99,7 +99,7 @@ shared_examples "manage resource share tokens" do
 
       click_on "Update"
 
-      expect(page).to have_content("Private share link updated successfully")
+      expect(page).to have_content("Access link updated successfully")
       expect(page).to have_css("tbody tr", count: 3)
       within "tbody tr", text: last_token.token do
         expect(page).to have_content(1.day.from_now.strftime("%d/%m/%Y 00:00"))
@@ -145,7 +145,7 @@ shared_examples "manage resource share tokens" do
         accept_confirm { click_on "Delete" }
       end
 
-      expect(page).to have_admin_callout("Private share link successfully destroyed")
+      expect(page).to have_admin_callout("Access link successfully destroyed")
       expect(page).to have_css("tbody tr", count: 2)
     end
   end
@@ -181,7 +181,7 @@ shared_examples "manage component share tokens" do
   def visit_share_tokens_page
     visit components_path
     within ".table-list" do
-      click_on "Private shares"
+      click_on "Access links"
     end
   end
 
@@ -199,7 +199,7 @@ shared_examples "manage participatory space share tokens" do
 
   def visit_share_tokens_page
     visit participatory_spaces_path
-    click_on "Private shares"
+    click_on "Access links"
   end
 
   it_behaves_like "manage resource share tokens"
