@@ -37,6 +37,10 @@ jobs:
           bundler-cache: true
       - run: gem install decidim-maintainers_toolbox
         name: Install toolbox
+      - run: |
+          git config user.name "decidim-bot"
+          git config user.email "23476292+decidim-bot@users.noreply.github.com"
+        name: Setting git
       - run: decidim-action-backporter --github-token=${{ secrets.GITHUB_TOKEN }}  --pull_request_id=${{ github.event.pull_request.number }}
         name: Create
         shell: "bash"
