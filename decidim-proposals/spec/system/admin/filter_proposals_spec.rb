@@ -94,25 +94,15 @@ describe "Admin filters proposals" do
     end
   end
 
-  context "when filtering by scope" do
-    let!(:scope1) { create(:scope, organization:, name: { "en" => "Scope1" }) }
-    let!(:scope2) { create(:scope, organization:, name: { "en" => "Scope2" }) }
-    let!(:proposal_with_scope1) { create(:proposal, component:, scope: scope1) }
-    let(:proposal_with_scope1_title) { translated(proposal_with_scope1.title) }
-    let!(:proposal_with_scope2) { create(:proposal, component:, scope: scope2) }
-    let(:proposal_with_scope2_title) { translated(proposal_with_scope2.title) }
-
-    before { visit_component_admin }
-
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
-      let(:in_filter) { proposal_with_scope1_title }
-      let(:not_in_filter) { proposal_with_scope2_title }
-    end
-
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope2" do
-      let(:in_filter) { proposal_with_scope2_title }
-      let(:not_in_filter) { proposal_with_scope1_title }
-    end
+  it_behaves_like "a collection filtered by taxonomies" do
+    let!(:proposal_with_taxonomy11) { create(:proposal, component:, taxonomies: [taxonomy11]) }
+    let!(:proposal_with_taxonomy12) { create(:proposal, component:, taxonomies: [taxonomy12]) }
+    let!(:proposal_with_taxonomy21) { create(:proposal, component:, taxonomies: [taxonomy21]) }
+    let!(:proposal_with_taxonomy22) { create(:proposal, component:, taxonomies: [taxonomy22]) }
+    let(:resource_with_taxonomy11_title) { translated(proposal_with_taxonomy11.title) }
+    let(:resource_with_taxonomy12_title) { translated(proposal_with_taxonomy12.title) }
+    let(:resource_with_taxonomy21_title) { translated(proposal_with_taxonomy21.title) }
+    let(:resource_with_taxonomy22_title) { translated(proposal_with_taxonomy22.title) }
   end
 
   context "when filtering by multiple filters" do

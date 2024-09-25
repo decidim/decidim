@@ -420,7 +420,7 @@ module Decidim
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(category scope proposal_state)
+        %w(taxonomies proposal_state)
       end
 
       ransacker :state_published do
