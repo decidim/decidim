@@ -57,21 +57,6 @@ Decidim.register_component(:surveys) do |component|
   # These actions permissions can be configured in the admin panel
   component.actions = %w(answer)
 
-  component.settings(:global) do |settings|
-    settings.attribute :scopes_enabled, type: :boolean, default: false
-    settings.attribute :scope_id, type: :scope
-    settings.attribute :starts_at, type: :time
-    settings.attribute :ends_at, type: :time
-    settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :clean_after_publish, type: :boolean, default: true
-  end
-
-  component.settings(:step) do |settings|
-    settings.attribute :allow_answers, type: :boolean, default: false
-    settings.attribute :allow_unregistered, type: :boolean, default: false
-    settings.attribute :announcement, type: :text, translated: true, editor: true
-  end
-
   component.exports :survey_user_answers do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)

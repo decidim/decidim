@@ -62,11 +62,30 @@ module Decidim
               end
             end
 
-            def edit_answers
+            def edit_questions
               @form = form(Admin::QuestionnaireForm).from_model(questionnaire)
+
+              render template: "decidim/forms/admin/questionnaires/edit_questions"
             end
 
-            def update_answers; end
+            def update_questions
+              params["published_at"] = Time.current if params.has_key? "save_and_publish"
+              @form = form(Admin::QuestionnaireForm).from_params(params)
+
+              Admin::UpdateQuestionnaire.call(@form, questionnaire, current_user) do
+                on(:ok) do
+                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.success")
+                  flash[:notice] = I18n.t("update.success", scope: i18n_flashes_scope)
+                  redirect_to after_update_url
+                end
+
+                on(:invalid) do
+                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
+                  flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
+                  render template: "decidim/forms/admin/questionnaires/edit_questions"
+                end
+              end
+            end
 
             def answer_options
               respond_to do |format|

@@ -30,7 +30,16 @@ en:
       admin:
         models:
           components:
+            allow_answers: Allow answers
+            allow_unregistered: Allow unregistered users to answer the survey
+            allow_unregistered_help: If active, no login will be required in order to answer the survey. This may lead to poor or unreliable data and it will be more vulnerable to automated attacks. Use with caution! Mind that a participant could answer the same survey multiple times, by using different browsers or the "private browsing" feature of her web browser.
+            announcement: Announcement
+            clean_after_publish: Delete answers when publishing the survey
             description: Description
+            ends_at: Answers accepted until
+            ends_at_help: Leave blank for no specific date
+            starts_at: Answers accepted from
+            starts_at_help: Leave blank for no specific date
             tos: Terms of service
         questionnaires:
           actions:

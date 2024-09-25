@@ -10,17 +10,15 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :tos, String
+        translatable_attribute :announcement, String
 
-        attribute :published_at, Decidim::Attributes::TimeWithZone
-        attribute :questions, Array[QuestionForm]
+        attribute :allow_answers, Boolean
+        attribute :allow_unregistered, Boolean
+        attribute :clean_after_publish, Boolean
+        attribute :starts_at, Decidim::Attributes::TimeWithZone
+        attribute :ends_at, Decidim::Attributes::TimeWithZone
 
         validates :title, :tos, translatable_presence: true
-
-        def map_model(model)
-          self.questions = model.questions.map do |question|
-            QuestionForm.from_model(question)
-          end
-        end
       end
     end
   end
