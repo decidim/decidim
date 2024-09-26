@@ -10,6 +10,7 @@ module Decidim
       include NeedsSnippets
       include NeedsAdminTosAccepted
       include NeedsRtlDirection
+      include NeedsDeletedWarning
       include FormFactory
       include LocaleSwitcher
       include UseOrganizationTimeZone
@@ -39,8 +40,6 @@ module Decidim
 
       helper Decidim::Templates::Admin::ApplicationHelper if Decidim.module_installed?(:templates) && defined?(Decidim::Templates::Admin::ApplicationHelper)
 
-      before_action :set_deleted_warning, if: :trashed_item?, only: [:edit, :show]
-
       default_form_builder Decidim::Admin::FormBuilder
 
       protect_from_forgery with: :exception, prepend: true
@@ -62,32 +61,6 @@ module Decidim
 
       def permission_scope
         :admin
-      end
-
-      def current_manifest
-        [Decidim.find_resource_manifest(controller_name),
-         Decidim.find_participatory_space_manifest(controller_name),
-         Decidim.find_component_manifest(controller_name)].compact.first
-      end
-
-      def current_resource
-        return unless current_manifest
-
-        resource_class = current_manifest.model_class
-
-        if params[:slug]
-          resource_class.find_by(slug: params[:slug])
-        elsif params[:id]
-          resource_class.find(params[:id])
-        end
-      end
-
-      def trashed_item?
-        current_resource&.trashed?
-      end
-
-      def set_deleted_warning
-        flash.now[:warning] = t("decidim.admin.manage_trash.deleted_items_warning")
       end
     end
   end
