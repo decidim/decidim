@@ -3,9 +3,15 @@
 require "spec_helper"
 
 describe "Admin manages accountability" do
-  let(:manifest_name) { "accountability" }
-
   include_context "when managing an accountability component as an admin"
+  let(:manifest_name) { "accountability" }
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, space_manifest: participatory_space.manifest.name) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
+
+  let!(:component) { create(:component, manifest:, participatory_space:, settings: { taxonomy_filters: taxonomy_filter_ids }) }
 
   before do
     switch_to_host(organization.host)
