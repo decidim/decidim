@@ -25,7 +25,7 @@ module Decidim
       protected
 
       def allow_answers?
-        !current_component.published? || (current_settings.allow_answers? && survey.open?)
+        !current_component.published? || survey.open?
       end
 
       def form_path
@@ -39,7 +39,11 @@ module Decidim
       end
 
       def survey
-        @survey ||= Survey.find_by(component: current_component)
+        @survey ||= collection.find(params[:id])
+      end
+
+      def collection
+        @collection ||= Decidim::Surveys::Survey.where(component: current_component)
       end
     end
   end

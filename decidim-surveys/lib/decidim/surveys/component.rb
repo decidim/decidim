@@ -57,6 +57,14 @@ Decidim.register_component(:surveys) do |component|
   # These actions permissions can be configured in the admin panel
   component.actions = %w(answer)
 
+  component.settings(:global) do |settings|
+    settings.attribute :announcement, type: :text, translated: true, editor: true
+  end
+
+  component.settings(:step) do |settings|
+    settings.attribute :announcement, type: :text, translated: true, editor: true
+  end
+
   component.exports :survey_user_answers do |exports|
     exports.collection do |f|
       survey = Decidim::Surveys::Survey.find_by(component: f)
