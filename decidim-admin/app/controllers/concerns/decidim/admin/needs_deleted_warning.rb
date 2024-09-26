@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "active_support/concern"
-
 module Decidim
   module Admin
     # Concern to handle warnings for deleted (trashed) resources
@@ -9,17 +7,17 @@ module Decidim
       extend ActiveSupport::Concern
 
       INCLUDED_RESOURCE_CLASSES = [
-        Decidim::Conference,
-        Decidim::ParticipatoryProcess,
-        Decidim::Assembly,
-        Decidim::Component,
-        Decidim::Accountability::Result,
-        Decidim::Blogs::Post,
-        Decidim::Budgets::Budget,
-        Decidim::Budgets::Project,
-        Decidim::Debates::Debate,
-        Decidim::Meetings::Meeting,
-        Decidim::Proposals::Proposal
+        "Decidim::Conference",
+        "Decidim::ParticipatoryProcess",
+        "Decidim::Assembly",
+        "Decidim::Component",
+        "Decidim::Accountability::Result",
+        "Decidim::Blogs::Post",
+        "Decidim::Budgets::Budget",
+        "Decidim::Budgets::Project",
+        "Decidim::Debates::Debate",
+        "Decidim::Meetings::Meeting",
+        "Decidim::Proposals::Proposal"
       ].freeze
 
       included do
@@ -45,7 +43,7 @@ module Decidim
 
         resource_class = current_manifest.model_class
 
-        return unless INCLUDED_RESOURCE_CLASSES.include?(resource_class)
+        return unless INCLUDED_RESOURCE_CLASSES.include?(resource_class.to_s)
 
         find_by_slug_or_id(resource_class)
       end
