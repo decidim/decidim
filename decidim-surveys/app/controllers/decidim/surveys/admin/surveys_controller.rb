@@ -59,8 +59,16 @@ module Decidim
           end
         end
 
+        def edit_questions_template
+          "decidim/surveys/admin/surveys/edit_questions"
+        end
+
         def questionnaire_for
           survey
+        end
+
+        def after_update_url
+          surveys_path
         end
 
         # Specify the public url from which the survey can be viewed and answered

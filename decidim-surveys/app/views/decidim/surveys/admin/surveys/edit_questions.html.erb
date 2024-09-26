@@ -7,27 +7,27 @@
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <%= t("decidim.forms.admin.questionnaires.edit_questions.title") %>
-
-      <% if questionnaire.questions_editable? %>
-        <button class="button button__sm button__secondary add-question"><%= t(".add_question") %></button>
-        <button class="button button__sm button__secondary add-separator"><%= t(".add_separator") %></button>
-        <button class="button button__sm button__secondary add-title-and-description"><%= t(".add_title_and_description") %></button>
-      <% end %>
-      <% if questionnaire.answers.any? %>
-        <%= export_dropdown(current_component, questionnaire.id) if allowed_to? :export_answers, :questionnaire %>
-        <% if allowed_to? :show, :questionnaire_answers %>
-          <%= link_to t("actions.show", scope: "decidim.forms.admin.questionnaires"), questionnaire_participants_url, class: "button button__sm button__secondary new whitespace-nowrap" %>
+      <div class="questionnaire-questions">
+        <% if questionnaire.questions_editable? %>
+          <button class="button button__sm button__secondary add-question"><%= t("add_question", scope: "decidim.forms.admin.questionnaires.edit_questions") %></button>
+          <button class="button button__sm button__secondary add-separator"><%= t("add_separator", scope: "decidim.forms.admin.questionnaires.edit_questions") %></button>
+          <button class="button button__sm button__secondary add-title-and-description"><%= t("add_title_and_description", scope: "decidim.forms.admin.questionnaires.edit_questions") %></button>
         <% end %>
-      <% else %>
-        <button class="button button__sm button__secondary whitespace-nowrap" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
-      <% end %>
-
+        <% if questionnaire.answers.any? %>
+          <%= export_dropdown(current_component, questionnaire.id) if allowed_to? :export_answers, :questionnaire %>
+          <% if allowed_to? :show, :questionnaire_answers %>
+            <%= link_to t("actions.show", scope: "decidim.forms.admin.questionnaires"), questionnaire_participants_url, class: "button button__sm button__secondary new whitespace-nowrap" %>
+          <% end %>
+        <% else %>
+          <button class="button button__sm button__secondary whitespace-nowrap" disabled><%= t("empty", scope: "decidim.forms.admin.questionnaires.answers") %></button>
+        <% end %>
+      </div>
     </h1>
   </div>
 
   <div class="item__edit item__edit-1col">
     <div class="item__edit-form">
-      <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form-defaults form edit_questionnaire" }) do |form| %>
+      <%= decidim_form_for(@form, url: update_questions_survey_path(@survey), method: :patch, html: { class: "form-defaults form edit_questions_survey" }) do |form| %>
         <%= render partial: "decidim/forms/admin/questionnaires/questions_form", object: form %>
         <div class="item__edit-sticky">
           <div class="item__edit-sticky-container">

@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user changes a Questionnaire questions from the admin
       # panel.
       class UpdateQuestions < Decidim::Command
-        # Initializes a UpdateQuestionnaire Command.
+        # Initializes a UpdateQuestions Command.
         #
         # form - The form from which to get the data.
         # questionnaire - The current instance of the questionnaire questions to be updated.

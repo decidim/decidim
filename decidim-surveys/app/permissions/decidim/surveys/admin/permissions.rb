@@ -21,7 +21,7 @@ module Decidim
               permission_action.allow!
             end
           end
-          # if there any answers, survey can't be delete.
+
           permission_action
         end
       end

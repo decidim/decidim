@@ -65,24 +65,23 @@ module Decidim
             def edit_questions
               @form = form(Admin::QuestionsForm).from_model(questionnaire)
 
-              render template: "decidim/forms/admin/questionnaires/edit_questions"
+              render template: edit_questions_template
             end
 
             def update_questions
               params["published_at"] = Time.current if params.has_key? "save_and_publish"
               @form = form(Admin::QuestionsForm).from_params(params)
-
               Admin::UpdateQuestions.call(@form, questionnaire, current_user) do
                 on(:ok) do
-                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.success")
-                  flash[:notice] = I18n.t("update.success", scope: i18n_flashes_scope)
+                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.questions_form.update.success")
+                  flash[:notice] = I18n.t("update.success", scope: i18n_questions_flashes_scope)
                   redirect_to after_update_url
                 end
 
                 on(:invalid) do
                   # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
-                  flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
-                  render template: "decidim/forms/admin/questionnaires/edit_questions"
+                  flash.now[:alert] = I18n.t("update.invalid", scope: i18n_questions_flashes_scope)
+                  render template: edit_questions_template
                 end
               end
             end
@@ -121,6 +120,12 @@ module Decidim
               raise "#{self.class.name} is expected to implement #public_url"
             end
 
+            # Implement this method in your controller to set the URL
+            # where the user will be render while editing the questionnaire questions
+            def edit_questions_template
+              "decidim/forms/admin/questionnaires/edit_questions"
+            end
+
             # Returns the url to get the answer options json (for the display conditions form)
             # for the question with id = params[:id]
             def answer_options_url(params)
@@ -137,6 +142,10 @@ module Decidim
 
             def i18n_flashes_scope
               "decidim.forms.admin.questionnaires"
+            end
+
+            def i18n_questions_flashes_scope
+              "decidim.forms.admin.questionnaires.questions_form"
             end
 
             def questionnaire

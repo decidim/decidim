@@ -118,8 +118,14 @@ en:
             statement: Statement
             up: Up
           questions_form:
+            add_question: Add question
+            add_separator: Add separator
+            add_title_and_description: Add title and description
             collapse: Collapse all questions
             expand: Expand all questions
+            update:
+              invalid: There was a problem saving the form.
+              success: Form successfully saved.
           separator:
             down: Down
             remove: Remove
