@@ -89,9 +89,9 @@ en:
             save: Save
             title: Edit questionnaire
           edit_questions:
+            add_question: Add question
             add_separator: Add separator
             add_title_and_description: Add title and description
-            add_question: Add question
             save: Save
             title: Est error.> Questions
           form:

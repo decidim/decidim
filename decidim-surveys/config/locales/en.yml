@@ -19,11 +19,12 @@ en:
           answer: Answer
         name: Survey
         settings:
+          announcement: Announcement
           global:
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            weight: Order position
           step:
-          announcement: Announcement
     events:
       surveys:
         survey_closed:
