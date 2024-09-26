@@ -249,12 +249,12 @@ en:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Category
-          scope_id_eq:
-            label: Scope
           status_id_eq:
             label: Status
+          taxonomies_id_eq:
+            label: In taxonomy
+          taxonomies_part_of_contains:
+            label: In taxonomy or children
     components:
       accountability:
         actions:
