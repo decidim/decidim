@@ -7,15 +7,15 @@ require "decidim/core/test/shared_examples/open_data_exporter_examples"
 describe Decidim::OpenDataExporter do
   subject { described_class.new(organization, path) }
 
-  let(:resource_file_name) { "conferences" }
-  let!(:resource) { create(:conference, organization:) }
-  let(:resource_title) { "## conferences" }
+  let(:resource_file_name) { "assemblies" }
+  let!(:resource) { create(:assembly, organization:) }
+  let(:resource_title) { "## assemblies" }
   let(:help_lines) do
     [
-      "* id: The unique identifier of this conference"
+      "* id: The unique identifier of this assembly"
     ]
   end
-  let(:unpublished_resource) { create(:conference, :unpublished, organization:) }
+  let(:unpublished_resource) { create(:assembly, :unpublished, organization:) }
 
   it_behaves_like "open data exporter"
 end
