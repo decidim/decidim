@@ -9,7 +9,7 @@
       <%= cell("decidim/announcement", t(".unpublished_warning"), callout_class: "warning" ) %>
     <% end %>
 
-    <%= fields_for "questionnaire[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
+    <%= fields_for "questions[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
       <script type="text/template" class="decidim-question-template decidim-template" id="question-template">
         <%= render "decidim/forms/admin/questionnaires/question",
                    form: question_form,
@@ -41,7 +41,7 @@
 
   <div class="questionnaire-questions-list flex flex-col py-6 gap-6 last:pb-0">
     <% @form.questions.each_with_index do |question, index| %>
-      <%= fields_for "questionnaire[questions][]", question do |question_form| %>
+      <%= fields_for "questions[questions][]", question do |question_form| %>
         <% if question.separator? %>
           <%= render "decidim/forms/admin/questionnaires/separator",
                      form: question_form,

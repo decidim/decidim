@@ -124,8 +124,8 @@ en:
             collapse: Collapse all questions
             expand: Expand all questions
             update:
-              invalid: There was a problem saving the form.
-              success: Form successfully saved.
+              invalid: There was a problem saving the questions form.
+              success: Questions form successfully saved.
           separator:
             down: Down
             remove: Remove
