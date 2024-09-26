@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const info = (target, msg) => {
     const label = target.closest("label");
-    label.querySelectorAll(".form-error").forEach(el => el.remove());
+    label.querySelectorAll(".form-error").forEach((el) => el.remove());
     if (msg) {
       const error = document.createElement("span");
       error.className = "form-error";
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  document.querySelectorAll(".user-device-location button").forEach(button => {
+  document.querySelectorAll(".user-device-location button").forEach((button) => {
     button.addEventListener("click", (event) => {
       const target = event.target;
       if (target.disabled) {
@@ -40,10 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
           $.post(url, { latitude: coordinates[0], longitude: coordinates[1] }, (data) => {
             input.value = data.address;
             $(input).trigger("geocoder-suggest-coordinates.decidim", [coordinates]);
-          })
-            .fail((xhr, status, error) => {
-              info(input, `${errorNoLocation} ${error}`);
-            });
+          }).fail((xhr, status, error) => {
+            info(input, `${errorNoLocation} ${error}`);
+          });
 
           setLocating(target, false);
 
