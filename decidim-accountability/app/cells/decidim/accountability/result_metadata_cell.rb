@@ -125,7 +125,6 @@ module Decidim
       def percentage_item
         {
           text: display_percentage(result.progress)
-          # icon: "percent-fill"
         }
       end
 
