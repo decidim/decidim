@@ -32,6 +32,12 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
   end
 
   participatory_space.exports :assemblies do |export|
+    # Currently the categories and attachment collections are not available in the
+    # open data serializer, but they are used in the serializer, so we need to add
+    # an exception
+    Bullet.add_safelist type: :unused_eager_loading, class_name: "Decidim::Assembly", association: :attachment_collections
+    Bullet.add_safelist type: :unused_eager_loading, class_name: "Decidim::Assembly", association: :categories
+
     export.collection do
       Decidim::Assembly
         .public_spaces
