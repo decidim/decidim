@@ -20,6 +20,8 @@ module Decidim
       include Decidim::Admin::Concerns::HasBreadcrumbItems
       include ActiveStorage::SetCurrent
 
+      before_action :set_deleted_warning, if: :trashed_item?, only: [:edit, :show]
+
       helper Decidim::Admin::ApplicationHelper
       helper Decidim::Admin::AttributesDisplayHelper
       helper Decidim::Admin::SettingsHelper
@@ -60,6 +62,28 @@ module Decidim
 
       def permission_scope
         :admin
+      end
+
+      def current_manifest
+        [Decidim.find_resource_manifest(controller_name),
+         Decidim.find_participatory_space_manifest(controller_name),
+         Decidim.find_component_manifest(controller_name)].compact.first
+      end
+
+      def current_resource
+        manifest = current_manifest
+        return unless manifest
+
+        resource_class = manifest.model_class
+        params[:slug] ? resource_class.find_by(slug: params[:slug]) : resource_class.find(params[:id])
+      end
+
+      def trashed_item?
+        current_resource&.trashed?
+      end
+
+      def set_deleted_warning
+        flash.now[:warning] = t("decidim.admin.manage_trash.deleted_items_warning")
       end
     end
   end
