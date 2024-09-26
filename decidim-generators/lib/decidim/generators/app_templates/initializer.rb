@@ -45,8 +45,10 @@ Decidim.configure do |config|
   # sections with a two-pane view
   config.page_blocks = Rails.application.secrets.decidim[:page_blocks].presence || %w(terms-of-service)
 
-  # Determines if the "Show my current location" button should be displayed based on the environment configuration.
-  config.show_my_location_button = Rails.application.secrets.decidim[:show_my_location_button].present?
+  # Sets the list of components where the "Show my current location" button will be displayed.
+  # An array of component manifests is expected (e.g., [:proposals]).
+  # If no value is specified in the environment configuration, the default is [:proposals]
+  config.show_my_location_button = Rails.application.secrets.decidim[:show_my_location_button].presence || [:proposals]
 
   # Map and Geocoder configuration
   #
