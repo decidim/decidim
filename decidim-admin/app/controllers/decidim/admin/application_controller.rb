@@ -71,10 +71,9 @@ module Decidim
       end
 
       def current_resource
-        manifest = current_manifest
-        return unless manifest
+        return unless current_manifest
 
-        resource_class = manifest.model_class
+        resource_class = current_resource.model_class
         params[:slug] ? resource_class.find_by(slug: params[:slug]) : resource_class.find(params[:id])
       end
 
