@@ -74,7 +74,12 @@ module Decidim
         return unless current_manifest
 
         resource_class = current_manifest.model_class
-        params[:slug] ? resource_class.find_by(slug: params[:slug]) : resource_class.find(params[:id])
+
+        if params[:slug]
+          resource_class.find_by(slug: params[:slug])
+        elsif params[:id]
+          resource_class.find(params[:id])
+        end
       end
 
       def trashed_item?
