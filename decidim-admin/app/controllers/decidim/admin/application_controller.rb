@@ -20,8 +20,6 @@ module Decidim
       include Decidim::Admin::Concerns::HasBreadcrumbItems
       include ActiveStorage::SetCurrent
 
-      before_action :set_deleted_warning, if: :trashed_item?, only: [:edit, :show]
-
       helper Decidim::Admin::ApplicationHelper
       helper Decidim::Admin::AttributesDisplayHelper
       helper Decidim::Admin::SettingsHelper
@@ -40,6 +38,8 @@ module Decidim
       helper Decidim::BreadcrumbHelper
 
       helper Decidim::Templates::Admin::ApplicationHelper if Decidim.module_installed?(:templates) && defined?(Decidim::Templates::Admin::ApplicationHelper)
+
+      before_action :set_deleted_warning, if: :trashed_item?, only: [:edit, :show]
 
       default_form_builder Decidim::Admin::FormBuilder
 
@@ -73,7 +73,7 @@ module Decidim
       def current_resource
         return unless current_manifest
 
-        resource_class = current_resource.model_class
+        resource_class = current_manifest.model_class
         params[:slug] ? resource_class.find_by(slug: params[:slug]) : resource_class.find(params[:id])
       end
 
