@@ -10,11 +10,10 @@ module Decidim
         #
         # form - The form from which to get the data.
         # questionnaire - The current instance of the questionnaire questions to be updated.
-        def initialize(form, questionnaire, user, clean_after_publish)
+        def initialize(form, questionnaire, user)
           @form = form
           @questionnaire = questionnaire
           @user = user
-          @clean_after_publish = clean_after_publish
         end
 
         # Updates the questionnaire if valid.
@@ -29,7 +28,7 @@ module Decidim
             Decidim::Forms::Questionnaire.transaction do
               if @questionnaire.questions_editable?
                 update_questionnaire_questions
-                delete_answers unless @questionnaire.published? && clean_after_publish
+                delete_answers unless @questionnaire.published?
               end
             end
           end
