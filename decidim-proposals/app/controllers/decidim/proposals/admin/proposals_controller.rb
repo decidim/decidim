@@ -7,6 +7,7 @@ module Decidim
       class ProposalsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
         include Decidim::Proposals::Admin::Filterable
+        include Decidim::Admin::HasTrashableResources
 
         helper Proposals::ApplicationHelper
         helper Decidim::Proposals::Admin::ProposalRankingsHelper
@@ -148,45 +149,23 @@ module Decidim
           end
         end
 
-        def soft_delete
-          enforce_permission_to(:soft_delete, :proposal, proposal:)
-
-          Decidim::Commands::SoftDeleteResource.call(proposal, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("proposals.soft_delete.success", scope: "decidim.proposals.admin")
-              redirect_to proposals_path
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("proposals.soft_delete.invalid", scope: "decidim.proposals.admin")
-              redirect_to proposals_path
-            end
-          end
-        end
-
-        def restore
-          enforce_permission_to(:restore, :proposal, proposal:)
-
-          Decidim::Commands::RestoreResource.call(proposal, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("proposals.restore.success", scope: "decidim.proposals.admin")
-              redirect_to manage_trash_proposals_path
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("proposals.restore.invalid", scope: "decidim.proposals.admin")
-              redirect_to manage_trash_proposals_path
-            end
-          end
-        end
-
-        def manage_trash
-          enforce_permission_to :manage_trash, :deleted_proposals
-
-          @deleted_proposals = filtered_collection.trashed
-        end
-
         private
+
+        def trashable_deleted_resource_type
+          :proposal
+        end
+
+        def trashable_deleted_resource
+          try(:proposal)
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.trashed
+        end
+
+        def trashable_i18n_scope
+          "decidim.proposals.admin.proposals"
+        end
 
         def collection
           @collection ||= Proposal.where(component: current_component).not_hidden.published

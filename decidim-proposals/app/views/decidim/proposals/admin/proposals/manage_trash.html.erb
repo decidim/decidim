@@ -1,6 +1,5 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <%= cell("decidim/announcement", t("decidim.admin.manage_trash.deleted_items_warning"), callout_class: "warning") %>
   <div class="item_show__header item_show__header--with-action-options">
     <h1 class="item_show__header-title"><%= t(".title") %></h1>
   </div>
@@ -9,8 +8,8 @@
       <table class="table-list">
         <%= render partial: "proposals-thead" %>
         <tbody>
-        <% if @deleted_proposals.present? %>
-          <% @deleted_proposals.each do |proposal| %>
+        <% if trashable_deleted_collection.present? %>
+          <% trashable_deleted_collection.each do |proposal| %>
             <%= render partial: "proposal-tr", locals: { proposal:, view: :deleted } %>
           <% end %>
         <% end %>

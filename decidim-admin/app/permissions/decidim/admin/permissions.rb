@@ -64,13 +64,15 @@ module Decidim
             permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
           end
 
-          if soft_delete_action?
+          if permission_action.action.in? [:manage_trash, :restore, :soft_delete]
             if current_participatory_space_is_initiative?
               disallow!
+            elsif permission_action.action == :soft_delete
+              toggle_allow(trashable_deleted_resource.respond_to?(:trashed?) && !trashable_deleted_resource.trashed?)
+            elsif permission_action.action == :restore
+              toggle_allow(trashable_deleted_resource&.trashed?)
             else
-              allow_restore?
-              allow! if permission_action.action == :soft_delete
-              allow! if permission_action.action == :manage_trash
+              allow!
             end
           end
 
@@ -81,6 +83,10 @@ module Decidim
       end
 
       private
+
+      def trashable_deleted_resource
+        context.fetch(:trashable_deleted_resource, nil)
+      end
 
       def user_manager?
         user && !user.admin? && user.role?("user_manager")
@@ -288,16 +294,6 @@ module Decidim
 
       def current_participatory_space_is_initiative?
         current_participatory_space.is_a?(Decidim::Initiative)
-      end
-
-      def allow_restore?
-        return unless permission_action.action == :restore
-
-        toggle_allow(component&.trashed?)
-      end
-
-      def soft_delete_action?
-        permission_action.subject == :component && permission_action.action.in?([:manage_trash, :restore, :soft_delete])
       end
     end
   end

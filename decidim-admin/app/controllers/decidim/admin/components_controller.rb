@@ -6,7 +6,8 @@ module Decidim
     # admin panel.
     #
     class ComponentsController < Decidim::Admin::ApplicationController
-      helper_method :manifest, :deleted_components
+      include Decidim::Admin::HasTrashableResources
+      helper_method :manifest
 
       def index
         enforce_permission_to :read, :component
@@ -138,44 +139,6 @@ module Decidim
         redirect_to share_token.url
       end
 
-      def soft_delete
-        @component = query_scope.find(params[:id])
-        enforce_permission_to :soft_delete, :component, component: @component
-
-        Decidim::Commands::SoftDeleteResource.call(@component, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("components.soft_delete.success", scope: "decidim.admin")
-            redirect_to action: :index
-          end
-
-          on(:invalid) do
-            flash[:alert] = I18n.t("components.soft_delete.invalid", scope: "decidim.admin")
-            redirect_to action: :index
-          end
-        end
-      end
-
-      def manage_trash
-        enforce_permission_to :manage_trash, :component, participatory_space: current_participatory_space
-      end
-
-      def restore
-        @component = deleted_components.find(params[:id])
-        enforce_permission_to :restore, :component, component: @component
-
-        Decidim::Commands::RestoreResource.call(@component, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("components.restore.success", scope: "decidim.admin")
-            redirect_to action: :index
-          end
-
-          on(:invalid) do
-            flash[:alert] = I18n.t("components.restore.invalid", scope: "decidim.admin")
-            redirect_to action: :index
-          end
-        end
-      end
-
       def reorder
         enforce_permission_to :reorder, :component
 
@@ -191,6 +154,22 @@ module Decidim
       end
 
       private
+
+      def trashable_deleted_resource_type
+        :component
+      end
+
+      def trashable_deleted_resource
+        @trashable_deleted_resource = query_scope.find_by(id: params[:id])
+      end
+
+      def trashable_deleted_collection
+        @trashable_deleted_collection ||= current_participatory_space.components.trashed
+      end
+
+      def trashable_i18n_scope
+        "decidim.admin.components"
+      end
 
       # Processes the component params so the form object defined in the manifest (component_form_class_name)
       # can assign and validate the attributes when using #from_params.
@@ -243,10 +222,6 @@ module Decidim
         return if participatory_space.manifest.content_blocks_scope_name.blank?
 
         Decidim::EngineRouter.admin_proxy(participatory_space).send("edit_#{participatory_space.manifest.route_name}_landing_page_path")
-      end
-
-      def deleted_components
-        @deleted_components ||= current_participatory_space.components.trashed
       end
     end
   end

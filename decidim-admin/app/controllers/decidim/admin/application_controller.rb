@@ -10,7 +10,7 @@ module Decidim
       include NeedsSnippets
       include NeedsAdminTosAccepted
       include NeedsRtlDirection
-      include NeedsDeletedWarning
+      # include NeedsDeletedWarning
       include FormFactory
       include LocaleSwitcher
       include UseOrganizationTimeZone
