@@ -95,7 +95,7 @@ module Decidim
           return assembly_parent_id if params[:assembly].present?
 
           # Otherwise, return the parent_id from the params hash
-          return params[:parent_id]
+          params[:parent_id]
         end
 
         def assembly_parent_id
