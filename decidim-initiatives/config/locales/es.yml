@@ -238,6 +238,10 @@ es:
         exports:
           initiatives: Iniciativas
         initiatives:
+          accept:
+            success: La iniciativa se ha aceptado correctamente.
+          discard:
+            success: La iniciativa se ha descartado correctamente.
           edit:
             accept: Aceptar iniciativa
             confirm: '¿Estás seguro?'
@@ -261,6 +265,12 @@ es:
             edit: Editar
             new: Nueva
             photos: Fotos
+          publish:
+            success: La iniciativa se ha publicado correctamente.
+          reject:
+            success: La iniciativa se ha rechazado correctamente.
+          unpublish:
+            success: La iniciativa se ha despublicado correctamente.
           update:
             error: Se ha producido un error.
             success: La iniciativa se ha actualizado correctamente.
