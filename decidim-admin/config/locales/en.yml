@@ -286,7 +286,6 @@ en:
       authorization_exports:
         authorization_handler_name: Verification method
         end_date: End date
-        select_date: Select date
         start_date: Start date
         submit: Export verification data
       autocomplete:
