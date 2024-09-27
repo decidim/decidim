@@ -469,6 +469,8 @@ ja:
           name: ハイライトされたカンファレンス
       index:
         title: カンファレンス
+      last_activity:
+        new_conference: '新しいカンファレンス:'
       mailer:
         conference_registration_mailer:
           confirmation:
