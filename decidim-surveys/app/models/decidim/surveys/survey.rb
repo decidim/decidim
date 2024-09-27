@@ -11,6 +11,8 @@ module Decidim
       component_manifest_name "surveys"
 
       delegate :title, to: :questionnaire
+      delegate :description, to: :questionnaire
+      delegate :tos, to: :questionnaire
 
       validates :questionnaire, presence: true
 

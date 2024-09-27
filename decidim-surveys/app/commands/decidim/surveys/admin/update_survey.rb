@@ -24,12 +24,10 @@ module Decidim
           return broadcast(:invalid) if @form.invalid?
 
           Decidim.traceability.perform_action!("update", @survey, @user) do
-            ActiveRecord::Base.transaction do
+            transaction do
               update_survey_attributes
               update_questionnaire_attributes
             end
-
-            broadcast(:ok)
           rescue ActiveRecord::RecordInvalid
             broadcast(:invalid)
           end
