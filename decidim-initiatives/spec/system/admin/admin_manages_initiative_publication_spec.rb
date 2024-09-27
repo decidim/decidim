@@ -80,7 +80,7 @@ describe "Admin manages initiative publication" do
 
         visit public_collection_path
 
-        expect(page).to have_no_content title
+        expect(page).not_to have_content title
       end
     end
   end
