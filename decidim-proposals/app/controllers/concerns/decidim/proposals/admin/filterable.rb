@@ -19,7 +19,7 @@ module Decidim
           def base_query
             return collection.order(:position) if current_component.settings.participatory_texts_enabled?
 
-            return accessible_proposals_collection if ransack_params[:taxonomies_part_of_contains].blank?
+            return accessible_proposals_collection unless taxonomy_order_or_search?
 
             # this is a trick to avoid duplicates  when using search in associations as suggested in:
             # https://activerecord-hackery.github.io/ransack/going-further/other-notes/#problem-with-distinct-selects

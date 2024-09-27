@@ -9,18 +9,18 @@ describe "Admin orders projects" do
   let!(:projects) do
     [
       create(:project,
-             taxonomies: [create(:taxonomy, :with_parent, organization: component.organization, name: { "ca" => "Taxonomy2", "en" => "Taxonomy3" })],
+             taxonomies: [create(:taxonomy, :with_parent, organization: component.organization, name: { "ca" => "Taxonomy3", "en" => "Taxonomy3" })],
              budget:,
              created_at: 2.days.ago,
              budget_amount: 10_000),
       create(:project,
              budget:,
-             taxonomies: [create(:taxonomy, :with_parent, organization: component.organization, name: { "ca" => "Taxonomy2", "en" => "Taxonomy3" })],
+             taxonomies: [create(:taxonomy, :with_parent, organization: component.organization, name: { "ca" => "Taxonomy1", "en" => "Taxonomy1" })],
              created_at: 1.day.ago,
              budget_amount: 75_000),
       create(:project,
              budget:,
-             taxonomies: [create(:taxonomy, :with_parent, organization: component.organization, name: { "ca" => "Taxonomy2", "en" => "Taxonomy3" })],
+             taxonomies: [create(:taxonomy, :with_parent, organization: component.organization, name: { "ca" => "Taxonomy2", "en" => "Taxonomy2" })],
              created_at: Time.current,
              budget_amount: 80_000,
              selected_at: Time.current)

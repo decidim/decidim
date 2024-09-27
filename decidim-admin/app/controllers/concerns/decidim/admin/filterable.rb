@@ -191,6 +191,10 @@ module Decidim
           query.klass.model_name.human(count: 2)
         end
 
+        def taxonomy_order_or_search?
+          ransack_params[:taxonomies_part_of_contains].present? || ransack_params[:s]&.include?("taxonomies_name")
+        end
+
         # A tree of Category IDs. Leaves are `nil`.
         def category_ids_hash(categories)
           categories.each_with_object({}) do |category, hash|

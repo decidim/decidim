@@ -7,15 +7,15 @@ describe "Admin orders results" do
   let!(:results) do
     [
       create(:result, taxonomies: [create(:taxonomy, :with_parent, organization: component.organization,
-                                                                   name: { "ca" => "Taxonomy2", "en" => "Taxonomy3" })],
+                                                                   name: { "ca" => "Taxonomy3", "en" => "Taxonomy3" })],
                       component: current_component,
                       created_at: 2.days.ago),
       create(:result, taxonomies: [create(:taxonomy, :with_parent, organization: component.organization,
-                                                                   name: { "ca" => "Taxonomy3", "en" => "Taxonomy1" })],
+                                                                   name: { "ca" => "Taxonomy1", "en" => "Taxonomy1" })],
                       component: current_component,
                       created_at: 1.day.ago),
       create(:result, taxonomies: [create(:taxonomy, :with_parent, organization: component.organization,
-                                                                   name: { "ca" => "Taxonomy1", "en" => "Taxonomy2" })],
+                                                                   name: { "ca" => "Taxonomy2", "en" => "Taxonomy2" })],
                       component: current_component,
                       created_at: Time.current)
     ]

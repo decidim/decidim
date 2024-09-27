@@ -40,7 +40,8 @@ shared_examples "manage results" do
         fill_in_i18n(:result_title, "#result-title-tabs", **attributes[:title].except("machine_translations"))
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
-
+      end
+      within ".item__edit-sticky" do
         find("*[type=submit]").click
       end
 

@@ -106,7 +106,7 @@ module Decidim
       def self.ransackable_associations(auth_object = nil)
         return [] unless auth_object&.admin?
 
-        %w(taxonomies)
+        %w(taxonomies status)
       end
 
       private

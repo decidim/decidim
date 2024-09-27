@@ -16,7 +16,7 @@ module Decidim
           private
 
           def base_query
-            return collection if ransack_params[:taxonomies_part_of_contains].blank?
+            return collection unless taxonomy_order_or_search?
 
             # this is a trick to avoid duplicates  when using search in associations as suggested in:
             # https://activerecord-hackery.github.io/ransack/going-further/other-notes/#problem-with-distinct-selects
