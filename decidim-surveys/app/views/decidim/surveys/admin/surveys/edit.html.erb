@@ -1,9 +1,13 @@
-<% add_decidim_page_title(t("decidim.forms.admin.questionnaires.edit.title")) %>
+<% add_decidim_page_title(t(".title")) %>
 
 <% if templates_defined? && choose_template? %>
   <%= render partial: "decidim/templates/admin/questionnaire_templates/choose", locals: { target: questionnaire, form_title: t("decidim.forms.admin.questionnaires.edit.title") } %>
 <% else %>
-
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+    </h1>
+  </div>
   <div class="item__edit item__edit-1col">
     <div class="item__edit-form">
       <%= decidim_form_for(@form, url: survey_path(@survey), html: { class: "form-defaults form edit_questionnaire" }) do |form| %>
@@ -16,5 +20,4 @@
       <% end %>
     </div>
   </div>
-
 <% end %>

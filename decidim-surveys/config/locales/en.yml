@@ -66,6 +66,8 @@ en:
             success: Survey successfully created.
           destroy:
             success: Survey successfully deleted.
+          edit:
+            title: Edit survey
           index:
             title: Surveys
           new:
