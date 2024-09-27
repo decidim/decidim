@@ -102,7 +102,7 @@ bin/rails decidim:upgrade:clean:action_logs
 
 You can read more about this change on PR [#13237](https://github.com/decidim/decidim/pull/13237).
 
-### 2.4 Allow Cell's cache to expire
+### 2.7. Allow Cell's cache to expire
 
 Now the cache expiration time is configurable via initializers/ENV variables.
 
