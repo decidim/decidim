@@ -239,6 +239,10 @@ ja:
             alert_html: "<p>参加者がイニシアチブを作成できるように、少なくとも1つのイニシアチブ種別を作成する必要があります。</p><p> %{link}</p>"
             button: 新しいイニシアチブ種別
         initiatives:
+          accept:
+            success: イニシアチブは受理されました。
+          discard:
+            success: イニシアチブは破棄されました。
           edit:
             accept: イニシアチブを承認する
             confirm: よろしいですか？
@@ -262,6 +266,12 @@ ja:
             edit: 編集
             new: 新規作成
             photos: 写真
+          publish:
+            success: イニシアチブを公開しました。
+          reject:
+            success: イニシアチブはリジェクトされました。
+          unpublish:
+            success: イニシアチブは非公開になりました。
           update:
             error: エラーが発生しました。
             success: イニシアチブを更新しました。
