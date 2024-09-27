@@ -17,7 +17,7 @@ module Decidim
         )
 
         2.times do |_n|
-          conference = Decidim::Conference.create!(
+          params = {
             title: Decidim::Faker::Localized.sentence(word_count: 5),
             slogan: Decidim::Faker::Localized.sentence(word_count: 2),
             slug: Decidim::Faker::Internet.unique.slug(words: nil, glue: "-"),
@@ -43,7 +43,16 @@ module Decidim
             registration_terms: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
               Decidim::Faker::Localized.paragraph(sentence_count: 3)
             end
-          )
+          }
+
+          conference = Decidim.traceability.perform_action!(
+            "publish",
+            Decidim::Conference,
+            organization.users.first,
+            visibility: "all"
+          ) do
+            Decidim::Conference.create!(params)
+          end
           conference.add_to_index_as_search_resource
 
           # Create users with specific roles

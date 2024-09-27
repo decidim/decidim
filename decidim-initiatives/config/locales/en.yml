@@ -238,6 +238,10 @@ en:
         exports:
           initiatives: Initiatives
         initiatives:
+          accept:
+            success: The initiative has been successfully accepted.
+          discard:
+            success: The initiative has been successfully discarded.
           edit:
             accept: Accept initiative
             confirm: Are you sure?
@@ -261,6 +265,12 @@ en:
             edit: Edit
             new: New
             photos: Photos
+          publish:
+            success: The initiative has been successfully published.
+          reject:
+            success: The initiative has been successfully rejected.
+          unpublish:
+            success: The initiative has been successfully unpublished.
           update:
             error: An error has occurred.
             success: The initiative has been successfully updated.
