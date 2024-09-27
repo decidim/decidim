@@ -110,7 +110,7 @@ describe "User creates meeting" do
           expect(page).to have_content(meeting_start_time.strftime(time_format))
           expect(page).to have_content(meeting_end_time.strftime(time_format))
           expect(page).to have_selector("[data-author]", text: user.name)
-          
+
           visit decidim.last_activities_path
           expect(page).to have_content("New meeting: #{meeting_title}")
 
