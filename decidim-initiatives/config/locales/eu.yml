@@ -242,6 +242,10 @@ eu:
             alert_html: "<p>Gutxienez, ekimen mota bat sortu behar duzu, parte-hartzaileak ekimenak sortzen hasi ahal izateko.</p><p> %{link}</p>"
             button: Beste ekimen mota bat
         initiatives:
+          accept:
+            success: Ekimena zuzen onartu da.
+          discard:
+            success: Ekimena zuzen baztertu da.
           edit:
             accept: Onartu ekimena
             confirm: Ziur zaude?
@@ -265,6 +269,12 @@ eu:
             edit: Editatu
             new: Beste bat
             photos: Argazkiak
+          publish:
+            success: Ekimena zuzen argitaratu da.
+          reject:
+            success: Ekimena zuzen ukatu da.
+          unpublish:
+            success: Ekimena zuzen desargitaratu da.
           update:
             error: Errore bat egon da.
             success: Ekimena zuzen eguneratu da.
