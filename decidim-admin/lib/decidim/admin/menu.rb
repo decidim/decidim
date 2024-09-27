@@ -42,6 +42,11 @@ module Decidim
                           workflow.admin_root_path,
                           active: is_active_link?(workflow.admin_root_path)
           end
+
+          menu.add_item :authorization_exports,
+                        I18n.t("menu.authorization_exports", scope: "decidim.admin"),
+                        decidim_admin.authorization_exports_path,
+                        active: is_active_link?(decidim_admin.authorization_exports_path)
         end
       end
 
