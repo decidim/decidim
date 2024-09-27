@@ -156,7 +156,7 @@ module Decidim
         end
 
         def trashable_deleted_resource
-          try(:proposal)
+          @trashable_deleted_resource ||= collection.find_by(id: params[:id])
         end
 
         def trashable_deleted_collection

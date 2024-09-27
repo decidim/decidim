@@ -8,7 +8,8 @@ module Decidim
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
         include Decidim::Assemblies::Admin::Filterable
         include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
-        helper_method :current_assembly, :parent_assembly, :current_participatory_space, :deleted_collection
+        include Decidim::Admin::HasTrashableResources
+        helper_method :current_assembly, :parent_assembly, :current_participatory_space
         layout "decidim/admin/assemblies"
 
         def index
@@ -69,46 +70,26 @@ module Decidim
           enforce_permission_to :create, :assembly, assembly: collection.find_by(id: params[:parent_id])
         end
 
-        def soft_delete
-          enforce_permission_to :soft_delete, :assembly, assembly: current_assembly
-
-          Decidim::Commands::SoftDeleteResource.call(current_assembly, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("assemblies.soft_delete.success", scope: "decidim.admin")
-              redirect_to assemblies_path
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("assemblies.soft_delete.invalid", scope: "decidim.admin")
-              redirect_to assemblies_path
-            end
-          end
-        end
-
-        def restore
-          enforce_permission_to :restore, :assembly, assembly: current_assembly
-
-          Decidim::Commands::RestoreResource.call(current_assembly, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("assemblies.restore.success", scope: "decidim.admin")
-              redirect_to manage_trash_assemblies_path
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("assemblies.restore.invalid", scope: "decidim.admin")
-              redirect_to manage_trash_assemblies_path
-            end
-          end
-        end
-
         private
 
         def collection
           @collection ||= OrganizationAssemblies.new(current_user.organization).query
         end
 
-        def deleted_collection
-          @deleted_collection ||= filtered_collection.trashed
+        def trashable_deleted_resource_type
+          :assembly
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= current_assembly
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.trashed
+        end
+
+        def trashable_i18n_scope
+          "decidim.assemblies.admin.assemblies"
         end
 
         def current_assembly

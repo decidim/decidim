@@ -1,5 +1,4 @@
 <% add_decidim_page_title(t("participatory_processes_deleted", scope: "decidim.admin.titles")) %>
-<%= cell("decidim/announcement", t("decidim.admin.manage_trash.deleted_items_warning"), callout_class: "warning") %>
 <%= admin_tabs(:admin_participatory_processes_menu).render %>
 <div class="mb-6">
   <h1 class="item_show__header-title">
@@ -9,4 +8,4 @@
 <div class="card" id="processes">
   <%= admin_filter_selector %>
 </div>
-<%= render partial: "processes_table", locals: { processes: deleted_collection, view: :deleted } %>
+<%= render partial: "processes_table", locals: { processes: trashable_deleted_collection, view: :deleted } %>

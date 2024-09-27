@@ -8,6 +8,7 @@ module Decidim
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::ParticipatoryProcesses::Admin::Filterable
+        include Decidim::Admin::HasTrashableResources
 
         add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :show
 
@@ -16,7 +17,7 @@ module Decidim
         helper ProcessGroupsForSelectHelper
         helper Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessHelper
 
-        helper_method :current_participatory_process, :current_participatory_space, :process_group, :deleted_collection
+        helper_method :current_participatory_process, :current_participatory_space, :process_group
 
         layout "decidim/admin/participatory_processes"
 
@@ -77,44 +78,23 @@ module Decidim
           enforce_permission_to :create, Decidim::ParticipatoryProcess
         end
 
-        def soft_delete
-          enforce_permission_to :soft_delete, :process, process: current_participatory_process
-
-          Decidim::Commands::SoftDeleteResource.call(current_participatory_process, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("participatory_processes.soft_delete.success", scope: "decidim.admin")
-              redirect_to participatory_processes_path
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("participatory_processes.soft_delete.invalid", scope: "decidim.admin")
-              redirect_to participatory_processes_path
-            end
-          end
-        end
-
-        def restore
-          enforce_permission_to :restore, :process, process: current_participatory_process
-
-          Decidim::Commands::RestoreResource.call(current_participatory_process, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("participatory_processes.restore.success", scope: "decidim.admin")
-              redirect_to manage_trash_participatory_processes_path
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("participatory_processes.restore.invalid", scope: "decidim.admin")
-              redirect_to manage_trash_participatory_processes_path
-            end
-          end
-        end
-
-        def manage_trash
-          enforce_permission_to :manage_trash, :process
-          render :manage_trash
-        end
-
         private
+
+        def trashable_deleted_resource_type
+          :participatory_process
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= current_participatory_process
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.trashed
+        end
+
+        def trashable_i18n_scope
+          "decidim.participatory_processes.admin.participatory_processes"
+        end
 
         def process_group
           @process_group ||= ParticipatoryProcessGroup.find_by(id: ransack_params[:decidim_participatory_process_group_id_eq], organization: current_organization)
@@ -122,10 +102,6 @@ module Decidim
 
         def collection
           @collection ||= ParticipatoryProcessesWithUserRole.for(current_user)
-        end
-
-        def deleted_collection
-          @deleted_collection ||= filtered_collection.trashed
         end
 
         def current_participatory_process
