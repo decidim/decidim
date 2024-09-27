@@ -474,6 +474,8 @@ ca:
           name: Jornades destacades
       index:
         title: Jornades
+      last_activity:
+        new_conference: 'Nova jornada:'
       mailer:
         conference_registration_mailer:
           confirmation:
