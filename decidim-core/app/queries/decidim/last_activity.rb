@@ -68,7 +68,12 @@ module Decidim
                         SQL
                       ).to_s
                     else
-                      Arel.sql("decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'").to_s
+                      Arel.sql(
+                        [
+                          "decidim_action_logs.resource_type = '#{manifest.model_class_name}'",
+                          "decidim_action_logs.participatory_space_type = '#{manifest.model_class_name}'"
+                        ].join(" OR ")
+                      ).to_s
                     end
 
         conditions << "(#{condition})"

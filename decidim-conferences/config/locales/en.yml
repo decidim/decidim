@@ -474,6 +474,8 @@ en:
           name: Highlighted conferences
       index:
         title: Conferences
+      last_activity:
+        new_conference: 'New conference:'
       mailer:
         conference_registration_mailer:
           confirmation:
