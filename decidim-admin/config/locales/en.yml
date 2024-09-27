@@ -283,6 +283,11 @@ en:
           success: Attachment updated successfully.
       attachments_privacy_warning:
         message: Be careful when working with attachments in a private space. Any participant could share this document to others.
+      authorization_exports:
+        authorization_handler_name: Verification method
+        end_date: End date
+        start_date: Start date
+        submit: Export verification data
       autocomplete:
         no_results: No results found
         search_prompt: Type at least three characters to search.
@@ -583,6 +588,7 @@ en:
         appearance: Appearance
         area_types: Area types
         areas: Areas
+        authorization_exports: Export data
         components: Components
         configuration: Configuration
         content: Reported content
@@ -1116,6 +1122,7 @@ en:
         admin_log: Admin log
         area_types: Area types
         areas: Areas
+        authorization_exports: Export verification data
         authorization_workflows: Verification methods
         dashboard: Dashboard
         edit_external_domains: Allowed list of external domains

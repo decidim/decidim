@@ -96,6 +96,20 @@ module Decidim
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :description]
 
+      def self.ransackable_attributes(auth_object = nil)
+        base = %w(search_text title description)
+
+        return base unless auth_object&.admin?
+
+        base + %w(id_string created_at id progress)
+      end
+
+      def self.ransackable_associations(auth_object = nil)
+        return [] unless auth_object&.admin?
+
+        %w(category status scope)
+      end
+
       private
 
       # Private: When a row uses weight 1 and there is more than one, weight should not be considered

@@ -8,10 +8,7 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_date: End date
-        meetings_ids: Included meetings
         progress: Progress
-        project_ids: Included projects
-        proposals: Included proposals
         start_date: Start date
         subresults: Subresults
         title: Title
@@ -30,6 +27,14 @@ en:
       decidim/accountability/result_progress_updated_event: Result progress updated
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: This result %{link} was included
+            meetings_ids: 'It was discussed in this meeting: %{link}'
+            project_ids: 'It was included in this project: %{link}'
+            proposal_ids: 'It was included in this proposal: %{link}'
+            text: 'It was added to this result: %{link}'
       decidim/accountability/result:
         one: Result
         other: Results
@@ -178,6 +183,8 @@ en:
       content_blocks:
         highlighted_results:
           results: Results
+      creation:
+        text: This result was created
       import_mailer:
         import:
           errors: Errors

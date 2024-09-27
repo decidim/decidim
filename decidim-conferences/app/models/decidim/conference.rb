@@ -148,5 +148,17 @@ module Decidim
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)
     ransacker_i18n :title
+
+    def self.ransackable_attributes(auth_object = nil)
+      base = %w(title short_description description id)
+
+      return base unless auth_object&.admin?
+
+      base + %w(published_at)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(categories scope)
+    end
   end
 end
