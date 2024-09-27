@@ -238,6 +238,10 @@ ca:
         exports:
           initiatives: Iniciatives
         initiatives:
+          accept:
+            success: La iniciativa s'ha acceptat correctament.
+          discard:
+            success: La iniciativa s'ha descartat correctament.
           edit:
             accept: Accepta la iniciativa
             confirm: Segur?
@@ -261,6 +265,12 @@ ca:
             edit: Edita
             new: Nou
             photos: Fotografies
+          publish:
+            success: La iniciativa s'ha publicat correctament.
+          reject:
+            success: La iniciativa s'ha rebutjat correctament.
+          unpublish:
+            success: La iniciativa s'ha despublicat correctament.
           update:
             error: S'ha produït un error.
             success: La iniciativa s'ha actualitzat correctament.
