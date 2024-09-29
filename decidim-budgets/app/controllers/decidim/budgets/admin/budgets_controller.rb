@@ -5,8 +5,9 @@ module Decidim
     module Admin
       # This controller allows the create or update a budget.
       class BudgetsController < Admin::ApplicationController
+        include Decidim::Admin::HasTrashableResources
         helper_method :budgets, :budget, :finished_orders, :pending_orders,
-                      :users_with_pending_orders, :users_with_finished_orders, :deleted_budgets
+                      :users_with_pending_orders, :users_with_finished_orders
 
         def new
           enforce_permission_to :create, :budget
@@ -68,54 +69,22 @@ module Decidim
           redirect_to budgets_path
         end
 
-        def soft_delete
-          enforce_permission_to(:soft_delete, :budget, budget:)
-
-          Decidim::Commands::SoftDeleteResource.call(budget, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("budgets.soft_delete.success", scope: "decidim.budgets.admin")
-
-              redirect_to budgets_path
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("budgets.soft_delete.invalid", scope: "decidim.budgets.admin")
-
-              redirect_to budgets_path
-            end
-          end
-        end
-
-        def restore
-          enforce_permission_to(:restore, :budget, budget:)
-
-          Decidim::Commands::RestoreResource.call(budget, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("budgets.restore.success", scope: "decidim.budgets.admin")
-
-              redirect_to manage_trash_budgets_path
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("budgets.restore.invalid", scope: "decidim.budgets.admin")
-
-              redirect_to manage_trash_budgets_path
-            end
-          end
-        end
-
-        def manage_trash
-          enforce_permission_to(:manage_trash, :budget)
-        end
-
         private
+
+        def trashable_deleted_resource_type
+          :budget
+        end
+
+        def trashable_deleted_resource
+          budget
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection ||=  Budget.where(component: current_component).trashed
+        end
 
         def budgets
           @budgets ||= Budget.where(component: current_component).not_deleted.order(weight: :asc)
-        end
-
-        def deleted_budgets
-          @deleted_budgets ||= Budget.where(component: current_component).trashed
         end
 
         def budget
