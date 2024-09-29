@@ -68,13 +68,13 @@ $(() => {
     })
 
     $form.on("change", function(event) {
-      let form_data = new FormData(event.target.closest("form"));
+      let formData = new FormData(event.target.closest("form"));
       let url = $form.data("recipients-count-newsletter-path");
       const $modal = $("#recipients_count_spinner");
       $modal.removeClass("hide");
 
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', url, true);
+      xhr.open("POST", url, true);
       xhr.onload = function() {
         if (xhr.status === 200) {
           $("#recipients_count").text(xhr.responseText);
@@ -85,7 +85,7 @@ $(() => {
         $modal.addClass("hide");
       };
       // Send the form data
-      xhr.send(form_data);
+      xhr.send(formData);
     })
   }
 });
