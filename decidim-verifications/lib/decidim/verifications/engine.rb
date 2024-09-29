@@ -37,9 +37,11 @@ module Decidim
       end
 
       initializer "decidim_verifications.mount_admin_routes" do
-        Decidim::Admin::Engine.routes do
-          Decidim.authorization_admin_engines.each do |manifest|
-            mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
+        Decidim::Core::Engine.routes do
+          constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
+            Decidim.authorization_admin_engines.each do |manifest|
+              mount manifest.admin_engine, at: "/admin/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
+            end
           end
         end
       end
