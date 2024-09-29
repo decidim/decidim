@@ -190,6 +190,7 @@ As of [\#13294](https://github.com/decidim/decidim/pull/13294), we have changed 
     end
   end
 ```
+
 As a developer or as a user, you should not feel the difference of this change, however, we would like to emphasize this change, as the upgrade may impact other community libraries.
 This particular change in the way we mount things, applies also for `Comments` and `Verifications` modules.
 
