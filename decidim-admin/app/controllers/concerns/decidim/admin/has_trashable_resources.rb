@@ -16,12 +16,14 @@ module Decidim
 
           Decidim::Commands::SoftDeleteResource.call(trashable_deleted_resource, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("soft_delete.success", scope: trashable_i18n_scope)
+              # i18n-tasks-use t("decidim.admin.trash_management.soft_delete.success")
+              flash[:notice] = I18n.t("soft_delete.success", scope: trashable_i18n_scope, resource_name: human_readable_resource_name.capitalize)
               redirect_to_resource_index
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("soft_delete.invalid", scope: trashable_i18n_scope)
+              # i18n-tasks-use t("decidim.admin.trash_management.soft_delete.invalid")
+              flash[:alert] = I18n.t("soft_delete.invalid", scope: trashable_i18n_scope, resource_name: human_readable_resource_name)
               redirect_to_resource_index
             end
           end
@@ -32,12 +34,14 @@ module Decidim
 
           Decidim::Commands::RestoreResource.call(trashable_deleted_resource, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("restore.success", scope: trashable_i18n_scope)
+              # i18n-tasks-use t("decidim.admin.trash_management.restore.success")
+              flash[:notice] = I18n.t("restore.success", scope: trashable_i18n_scope, resource_name: human_readable_resource_name.capitalize)
               redirect_to_resource_trash
             end
 
             on(:invalid) do
-              flash[:alert] = I18n.t("restore.invalid", scope: trashable_i18n_scope)
+              # i18n-tasks-use t("decidim.admin.trash_management.restore.invalid")
+              flash[:alert] = I18n.t("restore.invalid", scope: trashable_i18n_scope, resource_name: human_readable_resource_name)
               redirect_to_resource_trash
             end
           end
@@ -64,7 +68,7 @@ module Decidim
 
       # override to customize flash messages
       def trashable_i18n_scope
-        "decidim.admin"
+        "decidim.admin.trash_management"
       end
 
       def find_parent_resource
@@ -119,7 +123,7 @@ module Decidim
       end
 
       def participatory_space_trashed?
-        current_participatory_space&.respond_to?(:trashed?) && current_participatory_space&.trashed?
+        current_participatory_space.respond_to?(:trashed?) && current_participatory_space&.trashed?
       end
 
       def resource_trashed?
@@ -133,6 +137,10 @@ module Decidim
       def parent_id_trashed?
         parent_resource = find_parent_resource
         parent_resource&.trashed? || false
+      end
+
+      def human_readable_resource_name
+        trashable_deleted_resource_type.to_s.humanize
       end
 
       def resource_or_parents_trashed?

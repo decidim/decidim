@@ -78,10 +78,6 @@ module Decidim
           :debate
         end
 
-        def trashable_i18n_scope
-          "decidim.debates.admin.debates"
-        end
-
         def debates
           @debates ||= Debate.where(component: current_component, deleted_at: nil).not_hidden
         end

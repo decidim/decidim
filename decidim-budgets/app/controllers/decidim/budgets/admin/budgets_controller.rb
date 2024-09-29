@@ -79,10 +79,6 @@ module Decidim
           @trashable_deleted_collection ||= Budget.where(component: current_component).trashed
         end
 
-        def trashable_i18n_scope
-          "decidim.budgets.admin.budgets"
-        end
-
         def budgets
           @budgets ||= Budget.where(component: current_component).not_deleted.order(weight: :asc)
         end

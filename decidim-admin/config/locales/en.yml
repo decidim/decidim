@@ -203,8 +203,10 @@ en:
         per_page: Per page
         permissions: Permissions
         reject: Reject
+        restore: Restore
         send_me_a_test_email: Send me a test email
         share: Share
+        soft_delete: Soft delete
         user:
           new: New admin
         verify: Verify
@@ -354,12 +356,6 @@ en:
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
-        restore:
-          invalid: There was a problem restoring this component.
-          success: The component has been successfully restored.
-        soft_delete:
-          invalid: There was a problem deleting this component.
-          success: The component has been deleted successfully.
         title: Components
         unpublish:
           success: The component has been successfully unpublished.
@@ -1156,6 +1152,13 @@ en:
         users: Administrators
       tooltips:
         deleted_component_info: This component can only be deleted if status is 'Unpublished'.
+      trash_management:
+        restore:
+          invalid: There was a problem restoring %{resource_name}.
+          success: "%{resource_name} successfully restored."
+        soft_delete:
+          invalid: There was a problem deleting %{resource_name}.
+          success: "%{resource_name} successfully deleted."
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.

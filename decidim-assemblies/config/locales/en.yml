@@ -117,12 +117,6 @@ en:
         new:
           create: Create
           title: New assembly
-        restore:
-          invalid: There was a problem while restoring the assembly.
-          success: Assembly has been successfully restored.
-        soft_delete:
-          invalid: There was a problem while deleting the assembly.
-          success: Assembly has been successfully deleted.
         update:
           error: There was a problem updating this assembly.
           success: Assembly successfully updated.

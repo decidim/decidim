@@ -167,10 +167,6 @@ module Decidim
         @trashable_deleted_collection ||= current_participatory_space.components.trashed
       end
 
-      def trashable_i18n_scope
-        "decidim.admin.components"
-      end
-
       # Processes the component params so the form object defined in the manifest (component_form_class_name)
       # can assign and validate the attributes when using #from_params.
       def component_params

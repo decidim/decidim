@@ -163,10 +163,6 @@ module Decidim
           @trashable_deleted_collection = filtered_collection.trashed
         end
 
-        def trashable_i18n_scope
-          "decidim.proposals.admin.proposals"
-        end
-
         def collection
           @collection ||= Proposal.where(component: current_component).not_hidden.published
         end

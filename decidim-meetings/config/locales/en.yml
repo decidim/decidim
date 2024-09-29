@@ -350,9 +350,6 @@ en:
           publish:
             invalid: There was a problem publishing this meeting.
             success: Meeting successfully published.
-          restore:
-            invalid: There was a problem restoring this meeting.
-            success: Meeting successfully restored.
           service:
             description: Description
             down: Down
@@ -363,9 +360,6 @@ en:
           services:
             add_service: Add service
             services: Services
-          soft_delete:
-            invalid: There was a problem soft deleting this meeting.
-            success: Meeting successfully deleted.
           unpublish:
             invalid: There was a problem unpublishing this meeting.
             success: Meeting successfully unpublished.

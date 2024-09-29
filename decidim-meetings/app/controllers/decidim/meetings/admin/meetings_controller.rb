@@ -121,10 +121,6 @@ module Decidim
           @trashable_deleted_collection ||= filtered_collection.trashed
         end
 
-        def trashable_i18n_scope
-          "decidim.meetings.admin.meetings"
-        end
-
         def meetings
           @meetings ||= filtered_collection.not_deleted
         end

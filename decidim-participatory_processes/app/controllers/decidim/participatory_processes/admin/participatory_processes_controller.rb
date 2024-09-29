@@ -92,10 +92,6 @@ module Decidim
           @trashable_deleted_collection = filtered_collection.trashed
         end
 
-        def trashable_i18n_scope
-          "decidim.admin.participatory_processes"
-        end
-
         def process_group
           @process_group ||= ParticipatoryProcessGroup.find_by(id: ransack_params[:decidim_participatory_process_group_id_eq], organization: current_organization)
         end

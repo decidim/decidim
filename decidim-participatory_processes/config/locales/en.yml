@@ -108,9 +108,7 @@ en:
         preview: Preview
         publish: Publish
         resend_invitation: Resend invitation
-        restore: Restore
         see_process: See process
-        soft_delete: Soft delete
         unpublish: Unpublish
         view_deleted_processes: View deleted processes
       filters:
@@ -289,12 +287,6 @@ en:
         new:
           create: Create
           title: New participatory process
-        restore:
-          invalid: There was a problem while restoring the participatory process.
-          success: Participatory process successfully restored.
-        soft_delete:
-          invalid: There was a problem while deleting the participatory process.
-          success: Participatory process has been successfully deleted.
         update:
           error: There was a problem updating this participatory process.
           success: Participatory process successfully updated.

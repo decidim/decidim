@@ -92,10 +92,6 @@ module Decidim
           @trashable_deleted_collection = filtered_collection.trashed
         end
 
-        def trashable_i18n_scope
-          "decidim.accountability.admin.results"
-        end
-
         def find_parent_resource
           parent_result
         end

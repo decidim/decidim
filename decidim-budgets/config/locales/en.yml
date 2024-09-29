@@ -85,12 +85,6 @@ en:
           new:
             create: Create budget
             title: New budget
-          restore:
-            invalid: There was a problem restoring this budget.
-            success: Budget successfully restored.
-          soft_delete:
-            invalid: There was a problem soft deleting this budget.
-            success: Budget successfully deleted.
           update:
             invalid: There was a problem updating this budget.
             success: Budget successfully updated.
@@ -134,12 +128,6 @@ en:
           new:
             create: Create
             title: New project
-          restore:
-            invalid: There was a problem restoring this project.
-            success: Project successfully restored.
-          soft_delete:
-            invalid: There was a problem soft deleting this project.
-            success: Project successfully deleted.
           update:
             invalid: There was a problem updating this project.
             success: Project successfully updated.

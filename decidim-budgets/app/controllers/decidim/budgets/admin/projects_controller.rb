@@ -197,10 +197,6 @@ module Decidim
           @find_parent_resource ||= budget
         end
 
-        def trashable_i18n_scope
-          "decidim.budgets.admin.projects"
-        end
-
         def projects
           @projects ||= filtered_collection.not_deleted
         end
