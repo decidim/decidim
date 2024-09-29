@@ -87,7 +87,7 @@ module Decidim
         end
 
         def trashable_deleted_collection
-          @deleted_debates ||= Debate.where(component: current_component).trashed
+          @trashable_deleted_collection ||= Debate.where(component: current_component).trashed
         end
 
         def debate

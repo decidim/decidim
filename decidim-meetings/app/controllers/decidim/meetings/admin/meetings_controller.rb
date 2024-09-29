@@ -5,9 +5,10 @@ module Decidim
     module Admin
       # This controller allows an admin to manage meetings from a Participatory Process
       class MeetingsController < Admin::ApplicationController
+        include Decidim::Admin::HasTrashableResources
         include Decidim::Meetings::Admin::Filterable
 
-        helper_method :blank_service, :deleted_meetings
+        helper_method :blank_service
 
         def new
           enforce_permission_to :create, :meeting
@@ -110,58 +111,32 @@ module Decidim
           end
         end
 
-        def soft_delete
-          enforce_permission_to(:soft_delete, :meeting, meeting:)
-
-          Decidim::Commands::SoftDeleteResource.call(meeting, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("meetings.soft_delete.success", scope: "decidim.meetings.admin")
-              redirect_to meetings_path
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("meetings.soft_delete.invalid", scope: "decidim.meetings.admin")
-              redirect_to meetings_path
-            end
-          end
-        end
-
-        def restore
-          enforce_permission_to(:restore, :meeting, meeting:)
-
-          Decidim::Commands::RestoreResource.call(meeting, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("meetings.restore.success", scope: "decidim.meetings.admin")
-              redirect_to manage_trash_meetings_path
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("meetings.restore.invalid", scope: "decidim.meetings.admin")
-              redirect_to manage_trash_meetings_path
-            end
-          end
-        end
-
-        def manage_trash
-          enforce_permission_to :read, :meeting
-        end
-
         private
+
+        def trashable_deleted_resource_type
+          :meeting
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection ||= filtered_collection.trashed
+        end
+
+        def trashable_i18n_scope
+          "decidim.meetings.admin.meetings"
+        end
 
         def meetings
           @meetings ||= filtered_collection.not_deleted
         end
 
         def meeting
-          @meeting ||= Meeting.where(component: current_component).find(params[:id])
+          @meeting ||= Meeting.where(component: current_component).find_by(id: params[:id])
         end
+
+        alias trashable_deleted_resource meeting
 
         def collection
           @collection ||= Meeting.where(component: current_component).published.not_hidden
-        end
-
-        def deleted_meetings
-          @deleted_meetings ||= filtered_collection.trashed
         end
 
         def meeting_form

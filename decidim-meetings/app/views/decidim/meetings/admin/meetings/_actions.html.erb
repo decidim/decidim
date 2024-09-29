@@ -1,5 +1,5 @@
 <% if view == :deleted %>
-  <% if allowed_to? :restore, :meeting, meeting: meeting %>
+  <% if allowed_to? :restore, :meeting, trashable_deleted_resource: meeting %>
     <%= icon_link_to "refresh-line", url_for(action: :restore, id: meeting, controller: "meetings"), t("decidim.admin.actions.restore"), method: :patch, class: "action-icon--restore" %>
   <% end %>
 <% else %>
@@ -62,7 +62,7 @@
 
   <%= resource_permissions_link(meeting) %>
 
-  <% if allowed_to? :soft_delete, :meeting, meeting: meeting %>
+  <% if allowed_to? :soft_delete, :meeting, trashable_deleted_resource: meeting %>
     <%= icon_link_to "delete-bin-line", soft_delete_meeting_path(meeting), t("actions.soft_delete", scope: "decidim.meetings"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_meeting", scope: "decidim.meetings") } %>
   <% else %>
     <span class="action-space icon"></span>
