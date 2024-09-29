@@ -13,14 +13,12 @@ module Decidim
           return permission_action if permission_action.subject != :debate
 
           case permission_action.action
-          when :create, :read, :export, :soft_delete, :manage_trash
+          when :create, :read, :export
             allow!
           when :update
             toggle_allow(debate && !debate.closed? && debate.official?)
           when :delete, :close
             toggle_allow(debate&.official?)
-          when :restore
-            toggle_allow(debate&.trashed?)
           end
 
           permission_action

@@ -5,9 +5,10 @@ module Decidim
     module Admin
       # This controller allows an admin to manage debates from a Participatory Space
       class DebatesController < Decidim::Debates::Admin::ApplicationController
+        include Decidim::Admin::HasTrashableResources
         helper Decidim::ApplicationHelper
 
-        helper_method :debates, :deleted_debates
+        helper_method :debates
 
         def index
           enforce_permission_to :read, :debate
@@ -71,55 +72,29 @@ module Decidim
           redirect_to debates_path
         end
 
-        def soft_delete
-          enforce_permission_to(:soft_delete, :debate, debate:)
-
-          Decidim::Commands::SoftDeleteResource.call(debate, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("debates.soft_delete.success", scope: "decidim.debates.admin")
-              redirect_to debates_path
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("debates.soft_delete.invalid", scope: "decidim.debates.admin")
-              redirect_to debates_path
-            end
-          end
-        end
-
-        def restore
-          enforce_permission_to(:restore, :debate, debate:)
-
-          Decidim::Commands::RestoreResource.call(debate, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("debates.restore.success", scope: "decidim.debates.admin")
-              redirect_to manage_trash_debates_path
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("debates.restore.invalid", scope: "decidim.debates.admin")
-              redirect_to manage_trash_debates_path
-            end
-          end
-        end
-
-        def manage_trash
-          enforce_permission_to :manage_trash, :debate
-        end
-
         private
+
+        def trashable_deleted_resource_type
+          :debate
+        end
+
+        def trashable_i18n_scope
+          "decidim.debates.admin.debates"
+        end
 
         def debates
           @debates ||= Debate.where(component: current_component, deleted_at: nil).not_hidden
         end
 
-        def deleted_debates
+        def trashable_deleted_collection
           @deleted_debates ||= Debate.where(component: current_component).trashed
         end
 
         def debate
           @debate ||= Debate.find_by(component: current_component, id: params[:id])
         end
+
+        alias trashable_deleted_resource debate
       end
     end
   end
