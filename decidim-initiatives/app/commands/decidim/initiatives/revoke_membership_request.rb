@@ -32,7 +32,7 @@ module Decidim
           resource: @membership_request.initiative,
           affected_users: [@membership_request.user],
           force_send: true,
-          extra: { author: @membership_request.initiative.author }
+          extra: { author: { id: @membership_request.initiative.author&.id } }
         )
       end
     end
