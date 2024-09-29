@@ -30,6 +30,20 @@ module Decidim
         end
       end
 
+      initializer "decidim_verifications.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
+        end
+      end
+
+      initializer "decidim_verifications.mount_admin_routes" do
+        Decidim::Admin::Engine.routes do
+          Decidim.authorization_admin_engines.each do |manifest|
+            mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
+          end
+        end
+      end
+
       # Initializer to include cells views paths
       initializer "decidim_verifications.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Verifications::Engine.root}/app/cells")
