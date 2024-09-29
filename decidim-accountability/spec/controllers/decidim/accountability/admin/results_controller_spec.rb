@@ -55,7 +55,7 @@ module Decidim
             patch(:restore, params:)
 
             expect(result.reload.deleted_at).to be_nil
-            expect(response).to redirect_to(results_path(parent_id: result.parent_id))
+            expect(response).to redirect_to(manage_trash_results_path(parent_id: result.parent_id))
           end
         end
 

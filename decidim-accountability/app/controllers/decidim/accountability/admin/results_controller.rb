@@ -93,7 +93,7 @@ module Decidim
         end
 
         def trashable_i18n_scope
-          "decidim.accountability.admin"
+          "decidim.accountability.admin.results"
         end
 
         def find_parent_resource

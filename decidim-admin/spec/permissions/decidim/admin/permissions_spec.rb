@@ -355,25 +355,50 @@ describe Decidim::Admin::Permissions do
   end
 
   describe "soft delete" do
-    let(:action_subject) { :component }
+    let(:action_subject) { :resource }
+    let(:action_name) { :soft_delete }
+    let(:context) { { trashable_deleted_resource: resource } }
 
-    context "when action is :soft_delete" do
-      let(:action_name) { :soft_delete }
-
-      it { is_expected.to be true }
-    end
-
-    context "when action is :manage_trash" do
-      let(:action_name) { :manage_trash }
+    context "when resource exists and is not trashed" do
+      let(:resource) { instance_double("Resource", trashed?: false) }
 
       it { is_expected.to be true }
     end
 
-    context "when subject is not :component" do
-      let(:action_name) { :manage_trash }
-      let(:action_subject) { :something_else }
+    context "when resource exists and is trashed" do
+      let(:resource) { instance_double("Resource", trashed?: true) }
 
-      it_behaves_like "permission is not set"
+      it { is_expected.to be false }
+    end
+  end
+
+  describe "restore" do
+    let(:action_subject) { :resource }
+    let(:action_name) { :restore }
+    let(:context) { { trashable_deleted_resource: resource } }
+
+    context "when resource exists and is trashed" do
+      let(:resource) { instance_double("Resource", trashed?: true) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when resource exists and is not trashed" do
+      let(:resource) { instance_double("Resource", trashed?: false) }
+
+      it { is_expected.to be false }
+    end
+  end
+
+  describe "manage trash" do
+    let(:action_subject) { :resource }
+    let(:action_name) { :manage_trash }
+    let(:context) { { trashable_deleted_resource: resource } }
+
+    context "when any resource" do
+      let(:resource) { instance_double("Resource") }
+
+      it { is_expected.to be true }
     end
   end
 
