@@ -148,9 +148,7 @@ If you want to calculate this metric you could run the following command, where 
 ./bin/rails decidim:metrics:rebuild[meetings,2019-01-01]
 ```
 
-#### TODO- add the ticket id
-
-You can see more details about this change on PR [\#TODO](https://github.com/decidim/decidim/pull/TODO)
+You can see more details about this change on PR [\#13442](https://github.com/decidim/decidim/pull/13442)
 
 ### 3.3. [[TITLE OF THE ACTION]]
 
