@@ -20,15 +20,17 @@
         <% end %>
       </tbody>
     </table>
-    <div class="card mt-4">
-      <%= link_to manage_trash_budget_projects_path(budget), class: "flex items-center underline text-secondary" do %>
-        <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
-        <%= t("actions.view_deleted_projects", scope: "decidim.budgets") %>
-        <span class="ml-2">
-        <%= icon_with_tooltip("information-line", t("actions.deleted_budgets_info", scope: "decidim.budgets")) %>
-      </span>
-      <% end %>
-    </div>
+    <% if allowed_to? :manage_trash, :project, participatory_space: current_participatory_space %>
+      <div class="card mt-4">
+        <%= link_to manage_trash_budget_projects_path(budget), class: "flex items-center underline text-secondary" do %>
+          <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+          <%= t("actions.view_deleted_projects", scope: "decidim.budgets") %>
+          <span class="ml-2">
+          <%= icon_with_tooltip("information-line", t("actions.deleted_budgets_info", scope: "decidim.budgets")) %>
+        </span>
+        <% end %>
+      </div>
+    <% end %>
     <%= decidim_paginate projects %>
   </div>
   <div class="card-divider">

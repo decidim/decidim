@@ -20,15 +20,17 @@
       </tbody>
     </table>
   </div>
-  <div class="card mt-4">
-    <%= link_to manage_trash_meetings_path, class: "flex items-center underline text-secondary" do %>
-      <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
-      <%= t("actions.view_deleted_meetings", scope: "decidim.meetings") %>
-      <span class="ml-2">
-        <%= icon_with_tooltip("information-line", t("actions.deleted_meetings_info", scope: "decidim.meetings")) %>
-      </span>
-    <% end %>
-  </div>
+  <% if allowed_to? :manage_trash, :meeting, participatory_space: current_participatory_space %>
+    <div class="card mt-4">
+      <%= link_to manage_trash_meetings_path, class: "flex items-center underline text-secondary" do %>
+        <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+        <%= t("actions.view_deleted_meetings", scope: "decidim.meetings") %>
+        <span class="ml-2">
+          <%= icon_with_tooltip("information-line", t("actions.deleted_meetings_info", scope: "decidim.meetings")) %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <%= decidim_paginate meetings %>

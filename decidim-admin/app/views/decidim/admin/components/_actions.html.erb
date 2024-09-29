@@ -47,7 +47,7 @@
     <span class="action-space icon"></span>
   <% end %>
 
-  <% if allowed_to?(:soft_delete, :component, trashable_deleted_resource: component) %>
+  <% if allowed_to?(:soft_delete, :component, trashable_deleted_resource: component, participatory_space: current_participatory_space) %>
     <% resources_count = component.primary_stat || 0 %>
 
     <% if component.published? %>

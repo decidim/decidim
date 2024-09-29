@@ -1,5 +1,5 @@
 <% if view == :deleted %>
-  <% if allowed_to? :restore, :blogpost, blog_post: post %>
+  <% if allowed_to? :restore, :blogpost, trashable_deleted_resource: post %>
     <%= icon_link_to "refresh-line", url_for(action: :restore, id: post, controller: "posts"), t("decidim.admin.actions.restore"), method: :patch, class: "action-icon--restore" %>
   <% end %>
 <% else %>
