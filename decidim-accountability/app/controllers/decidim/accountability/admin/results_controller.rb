@@ -10,7 +10,7 @@ module Decidim
         include Decidim::Accountability::Admin::Filterable
         include Decidim::Admin::HasTrashableResources
 
-        helper_method :results, :parent_result, :parent_results, :statuses, :present, :parent_resource_finder
+        helper_method :results, :parent_result, :parent_results, :statuses, :present
 
         def collection
           parent_id = params[:parent_id].presence

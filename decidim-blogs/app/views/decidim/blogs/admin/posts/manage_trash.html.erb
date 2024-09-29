@@ -1,6 +1,5 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <%= cell("decidim/announcement", t("decidim.admin.manage_trash.deleted_items_warning"), callout_class: "warning") %>
   <div class="item_show__header">
     <h1 class="item_show__header-title">
       <%= t(".title") %>
@@ -10,11 +9,11 @@
     <table class="table-list">
       <%= render partial: "posts-thead" %>
       <tbody>
-      <% deleted_posts.created_at_desc.each do |post| %>
+      <% trashable_deleted_collection.created_at_desc.each do |post| %>
         <%= render partial: "post-tr", locals: { post:, view: :deleted } %>
       <% end %>
       </tbody>
     </table>
   </div>
 </div>
-<%= decidim_paginate deleted_posts %>
+<%= decidim_paginate trashable_deleted_collection %>

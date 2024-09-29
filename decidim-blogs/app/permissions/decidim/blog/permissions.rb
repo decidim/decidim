@@ -4,7 +4,7 @@ module Decidim
   module Blog
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        return permission_action unless permission_action.subject == :blogpost
+        return permission_action unless permission_action.subject == :blogpost || permission_action.subject == :post
 
         if permission_action.scope == :public
           allow!

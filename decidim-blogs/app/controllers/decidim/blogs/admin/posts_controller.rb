@@ -5,10 +5,10 @@ module Decidim
     module Admin
       # This controller allows the create or update a blog.
       class PostsController < Admin::ApplicationController
+        include Decidim::Admin::HasTrashableResources
+
         helper UserGroupHelper
         helper PostsHelper
-
-        helper_method :deleted_posts
 
         def new
           enforce_permission_to :create, :blogpost
@@ -65,43 +65,19 @@ module Decidim
           end
         end
 
-        def soft_delete
-          enforce_permission_to :soft_delete, :blogpost, blogpost: post
-
-          Decidim::Commands::SoftDeleteResource.call(post, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("posts.soft_delete.success", scope: "decidim.blogs.admin")
-              redirect_to posts_path
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("posts.soft_delete.invalid", scope: "decidim.blogs.admin")
-              redirect_to posts_path
-            end
-          end
-        end
-
-        def restore
-          enforce_permission_to :restore, :blogpost, blogpost: post
-
-          Decidim::Commands::RestoreResource.call(post, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("posts.restore.success", scope: "decidim.blogs.admin")
-              redirect_to posts_path
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("posts.restore.invalid", scope: "decidim.blogs.admin")
-              redirect_to manage_trash_posts_path
-            end
-          end
-        end
-
-        def manage_trash
-          enforce_permission_to :manage_trash, :blogpost
-        end
-
         private
+
+        def trashable_deleted_resource_type
+          :post
+        end
+
+        def trashable_deleted_resource
+          post
+        end
+
+        def trashable_deleted_collection
+          deleted_posts
+        end
 
         def post
           @post ||= Blogs::Post.find_by(component: current_component, id: params[:id])
