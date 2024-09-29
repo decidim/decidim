@@ -80,8 +80,8 @@ describe Decidim::Meetings::Admin::MeetingsController do
       get :manage_trash
 
       expect(response).to have_http_status(:ok)
-      expect(controller.view_context.deleted_meetings).to include(deleted_meeting)
-      expect(controller.view_context.deleted_meetings).not_to include(active_meeting)
+      expect(controller.view_context.trashable_deleted_collection).to include(deleted_meeting)
+      expect(controller.view_context.trashable_deleted_collection).not_to include(active_meeting)
     end
 
     it "renders the deleted template" do

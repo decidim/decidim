@@ -53,8 +53,8 @@ module Decidim
             get :manage_trash
 
             expect(response).to have_http_status(:ok)
-            expect(controller.view_context.deleted_budgets).to include(deleted_budget)
-            expect(controller.view_context.deleted_budgets).not_to include(active_budget)
+            expect(controller.view_context.trashable_deleted_collection).to include(deleted_budget)
+            expect(controller.view_context.trashable_deleted_collection).not_to include(active_budget)
           end
 
           it "renders the deleted budgets template" do

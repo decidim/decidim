@@ -80,7 +80,7 @@ module Decidim
         end
 
         def trashable_i18n_scope
-          "decidim.blogs.admin"
+          "decidim.blogs.admin.posts"
         end
 
         def post

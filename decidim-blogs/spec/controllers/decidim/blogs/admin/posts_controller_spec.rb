@@ -47,7 +47,7 @@ module Decidim
 
             patch :restore, params: { id: post.id }
 
-            expect(response).to redirect_to(posts_path)
+            expect(response).to redirect_to(manage_trash_posts_path)
             expect(flash[:notice]).to eq(I18n.t("posts.restore.success", scope: "decidim.blogs.admin"))
             expect(post.reload.deleted_at).to be_nil
           end
@@ -56,7 +56,7 @@ module Decidim
         describe "GET manage_trash" do
           let!(:deleted_post) { create(:post, component:, deleted_at: Time.current) }
           let!(:active_post) { create(:post, component:) }
-          let(:deleted_posts) { controller.view_context.deleted_posts }
+          let(:deleted_posts) { controller.view_context.trashable_deleted_collection }
 
           it "lists only deleted posts" do
             get :manage_trash

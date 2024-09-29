@@ -52,7 +52,7 @@ module Decidim
         describe "GET manage_trash" do
           let!(:deleted_debate) { create(:debate, component:, deleted_at: Time.current) }
           let!(:active_debate) { create(:debate, component:) }
-          let(:deleted_debates) { controller.view_context.deleted_debates }
+          let(:deleted_debates) { controller.view_context.trashable_deleted_collection }
 
           it "lists only deleted debates" do
             get :manage_trash

@@ -113,8 +113,8 @@ module Decidim
             get :manage_trash, params: { budget_id: deleted_project.budget.id }
 
             expect(response).to have_http_status(:ok)
-            expect(controller.view_context.deleted_projects).to include(deleted_project)
-            expect(controller.view_context.deleted_projects).not_to include(active_project)
+            expect(controller.view_context.trashable_deleted_collection).to include(deleted_project)
+            expect(controller.view_context.trashable_deleted_collection).not_to include(active_project)
           end
 
           it "renders the deleted projects template" do
