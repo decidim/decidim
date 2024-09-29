@@ -1,5 +1,5 @@
 <% if view == :deleted %>
-  <% if allowed_to? :restore, :result, result: result %>
+  <% if allowed_to? :restore, :result, trashable_deleted_resource: result %>
     <%= icon_link_to "refresh-line", url_for(action: :restore, id: result, controller: "results"), t("decidim.accountability.actions.restore"), method: :patch, class: "action-icon--restore" %>
   <% end %>
 <% else %>
@@ -27,7 +27,7 @@
 
   <%= resource_permissions_link(result) %>
 
-  <% if allowed_to? :soft_delete, :result, result: result %>
+  <% if allowed_to? :soft_delete, :result, trashable_deleted_resource: result %>
     <%= icon_link_to "delete-bin-line", soft_delete_result_path(result), t("actions.soft_delete", scope: "decidim.accountability"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_result", scope: "decidim.accountability") } %>
   <% end %>
 <% end %>

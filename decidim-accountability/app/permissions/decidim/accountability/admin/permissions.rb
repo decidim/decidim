@@ -43,9 +43,9 @@ module Decidim
             end
           else
             case permission_action.action
-            when :create, :create_children, :manage_trash
+            when :create, :create_children
               true
-            when :update, :destroy, :restore, :soft_delete
+            when :update, :destroy
               resource.present?
             else
               false

@@ -8,8 +8,9 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
         include Decidim::Accountability::Admin::Filterable
+        include Decidim::Admin::HasTrashableResources
 
-        helper_method :results, :deleted_results, :parent_result, :parent_results, :statuses, :present
+        helper_method :results, :parent_result, :parent_results, :statuses, :present, :parent_resource_finder
 
         def collection
           parent_id = params[:parent_id].presence
@@ -77,54 +78,26 @@ module Decidim
           end
         end
 
-        def soft_delete
-          enforce_permission_to(:soft_delete, :result, result:)
-
-          Decidim::Commands::SoftDeleteResource.call(result, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("results.soft_delete.success", scope: "decidim.accountability.admin")
-
-              redirect_to results_path(parent_id: result.parent_id)
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("results.soft_delete.invalid", scope: "decidim.accountability.admin")
-
-              redirect_to results_path(parent_id: result.parent_id)
-            end
-          end
-        end
-
-        def restore
-          enforce_permission_to(:restore, :result, result:)
-
-          Decidim::Commands::RestoreResource.call(result, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("results.restore.success", scope: "decidim.accountability.admin")
-
-              redirect_to results_path(parent_id: result.parent_id)
-            end
-
-            on(:invalid) do
-              flash[:alert] = I18n.t("results.restore.invalid", scope: "decidim.accountability.admin")
-
-              redirect_to manage_trash_results_path
-            end
-          end
-        end
-
-        def manage_trash
-          enforce_permission_to(:manage_trash, :result)
-        end
-
         private
+
+        def trashable_deleted_resource_type
+          :result
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= Result.where(component: current_component).find_by(id: params[:id])
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.trashed
+        end
+
+        def find_parent_resource
+          parent_result
+        end
 
         def results
           @results ||= filtered_collection.not_deleted
-        end
-
-        def deleted_results
-          @deleted_results ||= filtered_collection.trashed
         end
 
         def result

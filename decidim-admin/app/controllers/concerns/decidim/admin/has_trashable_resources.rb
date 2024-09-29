@@ -67,6 +67,10 @@ module Decidim
         "decidim.admin"
       end
 
+      def find_parent_resource
+        raise NotImplementedError, "Return the parent resource based on the given parent_id"
+      end
+
       # defaults to the resource name pluralized, but you can override on complex cases
       def redirect_to_resource_index
         redirect_to send("#{trashable_deleted_resource_type.to_s.pluralize}_path")
@@ -91,10 +95,40 @@ module Decidim
         end
       end
 
+      def parent_resource
+        trashable_deleted_resource&.try(:parent)
+      end
+
+      def component_trashed?
+        respond_to?(:current_component) && current_component&.trashed?
+      end
+
+      def participatory_space_trashed?
+        respond_to?(:current_participatory_space) && current_participatory_space&.trashed?
+      end
+
+      def resource_trashed?
+        trashable_deleted_resource&.trashed?
+      end
+
+      def parent_trashed?
+        parent_resource&.trashed?
+      end
+
+      def parent_id_trashed?
+        if params[:parent_id].present?
+          parent = find_parent_resource
+          return parent&.trashed?
+        end
+        false
+      end
+
       def resource_or_parents_trashed?
-        return true if respond_to?(:current_component) && current_component&.trashed?
-        return true if respond_to?(:current_participatory_space) && current_participatory_space&.trashed?
-        return true if trashable_deleted_resource&.trashed?
+        return true if component_trashed?
+        return true if participatory_space_trashed?
+        return true if resource_trashed?
+        return true if parent_trashed?
+        return true if parent_id_trashed?
 
         false
       end
