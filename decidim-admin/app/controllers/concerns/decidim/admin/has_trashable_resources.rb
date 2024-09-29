@@ -73,24 +73,30 @@ module Decidim
 
       # defaults to the resource name pluralized, but you can override on complex cases
       def redirect_to_resource_index
-        parent_resource = find_parent_resource
-
-        if parent_resource.present?
-          parent_resource_name = parent_resource.class.name.demodulize.underscore
-          route_name = "manage_trash_#{parent_resource_name}_#{trashable_deleted_resource_type.to_s.pluralize}_path"
-          redirect_to send(route_name, parent_resource)
-        else
-          redirect_to send("#{trashable_deleted_resource_type.to_s.pluralize}_path")
-        end
-        # redirect_to send("#{trashable_deleted_resource_type.to_s.pluralize}_path")
+        redirect_to build_redirect_path
       end
 
       def redirect_to_resource_trash
-        redirect_to send("manage_trash_#{trashable_deleted_resource_type.to_s.pluralize}_path")
+        redirect_to build_redirect_path(trash: true)
       end
 
       def trashable_set_deleted_warning
         flash.now[:warning] = I18n.t("deleted_warning", scope: trashable_i18n_scope, default: t("decidim.admin.manage_trash.deleted_items_warning"))
+      end
+
+      def build_redirect_path(trash: false)
+        parent_resource = find_parent_resource
+
+        if parent_resource.present?
+          parent_resource_name = parent_resource.class.name.demodulize.underscore
+          action_prefix = trash ? "manage_trash_" : ""
+          route_name = "#{action_prefix}#{parent_resource_name}_#{trashable_deleted_resource_type.to_s.pluralize}_path"
+          send(route_name, parent_resource)
+        else
+          action_prefix = trash ? "manage_trash_" : ""
+          route_name = "#{action_prefix}#{trashable_deleted_resource_type.to_s.pluralize}_path"
+          send(route_name)
+        end
       end
 
       def trash_zone?
@@ -125,11 +131,8 @@ module Decidim
       end
 
       def parent_id_trashed?
-        if params[:parent_id].present?
-          parent = find_parent_resource
-          return parent&.trashed?
-        end
-        false
+        parent_resource = find_parent_resource
+        parent_resource&.trashed? || false
       end
 
       def resource_or_parents_trashed?

@@ -11,7 +11,7 @@ module Decidim
         helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
         helper Decidim::Budgets::ProjectsHelper
 
-        helper_method :projects, :finished_orders, :pending_orders, :present, :project_ids, :deleted_projects
+        helper_method :projects, :finished_orders, :pending_orders, :present, :project_ids
 
         def collection
           @collection ||= budget.projects.page(params[:page]).per(15)
@@ -194,7 +194,7 @@ module Decidim
         end
 
         def find_parent_resource
-          budget
+          @find_parent_resource ||= budget
         end
 
         def trashable_i18n_scope
