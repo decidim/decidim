@@ -12,7 +12,7 @@ module Decidim
         before_action :trashable_set_deleted_warning, if: :trash_zone?
 
         def soft_delete
-          enforce_permission_to(:soft_delete, trashable_deleted_resource_type, trashable_deleted_resource:)
+          enforce_permission_to(:soft_delete, trashable_deleted_resource_type, trashable_deleted_resource:, current_participatory_space:)
 
           Decidim::Commands::SoftDeleteResource.call(trashable_deleted_resource, current_user) do
             on(:ok) do
@@ -104,7 +104,7 @@ module Decidim
       end
 
       def participatory_space_trashed?
-        respond_to?(:current_participatory_space) && current_participatory_space&.trashed?
+        current_participatory_space&.respond_to?(:trashed?) && current_participatory_space&.trashed?
       end
 
       def resource_trashed?
