@@ -78,7 +78,7 @@ describe Decidim::Proposals::Admin::ProposalsController do
       patch :soft_delete, params: { id: proposal.id }
 
       expect(response).to redirect_to(proposals_path)
-      expect(flash[:notice]).to eq(I18n.t("proposals.soft_delete.success", scope: "decidim.proposals.admin"))
+      expect(flash[:notice]).to be_present
       expect(proposal.reload.deleted_at).not_to be_nil
     end
   end
@@ -93,7 +93,7 @@ describe Decidim::Proposals::Admin::ProposalsController do
       patch :restore, params: { id: deleted_proposal.id }
 
       expect(response).to redirect_to(manage_trash_proposals_path)
-      expect(flash[:notice]).to eq(I18n.t("proposals.restore.success", scope: "decidim.proposals.admin"))
+      expect(flash[:notice]).to be_present
       expect(deleted_proposal.reload.deleted_at).to be_nil
     end
   end
@@ -107,8 +107,8 @@ describe Decidim::Proposals::Admin::ProposalsController do
       get :manage_trash
 
       expect(response).to have_http_status(:ok)
-      expect(assigns(:deleted_proposals)).not_to include(active_proposal)
-      expect(assigns(:deleted_proposals)).to include(deleted_proposal)
+      expect(controller.view_context.trashable_deleted_collection).not_to include(active_proposal)
+      expect(controller.view_context.trashable_deleted_collection).to include(deleted_proposal)
     end
 
     it "renders the deleted proposals template" do

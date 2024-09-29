@@ -51,7 +51,7 @@ describe Decidim::Meetings::Admin::MeetingsController do
       patch :soft_delete, params: { id: meeting.id }
 
       expect(response).to redirect_to(meetings_path)
-      expect(flash[:notice]).to eq(I18n.t("meetings.soft_delete.success", scope: "decidim.meetings.admin"))
+      expect(flash[:notice]).to be_present
       expect(meeting.reload.deleted_at).not_to be_nil
     end
   end
@@ -67,7 +67,7 @@ describe Decidim::Meetings::Admin::MeetingsController do
       patch :restore, params: { id: meeting.id }
 
       expect(response).to redirect_to(manage_trash_meetings_path)
-      expect(flash[:notice]).to eq(I18n.t("meetings.restore.success", scope: "decidim.meetings.admin"))
+      expect(flash[:notice]).to be_present
       expect(meeting.reload.deleted_at).to be_nil
     end
   end

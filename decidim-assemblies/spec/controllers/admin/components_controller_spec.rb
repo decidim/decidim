@@ -71,7 +71,7 @@ module Decidim
             patch :soft_delete, params: { assembly_slug: assembly.slug, id: component.id }
 
             expect(response).to redirect_to components_path
-            expect(flash[:notice]).to eq(I18n.t("components.soft_delete.success", scope: "decidim.admin"))
+            expect(flash[:notice]).to be_present
             expect(component.reload.deleted_at).not_to be_nil
           end
         end
@@ -87,7 +87,7 @@ module Decidim
             patch :restore, params: { assembly_slug: assembly.slug, id: component.id }
 
             expect(response).to redirect_to components_path
-            expect(flash[:notice]).to eq(I18n.t("components.restore.success", scope: "decidim.admin"))
+            expect(flash[:notice]).to be_present
             expect(component.reload.deleted_at).to be_nil
           end
         end

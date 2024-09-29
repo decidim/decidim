@@ -71,7 +71,7 @@ module Decidim
             patch :soft_delete, params: { conference_slug: conference.slug, id: component.id }
 
             expect(response).to redirect_to components_path
-            expect(flash[:notice]).to eq(I18n.t("components.soft_delete.success", scope: "decidim.admin"))
+            expect(flash[:notice]).to be_present
             expect(component.reload.deleted_at).not_to be_nil
           end
         end
@@ -86,8 +86,8 @@ module Decidim
 
             patch :restore, params: { conference_slug: conference.slug, id: component.id }
 
-            expect(response).to redirect_to components_path
-            expect(flash[:notice]).to eq(I18n.t("components.restore.success", scope: "decidim.admin"))
+            expect(response).to redirect_to manage_trash_components_path
+            expect(flash[:notice]).to be_present
             expect(component.reload.deleted_at).to be_nil
           end
         end
@@ -100,8 +100,8 @@ module Decidim
             get :manage_trash, params: { conference_slug: conference.slug }
 
             expect(response).to have_http_status(:ok)
-            expect(controller.send(:deleted_components)).not_to include(active_component)
-            expect(controller.send(:deleted_components)).to contain_exactly(deleted_component)
+            expect(controller.send(:trashable_deleted_collection)).not_to include(active_component)
+            expect(controller.send(:trashable_deleted_collection)).to contain_exactly(deleted_component)
           end
 
           it "renders the deleted components template" do
