@@ -1,5 +1,5 @@
 <% if view == :deleted %>
-  <% if allowed_to? :restore, :project, project: project %>
+  <% if allowed_to? :restore, :project, trashable_deleted_resource: project %>
     <%= icon_link_to "refresh-line", restore_budget_project_path(project.budget, project), t("decidim.admin.actions.restore"), method: :patch, class: "action-icon--restore" %>
   <% end %>
 <% else %>
@@ -19,7 +19,7 @@
 
   <%= resource_permissions_link(project) %>
 
-  <% if allowed_to? :soft_delete, :project, project: project %>
+  <% if allowed_to? :soft_delete, :project, trashable_deleted_resource: project %>
     <%= icon_link_to "delete-bin-line", soft_delete_budget_project_path(project.budget, project), t("actions.soft_delete", scope: "decidim.accountability"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_project", scope: "decidim.budgets") } %>
   <% else %>
     <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.budgets") %>

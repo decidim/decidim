@@ -89,7 +89,7 @@ module Decidim
         end
 
         def trashable_i18n_scope
-          "decidim.assemblies.admin.assemblies"
+          "decidim.admin.assemblies"
         end
 
         def current_assembly

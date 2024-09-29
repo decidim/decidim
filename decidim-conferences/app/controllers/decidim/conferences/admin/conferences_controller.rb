@@ -84,6 +84,10 @@ module Decidim
           @trashable_deleted_collection = filtered_collection.trashed
         end
 
+        def trashable_i18n_scope
+          "decidim.admin.conferences"
+        end
+
         def current_conference
           @current_conference ||= collection.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])

@@ -6,6 +6,7 @@ module Decidim
       # This controller allows an admin to manage projects from a Participatory Process
       class ProjectsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
+        include Decidim::Admin::HasTrashableResources
         include Decidim::Budgets::Admin::Filterable
         helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
         helper Decidim::Budgets::ProjectsHelper
@@ -182,50 +183,26 @@ module Decidim
           end
         end
 
-        def soft_delete
-          enforce_permission_to(:soft_delete, :project, project:)
-
-          Decidim::Commands::SoftDeleteResource.call(project, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("projects.soft_delete.success", scope: "decidim.budgets.admin")
-              redirect_to budget_projects_path(budget)
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("projects.soft_delete.invalid", scope: "decidim.budgets.admin")
-              redirect_to budget_projects_path(budget)
-            end
-          end
-        end
-
-        def restore
-          enforce_permission_to(:restore, :project, project:)
-
-          Decidim::Commands::RestoreResource.call(project, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("projects.restore.success", scope: "decidim.budgets.admin")
-              redirect_to manage_trash_budget_projects_path(budget)
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("projects.restore.invalid", scope: "decidim.budgets.admin")
-              redirect_to manage_trash_budget_projects_path(budget)
-            end
-          end
-        end
-
-        def manage_trash
-          enforce_permission_to :manage_trash, :project
-        end
-
         private
+
+        def trashable_deleted_resource_type
+          :project
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection ||= filtered_collection.trashed
+        end
+
+        def find_parent_resource
+          budget
+        end
+
+        def trashable_i18n_scope
+          "decidim.budgets.admin.projects"
+        end
 
         def projects
           @projects ||= filtered_collection.not_deleted
-        end
-
-        def deleted_projects
-          @deleted_projects ||= filtered_collection.trashed
         end
 
         def orders
@@ -257,8 +234,10 @@ module Decidim
         end
 
         def project
-          @project ||= filtered_collection.find(params[:id])
+          @project ||= filtered_collection.find_by(id: params[:id])
         end
+
+        alias trashable_deleted_resource project
 
         def update_projects_bulk_response_successful(response, subject, extra = {})
           return if response[:successful].blank?

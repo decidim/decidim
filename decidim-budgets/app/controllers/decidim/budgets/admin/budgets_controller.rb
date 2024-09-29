@@ -75,12 +75,12 @@ module Decidim
           :budget
         end
 
-        def trashable_deleted_resource
-          budget
+        def trashable_deleted_collection
+          @trashable_deleted_collection ||= Budget.where(component: current_component).trashed
         end
 
-        def trashable_deleted_collection
-          @trashable_deleted_collection ||=  Budget.where(component: current_component).trashed
+        def trashable_i18n_scope
+          "decidim.budgets.admin.budgets"
         end
 
         def budgets
@@ -90,6 +90,8 @@ module Decidim
         def budget
           @budget ||= Budget.where(component: current_component).find_by(id: params[:id])
         end
+
+        alias trashable_deleted_resource budget
 
         def orders
           @orders ||= Order.where(budget: budgets)

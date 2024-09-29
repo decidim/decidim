@@ -79,6 +79,10 @@ module Decidim
           @trashable_deleted_collection ||= Post.where(component: current_component).trashed.page(params[:page]).per(15)
         end
 
+        def trashable_i18n_scope
+          "decidim.blogs.admin"
+        end
+
         def post
           @post ||= Blogs::Post.find_by(component: current_component, id: params[:id])
         end

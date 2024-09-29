@@ -68,12 +68,21 @@ module Decidim
       end
 
       def find_parent_resource
-        raise NotImplementedError, "Return the parent resource based on the given parent_id"
+        respond_to?(:parent_resource_finder, true) ? find_parent_resource : nil
       end
 
       # defaults to the resource name pluralized, but you can override on complex cases
       def redirect_to_resource_index
-        redirect_to send("#{trashable_deleted_resource_type.to_s.pluralize}_path")
+        parent_resource = find_parent_resource
+
+        if parent_resource.present?
+          parent_resource_name = parent_resource.class.name.demodulize.underscore
+          route_name = "manage_trash_#{parent_resource_name}_#{trashable_deleted_resource_type.to_s.pluralize}_path"
+          redirect_to send(route_name, parent_resource)
+        else
+          redirect_to send("#{trashable_deleted_resource_type.to_s.pluralize}_path")
+        end
+        # redirect_to send("#{trashable_deleted_resource_type.to_s.pluralize}_path")
       end
 
       def redirect_to_resource_trash

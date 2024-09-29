@@ -93,7 +93,7 @@ module Decidim
         end
 
         def trashable_i18n_scope
-          "decidim.participatory_processes.admin.participatory_processes"
+          "decidim.admin.participatory_processes"
         end
 
         def process_group
