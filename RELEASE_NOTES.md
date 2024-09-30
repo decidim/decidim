@@ -22,6 +22,7 @@ bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:clean:invalid_records
+bin/rails decidim_proposals:upgrade:set_categories
 ```
 
 ## 2. General notes
@@ -68,6 +69,16 @@ Now the cache expiration time is configurable via initializers/ENV variables.
 Decidim uses cache in some HTML views (usually under the `cells/` folder). In the past the cache had no expiration time, now it is configurable using the ENV var `DECIDIM_CACHE_EXPIRATION_TIME` (this var expects an integer specifying the number of minutes for which the cache is valid).
 
 Also note, that now it comes with a default value of 24 hours (1440 minutes).
+
+### 2.4. Amendments category fix
+
+We have identified a bug in the filtering system, as the amendments created did not share the category with the proposal it amended. This fix aims to fix historic data. To fix it, you need to run:
+
+```shell
+bin/rails decidim_proposals:upgrade:set_categories
+```
+
+You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
 
 ## 3. One time actions
 
