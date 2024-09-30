@@ -12,9 +12,7 @@ module Decidim
 
       helper_method :authorizations, :surveys
 
-      # delegate :allow_unregistered?, to: :current_settings
-
-      before_action :check_permissions
+      before_action :check_permissions, except: [:index]
 
       def index; end
 
@@ -51,7 +49,9 @@ module Decidim
         "decidim.surveys.surveys"
       end
 
-      def surveys; end
+      def surveys
+        paginate(collection)
+      end
 
       def survey
         @survey ||= collection.find_by(id: params[:id])

@@ -116,4 +116,7 @@ en:
             closed: Closed
             open: Open
         no_surveys_warning: No surveys match your search criteria or there is not any survey open.
+        show:
+          open: Open
+          questions: questions
         upcoming_surveys_warning: Currently, there are no open surveys, but here you can find all the closed surveys listed.

@@ -16,6 +16,9 @@ module Decidim
 
       validates :questionnaire, presence: true
 
+      scope :opened, -> { where.not(answered_at: nil) }
+      scope :closed, -> { where(answered_at: nil) }
+
       def open?
         return true if starts_at.blank? && ends_at.blank?
         return true if ends_at.blank? && starts_at.past?
