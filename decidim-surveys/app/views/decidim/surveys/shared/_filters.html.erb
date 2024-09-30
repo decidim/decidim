@@ -2,4 +2,5 @@
     f.append(method: :with_any_date, collection: filter_date_values, label_scope: "decidim.surveys.surveys.filters", id: "date", type: :radio_buttons) if filter_options[:date]
   end %>
 
-<%= render layout: "decidim/shared/filters", locals: { filter_sections:, skip_to_id: "surveys" } %>
+<%= render layout: "decidim/shared/filters", locals: { filter_sections:, skip_to_id: "surveys" } do %>
+<% end %>

@@ -8,6 +8,7 @@ module Decidim
       include Decidim::ComponentPathHelper
       include Decidim::Surveys::SurveyHelper
       include FilterResource
+      include ComponentFilterable
       include Paginable
 
       helper_method :authorizations, :surveys
@@ -17,12 +18,7 @@ module Decidim
       def index; end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless survey
-
-        return if survey.current_user_can_visit_survey?(current_user)
-
-        flash[:alert] = I18n.t("survey.not_allowed", scope: "decidim.surveys")
-        redirect_to(ResourceLocatorPresenter.new(survey).index)
+        raise ActionController::RoutingError, "Not Found" if survey.blank?
       end
 
       def check_permissions
@@ -59,14 +55,6 @@ module Decidim
 
       def collection
         @collection ||= Decidim::Surveys::Survey.where(component: current_component)
-      end
-
-      def default_filter_params
-        {
-          activity: %w(all),
-          with_any_scope: nil,
-          with_any_state: %w(open closed)
-        }
       end
     end
   end

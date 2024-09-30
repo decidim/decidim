@@ -1,7 +1,7 @@
 <% add_decidim_page_title(t("decidim.surveys.directory.surveys.index.surveys")) %>
 
 <% content_for :aside do %>
-  <%= render partial: "decidim/surveys/shared/surveys_aside", locals: { main_action: true, component: } %>
+  <%= render partial: "decidim/surveys/shared/surveys_aside", locals: { main_action: true, filter_options:, component: } %>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>

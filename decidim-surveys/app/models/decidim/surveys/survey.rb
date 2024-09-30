@@ -18,7 +18,6 @@ module Decidim
 
       scope :open, -> { where("ends_at IS NULL OR ends_at > ?", Time.zone.now) }
       scope :closed, -> { where(ends_at: ..Time.zone.now) }
-      scope_search_multi :with_any_state, [:open, :closed]
 
       def open?
         return true if starts_at.blank? && ends_at.blank?
