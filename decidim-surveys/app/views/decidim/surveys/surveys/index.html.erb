@@ -1,0 +1,10 @@
+<% add_decidim_meta_tags(
+  description: translated_attribute(current_component.participatory_space.try(:description)),
+  title: translated_attribute(current_component.name),
+  url: surveys_url,
+  resource: current_component) %>
+
+<%= render partial: "decidim/surveys/shared/index", locals: {
+      display_announcement: true,
+      component: current_component
+      } %>

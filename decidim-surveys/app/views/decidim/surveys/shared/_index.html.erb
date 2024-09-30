@@ -1,0 +1,18 @@
+<% add_decidim_page_title(t("decidim.surveys.directory.surveys.index.surveys")) %>
+
+<%= append_stylesheet_pack_tag "decidim_surveys", media: "all" %>
+<%= append_javascript_pack_tag "decidim_surveys" %>
+
+<% content_for :aside do %>
+  <%= render partial: "decidim/surveys/shared/surveys_aside", locals: { main_action: true, component: } %>
+<% end %>
+
+<%= render layout: "layouts/decidim/shared/layout_two_col" do %>
+  <% if display_announcement %>
+    <%= render partial: "decidim/shared/component_announcement" %>
+  <% end %>
+
+  <section id="surveys" class="layout-main__section layout-main__heading">
+    <%= render partial: "decidim/surveys/shared/surveys", locals: { component: } %>
+  </section>
+<% end %>

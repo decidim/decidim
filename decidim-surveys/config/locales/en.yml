@@ -76,6 +76,11 @@ en:
           update:
             invalid: There was a problem saving the survey.
             success: Survey successfully saved.
+      directory:
+        surveys:
+          index:
+            surveys: Surveys
+            space_type: Participatory space
       last_activity:
         new_survey: 'New survey:'
       models:
@@ -88,6 +93,8 @@ en:
           status:
             closed: Closed
             open: Open
+      survey:
+        not_allowed: You are not allowed to view this survey.
       survey_confirmation_mailer:
         confirmation:
           body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}
@@ -98,3 +105,15 @@ en:
           invalid: There was a problem answering the survey.
           spam_detected: There was a problem answering the form. Maybe you have been too quick, can you try again?
           success: Survey successfully answered.
+        count:
+          surveys_count:
+            one: "%{count} survey"
+            other: "%{count} surveys"
+        filters:
+          date: Date
+          date_values:
+            all: All
+            closed: Closed
+            open: Open
+        no_surveys_warning: No surveys match your search criteria or there is not any survey open.
+        upcoming_surveys_warning: Currently, there are no open surveys, but here you can find all the closed surveys listed.

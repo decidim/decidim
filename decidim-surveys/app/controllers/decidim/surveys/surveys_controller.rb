@@ -7,12 +7,25 @@ module Decidim
       include Decidim::Forms::Concerns::HasQuestionnaire
       include Decidim::ComponentPathHelper
       include Decidim::Surveys::SurveyHelper
+      include FilterResource
+      include Paginable
 
-      helper_method :authorizations
+      helper_method :authorizations, :surveys
 
-      delegate :allow_unregistered?, to: :current_settings
+      # delegate :allow_unregistered?, to: :current_settings
 
       before_action :check_permissions
+
+      def index; end
+
+      def show
+        raise ActionController::RoutingError, "Not Found" unless survey
+
+        return if survey.current_user_can_visit_survey?(current_user)
+
+        flash[:alert] = I18n.t("survey.not_allowed", scope: "decidim.surveys")
+        redirect_to(ResourceLocatorPresenter.new(survey).index)
+      end
 
       def check_permissions
         render :no_permission unless action_authorized_to(:answer, resource: survey).ok?
@@ -38,8 +51,10 @@ module Decidim
         "decidim.surveys.surveys"
       end
 
+      def surveys; end
+
       def survey
-        @survey ||= collection.find(params[:id])
+        @survey ||= collection.find_by(id: params[:id])
       end
 
       def collection
