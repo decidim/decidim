@@ -27,7 +27,7 @@
 
   &__modal {
     .list-item__author {
-      @apply flex w-full justify-between px-4;
+      @apply flex w-full justify-between;
 
       .author__avatar-container {
         @apply w-8 h-8;
