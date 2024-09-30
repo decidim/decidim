@@ -55,7 +55,7 @@ module Decidim
     end
 
     def voted_by_me?
-      @voded_by_me ||= model.endorsed_by?(current_user)
+      @voted_by_me ||= model.endorsed_by?(current_user)
     end
 
     def display_link(text)

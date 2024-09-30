@@ -689,7 +689,6 @@ en:
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
     endorsement_buttons_cell:
-      already_endorsed: Dislike
       endorse: Like
     endorsements:
       identities:
