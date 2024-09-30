@@ -127,6 +127,10 @@ module Decidim
             it "traces the action", versioning: true do
               expect(Decidim.traceability)
                 .to receive(:perform_action!)
+                .with(:publish, kind_of(Decidim::Proposals::Proposal), kind_of(Decidim::User), visibility: "all")
+                .and_call_original
+              expect(Decidim.traceability)
+                .to receive(:perform_action!)
                 .with(:create, Decidim::Proposals::Proposal, kind_of(Decidim::User), visibility: "all")
                 .and_call_original
 
