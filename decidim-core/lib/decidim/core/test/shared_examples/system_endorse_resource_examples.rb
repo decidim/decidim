@@ -79,7 +79,7 @@ shared_examples "Endorse resource system specs" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
             click_on "Like"
-            expect(page).to have_button("Dislike")
+            expect(page).not_to have_selector('svg use[href*="ri-heart-fill"]')
           end
         end
       end
@@ -90,16 +90,16 @@ shared_examples "Endorse resource system specs" do
         it "is not able to endorse it again" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
-            expect(page).to have_button("Dislike")
-            expect(page).to have_no_button("Like")
+            expect(page).to have_selector('svg use[href*="ri-heart-fill"]')
+            expect(page).not_to have_selector('svg use[href*="ri-heart-line"]')
           end
         end
 
         it "is able to undo the endorsement" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
-            click_on "Dislike"
-            expect(page).to have_button("Like")
+            click_on "Like"
+            expect(page).to have_selector('svg use[href*="ri-heart-line"]')
           end
         end
       end
@@ -144,8 +144,8 @@ shared_examples "Endorse resource system specs" do
             visit_resource
             within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
+              expect(page).not_to have_xpath('//svg//use[contains(@href, "ri-heart-fill")]')
             end
-            expect(page).to have_button("Dislike")
           end
         end
       end
@@ -176,7 +176,7 @@ shared_examples "Endorse resource system specs" do
           it "is able to endorse the resource" do
             within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
-              expect(page).to have_button("Dislike")
+              expect(page).not_to have_xpath('//svg//use[contains(@href, "ri-heart-fill")]')
             end
           end
         end
@@ -199,7 +199,7 @@ shared_examples "Endorse resource system specs" do
               click_on "Done"
             end
             visit_resource
-            click_on "Dislike"
+            click_on "Like"
           end
 
           context "when both identities picked" do
@@ -235,7 +235,7 @@ shared_examples "Endorse resource system specs" do
               page.all(".is-selected")[1].click
               click_on "Done"
               visit current_path
-              click_on "Dislike"
+              click_on "Like"
 
               within ".identities-modal__list" do
                 expect(page).to have_css(".is-selected", count: 1)
