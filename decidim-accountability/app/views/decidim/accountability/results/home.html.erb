@@ -19,6 +19,9 @@
           extra_classes: "accountability__status__home"
         ) %>
   <% end %>
+  <div class="accountability__filters">
+    <%= render partial: "search" %>
+  </div>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>

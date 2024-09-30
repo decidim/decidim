@@ -43,7 +43,7 @@ module Decidim
       end
 
       def first_class_taxonomies
-        @first_class_taxonomies ||= current_organization.taxonomies.where(parent_id: current_component.available_root_taxonomies)
+        @first_class_taxonomies ||= current_organization.taxonomies.where(parent_id: current_component.available_root_taxonomies, id: current_component.available_taxonomy_ids)
       end
 
       def count_calculator(taxonomy_id)
