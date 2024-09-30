@@ -16,6 +16,12 @@ module Decidim
         request.env["decidim.current_organization"] = organization
       end
 
+      around do |example|
+        perform_enqueued_jobs do
+          example.run
+        end
+      end
+
       context "when GET spawn" do
         let(:user) { create(:user, :confirmed, organization:) }
 
