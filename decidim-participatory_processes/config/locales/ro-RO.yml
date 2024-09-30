@@ -409,7 +409,7 @@ ro:
       index:
         title: Procese participative
       last_activity:
-        new_participatory_process: Proces participativ nou
+        new_participatory_process: 'Proces participativ nou:'
       participatory_process_steps:
         index:
           back_to_process: Înapoi la pagina de proces
