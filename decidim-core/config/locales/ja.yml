@@ -908,7 +908,7 @@ ja:
           title_required: タイトルが必要です
           uploaded: アップロード済
           validating: 検証中...
-          validation_error: 検証エラー
+          validation_error: 'バリデーションエラー: ファイルの拡張子またはサイズに問題がないか確認してください。'
         select_file: ファイルを選択
       upload_help:
         dropzone: ここにファイルをドロップするか、ボタンをクリックしてアップロードします
