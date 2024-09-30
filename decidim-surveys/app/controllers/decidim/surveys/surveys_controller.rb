@@ -60,6 +60,14 @@ module Decidim
       def collection
         @collection ||= Decidim::Surveys::Survey.where(component: current_component)
       end
+
+      def default_filter_params
+        {
+          activity: %w(all),
+          with_any_scope: nil,
+          with_any_state: %w(open closed)
+        }
+      end
     end
   end
 end

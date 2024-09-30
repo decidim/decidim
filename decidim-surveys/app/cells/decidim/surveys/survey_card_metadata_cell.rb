@@ -40,11 +40,11 @@ module Decidim
       end
 
       def questions_count_item
-        text = survey.questionnaire.questions.size + t("questions", scope: "decidim.surveys.surveys.show")
+        text = "#{survey.questionnaire.questions.size} #{t("questions", scope: "decidim.surveys.surveys.show")}"
 
         {
           text:,
-          icon: resource_type_icon_key("Decidim::Surveys")
+          icon: "survey-line"
         }
       end
     end

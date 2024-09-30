@@ -9,14 +9,12 @@ module Decidim
     class SurveyLCell < Decidim::CardLCell
       include Decidim::SanitizeHelper
 
-      alias survey model
-
       def has_description?
         true
       end
 
       def title
-        present(model).title(html_escape: true)
+        decidim_sanitize_translated(model.title)
       end
 
       def description

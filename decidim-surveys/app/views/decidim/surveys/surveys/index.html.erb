@@ -6,5 +6,9 @@
 
 <%= render partial: "decidim/surveys/shared/index", locals: {
       display_announcement: true,
-      component: current_component
+      component: current_component,
+      filter_options: {
+        date: true,
+        activity: current_user.present?
+      }
       } %>
