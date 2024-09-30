@@ -16,13 +16,11 @@ module Decidim
 
           Decidim::Commands::SoftDeleteResource.call(trashable_deleted_resource, current_user) do
             on(:ok) do
-              # i18n-tasks-use t("decidim.admin.trash_management.soft_delete.success")
               flash[:notice] = I18n.t("soft_delete.success", scope: trashable_i18n_scope, resource_name: human_readable_resource_name.capitalize)
               redirect_to_resource_index
             end
 
             on(:invalid) do
-              # i18n-tasks-use t("decidim.admin.trash_management.soft_delete.invalid")
               flash[:alert] = I18n.t("soft_delete.invalid", scope: trashable_i18n_scope, resource_name: human_readable_resource_name)
               redirect_to_resource_index
             end
@@ -34,13 +32,11 @@ module Decidim
 
           Decidim::Commands::RestoreResource.call(trashable_deleted_resource, current_user) do
             on(:ok) do
-              # i18n-tasks-use t("decidim.admin.trash_management.restore.success")
               flash[:notice] = I18n.t("restore.success", scope: trashable_i18n_scope, resource_name: human_readable_resource_name.capitalize)
               redirect_to_resource_trash
             end
 
             on(:invalid) do
-              # i18n-tasks-use t("decidim.admin.trash_management.restore.invalid")
               flash[:alert] = I18n.t("restore.invalid", scope: trashable_i18n_scope, resource_name: human_readable_resource_name)
               redirect_to_resource_trash
             end
