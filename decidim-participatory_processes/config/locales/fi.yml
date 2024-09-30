@@ -447,7 +447,7 @@ fi:
       index:
         title: Osallistumisprosessit
       last_activity:
-        new_participatory_process: Uusi osallistumisprosessi
+        new_participatory_process: 'Uusi osallistumisprosessi:'
       pages:
         home:
           highlighted_processes:
