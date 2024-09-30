@@ -969,7 +969,7 @@ cs:
           title_required: Název je povinný!
           uploaded: Nahráno
           validating: Probíhá ověřování...
-          validation_error: Chyba ověření!
+          validation_error: Chyba ověření! Zkontrolujte, zda má soubor povolenou příponu nebo velikost.
         select_file: Vyberte soubor
       upload_help:
         dropzone: Přetáhněte soubory sem nebo klikněte na tlačítko pro nahrání
