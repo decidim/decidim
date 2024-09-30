@@ -138,6 +138,7 @@ module Decidim
         Decidim::Proposals::Proposal
         Decidim::Surveys::Survey
         Decidim::Assembly
+        Decidim::Conference
         Decidim::Initiative
         Decidim::ParticipatoryProcess
       ).select do |klass|

@@ -87,7 +87,7 @@ module Decidim
     end
 
     def cache_expiry_time
-      nil
+      Decidim.cache_expiry_time
     end
 
     def decidim
