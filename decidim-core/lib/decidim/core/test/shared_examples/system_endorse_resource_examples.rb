@@ -79,7 +79,7 @@ shared_examples "Endorse resource system specs" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
             click_on "Like"
-            expect(page).not_to have_selector('svg use[href*="ri-heart-fill"]')
+            expect(page).to have_no_css('svg use[href*="ri-heart-fill"]')
           end
         end
       end
@@ -90,8 +90,8 @@ shared_examples "Endorse resource system specs" do
         it "is not able to endorse it again" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
-            expect(page).to have_selector('svg use[href*="ri-heart-fill"]')
-            expect(page).not_to have_selector('svg use[href*="ri-heart-line"]')
+            expect(page).to have_css('svg use[href*="ri-heart-fill"]')
+            expect(page).to have_no_css('svg use[href*="ri-heart-line"]')
           end
         end
 
@@ -99,7 +99,7 @@ shared_examples "Endorse resource system specs" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
             click_on "Like"
-            expect(page).to have_selector('svg use[href*="ri-heart-line"]')
+            expect(page).to have_css('svg use[href*="ri-heart-line"]')
           end
         end
       end
@@ -144,7 +144,7 @@ shared_examples "Endorse resource system specs" do
             visit_resource
             within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
-              expect(page).not_to have_xpath('//svg//use[contains(@href, "ri-heart-fill")]')
+              expect(page).to have_no_xpath('//svg//use[contains(@href, "ri-heart-fill")]')
             end
           end
         end
@@ -176,7 +176,7 @@ shared_examples "Endorse resource system specs" do
           it "is able to endorse the resource" do
             within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
-              expect(page).not_to have_xpath('//svg//use[contains(@href, "ri-heart-fill")]')
+              expect(page).to have_no_xpath('//svg//use[contains(@href, "ri-heart-fill")]')
             end
           end
         end
