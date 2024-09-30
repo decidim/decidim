@@ -46,7 +46,7 @@ Decidim.register_component(:accountability) do |component|
     exports.collection do |component_instance|
       Decidim::Accountability::Result
         .where(component: component_instance)
-        .includes(:category, :scope, :status, component: { participatory_space: :organization })
+        .includes(:taxonomies, :status, component: { participatory_space: :organization })
     end
 
     exports.include_in_open_data = true

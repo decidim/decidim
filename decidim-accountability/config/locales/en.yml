@@ -230,10 +230,10 @@ en:
         filters:
           all: All
         home:
-          categories_label: Categories
+          taxonomies_label: Categories
           empty: There are no results yet.
           empty_filters: There are no results with this criteria.
-          subcategories_label: Subcategories
+          sub_taxonomies_label: Subcategories
         home_header:
           global_status: Global execution status
         nav_breadcrumb:

@@ -28,7 +28,7 @@ module Decidim
       scope :with_taxonomies, lambda { |*taxonomy_ids|
         conditions = ["? = ANY(part_of)"] * taxonomy_ids.count
         taxonomies = Decidim::Taxonomy.where(conditions.join(" OR "), *taxonomy_ids.map(&:to_i))
-        joins(:taxonomies).where(decidim_taxonomies: { id: taxonomies })
+        includes(:taxonomies).joins(:taxonomies).where(decidim_taxonomies: { id: taxonomies })
       }
 
       # finds taxonomizables belonging to all groups of taxonomies specified, each group is an array of taxonomy ids that are ORed together
