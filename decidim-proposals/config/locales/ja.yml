@@ -19,6 +19,7 @@ ja:
         automatic_hashtags: ハッシュタグが自動的に追加されました
         body: 本文
         category_id: カテゴリ
+        decidim_proposals_proposal_state_id: 状態
         decidim_scope_id: スコープ
         has_address: 住所有り
         scope_id: 対象範囲
