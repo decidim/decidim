@@ -36,6 +36,7 @@ describe "Private meetings" do
             switch_to_host(organization.host)
             login_as user, scope: :user
             visit_component
+            stub_geocoding_coordinates([private_meeting.latitude, private_meeting.longitude])
           end
 
           it "lists all meetings that are transparent" do
@@ -98,6 +99,7 @@ describe "Private meetings" do
             switch_to_host(organization.host)
             login_as other_user, scope: :user
             visit_component
+            stub_geocoding_coordinates([private_meeting.latitude, private_meeting.longitude])
           end
 
           it "lists private meetings" do

@@ -414,6 +414,14 @@ module Decidim
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :body]
 
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(id_string search_text title body is_emendation)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(category scope proposal_state)
+      end
+
       ransacker :state_published do
         Arel.sql("CASE
           WHEN EXISTS (

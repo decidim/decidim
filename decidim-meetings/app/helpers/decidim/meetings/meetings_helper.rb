@@ -142,6 +142,11 @@ module Decidim
         base_url = "https://calendar.google.com/calendar/u/0/r/eventedit"
         "#{base_url}?#{params.to_param}"
       end
+
+      def render_schema_org_event_meeting(meeting)
+        exported_meeting = Decidim::Exporters::JSON.new([meeting], Decidim::Meetings::SchemaOrgEventMeetingSerializer).export.read
+        JSON.pretty_generate(JSON.parse(exported_meeting).first)
+      end
     end
   end
 end
