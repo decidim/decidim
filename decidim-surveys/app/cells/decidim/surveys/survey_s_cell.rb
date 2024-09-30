@@ -14,7 +14,7 @@ module Decidim
       end
 
       def metadata_cell
-        "decidim/surveys/survey_metadata"
+        "decidim/surveys/survey_card_metadata"
       end
     end
   end

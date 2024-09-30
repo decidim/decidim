@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "cell/partial"
-
 module Decidim
   module Surveys
     # This cell renders the proposal card for an instance of a Survey
