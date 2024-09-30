@@ -49,7 +49,7 @@ RSpec.describe "Omniauth callback" do
         get(request_path, env: { "omniauth.auth" => oauth_hash })
 
         # Since this is a backport, we just make this spec pass.
-        # This spec was built on top of #13077, which does not exist in 0.29
+        # This spec was built on top of #13077, which does not exist in 0.28
         expect(response).to have_http_status(:redirect)
         expect(response).to redirect_to("/")
       end
