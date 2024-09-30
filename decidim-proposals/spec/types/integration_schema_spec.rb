@@ -8,9 +8,6 @@ describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
   let(:component_type) { "Proposals" }
   let(:organization) { participatory_process.organization }
-  let(:root_taxonomy) { create(:taxonomy, organization:) }
-  let(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
-  let(:taxonomies) { [taxonomy] }
   let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
   let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :participant_author, component: current_component, taxonomies:) }
   let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }

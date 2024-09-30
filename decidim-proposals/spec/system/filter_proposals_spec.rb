@@ -69,8 +69,8 @@ describe "Filter Proposals", :slow do
 
       context "with 'official' origin" do
         it "lists the filtered proposals" do
-          create_list(:proposal, 2, :official, component:, scope:)
-          create(:proposal, component:, scope:)
+          create_list(:proposal, 2, :official, component:)
+          create(:proposal, component:)
           visit_component
 
           within "#dropdown-menu-filters div.filter-container", text: "Origin" do
@@ -84,8 +84,8 @@ describe "Filter Proposals", :slow do
 
       context "with 'participants' origin" do
         it "lists the filtered proposals" do
-          create_list(:proposal, 2, component:, scope:)
-          create(:proposal, :official, component:, scope:)
+          create_list(:proposal, 2, component:)
+          create(:proposal, :official, component:)
           visit_component
 
           within "#dropdown-menu-filters div.filter-container", text: "Origin" do
@@ -206,7 +206,7 @@ describe "Filter Proposals", :slow do
         end
 
         it "lists accepted proposals" do
-          create(:proposal, :accepted, component:, scope:)
+          create(:proposal, :accepted, component:)
           visit_component
 
           within "#dropdown-menu-filters div.filter-container", text: "Status" do
@@ -223,7 +223,7 @@ describe "Filter Proposals", :slow do
         end
 
         it "lists the filtered proposals" do
-          create(:proposal, :rejected, component:, scope:)
+          create(:proposal, :rejected, component:)
           visit_component
 
           within "#dropdown-menu-filters div.filter-container", text: "Status" do
@@ -240,10 +240,10 @@ describe "Filter Proposals", :slow do
         end
 
         context "when there are proposals with answers not published" do
-          let!(:proposal) { create(:proposal, :accepted_not_published, component:, scope:) }
+          let!(:proposal) { create(:proposal, :accepted_not_published, component:) }
 
           before do
-            create(:proposal, :accepted, component:, scope:)
+            create(:proposal, :accepted, component:)
 
             visit_component
           end
@@ -394,8 +394,8 @@ describe "Filter Proposals", :slow do
 
   context "when filtering proposals by TYPE" do
     context "when there are amendments to proposals" do
-      let!(:proposal) { create(:proposal, component:, scope:) }
-      let!(:emendation) { create(:proposal, component:, scope:) }
+      let!(:proposal) { create(:proposal, component:) }
+      let!(:emendation) { create(:proposal, component:) }
       let!(:amendment) { create(:amendment, amendable: proposal, emendation:) }
 
       before do
@@ -452,7 +452,7 @@ describe "Filter Proposals", :slow do
             end
 
             context "and has amended a proposal" do
-              let!(:new_emendation) { create(:proposal, component:, scope:) }
+              let!(:new_emendation) { create(:proposal, component:) }
               let!(:new_amendment) { create(:amendment, amendable: proposal, emendation: new_emendation, amender: new_emendation.creator_author) }
               let(:user) { new_amendment.amender }
 
@@ -523,7 +523,7 @@ describe "Filter Proposals", :slow do
 
           context "when the user is logged in" do
             context "and has amended a proposal" do
-              let!(:new_emendation) { create(:proposal, component:, scope:) }
+              let!(:new_emendation) { create(:proposal, component:) }
               let!(:new_amendment) { create(:amendment, amendable: proposal, emendation: new_emendation, amender: new_emendation.creator_author) }
               let(:user) { new_amendment.amender }
 
