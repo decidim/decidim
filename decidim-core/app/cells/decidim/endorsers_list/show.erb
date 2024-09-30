@@ -1,9 +1,14 @@
 <section class="layout-main__section" id="endorser-list-<%= model.id %>">
   <div class="endorsers-list__container">
     <% visible_endorsers.each do |visible_endorser| %>
-    <span class="endorsers-list__avatar">
-      <%= cell "decidim/author", visible_endorser, layout: :avatar, skip_profile_link: true %>
-    </span>
+      <span class="endorsers-list__avatar">
+        <%= cell "decidim/author", visible_endorser, layout: :avatar, skip_profile_link: true %>
+      </span>
+    <% end %>
+    <% if voted_by_me? %>
+      <span class="endorsers-list__avatar">
+        <%= cell "decidim/author", present(current_user) , layout: :avatar, skip_profile_link: true %>
+      </span>
     <% end %>
 
     <div class="text-center">

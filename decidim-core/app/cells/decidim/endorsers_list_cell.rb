@@ -39,7 +39,11 @@ module Decidim
     #
     # Returns an Array of presented Users/UserGroups
     def visible_endorsers
-      @visible_endorsers ||= base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.normalized_author) }
+      @visible_endorsers ||= if voted_by_me?
+                               base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map { |identity| present(identity.normalized_author) }
+                             else
+                               base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.normalized_author) }
+                             end
     end
 
     def full_endorsers
@@ -51,7 +55,7 @@ module Decidim
     end
 
     def voted_by_me?
-      model.endorsed_by?(current_user)
+      @voded_by_me ||= model.endorsed_by?(current_user)
     end
 
     def display_link(text)
