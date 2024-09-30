@@ -267,8 +267,6 @@ uk:
           name: Висвітлені рухи
       index:
         title: Рухи співучасті
-      last_activity:
-        new_participatory_process: Додати рух співучасті
       participatory_processes:
         filters:
           counters:
