@@ -19,6 +19,7 @@ cs:
         automatic_hashtags: Hashtagy automaticky přidány
         body: Tělo
         category_id: Kategorie
+        decidim_proposals_proposal_state_id: Stav
         decidim_scope_id: Rozsah
         has_address: Má adresu
         scope_id: Oblast působnosti
