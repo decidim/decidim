@@ -448,7 +448,7 @@ de:
       index:
         title: Beteiligungsprozesse
       last_activity:
-        new_participatory_process: Neuer partizipativer Prozess
+        new_participatory_process: 'Neuer partizipativer Prozess:'
       pages:
         home:
           highlighted_processes:
