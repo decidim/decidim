@@ -3,6 +3,10 @@
 
   &__text {
     @apply text-md text-gray-2 ml-4 leading-normal;
+
+    a {
+      @apply text-md;
+    }
   }
 
   &__grid {
