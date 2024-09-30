@@ -102,6 +102,14 @@ bin/rails decidim:upgrade:clean:action_logs
 
 You can read more about this change on PR [#13237](https://github.com/decidim/decidim/pull/13237).
 
+### 2.7. Allow Cell's cache to expire
+
+Now the cache expiration time is configurable via initializers/ENV variables.
+
+Decidim uses cache in some HTML views (usually under the `cells/` folder). In the past the cache had no expiration time, now it is configurable using the ENV var `DECIDIM_CACHE_EXPIRATION_TIME` (this var expects an integer specifying the number of minutes for which the cache is valid).
+
+Also note, that now it comes with a default value of 24 hours (1440 minutes).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
