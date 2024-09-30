@@ -443,7 +443,7 @@ ja:
       index:
         title: 参加型プロセス
       last_activity:
-        new_participatory_process: 新しい参加型プロセス
+        new_participatory_process: '新しい参加型プロセス:'
       pages:
         home:
           highlighted_processes:
