@@ -229,7 +229,19 @@ bundle remove spring spring-watcher-listen
 
 You can read more about this change on PR [#13235](https://github.com/decidim/decidim/pull/13235).
 
-### 3.7. [[TITLE OF THE ACTION]]
+### 3.9. Clean up orphaned attachment blobs
+
+We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that have been created for more than 1 hour and are not yet referenced by any attachment record. This helps cleaning your filesystem of unused files.
+
+You can run the task with the following command:
+
+```bash
+bin/rails decidim:upgrade:attachments_cleanup
+```
+
+You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
+
+### 3.10. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
