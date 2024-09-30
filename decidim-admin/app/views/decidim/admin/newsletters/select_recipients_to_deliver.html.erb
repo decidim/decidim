@@ -60,12 +60,7 @@
             </div>
             <div class="card-section">
               <div class="cell small-12 medium-6 m-4">
-                <%= f.select(
-                      :scope_ids,
-                      ordered_scopes_descendants_for_select(false),
-                      { include_blank: false },
-                      { class: "chosen-select", multiple: true, size: 5 }
-                    ) %>
+                <%= scopes_select_field f, :scope_ids, options: { include_blank: false }, html_options: { class: "chosen-select", multiple: true, size: 5 } %>
                 <span class="help-text"> <%= t(".scopes_help") %> </span>
               </div>
             </div>
