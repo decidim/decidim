@@ -45,7 +45,7 @@ module Decidim
     end
 
     def taxonomy_children(taxonomy)
-      taxonomy.children.where(id: available_taxonomy_ids).each_with_object({}) do |child, children|
+      taxonomy.children.where(id: filter_taxonomy_ids).each_with_object({}) do |child, children|
         children[child.id] = {
           taxonomy: child,
           children: taxonomy_children(child)
@@ -53,8 +53,8 @@ module Decidim
       end
     end
 
-    def available_taxonomy_ids
-      @available_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
+    def filter_taxonomy_ids
+      @filter_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
     end
 
     private
