@@ -102,6 +102,14 @@ bin/rails decidim:upgrade:clean:action_logs
 
 You can read more about this change on PR [#13237](https://github.com/decidim/decidim/pull/13237).
 
+### 2.7. Allow Cell's cache to expire
+
+Now the cache expiration time is configurable via initializers/ENV variables.
+
+Decidim uses cache in some HTML views (usually under the `cells/` folder). In the past the cache had no expiration time, now it is configurable using the ENV var `DECIDIM_CACHE_EXPIRATION_TIME` (this var expects an integer specifying the number of minutes for which the cache is valid).
+
+Also note, that now it comes with a default value of 24 hours (1440 minutes).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
@@ -229,7 +237,19 @@ bundle remove spring spring-watcher-listen
 
 You can read more about this change on PR [#13235](https://github.com/decidim/decidim/pull/13235).
 
-### 3.7. [[TITLE OF THE ACTION]]
+### 3.9. Clean up orphaned attachment blobs
+
+We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that have been created for more than 1 hour and are not yet referenced by any attachment record. This helps cleaning your filesystem of unused files.
+
+You can run the task with the following command:
+
+```bash
+bin/rails decidim:upgrade:attachments_cleanup
+```
+
+You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
+
+### 3.10. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [\#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

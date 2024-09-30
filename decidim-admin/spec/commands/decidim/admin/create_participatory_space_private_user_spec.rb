@@ -114,6 +114,21 @@ module Decidim::Admin
         end
       end
 
+      context "when email is input with case-insensitive letters" do
+        let!(:admin) { create(:user, :admin, email: "admin@example.org", organization: privatable_to.organization) }
+        let!(:email) { "Admin@example.org" }
+
+        it "still finds the user" do
+          expect { subject.call }.to broadcast(:ok)
+
+          participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user: admin)
+          participatory_space_admin = Decidim::User.where(email: "admin@example.org")
+
+          expect(participatory_space_private_users.count).to eq 1
+          expect(participatory_space_admin.first.admin?).to be true
+        end
+      end
+
       context "when the user has not accepted the invitation" do
         before do
           user.invite!

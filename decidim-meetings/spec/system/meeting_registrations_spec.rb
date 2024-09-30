@@ -313,13 +313,9 @@ describe "Meeting registrations" do
         it "shows errors for invalid file" do
           visit questionnaire_public_path
 
-          dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"))
+          dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"), keep_modal_open: true)
 
-          expect(page).to have_field("public_participation", checked: false)
-          find_by_id("questionnaire_tos_agreement").set(true)
-          accept_confirm { click_on "Submit" }
-
-          expect(page).to have_content("Needs to be reattached")
+          expect(page).to have_content("Validation error!")
         end
 
         context "and the announcement for the meeting is configured" do
