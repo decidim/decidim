@@ -17,10 +17,6 @@ module Decidim
 
       def index; end
 
-      def show
-        raise ActionController::RoutingError, "Not Found" if survey.blank?
-      end
-
       def check_permissions
         render :no_permission unless action_authorized_to(:answer, resource: survey).ok?
       end

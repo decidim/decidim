@@ -79,8 +79,8 @@ en:
       directory:
         surveys:
           index:
-            surveys: Surveys
             space_type: Participatory space
+            surveys: Surveys
       last_activity:
         new_survey: 'New survey:'
       models:
@@ -117,5 +117,6 @@ en:
             open: Open
         no_surveys_warning: No surveys match your search criteria or there is not any survey open.
         show:
+          closed: Closed
           open: Open
           questions: questions

@@ -31,7 +31,7 @@ module Decidim
       end
 
       def duration
-        text = format_date_range(survey.starts_at, survey.ends_at) || t("open", scope: "decidim.surveys.surveys.show")
+        text = survey.open? ? t("open", scope: "decidim.surveys.surveys.show") : t("closed", scope: "decidim.surveys.surveys.show")
 
         {
           text:,
