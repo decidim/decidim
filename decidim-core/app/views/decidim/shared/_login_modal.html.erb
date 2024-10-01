@@ -20,7 +20,7 @@
           <% cache current_organization do %>
             <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
           <% end %>
-          <div class="form__wrapper pb-4">
+          <div class="form__wrapper">
             <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
             <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
