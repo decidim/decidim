@@ -1,6 +1,6 @@
 <% if remaining_minimum_votes_count_for(current_user).positive? %>
   <script>
-    document.cookie = "proposal_success_shown=; expires=<%= I18n.t('cookies.expiration_date') %>; path=/;";
+    document.cookie = "proposal_success_shown=; expires=<%= I18n.t("cookies.expiration_date") %>; path=/;";
   </script>
 <% end %>
 
