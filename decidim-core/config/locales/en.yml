@@ -65,6 +65,10 @@ en:
         password_confirmation: Password confirmation
         remember_me: Remember me
     models:
+      decidim:
+        history:
+          one: History
+          other: History
       decidim/amendment:
         one: Amendment
         other: Amendments
@@ -270,6 +274,13 @@ en:
         delete_with_parent: "%{user_name} deleted the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
         update: "%{user_name} updated the %{resource_name} taxonomy"
         update_with_parent: "%{user_name} updated the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
+      taxonomy_filter:
+        create: "%{user_name} created a filter based on the taxonomy %{resource_name}"
+        create_with_filter_items_count: "%{user_name} created a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
+        delete: "%{user_name} deleted a filter based on the taxonomy %{resource_name}"
+        delete_with_filter_items_count: "%{user_name} deleted a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
+        update: "%{user_name} updated a filter based on the taxonomy %{resource_name}"
+        update_with_filter_items_count: "%{user_name} updated a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
       user:
         block: "%{user_name} blocked user %{resource_name}"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
@@ -945,7 +956,7 @@ en:
           title_required: Title is required!
           uploaded: Uploaded
           validating: Validating...
-          validation_error: Validation error!
+          validation_error: Validation error! Check that the file has an allowed extension or size.
         select_file: Select file
       upload_help:
         dropzone: Drop files here or click the button to upload
@@ -1442,6 +1453,8 @@ en:
       create:
         error: There was a problem creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+    resource:
+      controls_label: Resource controls
     resource_endorsements:
       create:
         error: There was a problem during the endorsement action.
@@ -1565,6 +1578,8 @@ en:
     tags:
       filter_results_for_category: 'Filter results for category: %{resource}'
       filter_results_for_scope: 'Filter results for scope: %{resource}'
+    taxonomies:
+      prompt: Select from "%{name}"
     translation_bar:
       help_text: "<strong>Warning:</strong> Content might be automatically translated and not be 100% accurate."
       show_original: Show original text

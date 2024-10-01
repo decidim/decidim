@@ -37,6 +37,7 @@ module Decidim
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
+        assembly_filters_action?
         assemblies_type_action?
 
         return permission_action unless assembly
@@ -61,6 +62,13 @@ module Decidim
       end
 
       def assemblies_type_action?
+        return unless permission_action.subject == :taxonomy_filter
+        return disallow! unless user.admin?
+
+        allow!
+      end
+
+      def assembly_filters_action?
         return unless [:assembly_type, :assemblies_type].include? permission_action.subject
         return disallow! unless user.admin?
 
@@ -176,7 +184,7 @@ module Decidim
         return unless permission_action.action == :create &&
                       permission_action.subject == :assembly
 
-        toggle_allow(user.admin? || admin_assembly? || user_role == "admin")
+        toggle_allow(user.admin? || admin_assembly?)
       end
 
       def user_can_export_assembly?

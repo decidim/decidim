@@ -24,6 +24,7 @@ module Decidim
     include Decidim::HasAttachmentCollections
     include Decidim::Participable
     include Decidim::Publicable
+    include Decidim::Taxonomizable
     include Decidim::ScopableParticipatorySpace
     include Decidim::Followable
     include Decidim::HasReference
@@ -161,6 +162,18 @@ module Decidim
 
     def self.ransackable_scopes(_auth_object = nil)
       [:with_any_area, :with_any_scope, :with_any_type]
+    end
+
+    def self.ransackable_attributes(auth_object = nil)
+      base = %w(title short_description description id)
+
+      return base unless auth_object&.admin?
+
+      base + %w(published_at private_space parent_id decidim_assemblies_type_id)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(area assembly_type scope parent children categories)
     end
 
     private

@@ -1,0 +1,17 @@
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :create, :taxonomy_filter %>
+      <%= link_to url_for(action: :new, controller: params[:controller]), class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link" do %>
+        <%= icon "add-line", class: "w-4 h-4" %>
+        <span>
+          <%= t("actions.new_taxonomy_filter", scope: "decidim.admin.taxonomy_filters") %>
+        </span>
+      <% end %>
+    <% end %>
+    <%= render partial: breadcrumb_manage_partial if breadcrumb_manage_partial.present? %>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+<% end %>

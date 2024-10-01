@@ -139,15 +139,12 @@ zh-CN:
       dismiss: 取消通知
     amendments:
       accepted:
-        error: 接受修改时发生错误。
         success: 修正已被成功接受。
       amendable:
         button: 修改 %{model_name}
-        error: 修改此资源时出错。
         promote_button: 提升至 %{model_name}
         promote_confirm_text: 您确定要推广此修饰吗？
       created:
-        error: 创建修正草案时发生错误。
         success: 修正草稿已成功创建。
       destroy_draft:
         error: 删除修正草案时出现问题。
@@ -842,7 +839,6 @@ zh-CN:
         subject: 资源已被报告
     reports:
       create:
-        error: 创建报告时发生错误。请再试一次。
         success: 报告已成功创建，将由管理员审核。
     resource_endorsements:
       create:
@@ -1078,8 +1074,6 @@ zh-CN:
       long_words: 包含过长的单词 (超过 35 个字符)
       must_start_with_caps: 必须以大写字母开始
       not_locked: 未锁定
-      not_saved:
-        other: '处理您的请求时发生多个错误：'
       too_many_marks: 正在使用太多连续标点符号(例如! 和 ?)
       too_much_caps: 正在使用太多大写字母(超过25%文本)
   forms:

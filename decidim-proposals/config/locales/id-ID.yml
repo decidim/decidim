@@ -71,7 +71,6 @@ id:
             attachments_allowed: Izinkan lampiran
             collaborative_drafts_enabled: Draf kolaboratif diaktifkan
             comments_enabled: Komentar diaktifkan
-            geocoding_enabled: Geocoding diaktifkan
             new_proposal_help_text: Teks bantuan proposal baru
             official_proposals_enabled: Proposal resmi diaktifkan
             participatory_texts_enabled: Teks partisipatif diaktifkan
@@ -417,7 +416,6 @@ id:
           discard: Buang draf ini
           discard_confirmation: Anda yakin ingin membuang draf proposal ini?
           send: Preview
-          title: Edit Draf Proposal
         filters:
           amendment_type: Mengetik
           category: Kategori

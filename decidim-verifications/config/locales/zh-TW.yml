@@ -39,7 +39,6 @@ zh-TW:
           destroy:
             confirm: 撤銷在指定日期之前的授權無法撤消。您確定要繼續嗎？
             confirm_all: 撤銷所有授權後無法還原，確定要繼續嗎？
-          destroy_nok: 撤銷授權時發生問題。
           destroy_ok: 所有匹配的授權已成功撤銷。
           info: 總共有 %{count} 名已驗證的參與者。
           no_data: 沒有經過驗證的參與者.
@@ -132,7 +131,6 @@ zh-TW:
         admin:
           census:
             create:
-              error: 匯入戶籍普查資料時發生錯誤。
               success: 成功匯入 %{count} 項目(%{errors} 錯誤).
             destroy_all:
               success: 所有戶籍數據都已刪除.

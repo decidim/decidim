@@ -202,7 +202,7 @@ es-PY:
         verify: Verificar
       admin_terms_of_service:
         accept:
-          error: Ha habido un error al aceptar los Términos y Condiciones de administración.
+          error: Se ha producido un problema al aceptar los términos de servicio de administración.
           success: '¡Genial! Has aceptado los términos del servicio de administración.'
         actions:
           accept: Estoy de acuerdo con los términos
@@ -334,7 +334,6 @@ es-PY:
           headers:
             actions: Comportamiento
             name: Nombre del componente
-            scope: Ámbito del componente
             type: Tipo de componente
         new:
           add: Agregar componente
@@ -350,6 +349,8 @@ es-PY:
       conflicts:
         attempts: Intentos
         'false': 'No'
+        index:
+          text: Buscar por correo electrónico, nombre o alias.
         managed_user_name: Usuario gestionado
         solved: Resuelto
         title: Conflictos de verificación
@@ -467,6 +468,9 @@ es-PY:
             pending: Pendiente
             rejected: Rechazado
             verified: Verificado
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomía
       forms:
         file_help:
           import:
@@ -589,6 +593,7 @@ es-PY:
         settings: Configuración
         static_page_topics: Temas
         static_pages: Páginas
+        taxonomies: Taxonomías
         user_groups: Grupos de usuarios
         users: Usuarios
       metrics:
@@ -1016,6 +1021,51 @@ es-PY:
         update:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
+      taxonomies:
+        actions: Acciones
+        amount: Importe
+        count: Recuento
+        create:
+          invalid: Se ha producido un error al crear esta taxonomía.
+          success: Taxonomía creada correctamente.
+        destroy:
+          invalid: Se ha producido un error al eliminar esta taxonomía.
+          success: Taxonomía eliminada correctamente.
+        edit:
+          back: Atrás
+          description: Los elementos de esta taxonomía se utilizarán para clasificar o filtrar recursos, tales como espacios participativos o componentes. Puedes ordenar el listado arrastrando los elementos.
+          new_item: Nuevo elemento
+          no_items: Actualmente no hay elementos en esta taxonomía. Crea una lista de elementos para clasificar o filtrar recursos, tales como espacios participativos o componentes. Los elementos pueden anidarse hasta tres niveles.
+          subtitle: Elementos en "%{taxonomy_name}"
+          title: Editar la taxonomía "%{taxonomy_name}"
+          update: Actualizar
+        filters:
+          search_placeholder: Buscar
+        index:
+          description: Una taxonomía permite a las administradoras categorizar y organizar el contenido. Por ejemplo, añadir una taxonomía para clasificar procesos por ámbito geográfico.
+          new_taxonomy: Nueva taxonomía
+          no_items_found: No se encontraron taxonomías que coincidan con los criterios de búsqueda.
+        name: Nombre
+        new:
+          create: Crear taxonomía
+          title: Nueva taxonomía
+        no_taxonomies: Actualmente no hay taxonomías. Crea una lista de taxonomías y define sus elementos para clasificar o filtrar recursos.
+        table:
+          to_next_page: Pasa a la siguiente página
+          to_prev_page: Pasa a la página anterior
+        taxonomy_actions:
+          confirm_destroy: '¿Seguro que quieres eliminar "%{name}"? También se eliminarán todos los elementos incluidos en esta.'
+        update:
+          invalid: Se ha producido un error al actualizar esta taxonomía.
+          success: Taxonomía actualizada correctamente.
+      taxonomy_items:
+        edit:
+          title: Editar elemento en "%{taxonomy}"
+          update: Actualizar el elemento
+        new:
+          create: Crear un elemento
+          none: Ninguno
+          title: Editar elemento en "%{taxonomy}"
       titles:
         admin_log: Registro de actividad de administradores
         area_types: Tipos de área
@@ -1036,6 +1086,7 @@ es-PY:
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         statistics: Actividad
+        taxonomies: Taxonomías
         user_groups: Grupos de usuarios
         users: Administradoras
       user_group:

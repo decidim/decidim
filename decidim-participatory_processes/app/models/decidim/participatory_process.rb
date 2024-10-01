@@ -12,6 +12,7 @@ module Decidim
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::ScopableParticipatorySpace
+    include Decidim::Taxonomizable
     include Decidim::Followable
     include Decidim::HasReference
     include Decidim::Traceable
@@ -205,6 +206,17 @@ module Decidim
 
     def self.ransackable_scopes(_auth_object = nil)
       [:with_date, :with_any_area, :with_any_scope, :with_any_type]
+    end
+
+    def self.ransackable_attributes(auth_object = nil)
+      base = %w(title short_description description id)
+      return base unless auth_object&.admin?
+
+      base + %w(private_space published_at decidim_participatory_process_group_id)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(area scope participatory_process_type participatory_process_group)
     end
   end
 end
