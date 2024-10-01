@@ -931,6 +931,7 @@ de:
           title_required: Titel ist erforderlich!
           uploaded: Hochgeladen
           validating: Wird validiert...
+          validation_error: Validierungsfehler! Überprüfen Sie, ob die Datei einen erlaubten Dateityp oder Größe hat.
         select_file: Datei auswählen
       upload_help:
         dropzone: Dateien hier ablegen oder die Schaltfläche zum Hochladen benutzen
