@@ -18,7 +18,7 @@ de:
         copy_features: Funktionen kopieren
         created_by: Erstellt von
         created_by_other: Erstellt von anderen
-        creation_date: Datum erstellt
+        creation_date: Gründungsdatum
         decidim_area_id: Bereich
         decidim_assemblies_type_id: Versammlungstyp
         decidim_scope_id: Umfang
@@ -34,7 +34,7 @@ de:
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
         import_components: Komponenten importieren
-        included_at: Inbegriffen bei
+        included_at: Hinzugefügt am
         instagram: Instagram
         internal_organisation: Interne Organisation
         is_transparent: Ist transparent
@@ -331,7 +331,7 @@ de:
           data: Gremiendaten
           developer_group: Gruppe der Unterstützenden
           duration: Dauer
-          included_at: Inbegriffen in
+          included_at: Hinzugefügt am
           indefinite_duration: Unbestimmt
           local_area: Gebiet der Organisation
           meta_scope: Bereich
