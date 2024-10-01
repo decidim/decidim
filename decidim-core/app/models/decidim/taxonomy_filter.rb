@@ -26,6 +26,11 @@ module Decidim
       where(space_manifest:)
     end
 
+    # Components that have this taxonomy filter enabled.
+    def components
+      @components ||= Decidim::Component.where("(settings->'global'->'taxonomy_filters') @> ?", "\"#{id}\"")
+    end
+
     # A memoized taxonomy tree hash filtered according to the filter_items
     # that respects the order given by the taxonomies table.
     # The returned hash structure is:

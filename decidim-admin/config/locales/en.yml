@@ -1106,6 +1106,7 @@ en:
           actions: Actions
           confirm_destroy: 'Are you sure you want to delete the filter %{name}? NOTE: Resources that are using this filter will not be affected but they will lose the reference to this filter.'
           count: Number of items
+          components_count: Components count
           destroy: Delete
           edit: Edit
           name: Name

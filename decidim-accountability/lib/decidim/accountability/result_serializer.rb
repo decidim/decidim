@@ -25,6 +25,10 @@ module Decidim
             id: result.scope.try(:id),
             name: result.scope.try(:name) || empty_translatable
           },
+          taxonomies: {
+            id: result.taxonomies.map(&:id),
+            name: result.taxonomies.map(&:name)
+          },
           parent: {
             id: result.parent.try(:id)
           },

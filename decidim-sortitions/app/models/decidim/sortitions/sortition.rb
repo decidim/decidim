@@ -6,6 +6,7 @@ module Decidim
     class Sortition < ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasCategory
+      include Decidim::Taxonomizable
       include Decidim::Authorable
       include Decidim::HasComponent
       include Decidim::HasReference
