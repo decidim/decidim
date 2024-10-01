@@ -173,6 +173,8 @@ de:
       content_blocks:
         highlighted_results:
           results: Ergebnisse
+      creation:
+        text: Das Ergebnis wurde erstellt
       import_mailer:
         import:
           errors: Fehler
