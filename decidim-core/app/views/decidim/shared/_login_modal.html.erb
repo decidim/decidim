@@ -23,12 +23,13 @@
 
             <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
 
-            <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
           </div>
-
+          <div class="login__modal-remember">
+              <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
+              <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(:user) %>
+          </div>
           <div class="login__modal-links">
             <%= link_to t(".sign_up"), decidim.new_user_registration_path, class: "sign-up-link" if current_organization.sign_up_enabled? %>
-            <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(:user) %>
           </div>
         <% else %>
           <%= cell("decidim/announcement", t("sign_in_disabled", scope: "decidim.devise.sessions.new"), callout_class: "warning" ) %>
