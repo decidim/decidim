@@ -21,14 +21,14 @@ module Decidim
       attribute :iframe_access_level, String
 
       validates :iframe_embed_type, inclusion: { in: Decidim::Meetings::Meeting.participants_iframe_embed_types }
-      validates :title, presence: true
-      validates :description, presence: true
+      validates :title, presence: true, etiquette: true
+      validates :description, presence: true, etiquette: true
       validates :type_of_meeting, presence: true
       validates :location, presence: true, if: ->(form) { form.in_person_meeting? || form.hybrid_meeting? }
       validates :online_meeting_url, presence: true, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
       validates :registration_type, presence: true
       validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, presence: true, if: ->(form) { form.on_this_platform? }
-      validates :registration_terms, presence: true, if: ->(form) { form.on_this_platform? }
+      validates :registration_terms, presence: true, etiquette: true, if: ->(form) { form.on_this_platform? }
       validates :registration_url, presence: true, url: true, if: ->(form) { form.on_different_platform? }
       validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
