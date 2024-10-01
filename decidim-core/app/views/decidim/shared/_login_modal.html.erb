@@ -12,6 +12,7 @@
     <div data-dialog-container>
       <%= icon "user-line", class: "w-6 h-6 text-gray fill-current" %>
       <h3 id="dialog-title-loginModal" class="h3"><%= t(".please_log_in") %></h3>
+
       <div>
         <% if current_organization.sign_in_enabled? %>
           <% cache current_organization do %>
@@ -40,9 +41,6 @@
 
     <% if current_organization.sign_in_enabled? %>
       <div data-dialog-actions>
-        <button type="button" class="button button__lg button__transparent-secondary" data-dialog-close="loginModal">
-          <%= t("cancel", scope: "decidim.admin.actions") %>
-        </button>
         <button type="submit" class="button button__lg button__secondary">
           <%= t("devise.sessions.new.log_in") %>
           <%= icon "arrow-right-line", class: "fill-current" %>
