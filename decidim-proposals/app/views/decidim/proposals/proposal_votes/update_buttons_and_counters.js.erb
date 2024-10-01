@@ -46,10 +46,6 @@
     <% if remaining_minimum_votes_count_for(current_user).zero? %>
       $successVoteNotification.removeClass("hidden");
 
-      if ($exitProposalModal[0]) {
-        $exitProposalModal.addClass("hidden");
-      }
-
     <% else %>
       if ($remainingVotesNotification[0]) {
         morphdom($remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>')
