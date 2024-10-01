@@ -18,7 +18,7 @@
           <% cache current_organization do %>
             <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
           <% end %>
-          <div class="form__wrapper">
+          <div class="form__wrapper pt-6">
             <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
             <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
@@ -40,7 +40,7 @@
 
     <% if current_organization.sign_in_enabled? %>
       <div data-dialog-actions>
-        <button type="submit" class="button button__lg button__secondary">
+        <button type="submit" class="button button__lg button__secondary ">
           <%= t("devise.sessions.new.log_in") %>
           <%= icon "arrow-right-line", class: "fill-current" %>
         </button>
