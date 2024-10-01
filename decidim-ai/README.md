@@ -5,7 +5,7 @@ All AI related functionality provided by Decidim should be included in this same
 
 ## Installation
 
-In order to install use this library, you need at least Decidim 0.25 to be installed.
+In order to install use this module, you need at least Decidim 0.30 to be installed.
 
 Add this line to your application's Gemfile:
 
@@ -28,7 +28,7 @@ After that, add an initializer file inside your project, having the following co
 After the configuration is added, you need to run the below command, so that the reporting user is created.
 
 ```ruby
-bundle exec rake decidim:ai:create_reporting_user
+bin/rails decidim:ai:create_reporting_user
 ```
 
 If you have an existing installation, you can use the below command to train the engine with your existing data:

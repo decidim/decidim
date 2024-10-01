@@ -31,7 +31,7 @@ module Decidim
       # This is the email address used by the spam engine to
       # properly identify the user that will report users and content
       config_accessor :reporting_user_email do
-        "reporting.user@domain.tld"
+        "decidim-reporting-user@example.org"
       end
 
       # You can configure the spam threshold for the spam detection service.

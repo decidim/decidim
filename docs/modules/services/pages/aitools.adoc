@@ -20,17 +20,10 @@ This service can be trained either using the datasets that we provide, or using 
 
 == Installation
 
-In order to install the module, you need to edit the `Gemfile` of your Decidim installation and add the following line:
-
-```ruby
-  gem "decidim-ai"
-```
-
-And then execute:
+In order to install the module, you need to run the following command:
 
 ```bash
-  $ bundle install
-```
+bundle add decidim-ai
 
 == Configuration
 
@@ -78,7 +71,7 @@ Decidim::Ai.registered_analyzers = [
   }
 ]
 
-Decidim::Ai.reporting_user_email = "your-admin@domain.tld"
+Decidim::Ai.reporting_user_email = "your-admin@example.org"
 
 # If you want to use a different spam detection service,
 # you can use a class service having the following contract
