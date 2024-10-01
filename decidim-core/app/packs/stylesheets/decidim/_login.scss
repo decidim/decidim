@@ -56,4 +56,8 @@
       @apply last:mt-0 last:invisible;
     }
   }
+
+  &__form-links {
+    @apply flex row justify-between;
+  }
 }

@@ -22,6 +22,8 @@
             <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
 
             <%= render partial: "decidim/account/password_fields", locals: { form: f } %>
+
+            <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
           </div>
 
           <div class="login__modal-links">
