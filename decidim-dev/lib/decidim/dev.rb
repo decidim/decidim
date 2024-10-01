@@ -5,6 +5,7 @@ require "decidim/dev/railtie"
 require "decidim/dev/admin"
 require "decidim/dev/engine"
 require "decidim/dev/admin_engine"
+require "decidim/dev/auth_engine"
 # We shall not load the component here, as it will complain there is no method register_component
 # for Decidim module. To fix that we need to require 'decidim/core', which will cause a major
 # performance setback, as this file is usually the first request in "spec_helpers".
