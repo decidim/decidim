@@ -1,6 +1,6 @@
 # Decidim::Ai
 
-The Decidim::AI is a library that aims to provide Artificial Intelligence tools for Decidim. This plugin has been initially developed aiming to analyze the content and provide spam classification using Naive Bayes algorithm.
+The Decidim::Ai is a library that aims to provide Artificial Intelligence tools for Decidim. This plugin has been initially developed aiming to analyze the content and provide spam classification using Naive Bayes algorithm.
 All AI related functionality provided by Decidim should be included in this same module.
 
 ## Installation
