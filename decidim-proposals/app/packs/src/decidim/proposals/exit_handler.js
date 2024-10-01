@@ -1,5 +1,5 @@
 const allowExitFrom = ($el) => {
-  if ($el.attr("id") === "exit-proposal-notification-link") {
+  if ($el.attr("id") === "exit-proposal-notification-link" || $el.hasClass("no-modal")) {
     return true;
   }
 

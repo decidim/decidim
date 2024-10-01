@@ -1,1 +1,15 @@
-<%= alert_box(t("success", scope: "decidim.proposals.proposals.voting_rules"), :success, true, { id: "success-proposal-vote", class: "flash success #{"hidden" if remaining_minimum_votes_count_for(current_user) != 0}" }) %>
+<% if remaining_minimum_votes_count_for(current_user).positive? %>
+  <script>
+    document.cookie = "proposal_success_shown=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  </script>
+<% end %>
+
+<%= alert_box(t("success", scope: "decidim.proposals.proposals.voting_rules"), :success, true, { id: "success-proposal-vote", class: "flash success #{"hidden" if remaining_minimum_votes_count_for(current_user).positive? || cookies[:proposal_success_shown] == "true"}" }) %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    if (!document.querySelector("#success-proposal-vote").classList.contains("hidden")) {
+      document.cookie = "proposal_success_shown=true; path=/";
+    }
+  });
+</script>

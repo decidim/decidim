@@ -35,7 +35,6 @@
 
 <% if show_voting_rules? %>
   (function() {
-    var $proposalVotingRules = $('#proposal-voting-rules');
     var $remainingVotesNotification = $('#remaining-votes-notification');
     var $successVoteNotification = $('#success-proposal-vote');
     var $exitProposalModal = $('#exit-proposal-notification');
@@ -44,12 +43,9 @@
       morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
     }
 
-    <% if remaining_minimum_votes_count_for(current_user) == 0 %>
+    <% if remaining_minimum_votes_count_for(current_user).zero? %>
       $successVoteNotification.removeClass("hidden");
 
-      if($proposalVotingRules[0]) {
-        morphdom($proposalVotingRules[0], '<%= j(render partial: "decidim/proposals/proposals/proposal_voting_rules").strip.html_safe %>');
-      }
     <% else %>
       if ($remainingVotesNotification[0]) {
         morphdom($remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>')
@@ -63,14 +59,6 @@
           window.Decidim.currentDialogs["exit-proposal-notification"].dialog.innerHTML = $exitProposalModal[0].innerHTML;
         }
       }
-    <% end %>
-
-    <% if @proposal.voted_by?(current_user) && remaining_minimum_votes_count_for(current_user) == 0 %>
-      $proposalVotingRules.removeClass("hidden").addClass("block");
-    <% elsif @proposal.voted_by?(current_user) %>
-      $proposalVotingRules.addClass("hidden").removeClass("block");
-    <% else %>
-      $proposalVotingRules.removeClass("hidden").addClass("block");
     <% end %>
   }());
 <% end %>
