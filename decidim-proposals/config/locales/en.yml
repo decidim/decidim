@@ -113,6 +113,8 @@ en:
       decidim/proposals/proposal_vote:
         one: Vote
         other: Votes
+  cookies:
+    expiration_date: "Thu, 01 Jan 1970 00:00:00 UTC"
   decidim:
     admin:
       filters:
