@@ -24,6 +24,7 @@ In order to install the module, you need to run the following command:
 
 ```bash
 bundle add decidim-ai
+```
 
 == Configuration
 
@@ -141,7 +142,7 @@ Decidim Ai provides a set of commands that you can use to manage the engine.
 In order to preserve the database integrity, you need to configure a system user that could be used to report content in the application. Use the following command to create an user for each one of the organizations you may have. The email address defined by `Decidim::Ai.reporting_user_email` will be used to find or create the user.
 
 ```bash
-bundle exec decidim:ai:create_reporting_user
+bin/rails decidim:ai:create_reporting_user
 ```
 
 
@@ -149,14 +150,14 @@ bundle exec decidim:ai:create_reporting_user
 In the new or small platforms is quite hard to have a training dataset of spam content. We provide some real life examples of spam data extracted by the contributors of the project. You can use the following command to load the data into your installation.
 
 ```bash
-bundle exec decidim:ai:load_plugin_dataset
+bin/rails decidim:ai:load_module_dataset
 ```
 
 === Load custom model
 In some cases, when you manage multiple installations, you may want to share the same model between them. You can use the following command to load a simple CSV.
 
 ```bash
-bundle exec decidim:ai:load_application_dataset[/path/to/file.csv]
+bin/rails decidim:ai:load_application_dataset[/path/to/file.csv]
 
 ```
 
@@ -164,14 +165,14 @@ bundle exec decidim:ai:load_application_dataset[/path/to/file.csv]
 In some cases, like an upgrade, you may want to train your model using your existing data, so you can use:
 
 ```bash
-bundle exec decidim:ai:train_using_database
+bin/rails decidim:ai:train_using_database
 ```
 
 === Reset the model
 If the trained model becomes corrupt, you could use the below command to reinitialize the model. Once you do this, you would need to train the model again. using any of the above commands.
 
 ```bash
-bundle exec decidim:ai:reset_model
+bin/rails decidim:ai:reset_model
 ```
 
 == Sidekiq

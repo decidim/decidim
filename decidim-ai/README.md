@@ -34,7 +34,7 @@ bin/rails decidim:ai:create_reporting_user
 If you have an existing installation, you can use the below command to train the engine with your existing data:
 
 ```ruby
-bundle exec rake decidim:ai:load_plugin_dataset
+bin/rails decidim:ai:load_module_dataset
 ```
 
 Add the queue name to `config/sidekiq.yml` file:

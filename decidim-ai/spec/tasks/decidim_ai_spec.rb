@@ -13,14 +13,14 @@ describe "Executing Decidim Ai tasks" do
     end
   end
 
-  describe "rake decidim:ai:load_plugin_dataset", type: :task do
+  describe "rake decidim:ai:load_module_dataset", type: :task do
     context "when executing task" do
       it "successfully loads the dataset" do
         instance = Decidim::Ai::SpamDetection::Service.new(registry: Decidim::Ai::SpamDetection.resource_registry)
         allow(Decidim::Ai::SpamDetection).to receive(:resource_classifier).and_return(instance)
         expect(instance).to receive(:train).at_least(10).times
 
-        Rake::Task[:"decidim:ai:load_plugin_dataset"].invoke
+        Rake::Task[:"decidim:ai:load_module_dataset"].invoke
       end
     end
   end
