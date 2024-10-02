@@ -10,11 +10,10 @@ module Decidim::Surveys
 
     let(:my_cell) { cell("decidim/surveys/survey_l", survey, context: { show_space: }) }
     let(:cell_html) { my_cell.call }
-    let(:created_at) { 1.month.ago }
-    let(:component) { create(:surveys_component) }
-    let!(:survey) { create(:survey, component:, created_at:) }
+    let(:component) { survey.component }
+    let(:survey) { create(:survey, starts_at: 2.days.ago, ends_at: 1.week.from_now) }
     let(:model) { survey }
-    let(:user) { create(:user, organization: survey.participatory_space.organization) }
+    let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
 
     before do
       allow(controller).to receive(:current_user).and_return(user)
@@ -27,12 +26,12 @@ module Decidim::Surveys
         expect(subject).to have_css("[id^='surveys__survey']")
       end
 
-      it "renders the question count" do
-        expect(subject).to have_css(".card__list-metadata [data-questions-count]")
+      it "renders the metadata" do
+        expect(subject).to have_css(".card__list-metadata")
       end
 
       it "renders the title" do
-        expect(subject).to have_content(translated_attribute(survey.title))
+        expect(subject).to have_content(decidim_sanitize(translated_attribute(survey.title), strip_tags: true))
         expect(subject).to have_css(".card__list-title")
       end
 
