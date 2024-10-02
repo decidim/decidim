@@ -18,6 +18,7 @@ de:
         automatic_hashtags: Hashtags werden automatisch hinzugefügt
         body: Haupttext
         category_id: Kategorie
+        decidim_proposals_proposal_state_id: Status
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
         scope_id: Bereich
@@ -90,6 +91,13 @@ de:
       decidim/proposals/voting_enabled_event: Vorschlagsabstimmung aktiviert
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Der Vorschlag %{link} wurde erstellt
+            import_to_proposal_text: Dieser Vorschlag %{link} wurde erstellt
+            merge_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
+            split_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
       decidim/proposals/collaborative_draft:
         one: Gemeinsamer Entwurf
         other: Gemeinsame Entwürfe
@@ -778,6 +786,8 @@ de:
       create:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
+      creation:
+        text: Dieser Vorschlag wurde erstellt
       destroy_draft:
         error: Es gab Fehler beim Löschen des Vorschlagsentwurfs.
         success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.

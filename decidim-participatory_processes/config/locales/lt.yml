@@ -431,8 +431,6 @@ lt:
           name: Susiję procesai
       index:
         title: Dalyvaujamieji procesai
-      last_activity:
-        new_participatory_process: Naujas dalyvaujamasis procesas
       pages:
         home:
           highlighted_processes:
