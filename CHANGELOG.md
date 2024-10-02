@@ -2,6 +2,50 @@
 
 # Changelog
 
+## [0.28.4](https://github.com/decidim/decidim/tree/0.28.4)
+
+### Added
+
+Nothing.
+
+### Changed
+
+Nothing.
+
+### Fixed
+
+- **decidim-dev**: Backport 'Fix flaky on verifications' code letter system spec' to v0.28 [\#13390](https://github.com/decidim/decidim/pull/13390)
+- **decidim-comments**, **decidim-core**: Backport 'Date & Time format in Last Activities' to v0.28 [\#13388](https://github.com/decidim/decidim/pull/13388)
+- **decidim-core**, **decidim-proposals**: Backport 'Fix redirections after login with modal' to v0.28 [\#13386](https://github.com/decidim/decidim/pull/13386)
+- **decidim-accountability**, **decidim-core**, **decidim-meetings**: Backport 'Fix tab navigation on filters' to v0.28 [\#13401](https://github.com/decidim/decidim/pull/13401)
+- **decidim-admin**: Backport 'Fixes admin rights loss when added as private user with case-insensitive email ' to v0.28 [\#13400](https://github.com/decidim/decidim/pull/13400)
+- **decidim-core**: Backport 'Fix margin in offline page' to v0.28 [\#13446](https://github.com/decidim/decidim/pull/13446)
+- **decidim-admin**, **decidim-core**, **decidim-verifications**: Backport 'Spacing on DOB picker in Authorizations' to v0.28 [\#13448](https://github.com/decidim/decidim/pull/13448)
+- **decidim-conferences**, **decidim-core**, **decidim-initiatives**, **decidim-participatory processes**: Backport 'Fix showing Conferences and Initiatives in last activities page' to v0.28 [\#13450](https://github.com/decidim/decidim/pull/13450)
+- **decidim-assemblies**: Backport 'Fix private admin create new assembly ' to v0.28 [\#13444](https://github.com/decidim/decidim/pull/13444)
+- Backport 'Fix display of short bio in conferences' speaker modal' to v0.28 [\#13469](https://github.com/decidim/decidim/pull/13469)
+- **decidim-core**, **decidim-generators**: Backport 'Allow to configure the cell cache expiry time' to v0.28 [\#13454](https://github.com/decidim/decidim/pull/13454)
+- **decidim-blogs**, **decidim-core**: Backport 'Fix for liking a resource prompts for groups even though groups are disabled' to v0.28 [\#13459](https://github.com/decidim/decidim/pull/13459)
+- **decidim-initiatives**: Backport 'Fix Stack Level Too Deep on request committee member in initiatives' to v0.28 [\#13465](https://github.com/decidim/decidim/pull/13465)
+- **decidim-accountability**, **decidim-assemblies**, **decidim-blogs**, **decidim-core**, **decidim-debates**, **decidim-meetings**, **decidim-participatory processes**, **decidim-proposals**: Backport 'Fix showing spaces in Last Activity page' to v0.28 [\#13466](https://github.com/decidim/decidim/pull/13466)
+- **decidim-core**, **decidim-proposals**: Backport 'Fix for creating an amendment in proposals is not cloning the category ' to v0.28 [\#13457](https://github.com/decidim/decidim/pull/13457)
+- **decidim-admin**, **decidim-core**: Backport 'Fix regression when there's a disabled button in the upload modal' to v0.28 [\#13464](https://github.com/decidim/decidim/pull/13464)
+- **decidim-admin**: Backport 'Dropdown select scopes on Newsletters ' to v0.28 [\#13476](https://github.com/decidim/decidim/pull/13476)
+- **decidim-core**, **decidim-dev**, **decidim-generators**, **decidim-system**: Backport 'Fix issues with customized Omniauth callback handling' to v0.28 [\#13394](https://github.com/decidim/decidim/pull/13394)
+- **decidim-core**, **decidim-dev**, **decidim-forms**, **decidim-generators**, **decidim-initiatives**, **decidim-meetings**, **decidim-proposals**: Backport 'Remove invalid upload files' to v0.28 [\#13467](https://github.com/decidim/decidim/pull/13467)
+
+### Removed
+
+Nothing.
+
+### Developer improvements
+
+- Backport 'Remove invalid upload files' to v0.28 [\#13467](https://github.com/decidim/decidim/pull/13467)
+
+### Internal
+
+Nothing.
+
 ## [0.28.3](https://github.com/decidim/decidim/tree/0.28.3)
 
 ### Added
