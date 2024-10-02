@@ -281,6 +281,12 @@ module Decidim
         app.config.exceptions_app = Decidim::Core::Engine.routes
       end
 
+      initializer "decidim_core.direct_uploader_paths", after: "decidim_core.exceptions_app" do |_app|
+        config.to_prepare do
+          ActiveStorage::DirectUploadsController.include Decidim::DirectUpload
+        end
+      end
+
       initializer "decidim_core.locales" do |app|
         app.config.i18n.fallbacks = true
       end
