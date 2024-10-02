@@ -74,7 +74,7 @@ module Decidim
         url = "#"
       elsif authorization_status&.ok? == false
         html_options = clean_authorized_to_data_open(html_options.merge(onboarding_data_attributes(action, resource, permissions_holder, url, html_options.merge(tag:))))
-        if multiple_pending_steps?(authorization_status)
+        if pending_steps?(authorization_status)
           tag = "link"
           html_options["method"] = "post"
           html_options.delete(:remote)
@@ -146,8 +146,8 @@ module Decidim
       action_authorized_to(action, resource:, permissions_holder:)
     end
 
-    def multiple_pending_steps?(authorization_status)
-      authorization_status.pending_authorizations_count > 1 && authorization_status.global_code != :unauthorized
+    def pending_steps?(authorization_status)
+      authorization_status.pending_authorizations_count.positive? && authorization_status.global_code != :unauthorized
     end
 
     def onboarding_data_attributes(action, resource, permissions_holder, redirect_path = nil, opts = {})
