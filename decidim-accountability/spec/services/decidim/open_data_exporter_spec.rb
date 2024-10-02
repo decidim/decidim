@@ -12,7 +12,7 @@ describe Decidim::OpenDataExporter do
     create(:accountability_component, organization:, published_at: Time.current)
   end
   let!(:resource) { create(:result, component:) }
-  let(:resource_title) { "## accountability" }
+  let(:resource_title) { "## results" }
   let(:help_lines) do
     [
       "* id: The unique identifier of the result"

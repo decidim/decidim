@@ -290,7 +290,7 @@ en:
         title: Results
     open_data:
       help:
-        accountability:
+        results:
           category: The category of the result (e.g. "Culture")
           component: The component that the result belongs to
           created_at: The date when the result was created

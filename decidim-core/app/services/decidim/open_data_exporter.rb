@@ -96,9 +96,9 @@ module Decidim
 
     def get_help_definition(manifest_type, exporter, export_manifest)
       help_definition[manifest_type] = {} if help_definition[manifest_type].nil?
-      help_definition[manifest_type][export_manifest.manifest.name] = {}
+      help_definition[manifest_type][export_manifest.name] = {}
       exporter.headers_without_locales.each do |header|
-        help_definition[manifest_type][export_manifest.manifest.name][header] = I18n.t("decidim.open_data.help.#{export_manifest.manifest.name}.#{header}")
+        help_definition[manifest_type][export_manifest.name][header] = I18n.t("decidim.open_data.help.#{export_manifest.name}.#{header}")
       end
     end
 
