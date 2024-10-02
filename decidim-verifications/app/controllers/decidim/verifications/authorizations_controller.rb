@@ -36,9 +36,14 @@ module Decidim
         return unless onboarding_manager.finished_verifications?(active_authorization_methods) || authorization_status == :unauthorized
 
         if authorization_status == :unauthorized
-          flash[:alert] = t("authorizations.onboarding_pending.unauthorized", scope: "decidim.verifications", action: onboarding_manager.action)
+          flash[:alert] = t("authorizations.onboarding_pending.unauthorized", scope: "decidim.verifications", action: onboarding_manager.action_text.downcase)
         else
-          flash[:notice] = t("authorizations.onboarding_pending.completed_verifications", scope: "decidim.verifications")
+          flash[:notice] = t(
+            "authorizations.onboarding_pending.completed_verifications",
+            scope: "decidim.verifications",
+            action: onboarding_manager.action_text.downcase,
+            resource_name: onboarding_manager.model_name.human.downcase
+          )
         end
 
         redirect_to onboarding_manager.finished_redirect_path
