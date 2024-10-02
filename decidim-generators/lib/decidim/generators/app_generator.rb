@@ -384,6 +384,10 @@ module Decidim
         copy_file "budgets_initializer.rb", "config/initializers/decidim_budgets.rb"
       end
 
+      def ai_toolkit
+        copy_file "ai_initializer.rb", "config/initializers/decidim_ai.rb"
+      end
+
       def timestamp_service
         return unless options[:demo]
 
