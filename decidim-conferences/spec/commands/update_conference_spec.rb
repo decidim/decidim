@@ -6,8 +6,8 @@ module Decidim::Conferences
   describe Admin::UpdateConference do
     describe "call" do
       let(:my_conference) { create(:conference) }
-      let!(:taxonomizations) do
-        2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization: my_conference.organization), taxonomizable: my_conference) }
+      let(:taxonomizations) do
+        2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization: my_conference.organization), taxonomizable: nil) }
       end
       let(:taxonomy) { create(:taxonomy, :with_parent, organization: my_conference.organization) }
       let(:user) { create(:user, :admin, :confirmed, organization: my_conference.organization) }

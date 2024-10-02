@@ -17,8 +17,8 @@ module Decidim::Budgets
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:current_photos) { [] }
-    let!(:taxonomizations) do
-      2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: project) }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)

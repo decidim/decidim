@@ -47,8 +47,8 @@ module Decidim::Accountability
         component: project_component
       )
     end
-    let!(:taxonomizations) do
-      2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: result) }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
     let(:form) do
       double(

@@ -8,9 +8,13 @@ describe Decidim::Debates::Admin::CreateDebate do
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
-  let(:scope) { create(:scope, organization:) }
-  let(:category) { create(:category, participatory_space: participatory_process) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:taxonomizations) do
+    [
+      build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil),
+      build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil)
+    ]
+  end
   let(:form) do
     double(
       invalid?: invalid,
@@ -20,8 +24,7 @@ describe Decidim::Debates::Admin::CreateDebate do
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
-      scope:,
-      category:,
+      taxonomizations:,
       current_user: user,
       current_component:,
       component: current_component,
@@ -58,14 +61,9 @@ describe Decidim::Debates::Admin::CreateDebate do
       end
     end
 
-    it "sets the scope" do
+    it "sets the taxonomies" do
       subject.call
-      expect(debate.scope).to eq scope
-    end
-
-    it "sets the category" do
-      subject.call
-      expect(debate.category).to eq category
+      expect(debate.taxonomizations).to match_array(form.taxonomizations)
     end
 
     it "sets the component" do
@@ -85,7 +83,7 @@ describe Decidim::Debates::Admin::CreateDebate do
         .with(
           Decidim::Debates::Debate,
           user,
-          hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time, :component),
+          hash_including(:taxonomizations, :title, :description, :information_updates, :instructions, :end_time, :start_time, :component),
           visibility: "all"
         )
         .and_call_original

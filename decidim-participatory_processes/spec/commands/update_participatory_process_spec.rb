@@ -6,8 +6,8 @@ module Decidim::ParticipatoryProcesses
   describe Admin::UpdateParticipatoryProcess do
     describe "call" do
       let(:my_process) { create(:participatory_process) }
-      let!(:taxonomizations) do
-        2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization: my_process.organization), taxonomizable: my_process) }
+      let(:taxonomizations) do
+        2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization: my_process.organization), taxonomizable: nil) }
       end
       let(:taxonomy) { create(:taxonomy, :with_parent, organization: my_process.organization) }
       let(:params) do

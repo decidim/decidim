@@ -24,8 +24,8 @@ module Decidim::Meetings
     let(:registration_url) { "http://decidim.org" }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
-    let!(:taxonomizations) do
-      2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: meeting) }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
     let(:form) do
       double(

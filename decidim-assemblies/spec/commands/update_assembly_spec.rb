@@ -20,8 +20,8 @@ module Decidim::Assemblies
       end
 
       let(:hero_image) { my_assembly.hero_image }
-      let!(:taxonomizations) do
-        2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: my_assembly) }
+      let(:taxonomizations) do
+        2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
       end
       let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
       let(:banner_image) { my_assembly.banner_image }

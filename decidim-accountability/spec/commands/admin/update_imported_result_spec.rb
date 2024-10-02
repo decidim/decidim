@@ -9,8 +9,8 @@ module Decidim::Accountability
     let(:result) { create(:result, progress: 10) }
     let(:organization) { result.component.organization }
     let(:user) { create(:user, organization:) }
-    let!(:taxonomizations) do
-      2.times.map { create(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: result) }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
     let(:participatory_process) { result.component.participatory_space }
     let(:meeting_component) do
