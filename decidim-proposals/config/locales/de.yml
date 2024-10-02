@@ -19,6 +19,7 @@ de:
         automatic_hashtags: Hashtags werden automatisch hinzugefügt
         body: Haupttext
         category_id: Kategorie
+        decidim_proposals_proposal_state_id: Status
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
         scope_id: Bereich

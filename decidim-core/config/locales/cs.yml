@@ -391,6 +391,7 @@ cs:
         visit_link: Navštívit odkaz
       documents:
         component_documents:
+          dummy: Zástupné dokumenty ke komponentům
           meetings: Dokumenty ze schůzky
         documents: Dokumenty
         related_documents: Související dokumenty
@@ -968,7 +969,7 @@ cs:
           title_required: Název je povinný!
           uploaded: Nahráno
           validating: Probíhá ověřování...
-          validation_error: Chyba ověření!
+          validation_error: Chyba ověření! Zkontrolujte, zda má soubor povolenou příponu nebo velikost.
         select_file: Vyberte soubor
       upload_help:
         dropzone: Přetáhněte soubory sem nebo klikněte na tlačítko pro nahrání

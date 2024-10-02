@@ -902,9 +902,9 @@ eu:
         extension_allowlist: 'Onartutako formatuak: %{extensions}'
       upload:
         labels:
-          add_attachment: Erantsi eranskina
-          add_file: Erantsi fitxategiak
-          add_image: Erantsi irudia
+          add_attachment: Gehitu eranskina
+          add_file: Gehitu fitxategiak
+          add_image: Gehitu irudia
           edit_image: Editatu irudia
           error: Akatsa!
           file_size_too_large: 'Fitxategiaren tamaina handiegia da! Maximun fitxategiaren tamaina: %{megabytes}} MB'
@@ -916,7 +916,7 @@ eu:
           title_required: Izenburua behar da!
           uploaded: Igota
           validating: Balidatzen...
-          validation_error: Errorea baliozkotzean!
+          validation_error: Balioztatze-akatsa! Egiaztatu artxiboak luzapen edo tamaina baimendua duela.
         select_file: Hautatu fitxategia
       upload_help:
         dropzone: Bota artxiboak hona edo egin klik igotzeko

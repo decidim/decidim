@@ -924,7 +924,7 @@ fr-CA:
           title_required: Le titre est requis !
           uploaded: Téléchargé
           validating: Validation en cours...
-          validation_error: Erreur de validation !
+          validation_error: Erreur de validation ! Vérifiez que le fichier a une extension ou taille autorisée.
         select_file: Sélectionnez un fichier
       upload_help:
         dropzone: Déposez des fichiers ici ou cliquez sur le bouton pour télécharger

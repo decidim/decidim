@@ -242,6 +242,10 @@ fi-pl:
             alert_html: "<p>Sinun tulee luoda vähintään yksi aloitetyyppi, jotta osallistujat voivat luoda aloitteita.</p><p>%{link}</p>"
             button: Uusi aloitetyyppi
         initiatives:
+          accept:
+            success: Aloitteen hyväksyminen onnistui.
+          discard:
+            success: Aloitteen peruminen onnistui.
           edit:
             accept: Hyväksy aloite
             confirm: Oletko varma?
@@ -265,6 +269,12 @@ fi-pl:
             edit: Muokkaa
             new: Uusi
             photos: Kuvat
+          publish:
+            success: Aloitteen julkaisu onnistui.
+          reject:
+            success: Aloitteen hylkääminen onnistui.
+          unpublish:
+            success: Aloitteen julkaisun lopetus onnistui.
           update:
             error: Tapahtui virhe.
             success: Aloitteen päivitys onnistui.

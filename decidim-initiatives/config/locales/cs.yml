@@ -248,6 +248,10 @@ cs:
             alert_html: "<p>Musíte vytvořit alespoň jeden typ iniciativy, aby účastníci mohli začít vytvářet iniciativy.</p><p> %{link}</p>"
             button: Nový typ iniciativy
         initiatives:
+          accept:
+            success: Iniciativa byla úspěšně přijata.
+          discard:
+            success: Iniciativa byla úspěšně zrušena.
           edit:
             accept: Přijmout iniciativu
             confirm: Jste si jisti?
@@ -271,6 +275,12 @@ cs:
             edit: Upravit
             new: Nový
             photos: Fotky
+          publish:
+            success: Iniciativa byla úspěšně publikována.
+          reject:
+            success: Iniciativa byla úspěšně zamítnuta.
+          unpublish:
+            success: Iniciativa byla úspěšně zneveřejněna.
           update:
             error: Došlo k chybě.
             success: Tato iniciativa byla úspěšně aktualizována.
