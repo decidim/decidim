@@ -239,7 +239,7 @@
   }
 
   &__reply-button {
-    @apply flex items-center justify-center absolute mx-80;
+    @apply flex items-center justify-center;
 
     .button[aria-expanded="false"] {
       svg:first-of-type {

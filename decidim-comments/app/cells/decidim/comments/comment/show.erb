@@ -79,7 +79,7 @@
       </div>
       <div class="comment__reply-button">
         <% if depth.zero? && has_replies_in_children? %>
-          <button class="button button__sm button__text-secondary" data-comment-hide data-controls="comment-<%= model.id %>-replies" data-open="false" id="comment-<%= model.id %>-replies-trigger">
+          <button class="button button__xs button__transparent-secondary border-white absolute top-4" data-comment-hide data-controls="comment-<%= model.id %>-replies" data-open="false" id="comment-<%= model.id %>-replies-trigger">
             <span data-show-comment-reply class="font-normal" aria-label="<%= t("decidim.components.comment.show_replies", count: replies.size) %>">
               <%= t("decidim.components.comment.answers", count: replies.size) %>
             </span>
