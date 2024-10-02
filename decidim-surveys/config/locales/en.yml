@@ -110,8 +110,9 @@ en:
             one: "%{count} survey"
             other: "%{count} surveys"
         filters:
+          all: All
           date: Date
-          date_values:
+          state_values:
             all: All
             closed: Closed
             open: Open

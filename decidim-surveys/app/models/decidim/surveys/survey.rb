@@ -20,7 +20,7 @@ module Decidim
       scope :open, -> { where("ends_at IS NULL OR ends_at > ?", Time.zone.now) }
       scope :closed, -> { where(ends_at: ..Time.zone.now) }
 
-      scope_search_multi :with_any_date, [:open, :closed]
+      scope_search_multi :with_any_state, [:open, :closed]
 
       def open?
         return true if starts_at.blank? && ends_at.blank?
@@ -33,7 +33,11 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_date]
+        [:with_any_state]
+      end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(ends_at starts_at)
       end
     end
   end

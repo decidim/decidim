@@ -41,20 +41,20 @@ module Decidim
       end
 
       def surveys
-        paginate(collection)
+        paginate(search.result)
       end
 
       def survey
-        @survey ||= collection.find_by(id: params[:id])
+        @survey ||= search_collection.find_by(id: params[:id])
       end
 
-      def collection
-        @collection ||= Decidim::Surveys::Survey.where(component: current_component)
+      def search_collection
+        @search_collection ||= Decidim::Surveys::Survey.where(component: current_component)
       end
 
       def default_filter_params
         {
-          with_any_date: "open",
+          with_any_state: %w(open closed),
           activity: "all"
         }
       end
