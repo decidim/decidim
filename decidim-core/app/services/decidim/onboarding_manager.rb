@@ -123,7 +123,14 @@ module Decidim
     #
     # Returns an array of Decidim::Authorization objects
     def filter_authorizations(authorizations)
-      authorizations.select { |authorization| authorization_handlers.include?(authorization.name) }
+      filtered_authorizations = authorizations.select { |authorization| authorization_handlers.include?(authorization.name) }
+
+      # By calling authorize on each authorization the path generated for each
+      # one will include the specific options of the action if available
+      filtered_authorizations.each do |authorization|
+        authorization.authorize(nil, permissions.dig("authorization_handlers", authorization.name, "options") || {}, model, permissions_holder)
+      end
+      filtered_authorizations
     end
 
     # Returns a hash which can be passed to action_authorized_to helper method
