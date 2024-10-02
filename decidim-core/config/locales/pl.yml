@@ -1919,7 +1919,6 @@ pl:
         data_consent_settings: Ustawienia cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
-        download_open_data: Pobierz pliki Open Data
         log_in: Zaloguj się
         made_with_open_source: Strona internetowa powstała z użyciem <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
         resources: Zasoby
