@@ -24,7 +24,7 @@ eu:
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
         participatory_process_type_id: Prozesu mota
-        participatory_scope: Zer erabakitzen da
+        participatory_scope: Zer erabaki da
         participatory_structure: Nola erabakitzen da?
         private_space: Prozesu pribatua
         promoted: Nabarmendua
@@ -410,7 +410,7 @@ eu:
         participatory_process_groups:
           form:
             metadata: Metadatuak
-            title: Prozesu honi buruz
+            title: "Prozesu honi buruz\n"
             visibility: Ikusgarritasuna
         participatory_process_imports:
           form:
