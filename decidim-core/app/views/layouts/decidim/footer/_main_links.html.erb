@@ -24,7 +24,7 @@
     <% if Decidim.module_installed?(:meetings) %>
       <li class="font-semibold underline"><%= link_to t("decidim.pages.home.extended.meetings"), Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path %></li>
     <% end %>
-    <li class="font-semibold underline"><%= link_to t("layouts.decidim.footer.download_open_data"), decidim.open_data_download_path %></li>
+    <li class="font-semibold underline"><%= link_to t("layouts.decidim.footer.open_data"), decidim.open_data_path %></li>
   </ul>
 </nav>
 

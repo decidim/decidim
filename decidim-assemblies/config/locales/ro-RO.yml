@@ -277,6 +277,7 @@ ro:
             select_an_assembly_type: Selectaţi un tip de grup de lucru
             select_parent_assembly: Selectați grupul de lucru părinte
             social_handlers: Rețele de socializare
+            taxonomies: Taxonomii
             title: Informaţii generale
         assemblies_types:
           form:
