@@ -81,26 +81,7 @@ Decidim::Ai::SpamDetection.resource_detection_service = "Decidim::Ai::SpamDetect
 
 # Customize here what are the analyzed models. You may want to use this to
 # override what we register by default, or to register your own resources.
-#
-# The ResourceAnalyzer has the following contract
-# class ResourceAnalyzer < Decidim::Ai::SpamDetection::Resource::Base
-#   def fields
-#     [:title, :body, :etc]
-#   end
-#
-#   protected
-#
-#   def query
-#     Your::Model.including()
-#   end
-#
-#   # Additionally you can override the following methods
-#
-#   def resource_hidden?(resource); end
-#   def batch_train; end
-#   def train; end #  delegated to classifier
-#   def untrain; end #  delegated to classifier
-# end
+
 Decidim::Ai::SpamDetection.resource_models = {
   "Decidim::Comments::Comment" => "Decidim::Ai::SpamDetection::Resource::Comment",
   "Decidim::Initiative" => "Decidim::Ai::SpamDetection::Resource::Initiative",

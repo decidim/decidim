@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if defined?(Decidim::Ai)
 
   Decidim::Ai::Language.service = "Decidim::Ai::Language::Detection"
@@ -52,14 +54,16 @@ if defined?(Decidim::Ai)
   # Customize here what are the analyzed models. You may want to use this to
   # override what we register by default, or to register your own resources.
   # Follow the documentation on how to trail more resources
-  Decidim::Ai::SpamDetection.resource_models = {
-    "Decidim::Comments::Comment" => "Decidim::Ai::SpamDetection::Resource::Comment",
-    "Decidim::Initiative" => "Decidim::Ai::SpamDetection::Resource::Initiative",
-    "Decidim::Debates::Debate" => "Decidim::Ai::SpamDetection::Resource::Debate",
-    "Decidim::Meetings::Meeting" => "Decidim::Ai::SpamDetection::Resource::Meeting",
-    "Decidim::Proposals::Proposal" => "Decidim::Ai::SpamDetection::Resource::Proposal",
-    "Decidim::Proposals::CollaborativeDraft" => "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft"
-  }
+  Decidim::Ai::SpamDetection.resource_models = begin
+    models = {}
+    models["Decidim::Comments::Comment"] = "Decidim::Ai::SpamDetection::Resource::Comment" if Decidim.module_installed?("comments")
+    models["Decidim::Debates::Debate"] = "Decidim::Ai::SpamDetection::Resource::Debate" if Decidim.module_installed?("debates")
+    models["Decidim::Initiative"] = "Decidim::Ai::SpamDetection::Resource::Initiative" if Decidim.module_installed?("initiatives")
+    models["Decidim::Meetings::Meeting"] = "Decidim::Ai::SpamDetection::Resource::Meeting" if Decidim.module_installed?("meetings")
+    models["Decidim::Proposals::Proposal"] = "Decidim::Ai::SpamDetection::Resource::Proposal" if Decidim.module_installed?("proposals")
+    models["Decidim::Proposals::CollaborativeDraft"] = "Decidim::Ai::SpamDetection::Resource::CollaborativeDraft" if Decidim.module_installed?("proposals")
+    models
+  end
 
   Decidim::Ai::SpamDetection.user_score_threshold = 0.75 # default
 

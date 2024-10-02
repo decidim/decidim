@@ -96,30 +96,8 @@ module Decidim
 
       # Spam detection service class.
       # If you want to use a different spam detection service, you can use a class service having the following contract
-      #
-      # class SpamDetection::Service
-      #   def initialize
-      #     @registry = Decidim::Ai.spam_detection_registry
-      #   end
-      #
-      #   def train(category, text)
-      #     # train the strategy
-      #   end
-      #
-      #   def classify(text)
-      #     # classify the text
-      #   end
-      #
-      #   def untrain(category, text)
-      #     # untrain the strategy
-      #   end
-      #
-      #   def classification_log
-      #     # return the classification log
-      #   end
-      # end
       config_accessor :resource_detection_service do
-        Decidim::Ai::SpamDetection::Service
+        "Decidim::Ai::SpamDetection::Service"
       end
 
       # You can configure the spam threshold for the spam detection service.
@@ -180,36 +158,14 @@ module Decidim
 
       # Spam detection service class.
       # If you want to use a different spam detection service, you can use a class service having the following contract
-      #
-      # class SpamDetection::Service
-      #   def initialize
-      #     @registry = Decidim::Ai.spam_detection_registry
-      #   end
-      #
-      #   def train(category, text)
-      #     # train the strategy
-      #   end
-      #
-      #   def classify(text)
-      #     # classify the text
-      #   end
-      #
-      #   def untrain(category, text)
-      #     # untrain the strategy
-      #   end
-      #
-      #   def classification_log
-      #     # return the classification log
-      #   end
-      # end
       config_accessor :user_detection_service do
-        Decidim::Ai::SpamDetection::Service
+        "Decidim::Ai::SpamDetection::Service"
       end
 
       # this is the generic resource classifier class. If you need to change your own class, please change the
       # configuration of `Decidim::Ai::SpamDetection.detection_service` variable.
       def self.resource_classifier
-        @resource_classifier = Decidim::Ai::SpamDetection.resource_detection_service.new(
+        @resource_classifier = Decidim::Ai::SpamDetection.resource_detection_service.safe_constantize&.new(
           registry: Decidim::Ai::SpamDetection.resource_registry
         )
       end
@@ -223,7 +179,7 @@ module Decidim
       # this is the generic user classifier class. If you need to change your own class, please change the
       # configuration of `Decidim::Ai::SpamDetection.detection_service` variable
       def self.user_classifier
-        @user_classifier = Decidim::Ai::SpamDetection.user_detection_service.new(
+        @user_classifier = Decidim::Ai::SpamDetection.user_detection_service.safe_constantize&.new(
           registry: Decidim::Ai::SpamDetection.user_registry
         )
       end
