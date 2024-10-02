@@ -30,20 +30,40 @@ module Decidim
       @onboarding_manager ||= OnboardingManager.new(user)
     end
 
+    def authorizations
+      @authorizations ||= action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
+    end
+
     def authorization_status
-      @authorization_status ||= action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources).global_code
+      @authorization_status ||= authorizations.global_code
+    end
+
+    def pending_authorization_link_active?
+      return unless authorizations.single_authorization_required?
+
+      is_active_link? authorizations.statuses.first.current_path
     end
 
     def message_text
-      t(
-        "cta_html",
-        scope: "decidim.onboarding_action_message",
-        link_text:,
-        path: onboarding_path,
-        action: onboarding_manager.action_text.downcase,
-        resource_name: onboarding_manager.model_name.human.downcase,
-        resource_title: translated_attribute(onboarding_manager.model_title)
-      )
+      if pending_authorization_link_active?
+        t(
+          "pending_authorization_active",
+          scope: "decidim.onboarding_action_message",
+          action: onboarding_manager.action_text.downcase,
+          resource_name: onboarding_manager.model_name.human.downcase,
+          resource_title: translated_attribute(onboarding_manager.model_title)
+        )
+      else
+        t(
+          "cta_html",
+          scope: "decidim.onboarding_action_message",
+          link_text:,
+          path: onboarding_path,
+          action: onboarding_manager.action_text.downcase,
+          resource_name: onboarding_manager.model_name.human.downcase,
+          resource_title: translated_attribute(onboarding_manager.model_title)
+        )
+      end
     end
 
     def link_text

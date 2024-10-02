@@ -1343,6 +1343,7 @@ en:
       click_link: Click here
       cta_html: <a href="%{path}">%{link_text}</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
       finish_authorization_process: You can finish the authorization process
+      pending_authorization_active: We need to verify your identity.<br>Please complete the form in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
     open_data:
       help:
         core:

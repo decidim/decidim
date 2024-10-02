@@ -130,6 +130,10 @@ module Decidim
       def pending_authorizations_count
         @authorization_handlers.count
       end
+
+      def single_authorization_required?
+        pending_authorizations_count == 1 && [:ok, :unauthorized].exclude?(global_code)
+      end
     end
 
     class AuthorizationError < StandardError; end
