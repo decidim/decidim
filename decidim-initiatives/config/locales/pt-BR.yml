@@ -238,6 +238,8 @@ pt-BR:
             edit: Editar
             new: Novo
             photos: Fotos
+          update:
+            error: Ocorreu um erro.
         initiatives_settings:
           form:
             comments: Mais comentado
@@ -247,13 +249,20 @@ pt-BR:
             signatures: Mais assinadas
             title: Configurações de iniciativas
         initiatives_type_scopes:
+          create:
+            error: Ocorreu um erro.
           edit:
             title: Editar o âmbito do tipo de iniciativa
             update: Atualizar
           new:
             create: Criar
             title: Criar âmbito de tipo de iniciativa
+          update:
+            error: Ocorreu um erro.
         initiatives_types:
+          create:
+            error: Ocorreu um erro.
+            success: Um novo tipo de iniciativa foi criado com sucesso.
           edit:
             update: Atualizar
           form:
@@ -266,6 +275,8 @@ pt-BR:
           new:
             create: Criar
             title: Novo tipo de iniciativa
+          update:
+            error: Ocorreu um erro.
       admin_log:
         initiative:
           publish: "%{user_name} publicou a iniciativa %{resource_name}"
@@ -522,6 +533,8 @@ pt-BR:
         accepted: Aceitaram
         expired: Expirado
       unavailable_scope: Escopo não disponível
+      update:
+        error: Ocorreu um erro.
     menu:
       initiatives: Iniciativas
     resources:

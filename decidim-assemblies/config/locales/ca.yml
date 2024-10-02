@@ -207,7 +207,7 @@ ca:
           attachments: Adjunts
           categories: Categories
           components: Components
-          info: Sobre aquesta assemblea
+          info: Quant a aquesta assemblea
           landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Participants privades
@@ -339,13 +339,13 @@ ca:
           participatory_scope: Què es decideix
           participatory_structure: Com es decideix
           target: Qui participa
-          title: Sobre aquesta assemblea
+          title: Quant a aquesta assemblea
         filters:
           names:
             all: Totes
           type: Tipus
         show:
-          title: Sobre aquesta assemblea
+          title: Quant a aquesta assemblea
       assembly_members:
         index:
           members: Membres

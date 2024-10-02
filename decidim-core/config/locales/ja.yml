@@ -900,7 +900,7 @@ ja:
           title_required: タイトルが必要です
           uploaded: アップロード済
           validating: 検証中...
-          validation_error: 検証エラー
+          validation_error: 'バリデーションエラー: ファイルの拡張子またはサイズに問題がないか確認してください。'
         select_file: ファイルを選択
       upload_help:
         dropzone: ここにファイルをドロップするか、ボタンをクリックしてアップロードします
@@ -1637,10 +1637,10 @@ ja:
         ignore: |-
           招待を受け入れたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
-        invited_you_as_private_user: "%{invited_by} が %{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。"
+        invited_you_as_private_user: "%{invited_by} が %{application} のプライベート参加者としてあなたを招待しました。以下のリンクから承認できます。"
         someone_invited_you: '%{application} にあなたを招待しました。以下のリンクから受け入れることができます。'
         someone_invited_you_as_admin: '%{application} の管理者としてあなたを招待しました。以下のリンクから承認できます。'
-        someone_invited_you_as_private_user: '%{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。'
+        someone_invited_you_as_private_user: '%{application} のプライベート参加者としてあなたは招待されています。以下のリンクから承認できます。'
         subject: 招待の説明
       invite_admin:
         subject: '%{organization} を管理するために招待されています'

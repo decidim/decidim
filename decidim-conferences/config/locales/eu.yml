@@ -474,6 +474,8 @@ eu:
           name: Nabarmendutako konferentziak
       index:
         title: Hitzaldiak
+      last_activity:
+        new_conference: 'Beste hitzaldi bat:'
       mailer:
         conference_registration_mailer:
           confirmation:

@@ -450,7 +450,7 @@ fr-CA:
       index:
         title: Concertations
       last_activity:
-        new_participatory_process: Nouvelle concertation
+        new_participatory_process: 'Nouveau processus participatif:'
       pages:
         home:
           highlighted_processes:

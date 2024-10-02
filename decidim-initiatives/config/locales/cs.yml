@@ -244,6 +244,10 @@ cs:
         exports:
           initiatives: Iniciativy
         initiatives:
+          accept:
+            success: Iniciativa byla úspěšně přijata.
+          discard:
+            success: Iniciativa byla úspěšně zrušena.
           edit:
             accept: Přijmout iniciativu
             confirm: Jste si jisti?
@@ -267,6 +271,12 @@ cs:
             edit: Upravit
             new: Nový
             photos: Fotky
+          publish:
+            success: Iniciativa byla úspěšně publikována.
+          reject:
+            success: Iniciativa byla úspěšně zamítnuta.
+          unpublish:
+            success: Iniciativa byla úspěšně zneveřejněna.
           update:
             error: Došlo k chybě.
             success: Tato iniciativa byla úspěšně aktualizována.
