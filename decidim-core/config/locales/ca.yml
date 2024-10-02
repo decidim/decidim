@@ -1576,7 +1576,7 @@ ca:
     user_update_mailer:
       notify:
         body_1: Reps aquest missatge per informar-te d'una actualització del teu compte.
-        body_2: En el cas que no hagis estat tu qui ha realitzat aquesta actualització, si us plau, inicia la teva sessió i modifica la teva contrasenya. Si no poguessis iniciar la teva sessió, si ús pla, contacte amb el servei de suport a la plataforma.
+        body_2: En el cas que no hagis estat tu qui ha realitzat aquesta actualització, si us plau, inicia la teva sessió i modifica la teva contrasenya. Si no poguessis iniciar la teva sessió, si us plau, contacte amb el servei de suport a la plataforma.
         greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{user}
         main_body: 'S''han modificat els següents detalls: %{updates}.'
