@@ -40,7 +40,7 @@ sv:
         extra_fields_legal_information: Juridisk information om insamling av personuppgifter
         minimum_committee_members: Minsta antal kampanjmedlemmar
         online_signature_enabled: Digitala signaturer är aktiverade
-        only_global_scope_enabled: Tillåt endast skapande av globala indelningar för namninsamlingar
+        only_global_scope_enabled: Tillåt endast skapande av globala indelningar för initiativ
         promoting_committee_enabled: Aktivera kampanjgrupp
         signature_type: Typ av signatur
         title: Titel
@@ -81,7 +81,7 @@ sv:
     admin:
       actions:
         new_initiative_type: Ny initiativtyp
-        new_initiative_type_scope: Skapa indelning för namninsamling
+        new_initiative_type_scope: Skapa indelning för initiativ
       filters:
         initiatives:
           decidim_area_id_eq:
@@ -107,7 +107,7 @@ sv:
         attachments: Bilagor
         committee_members: Kampanjmedlemmar
         information: Information
-        initiative_type_scopes: Indelningar för namninsamlingar
+        initiative_type_scopes: Indelningar för initiativtyp
         initiatives: Initiativ
         initiatives_menu:
           see_initiative: Visa initiativ
@@ -129,7 +129,7 @@ sv:
           fields:
             scope: Indelning
             supports_required: Underskrifter som krävs
-          name: Namninsamlingstypens indelning
+          name: Indelning för initiativtypen
         initiatives_types:
           fields:
             created_at: Skapad
@@ -277,22 +277,22 @@ sv:
         initiatives_type_scopes:
           create:
             error: Ett fel har inträffat.
-            success: En ny indelning har skapats för namninsamlingen.
+            success: En ny indelning har skapats för initiativtypen.
           destroy:
             success: Indelningen har tagit borts.
           edit:
-            title: Redigera namninsamlingstypens indelning
+            title: Redigera initiativtypens indelning
             update: Uppdatera
           new:
             create: Skapa
-            title: Skapa indelning till typen av namninsamling
+            title: Skapa indelning till initiativtyp
           update:
             error: Ett fel har inträffat.
             success: Indelningen har uppdaterats.
         initiatives_types:
           create:
             error: Ett fel har inträffat.
-            success: En ny typ av namninsamling har skapats.
+            success: En ny initiativtyp har skapats.
           destroy:
             success: Initiativtypen har tagits bort.
           edit:
