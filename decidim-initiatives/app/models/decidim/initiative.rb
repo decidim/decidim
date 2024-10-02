@@ -159,6 +159,18 @@ module Decidim
       Decidim::Initiatives::AdminLog::InitiativePresenter
     end
 
+    def self.ransackable_attributes(auth_object = nil)
+      base = %w(search_text title description id id_string supports_count author_name author_nickname)
+
+      return base unless auth_object&.admin?
+
+      base + %w(published_at state decidim_area_id type_id)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(area scope categories)
+    end
+
     def self.ransackable_scopes(_auth_object = nil)
       [:with_any_state, :with_any_type, :with_any_scope, :with_any_area]
     end

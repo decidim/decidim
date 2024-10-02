@@ -202,10 +202,11 @@ pt-BR:
         verify: Verificar
       admin_terms_of_service:
         accept:
+          error: Houve um erro ao aceitar os termos de serviço de administrador.
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
           accept: Concordo com estes termos
-          are_you_sure: Tem certeza que deseja negar os termos de Serviço para administrador? 
+          are_you_sure: Tem certeza que deseja negar os termos de Serviço para administrador?
           refuse: Recusar os termos de administrador
           title: "Concordo com os termos de serviço\n"
         required_review:
@@ -287,6 +288,7 @@ pt-BR:
       block_user:
         new:
           action: Bloquear conta e enviar justificativa
+          already_reported_html: Continuar com essa ação também resultará na ocultação o conteúdo de todos os participantes.
           description: Bloquear um usuário irá tornar sua conta inutilizável. Você pode fornecer em sua justificação quaisquer diretrizes sobre como você poderia considerar desbloquear o usuário.
           justification: Justificativa
           title: Bloquear usuário %{name}
@@ -327,12 +329,15 @@ pt-BR:
           default_step_settings: Configurações de etapa padrão
           global_settings: Configurações globais
           step_settings: Configurações de etapa
+        hide:
+          success: O componente foi escondido do menu com sucesso.
         index:
           add: Adicionar componente
           headers:
             actions: Ações
             name: Nome do componente
             type: Tipo de componente
+            visibility: Visibilidade
         new:
           add: Adicionar componente
           title: 'Adicionar componente: %{name}'
@@ -344,9 +349,15 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar este componente.
           success: O componente foi atualizado com sucesso.
+        visibility_label:
+          menu_hidden: Menu escondido
+          published: Publicado
+          unpublished: Não publicado
       conflicts:
         attempts: Tentativas
         'false': 'Não'
+        index:
+          text: Pesquisar por e-mail, nome ou apelido do usuário.
         managed_user_name: Usuário gerenciado
         solved: Resolvido
         title: Conflitos de verificação
@@ -998,6 +1009,40 @@ pt-BR:
           success: Página atualizada com sucesso.
       taxonomies:
         count: Contagem
+        edit:
+          back: Retornar
+          new_item: Novo item
+        table:
+          to_next_page: Arraste para a próxima página
+          to_prev_page: Arraste sobre a página anterior
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Novo filtro de taxonomia
+        create:
+          success: Filtro de taxonomia criado com sucesso.
+        edit:
+          back: Retornar
+          no_items: Nenhum item está disponível para estas taxonomias. Você pode criar itens nas configurações de configuração da taxonomia.
+        new:
+          back: Voltar
+          create: Criar filtro de taxonomia
+          items: "%{count} itens disponíveis"
+          title: Novo filtro de taxonomia
+        table:
+          actions: Ações
+          confirm_destroy: Tem certeza de que deseja excluir este filtro? %{name}?
+          count: Número de itens
+          destroy: Deletar
+          edit: Editar
+          name: Nome
+      taxonomy_items:
+        edit:
+          title: Editar item em %{taxonomy}
+          update: Atualizar item
+        new:
+          create: Criar item
+          none: Nenhum
+          title: Novo item em %{taxonomy}
       titles:
         admin_log: Log de administração
         area_types: Tipos de área

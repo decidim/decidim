@@ -473,6 +473,8 @@ fr-CA:
           name: Conférences mises en avant
       index:
         title: Conférences
+      last_activity:
+        new_conference: 'Nouvelle conférence:'
       mailer:
         conference_registration_mailer:
           confirmation:
