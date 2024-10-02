@@ -78,11 +78,11 @@ module Decidim
             id: "date",
             type: :radio_buttons
           }]
-          if current_component.has_subscopes?
-            items.append(method: :with_any_scope, collection: filter_scopes_values, label: t("decidim.shared.participatory_space_filters.filters.scope"), id: "scope")
-          end
-          if current_participatory_space.categories.any?
-            items.append(method: :with_any_category, collection: filter_categories_values, label: t("decidim.debates.debates.filters.category"), id: "category")
+          current_component.available_taxonomy_filters.each do |taxonomy_filter|
+            items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+                         collection: filter_taxonomy_values_for(taxonomy_filter),
+                         label: decidim_sanitize_translated(taxonomy_filter.name),
+                         id: "taxonomy")
           end
           items.append(method: :with_any_origin, collection: filter_origin_values, label: t("decidim.debates.debates.filters.origin"), id: "origin")
           items.append(method: :activity, collection: activity_filter_values, label: t("decidim.debates.debates.filters.activity"), id: "activity") if current_user
