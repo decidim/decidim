@@ -14,15 +14,15 @@ module Decidim
         (defined?(current_component) && translated_attribute(current_component&.name).presence) || t("decidim.components.sortitions.name")
       end
 
-      # Generates the sortition category label
-      def sortition_category_label(sortition)
-        if sortition.category.present?
-          return I18n.t("show.category",
+      # Generates the sortition taxonomy labels
+      def sortition_taxonomy_labels(sortition)
+        if sortition.taxonomies.present?
+          return I18n.t("show.taxonomies",
                         scope: "decidim.sortitions.sortitions",
-                        category: translated_attribute(sortition.category.name))
+                        taxonomies: sortition.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", "))
         end
 
-        I18n.t("show.any_category", scope: "decidim.sortitions.sortitions")
+        I18n.t("show.any_taxonomy", scope: "decidim.sortitions.sortitions")
       end
 
       # Show list of candidate proposals for a sortition. Selected sortition ids will appear with bold font.

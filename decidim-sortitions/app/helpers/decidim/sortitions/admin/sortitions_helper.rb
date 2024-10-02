@@ -14,10 +14,11 @@ module Decidim
           end
         end
 
-        def sortition_category(sortition)
-          return translated_attribute sortition.category&.name if sortition.category
+        def sortition_taxonomies(sortition)
+          taxonomies = sortition.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ")
+          return taxonomies if taxonomies.present?
 
-          I18n.t("sortitions.form.all_categories", scope: "decidim.sortitions.admin")
+          I18n.t("sortitions.form.all_taxonomies", scope: "decidim.sortitions.admin")
         end
       end
     end

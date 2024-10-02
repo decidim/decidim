@@ -82,7 +82,7 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :additional_info, :witnesses]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :with_taxonomies]
+        [:with_any_state, :with_any_taxonomies]
       end
 
       def self.ransackable_attributes(_auth_object = nil)
