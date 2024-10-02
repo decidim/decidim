@@ -901,7 +901,6 @@ pt-BR:
           title_required: Título é obrigatório!
           uploaded: Carregado
           validating: Validando...
-          validation_error: Erro de validação!
         select_file: Selecione um arquivo
       upload_help:
         dropzone: Solte os arquivos aqui ou clique no botão para carregar
