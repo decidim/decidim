@@ -280,7 +280,7 @@ sv:
         initiatives_type_scopes:
           create:
             error: Det gick inte att skapa ett nytt utrymme för initiativet.
-            success: En ny indelning har skapats för namninsamlingen.
+            success: En ny indelning har skapats för initiativtypen.
           destroy:
             success: Indelningen har tagit borts.
           edit:
