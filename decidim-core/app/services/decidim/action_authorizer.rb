@@ -128,6 +128,8 @@ module Decidim
       end
 
       def pending_authorizations_count
+        return 0 if @authorization_handlers.blank?
+
         @authorization_handlers.count
       end
 
