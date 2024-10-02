@@ -2,7 +2,7 @@
 
 require "decidim/core/test/shared_examples/download_open_data_shared_context"
 
-RSpec.shared_examples "includes it in the open data file" do
+RSpec.shared_examples "includes it in the open data ZIP file" do
   include_context "when downloading open data files"
 
   it do
@@ -12,7 +12,7 @@ RSpec.shared_examples "includes it in the open data file" do
   end
 end
 
-RSpec.shared_examples "does not include it in the open data file" do
+RSpec.shared_examples "does not include it in the open data ZIP file" do
   include_context "when downloading open data files"
 
   it do

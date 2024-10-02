@@ -33,28 +33,28 @@ describe "Download Open Data files", download: true do
       let!(:assembly) { create(:assembly, :unpublished, organization:) }
       let(:participatory_space_title) { translated_attribute(assembly.title).gsub('"', '""') }
 
-      it_behaves_like "does not include it in the open data file"
+      it_behaves_like "does not include it in the open data ZIP file"
     end
 
     context "when the assembly is published and not private" do
       let!(:assembly) { create(:assembly, :published, organization:, private_space: false) }
       let(:participatory_space_title) { translated_attribute(assembly.title).gsub('"', '""') }
 
-      it_behaves_like "includes it in the open data file"
+      it_behaves_like "includes it in the open data ZIP file"
     end
 
     context "when the assembly is published, private and transparent" do
       let!(:assembly) { create(:assembly, :published, organization:, private_space: true, is_transparent: true) }
       let(:participatory_space_title) { translated_attribute(assembly.title).gsub('"', '""') }
 
-      it_behaves_like "includes it in the open data file"
+      it_behaves_like "includes it in the open data ZIP file"
     end
 
     context "when the assembly is published, private and not transparent" do
       let!(:assembly) { create(:assembly, :published, organization:, private_space: true, is_transparent: false) }
       let(:participatory_space_title) { translated_attribute(assembly.title).gsub('"', '""') }
 
-      it_behaves_like "does not include it in the open data file"
+      it_behaves_like "does not include it in the open data ZIP file"
     end
   end
 

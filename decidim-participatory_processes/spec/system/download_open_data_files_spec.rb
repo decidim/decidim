@@ -33,21 +33,21 @@ describe "Download Open Data files", download: true do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization:) }
       let(:participatory_space_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
 
-      it_behaves_like "does not include it in the open data file"
+      it_behaves_like "does not include it in the open data ZIP file"
     end
 
     context "when the participatory process is published and not private" do
       let!(:participatory_process) { create(:participatory_process, :published, organization:, private_space: false) }
       let(:participatory_space_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
 
-      it_behaves_like "includes it in the open data file"
+      it_behaves_like "includes it in the open data ZIP file"
     end
 
     context "when the participatory process is published and private" do
       let!(:participatory_process) { create(:participatory_process, :published, organization:, private_space: true) }
       let(:participatory_space_title) { translated_attribute(participatory_process.title).gsub('"', '""') }
 
-      it_behaves_like "does not include it in the open data file"
+      it_behaves_like "does not include it in the open data ZIP file"
     end
   end
 

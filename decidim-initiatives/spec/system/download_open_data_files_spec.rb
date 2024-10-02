@@ -33,42 +33,42 @@ describe "Download Open Data files", download: true do
       let!(:initiative) { create(:initiative, :created, organization:) }
       let(:participatory_space_title) { translated_attribute(initiative.title).gsub('"', '""') }
 
-      it_behaves_like "does not include it in the open data file"
+      it_behaves_like "does not include it in the open data ZIP file"
     end
 
     context "when the initiative is in state 'validating'" do
       let!(:initiative) { create(:initiative, :validating, organization:) }
       let(:participatory_space_title) { translated_attribute(initiative.title).gsub('"', '""') }
 
-      it_behaves_like "does not include it in the open data file"
+      it_behaves_like "does not include it in the open data ZIP file"
     end
 
     context "when the initiative is in state 'open'" do
       let!(:initiative) { create(:initiative, :open, organization:) }
       let(:participatory_space_title) { translated_attribute(initiative.title).gsub('"', '""') }
 
-      it_behaves_like "includes it in the open data file"
+      it_behaves_like "includes it in the open data ZIP file"
     end
 
     context "when the initiative is in state 'accepted'" do
       let!(:initiative) { create(:initiative, :accepted, organization:) }
       let(:participatory_space_title) { translated_attribute(initiative.title).gsub('"', '""') }
 
-      it_behaves_like "includes it in the open data file"
+      it_behaves_like "includes it in the open data ZIP file"
     end
 
     context "when the initiative is in state 'rejected'" do
       let!(:initiative) { create(:initiative, :rejected, organization:) }
       let(:participatory_space_title) { translated_attribute(initiative.title).gsub('"', '""') }
 
-      it_behaves_like "includes it in the open data file"
+      it_behaves_like "includes it in the open data ZIP file"
     end
 
     context "when the initiative is in state 'discarded'" do
       let!(:initiative) { create(:initiative, :discarded, organization:) }
       let(:participatory_space_title) { translated_attribute(initiative.title).gsub('"', '""') }
 
-      it_behaves_like "includes it in the open data file"
+      it_behaves_like "includes it in the open data ZIP file"
     end
   end
 
