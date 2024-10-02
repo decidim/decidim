@@ -4,7 +4,7 @@
 module SpamDetection::Strategy
   class Bayes < Base
     def initialize(options = {})
-      # Some intialisation routines, define vars etc
+      # Add here your configuration, your variable assignement
     end
 
     def log
