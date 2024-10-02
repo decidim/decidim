@@ -58,7 +58,7 @@ module Decidim
         protected
 
         def formatter
-          @formatter ||= Decidim::Ai::Language.formatter.new
+          @formatter ||= Decidim::Ai::Language.formatter.safe_constantize&.new
         end
       end
     end

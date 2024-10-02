@@ -21,7 +21,7 @@ module Decidim
       #   end
       # end
       config_accessor :service do
-        Decidim::Ai::Language::Detection
+        "Decidim::Ai::Language::Detection"
       end
 
       # Text cleanup service
@@ -34,7 +34,7 @@ module Decidim
       #   end
       # end
       config_accessor :formatter do
-        Decidim::Ai::Language::Formatter
+        "Decidim::Ai::Language::Formatter"
       end
     end
   end
