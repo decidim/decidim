@@ -1008,7 +1008,6 @@ sk:
       edit_link:
         edit: Upraviť
       footer:
-        download_open_data: Stiahnite si súbory s otvorenými dátami
         log_in: Prihlásiť sa
         made_with_open_source: Webová stránka vytvorená s <a target="_blank" href="https://github.com/decidim/decidim"> slobodným softvérom </a>.
       header:
