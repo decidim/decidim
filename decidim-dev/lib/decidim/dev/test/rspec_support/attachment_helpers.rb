@@ -14,12 +14,10 @@ module AttachmentHelpers
   # Used in non-system tests that need files.
   def upload_test_file(file, options = {})
     filename = options[:filename] || upload_test_file_filename(file)
-    content_type = options[:content_type] || upload_test_file_content_type(file)
 
     blob = ActiveStorage::Blob.create_and_upload!(
       io: File.open(file),
-      filename:,
-      content_type:
+      filename:
     )
     return blob if options[:return_blob]
 

@@ -10,7 +10,7 @@ module Decidim
     # Property is named as attribute in upload modal and passthru validator, but
     # it cannot be named as attribute here.
     attribute :property, String
-    attribute :blob, String
+    attribute :blob, Decidim::Attributes::Blob
     attribute :form_class, String
 
     validates :resource_class, presence: true
