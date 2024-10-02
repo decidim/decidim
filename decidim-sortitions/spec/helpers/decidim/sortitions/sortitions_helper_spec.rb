@@ -16,13 +16,13 @@ module Decidim
       describe "sortition_taxonomy_labels" do
         let(:sortition) { create(:sortition) }
 
-        context "when not taxonomized sortition" do
+        context "when sortition has no taxonomies" do
           it "returns from all taxonomies" do
             expect(helper.sortition_taxonomy_labels(sortition)).to eq("from all taxonomies")
           end
         end
 
-        context "when taxonomized sortition" do
+        context "when sortition has taxonomies" do
           let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization: sortition.organization) }
 
           before do
