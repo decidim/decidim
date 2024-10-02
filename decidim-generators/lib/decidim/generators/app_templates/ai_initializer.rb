@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-if defined?(Decidim::Ai)
-
+if Decidim.module_installed?(:ai)
   Decidim::Ai::Language.service = "Decidim::Ai::Language::Detection"
   Decidim::Ai::Language.formatter = "Decidim::Ai::Language::Formatter"
 

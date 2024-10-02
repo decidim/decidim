@@ -385,6 +385,8 @@ module Decidim
       end
 
       def ai_toolkit
+        return unless options[:demo]
+
         copy_file "ai_initializer.rb", "config/initializers/decidim_ai.rb"
       end
 

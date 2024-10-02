@@ -21,12 +21,6 @@ module Decidim
             end
           end
 
-          protected
-
-          def error_message(klass, method_name)
-            "Invalid Classifier class! The class defined under `#{klass}` does not follow the contract regarding ##{method_name} method"
-          end
-
           def train(category, text)
             raise error_message("Decidim::Ai::SpamDetection.resource_detection_service", __method__) unless classifier.respond_to?(:train)
 
@@ -36,7 +30,13 @@ module Decidim
           def untrain(category, text)
             raise error_message("Decidim::Ai::SpamDetection.resource_detection_service", __method__) unless classifier.respond_to?(:untrain)
 
-            classifier.train(category, text)
+            classifier.untrain(category, text)
+          end
+
+          protected
+
+          def error_message(klass, method_name)
+            "Invalid Classifier class! The class defined under `#{klass}` does not follow the contract regarding ##{method_name} method"
           end
 
           def resource_hidden?(resource)
