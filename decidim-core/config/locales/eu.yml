@@ -165,7 +165,7 @@ eu:
         cancel_error: Ezin izan da ezeztatu korreo elektronikoaren aldaketa.
         cancel_successfully: Posta elektronikoaren aldaketa zuzen ezeztatua.
         resend_error: Ezin izan da birbidali berresteko korreoa.
-        resend_successfully: 'Berresteko posta elektronikoa zuzen birbidalia hona: %{unconfirmed_email}.'
+        resend_successfully: Correo de confirmación reenviado con éxito a %{unconfirmed_email}.
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
@@ -713,7 +713,7 @@ eu:
             notification_title: <a href="%{emendation_path}">k ukatu du zuzenketa</a> honetarako <a href="%{amendable_path}">%{amendable_title}</a> argitaratu du %{amendable_type} berri gisa honek <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: '%{amendable_title} rako zuzenketa %{amendable_type} berri gisa argitaratu da. Orrialde honetan ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Batetik zuzenketa %{emendation_author_nickname} izan berri gisa argitaratuko %{amendable_type}
             notification_title: <a href="%{emendation_path}"> k ukatu du </a> zuzenketa honetarako <a href="%{amendable_path}">%{amendable_title}</a> argitaratu du %{amendable_type} berri gisa honek <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
