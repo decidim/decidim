@@ -40,7 +40,7 @@
               <% end %>
             </td>
             <td>
-              <%= debate.taxonomies.map{ |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
+              <%= debate.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
             </td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :debate, debate: debate %>

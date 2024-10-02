@@ -35,16 +35,16 @@ en:
         name: Debates
         settings:
           global:
-            clear_all: Clear all
-            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
-            no_taxonomy_filters_found: No taxonomy filters found.
-            taxonomy_filters: Select filters for the component
-            taxonomy_filters_add: Add filter
             announcement: Announcement
+            clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
+            no_taxonomy_filters_found: No taxonomy filters found.
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -132,8 +132,6 @@ en:
             closed: Closed
             open: Open
           user_group: Groups
-        form:
-          select_a_category: Please select a category
         index:
           new_debate: New debate
         new:
@@ -169,8 +167,8 @@ en:
             official_debate: Official debate
             start: Start
             start_time: Start date
-            title: Title
             taxonomies: Taxonomies
+            title: Title
     events:
       debates:
         create_debate_event:

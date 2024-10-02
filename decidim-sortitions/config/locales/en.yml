@@ -4,7 +4,6 @@ en:
     attributes:
       sortition:
         additional_info: Sortition information
-        decidim_category_id: Categories of the set of proposals in which you want to apply the draw
         decidim_proposals_component_id: Proposals set
         dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
         target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
@@ -26,12 +25,12 @@ en:
         settings:
           global:
             clear_all: Clear all
+            comments_enabled: Comments enabled
+            comments_max_length: Comments max length (Leave 0 for default value)
             define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             no_taxonomy_filters_found: No taxonomy filters found.
             taxonomy_filters: Select filters for the component
             taxonomy_filters_add: Add filter
-            comments_enabled: Comments enabled
-            comments_max_length: Comments max length (Leave 0 for default value)
     events:
       sortitions:
         sortition_created:
@@ -75,6 +74,7 @@ en:
           form:
             all_categories: All categories
             select_proposal_component: Select the proposals set
+            select_taxonomies: Taxonomies of the set of proposals in which you want to apply the draw. Leave empty to apply the draw to all proposals on that taxonomy.
           index:
             title: Sortitions
           new:

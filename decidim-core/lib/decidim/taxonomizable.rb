@@ -24,7 +24,7 @@ module Decidim
       # finds taxonomizables belonging to a specific taxonomy
       scope :with_taxonomy, ->(taxonomy_id) { includes(:taxonomies).references(:decidim_taxonomies).where("? = ANY(decidim_taxonomies.part_of)", taxonomy_id) }
 
-      # finds taxonomizables belonging to any of the taxonomies specified
+      # finds taxonomizables belonging to any of the taxonomies specified (or its children)
       scope :with_taxonomies, lambda { |*taxonomy_ids|
         conditions = ["? = ANY(part_of)"] * taxonomy_ids.count
         taxonomies = Decidim::Taxonomy.where(conditions.join(" OR "), *taxonomy_ids.map(&:to_i))

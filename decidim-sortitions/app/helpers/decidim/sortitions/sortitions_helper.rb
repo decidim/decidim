@@ -40,12 +40,11 @@ module Decidim
 
       def filter_sections_sortitions
         sections = [{ method: :with_any_state, collection: filter_state_values, label: t("decidim.sortitions.sortitions.filters.state"), id: "state" }]
-        if current_participatory_space.categories.any?
-          sections.append(
-            method: :with_category,
-            collection: filter_categories_values,
-            label: t("decidim.sortitions.sortitions.filters.category"), id: "category"
-          )
+        current_component.available_taxonomy_filters.each do |taxonomy_filter|
+          sections.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+                          collection: filter_taxonomy_values_for(taxonomy_filter),
+                          label: decidim_sanitize_translated(taxonomy_filter.name),
+                          id: "taxonomy")
         end
         sections.reject { |item| item[:collection].blank? }
       end
