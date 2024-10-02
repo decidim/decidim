@@ -6,6 +6,7 @@ module Decidim
       module SortitionsHelper
         include Decidim::TranslationsHelper
         include Decidim::PaginateHelper
+        include Decidim::SanitizeHelper
 
         # Converts a list of components into a list of selectable options
         def components_options(components)
