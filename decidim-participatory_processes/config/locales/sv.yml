@@ -11,7 +11,7 @@ sv:
         copy_steps: Kopiera steg
         decidim_area_id: Område
         description: Beskrivning
-        developer_group: Kampanjgrupp
+        developer_group: Arrangör
         document: Dokument
         domain: Domän
         end_date: Slutdatum
@@ -22,7 +22,7 @@ sv:
         import_components: Importera komponenter
         import_steps: Importera steg
         local_area: Område
-        meta_scope: Metadata för indelning
+        meta_scope: Omfattning
         participatory_process_group_id: Grupp av processer
         participatory_process_type_id: Typ av processer
         participatory_scope: Vad beslutas
@@ -45,12 +45,12 @@ sv:
         weight: Position i listan
       participatory_process_group:
         description: Beskrivning
-        developer_group: Kampanjgrupp
+        developer_group: Arrangör
         group_url: Webbplats
         hashtag: Hashtag
         hero_image: Bild
         local_area: Område
-        meta_scope: Metadata för indelning
+        meta_scope: Omfattning
         participatory_process_ids: Relaterade processer
         participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
@@ -367,7 +367,7 @@ sv:
         extra_data:
           developer_group: Stödd av
           name: Metadata
-          participatory_scope: Vad som beslutas
+          participatory_scope: Vad beslutas
           participatory_structure: Hur fattas beslut
           target: Vem deltar
         html:
@@ -461,10 +461,10 @@ sv:
         description:
           area_name: Område
           data: Data från processen
-          developer_group: Kampanjgrupp
+          developer_group: Arrangör
           local_area: Område
           meta_scope: Indelning
-          participatory_scope: Vad som beslutas
+          participatory_scope: Vad beslutas
           participatory_structure: Hur fattas beslut
           target: Vem deltar
           title: Om processen
