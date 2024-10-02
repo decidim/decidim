@@ -35,7 +35,7 @@ $(() => {
     exitLinkText = defaultExitLinkText;
 
     const $link = $(event.currentTarget);
-    if (!allowExitFrom($link)) {
+    if (!allowExitFrom($link) && !$(window.Decidim.currentDialogs["exit-proposal-notification"].dialog.querySelector("[data-dialog-container]")).data("minimum-votes-reached")) {
       event.preventDefault();
       openExitNotification($link.attr("href"), $link.data("method"));
     }
