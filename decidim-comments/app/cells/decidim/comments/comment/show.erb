@@ -21,7 +21,9 @@
 
       <div class="relative ml-auto">
         <button id="dropdown-trigger-<%= context_menu_id %>" data-component="dropdown" data-target="dropdown-menu-<%= context_menu_id %>" aria-label="<%= t("decidim.components.comment.controls_label") %>">
-          &#8230;
+          <%# NOTE: having two times the icon call is intentional, as that is how the `dropdown` CSS code is done %>
+          <%= icon "more-fill" %>
+          <%= icon "more-fill" %>
         </button>
 
         <div id="dropdown-menu-<%= context_menu_id %>" aria-hidden="true">

@@ -168,8 +168,8 @@ module Decidim
                   file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg")
                 },
                 {
-                  title: "CSV document",
-                  file: upload_test_file(Decidim::Dev.asset("verify_user_groups.csv"), content_type: "text/csv")
+                  title: "Text document",
+                  file: upload_test_file(Decidim::Dev.asset("invalid_extension.log"), content_type: "text/plain")
                 }
               ]
             end

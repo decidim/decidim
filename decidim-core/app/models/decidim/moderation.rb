@@ -30,5 +30,13 @@ module Decidim
     ransacker :reportable_type_string do
       Arel.sql(%{cast("decidim_moderations"."decidim_reportable_type" as text)})
     end
+
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(reported_id_string reported_content created_at)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      []
+    end
   end
 end

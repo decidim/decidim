@@ -164,6 +164,18 @@ module Decidim
       [:with_any_area, :with_any_scope, :with_any_type]
     end
 
+    def self.ransackable_attributes(auth_object = nil)
+      base = %w(title short_description description id)
+
+      return base unless auth_object&.admin?
+
+      base + %w(published_at private_space parent_id decidim_assemblies_type_id)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(area assembly_type scope parent children categories)
+    end
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute

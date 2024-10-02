@@ -65,6 +65,18 @@ module Decidim
       Decidim::UserBaseEntity.joins(:follows).where(decidim_follows: { user: self }).blocked.exists?
     end
 
+    def self.ransackable_attributes(auth_object = nil)
+      base = %w(name email nickname last_sign_in_at)
+
+      return base unless auth_object&.admin?
+
+      base + %w(invitation_sent_at invitation_accepted_at officialized_at)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      []
+    end
+
     private
 
     def only_public(klass, ids)
