@@ -8,7 +8,6 @@ module Decidim
       include Decidim::ComponentPathHelper
       include Decidim::Surveys::SurveyHelper
       include FilterResource
-      include ComponentFilterable
       include Paginable
 
       helper_method :authorizations, :surveys
@@ -51,6 +50,13 @@ module Decidim
 
       def collection
         @collection ||= Decidim::Surveys::Survey.where(component: current_component)
+      end
+
+      def default_filter_params
+        {
+          with_any_date: "open",
+          activity: "all"
+        }
       end
     end
   end

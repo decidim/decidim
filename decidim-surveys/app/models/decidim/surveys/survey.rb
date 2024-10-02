@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Forms::HasQuestionnaire
       include Decidim::HasComponent
+      include Decidim::FilterableResource
 
       component_manifest_name "surveys"
 
@@ -19,6 +20,8 @@ module Decidim
       scope :open, -> { where("ends_at IS NULL OR ends_at > ?", Time.zone.now) }
       scope :closed, -> { where(ends_at: ..Time.zone.now) }
 
+      scope_search_multi :with_any_date, [:open, :closed]
+
       def open?
         return true if starts_at.blank? && ends_at.blank?
         return true if ends_at.blank? && starts_at.past?
@@ -27,6 +30,10 @@ module Decidim
         return Time.zone.now.between?(starts_at, ends_at) if starts_at.present? && ends_at.present?
 
         false
+      end
+
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_date]
       end
     end
   end
