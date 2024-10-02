@@ -1646,7 +1646,6 @@ zh-TW:
         cc_by_license: 知識共用授權合約。
         data_consent_settings: Cookie 設定
         decidim_logo: Decidim 商標
-        download_open_data: 下載開放數據檔案
         log_in: 登入
         made_with_open_source: 使用<a target="_blank" href="https://github.com/decidim/decidim">自由軟體</a>建立的網站。
       header:
