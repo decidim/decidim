@@ -27,8 +27,12 @@ module Decidim
       def onboarding_pending
         return redirect_back(fallback_location: authorizations_path) unless onboarding_manager.valid?
 
-        authorization_status = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources).global_code
+        authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
 
+        authorization_status = authorizations.global_code
+        if authorizations.single_authorization_required?
+          return redirect_to(authorizations.statuses.first.current_path(redirect_url: decidim_verifications.onboarding_pending_authorizations_path))
+        end
         return unless onboarding_manager.finished_verifications?(active_authorization_methods) || authorization_status == :unauthorized
 
         if authorization_status == :unauthorized
