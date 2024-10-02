@@ -634,7 +634,7 @@ Additional context: This has been revealed as an issue during a security audit o
 | No
 
 |*DECIDIM_SPAM_DETECTION_BACKEND_USER_URL*
-| The redis connection url used by the user classifer
+| The redis connection url used by the user classifier
 | -
 | No
 
@@ -644,7 +644,7 @@ Additional context: This has been revealed as an issue during a security audit o
 | No
 
 |*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL*
-| The redis connection url used by the resource classifer
+| The redis connection url used by the resource classifier
 | -
 | No
 
