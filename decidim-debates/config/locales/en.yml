@@ -165,6 +165,7 @@ en:
             start: Start
             start_time: Start date
             title: Title
+            taxonomies: Taxonomies
     events:
       debates:
         create_debate_event:
