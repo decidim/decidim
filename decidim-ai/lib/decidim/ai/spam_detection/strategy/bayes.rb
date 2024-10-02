@@ -52,10 +52,10 @@ module Decidim
           attr_reader :backend, :options, :available_categories, :category, :internal_score
 
           def configured_backend
-            if options[:adapter] == :redis
-              ClassifierReborn::BayesRedisBackend.new options[:params]
-            else
+            if options[:adapter].to_s == "memory"
               ClassifierReborn::BayesMemoryBackend.new
+            else
+              ClassifierReborn::BayesRedisBackend.new options[:params]
             end
           end
         end

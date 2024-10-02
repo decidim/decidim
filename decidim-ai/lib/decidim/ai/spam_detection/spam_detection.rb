@@ -73,7 +73,14 @@ module Decidim
       # }
       config_accessor :resource_analyzers do
         [
-          { name: :bayes, strategy: Decidim::Ai::SpamDetection::Strategy::Bayes, options: { adapter: :memory, params: {} } }
+          {
+            name: :bayes,
+            strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
+            options: {
+              adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE", "redis"),
+              params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL", {}) }
+            }
+          }
         ]
       end
 
@@ -122,24 +129,19 @@ module Decidim
       #     adapter: :redis,
       #     params: {
       #       url:                lambda { ENV["REDIS_URL"] }
-      #       scheme:             "redis"
-      #       host:               "127.0.0.1"
-      #       port:               6379
-      #       path:               nil
-      #       timeout:            5.0
-      #       password:           nil
-      #       db:                 0
-      #       driver:             nil
-      #       id:                 nil
-      #       tcp_keepalive:      0
-      #       reconnect_attempts: 1
-      #       inherit_socket:     false
       #     }
       #   }
       # }
       config_accessor :user_analyzers do
         [
-          { name: :bayes, strategy: Decidim::Ai::SpamDetection::Strategy::Bayes, options: { adapter: :memory, params: {} } }
+          {
+            name: :bayes,
+            strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
+            options: {
+              adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER", "redis"),
+              params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER_URL", {}) }
+            }
+          }
         ]
       end
 

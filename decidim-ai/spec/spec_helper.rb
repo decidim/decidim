@@ -3,6 +3,7 @@
 require "decidim/dev"
 
 ENV["ENGINE_ROOT"] = File.dirname(__dir__)
+ENV["SPAM_DETECTION_BACKEND"] = "memory"
 
 Decidim::Dev.dummy_app_path = File.expand_path(File.join("..", "spec", "decidim_dummy_app"))
 
