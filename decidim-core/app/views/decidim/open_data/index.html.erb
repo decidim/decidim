@@ -33,6 +33,20 @@
       <% end %>
     </div>
 
+    <div class="editor-content">
+      <ul>
+        <% open_data_component_manifests.each do |manifest| %>
+          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name)) %></li>
+        <% end %>
+      </ul>
+
+      <ul>
+        <% open_data_participatory_space_manifests.each do |manifest| %>
+          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name)) %></li>
+        <% end %>
+      </ul>
+    </div>
+
     <div class="mt-4 flex flex-col items-center">
       <%= link_to t("download_open_data", scope: "decidim.open_data.index"), decidim.open_data_download_path, class: "button button__primary button__xl" %>
     </div>

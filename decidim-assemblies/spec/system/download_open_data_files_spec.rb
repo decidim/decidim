@@ -57,4 +57,12 @@ describe "Download Open Data files", download: true do
       it_behaves_like "does not include it in the open data file"
     end
   end
+
+  describe "open data page" do
+    let(:resource_type) { "assemblies" }
+    let!(:assembly) { create(:assembly, :published, organization:, private_space: false) }
+    let(:resource_title) { translated_attribute(assembly.title).gsub('"', '""') }
+
+    it_behaves_like "includes it in the open data CSV file"
+  end
 end

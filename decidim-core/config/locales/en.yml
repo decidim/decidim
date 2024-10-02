@@ -1331,6 +1331,7 @@ en:
           title: Detailed explanation of each file
           description: "Below is a description of each dataset, including its schema (structure) and the type of information it contains:"
         download_open_data: Download all the Open Data files
+        download_resource: Download %{resource_name} in CSV format
         explanation:
           title: What are these files?
           body_1: These files are datasets exported from %{organization_name}'s participatory processes, such as proposals, comments, and meetings. They provide raw, structured data that can be used for analysis, research, or integration with other tools. The data is updated automatically every 24 hours, ensuring that you have access to the most recent information.

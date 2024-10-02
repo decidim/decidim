@@ -60,7 +60,7 @@ module Decidim
     has_one_attached :highlighted_content_banner_image
     validates_upload :highlighted_content_banner_image, uploader: Decidim::ImageUploader
 
-    has_one_attached :open_data_file
+    has_many_attached :open_data_files
 
     validate :unique_name
 
@@ -150,8 +150,10 @@ module Decidim
       !users_registration_mode_disabled?
     end
 
-    def open_data_file_path
-      "#{host}-open-data.zip"
+    def open_data_file_path(resource = nil)
+      return "#{host}-open-data.zip" if resource.nil?
+
+      "#{host}-open-data-#{resource}.csv"
     end
 
     def enabled_omniauth_providers

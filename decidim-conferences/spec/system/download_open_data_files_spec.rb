@@ -43,4 +43,12 @@ describe "Download Open Data files", download: true do
       it_behaves_like "includes it in the open data file"
     end
   end
+
+  describe "open data page" do
+    let(:resource_type) { "conferences" }
+    let!(:conference) { create(:conference, :published, organization:) }
+    let(:resource_title) { translated_attribute(conference.title).gsub('"', '""') }
+
+    it_behaves_like "includes it in the open data CSV file"
+  end
 end
