@@ -8,7 +8,7 @@ RSpec.shared_examples "includes it in the open data ZIP file" do
   it do
     download_open_data_file
     content = extract_content_from_zip(download_path, file_name)
-    expect(content).to include(participatory_space_title)
+    expect(content).to include(resource_title)
   end
 end
 
@@ -18,7 +18,7 @@ RSpec.shared_examples "does not include it in the open data ZIP file" do
   it do
     download_open_data_file
     content = extract_content_from_zip(download_path, file_name)
-    expect(content).not_to include(participatory_space_title)
+    expect(content).not_to include(resource_title)
   end
 end
 
