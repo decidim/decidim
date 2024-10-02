@@ -1846,7 +1846,6 @@ lt:
         data_consent_settings: Slapukų nustatymai
         decidim_logo: '„Decidim“ logotipas'
         decidim_title: Decidim
-        download_open_data: Parsisiųsti atvirųjų duomenų rinkmenas
         log_in: Prisijungti
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
         resources: Ištekliai
