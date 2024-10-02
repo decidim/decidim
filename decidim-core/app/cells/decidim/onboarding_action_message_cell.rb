@@ -51,7 +51,7 @@ module Decidim
           scope: "decidim.onboarding_action_message",
           action: onboarding_manager.action_text.downcase,
           resource_name: onboarding_manager.model_name.human.downcase,
-          resource_title: translated_attribute(onboarding_manager.model_title)
+          resource_title: decidim_sanitize_translated(onboarding_manager.model_title)
         )
       else
         t(
@@ -61,7 +61,7 @@ module Decidim
           path: onboarding_path,
           action: onboarding_manager.action_text.downcase,
           resource_name: onboarding_manager.model_name.human.downcase,
-          resource_title: translated_attribute(onboarding_manager.model_title)
+          resource_title: decidim_sanitize_translated(onboarding_manager.model_title)
         )
       end
     end
