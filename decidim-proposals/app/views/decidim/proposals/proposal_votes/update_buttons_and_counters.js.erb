@@ -36,22 +36,21 @@
 <% if show_voting_rules? %>
   (function() {
     var $remainingVotesNotification = $('#remaining-votes-notification');
-    var $successVoteNotification = $('#success-proposal-vote');
     var $exitProposalModal = $('#exit-proposal-notification');
     var $votingRules = $('.voting-rules');
+    var $votingRulesNode = $('.item_voting_rules')
+
     if($votingRules[0]) {
       morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
     }
 
     <% if remaining_minimum_votes_count_for(current_user).zero? %>
-      $successVoteNotification.removeClass("hidden");
+      $votingRulesNode.prepend(`<%= j(render partial: "decidim/proposals/proposals/notification_alert_box").strip.html_safe %>`)
 
     <% else %>
       if ($remainingVotesNotification[0]) {
         morphdom($remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>')
       }
-
-      $successVoteNotification.addClass("hidden");
 
       if ($exitProposalModal[0]) {
         morphdom($exitProposalModal[0], '<%= j(render partial: "decidim/proposals/proposals/exit_modal").strip.html_safe %>')
