@@ -290,6 +290,18 @@ en:
         title: Results
     open_data:
       help:
+        result_comments:
+          id: The id for this comment
+          created_at: The date when this comment was created
+          body: The comment itself
+          locale: The locale (language) that the participant had when leaving this comment
+          author: The name of the participant that made this comment
+          alignment: If this comment was a favour, against or neutral
+          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          user_group: The name of the user group that made this comment (if any)
+          commentable_id: The unique id of the commentable
+          commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
+          root_commentable_url: The URL of the resource that ties to this comment
         results:
           category: The category of the result (e.g. "Culture")
           component: The component that the result belongs to

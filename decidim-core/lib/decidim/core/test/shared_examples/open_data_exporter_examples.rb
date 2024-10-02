@@ -18,7 +18,11 @@ shared_examples_for "open data exporter" do
   end
 
   it "includes the resource data" do
-    expect(data).to include(translated(resource.title).gsub("\"", "\"\""))
+    if resource.respond_to?(:title)
+      expect(data).to include(translated(resource.title).gsub("\"", "\"\""))
+    elsif resource.respond_to?(:body)
+      expect(data).to include(translated(resource.body))
+    end
   end
 
   describe "README content" do
@@ -38,7 +42,11 @@ shared_examples_for "open data exporter" do
 
   context "with unpublished components" do
     it "does not include the projects data" do
-      expect(data).not_to include(translated(unpublished_resource.title).gsub("\"", "\"\""))
+      if unpublished_resource.respond_to?(:title)
+        expect(data).not_to include(translated(unpublished_resource.title).gsub("\"", "\"\""))
+      elsif unpublished_resource.respond_to?(:body)
+        expect(data).not_to include(translated(unpublished_resource.body).gsub("\"", "\"\""))
+      end
     end
   end
 end
