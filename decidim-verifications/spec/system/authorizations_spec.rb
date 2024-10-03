@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorizations", with_authorization_workflows: ["dummy_authorization_handler"] do
+describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_handler another_dummy_authorization_handler) do
   before do
     switch_to_host(organization.host)
   end
@@ -13,7 +13,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     let(:user) { create(:user, :confirmed, organization:) }
 
     context "when one authorization has been configured" do
-      let(:authorizations) { ["dummy_authorization_handler"] }
+      let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
       before do
         sign_in
@@ -114,8 +114,8 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
       end
     end
 
-    context "when multiple authorizations have been configured", with_authorization_workflows: %w(dummy_authorization_handler dummy_authorization_workflow) do
-      let(:authorizations) { %w(dummy_authorization_handler dummy_authorization_workflow) }
+    context "when multiple authorizations have been configured", with_authorization_workflows: %w(dummy_authorization_handler another_dummy_authorization_handler) do
+      let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
       before do
         sign_in
@@ -138,7 +138,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     end
 
     context "when user has not already been authorized" do
-      let(:authorizations) { ["dummy_authorization_handler"] }
+      let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
       it "allows the user to authorize against available authorizations" do
         visit_authorizations
@@ -173,7 +173,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     end
 
     context "when the user has already been authorized" do
-      let(:authorizations) { ["dummy_authorization_handler"] }
+      let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
       let!(:authorization) do
         create(:authorization, name: "dummy_authorization_handler", user:)
@@ -303,7 +303,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     let(:extended_data) { { onboarding: { action:, model: commentable.to_gid } } }
     let(:user) { create(:user, :confirmed, organization:, extended_data:) }
     let(:commentable_path) { Decidim::ResourceLocatorPresenter.new(commentable).path }
-    let(:authorizations) { %w(dummy_authorization_handler dummy_authorization_workflow) }
+    let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
     let!(:user_verification) { nil }
 
     before do
@@ -337,11 +337,42 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
           expect(user.reload.extended_data["onboarding"]).to be_present
         end
 
-        it "the user is redirected to a page with the authorizations required to perform the action" do
-          expect(page).to have_current_path decidim_verifications.onboarding_pending_authorizations_path
-          expect(page).to have_content "You are almost ready to comment on the #{translated_attribute(commentable.title)} dummy resource"
-          expect(page).to have_css("a[data-verification]", text: "Example authorization")
-          expect(page).to have_no_css("a[data-verification]", text: "Dummy authorization workflow")
+        context "when there is only an authorization" do
+          it "the user is redirected to a page with the authorizations required to perform the action" do
+            expect(page).to have_current_path decidim_verifications.new_authorization_path(
+              handler: "dummy_authorization_handler",
+              postal_codes: "1234,4567",
+              redirect_url: decidim_verifications.onboarding_pending_authorizations_path
+            )
+            expect(page).to have_content "We need to verify your identity."
+            expect(page).to have_content "Verify with Example authorization"
+          end
+        end
+
+        context "when there are more than one authorization" do
+          let(:permissions) do
+            {
+              action => {
+                authorization_handlers: {
+                  dummy_authorization_handler: {
+                    options: {
+                      allowed_postal_codes: "1234, 4567"
+                    }
+                  },
+                  another_dummy_authorization_handler: {
+                    options: {}
+                  }
+                }
+              }
+            }
+          end
+
+          it "the user is redirected to a page with the authorizations required to perform the action" do
+            expect(page).to have_current_path decidim_verifications.onboarding_pending_authorizations_path
+            expect(page).to have_content "You are almost ready to comment on the #{translated_attribute(commentable.title)} dummy resource"
+            expect(page).to have_css("a[data-verification]", text: "Example authorization")
+            expect(page).to have_css("a[data-verification]", text: "Another example authorization")
+          end
         end
       end
 
