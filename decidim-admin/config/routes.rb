@@ -34,7 +34,6 @@ Decidim::Admin::Engine.routes.draw do
     resources :areas, except: [:show]
 
     resources :authorization_workflows, only: :index
-    resources :authorization_exports, only: [:index, :create]
 
     Decidim.authorization_admin_engines.each do |manifest|
       mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
