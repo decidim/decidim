@@ -10,7 +10,6 @@
   "author": "Decidim Contributors",
   "license": "AGPL-3.0",
   "dependencies": {
-    "emoji-mart": "^5.5.2",
     "@emoji-mart/data": "^1.1.2",
     "@rails/activestorage": "^7.0.8",
     "@tarekraafat/autocomplete.js": "^10.2.6",
@@ -50,6 +49,7 @@
     "dayjs": "^1.11.0",
     "diff": "^5.0.0",
     "drag-on-drop": "^3.6.1",
+    "emoji-mart": "^5.5.2",
     "emojibase": "^6.1.0",
     "foundation-sites": "^6.7.0",
     "graphiql": "^3.0.10",
@@ -64,6 +64,7 @@
     "leaflet.markercluster": "^1.5.3",
     "morphdom": "2.6.1",
     "prop-types": "^15.7.2",
+    "puppeteer": "^23.5.0",
     "raf": "^3.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
