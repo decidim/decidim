@@ -96,11 +96,6 @@
           <%== cell("decidim/comments/comment_form", model, root_depth:, order:) %>
         </div>
       <% end %>
-      <div id="comment-<%= model.id %>-replies" class="<%= "comment-reply" if has_replies_in_children? %>">
-        <% if has_replies_in_children? %>
-          <%= render :replies %>
-        <% end %>
-      </div>
     </div>
   <% end %>
   <% if current_user.present? %>
@@ -111,3 +106,10 @@
     <%= cell("decidim/comments/edit_comment_modal_form", model) %>
   <% end %>
 <% end %>
+<div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>">
+  <div id="comment-<%= model.id %>-replies" class="<%= "comment-reply" if has_replies_in_children? %>">
+    <% if has_replies_in_children? %>
+      <%= render :replies %>
+    <% end %>
+  </div>
+</div>
