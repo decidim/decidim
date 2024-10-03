@@ -338,7 +338,7 @@ ja:
       admin:
         conference_copies:
           form:
-            slug_help_html: 'URLスラグは、このカンファレンスへのURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+            slug_help_html: 'URLスラグは、このカンファレンスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         conference_invites:
           create:
             error: 参加者をカンファレンスに招待する際に問題が発生しました。
@@ -468,6 +468,8 @@ ja:
           name: ハイライトされたカンファレンス
       index:
         title: カンファレンス
+      last_activity:
+        new_conference: '新しいカンファレンス:'
       mailer:
         conference_registration_mailer:
           confirmation:

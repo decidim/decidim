@@ -73,19 +73,19 @@ sv:
           comment: Kommentera
           create: Skapa
           destroy: Radera
-          endorse: Instäm
+          endorse: Gilla
           update: Uppdatera
         name: Blogg
         settings:
           global:
             announcement: Meddelande
-            comments_enabled: Kommentarer aktiverade
+            comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
-            endorsements_blocked: Instämmanden är blockerade
-            endorsements_enabled: Instämmanden tillåtna
+            comments_blocked: Stäng av kommentarer
+            endorsements_blocked: Blockera gilla-markeringar
+            endorsements_enabled: Aktivera gilla-markeringar
     events:
       blogs:
         post_created:

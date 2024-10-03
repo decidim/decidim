@@ -285,8 +285,6 @@ id:
           name: Proses yang disorot
       index:
         title: Proses partisipatif
-      last_activity:
-        new_participatory_process: Proses partisipatif baru
       participatory_processes:
         filters:
           counters:

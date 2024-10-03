@@ -20,6 +20,7 @@ module Decidim
 
         form = Decidim::Initiatives::CommitteeMemberForm
                .from_params(initiative_id: current_initiative.id, user_id: current_user.id, state: "requested")
+               .with_context(current_organization: current_initiative.organization, current_user:)
 
         SpawnCommitteeRequest.call(form) do
           on(:ok) do

@@ -330,8 +330,6 @@ gl:
           name: Procesos destacados
       index:
         title: Procesos participativos
-      last_activity:
-        new_participatory_process: Novo proceso participativo
       participatory_process_steps:
         index:
           back_to_process: Volver á páxina do proceso
