@@ -111,7 +111,7 @@ en:
             other: "%{count} surveys"
         filters:
           all: All
-          date: Date
+          state: Status
           state_values:
             all: All
             closed: Closed

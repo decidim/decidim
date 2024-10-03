@@ -27,7 +27,7 @@ module Decidim
           method: :with_any_state,
           collection: filter_surveys_date_values,
           label_scope: "decidim.surveys.surveys.filters",
-          id: "date",
+          id: "state",
           type: :radio_buttons
         }]
       end

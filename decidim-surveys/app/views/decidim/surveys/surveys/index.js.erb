@@ -1,0 +1,6 @@
+var $surveys = $('#surveys');
+console.log("Hola")
+$surveys.html('<%= j(render partial: "surveys").strip.html_safe %>');
+
+$surveys[0].innerHTML = $surveys[0].innerHTML.replace('data-open="false"', 'data-open="true"');
+document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $surveys[0] }));

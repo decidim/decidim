@@ -17,17 +17,31 @@ module Decidim
 
       validates :questionnaire, presence: true
 
-      scope :open, -> { where("ends_at IS NULL OR ends_at > ?", Time.zone.now) }
-      scope :closed, -> { where(ends_at: ..Time.zone.now) }
+      scope :open, lambda {
+        where(allow_answers: true)
+          .where(starts_at: nil, ends_at: nil).or(
+            where("starts_at <= ? AND (ends_at IS NULL OR ends_at > ?)", Time.current, Time.current)
+          ).or(
+            where("ends_at > ? AND (starts_at IS NULL OR starts_at <= ?)", Time.current, Time.current)
+          )
+      }
+      scope :closed, lambda {
+        where(allow_answers: false).or(
+          where("starts_at > ?", Time.current).or(
+            where(ends_at: ...Time.current)
+          )
+        )
+      }
 
       scope_search_multi :with_any_state, [:open, :closed]
 
       def open?
-        return true if starts_at.blank? && ends_at.blank?
-        return true if ends_at.blank? && starts_at.past?
-        return true if starts_at.blank? && ends_at.future?
+        return false if allow_answers.blank?
+        return true if time_indefinite?
+        return true if started_but_no_end?
+        return true if no_start_but_ends_later?
 
-        return Time.zone.now.between?(starts_at, ends_at) if starts_at.present? && ends_at.present?
+        return within_time_range? if time_range_defined?
 
         false
       end
@@ -37,7 +51,29 @@ module Decidim
       end
 
       def self.ransackable_attributes(_auth_object = nil)
-        %w(ends_at starts_at)
+        %w(ends_at starts_at allow_answers)
+      end
+
+      private
+
+      def time_indefinite?
+        starts_at.blank? && ends_at.blank?
+      end
+
+      def started_but_no_end?
+        ends_at.blank? && starts_at.past?
+      end
+
+      def no_start_but_ends_later?
+        starts_at.blank? && ends_at.future?
+      end
+
+      def time_range_defined?
+        starts_at.present? && ends_at.present?
+      end
+
+      def within_time_range?
+        Time.zone.now.between?(starts_at, ends_at)
       end
     end
   end
