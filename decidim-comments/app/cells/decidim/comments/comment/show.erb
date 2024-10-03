@@ -106,7 +106,7 @@
     <%= cell("decidim/comments/edit_comment_modal_form", model) %>
   <% end %>
 <% end %>
-<div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>">
+<div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>" class="comment mt-4">
   <div id="comment-<%= model.id %>-replies" class="<%= "comment-reply" if has_replies_in_children? %>">
     <% if has_replies_in_children? %>
       <%= render :replies %>
