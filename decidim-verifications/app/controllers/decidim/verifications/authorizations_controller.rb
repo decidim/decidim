@@ -31,6 +31,7 @@ module Decidim
 
         authorization_status = authorizations.global_code
         if authorizations.single_authorization_required?
+          flash.keep
           return redirect_to(authorizations.statuses.first.current_path(redirect_url: decidim_verifications.onboarding_pending_authorizations_path))
         end
         return unless onboarding_manager.finished_verifications?(active_authorization_methods) || authorization_status == :unauthorized
