@@ -12,7 +12,11 @@ module Decidim
 
         case permission_action.subject
         when :proposal
-          apply_proposal_permissions(permission_action)
+          if permission_action.action == :read
+            toggle_allow(!proposal.hidden?)
+          else
+            apply_proposal_permissions(permission_action)
+          end
         when :collaborative_draft
           apply_collaborative_draft_permissions(permission_action)
         when :proposal_coauthor_invites

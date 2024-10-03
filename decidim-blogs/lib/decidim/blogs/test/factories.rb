@@ -52,5 +52,11 @@ FactoryBot.define do
         end
       end
     end
+
+    trait :hidden do
+      after :create do |post, evaluator|
+        create(:moderation, hidden_at: Time.current, reportable: post, skip_injection: evaluator.skip_injection)
+      end
+    end
   end
 end

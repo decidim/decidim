@@ -97,6 +97,48 @@ module Decidim
           expect(response).to include("reference" => model.reference.to_s)
         end
       end
+
+      context "when participatory space is private" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
+        let(:current_component) { create(:debates_component, participatory_space:) }
+        let(:model) { create(:debate, :open_ama, component: current_component) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when participatory space is not published" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :unpublished, organization: current_organization) }
+        let(:current_component) { create(:debates_component, participatory_space:) }
+        let(:model) { create(:debate, :open_ama, component: current_component) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when component is not published" do
+        let(:current_component) { create(:debates_component, :unpublished, organization: current_organization) }
+        let(:model) { create(:debate, :open_ama, component: current_component) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when is moderated" do
+        let(:model) { create(:debate, :open_ama, :hidden) }
+        let(:query) { "{ id }" }
+        let(:root_value) { model.reload }
+
+        it "returns all the required fields" do
+          expect(response).to be_nil
+        end
+      end
     end
   end
 end

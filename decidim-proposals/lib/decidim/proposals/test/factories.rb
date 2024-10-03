@@ -380,8 +380,8 @@ FactoryBot.define do
     trait :official_meeting do
       after :build do |proposal, evaluator|
         proposal.coauthorships.clear
-        component = build(:meeting_component, participatory_space: proposal.component.participatory_space, skip_injection: evaluator.skip_injection)
-        proposal.coauthorships.build(author: build(:meeting, component:, skip_injection: evaluator.skip_injection))
+        component = build(:meeting_component, :published, participatory_space: proposal.component.participatory_space, skip_injection: evaluator.skip_injection)
+        proposal.coauthorships.build(author: build(:meeting, :published, component:, skip_injection: evaluator.skip_injection))
       end
     end
 

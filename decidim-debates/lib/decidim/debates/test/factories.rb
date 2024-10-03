@@ -46,6 +46,12 @@ FactoryBot.define do
       end
     end
 
+    trait :hidden do
+      after :create do |debate, evaluator|
+        create(:moderation, hidden_at: Time.current, reportable: debate, skip_injection: evaluator.skip_injection)
+      end
+    end
+
     trait :closed do
       closed_at { Time.current }
       conclusions { generate_localized_description(:debate_conclusions, skip_injection:) }

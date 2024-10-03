@@ -28,7 +28,7 @@ module Decidim
         chain = [
           allowed_to?(:read, :participatory_space, object, context),
           allowed_to?(:read, :component, object, context),
-          allowed_to?(:read, :debate, object, context),
+          allowed_to?(:read, :debate, object, context)
         ].all?
 
         super && chain

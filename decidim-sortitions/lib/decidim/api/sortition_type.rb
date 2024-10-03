@@ -24,6 +24,19 @@ module Decidim
       field :cancelled_on, Decidim::Core::DateType, "When this sortition was cancelled", null: true
       field :cancelled_by_user, Decidim::Core::UserType, "Who cancelled this sortition", null: true
       field :candidate_proposals, [GraphQL::Types::Int, { null: true }], "The candidate proposal for this sortition", null: true
+
+
+      def self.authorized?(object, context)
+        context[:sortition] = object
+
+        chain = [
+          allowed_to?(:read, :participatory_space, object, context),
+          allowed_to?(:read, :component, object, context),
+          object.visible?,
+        ].all?
+
+        super && chain
+      end
     end
   end
 end
