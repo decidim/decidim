@@ -50,16 +50,7 @@ module Decidim
         def resolve_type(object, _context)
           GraphQL::Types.const_get("#{object.class.name}Type")
         end
-
-        def self.authorized?(object, context)
-          super && (
-            !object.hidden? && object.component.published? && object.participatory_space.published? &&
-              (!object.participatory_space.private_space? || (object.participatory_space.private_space? && object.participatory_space.try(:is_transparent?)) )
-          )
-        end
-
       end
-
     end
   end
 end
