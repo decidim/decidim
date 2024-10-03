@@ -1302,6 +1302,35 @@ eu:
         message_2: Mesedez, saiatu berriro geroago.
         retry: Saiatu berriro
     open_data:
+      index:
+        description: 'Ongi etorri %{organization_name} Open Data orrira. Hemen, datu-fitxategiak aurkituko dituzu, aldian-aldian hainbat deliberazio- eta gobernantza-prozesutatik sortzen direnak honen barruan: %{organization_name}. Fitxategi horiek gardentasuna, irisgarritasuna eta lankidetza sustatzeko daude eskuragarri. Jarraian, aurkituko duzu fitxategi horiek zer diren, nola ireki eta nola landu behar diren eta fitxategi bakoitzaren edukiaren eta egituraren deskribapena.'
+        download_open_data: Deskargatu Open Data fitxategi guztiak
+        explanation:
+          body_1: Fitxategi hauek %{organization_name} erakundetik esportatutako datu baseak dira, hala nola proposamenak, iruzkinak eta bilerak. Datu gordinak ematen dituzte, egituratuak, analisirako, ikerketarako edo beste tresna batzuekin integratzeko erabil daitezkeenak. Datuak automatikoki eguneratzen dira 24 orduro, informazio berriena eskura duzula ziurtatuz.
+          body_2: Fitxategi horiek CSV (Conma-Separated Values) formatuan daude. Fitxategi formatu hori oso erabilia da, eta hainbat software-aplikazioren bidez ireki eta prozesa daiteke, kalkulu-orriak, testu-editoreak eta datuak aztertzeko tresnak barne.
+          title: Zer dira artxibo hauek?
+        how_to:
+          step_1:
+            body_html: Sakatu CSV fitxategiak zure ordenagailura deskargatzeko esteketan.
+            title: 1. Deskargatu artxiboak
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Kalkulu-orrien aplikazioak</b>: CSV fitxategiak ireki daitezke, Microsoft Excel, Google Sheets edo LibreOffice Calc bezalako aplikazioak erabiliz. Besterik gabe, ireki aplikazioa, hautatu "Ireki" Fitxategiaren menutik, eta aukeratu deskargatutako CSV fitxategia.</li>
+              <li><b>Testu-editoreak</b>: CSV fitxategiak edozein testu-editoretan ere ireki daitezke, hala nola Notepad edo Sublime Text. Honek datu gordinak erakutsiko ditu, lerro bakoitzak lerro bat eta balio bakoitza koma batez bereizita.</li>
+              <li><b>Datuak analizatzeko tresnak</b>:: Datuak analizatzeko tresnak ezagutzen badituzu, hala nola Python (pandekin), R, edo SQL datu-baseak, CSV fitxategi horiek inporta ditzakezu zuzenean tratatzeko eta aztertzeko.</li>
+              </ul>
+            title: 2. Ireki artxiboak
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Iragazi eta sailkatu</b>: Kalkulu-orrien aplikazioetan datuak iragazi eta ordenatu daitezke informazio-azpimultzo zehatzetan zentratzeko.</li>
+              <li><b>Azterketa</b>: Erabili datuak hainbat analisi egiteko, hala nola proposamenen kopurua zenbatzeko, iruzkinen joerak aztertzeko edo bileretan parte hartzea ebaluatzeko.</li>
+              <li><b>Bistaratzea</b>: Grafikoak, historialak eta beste bistaratze batzuk sor ditzakezu datuak interpretatzen laguntzeko.</li>
+              </ul>
+            title: 3. Datuekin lanean
+          title: Nola ireki eta lan egin fitxategi hauekin
+        title: Datu Irekiak
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxi barru.
     pad_iframe:
       disclaimer: Ohar-blok honen edukiak erregistratutako erabiltzaileek idatzi dituzte eta euren iritziak adierazi dituzte. %{organization} erakundea ezin da bere edukien erantzule izan.
@@ -1951,6 +1980,7 @@ eu:
         decidim_title: Decidim
         log_in: Sartu
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
+        open_data: Datu Irekiak
         resources: Baliabideak
         sign_up: Sortu kontu bat
         terms_of_service: Zerbitzuaren baldintzak
