@@ -1300,15 +1300,31 @@ fr:
         retry: Réessayer
     open_data:
       index:
+        description: Bienvenue sur la page sur les données ouvertes de %{organization_name}. Ici, vous trouverez des fichiers de données qui sont régulièrement générés à partir de divers processus de délibération et de gouvernance au sein de %{organization_name}. Ces dossiers sont mis à disposition pour promouvoir la transparence, l'accessibilité et la collaboration. Ci-dessous, vous trouverez des informations détaillées sur ce que sont ces fichiers, comment les ouvrir et travailler avec, et une description du contenu et de la structure de chaque fichier.
         download_open_data: Télécharger tous les fichiers de données ouvertes
         explanation:
+          body_1: Ces fichiers sont des jeux de données exportés à partir des processus participatifs de %{organization_name}, tels que les propositions, les commentaires et les réunions. Ils fournissent des données brutes et structurées qui peuvent être utilisées pour l'analyse, la recherche ou l'intégration avec d'autres outils. Les données sont mises à jour automatiquement toutes les 24 heures, vous assurant ainsi un accès aux informations les plus récentes.
+          body_2: Ces fichiers sont au format CSV (valeurs séparées par des virgules), un format de fichier largement utilisé qui peut être ouvert et traité par une variété d'applications logicielles, y compris les programmes de feuilles de calcul, les éditeurs de texte et les outils d'analyse de données.
           title: Quels sont ces fichiers?
         how_to:
           step_1:
+            body_html: Cliquez sur les liens ci-dessous pour télécharger les fichiers CSV sur votre ordinateur.
             title: 1. Télécharger les fichiers
           step_2:
+            body_html: |-
+              <ul>
+              <li><b>Applications de feuille de calcul</b>: Vous pouvez ouvrir des fichiers CSV en utilisant des applications comme Microsoft Excel, Google Sheets, ou LibreOffice Calc. Ouvrez simplement l'application, puis sélectionnez "Ouvrir" dans le menu Fichier, et choisissez le fichier CSV téléchargé.</li>
+              <li><b>Éditeurs de texte</b>: les fichiers CSV peuvent également être ouverts dans n'importe quel éditeur de texte, comme Notepad ou Sublime Text. Cela affichera les données brutes, chaque ligne représentant un enregistrement donc les différentes valeurs sont séparées par une virgule.</li>
+              <li><b>Outils d'analyse de données</b>: Si vous êtes familier avec les outils d'analyse de données comme Python (avec pandas), R, ou des bases de données SQL, vous pouvez importer ces fichiers CSV directement pour le traitement et l'analyse.</li>
+              </ul>
             title: 2. Ouvrir les fichiers
           step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrage et Tri</b>: Dans les applications de feuille de calcul, vous pouvez filtrer et trier les données pour vous concentrer sur des sous-ensembles spécifiques d'informations.</li>
+              <li><b>Analyse</b>: Utilisez les données pour effectuer diverses analyses, comme comptabiliser le nombre de propositions, analyser les tendances des commentaires ou évaluer la participation aux réunions.</li>
+              <li><b>Visualisation</b>: Vous pouvez créer des graphiques, des courbes et d'autres visualisations pour aider à interpréter les données.</li>
+              </ul>
             title: 3. Travailler avec les données
           title: Comment ouvrir et travailler avec ces fichiers
         title: Données ouvertes
