@@ -13,13 +13,11 @@ module Decidim
       # Returns a TreeNode to be used in the list filters to filter surveys by
       # its state.
       def filter_surveys_date_values
-        %w(open closed).map { |k| [k, t(k, scope: "decidim.surveys.surveys.filters.state_values")] }.prepend(
-          ["all", all_filter_text]
-        )
-      end
-
-      def all_filter_text
-        t("all", scope: "decidim.surveys.surveys.filters")
+        [
+          ["all", t("all", scope: "decidim.surveys.surveys.filters")],
+          ["open", { checked: true }, t("open", scope: "decidim.surveys.surveys.filters.state_values")],
+          ["closed", t("closed", scope: "decidim.surveys.surveys.filters.state_values")]
+        ]
       end
 
       def filter_sections
