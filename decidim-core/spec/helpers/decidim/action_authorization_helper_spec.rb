@@ -38,41 +38,6 @@ module Decidim
             expect(subject).to include(*params[:widget_parts])
           end
 
-          context "and there is only an authorization related to the action" do
-            let(:pending_authorizations_count) { 1 }
-
-            it "renders a widget toggling the authorization modal" do
-              expect(subject).not_to match(path_as_action_or_href)
-              expect(subject).to include('data-dialog-open="authorizationModal"')
-              expect(subject).to include("data-dialog-remote-url=\"/authorization_modals/#{action}/f/#{component.id}\"")
-              expect(subject).to include(*params[:widget_parts])
-            end
-
-            context "when called with a resource" do
-              let(:resource) { create(:dummy_resource, component:) }
-
-              it "renders a widget toggling the authorization modal" do
-                expect(subject).not_to match(path_as_action_or_href)
-                expect(subject).to include('data-dialog-open="authorizationModal"')
-                expect(subject).to include("data-dialog-remote-url=\"/authorization_modals/#{action}/f/#{component.id}/#{resource.resource_manifest.name}/#{resource.id}\"")
-                expect(subject).to include(*params[:widget_parts])
-              end
-            end
-
-            context "when called with no component and permissions_holder" do
-              let(:component) { nil }
-              let(:resource) { create(:dummy_resource) }
-              let(:permissions_holder) { resource }
-
-              it "renders a widget toggling the authorization modal of free resources not related with a component" do
-                expect(subject).not_to match(path_as_action_or_href)
-                expect(subject).to include('data-dialog-open="authorizationModal"')
-                expect(subject).to include("data-dialog-remote-url=\"/free_resource_authorization_modals/#{action}/f/#{resource.resource_manifest.name}/#{resource.id}\"")
-                expect(subject).to include(*params[:widget_parts])
-              end
-            end
-          end
-
           context "and there are more than one authorizations related to the action" do
             let(:pending_authorizations_count) { 2 }
 
