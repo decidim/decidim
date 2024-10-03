@@ -1299,6 +1299,19 @@ fr:
         message_2: Veuillez réessayer plus tard.
         retry: Réessayer
     open_data:
+      index:
+        download_open_data: Télécharger tous les fichiers de données ouvertes
+        explanation:
+          title: Quels sont ces fichiers?
+        how_to:
+          step_1:
+            title: 1. Télécharger les fichiers
+          step_2:
+            title: 2. Ouvrir les fichiers
+          step_3:
+            title: 3. Travailler avec les données
+          title: Comment ouvrir et travailler avec ces fichiers
+        title: Données ouvertes
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
     pad_iframe:
       disclaimer: Le contenu de ce bloc-notes est écrit par les utilisateurs enregistrés et exprime leurs opinions. %{organization} ne peut être tenu responsable de son contenu.
@@ -1944,6 +1957,7 @@ fr:
         decidim_title: Decidim
         log_in: Se connecter
         made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
+        open_data: Données ouvertes
         resources: Ressources
         sign_up: Créer un compte
         terms_of_service: Conditions d'utilisation
