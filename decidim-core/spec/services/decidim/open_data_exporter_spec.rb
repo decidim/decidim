@@ -43,6 +43,7 @@ describe Decidim::OpenDataExporter do
         create(:proposal_component, organization:, published_at: Time.current)
       end
       let!(:proposal) { create(:proposal, :published, component: proposal_component, title: { en: "My super proposal" }) }
+      let!(:proposal_comment) { create(:comment, commentable: proposal) }
       let(:result_component) do
         create(:accountability_component, organization:, published_at: Time.current)
       end
@@ -51,6 +52,7 @@ describe Decidim::OpenDataExporter do
         create(:meeting_component, organization:, published_at: Time.current)
       end
       let!(:meeting) { create(:meeting, :published, component: meeting_component) }
+      let!(:meeting_comment) { create(:comment, commentable: meeting) }
       let!(:participatory_process) { create(:participatory_process, :published, organization:) }
       let!(:assembly) { create(:assembly, :published, organization:) }
 
@@ -76,8 +78,10 @@ describe Decidim::OpenDataExporter do
 
         it "includes the help description for all the entities" do
           expect(file_data).to include("## proposals")
+          expect(file_data).to include("## proposal_comments")
           expect(file_data).to include("## accountability")
           expect(file_data).to include("## meetings")
+          expect(file_data).to include("## meeting_comments")
           expect(file_data).to include("## participatory_process")
           expect(file_data).to include("## assemblies")
         end
