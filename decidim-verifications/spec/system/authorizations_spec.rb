@@ -344,7 +344,7 @@ describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_
               postal_codes: "1234,4567",
               redirect_url: decidim_verifications.onboarding_pending_authorizations_path
             )
-            expect(page).to have_content "We need to verify your identity."
+            expect(page).to have_content "You need to verify your identity."
             expect(page).to have_content "Verify with Example authorization"
           end
         end
