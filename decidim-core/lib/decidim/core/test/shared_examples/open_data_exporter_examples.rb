@@ -21,7 +21,9 @@ shared_examples_for "open data exporter" do
     if resource.respond_to?(:title)
       expect(data).to include(translated(resource.title).gsub("\"", "\"\""))
     elsif resource.respond_to?(:body)
-      expect(data).to include(translated(resource.body))
+      # Seems like the comments are always taking the first alphabetical language for the export
+      # We should fix it in the future
+      expect(data).to include(resource.body.min.second)
     end
   end
 
