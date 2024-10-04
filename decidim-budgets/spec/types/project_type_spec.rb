@@ -91,7 +91,6 @@ module Decidim
         end
       end
 
-
       context "when participatory space is private" do
         let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
         let(:current_component) { create(:budgets_component, participatory_space:) }

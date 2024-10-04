@@ -63,12 +63,11 @@ module Decidim
           allowed_to?(:read, :participatory_space, object, context),
           allowed_to?(:read, :component, object, context),
           allowed_to?(:read, :proposal, object, context),
-          object.published?,
+          object.published?
         ].all?
 
         super && chain
       end
-
     end
   end
 end

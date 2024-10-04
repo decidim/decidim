@@ -16,7 +16,7 @@ module Decidim
       include_context "with a graphql class type"
       let(:current_component) { create(:meeting_component) }
       let(:component) { current_component }
-      let(:model) { create(:meeting, :published, component: ) }
+      let(:model) { create(:meeting, :published, component:) }
 
       include_examples "authorable interface"
       include_examples "categorizable interface"
@@ -288,7 +288,6 @@ module Decidim
         end
       end
 
-
       context "when participatory space is private" do
         let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
         let(:current_component) { create(:meeting_component, participatory_space:) }
@@ -332,7 +331,7 @@ module Decidim
       end
 
       context "when is private but transparent" do
-        let(:model) { create(:meeting, private_meeting: true) }
+        let(:model) { create(:meeting, private_meeting: true, transparent: true) }
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
@@ -350,6 +349,7 @@ module Decidim
           expect(response).to be_nil
         end
       end
+
       context "when is not published" do
         let(:model) { create(:meeting, published_at: nil) }
         let(:query) { "{ id }" }

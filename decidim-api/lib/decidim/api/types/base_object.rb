@@ -6,7 +6,7 @@ module Decidim
       class BaseObject < GraphQL::Schema::Object
         field_class Types::BaseField
 
-        # This is a simplified adaptation of allowed_to? from NeedsPermission coneern
+        # This is a simplified adaptation of allowed_to? from NeedsPermission concern
         # @param action [Symbol] The action performed. Most cases the action is :read
         # @param subject [Symbol] The name of the subject. Ex: :participatory_space, :component
         # @param object [ActiveModel::Base] The object that is being represented.
