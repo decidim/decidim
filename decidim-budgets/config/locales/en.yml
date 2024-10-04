@@ -378,7 +378,7 @@ en:
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> budget is now active for %{participatory_space_title}.
     open_data:
       help:
-        budgets:
+        projects:
           address: The address of the project (if any)
           budget: To which group of projects (e.g. "2021 Budget") this project belongs to
           budget_amount: The total amount of the budget for this project
