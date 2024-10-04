@@ -95,10 +95,11 @@ en:
             save: Save
             title: Est error.> Questions
           form:
-            already_answered_warning: The form is already answered by some users so you cannot modify its questions.
+            add_question: Add question
+            collapse: Collapse all questions
+            expand: Expand all questions
             preview: Preview
             title: Edit form for %{questionnaire_for}
-            unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
           matrix_row:
             matrix_row: Row
             remove: Remove
@@ -118,13 +119,11 @@ en:
             statement: Statement
             up: Up
           questions_form:
-            add_question: Add question
-            add_separator: Add separator
-            add_title_and_description: Add title and description
+            already_answered_warning: The form is already answered by some users so you cannot modify its questions.
             collapse: Collapse all questions
             expand: Expand all questions
+            unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
             update:
-              invalid: There was a problem saving the questions form.
               success: Questions form successfully saved.
           separator:
             down: Down

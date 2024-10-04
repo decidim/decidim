@@ -70,16 +70,12 @@ en:
             title: Edit survey
           index:
             title: Surveys
-          new:
-            create: Create
-            title: New survey
           update:
             invalid: There was a problem saving the survey.
             success: Survey successfully saved.
       directory:
         surveys:
           index:
-            space_type: Participatory space
             surveys: Surveys
       last_activity:
         new_survey: 'New survey:'
@@ -93,8 +89,6 @@ en:
           status:
             closed: Closed
             open: Open
-      survey:
-        not_allowed: You are not allowed to view this survey.
       survey_confirmation_mailer:
         confirmation:
           body: You have successfully answered the %{questionnaire_title} survey within %{participatory_space}
@@ -111,9 +105,8 @@ en:
             other: "%{count} surveys"
         filters:
           all: All
-          state: Status
+          state: State
           state_values:
-            all: All
             closed: Closed
             open: Open
         no_surveys_warning: No surveys match your search criteria or there is not any survey open.
