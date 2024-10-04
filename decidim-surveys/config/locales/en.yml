@@ -105,7 +105,6 @@ en:
             other: "%{count} surveys"
         filters:
           all: All
-          state: State
           state_values:
             closed: Closed
             open: Open
