@@ -1316,6 +1316,35 @@ ca:
         message_2: Si us plau, torneu-ho a provar més tard.
         retry: Torna-ho a provar
     open_data:
+      index:
+        description: Benvinguda a la pàgina de dades oberta %{organization_name}. Aquí trobaràs fitxers de dades que es generen regularment a partir de diversos processos deliberats i de governança dins %{organization_name}. Aquests fitxers estan disponibles per promoure la transparència, accessibilitat i col·laboració. A continuació, trobaràs informació detallada sobre quins són aquests fitxers, com obrir i treballar amb ells, i una descripció del contingut i l'estructura de cada fitxer.
+        download_open_data: Descarrega tots els fitxers de dades obertes
+        explanation:
+          body_1: Aquests fitxers són conjunts de dades exportades des dels processos participatius de %{organization_name}, com ara propostes, comentaris i reunions. Es proporcionen dades crues i estructurades que poden ser utilitzades per a l'anàlisi, la investigació o la integració amb altres eines. Les dades s'actualitzen automàticament cada 24 hores, per assegurar tenir accés a la informació més recent possible.
+          body_2: Aquests fitxers estan en format CSV (valors separats per comes), un format de fitxer àmpliament utilitzat que pot ser obert i processat per una varietat d'aplicacions de programari, incloent-hi programes de fulls de càlcul, editors de text i eines d'anàlisi de dades.
+          title: Què són aquests fitxers?
+        how_to:
+          step_1:
+            body_html: Fes clic als següents enllaços per a descarregar els fitxers CSV al teu ordinador.
+            title: 1. Descarregar els fitxers
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Full de càlcul</b>: Pots obrir fitxers CSV utilitzant aplicacions com Microsoft Excel, Fulls de Google, o LibreOffice Calc. Simplement obre l'aplicació, després selecciona "Obrir" del menú Fitxer, i escull el fitxer CSV descarregat.</li>
+              <li><b>Edicions de text</b>: també es poden obrir fitxers CSV en qualsevol editor de text, com ara Bloc de notes o Text Sublim. Això mostrarà les dades crues, amb cada línia que representa una fila i cada valor separat per una coma.</li>
+              <li><b>Eines d'anàlisi de dades</b>: Si estàs familiaritzada amb eines d'anàlisi de dades com Python (amb pandes), R, o bases de dades SQL, pots importar aquests fitxers CSV directament per a processament i anàlisi.</li>
+              </ul>
+            title: 2. Obrir els fitxers
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrar i ordenar</b>: A les aplicacions de full de càlcul, pots filtrar i ordenar les dades per centrar-te en subconjunts específics d'informació.</li>
+              <li><b>Anàlisi</b>: Fes servir les dades per realitzar diverses anàlisis, com ara comptar el nombre de propostes, analitzar tendències en els comentaris o avaluar la participació a les reunions.</li>
+              <li><b>Visualització</b>: Pots crear gràfics, gràfics i altres visualitzacions per ajudar a interpretar les dades.</li>
+              </ul>
+            title: 3. Treballant amb les dades
+          title: Com obrir i treballar amb aquests fitxers
+        title: Dades obertes
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
     pad_iframe:
       disclaimer: Els continguts d'aquest pad han estat escrits per participants registrades i expressen les seves opinions. %{organization} no es fa responsable dels seu contingut.
@@ -1965,6 +1994,7 @@ ca:
         decidim_title: Decidim
         log_in: Entra
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
+        open_data: Dades obertes
         resources: Recursos
         sign_up: Crea un compte
         terms_of_service: Termes i condicions d'ús
