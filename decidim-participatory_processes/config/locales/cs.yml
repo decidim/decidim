@@ -102,6 +102,7 @@ cs:
         duplicate: Duplikát
         edit: Upravit
         import_process: Importovat
+        menu_hidden: Skrýt
         moderate: Moderovat
         new_process: Nový proces
         new_process_group: Nová skupina procesů
@@ -441,6 +442,7 @@ cs:
             select_participatory_process_type: Vyberte typ procesu
             select_process_group: Vyberte skupinu procesů
             slug_help_html: 'URL slugy slouží ke generaci adres URL, které odkazují na tento proces. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
       content_blocks:
@@ -455,7 +457,7 @@ cs:
       index:
         title: Participativní procesy
       last_activity:
-        new_participatory_process: Nový participační proces
+        new_participatory_process: 'Nový participační proces:'
       pages:
         home:
           highlighted_processes:

@@ -698,7 +698,6 @@ el:
           title_required: Ο τίτλος απαιτείται!
           uploaded: Φορτώθηκε
           validating: Επικύρωση...
-          validation_error: Σφάλμα επικύρωσης!
         select_file: Επιλέξτε αρχείο
       upload_help:
         dropzone: Αποθέστε αρχεία εδώ ή κάντε κλικ στο κουμπί για φόρτωση
