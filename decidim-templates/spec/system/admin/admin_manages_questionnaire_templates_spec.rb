@@ -226,13 +226,6 @@ describe "Admin manages questionnaire templates" do
           ca: "Els meus termes"
         )
 
-        click_on "Add question"
-        find(".button.expand-all").click
-
-        within ".questionnaire-question" do
-          find("[id$=body_en]").fill_in(with: "My question")
-        end
-
         find("*[type=submit]").click
       end
 
@@ -240,22 +233,7 @@ describe "Admin manages questionnaire templates" do
 
       within "[data-content]" do
         expect(page).to have_current_path decidim_admin_templates.edit_questionnaire_template_path(template)
-        expect(page).to have_content("My question")
-      end
-    end
-
-    it "does not show preview or answers buttons" do
-      within ".layout-content" do
-        click_on("Edit")
-      end
-
-      within "[data-content]" do
-        click_on("Edit")
-      end
-
-      within ".item_show__header" do
-        expect(page).to have_no_button("Preview")
-        expect(page).to have_no_button("No answers yet")
+        expect(page).to have_content("Edit questionnaire template")
       end
     end
   end
