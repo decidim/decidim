@@ -8,8 +8,6 @@ sk:
         description: Popis
         end_date: Koniec
         progress: Postup
-        project_ids: Zahrnuté projekty
-        proposals: Zahrnuté návrhy
         start_date: Začiatok 
         title: Názov
         updated_at: Aktualizované

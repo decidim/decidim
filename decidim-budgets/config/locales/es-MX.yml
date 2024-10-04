@@ -20,6 +20,10 @@ es-MX:
         scope_id: Ámbito
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Se añadió a este presupuesto: %{link}'
       decidim/budgets/budget:
         one: Presupuesto
         other: Presupuestos
@@ -192,6 +196,8 @@ es-MX:
         vote: Votar
         voted_budgets: Presupuestos votados
         voted_on: Has votado a %{links}.
+      creation:
+        text: Se añadieron a este presupuesto
       last_activity:
         new_vote_at: Nueva votación presupuestaria en
       limit_announcement:
