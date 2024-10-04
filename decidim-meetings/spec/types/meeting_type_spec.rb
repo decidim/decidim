@@ -331,12 +331,13 @@ module Decidim
       end
 
       context "when is private but transparent" do
-        let(:model) { create(:meeting, private_meeting: true, transparent: true) }
+        let(:model) { create(:meeting, :not_official, :published, private_meeting: true, transparent: true) }
+        let(:current_user) { model.author }
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
         it "returns all the required fields" do
-          expect(response).to be_nil
+          expect(response["id"]).to eq(model.id.to_s)
         end
       end
 
