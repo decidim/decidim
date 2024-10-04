@@ -54,7 +54,7 @@ module Decidim
 
       describe "forEntity" do
         let(:query) { "{ forEntity { id } }" }
-        let(:meeting) { create(:meeting) }
+        let(:meeting) { create(:meeting, :published) }
 
         before do
           model.update(questionnaire_for: meeting)
