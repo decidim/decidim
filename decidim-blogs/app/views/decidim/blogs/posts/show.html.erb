@@ -20,6 +20,8 @@
 
 <%= render layout: "layouts/decidim/shared/layout_center", locals: { columns: 8 } do %>
 
+  <%= render partial: "schema_org_blog_posting_post" %>
+
   <section class="layout-main__section layout-main__heading">
     <div class="flex justify-center">
       <h1 class="title-decorator my-12"><%= translated_attribute post.title %></h1>
