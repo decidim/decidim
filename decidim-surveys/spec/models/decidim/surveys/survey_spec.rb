@@ -8,6 +8,11 @@ module Decidim
       subject { survey }
 
       let(:survey) { create(:survey) }
+      let!(:open_survey) { create(:survey, allow_answers: true, starts_at: 2.days.ago, ends_at: 1.day.from_now) }
+      let!(:closed_survey) { create(:survey, allow_answers: false, starts_at: nil, ends_at: nil) }
+      let!(:future_survey) { create(:survey, allow_answers: true, starts_at: 1.day.from_now, ends_at: nil) }
+      let!(:past_survey) { create(:survey, allow_answers: true, starts_at: 5.days.ago, ends_at: 2.days.ago) }
+      let!(:indefinite_survey) { create(:survey, allow_answers: true, starts_at: nil, ends_at: nil) }
 
       include_examples "has component"
 
@@ -100,6 +105,24 @@ module Decidim
             let(:ends_at) { 1.day.from_now }
 
             it { is_expected.to be_truthy }
+          end
+        end
+      end
+
+      describe "scopes" do
+        describe ".open" do
+          it "returns surveys that are currently open" do
+            expect(Decidim::Surveys::Survey.open).to include(open_survey, indefinite_survey)
+          end
+
+          it "does not return surveys that are closed, in the future, or already finished" do
+            expect(Decidim::Surveys::Survey.open).not_to include(closed_survey, future_survey, past_survey)
+          end
+        end
+
+        describe ".closed" do
+          it "returns surveys that are closed or past their end date" do
+            expect(Decidim::Surveys::Survey.closed).to include(closed_survey, past_survey)
           end
         end
       end
