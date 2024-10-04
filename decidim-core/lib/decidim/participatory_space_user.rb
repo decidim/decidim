@@ -37,6 +37,16 @@ module Decidim
         raise "Not implemented"
       end
 
+      def self.ransackable_attributes(auth_object = nil)
+        return [] unless auth_object&.admin?
+
+        %w(name nickname email invitation_accepted_at last_sign_in_at role)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        []
+      end
+
       private
 
       # Private: check if the process and the user have the same organization

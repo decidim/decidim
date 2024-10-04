@@ -55,7 +55,8 @@ module Decidim
 
       initializer "decidim_core.register_icons", after: "decidim_core.add_social_share_services" do
         Decidim.icons.register(name: "phone-line", icon: "phone-line", category: "system", description: "", engine: :core)
-
+        Decidim.icons.register(name: "more-2-fill", icon: "more-2-fill", category: "system", description: "Resource Action button", engine: :core)
+        Decidim.icons.register(name: "more-fill", icon: "more-fill", category: "system", description: "Resource Action button", engine: :core)
         Decidim.icons.register(name: "upload-cloud-2-line", icon: "upload-cloud-2-line", category: "system",
                                description: "Upload cloud 2 line used in attachments form", engine: :core)
         Decidim.icons.register(name: "arrow-right-line", icon: "arrow-right-line", category: "system",
@@ -151,6 +152,7 @@ module Decidim
         Decidim.icons.register(name: "arrow-up-s-fill", icon: "arrow-up-s-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "treasure-map-line", icon: "treasure-map-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "chat-new-line", icon: "chat-new-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "history", icon: "history-line", category: "system", description: "History timeline", engine: :core)
         Decidim.icons.register(name: "draft-line", icon: "draft-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "user-voice-line", icon: "user-voice-line", category: "system", description: "", engine: :core)
 
@@ -277,6 +279,12 @@ module Decidim
 
       initializer "decidim_core.exceptions_app" do |app|
         app.config.exceptions_app = Decidim::Core::Engine.routes
+      end
+
+      initializer "decidim_core.direct_uploader_paths", after: "decidim_core.exceptions_app" do |_app|
+        config.to_prepare do
+          ActiveStorage::DirectUploadsController.include Decidim::DirectUpload
+        end
       end
 
       initializer "decidim_core.locales" do |app|

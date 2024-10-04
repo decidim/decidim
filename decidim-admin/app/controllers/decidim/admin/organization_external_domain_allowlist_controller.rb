@@ -18,7 +18,7 @@ module Decidim
         enforce_permission_to :update, :organization, organization: current_organization
         @form = form(OrganizationExternalDomainAllowlistForm).from_params(params)
 
-        UpdateExternalDomainAllowlist.call(@form, current_organization, current_user) do
+        UpdateExternalDomainAllowlist.call(@form, current_organization) do
           on(:ok) do
             flash[:notice] = t("domain_allowlist.update.success", scope: "decidim.admin")
             redirect_to edit_organization_external_domain_allowlist_path

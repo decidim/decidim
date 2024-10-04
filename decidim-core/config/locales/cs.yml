@@ -64,6 +64,12 @@ cs:
         password_confirmation: Potvrzení hesla
         remember_me: Zapamatuj si mě
     models:
+      decidim:
+        history:
+          one: Historie
+          few: Historie
+          many: Historie
+          other: Historie
       decidim/amendment:
         one: Pozměňovací návrh
         few: Změny
@@ -295,6 +301,13 @@ cs:
         delete_with_parent: "%{user_name} odstranil taxonomii %{resource_name} v taxonomii %{parent_taxonomy}"
         update: "%{user_name} aktualizoval taxonomii %{resource_name}"
         update_with_parent: "%{user_name} aktualizoval taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
+      taxonomy_filter:
+        create: "%{user_name} vytvořil filtr založený na taxonomii %{resource_name}"
+        create_with_filter_items_count: "%{user_name} vytvořil filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
+        delete: "%{user_name} odstranil filtr založený na taxonomii %{resource_name}"
+        delete_with_filter_items_count: "%{user_name} odstranil filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
+        update: "%{user_name} aktualizoval filtr založený na taxonomii %{resource_name}"
+        update_with_filter_items_count: "%{user_name} aktualizoval filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
       user:
         block: "%{user_name} zablokoval uživatele %{resource_name}"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
@@ -399,6 +412,7 @@ cs:
         visit_link: Navštívit odkaz
       documents:
         component_documents:
+          dummy: Zástupné dokumenty ke komponentům
           meetings: Dokumenty ze schůzky
         documents: Dokumenty
         related_documents: Související dokumenty
@@ -979,7 +993,7 @@ cs:
           title_required: Název je povinný!
           uploaded: Nahráno
           validating: Probíhá ověřování...
-          validation_error: Chyba ověření!
+          validation_error: Chyba ověření! Zkontrolujte, zda má soubor povolenou příponu nebo velikost.
         select_file: Vyberte soubor
       upload_help:
         dropzone: Přetáhněte soubory sem nebo klikněte na tlačítko pro nahrání
@@ -1476,6 +1490,8 @@ cs:
       create:
         error: Při vytváření zprávy došlo k chybě. Zkuste to prosím znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
+    resource:
+      controls_label: Ovládání zdrojů
     resource_endorsements:
       create:
         error: Během akce schválení došlo k chybě.
@@ -1599,6 +1615,8 @@ cs:
     tags:
       filter_results_for_category: 'Filtrovat výsledky pro kategorii: %{resource}'
       filter_results_for_scope: 'Výsledky filtru pro rozsah: %{resource}'
+    taxonomies:
+      prompt: Vybrat z "%{name}"
     translation_bar:
       help_text: "<strong>Upozornění:</strong> Obsah může být automaticky přeložen a nemusí být 100% přesný."
       show_original: Zobrazit původní text
@@ -1914,6 +1932,11 @@ cs:
       nesting_too_deep: nemůže být uvnitř podkategorie
       not_found: se nepodařilo najít. Vytvořili jste si účet již dříve?
       not_locked: nebyl uzamčen
+      not_saved:
+        one: 'Při zpracování vašeho požadavku došlo k chybě:'
+        few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
+        many: 'Při zpracování vašeho požadavku došlo k několika chybám:'
+        other: 'Při zpracování vašeho požadavku došlo k několika chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)

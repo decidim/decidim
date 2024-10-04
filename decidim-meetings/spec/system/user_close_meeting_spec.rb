@@ -24,6 +24,7 @@ describe "User edit meeting" do
   end
 
   before do
+    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     switch_to_host user.organization.host
   end
 
