@@ -9,24 +9,24 @@ sv:
         copy_steps: Kopiera steg
         decidim_area_id: Område
         description: Beskrivning
-        developer_group: Kampanjgrupp
+        developer_group: Arrangör
         document: Dokument
         domain: Domän
         end_date: Slutdatum
         hashtag: Hashtag
-        hero_image: Hembild
+        hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
         import_components: Importera komponenter
         import_steps: Importera steg
         local_area: Område
-        meta_scope: Metadata för indelning
+        meta_scope: Omfattning
         participatory_process_group_id: Grupp av processer
         participatory_process_type_id: Typ av processer
-        participatory_scope: Vad som bestäms
-        participatory_structure: Hur det bestäms
+        participatory_scope: Vad beslutas
+        participatory_structure: Hur fattas beslut
         private_space: Privat process
-        promoted: Annonserad
+        promoted: Utvald
         published_at: Publicerad
         related_process_ids: Relaterade processer
         scope_id: Indelning
@@ -41,20 +41,20 @@ sv:
         weight: Position i listan
       participatory_process_group:
         description: Beskrivning
-        developer_group: Kampanjgrupp
+        developer_group: Arrangör
         group_url: Webbplats
         hashtag: Hashtag
         hero_image: Bild
         local_area: Område
-        meta_scope: Metadata för indelning
+        meta_scope: Omfattning
         participatory_process_ids: Relaterade processer
-        participatory_scope: Vad som beslutas
+        participatory_scope: Vad beslutas
         participatory_structure: Hur fattas beslut
         target: Vem deltar
         title: Titel
       participatory_process_step:
-        cta_path: Call to Action-sökväg
-        cta_text: Call to Action-text
+        cta_path: Sökväg för knapp
+        cta_text: Text till knapp
         description: Beskrivning
         end_date: Slutdatum
         short_description: Kort beskrivning
@@ -96,6 +96,7 @@ sv:
         duplicate: Duplicera
         edit: Redigera
         import_process: Importera
+        menu_hidden: Dölj
         moderate: Moderera
         new_process: Ny process
         new_process_group: Ny grupp av processer
@@ -216,6 +217,12 @@ sv:
             last_step: Kan inte ta bort det sista steget i en process.
           success: Steget i processen har raderats.
         edit:
+          cta_deprecated:
+            body_html: |-
+              Konfigurering av Call to Action görs inte längre via stegen i deltagarprocessen i den här versionen.
+              Det görs istället på <b>Landningssidan</b>, med hjälp av <b>hero- och bild-</b>innehållsblocket.
+              Det här finns kvar för att du ska kunna migrera de CTAs som du behöver. Fälten <i>Call to Action-länk</i> och <i>Call to Action-text</i> kommer att tas bort i nästa version.
+            title: Call to Action från tidigare version
           title: Redigera steg i processen
           update: Uppdatera
         index:
@@ -357,7 +364,7 @@ sv:
         extra_data:
           developer_group: Stödd av
           name: Metadata
-          participatory_scope: Vad som beslutas
+          participatory_scope: Vad beslutas
           participatory_structure: Hur fattas beslut
           target: Vem deltar
         html:
@@ -371,7 +378,7 @@ sv:
         main_data:
           name: Titel och beskrivning
         participatory_processes:
-          active: Aktiva deltagandeprocesser
+          active: Pågående deltagandeprocesser
           name: Deltagandeprocesser
         stats:
           name: Statistik
@@ -389,7 +396,7 @@ sv:
       admin:
         content_blocks:
           highlighted_processes:
-            active: Aktiv
+            active: Pågående
             all: Alla
             max_results: Högsta antal element att visa
             selection_criteria: Urvalskriterier
@@ -411,7 +418,7 @@ sv:
         participatory_process_steps:
           form:
             cta_path_help_html: 'Använd relativa sökvägar, inte fullständiga URL:er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Om fältet inte fylls i visas inte knappen. Exempel: %{url}'
-            cta_text_help: Om den inte är på kommer knappen inte att visas.
+            cta_text_help: Om fältet är tomt visas inte knappen.
         participatory_processes:
           form:
             announcement_help: Den här texten visas direkt under informationen om processen.
@@ -419,13 +426,14 @@ sv:
             filters: Filter
             images: Bilder
             metadata: Metadata
-            other: Andra
+            other: Övrigt
             related_processes: Relaterade processer
             scope_type_max_depth_help: Begränsa djupet på filtret för indelningen.
             select_an_area: Välj ett område
             select_participatory_process_type: Välj typ av process
             select_process_group: Välj en grupp av processer
             slug_help_html: 'URL-slugs används till att generera URL:er till processen. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+            taxonomies: Kategorisering
             title: Allmän information
             visibility: Synlighet
       content_blocks:
@@ -439,8 +447,6 @@ sv:
           name: Relaterade processer
       index:
         title: Deltagandeprocesser
-      last_activity:
-        new_participatory_process: Ny process
       pages:
         home:
           highlighted_processes:
@@ -453,10 +459,10 @@ sv:
         description:
           area_name: Område
           data: Data från processen
-          developer_group: Kampanjgrupp
+          developer_group: Arrangör
           local_area: Område
           meta_scope: Indelning
-          participatory_scope: Vad som beslutas
+          participatory_scope: Vad beslutas
           participatory_structure: Hur fattas beslut
           target: Vem deltar
           title: Om processen

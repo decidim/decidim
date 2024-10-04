@@ -18,6 +18,7 @@ es-MX:
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         category_id: Categoría
+        decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
         scope_id: Ámbito
@@ -90,6 +91,16 @@ es-MX:
       decidim/proposals/voting_enabled_event: Apoyo de propuestas habilitado
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Se creó la propuesta %{link}
+            import_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
+            import_to_proposal_text: Se creó la propuesta %{link}
+            merge_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
+            merge_to_proposal_text: 'Esta propuesta fue creada: %{link}'
+            split_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
+            split_to_proposal_text: 'Esta propuesta fue creada: %{link}'
       decidim/proposals/collaborative_draft:
         one: Borrador colaborativo
         other: Borradores colaborativos
@@ -778,6 +789,11 @@ es-MX:
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada con éxito. Guardada como borrador.
+      creation:
+        imported_text: Se convirtió en esta propuesta
+        merged_text: Se convirtió en esta propuesta
+        splitted_text: Se convirtió en esta propuesta
+        text: Se creó esta propuesta
       destroy_draft:
         error: Se han producido errores al eliminar el borrador de la propuesta.
         success: El borrador de la propuesta fue eliminado con éxito.
