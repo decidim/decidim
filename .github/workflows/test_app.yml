@@ -118,17 +118,15 @@ jobs:
         name: Parallel tests
         shell: "bash"
         working-directory: ./spec/decidim_dummy_app/
-      - run: |
-          sudo Xvfb -ac $DISPLAY -screen 0 1920x1084x24 > /dev/null 2>&1 & # optional
-          ${{ inputs.test_command }}
-        name: RSpec
-        working-directory: ${{ inputs.working-directory }}
-      - run: |
-          sudo Xvfb -ac $DISPLAY -screen 0 1920x1084x24 > /dev/null 2>&1 & # optional
-          ${{ inputs.test_command }}
-        name: RSpec Retry
-        if: ${{ failure() && github.run_attempt < 2 }}
-        working-directory: ${{ inputs.working-directory }}
+      - uses: nick-fields/retry@v3
+        with:
+          timeout_seconds: 15
+          max_attempts: 3
+          retry_on: error
+          command: |
+            cd ${{ inputs.working-directory }}
+            sudo Xvfb -ac $DISPLAY -screen 0 1920x1084x24 > /dev/null 2>&1 & # optional
+            ${{ inputs.test_command }}
       - uses: codecov/codecov-action@v4
         name: Upload coverage
         with:
