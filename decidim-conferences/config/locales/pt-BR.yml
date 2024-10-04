@@ -27,19 +27,23 @@ pt-BR:
         show_statistics: Mostre estatisticas
         sign_date: Data de assinatura
         signature: Assinatura
+        signature_name: Nome da assinatura
         slogan: Slogan
         slug: Lesma de URL
         start_date: Data de início
         title: Título
+        weight: Posição de ordem
       conference_media_link:
         date: Data
         link: Link
         title: Título
+        weight: Posição de ordem
       conference_partner:
         link: Link
         logo: Logo
         name: Nome
         partner_type: Tipo de parceiro
+        weight: Posição de ordem
       conference_registration_invite:
         email: E-mail
         name: Nome
@@ -49,17 +53,26 @@ pt-BR:
         description: Descrição
         price: Preço
         title: Título
+        weight: Posição de ordem
       conference_speaker:
         affiliation: Afiliação
         avatar: Avatar
         conference_meeting_ids: Reuniões relacionadas
         full_name: Nome completo
+        personal_url: URL pessoal
         position: Posição
+        short_bio: Perfil curto
         user_id: Usuário
       conference_user_role:
         email: O email
         name: Nome
         role: Função
+    errors:
+      models:
+        conference_registration_invite:
+          attributes:
+            email:
+              already_invited: Este email já foi convidado.
   activerecord:
     models:
       decidim/conference:
@@ -75,6 +88,12 @@ pt-BR:
     admin:
       actions:
         confirm: confirme
+        new_conference: Nova conferência
+        new_conference_user_role: Novo usuário da conferência
+        new_media_link: Novo link de mídia
+        new_partner: Novo parceiro
+        new_registration_type: Novo tipo de registro
+        new_speaker: Novo Pregador
         send_diplomas: Envie certificados de participação
       conference_copies:
         new:
@@ -106,6 +125,12 @@ pt-BR:
         new:
           create: Crio
           title: Novo orador da conferência.
+        publish:
+          invalid: Ocorreu um problema ao publicar esta reunião.
+          success: Alto-falante excluído com sucesso para esta conferência.
+        unpublish:
+          invalid: Ocorreu um erro ao atualizar esta assembleia.
+          success: Speaker atualizado com sucesso para esta conferência.
         update:
           error: Houve um erro ao atualizar o palestrante para esta conferência.
           success: Speaker atualizado com sucesso para esta conferência.
@@ -118,6 +143,8 @@ pt-BR:
         edit:
           title: Atualize o usuário da conferência.
           update: Atualizar
+        index:
+          conference_admins_title: Administradores da conferência
         new:
           create: Crio
           title: Novo usuário da conferência.
@@ -136,6 +163,7 @@ pt-BR:
           title: Informação geral
         index:
           published: Publicados
+          unpublished: Despublicado
         new:
           create: Crio
           title: Conferência
@@ -175,6 +203,7 @@ pt-BR:
           conference_invites: Convites
           conference_speakers: caixas de som
           diploma: Certificado de participação
+          info: Links sobre esta conferência
           media_links: Links de Mídia
           moderations: Moderações
           partners: Parceiros
@@ -325,6 +354,7 @@ pt-BR:
             invite_attendee: Convidar participante
             invites: Convites
           new:
+            explanation: O usuário será convidado a participar de uma conferência. Se o email não estiver registrado, ele será convidado para a organização também.
             invite: Convite
             new_invite: Convidar Usuário
         conference_registrations:
@@ -345,6 +375,9 @@ pt-BR:
               one: Houve 1 registro.
               other: Houve %{count} inscrições.
             slug_help_html: 'Os slugs de URL são usados para gerar as URLs que apontam para esta conferência. Aceita apenas letras, números e traços e deve começar com uma letra. Exemplo: %{url}'
+        content_blocks:
+          highlighted_conferences:
+            max_results: Quantidade máxima de elementos para mostrar
         diplomas:
           edit:
             save: Salve 
@@ -397,9 +430,11 @@ pt-BR:
         create:
           invalid: Houve um problema em participar desta conferência.
           success: Você ingressou na conferência com sucesso.
+          unauthorized: Você precisa fazer login antes de se registrar na conferência.
         decline_invitation:
           invalid: Houve um problema ao recusar o convite.
           success: Você recusou o convite com sucesso.
+          unauthorized: Você precisa fazer login antes de recusar o convite.
         destroy:
           invalid: Houve um problema ao sair desta conferência.
           success: Você saiu da conferência com sucesso.
@@ -418,14 +453,25 @@ pt-BR:
           collaborators: Parceiros
           main_promotors: Organizadores
         show:
+          already_have_an_account?: Você já tem uma conta?
+          are_you_new?: Novo participante
           login_as: Você está logado como %{name} <%{email}>
+          make_conference_registration: Entre para se inscrever na conferência
+          manage_registration: Gerenciar seu registro
           register: Registrar-se
+          sign_in_description: Entre para se inscrever na conferência
+          sign_up_description: Crie uma conta no decidim para se inscrever na conferência
       content_blocks:
         highlighted_conferences:
           name: Conferências destacadas
       index:
         title: Conferências
       mailer:
+        conference_registration_mailer:
+          confirmation:
+            subject: O registro da sua conferência foi confirmado.
+          pending_validation:
+            subject: O registro da sua conferência está pendente de confirmação.
         invite_join_conference_mailer:
           invite:
             subject: Convite para participar de uma conferência
@@ -507,6 +553,10 @@ pt-BR:
           contextual: "<p>Uma <strong>conferência</strong> é uma coleção de reuniões organizadas em um programa, com várias pessoas convidadas como palestrantes, e outros campos de informação típicos de grandes congressos ou eventos sociais (registro, lista de organizações que apoiam ou patrocinam o evento, etc.).</p> <p>Exemplos: Uma conferência pode ser um evento relevante para uma organização e seus membros, ou realiza como parte de um processo participativo ou segue uma consulta.</p>\n"
           page: "<p>Uma <strong>conferência</strong> é uma coleção de reuniões organizadas em um programa, com várias pessoas convidadas como palestrantes, e outros campos de informação típicos de grandes congressos ou eventos sociais (registro, lista de organizações que apoiam ou patrocinam o evento, etc.).</p> <p>Exemplos: Uma conferência pode ser um evento relevante para uma organização e seus membros, ou realiza como parte de um processo participativo ou segue uma consulta.</p>\n"
           title: O que são conferências?
+    log:
+      value_types:
+        conference_presenter:
+          not_found: 'A conferência não foi encontrada no banco de dados (ID: %{id}).'
     media:
       index:
         description: Links sobre esta conferência
@@ -522,6 +572,7 @@ pt-BR:
   layouts:
     decidim:
       conference_hero:
+        manage_registration: Gerenciar seu registro
         register: registo
       conferences:
         conference:

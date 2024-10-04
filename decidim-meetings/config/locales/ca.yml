@@ -78,6 +78,10 @@ ca:
       decidim/meetings/update_meeting_event: Trobada actualitzada
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Es va debatre a aquesta trobada: %{link}'
       decidim/meetings/meeting:
         one: Trobada
         other: Trobades
