@@ -31,7 +31,7 @@ After the configuration is added, you need to run the below command, so that the
 bin/rails decidim:ai:create_reporting_user
 ```
 
-If you have an existing installation, you can use the below command to train the engine with your existing data:
+Then you can use the below command to train the engine with the module dataset:
 
 ```ruby
 bin/rails decidim:ai:load_module_dataset
