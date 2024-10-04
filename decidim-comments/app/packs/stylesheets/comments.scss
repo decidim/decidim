@@ -334,3 +334,15 @@
 .comments-label-dropdown {
   @apply mr-2;
 }
+
+/* data component controlling the visabilty of dropdown */
+[data-component="accordion"] {
+  .comment[aria-hidden="true"] {
+    display: none;
+  }
+
+  .comment[aria-hidden="false"] {
+    display: block;
+  }
+
+}
