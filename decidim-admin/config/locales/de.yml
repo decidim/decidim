@@ -329,12 +329,15 @@ de:
           default_step_settings: Standardschritteinstellungen
           global_settings: Globale Einstellungen
           step_settings: Schritteinstellungen
+        hide:
+          success: Die Komponente wurde erfolgreich aus dem Menü ausgeblendet.
         index:
           add: Komponente hinzufügen
           headers:
             actions: Aktionen
             name: Komponentenname
             type: Komponententyp
+            visibility: Sichtbarkeit
         new:
           add: Komponente hinzufügen
           title: 'Komponente hinzufügen: %{name}'
@@ -346,6 +349,10 @@ de:
         update:
           error: Beim Aktualisieren dieser Komponente ist ein Fehler aufgetreten.
           success: Die Komponente wurde erfolgreich aktualisiert.
+        visibility_label:
+          menu_hidden: Menü versteckt
+          published: Veröffentlicht
+          unpublished: Unveröffentlicht
       conflicts:
         attempts: Versuche
         'false': 'Nein'
@@ -594,6 +601,7 @@ de:
         static_page_topics: Themen
         static_pages: Seiten
         taxonomies: Taxonomien
+        taxonomy_filters: Taxonomie-Filter
         user_groups: Benutzergruppen
         users: Benutzer
       metrics:
@@ -1058,6 +1066,43 @@ de:
         update:
           invalid: Beim Aktualisieren dieser Taxonomie ist ein Fehler aufgetreten.
           success: Taxonomie wurde erfolgreich aktualisiert.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Neuer Taxonomie-Filter
+        callout:
+          modify_taxonomy_html: Wenn Sie diese Taxonomie oder ihre Elemente ändern möchten, finden Sie die Konfigurationseinstellungen unter <a href="%{url}">Taxonomien</a>.
+        create:
+          error: Beim Erstellen dieses Taxonomie-Filters ist ein Fehler aufgetreten.
+          success: Taxonomie-Filter wurde erfolgreich erstellt.
+        destroy:
+          error: Beim Löschen dieses Taxonomie-Filters ist ein Fehler aufgetreten.
+          success: Taxonomie-Filter erfolgreich gelöscht.
+        edit:
+          back: Zurück
+          items: "%{count} ausgewählte Elemente"
+          no_items: Keine Elemente für diese Taxonomien verfügbar. Sie können Elemente in den Taxonomie-Konfigurationseinstellungen erstellen.
+          title: Taxonomie-Filter bearbeiten
+          update: Taxonomie-Filter aktualisieren
+        form:
+          select_taxonomy: Taxonomie auswählen
+        index:
+          description: Ein Taxonomie-Filter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
+          empty: Derzeit gibt es keine Taxonomie-Filter. Erstellen Sie hier eine Liste von Taxonomie-Filtern, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
+        new:
+          back: Zurück
+          create: Taxonomie-Filter erstellen
+          items: "%{count} Elemente verfügbar"
+          title: Neuer Taxonomie-Filter
+        table:
+          actions: Aktionen
+          confirm_destroy: Sind Sie sicher, dass Sie den Filter %{name} löschen möchten?
+          count: Anzahl Elemente
+          destroy: Löschen
+          edit: Bearbeiten
+          name: Name
+        update:
+          error: Beim Aktualisieren dieses Taxonomie-Filters ist ein Fehler aufgetreten.
+          success: Taxonomie-Filter wurde erfolgreich aktualisiert.
       taxonomy_items:
         edit:
           title: Element in %{taxonomy} bearbeiten
@@ -1087,6 +1132,7 @@ de:
         scopes: Bereiche
         statistics: Aktivität
         taxonomies: Taxonomien
+        taxonomy_filters: Taxonomie-Filter
         user_groups: Benutzergruppen
         users: Administratoren
       user_group:

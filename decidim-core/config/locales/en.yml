@@ -1328,6 +1328,35 @@ en:
         message_2: Please, try again later.
         retry: Retry
     open_data:
+      index:
+        description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
+        download_open_data: Download all the Open Data files
+        explanation:
+          body_1: These files are datasets exported from %{organization_name}'s participatory processes, such as proposals, comments, and meetings. They provide raw, structured data that can be used for analysis, research, or integration with other tools. The data is updated automatically every 24 hours, ensuring that you have access to the most recent information.
+          body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
+          title: What are these files?
+        how_to:
+          step_1:
+            body_html: Click on the links provided below to download the CSV files to your computer.
+            title: 1. Download the files
+          step_2:
+            body_html: |-
+              <ul>
+                <li><b>Spreadsheet Applications</b>: You can open CSV files using applications like Microsoft Excel, Google Sheets, or LibreOffice Calc. Simply open the application, then select "Open" from the File menu, and choose the downloaded CSV file.</li>
+                <li><b>Text Editors</b>: CSV files can also be opened in any text editor, such as Notepad or Sublime Text. This will display the raw data, with each line representing a row and each value separated by a comma.</li>
+                <li><b>Data Analysis Tools</b>: If you are familiar with data analysis tools like Python (with pandas), R, or SQL databases, you can import these CSV files directly for processing and analysis.</li>
+              </ul>
+            title: 2. Open the files
+          step_3:
+            body_html: |-
+              <ul>
+                <li><b>Filtering and Sorting</b>: In spreadsheet applications, you can filter and sort the data to focus on specific subsets of information.</li>
+                <li><b>Analysis</b>: Use the data to perform various analyses, such as counting the number of proposals, analyzing trends in comments, or evaluating participation in meetings.</li>
+                <li><b>Visualization</b>: You can create charts, graphs, and other visualizations to help interpret the data.</li>
+              </ul>
+            title: 3. Working with the data
+          title: How to open and work with these files
+        title: Open Data
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     pad_iframe:
       disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
@@ -1976,9 +2005,9 @@ en:
         data_consent_settings: Cookie settings
         decidim_logo: Decidim Logo
         decidim_title: Decidim
-        download_open_data: Download Open Data files
         log_in: Log in
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
+        open_data: Open Data
         resources: Resources
         sign_up: Create an account
         terms_of_service: Terms of Service
