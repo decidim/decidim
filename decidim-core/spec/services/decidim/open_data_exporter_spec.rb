@@ -79,7 +79,7 @@ describe Decidim::OpenDataExporter do
         it "includes the help description for all the entities" do
           expect(file_data).to include("## proposals")
           expect(file_data).to include("## proposal_comments")
-          expect(file_data).to include("## accountability")
+          expect(file_data).to include("## results")
           expect(file_data).to include("## meetings")
           expect(file_data).to include("## meeting_comments")
           expect(file_data).to include("## participatory_process")
