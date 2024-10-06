@@ -20,6 +20,10 @@ cs:
         scope_id: Oblast působnosti
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Byl přidán do tohoto rozpočtu: %{link}'
       decidim/budgets/budget:
         one: Rozpočet
         few: Rozpočty
@@ -203,6 +207,8 @@ cs:
         vote: Hlasovat
         voted_budgets: Hlasované rozpočty
         voted_on: Hlasovali jste na %{links}.
+      creation:
+        text: Byli přidáni do tohoto rozpočtu
       last_activity:
         new_vote_at: Nový rozpočtový hlas v
       limit_announcement:
