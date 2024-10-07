@@ -911,7 +911,6 @@ lt:
           title_required: Reikalingas pavadinimas!
           uploaded: Įkelta
           validating: Tvirtinama...
-          validation_error: Tvirtinimo klaida!
         select_file: Pasirinkite rinkmeną
       upload_help:
         dropzone: Užvilkite rinkmeną čia arba spauskite įkėlimo mygtuką

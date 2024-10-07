@@ -329,12 +329,15 @@ fr:
           default_step_settings: Paramètres d'étape par défaut
           global_settings: Paramètres globaux
           step_settings: Paramètres de l'étape
+        hide:
+          success: Le composant a été retiré du menu avec succès.
         index:
           add: Ajouter une fonctionnalité
           headers:
             actions: Actions
             name: Nom de la fonctionnalité
             type: Type de fonctionnalité
+            visibility: Visibilité
         new:
           add: Ajouter une fonctionnalité
           title: 'Ajouter une fonctionnalité : %{name}'
@@ -346,6 +349,10 @@ fr:
         update:
           error: Une erreur est survenue lors de la mise à jour de cette fonctionnalité.
           success: La fonctionnalité a été mise à jour avec succès.
+        visibility_label:
+          menu_hidden: Retiré du menu
+          published: Publié
+          unpublished: Non publié
       conflicts:
         attempts: Tentatives
         'false': 'Non'
@@ -1019,6 +1026,32 @@ fr:
           success: Page mise à jour avec succès.
       taxonomies:
         count: Compteur
+      taxonomy_filters:
+        edit:
+          back: Revenir en arrière
+          no_items: Aucun élément n'est disponible pour cette taxonomie. Vous pouvez créer des éléments dans les paramètres de configuration de taxonomie.
+          title: Modifier le filtre de taxonomie
+          update: Mettre à jour le filtre de taxonomie
+        form:
+          select_taxonomy: Sélectionner une taxonomie
+        index:
+          description: Un filtre de taxonomie permet aux administrateurs de trier et de filtrer les espaces participatifs selon une taxonomie. Par exemple, ajoutez un filtre de taxonomie pour trier les processus par étendue géographique.
+          empty: Il n'y a actuellement aucun filtre de taxonomie. Créez une liste de filtres de taxonomie ici pour trier et filtrer les espaces participatifs basés sur une taxonomie.
+        new:
+          back: Revenir en arrière
+          create: Créer un filtre de taxonomie
+          items: "%{count} éléments disponibles"
+          title: Nouveau filtre de taxonomie
+        table:
+          actions: Actions
+          confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer le filtre %{name}?
+          count: Nombre d'éléments
+          destroy: Supprimer
+          edit: Modifier
+          name: Nom
+        update:
+          error: Il y a eu un problème lors de la mise à jour de ce filtre de taxonomie.
+          success: Filtre de taxonomie mis à jour avec succès.
       titles:
         admin_log: Journal d'administration
         area_types: Types de périmètre d'assemblée
@@ -1039,6 +1072,7 @@ fr:
         scope_types: Types de secteur
         scopes: Secteurs
         statistics: Activité
+        taxonomy_filters: Filtres de taxonomie
         user_groups: Groupes d'utilisateurs
         users: Administrateurs
       user_group:

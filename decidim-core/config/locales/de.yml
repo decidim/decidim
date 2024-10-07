@@ -64,6 +64,10 @@ de:
         password_confirmation: Bestätigung des Passworts
         remember_me: Angemeldet bleiben
     models:
+      decidim:
+        history:
+          one: Verlauf
+          other: Verlauf
       decidim/amendment:
         one: Änderungsantrag
         other: Änderungsanträge
@@ -269,6 +273,13 @@ de:
         delete_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} gelöscht"
         update: "%{user_name} hat die Taxonomie %{resource_name} aktualisiert"
         update_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} aktualisiert"
+      taxonomy_filter:
+        create: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} erstellt"
+        create_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} erstellt"
+        delete: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} gelöscht"
+        delete_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} gelöscht"
+        update: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} aktualisiert"
+        update_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} aktualisiert"
       user:
         block: "%{user_name} hat %{resource_name} blockiert"
         invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
@@ -942,7 +953,7 @@ de:
           title_required: Titel ist erforderlich!
           uploaded: Hochgeladen
           validating: Wird validiert...
-          validation_error: Validierungsfehler!
+          validation_error: Validierungsfehler! Überprüfen Sie, ob die Datei einen erlaubten Dateityp oder Größe hat.
         select_file: Datei auswählen
       upload_help:
         dropzone: Dateien hier ablegen oder die Schaltfläche zum Hochladen benutzen
@@ -1439,6 +1450,8 @@ de:
       create:
         error: Bei der Erstellung des Berichts ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
+    resource:
+      controls_label: Ressourcensteuerung
     resource_endorsements:
       create:
         error: Bei der Befürwortung ist ein Fehler aufgetreten.
@@ -1562,6 +1575,8 @@ de:
     tags:
       filter_results_for_category: 'Ergebnisse nach Kategorie filtern: %{resource}'
       filter_results_for_scope: 'Ergebnisse nach Anwendungsbereich filtern: %{resource}'
+    taxonomies:
+      prompt: Wählen Sie aus "%{name}"
     translation_bar:
       help_text: "<strong>Warnung:</strong> Inhalt könnte automatisch übersetzt werden und nicht 100% korrekt sein."
       show_original: Originaltext anzeigen

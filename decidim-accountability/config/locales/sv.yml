@@ -7,10 +7,7 @@ sv:
         decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
-        meetings_ids: Möten som omfattas
         progress: Genomförande
-        project_ids: Projekt som omfattas
-        proposals: Förslag som omfattas
         start_date: Startdatum
         subresults: Delresultat
         title: Titel
@@ -227,7 +224,7 @@ sv:
           empty_filters: Det finns inget resultat med de här kriterierna.
           subcategories_label: Underkategorier
         home_header:
-          global_status: Global genomförandestatus
+          global_status: Status för genomförande
         nav_breadcrumb:
           global: Globalt genomförande
         no_results: Det finns inga projekt
@@ -250,18 +247,18 @@ sv:
     components:
       accountability:
         actions:
-          comment: Kommentar
+          comment: Kommentera
         name: Genomförande
         settings:
           global:
-            comments_enabled: Kommentarer på
+            comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             display_progress_enabled: Visa behandling
             intro: Intro
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
           step:
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
     events:
       accountability:
         proposal_linked:

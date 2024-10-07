@@ -294,6 +294,7 @@ fr:
             select_parent_assembly: Sélectionnez l'assemblée parente
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
             social_handlers: Réseaux sociaux
+            taxonomies: Taxonomies
             title: Informations générales
             visibility: Visibilité
         assemblies_types:
