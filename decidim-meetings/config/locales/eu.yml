@@ -705,10 +705,13 @@ eu:
           participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
           published: Noiz argitaratu da topaketa?
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
+          related_proposals: Topaketa honi buruzko proposamenak
+          related_results: Topaketa honen emaitzak
           scope: 'Topaketaren esparrua (adibidez: "Hiria")'
           start_time: Zein data eta ordutan hasi da topaketa hau
           title: Topaketaren izenburua
           url: Topaketaren URLa
+          withdrawn_at: Noiz utzi zen bertan behera topaketa hau?
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Azken topaketak
