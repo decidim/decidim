@@ -424,10 +424,13 @@ eu:
       help:
         proposal_comments:
           created_at: Zein datatan sortu zen iruzkin hau
+          id: Identifikazioa iruzkin honetarako
         proposals:
           answered_at: Zein datatan erantzun zen proposamen hau
+          body: Proposamenaren gorputza
           published_at: Zein datatan argitaratu zen proposamen hau
           scope: Proposamenaren esparrua
+          title: Proposamenaren izenburua
     participatory_spaces:
       highlighted_proposals:
         last: Azken proposamenak
