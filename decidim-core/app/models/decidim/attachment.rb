@@ -65,7 +65,7 @@ module Decidim
     #
     # Returns String.
     def file_type
-      url&.split(".")&.last&.downcase
+      url&.split(".")&.last&.split("&")&.first&.downcase
     end
 
     def url
