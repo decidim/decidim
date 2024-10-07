@@ -369,6 +369,13 @@ cs:
     open_data:
       help:
         participatory_processes:
+          description: Dlouhý popis procesu
+          end_date: Datum ukončení procesu
+          participatory_process_type: Typ procesu
+          participatory_scope: Participační rozsah procesu
+          scope: Rozsah procesu
+          short_description: Stručný popis procesu
+          start_date: Počáteční datum procesu
           subtitle: Podtitulek procesu
           target: Cíl procesu je ten, kdo je vyzván, aby se tohoto procesu zúčastnil.
           title: Název procesu
