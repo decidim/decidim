@@ -335,7 +335,7 @@
   @apply mr-2;
 }
 
-/* data component controlling the visabilty of dropdown */
+/* data component controlling the visibility of replies in the dropdown */
 [data-component="accordion-replies"] {
   .comment[aria-hidden="true"] {
     display: none;
