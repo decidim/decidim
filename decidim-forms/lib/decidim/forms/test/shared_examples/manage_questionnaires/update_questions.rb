@@ -44,9 +44,9 @@ shared_examples_for "update questions" do
       end
 
       click_on "Save"
-      expand_all_questions
+      click_on "Expand all questions"
 
-      expect(page).to have_admin_callout("There was a problem updating")
+      expect(page).to have_admin_callout("There was a problem saving")
       expect(page).to have_content("cannot be blank", count: 1)
       expect(page).to have_content("must be greater than or equal to 0", count: 1)
 
@@ -135,7 +135,7 @@ shared_examples_for "update questions" do
 
       expand_all_questions
 
-      expect(page).to have_admin_callout("There was a problem updating")
+      expect(page).to have_admin_callout("There was a problem saving")
       expect(page).to have_content("cannot be blank", count: 1)
       expect(page).to have_css("input[value='']")
       expect(page).to have_no_css("input[value='This is the first title and description']")

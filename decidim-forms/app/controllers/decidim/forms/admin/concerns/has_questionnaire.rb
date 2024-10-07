@@ -80,7 +80,7 @@ module Decidim
 
                 on(:invalid) do
                   # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
-                  flash.now[:alert] = I18n.t("update.invalid", scope: i18n_questions_flashes_scope)
+                  flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
                   render template: edit_questions_template
                 end
               end

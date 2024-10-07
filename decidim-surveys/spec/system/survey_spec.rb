@@ -39,10 +39,14 @@ describe "Answer a survey" do
     it "does not allow answering the survey" do
       visit_component
 
+      choose "All"
+
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
 
       expect(page).to have_no_i18n_content(question.body)
+
+      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_content("The form is closed and cannot be answered.")
     end
@@ -60,6 +64,7 @@ describe "Answer a survey" do
 
       component.update!(permissions:)
       visit_component
+      choose "All"
     end
 
     it_behaves_like "accessible page"
@@ -72,7 +77,7 @@ describe "Answer a survey" do
   context "when the survey allow answers" do
     context "when the survey is closed by start and end dates" do
       before do
-        component.update!(settings: { starts_at: 1.week.ago, ends_at: 1.day.ago })
+        survey.update!(starts_at: 1.week.ago, ends_at: 1.day.ago)
       end
 
       it "does not allow answering the survey" do
@@ -83,6 +88,8 @@ describe "Answer a survey" do
 
         expect(page).to have_no_i18n_content(question.body)
 
+        click_on translated_attribute(questionnaire.title)
+
         expect(page).to have_content("The form is closed and cannot be answered.")
       end
     end
@@ -92,14 +99,7 @@ describe "Answer a survey" do
       let(:callout_success) { "Survey successfully answered." }
 
       before do
-        component.update!(
-          step_settings: {
-            component.participatory_space.active_step.id => {
-              allow_answers: true
-            }
-          },
-          settings: { starts_at: 1.week.ago, ends_at: 1.day.from_now }
-        )
+        survey.update!(allow_answers: true, starts_at: 1.week.ago, ends_at: 1.day.from_now)
       end
 
       it_behaves_like "has questionnaire"
@@ -107,16 +107,14 @@ describe "Answer a survey" do
 
     context "when displaying questionnaire rich content" do
       before do
-        component.update!(
-          step_settings: {
-            component.participatory_space.active_step.id => {
-              allow_answers: true,
-              allow_unregistered: true
-            }
-          },
-          settings: { starts_at: 1.week.ago, ends_at: 1.day.from_now }
+        survey.update!(
+          allow_answers: true,
+          allow_unregistered: true,
+          starts_at: 1.week.ago,
+          ends_at: 1.day.from_now
         )
         visit_component
+        click_on translated_attribute(questionnaire.title)
       end
 
       context "when displaying questionnaire description" do

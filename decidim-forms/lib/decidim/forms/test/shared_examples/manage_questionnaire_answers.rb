@@ -19,7 +19,7 @@ shared_examples_for "manage questionnaire answers" do
 
   context "when there are no answers" do
     it "do not answer admin link" do
-      visit questionnaire_edit_path
+      click_on "Manage questions"
       expect(page).to have_content("No answers yet")
     end
   end
@@ -31,7 +31,7 @@ shared_examples_for "manage questionnaire answers" do
     let!(:file_answer) { create(:answer, :with_attachments, questionnaire:, question: third, body: nil, user: answer3.user, session_token: answer3.session_token) }
 
     it "shows the answer admin link" do
-      visit questionnaire_edit_path
+      click_on "Manage questions"
       expect(page).to have_content("Show responses")
     end
 
