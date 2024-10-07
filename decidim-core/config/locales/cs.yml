@@ -1364,21 +1364,36 @@ cs:
       help:
         core:
           components: Komponenty
+          description: Tento ZIP soubor obsahuje soubory pro studium a výzkum této participační platformy.
           spaces: Prostory
           title: Soubory otevřených dat pro %{organization}
       index:
         description: Vítejte na stránce %{organization_name} Open Data. Zde naleznete datové soubory, které jsou pravidelně generovány z různých účelových procesů a procesů řízení v rámci %{organization_name}. Tyto soubory jsou k dispozici pro podporu transparentnosti, přístupnosti a spolupráce. Níže naleznete podrobné informace o tom, jaké jsou tyto soubory. jak s nimi otevřít a pracovat a popsat obsah a strukturu každého souboru.
         download_open_data: Stáhnout všechny otevřené datové soubory
         explanation:
+          body_2: Tyto soubory jsou ve formátu CSV (Comma-Separated Values) který je široce používaný formát souboru, který lze otevřít a zpracovat různými softwarovými aplikacemi, včetně tabulkových programů, textových editorů a nástrojů pro analýzu údajů.
           title: Jaké jsou tyto soubory?
         how_to:
           step_1:
             body_html: Klikněte na níže uvedené odkazy pro stažení CSV souborů do vašeho počítače.
             title: 1. Stáhněte soubory
           step_2:
+            body_html: |-
+              <ul>
+              <li><b>Spreadsheet Aplikace</b>: CSV soubory můžete otevřít pomocí aplikací jako Microsoft Excel, Google Sheets, neboli LibreOffice Calc. Jednoduše otevřete aplikaci, poté vyberte "Otevřít" ze souboru a vyberte stažený CSV soubor.</li>
+              <li><b>Textové editory</b>: CSV soubory mohou být také otevřeny v libovolném textovém editoru, např. Notepad nebo Sublime Text. Zobrazí se surová data s každým řádkem, který představuje řádek a každou hodnotu oddělenou čárkou.</li>
+              <li><b>Nástroje pro analýzu dat</b>: Pokud jste obeznámeni s nástroji pro analýzu dat, jako je Python (s pandas), R, nebo SQL databáze, tyto CSV soubory můžete importovat přímo pro zpracování a analýzu.</li>
+              </ul>
             title: 2. Otevřete soubory
           step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrování a třídění</b>: V tabulkových aplikacích můžete filtrovat a řadit data, která se zaměřují na konkrétní podmnožiny informací.</li>
+              <li><b>Analýza</b>: Použijte údaje k provedení různých analýz, jako je počítání počtu návrhů, analýza trendů v komentářích nebo hodnocení účasti na setkáních.</li>
+              <li><b>Vizualizace</b>: Můžete vytvořit grafy, grafy a další vizualizace, které pomohou interpretovat data.</li>
+              </ul>
             title: 3. Pracujte s daty
+          title: Jak tyto soubory otevřít a pracovat s nimi
         title: Otevřená data
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
     pad_iframe:
@@ -2158,6 +2173,7 @@ cs:
       long_with_particles: "%B %d, %Y v %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Smazané
