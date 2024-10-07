@@ -585,9 +585,14 @@ cs:
     open_data:
       help:
         conferences:
+          decidim_scope_id: Rozsah konference
+          description: Dlouhý popis konference
+          end_date: Datum, kdy tato konference skončí.
+          hashtag: Hashtag Konference, používaná pro Twitter/X
           scope: Rozsah konference
           short_description: Stručný popis konference
           slogan: Slogan pro tuto konferenci
+          title: Název konference
     statistics:
       conferences_count: Konference
   devise:
