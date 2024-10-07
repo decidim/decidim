@@ -441,6 +441,20 @@ cs:
         description: Počet vytvořených shromáždění
         object: shromáždění
         title: Shromáždění
+    open_data:
+      help:
+        assemblies:
+          announcement: Oznámení (vvyhlášení) informací
+          assembly_type: Typ shromáždění
+          closing_date: Datum ukončení shromáždění
+          closing_date_reason: Proč bylo shromáždění uzavřeno
+          composition: Složení shromáždění
+          created_by: Kdo vytvořil toto shromáždění
+          created_by_other: Ostatní tvůrci shromáždění
+          creation_date: Datum vytvoření tohoto shromáždění
+          decidim_scope_id: Rozsah shromáždění
+          description: Dlouhý popis shromáždění
+          developer_group: Skupina vývojářů shromáždění
     participatory_processes:
       show:
         related_assemblies: Související shromáždění
