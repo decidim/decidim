@@ -39,6 +39,38 @@
           </div>
         <% end %>
       <% end %>
+
+      <%# i18n-tasks-use t("decidim.open_data.index.detailed.title") %>
+      <%= render layout: "decidim/open_data/section", locals: { i18n_scope: "detailed" } do %>
+        <p> <%= t("body_1", scope: "decidim.open_data.index.detailed") %> </p>
+
+        <h3><%= t("components", scope: "decidim.open_data.index.detailed") %> </h3>
+        <% open_data_component_manifests.each do |export_manifest| %>
+          <div class="mt-8">
+            <h4><%= export_manifest.name %></h4>
+            <ul>
+              <% t(export_manifest.name, scope: "decidim.open_data.help").each do |i18n_key, i18n_value| %>
+                <li> <b><%= i18n_key %></b>: <%= i18n_value %> </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <hr class="mt-8 mb-4">
+
+        <h3><%= t("spaces", scope: "decidim.open_data.index.detailed") %> </h3>
+        <% open_data_participatory_space_manifests.each do |export_manifest| %>
+          <div class="mt-8">
+            <h4><%= export_manifest.name %></h4>
+            <ul>
+              <% t(export_manifest.name, scope: "decidim.open_data.help").each do |i18n_key, i18n_value| %>
+                <li> <b><%= i18n_key %></b>: <%= i18n_value %> </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+      <% end %>
     </div>
 
     <div class="editor-content">
