@@ -228,7 +228,7 @@ fi:
       helpers:
         answers: vastaukset
         comments: kommentit
-        projects: hankkeet
+        projects: projektit
         results: tulokset
       impersonation_log:
         manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
@@ -872,7 +872,7 @@ fi:
         collaborative_draft: Yhdessä koostettu luonnos
         dummy_resource: Esimerkkitietueet
         meeting: Tapaamiset
-        project: Hankkeet
+        project: Projektit
         proposal: Ehdotukset
         result: Tulokset
     fingerprint:
@@ -1064,7 +1064,7 @@ fi:
     help:
       main_topic:
         default_page:
-          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
+          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia projekteja sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
           title: Mitä voin tehdä palvelussa %{organization}?
         description: Lue lisää palvelusta %{organization}.
         title: Yleiset asiat
@@ -1316,6 +1316,27 @@ fi:
         message_2: Yritä myöhemmin uudestaan.
         retry: Yritä uudestaan
     open_data:
+      help:
+        core:
+          components: Komponentit
+          description: Tämä ZIP-tiedosto sisältää tiedostoja tämän alustan tutkimiseen.
+          spaces: Tilat
+          title: Avoimet datan tiedostot palvelulle %{organization}
+      index:
+        description: Tervetuloa %{organization_name} -palvelun avoimen datan sivulle. Tältä sivulta löydät datatiedostoja, joita päivitetään säännöllisesti erilaisten deliberatiivisten ja hallinnollisten prosessien perusteella palvelussa %{organization_name}. Nämä tiedostot ovat saatavilla edistääksemme avoimuutta, tiedon saatavuutta ja saavutettavuutta sekä yhteistyötarkoituksiin. Löydät alta yksityiskohtaisia tiedostoja kustakin tiedostosta sekä kuinka voit avata ja työskennellä tiedostojen kanssa. Jokaiselle tiedostolle on annettu myös selitykset ja rakennekuvaukset.
+        download_open_data: Lataa kaikki avoimet datatiedostot
+        explanation:
+          body_1: Nämä tiedostot on viety %{organization_name} -palvelun osallistumisprosesseista ja sisältävät asioita, kuten ehdotuksia, kommentteja ja tapaamisia. Tiedostot tarjotaan jäsenneltynä raakadatana, jota voidaan käyttää analyyseihin, tutkimuksiin tai integraatioihin muiden työkalujen kanssa. Tätä tietoa päivitetään automaattisest 24 tunnin välein, jotta sinulla olisi aina pääsy kaikista viimeisimpään tietoon.
+          body_2: Nämä tiedostot ovat CSV-muodossa, jota käytetään laajasti tietojenkäsittelyssä. Kyseisen formaatin mukaisia tiedostoja voi avata ja käsitellä useilla erilaisilla ohjelmistoilla, kuten taulukkolaskentaohjelmistot, tekstinkäsittelyohjelmistot ja data-analyysityökalut.
+          title: Mitä nämä tiedostot ovat?
+        how_to:
+          step_1:
+            body_html: Napsauta alla olevia linkkejä ladataksesi CSV-tiedostot tietokoneellesi.
+            title: 1. Lataa tiedostot
+          step_2:
+            title: 2. Avaa tiedostot
+          step_3:
+            title: 3. Työskentele tietojen kanssa
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudestaan muutaman minuutin kuluttua.
     pad_iframe:
       disclaimer: Tämän muistion sisällön ovat kirjoittaneet alustan rekisteröityneet käyttäjät, jotka ilmaisevat omia mielipiteitään. %{organization} ei ole vastuussa sisällöstä.
