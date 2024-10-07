@@ -166,7 +166,7 @@ module Decidim
         let(:options) { { include_blank: "Select a scope" } }
 
         it "is supported" do
-          expect(form).to receive(:select).with(:test, choices, options)
+          expect(form).to receive(:select).with(:test, choices, options, {})
           render_input
         end
       end

@@ -2,6 +2,8 @@
 
 module Decidim
   class OpenDataController < Decidim::ApplicationController
+    def index; end
+
     def download
       if uploader.attached?
         redirect_to uploader.path

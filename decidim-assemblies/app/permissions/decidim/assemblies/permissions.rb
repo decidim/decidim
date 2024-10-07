@@ -184,7 +184,7 @@ module Decidim
         return unless permission_action.action == :create &&
                       permission_action.subject == :assembly
 
-        toggle_allow(user.admin? || admin_assembly? || user_role == "admin")
+        toggle_allow(user.admin? || admin_assembly?)
       end
 
       def user_can_export_assembly?

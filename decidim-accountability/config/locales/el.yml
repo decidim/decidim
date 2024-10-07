@@ -7,10 +7,7 @@ el:
         decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         end_date: Ημερομηνία λήξης
-        meetings_ids: Συμπεριλαμβανόμενες συναντήσεις
         progress: Πρόοδος
-        project_ids: Έργα που περιλαμβάνονται
-        proposals: Προτάσεις που περιλαμβάνονται
         start_date: Ημερομηνία έναρξης
         title: Τίτλος
         updated_at: Ενημερώθηκε στις

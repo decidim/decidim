@@ -7,10 +7,7 @@ sq:
         decidim_scope_id: Fushëveprimi
         description: Përshkrimi
         end_date: Data e përfundimit
-        meetings_ids: Mbledhjet e përfshira
         progress: Ecuria
-        project_ids: Projektet e përfshira
-        proposals: Proposimet e përfshira
         start_date: Data e fillimit
         title: Titulli
         updated_at: Përditësuar në

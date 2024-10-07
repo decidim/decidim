@@ -241,6 +241,10 @@ de:
             alert_html: "<p>Sie müssen mindestens einen Initiativentyp erstellen, damit die Teilnehmenden Initiativen erstellen können.</p><p> %{link}</p>"
             button: Neuer Initiativentyp
         initiatives:
+          accept:
+            success: Die Initiative wurde erfolgreich akzeptiert.
+          discard:
+            success: Die Initiative wurde erfolgreich gelöscht.
           edit:
             accept: Initiative akzeptieren
             confirm: Sind Sie sich sicher?
@@ -264,6 +268,12 @@ de:
             edit: Bearbeiten
             new: Neu
             photos: Fotos
+          publish:
+            success: Die Initiative wurde erfolgreich veröffentlicht.
+          reject:
+            success: Die Initiative wurde erfolgreich zurückgewiesen.
+          unpublish:
+            success: Die Veröffentlichung der Initiative wurde erfolgreich zurückgezogen.
           update:
             error: Beim Aktualisieren der Initiative ist ein Problem aufgetreten.
             success: Die Initiative wurde erfolgreich aktualisiert.
