@@ -423,6 +423,49 @@ ca:
         description: Nombre de suports a les propostes
         object: suports
         title: Suports
+    open_data:
+      help:
+        proposal_comments:
+          alignment: Si aquest comentari va ser a favor, en contra o neutral
+          author: El nom d'usuària de la participant que va fer el comentari
+          body: El comentari pròpiament
+          commentable_id: L'identificador únic d'allò que es podia comentar
+          commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és un comentari, una resposta a un comentari, o la resposta d'una resposta)
+          id: L'identificador id d'aquest comentari
+          locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
+          root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
+          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
+        proposals:
+          address: L'adreça de la trobada en cas que aquesta tingui una ubicació física
+          answer: La resposta a la proposta en cas que s'hagi respost
+          answered_at: La data en què es va respondre aquesta proposta
+          attachments: El número de fitxers adjunt que té aquesta proposta
+          author: Les dades d'autoria d'aquesta proposta
+          body: La descripció de la proposta
+          category: 'La categoria de la proposta (per exemple: "Cultura")'
+          comments: El número de comentaris que té aquesta proposta
+          component: El component al qual pertany aquesta proposta
+          endorsements: El número d'adhesions ("m'agrada") que té aquesta proposta
+          followers: El número de seguidores que té aquesta proposta
+          id: L'identificador únic de la proposta
+          is_amend: Si aquesta proposta és una esmena a una altra proposta o no
+          latitude: La latitud de la proposta en cas que aquesta tingui una ubicació física
+          longitude: La longitud de la proposta en cas que aquesta tingui una ubicació física
+          meeting_urls: Les URL de les trobades de les quals va resultar o es va debatre aquesta proposta
+          original_proposal: La referència de la proposta original en el cas de tractar-se d'una esmena
+          participatory_space: A quin espai pertany aquest projecte (procés participatiu, assemblea, etc.)
+          published_at: La data en què es va publicar aquesta proposta
+          reference: L'identificador únic del recurs a aquesta plataforma
+          related_proposals: Les propostes relacionades amb aquesta proposta
+          scope: 'L''àmbit territorial de la propuesta (per exemple: "Ciutat")'
+          state: 'L''estat d''aquesta proposta (per exemple: "Acceptada")'
+          title: El títol de la proposta
+          url: L'URL on es pot trobar aquesta proposta
+          votes: El número de suports que té aquesta proposta
+          withdrawn: Si aquesta proposta va ser retirada o no
+          withdrawn_at: Quan va ser retirada aquesta proposta
     participatory_spaces:
       highlighted_proposals:
         last: Propostes més recents
