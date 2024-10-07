@@ -456,6 +456,8 @@ cs:
           description: Dlouhý popis shromáždění
           developer_group: Skupina vývojářů shromáždění
           duration: Doba trvání shromáždění
+          facebook_handler: Handler sociálních médií pro Facebook
+          github_handler: Handler sociálních médií pro GitHub
           hashtag: Hashtag Shromáždění, používaný pro Twitter/X
           id: Jedinečný identifikátor ttohoto shromáždění
           included_at: Datum, kdy bylo shromáždění zahrnuto
@@ -466,6 +468,8 @@ cs:
           meta_scope: Rozsah metadat shromáždění
           participatory_scope: Participační rozsah shromáždění
           participatory_structure: Participační struktura shromáždění
+          purpose_of_action: Účel konání shromáždění
+          reference: Odkaz na shromáždění. Jedinečný identifikátor pro tuto platformu.
           scope: Rozsah shromáždění
           short_description: Stručný popis shromáždění
           special_features: Jaké speciální vlastnosti má toto shromáždění
