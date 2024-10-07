@@ -286,6 +286,35 @@ eu:
         description: Sortutako emaitza kopurua
         object: emaitzak
         title: Emaitzak
+    open_data:
+      help:
+        result_comments:
+          alignment: Iruzkin hau aldekkoa, kontrakoa edo neutrala bazen
+          author: Iruzkin hau egin duen parte-hartzailearen izena
+          body: Iruzkin bera
+          commentable_id: Iruzkingarriaren identifikazio bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          created_at: Zein datatan sortu zen iruzkin hau
+          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna bada edo erantzun batren erantzuna)
+          id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uztean zuen lokala (hizkuntza)
+          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          user_group: Iruzkin hau egin duen erabiltzaile taldearen izena (hala badagokio)
+        results:
+          category: 'Emaitzaren kategoria (adibidez: "Kultura")'
+          component: Emaitzaren osagaia honi dagokio
+          created_at: Zein datatan sortu zen emaitza
+          description: Emaitzaren deskribapena
+          end_date: Zein datatan exekutatzen eta amaitzen den emaitza
+          id: Emaitzaren identifikatzaile bakarra
+          parent: Emaitzaren emaitza nagusia (baldin badago)
+          progress: Emaitza gauzatzearen ehunekoa
+          proposal_urls: Emaitza honetan jasotzen diren proposamenen URLak
+          scope: 'Emaitzaren esparrua (adibidez: "Hiria")'
+          start_date: Zein datatan hasi da emaitza gauzatzen
+          status: Emaitza honen egungo egoera
+          title: Emaitzaren izenburua
+          url: Emaitza hau aurkitu daitekeen URLa
     participatory_spaces:
       highlighted_results:
         see_all: Ikusi emaitza guztiak (%{count})
