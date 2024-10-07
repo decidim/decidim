@@ -450,9 +450,33 @@ eu:
           decidim_scope_id: Batzarraren esparrua
           description: Batzarraren deskribapen luzea
           developer_group: Batzarraren talde garatzailea
+          duration: Batzarraren iraupena
+          facebook_handler: Sare sozialetako arduraduna Facebookerako
+          github_handler: Sare sozialetako arduraduna GitHuberako
+          hashtag: Batzarraren traola, Twitter/Xentzat erabilia
+          id: Batzar honen identifikatzaile bakarra
+          included_at: Zein datatan sartu zen batzar hau
+          instagram_handler: Sare sozialetako arduraduna Instagramerako
+          internal_organisation: Batzar honen barne-antolaketa
+          is_transparent: Batzarra non den gardena edo ez
+          local_area: Batzarraren tokiko arloa
           meta_scope: Batzarraren esparru-metadatuak
           participatory_scope: Batzarraren parte-hartze esparrua
+          participatory_structure: Batzarraren egitura parte-hartzailea
+          promoted: Batzarra sustatzen den edo ez
+          purpose_of_action: Batzarraren ekintzaren helburua
+          reference: Batzarraren erreferentzia. Identifikatzaile bakarra plataforma honetarako.
+          remote_banner_image_url: Batzarraren URLak irudia du
+          remote_hero_image_url: Batzarraren protagonistaren irudiaren URLa
           scope: Batzarraren esparrua
+          short_description: Batzarraren deskribapen laburra
+          slug: Batzarraren lerroa (identifikaziorako erabiltzen da, URLrako)
+          special_features: Zein ezaugarri berezi ditu batzar honek
+          subtitle: Batzarraren azpititulua
+          target: Batzarraren helburua
+          title: Batzarraren izenburua
+          twitter_handler: Sare sozialetako arduraduna Twitterrerako
+          youtube_handler: Sare sozialetako arduraduna You Tuberako
     participatory_processes:
       show:
         related_assemblies: Erlazionatutako batzarrak
