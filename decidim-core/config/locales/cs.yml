@@ -1364,8 +1364,21 @@ cs:
       help:
         core:
           components: Komponenty
+          spaces: Prostory
+          title: Soubory otevřených dat pro %{organization}
       index:
         description: Vítejte na stránce %{organization_name} Open Data. Zde naleznete datové soubory, které jsou pravidelně generovány z různých účelových procesů a procesů řízení v rámci %{organization_name}. Tyto soubory jsou k dispozici pro podporu transparentnosti, přístupnosti a spolupráce. Níže naleznete podrobné informace o tom, jaké jsou tyto soubory. jak s nimi otevřít a pracovat a popsat obsah a strukturu každého souboru.
+        download_open_data: Stáhnout všechny otevřené datové soubory
+        explanation:
+          title: Jaké jsou tyto soubory?
+        how_to:
+          step_1:
+            body_html: Klikněte na níže uvedené odkazy pro stažení CSV souborů do vašeho počítače.
+            title: 1. Stáhněte soubory
+          step_2:
+            title: 2. Otevřete soubory
+          step_3:
+            title: 3. Pracujte s daty
         title: Otevřená data
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
     pad_iframe:
