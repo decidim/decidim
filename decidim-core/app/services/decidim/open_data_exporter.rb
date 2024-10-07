@@ -9,7 +9,7 @@ module Decidim
   class OpenDataExporter
     FILE_NAME_PATTERN = "%{host}-open-data-%{entity}.csv"
 
-    attr_reader :organization, :path, :resource
+    attr_reader :organization, :path, :resource, :help_definition
 
     include Decidim::TranslatableAttributes
 
