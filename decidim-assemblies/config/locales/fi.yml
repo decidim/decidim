@@ -435,6 +435,49 @@ fi:
         description: Ryhmien määrä
         object: ryhmät
         title: Ryhmät
+    open_data:
+      help:
+        assemblies:
+          announcement: Ilmoituksen sisältö
+          area: Ryhmän alue
+          assembly_type: Ryhmän tyyppi
+          closing_date: Ryhmän sulkemispäivä
+          closing_date_reason: Miksi tämä ryhmä suljettiin
+          composition: Ryhmän kokoonpano
+          created_by: Kuka tämän ryhmän on luonut
+          created_by_other: Ryhmän muu luoja
+          creation_date: Ryhmän luontipäivä
+          decidim_scope_id: Ryhmän teema
+          description: Ryhmän pitkä kuvaus
+          developer_group: Ryhmän kehittäjäryhmä
+          duration: Ryhmän kesto
+          facebook_handler: Sosiaalisen median tunniste Facebookissa
+          github_handler: Sosiaalisen median tunniste GitHubissa
+          hashtag: Ryhmää vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
+          id: Ryhmän uniikki tunniste
+          included_at: Ryhmän sisällyttämisen päivämäärä
+          instagram_handler: Sosiaalisen median tunniste Instagramissa
+          internal_organisation: Ryhmän sisäinen organisaatio
+          is_transparent: Onko ryhmä läpinäkyvä vai ei
+          local_area: Ryhmän paikallisalue
+          meta_scope: Ryhmän teeman metatiedot
+          participatory_scope: Ryhmän osallistumisen laajuus
+          participatory_structure: Ryhmän osallistumisrakenne
+          promoted: Onko ryhmä korostettu vai ei
+          purpose_of_action: Ryhmän toiminnan tarkoitus
+          reference: Ryhmän viittaus. Ryhmän uniikki tunniste tällä alustalla.
+          remote_banner_image_url: Ryhmän bannerikuvan URL-osoite
+          remote_hero_image_url: Ryhmän hero-kuvan URL-osoite
+          scope: Ryhmän teema
+          scopes_enabled: Ovatko teemat otettu käyttöön vai eivät
+          short_description: Ryhmän lyhyt kuvaus
+          slug: Ryhmän URL-tunniste (URL-osoitteen osa, joka erottaa ryhmän muista ryhmistä)
+          special_features: Mitä erityispiirteitä tällä ryhmällä on
+          subtitle: Ryhmän alaotsikko
+          target: Ryhmän tavoite
+          title: Ryhmän otsikko
+          twitter_handler: Sosiaalisen median tunniste Twitterissä
+          youtube_handler: Sosiaalisen median tunniste YouTubessa
     participatory_processes:
       show:
         related_assemblies: Liittyvät ryhmät
