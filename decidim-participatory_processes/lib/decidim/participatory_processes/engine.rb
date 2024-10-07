@@ -33,6 +33,7 @@ module Decidim
         resources :participatory_process_groups, only: :show, path: "processes_groups"
         resources :participatory_processes, only: [:index, :show], param: :slug, path: "processes" do
           get "all-metrics", on: :member
+          resources :participatory_space_private_users, only: :index, path: "members"
         end
 
         scope "/processes/:participatory_process_slug/f/:component_id" do

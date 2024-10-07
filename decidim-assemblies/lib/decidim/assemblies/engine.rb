@@ -26,6 +26,7 @@ module Decidim
         }, constraints: { assembly_id: /[0-9]+/ }
 
         resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
+          # TODO: Rename to participatory_space_private_users?
           resources :assembly_members, only: :index, path: "members"
         end
 

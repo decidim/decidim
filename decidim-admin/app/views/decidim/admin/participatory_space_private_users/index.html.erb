@@ -22,6 +22,9 @@
               <%= sort_link(query, :email, t("models.user.fields.email", scope: "decidim.admin"), default_order: :desc ) %>
             </th>
             <th>
+              <%= sort_link(query, :published, t("models.user.fields.published", scope: "decidim.admin"), default_order: :desc ) %>
+            </th>
+            <th>
               <%= sort_link(query, :invitation_sent_at, t("models.user.fields.invitation_sent_at", scope: "decidim.admin"), default_order: :desc ) %>
             </th>
             <th>
@@ -40,6 +43,11 @@
                 <%= private_user.user.email %><br>
               </td>
               <td>
+                <% if private_user.published %>
+                  <%= icon "check-line", class: "text-success" %>
+                <% end %>
+              </td>
+              <td>
                 <% if private_user.user.invitation_sent_at %>
                   <%= l private_user.user.invitation_sent_at, format: :short %>
                 <% end %>
@@ -56,6 +64,10 @@
 
                 <% if allowed_to? :destroy, :space_private_user, private_user: private_user %>
                   <%= icon_link_to "delete-bin-line", participatory_space_private_user_path(current_participatory_space, private_user), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <% end %>
+
+                <% if allowed_to? :edit, :space_private_user, private_user: private_user %>
+                  <%= icon_link_to "pencil-line", edit_participatory_space_private_user_path(current_participatory_space, private_user), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
                 <% end %>
               </td>
             </tr>

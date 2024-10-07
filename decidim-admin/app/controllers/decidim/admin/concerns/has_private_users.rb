@@ -29,6 +29,31 @@ module Decidim
             render template: "decidim/admin/participatory_space_private_users/new"
           end
 
+          def edit
+            @private_user = collection.find(params[:id])
+            enforce_permission_to :update, :space_private_user, private_user: @private_user
+            @form = form(ParticipatorySpacePrivateUserForm).from_model(@private_user)
+            render template: "decidim/admin/participatory_space_private_users/edit"
+          end
+
+          def update
+            @private_user = collection.find(params[:id])
+            enforce_permission_to :update, :space_private_user, private_user: @private_user
+            @form = form(ParticipatorySpacePrivateUserForm).from_params(params, privatable_to:)
+
+            UpdateParticipatorySpacePrivateUser.call(@form, @private_user) do
+              on(:ok) do
+                flash[:notice] = I18n.t("participatory_space_private_users.update.success", scope: "decidim.admin")
+                redirect_to action: :index
+              end
+
+              on(:invalid) do
+                flash.now[:alert] = I18n.t("participatory_space_private_users.update.error", scope: "decidim.admin")
+                render template: "decidim/admin/participatory_space_private_users/edit"
+              end
+            end
+          end
+
           def create
             enforce_permission_to :create, :space_private_user
             @form = form(ParticipatorySpacePrivateUserForm).from_params(params, privatable_to:)

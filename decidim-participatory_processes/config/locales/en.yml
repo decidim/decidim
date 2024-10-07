@@ -170,6 +170,7 @@ en:
           fields:
             invitation_accepted_at: Invitation accepted at
             invitation_sent_at: Invitation sent at
+            published: Published
       participatory_process_copies:
         new:
           copy: Copy
