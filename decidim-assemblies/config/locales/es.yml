@@ -452,6 +452,31 @@ es:
           developer_group: El grupo de promotor de la asamblea
           duration: La duración de la asamblea
           facebook_handler: Controlador de redes sociales para Facebook
+          github_handler: Controlador de redes sociales para GitHub
+          hashtag: La etiqueta que utiliza la asamblea en Twitter/X
+          id: El identificador único del resultado
+          included_at: La fecha en que la asamblea fue incluida en la plataforma
+          instagram_handler: Controlador de redes sociales para Instagram
+          internal_organisation: La organización interna de esta asamblea
+          is_transparent: Si la asamblea es transparente o no
+          meta_scope: Los metadatos del ámbito territorial de la asamblea
+          participatory_scope: El ámbito territorial de la participación de la asamblea
+          participatory_structure: La estructura participativa de la asamblea
+          promoted: Si la asamblea está destacada o no
+          purpose_of_action: El propósito de la acción de la asamblea
+          reference: La referencia de la asamblea. Un identificador único para esta plataforma.
+          remote_banner_image_url: La URL de la imagen de la cabecera (imagen principal) de la asamblea
+          remote_hero_image_url: La URL de la imagen principal de la asamblea
+          scope: El ámbito territorial de asamblea
+          scopes_enabled: Si el ámbito territorial está habilitado o no
+          short_description: Una breve descripción de la asamblea
+          slug: El nombre corto de la asamblea (usado para fines de identificación, para la URL)
+          special_features: Qué características especiales tiene esta asamblea
+          subtitle: El subtítulo de la asamblea
+          target: El objetivo de la asamblea
+          title: El título de la asamblea
+          twitter_handler: Controlador de redes sociales para Twitter/X
+          youtube_handler: Controlador de redes sociales para YouTube
     participatory_processes:
       show:
         related_assemblies: Asambleas relacionadas
