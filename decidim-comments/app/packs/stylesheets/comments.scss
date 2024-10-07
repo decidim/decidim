@@ -336,7 +336,7 @@
 }
 
 /* data component controlling the visabilty of dropdown */
-[data-component="accordion"] {
+[data-component="accordion-replies"] {
   .comment[aria-hidden="true"] {
     display: none;
   }
