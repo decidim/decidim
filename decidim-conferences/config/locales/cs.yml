@@ -582,6 +582,12 @@ cs:
         title: Média a odkazy
     menu:
       conferences: Konference
+    open_data:
+      help:
+        conferences:
+          scope: Rozsah konference
+          short_description: Stručný popis konference
+          slogan: Slogan pro tuto konferenci
     statistics:
       conferences_count: Konference
   devise:
