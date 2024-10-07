@@ -363,9 +363,15 @@ eu:
     open_data:
       help:
         participatory_processes:
+          end_date: Prozesuaren amaiera-data
           meta_scope: Prozesuaren esparru-metadatuak
           participatory_process_type: Prozesu mota
+          participatory_scope: Prozesuaren parte-hartze esparrua
           scope: Prozesuaren esparrua
+          short_description: Prozesuaren deskribapen laburra
+          start_date: Prozesuaren hasiera-data
+          subtitle: Prosezuaren azpititulua
+          title: Prozesuaren izenburua
     participatory_process_groups:
       content_blocks:
         extra_data:
