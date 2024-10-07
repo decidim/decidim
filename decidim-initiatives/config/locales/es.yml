@@ -600,6 +600,18 @@ es:
         success: La iniciativa se ha actualizado correctamente.
     menu:
       initiatives: Iniciativas
+    open_data:
+      help:
+        initiatives:
+          answer: La respuesta que ha recibido esta iniciativa (si la hay)
+          answer_url: La URL de la respuesta (si la hay)
+          answered_at: La fecha de la respuesta (si existe)
+          area: El área de esta iniciativa
+          authors: Las autoras de esta iniciativa
+          created_at: La fecha en la que la iniciativa fue creada
+          description: La descripción de la iniciativa
+          first_progress_notification_at: La fecha en la que se envió la primera notificación de progreso
+          hashtag: La etiqueta que utiliza la iniciativa en Twitter/X
     resources:
       initiative:
         actions:
