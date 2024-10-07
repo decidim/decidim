@@ -600,6 +600,14 @@ eu:
         success: Ekimena zuzen eguneratu da.
     menu:
       initiatives: Ekimenak
+    open_data:
+      help:
+        initiatives:
+          created_at: Zein datatan sortu zen ekimen hau
+          published_at: Zein datatan argitaratu zen ekimen hau
+          scope: Ekimenaren esparrua
+          title: Ekimenaren izenburua
+          type: Ekimen mota
     resources:
       initiative:
         actions:
