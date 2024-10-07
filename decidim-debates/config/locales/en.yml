@@ -238,9 +238,11 @@ en:
         debates:
           author: The data for the author of this debate
           category: The category of the debate (e.g. "Culture")
+          closed_at: The date when this debate was closed
           comments: The number of comments this debate has
           comments_enabled: Wether this debate has comments enabled or not
           component: The component that the debate belongs to
+          conclusions: The conclusions of the debate if it was closed
           created_at: The date and time when the debate was created
           description: The debate description
           end_time: When this debate ends, if it is an open debate and has a limited time
