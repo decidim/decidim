@@ -1361,8 +1361,12 @@ cs:
         message_2: Prosím, zkuste to znovu později.
         retry: Zkusit znovu
     open_data:
+      help:
+        core:
+          components: Komponenty
       index:
         description: Vítejte na stránce %{organization_name} Open Data. Zde naleznete datové soubory, které jsou pravidelně generovány z různých účelových procesů a procesů řízení v rámci %{organization_name}. Tyto soubory jsou k dispozici pro podporu transparentnosti, přístupnosti a spolupráce. Níže naleznete podrobné informace o tom, jaké jsou tyto soubory. jak s nimi otevřít a pracovat a popsat obsah a strukturu každého souboru.
+        title: Otevřená data
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
     pad_iframe:
       disclaimer: Obsah této podložky jsou napsány registrovanými uživateli a vyjadřují jejich názory. %{organization} nemůže být zodpovědný za jeho obsah.
@@ -2019,6 +2023,7 @@ cs:
         decidim_title: Decidim
         log_in: Přihlásit
         made_with_open_source: Webová stránka vytvořená s <a target="_blank" href="https://github.com/decidim/decidim">svobodným softwarem</a>.
+        open_data: Otevřená data
         resources: Zdroje
         sign_up: Vytvořit účet
         terms_of_service: Podmínky služby
