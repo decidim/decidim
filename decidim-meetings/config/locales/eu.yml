@@ -674,6 +674,12 @@ eu:
         description: Sortutako topaketa kopurua
         object: topaketak
         title: Topaketak
+    open_data:
+      help:
+        meeting_comments:
+          created_at: Zein datatan sortu zen iruzkin hau
+        meetings:
+          scope: 'Topaketaren esparrua (adibidez: "Hiria")'
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Azken topaketak
