@@ -674,6 +674,45 @@ ca:
         description: Nombre de trobades creades
         object: trobades
         title: Trobades
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Si aquest comentari va ser a favor, en contra o neutral
+          author: El nom d'usuària de la participant que va fer el comentari
+          body: El comentari pròpiament
+          commentable_id: L'identificador únic d'allò que es podia comentar
+          commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és un comentari, una resposta a un comentari, o la resposta d'una resposta)
+          id: L'identificador id d'aquest comentari
+          locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
+          root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
+          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
+        meetings:
+          address: L'adreça de la trobada en cas que aquesta sigui presencial i tingui una ubicació física
+          attachments: El nombre de fitxers adjunts en aquesta reunió
+          attendees: El número de persones que van assistir a la trobada
+          category: 'La categoria de la trobada (per exemple: "Cultura")'
+          comments: El número de comentaris en aquesta trobada
+          component: El component al qual pertany aquesta trobada
+          contributions: El número de contribucions realitzades en aquesta trobada per les assistents
+          description: La descripció de la trobada
+          end_time: La data i l'hora en què va finalitzar aquesta trobada
+          followers: El número de seguidores d'aquesta trobada
+          id: L'identificador únic de la trobada
+          location: La localització de la trobada
+          organizations: Les organitzacions que van assistir a aquesta trobada
+          participatory_space: A quin espai pertany aquesta trobada (procés participatiu, assemblea, etc.)
+          published: Quan es va publicar la trobada
+          reference: L'identificador únic del recurs a aquesta plataforma
+          related_proposals: Les propostes relacionades amb aquesta trobada
+          related_results: Els resultats relacionats amb aquesta trobada
+          scope: 'L''àmbit territorial de la trobada (per exemple: "Ciutat")'
+          start_time: La data i l'hora en què es va iniciar aquesta trobada
+          title: El títol de la trobada
+          url: L'URL de la trobada
+          withdrawn: Si aquesta trobada va ser retirada/cancel·lada
+          withdrawn_at: Quan va ser retirada/cancel·lada aquesta trobada
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Trobades anteriors
