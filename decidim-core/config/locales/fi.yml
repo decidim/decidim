@@ -1334,9 +1334,23 @@ fi:
             body_html: Napsauta alla olevia linkkejä ladataksesi CSV-tiedostot tietokoneellesi.
             title: 1. Lataa tiedostot
           step_2:
+            body_html: |-
+              <ul>
+              <li><b>Taulukkolaskentaohjelmat</b>: voit avata CSV-tiedostoja esimerkiksi Microsoft Excel, Google Sheets tai LibreOffice Calc -ohjelmistoilla. Avaa käyttämäsi ohjelmisto, valitse "Avaa" ohjelman Tiedosto-valikosta ja valitse lataamasi CSV-tiedosto.</li>
+              <li><b>Tekstinkäsittelyohjelmat</b>: CSV-tiedostoja voi avata myös tekstinkäsittelyohjelmilla, kuten Muistio tai Sublime Text. Tämä näyttää raakadatan, jossa jokainen rivi on eroteltu rivinvaihdolla ja jokainen arvo pilkulla tai puolipisteellä.</li>
+              <li><b>Data-analyysiohjelmat</b>: jos ymmärrät data-analyysiohjelmistojen päälle, kuten Python (esim. pandas-kirjasto), R tai SQL-tietokannat, voi tuoda CSV-tiedostot suoraan käsittelyä ja analysointia varten kyseisiin ohjelmistoihin.</li>
+              </ul>
             title: 2. Avaa tiedostot
           step_3:
+            body_html: |-
+              <ul>
+              <li><b>Rajaus ja järjestäminen</b>: taulukkolaskentaohjelmistoissa voit rajata ja järjestää tietoa keskittyäksesi ainoastaan tiettyyn tietojoukkoon koko lähdedatassa.</li>
+              <li><b>Analysointi</b>: käytä dataa analysoidaksesi erilaisia asioita, kuten laskeakssesi ehdotusten kokonaismäärän, tunnistaaksesi trendejä kommenteissa tai arvioidaksesi tapaamisten osallistumisaktiivisuutta.</li>
+              <li><b>Visualisointi</b>: voit luoda kaavioita, graafeja tai muunlaisia visualisointeja tiedon pohjalta helpottaaksesi tiedon tulkintaa.</li>
+              </ul>
             title: 3. Työskentele tietojen kanssa
+          title: Miten nämä tiedostot avataan ja miten niiden kanssa työskennellään?
+        title: Avoin data
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudestaan muutaman minuutin kuluttua.
     pad_iframe:
       disclaimer: Tämän muistion sisällön ovat kirjoittaneet alustan rekisteröityneet käyttäjät, jotka ilmaisevat omia mielipiteitään. %{organization} ei ole vastuussa sisällöstä.
@@ -1987,6 +2001,7 @@ fi:
         decidim_title: Decidim
         log_in: Kirjaudu sisään
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
+        open_data: Avoin data
         resources: Resurssit
         sign_up: Luo tili
         terms_of_service: Käyttöehdot
