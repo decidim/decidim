@@ -27,7 +27,7 @@ sv:
         empty: Det finns inga mallar ännu.
         fetch:
           error: Kunde inte hitta mallen. Ladda om sidan.
-        missing_resource: "(saknad resurs)"
+        missing_resource: "(innehåll saknas)"
         update:
           error: Det gick inte att uppdatera mallen.
           success: Mallen har uppdaterats.
@@ -47,23 +47,67 @@ sv:
     templates:
       admin:
         block_user_templates:
+          edit:
+            title: Redigera mall för meddelande till avstängda användare
           form:
             save: Spara
           index:
             confirm_delete: Är det säkert att du vill ta bort mallen?
+            title: Meddelande till avstängda användare
+          new:
+            title: Ny mall för meddelande till avstängda användare
+          template_chooser:
+            select_template: Välj ett mallsvar
         proposal_answer_templates:
+          edit:
+            title: Redigera mall för svar till förslag
           form:
+            component_constraint_help: Observera att endast deltagarutrymmen med komponenter av typen "förslag" listas.
+            hint1_html: "<strong>%{organization}</strong> kommer att ersättas av organisationens namn"
+            hint2_html: "<strong>%{name}</strong> kommer att ersättas av författarens namn"
+            hint3_html: "<strong>%{admin}</strong> kommer att ersättas av administratörens namn (den som svarar på förslaget)"
+            hint_html: "<strong>Tips:</strong> Du kan använda variablerna var som helst i svarsmallen. De kommer att ersättas när mallen används"
             save: Spara
+          index:
+            component_constraint: Lägg till villkor
+            confirm_delete: Är du säker på att du vill ta bort mallen?
+            missing_state: Status saknas
+            proposal_state_id: Intern status
+            title: Svar på förslag
+          new:
+            title: Ny mall för svar på förslag
+          template_chooser:
+            select_template: Välj ett mallsvar
         questionnaire_templates:
           choose:
+            create_from_template: Skapa från mall
+            description: Du håller på att skapa en ny enkät. Du kan välja en fördefinierad mall och ändra den efteråt.
             label: Välj mall
             placeholder: Välj mall
             skip_template: Hoppa över
           edit:
             edit: Redigera
+            empty: Det finns inga frågor ännu.
             questionnaire: Enkät
+            title: Redigera enkätmall
+          form:
+            title: Mall för enkät %{questionnaire_for}
+          index:
+            confirm_delete: Är du säker på att du vill ta bort mallen?
+            title: Mallar för enkäter
+          new:
+            title: Ny mall för enkät
           preview:
             current_step: Steg %{step}
             of_total_steps: av %{total_steps}
+            tos_agreement: Genom att delta godkänner du användarvillkoren
+      admin_log:
+        template:
+          create: "%{user_name} skapade enkätmallen %{resource_name}"
+          delete: "%{user_name} raderade enkätmallen %{resource_name}"
+          duplicate: "%{user_name} duplicerade enkätmallen %{resource_name}"
+          update: "%{user_name} uppdaterade enkätmallen %{resource_name}"
       template_types:
+        block_user: Meddelanden till avstängda användare
+        proposal_answer_templates: Svar på förslag
         questionnaires: Enkäter
