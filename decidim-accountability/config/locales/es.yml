@@ -286,6 +286,35 @@ es:
         description: Número de resultados generados
         object: resultados
         title: Resultados
+    open_data:
+      help:
+        result_comments:
+          alignment: Si este comentario fue un favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que el participante tuvo al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
+        results:
+          category: La categoría del resultado (por ejemplo, "Cultura")
+          component: El componente al que pertenece el resultado
+          created_at: La fecha en la que se creó este resultado
+          description: La descripción del resultado
+          end_date: La fecha prevista para la finalización de la ejecución del resultado
+          id: El identificador único del resultado
+          parent: El resultado padre (si existe) del resultado
+          progress: El porcentaje de ejecución del resultado
+          proposal_urls: Las URL de las propuestas que se incluyen en este resultado
+          scope: El ámbito territorial del resultado (por ejemplo, "Ciudad")
+          start_date: La fecha en la que estaba previsto el inicio de la ejecución del resultado
+          status: El estado actual de este resultado
+          title: El título del resultado
+          url: La URL donde se puede encontrar este resultado
     participatory_spaces:
       highlighted_results:
         see_all: Ver todos los resultados
