@@ -576,6 +576,12 @@ eu:
       help:
         conferences:
           decidim_scope_id: Hitzaldiaren esparrua
+          description: Hitzaldiaren deskribapen luzea
+          end_date: Zein datatan amaitu zen hitzaldi hau.
+          scope: Hitzaldiaren esparrua
+          slogan: Hitzaldi honen leloa
+          start_date: Zein datatan hasi zen hitzaldi hau.
+          title: Hitzaldiaren izenburua
     statistics:
       conferences_count: Hitzaldiak
   devise:
