@@ -379,6 +379,10 @@ eu:
           created_at: Zein data eta zein ordutan sortu zen proiektu hau
           description: Proiektuaren deskribapena
           id: Proiektuaren identifikatzaile bakarra
+          participatory_space: Proiektu hau zein espaziotakoa da (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          related_proposal_titles: Zerrendatutako proposamenen izenburuak
+          related_proposal_urls: Zerrendatutako proposamenen URLak
+          related_proposals: Zerrendatutako proposamenak proiektu honetarako
           scope: 'Proiektuaren esparrua (adibidez: "Hiria")'
           title: Proiektuaren izenburua
           url: Proiektuaren URLa
