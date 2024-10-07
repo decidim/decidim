@@ -600,6 +600,18 @@ ca:
         success: La iniciativa s'ha actualitzat correctament.
     menu:
       initiatives: Iniciatives
+    open_data:
+      help:
+        initiatives:
+          answer: La resposta que ha rebut aquesta iniciativa (si n'hi ha)
+          answer_url: L'URL de la resposta (si n'hi ha)
+          answered_at: La data de la resposta (si n'hi ha)
+          area: L'àrea d'aquesta iniciativa
+          authors: Les autores d'aquesta iniciativa
+          created_at: La data en què va ser creada la iniciativa
+          description: La descripció de la iniciativa
+          first_progress_notification_at: La data en què es va enviar la primera notificació de progrés
+          hashtag: L'etiqueta que fa servir la iniciativa a Twitter/X
     resources:
       initiative:
         actions:
