@@ -1319,6 +1319,35 @@ es-PY:
         message_2: Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
+      index:
+        description: Bienvenida a la página de datos abiertos %{organization_name}. Aquí encontrarás archivos de datos que se generan regularmente a partir de varios procesos deliberados y de gobernanza dentro de %{organization_name}. Estos archivos están disponibles para promover la transparencia, accesibilidad y colaboración. A continuación, encontrarás información detallada sobre cuáles son estos archivos, cómo abrir y trabajar con ellos, y una descripción del contenido y la estructura de cada archivo.
+        download_open_data: Descargar todos los archivos de datos abiertos
+        explanation:
+          body_1: Estos archivos son conjuntos de datos exportados desde los procesos participativos de %{organization_name}, como propuestas, comentarios y reuniones. Se proporcionan datos crudos y estructurados que pueden ser utilizados para el análisis, la investigación o la integración con otras herramientas. Los datos se actualizan automáticamente cada 24 horas, para asegurar tener acceso a la información más reciente posible.
+          body_2: Estos archivos están en formato CSV (valores separados por comas), un formato de archivo ampliamente utilizado que puede ser abierto y procesado por una variedad de aplicaciones de software, incluyendo programas de hojas de cálculo, editores de texto y herramientas de análisis de datos.
+          title: '¿Cuáles son estos archivos?'
+        how_to:
+          step_1:
+            body_html: Haz clic en los siguientes enlaces para descargar los archivos CSV en tu ordenador.
+            title: 1. Descargar los archivos
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Hoja de cálculo</b>: Puedes abrir archivos CSV utilizando aplicaciones como Microsoft Excel, Hojas de Google, o LibreOffice Calc. Simplemente abre la aplicación, luego selecciona "Abrir" del menú Archivo, y elige el archivo CSV descargado.</li>
+              <li><b>Ediciones de texto</b>: también se pueden abrir archivos CSV en cualquier editor de texto, como Bloc de notas o Texto Sublime. Esto mostrará los datos crudos, con cada línea que representa una fila y cada valor separado por una coma.</li>
+              <li><b>Herramientas de análisis de datos</b>: Si estás familiarizada con herramientas de análisis de datos como Python (con pandas), R, o bases de datos SQL, puedes importar estos archivos CSV directamente para procesamiento y análisis.</li>
+              </ul>
+            title: 2. Abrir los archivos
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrar y ordenar</b>: En las aplicaciones de hoja de cálculo, puedes filtrar y ordenar los datos para centrarte en subconjuntos específicos de información.</li>
+              <li><b>Análisis</b>: Utiliza los datos para realizar varios análisis, como contar el número de propuestas, analizar tendencias en los comentarios o evaluar la participación en las reuniones.</li>
+              <li><b>Visualización</b>: Puedes crear gráficos, gráficos y otras visualizaciones para ayudar a interpretar los datos.</li>
+              </ul>
+            title: 3. Trabajando con los datos
+          title: Cómo abrir y trabajar con estos archivos
+        title: Datos abiertos
       not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
     pad_iframe:
       disclaimer: Los contenidos de este panel están escritos por usuarios registrados y expresan sus opiniones. %{organization} no se hace responsable de su contenido.
@@ -1965,6 +1994,7 @@ es-PY:
         decidim_title: Decidim
         log_in: Entra
         made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
+        open_data: Datos abiertos
         resources: Recursos
         sign_up: Crea una cuenta
         terms_of_service: Términos y condiciones de uso
