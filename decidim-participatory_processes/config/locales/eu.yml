@@ -360,6 +360,12 @@ eu:
         description: Erakundeko prozesu parte-hartzaile kopurua
         object: prozesu parte-hartzaileak
         title: Prozesu parte-hartzaileak
+    open_data:
+      help:
+        participatory_processes:
+          meta_scope: Prozesuaren esparru-metadatuak
+          participatory_process_type: Prozesu mota
+          scope: Prozesuaren esparrua
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -426,7 +432,7 @@ eu:
             duration: Iraupena
             filters: iragazkiak
             images: Irudiak
-            metadata: Metadata
+            metadata: Metadatuak
             other: Beste
             related_processes: Elkarrekin lotutako prozesuak
             scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
