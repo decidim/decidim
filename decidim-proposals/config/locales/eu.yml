@@ -420,6 +420,14 @@ eu:
         description: Zenbat boto proposamenei
         object: botoak
         title: Botoak
+    open_data:
+      help:
+        proposal_comments:
+          created_at: Zein datatan sortu zen iruzkin hau
+        proposals:
+          answered_at: Zein datatan erantzun zen proposamen hau
+          published_at: Zein datatan argitaratu zen proposamen hau
+          scope: Proposamenaren esparrua
     participatory_spaces:
       highlighted_proposals:
         last: Azken proposamenak
