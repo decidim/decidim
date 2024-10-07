@@ -359,6 +359,31 @@ ca:
         description: Nombre de processos participatius d'aquesta organització
         object: processos participatius
         title: Processos participatius
+    open_data:
+      help:
+        participatory_processes:
+          announcement: La informació de l'anunci/avís (crida)
+          area: L'àrea a què pertany aquest procés
+          description: Una descripció llarga del procés
+          developer_group: El grup promotor del procés. Qui està promovent el procés.
+          end_date: La data de finalització del procés
+          hashtag: L'etiqueta que fa servir el procés a Twitter/X
+          id: L'identificador únic del procés
+          meta_scope: Les metadades de l'àmbit territorial del procés
+          participatory_process_group: El grup de processos, si en forma part d'algun
+          participatory_process_type: El tipus de procés
+          participatory_scope: L'àmbit territorial de la participació del procés
+          participatory_structure: L'estructura participativa del procés. Això és com es decideix al procés.
+          promoted: Si el procés està destacat o no
+          remote_hero_image_url: L'URL de la imatge principal del procés
+          scope: L'àmbit territorial del procés
+          scopes_enabled: Si l'àmbit territorial està habilitat o no
+          short_description: Una descripció breu del procés
+          slug: El nom curt del procés (utilitzat per a finalitats d'identificació, per a l'URL)
+          start_date: La data d'inici del procés
+          subtitle: El subtítol del procés
+          target: Les destinatàries del procés. Qui està cridat a participar en el procés.
+          title: El títol del procés
     participatory_process_groups:
       content_blocks:
         extra_data:
