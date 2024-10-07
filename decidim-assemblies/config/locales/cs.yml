@@ -455,6 +455,25 @@ cs:
           decidim_scope_id: Rozsah shromáždění
           description: Dlouhý popis shromáždění
           developer_group: Skupina vývojářů shromáždění
+          duration: Doba trvání shromáždění
+          hashtag: Hashtag Shromáždění, používaný pro Twitter/X
+          id: Jedinečný identifikátor ttohoto shromáždění
+          included_at: Datum, kdy bylo shromáždění zahrnuto
+          instagram_handler: Handler sociálních médií pro Instagram
+          internal_organisation: Vnitřní organizace tohoto shromáždění
+          is_transparent: Zda je shromáždění transparentní, nebo ne
+          local_area: Místní oblast shromáždění
+          meta_scope: Rozsah metadat shromáždění
+          participatory_scope: Participační rozsah shromáždění
+          participatory_structure: Participační struktura shromáždění
+          scope: Rozsah shromáždění
+          short_description: Stručný popis shromáždění
+          special_features: Jaké speciální vlastnosti má toto shromáždění
+          subtitle: Podnadpis shromáždění
+          target: Cíl shromáždění
+          title: Název shromáždění
+          twitter_handler: Handler sociálních médií pro Twitter
+          youtube_handler: Handler sociálních médií pro YouTube
     participatory_processes:
       show:
         related_assemblies: Související shromáždění
