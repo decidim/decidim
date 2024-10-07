@@ -366,6 +366,12 @@ cs:
         description: Počet participativních procesů v této organizaci
         object: participativní procesy
         title: Participativní procesy
+    open_data:
+      help:
+        participatory_processes:
+          subtitle: Podtitulek procesu
+          target: Cíl procesu je ten, kdo je vyzván, aby se tohoto procesu zúčastnil.
+          title: Název procesu
     participatory_process_groups:
       content_blocks:
         extra_data:
