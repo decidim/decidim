@@ -1351,13 +1351,13 @@ en:
               </ul>
             title: 2. Open the files
           step_3:
-            title: 3. Working with the data
             body_html: |-
               <ul>
                 <li><b>Filtering and Sorting</b>: In spreadsheet applications, you can filter and sort the data to focus on specific subsets of information.</li>
                 <li><b>Analysis</b>: Use the data to perform various analyses, such as counting the number of proposals, analyzing trends in comments, or evaluating participation in meetings.</li>
                 <li><b>Visualization</b>: You can create charts, graphs, and other visualizations to help interpret the data.</li>
               </ul>
+            title: 3. Working with the data
           title: How to open and work with these files
         title: Open Data
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
