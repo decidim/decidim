@@ -129,7 +129,7 @@ module Decidim
       end
 
       def result_items_for_map
-        [comments_count_item, endorsements_count_item, percentage_item].compact_blank.map do |item|
+        [percentage_item].compact_blank.map do |item|
           {
             text: item[:text].to_s.html_safe,
             icon: item[:icon].present? ? icon(item[:icon]).html_safe : nil
