@@ -691,6 +691,11 @@ cs:
         description: Počet vytvořených schůzek
         object: setkání
         title: Setkání
+    open_data:
+      help:
+        meetings:
+          title: Název schůzky
+          url: URL schůzky
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schůze
