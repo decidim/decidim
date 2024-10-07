@@ -635,6 +635,10 @@ cs:
           signature_end_date: Datum, kdy končí doba sběru podpisů
           signature_start_date: Datum, kdy začalo období sběru podpisů
           signature_type: Typ sbírky podpisů (online nebo osobní)
+          signatures: Počet podpisů, které tato iniciativa má
+          state: Stav, který tato iniciativa v tuto chvíli má
+          title: Název iniciativy
+          type: Typ iniciativy
     resources:
       initiative:
         actions:
