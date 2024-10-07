@@ -55,6 +55,16 @@ module Decidim
       it "returns the file extension" do
         expect(subject.file_type).to eq("jpeg")
       end
+
+      context "when the url is in S3" do
+        before do
+          allow(subject).to receive(:url).and_return("https://s3.example.com/1234?response-content-disposition=inline&filename=image.jpeg&response-content-type=image%2Fjpeg")
+        end
+
+        it "returns the file extension" do
+          expect(subject.file_type).to eq("jpeg")
+        end
+      end
     end
 
     context "when it has an image" do
