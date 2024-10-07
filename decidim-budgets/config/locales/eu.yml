@@ -366,6 +366,22 @@ eu:
           email_outro: Jakinarazpen hau jaso duzu %{participatory_space_title} jarraitzen ari zarelako. Jakinarazpenak jasotzeari utzi ahal diozu aurreko lotura jarraituz.
           email_subject: '%{resource_title} osagaia orain aktibo dago %{participatory_space_title} rentzat.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> aurrekontua aktibo dago hemen %{participatory_space_title}.
+    open_data:
+      help:
+        projects:
+          address: Proiektuaren helbidea (hala badagokio)
+          budget: 'Zein proiektu-talderi dagokio proiektu hau (adibidez: "Aurrekontua2021")'
+          budget_amount: Proiektu honetarako aurrekontuaren zenbateko osoa
+          category: 'Proiektuaren kategoria (adibidez: "Kultura")'
+          comments: Proiektu honek zenbat iruzkin jaso ditu?
+          component: Proiektuaren osagaia
+          confirmed_votes: Zenbat boto baieztatuta ditu proiektu honek?
+          created_at: Zein data eta zein ordutan sortu zen proiektu hau
+          description: Proiektuaren deskribapena
+          id: Proiektuaren identifikatzaile bakarra
+          scope: 'Proiektuaren esparrua (adibidez: "Hiria")'
+          title: Proiektuaren izenburua
+          url: Proiektuaren URLa
     orders:
       checkout:
         error: Arazo bat egon da zure botoa prozesatzean.
