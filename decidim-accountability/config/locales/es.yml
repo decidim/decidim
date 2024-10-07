@@ -297,7 +297,7 @@ es:
           created_at: La fecha en la que se creó este comentario
           depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
           id: El identificador de este comentario
-          locale: La configuración regional (idioma) que el participante tuvo al dejar este comentario
+          locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
           user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
         results:
