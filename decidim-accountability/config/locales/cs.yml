@@ -299,6 +299,13 @@ cs:
     open_data:
       help:
         result_comments:
+          body: Samotný komentář
+          commentable_id: Jedinečné Id komentáře
+          created_at: Datum, kdy byl komentář vytvořen
+          depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
+          id: Id pro tento komentář
+          locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
+          root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
           user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         results:
           category: Kategorie výsledku (např. "Kultura")
@@ -308,6 +315,7 @@ cs:
           end_date: Datum, kdy je výsledek ukončen a dokončen
           id: Jedinečný identifikátor výsledku
           parent: Nadřazený výsledek (pokud existuje) výsledku
+          progress: Procento provedení výsledku
           proposal_urls: URL návrhů, které jsou součástí tohoto výsledku
           scope: Rozsah výsledku (např. "město")
           start_date: Datum, kdy se výsledek spustí
