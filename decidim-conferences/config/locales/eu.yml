@@ -572,6 +572,10 @@ eu:
         title: Media eta estekak
     menu:
       conferences: Jardunaldiak
+    open_data:
+      help:
+        conferences:
+          decidim_scope_id: Hitzaldiaren esparrua
     statistics:
       conferences_count: Hitzaldiak
   devise:
