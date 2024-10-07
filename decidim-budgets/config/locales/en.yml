@@ -403,6 +403,7 @@ en:
           related_proposal_urls: The URLs of the related proposals
           related_proposals: The related proposals to this project
           scope: The scope of the project (e.g. "City")
+          taxonomies: The taxonomies of the project
           title: The title of the project
           url: The URL of the project
         results:
