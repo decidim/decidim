@@ -471,6 +471,7 @@ en:
           related_proposals: The proposals related to this proposal
           scope: The scope of the proposal (e.g. "City")
           state: The status of this proposal (e.g. "Accepted")
+          taxonomies: The taxonomies that this proposal belongs to
           title: The proposal title
           url: The URL where this proposal can be found
           votes: The number of votes this proposal has

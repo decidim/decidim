@@ -197,23 +197,6 @@ describe "Explore debates" do
         end
       end
 
-      it "allows filtering by scope" do
-        scope = create(:scope, organization:)
-        debate = debates.first
-        debate.scope = scope
-        debate.save
-
-        visit_component
-
-        within "#panel-dropdown-menu-scope" do
-          check "All"
-          uncheck "All"
-          check translated(scope.name)
-        end
-
-        expect(page).to have_css("a.card__list", count: 1)
-      end
-
       context "when filtering by taxonomy" do
         let(:taxonomy2) { create(:taxonomy, :with_parent, organization:) }
         let(:debates) { create_list(:debate, 3, component:, taxonomies: [taxonomy2]) }
