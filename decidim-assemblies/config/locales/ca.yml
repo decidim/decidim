@@ -435,6 +435,23 @@ ca:
         description: Nombre d'assemblees creades
         object: assemblees
         title: Assemblees
+    open_data:
+      help:
+        assemblies:
+          announcement: La informació de l'anunci/avís (crida)
+          area: L'àrea a la qual correspon l'assemblea
+          assembly_type: El tipus d'assemblea
+          closing_date: La data de tancament de l'assemblea
+          closing_date_reason: Perquè es va tancar l'assemblea
+          composition: La composició de l'assemblea
+          created_by: Qui va crear l'assemblea
+          created_by_other: L'àrea a la qual correspon l'assemblea
+          creation_date: La data de creació d'aquesta assemblea
+          decidim_scope_id: L'àmbit territorial de l'assemblea
+          description: Una descripció llarga de l'assemblea
+          developer_group: El grup promotor de l'assemblea
+          duration: La durada de l'assemblea
+          facebook_handler: Controlador de xarxes socials per a Facebook
     participatory_processes:
       show:
         related_assemblies: Assemblees relacionades
