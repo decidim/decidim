@@ -49,7 +49,7 @@ module Decidim::Accountability
         component: project_component
       )
     end
-    let(:address) { "Carrer de Muntaner, 152, 08021 Barcelona" }
+    let(:address) { "Carrer de Sant Joan, 123, 08001 Barcelona" }
     let(:latitude) { 41.38879 }
     let(:longitude) { 2.15899 }
     let(:form) do
