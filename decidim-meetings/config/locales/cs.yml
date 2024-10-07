@@ -693,7 +693,31 @@ cs:
         title: Setkání
     open_data:
       help:
+        meeting_comments:
+          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
+          author: Jméno účastníka, který vytvořil tento komentář
+          body: Samotný komentář
+          commentable_id: Jedinečné ID komentáře
+          commentable_type: Typ komentáře (pokud byl výsledek, návrh atd.)
+          created_at: Datum, kdy byl komentář vytvořen
+          depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
+          id: ID pro tento komentář
+          locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
+          root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
+          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         meetings:
+          address: Adresa schůzky v případě, že se koná osobně a má fyzické umístění
+          attachments: Počet příloh v této schůzce
+          attendees: Počet lidí účastnících se této schůzky
+          category: Kategorie schůzky (např. "Kultura")
+          comments: Počet komentářů k této schůzce
+          component: Komponenta, ke které schůzka patří,
+          contributions: Počet příspěvků na této schůzce zúčastněných stran
+          description: Popis schůzky
+          end_time: Datum a čas ukončení této schůzky
+          followers: Počet sledujících tuto schůzku
+          id: Jedinečný identifikátor sschůzky
+          start_time: Datum a čas zahájení této schůzky
           title: Název schůzky
           url: URL schůzky
     participatory_spaces:
