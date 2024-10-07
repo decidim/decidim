@@ -296,6 +296,24 @@ cs:
         description: Počet vygenerovaných výsledků
         object: výsledky
         title: Výsledky
+    open_data:
+      help:
+        result_comments:
+          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
+        results:
+          category: Kategorie výsledku (např. "Kultura")
+          component: Komponenta, do které náleží výsledek
+          created_at: Datum, kdy byl výsledek vytvořen
+          description: Popis výsledku
+          end_date: Datum, kdy je výsledek ukončen a dokončen
+          id: Jedinečný identifikátor výsledku
+          parent: Nadřazený výsledek (pokud existuje) výsledku
+          proposal_urls: URL návrhů, které jsou součástí tohoto výsledku
+          scope: Rozsah výsledku (např. "město")
+          start_date: Datum, kdy se výsledek spustí
+          status: Aktuální stav tohoto výsledku
+          title: Název výsledku
+          url: URL, kde lze tento výsledek nalézt
     participatory_spaces:
       highlighted_results:
         see_all: Zobrazit všechny výsledky (%{count})
