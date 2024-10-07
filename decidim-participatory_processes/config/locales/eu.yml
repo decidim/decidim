@@ -363,6 +363,9 @@ eu:
     open_data:
       help:
         participatory_processes:
+          announcement: Informazioa iragarpenaz (deia)
+          area: Prozesua zein eremutan gertatzen ari da?
+          description: Prozesuaren deskribapen luzea
           end_date: Prozesuaren amaiera-data
           meta_scope: Prozesuaren esparru-metadatuak
           participatory_process_type: Prozesu mota
