@@ -375,6 +375,26 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions a través de l'enllaç anterior.
           email_subject: El component %{resource_title} ja està actiu per %{participatory_space_title}.
           notification_title: El pressupost <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està actiu.
+    open_data:
+      help:
+        projects:
+          address: La localització (adreça) del projecte (si en té)
+          budget: 'A quin grup de projectes (per exemple: "Pressupostos 2021") pertany aquest projecte'
+          budget_amount: La quantitat total de pressupost per a aquest projecte
+          category: 'La categoria del projecte (per exemple: "Cultura")'
+          comments: El número de comentaris que ha rebut aquest projecte
+          component: El component al qual pertany el projecte
+          confirmed_votes: El número de vots confirmats que ha rebut aquest projecte
+          created_at: La data i l'hora en què es va crear el projecte
+          description: La descripció del projecte
+          id: L'identificador únic del projecte
+          participatory_space: A quin espai pertany aquest projecte (procés participatiu, assemblea, etc.)
+          related_proposal_titles: Els títols de les propostes relacionades
+          related_proposal_urls: Les URL de les propostes relacionades
+          related_proposals: Les propostes relacionades amb aquest projecte
+          scope: 'L''àmbit territorial del projecte (per exemple: "Ciutat")'
+          title: El títol del projecte
+          url: L'URL del projecte
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot.
