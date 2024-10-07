@@ -135,20 +135,34 @@ module Decidim
           expect(serialized[:url]).to include("http", debate.id.to_s)
         end
 
-        it "serializes the conclusions" do
-          expect(serialized).to include(conclusions: debate.conclusions)
-        end
-
-        it "serializes the closed at" do
-          expect(serialized).to include(closed_at: debate.closed_at)
-        end
-
         it "serializes the last comment at" do
           expect(serialized).to include(last_comment_at: debate.last_comment_at)
         end
 
         it "serializes the comments enabled" do
           expect(serialized).to include(comments_enabled: debate.comments_enabled)
+        end
+
+        describe "conclusions and closed at" do
+          it "does not serializes the conclusion" do
+            expect(serialized).not_to have_key(:conclusions)
+          end
+
+          it "does not serializes the closed at" do
+            expect(serialized).not_to have_key(:closed_at)
+          end
+
+          context "when the debate is closed" do
+            let!(:debate) { create(:debate, :closed) }
+
+            it "serializes the conclusion" do
+              expect(serialized).to include(conclusions: debate.conclusions)
+            end
+
+            it "serializes the closed at" do
+              expect(serialized).to include(closed_at: debate.closed_at)
+            end
+          end
         end
       end
 
