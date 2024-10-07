@@ -435,6 +435,23 @@ es:
         description: Número de asambleas creadas
         object: asambleas
         title: Asambleas
+    open_data:
+      help:
+        assemblies:
+          announcement: La información del anuncio/aviso (llamada)
+          area: El área a la que corresponde la asamblea
+          assembly_type: El tipo de asamblea
+          closing_date: La fecha de cierre de la asamblea
+          closing_date_reason: Por qué se cerró la asamblea
+          composition: La composición de la asamblea
+          created_by: Quién creó esta asamblea
+          created_by_other: El área a la que corresponde la asamblea
+          creation_date: La fecha de creación de esta asamblea
+          decidim_scope_id: El ámbito territorial de asamblea
+          description: Una descripción larga de la asamblea
+          developer_group: El grupo de promotor de la asamblea
+          duration: La duración de la asamblea
+          facebook_handler: Controlador de redes sociales para Facebook
     participatory_processes:
       show:
         related_assemblies: Asambleas relacionadas
