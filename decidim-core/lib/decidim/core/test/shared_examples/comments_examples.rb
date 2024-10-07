@@ -38,7 +38,7 @@ shared_examples "comments" do
     expect(page).to have_css(".comment", minimum: 1)
 
     within ".comment-order-by" do
-      click_on "Best rated"
+      select "Best rated", from: "comment-reply-resources"
     end
 
     expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
