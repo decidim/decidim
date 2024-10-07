@@ -612,6 +612,17 @@ es:
           description: La descripción de la iniciativa
           first_progress_notification_at: La fecha en la que se envió la primera notificación de progreso
           hashtag: La etiqueta que utiliza la iniciativa en Twitter/X
+          published_at: La fecha en la que se publicó la iniciativa
+          reference: La referencia de la iniciativa. Un identificador único para esta plataforma.
+          scope: El ámbito territorial de la iniciativa
+          second_progress_notification_at: La fecha en la que se envió la segunda notificación de progreso
+          signature_end_date: La fecha en la que terminó el período de recogida de firmas
+          signature_start_date: La fecha en la que se inició el período de recogida de firmas
+          signature_type: El tipo de recogida de firmas (presencial, digital o mixta)
+          signatures: El número de firmas que recogió esta iniciativa
+          state: El estado en que se encuentra esta iniciativa en este momento
+          title: El título de la iniciativa
+          type: El tipo de iniciativa
     resources:
       initiative:
         actions:
