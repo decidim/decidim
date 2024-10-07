@@ -423,14 +423,20 @@ eu:
     open_data:
       help:
         proposal_comments:
+          body: Iruzkin bera
+          commentable_id: Iruzkingarriaren identifikazio bakarra
           created_at: Zein datatan sortu zen iruzkin hau
           id: Identifikazioa iruzkin honetarako
         proposals:
           answered_at: Zein datatan erantzun zen proposamen hau
+          author: Proposamen honen egilearen data
           body: Proposamenaren gorputza
+          category: 'Proposamenaren kategoria (adibidez: "Kultura")'
+          id: Proposamenaren identifikatzaile bakarra
           published_at: Zein datatan argitaratu zen proposamen hau
           scope: Proposamenaren esparrua
           title: Proposamenaren izenburua
+          withdrawn_at: Noiz utzi zen bertan behera proposamen hau
     participatory_spaces:
       highlighted_proposals:
         last: Azken proposamenak
