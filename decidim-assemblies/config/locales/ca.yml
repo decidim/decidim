@@ -452,6 +452,31 @@ ca:
           developer_group: El grup promotor de l'assemblea
           duration: La durada de l'assemblea
           facebook_handler: Controlador de xarxes socials per a Facebook
+          github_handler: Controlador de xarxes socials per a GitHub
+          hashtag: L'etiqueta que fa servir l'assemblea a Twitter/X
+          id: L'identificador únic del resultat
+          included_at: La data en què l'assemblea es va incloure a la plataforma
+          instagram_handler: Controlador de xarxes socials per a Instagram
+          internal_organisation: L'organització interna d'aquesta assemblea
+          is_transparent: Si l'assemblea és transparent o no
+          meta_scope: Les metadades de l'àmbit territorial de l'assemblea
+          participatory_scope: L'àmbit territorial de la participació de l'assemblea
+          participatory_structure: L'estructura participativa de l'assemblea
+          promoted: Si l'assemblea està destacada o no
+          purpose_of_action: El propòsit de l'acció de l'assemblea
+          reference: La referència de l'assemblea. Un identificador únic per a aquesta plataforma.
+          remote_banner_image_url: L'URL de la imatge de capçalera (imatge principal) de l'assemblea
+          remote_hero_image_url: L'URL de la imatge principal de l'assemblea
+          scope: L'àmbit territorial de l'assemblea
+          scopes_enabled: Si l'àmbit territorial està habilitat o no
+          short_description: Una descripció breu de l'assemblea
+          slug: El nom curt de l'assemblea (utilitzat per a finalitats d'identificació, per a l'URL)
+          special_features: Quines característiques especials té aquesta assemblea
+          subtitle: El subtítol d'assemblea
+          target: L'objectiu de l'assemblea
+          title: El títol de l'assemblea
+          twitter_handler: Controlador de xarxes socials per a Twitter/X
+          youtube_handler: Controlador de xarxes socials per a YouTube
     participatory_processes:
       show:
         related_assemblies: Assemblees relacionades
