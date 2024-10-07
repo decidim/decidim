@@ -1302,6 +1302,12 @@ eu:
         message_2: Mesedez, saiatu berriro geroago.
         retry: Saiatu berriro
     open_data:
+      help:
+        core:
+          components: Osagaiak
+          description: ZIP fitxategi honetan fitxategiak daude plataforma prte-hartzaile hau aztertu eta ikertzeko.
+          spaces: Espazioak
+          title: Open Data fitxategiak %{organization} erakunderako
       index:
         description: 'Ongi etorri %{organization_name} Open Data orrira. Hemen, datu-fitxategiak aurkituko dituzu, aldian-aldian hainbat deliberazio- eta gobernantza-prozesutatik sortzen direnak honen barruan: %{organization_name}. Fitxategi horiek gardentasuna, irisgarritasuna eta lankidetza sustatzeko daude eskuragarri. Jarraian, aurkituko duzu fitxategi horiek zer diren, nola ireki eta nola landu behar diren eta fitxategi bakoitzaren edukiaren eta egituraren deskribapena.'
         download_open_data: Deskargatu Open Data fitxategi guztiak
