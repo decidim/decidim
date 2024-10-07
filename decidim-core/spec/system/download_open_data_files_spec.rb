@@ -28,7 +28,7 @@ describe "Download Open Data files", download: true do
     visit decidim.root_path
     click_on "Open Data"
 
-    expect(page).to have_content("Here, you'll find data files that are regularly generated from various deliberative and governance processes within")
+    expect(page).to have_content("Here, you will find data files that are regularly generated from various deliberative and governance processes within")
     expect(page).to have_content("Download results in CSV format")
   end
 end
