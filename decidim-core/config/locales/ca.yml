@@ -1316,6 +1316,12 @@ ca:
         message_2: Si us plau, torneu-ho a provar més tard.
         retry: Torna-ho a provar
     open_data:
+      help:
+        core:
+          components: Components
+          description: Aquest fitxer ZIP conté fitxers per l'estudi i la recerca sobre aquesta plataforma de participació.
+          spaces: Espais
+          title: Fitxers de dades obertes de %{organization}
       index:
         description: Benvinguda a la pàgina de dades oberta %{organization_name}. Aquí trobaràs fitxers de dades que es generen regularment a partir de diversos processos deliberats i de governança dins %{organization_name}. Aquests fitxers estan disponibles per promoure la transparència, accessibilitat i col·laboració. A continuació, trobaràs informació detallada sobre quins són aquests fitxers, com obrir i treballar amb ells, i una descripció del contingut i l'estructura de cada fitxer.
         download_open_data: Descarrega tots els fitxers de dades obertes
