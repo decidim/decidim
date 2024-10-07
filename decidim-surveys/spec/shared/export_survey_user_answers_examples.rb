@@ -11,6 +11,7 @@ shared_examples "export survey user answers" do
 
   it "exports a CSV" do
     visit_component_admin
+    click_on "Manage questions"
 
     find(".exports").click
     perform_enqueued_jobs { click_on "CSV" }
@@ -23,6 +24,7 @@ shared_examples "export survey user answers" do
 
   it "exports a JSON" do
     visit_component_admin
+    click_on "Manage questions"
 
     find(".exports").click
     perform_enqueued_jobs { click_on "JSON" }
@@ -35,6 +37,7 @@ shared_examples "export survey user answers" do
 
   it "exports a PDF" do
     visit_component_admin
+    click_on "Manage questions"
 
     find(".exports").click
     perform_enqueued_jobs { click_on "PDF" }

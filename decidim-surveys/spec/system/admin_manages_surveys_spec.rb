@@ -34,47 +34,44 @@ describe "Admin manages surveys" do
 
     it "shows a warning message" do
       visit questionnaire_public_path
-      expect(page).to have_content("This form is not published yet")
+      expect(page).to have_content("No surveys match your search criteria or there is not any survey open.")
     end
 
     it "allows to answer survey" do
       visit questionnaire_public_path
-      expect(page).to have_field(id: "questionnaire_responses_0")
+      expect(page).to have_no_field(id: "questionnaire_responses_0")
     end
 
     context "when the survey has answers" do
       let!(:answer) { create(:answer, question:, questionnaire:) }
 
       it "shows warning message" do
-        visit questionnaire_edit_path
+        click_on "Manage questions"
         expect(page).to have_content("The form is not published")
       end
 
       it "allows editing questions" do
-        visit questionnaire_edit_path
+        click_on "Manage questions"
         click_on "Expand all"
-        expect(page).to have_css("#questionnaire_questions_#{question.id}_body_en")
-        expect(page).to have_no_selector("#questionnaire_questions_#{question.id}_body_en[disabled]")
+        expect(page).to have_css("#questions_questions_#{question.id}_body_en")
+        expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
       end
 
       it "deletes answers after editing" do
-        visit questionnaire_edit_path
+        click_on "Manage questions"
 
         click_on "Expand all"
 
-        within "form.edit_questionnaire" do
-          within "#accordion-questionnaire_question_#{question.id}-field" do
-            find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
-          end
-          click_on "Save"
+        within "#accordion-questionnaire_question_#{question.id}-field" do
+          find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
         end
+        click_on "Save"
 
-        expect(page).to have_admin_callout "Survey successfully saved"
+        expect(page).to have_admin_callout "Survey questions successfully saved"
         expect(questionnaire.answers).to be_empty
       end
 
       context "when publishing the survey" do
-        let(:clean_after_publish) { true }
         let!(:participatory_process) do
           create(:participatory_process, organization:)
         end
@@ -84,24 +81,23 @@ describe "Admin manages surveys" do
         let(:components_path) { participatory_space_path }
 
         before do
-          component.update!(
-            settings: {
-              clean_after_publish:
-            }
-          )
-
           visit components_path
+          click_on translated_attribute(component.name)
+          click_on "Edit"
+
+          check "Delete answers when publishing the survey"
+          click_on "Save"
         end
 
         context "when clean_after_publish is set to true" do
-          context "when deletes previous answers afer publishing" do
+          context "when deletes previous answers after publishing" do
             it "show popup with an alert" do
               find(:css, ".action-icon--publish").click
               expect(page).to have_content("Confirm")
             end
 
             it "deletes previous answers" do
-              expect(survey.clean_after_publish?).to be true
+              expect(clean_after_publish).to be true
 
               perform_enqueued_jobs do
                 Decidim::Admin::PublishComponent.call(component, user)
@@ -115,7 +111,7 @@ describe "Admin manages surveys" do
         context "when clean_after_publish is set to false" do
           let(:clean_after_publish) { false }
 
-          it "does not delete previous answers afer publishing" do
+          it "does not delete previous answers after publishing" do
             expect(survey.clean_after_publish?).to be false
 
             perform_enqueued_jobs do

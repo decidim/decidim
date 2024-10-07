@@ -124,7 +124,8 @@ en:
             expand: Expand all questions
             unpublished_warning: The form is not published. You may modify its questions, but doing so will delete current answers.
             update:
-              success: Questions form successfully saved.
+              invalid: There was a problem updating the survey.
+              success: Survey questions successfully saved.
           separator:
             down: Down
             remove: Remove
