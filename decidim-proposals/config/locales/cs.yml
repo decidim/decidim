@@ -422,6 +422,23 @@ cs:
         description: Počet hlasů pro návrhy
         object: hlasy
         title: Hlasy
+    open_data:
+      help:
+        proposal_comments:
+          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
+          author: Jméno účastníka, který vytvořil tento komentář
+          body: Samotný komentář
+          commentable_id: Jedinečné ID komentáře
+          created_at: Datum, kdy byl komentář vytvořen
+          depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
+          id: ID pro tento komentář
+          locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
+          root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
+          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
+        proposals:
+          title: Název návrhu
+          url: URL, kde lze tento návrh nalézt
+          votes: Počet hlasů tohoto návrhu
     participatory_spaces:
       highlighted_proposals:
         last: Poslední návrhy
@@ -800,6 +817,7 @@ cs:
         success: Návrh byl úspěšně vytvořen. Uloženo jako návrh.
       creation:
         imported_text: Stalo se z něj tento návrh
+        text: Tento návrh byl vytvořen
       destroy_draft:
         error: Došlo k chybám s vymazáním návrhového návrhu.
         success: Koncept návrhu byl úspěšně smazán.
