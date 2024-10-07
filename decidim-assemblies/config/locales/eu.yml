@@ -435,6 +435,24 @@ eu:
         description: Sortutako batzar kopurua
         object: batzarrak
         title: Batzarrak
+    open_data:
+      help:
+        assemblies:
+          announcement: Informazioa iragarpenaz (deia)
+          area: Batzarraren arloa
+          assembly_type: Batzar mota
+          closing_date: Zein datatan ixten den batzarra
+          closing_date_reason: Zergatik itxi zen batzarra
+          composition: Batzarraren osaera
+          created_by: Nork sortu zuen batzar hau
+          created_by_other: Batzarraren beste sortzaile bat
+          creation_date: Zein datatan sortu zen batzar hau
+          decidim_scope_id: Batzarraren esparrua
+          description: Batzarraren deskribapen luzea
+          developer_group: Batzarraren talde garatzailea
+          meta_scope: Batzarraren esparru-metadatuak
+          participatory_scope: Batzarraren parte-hartze esparrua
+          scope: Batzarraren esparrua
     participatory_processes:
       show:
         related_assemblies: Erlazionatutako batzarrak
