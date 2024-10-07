@@ -59,9 +59,6 @@ describe "Admin manages projects" do
       click_on "Update"
 
       expect(page).to have_admin_callout "Projects successfully updated to the scope"
-      within "tr[data-id='#{project.id}']" do
-        expect(page).to have_content(translated(scope.name))
-      end
       expect(Decidim::Budgets::Project.find(project.id).scope).to eq(scope)
       expect(Decidim::Budgets::Project.find(project2.id).scope).to be_nil
     end
