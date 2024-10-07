@@ -10,7 +10,7 @@ module Decidim
       resource = params[:resource] || nil
 
       if open_data_file_for_resource(resource)
-        redirect_to open_data_file_for_resource(resource).blob.url
+        redirect_to rails_blob_url(open_data_file_for_resource(resource).blob, only_path: true)
       else
         schedule_open_data_generation(resource)
         flash[:alert] = t("decidim.open_data.not_available_yet")
