@@ -23,10 +23,6 @@ module Decidim
 
     scope :not_ceased, -> { where("ceased_date >= ? OR ceased_date IS NULL", Time.zone.today) }
 
-    def self.log_presenter_class_for(_log)
-      Decidim::Assemblies::AdminLog::AssemblyMemberPresenter
-    end
-
     def remove_non_user_avatar
       false
     end

@@ -4,7 +4,7 @@ module Decidim
   module Assemblies
     class AssemblyMembersController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
-      include AssemblyBreadcrumb
+      # include AssemblyBreadcrumb
       include Decidim::HasMembersPage
 
       def index
