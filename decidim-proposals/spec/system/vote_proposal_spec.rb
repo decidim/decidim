@@ -387,6 +387,9 @@ describe "Vote Proposal", slow: true do
           it "shows a notification indicating how many votes participant has left to give" do
             expect(page).to have_content("You have 1 supports left")
             expect(page).to have_content("Remember that you still have to give 1 supports between different proposals so that your supports are taken into account.")
+
+            click_on "Already vote"
+            expect(page).to have_content("You have 2 supports left")
           end
         end
 
@@ -406,24 +409,39 @@ describe "Vote Proposal", slow: true do
 
           it "shows the exit modal" do
             expect(page).to have_content("Already vote")
-            click_on "Already vote"
+            click_on "Already voted"
 
             first("a", text: "Proposals").click
 
-            expect(page).to have_content("Remember you have 1 votes left")
+            expect(page).to have_content("Remember you have 1 votes left", wait: 10)
             expect(page).to have_content("You have to give 1 more votes between different proposals for your votes to be taken into account.")
             expect(page).to have_content("Exit voting")
             expect(page).to have_content("Back to voting")
+
+            click_on "Back to voting"
+
+            expect(page).to have_content("You have 1 supports left", wait: 10)
+            expect(page).to have_content("Remember that you still have to give")
           end
 
           it "does not show the exit modal" do
-            expect(page).to have_content("Already vote")
+            expect(page).to have_content("Already voted")
+            expect(page).to have_content("Your votes have been successfully accepted")
+
+            click_on "Already voted"
+            expect(page).to have_content("See other proposals")
+            expect(page).to have_content("You have 1 supports left", wait: 10)
+
+            click_on "See other proposals"
+            expect(page).to have_content("3 proposals")
+            expect(page).to have_css("#proposals__proposal_#{proposal.id}")
+
+            click_on translated_attribute(proposal.title)
+            click_on "Vote"
             expect(page).to have_content("Your votes have been successfully accepted")
 
             page.find(".main-bar__logo a").click
-
-            expect(page).to have_no_content("Already vote", wait: 10)
-            expect(page).to have_no_content("Your votes have been successfully accepted")
+            expect(page).to have_no_content("Already voted", wait: 10)
           end
         end
       end
