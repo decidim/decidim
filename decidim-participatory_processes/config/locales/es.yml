@@ -370,6 +370,7 @@ es:
           end_date: La fecha de finalización del proceso
           hashtag: La etiqueta que utiliza el proceso en Twitter/X
           id: El identificador único del proceso
+          local_area: El área de organización del proceso. Esto es el área de organización de la que depende este proceso.
           meta_scope: Los metadatos del ámbito territorial del proceso
           participatory_process_group: El grupo del proceso, si forma parte de alguno
           participatory_process_type: El tipo del proceso
