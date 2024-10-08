@@ -469,6 +469,7 @@ eu:
           remote_banner_image_url: Batzarraren URLak irudia du
           remote_hero_image_url: Batzarraren protagonistaren irudiaren URLa
           scope: Batzarraren esparrua
+          scopes_enabled: Esparruak gaituta dauden ala ez
           short_description: Batzarraren deskribapen laburra
           slug: Batzarraren lerroa (identifikaziorako erabiltzen da, URLrako)
           special_features: Zein ezaugarri berezi ditu batzar honek
