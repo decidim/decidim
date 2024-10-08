@@ -711,6 +711,7 @@ eu:
           start_time: Zein data eta ordutan hasi da topaketa hau
           title: Topaketaren izenburua
           url: Topaketaren URLa
+          withdrawn: Topaketa bertan behera geratu den ala ez
           withdrawn_at: Noiz utzi zen bertan behera topaketa hau?
     participatory_spaces:
       highlighted_meetings:
