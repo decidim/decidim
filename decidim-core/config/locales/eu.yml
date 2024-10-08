@@ -64,6 +64,10 @@ eu:
         password_confirmation: Baieztatu pasahitza
         remember_me: Gogoratu
     models:
+      decidim:
+        history:
+          one: Historiala
+          other: Historiala
       decidim/amendment:
         one: Zuzenketa
         other: Zuzenketak
@@ -103,6 +107,12 @@ eu:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
       half_a_minute: minutu erdia
+      less_than_x_minutes:
+        one: minutu bat baino gutxiago
+        other: '%{count} minutu baino gutxiago'
+      less_than_x_seconds:
+        one: segundo 1 baino gutxiago
+        other: '%{count} segundo baino gutxiago'
       short:
         about_x_days: "%{count} egun"
         about_x_hours: "%{count}h"
@@ -302,6 +312,10 @@ eu:
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
+      amendments:
+        title:
+          one: "%{count} zuzenketa"
+          other: "%{count} zuzenketa"
       created:
         error: Arazo bat izan da zuzenketaren zirriborroa sortzean.
         success: Zuzenketa-zirriborroa zuzen sortu da.
@@ -878,6 +892,9 @@ eu:
         other: "%{count} jarraitzaileak"
       no_followers: Ez da jarraitzailerik oraindik.
     following:
+      following_count:
+        one: "%{count} jarraitzaile"
+        other: "%{count} jarraitzaile"
       no_followings: Oraindik ez du inor edo ezer jarraitzen.
       non_public_followings: Jarraitutako baliabide batzuk ez dira publikoak.
     follows:
