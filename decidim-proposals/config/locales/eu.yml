@@ -423,19 +423,34 @@ eu:
     open_data:
       help:
         proposal_comments:
+          alignment: Iruzkin hau aldekoa, kontrakoa edo neutrala bazen
+          author: Iruzkin hau egin duen parte-hartzailearen izena
           body: Iruzkin bera
           commentable_id: Iruzkingarriaren identifikazio bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
           created_at: Zein datatan sortu zen iruzkin hau
           id: Identifikazioa iruzkin honetarako
         proposals:
+          answer: Proposamenaren erantzuna, erantzunda baldin badago
           answered_at: Zein datatan erantzun zen proposamen hau
+          attachments: Proposamen honek duen iruzkin kopurua
           author: Proposamen honen egilearen data
           body: Proposamenaren gorputza
           category: 'Proposamenaren kategoria (adibidez: "Kultura")'
+          comments: Proposamen honek duen boto kopurua
+          component: Proposamena osagai honen barruan dago
+          endorsements: Proposamen honek duen abal ("atsegin dut") kopurua
+          followers: Proposamen honek duen jarraitzaile kopurua
           id: Proposamenaren identifikatzaile bakarra
+          latitude: Proposamenaren latitudea, baldin eta kokagune fisikoa badu
           published_at: Zein datatan argitaratu zen proposamen hau
+          reference: Baliabidearen identifikatzaile bakarra plataforma honetan
+          related_proposals: Proposamen honekin lotutako proposamenak
           scope: Proposamenaren esparrua
+          state: Proposamen honen egoera (adibidez, "Onartua")
           title: Proposamenaren izenburua
+          url: Proposamen hau URL honetan aurki daiteke
+          votes: Proposamen honek duen boto kopurua
           withdrawn_at: Noiz utzi zen bertan behera proposamen hau
     participatory_spaces:
       highlighted_proposals:
