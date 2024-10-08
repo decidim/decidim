@@ -532,10 +532,19 @@ eu:
           invalid_indexes:
             lines:
               detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              message:
+                one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
+                other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
             records:
               detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              message:
+                one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                other: Erroreak aurkitu dira % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
+            message:
+              one: Falta da %{columns} zutabe.
+              other: Falta dira %{columns} zutabe.
         error: Arazo bat egon da inportatzean.
         example_error: Arazo bat egon da aukeratutako tiporako adibide bat sortzean.
         new:
@@ -910,6 +919,9 @@ eu:
       reminders:
         create:
           error: Arazo bat egon da ohartarazpenak sortzean.
+          success:
+            one: "%{count} erabiltzaile gogoratuko da."
+            other: "%{count} erabiltzaile gogoratuko dira."
         new:
           submit: Bidali
       resource_permissions:
