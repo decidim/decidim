@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     class ParticipatoryProcessPresenter < SimpleDelegator
       def hero_image_url
-        process.attached_uploader(:hero_image).url(host: process.organization.host)
+        process.attached_uploader(:hero_image).url
       end
 
       def area_name
