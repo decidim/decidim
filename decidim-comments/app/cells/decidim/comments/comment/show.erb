@@ -107,15 +107,13 @@
   <% end %>
 <% end %>
 <div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>">
-  <div id="comment-<%= model.id %>-replies" class="comment mt-4">
-    <% unless model.hidden? %>
+  <% if has_replies_in_children? %>
+    <div id="comment-<%= model.id %>-replies" class="comment mt-4">
       <div class="comment-reply">
         <% if has_replies_in_children? %>
           <%= render :replies %>
-        <% end %>
+       <% end %>
       </div>
-    <% else %>
-      <div class="comment-reply"></div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
