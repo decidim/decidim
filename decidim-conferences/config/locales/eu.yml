@@ -587,6 +587,7 @@ eu:
           remote_banner_image_url: Hitzaldiaren irudiaren URLa
           remote_hero_image_url: Batzarraren protagonistaren irudiaren URLa
           scope: Hitzaldiaren esparrua
+          scopes_enabled: Esparruak gaituta dauden ala ez
           short_description: Hitzaldiaren deskribapen laburra
           slogan: Hitzaldi honen leloa
           slug: Batzarraren lerroa (helburuen identifikaziorako erabiltzen da, URLrako)
