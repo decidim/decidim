@@ -101,6 +101,9 @@ eu:
       decidim/proposals/proposal_note:
         one: Ohar
         other: Oharrak
+      decidim/proposals/proposal_vote:
+        one: Botoa
+        other: Botoak
   decidim:
     admin:
       filters:
@@ -866,6 +869,10 @@ eu:
           no_votes_remaining: Ez da gelditzen botorik
           vote: Proiektuaren alde egin
           votes_blocked: Bozketa desaktibatu da
+        votes_count:
+          count:
+            one: Botoa
+            other: Botoak
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Proposamen bakoitzak %{limit} boto baino gehiago jaso dezake
