@@ -52,9 +52,11 @@ module Decidim
           attr_reader :backend, :options, :available_categories, :category, :internal_score
 
           def configured_backend
-            if options[:adapter].to_s == "memory" || options.dig(:params, :url).empty?
-              Rails.logger.info "[AI] Running the Memory backend as it was requested" if options[:adapter].to_s == "memory"
-              Rails.logger.info "[AI] Running the Memory backend as there are no redis credentials" if options.dig(:params, :url).empty?
+            if options[:adapter].to_s == "memory"
+              Rails.logger.info "[AI] Running the Memory backend as it was requested"
+              ClassifierReborn::BayesMemoryBackend.new
+            elsif options.dig(:params, :url) && options.dig(:params, :url).empty?
+              Rails.logger.info "[AI] Running the Memory backend as there are no redis credentials"
               ClassifierReborn::BayesMemoryBackend.new
             else
               ClassifierReborn::BayesRedisBackend.new options[:params]
