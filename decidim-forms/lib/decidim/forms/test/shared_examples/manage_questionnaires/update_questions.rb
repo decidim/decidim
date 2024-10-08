@@ -7,7 +7,7 @@ shared_examples_for "update questions" do
     let!(:question) { create(:questionnaire_question, questionnaire:, body:) }
 
     before do
-      visit_manage_questions_and_expand_all
+      visit_questionnaire_edit_path_and_expand_all
     end
 
     it "modifies the question when the information is valid" do
@@ -22,7 +22,7 @@ shared_examples_for "update questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_manage_questions_and_expand_all
+      visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_css("input[value='Modified question']")
       expect(page).to have_no_css("input[value='This is the first question']")
@@ -106,7 +106,7 @@ shared_examples_for "update questions" do
     let!(:question) { create(:questionnaire_question, :title_and_description, questionnaire:, body: title_and_description_body) }
 
     before do
-      visit_manage_questions_and_expand_all
+      visit_questionnaire_edit_path_and_expand_all
     end
 
     it "modifies the question when the information is valid" do
@@ -118,7 +118,7 @@ shared_examples_for "update questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_manage_questions_and_expand_all
+      visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_css("input[value='Modified title and description']")
       expect(page).to have_no_css("input[value='This is the first title and description']")
@@ -202,7 +202,7 @@ shared_examples_for "update questions" do
     end
 
     before do
-      visit questionnaire_edit_path
+      click_on "Manage questions"
     end
 
     it "allows deleting answer options" do
@@ -214,7 +214,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      visit_manage_questions_and_expand_all
+      visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_css(".questionnaire-question-answer-option", count: 2)
     end
@@ -237,7 +237,7 @@ shared_examples_for "update questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_manage_questions_and_expand_all
+      visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_css(".questionnaire-question", count: 0)
     end
@@ -266,7 +266,7 @@ shared_examples_for "update questions" do
     end
 
     before do
-      visit_manage_questions_and_expand_all
+      visit_questionnaire_edit_path_and_expand_all
     end
 
     it "allows deleting matrix rows" do
@@ -276,7 +276,7 @@ shared_examples_for "update questions" do
 
       click_on "Save"
 
-      visit_manage_questions_and_expand_all
+      visit_questionnaire_edit_path_and_expand_all
 
       within ".questionnaire-question:last-of-type" do
         expect(page).to have_css(".questionnaire-question-matrix-row", count: 2)
@@ -299,7 +299,7 @@ shared_examples_for "update questions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_manage_questions_and_expand_all
+      visit_questionnaire_edit_path_and_expand_all
 
       expect(page).to have_css(".questionnaire-question", count: 1)
     end
@@ -323,7 +323,7 @@ shared_examples_for "update questions" do
     end
 
     before do
-      visit_manage_questions_and_expand_all
+      visit_questionnaire_edit_path_and_expand_all
     end
 
     shared_examples_for "switching questions order" do

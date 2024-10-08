@@ -34,7 +34,7 @@ shared_examples_for "manage questionnaires" do
     }
 
     within "form.edit_questionnaire" do
-      fill_in_i18n_editor(:questionnaire_description, "#questionnaire-description-tabs", new_description)
+      fill_in_i18n_editor(:questionnaire_description, "#survey-description-tabs", new_description)
       click_on "Save"
     end
 
@@ -47,7 +47,7 @@ shared_examples_for "manage questionnaires" do
 
   context "when the questionnaire is not already answered" do
     before do
-      visit questionnaire_edit_path
+      click_on "Manage questions"
     end
 
     it_behaves_like "add questions"
@@ -61,7 +61,7 @@ shared_examples_for "manage questionnaires" do
     let!(:answer) { create(:answer, questionnaire:, question:) }
 
     it "cannot modify questionnaire questions" do
-      visit questionnaire_edit_path
+      click_on "Manage questions"
 
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
@@ -112,7 +112,7 @@ shared_examples_for "manage questionnaires" do
     find(".button.expand-all").click
   end
 
-  def visit_manage_questions_and_expand_all
+  def visit_questionnaire_edit_path_and_expand_all
     click_on "Manage questions"
     expand_all_questions
   end

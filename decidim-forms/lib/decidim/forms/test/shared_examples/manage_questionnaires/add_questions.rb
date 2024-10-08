@@ -282,7 +282,7 @@ shared_examples_for "add questions" do
     click_on "Save"
 
     expand_all_questions
-    expect(page).to have_select("Type", selected: "Long answer")
+    expect(page).to have_select("Type", selected: "Long answer", wait: 10)
   end
 
   it "does not preserve spurious answer options from previous type selections" do
@@ -350,6 +350,7 @@ shared_examples_for "add questions" do
     click_on "Save"
     expand_all_questions
 
+    expect(page).to have_css(".questionnaire-question-answer-option")
     within ".questionnaire-question-answer-option:first-of-type" do
       expect(page).to have_nested_field("body_en", with: "Something")
     end
