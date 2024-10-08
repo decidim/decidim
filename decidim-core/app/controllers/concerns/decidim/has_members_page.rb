@@ -19,7 +19,7 @@ module Decidim
         @members ||= current_participatory_space.participatory_space_private_users.published
       end
 
-      alias collection members
+      alias_method :collection, :members
     end
   end
 end

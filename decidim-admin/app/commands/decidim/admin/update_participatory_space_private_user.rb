@@ -40,7 +40,7 @@ module Decidim
         Decidim.traceability.perform_action!(
           "update",
           private_user,
-          current_user,
+          current_user
         ) do
           private_user.update!(
             role: form.role,
