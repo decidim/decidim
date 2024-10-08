@@ -20,12 +20,12 @@ Decidim.configure do |config|
   # Sets the default locale for new organizations. When creating a new
   # organization from the System area, system admins will be able to overwrite
   # this value for that specific organization.
-  config.default_locale = (Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").presence || :en).to_s
+  # config.default_locale = Decidim::Env.new("DECIDIM_DEFAULT_LOCALE", "en").to_s
 
   # Restrict access to the system part with an authorized ip list.
   # You can use a single ip like ("1.2.3.4"), or an ip subnet like ("1.2.3.4/24")
   # You may specify multiple ip in an array ["1.2.3.4", "1.2.3.4/24"]
-  config.system_accesslist_ips = Decidim::Env.new("DECIDIM_SYSTEM_ACCESSLIST_IPS").to_array
+  # config.system_accesslist_ips = Decidim::Env.new("DECIDIM_SYSTEM_ACCESSLIST_IPS").to_array
 
   # Defines a list of custom content processors. They are used to parse and
   # render specific tags inside some user-provided content. Check the docs for
@@ -36,17 +36,17 @@ Decidim.configure do |config|
   # if this var is not defined, it is decided automatically per-rails-environment
 
   # Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists
-  config.force_ssl = Decidim::Env.new("DECIDIM_FORCE_SSL").present? unless Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s == "auto"
+  # config.force_ssl = Decidim::Env.new("DECIDIM_FORCE_SSL").present? unless Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists.to_s == "auto"
   # or set it up manually and prevent any ENV manipulation:
   # config.force_ssl = true
 
   # Enable the service worker. By default is disabled in development and enabled in the rest of environments
-  config.service_worker_enabled = Decidim::Env.new("DECIDIM_SERVICE_WORKER_ENABLED", Rails.env.exclude?("development")).present?
+  # config.service_worker_enabled = Decidim::Env.new("DECIDIM_SERVICE_WORKER_ENABLED", Rails.env.exclude?("development")).present?
 
   # Sets the list of static pages' slugs that can include content blocks.
   # By default is only enabled in the terms-of-service static page to allow a summary to be added and include
   # sections with a two-pane view
-  config.page_blocks = Decidim::Env.new("DECIDIM_PAGE_BLOCKS", "terms-of-service").to_array
+  # config.page_blocks = Decidim::Env.new("DECIDIM_PAGE_BLOCKS", "terms-of-service").to_array
 
   # Map and Geocoder configuration
   #
@@ -159,20 +159,20 @@ Decidim.configure do |config|
   # end
 
   # Currency unit
-  config.currency_unit = Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").to_s if Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").present?
+  # config.currency_unit = Decidim::Env.new("DECIDIM_CURRENCY_UNIT", "€").to_s
 
   # Workaround to enable SVG assets cors
-  config.cors_enabled = Decidim::Env.new("DECIDIM_CORS_ENABLED", "false").present?
+  # config.cors_enabled = Decidim::Env.new("DECIDIM_CORS_ENABLED", "false").present?
 
   # Defines the quality of image uploads after processing. Image uploads are
   # processed by Decidim, this value helps reduce the size of the files.
-  config.image_uploader_quality = Decidim::Env.new("DECIDIM_IMAGE_UPLOADER_QUALITY", "80").to_i
+  # config.image_uploader_quality = Decidim::Env.new("DECIDIM_IMAGE_UPLOADER_QUALITY", "80").to_i
 
-  config.maximum_attachment_size = Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i.megabytes
-  config.maximum_avatar_size = Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i.megabytes
+  # config.maximum_attachment_size = Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_i.megabytes
+  # config.maximum_avatar_size = Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_i.megabytes
 
   # The number of reports which a resource can receive before hiding it
-  config.max_reports_before_hiding = Decidim::Env.new("DECIDIM_MAX_REPORTS_BEFORE_HIDING", "3").to_i
+  # config.max_reports_before_hiding = Decidim::Env.new("DECIDIM_MAX_REPORTS_BEFORE_HIDING", "3").to_i
 
   # Custom HTML Header snippets
   #
@@ -187,24 +187,24 @@ Decidim.configure do |config|
   # that an organization's administrator injects malicious scripts to spy on or
   # take over user accounts.
   #
-  config.enable_html_header_snippets = Decidim::Env.new("DECIDIM_ENABLE_HTML_HEADER_SNIPPETS").present?
+  # config.enable_html_header_snippets = Decidim::Env.new("DECIDIM_ENABLE_HTML_HEADER_SNIPPETS").present?
 
   # Allow organizations admins to track newsletter links.
-  unless Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto").default_or_present_if_exists.to_s == "auto"
-    config.track_newsletter_links = Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists
-  end
+  # unless Decidim::Env.new("DECIDIM_TRACK_NEWSLETTER_LINKS", "auto").default_or_present_if_exists.to_s == "auto"
+  #   config.track_newsletter_links = Decidim::Env.new("DECIDIM_FORCE_SSL", "auto").default_or_present_if_exists
+  # end
 
   # Amount of time that the download your data files will be available in the server.
-  config.download_your_data_expiry_time = Decidim::Env.new("DECIDIM_DOWNLOAD_YOUR_DATA_EXPIRY_TIME", "7").to_i.days
+  # config.download_your_data_expiry_time = Decidim::Env.new("DECIDIM_DOWNLOAD_YOUR_DATA_EXPIRY_TIME", "7").to_i.days
 
   # Max requests in a time period to prevent DoS attacks. Only applied on production.
-  config.throttling_max_requests = Decidim::Env.new("DECIDIM_THROTTLING_MAX_REQUESTS", "100").to_i
+  # config.throttling_max_requests = Decidim::Env.new("DECIDIM_THROTTLING_MAX_REQUESTS", "100").to_i
 
   # Time window in which the throttling is applied.
-  config.throttling_period = Decidim::Env.new("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
+  # config.throttling_period = Decidim::Env.new("DECIDIM_THROTTLING_PERIOD", "1").to_i.minutes
 
   # Time window were users can access the website even if their email is not confirmed.
-  config.unconfirmed_access_for = Decidim::Env.new("DECIDIM_UNCONFIRMED_ACCESS_FOR", "0").to_i.days
+  # config.unconfirmed_access_for = Decidim::Env.new("DECIDIM_UNCONFIRMED_ACCESS_FOR", "0").to_i.days
 
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
@@ -212,7 +212,7 @@ Decidim.configure do |config|
   # environments, but in different folders.
   #
   # If not set, it will be ignored.
-  config.base_uploads_path = Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").to_s if Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").present?
+  # config.base_uploads_path = Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").to_s if Decidim::Env.new("DECIDIM_BASE_UPLOADS_PATH").present?
 
   # SMS gateway configuration
   #
@@ -299,7 +299,7 @@ Decidim.configure do |config|
   end
 
   # Sets Decidim::Exporters::CSV's default column separator
-  config.default_csv_col_sep = Decidim::Env.new("DECIDIM_DEFAULT_CSV_COL_SEP", ";").to_s
+  # config.default_csv_col_sep = Decidim::Env.new("DECIDIM_DEFAULT_CSV_COL_SEP", ";").to_s
 
   # The list of roles a user can have, not considering the space-specific roles.
   # config.user_roles = %w(admin user_manager)
@@ -347,11 +347,11 @@ Decidim.configure do |config|
   # config.machine_translation_service = "MyTranslationService"
 
   # Defines the social networking services used for social sharing
-  config.social_share_services = Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "X, Facebook, WhatsApp, Telegram").to_array
+  # config.social_share_services = Decidim::Env.new("DECIDIM_SOCIAL_SHARE_SERVICES", "X, Facebook, WhatsApp, Telegram").to_array
 
   # Defines the name of the cookie used to check if the user allows Decidim to
   # set cookies.
-  config.consent_cookie_name = Decidim::Env.new("DECIDIM_CONSENT_COOKIE_NAME", "decidim-consent").to_s
+  # config.consent_cookie_name = Decidim::Env.new("DECIDIM_CONSENT_COOKIE_NAME", "decidim-consent").to_s
 
   # Defines data consent categories and the data stored in each category.
   # config.consent_categories = [
@@ -388,90 +388,90 @@ Decidim.configure do |config|
   config.content_security_policies_extra = {}
 
   # Admin admin password configurations
-  config.admin_password_strong = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_STRONG", true).to_boolean_string
+  # config.admin_password_strong = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_STRONG", true).present?
 
-  config.admin_password_expiration_days = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS", 90).to_i
-  config.admin_password_min_length = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_MIN_LENGTH", 15).to_i
-  config.admin_password_repetition_times = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES", 5).to_i
+  # config.admin_password_expiration_days = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_EXPIRATION_DAYS", 90).to_i
+  # config.admin_password_min_length = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_MIN_LENGTH", 15).to_i
+  # config.admin_password_repetition_times = Decidim::Env.new("DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES", 5).to_i
 
   # Additional optional configurations (see decidim-core/lib/decidim/core.rb)
-  config.cache_key_separator = Decidim::Env.new("DECIDIM_CACHE_KEY_SEPARATOR", "/").to_s
-  config.cache_expiry_time = Decidim::Env.new("DECIDIM_CACHE_EXPIRATION_TIME", "1440").to_i.minutes
-  config.stats_cache_expiry_time = Decidim::Env.new("DECIDIM_STATS_CACHE_EXPIRATION_TIME", 10).to_i.minutes
-  config.expire_session_after = Decidim::Env.new("DECIDIM_EXPIRE_SESSION_AFTER", "30").to_i.minutes
-  unless Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists.to_s == "auto"
-    config.enable_remember_me = Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists
-  end
+  # config.cache_key_separator = Decidim::Env.new("DECIDIM_CACHE_KEY_SEPARATOR", "/").to_s
+  # config.cache_expiry_time = Decidim::Env.new("DECIDIM_CACHE_EXPIRATION_TIME", "1440").to_i.minutes
+  # config.stats_cache_expiry_time = Decidim::Env.new("DECIDIM_STATS_CACHE_EXPIRATION_TIME", 10).to_i.minutes
+  # config.expire_session_after = Decidim::Env.new("DECIDIM_EXPIRE_SESSION_AFTER", "30").to_i.minutes
+  # unless Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists.to_s == "auto"
+  #   config.enable_remember_me = Decidim::Env.new("DECIDIM_ENABLE_REMEMBER_ME", "auto").default_or_present_if_exists
+  # end
 
-  config.session_timeout_interval = Decidim::Env.new("DECIDIM_SESSION_TIMEOUT_INTERVAL", "10").to_i.seconds
-  config.follow_http_x_forwarded_host = Decidim::Env.new("DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST").present?
-  config.maximum_conversation_message_length = Decidim::Env.new("DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH", "1000").to_i
-  config.password_similarity_length = Decidim::Env.new("DECIDIM_PASSWORD_SIMILARITY_LENGTH", 4).to_i
-  config.denied_passwords = Decidim::Env.new("DECIDIM_DENIED_PASSWORDS").to_array(separator: ", ")
-  config.allow_open_redirects = Decidim::Env.new("DECIDIM_ALLOW_OPEN_REDIRECTS").present?
+  # config.session_timeout_interval = Decidim::Env.new("DECIDIM_SESSION_TIMEOUT_INTERVAL", "10").to_i.seconds
+  # config.follow_http_x_forwarded_host = Decidim::Env.new("DECIDIM_FOLLOW_HTTP_X_FORWARDED_HOST").present?
+  # config.maximum_conversation_message_length = Decidim::Env.new("DECIDIM_MAXIMUM_CONVERSATION_MESSAGE_LENGTH", "1000").to_i
+  # config.password_similarity_length = Decidim::Env.new("DECIDIM_PASSWORD_SIMILARITY_LENGTH", 4).to_i
+  # config.denied_passwords = Decidim::Env.new("DECIDIM_DENIED_PASSWORDS").to_array(separator: ", ")
+  # config.allow_open_redirects = Decidim::Env.new("DECIDIM_ALLOW_OPEN_REDIRECTS").present?
 end
 
-if Decidim.module_installed? :api
-  Decidim::Api.configure do |config|
-    config.schema_max_per_page = Decidim::Env.new("API_SCHEMA_MAX_PER_PAGE", 50).to_i
-    config.schema_max_complexity = Decidim::Env.new("API_SCHEMA_MAX_COMPLEXITY", 5000).to_i
-    config.schema_max_depth = Decidim::Env.new("API_SCHEMA_MAX_DEPTH", 15).to_i
-  end
-end
+# if Decidim.module_installed? :api
+#   Decidim::Api.configure do |config|
+#     config.schema_max_per_page = Decidim::Env.new("API_SCHEMA_MAX_PER_PAGE", 50).to_i
+#     config.schema_max_complexity = Decidim::Env.new("API_SCHEMA_MAX_COMPLEXITY", 5000).to_i
+#     config.schema_max_depth = Decidim::Env.new("API_SCHEMA_MAX_DEPTH", 15).to_i
+#   end
+# end
 
-if Decidim.module_installed? :proposals
-  Decidim::Proposals.configure do |config|
-    config.participatory_space_highlighted_proposals_limit = Decidim::Env.new("PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT", 4).to_i
-    config.process_group_highlighted_proposals_limit = Decidim::Env.new("PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT", 3).to_i
-  end
-end
+# if Decidim.module_installed? :proposals
+#   Decidim::Proposals.configure do |config|
+#     config.participatory_space_highlighted_proposals_limit = Decidim::Env.new("PROPOSALS_PARTICIPATORY_SPACE_HIGHLIGHTED_PROPOSALS_LIMIT", 4).to_i
+#     config.process_group_highlighted_proposals_limit = Decidim::Env.new("PROPOSALS_PROCESS_GROUP_HIGHLIGHTED_PROPOSALS_LIMIT", 3).to_i
+#   end
+# end
 
-if Decidim.module_installed? :meetings
-  Decidim::Meetings.configure do |config|
-    config.upcoming_meeting_notification = Decidim::Env.new("MEETINGS_UPCOMING_MEETING_NOTIFICATION", 2).to_i.days
-    if Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES").to_array(separator: " ").present?
-      config.embeddable_services = Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES").to_array(separator: " ")
-    end
-    unless Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
-      config.enable_proposal_linking = Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists
-    end
-  end
-end
+# if Decidim.module_installed? :meetings
+#   Decidim::Meetings.configure do |config|
+#     config.upcoming_meeting_notification = Decidim::Env.new("MEETINGS_UPCOMING_MEETING_NOTIFICATION", 2).to_i.days
+#     if Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES").to_array(separator: " ").present?
+#       config.embeddable_services = Decidim::Env.new("MEETINGS_EMBEDDABLE_SERVICES").to_array(separator: " ")
+#     end
+#     unless Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
+#       config.enable_proposal_linking = Decidim::Env.new("MEETINGS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists
+#     end
+#   end
+# end
 
-if Decidim.module_installed? :budgets
-  Decidim::Budgets.configure do |config|
-    unless Decidim::Env.new("BUDGETS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
-      config.enable_proposal_linking = Decidim::Env.new("BUDGETS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists
-    end
-  end
-end
+# if Decidim.module_installed? :budgets
+#   Decidim::Budgets.configure do |config|
+#     unless Decidim::Env.new("BUDGETS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
+#       config.enable_proposal_linking = Decidim::Env.new("BUDGETS_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists
+#     end
+#   end
+# end
 
-if Decidim.module_installed? :accountability
-  Decidim::Accountability.configure do |config|
-    unless Decidim::Env.new("ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
-      config.enable_proposal_linking = Decidim::Env.new("ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists
-    end
-  end
-end
+# if Decidim.module_installed? :accountability
+#   Decidim::Accountability.configure do |config|
+#     unless Decidim::Env.new("ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists.to_s == "auto"
+#       config.enable_proposal_linking = Decidim::Env.new("ACCOUNTABILITY_ENABLE_PROPOSAL_LINKING", "auto").default_or_present_if_exists
+#     end
+#   end
+# end
 
-if Decidim.module_installed? :initiatives
-  Decidim::Initiatives.configure do |config|
-    unless Decidim::Env.new("INITIATIVES_CREATION_ENABLED", "auto").default_or_present_if_exists.to_s == "auto"
-      config.creation_enabled = Decidim::Env.new("INITIATIVES_CREATION_ENABLED", "auto").default_or_present_if_exists
-    end
-    config.minimum_committee_members = Decidim::Env.new("INITIATIVES_MINIMUM_COMMITTEE_MEMBERS", 2).to_i
-    config.default_signature_time_period_length = Decidim::Env.new("INITIATIVES_DEFAULT_SIGNATURE_TIME_PERIOD_LENGTH", 120).to_i
-    config.default_components = Decidim::Env.new("INITIATIVES_DEFAULT_COMPONENTS", "pages, meetings").to_array
-    config.first_notification_percentage = Decidim::Env.new("INITIATIVES_FIRST_NOTIFICATION_PERCENTAGE", 33).to_i
-    config.second_notification_percentage = Decidim::Env.new("INITIATIVES_SECOND_NOTIFICATION_PERCENTAGE", 66).to_i
-    config.stats_cache_expiration_time = Decidim::Env.new("INITIATIVES_STATS_CACHE_EXPIRATION_TIME", 5).to_i.minutes
-    config.max_time_in_validating_state = Decidim::Env.new("INITIATIVES_MAX_TIME_IN_VALIDATING_STATE", 60).to_i.days
-    unless Decidim::Env.new("INITIATIVES_PRINT_ENABLED", "auto").default_or_present_if_exists.to_s == "auto"
-      config.print_enabled = Decidim::Env.new("INITIATIVES_PRINT_ENABLED", "auto").present?
-    end
-    config.do_not_require_authorization = Decidim::Env.new("INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION").present?
-  end
-end
+# if Decidim.module_installed? :initiatives
+#   Decidim::Initiatives.configure do |config|
+#     unless Decidim::Env.new("INITIATIVES_CREATION_ENABLED", "auto").default_or_present_if_exists.to_s == "auto"
+#       config.creation_enabled = Decidim::Env.new("INITIATIVES_CREATION_ENABLED", "auto").default_or_present_if_exists
+#     end
+#     config.minimum_committee_members = Decidim::Env.new("INITIATIVES_MINIMUM_COMMITTEE_MEMBERS", 2).to_i
+#     config.default_signature_time_period_length = Decidim::Env.new("INITIATIVES_DEFAULT_SIGNATURE_TIME_PERIOD_LENGTH", 120).to_i
+#     config.default_components = Decidim::Env.new("INITIATIVES_DEFAULT_COMPONENTS", "pages, meetings").to_array
+#     config.first_notification_percentage = Decidim::Env.new("INITIATIVES_FIRST_NOTIFICATION_PERCENTAGE", 33).to_i
+#     config.second_notification_percentage = Decidim::Env.new("INITIATIVES_SECOND_NOTIFICATION_PERCENTAGE", 66).to_i
+#     config.stats_cache_expiration_time = Decidim::Env.new("INITIATIVES_STATS_CACHE_EXPIRATION_TIME", 5).to_i.minutes
+#     config.max_time_in_validating_state = Decidim::Env.new("INITIATIVES_MAX_TIME_IN_VALIDATING_STATE", 60).to_i.days
+#     unless Decidim::Env.new("INITIATIVES_PRINT_ENABLED", "auto").default_or_present_if_exists.to_s == "auto"
+#       config.print_enabled = Decidim::Env.new("INITIATIVES_PRINT_ENABLED", "auto").present?
+#     end
+#     config.do_not_require_authorization = Decidim::Env.new("INITIATIVES_DO_NOT_REQUIRE_AUTHORIZATION").present?
+#   end
+# end
 
 Rails.application.config.i18n.available_locales = Decidim.available_locales
 Rails.application.config.i18n.default_locale = Decidim.default_locale
