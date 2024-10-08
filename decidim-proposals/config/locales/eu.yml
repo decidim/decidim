@@ -429,8 +429,13 @@ eu:
           commentable_id: Iruzkingarriaren identifikazio bakarra
           commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
           created_at: Zein datatan sortu zen iruzkin hau
+          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
           id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
+          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          user_group: Iruzkin hau egin duen erabiltzaile taldearen izena (baldin badago)
         proposals:
+          address: Proposamenaren helbidea, baldin eta proposamenak kokagune fisikoa badu
           answer: Proposamenaren erantzuna, erantzunda baldin badago
           answered_at: Zein datatan erantzun zen proposamen hau
           attachments: Proposamen honek duen iruzkin kopurua
@@ -442,7 +447,12 @@ eu:
           endorsements: Proposamen honek duen abal ("atsegin dut") kopurua
           followers: Proposamen honek duen jarraitzaile kopurua
           id: Proposamenaren identifikatzaile bakarra
+          is_amend: Proposamen honek beste proposamen bat dakarren
           latitude: Proposamenaren latitudea, baldin eta kokagune fisikoa badu
+          longitude: Proposamenaren luzera, baldin eta kokagune fisikoa badu
+          meeting_urls: Proposamen hau aurkeztu edo eztabaidatu zen bileretako URLak
+          original_proposal: Hasierako proposamenaren erreferentzia, zuzenketa bat bada
+          participatory_space: Zein espaziotakoa den proposamen hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)
           published_at: Zein datatan argitaratu zen proposamen hau
           reference: Baliabidearen identifikatzaile bakarra plataforma honetan
           related_proposals: Proposamen honekin lotutako proposamenak
@@ -451,6 +461,7 @@ eu:
           title: Proposamenaren izenburua
           url: Proposamen hau URL honetan aurki daiteke
           votes: Proposamen honek duen boto kopurua
+          withdrawn: Proposamen hau bertan behera geratu den
           withdrawn_at: Noiz utzi zen bertan behera proposamen hau
     participatory_spaces:
       highlighted_proposals:
