@@ -43,6 +43,7 @@ module Decidim
           end
           resource :diploma, only: [:edit, :update] do
             member do
+              get "preview/:user_id", to: "diplomas#preview_diploma", as: :preview
               post :send, to: "diplomas#send_diplomas"
             end
           end

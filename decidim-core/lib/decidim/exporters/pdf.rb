@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "wicked_pdf"
+require "grover"
 
 module Decidim
   module Exporters
@@ -18,17 +18,18 @@ module Decidim
         html = controller.render_to_string(
           template:,
           layout:,
-          locals:
+          locals:,
+          assigns:
         )
 
-        document = WickedPdf.new.pdf_from_string(html, orientation:)
+        document = Grover.new(html, **grover_options).to_pdf
 
         ExportData.new(document, "pdf")
       end
 
       # may be overwritten if needed
-      def orientation
-        "Portrait"
+      def grover_options
+        {}
       end
 
       # implementing classes should return a valid ERB path here
@@ -44,6 +45,11 @@ module Decidim
       # This method may be overwritten if the template needs more local variables
       def locals
         { collection: }
+      end
+
+      # This method may be overwritten if the template needs more instance variables
+      def assigns
+        { title: t("decidim.admin.exports.formats.PDF") }
       end
 
       protected

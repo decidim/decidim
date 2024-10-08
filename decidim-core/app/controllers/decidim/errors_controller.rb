@@ -9,6 +9,10 @@ module Decidim
       render status: :not_found
     end
 
+    def unprocessable_entity
+      render status: :unprocessable_entity
+    end
+
     def internal_server_error
       @info_hash = {
         user: current_user&.id || t(".unknown"),

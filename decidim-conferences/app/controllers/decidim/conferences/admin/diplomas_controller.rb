@@ -33,6 +33,13 @@ module Decidim
           end
         end
 
+        def preview_diploma
+          @user = Decidim::User.find params[:user_id]
+          @conference = Decidim::Conference.find_by_slug params[:conference_slug]
+
+          render "decidim/conferences/admin/send_conference_diploma_mailer/diploma_user", layout: "decidim/diploma"
+        end
+
         def send_diplomas
           enforce_permission_to :send_diplomas, :conference, conference: current_conference
 

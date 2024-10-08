@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "wicked_pdf"
-
 module Decidim
   module Exporters
     # Inherits from abstract PDF exporter. This class is used to set

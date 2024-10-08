@@ -196,3 +196,10 @@ en:
         session_token: User identifier
         unregistered: Unregistered
         user_status: User status
+  layouts:
+    decidim:
+      forms:
+        admin:
+          questionnaires:
+            questionnaire_answers:
+              title: Questionnaire answers
