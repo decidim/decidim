@@ -112,7 +112,7 @@ ca:
           see_initiative: Veure la iniciativa
         initiatives_settings: Configuració
         initiatives_submenu:
-          info: Sobre aquesta iniciativa
+          info: Quant a aquesta iniciativa
         initiatives_types: Tipus d'iniciatives
         moderations: Moderacions
       models:
@@ -241,6 +241,10 @@ ca:
             alert_html: "<p>Has de crear com a mínim un tipus d'iniciativa per tal que les participants puguin començar a crear les seves iniciatives.</p><p>%{link}</p>"
             button: Nou tipus d'iniciativa
         initiatives:
+          accept:
+            success: La iniciativa s'ha acceptat correctament.
+          discard:
+            success: La iniciativa s'ha descartat correctament.
           edit:
             accept: Accepta la iniciativa
             confirm: Segur?
@@ -264,6 +268,12 @@ ca:
             edit: Edita
             new: Nou
             photos: Fotografies
+          publish:
+            success: La iniciativa s'ha publicat correctament.
+          reject:
+            success: La iniciativa s'ha rebutjat correctament.
+          unpublish:
+            success: La iniciativa s'ha despublicat correctament.
           update:
             error: S'ha produït un error en actualitzar la iniciativa.
             success: La iniciativa s'ha actualitzat correctament.

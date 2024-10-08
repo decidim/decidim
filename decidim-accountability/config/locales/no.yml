@@ -8,8 +8,6 @@
         description: Beskrivelse
         end_date: Sluttdato
         progress: Framgang
-        project_ids: Inkluderte prosjekter
-        proposals: Inkluderte forslag
         start_date: Startdato
         title: Tittel
         updated_at: Oppdatert

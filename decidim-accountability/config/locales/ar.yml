@@ -7,10 +7,7 @@ ar:
         decidim_scope_id: نطاق
         description: وصف
         end_date: تاريخ الانتهاء
-        meetings_ids: الاجتماعات ذات الصلة
         progress: تقدم
-        project_ids: المشاريع المدرجة
-        proposals: المقترحات المدرجة
         start_date: تاريخ البدء
         title: عنوان
         updated_at: تم التحديث في

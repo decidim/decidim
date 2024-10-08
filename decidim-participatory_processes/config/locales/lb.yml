@@ -293,8 +293,6 @@ lb:
           name: Hervorgehobene Beteiligungsprozesse
       index:
         title: Bedeelegungsprozesser
-      last_activity:
-        new_participatory_process: Neuer partizipativer Prozess
       participatory_process_steps:
         index:
           back_to_process: Zurück zur Prozessseite

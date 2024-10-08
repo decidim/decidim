@@ -402,8 +402,6 @@ hu:
           name: Kiemelt folyamatok
       index:
         title: Részvételi folyamatok
-      last_activity:
-        new_participatory_process: Új részvételi folyamat
       participatory_process_steps:
         index:
           back_to_process: Vissza a folyamatok oldalára

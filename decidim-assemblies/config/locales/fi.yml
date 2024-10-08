@@ -294,6 +294,7 @@ fi:
             select_parent_assembly: Valitse pääryhmä
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
             social_handlers: Sosiaalinen media
+            taxonomies: Luokittelut
             title: Yleiset tiedot
             visibility: Näkyvyys
         assemblies_types:

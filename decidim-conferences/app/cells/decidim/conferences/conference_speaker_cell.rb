@@ -50,7 +50,7 @@ module Decidim
       def short_bio
         return unless model.short_bio.presence
 
-        decidim_escape_translated model.short_bio
+        decidim_sanitize_editor_admin translated_attribute model.short_bio
       end
 
       def twitter_handle

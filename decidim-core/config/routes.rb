@@ -55,13 +55,6 @@ Decidim::Core::Engine.routes.draw do
 
   resource :locale, only: [:create]
 
-  Decidim.participatory_space_manifests.each do |manifest|
-    mount manifest.context(:public).engine, at: "/", as: "decidim_#{manifest.name}"
-  end
-
-  mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
-  mount Decidim::Comments::Engine, at: "/", as: "decidim_comments"
-
   Decidim.global_engines.each do |name, engine_data|
     mount engine_data[:engine], at: engine_data[:at], as: name
   end
@@ -159,6 +152,7 @@ Decidim::Core::Engine.routes.draw do
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
 
+  get "/open-data", to: "open_data#index", as: :open_data
   get "/open-data/download", to: "open_data#download", as: :open_data_download
 
   resource :follow, only: [:create, :destroy]

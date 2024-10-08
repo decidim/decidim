@@ -18,6 +18,7 @@ fi-pl:
         automatic_hashtags: Hashtagit lisätty automaattisesti
         body: Ehdotuksen kuvaus
         category_id: Aihepiiri
+        decidim_proposals_proposal_state_id: Tila
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
@@ -90,6 +91,16 @@ fi-pl:
       decidim/proposals/voting_enabled_event: Ehdotuksen äänestys käytössä
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Ehdotus %{link} luotiin
+            import_from_proposal_text: 'Toisen ehdotuksen perusteella luotiin tämä ehdotus: %{link}'
+            import_to_proposal_text: Tämä ehdotus %{link} luotiin
+            merge_from_proposal_text: 'Ehdotus yhdistettiin uudeksi ehdotukseksi: %{link}'
+            merge_to_proposal_text: 'Tämä ehdotus luotiin: %{link}'
+            split_from_proposal_text: 'Alkuperäinen ehdotus jaettiin uusiksi ehdotuksiksi: %{link}'
+            split_to_proposal_text: 'Tämä ehdotus luotiin: %{link}'
       decidim/proposals/collaborative_draft:
         one: Yhteistyöluonnos
         other: Yhteistyöluonnokset
@@ -777,6 +788,11 @@ fi-pl:
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotiin tallennettu luonnoksena.
+      creation:
+        imported_text: Toisesta ehdotuksesta luotiin tämä ehdotus
+        merged_text: Ehdotukset yhdistettiin tähän ehdotukseen
+        splitted_text: Alkuperäinen ehdotus jaettiin osiksi ja tämä ehdotus luotiin sen pohjalta
+        text: Tämä ehdotus luotiin
       destroy_draft:
         error: Ehdotusluonnoksen poistamisessa tapahtui virheistä.
         success: Ehdotusluonnos poistettiin onnistuneesti.

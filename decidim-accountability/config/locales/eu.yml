@@ -7,10 +7,7 @@ eu:
         decidim_scope_id: Esparrua
         description: Deskribapena
         end_date: Bukaera-data
-        meetings_ids: Honekin lotutako topaketak
         progress: Aurrerapena
-        project_ids: Barne dauden proiektuak
-        proposals: Barne dauden proposamenak
         start_date: Hasiera-data
         subresults: Azpiemaitzak
         title: Izenburua
@@ -29,6 +26,14 @@ eu:
       decidim/accountability/result_progress_updated_event: Emaitzen aurrerapena eguneratu da
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: '%{link} emaitza sartu da'
+            meetings_ids: '%{link} topaketan eztabaidatu da'
+            project_ids: '%{link} proiektuan sartu da'
+            proposal_ids: '%{link} proposamenean sartu da'
+            text: '%{link} emaitzari gehitu zaio'
       decidim/accountability/result:
         one: Emaitza
         other: Emaitzak
@@ -176,6 +181,8 @@ eu:
       content_blocks:
         highlighted_results:
           results: Emaitzak
+      creation:
+        text: Emaitza hau sortu da
       import_mailer:
         import:
           errors: Erroreak

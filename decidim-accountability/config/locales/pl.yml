@@ -7,10 +7,7 @@ pl:
         decidim_scope_id: Zakres
         description: Opis
         end_date: Data zakończenia
-        meetings_ids: Powiązane spotkania
         progress: Postęp
-        project_ids: Uwzględnione projekty
-        proposals: Uwzględnione propozycje
         start_date: Data rozpoczęcia
         subresults: Podwyniki
         title: Tytuł

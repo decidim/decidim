@@ -7,10 +7,7 @@ ja:
         decidim_scope_id: スコープ
         description: 説明
         end_date: 終了日
-        meetings_ids: 含まれるミーティング
         progress: 進捗状況
-        project_ids: 含まれるプロジェクト
-        proposals: 含まれる提案
         start_date: 開始日
         subresults: 結果（サブ）
         title: タイトル
@@ -29,6 +26,14 @@ ja:
       decidim/accountability/result_progress_updated_event: 結果の進捗状況が更新されました
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: 結果 %{link} は含まれていました
+            meetings_ids: 'このミーティングで議論されました: %{link}'
+            project_ids: 'このプロジェクトに含まれていました： %{link}'
+            proposal_ids: 'この提案に含まれました： %{link}'
+            text: 'この結果に追加されました： %{link}'
       decidim/accountability/result:
         other: 結果
   decidim:
@@ -173,6 +178,8 @@ ja:
       content_blocks:
         highlighted_results:
           results: 結果
+      creation:
+        text: 結果が作成されました
       import_mailer:
         import:
           errors: エラー

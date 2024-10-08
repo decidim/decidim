@@ -6,11 +6,11 @@ module Decidim
       include Decidim::TranslationsHelper
 
       def hero_image_url
-        assembly.attached_uploader(:hero_image).url(host: assembly.organization.host)
+        assembly.attached_uploader(:hero_image).url
       end
 
       def banner_image_url
-        assembly.attached_uploader(:banner_image).url(host: assembly.organization.host)
+        assembly.attached_uploader(:banner_image).url
       end
 
       def area_name

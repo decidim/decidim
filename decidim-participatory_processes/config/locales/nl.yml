@@ -346,8 +346,6 @@ nl:
           name: Uitgelichte processen
       index:
         title: Inspraakproces
-      last_activity:
-        new_participatory_process: Nieuw participatief proces
       participatory_process_steps:
         index:
           back_to_process: Terug naar de procespagina

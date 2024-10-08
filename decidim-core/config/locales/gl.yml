@@ -487,7 +487,6 @@ gl:
           title_required: O título é obrigatorio!
           uploaded: Cargado
           validating: Validando...
-          validation_error: Erro de validación!
       upload_help:
         explanation: Guía para %{attribute}
     gamification:

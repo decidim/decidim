@@ -64,6 +64,9 @@ ja:
         password_confirmation: パスワードの確認
         remember_me: ログイン状態を維持する
     models:
+      decidim:
+        history:
+          other: 履歴
       decidim/amendment:
         other: 修正
       decidim/endorsement:
@@ -256,6 +259,13 @@ ja:
         delete_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を削除しました"
         update: "%{user_name} がタクソノミー %{resource_name} を更新しました"
         update_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を更新しました"
+      taxonomy_filter:
+        create: "%{user_name} がタクソノミー %{resource_name} に基づいたフィルターを作成しました"
+        create_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを作成しました"
+        delete: "%{user_name} がタクソノミー %{resource_name} に基づいたフィルターを削除しました"
+        delete_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを削除しました"
+        update: "%{user_name} はタクソノミー %{resource_name} に基づいてフィルターを更新しました"
+        update_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを更新しました"
       user:
         block: "%{user_name} がユーザー %{resource_name} をブロックしました"
         invite: "%{user_name} が参加者 %{resource_name} をロール %{role} で招待しました"
@@ -919,7 +929,7 @@ ja:
           title_required: タイトルが必要です
           uploaded: アップロード済
           validating: 検証中...
-          validation_error: 検証エラー
+          validation_error: 'バリデーションエラー: ファイルの拡張子またはサイズに問題がないか確認してください。'
         select_file: ファイルを選択
       upload_help:
         dropzone: ここにファイルをドロップするか、ボタンをクリックしてアップロードします
@@ -1416,6 +1426,8 @@ ja:
       create:
         error: レポートの作成中に問題が発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
+    resource:
+      controls_label: リソースコントロール
     resource_endorsements:
       create:
         error: オススメする際に問題がありました。
@@ -1539,6 +1551,8 @@ ja:
     tags:
       filter_results_for_category: 'カテゴリの検索結果: %{resource}'
       filter_results_for_scope: 'スコープの検索結果: %{resource}'
+    taxonomies:
+      prompt: '"%{name}"から選択'
     translation_bar:
       help_text: "<strong>警告:</strong>内容は自動的に翻訳されている場合があり、100%正確ではありません。"
       show_original: 元テキストを表示する
@@ -1660,10 +1674,10 @@ ja:
         ignore: |-
           招待を受け入れたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
-        invited_you_as_private_user: "%{invited_by} が %{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。"
+        invited_you_as_private_user: "%{invited_by} が %{application} のプライベート参加者としてあなたを招待しました。以下のリンクから承認できます。"
         someone_invited_you: '%{application} にあなたを招待しました。以下のリンクから受け入れることができます。'
         someone_invited_you_as_admin: '%{application} の管理者としてあなたを招待しました。以下のリンクから承認できます。'
-        someone_invited_you_as_private_user: '%{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。'
+        someone_invited_you_as_private_user: '%{application} のプライベート参加者としてあなたは招待されています。以下のリンクから承認できます。'
         subject: 招待の説明
       invite_admin:
         subject: '%{organization} を管理するために招待されています'

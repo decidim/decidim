@@ -23,7 +23,7 @@ eu:
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
         participatory_process_type_id: Prozesu mota
-        participatory_scope: Zer erabakitzen da
+        participatory_scope: Zer erabaki da
         participatory_structure: Nola erabakitzen da?
         private_space: Prozesu pribatua
         promoted: Nabarmendua
@@ -96,6 +96,7 @@ eu:
         duplicate: Bikoiztu
         edit: Editatu
         import_process: Inportatu
+        menu_hidden: Ezkutatu
         moderate: Moderatu
         new_process: Beste prozesu bat
         new_process_group: Beste prozesu-talde bat
@@ -409,7 +410,7 @@ eu:
         participatory_process_groups:
           form:
             metadata: Metadatuak
-            title: Prozesu honi buruz
+            title: "Prozesu honi buruz\n"
             visibility: Ikusgarritasuna
         participatory_process_imports:
           form:
@@ -433,6 +434,7 @@ eu:
             select_participatory_process_type: Aukeratu prozesu-mota bat
             select_process_group: Hautatu prozesu-talde bat
             slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+            taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
       content_blocks:
@@ -447,7 +449,7 @@ eu:
       index:
         title: Prozesu parte-hartzaileak
       last_activity:
-        new_participatory_process: Beste prozesu parte-hartzaile bat
+        new_participatory_process: 'Beste prozesu parte-hartzaile bat:'
       pages:
         home:
           highlighted_processes:

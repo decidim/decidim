@@ -27,8 +27,8 @@ sv:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Instämmanden är blockerade
-            endorsements_enabled: Instämmanden tillåtna
+            endorsements_blocked: Blockera gilla-markeringar
+            endorsements_enabled: Aktivera gilla-markeringar
             readonly_step_attribute: Skrivskyddade steg attribut
             test_options:
               bar: Bar

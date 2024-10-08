@@ -428,6 +428,7 @@ describe "Explore results", :versioning do
         let(:meeting) { meetings.first }
 
         before do
+          stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
           result.link_resources(meetings, "meetings_through_proposals")
           visit current_path
         end

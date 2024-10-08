@@ -4,20 +4,21 @@ sv:
       debate:
         category_id: Kategori
         closed_at: Avslutades
-        conclusions: Sammanfattning
+        conclusions: Slutsatser
         decidim_category_id: Kategori
         description: Beskrivning
         end_time: Slutar vid
-        information_updates: Informationsuppdateringar
-        instructions: Deltagaranvisningar
+        information_updates: Uppdatering av uppgifter
+        instructions: Instruktioner för att delta
         scope_id: Indelning
-        start_time: Börjar vid
+        start_time: Startdatum
         title: Titel
         user_group_id: Skapa debatt som
     models:
       decidim/debates/close_debate_event: Debatten avslutades
       decidim/debates/create_debate_event: Debatt
       decidim/debates/creation_disabled_event: Debatter avaktiverade
+      decidim/debates/creation_enabled_event: Skapande av debatter aktiverat
   activerecord:
     models:
       decidim/debates/debate:
@@ -29,26 +30,28 @@ sv:
         actions:
           comment: Kommentera
           create: Skapa
-          endorse: Instäm
+          endorse: Gilla
         name: Debatter
         settings:
           global:
             announcement: Meddelande
-            comments_enabled: Kommentarer aktiverade
+            comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
-            endorsements_blocked: Instämmanden är blockerade
-            endorsements_enabled: Instämmanden aktiverade
+            comments_blocked: Stäng av kommentarer
+            creation_enabled: Deltagarna kan skapa debatter
+            endorsements_blocked: Blockera gilla-markeringar
+            endorsements_enabled: Aktivera gilla-markeringar
     debates:
       actions:
         close: Stäng
         confirm_destroy: Är du säker?
         destroy: Radera
         edit: Redigera
+        new: Ny debatt
         title: Åtgärder
       admin:
         debate_closes:
@@ -100,6 +103,9 @@ sv:
         create:
           invalid: Det gick inte att skapa debatten.
           success: Debatten har skapats.
+        debates:
+          empty: Det finns inga debatter ännu.
+          empty_filters: Det finns inga debatter med de här kriterierna.
         edit:
           back: Tillbaka
           save: Spara ändringar
@@ -137,7 +143,7 @@ sv:
         show:
           close_debate: Avsluta debatt
           debate_closed: Avslutade
-          debate_conclusions_are: 'Debatten avslutades %{date} med följande sammanfattning:'
+          debate_conclusions_are: 'Debatten avslutades %{date} med följande slutsatser:'
           edit_conclusions: Redigera slutsatser
           edit_debate: Redigera debatt
           groups_count: Grupper
@@ -146,6 +152,9 @@ sv:
         update:
           invalid: Det gick inte att uppdatera debatten.
           success: Debatten har uppdaterats.
+      last_activity:
+        debate_updated: 'Debatten uppdaterad:'
+        new_debate: 'Ny debatt:'
       models:
         debate:
           fields:
@@ -158,6 +167,13 @@ sv:
     events:
       debates:
         create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hej,
+              En ny debatt, "%{resource_title}", har skapats i %{participatory_space_title}, ta en titt och bidra:
+            email_outro: Du har fått detta meddelande eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
+            email_subject: Ny debatt "%{resource_title}" i %{participatory_space_title}
+            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> skapades i <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
           user_followers:
             email_intro: |-
               Hej,
@@ -174,6 +190,7 @@ sv:
           email_intro: 'Nu kan du starta nya debatter i %{participatory_space_title}! Börja att delta på den här sidan:'
           email_outro: Du har fått det här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta att ta emot meddelanden via föregående länk.
           email_subject: Debatter är nu tillgängliga i %{participatory_space_title}
+          notification_title: Du kan nu starta <a href="%{resource_path}">nya debatter</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
         debate_closed:
           affected_user:
             email_intro: 'Debatten "%{resource_title}" avslutades. Du kan läsa slutsatserna på debattsidan:'
@@ -181,10 +198,10 @@ sv:
             email_subject: Debatten "%{resource_title}" avslutades
             notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> stängdes.
           follower:
-            email_intro: 'Debatten "%{resource_title}" stängdes. Du kan läsa slutsatserna från dess sida:'
-            email_outro: Du har fått det här meddelandet eftersom du följer debatten "%{resource_title}". Du kan sluta följa det på föregående länk.
-            email_subject: Debatten "%{resource_title}" stängdes
-            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> stängdes.
+            email_intro: 'Debatten "%{resource_title}" avslutades. Du kan läsa slutsatserna på debattsidan:'
+            email_outro: Du har fått det här meddelandet eftersom du följer debatten "%{resource_title}". Du kan sluta följa den med föregående länk.
+            email_subject: Debatten "%{resource_title}" avslutades
+            notification_title: Debatten <a href="%{resource_path}">%{resource_title}</a> avslutades.
     gamification:
       badges:
         commented_debates:
@@ -196,6 +213,7 @@ sv:
           name: Debatter
           next_level_in: Delta i %{score} till debatter för att nå nästa nivå!
           unearned_another: Deltagaren har inte deltagit i någon debatt än.
+          unearned_own: Du har inte deltagit i någon debatt än.
     metrics:
       debates:
         description: Antal skapade debatter

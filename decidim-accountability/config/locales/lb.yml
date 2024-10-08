@@ -8,8 +8,6 @@ lb:
         description: Beschreiwung
         end_date: Schlussdatum
         progress: Progrès
-        project_ids: Bedeelegt Projeten
-        proposals: Bedeelegt Proposen
         start_date: Ufanksdatum
         title: Titel
         updated_at: Aktualiséiert den

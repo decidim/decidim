@@ -20,6 +20,10 @@ fi:
         scope_id: Teema
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Ehdotus lisättiin budjettiin: %{link}'
       decidim/budgets/budget:
         one: Budjetti
         other: Budjetit
@@ -195,6 +199,8 @@ fi:
         vote: Äänestä
         voted_budgets: Äänestetyt budjetit
         voted_on: Äänestit kohdetta %{links}.
+      creation:
+        text: Hankkeet lisättiin tähän budjettin
       last_activity:
         new_vote_at: Uusi budjetointiääni
       limit_announcement:

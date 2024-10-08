@@ -7,10 +7,7 @@ th:
         decidim_scope_id: ขอบเขต
         description: คำอธิบาย
         end_date: วันสิ้นสุด
-        meetings_ids: รวมการประชุม
         progress: ความคืบหน้า
-        project_ids: รวมโครงการ
-        proposals: รวมข้อเสนอ
         start_date: วันที่เริ่มต้น
         title: ชื่อ
         updated_at: อัปเดตที่

@@ -18,6 +18,7 @@ cs:
         automatic_hashtags: Hashtagy automaticky přidány
         body: Tělo
         category_id: Kategorie
+        decidim_proposals_proposal_state_id: Stav
         decidim_scope_id: Rozsah
         has_address: Má adresu
         scope_id: Oblast působnosti
@@ -90,6 +91,13 @@ cs:
       decidim/proposals/voting_enabled_event: Hlasování návrhu je povoleno
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Návrh %{link} byl vytvořen
+            import_to_proposal_text: Tento návrh %{link} byl vytvořen
+            merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
+            split_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
       decidim/proposals/collaborative_draft:
         one: Návrh spolupráce
         few: Společné návrhy
@@ -381,6 +389,11 @@ cs:
             - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
           description: Tento odznak se uděluje, když hlasujete pro návrhy ostatních.
           description_another: Tento účastník hlasoval pro %{score} návrhů.
+          description_own: Hlasovali jste pro %{score} návrhy.
+          name: Hlasy k návrhům
+          next_level_in: Hlasujte pro %{score} další návrhy pro dosažení další úrovně!
+          unearned_another: Tento uživatel zatím nehlasoval pro žádné návrhy.
+          unearned_own: Zatím jste nehlasovali pro žádné návrhy.
         proposals:
           conditions:
             - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
@@ -406,6 +419,7 @@ cs:
         object: návrhy
         title: Návrhy
       votes:
+        description: Počet hlasů pro návrhy
         object: hlasy
         title: Hlasy
     participatory_spaces:
@@ -415,6 +429,8 @@ cs:
     proposals:
       actions:
         answer_proposal: Odpověď na návrh
+        cancel_coauthor_invitation: Zrušit pozvánku spoluautora
+        cancel_coauthor_invitation_confirm: Opravdu chcete zrušit pozvánku spoluautora?
         delete_proposal_state_confirm: Opravdu chcete odstranit tento stav?
         destroy: Odstranit stav
         edit_proposal: Upravit návrh
@@ -516,6 +532,7 @@ cs:
             submit: Předložit
           reply:
             error: Při vytváření poznámky k tomuto návrhu došlo k chybě.
+            success: Odpověď na návrh byla úspěšně vytvořena.
           title: Soukromé poznámky
         proposal_states:
           create:
@@ -538,6 +555,9 @@ cs:
             success: Status byl úspěšně aktualizován
         proposals:
           answer:
+            bulk_answer_error: Návrhy s ID [%{proposals}] nemohly být zodpovězeny kvůli chybám při použití šablony "%{template}". Můžete zkontrolovat, že šablona odpovědi odpovídá očekávanému formátu této komponenty, a to individuálně.
+            bulk_answer_success: 'Na %{count} návrhy bude odpovězeno pomocí šablony „%{template}“. Počkejte prosím několik minut a obnovte stránku, abyste viděli aktualizace.'
+            invalid: Při odpovědi na tento návrh došlo k chybě.
             success: Návrh byl úspěšně zodpovězen.
           create:
             invalid: Při vytváření tohoto návrhu došlo k chybě.
@@ -601,6 +621,7 @@ cs:
             remove_assignment: Odstranit přiřazení
             remove_assignment_confirmation: Jste si jisti, že chcete odstranit hodnotitele z tohoto návrhu?
             valuators: Hodnotitelé
+            votes_count: Počet hlasů
           update_category:
             invalid: 'Tyto návrhy se již jmenují %{subject_name} v kategorii: %{proposals}.'
             select_a_category: Vyberte kategorii.
@@ -623,12 +644,15 @@ cs:
             title: Importovat návrhy z jiné komponenty
         proposals_merges:
           create:
+            invalid: 'Při slučování vybraných návrhů došlo k chybě, protože některé z nich:'
             success: Projekty byly úspěšně sloučeny do nové.
         proposals_splits:
           create:
+            invalid: 'Při rozdělování vybraných návrhů došlo k chybě, protože některé z nich:'
             success: Úspěšně rozdělil návrhy na nové.
         valuation_assignments:
           create:
+            invalid: Při přiřazování návrhů hodnotiteli došlo k chybě.
             success: Návrhy byly úspěšně přiřazené hodnotiteli.
           delete:
             invalid: Při odebírání návrhů od hodnotitele došlo k chybě.
@@ -774,6 +798,8 @@ cs:
       create:
         error: Při ukládání návrhu došlo k chybám.
         success: Návrh byl úspěšně vytvořen. Uloženo jako návrh.
+      creation:
+        imported_text: Stalo se z něj tento návrh
       destroy_draft:
         error: Došlo k chybám s vymazáním návrhového návrhu.
         success: Koncept návrhu byl úspěšně smazán.
@@ -916,20 +942,33 @@ cs:
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
+          withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, dokud neobdržíte žádný hlas. Návrh není vymazán, objeví se v seznamu stažených návrhů.
           withdraw_confirmation_html: Jste si jisti, že chcete stáhnout tento návrh?<br><br><strong>Tuto akci nelze zrušit!</strong>
           withdraw_proposal: Návrh stáhnout
         update:
           title: Aktualizovat návrh
         vote_button:
           already_voted: Již hlasovalo
+          already_voted_hover: Odebrat hlas
+          maximum_votes_reached: Limit hlasů dosažen
+          no_votes_remaining: Žádné zbývající hlasy
+          vote: Hlasovat
+          votes_blocked: Hlasování zakázáno
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Každý návrh může sshromáždit více než %{limit} hlasů
           minimum_votes_per_user:
+            description: Musíte rozdělit minimálně %{votes} hlasů mezi různé návrhy.
             given_enough_votes: Dali jste dostatek hlasů.
+            votes_remaining: Musíte hlasovat o dalších %{remaining_votes} návrzích k vašim hlasům, které budou brány v úvahu.
           proposal_limit:
             description: Můžete vytvořit až %{limit} návrhů.
+          threshold_per_proposal:
+            description: Aby byly návrhy schváleny, musí dosáhnout %{limit} hlasů.
           title: 'Hlasy podléhají těmto pravidlům:'
+          vote_limit:
+            description: Můžete hlasovat až pro %{limit} návrhů.
+            votes: Zbývá %{number} hlasů
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům
@@ -956,6 +995,9 @@ cs:
       versions:
         index:
           title: Verze
+      withdraw:
+        errors:
+          has_votes: Tento návrh nemůže být stažen, protože již získal hlasy.
     resource_links:
       copied_from_component:
         proposal_proposal: Související návrhy

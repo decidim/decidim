@@ -120,6 +120,7 @@ pt-BR:
           update_budget:
             invalid: 'Esses projetos já estão no mesmo orçamento ou seus orçamentos são mais que o máximo permitido: %{projects}.'
             select_a_project: Por favor, selecione um projeto.
+            success: 'Projetos atualizados com sucesso no scopo %{subject_name}: %{projects}.'
           update_category:
             invalid: 'Estes projetos já tinham a categoria %{subject_name}: %{projects}.'
             select_a_category: Por favor, selecione uma categoria.
@@ -140,12 +141,17 @@ pt-BR:
               selected: 'Estes projetos foram selecionados com sucesso para a implementação: %{projects}.'
               unselected: 'Estes projetos foram desselecionados da implementação com sucesso: %{projects}.'
         proposals_imports:
+          create:
+            invalid: Houve um problema ao importar as propostas para projetos.
+            success: "%{number} propostas importadas para projetos."
           new:
             create: Importar propostas para projetos
             default_budget: Orçamento padrão
+            import_all_accepted_proposals: Importar todas as propostas aceitas
             no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas para projetos.
             origin_component_id: Componente de origem
             select_component: Selecione um componente
+            title: Importar propostas para os projetos
         reminders:
           orders:
             description: Os usuários receberão um e-mail com links para os orçamentos em que tenham pedido pendente.
@@ -165,15 +171,34 @@ pt-BR:
         back_to: Voltar para %{component_name}
         close_modal: Fechar modal
         continue: Continuar
+        more_information: Mais informações sobre o orçamento
       budgets_list:
+        budgets: Orçamentos
         cancel_order:
           more_than_one: exclua seu voto em %{name} e comece de novo
           only_one: exclua seu voto e comece novamente.
+        count:
+          one: "Orçamento em %{count}"
+          other: "%{count} Orçamentos"
+        empty: Ainda não há orçamentos ainda
+        finished_message: Você terminou o processo de votação. Obrigado por participar!
         highlighted_cta: Votar em %{name}
+        if_change_opinion: Se você mudou de ideia, você pode
+        orders:
+          highest_cost: Custo mais alto
+          label: Ordenar orçamentos por
+          lowest_cost: Custo mais baixo
+          random: Ordem aleatória
+        progress: Terminar votação
+        remove_vote: Remover voto
+        show: Ver projetos
         vote: Voto
+        voted_budgets: Orçamentos votados
+        voted_on: Você votou em %{links}.
       last_activity:
         new_vote_at: Nova votação sobre orçamentação em
       limit_announcement:
+        cant_vote: Você não pode votar neste orçamento. <a href="%{landing_path}">Tente outro orçamento</a>.
         limit_reached: Você tem votos ativos em %{links}. Para votar neste orçamento você deve <a href="%{landing_path}">excluir seu voto e começar do zero</a>.
       models:
         budget:
@@ -183,6 +208,9 @@ pt-BR:
             total_budget: Orçamento total
         project:
           fields:
+            category: Categoria
+            id: ID
+            map: Mapa
             title: Título
       order_summary_mailer:
         order_summary:
@@ -210,13 +238,17 @@ pt-BR:
           are_you_sure: Deseja mesmo cancelar o seu voto?
           cancel_order: exclua seu voto e comece de novo
           checked_out:
+            description: Você já votou no orçamento. Se você mudou de ideia, você pode apagar seu voto %{cancel_link}.
             title: Votação do orçamento concluída
+          vote: Orçamento total
         count:
           projects_count:
             one: 1 projeto
             other: "%{count} projetos"
+        empty: Não há projetos ainda.
         exit_modal:
           cancel: Voltar à votação
+          exit: Sair da votação
           message: Seu voto não foi registrado porque você ainda não concluiu o processo de votação. Tem certeza que deseja sair da votação?
           title: Você ainda não votou
         filters:
@@ -228,6 +260,22 @@ pt-BR:
             all: Todos
             not_selected: Não selecionado
             selected: Selecionado
+        order_progress:
+          assigned: Atribuído
+          budget: Orçamento
+          dynamic_help:
+            keep_adding_projects: Continuar adicionando projetos
+            minimum_reached: Você atingiu o mínimo para poder votar
+            start_adding_projects: Começar a adicionar projetos
+          minimum: Mínimo
+          minimum_projects_rule:
+            description: Selecione pelo menos %{minimum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
+          projects_rule:
+            description: Selecione pelo menos %{minimum_number} e até %{maximum_number} projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
+          projects_rule_maximum_only:
+            description: Selecione até %{maximum_number} projetos que você desejar e vote de acordo com suas preferências para definir o orçamento.
+          vote_threshold_percent_rule:
+            description: Atribua pelo menos %{minimum_budget} aos projetos que você deseja e vote de acordo com suas preferências para definir o orçamento.
         orders:
           highest_cost: Custo mais alto
           label: Ordenar projetos por
@@ -236,6 +284,8 @@ pt-BR:
           random: Ordem aleatória
           selected: Selecionado
         project:
+          add: Adicione o projeto %{resource_name} ao seu voto.
+          remove: Remover projeto %{resource_name} do seu voto.
           selected: Selecionado
           votes:
             one: voto
@@ -243,10 +293,17 @@ pt-BR:
           you_voted: Você votou nisto
         project_budget_button:
           add: Adicione ao seu voto
+          add_descriptive: Adicione o projeto %{resource_name} ao seu voto.
           added: Adicionado ao seu voto
+          added_descriptive: Projeto %{resource_name} adicionado ao seu voto.
+        project_filter:
+          added: Adicionado
+          all: Todos
         projects_for: Projetos para %{name}
+        select_projects: Selecionar projetos
         show:
           budget: Orçamento
+      prompt: Selecione o orçamento
       vote_reminder_mailer:
         vote_reminder:
           email_budgets: 'Áreas onde você tem uma votação inacabada:'
@@ -267,6 +324,11 @@ pt-BR:
             announcement: Anúncio
             comments_enabled: Comentários ativados
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
+            form:
+              errors:
+                budget_voting_rule_only_one: Apenas uma regra de votação deve estar habilitada.
+                budget_voting_rule_required: Uma regra de votação é necessária.
+            geocoding_enabled: Mapas ativados
             landing_page_content: Página inicial dos orçamentos
             more_information_modal: Modal de mais informação
             projects_per_page: Projetos por página
@@ -307,6 +369,14 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: O orçamento %{resource_title} agora está ativo para %{participatory_space_title}.
           notification_title: O orçamento <a href="%{resource_path}">%{resource_title}</a> agora está ativo para %{participatory_space_title}.
+    orders:
+      checkout:
+        error: Ocorreu um erro ao processar seu voto.
+        success_html:
+        success_no_left_budgets_html: Seu voto foi aceito com sucesso.
+      destroy:
+        error: Ocorreu um erro ao cancelar o seu voto.
+        success: Seu voto foi cancelado com sucesso.
     resource_links:
       included_proposals:
         project_proposal: Propostas incluídas neste projeto

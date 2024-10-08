@@ -473,6 +473,8 @@ es-PY:
           name: Conferencias destacadas
       index:
         title: Conferencias
+      last_activity:
+        new_conference: 'Nueva jornada:'
       mailer:
         conference_registration_mailer:
           confirmation:

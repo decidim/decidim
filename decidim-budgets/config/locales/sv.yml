@@ -6,7 +6,7 @@ sv:
         description: Beskrivning
         title: Titel
         total_budget: Total budget
-        weight: Ordning
+        weight: Position i listan
       project:
         budget_amount: Belopp
         decidim_category_id: Kategori
@@ -214,9 +214,9 @@ sv:
             title: Titel
       order_summary_mailer:
         order_summary:
-          selected_projects: 'De projekt som du har valt är:'
-          subject: Du har röstat i deltagarutrymmet %{space_name}
-          voted_on_space: Du har röstat på budgeten %{budget_name} i deltagarutrymmet %{space_name}.
+          selected_projects: 'Du har valt följande projekt:'
+          subject: Du har röstat i %{space_name}
+          voted_on_space: Du har röstat på budgeten %{budget_name} i %{space_name}.
           voted_on_space_with_scope: Du har röstat på budgeten %{budget_name} i %{space_name} för %{scope_name} (%{scope_type}).
       projects:
         budget_confirm:
@@ -236,7 +236,7 @@ sv:
             title: Maximalt antal projekt överskridet
         budget_summary:
           are_you_sure: Vill du dra tillbaka din röst?
-          cancel_order: dra tillbaka din röst och börja om
+          cancel_order: dra tillbaka din röst
           checked_out:
             description: Du har redan röstat i budgeten. Om du har ändrat dig kan du ta bort din röst.
             title: Budgetomröstning slutförd
@@ -248,8 +248,8 @@ sv:
         empty: Det finns inga projekt än
         exit_modal:
           cancel: Tillbaka till omröstningen
-          exit: Lämna omröstning
-          message: Din röst har inte registrerats eftersom du ännu inte har slutfört omröstningen. Är du säker på att du vill avsluta omröstningen?
+          exit: Avbryt omröstning
+          message: Din röst har inte registrerats eftersom du ännu inte har slutfört omröstningen. Är du säker på att du vill lämna omröstningen?
           title: Du har ännu inte röstat
         filters:
           category: Kategori
@@ -278,10 +278,10 @@ sv:
             description: Tilldela minst %{minimum_budget} till de projekt du vill rösta på inom budgeten.
         orders:
           highest_cost: Högst kostnad
-          label: Ordna projekt efter
-          lowest_cost: Lägsta kostnad
+          label: Sortera projekt efter
+          lowest_cost: Lägst kostnad
           most_voted: Mest röster
-          random: Slumpmässig ordning
+          random: Slumpvis ordning
           selected: Valda
         project:
           add: Lägg till projektet %{resource_name} till din röst.
@@ -292,9 +292,9 @@ sv:
             other: röster
           you_voted: Du röstade på det här
         project_budget_button:
-          add: Lägg till i din röst
+          add: Lägg till
           add_descriptive: Lägg till projektet %{resource_name} till din röst.
-          added: Lades till i din röst
+          added: Tillagd
           added_descriptive: Projektet %{resource_name} har lagts till din röst.
         project_filter:
           added: Tillagd
@@ -322,7 +322,7 @@ sv:
         settings:
           global:
             announcement: Meddelande
-            comments_enabled: Kommentarer aktiverade
+            comments_enabled: Aktivera kommentarer
             comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             form:
               errors:
@@ -337,21 +337,21 @@ sv:
             scopes_enabled: Aktivera indelningar
             title: Titel
             total_budget: Total budget
-            vote_minimum_budget_projects_number: Minsta antal projekt att rösta om
-            vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta om'
+            vote_minimum_budget_projects_number: Minsta antal projekt att rösta på
+            vote_rule_minimum_budget_projects_enabled: 'Aktivera regel: Minsta antal projekt att rösta på'
             vote_rule_selected_projects_enabled: 'Aktivera regel: Minsta och högsta antal projekt att rösta på'
             vote_rule_threshold_percent_enabled: 'Aktivera regel: Lägsta procentandel av budget'
             vote_selected_projects_maximum: Maximalt antal projekt att välja
             vote_selected_projects_minimum: Minsta antal projekt att välja
-            vote_threshold_percent: Tröskel för röster i procent
+            vote_threshold_percent: Tröskelvärde för röster i procent
             workflow: Arbetsflöde
             workflow_choices:
               all: 'Rösta på alla: låt deltagare att rösta i alla budgetar.'
               one: 'Rösta på en: låt deltagare rösta i valfri budget, men bara i en.'
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
-            highlighted_heading: Framhävd rubrik
+            comments_blocked: Stäng av kommentarer
+            highlighted_heading: Markerad rubrik
             landing_page_content: Landningssida för budgetar
             list_heading: Rubrik för lista
             more_information_modal: Fönster "Mer information"
@@ -360,7 +360,7 @@ sv:
             votes: Omröstning
             votes_choices:
               disabled: Omröstning inaktiverad
-              enabled: Röstning aktiverad
+              enabled: Omröstning aktiverad
               finished: Omröstning avslutad
     events:
       budgets:

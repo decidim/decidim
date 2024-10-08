@@ -18,6 +18,7 @@ eu:
         automatic_hashtags: Traola automatikoki gehitu da
         body: Gorputza
         category_id: Kategoria
+        decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Esparrua
         has_address: Helbidea du
         scope_id: Esparrua
@@ -90,6 +91,16 @@ eu:
       decidim/proposals/voting_enabled_event: Proposamenaren botoa gaituta
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: '%{link} proposamena sortu da'
+            import_from_proposal_text: '%{link} proposamen bihurtu da'
+            import_to_proposal_text: '%{link} proposamena sortu da'
+            merge_from_proposal_text: '%{link} proposamen bihurtu da'
+            merge_to_proposal_text: '%{link} proposamena sortu da'
+            split_from_proposal_text: '%{link} proposamen bihurtu da'
+            split_to_proposal_text: '%{link} proposamena sortu da'
       decidim/proposals/collaborative_draft:
         one: Zirriborro kolaboratzailea
         other: Zirriborro kolaboratzaileak
@@ -776,6 +787,11 @@ eu:
       create:
         error: Arazo bat egon da proposamena gordetzean.
         success: Proposamena zuzen onartua. Zirriborro gisa gorde da.
+      creation:
+        imported_text: Proposamen hau bihurtu da
+        merged_text: Proposamen hau bihurtu dute
+        splitted_text: Proposamen hau bihurtu da
+        text: Proposamen hau sortu da
       destroy_draft:
         error: Arazo bat egon da proposamenaren zirriborroa ezabatzean.
         success: Proposamenaren zirriborroa zuzen ezabatu da.

@@ -166,7 +166,7 @@ eu:
         cancel_error: Ezin izan da ezeztatu korreo elektronikoaren aldaketa.
         cancel_successfully: Posta elektronikoaren aldaketa zuzen ezeztatua.
         resend_error: Ezin izan da birbidali berresteko korreoa.
-        resend_successfully: 'Berresteko posta elektronikoa zuzen birbidalia hona: %{unconfirmed_email}.'
+        resend_successfully: Correo de confirmación reenviado con éxito a %{unconfirmed_email}.
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
@@ -263,6 +263,13 @@ eu:
         delete_with_parent: "%{user_name} k %{resource_name} taxonomia ezabatu du %{parent_taxonomy} taxonomia barruan"
         update: "%{user_name} k %{resource_name} taxonomia eguneratu du"
         update_with_parent: "%{user_name} k %{resource_name} taxonomia eeguneratu du %{parent_taxonomy} taxonomia barruan"
+      taxonomy_filter:
+        create: "% {user_name} -k iragazki bat sortu du %{resources ce_name} taxonomian oinarrituta"
+        create_with_filter_items_count: "%{user_name}-k iragazkia sortu du %{baliabide_name} taxonomian oinarrituta, %{filter_items_count} filtroarekin, \n%{space_manifest_name} -rako\n"
+        delete: "%{user_name} -k iragazki bat ezabatu zuen %{resources ce_name} taxonomian oinarrituta"
+        delete_with_filter_items_count: "%{user_name} -k iragazki bat ezabatu du %{baliabide_name} taxonomian oinarrituta, %{filter_items_count} filtroarekin, %{space_manifest_name} -rako"
+        update: "%{user_name} k eguneratu du %{resources ce_name} taxonomian oinarritutako iragazkia"
+        update_with_filter_items_count: "%{user_name}-keguneratu du %{baliabide_name} taxonomian oinarritutako iragazkia, %{filter_items_count} filtroarekin, \n%{space_manifest_name} -rako\n"
       user:
         block: "%{user_name} k %{resource_name} erabiltzailea blokeatu du"
         invite: "%{user_name} k %{resource_name} parte-hartzailea gonbidatu du %{role} rolarekin"
@@ -724,7 +731,7 @@ eu:
             notification_title: <a href="%{emendation_path}">k ukatu du zuzenketa</a> honetarako <a href="%{amendable_path}">%{amendable_title}</a> argitaratu du %{amendable_type} berri gisa honek <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: '%{amendable_title} rako zuzenketa %{amendable_type} berri gisa argitaratu da. Orrialde honetan ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Batetik zuzenketa %{emendation_author_nickname} izan berri gisa argitaratuko %{amendable_type}
             notification_title: <a href="%{emendation_path}"> k ukatu du </a> zuzenketa honetarako <a href="%{amendable_path}">%{amendable_title}</a> argitaratu du %{amendable_type} berri gisa honek <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
@@ -927,7 +934,7 @@ eu:
           title_required: Izenburua behar da!
           uploaded: Igota
           validating: Balidatzen...
-          validation_error: Errorea baliozkotzean!
+          validation_error: Balioztatze-akatsa! Egiaztatu artxiboak luzapen edo tamaina baimendua duela.
         select_file: Hautatu fitxategia
       upload_help:
         dropzone: Bota artxiboak hona edo egin klik igotzeko
@@ -1424,6 +1431,8 @@ eu:
       create:
         error: Arazo bat izan da txostena sortzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
+    resource:
+      controls_label: Baliabideen kontrolak
     resource_endorsements:
       create:
         error: Arazo bat egon da atxikimendu-ekintzan zehar.
@@ -1547,6 +1556,8 @@ eu:
     tags:
       filter_results_for_category: 'Emaitzak kategoriaren arabera iragaztean: %{resource}'
       filter_results_for_scope: 'Emaitzak %{resource} esparruaren arabera iragaztean'
+    taxonomies:
+      prompt: 'Hautatu hemendik: "%{name}"'
     translation_bar:
       help_text: "<strong>Oharra:</strong> Edukia automatikoki itzul daiteke eta ez izan zuzena %100ean."
       show_original: Erakutsi jatorrizko testua

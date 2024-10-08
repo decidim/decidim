@@ -19,6 +19,7 @@ describe "User edit meeting" do
 
   before do
     switch_to_host user.organization.host
+    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     stub_geocoding(meeting.address, [latitude, longitude])
   end
 
@@ -59,6 +60,7 @@ describe "User edit meeting" do
         let(:geocoded_address_coordinates) { [latitude, longitude] }
 
         before do
+          stub_geocoding_coordinates([latitude, longitude])
           # Prepare the view for submission (other than the address field)
           visit_component
 

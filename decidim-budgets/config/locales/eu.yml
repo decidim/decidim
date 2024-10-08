@@ -20,6 +20,10 @@ eu:
         scope_id: Esparrua
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: '%{link} aurrekontuari gehutu zaio'
       decidim/budgets/budget:
         one: Aurrekontua
         other: Aurrekontuak
@@ -189,6 +193,8 @@ eu:
         vote: Eman botoa
         voted_budgets: Bozkatutako aurrekontuak
         voted_on: Botoa eman duzu hemen %{links}.
+      creation:
+        text: Aurrekontu honi gehitu zaizkio
       last_activity:
         new_vote_at: 'Beste aurrekontu-bozketa bat hemen:'
       limit_announcement:

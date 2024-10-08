@@ -7,10 +7,7 @@ de:
         decidim_scope_id: Umfang
         description: Beschreibung
         end_date: Enddatum
-        meetings_ids: Enthaltene Sitzungen
         progress: Fortschritt
-        project_ids: Enthaltene Projekte
-        proposals: Enthaltene Vorschläge
         start_date: Startdatum
         subresults: Teilergebnisse
         title: Titel
@@ -176,6 +173,8 @@ de:
       content_blocks:
         highlighted_results:
           results: Ergebnisse
+      creation:
+        text: Das Ergebnis wurde erstellt
       import_mailer:
         import:
           errors: Fehler

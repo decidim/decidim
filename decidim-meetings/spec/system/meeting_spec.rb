@@ -13,6 +13,10 @@ describe "Meeting", download: true do
     visit resource_locator(meeting).path
   end
 
+  before do
+    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
+  end
+
   it "has a link to download the meeting in ICS format" do
     visit_meeting
     click_on "Add to calendar"

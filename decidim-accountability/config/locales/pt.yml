@@ -7,10 +7,7 @@ pt:
         decidim_scope_id: Âmbito
         description: Descrição
         end_date: Data final
-        meetings_ids: Reuniões associadas
         progress: Progresso
-        project_ids: Projetos incluídos
-        proposals: Propostas incluídas
         start_date: Data de início
         title: Título
         updated_at: Atualizado em

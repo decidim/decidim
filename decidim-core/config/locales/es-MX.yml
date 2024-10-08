@@ -64,6 +64,10 @@ es-MX:
         password_confirmation: Confirmación de contraseña
         remember_me: Recuérdame
     models:
+      decidim:
+        history:
+          one: Historial
+          other: Historial
       decidim/amendment:
         one: Enmienda
         other: Enmiendas
@@ -269,6 +273,13 @@ es-MX:
         delete_with_parent: "%{user_name} ha borrado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
         update: "%{user_name} ha actualizado la taxonomía \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actulizado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
+      taxonomy_filter:
+        create: "%{user_name} ha creado un filtro basado en la taxonomía \"%{resource_name}\""
+        create_with_filter_items_count: "%{user_name} ha creado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
+        delete: "%{user_name} ha eliminado un filtro basado en la taxonomía \"%{resource_name}\""
+        delete_with_filter_items_count: "%{user_name} ha eliminado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
+        update: "%{user_name} ha eliminado un filtro basado en la taxonomía \"%{resource_name}\""
+        update_with_filter_items_count: "%{user_name} ha eliminado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
       user:
         block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
         invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
@@ -940,7 +951,7 @@ es-MX:
           title_required: '¡Se requiere un título!'
           uploaded: Subido
           validating: Validando...
-          validation_error: '¡Error de validación!'
+          validation_error: '¡Error en la validación! Por favor, comprueba que el archivo tenga una extensión o tamaño permitidos.'
         select_file: Seleccione un archivo
       upload_help:
         dropzone: Arrastra los archivos aquí o haz clic en el botón para subirlos
@@ -1437,6 +1448,8 @@ es-MX:
       create:
         error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
+    resource:
+      controls_label: Controles de recursos
     resource_endorsements:
       create:
         error: Se ha producido un error durante la acción de adhesión.
@@ -1560,6 +1573,8 @@ es-MX:
     tags:
       filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
       filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
+    taxonomies:
+      prompt: Seleccionar de "%{name}"
     translation_bar:
       help_text: "<strong>Advertencia:</strong> El contenido puede ser traducido automáticamente y no ser 100% preciso."
       show_original: Mostrar el texto original

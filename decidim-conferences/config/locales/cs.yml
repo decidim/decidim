@@ -483,6 +483,8 @@ cs:
           name: Zvýrazněné konference
       index:
         title: Konference
+      last_activity:
+        new_conference: 'Nová konference:'
       mailer:
         conference_registration_mailer:
           confirmation:

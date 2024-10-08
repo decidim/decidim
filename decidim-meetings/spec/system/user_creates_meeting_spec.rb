@@ -86,6 +86,7 @@ describe "User creates meeting" do
 
         it "creates a new meeting", :slow do
           stub_geocoding(meeting_address, [latitude, longitude])
+          stub_geocoding_coordinates([latitude, longitude])
           visit_component
 
           click_on "New meeting"
@@ -139,6 +140,7 @@ describe "User creates meeting" do
             address_field: :meeting_address
           ) do
             before do
+              stub_geocoding_coordinates([3.345, 4.456])
               # Prepare the view for submission (other than the address field)
               visit_component
 
@@ -165,6 +167,7 @@ describe "User creates meeting" do
 
           it "creates a new meeting", :slow do
             stub_geocoding(meeting_address, [latitude, longitude])
+            stub_geocoding_coordinates([latitude, longitude])
 
             visit_component
 
@@ -203,6 +206,7 @@ describe "User creates meeting" do
 
           it "creates a new meeting with registrations on this platform", :slow do
             stub_geocoding(meeting_address, [latitude, longitude])
+            stub_geocoding_coordinates([latitude, longitude])
 
             visit_component
 

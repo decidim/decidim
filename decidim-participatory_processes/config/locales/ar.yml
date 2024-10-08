@@ -308,8 +308,6 @@ ar:
           name: عمليات مميزة
       index:
         title: العمليات التشاركية
-      last_activity:
-        new_participatory_process: عملية تشاركية جديدة
       participatory_processes:
         filters:
           counters:

@@ -921,7 +921,6 @@ bg:
           title_required: Заглавието е задължително!
           uploaded: Качено
           validating: Валидиране...
-          validation_error: Грешка при валидирането!
         select_file: Избор на файл
       upload_help:
         dropzone: Пуснете файлове тук или щракнете върху бутона за качване

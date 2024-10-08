@@ -96,6 +96,7 @@ fr:
         duplicate: Dupliquer
         edit: Modifier
         import_process: Importer
+        menu_hidden: Masquer
         moderate: Modérer
         new_process: Nouvelle concertation
         new_process_group: Nouveau groupe de concertations
@@ -432,6 +433,7 @@ fr:
             select_participatory_process_type: Sélectionnez un type de concertation
             select_process_group: Sélectionnez un groupe de concertations
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette concertation. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple : %{url}'
+            taxonomies: Taxonomies
             title: Informations générales
             visibility: Visibilité
       content_blocks:
@@ -446,7 +448,7 @@ fr:
       index:
         title: Concertations
       last_activity:
-        new_participatory_process: Nouvelle concertation
+        new_participatory_process: 'Nouveau processus participatif:'
       pages:
         home:
           highlighted_processes:

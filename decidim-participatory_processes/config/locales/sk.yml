@@ -314,8 +314,6 @@ sk:
           name: Zvýraznené procesy
       index:
         title: Participatívna procesy
-      last_activity:
-        new_participatory_process: Nový participačné proces
       participatory_processes:
         filters:
           counters:

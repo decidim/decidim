@@ -402,8 +402,6 @@ el:
           name: Επισημασμένες διαδικασίες
       index:
         title: Διαδικασίες συμμετοχής
-      last_activity:
-        new_participatory_process: Νέα διαδικασία συμμετοχής
       participatory_process_steps:
         index:
           back_to_process: Πίσω στην σελίδα της διαδικασίας

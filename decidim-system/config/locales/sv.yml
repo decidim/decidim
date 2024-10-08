@@ -3,13 +3,13 @@ sv:
     attributes:
       oauth_application:
         name: OAuth app namn
-        organization_logo: Organisationslogo (kvadrat)
+        organization_logo: Organisationens logotyp (kvadratisk)
         organization_name: Organisation
         organization_url: Organisationens hemsida
         redirect_uri: Omdirigerings-URI
       organization:
         address: SMTP-värdnamn
-        from_email: Från (e-postadress)
+        from_email: E-postadress
         from_label: Från (namn)
         password: Lösenord
         port: Port
@@ -21,9 +21,9 @@ sv:
         allowed_file_extensions:
           admin: Admin filändelser
           default: Förvalda filändelser
-          image: Bild filändelser
+          image: Filformat för bilder
         maximum_file_size:
-          avatar: Avatarens filstorlek
+          avatar: Filstorlek för profilbild
           default: Standardstorlek för filer
     errors:
       models:
@@ -31,17 +31,27 @@ sv:
           attributes:
             redirect_uri:
               must_be_ssl: Omdirigerings-URI måste vara en SSL URI
+        organization:
+          attributes:
+            password:
+              secret_key: Du behöver definiera variabeln SECRET_KEY_BASE för att kunna spara detta fält
   decidim:
     system:
       actions:
         confirm_destroy: Vill du radera detta?
         destroy: Radera
         edit: Redigera
+        new_admin: Ny administratör
+        new_oauth_application: Ny OAUTH-applikation
+        new_organization: Ny organisation
         save: Spara
         title: Åtgärder
       admins:
         create:
           error: Det gick inte att skapa en ny administratör.
+          success: Administratören har skapats.
+        destroy:
+          success: Administratören har raderats.
         edit:
           title: Redigera administratören
           update: Uppdatera
@@ -52,17 +62,37 @@ sv:
           title: Ny administratör
         update:
           error: Det gick inte att uppdatera administratören.
+          success: Administratören har uppdaterats.
       dashboard:
         show:
+          admins: Administratörer
           current_organizations: Nuvarande organisationer
+          system_checks: Systemkontroller
       default_pages:
         placeholders:
           content: Lägg till relevant innehåll på den statiska sidan %{page} på adminpanelen.
+          summary: Lägg till en relevant sammanfattning på den statiska sidan %{page} i adminpanelen.
           title: Standardtitel för %{page}
+        terms-of-service: Användarvillkor
+      devise:
+        passwords:
+          edit:
+            change_your_password: Ändra ditt lösenord
+            minimum_characters: "(minst %{minimum} tecken)"
+          new:
+            forgot_your_password: Glömt ditt lösenord
+            send_me_reset_password_instructions: Skicka instruktioner för återställning av lösenord
+        shared:
+          links:
+            did_not_receive_confirmation_instructions?: Fick du inga bekräftelseinstruktioner?
+            did_not_receive_unlock_instructions?: Fick du inga instruktioner om hur du låser upp ditt konto?
+            forgot_your_password?: Glömt ditt lösenord?
+            log_in: Logga in
+            sign_up: Skapa ett konto
       menu:
         admins: Administratörer
         dashboard: Adminpanel
-        oauth_applications: OAuth appar
+        oauth_applications: OAuth-applikationer
         organizations: Organisationer
       models:
         admin:
@@ -73,13 +103,14 @@ sv:
             email_uniqueness: det finns redan en administratör med samma e-postadress
         oauth_application:
           fields:
-            created_at: Skapad den
-            name: OAuth app namn
+            created_at: Skapad
+            name: Namn på OAuth-app
             organization_name: Organisation
         organization:
           actions:
             save_and_invite: Skapa organisation och bjud in administratör
           fields:
+            content_security_policy: Säkerhetspolicy för innehåll
             created_at: Skapad
             file_upload_settings: Inställningar för filuppladdning
             name: Namn
@@ -112,23 +143,40 @@ sv:
           show: Visa avancerade inställningar
         create:
           error: Det gick inte att skapa en ny organisation.
+          error_invitation: Det gick inte att skapa en ny organisation. Granska organisationens administratörsnamn.
+        csp_settings:
+          connect_src: Connect src
+          default_src: Default src
+          font_src: Font src
+          frame_src: Frame src
+          img_src: Img src
+          media_src: Media src
+          script_src: Script src
+          style_src: Style src
         edit:
+          confirm_resend_invitation: Är du säker på att du vill skicka inbjudan igen?
+          resend_invitation: Skicka inbjudan igen
           secondary_hosts_hint: Ange var och en av dem på en ny rad
+          title: Redigera organisation
         file_upload_settings:
           content_types:
             title: Tillåtna MIME-typer
           file_extensions:
             title: Tillåtna filändelser
           file_sizes:
-            title: Max filstorlekar
+            title: Maximal filstorlek
         index:
           title: Organisationer
         new:
+          default: Standard?
+          enabled: Aktiverad
+          locale: Språk
+          secondary_hosts_hint: Ange var och en på en ny rad.
           title: Ny organisation
         omniauth_settings:
           decidim:
-            client_id: Klient ID
-            client_secret: Klient hemlig
+            client_id: Client ID
+            client_secret: Client Secret
             site_url: Webbplatsens URL
           enabled: Aktiverad
           enabled_by_default: Denna leverantör är aktiverad som standard. Den kan redigeras men inte inaktiveras.
@@ -136,27 +184,51 @@ sv:
             app_id: App-ID
             app_secret: App-hemlighet
           google_oauth2:
-            client_id: Klient-ID
-            client_secret: Klient-hemlighet
+            client_id: Client ID
+            client_secret: Client Secret
           icon: Symbol
           icon_path: Sökväg till symbol
           twitter:
             api_key: API-nyckel
             api_secret: API-hemlighet
+        resend_invitation:
+          error: Det gick inte att skicka inbjudan.
+          success: Inbjudan har skickats.
         smtp_settings:
           fieldsets:
             sender: Avsändare
+          instructions:
+            from_label: 'E-postavsändare kommer att vara: "din-organisations-namn <your-organization@example.org>". Lämna tomt för att använda samma namn som ställts in för organisationen.'
           placeholder:
             from_email: your-organization@example.org
-            from_label: din-organisation-namn
+            from_label: din-organisations-namn
         update:
           error: Det gick inte att uppdatera organisationen.
           success: Organisationen har uppdaterats.
         users_registration_mode:
           disabled: Åtkomst kan endast göras med externa konton
+          enabled: Tillåt deltagare att skapa ett konto och logga in
+          existing: Tillåt inte deltagare att skapa ett konto, men låt befintliga deltagare logga in
       shared:
         notices:
           no_organization_warning_html: Kom igång genom att skapa en organisation. Läs %{guide} innan du fortsätter.
           our_getting_started_guide: vår startguide
+        organizations_list:
+          confirm_resend_invitation: Är du säker på att du vill skicka inbjudan igen?
+          resend_invitation: Skicka inbjudan igen
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Decidim Dokumentation
+          error: ActiveJob-kön är inte konfigurerad. Detta är inte en rekommenderad inställning för produktionsläge. Läs mer på %{error_extra}.
+          success: ActiveJob-kön är konfigurerad korrekt.
+        secret_key:
+          error: 'Den hemliga nyckeln är inte korrekt definierad. Spara till variabeln SECRET_KEY_BASE och starta om servern: %{error_extra}'
+          success: Den hemliga nyckeln är korrekt konfigurerad.
       titles:
         dashboard: Adminpanel
+        decidim: Decidim
+  layouts:
+    decidim:
+      system:
+        login_items:
+          logout: Logga ut

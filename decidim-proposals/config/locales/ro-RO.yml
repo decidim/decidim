@@ -377,6 +377,7 @@ ro:
             publish: Publică
             publish_answers: Publică răspunsuri
             select_component: Selectează o componentă
+            select_valuators: Selectați unul sau mai mulți evaluatori
             selected: selectate
             split: Împarte propuneri
             split_button: Împarte

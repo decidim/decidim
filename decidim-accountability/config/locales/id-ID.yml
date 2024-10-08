@@ -8,8 +8,6 @@ id:
         description: Deskripsi
         end_date: Tanggal akhir
         progress: Kemajuan
-        project_ids: Termasuk proyek
-        proposals: Termasuk proposal
         start_date: Mulai tanggal
         title: Judul
         updated_at: Diperbarui pada

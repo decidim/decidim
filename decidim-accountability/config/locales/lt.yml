@@ -7,10 +7,7 @@ lt:
         decidim_scope_id: Apimtis
         description: Aprašymas
         end_date: Pabaigos data
-        meetings_ids: Susiję susitikimai
         progress: Progresas
-        project_ids: Įtraukti projektai
-        proposals: Įtraukti pasiūlymai
         start_date: Pradžios data
         title: Pavadinimas
         updated_at: Atnaujinta

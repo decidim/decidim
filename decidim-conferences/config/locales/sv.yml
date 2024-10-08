@@ -17,7 +17,7 @@ sv:
         main_logo: Logotyp
         objectives: Mål
         participatory_processes_ids: Relaterade deltagandeprocesser
-        promoted: Uppmärksammad
+        promoted: Utvald
         published_at: Publicerad
         registration_terms: Villkor för registrering
         registrations_enabled: Registrering aktiverad
@@ -37,13 +37,13 @@ sv:
         date: Datum
         link: Länk
         title: Titel
-        weight: Ordning
+        weight: Position i listan
       conference_partner:
         link: Länk
         logo: Logotyp
         name: Namn
         partner_type: Typ av partner
-        weight: Ordning
+        weight: Position i listan
       conference_registration_invite:
         email: E-post
         name: Namn
@@ -53,13 +53,13 @@ sv:
         description: Beskrivning
         price: Pris
         title: Titel
-        weight: Ordning
+        weight: Position i listan
       conference_speaker:
         affiliation: Tillhörighet
         avatar: Profilbild
         conference_meeting_ids: Relaterade möten
         full_name: Fullständigt namn
-        personal_url: Personlig URL
+        personal_url: Personlig hemsida
         position: Befattning
         short_bio: Kort biographi
         user_id: Användare
@@ -215,7 +215,7 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: Moderator
-            valuator: Värderare
+            valuator: Handläggare
         media_link:
           fields:
             date: Datum

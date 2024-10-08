@@ -798,7 +798,6 @@ zh-TW:
           title_required: 標題為必填欄位！
           uploaded: 已上傳
           validating: 驗證中...
-          validation_error: 驗證錯誤!
         select_file: 選擇檔案
       upload_help:
         dropzone: 將檔案拖曳到此處或點擊按鈕上傳。

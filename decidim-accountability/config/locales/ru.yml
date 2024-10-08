@@ -8,8 +8,6 @@ ru:
         description: Описание
         end_date: Дата окончания
         progress: Продвижение
-        project_ids: Включенные проекты
-        proposals: Включенные предложения
         start_date: Дата начала
         title: Заголовок
         updated_at: 'Обновлено:'

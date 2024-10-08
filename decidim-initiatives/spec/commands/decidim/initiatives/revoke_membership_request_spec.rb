@@ -25,7 +25,7 @@ module Decidim
               resource: initiative,
               affected_users: [membership_request.user],
               force_send: true,
-              extra: { author: initiative.author }
+              extra: { author: { id: initiative.author.id } }
             )
 
           command.call

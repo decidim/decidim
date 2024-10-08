@@ -536,6 +536,10 @@ describe "Admin manages meetings", serves_geocoding_autocomplete: true, serves_m
     end
     let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
+    before do
+      stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
+    end
+
     it "closes a meeting with a report" do
       within "tr", text: Decidim::Meetings::MeetingPresenter.new(meeting).title do
         page.click_on "Close"

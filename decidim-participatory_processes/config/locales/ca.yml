@@ -96,6 +96,7 @@ ca:
         duplicate: Duplicar
         edit: Editar
         import_process: Importar
+        menu_hidden: Amagar
         moderate: Moderar
         new_process: Nou procés
         new_process_group: Nou grup de processos
@@ -432,6 +433,7 @@ ca:
             select_participatory_process_type: Selecciona un tipus de procés
             select_process_group: Selecciona un grup de processos
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
       content_blocks:
@@ -446,7 +448,7 @@ ca:
       index:
         title: Processos participatius
       last_activity:
-        new_participatory_process: Nou procés participatiu
+        new_participatory_process: 'Nou procés participatiu:'
       pages:
         home:
           highlighted_processes:

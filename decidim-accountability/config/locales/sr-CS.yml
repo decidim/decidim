@@ -8,8 +8,6 @@ sr:
         description: Opis
         end_date: Krajnji datum
         progress: Naprеdak
-        project_ids: Uključeni projekti
-        proposals: Uključeni predlozi
         start_date: Datum početka
         title: Naslov
         updated_at: Ažurirano u

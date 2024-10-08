@@ -22,6 +22,7 @@ bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:clean:invalid_records
+bin/rails decidim_proposals:upgrade:set_categories
 ```
 
 ### 1.3. Follow the steps and commands detailed in these notes
@@ -99,6 +100,16 @@ end
 
 You can read more about this change on PR [#13196](https://github.com/decidim/decidim/pull/13196).
 
+### 2.6. Amendments category fix
+
+We have identified a bug in the filtering system, as the amendments created did not share the category with the proposal it amended. This fix aims to fix historic data. To fix it, you need to run:
+
+```shell
+bin/rails decidim_proposals:upgrade:set_categories
+```
+
+You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
@@ -115,7 +126,19 @@ bundle remove spring spring-watcher-listen
 
 You can read more about this change on PR [#13235](https://github.com/decidim/decidim/pull/13235).
 
-### 3.2. [[TITLE OF THE ACTION]]
+### 3.2. Clean up orphaned attachment blobs
+
+We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that have been created for more than 1 hour and are not yet referenced by any attachment record. This helps cleaning your filesystem of unused files.
+
+You can run the task with the following command:
+
+```bash
+bin/rails decidim:upgrade:attachments_cleanup
+```
+
+You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
+
+### 3.3. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -146,7 +169,34 @@ This no longer returns the running Decidim version by default and instead it wil
 
 If you would like to re-enable exposing the Decidim version number through the GraphQL API, you may do so by setting the `DECIDIM_API_DISCLOSE_SYSTEM_VERSION` environment variable to `true`. However, this is highly discouraged but may be required for some automation or integrations.
 
-### 5.2. [[TITLE OF THE CHANGE]]
+### 5.2. Changes in the routing
+
+As we were upgrading the application to Rails 7.1, we have noticed there are some changes in the routing system that led us to change the way participatory space mounting points are being used by Decidim.
+
+Previously, the participatory space routes were mounted like follows in either the Core or Admin.
+
+```ruby
+  Decidim.participatory_space_manifests.each do |manifest|
+    mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
+  end
+```
+
+As of [\#13294](https://github.com/decidim/decidim/pull/13294), we have changed the way of mounting. Now, each one of the Participatory Spaces are being installed specifically from their own modules like follows:
+
+```ruby
+  initializer "decidim_assemblies.mount_routes" do
+    Decidim::Core::Engine.routes do
+      mount Decidim::Assemblies::Engine, at: "/", as: "decidim_assemblies"
+    end
+  end
+```
+
+As a developer or as a user, you should not feel the difference of this change, however, we would like to emphasize this change, as the upgrade may impact other community libraries.
+This particular change in the way we mount things, applies also for `Comments` and `Verifications` modules.
+
+You can read more about this change on PR [#13294](https://github.com/decidim/decidim/pull/13294).
+
+### 5.3. [[TITLE OF THE CHANGE]]
 
 In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
 

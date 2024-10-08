@@ -8,8 +8,6 @@ gl:
         description: Descrición
         end_date: Data de finalización
         progress: Progreso
-        project_ids: Proxectos incluídos
-        proposals: Propostas incluídas
         start_date: Data de inicio
         title: Título
         updated_at: Actualizado en

@@ -77,6 +77,9 @@ export default class UploadModal {
       uploader.upload.create((error, blob) => {
         if (error) {
           uploader.errors = [error]
+          this.uploadItems.replaceChild(this.createUploadItem(file, [error], { value: 100 }), item);
+          this.updateDropZone();
+
         } else {
           // attach the file hash to submit the form, when the file has been uploaded
           file.hiddenField = blob.signed_id

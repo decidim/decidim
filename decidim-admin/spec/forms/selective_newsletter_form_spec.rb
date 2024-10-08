@@ -121,6 +121,12 @@ module Decidim
           end
         end
       end
+
+      context "when a scope is selectable", type: :b do
+        let(:scope) { create(:scope, organization:) }
+
+        it { is_expected.to be_valid }
+      end
     end
   end
 end

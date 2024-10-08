@@ -559,6 +559,7 @@ ro:
         scopes: Domenii de interes
         settings: Setări
         static_pages: Pagini
+        taxonomy_filters: Filtre taxonomie
         user_groups: Grupuri
         users: Participanți
       metrics:
@@ -951,6 +952,43 @@ ro:
           success: Pagina a fost actualizată cu succes.
       taxonomies:
         count: Număr
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Filtru nou de taxonomie
+        callout:
+          modify_taxonomy_html: Dacă aveți nevoie să modificați această taxonomie sau elementele sale, faceți acest lucru prin setările de configurare din secțiunea <a href="%{url}">Taxonomii</a>.
+        create:
+          error: A apărut o problemă la crearea acestui filtru de taxonomie.
+          success: Filtru de taxonomie creat cu succes.
+        destroy:
+          error: A apărut o problemă la ștergerea acestui filtru de taxonomie.
+          success: Filtru taxonomie șters cu succes.
+        edit:
+          back: Înapoi
+          items: "%{count} elemente selectate"
+          no_items: Nu există elemente disponibile pentru această taxonomie. Puteți crea elemente în setările de configurare a taxonomiei.
+          title: Actualizare filtru taxonomie
+          update: Actualizare filtru taxonomie
+        form:
+          select_taxonomy: Selectați o taxonomie
+        index:
+          description: Un filtru de taxonomie permite administratorilor să sorteze si să filtreze spațiile participative pe baza unei taxonomii. De exemplu, adăugați un filtru de taxonomie pentru a sorta procesele în funcție de aria geografică.
+          empty: Momentan nu există filtre de taxonomie. Creați o listă de filtre de taxonomie aici pentru a sorta și filtra spațiile participative bazate pe taxonomie.
+        new:
+          back: Înapoi
+          create: Creați filtru taxonomie
+          items: "%{count} elemente disponibile"
+          title: Filtru nou de taxonomie
+        table:
+          actions: Acțiuni
+          confirm_destroy: Sunteți sigur că doriți să ștergeți filtrul %{name}?
+          count: Numărul de elemente
+          destroy: Ștergere
+          edit: Actualizare
+          name: Nume
+        update:
+          error: A apărut o problema la actualizarea acestui filtru de taxonomie.
+          success: Filtrul de taxonomie actualizat cu succes.
       titles:
         admin_log: Jurnal de administrare
         area_types: Tipuri de zone
@@ -965,6 +1003,7 @@ ro:
         scope_types: Tipuri de domeniu
         scopes: Domenii de interes
         statistics: Activitate
+        taxonomy_filters: Filtre taxonomie
         user_groups: Grupuri
         users: Administratori
       user_group:

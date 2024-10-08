@@ -828,7 +828,6 @@ hu:
           title_required: A cím megadása kötelező!
           uploaded: Feltöltve
           validating: Ellenőrzés...
-          validation_error: Hitelesítési hiba!
         select_file: Fájl kiválasztása
       upload_help:
         dropzone: Húzza ide a fájlt vagy használja a gombot a feltöltéshez

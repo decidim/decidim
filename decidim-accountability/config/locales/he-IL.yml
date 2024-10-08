@@ -7,10 +7,7 @@ he:
         decidim_scope_id: היקף
         description: תיאור
         end_date: תאריך סיום
-        meetings_ids: פגישות כלולות
         progress: התקדמות
-        project_ids: פרויקטים כלולים
-        proposals: הצעות כלולות
         start_date: תאריך התחלה
         title: כותרת
         updated_at: עודכן ב-

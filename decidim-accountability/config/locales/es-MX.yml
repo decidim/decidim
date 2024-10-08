@@ -7,10 +7,7 @@ es-MX:
         decidim_scope_id: Ámbito
         description: Descripción
         end_date: Fin
-        meetings_ids: Encuentros relacionados
         progress: Progreso
-        project_ids: Proyectos incluidos
-        proposals: Propuestas incluidas
         start_date: Inicio
         subresults: Subresultados
         title: Título
@@ -29,6 +26,14 @@ es-MX:
       decidim/accountability/result_progress_updated_event: Progreso del resultado actualizado
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Se incluyó este resultado %{link}
+            meetings_ids: 'Se debatió en este encuentro: %{link}'
+            project_ids: 'Fue incluida en este proyecto: %{link}'
+            proposal_ids: 'Fue incluida en esta propuesta: %{link}'
+            text: 'Fue añadida a este resultado: %{link}'
       decidim/accountability/result:
         one: Resultado
         other: Resultados
@@ -176,6 +181,8 @@ es-MX:
       content_blocks:
         highlighted_results:
           results: Resultados
+      creation:
+        text: Se creó este resultado
       import_mailer:
         import:
           errors: Errores
