@@ -459,6 +459,7 @@ es:
           instagram_handler: Controlador de redes sociales para Instagram
           internal_organisation: La organización interna de esta asamblea
           is_transparent: Si la asamblea es transparente o no
+          local_area: El área de organización de la asamblea
           meta_scope: Los metadatos del ámbito territorial de la asamblea
           participatory_scope: El ámbito territorial de la participación de la asamblea
           participatory_structure: La estructura participativa de la asamblea
