@@ -376,8 +376,10 @@ eu:
           participatory_process_type: Prozesu mota
           participatory_scope: Prozesuaren parte-hartze esparrua
           participatory_structure: Prozesuaren egitura parte-hartzailea. Horrela erabakitzen da prozesua.
+          promoted: Prozesua sustatu den ala ez
           remote_hero_image_url: Prozesuaren irudi nagusiaren URLa
           scope: Prozesuaren esparrua
+          scopes_enabled: Esparruak gaituta dauden ala ez
           short_description: Prozesuaren deskribapen laburra
           slug: Batzarraren lerroa (helburuen identifikaziorako erabiltzen da, URLrako)
           start_date: Prozesuaren hasiera-data
