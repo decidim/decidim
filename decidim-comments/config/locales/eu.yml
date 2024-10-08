@@ -73,6 +73,9 @@ eu:
         deleted_user: Parte-hartzailea ezabatua
         edit: Editatu
         edited: Editatuta
+        hide_replies:
+          one: Ezkutatu erantzuna
+          other: Ezkutatu %{count} erantzun
         moderated_at: Iruzkina %{date}-an moderatu egin da
         reply: Erantzuna
         report:
