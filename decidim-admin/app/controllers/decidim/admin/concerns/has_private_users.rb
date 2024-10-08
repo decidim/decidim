@@ -104,6 +104,34 @@ module Decidim
             redirect_to after_destroy_path
           end
 
+          def publish_all
+            PublishAllParticipatorySpacePrivateUsers.call(current_participatory_space) do
+              on(:ok) do
+                flash[:notice] = I18n.t("participatory_space_private_users.publish_all.success", scope: "decidim.admin")
+                redirect_to action: :index
+              end
+
+              on(:invalid) do
+                flash[:alert] = I18n.t("participatory_space_private_users.publish_all.error", scope: "decidim.admin")
+                redirect_to action: :index
+              end
+            end
+          end
+
+          def unpublish_all
+            UnpublishAllParticipatorySpacePrivateUsers.call(current_participatory_space) do
+              on(:ok) do
+                flash[:notice] = I18n.t("participatory_space_private_users.unpublish_all.success", scope: "decidim.admin")
+                redirect_to action: :index
+              end
+
+              on(:invalid) do
+                flash[:alert] = I18n.t("participatory_space_private_users.unpublish_all.error", scope: "decidim.admin")
+                redirect_to action: :index
+              end
+            end
+          end
+
           # Public: Returns a String or Object that will be passed to `redirect_to` after
           # destroying a private user. By default it redirects to the privatable_to.
           #

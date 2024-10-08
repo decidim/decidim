@@ -12,11 +12,7 @@ module Decidim
       private
 
       def can_visit_index?
-        current_user_can_visit_space? && members_published?
-      end
-
-      def members_published?
-        current_participatory_space.participatory_space_private_users.published.any?
+        current_user_can_visit_space? && current_participatory_space.members_public_page?
       end
 
       def members
