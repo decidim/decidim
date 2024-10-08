@@ -366,14 +366,23 @@ eu:
           announcement: Informazioa iragarpenaz (deia)
           area: Prozesua zein eremutan gertatzen ari da?
           description: Prozesuaren deskribapen luzea
+          developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.
           end_date: Prozesuaren amaiera-data
+          hashtag: Prozesuaren traola, Twitter/Xerako erabilia
+          id: Prozesu honen identifikatzaile bakarra
+          local_area: Prozesuaren tokiko eremua. Hau da prozesua garatzen ari den erakundearen arloa.
           meta_scope: Prozesuaren esparru-metadatuak
+          participatory_process_group: Prozesuaren taldea, baldin badago
           participatory_process_type: Prozesu mota
           participatory_scope: Prozesuaren parte-hartze esparrua
+          participatory_structure: Prozesuaren egitura parte-hartzailea. Horrela erabakitzen da prozesua.
+          remote_hero_image_url: Prozesuaren irudi nagusiaren URLa
           scope: Prozesuaren esparrua
           short_description: Prozesuaren deskribapen laburra
+          slug: Batzarraren lerroa (helburuen identifikaziorako erabiltzen da, URLrako)
           start_date: Prozesuaren hasiera-data
           subtitle: Prosezuaren azpititulua
+          target: Prozesuaren helburuak. Honi deitzen zaio prozesuan parte hartzeko.
           title: Prozesuaren izenburua
     participatory_process_groups:
       content_blocks:
