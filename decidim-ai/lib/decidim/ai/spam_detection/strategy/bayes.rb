@@ -53,9 +53,8 @@ module Decidim
 
           def configured_backend
             if options[:adapter].to_s == "memory" || options.dig(:params, :url).empty?
-              logger = Logger.new($stdout)
-              logger.info "[AI] Running the Memory backend as it was requested" if options[:adapter].to_s == "memory"
-              logger.info "[AI] Running the Memory backend as there are no redis credentials" if options.dig(:params, :url).empty?
+              Rails.logger.info "[AI] Running the Memory backend as it was requested" if options[:adapter].to_s == "memory"
+              Rails.logger.info "[AI] Running the Memory backend as there are no redis credentials" if options.dig(:params, :url).empty?
               ClassifierReborn::BayesMemoryBackend.new
             else
               ClassifierReborn::BayesRedisBackend.new options[:params]
