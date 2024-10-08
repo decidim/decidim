@@ -8,6 +8,8 @@ module Decidim
         include Decidim::Admin::ContentBlocks::LandingPageContentBlocks
         include Concerns::AssemblyAdmin
 
+        helper_method :parent_assembly
+
         layout "decidim/admin/assemblies"
 
         private
@@ -28,6 +30,10 @@ module Decidim
 
         def resource_landing_page_content_block_path
           assembly_landing_page_content_block_path(scoped_resource, params[:id])
+        end
+
+        def parent_assembly
+          @parent_assembly ||= scoped_resource.parent
         end
       end
     end
