@@ -19,7 +19,8 @@ shared_examples_for "update display conditions" do
     end
 
     before do
-      visit_questionnaire_edit_path_and_expand_all
+      click_on "Save"
+      visit_manage_questions_and_expand_all
     end
 
     it "the related form appears" do
@@ -59,7 +60,7 @@ shared_examples_for "update display conditions" do
 
       click_on "Save"
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_manage_questions_and_expand_all
 
       expect(page).to have_css(".questionnaire-question-display-condition", count: 0)
     end
@@ -81,7 +82,7 @@ shared_examples_for "update display conditions" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_manage_questions_and_expand_all
 
       expect(page).to have_css(".questionnaire-question", count: 1)
     end

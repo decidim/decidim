@@ -97,7 +97,7 @@ shared_examples_for "manage questionnaire answers" do
       let!(:answer11) { create(:answer, questionnaire:, body: "", user: answer1.user, question: second) }
 
       before do
-        visit questionnaire_edit_path
+        click_on "Manage questions"
         click_on "Show responses"
       end
 
@@ -127,6 +127,7 @@ shared_examples_for "manage questionnaire answers" do
       end
 
       it "third answer has download link for the attachments" do
+        click_on "Manage questions"
         click_on answer3.session_token, match: :first
         expect(page).to have_content(translated(file_answer.attachments.first.title))
         expect(page).to have_content(translated(file_answer.attachments.second.title))

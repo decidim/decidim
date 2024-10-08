@@ -112,7 +112,7 @@ shared_examples_for "manage questionnaires" do
     find(".button.expand-all").click
   end
 
-  def visit_questionnaire_edit_path_and_expand_all
+  def visit_manage_questions_and_expand_all
     click_on "Manage questions"
     expand_all_questions
   end

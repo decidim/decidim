@@ -37,29 +37,26 @@ shared_examples_for "add questions" do
 
   it "adds a few questions and separators to the questionnaire" do
     fields_body = ["This is the first question", "This is the second question", "This is the first title and description"]
+    click_on "Add question"
+    click_on "Add separator"
+    click_on "Add title and description"
+    click_on "Add question"
 
-    within "form.edit_questionnaire" do
-      click_on "Add question"
-      click_on "Add separator"
-      click_on "Add title and description"
-      click_on "Add question"
+    expect(page).to have_css(".questionnaire-question", count: 4)
 
-      expect(page).to have_css(".questionnaire-question", count: 4)
+    expand_all_questions
 
-      expand_all_questions
-
-      page.all(".questionnaire-question .collapsible").each_with_index do |field, idx|
-        within field do
-          fill_in find_nested_form_field_locator("body_en"), with: fields_body[idx]
-        end
+    page.all(".questionnaire-question .collapsible").each_with_index do |field, idx|
+      within field do
+        fill_in find_nested_form_field_locator("body_en"), with: fields_body[idx]
       end
-
-      click_on "Save"
     end
+
+    click_on "Save"
 
     expect(page).to have_admin_callout("successfully")
 
-    visit_questionnaire_edit_path_and_expand_all
+    visit_manage_questions_and_expand_all
 
     expect(page).to have_css("input[value='This is the first question']")
     expect(page).to have_css("input[value='This is the second question']")
@@ -68,59 +65,47 @@ shared_examples_for "add questions" do
   end
 
   it "adds a question with a rich text description" do
-    within "form.edit_questionnaire" do
-      click_on "Add question"
-      expand_all_questions
+    click_on "Add question"
+    expand_all_questions
 
-      within ".questionnaire-question" do
-        fill_in find_nested_form_field_locator("body_en"), with: "Body"
+    within ".questionnaire-question" do
+      fill_in find_nested_form_field_locator("body_en"), with: "Body"
 
-        fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<p>\n<strong>Superkalifragilistic description</strong>\n</p>"
-      end
-
-      click_on "Save"
+      fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<p>\n<strong>Superkalifragilistic description</strong>\n</p>"
     end
+
+    click_on "Save"
 
     expect(page).to have_admin_callout("successfully")
 
-    component.update!(
-      step_settings: {
-        component.participatory_space.active_step.id => {
-          allow_answers: true
-        }
-      }
-    )
+    survey.update!(allow_answers: true)
 
     visit questionnaire_public_path
+    choose "All"
+    click_on decidim_sanitize_translated(questionnaire.title)
 
     expect(page).to have_css("strong", text: "Superkalifragilistic description")
   end
 
   it "adds a title-and-description" do
-    within "form.edit_questionnaire" do
-      click_on "Add title and description"
-      expand_all_questions
+    click_on "Add title and description"
+    expand_all_questions
 
-      within ".questionnaire-question" do
-        fill_in find_nested_form_field_locator("body_en"), with: "Body"
+    within ".questionnaire-question" do
+      fill_in find_nested_form_field_locator("body_en"), with: "Body"
 
-        fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<p>\n<strong>Superkalifragilistic description</strong>\n</p>"
-      end
-
-      click_on "Save"
+      fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<p>\n<strong>Superkalifragilistic description</strong>\n</p>"
     end
+
+    click_on "Save"
 
     expect(page).to have_admin_callout("successfully")
 
-    component.update!(
-      step_settings: {
-        component.participatory_space.active_step.id => {
-          allow_answers: true
-        }
-      }
-    )
+    survey.update!(allow_answers: true)
 
     visit questionnaire_public_path
+    choose "All"
+    click_on decidim_sanitize_translated(questionnaire.title)
 
     expect(page).to have_css("strong", text: "Superkalifragilistic description")
   end
@@ -140,40 +125,38 @@ shared_examples_for "add questions" do
       ]
     ]
 
-    within "form.edit_questionnaire" do
-      click_on "Add question"
-      click_on "Add question"
-      expand_all_questions
+    click_on "Add question"
+    click_on "Add question"
+    expand_all_questions
 
-      page.all(".questionnaire-question").each_with_index do |question, idx|
-        within question do
-          fill_in find_nested_form_field_locator("body_en"), with: question_body[idx]
-        end
+    page.all(".questionnaire-question").each_with_index do |question, idx|
+      within question do
+        fill_in find_nested_form_field_locator("body_en"), with: question_body[idx]
       end
-
-      expect(page).to have_no_content "Add answer option"
-
-      page.all(".questionnaire-question").each do |question|
-        within question do
-          select "Single option", from: "Type"
-          click_on "Add answer option"
-        end
-      end
-
-      page.all(".questionnaire-question").each_with_index do |question, question_idx|
-        question.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, answer_option_idx|
-          within question_answer_option do
-            fill_in find_nested_form_field_locator("body_en"), with: answer_options_body[question_idx][answer_option_idx]
-          end
-        end
-      end
-
-      click_on "Save"
     end
+
+    expect(page).to have_no_content "Add answer option"
+
+    page.all(".questionnaire-question").each do |question|
+      within question do
+        select "Single option", from: "Type"
+        click_on "Add answer option"
+      end
+    end
+
+    page.all(".questionnaire-question").each_with_index do |question, question_idx|
+      question.all(".questionnaire-question-answer-option").each_with_index do |question_answer_option, answer_option_idx|
+        within question_answer_option do
+          fill_in find_nested_form_field_locator("body_en"), with: answer_options_body[question_idx][answer_option_idx]
+        end
+      end
+    end
+
+    click_on "Save"
 
     expect(page).to have_admin_callout("successfully")
 
-    visit_questionnaire_edit_path_and_expand_all
+    visit_manage_questions_and_expand_all
 
     expect(page).to have_css("input[value='This is the first question']")
     expect(page).to have_css("input[value='This is the Q1 first option']")
@@ -300,6 +283,7 @@ shared_examples_for "add questions" do
     click_on "Save"
     expand_all_questions
 
+    expect(page).to have_content("Type")
     select "Single option", from: "Type"
 
     within ".questionnaire-question-answer-option:first-of-type" do
@@ -322,6 +306,7 @@ shared_examples_for "add questions" do
     click_on "Save"
     expand_all_questions
 
+    expect(page).to have_content("Type", wait: 10)
     select "Matrix (Single option)", from: "Type"
 
     within ".questionnaire-question-matrix-row:first-of-type" do
@@ -384,7 +369,6 @@ shared_examples_for "add questions" do
 
   it "allows switching translated field tabs after form failures" do
     click_on "Add question"
-    click_on "Save"
 
     expand_all_questions
 
@@ -406,20 +390,16 @@ shared_examples_for "add questions" do
     let(:single_option_string) { "Single option" }
 
     before do
-      visit questionnaire_edit_path
+      click_on "Add question"
 
-      within "form.edit_questionnaire" do
-        click_on "Add question"
+      expand_all_questions
 
-        expand_all_questions
-
-        within ".questionnaire-question" do
-          fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
-        end
-
-        expect(page).to have_no_content "Add answer option"
-        expect(page).to have_no_select("Maximum number of choices")
+      within ".questionnaire-question" do
+        fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
       end
+
+      expect(page).to have_no_content "Add answer option"
+      expect(page).to have_no_select("Maximum number of choices")
     end
 
     it "updates the free text option selector according to the selected question type" do
@@ -443,20 +423,16 @@ shared_examples_for "add questions" do
     let(:single_option_string) { "Matrix (Single option)" }
 
     before do
-      visit questionnaire_edit_path
+      click_on "Add question"
+      expand_all_questions
 
-      within "form.edit_questionnaire" do
-        click_on "Add question"
-        expand_all_questions
-
-        within ".questionnaire-question" do
-          fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
-        end
-
-        expect(page).to have_no_content "Add answer option"
-        expect(page).to have_no_content "Add row"
-        expect(page).to have_no_select("Maximum number of choices")
+      within ".questionnaire-question" do
+        fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
       end
+
+      expect(page).to have_no_content "Add answer option"
+      expect(page).to have_no_content "Add row"
+      expect(page).to have_no_select("Maximum number of choices")
     end
 
     it "updates the free text option selector according to the selected question type" do

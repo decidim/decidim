@@ -81,12 +81,8 @@ describe "Admin manages surveys" do
         let(:components_path) { participatory_space_path }
 
         before do
+          survey.update!(clean_after_publish: true)
           visit components_path
-          click_on translated_attribute(component.name)
-          click_on "Edit"
-
-          check "Delete answers when publishing the survey"
-          click_on "Save"
         end
 
         context "when clean_after_publish is set to true" do
@@ -97,7 +93,9 @@ describe "Admin manages surveys" do
             end
 
             it "deletes previous answers" do
-              expect(clean_after_publish).to be true
+              click_on translated_attribute(component.name)
+              click_on "Edit"
+              expect(survey.clean_after_publish).to be true
 
               perform_enqueued_jobs do
                 Decidim::Admin::PublishComponent.call(component, user)
@@ -109,7 +107,9 @@ describe "Admin manages surveys" do
         end
 
         context "when clean_after_publish is set to false" do
-          let(:clean_after_publish) { false }
+          before do
+            survey.update!(clean_after_publish: false)
+          end
 
           it "does not delete previous answers after publishing" do
             expect(survey.clean_after_publish?).to be false
