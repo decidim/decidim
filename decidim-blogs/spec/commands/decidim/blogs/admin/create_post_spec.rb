@@ -42,7 +42,6 @@ module Decidim
 
           it "creates the post" do
             expect { subject.call }.to change(Post, :count).by(1)
-            expect(post.published_at).to eq(post.created_at)
           end
 
           it "creates a searchable resource" do
@@ -80,22 +79,6 @@ module Decidim
               subject.call
               expect(post.published_at).to eq(publish_time)
             end
-          end
-
-          it "sends a notification to the participatory space followers" do
-            follower = create(:user, organization:)
-            create(:follow, followable: participatory_process, user: follower)
-
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.blogs.post_created",
-                event_class: Decidim::Blogs::CreatePostEvent,
-                resource: kind_of(Post),
-                followers: [follower]
-              )
-
-            subject.call
           end
 
           it "traces the action", versioning: true do

@@ -13,8 +13,8 @@ module Decidim
       it_behaves_like "a component query type"
 
       describe "posts" do
-        let!(:component_posts) { create_list(:post, 2, component: model) }
-        let!(:other_posts) { create_list(:post, 2) }
+        let!(:component_posts) { create_list(:post, 2, :published, component: model) }
+        let!(:other_posts) { create_list(:post, 2, :published) }
 
         let(:query) { "{ posts { edges { node { id } } } }" }
 
@@ -30,7 +30,7 @@ module Decidim
         let(:variables) { { id: post.id.to_s } }
 
         context "when the post belongs to the component" do
-          let!(:post) { create(:post, component: model) }
+          let!(:post) { create(:post, :published, component: model) }
 
           it "finds the post" do
             expect(response["post"]["id"]).to eq(post.id.to_s)
@@ -38,7 +38,7 @@ module Decidim
         end
 
         context "when the post does not belong to the component" do
-          let!(:post) { create(:post, component: create(:post_component)) }
+          let!(:post) { create(:post, :published, component: create(:post_component)) }
 
           it "returns null" do
             expect(response["post"]).to be_nil

@@ -12,7 +12,7 @@ module Decidim
       let(:type_class) { Decidim::Blogs::BlogsType }
 
       let(:model) { create(:post_component) }
-      let!(:models) { create_list(:post, 3, component: model) }
+      let!(:models) { create_list(:post, 3, :published, component: model) }
 
       context "when filtered by created_at" do
         include_examples "connection has before/since input filter", "posts", "created"
