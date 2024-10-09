@@ -95,8 +95,11 @@ cs:
         proposals:
           proposal:
             budget_text: Návrh %{link} byl vytvořen
+            import_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             import_to_proposal_text: Tento návrh %{link} byl vytvořen
+            merge_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
+            split_from_proposal_text: 'Stal se z něj tento návrh: %{link}'
             split_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
       decidim/proposals/collaborative_draft:
         one: Návrh spolupráce
@@ -113,6 +116,11 @@ cs:
         few: Poznámky
         many: Poznámky
         other: Poznámky
+      decidim/proposals/proposal_vote:
+        one: Hlas
+        few: Hlasů
+        many: Hlasů
+        other: Hlasů
   decidim:
     admin:
       filters:
@@ -428,7 +436,8 @@ cs:
           alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
           author: Jméno účastníka, který vytvořil tento komentář
           body: Samotný komentář
-          commentable_id: Jedinečné ID komentáře
+          commentable_id: Jedinečné ID komentovatelného
+          commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
           created_at: Datum, kdy byl komentář vytvořen
           depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
           id: ID pro tento komentář
@@ -436,9 +445,34 @@ cs:
           root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
           user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         proposals:
+          address: Adresa návrhu v případě, že má návrh fyzické umístění
+          answer: Odpověď na návrh v případě, že byl zodpovězen
+          answered_at: Datum odpovědi na tento návrh
+          attachments: Počet příloh, které má tento návrh
+          author: Údaje pro autora tohoto návrhu
+          body: Obsah návrhu
+          category: Kategorie návrhu (např. "Kultura")
+          comments: Počet komentářů, které má tento návrh
+          component: Komponenta, do které návrh patří
+          endorsements: Počet souhlasů ("lajků"), které tento návrh získal
+          followers: Počet příznivců tohoto návrhu
+          id: Jedinečný identifikátor návrhu
+          is_amend: Zda je tento návrh změnou jiného návrhu
+          latitude: Zeměpisná šířka návrhu v případě, že má fyzické umístění
+          longitude: Zeměpisná délka návrhu v případě, že má fyzické umístění
+          meeting_urls: URL schůzek v nichž byl tento návrh předložen nebo projednán
+          original_proposal: Odkaz na původní návrh, pokud se jedná o pozměňovací návrh
+          participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) tento návrh patří
+          published_at: Datum, kdy byl tento návrh zveřejněn
+          reference: Jedinečný identifikátor zdroje na této platformě
+          related_proposals: Návrhy související s tímto návrhem
+          scope: Rozsah návrhu (např. „město“)
+          state: Stav tohoto návrhu (např. "přijato")
           title: Název návrhu
           url: URL, kde lze tento návrh nalézt
           votes: Počet hlasů tohoto návrhu
+          withdrawn: Kdy byl tento návrh stažen
+          withdrawn_at: Kdy byl tento návrh stažen
     participatory_spaces:
       highlighted_proposals:
         last: Poslední návrhy
@@ -817,6 +851,8 @@ cs:
         success: Návrh byl úspěšně vytvořen. Uloženo jako návrh.
       creation:
         imported_text: Stalo se z něj tento návrh
+        merged_text: Stali se tímto návrhem
+        splitted_text: Stalo se z něj tento návrh
         text: Tento návrh byl vytvořen
       destroy_draft:
         error: Došlo k chybám s vymazáním návrhového návrhu.
