@@ -5,7 +5,7 @@ module Decidim
     module ContentBlocks
       class HighlightedDebatesCell < Decidim::ContentBlocks::HighlightedElementsCell
         def show
-          render unless items_count.zero?
+          render unless debates_count.zero?
         end
 
         private
@@ -41,6 +41,10 @@ module Decidim
         end
 
         def items_count
+          debates_count
+        end
+
+        def limit
           3
         end
       end
