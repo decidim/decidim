@@ -1008,7 +1008,7 @@ ca:
         success: Sol·licitud d'incorporació rebutjada correctament.
       actions:
         are_you_sure: Segur?
-        promote_to_admin: Fer administrador
+        promote_to_admin: Fer administradora
         remove_from_group: Eliminar participant
       index:
         current_members_without_admins: 'Membres actuals (sense administradors):'
