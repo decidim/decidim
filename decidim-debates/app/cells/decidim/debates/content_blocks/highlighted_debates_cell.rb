@@ -5,7 +5,7 @@ module Decidim
     module ContentBlocks
       class HighlightedDebatesCell < Decidim::ContentBlocks::HighlightedElementsCell
         def show
-          render unless debates_count.zero?
+          render unless items_count.zero?
         end
 
         private
@@ -28,8 +28,8 @@ module Decidim
           @debates_to_render ||= debates.includes([:author, :component]).limit(limit)
         end
 
-        def debates_count
-          @debates_count ||= debates.size
+        def items_count
+          debates_to_render.size
         end
 
         def cache_hash
@@ -38,10 +38,6 @@ module Decidim
           hash << debates.cache_key_with_version
           hash << I18n.locale.to_s
           hash.join(Decidim.cache_key_separator)
-        end
-
-        def items_count
-          debates_count
         end
 
         def limit
