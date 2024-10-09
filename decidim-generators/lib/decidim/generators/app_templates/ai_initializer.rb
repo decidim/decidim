@@ -43,7 +43,7 @@ if Decidim.module_installed?(:ai)
       strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
       options: {
         adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE", "redis"),
-        params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL", {}) }
+        params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL", "redis://localhost:6379/1") }
       }
     }
   ]
@@ -92,7 +92,7 @@ if Decidim.module_installed?(:ai)
       strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
       options: {
         adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER", "redis"),
-        params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER_URL", {}) }
+        params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER_URL", "redis://localhost:6379/2") }
       }
     }
   ]
