@@ -17,7 +17,7 @@ bundle add decidim-ai
 
 After that, add an initializer file as presented in the [documentation](https://docs.decidim.org/en/develop/services/aitools.html#_configuration)
 
-After the configuration is added, you need to run the below command, so that the reporting user is created.
+Then, you need to run the below command, so that the reporting user is created.
 
 ```ruby
 bin/rails decidim:ai:spam:create_reporting_user
