@@ -387,7 +387,7 @@ eu:
             registration_form: Izena emateko formularioa
             registrations_count:
               one: '%{count} izen-emate izan da.'
-              other: Dena den, %{count} matrikulazioak.
+              other: '%{count} izen-emate izan dira.'
             reserved_slots_help: Utzi 0, ez baduzu erreserbatutako espaziorik.
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
             title: Izen-emateak
