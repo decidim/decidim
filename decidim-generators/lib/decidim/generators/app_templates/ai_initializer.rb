@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 if Decidim.module_installed?(:ai)
-  Decidim::Ai::Language.service = "Decidim::Ai::Language::Detection"
   Decidim::Ai::Language.formatter = "Decidim::Ai::Language::Formatter"
 
   Decidim::Ai::SpamDetection.reporting_user_email = "your-admin@example.org"

@@ -20,18 +20,6 @@ module Decidim
       end
     end
 
-    describe ".language_detection_service" do
-      subject { Decidim::Ai::Language.service.safe_constantize.new("This is a test") }
-
-      it "returns a language detection service" do
-        expect(subject).to be_a(Decidim::Ai::Language::Detection)
-      end
-
-      it "returns the correct language code" do
-        expect(subject.language_code).to eq("en")
-      end
-    end
-
     describe ".resource_registry" do
       it "return strategy class" do
         expect(Decidim::Ai::SpamDetection.resource_registry).to be_a(Decidim::Ai::StrategyRegistry)
