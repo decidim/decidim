@@ -1339,6 +1339,7 @@ shared_examples_for "has questionnaire" do
 
           it "does not throw error" do
             visit questionnaire_public_path
+            click_on translated_attribute(questionnaire.title)
 
             fill_in condition_question.body["en"], with: "My first answer"
 

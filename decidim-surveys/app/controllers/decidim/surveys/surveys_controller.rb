@@ -30,6 +30,10 @@ module Decidim
         !current_component.published? || @survey.open?
       end
 
+      def allow_unregistered?
+        @survey.allow_unregistered
+      end
+
       def form_path
         main_component_path(current_component)
       end

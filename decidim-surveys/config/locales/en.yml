@@ -55,6 +55,11 @@ en:
         preview: Preview
         title: Actions
       admin:
+        answers:
+          index:
+            title: "%{total} total responses"
+          show:
+            title: 'Answer #%{number}'
         component:
           actions:
             answers_alert: If you publish the component, all results will be removed.

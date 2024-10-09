@@ -6,12 +6,14 @@ module Decidim
       # This controller allows the user to update a Page.
       class SurveysController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaire
-        include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswers
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersUrlHelper
         include Decidim::Surveys::Admin::Filterable
 
         helper_method :surveys
 
         def index; end
+
+        def show; end
 
         def create
           Decidim::Surveys::CreateSurvey.call(current_component) do
@@ -71,14 +73,13 @@ module Decidim
           surveys_path
         end
 
+        def questionnaire_participants_url
+          Decidim::EngineRouter.admin_proxy(survey.component).survey_answers_path(survey)
+        end
+
         # Specify the public url from which the survey can be viewed and answered
         def public_url
           Decidim::EngineRouter.main_proxy(current_component).survey_path(survey)
-        end
-
-        # Specify where to redirect after exporting a user response
-        def questionnaire_participant_answers_url(session_token)
-          Decidim::EngineRouter.admin_proxy(survey.component).show_survey_path(session_token:)
         end
 
         def edit_questionnaire_title

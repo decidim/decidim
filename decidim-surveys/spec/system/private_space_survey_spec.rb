@@ -38,7 +38,7 @@ describe "Private Space Answer a survey" do
 
   before do
     switch_to_host(organization.host)
-    component.update!(default_step_settings: { allow_answers: true })
+    survey.update!(allow_answers: true)
   end
 
   def visit_component
@@ -51,6 +51,7 @@ describe "Private Space Answer a survey" do
     context "when the user is not logged in" do
       it "does not allow answering the survey" do
         visit_component
+        click_on translated_attribute(questionnaire.title)
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
@@ -72,6 +73,7 @@ describe "Private Space Answer a survey" do
 
         it "allows answering the survey" do
           visit_component
+          click_on translated_attribute(questionnaire.title)
 
           expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
@@ -98,6 +100,7 @@ describe "Private Space Answer a survey" do
 
         it "not allows answering the survey" do
           visit_component
+          click_on translated_attribute(questionnaire.title)
 
           expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
@@ -133,9 +136,12 @@ describe "Private Space Answer a survey" do
 
         it "allows answering the survey" do
           visit_component
+          choose "All"
 
           expect(page).to have_i18n_content(questionnaire.title)
           expect(page).to have_i18n_content(questionnaire.description)
+
+          click_on translated_attribute(questionnaire.title)
 
           fill_in question.body["en"], with: "My first answer"
 
