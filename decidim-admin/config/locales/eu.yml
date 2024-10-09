@@ -382,8 +382,8 @@ eu:
       dashboard:
         pending_moderations:
           announcement:
-            one: Moderazio bat falta da
-            other: '%{count} moderazio daude zain'
+            one: '%{count} moderazio falta dira'
+            other: '%{count} moderazio falta dira'
           goto_moderation: Joan moderazio globaletara
           title: Zain dauden moderazioak
         show:
@@ -519,7 +519,7 @@ eu:
           duplicate_headers:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
             message:
-              one: Bikoiztu %{columns} zutabeak.
+              one: Bikoiztu %{columns} zutabe.
               other: Bikoiztu %{columns} zutabea.
           invalid_indexes:
             lines:
