@@ -25,7 +25,7 @@ shared_examples_for "manage questionnaires" do
   end
 
   it "updates the questionnaire" do
-    visit questionnaire_edit_path
+    click_on "Edit"
 
     new_description = {
       en: "<p>New description</p>",
