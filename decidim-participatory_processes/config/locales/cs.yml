@@ -369,12 +369,25 @@ cs:
     open_data:
       help:
         participatory_processes:
+          announcement: Oznámení (vyhlášení) informací
+          area: Oblast, ve které probíhá proces
           description: Dlouhý popis procesu
+          developer_group: Skupina tvůrců procesu. Jedná se o organizaci, která proces prosazuje.
           end_date: Datum ukončení procesu
+          hashtag: Hashtag Procesu, používaný pro Twitter/X
+          id: Jedinečný identifikátor tohoto procesu
+          local_area: Místní oblast procesu. Tohle je oblast organizace, kde probíhá proces.
+          meta_scope: Rozsah metadat procesu
+          participatory_process_group: Skupina procesu, pokud existuje
           participatory_process_type: Typ procesu
           participatory_scope: Participační rozsah procesu
+          participatory_structure: Participativní struktura procesu. Takto se o procesu rozhoduje.
+          promoted: Zda je proces propagován, nebo ne
+          remote_hero_image_url: URL obrázku předáka procesu
           scope: Rozsah procesu
+          scopes_enabled: Zda jsou rozsahy povoleny nebo ne
           short_description: Stručný popis procesu
+          slug: Slug procesu (používá se pro účely identifikace, pro URL)
           start_date: Počáteční datum procesu
           subtitle: Podtitulek procesu
           target: Cíl procesu je ten, kdo je vyzván, aby se tohoto procesu zúčastnil.
