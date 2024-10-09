@@ -299,8 +299,11 @@ cs:
     open_data:
       help:
         result_comments:
+          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
+          author: Jméno účastníka, který vytvořil tento komentář
           body: Samotný komentář
-          commentable_id: Jedinečné Id komentáře
+          commentable_id: Jedinečné ID komentovatelného
+          commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
           created_at: Datum, kdy byl komentář vytvořen
           depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
           id: Id pro tento komentář
