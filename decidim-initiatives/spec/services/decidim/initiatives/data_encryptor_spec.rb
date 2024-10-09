@@ -10,7 +10,7 @@ module Decidim
       let(:hash_payload) do
         { name_and_surname: ::Faker::Name.name,
           document_number: ::Faker::IDNumber.spanish_citizen_number,
-          date_of_birth: ::Faker::Date.birthday(min_age: 18, max_age: 40),
+          date_of_birth: ::Faker::Date.birthday(min_age: 18, max_age: 40).to_s,
           postal_code: ::Faker::Address.zip_code }
       end
       let(:encryptor) { described_class.new(secret:) }
@@ -34,7 +34,7 @@ module Decidim
         end
 
         it "decrypts hash data" do
-          expect(encryptor.decrypt(encrypted_hash_data)).to eq(hash_payload)
+          expect(encryptor.decrypt(encrypted_hash_data)).to eq(hash_payload.with_indifferent_access)
         end
 
         it "invalid data cannot be decrypted" do

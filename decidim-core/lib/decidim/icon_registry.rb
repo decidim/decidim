@@ -48,7 +48,7 @@ module Decidim
       }
 
       ActiveSupport::Deprecation.warn(message)
-      raise message if Rails.env.development? || Rails.env.test?
+      raise message if Rails.env.local?
 
       @icons["other"]
     end

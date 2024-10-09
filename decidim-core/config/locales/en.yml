@@ -4,10 +4,17 @@ en:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      attachment:
+        documents: Documents
+        photos: Photos
+      authorization:
+        verification_attachment: Verification attachment
       common:
         created_at: Created at
       conversation:
         body: Body
+      editor_image:
+        file: File
       group:
         about: About
         avatar: Avatar
@@ -24,6 +31,7 @@ en:
         name: Taxonomy name
       user:
         about: About
+        avatar: Avatar
         email: Your email
         encrypted_password: Password
         locale: Locale
@@ -35,6 +43,8 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -764,6 +774,12 @@ en:
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'An amendment has been promoted for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
+            email_subject: Amendment for %{amendable_title} has been promoted
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been promoted for <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -1206,6 +1222,8 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
+      blocked_users:
+        description: Suspended users
       download:
         csv: Download data (CSV)
       followers:
@@ -1216,6 +1234,10 @@ en:
         description: Number of active participants in organization
         object: participants
         title: Participants
+      reported_users:
+        description: Reported users
+      user_reports:
+        description: User reports
       users:
         description: Number of participants in organization
         object: participants
@@ -1281,10 +1303,12 @@ en:
     notifications_digest_mailer:
       header:
         daily: Daily Notification Digest
+        real_time: Real time
         weekly: Weekly Notification Digest
       hello: Hello %{name},
       intro:
         daily: 'These are the notifications from the last day based on the activity you are following:'
+        real_time: 'Receive notifications in realtime about he activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
       outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
       see_more: See more notifications

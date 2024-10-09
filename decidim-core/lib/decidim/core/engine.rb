@@ -412,7 +412,7 @@ module Decidim
       initializer "decidim_core.validators" do
         config.to_prepare do
           # Decidim overrides to the file content type validator
-          require "file_content_type_validator"
+          require Decidim::Core::Engine.root.join("app/validators/file_content_type_validator")
         end
       end
 
@@ -696,7 +696,7 @@ module Decidim
         # We need to make sure we call `Preview.all` before requiring our
         # previews, otherwise any previews the app attempts to add need to be
         # manually required.
-        if Rails.env.development? || Rails.env.test?
+        if Rails.env.local?
           ActionMailer::Preview.all
 
           Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|

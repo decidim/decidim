@@ -72,7 +72,7 @@ module Decidim
         context "and the link is created for another organization" do
           subject { described_class.unique_identifier_within(another_organization) }
 
-          let(:another_organization) { create(:organization) }
+          let!(:another_organization) { create(:organization) }
 
           it "returns the identifier already in use in the other organization" do
             expect(SecureRandom).to receive(:alphanumeric).with(10).once.and_return(taken_identifier1)

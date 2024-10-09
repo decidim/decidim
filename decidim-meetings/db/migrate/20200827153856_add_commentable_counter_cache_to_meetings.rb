@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
 class AddCommentableCounterCacheToMeetings < ActiveRecord::Migration[5.2]
+  class Meeting < ApplicationRecord
+    self.table_name = :decidim_meetings_meetings
+  end
+
   def change
     add_column :decidim_meetings_meetings, :comments_count, :integer, null: false, default: 0
-    Decidim::Meetings::Meeting.reset_column_information
-    Decidim::Meetings::Meeting.find_each(&:update_comments_count)
+    Meeting.reset_column_information
+    Meeting.find_each(&:update_comments_count)
   end
 end

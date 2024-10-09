@@ -123,7 +123,7 @@ describe "User activity" do
       end
 
       it "displays an error message" do
-        expect(page).to have_text("Puma caught this error: Missing user: invalid_nickname")
+        expect(page).to have_text("Routing Error\nMissing user: invalid_nickname")
       end
     end
   end

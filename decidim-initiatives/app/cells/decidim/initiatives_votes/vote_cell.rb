@@ -51,7 +51,7 @@ module Decidim
       end
 
       def metadata
-        @metadata ||= model.encrypted_metadata ? encryptor.decrypt(model.encrypted_metadata) : {}
+        @metadata ||= (model.encrypted_metadata ? encryptor.decrypt(model.encrypted_metadata) : {}).with_indifferent_access
       end
     end
   end

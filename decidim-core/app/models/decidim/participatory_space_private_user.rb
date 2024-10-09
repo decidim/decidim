@@ -25,6 +25,14 @@ module Decidim
     ransacker :invitation_sent_at do
       Arel.sql(%{("invitation_sent_at")::text})
     end
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(created_at decidim_user_id email id invitation_accepted_at invitation_sent_at last_sign_in_at name nickname privatable_to_id
+         privatable_to_type updated_at)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(privatable_to user)
+    end
 
     def self.ransackable_attributes(auth_object = nil)
       return [] unless auth_object&.admin?

@@ -20,11 +20,11 @@ module ActionDispatch
         end
 
         # Add the file URI scheme so terminal emulators can open one click
-        def display_image
+        def display_image(html:, screenshot_output:)
           message = +"[Screenshot Image]: file://#{image_path}\n"
-          message << +"[Screenshot HTML]: file://#{html_path}\n" if save_html?
+          message << +"[Screenshot HTML]: file://#{html_path}\n" if html
 
-          case output_type
+          case screenshot_output || output_type
           when "artifact"
             message << "\e]1338;url=artifact://#{absolute_image_path}\a\n"
           when "inline"

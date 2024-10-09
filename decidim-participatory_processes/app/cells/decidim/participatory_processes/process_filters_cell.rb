@@ -22,7 +22,7 @@ module Decidim
       end
 
       def get_filter(filter_name, default = nil)
-        params&.dig(:filter, filter_name) || default
+        params&.to_unsafe_h&.dig(:filter, filter_name) || default
       end
 
       def get_filter_in(filter_name, options, default = nil)

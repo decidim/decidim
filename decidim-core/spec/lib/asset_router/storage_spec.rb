@@ -110,7 +110,6 @@ module Decidim::AssetRouter
             end
 
             it "creates the redirect route to the variant" do
-              expect(asset.processed?).to be(true)
               expect(asset.key).to be_present
               expect(asset.blob.service.exist?(asset.key)).to be(false)
               expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.jpg$})
@@ -189,8 +188,8 @@ module Decidim::AssetRouter
 
       context "when the CDN host is defined" do
         before do
-          allow(Rails.application.secrets).to receive(:dig).and_call_original
-          allow(Rails.application.secrets).to receive(:dig).with(:storage, :cdn_host).and_return("https://cdn.example.org")
+          allow(ENV).to receive(:fetch).and_call_original
+          allow(ENV).to receive(:fetch).with("STORAGE_CDN_HOST", nil).and_return("https://cdn.example.org")
         end
 
         it "creates the route to the CDN blob" do

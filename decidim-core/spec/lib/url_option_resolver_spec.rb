@@ -37,8 +37,7 @@ module Decidim
 
       context "when the environment is not development or test" do
         before do
-          allow(Rails.env).to receive(:development?).and_return(false)
-          allow(Rails.env).to receive(:test?).and_return(false)
+          allow(Rails.env).to receive(:local?).and_return(false)
         end
 
         it { is_expected.to be_nil }

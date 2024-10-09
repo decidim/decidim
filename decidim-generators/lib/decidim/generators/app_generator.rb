@@ -120,6 +120,13 @@ module Decidim
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
+      def remove_before_action_check
+        gsub_file "config/environments/development.rb", "config.action_controller.raise_on_missing_callback_actions = true",
+                  "config.action_controller.raise_on_missing_callback_actions = false"
+        gsub_file "config/environments/test.rb", "config.action_controller.raise_on_missing_callback_actions = true",
+                  "config.action_controller.raise_on_missing_callback_actions = false"
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -129,7 +136,7 @@ module Decidim
       end
 
       def docker
-        template "Dockerfile.erb", "Dockerfile"
+        template "Dockerfile.erb", "Dockerfile", force: true
         template "docker-compose.yml.erb", "docker-compose.yml"
       end
 
@@ -198,7 +205,7 @@ module Decidim
         abort("#{providers} is not supported as storage provider, please use local, s3, gcs or azure") unless (providers - %w(local s3 gcs azure)).empty?
         gsub_file "config/environments/production.rb",
                   /config.active_storage.service = :local/,
-                  "config.active_storage.service = Rails.application.secrets.dig(:storage, :provider) || :local"
+                  %{config.active_storage.service = Decidim::Env.new("STORAGE_PROVIDER", "local").to_s}
 
         add_production_gems do
           gem "aws-sdk-s3", require: false if providers.include?("s3")
@@ -217,7 +224,7 @@ module Decidim
         template "sidekiq.yml.erb", "config/sidekiq.yml", force: true
 
         gsub_file "config/environments/production.rb",
-                  /# config.active_job.queue_adapter     = :resque/,
+                  /# config.active_job.queue_adapter = :resque/,
                   "config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?"
 
         prepend_file "config/routes.rb", "require \"sidekiq/web\"\n\n"
@@ -335,8 +342,8 @@ module Decidim
                   /#{Regexp.escape("# config.available_locales = %w(en ca es)")}/,
                   "config.available_locales = %w(#{options[:locales].gsub(",", " ")})"
         gsub_file "config/initializers/decidim.rb",
-                  /#{Regexp.escape("config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]")}/,
-                  "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
+                  /#{Regexp.escape("config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json")}/,
+                  "# config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json"
       end
 
       def dev_performance_config

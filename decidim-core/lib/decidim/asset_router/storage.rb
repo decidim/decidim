@@ -104,7 +104,7 @@ module Decidim
       # @return [Hash] The remote storage options hash
       def remote_storage_options
         @remote_storage_options ||= {
-          host: Rails.application.secrets.dig(:storage, :cdn_host)
+          host: ENV.fetch("STORAGE_CDN_HOST", nil)
         }.compact
       end
 
@@ -241,30 +241,16 @@ module Decidim
         return unless asset_url_available?
         return unless asset_exist?
 
-        case asset
-        when ActiveStorage::VariantWithRecord
-          # This is used when `ActiveStorage.track_variants` is enabled through
-          # `config.active_storage.track_variants`. In case the variant has not
-          # been processed yet, the `#url` method would return nil.
-          #
-          # Note that if the `asset.processed?` returns `true`, the variant
-          # record has been created in the database but it does not mean that
-          # it has been uploaded to the storage service yet. Likely a bug in
-          # ActiveStorage but to be sure that the asset is uploaded to the
-          # storage service, we also check that.
-          asset.url(**options) if asset.processed?
-        else # ActiveStorage::Variant
-          # Check whether the variant exists at the storage service before
-          # returning its URL. Otherwise the URL would be returned even when the
-          # variant is not yet processed causing 404 errors for the images on
-          # the page.
-          #
-          # Note that the `ActiveStorage::Variant#url` method only accepts
-          # certain keyword arguments where as the other objects allow any
-          # keyword arguments.
-          possible_kwargs = asset.method(:url).parameters.select { |p| p[0] == :key }.map { |p| p[1] }
-          asset.url(**options.slice(*possible_kwargs))
-        end
+        # Check whether the variant exists at the storage service before
+        # returning its URL. Otherwise the URL would be returned even when the
+        # variant is not yet processed causing 404 errors for the images on
+        # the page.
+        #
+        # Note that the `ActiveStorage::Variant#url` method only accepts
+        # certain keyword arguments where as the other objects allow any
+        # keyword arguments.
+        possible_kwargs = asset.method(:url).parameters.select { |p| p[0] == :key }.map { |p| p[1] }
+        asset.url(**options.slice(*possible_kwargs))
       end
 
       # Determines if the asset exists at the storage service.

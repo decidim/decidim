@@ -86,6 +86,12 @@ module Decidim
         end
       end
 
+      initializer "decidim_initiatives.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Initiatives::Engine, at: "/", as: "decidim_initiatives"
+        end
+      end
+
       initializer "decidim_initiatives.register_icons" do
         Decidim.icons.register(name: "Decidim::Initiative", icon: "lightbulb-flash-line", description: "Initiative", category: "activity", engine: :initiatives)
         Decidim.icons.register(name: "apps-line", icon: "apps-line", category: "system", description: "", engine: :initiatives)
@@ -143,7 +149,7 @@ module Decidim
         # We need to make sure we call `Preview.all` before requiring our
         # previews, otherwise any previews the app attempts to add need to be
         # manually required.
-        if Rails.env.development? || Rails.env.test?
+        if Rails.env.local?
           ActionMailer::Preview.all
 
           Dir[root.join("spec/mailers/previews/**/*_preview.rb")].each do |file|

@@ -15,6 +15,8 @@ shared_examples_for "copies all questionnaire contents" do
 
       source_questionnaire.questions.each_with_index do |source_question, idx|
         new_question = new_questionnaire.questions[idx]
+        source_question.reload
+        new_question.reload
 
         expect(source_question.position).to eq(new_question.position)
         expect(source_question.question_type).to eq(new_question.question_type)

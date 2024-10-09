@@ -29,12 +29,16 @@ en:
         name: Name
         published_at: Published at
         weight: Order position
+      content_block_attachment:
+        background_image: Background Image
+        main_image: Main Image
       external_domain:
         value: Value
       help_section:
         content: Content
       id: ID
       import:
+        file: File
         user_group_id: Create imports as
       newsletter:
         body: Body
@@ -106,6 +110,8 @@ en:
       participatory_space_private_user:
         email: Email
         name: Name
+      participatory_space_private_user_csv_import:
+        file: File
       scope:
         code: Code
         name: Name
@@ -731,6 +737,11 @@ en:
             report_language: Report language
             report_reason: Reason
             title: Report details
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: Excel (.xlsx)
       newsletter_templates:
         index:
           preview_template: Preview
