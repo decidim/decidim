@@ -26,13 +26,13 @@ After that, add an initializer file as presented in the [documentation](https://
 After the configuration is added, you need to run the below command, so that the reporting user is created.
 
 ```ruby
-bin/rails decidim:ai:create_reporting_user
+bin/rails decidim:ai:spam:create_reporting_user
 ```
 
 Then you can use the below command to train the engine with the module dataset:
 
 ```ruby
-bin/rails decidim:ai:load_module_dataset
+bin/rails decidim:ai:spam:load_module_dataset
 ```
 
 Add the queue name to `config/sidekiq.yml` file:

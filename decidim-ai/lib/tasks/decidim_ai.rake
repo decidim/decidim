@@ -2,40 +2,43 @@
 
 namespace :decidim do
   namespace :ai do
-    desc "Create reporting user"
-    task create_reporting_user: :environment do
-      Decidim::Ai::SpamDetection.create_reporting_user!
-    end
+    namespace :spam do
 
-    desc "Load module shipped datasets files"
-    task load_module_dataset: :environment do
-      Dir.glob("#{plugin_path}/data/*.csv").each do |file|
-        Decidim::Ai::SpamDetection::Importer::File.call(file, Decidim::Ai::SpamDetection.user_classifier)
-        Decidim::Ai::SpamDetection::Importer::File.call(file, Decidim::Ai::SpamDetection.resource_classifier)
+      desc "Create reporting user"
+      task create_reporting_user: :environment do
+        Decidim::Ai::SpamDetection.create_reporting_user!
       end
-    end
 
-    desc "Load application dataset file"
-    task :load_application_dataset, [:file] => :environment do |_, args|
-      Decidim::Ai::SpamDetection::Importer::File.call(args[:file], Decidim::Ai::SpamDetection.user_classifier)
-      Decidim::Ai::SpamDetection::Importer::File.call(args[:file], Decidim::Ai::SpamDetection.resource_classifier)
-    end
+      desc "Load module shipped datasets files"
+      task load_module_dataset: :environment do
+        Dir.glob("#{plugin_path}/data/*.csv").each do |file|
+          Decidim::Ai::SpamDetection::Importer::File.call(file, Decidim::Ai::SpamDetection.user_classifier)
+          Decidim::Ai::SpamDetection::Importer::File.call(file, Decidim::Ai::SpamDetection.resource_classifier)
+        end
+      end
 
-    desc "Train model using application database"
-    task train_application_database: :environment do
-      Decidim::Ai::SpamDetection::Importer::Database.call
-    end
+      desc "Load application dataset file"
+      task :load_application_dataset, [:file] => :environment do |_, args|
+        Decidim::Ai::SpamDetection::Importer::File.call(args[:file], Decidim::Ai::SpamDetection.user_classifier)
+        Decidim::Ai::SpamDetection::Importer::File.call(args[:file], Decidim::Ai::SpamDetection.resource_classifier)
+      end
 
-    desc "Reset all training model"
-    task reset: :environment do
-      Decidim::Ai::SpamDetection.user_classifier.reset
-      Decidim::Ai::SpamDetection.resource_classifier.reset
-    end
+      desc "Train model using application database"
+      task train_application_database: :environment do
+        Decidim::Ai::SpamDetection::Importer::Database.call
+      end
 
-    private
+      desc "Reset all training model"
+      task reset: :environment do
+        Decidim::Ai::SpamDetection.user_classifier.reset
+        Decidim::Ai::SpamDetection.resource_classifier.reset
+      end
 
-    def plugin_path
-      Gem.loaded_specs["decidim-ai"].full_gem_path
+      private
+
+      def plugin_path
+        Gem.loaded_specs["decidim-ai"].full_gem_path
+      end
     end
   end
 end
