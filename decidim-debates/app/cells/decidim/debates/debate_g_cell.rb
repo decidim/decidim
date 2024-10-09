@@ -5,7 +5,6 @@ module Decidim
     # This cell renders the Grid (:g) debate card
     # for a given instance of a Debate
     class DebateGCell < Decidim::CardGCell
-
       def show
         render
       end

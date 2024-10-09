@@ -124,13 +124,8 @@ module Decidim
 
           Decidim.content_blocks.register(:assembly_homepage, :highlighted_debates) do |content_block|
             content_block.cell = "decidim/debates/content_blocks/highlighted_debates"
-            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
             content_block.public_name_key = "decidim.debates.content_blocks.highlighted_debates.name"
             content_block.component_manifest_name = "debates"
-
-            content_block.settings do |settings|
-              settings.attribute :component_id, type: :select, default: nil
-            end
           end
         end
 
