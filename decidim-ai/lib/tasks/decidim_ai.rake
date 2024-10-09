@@ -3,7 +3,6 @@
 namespace :decidim do
   namespace :ai do
     namespace :spam do
-
       desc "Create reporting user"
       task create_reporting_user: :environment do
         Decidim::Ai::SpamDetection.create_reporting_user!
