@@ -14,7 +14,7 @@ eu:
         one: Iruzkina
         other: Iruzkinak
       decidim/comments/comment_vote:
-        one: Bozkatu
+        one: Botoa
         other: Botoak
   decidim:
     comments:
@@ -92,7 +92,7 @@ eu:
           title: Jakinarazi eduki desegokia
         show_replies:
           one: Erakutsi erantzuna
-          other: Erakutsi %{count} erantzunak
+          other: Erakutsi %{count} erantzun
         single_comment_link_title: Lortu esteka
       comment_order_selector:
         order:
