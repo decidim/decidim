@@ -53,12 +53,13 @@ module Decidim
 
           def configured_backend
             if options[:adapter].to_s == "memory"
-              Rails.logger.info "[AI] Running the Memory backend as it was requested"
+              Rails.logger.info "[decidim-ai] #{self.class.name} - Running the Memory backend as it was requested. This is not recommended for production environment."
               ClassifierReborn::BayesMemoryBackend.new
             elsif options.dig(:params, :url) && options.dig(:params, :url).empty?
-              Rails.logger.info "[AI] Running the Memory backend as there are no redis credentials"
+              Rails.logger.info "[decidim-ai] #{self.class.name} - Running the Memory backend as there are no redis credentials. This is not recommended for production environment."
               ClassifierReborn::BayesMemoryBackend.new
             else
+              Rails.logger.info "[decidim-ai] #{self.class.name} - Running the Redis backend"
               ClassifierReborn::BayesRedisBackend.new options[:params]
             end
           end
