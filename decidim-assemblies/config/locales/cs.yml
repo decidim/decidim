@@ -445,6 +445,7 @@ cs:
       help:
         assemblies:
           announcement: Oznámení (vvyhlášení) informací
+          area: Oblast shromáždění
           assembly_type: Typ shromáždění
           closing_date: Datum ukončení shromáždění
           closing_date_reason: Proč bylo shromáždění uzavřeno
@@ -468,10 +469,15 @@ cs:
           meta_scope: Rozsah metadat shromáždění
           participatory_scope: Participační rozsah shromáždění
           participatory_structure: Participační struktura shromáždění
+          promoted: Zda je shromáždění propagováno, nebo ne
           purpose_of_action: Účel konání shromáždění
           reference: Odkaz na shromáždění. Jedinečný identifikátor pro tuto platformu.
+          remote_banner_image_url: URL obrázku banneru shromáždění
+          remote_hero_image_url: URL obrázku předáka shromáždění
           scope: Rozsah shromáždění
+          scopes_enabled: Zda jsou rozsahy povoleny nebo ne
           short_description: Stručný popis shromáždění
+          slug: Slug shromáždění (používá se pro účely identifikace, pro URL)
           special_features: Jaké speciální vlastnosti má toto shromáždění
           subtitle: Podnadpis shromáždění
           target: Cíl shromáždění
