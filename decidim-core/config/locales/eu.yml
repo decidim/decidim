@@ -76,10 +76,10 @@ eu:
         other: Atxikimenduak
       decidim/user:
         one: Parte-hartzailea
-        other: Erabiltzaileak
+        other: Parte-hartzaileak
       decidim/user_group:
         one: Taldea
-        other: Taldeak
+        other: Erabiltzaile taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -132,13 +132,13 @@ eu:
         x_years: "%{count} urte"
       x_days:
         one: Egun 1
-        other: "Egun bat"
+        other: "%{count} egun"
       x_hours:
         one: Ordu 1
         other: "%{count} ordu"
       x_minutes:
         one: Minutu 1
-        other: "Minutu %{count}"
+        other: "%{count} minutu"
       x_months:
         one: 1 hilabete
         other: "%{count} hilabete"
@@ -308,7 +308,7 @@ eu:
         success: Aldaketa ongi onartu da.
       amendable:
         button: Zuzendu %{model_name}
-        error: Errore bat gertatu da baliabidea aldatzen.
+        error: Arazo bat egon da baliabide hori aldatzean.
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
