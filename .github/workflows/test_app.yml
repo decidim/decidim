@@ -54,8 +54,8 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      DECIDIM_AI_SPAM_DETECTION_BACKEND_RESOURCE_REDIS_URL: "redis://redis:6379/1"
-      DECIDIM_AI_SPAM_DETECTION_BACKEND_USER_REDIS_URL: "redis://redis:6379/2"
+      DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
+      DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
     services:
       validator:
         image: ghcr.io/validator/validator:latest

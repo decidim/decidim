@@ -24,6 +24,8 @@ env:
   RAILS_ENV: development
   RAILS_BOOST_PERFORMANCE: "true"
   SHAKAPACKER_RUNTIME_COMPILE: "false"
+  DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
+  DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
