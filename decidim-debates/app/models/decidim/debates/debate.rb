@@ -42,6 +42,7 @@ module Decidim
                         index_on_create: ->(debate) { debate.visible? },
                         index_on_update: ->(debate) { debate.visible? })
 
+      scope :created_at_desc, -> { order(arel_table[:created_at].desc) }
       scope :open, -> { where(closed_at: nil) }
       scope :closed, -> { where.not(closed_at: nil) }
       scope :authored_by, ->(author) { where(author:) }

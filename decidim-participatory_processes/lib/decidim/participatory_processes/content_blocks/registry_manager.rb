@@ -171,6 +171,22 @@ module Decidim
           register_highlighted_proposals
           register_highlighted_results
           register_related_assemblies
+          register_highlighted_debates
+        end
+
+        def self.register_highlighted_debates
+          return unless Decidim.module_installed?(:debates)
+
+          Decidim.content_blocks.register(:participatory_process_homepage, :highlighted_debates) do |content_block|
+            content_block.cell = "decidim/debates/content_blocks/highlighted_debates"
+            content_block.settings_form_cell = "decidim/content_blocks/highlighted_elements_for_component_settings_form"
+            content_block.public_name_key = "decidim.debates.content_blocks.highlighted_debates.name"
+            content_block.component_manifest_name = "debates"
+
+            content_block.settings do |settings|
+              settings.attribute :component_id, type: :select, default: nil
+            end
+          end
         end
 
         def self.register_highlighted_meetings
