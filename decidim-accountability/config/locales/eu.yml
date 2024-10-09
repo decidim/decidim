@@ -100,7 +100,7 @@ eu:
             import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
             new_items:
               one: Aukeratutako proiektu bat inportatuko da
-              other: "Hautatutako %{count} proiektu inportatuko dira"
+              other: "Aukeratutako proiektu bat inportatuko da"
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Hautatu osagaia
