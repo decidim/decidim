@@ -140,11 +140,11 @@ module Decidim
       end
 
       def default_maximum_attachment_size
-        (Rails.application.secrets.decidim[:maximum_attachment_size].presence || 10).to_f
+        Decidim::Env.new("DECIDIM_MAXIMUM_ATTACHMENT_SIZE", "10").to_f
       end
 
       def default_maximum_avatar_size
-        (Rails.application.secrets.decidim[:maximum_avatar_size].presence || 5).to_f
+        Decidim::Env.new("DECIDIM_MAXIMUM_AVATAR_SIZE", "5").to_f
       end
     end
 

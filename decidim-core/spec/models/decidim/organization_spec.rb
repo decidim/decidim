@@ -11,17 +11,20 @@ module Decidim
         facebook: {
           enabled: true,
           app_id: "fake-facebook-app-id",
-          app_secret: "fake-facebook-app-secret"
+          app_secret: "fake-facebook-app-secret",
+          icon: "phone"
         },
         twitter: {
           enabled: true,
           api_key: "fake-twitter-api-key",
-          api_secret: "fake-twitter-api-secret"
+          api_secret: "fake-twitter-api-secret",
+          icon: "phone"
         },
         google_oauth2: {
           enabled: true,
           client_id: nil,
-          client_secret: nil
+          client_secret: nil,
+          icon: "phone"
         },
         test: {
           enabled: true,
@@ -90,6 +93,10 @@ module Decidim
     end
 
     describe "enabled omniauth providers" do
+      before do
+        allow(Decidim).to receive(:omniauth_providers).and_return(omniauth_secrets)
+      end
+
       subject(:enabled_providers) { organization.enabled_omniauth_providers }
 
       context "when omniauth_settings are nil" do
@@ -100,14 +107,14 @@ module Decidim
         end
 
         context "when providers are not enabled in secrets.yml" do
-          let!(:previous_omniauth_secrets) { Rails.application.secrets[:omniauth] }
+          let!(:previous_omniauth_secrets) { Decidim.omniauth_providers }
 
           before do
-            Rails.application.secrets[:omniauth] = nil
+            allow(Decidim).to receive(:omniauth_providers).and_return({})
           end
 
           after do
-            Rails.application.secrets[:omniauth] = previous_omniauth_secrets
+            Decidim.omniauth_providers = previous_omniauth_secrets
           end
 
           it "returns no providers" do

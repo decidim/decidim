@@ -107,7 +107,7 @@ Allows to make geographical mapping in some components, like Proposals or Meetin
 ....
   config.geocoder = {
     static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
-    here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+    here_api_key: ENV["MAPS_API_KEY"]
   }
 ....
 
@@ -357,9 +357,9 @@ xref:services:etherpad.adoc[Etherpad's Decidim docs] in order to set it up.
 [source,ruby]
 ....
   config.etherpad = {
-    server: Rails.application.secrets.etherpad[:server],
-    api_key: Rails.application.secrets.etherpad[:api_key],
-    api_version: Rails.application.secrets.etherpad[:api_version]
+    server: ENV["ETHERPAD_SERVER"],
+    api_key: ENV["ETHERPAD_API_KEY"],
+    api_version: Decidim::Env.new("ETHERPAD_API_VERSION", "1.2.1")
   }
 ....
 
