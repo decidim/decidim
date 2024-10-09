@@ -107,6 +107,11 @@ cs:
         few: Poznámky
         many: Poznámky
         other: Poznámky
+      decidim/proposals/proposal_vote:
+        one: Hlas
+        few: Hlasů
+        many: Hlasů
+        other: Hlasů
   decidim:
     admin:
       filters:
