@@ -288,7 +288,7 @@ eu:
             error: Arazo bat egon da zure eskaerarekin.
             success: Mila esker! SMS bat bidali dugu zure telefonora.
           destroy:
-            success: Egiaztapen-kodea arrakastaz berrezarri da. Mesedez, sartu berriro zure telefono zenbakia.
+            success: Egiaztapen-kodea zuzen berrezarri da. Mesedez, sartu berriro zure telefono zenbakia.
           edit:
             confirm_destroy: Ziur egiaztapen-kodea berrezarri nahi duzula?
             destroy: Berrezarri egiaztapen-kodea
