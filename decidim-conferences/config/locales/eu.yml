@@ -84,7 +84,7 @@ eu:
         other: Jardunaldiko hizlariak
       decidim/conference_user_role:
         one: Hitzaldiko erabiltzaile rola
-        other: Jardunaldiko hizlari rolak
+        other: Hitzaldiko hizlari rolak
   decidim:
     admin:
       actions:
