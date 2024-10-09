@@ -697,8 +697,8 @@ cs:
           alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
           author: Jméno účastníka, který vytvořil tento komentář
           body: Samotný komentář
-          commentable_id: Jedinečné ID komentáře
-          commentable_type: Typ komentáře (pokud byl výsledek, návrh atd.)
+          commentable_id: Jedinečné ID komentovatelného
+          commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
           created_at: Datum, kdy byl komentář vytvořen
           depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
           id: ID pro tento komentář
@@ -717,9 +717,19 @@ cs:
           end_time: Datum a čas ukončení této schůzky
           followers: Počet sledujících tuto schůzku
           id: Jedinečný identifikátor sschůzky
+          location: Místo schůzky
+          organizations: Organizace, které se účastní této schůzky
+          participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tato schůzka
+          published: Po zveřejnění schůzky
+          reference: Jedinečný identifikátor zdroje na této platformě
+          related_proposals: Návrhy související s touto schůzkou
+          related_results: Výsledky týkající se této schůzky
+          scope: Rozsah schůzky (např. „město“)
           start_time: Datum a čas zahájení této schůzky
           title: Název schůzky
           url: URL schůzky
+          withdrawn: Kdy byla tato schůzka stažena
+          withdrawn_at: Kdy byla tato schůzka odvolána
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schůze
