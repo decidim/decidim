@@ -9,16 +9,10 @@ For more documentation on the AI tools API, please refer to [documentation](http
 
 In order to install use this module, you need at least Decidim 0.30 to be installed.
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem "decidim-ai"
-```
-
-And then execute:
+To install this module, run in your console:
 
 ```bash
-bundle install
+bundle add decidim-ai
 ```
 
 After that, add an initializer file as presented in the [documentation](https://docs.decidim.org/en/develop/services/aitools.html#_configuration)
