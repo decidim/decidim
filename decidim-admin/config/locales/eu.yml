@@ -387,8 +387,8 @@ eu:
       dashboard:
         pending_moderations:
           announcement:
-            one: Moderazio bat falta da
-            other: '%{count} moderazio daude zain'
+            one: '%{count} moderazio falta dira'
+            other: '%{count} moderazio falta dira'
           goto_moderation: Joan moderazio globaletara
           title: Zain dauden moderazioak
         show:
@@ -527,7 +527,7 @@ eu:
           duplicate_headers:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
             message:
-              one: Bikoiztu %{columns} zutabeak.
+              one: Bikoiztu %{columns} zutabe.
               other: Bikoiztu %{columns} zutabea.
           invalid_indexes:
             lines:
@@ -1046,7 +1046,7 @@ eu:
           no_items: Gaur egun ez dago taxonomia honetako elementurik. Sortu hemen elementuen zerrenda bat baliabideak sailkatzeko edo iragazteko, hala nola espazio edo osagai parte-hartzaileak. Elementuak hiru mailatan sailka daitezke.
           subtitle: 'Elementuak hemen: "%{taxonomy_name}"'
           title: Editatu "%{taxonomy_name}" taxonomia
-          update: Gorde
+          update: Eguneratu
         filters:
           search_placeholder: Bilatu
         index:
