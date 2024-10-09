@@ -910,7 +910,7 @@ eu:
         explanation: Gida erantsitako fitxategien esteketarako
         help_messages:
           - URL formatu zuzenak onartzen dira soilik.
-          - Kontuan izan estekak publikoak izan behar direla parte-hartzaile guztiak sartu ahal izateko.
+          - Mesedez, kontuan izan estekak publikoak izan behar direla parte-hartzaile guztiak sartu ahal izateko.
       errors:
         decidim/user:
           password: Pasahitza laburregia da.
@@ -2054,7 +2054,7 @@ eu:
         title: Parte-hartzailearen ezarpenak
         user_groups: Taldeak
   locale:
-    name: Euskera
+    name: Euskara
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da
