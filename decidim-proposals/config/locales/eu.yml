@@ -864,7 +864,7 @@ eu:
         votes_count:
           count:
             one: Eman babesa
-            other: Babesak
+            other: Bozkak
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Proposamen bakoitzak %{limit} babes baino gehiagotan jaso dezake
