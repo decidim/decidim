@@ -4,9 +4,6 @@ module Decidim
   module Debates
     module ContentBlocks
       class HighlightedDebatesCell < Decidim::ContentBlocks::HighlightedElementsCell
-        include Decidim::ComponentPathHelper
-        include Decidim::CardHelper
-
         def show
           render unless debates_count.zero?
         end
