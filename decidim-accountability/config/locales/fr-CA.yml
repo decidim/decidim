@@ -279,6 +279,24 @@ fr-CA:
         description: Nombre de résultats générés
         object: résultats
         title: Résultats
+    open_data:
+      help:
+        result_comments:
+          author: Le nom du participant qui a fait ce commentaire
+          body: Le commentaire lui-même
+          commentable_id: L'identifiant unique de l"élément commenté
+          commentable_type: Le type de l'élément commenté (si c'était un résultat, une proposition, etc.)
+          id: L'identifiant de ce commentaire
+          user_group: Le nom du groupe d'utilisateurs qui a fait ce commentaire (le cas échéant)
+        results:
+          category: La catégorie du résultat (par exemple "Culture")
+          description: La description du résultat
+          id: L'identifiant unique du résultat
+          parent: Le résultat parent (le cas échéant) du résultat
+          progress: Le pourcentage d'exécution du résultat
+          scope: La portée du résultat (par exemple "Ville")
+          status: Le statut actuel de ce résultat
+          title: Le titre du résultat
     participatory_spaces:
       highlighted_results:
         see_all: Voir tous les résultats (%{count})
