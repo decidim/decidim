@@ -54,7 +54,7 @@ shared_examples "comments" do
       expect(page).to have_css(".comment", minimum: 1)
 
       within("#accordion-#{single_comment.id}") do
-        expect(page).to have_content "Hide reply"
+        expect(page).to have_content "1 answer"
       end
     end
 
