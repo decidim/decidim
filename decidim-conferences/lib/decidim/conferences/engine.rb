@@ -3,7 +3,6 @@
 require "rails"
 require "active_support/all"
 require "decidim/core"
-require "wicked_pdf"
 
 require "decidim/conferences/query_extensions"
 require "decidim/conferences/content_blocks/registry_manager"

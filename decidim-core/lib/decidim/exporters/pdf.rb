@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "wicked_pdf"
-
 module Decidim
   module Exporters
     # Exports a PDF using the provided hash, given a collection and a

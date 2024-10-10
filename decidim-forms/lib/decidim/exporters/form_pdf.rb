@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Exporters
     # Inherits from abstract PDF exporter. This class is used to set
