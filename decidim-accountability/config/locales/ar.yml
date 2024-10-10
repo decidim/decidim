@@ -193,7 +193,7 @@ ar:
       results:
         count:
           results_count:
-            zero: "%{count} النتائج"
+            zero: "%{count} نتيجة 1"
             one: نتيجة واحدة
             two: "%{count} النتائج"
             few: "%{count} النتائج"
