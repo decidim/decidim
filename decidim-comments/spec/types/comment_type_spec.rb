@@ -20,7 +20,7 @@ module Decidim
         end
       end
 
-      describe "deleted moderated" do
+      describe "moderated comment" do
         let(:model) { create(:comment, :moderated) }
         let(:query) { "{ id }" }
 

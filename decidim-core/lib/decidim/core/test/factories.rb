@@ -293,6 +293,11 @@ FactoryBot.define do
       users { [] }
     end
 
+    trait :deleted do
+      email { "" }
+      deleted_at { Time.current }
+    end
+
     trait :verified do
       verified_at { Time.current }
     end
