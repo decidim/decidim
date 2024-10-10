@@ -92,6 +92,10 @@ en:
             manage_questions: Manage questions
             questionnaire: Questionnaire
             title: Edit questionnaire template
+          edit_questions:
+            add_separator: Add separator
+            add_title_and_description: Add title and description
+            add_question: Add question
           form:
             title: Questionnaire template %{questionnaire_for}
           index:
