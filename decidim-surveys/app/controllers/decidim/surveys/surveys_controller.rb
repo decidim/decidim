@@ -45,7 +45,7 @@ module Decidim
       end
 
       def surveys
-        paginate(search.result)
+        paginate(search.result).published
       end
 
       def survey
