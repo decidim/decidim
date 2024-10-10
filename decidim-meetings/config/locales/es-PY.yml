@@ -674,6 +674,45 @@ es-PY:
         description: Número de reuniones creadas
         object: reuniones
         title: Reuniones
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Si este comentario fue un favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
+        meetings:
+          address: La dirección del encuentro en caso de que este sea presencial y tenga una ubicación física
+          attachments: El número de archivos adjuntos en este encuentro
+          attendees: El número de personas que asistieron a este encuentro
+          category: La categoría del encuentro (por ejemplo, "Cultura")
+          comments: El número de comentarios en este encuentro
+          component: El componente al que pertenece este encuentro
+          contributions: El número de contribuciones realizadas en este encuentro por las asistentes
+          description: La descripción del encuentro
+          end_time: La fecha y hora en que terminó este encuentro
+          followers: El número de seguidoras de este encuentro
+          id: El identificador único del encuentro
+          location: La localización del encuentro
+          organizations: Las organizaciones que asistieron a esta reunión
+          participatory_space: A qué espacio pertenece este encuentro (proceso participativo, asamblea, etc.)
+          published: Cuando se publicó el encuentro
+          reference: El identificador único del recurso en esta plataforma
+          related_proposals: Las propuestas relacionadas con este encuentro
+          related_results: Los resultados relacionados con este encuentro
+          scope: El ámbito territorial del encuentro (por ejemplo, "Ciudad")
+          start_time: La fecha y hora en que se inició este encuentro
+          title: El título del encuentro
+          url: La URL del encuentro
+          withdrawn: Si este encuentro fue retirado/cancelado
+          withdrawn_at: Cuando fue retirado/cancelado este encuentro
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros pasados
