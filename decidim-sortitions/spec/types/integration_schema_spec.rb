@@ -8,8 +8,8 @@ describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
   let(:component_type) { "Sortitions" }
   let!(:current_component) { create(:sortition_component, participatory_space: participatory_process) }
-  let(:author) { create(:user, :confirmed, :admin, organization: component.organization) }
-  let!(:sortition) { create(:sortition, component: current_component, category:, cancelled_by_user: author) }
+  let(:author) { create(:user, :confirmed, :admin, organization: current_component.organization) }
+  let!(:sortition) { create(:sortition, component: current_component, category:, author:) }
 
   let(:sortition_single_result) do
     sortition.reload
