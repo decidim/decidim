@@ -11,6 +11,24 @@ module Decidim
       let(:model) { create(:comment) }
       let(:sgid) { double("sgid", to_s: "1234") }
 
+      describe "deleted comment" do
+        let(:model) { create(:comment, :deleted) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      describe "deleted moderated" do
+        let(:model) { create(:comment, :moderated) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
       describe "author" do
         let(:query) { "{ author { name } }" }
         let(:commentable) { build(:dummy_resource) }

@@ -84,6 +84,10 @@ module Decidim
       def user_allowed_to_comment
         object.root_commentable.commentable? && object.root_commentable.user_allowed_to_comment?(context[:current_user])
       end
+
+      def self.authorized?(object, context)
+        super && !object.hidden? && !object.deleted?
+      end
     end
   end
 end
