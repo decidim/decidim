@@ -8,8 +8,6 @@ zh-CN:
         description: 描述
         end_date: 结束日期
         progress: 进展情况
-        project_ids: 包括项目
-        proposals: 包括的建议
         start_date: 开始日期
         title: 标题
         updated_at: 更新于
