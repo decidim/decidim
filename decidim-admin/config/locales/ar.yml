@@ -47,7 +47,7 @@ ar:
         cta_button_path: مسار زر دعوة إلى العمل call to action
         cta_button_text: نص زر Call To Action
         customize_welcome_notification: تخصيص إشعار الترحيب
-        default_locale: اللغة الافتراضية
+        default_locale: اللغة إقليمية
         description: الوصف
         enable_omnipresent_banner: عرض لافتة في كل مكان
         enable_participatory_space_filters: تفعيل أختيارات فرز الفضاء التشاركي
