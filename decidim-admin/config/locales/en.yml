@@ -897,8 +897,8 @@ en:
         index:
           import_via_csv: Import via CSV
           publish_all: Publish all
-          unpublish_all: Unpublish all
           title: Participatory space private participant
+          unpublish_all: Unpublish all
         new:
           create: Create
           title: New Participatory Space private participant.

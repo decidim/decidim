@@ -456,7 +456,7 @@ en:
             images: Images
             metadata: Metadata
             other: Other
-            private_notice: (You will be able to manage private participants after setting it as private)
+            private_notice: "(You will be able to manage private participants after setting it as private)"
             related_processes: Related processes
             scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
             select_an_area: Select an Area
@@ -528,13 +528,13 @@ en:
           type: Type
         show:
           title: About this process
+      participatory_space_private_users:
+        index:
+          title: Members
       show:
         belongs_to_group: This process belongs to
         private_space: This is a private process
         related_processes: Related processes
-      participatory_space_private_users:
-        index:
-          title: Members
     statistics:
       processes_count: Processes
   layouts:
@@ -544,6 +544,8 @@ en:
           browse: Browse
           browse_resource: Browse process group %{resource_name}
           processes_count: 'Processes:'
+      participatory_process_navigation:
+        member_menu_item: Members
       participatory_processes:
         index:
           promoted_processes: Highlighted processes
@@ -553,5 +555,3 @@ en:
           more_info_about: More info about process %{resource_name}
           take_part: Take part
           take_part_in: Take part in process %{resource_name}
-      participatory_process_navigation:
-        member_menu_item: Members
