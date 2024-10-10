@@ -1319,6 +1319,12 @@ es-MX:
         message_2: Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
     open_data:
+      help:
+        core:
+          components: Componentes
+          description: Este archivo ZIP contiene archivos para estudiar e investigar sobre esta plataforma de participación.
+          spaces: Espacios
+          title: Archivos de datos abiertos de %{organization}
       index:
         description: Bienvenida a la página de datos abiertos %{organization_name}. Aquí encontrarás archivos de datos que se generan regularmente a partir de varios procesos deliberados y de gobernanza dentro de %{organization_name}. Estos archivos están disponibles para promover la transparencia, accesibilidad y colaboración. A continuación, encontrarás información detallada sobre cuáles son estos archivos, cómo abrir y trabajar con ellos, y una descripción del contenido y la estructura de cada archivo.
         download_open_data: Descargar todos los archivos de datos abiertos
