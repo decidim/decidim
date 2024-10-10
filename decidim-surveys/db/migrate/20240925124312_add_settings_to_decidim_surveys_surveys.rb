@@ -8,5 +8,6 @@ class AddSettingsToDecidimSurveysSurveys < ActiveRecord::Migration[7.0]
     add_column :decidim_surveys_surveys, :allow_answers, :boolean
     add_column :decidim_surveys_surveys, :allow_unregistered, :boolean
     add_column :decidim_surveys_surveys, :clean_after_publish, :boolean
+    add_column :decidim_surveys_surveys, :published_at, :datetime, index: true
   end
 end

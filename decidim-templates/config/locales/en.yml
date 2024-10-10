@@ -89,6 +89,7 @@ en:
           edit:
             edit: Edit
             empty: There are no questions yet.
+            manage_questions: Manage questions
             questionnaire: Questionnaire
             title: Edit questionnaire template
           form:

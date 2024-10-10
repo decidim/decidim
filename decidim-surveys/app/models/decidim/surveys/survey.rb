@@ -8,6 +8,7 @@ module Decidim
       include Decidim::Forms::HasQuestionnaire
       include Decidim::HasComponent
       include Decidim::FilterableResource
+      include Decidim::Publicable
 
       component_manifest_name "surveys"
 
@@ -32,6 +33,7 @@ module Decidim
           )
         )
       }
+      scope :published, -> { where.not(published_at: nil) }
 
       scope_search_multi :with_any_state, [:open, :closed]
 

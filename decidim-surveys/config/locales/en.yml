@@ -75,6 +75,12 @@ en:
             title: Edit survey
           index:
             title: Surveys
+          publish:
+            invalid: There was a problem publishing this survey.
+            success: Survey successfully published.
+          unpublish:
+            invalid: There was a problem unpublishing this survey.
+            success: Survey successfully unpublished.
           update:
             invalid: There was a problem saving the survey.
             success: Survey successfully saved.

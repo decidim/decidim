@@ -49,6 +49,34 @@ module Decidim
           end
         end
 
+        def publish
+          Decidim::Surveys::Admin::PublishSurvey.call(survey, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("surveys.publish.success", scope: "decidim.surveys.admin")
+              redirect_to surveys_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("surveys.publish.invalid", scope: "decidim.surveys.admin")
+              render action: "index"
+            end
+          end
+        end
+
+        def unpublish
+          Decidim::Surveys::Admin::UnpublishSurvey.call(survey, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("surveys.unpublish.success", scope: "decidim.surveys.admin")
+              redirect_to surveys_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("surveys.unpublish.invalid", scope: "decidim.surveys.admin")
+              render action: "index"
+            end
+          end
+        end
+
         def destroy
           Decidim::Commands::DestroyResource.call(survey, current_user) do
             on(:ok) do
