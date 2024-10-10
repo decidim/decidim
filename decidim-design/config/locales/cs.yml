@@ -204,6 +204,8 @@ cs:
         dropdowns_usage_1_description: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
         dropdowns_usage_description: 'Rozevírací nabídka vyžaduje dva prvky:'
         dropdowns_usage_description_html: 1. Uživatelsky proveditelný prvek, s atributy <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
+        dummy_description: Zástupný popis zdoje
+        dummy_title: Zástupný titulek zdroje
         follow_button: Tlačítko Sledovat
         follower_description_html: Ujistěte se, že v DOM je přítomna část <code>Rozhodnout/shared/login_modal</code>. Tato část je umístěna v rozvržení aplikace, když je uživatel přihlášen.
         form_elements: Prvky formuláře
