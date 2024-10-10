@@ -36,6 +36,9 @@ module Decidim::Conferences
         end
 
         it "sends an email with diploma as attachment" do
+          stub_request(:get, %r{/css/decidim_conference_diploma.css}).
+            to_return(status: 200, body: File.read(Rails.root.join("public/packs-test/css/decidim_conference_diploma.css")), headers: {})
+
           perform_enqueued_jobs { command.call }
 
           email = last_email
