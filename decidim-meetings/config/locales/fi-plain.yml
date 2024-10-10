@@ -674,6 +674,45 @@ fi-pl:
         description: Tapahtumien määrä
         object: tapahtumat
         title: Tapahtumat
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
+          author: Kommentin laatijan nimi
+          body: Kommentin teksti
+          commentable_id: Kommentoitavan asian uniikki tunniste
+          commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
+          id: Kommentin uniikki tunniste
+          locale: Kommentoijan valitsema kieliasetus sivustolla
+          root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
+          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
+        meetings:
+          address: Tapaamisen osoite, mikäli tapaaminen on määritetty tiettyyn paikkaan
+          attachments: Tapaamisen liitteiden lukumäärä
+          attendees: Tapaamisen osallistuvien tai osallistuneiden ihmisten määrä
+          category: Tapaamisen aihepiiri (esim. "Kulttuuri")
+          comments: Tapaamisen kommenttien lukumäärä
+          component: Tapaamisen komponentti
+          contributions: Tapaamisen osallistujien tekemien kontribuutioiden lukumäärä
+          description: Tapaamisen kuvaus
+          end_time: Tapaamisen päättymisajankohta
+          followers: Tapaamisen seuraajien lukumäärä
+          id: Tapaamisen uniikki tunniste
+          location: Tapaamisen sijainti
+          organizations: Tapaamiseen osallistuvat tai osallistuneet organisaatiot
+          participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä tapaaminen kuuluu
+          published: Tapaamisen julkaisuajankohta
+          reference: Tapaamisen yksilöllinen tunniste tällä alustalla
+          related_proposals: Ehdotukset, jotka liittyvät tähän tapaamiseen
+          related_results: Tulokset, jotka liittyvät tähän tapaamiseen
+          scope: Tapaamisen teema (esim. "Kaupunki")
+          start_time: Tapaamisen alkamisajankohta
+          title: Tapaamisen otsikko
+          url: Tapaamisen URL-osoite
+          withdrawn: Onko tämä tapaaminen peruttu
+          withdrawn_at: Ajankohta, jolloin tapaaminen peruutettiin
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat
