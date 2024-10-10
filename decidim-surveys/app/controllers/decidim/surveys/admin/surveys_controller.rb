@@ -13,8 +13,6 @@ module Decidim
 
         def index; end
 
-        def show; end
-
         def create
           Decidim::Surveys::CreateSurvey.call(current_component) do
             on(:ok) do |survey|

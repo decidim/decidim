@@ -65,6 +65,7 @@ describe "Answer a survey" do
       component.update!(permissions:)
       visit_component
       choose "All"
+      click_on translated_attribute(questionnaire.title)
     end
 
     it_behaves_like "accessible page"

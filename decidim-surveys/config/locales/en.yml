@@ -47,7 +47,7 @@ en:
       answers_count: Answers
     surveys:
       actions:
-        confirm_destroy: Are you sure you want to delete this %{name}?
+        confirm_destroy: Are you sure you want to delete this?
         destroy: Destroy
         edit: Edit
         manage_questions: Manage questions

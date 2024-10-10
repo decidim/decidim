@@ -54,6 +54,11 @@ module Decidim
         %w(ends_at starts_at allow_answers)
       end
 
+      # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
+      def allow_resource_permissions?
+        true
+      end
+
       private
 
       def time_indefinite?

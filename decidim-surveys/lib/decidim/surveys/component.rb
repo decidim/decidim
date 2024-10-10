@@ -12,18 +12,6 @@ Decidim.register_component(:surveys) do |component|
   component.specific_data_importer_class_name = "Decidim::Surveys::DataImporter"
   component.query_type = "Decidim::Surveys::SurveysType"
 
-  component.on(:copy) do |context|
-    Decidim::Surveys::CreateSurvey.call(context[:new_component]) do
-      on(:invalid) { raise "Cannot create survey" }
-    end
-  end
-
-  component.on(:create) do |instance|
-    Decidim::Surveys::CreateSurvey.call(instance) do
-      on(:invalid) { raise "Cannot create survey" }
-    end
-  end
-
   component.data_portable_entities = ["Decidim::Forms::Answer"]
 
   component.newsletter_participant_entities = ["Decidim::Forms::Answer"]
@@ -38,9 +26,10 @@ Decidim.register_component(:surveys) do |component|
   component.register_resource(:survey) do |resource|
     resource.model_class_name = "Decidim::Surveys::Survey"
     resource.card = "decidim/surveys/survey"
+    resource.actions = %w(answer)
   end
 
-  component.register_stat :surveys_count do |components, start_at, end_at|
+  component.register_stat :surveys_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, start_at, end_at|
     surveys = Decidim::Surveys::Survey.where(component: components)
     surveys = surveys.where(created_at: start_at..) if start_at.present?
     surveys = surveys.where(created_at: ..end_at) if end_at.present?
