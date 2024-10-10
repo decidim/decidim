@@ -108,7 +108,9 @@ module Decidim
       end
 
       context "when the sortition is cancelled" do
-        let(:model) { create(:sortition, :cancelled) }
+        let(:component) { create(:sortition_component) }
+        let(:author) { create(:user, :confirmed, :admin, organization: component.organization) }
+        let(:model) { create(:sortition, :cancelled, component:, author:, cancelled_by_user: author) }
 
         describe "cancelReason" do
           let(:query) { '{ cancelReason { translation(locale: "en")}}' }

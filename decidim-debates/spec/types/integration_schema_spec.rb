@@ -9,7 +9,8 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Debates" }
 
   let!(:current_component) { create(:debates_component, participatory_space: participatory_process) }
-  let!(:debate) { create(:debate, :participant_author, component: current_component, category:) }
+  let(:author) { build(:user, :confirmed, organization: current_component.organization) }
+  let!(:debate) { create(:debate, :participant_author, author:, component: current_component, category:) }
 
   let(:debate_single_result) do
     {

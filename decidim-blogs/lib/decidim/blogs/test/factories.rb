@@ -48,7 +48,7 @@ FactoryBot.define do
           create(:endorsement,
                  resource: post,
                  skip_injection: evaluator.skip_injection,
-                 author: build(:user, skip_injection: evaluator.skip_injection, organization: post.participatory_space.organization))
+                 author: build(:user, :confirmed, skip_injection: evaluator.skip_injection, organization: post.participatory_space.organization))
         end
       end
     end
