@@ -29,8 +29,6 @@ module Decidim
               create_category!(participatory_space: current_assembly)
             end
 
-            create_assembly_members!(assembly: current_assembly)
-
             seed_components_manifests!(participatory_space: current_assembly)
 
             Decidim::ContentBlocksCreator.new(current_assembly).create_default!
