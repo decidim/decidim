@@ -223,6 +223,12 @@ module Decidim
         Decidim.icons.register(name: "facebook-circle-line", icon: "facebook-circle-line", category: "social icon", description: "", engine: :core)
       end
 
+      initializer "decidim_core.patch_wicked_pdf", before: "wicked_pdf.register" do
+        WickedPdf.configure do |config|
+          config.exe_path = Decidim.wicked_pdf_binary
+        end
+      end
+
       initializer "decidim_core.patch_webpacker", before: "shakapacker.version_checker" do
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end

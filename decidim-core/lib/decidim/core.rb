@@ -586,6 +586,11 @@ module Decidim
     {}
   end
 
+  # PDF generation support
+  #
+  config_accessor :wicked_pdf_binary do
+    Gem.bin_path("wkhtmltopdf-binary", "wkhtmltopdf")
+  end
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #

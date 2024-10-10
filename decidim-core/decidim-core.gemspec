@@ -77,6 +77,11 @@ Gem::Specification.new do |s|
   s.add_dependency "shakapacker", "~> 7.1.0"
   s.add_dependency "valid_email2", "~> 4.0"
   s.add_dependency "web-push", "~> 3.0"
+  s.add_dependency "wicked_pdf", "~> 2.7"
+  # Latest version of wkhtmltopdf-binary downloads more versions of the binary
+  # This brings problems with deployment in certain environments, as Heroku
+  # Hopefully they will fix this situation soon
+  s.add_dependency "wkhtmltopdf-binary", "= 0.12.6.6"
   s.add_dependency "wisper", "~> 2.0"
 
   s.add_development_dependency "decidim-api", Decidim::Core.version
