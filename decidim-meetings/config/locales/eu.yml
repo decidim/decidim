@@ -345,6 +345,13 @@ eu:
           linked_spaces:
             assign: Esleitu
             link_a_space: Lotu espazioa
+            private_meeting_warning: Loturiko espazioak ez dira aplikatuko topaketa pribatua bada eta gardena ez bada.
+            private_space_warning: Loturiko espazioak ez dira aplikatuko topketa espazio pribaturako eta ez gardenerako denean.
+            select: Hautatu espazioa
+            table:
+              actions: Ekintzak
+              component: Loturiko espazioak
+            title: Loturiko espazioak
           new:
             create: Sortu
             title: Sortu topaketa
@@ -571,6 +578,7 @@ eu:
           micro_camera_permissions_warning: Beheko botoia sakatzen duzunean, mikrofono eta/edo kamerarako baimena eskatuko zaizu eta bideohitzaldian sartuko zara
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
+          redirect_notice: 'Bilera hau beste espazio baten parte da; beraz, % {current_space_name}-ra eraman behar izan zaituzte. Nahiago baduzu, hona itzul zaitezke: <a href="%{previous_space_url}">%{previous_space_name}</a>.'
           registration_code_help_text: Zure izena emateko kodea
           registration_state:
             validated: BALIDATUA
