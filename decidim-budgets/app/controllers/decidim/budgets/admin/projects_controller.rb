@@ -198,7 +198,7 @@ module Decidim
         end
 
         def projects
-          @projects ||= filtered_collection.not_deleted
+          @projects ||= filtered_collection.not_trashed
         end
 
         def orders

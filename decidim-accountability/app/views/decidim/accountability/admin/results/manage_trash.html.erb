@@ -14,9 +14,10 @@
     <table class="table-list">
       <%= render partial: "decidim/accountability/admin/results/results-thead", locals: { query: } %>
       <tbody>
-      <% trashable_deleted_collection.each do |result| %>
-        <%= render partial: "decidim/accountability/admin/results/result-tr", locals: { result:, view: :deleted } %>
-      <% end %>
+      <%= render partial: "decidim/accountability/admin/results/result-tr",
+                 collection: trashable_deleted_collection,
+                 as: :result,
+                 locals: { view: :deleted } %>
       </tbody>
     </table>
   </div>

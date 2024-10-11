@@ -40,13 +40,13 @@ module Decidim
       end
     end
 
-    describe ".not_deleted" do
+    describe ".not_trashed" do
       let!(:resource1) { create(:dummy_resource) }
       let!(:resource2) { create(:dummy_resource, deleted_at: Time.current) }
 
       it "returns only resources that are not deleted" do
-        expect(Decidim::Dev::DummyResource.not_deleted).to include(resource1)
-        expect(Decidim::Dev::DummyResource.not_deleted).not_to include(resource2)
+        expect(Decidim::Dev::DummyResource.not_trashed).to include(resource1)
+        expect(Decidim::Dev::DummyResource.not_trashed).not_to include(resource2)
       end
     end
 

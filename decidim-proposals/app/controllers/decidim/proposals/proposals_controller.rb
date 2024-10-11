@@ -47,7 +47,7 @@ module Decidim
                         .result
                         .published
                         .not_hidden
-                        .not_deleted
+                        .not_trashed
 
           @proposals = @base_query.includes(:component, :coauthorships, :attachments)
           @all_geocoded_proposals = @base_query.geocoded

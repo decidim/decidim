@@ -12,7 +12,7 @@ module Decidim
       def index
         enforce_permission_to :read, :component
         @manifests = Decidim.component_manifests
-        @components = current_participatory_space.components.not_deleted
+        @components = current_participatory_space.components.not_trashed
       end
 
       def new

@@ -97,7 +97,7 @@ module Decidim
         end
 
         def results
-          @results ||= filtered_collection.not_deleted
+          @results ||= filtered_collection.not_trashed
         end
 
         def result

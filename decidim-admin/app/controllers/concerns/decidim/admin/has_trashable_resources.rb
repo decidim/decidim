@@ -3,6 +3,11 @@
 module Decidim
   module Admin
     # Concern to handle warnings for deleted (trashed) resources
+    #
+    # # i18n-tasks-use t('decidim.admin.trash_management.restore.invalid')
+    # # i18n-tasks-use t('decidim.admin.trash_management.restore.success')
+    # # i18n-tasks-use t('decidim.admin.trash_management.soft_delete.invalid')
+    # # i18n-tasks-use t('decidim.admin.trash_management.soft_delete.success')
     module HasTrashableResources
       extend ActiveSupport::Concern
 

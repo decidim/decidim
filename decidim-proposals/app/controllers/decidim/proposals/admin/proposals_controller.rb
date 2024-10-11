@@ -168,7 +168,7 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= filtered_collection.not_deleted
+          @proposals ||= filtered_collection.not_trashed
         end
 
         def proposal

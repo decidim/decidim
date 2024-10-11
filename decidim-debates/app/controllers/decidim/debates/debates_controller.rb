@@ -108,7 +108,7 @@ module Decidim
       end
 
       def search_collection
-        Debate.where(component: current_component, deleted_at: nil).not_hidden
+        Debate.not_trashed.where(component: current_component).not_hidden
       end
 
       def default_filter_params

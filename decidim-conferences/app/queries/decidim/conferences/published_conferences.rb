@@ -5,7 +5,7 @@ module Decidim
     # This query filters published conferences only.
     class PublishedConferences < Decidim::Query
       def query
-        Decidim::Conference.published.not_deleted
+        Decidim::Conference.published.not_trashed
       end
     end
   end

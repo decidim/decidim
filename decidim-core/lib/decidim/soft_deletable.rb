@@ -9,7 +9,7 @@ module Decidim
 
     included do
       # Scope to return only records that have not been trashed (soft deleted).
-      scope :not_deleted, -> { where(deleted_at: nil) }
+      scope :not_trashed, -> { where(deleted_at: nil) }
 
       # Scope to return only trashed (soft deleted) records.
       scope :trashed, -> { where.not(deleted_at: nil) }

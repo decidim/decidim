@@ -32,7 +32,7 @@ module Decidim
       end
 
       def search_collection
-        Result.where(component: current_component, deleted_at: nil)
+        Result.not_trashed.where(component: current_component)
       end
 
       def default_filter_params

@@ -122,7 +122,7 @@ module Decidim
         end
 
         def meetings
-          @meetings ||= filtered_collection.not_deleted
+          @meetings ||= filtered_collection.not_trashed
         end
 
         def meeting
