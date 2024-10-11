@@ -6,7 +6,7 @@ describe "Orders" do
   include_context "with a component"
   let(:manifest_name) { "budgets" }
 
-  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
+  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
   let!(:user) { create(:user, :confirmed, organization:) }
   let(:project) { projects.first }
 
@@ -247,26 +247,55 @@ describe "Orders" do
     end
 
     context "and is not authorized" do
-      before do
-        permissions = {
-          vote: {
-            authorization_handlers: {
-              "dummy_authorization_handler" => {}
+      context "when there is only an authorization required" do
+        before do
+          permissions = {
+            vote: {
+              authorization_handlers: {
+                "dummy_authorization_handler" => {}
+              }
             }
           }
-        }
 
-        component.update!(permissions:)
-      end
-
-      it "shows a modal dialog" do
-        visit_budget
-
-        within "#project-#{project.id}-item" do
-          page.find(".budget-list__action").click
+          component.update!(permissions:)
         end
 
-        expect(page).to have_content("Authorization required")
+        it "redirects to the authorization form" do
+          visit_budget
+
+          within "#project-#{project.id}-item" do
+            page.find(".budget-list__action").click
+          end
+
+          expect(page).to have_content("We need to verify your identity")
+          expect(page).to have_content("Verify with Example authorization")
+        end
+      end
+
+      context "when there are more than one authorization required" do
+        before do
+          permissions = {
+            vote: {
+              authorization_handlers: {
+                "dummy_authorization_handler" => {},
+                "another_dummy_authorization_handler" => { "options" => {} }
+              }
+            }
+          }
+
+          component.update!(permissions:)
+        end
+
+        it "redirects to pending onboarding authorizations page" do
+          visit_budget
+
+          within "#project-#{project.id}-item" do
+            page.find(".budget-list__action").click
+          end
+
+          expect(page).to have_content("You are almost ready to vote")
+          expect(page).to have_css("a[data-verification]", count: 2)
+        end
       end
     end
 
