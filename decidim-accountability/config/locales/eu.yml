@@ -38,7 +38,7 @@ eu:
       actions:
         attachment_collections: Karpetak
         attachments: Erantsitako artxiboak
-        confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         import: Inportatu proposamenak beste osagai batetik
