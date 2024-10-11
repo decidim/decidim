@@ -26,10 +26,7 @@ module Decidim
                                                @questionnaire,
                                                @user) do
             Decidim::Forms::Questionnaire.transaction do
-              if @questionnaire.questions_editable?
-                update_questionnaire_questions
-                delete_answers unless @questionnaire.published?
-              end
+              update_questionnaire_questions if @questionnaire.questions_editable?
             end
           end
 
@@ -106,10 +103,6 @@ module Decidim
           else
             record.save!
           end
-        end
-
-        def delete_answers
-          @questionnaire.answers.destroy_all
         end
       end
     end

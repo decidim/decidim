@@ -7,8 +7,10 @@ module Decidim
       #
       class QuestionnaireTemplatesController < Decidim::Templates::Admin::ApplicationController
         include Decidim::TranslatableAttributes
+        helper Decidim::Forms::Admin::ApplicationHelper
 
-        helper_method :template
+        helper_method :template, :questionnaire, :blank_question, :question_types, :blank_answer_option, :blank_display_condition, :answer_options_url, :display_condition_types,
+                      :blank_matrix_row
 
         add_breadcrumb_item_from_menu :admin_template_types_menu
 
@@ -90,6 +92,30 @@ module Decidim
           end
         end
 
+        def edit_questions
+          @form = form(Decidim::Forms::Admin::QuestionsForm).from_model(questionnaire)
+
+          render template: edit_questions_template
+        end
+
+        def update_questions
+          params["published_at"] = Time.current if params.has_key? "save_and_publish"
+          @form = form(Decidim::Forms::Admin::QuestionsForm).from_params(params)
+          Decidim::Forms::Admin::UpdateQuestions.call(@form, questionnaire, current_user) do
+            on(:ok) do
+              # i18n-tasks-use t("decidim.forms.admin.questionnaires.questions_form.update.success")
+              flash[:notice] = I18n.t("update.success", scope: i18n_flashes_scope)
+              redirect_to edit_questionnaire_template_path(template)
+            end
+
+            on(:invalid) do
+              # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
+              flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
+              render template: edit_questions_template
+            end
+          end
+        end
+
         def destroy
           enforce_permission_to(:destroy, :template, template:)
 
@@ -135,7 +161,53 @@ module Decidim
           redirect_to URI.parse(params[:url]).path
         end
 
+        def edit_questions_template
+          "decidim/templates/admin/questionnaire_templates/edit_questions"
+        end
+
         private
+
+        def questionnaire
+          template.templatable
+        end
+
+        def blank_question
+          @blank_question ||= Decidim::Forms::Admin::QuestionForm.new
+        end
+
+        def question_types
+          @question_types ||= Decidim::Forms::Question::QUESTION_TYPES.map do |question_type|
+            [question_type, I18n.t("decidim.forms.question_types.#{question_type}")]
+          end
+        end
+
+        def blank_answer_option
+          @blank_answer_option ||= Decidim::Forms::Admin::AnswerOptionForm.new
+        end
+
+        def blank_display_condition
+          @blank_display_condition ||= Decidim::Forms::Admin::DisplayConditionForm.new
+        end
+
+        # Returns the url to get the answer options json (for the display conditions form)
+        # for the question with id = params[:id]
+        def answer_options_url(params)
+          url_for([questionnaire.questionnaire_for, { action: :answer_options, format: :json, **params }])
+        end
+
+        def display_condition_types
+          @display_condition_types ||= Decidim::Forms::DisplayCondition.condition_types.keys.map do |condition_type|
+            [condition_type, I18n.t("decidim.forms.admin.questionnaires.display_condition.condition_types.#{condition_type}")]
+          end
+        end
+
+        def blank_matrix_row
+          @blank_matrix_row ||= Decidim::Forms::Admin::QuestionMatrixRowForm.new
+        end
+
+        def i18n_flashes_scope
+          "decidim.forms.admin.questionnaires"
+        end
 
         def collection
           @collection ||= current_organization.templates.where(templatable_type: "Decidim::Forms::Questionnaire")

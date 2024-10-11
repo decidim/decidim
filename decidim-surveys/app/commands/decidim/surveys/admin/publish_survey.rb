@@ -13,6 +13,7 @@ module Decidim
         def initialize(survey, current_user)
           @survey = survey
           @current_user = current_user
+          @questionnaire = survey.questionnaire
         end
 
         # Executes the command. Broadcasts these events:
@@ -26,6 +27,7 @@ module Decidim
 
           transaction do
             publish_survey
+            delete_answers unless @questionnaire.published?
           end
 
           broadcast(:ok, survey)
@@ -44,6 +46,10 @@ module Decidim
             survey.publish!
             survey
           end
+        end
+
+        def delete_answers
+          @questionnaire.answers.destroy_all
         end
       end
     end

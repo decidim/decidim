@@ -34,7 +34,7 @@
                 <% if survey.published? %>
                   <%= icon_link_to "close-circle-line", unpublish_survey_path(survey), t("actions.unpublish", scope: "decidim.admin"), method: :put, class: "action-icon--unpublish" %>
                 <% else %>
-                  <%= icon_link_to "check-line", publish_survey_path(survey), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish" %>
+                  <%= icon_link_to "check-line", publish_survey_path(survey), t("actions.publish", scope: "decidim.admin"), method: :put, class: "action-icon--publish", data: { confirm: t("actions.answers_alert", scope: "decidim.surveys") } %>
                 <% end %>
                 <%= resource_permissions_link(survey) %>
                 <%= icon_link_to "delete-bin-line", survey_path(survey), t("actions.destroy", scope: "decidim.surveys"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.surveys") } %>
