@@ -273,6 +273,8 @@ ar:
             close: قريب
             title: اجتماع قريب
         meetings:
+          component:
+            unlink: إلغاء الربط
           create:
             success: تم إنشاء الاجتماع بنجاح. لاحظ أن هذا غير منشور حتى الآن، تحتاج إلى نشره بنفسك.
           destroy:
@@ -290,6 +292,7 @@ ar:
             select_a_registration_type: الرجاء تحديد نوع التسجيل
             select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
           index:
+            linked_meeting_warning_html: يجب تعديل هذا الاجتماع من <br><a href="%{href}">%{name}</a>
             title: اجتماعات
           new:
             create: إنشاء
