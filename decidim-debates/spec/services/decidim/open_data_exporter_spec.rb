@@ -12,7 +12,7 @@ describe Decidim::OpenDataExporter do
     let(:component) do
       create(:debates_component, organization:, published_at: Time.current)
     end
-    let!(:resource) { create(:debate,  component:) }
+    let!(:resource) { create(:debate, component:) }
 
     let(:second_component) do
       create(:debates_component, organization:, published_at: Time.current)
