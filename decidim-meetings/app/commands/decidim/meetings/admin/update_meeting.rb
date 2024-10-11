@@ -18,6 +18,7 @@ module Decidim
           send_notification if should_notify_followers?
           schedule_upcoming_meeting_notification if resource.published? && start_time_changed?
           update_services!
+          update_components!
         end
 
         def attributes
@@ -34,6 +35,11 @@ module Decidim
           resource.services = form.services_to_persist.map do |service|
             Decidim::Meetings::Service.new(title: service.title, description: service.description)
           end
+          resource.save!
+        end
+
+        def update_components!
+          resource.components = form.components
           resource.save!
         end
 

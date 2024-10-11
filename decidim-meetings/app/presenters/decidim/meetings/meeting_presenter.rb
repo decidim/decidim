@@ -111,6 +111,10 @@ module Decidim
         ""
       end
 
+      def space_title
+        translated_attribute component.participatory_space.title
+      end
+
       def profile_path
         resource_locator(meeting).path
       end

@@ -12,6 +12,7 @@ module Decidim
     include Loggable
     include Decidim::ShareableWithToken
     include ScopableComponent
+    include TranslatableAttributes
 
     belongs_to :participatory_space, polymorphic: true
 
@@ -83,6 +84,14 @@ module Decidim
       name
     end
 
+    def hierarchy_title
+      [
+        I18n.t("decidim.admin.menu.#{participatory_space.class.name.demodulize.underscore.pluralize}"),
+        translated_attribute(participatory_space.title),
+        translated_attribute(name)
+      ].join(" / ")
+    end
+
     # Public: Returns an empty description
     def resource_description; end
 
@@ -91,6 +100,16 @@ module Decidim
       return false unless user
 
       participatory_space.can_participate?(user)
+    end
+
+    def private_non_transparent_space?
+      return false unless participatory_space.private_space?
+
+      if participatory_space.respond_to?(:is_transparent?)
+        !participatory_space.is_transparent?
+      else
+        true
+      end
     end
 
     # Public: Public URL for component with given share token as query parameter

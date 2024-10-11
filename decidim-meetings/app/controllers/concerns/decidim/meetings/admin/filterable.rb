@@ -16,7 +16,13 @@ module Decidim
           private
 
           def base_query
-            Meeting.not_hidden.where(component: current_component).order(start_time: :desc).page(params[:page]).per(15)
+            Meeting
+              .not_hidden
+              .where(component: current_component)
+              .or(MeetingLink.find_meetings(component: current_component))
+              .order(start_time: :desc)
+              .page(params[:page])
+              .per(15)
           end
 
           def filters

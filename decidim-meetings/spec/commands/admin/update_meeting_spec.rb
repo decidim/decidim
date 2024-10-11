@@ -29,6 +29,7 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "none" }
     let(:iframe_access_level) { nil }
+    let(:components) { [] }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
@@ -60,7 +61,8 @@ module Decidim::Meetings
         comments_enabled: true,
         comments_start_time: nil,
         comments_end_time: nil,
-        iframe_access_level:
+        iframe_access_level:,
+        components:
       )
     end
 
@@ -157,7 +159,8 @@ module Decidim::Meetings
             comments_enabled: true,
             comments_start_time: nil,
             comments_end_time: nil,
-            iframe_access_level:
+            iframe_access_level:,
+            components:
           )
         end
 

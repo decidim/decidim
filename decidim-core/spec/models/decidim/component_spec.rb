@@ -35,6 +35,42 @@ module Decidim
       end
     end
 
+    describe "private_non_transparent_space?" do
+      subject { component }
+
+      let(:component) { create(:component, manifest_name: "another_dummy", participatory_space:) }
+
+      context "when the component belongs to a private space" do
+        let(:participatory_space) do
+          create(:participatory_process, organization:, private_space: true)
+        end
+
+        it "returns true" do
+          expect(subject.private_non_transparent_space?).to be true
+        end
+      end
+
+      context "when the component belongs to a non-private space" do
+        let(:participatory_space) do
+          create(:participatory_process, organization:, private_space: false)
+        end
+
+        it "returns false" do
+          expect(subject.private_non_transparent_space?).to be false
+        end
+      end
+
+      context "when the component belongs to a private transparent space" do
+        let(:participatory_space) do
+          create(:assembly, organization:, private_space: false, is_transparent: true)
+        end
+
+        it "returns false" do
+          expect(subject.private_non_transparent_space?).to be false
+        end
+      end
+    end
+
     describe "with no scope setting" do
       subject { component }
 

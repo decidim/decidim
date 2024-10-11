@@ -16,6 +16,7 @@ module Decidim
         def run_after_hooks
           create_services!
           create_follow_form_resource(form.current_user)
+          link_components!
         end
 
         def attributes
@@ -45,6 +46,11 @@ module Decidim
               description: service.description
             )
           end
+        end
+
+        def link_components!
+          resource.components = form.components
+          resource.save!
         end
 
         def create_follow_form_resource(user)

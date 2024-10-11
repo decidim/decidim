@@ -52,6 +52,7 @@ module Decidim::Meetings
     let(:available_slots) { 0 }
     let(:iframe_embed_type) { "none" }
     let(:taxonomies) { [] }
+    let(:component_ids) { [] }
     let(:attributes) do
       {
         taxonomies:,
@@ -72,7 +73,8 @@ module Decidim::Meetings
         registrations_enabled:,
         type_of_meeting:,
         online_meeting_url:,
-        iframe_embed_type:
+        iframe_embed_type:,
+        component_ids:
       }
     end
 
@@ -219,6 +221,24 @@ module Decidim::Meetings
       let(:iframe_embed_type) { "embed_in_meeting_page" }
 
       it { is_expected.not_to be_valid }
+    end
+
+    describe "when component_ids is present" do
+      let(:component_ids) { [current_component.id] }
+
+      it "returns the components" do
+        expect(form.components).to eq([current_component])
+      end
+    end
+
+    describe "when component_ids is present but meeting is private and non transparent" do
+      let(:component_ids) { [current_component.id] }
+      let(:private_meeting) { true }
+      let(:transparent) { false }
+
+      it "returns an empty array" do
+        expect(form.components).to eq([])
+      end
     end
   end
 end
