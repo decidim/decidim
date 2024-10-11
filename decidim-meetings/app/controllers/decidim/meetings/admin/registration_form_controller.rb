@@ -23,6 +23,10 @@ module Decidim
           Decidim::EngineRouter.main_proxy(current_component).join_meeting_registration_path(meeting)
         end
 
+        def edit_questions_template
+          "decidim/meetings/admin/registration_form/edit_questions"
+        end
+
         private
 
         def meeting
