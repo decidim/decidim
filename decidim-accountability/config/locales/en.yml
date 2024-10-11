@@ -247,10 +247,8 @@ en:
         results:
           status_id_eq:
             label: Status
-          taxonomies_id_eq:
-            label: In taxonomy
           taxonomies_part_of_contains:
-            label: In taxonomy or children
+            label: Taxonomy
     components:
       accountability:
         actions:

@@ -29,7 +29,6 @@ module Decidim
 
           def filters
             [
-              :taxonomies_id_eq,
               :taxonomies_part_of_contains,
               :status_id_eq
             ]
@@ -37,7 +36,6 @@ module Decidim
 
           def filters_with_values
             {
-              taxonomies_id_eq: taxonomy_ids_hash(available_root_taxonomies),
               taxonomies_part_of_contains: taxonomy_ids_hash(available_root_taxonomies),
               status_id_eq: status_ids_hash(statuses)
             }
@@ -46,7 +44,7 @@ module Decidim
           # Cannot user `super` here, because it does not belong to a superclass
           # but to a concern.
           def dynamically_translated_filters
-            [:taxonomies_id_eq, :taxonomies_part_of_contains, :status_id_eq]
+            [:taxonomies_part_of_contains, :status_id_eq]
           end
 
           def status_ids_hash(statuses)

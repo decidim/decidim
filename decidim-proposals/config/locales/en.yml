@@ -139,10 +139,8 @@ en:
               rejected: Rejected
               validating: Technical validation
               withdrawn: Withdrawn
-          taxonomies_id_eq:
-            label: In taxonomy
           taxonomies_part_of_contains:
-            label: In taxonomy or children
+            label: Taxonomy
           valuator_role_ids_has:
             label: Assigned to valuator
           with_any_state:

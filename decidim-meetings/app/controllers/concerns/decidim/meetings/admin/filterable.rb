@@ -29,7 +29,6 @@ module Decidim
             [
               :with_any_type,
               :is_upcoming_true,
-              :taxonomies_id_eq,
               :taxonomies_part_of_contains,
               :with_any_origin,
               :closed_at_present
@@ -39,7 +38,6 @@ module Decidim
           def filters_with_values
             {
               with_any_type: meeting_types,
-              taxonomies_id_eq: taxonomy_ids_hash(available_root_taxonomies),
               taxonomies_part_of_contains: taxonomy_ids_hash(available_root_taxonomies),
               closed_at_present: %w(true false),
               is_upcoming_true: %w(true false),

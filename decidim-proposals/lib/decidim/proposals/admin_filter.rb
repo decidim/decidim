@@ -9,7 +9,6 @@ module Decidim
             :is_emendation_true,
             :state_eq,
             :with_any_state,
-            :taxonomies_id_eq,
             :taxonomies_part_of_contains,
             :valuator_role_ids_has
           )
@@ -18,7 +17,6 @@ module Decidim
             is_emendation_true: %w(true false),
             state_eq: state_eq_values,
             with_any_state: %w(state_published state_not_published),
-            taxonomies_id_eq: taxonomy_ids_hash(available_root_taxonomies),
             taxonomies_part_of_contains: taxonomy_ids_hash(available_root_taxonomies),
             valuator_role_ids_has: valuator_role_ids
           )
@@ -26,7 +24,6 @@ module Decidim
           configuration.add_dynamically_translated_filters(
             :valuator_role_ids_has,
             :proposal_state_id_eq,
-            :taxonomies_id_eq,
             :taxonomies_part_of_contains,
             :state_eq
           )

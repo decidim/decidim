@@ -115,10 +115,8 @@ en:
               'true': Upcoming
           scope_id_eq:
             label: Scope
-          taxonomies_id_eq:
-            label: In taxonomy
           taxonomies_part_of_contains:
-            label: In taxonomy or children
+            label: Taxonomy
           with_any_origin:
             label: Origin
             values:

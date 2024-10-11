@@ -44,10 +44,8 @@ en:
             values:
               'false': Selected for implementation
               'true': Not selected for implementation
-          taxonomies_id_eq:
-            label: In taxonomy
           taxonomies_part_of_contains:
-            label: In taxonomy or children
+            label: Taxonomy
     budgets:
       actions:
         attachment_collections: Folders

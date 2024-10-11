@@ -195,38 +195,23 @@ shared_examples "a collection filtered by taxonomies" do
     visit current_path
   end
 
-  it_behaves_like "a sub-filtered collection", option1: "In taxonomy or children", option2: "Root1", filter: "Taxonomy11" do
+  it_behaves_like "a sub-filtered collection", option1: "Taxonomy", option2: "Root1", filter: "Taxonomy11" do
     let(:in_filter) { resource_with_taxonomy11_title }
     let(:not_in_filter) { [resource_with_taxonomy12_title, resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
   end
 
-  it_behaves_like "a sub-filtered collection", option1: "In taxonomy or children", option2: "Root2", filter: "Taxonomy21" do
+  it_behaves_like "a sub-filtered collection", option1: "Taxonomy", option2: "Root2", filter: "Taxonomy21" do
     let(:in_filter) { resource_with_taxonomy21_title }
     let(:not_in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title, resource_with_taxonomy22_title] }
   end
 
-  it_behaves_like "a filtered collection", options: "In taxonomy or children", filter: "Root1" do
+  it_behaves_like "a filtered collection", options: "Taxonomy", filter: "Root1" do
     let(:in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title] }
     let(:not_in_filter) { [resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
   end
 
-  it_behaves_like "a filtered collection", options: "In taxonomy or children", filter: "Root2" do
+  it_behaves_like "a filtered collection", options: "Taxonomy", filter: "Root2" do
     let(:in_filter) { [resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
     let(:not_in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title] }
-  end
-
-  it_behaves_like "a sub-filtered collection", option1: "In taxonomy", option2: "Root1", filter: "Taxonomy11" do
-    let(:in_filter) { resource_with_taxonomy11_title }
-    let(:not_in_filter) { [resource_with_taxonomy12_title, resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
-  end
-
-  it_behaves_like "a sub-filtered collection", option1: "In taxonomy", option2: "Root1", filter: "Taxonomy12" do
-    let(:in_filter) { resource_with_taxonomy12_title }
-    let(:not_in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
-  end
-
-  it_behaves_like "a filtered collection", options: "In taxonomy", filter: "Root1" do
-    let(:in_filter) { [] }
-    let(:not_in_filter) { [resource_with_taxonomy11_title, resource_with_taxonomy12_title, resource_with_taxonomy21_title, resource_with_taxonomy22_title] }
   end
 end

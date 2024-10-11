@@ -125,14 +125,14 @@ describe "Admin filters proposals" do
       apply_filter("Answered", "Answered")
     end
 
-    it_behaves_like "a sub-filtered collection", option1: "In taxonomy", option2: "Root1", filter: "Taxonomy1" do
+    it_behaves_like "a sub-filtered collection", option1: "Taxonomy", option2: "Root1", filter: "Taxonomy1" do
       let(:in_filter) { translated(answered_proposal_with_taxonomy1.title) }
       let(:not_in_filter) { translated(answered_proposal_with_taxonomy2.title) }
     end
 
     context "when multiple filters are checked" do
       before do
-        apply_sub_filter("In taxonomy", "Root1", "Taxonomy1")
+        apply_sub_filter("Taxonomy", "Root1", "Taxonomy1")
       end
 
       it "has a link to remove all filters" do
@@ -172,7 +172,7 @@ describe "Admin filters proposals" do
 
         within("[data-applied-filters-tags]") do
           expect(page).to have_content("Answered: Answered")
-          expect(page).to have_content("In taxonomy: Taxonomy1")
+          expect(page).to have_content("Taxonomy: Taxonomy1")
           expect(page).to have_content("Remove all")
         end
 
