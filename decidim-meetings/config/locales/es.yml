@@ -314,6 +314,8 @@ es:
           close:
             invalid: Se ha producido un error al cerrar este encuentro.
             success: Encuentro cerrado con éxito.
+          component:
+            unlink: Suprimir el enlace
           create:
             invalid: Se ha producido un error al crear este encuentro.
             success: Encuentro creado correctamente. Ten en cuenta que aún no se ha publicado, deberás publicarlo manualmente.
@@ -338,7 +340,18 @@ es:
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
           index:
+            linked_meeting_warning_html: Esta reunión debe ser editada desde <br><a href="%{href}">%{name}</a>
             title: Encuentros
+          linked_spaces:
+            assign: Asignar
+            link_a_space: Vincular un espacio
+            private_meeting_warning: Los espacios enlazados no se aplicarán si la reunión es privada y no transparente.
+            private_space_warning: Los espacios enlazados no se aplicarán cuando la reunión pertenezca a un espacio privado no transparente.
+            select: Selecciona un espacio
+            table:
+              actions: Acciones
+              component: Espacios vinculados
+            title: Espacios vinculados
           new:
             create: Crear
             title: Crear encuentro
@@ -565,6 +578,7 @@ es:
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay plazas disponibles
           organizations: Organizaciones asistentes
+          redirect_notice: Este encuentro pertenece a otro espacio de participación, por lo que se te ha trasladado a %{current_space_name}.<br>Si lo prefieres, puedes volver a <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Tu código de inscripción
           registration_state:
             validated: VALIDADO
