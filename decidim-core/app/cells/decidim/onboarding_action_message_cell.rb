@@ -16,6 +16,7 @@ module Decidim
       return unless onboarding_manager.valid?
       return unless onboarding_manager.pending_action?
       return if authorization_status == :unauthorized
+      return if pending_authorization_link_active?
 
       render :show
     end
@@ -45,25 +46,15 @@ module Decidim
     end
 
     def message_text
-      if pending_authorization_link_active?
-        t(
-          "pending_authorization_active",
-          scope: "decidim.onboarding_action_message",
-          action: onboarding_manager.action_text.downcase,
-          resource_name: onboarding_manager.model_name.human.downcase,
-          resource_title: decidim_sanitize_translated(onboarding_manager.model_title)
-        )
-      else
-        t(
-          "cta_html",
-          scope: "decidim.onboarding_action_message",
-          link_text:,
-          path: onboarding_path,
-          action: onboarding_manager.action_text.downcase,
-          resource_name: onboarding_manager.model_name.human.downcase,
-          resource_title: decidim_sanitize_translated(onboarding_manager.model_title)
-        )
-      end
+      t(
+        "cta_html",
+        scope: "decidim.onboarding_action_message",
+        link_text:,
+        path: onboarding_path,
+        action: onboarding_manager.action_text.downcase,
+        resource_name: onboarding_manager.model_name.human.downcase,
+        resource_title: decidim_sanitize_translated(onboarding_manager.model_title)
+      )
     end
 
     def link_text

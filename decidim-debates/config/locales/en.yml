@@ -87,6 +87,10 @@ en:
           close: "%{user_name} closed the %{resource_name} debate on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
+      content_blocks:
+        highlighted_debates:
+          name: Debates
+          see_all: See all debates
       debate_m:
         commented_time_ago: Commented %{time} ago
       debates:
