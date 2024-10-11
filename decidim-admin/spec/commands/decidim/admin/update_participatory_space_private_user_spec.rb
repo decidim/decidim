@@ -7,7 +7,7 @@ module Decidim::Admin
     subject { described_class.new(form, private_user) }
 
     let!(:privatable_to) { create(:participatory_process) }
-    let!(:private_user) { create(:participatory_space_private_user, user: user, role: { en: "Member" }, published: false) }
+    let!(:private_user) { create(:participatory_space_private_user, user:, role: { en: "Member" }, published: false) }
     let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
     let!(:current_user) { create(:user, email: "some_email@example.org", organization: privatable_to.organization) }
 
@@ -16,7 +16,7 @@ module Decidim::Admin
         invalid?: invalid,
         current_user:,
         role: { en: role },
-        published:,
+        published:
       )
     end
     let(:invalid) { false }

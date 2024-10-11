@@ -8,12 +8,12 @@ module Decidim::Admin
 
     let!(:privatable_to) { create(:participatory_process) }
     let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
-    let!(:private_user) { create(:participatory_space_private_user, user: user, privatable_to:, role: { en: "Member" }, published: true) }
+    let!(:private_user) { create(:participatory_space_private_user, user:, privatable_to:, role: { en: "Member" }, published: true) }
 
     it "updates the published attribute" do
       subject.call
 
-      expect(private_user.reload.published).to eq(false)
+      expect(private_user.reload.published).to be(false)
     end
   end
 end

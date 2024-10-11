@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_examples "participatory space members page examples" do
   let(:user1) { create(:user, organization: privatable_to.organization) }
   let(:user2) { create(:user, organization: privatable_to.organization) }
