@@ -93,6 +93,10 @@ en:
           restore: "%{user_name} restored the %{resource_name} debate in %{space_name} space"
           soft_delete: "%{user_name} moved the %{resource_name} debate in %{space_name} space to the trash"
           update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
+      content_blocks:
+        highlighted_debates:
+          name: Debates
+          see_all: See all debates
       debate_m:
         commented_time_ago: Commented %{time} ago
       debates:

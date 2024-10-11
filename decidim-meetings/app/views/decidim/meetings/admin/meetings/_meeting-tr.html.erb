@@ -1,3 +1,5 @@
+<% is_linked = meeting.decidim_component_id != current_component.id %>
+
 <tr data-id="<%= meeting.id %>">
   <td>
     <%= meeting.id %><br>
@@ -29,6 +31,10 @@
   <% end %>
   <%= td_resource_scope_for(meeting.scope) %>
   <td class="table-list__actions">
-    <%= render partial: "decidim/meetings/admin/meetings/actions", locals: { meeting:, view: } %>
+    <% if is_linked %>
+      <%= t(".linked_meeting_warning_html", href: edit_meeting_path(meeting), name: present(meeting).space_title) %>
+    <% else %>
+      <%= render partial: "decidim/meetings/admin/meetings/actions", locals: { meeting:, view: } %>
+    <% end %>
   </td>
 </tr>

@@ -8,8 +8,6 @@ nl:
         description: Beschrijving
         end_date: Einddatum
         progress: Vooruitgang
-        project_ids: Opgenomen projecten
-        proposals: Inbegrepen voorstellen
         start_date: Startdatum
         title: Titel
         updated_at: Bijgewerkt op
