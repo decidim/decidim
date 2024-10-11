@@ -64,27 +64,27 @@ module Decidim
         Decidim::Assemblies::Menu.register_home_content_block_menu!
       end
 
-      initializer "decidim_assemblies.view_hooks" do
-        Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
-                                                      .query.distinct
-                                                      .joins(:members)
-                                                      .merge(Decidim::AssemblyMember.where(user: view_context.profile_holder))
-                                                      .reorder(title: :asc)
+      # initializer "decidim_assemblies.view_hooks" do
+      #   Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
+      #     assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
+      #                                                 .query.distinct
+      #                                                 .joins(:members)
+      #                                                 .merge(Decidim::AssemblyMember.where(user: view_context.profile_holder))
+      #                                                 .reorder(title: :asc)
 
-          next unless assemblies.any?
+      #     next unless assemblies.any?
 
-          # Since this is rendered inside a cell we need to access the parent context in order to render it.
-          view_context = view_context.controller.view_context
+      #     # Since this is rendered inside a cell we need to access the parent context in order to render it.
+      #     view_context = view_context.controller.view_context
 
-          view_context.render(
-            partial: "decidim/assemblies/pages/user_profile/member_of",
-            locals: {
-              assemblies:
-            }
-          )
-        end
-      end
+      #     view_context.render(
+      #       partial: "decidim/assemblies/pages/user_profile/member_of",
+      #       locals: {
+      #         assemblies:
+      #       }
+      #     )
+      #   end
+      # end
 
       initializer "decidim_assemblies.content_blocks" do
         Decidim::Assemblies::ContentBlocks::RegistryManager.register!
