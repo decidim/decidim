@@ -52,7 +52,7 @@ jobs:
           - command: bundle exec parallel_test --type rspec --pattern spec/lib/
             name: Lib
     name: ${{ matrix.test.name }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
