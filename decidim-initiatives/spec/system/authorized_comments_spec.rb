@@ -35,9 +35,7 @@ describe "Authorized comments" do
     it do
       expect(page).to have_content("You need to be verified to comment at this moment")
       click_on("You need to be verified to comment at this moment")
-      expect(page).to have_content("Authorization required")
-      expect(page).to have_link("Authorize with \"Example authorization\"")
-      click_on("Authorize with \"Example authorization\"")
+      expect(page).to have_content("We need to verify your identity")
       expect(page).to have_content("Verify with Example authorization")
     end
   end
