@@ -18,11 +18,15 @@ module Decidim::Admin
         delete_current_private_participants?: delete,
         email:,
         current_user:,
-        name:
+        name:,
+        role: { en: role },
+        published:,
       )
     end
     let(:delete) { false }
     let(:invalid) { false }
+    let(:role) { "Admin" }
+    let(:published) { true }
 
     context "when the form is not valid" do
       let(:invalid) { true }

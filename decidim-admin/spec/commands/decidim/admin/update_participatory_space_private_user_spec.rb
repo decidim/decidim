@@ -20,8 +20,8 @@ module Decidim::Admin
       )
     end
     let(:invalid) { false }
-    let!(:role) { "President" }
-    let!(:published) { true }
+    let(:role) { "President" }
+    let(:published) { true }
 
     context "when the form is not valid" do
       let(:invalid) { true }
