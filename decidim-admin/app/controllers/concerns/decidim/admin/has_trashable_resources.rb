@@ -32,6 +32,8 @@ module Decidim
           end
         end
 
+        # i18n-tasks-use t('decidim.admin.trash_management.restore.invalid') 
+        # i18n-tasks-use t('decidim.admin.trash_management.restore.success')
         def restore
           enforce_permission_to(:restore, trashable_deleted_resource_type, trashable_deleted_resource:)
 
