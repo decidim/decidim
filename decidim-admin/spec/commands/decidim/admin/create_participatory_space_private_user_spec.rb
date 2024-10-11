@@ -20,7 +20,7 @@ module Decidim::Admin
         current_user:,
         name:,
         role: { en: role },
-        published:,
+        published:
       )
     end
     let(:delete) { false }
