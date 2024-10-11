@@ -56,5 +56,10 @@ module Decidim
         active: active_item.active?
       }
     end
+
+    def render_schema_org_breadcrumb_list(breadcrumb_items)
+      exported_breadcrumb_list = Decidim::Exporters::JSON.new([{ breadcrumb_items:, base_url: request.base_url }], Decidim::SchemaOrgBreadcrumbListSerializer).export.read
+      JSON.pretty_generate(JSON.parse(exported_breadcrumb_list).first)
+    end
   end
 end
