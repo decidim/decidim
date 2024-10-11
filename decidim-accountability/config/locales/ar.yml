@@ -111,7 +111,13 @@ ar:
             no_components: لا توجد أى مقومات فى الميزانيه فى هذا الحيز لتوريد المشاريع إلى نتائج.
             origin_component_id: عنصر أساسى
             select_component: اختيار المكون
+            title: اجلب مشاريع من مكون آخر
         results:
+          create:
+            invalid: هناك مشكلة في إنشاء هذه النتيجة.
+            success: تم إنشاء النتيجة بنجاح.
+          destroy:
+            success: تم حذف النتيجة بنجاح.
           edit:
             title: تحرير النتيجة
             update: تحديث النتيجة
@@ -120,10 +126,18 @@ ar:
           new:
             create: إنشاء نتيجة
             title: نتيجة جديدة
+          update:
+            invalid: هناك مشكلة في تحديث هذه النتيجة.
+            success: تم تحديث النتيجة بنجاح.
         shared:
           subnav:
             statuses: الحالات
         statuses:
+          create:
+            invalid: هناك مشكلة في إنشاء هذه الحالة.
+            success: تم إنشاء الحالة بنجاح.
+          destroy:
+            success: تم حذف الحالة بنجاح.
           edit:
             title: تحرير الحالة
             update: تحديث الحالة
@@ -132,7 +146,15 @@ ar:
           new:
             create: إنشاء الحالة
             title: حالة جديدة
+          update:
+            invalid: هناك مشكلة في تحديث هذه الحالة.
+            success: تم تحديث الحالة بنجاح.
         timeline_entries:
+          create:
+            invalid: حدثت مشكلة في إنشاء هذا الإدخال.
+            success: تم إنشاء الدخول بنجاح.
+          destroy:
+            success: تم حذف الإدخال بنجاح.
           edit:
             title: تحرير الإدخال
             update: تحديث الإدخال
@@ -141,6 +163,9 @@ ar:
           new:
             create: إنشاء الإدخال
             title: إدخال جديد
+          update:
+            invalid: حدثت مشكلة في تحديث هذا الإدخال.
+            success: تم تحديث الإدخال بنجاح.
       admin_log:
         result:
           create: "%{user_name} أنشأ النتيجة %{resource_name} في %{space_name}"
@@ -160,6 +185,8 @@ ar:
       content_blocks:
         highlighted_results:
           results: النتائج
+      creation:
+        text: تم إنشاء هذه النتيجة
       import_mailer:
         import:
           errors: أخطاء
