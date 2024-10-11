@@ -4,21 +4,11 @@ In order to help the moderator communities to manage better their Decidim instal
 
 == Functionalities
 
-=== Language detection
-
-This service allows you to install and configure a language detection service that you may use to manage the content that is being published in your installation.
-
-This service can be used for:
-
-- Identify content that is not being inserted in the platform available languages.
-- Identify the language of the content before sending it to the translation service.
-
 === Spam detection
 
 This service allows you to install and configure a spam detection service so that any suspicious content get reported at the very early possible step.
 
 This service can be trained either using the datasets that we provide, or using your own content. This way the engine learns your own business domain and it is able to detect spam or things that are not relevant for your activity.
-
 
 == Installation
 
