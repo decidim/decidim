@@ -66,7 +66,7 @@ module Decidim
             strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
             options: {
               adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE", "redis"),
-              params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL", {}) }
+              params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL", "redis://localhost:6379/2") }
             }
           }
         ]
@@ -127,7 +127,7 @@ module Decidim
             strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
             options: {
               adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER", "redis"),
-              params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL", {}) }
+              params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL", "redis://localhost:6379/3") }
             }
           }
         ]
