@@ -11,7 +11,7 @@ eu:
         plural: Plurala
       attachment:
         attachment_collection_id: Karpeta
-        description: Descripción
+        description: Deskribapena
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
         weight: Kokapenaren hurrenkera
