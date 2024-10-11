@@ -47,6 +47,22 @@
       <div class="row column">
         <%= form.check_box :comments_enabled, label: t("enabled", scope: "decidim.comments.admin.shared.availability_fields") %>
       </div>
+
+      <% if component_settings.attachments_allowed? %>
+        <div class="row column">
+          <legend><%= t(".attachment_legend") %></legend>
+          <%= form.fields_for :attachment, @form.attachment do |form| %>
+            <%= form.text_field :title %>
+            <%= form.upload :file, button_class: "button button__sm button__transparent-secondary" %>
+            <% if params[:id].present? %>
+              <% if @debate.documents.present? %>
+                <%= form.hidden_field :id, value: @debate.documents.first.id %>
+                <%= form.check_box :delete_file, label: t(".delete_attachment"), value: @debate.documents.first.id %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

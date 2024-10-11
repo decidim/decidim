@@ -6,6 +6,8 @@ module Decidim
       # This class holds a Form to create/update debates from Decidim's admin panel.
       class DebateForm < Decidim::Form
         include TranslatableAttributes
+        include Decidim::HasUploadValidations
+        include Decidim::AttachmentAttributes
 
         translatable_attribute :title, String
         translatable_attribute :description, String
@@ -17,6 +19,7 @@ module Decidim
         attribute :finite, Boolean, default: true
         attribute :scope_id, Integer
         attribute :comments_enabled, Boolean, default: true
+        attribute :attachment, AttachmentForm
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -28,6 +31,8 @@ module Decidim
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
         validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
 
+        validate :notify_missing_attachment_if_errored
+
         def map_model(model)
           self.finite = model.start_time.present? && model.end_time.present?
           self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
@@ -35,6 +40,11 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.description = presenter.description(all_locales: description.is_a?(Hash))
+          self.attachment = if model.documents.first.present?
+                              { file: model.documents.first.file, title: translated_attribute(model.documents.first.title) }
+                            else
+                              {}
+                            end
         end
 
         def category
@@ -65,6 +75,14 @@ module Decidim
 
         def validate_start_time?
           end_time.present?
+        end
+
+        # This method will add an error to the `attachment` field only if there is
+        # any error in any other field. This is needed because when the form has
+        # an error, the attachment is lost, so we need a way to inform the user of
+        # this problem.
+        def notify_missing_attachment_if_errored
+          errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
         end
       end
     end

@@ -15,6 +15,7 @@ module Decidim
       include Decidim::ScopableResource
       include Decidim::Authorable
       include Decidim::Reportable
+      include Decidim::HasAttachments
       include Decidim::HasReference
       include Decidim::Traceable
       include Decidim::Loggable

@@ -36,6 +36,7 @@ en:
         settings:
           global:
             announcement: Announcement
+            attachments_allowed: Attachments allowed
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             scope_id: Scope
@@ -69,6 +70,7 @@ en:
             title: Edit debate
             update: Update debate
           form:
+            attachment_legend: Attachments
             debate_type: Debate type
             finite: Finite (With start and end times)
             open: Open (No start or end times)

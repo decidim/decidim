@@ -16,7 +16,9 @@ module Decidim
         def new
           enforce_permission_to :create, :debate
 
-          @form = form(Decidim::Debates::Admin::DebateForm).instance
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(
+            attachment: form(AttachmentForm).from_params({})
+          )
         end
 
         def create
