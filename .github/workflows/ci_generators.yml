@@ -43,7 +43,7 @@ jobs:
           - bundle exec parallel_test --type rspec --pattern spec/runtime/full_app_generator_spec.rb
           - bundle exec parallel_test --type rspec --pattern spec/lib/
     name: "[CI] Generators"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
