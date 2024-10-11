@@ -29,6 +29,10 @@ module Decidim
 
         private
 
+        def i18n_questions_flashes_scope
+          "decidim.forms.admin.questionnaires"
+        end
+
         def meeting
           @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
         end
