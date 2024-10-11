@@ -294,6 +294,16 @@ ar:
           index:
             linked_meeting_warning_html: يجب تعديل هذا الاجتماع من <br><a href="%{href}">%{name}</a>
             title: اجتماعات
+          linked_spaces:
+            assign: تعيين
+            link_a_space: اربط مساحة
+            private_meeting_warning: لم يتم تطبيق المساحات المربوطة إذا كان الاجتماع خاص وغير شفاف.
+            private_space_warning: لم يتم تطبيق المساحات المربوطة إذا كان الاجتماع ينتمي إلى مساحه خاصة وغير شفافه.
+            select: اختر مساحه
+            table:
+              actions: الإجراءات
+              component: مساحات مربوطة
+            title: مساحات مربوطة
           new:
             create: إنشاء
             title: إنشاء اجتماع
@@ -489,6 +499,7 @@ ar:
           micro_camera_permissions_warning: عند النقر على الزر أدناه، سيتم طلب أذونات الميكروفون و/أو الكاميرا، وسوف تنضم إلى مؤتمر الفيديو
           no_slots_available: لا فتحات المتاحة
           organizations: حضور المنظمات
+          redirect_notice: هذا الاجتماع جزء من مساحة أخرى، لذلك تم نقلك إلى %{current_space_name}. <br>إذا كنت تفضل، يمكنك العودة إلى <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: رمز التسجيل الخاص بك
           registration_state:
             validated: التحقق من صحة
