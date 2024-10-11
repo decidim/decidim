@@ -35,12 +35,14 @@ module Decidim
 
       context "when user or groups are not confirmed" do
         let(:user) { create(:user, organization: current_organization) }
-        let(:user_group) { create(:user_group, organization: current_organization) }
+        let(:current_user) { create(:user, organization: current_organization) }
+        let(:user_group) { create(:user_group, users: [], organization: current_organization) }
+        let!(:models) { [user, user_group] }
+
         let(:query) { %({ users { id } }) }
 
         it "returns all the types" do
-          users = response["users"]
-          expect(users).to eq([])
+          expect(response["users"]).to eq([])
         end
       end
 
@@ -55,6 +57,7 @@ module Decidim
 
         context "when user is blocked" do
           let(:user) { create(:user, :blocked, :confirmed, organization: current_organization) }
+          let(:current_user) { create(:user, organization: current_organization) }
 
           it "does not returns all the types" do
             users = response["users"]
