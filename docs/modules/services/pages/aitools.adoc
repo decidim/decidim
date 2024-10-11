@@ -5,6 +5,7 @@ In order to help the moderator communities to manage better their Decidim instal
 == Functionalities
 
 === Language detection
+
 This service allows you to install and configure a language detection service that you may use to manage the content that is being published in your installation.
 
 This service can be used for:
@@ -13,6 +14,7 @@ This service can be used for:
 - Identify the language of the content before sending it to the translation service.
 
 === Spam detection
+
 This service allows you to install and configure a spam detection service so that any suspicious content get reported at the very early possible step.
 
 This service can be trained either using the datasets that we provide, or using your own content. This way the engine learns your own business domain and it is able to detect spam or things that are not relevant for your activity.
@@ -58,7 +60,7 @@ Decidim::Ai::SpamDetection.resource_analyzers = [
     strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
     options: {
       adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE", "redis"),
-      params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL", {}) }
+      params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_REDIS_URL", "redis://localhost:6379/2") }
     }
   }
 ]
@@ -109,7 +111,7 @@ Decidim::Ai::SpamDetection.user_analyzers = [
     strategy: Decidim::Ai::SpamDetection::Strategy::Bayes,
     options: {
       adapter: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER", "redis"),
-      params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER_URL", {}) }
+      params: { url: ENV.fetch("DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL", "redis://localhost:6379/3") }
     }
   }
 ]
@@ -134,14 +136,15 @@ Decidim::Ai::SpamDetection.user_detection_service = "Decidim::Ai::SpamDetection:
 Decidim Ai provides a set of commands that you can use to manage the engine.
 
 === Create reporting user
+
 In order to preserve the database integrity, you need to configure a system user that could be used to report content in the application. Use the following command to create an user for each one of the organizations you may have. The email address defined by `Decidim::Ai::SpamDetection.reporting_user_email` will be used to find or create the user.
 
 ```bash
 bin/rails decidim:ai:spam:create_reporting_user
 ```
 
-
 === Load the file training data
+
 In the new or small platforms is quite hard to have a training dataset of spam content. We provide some real life examples of spam data extracted by the contributors of the project. You can use the following command to load the data into your installation.
 
 ```bash
@@ -149,14 +152,15 @@ bin/rails decidim:ai:spam:load_module_dataset
 ```
 
 === Load custom model
+
 In some cases, when you manage multiple installations, you may want to share the same model between them. You can use the following command to load a simple CSV.
 
 ```bash
 bin/rails decidim:ai:spam:load_application_dataset[/path/to/file.csv]
-
 ```
 
 === Load the data from your server
+
 In some cases, like an upgrade, you may want to train your model using your existing data, so you can use:
 
 ```bash
@@ -164,6 +168,7 @@ bin/rails decidim:ai:spam:train_using_database
 ```
 
 === Reset the model
+
 If the trained model becomes corrupt, you could use the below command to reinitialize the model. Once you do this, you would need to train the model again. using any of the above commands.
 
 ```bash
@@ -171,6 +176,7 @@ bin/rails decidim:ai:spam:reset_model
 ```
 
 == Sidekiq
+
 Decidim Ai comes with a new queue that is aimed to be ran to analyze the content of the platform. We have decided to have it in a separate queue to avoid blocking other events that your sidekiq may use.
 
 We start to provide the `spam_analysis` queue name.

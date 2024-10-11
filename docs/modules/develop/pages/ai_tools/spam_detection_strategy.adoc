@@ -31,7 +31,6 @@ module SpamDetection::Strategy
       category
     end
 
-
     def score
       category.presence == "spam" ? 1 : 0
     end

@@ -633,9 +633,9 @@ Additional context: This has been revealed as an issue during a security audit o
 | redis
 | No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_USER_URL*
+|*DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL*
 | The redis connection url used by the user classifier
-| -
+| redis://localhost:6379/3
 | No
 
 |*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE*
@@ -643,13 +643,10 @@ Additional context: This has been revealed as an issue during a security audit o
 | redis
 | No
 
-|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_URL*
+|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_REDIS_URL*
 | The redis connection url used by the resource classifier
-| -
+| redis://localhost:6379/2
 | No
-
-
-
 
 |===
 
