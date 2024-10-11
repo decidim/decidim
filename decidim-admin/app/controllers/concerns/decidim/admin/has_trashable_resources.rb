@@ -16,6 +16,8 @@ module Decidim
 
         before_action :trashable_set_deleted_warning, if: :trash_zone?
 
+        # i18n-tasks-use t('decidim.admin.trash_management.soft_delete.invalid')
+        # i18n-tasks-use t('decidim.admin.trash_management.soft_delete.success')
         def soft_delete
           enforce_permission_to(:soft_delete, trashable_deleted_resource_type, trashable_deleted_resource:, current_participatory_space:)
 
