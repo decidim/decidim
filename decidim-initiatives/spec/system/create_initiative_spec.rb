@@ -272,7 +272,7 @@ describe "Initiative" do
               click_on "Log in"
             end
 
-            expect(page).to have_content("We need to verify your identity.")
+            expect(page).to have_content("We need to verify your identity")
             expect(page).to have_content("Verify with Example authorization")
           end
         end
