@@ -80,6 +80,37 @@ shared_examples "manage resource share tokens" do
       end
     end
 
+    context "when ordering" do
+      let(:share_tokens) do
+        [
+          create(:share_token, :with_token, token_for: resource, organization:, token: "b", expires_at: 1.day.from_now, registered_only: true, times_used: 3),
+          create(:share_token, :with_token, token_for: resource, organization:, token: "a", expires_at: 3.days.from_now, registered_only: true, times_used: 2),
+          create(:share_token, :with_token, token_for: resource, organization:, token: "c", expires_at: 2.days.from_now, registered_only: false, times_used: 1)
+        ]
+      end
+
+      it "can be ordered by token and other attributes" do
+        within ".share_tokens" do
+          click_on "Access link" # order by token
+          expect(page).to have_css("tbody tr:first-child", text: "c")
+          click_on "Access link" # order by token
+          expect(page).to have_css("tbody tr:first-child", text: "a")
+          click_on "Expires at" # order by expires_at
+          expect(page).to have_css("tbody tr:first-child", text: share_tokens.second.expires_at.strftime("%d/%m/%Y %H:%M"))
+          click_on "Expires at" # order by expires_at
+          expect(page).to have_css("tbody tr:first-child", text: share_tokens.first.expires_at.strftime("%d/%m/%Y %H:%M"))
+          click_on "Registered only" # order by registered_only
+          expect(page).to have_css("tbody tr:first-child", text: "Yes")
+          click_on "Registered only" # order by registered_only
+          expect(page).to have_css("tbody tr:first-child", text: "No")
+          click_on "Times used" # order by times_used
+          expect(page).to have_css("tbody tr:first-child", text: "3")
+          click_on "Times used" # order by times_used
+          expect(page).to have_css("tbody tr:first-child", text: "1")
+        end
+      end
+    end
+
     it "can edit a share token" do
       within "tbody tr", text: last_token.token do
         expect(page).to have_content("Yes")
