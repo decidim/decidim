@@ -42,7 +42,7 @@ eu:
       actions:
         attachment_collections: Karpetak
         attachments: Erantsitako artxiboak
-        confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         import: Inportatu proposamenak beste osagai batetik
@@ -177,7 +177,7 @@ eu:
           update: "%{user_name} k %{resource_name} sarrera eguneratu du kronologian"
         value_types:
           parent_presenter:
-            not_found: 'Nagusi ez zen aurkitu (ID: %{id}) datu-basean'
+            not_found: 'Nagusia ez zen aurkitu (ID: %{id}) datu-basean'
       content_blocks:
         highlighted_results:
           results: Emaitzak
@@ -266,9 +266,9 @@ eu:
             display_progress_enabled: Erakutsi aurrerapena
             intro: Intro
             scope_id: Esparrua
-            scopes_enabled: Esparruak gaituta
+            scopes_enabled: Esparru gaituak
           step:
-            comments_blocked: Iruzkinak blokeatuta
+            comments_blocked: Iruzkin blokeatuak
     events:
       accountability:
         proposal_linked:
@@ -317,7 +317,7 @@ eu:
           url: Emaitza hau aurkitu daitekeen URLa
     participatory_spaces:
       highlighted_results:
-        see_all: Ikusi emaitza guztiak (%{count})
+        see_all: Ikusi emaitza guztiak
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
