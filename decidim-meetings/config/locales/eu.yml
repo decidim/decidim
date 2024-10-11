@@ -314,6 +314,8 @@ eu:
           close:
             invalid: Arazo bat egon da topaketa hau ixtean.
             success: Topaketa ongo itxia.
+          component:
+            unlink: Askatu
           create:
             invalid: Arazo bat egon da topaketa hau sortzean.
             success: Topaketa zuzen sortu da. Kontuan hartu oraindik ez dela argitaratu, eskuz argitaratu beharko duzu.
@@ -338,7 +340,11 @@ eu:
             select_a_registration_type: Mesedez, aukeratu erregistro mota bat
             select_an_iframe_access_level: Mesedez, hautatu iframe maila bat
           index:
+            linked_meeting_warning_html: 'Topaketa hau hemendik editatu behar da: <br><a href="%{href}">%{name}</a>'
             title: Topaketa-zerrenda
+          linked_spaces:
+            assign: Esleitu
+            link_a_space: Lotu espazioa
           new:
             create: Sortu
             title: Sortu topaketa
