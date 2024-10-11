@@ -9,7 +9,7 @@ describe Decidim::Debates::ContentBlocks::HighlightedDebatesCell, type: :cell do
 
   let(:organization) { create(:organization) }
   let(:participatory_space) { create(:participatory_process, organization:) }
-  let(:component) { create(:debates_component, participatory_space:, manifest_name: "debates") }
+  let(:component) { create(:debates_component, participatory_space) }
   let(:manifest_name) { :highlighted_debates }
   let(:scope_name) { :participatory_process_homepage }
   let(:content_block) { create(:content_block, organization:, manifest_name:, scope_name:, scoped_resource_id: participatory_space.id) }
