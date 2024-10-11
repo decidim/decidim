@@ -86,6 +86,10 @@ ca:
           close: "La participant %{user_name} ha tancat el debat %{resource_name} a l'espai %{space_name}"
           create: "La participant %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
           update: "La participant %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
+      content_blocks:
+        highlighted_debates:
+          name: Debats
+          see_all: Veure tots els debats
       debate_m:
         commented_time_ago: Comentat fa %{time}
       debates:
