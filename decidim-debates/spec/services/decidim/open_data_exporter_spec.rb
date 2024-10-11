@@ -12,11 +12,18 @@ describe Decidim::OpenDataExporter do
     let(:component) do
       create(:debates_component, organization:, published_at: Time.current)
     end
-    let!(:resource) { create(:debate, :closed, component:) }
+    let!(:resource) { create(:debate,  component:) }
+
+    let(:second_component) do
+      create(:debates_component, organization:, published_at: Time.current)
+    end
+    let!(:second_resource) { create(:debate, :closed, component: second_component) }
+
     let(:resource_title) { "## debates" }
     let(:help_lines) do
       [
-        "* id: The unique identifier of the debate"
+        "* id: The unique identifier of the debate",
+        "* conclusions: The conclusions of the debate if it was closed"
       ]
     end
     let(:unpublished_component) do
