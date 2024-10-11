@@ -5,7 +5,7 @@ module Decidim
     # This controller allows users to create and destroy their authorizations. It
     # should not be necessary to expand it to add new authorization schemes.
     class AuthorizationsController < Verifications::ApplicationController
-      helper_method :handler, :unauthorized_methods, :authorization_method, :authorization, :onboarding_manager,
+      helper_method :handler, :unauthorized_methods, :authorization_method, :authorization,
                     :granted_authorizations, :pending_authorizations, :active_authorization_methods
 
       before_action :valid_handler, only: [:new, :create]
@@ -109,10 +109,6 @@ module Decidim
 
       def handler_name
         params[:handler] || params.dig(:authorization_handler, :handler_name)
-      end
-
-      def onboarding_manager
-        @onboarding_manager ||= Decidim::OnboardingManager.new(current_user)
       end
 
       def valid_handler
