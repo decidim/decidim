@@ -281,6 +281,14 @@ ja:
         description: 生成した結果の数
         object: 結果
         title: 結果
+    open_data:
+      help:
+        result_comments:
+          alignment: このコメントが好意的、反対的、中立的であった場合
+          author: このコメントを作成した参加者の名前
+          body: コメント本体
+          commentable_id: コメント対象の固有ID
+          commentable_type: コメント対象の種別 (結果、提案など)
     participatory_spaces:
       highlighted_results:
         see_all: すべての結果を見る (%{count})
