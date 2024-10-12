@@ -85,6 +85,10 @@ ja:
           close: "%{user_name} は、 %{resource_name} スペースの %{space_name} ディベートを終了しました"
           create: "%{user_name} が %{resource_name} スペースで %{space_name} ディベートを作成しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} ディベートを更新しました"
+      content_blocks:
+        highlighted_debates:
+          name: ディベート
+          see_all: すべてのディベートを見る
       debate_m:
         commented_time_ago: コメント %{time} 前
       debates:
