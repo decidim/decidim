@@ -356,6 +356,32 @@ ja:
         description: この組織の参加型プロセス数
         object: 参加型プロセス
         title: 参加型プロセス
+    open_data:
+      help:
+        participatory_processes:
+          announcement: アナウンス（コールアウト）情報
+          area: プロセスが行われているエリア
+          description: プロセスの詳しい説明
+          developer_group: プロセスの開発者グループ。これはプロセスをプロモートしている組織です
+          end_date: プロセスの終了日時
+          hashtag: Twitter/Xで使用されるプロセスのハッシュタグ
+          id: このプロセスの固有ID
+          local_area: プロセスのローカルエリア。これはプロセスが行われている組織のエリアです。
+          meta_scope: プロセスのスコープメタデータ
+          participatory_process_group: プロセスのグループ、もしあれば
+          participatory_process_type: プロセスの種別
+          participatory_scope: プロセスの参加スコープ
+          participatory_structure: プロセスの参加型構造。これはプロセスの決定方法です。
+          promoted: プロセスがプロモートされるかどうか
+          remote_hero_image_url: プロセスのヒーロー画像の URL
+          scope: プロセスのスコープ
+          scopes_enabled: スコープが有効かどうか
+          short_description: プロセスの簡単な説明
+          slug: プロセスのスラグ (識別目的、URLに使用)
+          start_date: プロセスの開始日時
+          subtitle: プロセスのサブタイトル
+          target: プロセスのターゲット。これはプロセスに参加するよう呼びかけられる対象者です。
+          title: プロセスのタイトル
     participatory_process_groups:
       content_blocks:
         extra_data:
