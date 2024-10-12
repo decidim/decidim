@@ -289,6 +289,27 @@ ja:
           body: コメント本体
           commentable_id: コメント対象の固有ID
           commentable_type: コメント対象の種別 (結果、提案など)
+          created_at: このコメントが作成された日時
+          depth: このコメントがコメントツリーのどこに位置しているか（もしそれが回答であるか、または回答の回答である場合）
+          id: このコメントのID
+          locale: このコメントを残すときに参加者が使っていたロケール（言語）
+          root_commentable_url: このコメントに関連するリソースの URL
+          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
+        results:
+          category: '結果のカテゴリ (例: "文化")'
+          component: 結果が属するコンポーネント
+          created_at: 結果の作成日時
+          description: 結果の説明
+          end_date: 結果の実行が終わり、完了した日付
+          id: 結果の固有ID
+          parent: 結果の親の結果 (もしあれば)
+          progress: 結果の実行の割合
+          proposal_urls: この結果に含まれる提案のURL
+          scope: '結果のスコープ (例: "市")'
+          start_date: 結果の実行を開始した日時
+          status: この結果の現在の状態
+          title: 結果のタイトル
+          url: この結果が見つかるURL
     participatory_spaces:
       highlighted_results:
         see_all: すべての結果を見る (%{count})
