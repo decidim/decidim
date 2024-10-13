@@ -242,6 +242,7 @@ ar:
           global_status: حالة التنفيذ العالمي
         nav_breadcrumb:
           global: التنفيذ العالمي
+        no_results: لا يوجد مشاريع
         search:
           search: البحث عن الإجراءات
         show:
@@ -290,6 +291,22 @@ ar:
         description: عدد النتائج التي تم توليدها
         object: النتائج
         title: النتائج
+    open_data:
+      help:
+        result_comments:
+          alignment: إذا كان هذا التعليق تفضيلا, أو معارضا أو محايدا
+          author: اسم المشارك الذي صنع هذا التعليق
+          body: التعليق نفسه
+          commentable_id: المعرف المميز للتعليق
+          commentable_type: النوع القابل للتعليق (إذا كانت نتيجة, اقتراح, الخ.)
+          created_at: التاريخ الذي تم إنشاء فيه هذا التعليق
+          depth: المكان الذي يوجد فيه هذا التعليق في ثلاث تعليقات (إذا كان إجابة أو إجابة على إجابة)
+          id: معرف هذا التعليق
+          locale: اللغة التي كانت لدى المشارك عندما ترك هذا التعليق
+          root_commentable_url: عنوان URL للمورد الذي يربط بهذا التعليق
+          user_group: اسم مجموعة المستخدم الذي صنع هذا التعليق (إن وجد)
+        results:
+          category: فئة النتيجة (مثل "الثقافة")
     participatory_spaces:
       highlighted_results:
         see_all: عرض كل النتائج (%{count})
