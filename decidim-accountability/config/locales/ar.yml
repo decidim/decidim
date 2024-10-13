@@ -236,6 +236,7 @@ ar:
           global_status: حالة التنفيذ العالمي
         nav_breadcrumb:
           global: التنفيذ العالمي
+        no_results: لا يوجد مشاريع
         search:
           search: البحث عن الإجراءات
         show:
