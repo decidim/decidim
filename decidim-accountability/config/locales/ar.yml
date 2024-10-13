@@ -184,6 +184,7 @@ ar:
       import_mailer:
         import:
           errors: أخطاء
+          errors_present: حدثت مشكلة في استيراد النتائج.
           row_number: الصف
           subject: استيراد النتائج بنجاح
           success: نجاح استيراد النتائج. يمكنك مراجعة النتائج في واجهة الإدارة.
@@ -228,6 +229,8 @@ ar:
           all: الكل
         home:
           categories_label: الفئات
+          empty: لا توجد نتائج بعد.
+          empty_filters: لا توجد نتائج تطابق هذه المعايير.
           subcategories_label: الفئات الفرعية
         home_header:
           global_status: حالة التنفيذ العالمي
