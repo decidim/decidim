@@ -81,7 +81,7 @@ shared_examples_for "add questions" do
     update_component_settings_or_attributes
 
     visit questionnaire_public_path
-    see_questionaire_questions
+    see_questionnaire_questions
 
     expect(page).to have_css("strong", text: "Superkalifragilistic description")
   end
@@ -103,7 +103,7 @@ shared_examples_for "add questions" do
     update_component_settings_or_attributes
 
     visit questionnaire_public_path
-    see_questionaire_questions
+    see_questionnaire_questions
 
     expect(page).to have_css("strong", text: "Superkalifragilistic description")
   end

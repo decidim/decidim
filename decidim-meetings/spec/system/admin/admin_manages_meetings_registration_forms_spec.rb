@@ -38,7 +38,7 @@ describe "Admin manages meetings registration forms" do
     )
   end
 
-  def see_questionaire_questions; end
+  def see_questionnaire_questions; end
 
   describe "manages registration form" do
     it "allows to change the custom content in registration email" do

@@ -138,7 +138,7 @@ describe "Admin manages surveys" do
     survey.update!(allow_answers: true)
   end
 
-  def see_questionaire_questions
+  def see_questionnaire_questions
     choose "All"
     click_on decidim_sanitize_translated(questionnaire.title)
   end
