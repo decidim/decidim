@@ -9,7 +9,14 @@
         <%= cell(
           "decidim/announcement",
           {
-            title: t("pending_authorization_active_title", scope: "decidim.onboarding_action_message"),
+            title: case authorizations.statuses.first.code
+                   when :expired
+                     t("expired_authorization_active_title", scope: "decidim.onboarding_action_message")
+                   when :incomplete
+                     t("incomplete_authorization_active_title", scope: "decidim.onboarding_action_message")
+                   else
+                     t("pending_authorization_active_title", scope: "decidim.onboarding_action_message")
+                   end,
             body: t(
                 "pending_authorization_active_message",
                 scope: "decidim.onboarding_action_message",
