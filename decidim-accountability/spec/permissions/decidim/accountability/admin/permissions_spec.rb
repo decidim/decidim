@@ -40,22 +40,6 @@ describe Decidim::Accountability::Admin::Permissions do
       end
     end
 
-    describe "destroy" do
-      let(:action) do
-        { scope: :admin, action: :destroy, subject: action_subject }
-      end
-
-      context "when the resource is present" do
-        it { is_expected.to be true }
-      end
-
-      context "when the resource is not present" do
-        let(:resource) { nil }
-
-        it_behaves_like "permission is not set"
-      end
-    end
-
     context "when any other action" do
       let(:action) do
         { scope: :admin, action: :foo, subject: :action_subject }

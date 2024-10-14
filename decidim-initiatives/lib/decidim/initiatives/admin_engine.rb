@@ -56,6 +56,7 @@ module Decidim
           resources :components do
             collection do
               put :reorder
+              get :manage_trash, to: "components#manage_trash"
             end
             resource :permissions, controller: "component_permissions"
             member do
