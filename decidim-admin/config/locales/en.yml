@@ -999,10 +999,10 @@ en:
           copied: Access link Copied!
           copy_message: The text was successfully copied to clipboard.
           create_new_token: Create your first access link!
-          empty: There are no active access links. %{new_token_link}
+          empty_html: There are no active access links. %{new_token_link}
           never: Never
           new_share_token_button: New access link
-          share_tokens_help: |
+          share_tokens_help_html: |
             Create and share an access link to allow others to view this unpublished resource.
             Access links can be valid for registered participants only or have and expiration date if necessary.
             To share a new access link with someone, create it and then copy the link using the "%{clipboard} clipboard" action icon.

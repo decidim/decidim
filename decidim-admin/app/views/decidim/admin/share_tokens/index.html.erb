@@ -6,7 +6,7 @@
     </h2>
   </div>
   <div class="mb-4">
-    <p class="help-text whitespace-pre-line"><%= t(".share_tokens_help", clipboard: icon("clipboard-line", class: "inline-block mb-1")).html_safe %></p>
+    <p class="help-text whitespace-pre-line"><%= t(".share_tokens_help_html", clipboard: icon("clipboard-line", class: "inline-block mb-1")) %></p>
   </div>
   <% if @share_tokens.any? %>
     <div class="table-scroll">
@@ -24,12 +24,14 @@
           <% @share_tokens.each do |share_token| %>
             <tr>
               <td id="js-token-<%= share_token.id %>"><%= share_token.token %></td>
-              <td><%= share_token.expires_at.present? ? ("<span class=\"text-#{share_token.expired? ? "warning" : ""}\">#{l(share_token.expires_at, format: :decidim_short)}</span>".html_safe) : content_tag(:em, t(".never")) %></td>
+              <td><%= share_token.expires_at.present? ?
+                        content_tag(:span, l(share_token.expires_at, format: :decidim_short), class: share_token.expired? ? "text-warning" : nil ) :
+                        content_tag(:em, t(".never")) %></td>
               <td><%= t("booleans.#{share_token.registered_only.present?}") %></td>
               <td><%= share_token.times_used %></td>
               <td class="table-list__actions">
                 <%= icon_link_to "pencil-line", share_tokens_path(:edit, id: share_token ), t("actions.edit", scope: "decidim.admin.share_tokens"), class: "action-icon--edit" %>
-                 <%= icon_link_to "clipboard-line", "#", t("actions.copy_link", scope: "decidim.admin.share_tokens"), class: "action-icon--copy", data: { "clipboard-copy" => "#js-token-#{share_token.id}", "clipboard-content" => share_token.url,"clipboard-copy-label" => t(".copied"),"clipboard-copy-message" => t(".copy_message") } %>
+                <%= icon_link_to "clipboard-line", "#", t("actions.copy_link", scope: "decidim.admin.share_tokens"), class: "action-icon--copy", data: { "clipboard-copy" => "#js-token-#{share_token.id}", "clipboard-content" => share_token.url,"clipboard-copy-label" => t(".copied"),"clipboard-copy-message" => t(".copy_message") } %>
                 <%= icon_link_to "eye-line", share_token.url, t("actions.preview", scope: "decidim.admin.share_tokens"), class: "action-icon--preview", target: :blank %>
                 <%= icon_link_to "delete-bin-line", share_tokens_path(:destroy, id: share_token ), t("actions.destroy", scope: "decidim.admin.share_tokens"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin.share_tokens") } %>
               </td>
@@ -39,7 +41,7 @@
       </table>
     </div>
   <% else %>
-    <p><%= t(".empty", new_token_link: link_to(t(".create_new_token"), share_tokens_path(:new) , class: "button button__text-secondary")).html_safe %></p>
+    <p><%= t(".empty_html", new_token_link: link_to(t(".create_new_token"), share_tokens_path(:new) , class: "button button__text-secondary")) %></p>
   <% end %>
 </div>
 <%= decidim_paginate @share_tokens %>
