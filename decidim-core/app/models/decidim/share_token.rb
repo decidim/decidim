@@ -32,13 +32,13 @@ module Decidim
       token_for.shareable_url(self)
     end
 
-    def self.ransackable_attributes(auth_object = nil)
+    def self.ransackable_attributes(_auth_object = nil)
       %w(token expires_at last_used_at registered_only)
     end
 
-    def self.ransackable_associations(auth_object = nil)
+    def self.ransackable_associations(_auth_object = nil)
       %w(organization token_for user)
-      end
+    end
 
     private
 
