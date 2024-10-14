@@ -10,6 +10,8 @@ module Decidim
 
         layout "decidim/admin/assemblies"
 
+        helper_method :parent_assembly
+
         private
 
         def content_block_scope
@@ -28,6 +30,12 @@ module Decidim
 
         def resource_landing_page_content_block_path
           assembly_landing_page_content_block_path(scoped_resource, params[:id])
+        end
+
+        alias current_participatory_space current_assembly
+
+        def parent_assembly
+          current_assembly.parent
         end
       end
     end
