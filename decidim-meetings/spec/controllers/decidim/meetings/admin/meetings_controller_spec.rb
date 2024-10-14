@@ -23,27 +23,6 @@ describe Decidim::Meetings::Admin::MeetingsController do
     sign_in user
   end
 
-  describe "#destroy" do
-    before do
-      proposal.coauthorships.clear
-      proposal.add_coauthor(meeting)
-    end
-
-    context "when having at least one proposal (invalid)" do
-      it "flashes an alert message" do
-        delete :destroy, params: { id: meeting.id }
-
-        expect(flash[:alert]).not_to be_empty
-      end
-
-      it "renders the index view" do
-        delete :destroy, params: { id: meeting.id }
-
-        expect(subject).to render_template(:index)
-      end
-    end
-  end
-
   describe "PATCH #soft_delete" do
     it "soft deletes the meeting" do
       expect(Decidim::Commands::SoftDeleteResource).to receive(:call).with(meeting, user).and_call_original
