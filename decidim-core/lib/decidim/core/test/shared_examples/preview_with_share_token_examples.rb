@@ -56,14 +56,11 @@ shared_examples "visit unpublished resource with a share token" do
       context "when a user is logged" do
         let(:user) { create(:user, :confirmed, organization:) }
 
-        before do
+        it "allows visiting resource" do
           login_as user, scope: :user
           uri = URI(resource_path)
           uri.query = URI.encode_www_form(params.to_a)
           visit uri
-        end
-
-        it "allows visiting resource" do
           expect(page).to have_no_content "You are not authorized"
           expect(page).to have_current_path(resource_path, ignore_query: true)
         end
