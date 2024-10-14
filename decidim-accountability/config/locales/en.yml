@@ -54,8 +54,6 @@ en:
         new_status: New status
         new_timeline_entry: New timeline entry
         preview: Preview
-        restore: Restore
-        soft_delete: Soft delete
         timeline_entries: Project evolution
         title: Actions
         view_deleted_results: View deleted results

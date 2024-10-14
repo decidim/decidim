@@ -53,22 +53,6 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to(:delete, :budget, budget:)
-
-          DestroyBudget.call(budget, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("budgets.destroy.success", scope: "decidim.budgets.admin")
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t("budgets.destroy.invalid", scope: "decidim.budgets.admin")
-            end
-          end
-
-          redirect_to budgets_path
-        end
-
         private
 
         def trashable_deleted_resource_type

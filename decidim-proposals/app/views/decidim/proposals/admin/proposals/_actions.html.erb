@@ -1,5 +1,5 @@
 <% if view == :deleted %>
-  <%= icon_link_to "refresh-line", restore_proposal_path(proposal), t("actions.restore", scope: "decidim.proposals.admin"), method: :patch, class: "action-icon--restore" %>
+  <%= icon_link_to "refresh-line", restore_proposal_path(proposal), t("actions.restore", scope: "decidim.admin"), method: :patch, class: "action-icon--restore" %>
   <% else %>
   <% if allowed_to? :edit, :proposal, proposal: proposal %>
     <%= icon_link_to "pencil-line", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
@@ -14,6 +14,8 @@
   <%= resource_permissions_link(proposal) %>
 
   <% if allowed_to?(:soft_delete, :proposal, trashable_deleted_resource: proposal) %>
-    <%= icon_link_to "delete-bin-line", soft_delete_proposal_path(proposal), t("actions.soft_delete", scope: "decidim.proposals.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_proposal", scope: "decidim.proposals.admin") } %>
+    <%= icon_link_to "delete-bin-line", soft_delete_proposal_path(proposal), t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_proposal", scope: "decidim.proposals.admin") } %>
+  <% else %>
+    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
   <% end %>
 <% end %>

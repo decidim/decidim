@@ -65,9 +65,7 @@ module Decidim
           end
 
           if permission_action.action.in? [:manage_trash, :restore, :soft_delete]
-            if current_participatory_space_is_initiative?
-              disallow!
-            elsif permission_action.action == :soft_delete
+            if permission_action.action == :soft_delete
               toggle_allow(trashable_deleted_resource.respond_to?(:trashed?) && !trashable_deleted_resource.trashed?)
             elsif permission_action.action == :restore
               toggle_allow(trashable_deleted_resource&.trashed?)
@@ -284,16 +282,8 @@ module Decidim
         toggle_allow(taxonomy&.removable?)
       end
 
-      def current_participatory_space
-        context.fetch(:participatory_space, nil) || component&.participatory_space
-      end
-
       def component
         context.fetch(:component, nil)
-      end
-
-      def current_participatory_space_is_initiative?
-        current_participatory_space.is_a?(Decidim::Initiative)
       end
     end
   end

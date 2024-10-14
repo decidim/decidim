@@ -58,27 +58,6 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to(:destroy, :meeting, meeting:)
-
-          Decidim::Meetings::Admin::DestroyMeeting.call(meeting, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("meetings.destroy.success", scope: "decidim.meetings.admin")
-              redirect_to meetings_path
-            end
-
-            on(:invalid) do
-              flash.now[:alert] = I18n.t(
-                "meetings.destroy.invalid.proposals_count",
-                count: proposals.size,
-                scope: "decidim.meetings.admin"
-              )
-
-              render action: "index"
-            end
-          end
-        end
-
         def publish
           enforce_permission_to(:update, :meeting, meeting:)
 

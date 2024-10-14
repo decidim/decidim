@@ -20,6 +20,8 @@
   <%= resource_permissions_link(post) %>
 
   <% if allowed_to? :soft_delete, :blogpost, trashable_deleted_resource: post %>
-    <%= icon_link_to "delete-bin-line", soft_delete_post_path(post), t("actions.soft_delete", scope: "decidim.blogs"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_post", scope: "decidim.blogs") } %>
+    <%= icon_link_to "delete-bin-line", soft_delete_post_path(post), t("actions.soft_delete", scope: "decidim.admin"), method: :patch, class: "action-icon--delete", data: { confirm: t("actions.confirm_delete_post", scope: "decidim.blogs") } %>
+  <% else %>
+    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
   <% end %>
 <% end %>

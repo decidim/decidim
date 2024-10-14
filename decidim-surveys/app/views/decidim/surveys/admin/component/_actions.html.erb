@@ -42,12 +42,10 @@
     <span class="action-space icon"></span>
   <% end %>
 
-  <% if allowed_to? :soft_delete, :component, trashable_deleted_resource: component, participatory_space: current_participatory_space %>
+  <% if allowed_to? :soft_delete, :component, trashable_deleted_resource: component %>
     <% resources_count = component.primary_stat || 0 %>
     <%= icon_link_to "delete-bin-line", url_for(action: :soft_delete, id: component, controller: "components"), t("actions.soft_delete", scope: "decidim.admin", resources_count:), method: :patch, class: "action-icon--delete", data: { confirm: (t("actions.confirm_delete_component", scope: "decidim.admin", resources_count:)) } %>
-  <% elsif allowed_to? :destroy, :component, component: component %>
-    <%= icon_link_to "delete-bin-line", url_for(action: :destroy, id: component, controller: "components"), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete %>
   <% else %>
-    <span class="action-space icon"></span>
+    <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.soft_delete", scope: "decidim.admin") %>
   <% end %>
 <% end %>

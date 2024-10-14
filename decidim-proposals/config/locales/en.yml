@@ -493,8 +493,6 @@ en:
           confirm_delete_proposal: Are you sure you want to delete this proposal?
           deleted_proposals_info: Deleted proposals can be restored from the trash.
           preview: Preview
-          restore: Restore
-          soft_delete: Soft delete
           view_deleted_proposals: View deleted proposals
         exports:
           proposal_comments: Comments

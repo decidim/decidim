@@ -250,7 +250,6 @@ en:
         new_meeting: New meeting
         preview: Preview
         registrations: Registrations
-        soft_delete: Soft delete
         title: Actions
         view_deleted_meetings: View deleted meetings
       admin:

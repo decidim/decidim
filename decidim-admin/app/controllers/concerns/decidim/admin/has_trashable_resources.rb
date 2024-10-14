@@ -19,7 +19,7 @@ module Decidim
         # i18n-tasks-use t('decidim.admin.trash_management.soft_delete.invalid')
         # i18n-tasks-use t('decidim.admin.trash_management.soft_delete.success')
         def soft_delete
-          enforce_permission_to(:soft_delete, trashable_deleted_resource_type, trashable_deleted_resource:, current_participatory_space:)
+          enforce_permission_to(:soft_delete, trashable_deleted_resource_type, trashable_deleted_resource:)
 
           Decidim::Commands::SoftDeleteResource.call(trashable_deleted_resource, current_user) do
             on(:ok) do

@@ -66,18 +66,6 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to(:destroy, :result, result:)
-
-          Decidim::Commands::DestroyResource.call(result, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("results.destroy.success", scope: "decidim.accountability.admin")
-
-              redirect_to results_path(parent_id: result.parent_id)
-            end
-          end
-        end
-
         private
 
         def trashable_deleted_resource_type

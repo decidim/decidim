@@ -22,7 +22,6 @@ en:
         deleted_posts_info: Deleted posts can be restored from the trash.
         edit: Edit
         new: New post
-        soft_delete: Soft delete
         title: Actions
         view_deleted_posts: View deleted posts
       admin:

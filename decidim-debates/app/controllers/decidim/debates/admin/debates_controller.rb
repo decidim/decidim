@@ -62,16 +62,6 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to(:delete, :debate, debate:)
-
-          debate.destroy!
-
-          flash[:notice] = I18n.t("debates.destroy.success", scope: "decidim.debates.admin")
-
-          redirect_to debates_path
-        end
-
         private
 
         def trashable_deleted_resource_type

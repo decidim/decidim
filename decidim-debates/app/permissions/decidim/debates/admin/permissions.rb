@@ -17,7 +17,7 @@ module Decidim
             allow!
           when :update
             toggle_allow(debate && !debate.closed? && debate.official?)
-          when :delete, :close
+          when :close
             toggle_allow(debate&.official?)
           end
 

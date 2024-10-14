@@ -79,23 +79,6 @@ module Decidim
         end
       end
 
-      def destroy
-        @component = query_scope.find(params[:id])
-        enforce_permission_to :destroy, :component, component: @component
-
-        DestroyComponent.call(@component, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("components.destroy.success", scope: "decidim.admin")
-            redirect_to action: :index
-          end
-
-          on(:invalid) do
-            flash[:alert] = I18n.t("components.destroy.error", scope: "decidim.admin")
-            redirect_to action: :index
-          end
-        end
-      end
-
       def publish
         @component = query_scope.find(params[:id])
         enforce_permission_to :publish, :component, component: @component

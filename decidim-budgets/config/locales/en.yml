@@ -59,7 +59,6 @@ en:
         new_project: New project
         preview: Preview
         send_voting_reminders: Send voting reminders
-        soft_delete: Soft delete
         title: Actions
         view_deleted_budgets: View deleted budgets
         view_deleted_projects: View deleted projects
