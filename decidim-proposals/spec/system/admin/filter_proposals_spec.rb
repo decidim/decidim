@@ -177,7 +177,7 @@ describe "Admin filters proposals" do
         end
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
-        expect(filter_params["q[taxonomies_id_eq]"]).to eq([taxonomy1.id.to_s])
+        expect(filter_params["q[taxonomies_part_of_contains]"]).to eq([taxonomy1.id.to_s])
         expect(filter_params["q[with_any_state]"]).to eq(["state_published"])
       end
     end
