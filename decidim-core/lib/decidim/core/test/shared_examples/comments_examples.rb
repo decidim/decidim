@@ -583,9 +583,10 @@ shared_examples "comments" do
           it "displays the show button" do
             visit current_path
             within "#comment_#{thread.id}" do
-              click_on "3 answers"
               expect(page).to have_content("3 answers")
               expect(page).to have_no_content(new_reply_body)
+              click_on "3 answers"
+              expect(page).to have_content(new_reply_body)
             end
           end
         end
