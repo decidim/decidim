@@ -8,7 +8,7 @@ describe "Action Authorization" do
   let(:manifest_name) { "proposals" }
 
   let!(:organization) do
-    create(:organization, available_authorizations: [authorization])
+    create(:organization, available_authorizations:)
   end
 
   let!(:proposal) { create(:proposal, component:) }
@@ -29,7 +29,7 @@ describe "Action Authorization" do
   end
 
   context "when using a handler authorization", with_authorization_workflows: ["dummy_authorization_handler"] do
-    let(:authorization) { "dummy_authorization_handler" }
+    let(:available_authorizations) { ["dummy_authorization_handler"] }
 
     context "and action authorized" do
       let(:permissions) do
@@ -41,24 +41,8 @@ describe "Action Authorization" do
         click_on "New proposal"
       end
 
-      it "prompts user to authorize" do
-        expect(page).to have_content("Authorization required")
-        expect(page).to have_content("In order to perform this action, you need to be authorized with \"Example authorization\"")
-      end
-
-      it "prompts the user to authorize again after modal reopening" do
-        within("#authorizationModal") do
-          click_on "×"
-        end
-        click_on "New proposal"
-
-        expect(page).to have_content("Authorization required")
-        expect(page).to have_content("In order to perform this action, you need to be authorized with \"Example authorization\"")
-      end
-
-      it "redirects to authorization when modal clicked" do
-        click_on "Authorize with \"Example authorization\""
-
+      it "redirects to authorization" do
+        expect(page).to have_content("We need to verify your identity")
         expect(page).to have_css("h1", text: "Verify with Example authorization")
       end
     end
@@ -80,22 +64,10 @@ describe "Action Authorization" do
         }
       end
 
-      before do
+      it "redirects to authorization" do
         visit main_component_path(component)
-      end
-
-      it "prompts user to authorize" do
         click_on "New proposal"
-
-        expect(page).to have_content("Authorization required")
-        expect(page).to have_content("In order to perform this action, you need to be authorized with \"Example authorization\"")
-        expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
-        expect(page).to have_content("Participation is restricted to participants with the scope #{scope.name["en"]}.")
-      end
-
-      it "redirects to authorization when modal clicked" do
-        click_on "New proposal"
-        click_on "Authorize with \"Example authorization\""
+        expect(page).to have_content("We need to verify your identity")
 
         expect(page).to have_css("h1", text: "Verify with Example authorization")
         expect(page).to have_content("Participation is restricted to participants with any of the following postal codes: 1234, 4567.")
@@ -110,6 +82,7 @@ describe "Action Authorization" do
         end
 
         it "prompts user to check their authorization status" do
+          visit main_component_path(component)
           click_on "New proposal"
 
           expect(page).to have_content("Not authorized")
@@ -124,6 +97,10 @@ describe "Action Authorization" do
         let!(:user_authorization) do
           create(:authorization, name: "dummy_authorization_handler", user:, granted_at: 1.second.ago,
                                  metadata: { postal_code:, scope_id: user_scope&.id })
+        end
+
+        before do
+          visit main_component_path(component)
         end
 
         context "when the postal code is missing" do
@@ -178,15 +155,8 @@ describe "Action Authorization" do
         click_on "New proposal"
       end
 
-      it "prompts user to check their authorization status" do
-        expect(page).to have_content("Authorization required")
-        expect(page)
-          .to have_content("Your authorization has expired. In order to perform this action, you need to be reauthorized with \"Example authorization\"")
-      end
-
       it "redirects to resume authorization when modal clicked" do
-        click_on "Reauthorize with \"Example authorization\""
-
+        expect(page).to have_content("Your authorization has expired")
         expect(page).to have_content("Verify with Example authorization")
       end
     end
@@ -206,7 +176,7 @@ describe "Action Authorization" do
   end
 
   context "when using a workflow authorization", with_authorization_workflows: ["dummy_authorization_workflow"] do
-    let(:authorization) { "dummy_authorization_workflow" }
+    let(:available_authorizations) { ["dummy_authorization_workflow"] }
 
     context "and action authorized" do
       let(:permissions) do
@@ -218,14 +188,7 @@ describe "Action Authorization" do
         click_on "New proposal"
       end
 
-      it "prompts user to authorize" do
-        expect(page).to have_content("Authorization required")
-        expect(page).to have_content("In order to perform this action, you need to be authorized with \"Dummy authorization workflow\"")
-      end
-
-      it "redirects to authorization when modal clicked" do
-        click_on "Authorize with \"Dummy authorization workflow\""
-
+      it "redirects to authorization" do
         expect(page).to have_content("DUMMY VERIFICATION")
       end
     end
@@ -241,15 +204,7 @@ describe "Action Authorization" do
         click_on "New proposal"
       end
 
-      it "prompts user to check their authorization status" do
-        expect(page).to have_content("Authorization is still in progress")
-        expect(page)
-          .to have_content("In order to perform this action, you need to be authorized with \"Dummy authorization workflow\", but your authorization is still in progress")
-      end
-
-      it "redirects to resume authorization when modal clicked" do
-        click_on "Check your \"Dummy authorization workflow\" authorization progress"
-
+      it "redirects to resume authorization" do
         expect(page).to have_content("CONTINUE YOUR VERIFICATION")
       end
     end
@@ -265,15 +220,7 @@ describe "Action Authorization" do
         click_on "New proposal"
       end
 
-      it "prompts user to check their authorization status" do
-        expect(page).to have_content("Authorization required")
-        expect(page)
-          .to have_content("Your authorization has expired. In order to perform this action, you need to be reauthorized with \"Dummy authorization workflow\"")
-      end
-
-      it "redirects to resume authorization when modal clicked" do
-        click_on "Reauthorize with \"Dummy authorization workflow\""
-
+      it "redirects to resume authorization" do
         expect(page).to have_content("DUMMY VERIFICATION ENGINE")
       end
     end
