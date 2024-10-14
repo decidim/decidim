@@ -11,7 +11,7 @@ eu:
         plural: Plurala
       attachment:
         attachment_collection_id: Karpeta
-        description: Descripción
+        description: Deskribapena
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
         weight: Kokapenaren hurrenkera
@@ -20,7 +20,7 @@ eu:
         name: Izena
         weight: Kokapenaren hurrenkera
       category:
-        description: Descripción
+        description: Deskribapena
         name: Izena
         parent_id: Nagusia
         weight: Kokapenaren hurrenkera
@@ -47,7 +47,7 @@ eu:
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-        cta_button_path: Deitu Ekintza-botoiaren bidera
+        cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Ekintza-botoiaren testua
         customize_welcome_notification: Pertsonalizatu ongietorri-jakinarazpena
         default_locale: Kokapen lehenetsia
@@ -528,7 +528,7 @@ eu:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
             message:
               one: Bikoiztu %{columns} zutabe.
-              other: Bikoiztu %{columns} zutabea.
+              other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
               detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
@@ -810,7 +810,7 @@ eu:
           name: Izena
           nickname: Ezizena
           not_officialized: Ez ofizializatua
-          officialize: Ofiziala
+          officialize: Ofizializatzen du
           officialized: Ofizializatua
           reofficialize: Berriro ofizializatzen du
           reports: Txostenak
@@ -937,7 +937,7 @@ eu:
       scope_types:
         create:
           error: Arazo bat egon da beste esparru mota bat sortzean.
-          success: Esparru mota arrakastaz sortu da.
+          success: Esparru mota zuzen sortua.
         destroy:
           success: Esparru mota behar bezala suntsitua
         edit:
