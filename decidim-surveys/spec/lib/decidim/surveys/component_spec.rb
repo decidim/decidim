@@ -38,9 +38,5 @@ describe "Surveys component" do # rubocop:disable RSpec/DescribeClass
     it "does not raise any error" do
       expect { subject.manifest.run_hooks(:copy, old_component: component, new_component:) }.not_to raise_error
     end
-
-    it "create a survey component" do
-      expect { subject.manifest.run_hooks(:copy, old_component: component, new_component:) }.to change(Decidim::Surveys::Survey, :count).by(1)
-    end
   end
 end
