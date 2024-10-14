@@ -142,6 +142,43 @@ describe "Action Authorization" do
           end
         end
       end
+
+      context "when the authorization is incomplete" do
+        let(:permissions) do
+          {
+            create: {
+              authorization_handlers: {
+                dummy_authorization_handler: {
+                  options: {
+                    allowed_postal_codes: "1234, 4567",
+                    allowed_scope_id: scope.id,
+                    extra_param: "wadus"
+                  }
+                }
+              }
+            }
+          }
+        end
+        let(:user_scope) { create(:scope, organization:) }
+        let!(:user_authorization) do
+          create(
+            :authorization,
+            name: "dummy_authorization_handler",
+            user:,
+            granted_at: 1.second.ago,
+            metadata: { scope_id: user_scope&.id }
+          )
+        end
+
+        it "redirects to authorization to complete the pending data" do
+          visit main_component_path(component)
+
+          click_on "New proposal"
+
+          expect(page).to have_content("Your verification has not been completed with all the necessary information")
+          expect(page).to have_css("h1", text: "Verify with Example authorization")
+        end
+      end
     end
 
     context "and action authorized and authorization expired" do
