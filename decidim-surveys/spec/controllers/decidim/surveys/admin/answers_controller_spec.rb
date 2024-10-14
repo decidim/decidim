@@ -9,7 +9,7 @@ module Decidim
         routes { Decidim::Surveys::AdminEngine.routes }
 
         let(:component) { survey.component }
-        let(:survey) { create(:survey) }
+        let(:survey) { create(:survey, published_at: Time.current) }
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
 
         let(:answers) do
@@ -18,8 +18,6 @@ module Decidim
           end
         end
 
-        let(:session_token) { answers.first.session_token }
-
         before do
           request.env["decidim.current_organization"] = component.organization
           request.env["decidim.current_component"] = component
@@ -27,12 +25,11 @@ module Decidim
         end
 
         describe "index" do
-          let(:survey) { create(:survey) }
           let(:params) do
             {
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
-              id: survey.id
+              survey_id: survey.id
             }
           end
 
@@ -43,12 +40,13 @@ module Decidim
         end
 
         describe "show" do
+          let(:answer) { create(:answer, questionnaire: survey.questionnaire, question: survey.questionnaire.questions.first, user:) }
           let(:params) do
             {
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
-              id: survey.id,
-              session_token:
+              survey_id: survey.id,
+              id: answer.id
             }
           end
 
@@ -59,13 +57,13 @@ module Decidim
         end
 
         describe "export_response" do
-          let(:filename) { "Response for #{session_token}.pdf" }
+          let(:answer) { create(:answer, questionnaire: survey.questionnaire, question: survey.questionnaire.questions.first, user:) }
           let(:params) do
             {
               component_id: survey.component.id,
               participatory_process_slug: survey.component.participatory_space.slug,
-              id: survey.id,
-              session_token:
+              survey_id: survey.id,
+              id: answer.id
             }
           end
 

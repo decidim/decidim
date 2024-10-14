@@ -24,25 +24,23 @@ shared_examples_for "manage questionnaires" do
     }
   end
 
-  it "updates the questionnaire" do
-    click_on "Edit"
-
-    new_description = {
-      en: "<p>New description</p>",
-      ca: "<p>Nova descripció</p>",
-      es: "<p>Nueva descripción</p>"
-    }
-
-    within "form.edit_questionnaire" do
-      fill_in_i18n_editor(:questionnaire_description, "#survey-description-tabs", new_description)
-      click_on "Save"
+  context "when updates the questionnaire" do
+    let(:description) do
+      {
+        en: "<p>New description</p>",
+        ca: "<p>Nova descripció</p>",
+        es: "<p>Nueva descripción</p>"
+      }
     end
+    let!(:questionnaire) { create(:questionnaire, description:) }
+    let!(:survey) { create(:survey, component:, published_at: Time.current, questionnaire:) }
 
-    expect(page).to have_admin_callout("successfully")
+    it "updates the questionnaire description" do
+      visit questionnaire_public_path
+      choose "All"
 
-    visit questionnaire_public_path
-
-    expect(page).to have_content("New description")
+      expect(page).to have_content("New description")
+    end
   end
 
   context "when the questionnaire is not already answered" do

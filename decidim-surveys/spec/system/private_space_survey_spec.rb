@@ -28,7 +28,7 @@ describe "Private Space Answer a survey" do
   let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: another_user, privatable_to: participatory_space_private) }
 
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
-  let!(:survey) { create(:survey, component:, questionnaire:) }
+  let!(:survey) { create(:survey, component:, published_at: Time.current, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
   let!(:question_conditioned) { create(:questionnaire_question, :conditioned, questionnaire:, position: 1) }
 
