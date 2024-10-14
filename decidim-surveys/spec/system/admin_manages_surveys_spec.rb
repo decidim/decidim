@@ -130,8 +130,21 @@ describe "Admin manages surveys" do
     end
   end
 
+  def manage_questions_path
+    Decidim::EngineRouter.admin_proxy(component).edit_questions_survey_path(survey)
+  end
+
+  def update_component_settings_or_attributes
+    survey.update!(allow_answers: true)
+  end
+
+  def see_questionaire_questions
+    choose "All"
+    click_on decidim_sanitize_translated(questionnaire.title)
+  end
+
   def questionnaire_edit_path
-    manage_component_path(component)
+    visit questionnaire_edit_path
   end
 
   def questionnaire_public_path

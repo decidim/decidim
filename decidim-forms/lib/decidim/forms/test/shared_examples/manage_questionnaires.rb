@@ -45,7 +45,7 @@ shared_examples_for "manage questionnaires" do
 
   context "when the questionnaire is not already answered" do
     before do
-      click_on "Manage questions"
+      visit manage_questions_path
     end
 
     it_behaves_like "add questions"

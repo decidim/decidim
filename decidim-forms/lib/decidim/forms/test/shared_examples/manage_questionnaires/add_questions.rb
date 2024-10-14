@@ -78,11 +78,10 @@ shared_examples_for "add questions" do
 
     expect(page).to have_admin_callout("successfully")
 
-    survey.update!(allow_answers: true)
+    update_component_settings_or_attributes
 
     visit questionnaire_public_path
-    choose "All"
-    click_on decidim_sanitize_translated(questionnaire.title)
+    see_questionaire_questions
 
     expect(page).to have_css("strong", text: "Superkalifragilistic description")
   end
@@ -101,11 +100,10 @@ shared_examples_for "add questions" do
 
     expect(page).to have_admin_callout("successfully")
 
-    survey.update!(allow_answers: true)
+    update_component_settings_or_attributes
 
     visit questionnaire_public_path
-    choose "All"
-    click_on decidim_sanitize_translated(questionnaire.title)
+    see_questionaire_questions
 
     expect(page).to have_css("strong", text: "Superkalifragilistic description")
   end
@@ -125,7 +123,6 @@ shared_examples_for "add questions" do
       ]
     ]
 
-    click_on "Add question"
     click_on "Add question"
     expand_all_questions
 
@@ -261,6 +258,7 @@ shared_examples_for "add questions" do
     click_on "Add question"
     expand_all_questions
 
+    expect(page).to have_text("Type")
     select "Long answer", from: "Type"
     click_on "Save"
 
@@ -283,7 +281,7 @@ shared_examples_for "add questions" do
     click_on "Save"
     expand_all_questions
 
-    expect(page).to have_content("Type")
+    expect(page).to have_text("Type")
     select "Single option", from: "Type"
 
     within ".questionnaire-question-answer-option:first-of-type" do
@@ -306,7 +304,7 @@ shared_examples_for "add questions" do
     click_on "Save"
     expand_all_questions
 
-    expect(page).to have_content("Type", wait: 10)
+    expect(page).to have_text("Type")
     select "Matrix (Single option)", from: "Type"
 
     within ".questionnaire-question-matrix-row:first-of-type" do
