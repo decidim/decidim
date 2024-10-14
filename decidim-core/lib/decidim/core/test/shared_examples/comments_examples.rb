@@ -563,7 +563,7 @@ shared_examples "comments" do
         it "displays the hide button" do
           visit current_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("Hide reply")
+            expect(page).to have_content("2 answers")
             expect(page).to have_content(new_reply_body)
           end
         end
@@ -571,7 +571,7 @@ shared_examples "comments" do
         it "displays the show button" do
           visit current_path
           within "#comment_#{thread.id}" do
-            click_on "Hide reply"
+            click_on "2 answers"
             expect(page).to have_content("Show reply")
             expect(page).to have_no_content(new_reply_body)
           end
