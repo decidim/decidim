@@ -123,12 +123,6 @@ module Decidim
                         if: allowed_to?(:read, :attachment_collection, assembly: current_participatory_space) ||
                             allowed_to?(:read, :attachment, assembly: current_participatory_space)
 
-          menu.add_item :assembly_members,
-                        I18n.t("assembly_members", scope: "decidim.admin.menu.assemblies_submenu"),
-                        decidim_admin_assemblies.assembly_members_path(current_participatory_space),
-                        icon_name: "user-settings-line",
-                        if: allowed_to?(:read, :assembly_member, assembly: current_participatory_space)
-
           menu.add_item :assembly_user_roles,
                         I18n.t("assembly_admins", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.assembly_user_roles_path(current_participatory_space),

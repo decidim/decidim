@@ -5,10 +5,16 @@ module Decidim
   class ParticipatorySpacePrivateUser < ApplicationRecord
     include Decidim::DownloadYourData
     include ParticipatorySpaceUser
+    include Decidim::TranslatableResource
 
     belongs_to :privatable_to, polymorphic: true
 
+    translatable_fields :role
+
+    delegate :email, :name, to: :user
+
     scope :by_participatory_space, ->(privatable_to) { where(privatable_to_id: privatable_to.id, privatable_to_type: privatable_to.class.to_s) }
+    scope :published, -> { where(published: true) }
 
     def self.user_collection(user)
       where(decidim_user_id: user.id)

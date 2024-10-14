@@ -5,7 +5,11 @@ require "spec_helper"
 describe "Assembly members" do
   let(:organization) { create(:organization) }
   let(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests:) }
+  let(:privatable_to) { assembly }
   let(:blocks_manifests) { [] }
+
+  let(:user) { create(:user, organization: privatable_to.organization) }
+  let(:ceased_user) { create(:user, organization: privatable_to.organization) }
 
   before do
     switch_to_host(organization.host)
@@ -43,10 +47,9 @@ describe "Assembly members" do
     end
   end
 
-  context "when there are some assembly members and all are ceased" do
+  context "when there are some assembly members and all are unpublished" do
     before do
-      create(:assembly_member, :ceased, assembly:)
-      create(:assembly_member)
+      create(:participatory_space_private_user, user:, privatable_to:, published: false)
     end
 
     context "and directly accessing from URL" do
@@ -77,8 +80,8 @@ describe "Assembly members" do
   end
 
   context "when there are some published assembly members" do
-    let!(:assembly_members) { create_list(:assembly_member, 2, assembly:) }
-    let!(:ceased_assembly_member) { create(:assembly_member, :ceased, assembly:) }
+    let!(:ceased_private_user) { create(:participatory_space_private_user, user:, privatable_to:, published: false) }
+    let!(:private_user) { create(:participatory_space_private_user, user:, privatable_to:, published: true) }
 
     before do
       visit decidim_assemblies.assembly_assembly_members_path(assembly)
@@ -112,7 +115,7 @@ describe "Assembly members" do
         within "#assembly_members-grid" do
           expect(page).to have_css(".profile__user", count: 2)
 
-          expect(page).to have_no_content(Decidim::AssemblyMemberPresenter.new(ceased_assembly_member).name)
+          expect(page).to have_no_content(Decidim::ParticipatorySpacePrivateUserPresenter.new(ceased_assembly_member).name)
         end
       end
     end

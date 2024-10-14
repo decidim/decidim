@@ -64,7 +64,16 @@ module Decidim
                      .published.or(Decidim::Component.where(id: try(:current_component)))
                      .where(visible: true)
 
-        components.map do |component|
+        [
+          *(if participatory_space.members_public_page?
+              [{
+                name: t("member_menu_item", scope: "layouts.decidim.participatory_process_navigation"),
+                url: decidim_participatory_processes.participatory_process_participatory_space_private_users_path(participatory_space),
+                active: is_active_link?(decidim_participatory_processes.participatory_process_participatory_space_private_users_path(participatory_space), :inclusive)
+              }]
+            end
+           )
+        ] + components.map do |component|
           {
             id: component.id,
             name: decidim_escape_translated(component.name),
