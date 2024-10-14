@@ -50,7 +50,7 @@ module Decidim
         let(:component) { survey.component }
 
         before do
-          survey.update!(starts_at:, ends_at:)
+          survey.update!(starts_at:, ends_at:, allow_answers: true)
         end
 
         context "when neither starts_at or ends_at are defined" do

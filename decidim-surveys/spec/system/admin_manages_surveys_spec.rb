@@ -57,7 +57,7 @@ describe "Admin manages surveys" do
         expect(page).to have_no_selector("#questions_questions_#{question.id}_body_en[disabled]")
       end
 
-      it "deletes answers after editing" do
+      it "deletes answers after published" do
         click_on "Manage questions"
 
         click_on "Expand all"
@@ -66,8 +66,13 @@ describe "Admin manages surveys" do
           find_nested_form_field("body_en").fill_in with: "Have you been writing specs today?"
         end
         click_on "Save"
-
         expect(page).to have_admin_callout "Survey questions successfully saved"
+
+        click_on "Unpublish"
+        expect(page).to have_admin_callout "Survey successfully unpublished"
+
+        accept_confirm { click_on("Publish") }
+        expect(page).to have_admin_callout "Survey successfully published"
         expect(questionnaire.answers).to be_empty
       end
 
@@ -87,9 +92,9 @@ describe "Admin manages surveys" do
 
         context "when clean_after_publish is set to true" do
           context "when deletes previous answers after publishing" do
-            it "show popup with an alert" do
+            it "does not show popup with an alert" do
               find(:css, ".action-icon--publish").click
-              expect(page).to have_content("Confirm")
+              expect(page).to have_no_content("Confirm")
             end
 
             it "deletes previous answers" do
