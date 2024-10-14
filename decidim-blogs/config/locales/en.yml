@@ -29,8 +29,6 @@ en:
           create:
             invalid: There was a problem creating this post.
             success: Post successfully created.
-          destroy:
-            success: Post successfully deleted.
           edit:
             save: Update
             title: Edit post

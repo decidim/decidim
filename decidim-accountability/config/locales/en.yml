@@ -117,8 +117,6 @@ en:
           create:
             invalid: There was a problem creating this result.
             success: Result successfully created.
-          destroy:
-            success: Result successfully deleted.
           edit:
             title: Edit result
             update: Update result

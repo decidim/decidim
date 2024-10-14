@@ -321,12 +321,6 @@ en:
           create:
             invalid: There was a problem creating this meeting.
             success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
-          destroy:
-            invalid:
-              proposals_count:
-                one: The meeting cannot be destroyed because it has %{count} proposal associated to it.
-                other: The meeting cannot be destroyed because it has %{count} proposals associated to it.
-            success: Meeting successfully deleted
           edit:
             title: Edit meeting
             update: Update
