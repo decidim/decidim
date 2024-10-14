@@ -34,7 +34,7 @@
     <% if is_linked %>
       <%= t("index.linked_meeting_warning_html", href: edit_meeting_path(meeting), name: present(meeting).space_title, scope: "decidim.meetings.admin.meetings") %>
     <% else %>
-      <%= render partial: "decidim/meetings/admin/meetings/actions", locals: { meeting:, view: } %>
+      <%= render partial: "decidim/meetings/admin/meetings/meeting_actions", locals: { meeting:, view: } %>
     <% end %>
   </td>
 </tr>

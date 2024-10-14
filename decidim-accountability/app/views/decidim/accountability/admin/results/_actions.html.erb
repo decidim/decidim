@@ -1,6 +1,6 @@
 <% if view == :deleted %>
   <% if allowed_to? :restore, :result, trashable_deleted_resource: result %>
-    <%= icon_link_to "refresh-line", url_for(action: :restore, id: result, controller: "results"), t("decidim.actions.restore"), method: :patch, class: "action-icon--restore" %>
+    <%= icon_link_to "refresh-line", url_for(action: :restore, id: result, controller: "results"), t("decidim.admin.actions.restore"), method: :patch, class: "action-icon--restore" %>
   <% end %>
 <% else %>
   <% if allowed_to? :update, :result, result: result %>
