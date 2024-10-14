@@ -64,6 +64,8 @@ module Decidim
               put :unpublish
               get :share
               put :hide
+              patch :soft_delete
+              patch :restore
             end
             resources :exports, only: :create
           end
