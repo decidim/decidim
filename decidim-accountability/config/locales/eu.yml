@@ -271,7 +271,7 @@ eu:
             heading_parent_level_results: '"Emaitzak" izena'
             intro: Intro
             scope_id: Esparrua
-            scopes_enabled: Esparru gaituak
+            scopes_enabled: Esparruak gaituta
             subcategories_label: '"Azpikategoriak" izena'
           step:
             comments_blocked: Iruzkin blokeatuak
@@ -294,7 +294,7 @@ eu:
         title: Emaitzak
     participatory_spaces:
       highlighted_results:
-        see_all: Ikusi emaitza guztiak
+        see_all: Ikusi emaitza guztiak (%{count})
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
