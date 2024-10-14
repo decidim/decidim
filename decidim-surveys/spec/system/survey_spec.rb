@@ -28,7 +28,7 @@ describe "Answer a survey" do
   end
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
-  let!(:survey) { create(:survey, component:, questionnaire:) }
+  let!(:survey) { create(:survey, component:, published_at: Time.current, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0, description: question_description) }
 
   include_context "with a component"
