@@ -4,7 +4,7 @@ const ONBOARDING_COOKIE_EXPIRY = 365;
 const DATA_KEY = "onboarding";
 
 /**
- * @param {DOMElement} element Element which provides the informatio for cookie about action to perform.
+ * @param {DOMElement} element Element which provides the information for cookie about action to perform.
  * @return {Void} Nothing
  */
 export default function setOnboardingAction(element) {
