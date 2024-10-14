@@ -14,10 +14,10 @@
         <thead>
           <tr>
             <th><%= sort_link(query, :token, t("models.share_token.fields.token", scope: "decidim.admin"), default_order: :desc) %></th>
-            <th><%= sort_link(query, :expires_at, t("models.share_token.fields.expires_at", scope: "decidim.admin"), default_order: :desc) %></th>
-            <th><%= sort_link(query, :registered_only, t("models.share_token.fields.registered_only", scope: "decidim.admin"), default_order: :desc) %></th>
-            <th><%= sort_link(query, :times_used, t("models.share_token.fields.times_used", scope: "decidim.admin"), default_order: :desc) %></th>
-            <th><%= t("models.share_token.fields.actions", scope: "decidim.admin") %></th>
+            <th class="w-20"><%= sort_link(query, :expires_at, t("models.share_token.fields.expires_at", scope: "decidim.admin"), default_order: :desc) %></th>
+            <th class="w-28"><%= sort_link(query, :registered_only, t("models.share_token.fields.registered_only", scope: "decidim.admin"), default_order: :desc) %></th>
+            <th class="w-20"><%= sort_link(query, :times_used, t("models.share_token.fields.times_used", scope: "decidim.admin"), default_order: :desc) %></th>
+            <th class="w-20"><%= t("models.share_token.fields.actions", scope: "decidim.admin") %></th>
           </tr>
         </thead>
         <tbody>
