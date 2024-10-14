@@ -260,7 +260,7 @@ eu:
             display_progress_enabled: Erakutsi aurrerapena
             intro: Intro
             scope_id: Esparrua
-            scopes_enabled: Esparru gaituak
+            scopes_enabled: Esparruak gaituta
           step:
             comments_blocked: Iruzkin blokeatuak
     events:
@@ -282,7 +282,7 @@ eu:
         title: Emaitzak
     participatory_spaces:
       highlighted_results:
-        see_all: Ikusi emaitza guztiak
+        see_all: Ikusi emaitza guztiak (%{count})
     resource_links:
       included_projects:
         result_project: Emaitza honetan sartutako proiektuak
