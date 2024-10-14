@@ -39,6 +39,8 @@ module Decidim
       def self.register_admin_conferences_components_menu!
         Decidim.menu :admin_conferences_components_menu do |menu|
           current_participatory_space.components.each do |component|
+            next if component.trashed?
+
             caption = decidim_escape_translated(component.name)
             caption += content_tag(:span, component.primary_stat, class: "component-counter") if component.primary_stat.present?
 
