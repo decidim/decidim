@@ -124,6 +124,7 @@ shared_examples_for "add questions" do
     ]
 
     click_on "Add question"
+    click_on "Add question"
     expand_all_questions
 
     page.all(".questionnaire-question").each_with_index do |question, idx|

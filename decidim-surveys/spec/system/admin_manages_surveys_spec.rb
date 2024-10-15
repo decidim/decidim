@@ -28,7 +28,7 @@ describe "Admin manages surveys" do
     let!(:question) { create(:questionnaire_question, questionnaire:) }
 
     it "allows to preview survey" do
-      visit questionnaire_edit_path
+      visit manage_questions_path
       expect(page).to have_link("Preview", href: [questionnaire_public_path, "surveys/#{survey.id}"].join)
     end
 
@@ -130,6 +130,25 @@ describe "Admin manages surveys" do
     end
   end
 
+  context "when updates the questionnaire" do
+    let(:description) do
+      {
+        en: "<p>New description</p>",
+        ca: "<p>Nova descripció</p>",
+        es: "<p>Nueva descripción</p>"
+      }
+    end
+    let!(:questionnaire) { create(:questionnaire, description:) }
+    let!(:survey) { create(:survey, component:, published_at: Time.current, questionnaire:) }
+
+    it "updates the questionnaire description" do
+      visit questionnaire_public_path
+      choose "All"
+
+      expect(page).to have_content("New description")
+    end
+  end
+
   def manage_questions_path
     Decidim::EngineRouter.admin_proxy(component).edit_questions_survey_path(survey)
   end
@@ -144,7 +163,7 @@ describe "Admin manages surveys" do
   end
 
   def questionnaire_edit_path
-    visit questionnaire_edit_path
+    Decidim::EngineRouter.admin_proxy(component).edit_survey_path(survey)
   end
 
   def questionnaire_public_path

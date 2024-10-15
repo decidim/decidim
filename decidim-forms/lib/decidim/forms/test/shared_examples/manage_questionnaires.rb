@@ -24,25 +24,6 @@ shared_examples_for "manage questionnaires" do
     }
   end
 
-  context "when updates the questionnaire" do
-    let(:description) do
-      {
-        en: "<p>New description</p>",
-        ca: "<p>Nova descripció</p>",
-        es: "<p>Nueva descripción</p>"
-      }
-    end
-    let!(:questionnaire) { create(:questionnaire, description:) }
-    let!(:survey) { create(:survey, component:, published_at: Time.current, questionnaire:) }
-
-    it "updates the questionnaire description" do
-      visit questionnaire_public_path
-      choose "All"
-
-      expect(page).to have_content("New description")
-    end
-  end
-
   context "when the questionnaire is not already answered" do
     before do
       visit manage_questions_path
@@ -59,7 +40,7 @@ shared_examples_for "manage questionnaires" do
     let!(:answer) { create(:answer, questionnaire:, question:) }
 
     it "cannot modify questionnaire questions" do
-      click_on "Manage questions"
+      visit manage_questions_path
 
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
