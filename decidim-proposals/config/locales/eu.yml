@@ -863,7 +863,7 @@ eu:
           votes_blocked: Bozketa desaktibatu da
         votes_count:
           count:
-            one: Eman babesa
+            one: Babesa
             other: Bozkak
         voting_rules:
           can_accumulate_supports_beyond_threshold:
