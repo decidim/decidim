@@ -560,19 +560,22 @@ shared_examples "comments" do
         let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
         let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
 
-        it "displays the hide button" do
+        it "displays a way to to display content" do
           visit current_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("2 answers")
+            expect(page).to have_content("1 answer")
+            click_on "1 answer"
             expect(page).to have_content(new_reply_body)
           end
         end
 
-        it "displays the show button" do
+        it "displays a way hide content" do
           visit current_path
           within "#comment_#{thread.id}" do
-            click_on "2 answers"
-            expect(page).to have_content("Show reply")
+            expect(page).to have_content("1 answer")
+            click_on "1 answer"
+            expect(page).to have_content("1 answer")
+            click_on "1 answer"
             expect(page).to have_no_content(new_reply_body)
           end
         end
