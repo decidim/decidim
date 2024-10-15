@@ -100,8 +100,28 @@ module Decidim
       let(:component) { token_for }
 
       it "returns participatory space and component" do
-        expect(subject.participatory_space).to eq(token_for)
-        expect(subject.component).to eq(token)
+        expect(subject.participatory_space).to eq(space)
+        expect(subject.component).to eq(component)
+      end
+
+      context "when token is for a participatory space" do
+        let(:space) { create(:participatory_process) }
+        let(:token_for) { space }
+
+        it "returns the participatory space as the component" do
+          expect(subject.participatory_space).to eq(space)
+          expect(subject.component).to be_nil
+        end
+      end
+
+      context "when resource does not respond to participatory_space" do
+        let(:organization) { create(:organization) }
+        let(:token_for) { organization }
+
+        it "returns the component" do
+          expect(subject.participatory_space).to be_nil
+          expect(subject.component).to be_nil
+        end
       end
     end
 
