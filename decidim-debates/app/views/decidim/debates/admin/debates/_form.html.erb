@@ -50,7 +50,6 @@
 
       <% if component_settings.attachments_allowed? %>
         <div class="row column">
-          <legend><%= t(".attachment_legend") %></legend>
           <%= form.attachment :documents,
                               multiple: true,
                               label: t("decidim.debates.admin.debates.form.add_documents"),

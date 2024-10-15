@@ -33,6 +33,7 @@ module Decidim
         self.title = debate.title.values.first
         self.description = debate.description.values.first
         self.user_group_id = debate.decidim_user_group_id
+        self.documents = debate.attachments
 
         if debate.category.present?
           self.category_id = debate.category.id

@@ -70,13 +70,13 @@ en:
             title: Edit debate
             update: Update debate
           form:
+            add_documents: Add documents
             attachment_legend: Attachments
             debate_type: Debate type
             delete_attachment: Delete attachment
+            edit_documents: Edit documents
             finite: Finite (With start and end times)
             gallery_legend: Gallery
-            add_documents: Add documents
-            edit_documents: Edit documents
             open: Open (No start or end times)
           index:
             title: Debates
