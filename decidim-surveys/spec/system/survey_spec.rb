@@ -83,6 +83,7 @@ describe "Answer a survey" do
 
       it "does not allow answering the survey" do
         visit_component
+        choose "All"
 
         expect(page).to have_i18n_content(questionnaire.title)
         expect(page).to have_i18n_content(questionnaire.description)
@@ -129,7 +130,8 @@ describe "Answer a survey" do
   end
 
   context "when survey has action log entry" do
-    let!(:action_log) { create(:action_log, user:, organization: component.organization, resource: survey, component:, participatory_space: component.participatory_space, visibility: "all") }
+    let!(:action_log) { create(:action_log, user:, action: "publish", organization: component.organization, resource: survey, component:, participatory_space: component.participatory_space, visibility: "all") }
+
     let(:router) { Decidim::EngineRouter.main_proxy(component) }
 
     it "shows action log entry" do

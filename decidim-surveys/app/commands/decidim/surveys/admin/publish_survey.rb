@@ -41,7 +41,8 @@ module Decidim
           @survey = Decidim.traceability.perform_action!(
             :publish,
             survey,
-            current_user
+            current_user,
+            visibility: "all"
           ) do
             survey.publish!
             survey

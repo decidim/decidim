@@ -56,6 +56,10 @@ module Decidim
         %w(ends_at starts_at allow_answers)
       end
 
+      def self.log_presenter_class_for(_log)
+        Decidim::Surveys::AdminLog::SurveyPresenter
+      end
+
       # Public: Overrides the `allow_resource_permissions?` Resourceable concern method.
       def allow_resource_permissions?
         true
