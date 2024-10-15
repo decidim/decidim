@@ -11,8 +11,9 @@ module Decidim
       include Paginable
       include Flaggable
       include Decidim::Debates::Orderable
+      include Decidim::AttachmentsHelper
 
-      helper_method :debates, :debate, :form_presenter, :paginated_debates, :close_debate_form
+      helper_method :debates, :debate, :form_presenter, :paginated_debates, :close_debate_form, :tab_panel_items
       before_action :authenticate_user!, only: [:new, :create]
 
       def new
@@ -120,6 +121,10 @@ module Decidim
           with_any_scope: nil,
           with_any_state: %w(open closed)
         }
+      end
+
+      def tab_panel_items
+        @tab_panel_items ||= attachments_tab_panel_items(debate)
       end
     end
   end

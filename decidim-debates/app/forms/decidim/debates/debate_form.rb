@@ -5,17 +5,23 @@ module Decidim
     # This class holds a Form to create/update debates from Decidim's public views.
     class DebateForm < Decidim::Form
       include TranslatableAttributes
+      include Decidim::HasUploadValidations
+      include Decidim::AttachmentAttributes
 
       attribute :title, String
       attribute :description, String
       attribute :category_id, Integer
       attribute :scope_id, Integer
       attribute :user_group_id, Integer
+      attribute :attachment, AttachmentForm
+
+      attachments_attribute :documents
 
       validates :title, presence: true
       validates :description, presence: true
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validate :editable_by_user
+      validate :notify_missing_attachment_if_errored
 
       validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
 
@@ -62,6 +68,14 @@ module Decidim
         return unless debate.respond_to?(:editable_by?)
 
         errors.add(:debate, :invalid) unless debate.editable_by?(current_user)
+      end
+
+      # This method will add an error to the `add_documents` field only if there is
+      # any error in any other field. This is needed because when the form has
+      # an error, the attachment is lost, so we need a way to inform the user of
+      # this problem.
+      def notify_missing_attachment_if_errored
+        errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
       end
     end
   end

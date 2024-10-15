@@ -5,67 +5,54 @@ module Decidim
     module Admin
       # This command is executed when the user creates a Debate from the admin
       # panel.
-      class CreateDebate < Decidim::Command
-        include Decidim::MultipleAttachmentsMethods
+      class CreateDebate < Decidim::Commands::CreateResource
+        include ::Decidim::MultipleAttachmentsMethods
 
-        def initialize(form)
-          @form = form
-        end
+        fetch_form_attributes :category, :component, :information_updates, :instructions, :scope, :start_time, :end_time, :comments_enabled
 
         def call
-          return broadcast(:invalid) if form.invalid?
+          return broadcast(:invalid) if invalid?
 
           if process_attachments?
             build_attachments
             return broadcast(:invalid) if attachments_invalid?
           end
 
-          transaction do
-            create_debate
-            create_attachments(first_weight: first_attachment_weight) if process_attachments?
-            send_notifications
-          end
-
-          broadcast(:ok, debate)
+          perform!
+          broadcast(:ok, resource)
+        rescue ActiveRecord::RecordInvalid
+          add_file_attribute_errors!
+          broadcast(:invalid)
+        rescue Decidim::Commands::HookError
+          broadcast(:invalid)
         end
 
-        private
+        protected
 
-        attr_reader :form, :debate, :attachment
+        def resource_class = Decidim::Debates::Debate
 
-        def create_debate
-          @debate = Decidim::Debates::Debate.create!(
-            attributes.merge({
-                               author: form.current_organization
-                             })
-          )
-          @attached_to = debate
-          Decidim.traceability.perform_action!(:publish, debate, form.current_user, visibility: "all")
-        end
+        def extra_params = { visibility: "all" }
 
         def attributes
           parsed_title = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.title, current_organization: form.current_organization).rewrite
           parsed_description = Decidim::ContentProcessor.parse_with_processor(:hashtag, form.description, current_organization: form.current_organization).rewrite
-
-          {
-            title: parsed_title,
-            description: parsed_description,
-            category: form.category,
-            scope: form.scope,
-            component: form.component,
-            start_time: form.start_time.presence,
-            end_time: form.end_time.presence,
-            information_updates: form.information_updates,
-            instructions: form.instructions,
-            comments_enabled: form.comments_enabled
-          }
+          super.merge({
+                        author: form.current_organization,
+                        title: parsed_title,
+                        description: parsed_description,
+                        end_time: (form.end_time if form.finite),
+                        start_time: (form.start_time if form.finite)
+                      })
         end
 
-        def send_notifications
+        def run_after_hooks
+          @attached_to = resource
+          create_attachments(first_weight: first_attachment_weight) if process_attachments?
+
           Decidim::EventsManager.publish(
             event: "decidim.events.debates.debate_created",
             event_class: Decidim::Debates::CreateDebateEvent,
-            resource: debate,
+            resource:,
             followers: form.component.participatory_space.followers,
             extra: {
               type: "participatory_space"
@@ -73,8 +60,10 @@ module Decidim
           )
         end
 
+        private
+
         def first_attachment_weight
-          debate.documents.count.zero? ? 1 : debate.documents.count + 1
+          resource.documents.count.zero? ? 1 : resource.documents.count + 1
         end
       end
     end
