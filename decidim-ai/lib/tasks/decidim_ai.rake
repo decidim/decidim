@@ -8,14 +8,6 @@ namespace :decidim do
         Decidim::Ai::SpamDetection.create_reporting_user!
       end
 
-      desc "Load module shipped datasets files"
-      task load_module_dataset: :environment do
-        Dir.glob("#{plugin_path}/data/*.csv").each do |file|
-          Decidim::Ai::SpamDetection::Importer::File.call(file, Decidim::Ai::SpamDetection.user_classifier)
-          Decidim::Ai::SpamDetection::Importer::File.call(file, Decidim::Ai::SpamDetection.resource_classifier)
-        end
-      end
-
       desc "Load application dataset file"
       task :load_application_dataset, [:file] => :environment do |_, args|
         Decidim::Ai::SpamDetection::Importer::File.call(args[:file], Decidim::Ai::SpamDetection.user_classifier)
