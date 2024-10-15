@@ -73,10 +73,8 @@ en:
             add_documents: Add documents
             attachment_legend: Attachments
             debate_type: Debate type
-            delete_attachment: Delete attachment
             edit_documents: Edit documents
             finite: Finite (With start and end times)
-            gallery_legend: Gallery
             open: Open (No start or end times)
           index:
             title: Debates
