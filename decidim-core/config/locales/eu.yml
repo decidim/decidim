@@ -1719,9 +1719,9 @@ eu:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
       new:
         sign_up: Sortu kontu bat
-      signed_up: Ongi etorri! Eginda sinatu duzu.
+      signed_up: Ongi etorri!  Ondo eman duzu izena.
       signed_up_but_inactive: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua oraindik ez baita aktibatuta.
-      signed_up_but_locked: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua blokeatuta dagoelako.
+      signed_up_but_locked: Ongi eman duzu izena. Hala ere, ezin duzu saioa hasi zure kontua giltzapetuta dagoelako.
       signed_up_but_unconfirmed: Berrespen-esteka duen mezu bat zure helbide elektronikora bidali da. Jarraitu esteka zure kontua aktibatzeko.
       update_needs_confirmation: Zure kontua arrakastaz eguneratu duzu, baina helbide elektroniko berria egiaztatu behar dugu. Egiaztatu zure posta elektronikoa eta berretsi esteka jarraitu zure helbide elektroniko berria berresteko.
       updated: Zure kontua ondo eguneratu da.
