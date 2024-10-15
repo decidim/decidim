@@ -61,7 +61,7 @@ module Decidim
       def destroy
         enforce_permission_to(:destroy, :share_tokens, share_token: current_token)
 
-        Decidim::Commands::DestroyResource.call(current_token, current_user) do
+        DestroyShareToken.call(current_token, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("share_tokens.destroy.success", scope: "decidim.admin")
           end

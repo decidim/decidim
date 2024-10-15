@@ -30,6 +30,16 @@ module Decidim::Admin
     let(:automatic_token) { false }
     let(:no_expiration) { false }
     let(:registered_only) { false }
+    let(:extra) do
+      {
+        participatory_space: {
+          title: component.participatory_space.title
+        },
+        resource: {
+          title: component.name
+        }
+      }
+    end
 
     context "when the form is valid" do
       it "updates the expiration date" do
@@ -40,6 +50,19 @@ module Decidim::Admin
       it "broadcasts :ok with the resource" do
         expect(subject).to receive(:broadcast).with(:ok, share_token)
         subject.call
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:update!)
+          .with(share_token, user, { expires_at:, registered_only: }, extra)
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "update"
       end
     end
 

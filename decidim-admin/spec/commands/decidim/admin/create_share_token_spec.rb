@@ -29,6 +29,16 @@ module Decidim::Admin
     let(:automatic_token) { false }
     let(:no_expiration) { false }
     let(:registered_only) { true }
+    let(:extra) do
+      {
+        participatory_space: {
+          title: component.participatory_space.title
+        },
+        resource: {
+          title: component.name
+        }
+      }
+    end
 
     context "when the form is valid" do
       it "creates a share token" do
@@ -46,6 +56,24 @@ module Decidim::Admin
       it "broadcasts :ok with the resource" do
         expect(subject).to receive(:broadcast).with(:ok, instance_of(Decidim::ShareToken))
         subject.call
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .with(Decidim::ShareToken, current_user, kind_of(Hash),
+                expires_at:,
+                registered_only:,
+                token:,
+                organization:,
+                token_for: component,
+                user: current_user,
+                extra:)
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
     end
 

@@ -2,11 +2,9 @@
 
 module Decidim
   module Admin
-    # A command with all the business logic to update a share token.
+    # A command with all the business logic to destroy a share token.
     # This command is called from the controller.
-    class UpdateShareToken < Decidim::Commands::UpdateResource
-      fetch_form_attributes :expires_at, :registered_only
-
+    class DestroyShareToken < Decidim::Commands::DestroyResource
       delegate :participatory_space, :component, to: :resource
 
       def extra_params

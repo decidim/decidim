@@ -2,6 +2,8 @@
 
 module Decidim
   class ShareToken < ApplicationRecord
+    include Decidim::Traceable
+
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
     belongs_to :token_for, foreign_type: "token_for_type", polymorphic: true
@@ -11,6 +13,10 @@ module Decidim
     validates :token, format: { with: /\A[a-zA-Z0-9_-]+\z/ }
 
     after_initialize :generate
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::ShareTokenPresenter
+    end
 
     def self.use!(token_for:, token:, user: nil)
       record = find_by!(token_for:, token:)
@@ -30,6 +36,19 @@ module Decidim
 
     def url
       token_for.shareable_url(self)
+    end
+
+    def participatory_space
+      return token_for if token_for.try(:manifest).is_a?(Decidim::ParticipatorySpaceManifest)
+      return token_for.participatory_space if token_for.respond_to?(:participatory_space)
+
+      component&.participatory_space
+    end
+
+    def component
+      return token_for if token_for.is_a?(Decidim::Component)
+
+      token_for.component if token_for.respond_to?(:component)
     end
 
     def self.ransackable_attributes(_auth_object = nil)

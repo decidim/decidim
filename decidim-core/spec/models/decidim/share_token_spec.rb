@@ -95,6 +95,16 @@ module Decidim
       end
     end
 
+    describe "participatory space and components" do
+      let(:space) { token_for.participatory_space }
+      let(:component) { token_for }
+
+      it "returns participatory space and component" do
+        expect(subject.participatory_space).to eq(token_for)
+        expect(subject.component).to eq(token)
+      end
+    end
+
     describe "ShareToken.use!" do
       context "when share_token is valid" do
         let(:share_token) { create(:share_token, attributes) }
