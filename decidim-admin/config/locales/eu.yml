@@ -937,7 +937,7 @@ eu:
       scope_types:
         create:
           error: Arazo bat egon da beste esparru mota bat sortzean.
-          success: Esparru mota zuzen sortua.
+          success: Esparru mota arrakastaz sortu da.
         destroy:
           success: Esparru mota behar bezala suntsitua
         edit:
