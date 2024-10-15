@@ -259,22 +259,47 @@ describe "Proposals" do
         end
 
         context "when the user is not authorized" do
-          before do
-            permissions = {
-              create: {
-                authorization_handlers: {
-                  "dummy_authorization_handler" => { "options" => {} }
+          context "and there is only an authorization required" do
+            before do
+              permissions = {
+                create: {
+                  authorization_handlers: {
+                    "dummy_authorization_handler" => { "options" => {} }
+                  }
                 }
               }
-            }
 
-            component.update!(permissions:)
+              component.update!(permissions:)
+            end
+
+            it "redirects to the authorization form" do
+              visit_component
+              click_on "New proposal"
+              expect(page).to have_content("We need to verify your identity")
+              expect(page).to have_content("Verify with Example authorization")
+            end
           end
 
-          it "shows a modal dialog" do
-            visit_component
-            click_on "New proposal"
-            expect(page).to have_content("Authorization required")
+          context "and there are more than one authorization required" do
+            before do
+              permissions = {
+                create: {
+                  authorization_handlers: {
+                    "dummy_authorization_handler" => { "options" => {} },
+                    "another_dummy_authorization_handler" => { "options" => {} }
+                  }
+                }
+              }
+
+              component.update!(permissions:)
+            end
+
+            it "redirects to pending onboarding authorizations page" do
+              visit_component
+              click_on "New proposal"
+              expect(page).to have_content("You are almost ready to create a proposal")
+              expect(page).to have_css("a[data-verification]", count: 2)
+            end
           end
         end
 
