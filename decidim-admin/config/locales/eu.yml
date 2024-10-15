@@ -125,7 +125,7 @@ eu:
         content: Edukia
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
-        slug: URL laburra
+        slug: URL l
         title: Titulua
         topic_id: Gaia
         weight: Kokapenaren hurrenkera
@@ -1116,7 +1116,7 @@ eu:
         reportable:
           hide:
             invalid: Arazo bat egon da baliabidea ezkutatzean.
-            success: Edukia zuzen ezkutatua.
+            success: "Edukia zuzen ezkutatua.\n\n\n"
           unhide:
             invalid: Arazo bat egon da baliabidea erakustean.
             success: Edukia zuzen desezkutatua.
