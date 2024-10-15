@@ -13,6 +13,11 @@ module Decidim
         "card__calendar-list__reset"
       end
 
+      # Renders the date in the meeting card list
+      def has_image?
+        true
+      end
+
       def image
         render
       end
