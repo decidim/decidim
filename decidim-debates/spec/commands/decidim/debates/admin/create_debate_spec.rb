@@ -11,6 +11,7 @@ describe Decidim::Debates::Admin::CreateDebate do
   let(:scope) { create(:scope, organization:) }
   let(:category) { create(:category, participatory_space: participatory_process) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:attachments) { [] }
   let(:form) do
     double(
       invalid?: invalid,
@@ -27,7 +28,9 @@ describe Decidim::Debates::Admin::CreateDebate do
       component: current_component,
       current_organization: organization,
       finite:,
-      comments_enabled: true
+      comments_enabled: true,
+      add_documents: attachments,
+      documents: []
     )
   end
   let(:finite) { true }
@@ -113,6 +116,25 @@ describe Decidim::Debates::Admin::CreateDebate do
 
         subject.call
       end
+    end
+  end
+
+  context "when everything is ok with attachments" do
+    let(:debate) { Decidim::Debates::Debate.last }
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates", settings: { "attachments_allowed" => true }) }
+    let(:attachments) do
+      [
+        { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
+        { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+      ]
+    end
+
+    it "creates the debate with attachments" do
+      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1)
+      expect { subject.call }.to change(Decidim::Attachment, :count).by(2)
+
+      debate_attachments = debate.attachments
+      expect(debate_attachments.count).to eq(2)
     end
   end
 end

@@ -13,13 +13,19 @@ describe Decidim::Debates::UpdateDebate do
   let(:user) { create(:user, organization:) }
   let(:author) { user }
   let!(:debate) { create(:debate, author:, component: current_component) }
+  let(:attachment_params) { nil }
+  let(:current_files) { [] }
+  let(:uploaded_files) { [] }
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
       title: "title",
       description: "description",
       scope_id: scope.id,
       category_id: category.id,
-      id: debate.id
+      id: debate.id,
+      attachment: attachment_params,
+      documents: current_files,
+      add_documents: uploaded_files
     ).with_context(
       current_organization: organization,
       current_participatory_space: current_component.participatory_space,
@@ -114,6 +120,26 @@ describe Decidim::Debates::UpdateDebate do
       action_log = Decidim::ActionLog.last
       expect(action_log.version).to be_present
       expect(action_log.version.event).to eq "update"
+    end
+  end
+
+  context "when everything is ok with attachments" do
+    let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates", settings: { "attachments_allowed" => true }) }
+    let(:uploaded_files) do
+      [
+        { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
+        { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+      ]
+    end
+
+    it "updates the debate with attachments" do
+      expect do
+        subject.call
+        debate.reload
+      end.to change(debate.attachments, :count).by(2)
+
+      debate_attachments = debate.attachments
+      expect(debate_attachments.count).to eq(2)
     end
   end
 end
