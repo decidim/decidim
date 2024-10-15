@@ -314,6 +314,8 @@ fi:
           close:
             invalid: Tapaamisen sulkeminen epäonnistui.
             success: Tapaamisen sulkeminen onnistui.
+          component:
+            unlink: Poista linkitys
           create:
             invalid: Tapaamisen luonti epäonnistui.
             success: Tapaamisen luonti onnistui. Huomaa, että tapaamista ei ole vielä julkaistu, sinun pitää julkaista se manuaalisesti.
@@ -338,7 +340,18 @@ fi:
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
           index:
+            linked_meeting_warning_html: Tätä tapaamista tulee muokata kohteesta <br><a href="%{href}">%{name}</a>
             title: Tapaamiset
+          linked_spaces:
+            assign: Määritä
+            link_a_space: Liitä osallistumistila
+            private_meeting_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityinen ja läpinäkymätön.
+            private_space_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityisessä ja läpinäkymättömässä osallistumistilassa.
+            select: Valitse osallistumistila
+            table:
+              actions: Toiminnot
+              component: Liitetyt osallistumistilat
+            title: Liitetyt osallistumistilat
           new:
             create: Luo
             title: Luo tapaaminen
@@ -565,6 +578,7 @@ fi:
           micro_camera_permissions_warning: Painaessasi alla olevaa painiketta, sinua pyydetään antamaan palvelulle oikeudet käyttää mikrofoniasi ja/tai kameraasi, minkä jälkeen voit liittyä tapaamiseen
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
+          redirect_notice: Tämä tapaaminen on toisessa osallistumistilassa, joten sinut on siirretty osallistumistilaan nimeltä %{current_space_name}.<br>Jos haluat, voit siirtyä takaisin osallistumistilaan nimeltä <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Ilmoittautumiskoodisi
           registration_state:
             validated: VAHVISTETTU
