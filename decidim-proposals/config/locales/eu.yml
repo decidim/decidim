@@ -774,7 +774,7 @@ eu:
           unfold: Zabaldu
         index:
           count:
-            one: "%{count} lankidetza zirriborro"
+            one: "%{count} zirriborro kolaboratibo"
             other: "%{count} zirriborro kolaboratibo"
         name: Zirriborro kolaboratzaileak
         new:
