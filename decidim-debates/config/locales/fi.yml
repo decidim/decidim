@@ -86,6 +86,10 @@ fi:
           close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
           create: "%{user_name} loi keskustelun %{resource_name} osallistumistilaan %{space_name}"
           update: "%{user_name} päivitti keskustelun %{resource_name} osallistumistilassa %{space_name}"
+      content_blocks:
+        highlighted_debates:
+          name: Keskustelut
+          see_all: Näytä kaikki keskustelut
       debate_m:
         commented_time_ago: Kommentoitu %{time} sitten
       debates:
