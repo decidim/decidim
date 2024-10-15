@@ -32,10 +32,8 @@ module Decidim
           assembly_landing_page_content_block_path(scoped_resource, params[:id])
         end
 
-        alias current_participatory_space current_assembly
-
         def parent_assembly
-          current_assembly.parent
+          scoped_resource.parent
         end
       end
     end
