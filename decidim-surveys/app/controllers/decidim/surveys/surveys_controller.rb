@@ -58,8 +58,7 @@ module Decidim
 
       def default_filter_params
         {
-          with_any_state: %w(open closed),
-          activity: "all"
+          with_any_state: %w(open)
         }
       end
     end
