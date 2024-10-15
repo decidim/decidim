@@ -10,6 +10,7 @@ module Decidim
     def initialize(options)
       @breadcrumb_items = options[:breadcrumb_items]
       @base_url = options[:base_url]
+      @organization_name = options[:organization_name]
     end
 
     # Serializes a breadcrumb items list for the Schema.org BreadcrumbList type
@@ -22,13 +23,14 @@ module Decidim
       {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
+        name: "#{organization_name} breadcrumb",
         itemListElement: breadcrumb_items_serialized
       }
     end
 
     private
 
-    attr_reader :breadcrumb_items, :base_url
+    attr_reader :breadcrumb_items, :base_url, :organization_name
 
     def breadcrumb_items_serialized
       all_items = []

@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe SchemaOrgBreadcrumbListSerializer do
     subject do
-      described_class.new({ breadcrumb_items:, base_url: })
+      described_class.new({ breadcrumb_items:, base_url:, organization_name: })
     end
 
     let(:breadcrumb_items) do
@@ -25,8 +25,8 @@ module Decidim
     end
 
     let(:base_url) { "https://example.org" }
-
     let(:participatory_process) { create(:participatory_process) }
+    let(:organization_name) { "ACME Corp" }
 
     describe "#serialize" do
       let(:serialized) { subject.serialize }
@@ -37,6 +37,10 @@ module Decidim
 
       it "serializes the @type" do
         expect(serialized[:@type]).to eq("BreadcrumbList")
+      end
+
+      it "serializes the name" do
+        expect(serialized[:name]).to eq("ACME Corp breadcrumb")
       end
 
       it "serializes the breadcrumb items" do
