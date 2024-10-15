@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user creates a Debate from the admin
       # panel.
       class CreateDebate < Decidim::Command
-        include ::Decidim::AttachmentMethods
+        include Decidim::MultipleAttachmentsMethods
 
         def initialize(form)
           @form = form
@@ -16,13 +16,13 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           if process_attachments?
-            build_attachment
-            return broadcast(:invalid) if attachment_invalid?
+            build_attachments
+            return broadcast(:invalid) if attachments_invalid?
           end
 
           transaction do
             create_debate
-            create_attachment(weight: first_attachment_weight) if process_attachments?
+            create_attachments(first_weight: first_attachment_weight) if process_attachments?
             send_notifications
           end
 
@@ -74,7 +74,7 @@ module Decidim
         end
 
         def first_attachment_weight
-          debate.attachments.count.zero? ? 1 : debate.attachments.count + 1
+          debate.documents.count.zero? ? 1 : debate.documents.count + 1
         end
       end
     end

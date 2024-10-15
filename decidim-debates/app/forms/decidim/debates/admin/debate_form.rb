@@ -21,6 +21,8 @@ module Decidim
         attribute :comments_enabled, Boolean, default: true
         attribute :attachment, AttachmentForm
 
+        attachments_attribute :documents
+
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
         validates :instructions, translatable_presence: true
@@ -40,11 +42,7 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.description = presenter.description(all_locales: description.is_a?(Hash))
-          self.attachment = if model.documents.first.present?
-                              { file: model.documents.first.file, title: translated_attribute(model.documents.first.title) }
-                            else
-                              {}
-                            end
+          self.documents = model.attachments
         end
 
         def category
@@ -77,12 +75,12 @@ module Decidim
           end_time.present?
         end
 
-        # This method will add an error to the `attachment` field only if there is
+        # This method will add an error to the `add_documents` field only if there is
         # any error in any other field. This is needed because when the form has
         # an error, the attachment is lost, so we need a way to inform the user of
         # this problem.
         def notify_missing_attachment_if_errored
-          errors.add(:attachment, :needs_to_be_reattached) if errors.any? && attachment.present?
+          errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
         end
       end
     end
