@@ -61,14 +61,16 @@ module Decidim::Admin
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Decidim::ShareToken, current_user, kind_of(Hash),
-                expires_at:,
-                registered_only:,
-                token:,
-                organization:,
-                token_for: component,
-                user: current_user,
-                extra:)
+          .with(Decidim::ShareToken, current_user,
+                {
+                  expires_at:,
+                  registered_only:,
+                  token:,
+                  organization:,
+                  token_for: component,
+                  user: current_user
+                },
+                extra)
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
