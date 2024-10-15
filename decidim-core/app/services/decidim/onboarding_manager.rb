@@ -128,6 +128,8 @@ module Decidim
       # By calling authorize on each authorization the path generated for each
       # one will include the specific options of the action if available
       filtered_authorizations.each do |authorization|
+        next unless authorization.is_a? Decidim::Verifications::Adapter
+
         authorization.authorize(nil, permissions.dig("authorization_handlers", authorization.name, "options") || {}, model, permissions_holder)
       end
       filtered_authorizations
