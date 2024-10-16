@@ -8,6 +8,7 @@ module Decidim
         include TranslatableAttributes
 
         attribute :services, Array[MeetingServiceForm]
+        attribute :component_ids, Array[Integer]
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :private_meeting, Boolean
@@ -66,6 +67,19 @@ module Decidim
         def services_to_persist
           services.reject(&:deleted)
         end
+
+        # linked components
+        def components
+          return [] if private_non_transparent_space?
+
+          if private_meeting && !transparent
+            []
+          else
+            Decidim::Component.where(id: component_ids)
+          end
+        end
+
+        delegate :private_non_transparent_space?, to: :current_component
 
         def number_of_services
           services.size

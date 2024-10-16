@@ -78,6 +78,10 @@ fi-pl:
       decidim/meetings/update_meeting_event: Tapahtuma päivitetty
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Ehdotuksesta keskusteltiin tapaamisessa: %{link}'
       decidim/meetings/meeting:
         one: Tapahtuma
         other: Tapahtumat

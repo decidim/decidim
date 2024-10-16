@@ -294,6 +294,7 @@ es-MX:
             select_parent_assembly: Selecciona asamblea principal
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
+            taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
         assemblies_types:

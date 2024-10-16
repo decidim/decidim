@@ -13,7 +13,7 @@
     }
 
     &-container {
-      @apply grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr] items-center gap-0 md:gap-x-5 border-4 border-background rounded md:h-[140px] overflow-hidden;
+      @apply grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr] items-center gap-0 md:gap-x-5 border-4 border-background rounded overflow-hidden;
 
       > *:nth-child(2) {
         @apply p-4 md:p-0;
@@ -28,7 +28,7 @@
       }
 
       > *:nth-child(3) {
-        @apply order-1 md:order-2 h-[135px] md:h-full;
+        @apply order-1 md:order-2 h-[135px];
       }
     }
 

@@ -315,6 +315,8 @@ en:
           close:
             invalid: There was a problem closing this meeting.
             success: Meeting successfully closed.
+          component:
+            unlink: Unlink
           create:
             invalid: There was a problem creating this meeting.
             success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
@@ -339,7 +341,18 @@ en:
             select_a_registration_type: Please select a registration type
             select_an_iframe_access_level: Please select an iframe access level
           index:
+            linked_meeting_warning_html: This meeting must be edited from <br><a href="%{href}">%{name}</a>
             title: Meetings
+          linked_spaces:
+            assign: Assign
+            link_a_space: Link a space
+            private_meeting_warning: Linked spaces will not be applied if the meeting is private and non transparent.
+            private_space_warning: Linked spaces will not be applied when the meeting belongs to a private non transparent space.
+            select: Select a space
+            table:
+              actions: Actions
+              component: Linked spaces
+            title: Linked spaces
           new:
             create: Create
             title: Create meeting
@@ -567,6 +580,7 @@ en:
           micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
+          redirect_notice: This meeting is part of another space, so you have been moved to %{current_space_name}. <br>If you prefer, you can go back to <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Your registration code
           registration_state:
             validated: VALIDATED
@@ -676,6 +690,45 @@ en:
         description: Number of meetings created
         object: meetings
         title: Meetings
+    open_data:
+      help:
+        meeting_comments:
+          alignment: If this comment was a favour, against or neutral
+          author: The name of the participant that made this comment
+          body: The comment itself
+          commentable_id: The unique id of the commentable
+          commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
+          created_at: The date when this comment was created
+          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          id: The id for this comment
+          locale: The locale (language) that the participant had when leaving this comment
+          root_commentable_url: The URL of the resource that ties to this comment
+          user_group: The name of the user group that made this comment (if any)
+        meetings:
+          address: The address of the meeting in case it is in person and has a physical location
+          attachments: The number of attachments in this meeting
+          attendees: The number of people attending this meeting
+          category: The category of the meeting (e.g. "Culture")
+          comments: The number of comments made in this meeting
+          component: The component that the meeting belongs to
+          contributions: The number of contributions in this meeting made by the atteendes
+          description: The description of the meeting
+          end_time: The date and time that this meeting ends
+          followers: The number of followers of this meeting
+          id: The unique identifier of the meeting
+          location: The location of the meeting
+          organizations: The organizations attending this meeting
+          participatory_space: To which space (e.g. Participatory Process, or Assembly) this meeting belongs to
+          published: When the meeting has been published
+          reference: The unique identifier of the resource in this platform
+          related_proposals: The proposals related to this meeting
+          related_results: The results related to this meeting
+          scope: The scope of the meeting (e.g. "City")
+          start_time: The date and time that this meeting starts
+          title: The title of the meeting
+          url: The URL of the meeting
+          withdrawn: Wheter this meeting has been withdrawn
+          withdrawn_at: When this meeting was withdrawn
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Past meetings
