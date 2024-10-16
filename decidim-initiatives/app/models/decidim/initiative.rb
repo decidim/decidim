@@ -25,6 +25,7 @@ module Decidim
     include Decidim::HasArea
     include Decidim::FilterableResource
     include Decidim::Reportable
+    include Decidim::ShareableWithToken
 
     translatable_fields :title, :description, :answer
 
@@ -466,6 +467,10 @@ module Decidim
 
     def user_allowed_to_comment?(user)
       ActionAuthorizer.new(user, "comment", self, nil).authorize.ok?
+    end
+
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).initiative_url(self, share_token: share_token.token)
     end
 
     def self.ransack(params = {}, options = {})

@@ -142,6 +142,13 @@ module Decidim
       @seeds&.call(participatory_space)
     end
 
+    # The name of the named Rails route to create the url to the resource.
+    #
+    # Returns a String.
+    def route_name
+      "component"
+    end
+
     # Public: Adds configurable attributes for this component, scoped to a name. It
     # uses the DSL specified under `Decidim::SettingsManifest`.
     #
