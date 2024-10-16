@@ -494,12 +494,8 @@ pt:
             plural: Plural
         share_token:
           fields:
-            created_at: Criado em
             expires_at: Expira em
-            last_used_at: Ultima utilização
             times_used: Total de utilizações
-            token: Identificador
-            user: Criado por
         static_page:
           fields:
             created_at: Criado em
@@ -735,15 +731,7 @@ pt:
           success: Âmbito atualizado com sucesso
       share_tokens:
         actions:
-          confirm_destroy: Tem a certeza que quer eliminar este identificador?
           destroy: Eliminar
-          share: Partilhar
-        destroy:
-          error: Houve um problema ao destruir o identificador
-          success: Identificador destruído com sucesso.
-        share_tokens:
-          help: Estes identificadores são usados para partilhar publicamente para qualquer utilizador este recurso não publicado. Estarão escondidos quando o recurso estiver publicado. Clique no icone de partilha do identificador para visitar o URL parltilhável.
-          title: Compartilhar identificadores
       shared:
         gallery:
           add_images: Adicionar imagens
