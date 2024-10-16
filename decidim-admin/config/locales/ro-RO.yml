@@ -613,12 +613,8 @@ ro:
             plural: Plural
         share_token:
           fields:
-            created_at: Creat la
             expires_at: Expiră la
-            last_used_at: Ultima utilizare
             times_used: Număr utilizări
-            token: Token
-            user: Creat de
         static_page:
           fields:
             created_at: Creat la
@@ -895,16 +891,7 @@ ro:
           success: Domeniul a fost actualizat cu succes
       share_tokens:
         actions:
-          confirm_destroy: Sigur vrei să ștergi acest token?
           destroy: Șterge
-          share: Distribuie
-        destroy:
-          error: A apărut o problemă la distrugerea acestui token.
-          success: Token-ul a fost distrus cu succes.
-        share_tokens:
-          empty: Nu există token-uri active.
-          help: Aceste tipuri de token sunt utilizate pentru a distribui public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de distribuire aferentă acestui token pentru a vizita URL-ul distribuit.
-          title: Distribuiți token
       shared:
         gallery:
           add_images: Adaugă imagini
