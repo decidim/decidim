@@ -594,7 +594,7 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           log_in: Logga in
           newsletter: Få enstaka nyhetsbrev med relevant information
-          newsletter_title: Kontakttillstånd
+          newsletter_title: Tillåtelse att kontakta mig
           sign_up: Skapa ett konto
           subtitle: Skapa ett konto för att delta i plattformen.
           terms: användarvillkoren
@@ -947,9 +947,9 @@ sv:
         index:
           badge_title: "%{name} märke"
           how: Hur kan du få det
-          page_description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken. Här är listan med märken och hur du kan få dem.
+          page_description: Märkena visar att du varit en aktiv deltagare på plattformen. Genom att utforska, delta och samverka på plattformen får du olika märken. Här är alla märken och hur du kan få dem.
           title: Märken
-      description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken.
+      description: Märkena visar att du varit en aktiv deltagare på plattformen. Genom att utforska, delta och samverka på plattformen får du olika märken.
       level: Nivå %{level}
       reached_top: Du har nått den högsta nivån för detta märke.
       title: Vilka är märkena?
@@ -1724,7 +1724,7 @@ sv:
       already_signed_out: Du är utloggad.
       new:
         log_in: Logga in
-      signed_in: Loggade in.
+      signed_in: Du är inloggad.
       signed_out: Du är utloggad.
     shared:
       links:
