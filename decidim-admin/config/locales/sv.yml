@@ -655,12 +655,8 @@ sv:
             plural: Flertal
         share_token:
           fields:
-            created_at: Skapad
             expires_at: Förfaller den
-            last_used_at: Senast använd
             times_used: Använd antal gånger
-            token: Token
-            user: Skapad av
         static_page:
           fields:
             created_at: Skapad
@@ -967,16 +963,7 @@ sv:
           success: Indelningen har uppdaterats
       share_tokens:
         actions:
-          confirm_destroy: Vill du ta bort den här token?
           destroy: Radera
-          share: Dela
-        destroy:
-          error: Det gick inte att radera token.
-          success: Token har tagits bort.
-        share_tokens:
-          empty: Det finns inga aktiva tokens.
-          help: 'Tokens används för att dela en opublicerad sida till andra användare. De kommer att döljas när sidan publiceras. Klicka på dela-ikon för token för att besöka den delade URL: en.'
-          title: Delade tokens
       shared:
         adjacent_navigation:
           next: Nästa
@@ -1019,7 +1006,7 @@ sv:
           none: Ingen
           slug_help_html: 'Använd relativa sökvägar, inte fullständiga URL: er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Exempel: %{url}'
         index:
-          last_notable_change: Senast märkbara förändring
+          last_notable_change: Senaste större ändring
         new:
           create: Skapa sida
           title: Ny sida
