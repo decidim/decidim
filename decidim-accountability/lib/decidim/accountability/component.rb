@@ -31,6 +31,7 @@ Decidim.register_component(:accountability) do |component|
     settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :intro, type: :text, translated: true, editor: true
     settings.attribute :display_progress_enabled, type: :boolean, default: true
+    settings.attribute :geocoding_enabled, type: :boolean, default: false
   end
 
   component.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
