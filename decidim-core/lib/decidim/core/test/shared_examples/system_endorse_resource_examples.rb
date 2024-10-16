@@ -104,6 +104,18 @@ shared_examples "Endorse resource system specs" do
             expect(page).to have_button("Like")
           end
         end
+
+        it "can show the endorsements pop-up" do
+          visit_resource
+          within "#endorser-list-#{resource.id}" do
+            expect(page).to have_content("Liked by You")
+            click_on "You"
+          end
+          expect(page).to have_content("Liked by")
+          within "#endorsersModal-#{resource.id}" do
+            expect(page).to have_content("Stop following")
+          end
+        end
       end
 
       context "when verification is required" do
