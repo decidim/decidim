@@ -540,12 +540,8 @@ nl:
             plural: Meervoud
         share_token:
           fields:
-            created_at: Aangemaakt op
             expires_at: Vervalt op
-            last_used_at: Laatste keer gebruikt
             times_used: Aantal keren gebruikt
-            token: Token
-            user: Aangemaakt door
         static_page:
           fields:
             created_at: Aangemaakt op
@@ -795,15 +791,7 @@ nl:
           success: Scope is succesvol bijgewerkt
       share_tokens:
         actions:
-          confirm_destroy: Weet je zeker dat je deze token wil verwijderen?
           destroy: Verwijderen
-          share: Deel
-        destroy:
-          error: Er is een fout opgetreden bij het vernietigen van de token.
-          success: Token met succes verwijderd.
-        share_tokens:
-          help: Deze tokens worden gebruikt om deze niet-gepubliceerde bron openbaar te delen met alle gebruikers. Ze worden verborgen wanneer de bron is gepubliceerd. Klik op het pictogram “delen” van het token om de deelbare URL te bezoeken.
-          title: Tokens delen
       shared:
         gallery:
           add_images: Afbeeldingen toevoegen
