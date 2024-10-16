@@ -86,6 +86,10 @@ es-PY:
           close: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó el debate %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó el debate %{resource_name} en el espacio %{space_name}"
+      content_blocks:
+        highlighted_debates:
+          name: Debates
+          see_all: Ver todos los debates
       debate_m:
         commented_time_ago: Comentado hace %{time}
       debates:
