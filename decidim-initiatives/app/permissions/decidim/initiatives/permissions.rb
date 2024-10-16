@@ -55,6 +55,7 @@ module Decidim
                       permission_action.action == :read
 
         return allow! if initiative.published? || initiative.rejected? || initiative.accepted?
+        return allow! if user_can_preview_space?
         return allow! if user && authorship_or_admin?
 
         disallow!
@@ -193,6 +194,12 @@ module Decidim
         Decidim::Initiatives.do_not_require_authorization ||
             UserAuthorizations.for(user).any?
       )
+      end
+
+      def user_can_preview_space?
+        context[:share_token].present? && Decidim::ShareToken.use!(token_for: initiative, token: context[:share_token], user:)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
       end
 
       def initiative_committee_action?

@@ -36,6 +36,7 @@ module Decidim
     include Decidim::TranslatableResource
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::ShareableWithToken
 
     CREATED_BY = %w(city_council public others).freeze
 
@@ -166,6 +167,10 @@ module Decidim
 
     def self.ransackable_scopes(_auth_object = nil)
       [:with_any_area, :with_any_scope, :with_any_type]
+    end
+
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).assembly_url(self, share_token: share_token.token)
     end
 
     private

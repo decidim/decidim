@@ -200,6 +200,7 @@ en:
         reject: Reject
         send_me_a_test_email: Send me a test email
         share: Share
+        share_tokens: Access links
         user:
           new: New admin
         verify: Verify
@@ -592,6 +593,7 @@ en:
         scopes: Scopes
         see_site: See site
         settings: Settings
+        share_tokens: Access links
         static_page_topics: Topics
         static_pages: Pages
         user_groups: Groups
@@ -647,12 +649,11 @@ en:
             plural: Plural
         share_token:
           fields:
-            created_at: Created at
+            actions: Actions
             expires_at: Expires at
-            last_used_at: Last time used
+            registered_only: Registered only?
             times_used: Times used
-            token: Token
-            user: Created by
+            token: Access link
         static_page:
           fields:
             created_at: Created at
@@ -965,16 +966,50 @@ en:
           success: Scope updated successfully
       share_tokens:
         actions:
-          confirm_destroy: Are you sure you want to delete this token?
+          confirm_destroy: Are you sure you want to delete this access?
+          copy_link: Copy link
           destroy: Delete
-          share: Share
+          edit: Edit
+          preview: Preview
+        create:
+          invalid: There was a problem generating the access link.
+          success: Access link created successfully.
         destroy:
-          error: There was a problem destroying the token.
-          success: Token destroyed successfully.
-        share_tokens:
-          empty: There are no active tokens.
-          help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
-          title: Share tokens
+          error: There was a problem destroying the access link.
+          success: Access link successfully destroyed.
+        edit:
+          title: 'Edit access links for: %{name}'
+          update: Update
+        form:
+          automatic: Automatic
+          custom: Custom
+          custom_expiration: Custom expiration
+          custom_token: Custom word
+          expires_at: Expires at
+          'false': 'No'
+          never_expire: Never
+          registered_only: Registered only?
+          token: Access key
+          'true': 'Yes'
+        index:
+          back_to_share_tokens: Back to access links
+          copied: Access link Copied!
+          copy_message: The text was successfully copied to clipboard.
+          create_new_token: Create your first access link!
+          empty_html: There are no active access links. %{new_token_link}
+          never: Never
+          new_share_token_button: New access link
+          share_tokens_help_html: |
+            Create and share an access link to allow others to view this unpublished resource.
+            Access links can be valid for registered participants only or have and expiration date if necessary.
+            To share a new access link with someone, create it and then copy the link using the "%{clipboard} clipboard" action icon.
+          title: 'access links for: %{name}'
+        new:
+          create: Create
+          title: 'New access link for: %{name}'
+        update:
+          error: There was a problem updating this access.
+          success: Access link updated successfully.
       shared:
         adjacent_navigation:
           next: Next

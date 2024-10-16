@@ -11,12 +11,14 @@ module Decidim
 
     let(:attributes) do
       {
+        token:,
         token_for:,
         user:,
         organization:
       }
     end
 
+    let(:token) { "SOME-TOKEN" }
     let(:user) { create(:user) }
     let(:token_for) { create(:component) }
     let(:organization) { token_for.organization }
@@ -42,15 +44,84 @@ module Decidim
 
         it { is_expected.not_to be_valid }
       end
+
+      context "when token is not present" do
+        # FactoryBot does not run the after_initializer block when building if token is defined
+        let(:share_token) { build(:share_token, token_for:, organization:) }
+
+        it { is_expected.to be_valid }
+
+        it "generates a token" do
+          expect(subject.token).to be_present
+        end
+      end
+
+      context "when token is already taken" do
+        let(:token) { "taken" }
+
+        before do
+          create(:share_token, token:, token_for:, organization:)
+        end
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when token is already taken by another component" do
+        let(:token) { "taken" }
+
+        before do
+          create(:share_token, token:, organization:)
+        end
+
+        it { is_expected.to be_valid }
+      end
+
+      context "when token has strange characters" do
+        let(:token) { "bon cop de falç" }
+
+        it { is_expected.to be_invalid }
+      end
     end
 
     describe "defaults" do
+      let(:share_token) { build(:share_token, token_for:, organization:) }
+
       it "generates an alphanumeric 64-character token string" do
         expect(subject.token).to match(/^[a-zA-Z0-9]{64}$/)
       end
 
-      it "sets expires_at attribute to one day from current time" do
-        expect(subject.expires_at).to be_within(1.second).of 1.day.from_now
+      it "sets expires_at attribute to never expire" do
+        expect(subject.expires_at).to be_nil
+      end
+    end
+
+    describe "participatory space and components" do
+      let(:space) { token_for.participatory_space }
+      let(:component) { token_for }
+
+      it "returns participatory space and component" do
+        expect(subject.participatory_space).to eq(space)
+        expect(subject.component).to eq(component)
+      end
+
+      context "when token is for a participatory space" do
+        let(:space) { create(:participatory_process) }
+        let(:token_for) { space }
+
+        it "returns the participatory space as the component" do
+          expect(subject.participatory_space).to eq(space)
+          expect(subject.component).to be_nil
+        end
+      end
+
+      context "when resource does not respond to participatory_space" do
+        let(:organization) { create(:organization) }
+        let(:token_for) { organization }
+
+        it "returns the component" do
+          expect(subject.participatory_space).to be_nil
+          expect(subject.component).to be_nil
+        end
       end
     end
 
@@ -94,7 +165,7 @@ module Decidim
     describe "#expired?" do
       context "when share_token has not expired" do
         it "returns true" do
-          expect(subject.expired?).to be false
+          expect(subject.expired?).to be_nil
         end
       end
 

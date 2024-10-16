@@ -94,7 +94,7 @@ module Decidim
 
     # Public: Public URL for component with given share token as query parameter
     def shareable_url(share_token)
-      EngineRouter.main_proxy(self).root_path(self, share_token: share_token.token)
+      EngineRouter.main_proxy(self).root_url(self, share_token: share_token.token)
     end
 
     delegate :serializes_specific_data?, to: :manifest

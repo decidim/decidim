@@ -961,6 +961,10 @@ FactoryBot.define do
       object.organization ||= object.token_for.organization
     end
 
+    trait :with_token do
+      token { SecureRandom.hex(32) }
+    end
+
     trait :expired do
       expires_at { 1.day.ago }
     end

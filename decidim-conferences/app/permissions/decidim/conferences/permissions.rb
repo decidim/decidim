@@ -128,6 +128,7 @@ module Decidim
 
         return allow! if user&.admin?
         return allow! if conference.published?
+        return allow! if user_can_preview_space?
 
         toggle_allow(can_manage_conference?)
       end
@@ -277,7 +278,8 @@ module Decidim
           :partner,
           :media_link,
           :registration_type,
-          :conference_invite
+          :conference_invite,
+          :share_tokens
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -300,9 +302,16 @@ module Decidim
           :partner,
           :registration_type,
           :read_conference_registrations,
-          :export_conference_registrations
+          :export_conference_registrations,
+          :share_tokens
         ].include?(permission_action.subject)
         allow! if is_allowed
+      end
+
+      def user_can_preview_space?
+        context[:share_token].present? && Decidim::ShareToken.use!(token_for: conference, token: context[:share_token], user:)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
       end
 
       # Checks if the permission_action is to read the admin conferences list or

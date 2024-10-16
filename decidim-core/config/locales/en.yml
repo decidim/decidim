@@ -278,6 +278,13 @@ en:
         create: "%{user_name} created the %{resource_name} scope type"
         delete: "%{user_name} deleted the %{resource_name} scope type"
         update: "%{user_name} updated the %{resource_name} scope type"
+      share_token:
+        create: "%{user_name} created an access link in %{space_name}"
+        create_with_space: "%{user_name} created an access link for %{resource_name} in %{space_name}"
+        delete: "%{user_name} deleted an access link in %{space_name}"
+        delete_with_space: "%{user_name} deleted an access link for %{resource_name} in %{space_name}"
+        update: "%{user_name} updated an access link in %{space_name}"
+        update_with_space: "%{user_name} updated an access link for %{resource_name} in %{space_name}"
       static_page:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"

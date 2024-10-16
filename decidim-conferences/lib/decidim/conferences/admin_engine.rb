@@ -66,6 +66,7 @@ module Decidim
               put :unpublish
               get :share
             end
+            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do
               get :example, on: :collection
@@ -81,6 +82,8 @@ module Decidim
             end
             resources :reports, controller: "moderations/reports", only: [:index, :show]
           end
+
+          resources :conference_share_tokens, except: [:show], path: "share_tokens"
         end
 
         scope "/conferences/:conference_slug/components/:component_id/manage" do
