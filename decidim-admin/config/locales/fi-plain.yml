@@ -645,7 +645,7 @@ fi-pl:
             plural: Monikko
         share_token:
           fields:
-            created_at: Luontiaika
+            created_at: Luonnin ajankohta
             expires_at: Vanhentumisaika
             last_used_at: Viimeinen käyttöaika
             times_used: Käyttökertojen määrä
