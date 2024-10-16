@@ -655,12 +655,8 @@ eu:
             plural: Plurala
         share_token:
           fields:
-            created_at: Noiz sortua
             expires_at: Noiz iraungia
-            last_used_at: Noiz erabilia azkenik
             times_used: Erabilitako denbora
-            token: Sinboloak
-            user: Nork sortua
         static_page:
           fields:
             created_at: Noiz sortua
@@ -967,16 +963,7 @@ eu:
           success: Esparrua zuzen eguneratua
       share_tokens:
         actions:
-          confirm_destroy: Ziur zaude identifikatzaile-ikur hau ezabatu nahi duzula?
           destroy: Ezabatu
-          share: Partekatu
-        destroy:
-          error: Arazo bat egon da identifikatzaile-ikurra suntsitzean.
-          success: Identifikatzaile-ikurra behar bezala suntsitua.
-        share_tokens:
-          empty: Ez dago identifikatzaile-ikur aktiborik.
-          help: Identifikatzaile-ikur hauek argitaratu gabeko baliabide hori edozein erabiltzaileri publikoki partekatzeko erabiltzen dira. Errekurtsoa argitaratzean ezkutatuko dira. Egin klik identifikatzaile-ikurra partekatzeko ikonoan, URL partekagarria bisitatzeko.
-          title: Partekatu identifikatzaile-ikurrak
       shared:
         adjacent_navigation:
           next: Hurrengoa
