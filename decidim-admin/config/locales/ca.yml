@@ -197,6 +197,7 @@ ca:
         reject: Rebutjar
         send_me_a_test_email: Envia'm un correu electrònic de prova
         share: Compartir
+        share_tokens: Enllaços d'accés
         user:
           new: Nova administradora
         verify: Verificar
@@ -598,6 +599,7 @@ ca:
         scopes: Àmbits
         see_site: Veure el lloc web
         settings: Configuració
+        share_tokens: Enllaços d'accés
         static_page_topics: Temes
         static_pages: Pàgines
         taxonomies: Taxonomies
@@ -655,8 +657,11 @@ ca:
             plural: Plural
         share_token:
           fields:
+            actions: Accions
             expires_at: Caduca el
+            registered_only: '¿Només per a usuàries registrades?'
             times_used: Cops utilitzat
+            token: Enllaç d'accés
         static_page:
           fields:
             created_at: Data de creació
@@ -963,7 +968,50 @@ ca:
           success: Àmbit actualitzat correctament
       share_tokens:
         actions:
+          confirm_destroy: Segur que vols eliminar aquest accés?
+          copy_link: Copiar l'enllaç
           destroy: Eliminar
+          edit: Editar
+          preview: Previsualitzar
+        create:
+          invalid: Hi ha hagut un problema en generar l'enllaç d'accés.
+          success: Enllaç d'accés creat correctament.
+        destroy:
+          error: S'ha produït un error en eliminar aquest enllaç d'accés.
+          success: Enllaç d'accés eliminat correctament.
+        edit:
+          title: 'Editar l''enllaç d''accés per a: %{name}'
+          update: Actualitzar
+        form:
+          automatic: Automàtic
+          custom: Personalitzat
+          custom_expiration: Caducitat personalitzada
+          custom_token: Paraula personalitzada
+          expires_at: Caduca el
+          'false': 'No'
+          never_expire: Mai
+          registered_only: '¿Només per a usuàries registrades?'
+          token: Clau d'accés
+          'true': 'Sí'
+        index:
+          back_to_share_tokens: Tornar als enllaços d'accés
+          copied: Enllaç d'accés copiat!
+          copy_message: S'ha copiat el text al porta-retalls correctament.
+          create_new_token: Crea el teu primer enllaç d'accés!
+          empty_html: No hi ha cap enllaç d'accés actiu. %{new_token_link}
+          never: Mai
+          new_share_token_button: Nou enllaç d'accés
+          share_tokens_help_html: |
+            Crea i comparteix un enllaç d'accés perquè altres persones puguin veure aquest recurs inèdit.
+            Els enllaços d'accés poden ser vàlids només per a les participants registrades o tenir una data de caducitat si cal.
+            Per compartir un enllaç d'accés nou amb algú, crea'l i, a continuació, copia l'enllaç fent servir la icona d'acció del «%{clipboard} porta-retalls».
+          title: 'Enllaços d''accés per a: %{name}'
+        new:
+          create: Crear
+          title: 'Nou enllaç d''accés per a: %{name}'
+        update:
+          error: S'ha produït un error en actualitzar aquest accés.
+          success: Enllaç d'accés actualitzat amb èxit.
       shared:
         adjacent_navigation:
           next: Següent
