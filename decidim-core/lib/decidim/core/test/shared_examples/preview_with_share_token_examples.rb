@@ -59,7 +59,9 @@ shared_examples "visit unpublished resource with a share token" do
         uri = URI(resource_path)
         uri.query = URI.encode_www_form(params.to_a)
         visit uri
-
+        # wait and reload to ensure the session is set
+        sleep 0.2
+        visit uri
         expect(page).to have_no_content "You are not authorized"
         expect(page).to have_current_path(resource_path, ignore_query: true)
       end
