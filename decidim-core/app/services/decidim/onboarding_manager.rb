@@ -44,8 +44,8 @@ module Decidim
       onboarding_action
     end
 
-    # Returns the translation of the action to be performed if found, action
-    # elsewhere
+    # Returns the translation of the action to be performed if translation
+    # is found, otherwise the untranslated literal action key
     #
     # Returns a string
     def action_text
