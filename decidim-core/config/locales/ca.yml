@@ -262,6 +262,13 @@ ca:
         create: "%{user_name} ha creat el tipus d'àmbit %{resource_name}"
         delete: "%{user_name} ha eliminat el tipus d'àmbit %{resource_name}"
         update: "%{user_name} ha actualitzat el tipus d'àmbit %{resource_name}"
+      share_token:
+        create: "%{user_name} ha creat un enllaç d'accés a %{space_name}"
+        create_with_space: "%{user_name} ha creat un enllaç d'accés per a %{resource_name} a %{space_name}"
+        delete: "%{user_name} ha eliminat un enllaç d'accés a %{space_name}"
+        delete_with_space: "%{user_name} ha eliminat un enllaç d'accés per a %{resource_name} a %{space_name}"
+        update: "%{user_name} ha actualitzat un enllaç d'accés a %{space_name}"
+        update_with_space: "%{user_name} ha actualitzat un enllaç d'accés per a %{resource_name} a %{space_name}"
       static_page:
         create: "%{user_name} ha creat la pàgina estàtica %{resource_name}"
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
