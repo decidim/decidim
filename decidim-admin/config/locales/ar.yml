@@ -47,7 +47,7 @@ ar:
         cta_button_path: مسار زر دعوة إلى العمل call to action
         cta_button_text: نص زر Call To Action
         customize_welcome_notification: تخصيص إشعار الترحيب
-        default_locale: اللغة إقليمية
+        default_locale: اللغة الافتراضية
         description: الوصف
         enable_omnipresent_banner: عرض لافتة في كل مكان
         enable_participatory_space_filters: تفعيل أختيارات فرز الفضاء التشاركي
@@ -509,6 +509,7 @@ ar:
             plural: جمع
         share_token:
           fields:
+            created_at: أنشئت في
             expires_at: تنتهي صلاحيته في
             token: رمز التشفير - Token
             user: تم الإنشاء بواسطة
