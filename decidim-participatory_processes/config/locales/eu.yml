@@ -409,7 +409,7 @@ eu:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help_html: 'URL testu laburrak erabiltzen dira prozesu honi aurre egiteko URLan sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+            slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatuak
