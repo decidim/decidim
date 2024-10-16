@@ -207,7 +207,7 @@ eu:
           description: Garaikur hau aurrez aurre egiten diren bileretara joaten zarenean ematen da.
           description_another: Parte-hartzaile honek %{score} topeketatan hartu du parte.
           description_own: '%{score} topaketatan hartu duzu parte.'
-          name: Parte hartu den topkaetak
+          name: Honekin lotutako topaketak
           next_level_in: '%{score} topaketa gehiago hurrengo mailara iristeko!'
           unearned_another: Parte-hartzaile honek oraindik ez du topaketa batean ere parte hartu.
           unearned_own: Oraindik ez zara topaketa batere ere joan.
@@ -305,7 +305,7 @@ eu:
           destroy:
             invalid:
               proposals_count:
-                one: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen duelako.
+                one: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen dituelako.
                 other: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen dituelako.
             success: Topaketa zuzen ezabatu da.
           edit:
