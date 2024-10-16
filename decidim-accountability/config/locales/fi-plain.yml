@@ -29,7 +29,7 @@ fi-pl:
       decidim:
         accountability:
           result:
-            budget_text: Tulos %{link} liitettiin hankkeeseen
+            budget_text: Tulos %{link} liitettiin projektiin
             meetings_ids: 'Tuloksesta keskusteltiin tapaamisessa: %{link}'
             project_ids: 'Tulos liitettiin hankkeeseen: %{link}'
             proposal_ids: 'Tulos liitettiin ehdotukseen: %{link}'
