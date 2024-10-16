@@ -379,6 +379,9 @@ sk:
           fields:
             name: Meno
             plural: Množné číslo
+        share_token:
+          fields:
+            created_at: Vytvorené
         static_page:
           fields:
             created_at: Vytvorené
