@@ -3,6 +3,8 @@
 module Decidim
   # It represents a member of the assembly (president, secretary, ...)
   # Can be linked to an existent user in the platform
+  #
+  # deprecated: This model is deprecated and will be removed in future versions.
   class AssemblyMember < ApplicationRecord
     include Decidim::Traceable
     include Decidim::Loggable
