@@ -984,8 +984,25 @@ de:
         form:
           automatic: Automatisch
           custom: Personalisiert
+          'false': 'Nein'
+          never_expire: Niemals
+          token: Zugangsschlüssel
+          'true': 'Ja'
+        index:
+          back_to_share_tokens: Zurück zu den Zugangslinks
+          copied: Zugangslink kopiert!
+          copy_message: Der Text wurde erfolgreich in die Zwischenablage kopiert.
+          create_new_token: Einen ersten Zugangslink erstellen!
+          empty_html: Keine aktiven Zugangslinks vorhanden. %{new_token_link}
+          never: Niemals
+          new_share_token_button: Neuer Zugangslink
+          title: 'Zugangslink für: %{name}'
         new:
           create: Erstellen
+          title: 'Neuer Zugangslink für: %{name}'
+        update:
+          error: Bei der Aktualisierung dieses Zugangs ist ein Problem aufgetreten.
+          success: Zugangslink erfolgreich aktualisiert.
       shared:
         adjacent_navigation:
           next: Weiter
