@@ -185,7 +185,6 @@ kaa:
       share_tokens:
         actions:
           destroy: Óshiriw
-          share: Bólisiw
       shared:
         gallery:
           add_images: Súwretlerdi qosıw
