@@ -133,14 +133,6 @@ In order to preserve the database integrity, you need to configure a system user
 bin/rails decidim:ai:spam:create_reporting_user
 ```
 
-=== Load the file training data
-
-In the new or small platforms is quite hard to have a training dataset of spam content. We provide some real life examples of spam data extracted by the contributors of the project. You can use the following command to load the data into your installation.
-
-```bash
-bin/rails decidim:ai:spam:load_module_dataset
-```
-
 === Load custom model
 
 In some cases, when you manage multiple installations, you may want to share the same model between them. You can use the following command to load a simple CSV.
