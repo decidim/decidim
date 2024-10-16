@@ -197,6 +197,7 @@ eu:
         reject: Ukatu
         send_me_a_test_email: Bidali probako posta elektronikoa
         share: Partekatu
+        share_tokens: Sarbide-estekak
         user:
           new: Beste administratzaile bat
         verify: Egiaztatu
@@ -598,6 +599,7 @@ eu:
         scopes: Esparruak
         see_site: Ikusi web-orria
         settings: Ezarpenak
+        share_tokens: Sarbide-estekak
         static_page_topics: Gaiak
         static_pages: Orriak
         taxonomies: Taxonomiak
@@ -655,8 +657,11 @@ eu:
             plural: Plurala
         share_token:
           fields:
+            actions: Ekintzak
             expires_at: Noiz iraungia
+            registered_only: Bakarrik erregistratuta?
             times_used: Erabilitako denbora
+            token: Sarbide-esteka
         static_page:
           fields:
             created_at: Noiz sortua
@@ -963,7 +968,50 @@ eu:
           success: Esparrua zuzen eguneratua
       share_tokens:
         actions:
+          confirm_destroy: Ziur zaude sarbide hau ezabatu nahi duzula?
+          copy_link: Kopiatu esteka
           destroy: Ezabatu
+          edit: Editatu
+          preview: Aurreikusi
+        create:
+          invalid: Arazo bat izan da sarbide-lotura sortzean.
+          success: Lotura zuzen sortua.
+        destroy:
+          error: Arazo bat izan da sarbide-lotura suntsitzean.
+          success: Sarbide-lotura zuzen suntsitua.
+        edit:
+          title: 'Editatu sarbide-estekak honetarako: %{name}'
+          update: Eguneratu
+        form:
+          automatic: Automatikoa
+          custom: Ohitura
+          custom_expiration: Ohituren iraungipena
+          custom_token: Ohiturazko hitza
+          expires_at: Noiz iraungia
+          'false': 'Ez'
+          never_expire: Inoiz ez
+          registered_only: Bakarrik erregistratuta?
+          token: Sarbide-gakoa
+          'true': 'Bai'
+        index:
+          back_to_share_tokens: Itzuli sarbide-esteketara
+          copied: Sarbide-esteka kopiatuta!
+          copy_message: Testua zuzen kopiatu da arbelean.
+          create_new_token: Sortu zure lehen esteka!
+          empty_html: Ez dago konexio aktiborik. %{new_token_link}
+          never: Inoiz ez
+          new_share_token_button: Sarbide-esteka berria
+          share_tokens_help_html: |
+            Sortu eta partekatu sarbide-esteka, besteek ikusi ahal izateko baliabide argitaragabe hau.
+            Sarbide-estekak erregistratutako parte-hartzaileentzat soilik izan daitezke baliozkoak, edo, beharrezkoa bada, iraungitze-data eduki dezakete.
+            Sarbide-lotura berri bat partekatzeko, sortu eta gero kopiatu esteka "%{clipboard}" ekintza-ikonoa erabiliz.
+          title: 'sarbide-estekak honentzat: %{name}'
+        new:
+          create: Sortu
+          title: 'Sarbide-esteka berria honentzat: %{name}'
+        update:
+          error: Arazo bat egon da sarbide hau eguneratzean.
+          success: Sarbide-esteka zuzen eguneratu da.
       shared:
         adjacent_navigation:
           next: Hurrengoa
