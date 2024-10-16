@@ -23,10 +23,6 @@ module Decidim
             super
           end
         end
-
-        def i18n_labels_scope
-          "activemodel.attributes.survey"
-        end
       end
     end
   end

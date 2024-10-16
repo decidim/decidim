@@ -16,7 +16,8 @@ module Decidim
               expect(Decidim.traceability).to receive(:perform_action!).with(
                 :publish,
                 survey,
-                current_user
+                current_user,
+                visibility: "all"
               ).and_call_original
 
               expect(command).to broadcast(:ok, survey)
