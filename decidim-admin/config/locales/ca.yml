@@ -655,12 +655,8 @@ ca:
             plural: Plural
         share_token:
           fields:
-            created_at: Creat el
             expires_at: Caduca el
-            last_used_at: Darrer cop que es va fer servir
             times_used: Cops utilitzat
-            token: Token
-            user: Creat per
         static_page:
           fields:
             created_at: Data de creació
@@ -967,16 +963,7 @@ ca:
           success: Àmbit actualitzat correctament
       share_tokens:
         actions:
-          confirm_destroy: Segur que vols eliminar aquest token?
           destroy: Eliminar
-          share: Compartir
-        destroy:
-          error: S'ha produït un error en eliminar aquest token.
-          success: El token s'ha eliminat correctament.
-        share_tokens:
-          empty: No hi ha tokens actius.
-          help: Aquests tokens s'utilitzen per a compartir públicament aquest recurs no publicat a qualsevol usuari. S'ocultaran quan es publiqui el recurs. Fes clic en la icona de compartir el token per a visitar la URL compartible.
-          title: Compartir tokens
       shared:
         adjacent_navigation:
           next: Següent
