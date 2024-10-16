@@ -68,7 +68,7 @@ module Decidim
     end
 
     # Public: hides the resource
-    def hide!
+    def hide!(send_notification: true)
       Decidim.traceability.perform_action!(
         "hide",
         moderation,
@@ -79,6 +79,24 @@ module Decidim
       ) do
         @reportable.moderation.update!(hidden_at: Time.current)
         @reportable.try(:touch)
+
+        hide_comments!
+        send_notification_to_author if send_notification
+      end
+    end
+
+    def hide_comments!
+      return unless reportable.is_a?(Decidim::Comments::Commentable)
+
+      reportable.comments.each do |comment|
+        tool = Decidim::ModerationTools.new(comment, @current_user)
+        unless Decidim::Report.where("decidim_moderation_id" => tool.moderation.id, "decidim_user_id" => @current_user.id).any?
+        tool.create_report!({
+                                reason: "parent_hidden",
+                                details: I18n.t("report_details", scope: "decidim.reports.parent_hidden")
+                            })
+        end
+        tool.hide!
       end
     end
 

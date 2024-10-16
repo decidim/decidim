@@ -59,6 +59,48 @@ shared_examples "higher user role hides" do
   end
 end
 
+shared_examples "higher user role hides resource with comments" do
+  context "and the admin hides a resource with comments" do
+    let!(:comment) { create(:comment, body: "Dummy comment", commentable: reportable, author: user) }
+
+    before do
+      login_as user, scope: :user
+    end
+    around do |example|
+      previous = Capybara.raise_server_errors
+
+      Capybara.raise_server_errors = false
+      example.run
+      Capybara.raise_server_errors = previous
+    end
+
+    it "reports the resource" do
+      visit decidim.search_path
+      expect(page).to have_content(translated(comment.body))
+
+      visit reportable_path
+
+      expect(page).to have_content(translated(comment.body))
+
+      find("#dropdown-trigger-resource-#{reportable.id}").click
+      expect(page).to have_css(%(button[data-dialog-open="flagModal"]))
+      find(%(button[data-dialog-open="flagModal"])).click
+      expect(page).to have_css(".flag-modal", visible: :visible)
+
+      within ".flag-modal" do
+        find(:css, "input[name='report[hide]']").set(true)
+        click_on "Hide"
+      end
+
+      expect(reportable.reload).to be_hidden
+      expect(comment.reload).to be_hidden
+
+      visit decidim.search_path
+      expect(page).not_to have_content(translated(comment.body))
+    end
+  end
+end
+
 shared_examples "higher user role does not have hide" do
   context "and the admin reports" do
     before do
@@ -124,6 +166,7 @@ shared_examples "reports by user type" do
     let!(:user) { create(:user, :admin, :confirmed, organization:) }
     include_examples "higher user role reports"
     include_examples "higher user role hides"
+    include_examples "higher user role hides resource with comments"
   end
   context "When reporting user is process admin" do
     let!(:user) { create(:process_admin, :confirmed, participatory_process:) }

@@ -5,7 +5,7 @@ module Decidim
   class Report < ApplicationRecord
     include Decidim::DownloadYourData
 
-    REASONS = %w(spam offensive does_not_belong hidden_during_block).freeze
+    REASONS = %w(spam offensive does_not_belong hidden_during_block parent_hidden).freeze
 
     belongs_to :moderation, foreign_key: "decidim_moderation_id", class_name: "Decidim::Moderation"
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"

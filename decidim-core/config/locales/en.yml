@@ -1488,6 +1488,8 @@ en:
       create:
         error: There was a problem creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+      parent_hidden:
+        report_details: The parent resource was hidden
     resource:
       controls_label: Resource controls
     resource_endorsements:
