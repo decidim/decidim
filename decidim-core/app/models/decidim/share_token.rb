@@ -24,10 +24,8 @@ module Decidim
     end
 
     def use!(user: nil)
-      puts "ShareToken#use! called with user: #{user} and token: #{token}"
       return raise StandardError, "Share token '#{token}' for '#{token_for_type}' with id = #{token_for_id} has expired." if expired?
 
-      puts "not allowed for registered users" if registered_only? && user.nil?
       return raise StandardError, "Share token '#{token}' for '#{token_for_type}' with id = #{token_for_id} requires a registered user." if registered_only? && user.nil?
 
       update!(times_used: times_used + 1, last_used_at: Time.zone.now)
