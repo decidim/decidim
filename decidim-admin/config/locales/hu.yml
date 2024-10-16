@@ -633,12 +633,8 @@ hu:
             plural: Plurális
         share_token:
           fields:
-            created_at: Létrehozva
             expires_at: Lejárat ekkor
-            last_used_at: Utoljára használva
             times_used: Ennyiszer volt használva
-            token: Token
-            user: Létrehozta
         static_page:
           fields:
             created_at: Létrehozva
@@ -939,16 +935,7 @@ hu:
           success: Hatáskör frissítése sikeres
       share_tokens:
         actions:
-          confirm_destroy: Biztosan törlöd ezt a tokent?
           destroy: Törlés
-          share: Megosztás
-        destroy:
-          error: Hiba történt a token törlése során.
-          success: A token törlése sikeres.
-        share_tokens:
-          empty: Nincsenek aktív tőkének.
-          help: Ezeket a tokeneket arra használják, hogy ezt a nem közzétett erőforrást nyilvánosan megosszák valamely felhasználóval. Az erőforrás közzétételekor elrejtésre kerülnek. Kattintson a token megosztási ikonjára a megosztható URL-cím megtekintéséhez.
-          title: Tokenek megosztása
       shared:
         gallery:
           add_images: Képek hozzáadása
