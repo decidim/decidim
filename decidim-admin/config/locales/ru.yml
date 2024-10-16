@@ -356,6 +356,9 @@ ru:
           fields:
             name: Имя
             plural: Множественное число
+        share_token:
+          fields:
+            created_at: 'Создано:'
         static_page:
           fields:
             created_at: 'Создано:'
