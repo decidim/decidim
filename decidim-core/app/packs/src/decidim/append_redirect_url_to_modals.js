@@ -53,32 +53,30 @@ $(() => {
   }
 
   $(document).on("click.zf.trigger", (event) => {
-    $(document).on("click.zf.trigger", (event) => {
-      // Try to get the <a> directly or find the closest parent <a>
-      let $target = $(event.target);
-      if (!$target.is('a')) {
-        $target = $target.closest('a'); // Find the closest parent <a> if the click is not directly on an <a>
+    // Try to get the <a> directly or find the closest parent <a>
+    let $target = $(event.target);
+    if (!$target.is('a')) {
+      $target = $target.closest('a'); // Find the closest parent <a> if the click is not directly on an <a>
+    }
+
+    // Check if an <a> was found
+    if ($target.length) {
+      const dialogTarget = `#${$target.data("dialog-open")}`;
+      const redirectUrl = $target.data("redirectUrl");
+
+      if (dialogTarget && redirectUrl) {
+        $("<input type='hidden' />")
+          .attr("id", "redirect_url")
+          .attr("name", "redirect_url")
+          .attr("value", redirectUrl)
+          .appendTo(`${dialogTarget} form`);
+
+        $(`${dialogTarget} a`).attr("href", (index, href) => {
+            const querystring = jQuery.param({"redirect_url": redirectUrl});
+            return href + (href.match(/\?/) ? "&" : "?") + querystring;
+        });
       }
-  
-      // Check if an <a> was found
-      if ($target.length) {
-        const dialogTarget = `#${$target.data("dialog-open")}`;
-        const redirectUrl = $target.data("redirectUrl");
-  
-        if (dialogTarget && redirectUrl) {
-          $("<input type='hidden' />")
-            .attr("id", "redirect_url")
-            .attr("name", "redirect_url")
-            .attr("value", redirectUrl)
-            .appendTo(`${dialogTarget} form`);
-  
-          $(`${dialogTarget} a`).attr("href", (index, href) => {
-              const querystring = jQuery.param({"redirect_url": redirectUrl});
-              return href + (href.match(/\?/) ? "&" : "?") + querystring;
-          });
-        }
-      }
-    });
+    }
   });
 
   $(document).on("closed.zf.reveal", (event) => {
