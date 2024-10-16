@@ -79,6 +79,7 @@ shared_examples "Endorse resource system specs" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
             click_on "Like"
+            expect(page).to have_button("Dislike")
             expect(page).to have_no_css('svg use[href*="ri-heart-fill"]')
           end
         end
@@ -98,8 +99,9 @@ shared_examples "Endorse resource system specs" do
         it "is able to undo the endorsement" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
-            click_on "Like"
+            click_on "Dislike"
             expect(page).to have_css('svg use[href*="ri-heart-line"]')
+            expect(page).to have_button("Like")
           end
         end
       end
@@ -144,7 +146,8 @@ shared_examples "Endorse resource system specs" do
             visit_resource
             within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
-              expect(page).to have_no_xpath('//svg//use[contains(@href, "ri-heart-fill")]')
+              expect(page).to have_button("Dislike")
+              expect(page).to have_xpath('//svg//use[contains(@href, "ri-heart-fill")]')
             end
           end
         end
@@ -177,6 +180,7 @@ shared_examples "Endorse resource system specs" do
             within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
               expect(page).to have_no_xpath('//svg//use[contains(@href, "ri-heart-fill")]')
+              expect(page).to have_button("Dislike")
             end
           end
         end
@@ -199,7 +203,7 @@ shared_examples "Endorse resource system specs" do
               click_on "Done"
             end
             visit_resource
-            click_on "Like"
+            click_on "Dislike"
           end
 
           context "when both identities picked" do
@@ -235,7 +239,7 @@ shared_examples "Endorse resource system specs" do
               page.all(".is-selected")[1].click
               click_on "Done"
               visit current_path
-              click_on "Like"
+              click_on "Dislike"
 
               within ".identities-modal__list" do
                 expect(page).to have_css(".is-selected", count: 1)

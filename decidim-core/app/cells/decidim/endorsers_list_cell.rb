@@ -21,10 +21,6 @@ module Decidim
       render
     end
 
-    def full_endorsers_list
-      render
-    end
-
     def endorsers_count
       base_relation.count
     end
