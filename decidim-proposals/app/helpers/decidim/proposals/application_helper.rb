@@ -144,6 +144,10 @@ module Decidim
         ).count
       end
 
+      def layout_item_classes
+        "layout-item lg:pt-4"
+      end
+
       def show_voting_rules?
         return false if !votes_enabled? || current_settings.votes_blocked?
 

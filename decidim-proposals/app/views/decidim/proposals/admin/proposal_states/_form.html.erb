@@ -52,7 +52,7 @@
           </strong>
         </div>
 
-        <div class="flash flex-col " style="<%= "background-color: #{form.object.bg_color}; color: #{form.object.text_color}; border-color: #{form.object.text_color} / var(--tw-border-opacity);" %>" data-announcement-preview>
+        <div class="flash flex-col" style="<%= "background-color: #{form.object.bg_color}; color: #{form.object.text_color}; border-color: #{form.object.text_color} / var(--tw-border-opacity);" %>" data-announcement-preview>
           <div class="flash__title">
             <%= decidim_escape_translated(form.object.announcement_title).presence || t(".preview") %>
           </div>
