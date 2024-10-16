@@ -31,16 +31,24 @@ describe "Download Open Data files", download: true do
 
     context "when the conference is unpublished" do
       let!(:conference) { create(:conference, :unpublished, organization:) }
-      let(:participatory_space_title) { translated_attribute(conference.title).gsub('"', '""') }
+      let(:resource_title) { translated_attribute(conference.title).gsub('"', '""') }
 
-      it_behaves_like "does not include it in the open data file"
+      it_behaves_like "does not include it in the open data ZIP file"
     end
 
     context "when the conference is published" do
       let!(:conference) { create(:conference, :published, organization:) }
-      let(:participatory_space_title) { translated_attribute(conference.title).gsub('"', '""') }
+      let(:resource_title) { translated_attribute(conference.title).gsub('"', '""') }
 
-      it_behaves_like "includes it in the open data file"
+      it_behaves_like "includes it in the open data ZIP file"
     end
+  end
+
+  describe "open data page" do
+    let(:resource_type) { "conferences" }
+    let!(:conference) { create(:conference, :published, organization:) }
+    let(:resource_title) { translated_attribute(conference.title).gsub('"', '""') }
+
+    it_behaves_like "includes it in the open data CSV file"
   end
 end
