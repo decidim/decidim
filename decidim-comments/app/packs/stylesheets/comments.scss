@@ -34,7 +34,7 @@
   @apply rounded-lg border-2 border-background p-3 pl-6;
 
   &__header {
-    @apply flex items-center gap-x-2 mb-2 -ml-10 relative;
+    @apply flex items-center gap-x-2 mb-2 relative;
 
     a[href^="/profile"] > span:first-child {
       @apply z-10;
@@ -42,6 +42,12 @@
 
     &--edited {
       @apply text-sm font-semibold;
+    }
+
+    & ~ [data-comment-footer] {
+      .comment__header {
+        @apply  -ml-10;
+      }
     }
   }
 
