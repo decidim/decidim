@@ -395,12 +395,8 @@ zh-CN:
             plural: 复数
         share_token:
           fields:
-            created_at: 创建于
             expires_at: 过期时间
-            last_used_at: 上次使用时间
             times_used: 使用的时间
-            token: 令牌
-            user: 创建者
         static_page:
           fields:
             created_at: 创建于
@@ -594,15 +590,7 @@ zh-CN:
           success: 范围已成功更新
       share_tokens:
         actions:
-          confirm_destroy: 您确定要删除此令牌吗？
           destroy: 删除
-          share: 分享
-        destroy:
-          error: 摧毁令牌时出现问题。
-          success: 令牌已成功销毁。
-        share_tokens:
-          help: 这些代币用于公开分享此未发布的资源给任何用户。 当资源发布时，它们将被隐藏。点击令牌的共享图标访问可共享的 URL。
-          title: 分享令牌
       shared:
         gallery:
           add_images: 添加图像
