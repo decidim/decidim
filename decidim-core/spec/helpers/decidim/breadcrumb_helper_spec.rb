@@ -26,6 +26,10 @@ module Decidim
 
       let(:participatory_process) { create(:participatory_process) }
 
+      before do
+        allow(helper).to receive(:current_organization).and_return(participatory_process.organization)
+      end
+
       it "renders a schema.org event" do
         keys = JSON.parse(subject).keys
         expect(keys).to include("@context")
