@@ -1,14 +1,26 @@
 # frozen_string_literal: true
 
 class MigrateAssemblyMembersToPrivateUsers < ActiveRecord::Migration[7.0]
+  class AssemblyMember < ApplicationRecord
+    self.table_name = :decidim_assembly_members
+  end
+
+  class ParticipatorySpacePrivateUser < ApplicationRecord
+    self.table_name = :decidim_participatory_space_private_users
+  end
+
   def up
-    ::Decidim::AssemblyMember.find_each do |assembly_member|
+    AssemblyMember.find_each do |assembly_member|
       next if assembly_member.ceased_date
-      next unless assembly_member.user
+      next unless assembly_member.decidim_user_id
 
-      attrs = { privatable_to: assembly_member.assembly, user: assembly_member.user }
+      attrs = {
+        privatable_to_id: assembly_member.decidim_assembly_id,
+        privatable_to_type: "Decidim::Assembly",
+        decidim_user_id: assembly_member.decidim_user_id
+      }
 
-      next if ::Decidim::ParticipatorySpacePrivateUser.find_by(attrs)
+      next if ParticipatorySpacePrivateUser.find_by(attrs)
 
       role = case assembly_member.position
              when "president"
@@ -23,7 +35,7 @@ class MigrateAssemblyMembersToPrivateUsers < ActiveRecord::Migration[7.0]
 
       Rails.logger.debug { "Migrating assembly member #{assembly_member.id} to private user" }
 
-      ::Decidim::ParticipatorySpacePrivateUser.create!(attrs.merge(role:))
+      ParticipatorySpacePrivateUser.create!(attrs.merge(role:))
     end
   end
 
