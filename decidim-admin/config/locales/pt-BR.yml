@@ -640,12 +640,8 @@ pt-BR:
             plural: Plural
         share_token:
           fields:
-            created_at: Criado em
             expires_at: Expira em
-            last_used_at: Última uso
             times_used: Tempo Usado
-            token: Token
-            user: Criado por
         static_page:
           fields:
             created_at: Criado em
@@ -950,16 +946,7 @@ pt-BR:
           success: Âmbito atualizado com sucesso
       share_tokens:
         actions:
-          confirm_destroy: Você tem certeza que quer excluir este token?
           destroy: Excluir
-          share: Compartilhar
-        destroy:
-          error: Houve um problema ao destruir o token.
-          success: Token excluído com sucesso.
-        share_tokens:
-          empty: Não há tokens ativos.
-          help: Esses tokens são usados para compartilhar publicamente esse recurso não publicado para qualquer usuário. Eles estarão ocultos quando o recurso estiver publicado. Clique no ícone de compartilhamento do token para visitar a URL compartilhável.
-          title: Compartilhar tokens
       shared:
         gallery:
           add_images: Adicione imagens
