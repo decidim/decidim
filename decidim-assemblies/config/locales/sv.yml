@@ -311,7 +311,7 @@ sv:
             existing_user: Befintlig deltagare
             explanation: 'Instruktioner för bild:'
             image_guide: Helst en porträttbild utan text.
-            non_user: Ej deltagande
+            non_user: Icke-deltagare
             non_user_avatar_help: Du bör få medgivande av personerna innan du lägger till dem som medlemmar.
             select_a_position: Välj en position
             select_user: Välj en deltagare
