@@ -197,6 +197,7 @@ de:
         reject: Ablehnen
         send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
+        share_tokens: Zugangslinks
         user:
           new: Neuer Administrator
         verify: Überprüfen
@@ -598,6 +599,7 @@ de:
         scopes: Bereiche
         see_site: Seite ansehen
         settings: Einstellungen
+        share_tokens: Zugangslinks
         static_page_topics: Themen
         static_pages: Seiten
         taxonomies: Taxonomien
@@ -655,8 +657,10 @@ de:
             plural: Plural
         share_token:
           fields:
+            actions: Aktionen
             expires_at: Läuft ab am
             times_used: Anzahl Anwendungen
+            token: Zugangslink
         static_page:
           fields:
             created_at: Erstellt am
@@ -963,7 +967,22 @@ de:
           success: Bereich wurde erfolgreich aktualisiert
       share_tokens:
         actions:
+          confirm_destroy: Sind Sie sicher, dass Sie diesen Zugang löschen wollen?
+          copy_link: Link kopieren
           destroy: Löschen
+          edit: Bearbeiten
+          preview: Vorschau
+        create:
+          invalid: Beim Erstellen des Zugangslinks ist ein Problem aufgetreten.
+          success: Zugangslink erfolgreich erstellt.
+        destroy:
+          error: Beim Löschen des Zugangslinks ist ein Problem aufgetreten.
+          success: Der Zugangslink wurde erfolgreich gelöscht.
+        edit:
+          title: 'Zugangslinks bearbeiten für: %{name}'
+          update: Aktualisieren
+        form:
+          automatic: Automatisch
       shared:
         adjacent_navigation:
           next: Weiter
