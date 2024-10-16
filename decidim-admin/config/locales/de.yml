@@ -983,6 +983,9 @@ de:
           update: Aktualisieren
         form:
           automatic: Automatisch
+          custom: Personalisiert
+        new:
+          create: Erstellen
       shared:
         adjacent_navigation:
           next: Weiter
