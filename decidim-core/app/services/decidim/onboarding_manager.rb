@@ -106,7 +106,7 @@ module Decidim
     # Returns the resource title associated to the action. If the model is defined
     # its title is used, if not the permissions holder title
     #
-    # Returns a Hash
+    # Returns a translations Hash or a String
     def model_title
       return unless valid?
 
