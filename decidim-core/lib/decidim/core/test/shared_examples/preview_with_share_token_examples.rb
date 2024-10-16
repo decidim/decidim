@@ -46,24 +46,22 @@ shared_examples "visit unpublished resource with a share token" do
     end
 
     context "when the token requires the user to be registered" do
-      let(:share_token) { create(:share_token, :with_token, token_for: resource, registered_only: true) }
+      let!(:share_token) { create(:share_token, :with_token, token_for: resource, registered_only: true) }
+      let!(:user) { create(:user, :confirmed, organization:) }
 
       it "does not allow visiting resource" do
         expect(page).to have_content "You are not authorized"
         expect(page).to have_no_current_path(resource_path, ignore_query: true)
       end
 
-      context "when a user is logged" do
-        let(:user) { create(:user, :confirmed, organization:) }
+      it "allows visiting resource to logged users" do
+        login_as user, scope: :user
+        uri = URI(resource_path)
+        uri.query = URI.encode_www_form(params.to_a)
+        visit uri
 
-        it "allows visiting resource" do
-          login_as user, scope: :user
-          uri = URI(resource_path)
-          uri.query = URI.encode_www_form(params.to_a)
-          visit uri
-          expect(page).to have_no_content "You are not authorized"
-          expect(page).to have_current_path(resource_path, ignore_query: true)
-        end
+        expect(page).to have_no_content "You are not authorized"
+        expect(page).to have_current_path(resource_path, ignore_query: true)
       end
     end
   end
