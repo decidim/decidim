@@ -473,6 +473,8 @@ fi:
           name: Tärkeimmät konferenssit
       index:
         title: Konferenssit
+      last_activity:
+        new_conference: 'Uusi konferenssi:'
       mailer:
         conference_registration_mailer:
           confirmation:

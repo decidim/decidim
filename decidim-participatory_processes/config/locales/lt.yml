@@ -175,7 +175,6 @@ lt:
           title: Dubliuoti dalyvaujamąjį procesą
       participatory_process_groups:
         destroy:
-          error: Naikinant Dalyvaujamojo proceso grupę įvyko klaida.
           success: Dalyvaujamojo proceso grupė pašalinta.
         edit:
           title: Keisti procesų grupę
@@ -432,8 +431,6 @@ lt:
           name: Susiję procesai
       index:
         title: Dalyvaujamieji procesai
-      last_activity:
-        new_participatory_process: Naujas dalyvaujamasis procesas
       pages:
         home:
           highlighted_processes:

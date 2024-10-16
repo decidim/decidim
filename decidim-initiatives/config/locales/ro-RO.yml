@@ -218,6 +218,10 @@ ro:
         exports:
           initiatives: Inițiative
         initiatives:
+          accept:
+            success: Inițiativa a fost acceptată cu succes.
+          discard:
+            success: Inițiativa a fost anulată cu succes.
           edit:
             accept: Acceptă inițiativa
             confirm: Sigur dorești asta?
@@ -240,8 +244,13 @@ ro:
             edit: Editare
             new: Nou
             photos: Poze
+          publish:
+            success: Inițiativa a fost publicată cu succes.
+          reject:
+            success: Inițiativa a fost respinsă.
+          unpublish:
+            success: Inițiativa a fost ascunsă cu succes.
           update:
-            error: A apărut o eroare.
             success: Inițiativa a fost actualizată cu succes.
         initiatives_settings:
           edit:
@@ -254,7 +263,6 @@ ro:
             title: Setări pentru inițiative
         initiatives_type_scopes:
           create:
-            error: A apărut o eroare.
             success: A fost creat un nou domeniu de interes pentru un anumit tip de inițiativă.
           destroy:
             success: Domeniul de interes a fost eliminat cu succes.
@@ -265,7 +273,6 @@ ro:
             create: Creează
             title: Creează tipul domeniului pentru inițiative
           update:
-            error: A apărut o eroare.
             success: Domeniul de interes a fost actualizat cu succes.
         initiatives_types:
           edit:

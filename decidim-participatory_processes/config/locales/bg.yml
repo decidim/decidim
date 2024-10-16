@@ -175,7 +175,6 @@ bg:
           title: Дублиране на процеси на участие
       participatory_process_groups:
         destroy:
-          error: Възникна грешка при премахването на групата на процеса на участие.
           success: Групата на процеса на участие беше изтрита успешно.
         edit:
           title: Редактиране на групата на процеса
@@ -446,8 +445,6 @@ bg:
           name: Свързани процеси
       index:
         title: Процеси на участие
-      last_activity:
-        new_participatory_process: Нов процес на участие
       pages:
         home:
           highlighted_processes:

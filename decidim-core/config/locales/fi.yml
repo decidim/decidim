@@ -19,6 +19,8 @@ fi:
         body: Viestin teksti
       report:
         details: Lisätiedot
+      taxonomy:
+        name: Luokittelun nimi
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
@@ -62,6 +64,10 @@ fi:
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
     models:
+      decidim:
+        history:
+          one: Historia
+          other: Historia
       decidim/amendment:
         one: muutos
         other: Muutokset
@@ -260,6 +266,20 @@ fi:
         create: "%{user_name} loi staattisen sivun %{resource_name}"
         delete: "%{user_name} poisti staattisen sivun %{resource_name}"
         update: "%{user_name} päivitti staattista sivua %{resource_name}"
+      taxonomy:
+        create: "%{user_name} loi luokittelun %{resource_name}"
+        create_with_parent: "%{user_name} loi kohteen %{resource_name} luokittelun %{parent_taxonomy} alle"
+        delete: "%{user_name} poisti luokittelun %{resource_name}"
+        delete_with_parent: "%{user_name} poisti kohteen %{resource_name} luokittelun %{parent_taxonomy} alta"
+        update: "%{user_name} päivitti luokittelua %{resource_name}"
+        update_with_parent: "%{user_name} päivitti kohdetta %{resource_name} luokittelun %{parent_taxonomy} alla"
+      taxonomy_filter:
+        create: "%{user_name} loi suodattimen luokittelulle %{resource_name}"
+        create_with_filter_items_count: "%{user_name} loi suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
+        delete: "%{user_name} poisti suodattimen luokittelulle %{resource_name}"
+        delete_with_filter_items_count: "%{user_name} poisti suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
+        update: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}"
+        update_with_filter_items_count: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
@@ -284,11 +304,11 @@ fi:
       dismiss: Piilota ilmoitus
     amendments:
       accepted:
-        error: Muutoksen hyväksyntä epäonnistui.
+        error: Muutoksen hyväksyminen epäonnistui.
         success: Muutoksen hyväksyntä onnistui.
       amendable:
         button: Muuta %{model_name}
-        error: Tämän resurssin muutoksen tallennus epäonnistui.
+        error: Kohteen muuttamisessa tapahtui virhe.
         promote_button: Korosta kohteeksi %{model_name}
         promote_confirm_text: Haluatko varmasti korostaa tätä muutosta?
         promote_help_text: Voit korostaa tämän muutoksen ja julkaista sen itsenäisenä kohteena %{model_name}.
@@ -297,7 +317,7 @@ fi:
           one: "%{count} muutos"
           other: "%{count} muutosta"
       created:
-        error: Muutosluonnoksen lisäys epäonnistui.
+        error: Muutoksen luonti epäonnistui.
         success: Muutosluonnoksen lisäys onnistui.
       destroy_draft:
         error: Muutosluonnoksen poisto epäonnistui.
@@ -339,7 +359,7 @@ fi:
         error: Muutoksen julkaisu epäonnistui.
         success: Muutoksen julkaisu onnistui.
       rejected:
-        error: Muutoksen hylkääminen epäonnistui, yritä myöhemmin uudelleen.
+        error: Muutoksen hylkääminen epäonnistui, yritä myöhemmin uudestaan.
         success: Muutos on hylätty.
       review:
         back: Takaisin
@@ -430,7 +450,7 @@ fi:
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee vahvistaa tilisi palvelulla "%{authorization}".
           title: Vahvistus vaaditaan
         ok:
-          title: Sinut on vahvistettu sen aikana, kun olet ollut tällä sivulla. Lataa sivu uudelleen suorittaaksesi toiminnon, jota yritit suorittaa.
+          title: Sinut on vahvistettu sen aikana, kun olet ollut tällä sivulla. Lataa sivu uudestaan suorittaaksesi toiminnon, jota yritit suorittaa.
         pending:
           explanation: Tämän toiminnon suorittamiseksi sinun vahvistettava itsesi palvelulla "%{authorization}", mutta vahvistuksesi on edelleen kesken.
           resume: Tarkista "%{authorization}" vahvistuksen eteneminen.
@@ -587,6 +607,9 @@ fi:
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi tilisi luonnin
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
+        new_tos_fields:
+          sign_up: Luo tili
+          sign_up_title: Viimeistele tilin luominen
       registrations:
         create:
           error: Käyttäjätilin luonti epäonnistui.
@@ -680,7 +703,7 @@ fi:
         reference: Viite
         request_method: Pyynnön metodi
         title: Palvelimellamme tapahtui virhe
-        try_later: Yritä myöhemmin uudelleen. Jos ongelma jatkuu, kopioi seuraavat tiedot ja lähetä ne alustan ylläpitäjille. Halutessasi voit liittää mukaan myös mitä tahansa muuta tietoa, mitä haluat jakaa.
+        try_later: Yritä myöhemmin uudestaan. Jos ongelma jatkuu, kopioi seuraavat tiedot ja lähetä ne alustan ylläpitäjille. Halutessasi voit liittää mukaan myös mitä tahansa muuta tietoa, mitä haluat jakaa.
         unknown: Ei tiedossa
         url: URL
         user: Käyttäjän ID
@@ -692,57 +715,57 @@ fi:
       amendments:
         amendment_accepted:
           affected_user:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Voit tutustua siihen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hyväksytty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hyväksyttiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Voit tutustua siihen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hyväksytty. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hyväksytty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hyväksyttiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
         amendment_created:
           affected_user:
-            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Voit tutustua siihen tältä sivulta:'
+            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
             email_subject: Uusi muutos kohteelle %{amendable_title}
             notification_title: Kohteelle <a href="%{amendable_path}">%{amendable_title}</a> luotiin uusi muutos.
           follower:
-            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Voit tutustua siihen tältä sivulta:'
+            email_intro: 'Uusi muutos on luotu kohteelle %{amendable_title}. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Uusi muutos %{amendable_title}
             notification_title: Kohteelle <a href="%{amendable_path}">%{amendable_title}</a> luotiin uusi muutos.
         amendment_promoted:
           affected_user:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Voit tutustua siihen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
             email_subject: Käyttäjän %{emendation_author_nickname} laatima muutos on julkaistu uutena %{amendable_type} -kohteena
             notification_title: <a href="%{emendation_path}">Hylätty muutos</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> on julkaistu uutena %{amendable_type} -kohteena käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> toimesta.
           follower:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Voit tutustua siihen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on julkaistu uutena kohteena %{amendable_type}. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Muutos %{emendation_author_nickname} on julkaistu uutena %{amendable_type} -kohteena
             notification_title: <a href="%{emendation_path}">Hylätty muutos</a> kohteelle <a href="%{amendable_path}">%{amendable_title}</a> on julkaistu uutena %{amendable_type} -kohteena käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> toimesta.
         amendment_rejected:
           affected_user:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Voit tutustua siihen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet luonut kohteen %{amendable_title}.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
-            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Voit tutustua siihen tältä sivulta:'
+            email_intro: 'Kohdetta %{amendable_title} koskeva muutos on hylätty. Voit tutustua siihen sivulta:'
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{amendable_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
             email_subject: Kohdetta %{amendable_title} koskeva muutos on hylätty käyttäjältä %{emendation_author_nickname}
             notification_title: Käyttäjän <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> luoma <a href="%{emendation_path}">muutos</a> hylättiin kohteelle <a href="%{amendable_path}">%{amendable_title}</a>.
       attachments:
         attachment_created:
-          email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit tutustua siihen tältä sivulta:'
+          email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit tutustua siihen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{resource_title}
           notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'Osio %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Voit tutustua siihen tältä sivulta:'
+          email_intro: 'Osio %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Voit tutustua siihen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
           notification_title: Osio %{resource_title} on nyt aktiivinen kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
@@ -925,7 +948,7 @@ fi:
           title_required: Tiedosto-otsikko tarvitaan!
           uploaded: Ladattu
           validating: Validoidaan...
-          validation_error: Validointivirhe!
+          validation_error: Virhe tiedoston tarkastamisessa! Varmista, että tiedostopääte ja tiedoston koko vastaavat palvelun asettamia rajoituksia.
         select_file: Valitse tiedosto
       upload_help:
         dropzone: Pudota tiedostot tähän tai paina viereistä nappia ladataksesi tiedostoja
@@ -958,7 +981,7 @@ fi:
         demote_admin: Poista ylläpitäjä
       demote:
         error: Osallistujan poistaminen hallintakäyttäjien luettelosta epäonnistui.
-        success: Osallistuja poistettiin hallintakäyttäjien luettelosta onnistuneesti.
+        success: Osallistujan poistaminen hallintakäyttäjien luettelosta onnistui.
       index:
         current_admins: 'Nykyiset ylläpitäjät:'
         manage_admins: Hallinnoi ylläpitäjiä
@@ -1083,6 +1106,8 @@ fi:
           not_found: 'Teemaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Luokittelua ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Käyttäjän hallintaistunto on vanhentunut.
     map:
@@ -1141,7 +1166,7 @@ fi:
           no_results: Ei tuloksia
           participant_with_disabled_message_reception: Tämä käyttäjä ei halua vastaanottaa yksityisiä viestejä.
         create:
-          error: Keskustelun aloittaminen epäonnistui. Yritä myöhemmin uudelleen.
+          error: Keskustelun aloittaminen epäonnistui. Yritä myöhemmin uudestaan.
         error_modal:
           close: Sulje ikkuna
           correct_errors: Korjaa virheet ja yritä uudestaan.
@@ -1165,7 +1190,7 @@ fi:
           placeholder: Viestisi...
           send: Lähetä
         update:
-          error: Viestiä ei voitu lähettää. Yritä myöhemmin uudelleen.
+          error: Viestiä ei voitu lähettää. Yritä myöhemmin uudestaan.
     metadata:
       progress:
         active: Aktiiviset
@@ -1288,10 +1313,10 @@ fi:
       name: Offline
       show:
         message_1: Verkkoyhteytesi näyttää olevan poissa käytöstä tällä hetkellä.
-        message_2: Yritä myöhemmin uudelleen.
+        message_2: Yritä myöhemmin uudestaan.
         retry: Yritä uudestaan
     open_data:
-      not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
+      not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudestaan muutaman minuutin kuluttua.
     pad_iframe:
       disclaimer: Tämän muistion sisällön ovat kirjoittaneet alustan rekisteröityneet käyttäjät, jotka ilmaisevat omia mielipiteitään. %{organization} ei ole vastuussa sisällöstä.
       explanation: Tällä muistiolla voitte yhdessä tehdä muistiinpanoja tapaamisen aikana, jotta pöytäkirjan kirjoittaminen sen jälkeen olisi helpompaa.
@@ -1385,7 +1410,7 @@ fi:
           manage_user_group_admins: Hallinnoi ylläpitäjiä
           manage_user_group_users: Hallinnoi jäseniä
           message: Viesti
-          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
+          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
         create_user_group: Luo ryhmä
         edit_profile: Muokkaa profiilia
@@ -1396,7 +1421,7 @@ fi:
         leave_user_group: Poistu ryhmästä
         manage_user_group_admins: Hallinnoi ylläpitäjiä
         manage_user_group_users: Hallinnoi jäseniä
-        resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
+        resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -1418,11 +1443,13 @@ fi:
         subject: Resurssi on ilmoitettu
     reports:
       create:
-        error: Raportin luonti epäonnistui. Yritä uudestaan.
+        error: Ilmoituksen luonti epäonnistui. Yritä uudestaan.
         success: Ilmoituksen luonti onnistui. Hallintakäyttäjä tarkastaa sen.
+    resource:
+      controls_label: Kohteen hallintatoiminnot
     resource_endorsements:
       create:
-        error: Suosituksen antaminen ei onnistunut.
+        error: Suosituksen antaminen epäonnistui.
     scopes:
       global: Yleinen teema
       picker:
@@ -1465,6 +1492,7 @@ fi:
         close_modal: Sulje ikkuna
         ok: OK
         title: Vahvista
+      confirm_unload: Sinulla on tallentamattomia muutoksia. Oletko varma, että haluat poistua tältä sivulta?
       embed:
         title: Upotettu videosisältö
       extended_navigation_bar:
@@ -1542,6 +1570,8 @@ fi:
     tags:
       filter_results_for_category: 'Rajaa tulokset aihepiirin mukaan: %{resource}'
       filter_results_for_scope: 'Rajaa tulokset teeman mukaan: %{resource}'
+    taxonomies:
+      prompt: Valitse kohteesta "%{name}"
     translation_bar:
       help_text: "<strong>Varoitus:</strong> Sisältö saatetaan kääntää automaattisesti eikä koneelliset käännökset ole 100% tarkkoja."
       show_original: Näytä alkuperäinen teksti
@@ -1563,7 +1593,7 @@ fi:
         placeholder: Vastauksesi...
         send: Lähetä
       update:
-        error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
+        error: Viestiä ei lähetetty. Yritä myöhemmin uudestaan
     user_interests:
       show:
         my_interests: Omat kiinnostuksen kohteet
@@ -1617,7 +1647,7 @@ fi:
     confirmations:
       confirmed: Sähköpostiosoitteesi on vahvistettu.
       new:
-        resend_confirmation_instructions: Lähetä vahvistusohjeet uudelleen
+        resend_confirmation_instructions: Lähetä vahvistusohjeet uudestaan
       send_instructions: Saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen.
       send_paranoid_instructions: Jos sähköpostiosoitteesi on tietokannassamme, saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen.
     failure:
@@ -1695,8 +1725,9 @@ fi:
         message: Tilisi on lukittu liian monen epäonnistuneen kirjautumisyrityksen vuoksi.
         subject: Avaa ohjeet
     omniauth_callbacks:
+      add_tos_errors: Tilin luominen edellyttää käyttöehtojen hyväksyntää.
       failure: Sisäänkirjautuminen epäonnistui palvelulla %{kind} koska "%{reason}".
-      success: Kirjauduit onnistuneesti sisään %{kind} -tilillä.
+      success: Sisäänkirjautuminen onnistui %{kind} -tilillä.
     passwords:
       edit:
         change_my_password: Vaihda salasanani
@@ -1715,7 +1746,7 @@ fi:
       updated: Salasanasi vaihtaminen onnistui. Olet nyt kirjautunut sisään.
       updated_not_active: Salasanasi vaihtaminen onnistui.
     registrations:
-      destroyed: Tilisi poistaminen onnistui. Toivomme näkevämme sinut pian uudelleen.
+      destroyed: Tilisi poistaminen onnistui. Toivomme näkevämme sinut pian uudestaan.
       new:
         sign_up: Luo tili
       signed_up: Tervetuloa! Sisäänkirjautuminen onnistui.
@@ -1744,7 +1775,7 @@ fi:
         other: "(vähintään %{count} merkkiä)"
     unlocks:
       new:
-        resend_unlock_instructions: Lähetä uudelleen ohjeet tilin lukituksen poistoon
+        resend_unlock_instructions: Lähetä uudestaan ohjeet tilin lukituksen poistoon
       send_instructions: Saat muutaman minuutin kuluessa sähköpostiviestin, jossa on ohjeet tilin lukituksen poistoon.
       send_paranoid_instructions: Jos tilisi on olemassa, saat muutaman minuutin kuluessa sähköpostiisi ohjeet tilin lukituksen poistoon.
       unlocked: Tilisi lukitus on poistettu. Jatka kirjautumalla sisään.
@@ -1838,7 +1869,7 @@ fi:
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
-      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudelleen
+      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudestaan
       blank: ei voi olla tyhjä
       cannot_be_blank: ei voi olla tyhjä
       confirmation: ei täsmää kentän %{attribute} kanssa
@@ -1855,12 +1886,12 @@ fi:
       not_found: ei löytynyt. Oletko luonut tilin aikaisemmin?
       not_locked: ei lukittu
       not_saved:
-        one: 'Virhe käsiteltäessä pyyntöä:'
-        other: 'Virheitä käsiteltäessä pyyntöä:'
+        one: 'Pyyntösi käsittelyssä tapahtui virhe:'
+        other: 'Pyyntösi käsittelyssä tapahtui virheitä:'
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle %{count} merkkiä)
-      url_format: Tämä URL-osoite on väärässä muodossa
+      url_format: Tämä URL-osoite on väärän muotoinen
   forms:
     correct_errors: Lomakkeella on virheitä, korjaa ne jatkaaksesi.
     length_validator:

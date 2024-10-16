@@ -18,6 +18,7 @@ fr-CA:
         automatic_hashtags: Hashtags ajoutés automatiquement
         body: Corps du texte
         category_id: Catégorie
+        decidim_proposals_proposal_state_id: État
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
         scope_id: Périmètre d'application
@@ -170,7 +171,7 @@ fr-CA:
               random: Aléatoire
               recent: Les plus récents
               with_more_authors: Avec le plus d'auteurs
-            geocoding_enabled: Géocodage activé
+            geocoding_enabled: Cartes activées
             minimum_votes_per_user: Nombre minimum de votes par utilisateur
             new_proposal_body_template: Modèle de corps d'une nouvelle proposition
             new_proposal_body_template_help: Vous pouvez définir le texte prérempli que les nouvelles propositions auront
@@ -232,14 +233,40 @@ fr-CA:
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: Vous avez été ajouté en tant que co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         admin:
           proposal_assigned_to_valuator:
             email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
             email_subject: Vous avez été assigné en tant qu'évaluateur à la proposition %{resource_title}.
             notification_title: Vous avez été assigné en tant qu'évaluateur à la proposition <a href="%{resource_path}">%{resource_title}</a>. Jetez-y un œil sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
           proposal_note_created:
+            email_intro: '%{author_name} a créé une note privée dans %{resource_title}. Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d''administration</a>.'
             email_outro: Vous avez reçu cette notification car vous pouvez évaluer la proposition.
             email_subject: Quelqu'un a laissé une note sur la proposition %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a créé une note privée dans <a href="%{resource_path}">%{resource_title}</a>. Consultez-la sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
+          proposal_note_mentioned:
+            email_intro: Vous avez été mentionné(e) dans une note privée dans «%{resource_title}» par «%{author_name}» «%{author_nickname}». Jetez-y un coup d'œil dans <a href="%{admin_proposal_info_url}">le panneau d'administration</a>.
+            email_outro: Vous avez reçu cette notification parce que vous avez été mentionné(e) dans une note privée.
+            email_subject: Quelqu'un vous a mentionné(e) dans une note sur la proposition %{resource_title}.
+            notification_title: Vous avez été mentionné(e) dans une note privée dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a>. Jetez-y un coup d'œil dans <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
+          proposal_note_replied:
+            email_intro: '%{author_name} a répondu à votre note privée dans %{resource_title}. Consultez-la sur <a href="%{admin_proposal_info_url}">le panneau d''administration</a>.'
+            email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur/autrice de la note.
+            email_subject: "%{author_name} a répondu à votre note privée dans %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a répondu à votre note privée dans <a href="%{resource_path}">%{resource_title}</a>. Consultez-la sur <a href="%{admin_proposal_info_path}">le panneau d'administration</a>.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> a accepté votre invitation à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
+        coauthor_invited:
+          actions:
+            accept: Accepter
+            decline: Refuser
+          email_intro: 'Vous avez été invité à être co-auteur de la proposition "%{resource_title}". Vous pouvez accepter ou refuser l''invitation sur cette page :'
+          email_outro: Vous avez reçu cette notification parce que l'auteur de la proposition veut reconnaître vos contributions en devenant co-auteur.
+          email_subject: Vous avez été invité à être co-auteur de la proposition «%{resource_title}»
+          notification_title: <a href="%{author_path}">%{author_name}</a> aimerait vous invitater à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> a refusé votre invitation à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} a été accepté en tant que contributeur du brouillon collaboratif <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Vous avez reçu cette notification car vous êtes collaborateur de <a href="%{resource_url}">%{resource_title}</a>. Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
@@ -317,6 +344,8 @@ fr-CA:
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
           email_subject: La portée de la proposition %{resource_title} a été mise à jour
           notification_title: La portée de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
+        rejected_coauthorship:
+          notification_title: Vous avez refusé l'invitation de <a href="%{author_path}">%{author_name}</a> à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
           email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
@@ -381,11 +410,15 @@ fr-CA:
     proposals:
       actions:
         answer_proposal: Répondre à la proposition
+        cancel_coauthor_invitation: Annuler l'invitation du co-auteur
+        cancel_coauthor_invitation_confirm: Êtes-vous sûr(e) de vouloir annuler l'invitation du co-auteur?
         delete_proposal_state_confirm: Etes-vous sûr(e) de vouloir supprimer cet état?
         destroy: Supprimer l'état
         edit_proposal: Modifier la proposition
         edit_proposal_state: Modifier l'état
         import: Importer depuis une autre fonctionnalité
+        mark_as_coauthor: Marquer comme co-auteur
+        mark_as_coauthor_confirm: Êtes-vous sûr(e) de vouloir marquer ce participant comme co-auteur ? Le destinataire recevra une notification pour accepter ou refuser l'invitation.
         new: Nouvelle proposition
         new_proposal_state: Nouvel état
         participatory_texts: Textes participatifs
@@ -474,6 +507,9 @@ fr-CA:
           form:
             note: Remarque
             submit: Soumettre
+          reply:
+            error: Il y a eu un problème lors de la création de la réponse à cette note de proposition.
+            success: La réponse à la note de proposition a été créée avec succès.
           title: Notes privées
         proposal_states:
           create:
@@ -496,10 +532,10 @@ fr-CA:
             success: Etat mis à jour avec succès
         proposals:
           answer:
-            invalid: Il y a eu un problème lors de la réponse à cette proposition.
+            invalid: Une erreur s'est produite lors de la réponse à cette proposition.
             success: La réponse à la proposition a publiée avec succès.
           create:
-            invalid: Il y a eu un problème lors de la création de cette proposition.
+            invalid: Une erreur s'est produite lors de la création de cette proposition.
             success: Proposition créée avec succès.
           edit:
             title: Mise à jour de la proposition
@@ -579,18 +615,18 @@ fr-CA:
             title: Importer des propositions depuis une autre fonctionnalité
         proposals_merges:
           create:
-            invalid: 'Une erreur est survenue lors de la fusion des propositions à cause de certaines d''entre elles:'
+            invalid: 'Une erreur s''est produite lors de la fusion des propositions à cause de certaines d''entre elles:'
             success: A fusionné avec succès les propositions dans un nouveau.
         proposals_splits:
           create:
-            invalid: 'Une erreur est survenue lors de la division des propositions sélectionnées à cause de certaines d''entre elles:'
+            invalid: 'Une erreur s''est produite lors du fractionnement des propositions sélectionnées à cause de certaines d''entre elles:'
             success: Divisé avec succès les propositions en nouvelles.
         valuation_assignments:
           create:
             invalid: Une erreur s'est produite lors de l'affectation des propositions à un évaluateur.
             success: Propositions assignées à un évaluateur avec succès.
           delete:
-            invalid: Il y a eu une erreur lors de la désassignation des propositions d'un évaluateur.
+            invalid: Une erreur s'est produite lors de la désassignation des propositions d'un évaluateur.
             success: Evaluateur désaffecté aux propositions avec succès.
       admin_log:
         proposal:
@@ -732,6 +768,19 @@ fr-CA:
       destroy_draft:
         error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
         success: Le brouillon de la proposition a bien été supprimé.
+      invite_coauthors:
+        cancel:
+          error: Une erreur s'est produite lors de l'annulation de l'invitation du co-auteur.
+          success: Invitation de co-auteur annulée avec succès.
+        create:
+          error: Une erreur s'est produite lors de l'invitation du co-auteur.
+          success: "%{author_name} a été invité en tant que co-auteur."
+        destroy:
+          error: Une erreur s'est produite lors du refus de l'invitation.
+          success: L'invitation a été refusée.
+        update:
+          error: Une erreur s'est produite lors de l'acceptation de cette invitation.
+          success: L'invitation a été acceptée.
       last_activity:
         new_proposal: 'Nouvelle proposition :'
         proposal_updated: 'Proposition mise à jour :'
@@ -780,7 +829,7 @@ fr-CA:
           discard: Supprimer ce brouillon
           discard_confirmation: Êtes-vous sûr de vouloir supprimer le brouillon de votre proposition ?
           send: Aperçu
-          title: Modifier le brouillon de votre proposition
+          title: Modifier le brouillon de la proposition
         edit_form_fields:
           marker_added: Marqueur ajouté à la carte.
         filters:

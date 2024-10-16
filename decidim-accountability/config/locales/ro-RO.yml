@@ -7,11 +7,9 @@ ro:
         decidim_scope_id: Domeniu de interes
         description: Descriere
         end_date: Data de sfârșit
-        meetings_ids: Inclusiv ședințele
         progress: Progres
-        project_ids: Proiecte incluse
-        proposals: Propuneri incluse
         start_date: Data de început
+        subresults: Subrezultate
         title: Titlu
         updated_at: Ultima actualizare
       status:
@@ -56,6 +54,7 @@ ro:
           new:
             download_export: Descărcați Exportul în format CSV
             import: Importați
+            title: Importați rezultate dintr-un fișier CSV
         imports:
           create:
             invalid: A apărut o problemă la importul rezultatelor.
@@ -73,7 +72,7 @@ ro:
             new_items:
               one: 1 proiect selectat va fi importat
               few: "Proiectele selectate vor fi importate"
-              other: "Cele %{count} proiecte vor fi importate"
+              other: "Cele %{count} proiecte selectate vor fi importate"
             origin_component_id: Componenta de origine
             select_component: Selectați componenta
             success:
@@ -175,11 +174,11 @@ ro:
           fields:
             category: Categorie
             created_at: Creat
-            end_date: Dată de sfârșit
+            end_date: Data de sfârșit
             id: ID
             progress: Progres
             scope: Domeniu de interes
-            start_date: Dată de începere
+            start_date: Data de început
             status: Stare
             title: Titlu
         status:
@@ -203,7 +202,7 @@ ro:
         home:
           categories_label: Categorii
           empty: Nu există rezultate încă.
-          empty_filters: Nu există rezultate cu acest criteriu.
+          empty_filters: Nu există rezultate pentru acest criteriu.
           subcategories_label: Subcategorii
         home_header:
           global_status: Stare execuție globală
@@ -234,7 +233,7 @@ ro:
         settings:
           global:
             comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (Leave 0 pentru valoarea implicită)
+            comments_max_length: Lungimea maximă a comentariilor (Lăsați 0 pentru valoarea implicită)
             display_progress_enabled: Afișare progres
             intro: Introducere
             scope_id: Domeniu de interes
@@ -245,7 +244,7 @@ ro:
       accountability:
         proposal_linked:
           email_intro: 'Propunerea "%{proposal_title}" a fost inclusă într-un rezultat. O puteți vedea de pe această pagină:'
-          email_outro: Ai primit această notificare deoarece urmărești „%{proposal_title}”. Poți anula aceste notificări de la link-ul anterior.
+          email_outro: Ați primit această notificare deoarece urmați "%{proposal_title}". Puteți înceta să primiți notificări urmând linkul anterior.
           email_subject: O actualizare la %{proposal_title}
           notification_title: Propunerea <a href="%{proposal_path}">%{proposal_title}</a> a fost inclusă în rezultatul <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:

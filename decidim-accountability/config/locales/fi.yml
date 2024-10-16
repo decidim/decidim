@@ -7,10 +7,7 @@ fi:
         decidim_scope_id: Teema
         description: Kuvaus
         end_date: Päättymispäivä
-        meetings_ids: Sisällytetyt tapaamiset
         progress: Edistyminen
-        project_ids: Liitetyt hankkeet
-        proposals: Sisällytetyt ehdotukset
         start_date: Alkamispäivä
         subresults: Alitulokset
         title: Otsikko
@@ -29,6 +26,14 @@ fi:
       decidim/accountability/result_progress_updated_event: Tuloksen edistyminen päivitetty
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Tulos %{link} liitettiin hankkeeseen
+            meetings_ids: 'Tuloksesta keskusteltiin tapaamisessa: %{link}'
+            project_ids: 'Tulos liitettiin hankkeeseen: %{link}'
+            proposal_ids: 'Tulos liitettiin ehdotukseen: %{link}'
+            text: 'Liitettiin osaksi tulosta: %{link}'
       decidim/accountability/result:
         one: Tulos
         other: Tulokset
@@ -176,6 +181,8 @@ fi:
       content_blocks:
         highlighted_results:
           results: Tulokset
+      creation:
+        text: Tämä tulos luotiin
       import_mailer:
         import:
           errors: Virheet
@@ -265,12 +272,12 @@ fi:
     events:
       accountability:
         proposal_linked:
-          email_intro: 'Ehdotus "%{proposal_title}" on liitetty tulokseen. Voit tutustua siihen tältä sivulta:'
+          email_intro: 'Ehdotus "%{proposal_title}" on liitetty tulokseen. Voit tutustua siihen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohtaan %{proposal_title}
           notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty tulokseen <a href="%{resource_path}">%{resource_title}</a>.
         result_progress_updated:
-          email_intro: 'Tulos "%{resource_title}", joka sisältää ehdotuksen "%{proposal_title}", on nyt %{progress}% valmis. Voit tutustua siihen tältä sivulta:'
+          email_intro: 'Tulos "%{resource_title}", joka sisältää ehdotuksen "%{proposal_title}", on nyt %{progress}% valmis. Voit tutustua siihen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat ehdotusta "%{proposal_title}" ja se sisältyy tulokseen "%{resource_title}". Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteen %{resource_title} edistykseen
           notification_title: Tulos <a href="%{resource_path}">%{resource_title}</a>, joka sisältää ehdotuksen <a href="%{proposal_path}">%{proposal_title}</a>, on nyt %{progress}% valmis.

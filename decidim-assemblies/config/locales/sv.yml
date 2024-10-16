@@ -6,11 +6,11 @@ sv:
       assembly:
         announcement: Meddelande
         area_id: Område
-        assembly_type: Typ av grupp
-        assembly_type_other: Annan typ av grupp
+        assembly_type: Typ av samråd
+        assembly_type_other: Annan typ av samråd
         banner_image: Bannerbild
         closing_date: Slutdatum
-        closing_date_reason: Skäl till slutdatum
+        closing_date_reason: Anledning till avslut
         composition: Sammansättning
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
@@ -19,41 +19,44 @@ sv:
         created_by_other: Skapad av andra
         creation_date: Skapad datum
         decidim_area_id: Område
-        decidim_assemblies_type_id: Typ av grupp
-        decidim_scope_id: Omfång
+        decidim_assemblies_type_id: Typ av samråd
+        decidim_scope_id: Indelning
         description: Beskrivning
-        developer_group: Kampanjgrupp
+        developer_group: Arrangör
         document: Dokument
         domain: Domän
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
-        hero_image: Hembild
+        hero_image: Startbild
         import_attachments: Importera bilagor
-        included_at: Inkluderad vid
+        import_categories: Importera kategorier
+        import_components: Importera komponenter
+        included_at: Publicerad
         instagram: Instagram
-        internal_organisation: Intern organisation
+        internal_organisation: Organisation
         is_transparent: Är transparent
         local_area: Område
-        meta_scope: Metadata för omfång
-        parent_id: Överordnad grupp
-        participatory_processes_ids: Relaterade dialoger
+        meta_scope: Omfattning
+        parent_id: Överordnat samråd
+        participatory_processes_ids: Relaterade deltagandeprocesser
         participatory_scope: Vad bestäms
-        participatory_structure: Hur bestäms det
+        participatory_structure: Hur fattas beslut
         private_space: Privat utrymme
-        promoted: Uppmärksammad
+        promoted: Utvald
         published_at: Publicerad
-        purpose_of_action: Syfte med åtgärden
-        scope_id: Omfång
-        scopes_enabled: Omfång är aktiverade
+        purpose_of_action: Syfte
+        scope_id: Indelning
+        scopes_enabled: Aktivera indelningar
         short_description: Kort beskrivning
         slug: URL-slug
         special_features: Specialfunktioner
         subtitle: Underrubrik
         target: Vem deltar
         title: Titel
-        weight: Ordning
+        twitter: X
+        weight: Position i listan
         youtube: YouTube
       assembly_member:
         birthday: Födelsedag
@@ -64,126 +67,150 @@ sv:
         gender: Kön
         non_user_avatar: Profilbild
         position: Befattning
-        user_id: Användare
-        weight: Ordning
+        user_id: Användare eller grupp
+        weight: Position i listan
       assembly_user_role:
         email: E-post
         name: Namn
         role: Roll
+    errors:
+      models:
+        assembly:
+          attributes:
+            document:
+              allowed_file_content_types: 'Ogiltig dokumenttyp. Endast filer med följande tillägg är tillåtna: %{types}.'
   activerecord:
     models:
       decidim/assembly:
-        one: Grupp
-        other: Grupper
+        one: Samråd
+        other: Samråd
       decidim/assembly_member:
-        one: Medlem i gruppen
-        other: Medlemmar i gruppen
+        one: Medlem i samråd
+        other: Medlemmar i samråd
       decidim/assembly_user_role:
-        one: Roll i gruppen
-        other: Roller i gruppen
+        one: Roll i samråd
+        other: Roller i samråd
   decidim:
     admin:
       actions:
         import_assembly: Importera
-        new_assembly: Ny grupp
-        new_assembly_type: Ny typ av grupp
+        new_assembly: Nytt samråd
+        new_assembly_member: Ny medlem i samråd
+        new_assembly_type: Ny typ av samråd
+        new_assembly_user_role: Ny administratör av samråd
       assemblies:
         create:
-          error: Det gick inte att skapa en ny grupp.
-          success: Gruppen skapades framgångsrikt.
+          error: Det gick inte att skapa ett nytt samråd.
+          success: Samrådet har skapats.
         edit:
           update: Uppdatera
         index:
           private: Privat
           public: Öppen
           published: Publicerad
+          unpublished: Ej publicerade
         new:
           create: Skapa
-          title: Ny grupp
+          title: Nytt samråd
         update:
-          error: Det gick inte att uppdatera gruppen.
-          success: Gruppen har uppdaterats.
+          error: Det gick inte att uppdatera samrådet.
+          success: Samrådet har uppdaterats.
       assemblies_copies:
         create:
-          error: Det gick inte att duplicera gruppen.
-          success: Gruppen har duplicerats.
+          error: Det gick inte att duplicera samrådet.
+          success: Samrådet har duplicerats.
       assemblies_types:
         create:
-          error: Det gick inte att skapa en ny typ av grupp.
-          success: Grupptypen har skapats.
+          error: Det gick inte att skapa en ny typ av samråd.
+          success: Typen av samråd har skapats.
         destroy:
-          success: Grupptypen har raderats.
+          success: Typen av samråd har raderats.
         new:
           create: Skapa
-          title: Ny grupptyp
+          title: Ny typ av samråd
         update:
-          error: Det gick inte att uppdatera grupptypen.
-          success: Grupptypen har uppdaterats.
+          error: Det gick inte att uppdatera typen av samråd.
+          success: Typen av samråd har uppdaterats.
       assembly_copies:
         new:
           copy: Kopiera
           select: Välj vilka data som ska dupliceras
-          title: Duplicera grupp
+          title: Duplicera samråd
       assembly_imports:
         create:
-          error: Det gick inte att importera församlingen.
-          success: Församlingen har importerats.
+          error: Det gick inte att importera samrådet.
+          success: Samrådet har importerats.
         new:
           import: Importera
-          select: Välj vilka data du vill importera
-          title: Importera sammansättning
+          select: Välj vilka uppgifter du vill importera
+          title: Importera samråd
       assembly_members:
         create:
-          error: Det gick inte att lägga till en medlem till gruppen.
-          success: Skapade medlem i gruppen.
+          error: Det gick inte att lägga till en medlem i samrådet.
+          success: Skapade medlem i samrådet.
         destroy:
-          success: Medlemmen har raderats från gruppen.
+          success: Medlemmen har raderats från samrådet.
         edit:
+          title: Uppdatera medlem i samråd
           update: Uppdatera
         index:
-          assembly_members_title: Medlemmar i gruppen
+          assembly_members_title: Medlemmar i samrådet
         new:
           create: Skapa
+          title: Ny medlem i samråd
         update:
-          error: Det gick inte att uppdatera medlemmen i gruppen.
+          error: Det gick inte att uppdatera medlemmen i samrådet.
           success: Medlemmen i gruppen har uppdaterats.
       assembly_publications:
         create:
-          error: Det gick inte att publicera gruppen.
-          success: Gruppen har publicerats.
+          error: Det gick inte att publicera samrådet.
+          success: Samrådet har publicerats.
         destroy:
-          error: Det gick inte att avpublicera gruppen.
-          success: Gruppen har avpublicerats.
+          error: Det gick inte att avpublicera samrådet.
+          success: Samrådet har avpublicerats.
       assembly_user_roles:
         create:
-          error: Det gick inte att lägga till en administratör till gruppen.
-          success: Administratören har lagts till gruppen.
+          error: Det gick inte att lägga till en administratör till samrådet.
+          success: Administratören har lagts till i samrådet.
         destroy:
-          success: Administratören har tagits bort från gruppen.
+          success: Administratören har tagits bort från samrådet.
         edit:
+          title: Uppdatera administratör av samråd
           update: Uppdatera
         index:
-          assembly_admins_title: Gruppsadministratörer
+          assembly_admins_title: Administratörer för samråd
         new:
           create: Skapa
+          title: Ny administratör för samråd
         update:
-          error: Det gick inte att uppdatera en administratör för gruppen.
-          success: Administratören för gruppen har uppdaterats.
+          error: Det gick inte att uppdatera administratör för samrådet.
+          success: Administratören för samrådet har uppdaterats.
       filters:
+        ceased_date_not_null:
+          label: Avslutade
+          values:
+            'false': Ej avslutade
+            'true': Avslutade
         decidim_assemblies_type_id_eq:
-          label: Typ av grupp
+          label: Typ av samråd
+        search_placeholder:
+          full_name_or_user_name_or_user_nickname_cont: Sök på namn eller användarnamn
       menu:
-        assemblies: Grupper
+        assemblies: Samråd
         assemblies_submenu:
-          assembly_admins: Administratörer för gruppen
+          assembly_admins: Administratörer för samråd
           assembly_members: Medlemmar
           attachment_collections: Mappar
           attachment_files: Filer
           attachments: Bilagor
           categories: Kategorier
           components: Komponenter
+          info: Om samrådet
+          landing_page: Landningssida
           moderations: Moderering
-        assemblies_types: Typer av grupper
+          private_users: Privata deltagare
+          see_assembly: Visa samråd
+        assemblies_types: Typer av samråd
       models:
         assemblies_types:
           fields:
@@ -191,12 +218,13 @@ sv:
             title: Titel
         assembly:
           fields:
+            actions: Åtgärder
             created_at: Skapad
             private: Privat
-            promoted: Uppmärksammad
+            promoted: Utvald
             published: Publicerad
             title: Titel
-          name: Grupp
+          name: Samråd
         assembly_member:
           fields:
             ceased_date: Slutade datum
@@ -214,64 +242,77 @@ sv:
             email: E-post
             name: Namn
             role: Roll
-          name: Administratör för gruppen
+          name: Administratör för samrådet
           roles:
             admin: Administratör
-            collaborator: Medarbetare
+            collaborator: Medverkande
             moderator: Moderator
-            valuator: Värderare
+            valuator: Handläggare
       titles:
-        assemblies: Grupper
-        assemblies_types: Typer av grupper
+        assemblies: Samråd
+        assemblies_types: Typer av samråd
     admin_log:
       assembly:
-        create: "%{user_name} skapade gruppen %{resource_name}"
-        publish: "%{user_name} publicerade gruppen %{resource_name}"
-        unpublish: "%{user_name} avpublicerade gruppen %{resource_name}"
-        update: "%{user_name} uppdaterade gruppen %{resource_name}"
+        create: "%{user_name} skapade samrådet %{resource_name}"
+        duplicate: "%{user_name} duplicerade samrådet %{resource_name}"
+        export: "%{user_name} exporterade samrådet %{resource_name}"
+        import: "%{user_name} importerade samrådet %{resource_name}"
+        publish: "%{user_name} publicerade samrådet %{resource_name}"
+        unpublish: "%{user_name} avpublicerade samrådet %{resource_name}"
+        update: "%{user_name} uppdaterade samrådet %{resource_name}"
       assembly_member:
-        create: "%{user_name} skapade medlemmen %{resource_name} i gruppen %{space_name}"
-        delete: "%{user_name} tog bort medlemmen %{resource_name} från gruppen %{space_name}"
-        update: "%{user_name} uppdaterade medlemmen %{resource_name} i gruppen %{space_name}"
+        create: "%{user_name} skapade medlemmen %{resource_name} i samrådet %{space_name}"
+        delete: "%{user_name} tog bort medlemmen %{resource_name} från samrådet %{space_name}"
+        update: "%{user_name} uppdaterade medlemmen %{resource_name} i samrådet %{space_name}"
       assembly_setting:
-        update: "%{user_name} uppdaterade inställningarna för församlingarna"
+        update: "%{user_name} uppdaterade inställningarna för samråd"
       assembly_type:
-        create: "%{user_name} skapade grupptypen %{resource_name}"
-        delete: "%{user_name} raderade grupptypen %{resource_name}"
-        publish: "%{user_name} publicerade grupptypen %{resource_name}"
-        unpublish: "%{user_name} avpublicerade grupptypen %{resource_name}"
-        update: "%{user_name} uppdaterade grupptypen %{resource_name}"
+        create: "%{user_name} skapade typen av samråd %{resource_name}"
+        delete: "%{user_name} raderade typen av samråd %{resource_name}"
+        publish: "%{user_name} publicerade typen av samråd %{resource_name}"
+        unpublish: "%{user_name} avpublicerade typen av samråd %{resource_name}"
+        update: "%{user_name} uppdaterade typen av samråd %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} bjöd in %{resource_name} till gruppen %{space_name}"
-        delete: "%{user_name} tog bort deltagaren %{resource_name} från gruppen %{space_name}"
-        update: "%{user_name} ändrade rollen för %{resource_name} i gruppen %{space_name}"
+        create: "%{user_name} bjöd in %{resource_name} till samrådet %{space_name}"
+        delete: "%{user_name} tog bort deltagaren %{resource_name} från samrådet %{space_name}"
+        update: "%{user_name} ändrade rollen för %{resource_name} i samrådet %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            announcement_help: Texten du skriver här visas för användaren direkt under gruppinformationen.
+            announcement_help: Den här texten visas direkt under informationen om samrådet.
             duration: Varaktighet
-            duration_help: Om varaktigheten för gruppen är begränsad, välj ett slutdatum. Annars kommer den att visas som permanent.
+            duration_help: Välj ett slutdatum om samrådet är tidsbegränsat.
             filters: Filter
             images: Bilder
-            included_at_help: Markera det datum då gruppen lades till på plattformen. Det behöver inte nödvändigtvis vara detsamma som datumet det skapades.
+            included_at_help: Markera datumet när samrådet lades till på plattformen. Det behöver inte nödvändigtvis vara samma som datumet det skapades.
             metadata: Metadata
-            other: Annan
+            other: Övrigt
             select_a_created_by: Välj en skapad av
             select_an_area: Välj ett område
-            select_an_assembly_type: Välj typ av gruppen
-            select_parent_assembly: Välj överordnad gruppen
-            social_handlers: Socialt
+            select_an_assembly_type: Välj typ av samråd
+            select_parent_assembly: Välj överordnat samråd
+            slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+            social_handlers: Sociala medier
+            taxonomies: Kategorier
             title: Allmän information
+            visibility: Synlighet
         assemblies_types:
           form:
-            title: Titel
+            title: Redigera typ av samråd
+        assembly_copies:
+          form:
+            slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
+        assembly_imports:
+          form:
+            slug_help_html: 'URL-slugs används till att generera URL:er till samrådet. Använd bara bokstäver, siffror och bindestreck, och de måste börja med en bokstav. Exempel: %{url}'
         assembly_members:
           form:
             existing_user: Befintlig deltagare
-            explanation: 'Vägledning för bild:'
+            explanation: 'Instruktioner för bild:'
+            image_guide: Helst en porträttbild utan text.
             non_user: Ej deltagande
-            non_user_avatar_help: Du bör få samtycke av personerna innan du publicerar dem som medlem.
+            non_user_avatar_help: Du bör få medgivande av personerna innan du lägger till dem som medlemmar.
             select_a_position: Välj en position
             select_user: Välj en deltagare
             user_type: Typ av deltagare
@@ -284,20 +325,26 @@ sv:
       assemblies:
         description:
           area_name: Område
+          closing_date: Slutdatum
           created_by: Skapad av
-          data: Gruppdata
-          developer_group: Kampanjgrupp
+          creation_date: Skapad
+          data: Data från samråd
+          developer_group: Arrangör
           duration: Varaktighet
-          included_at: Inkluderad den
+          included_at: Inkluderad
           indefinite_duration: Permanent
-          meta_scope: Omfång
-          participatory_scope: Vad som bestäms
+          local_area: Område
+          meta_scope: Indelning
+          participatory_scope: Vad beslutas
+          participatory_structure: Hur fattas beslut
+          target: Vilka deltar
+          title: Om samrådet
         filters:
           names:
             all: Alla
           type: Typ
         show:
-          title: Om den här gruppen
+          title: Om det här samrådet
       assembly_members:
         index:
           members: Medlemmar
@@ -311,9 +358,15 @@ sv:
         working_group: Arbetsgrupp
       content_blocks:
         children_assemblies:
-          name: Grupper
+          name: Samråd
+        dates_metadata:
+          name: Metadata för datum
+        extra_data:
+          name: Typ & varaktighet
         highlighted_assemblies:
-          name: Viktiga grupper
+          name: Viktiga samråd just nu
+        related_assemblies:
+          name: Relaterade samråd
       created_by:
         city_council: Stadsfullmäktige
         others: Övriga
@@ -329,17 +382,22 @@ sv:
         participatory: Deltagande
         working_group: Arbetsgrupp
       index:
-        title: Grupper
+        title: Samråd
       last_activity:
-        new_assembly: 'Ny grupp:'
+        new_assembly: 'Nytt samråd:'
       pages:
+        home:
+          highlighted_assemblies:
+            active_spaces: Pågående samråd
+            see_all_spaces: Visa alla samråd
         user_profile:
           member_of:
             member_of: Medlem av
       show:
-        assembly_type: Typ av grupp
+        assembly_type: Typ av samråd
         duration: Varaktighet
-        private_space: Detta är en privat grupp
+        private_space: Det här är ett privat samråd
+        social_networks_title: Besök samrådet på
     assembly_members:
       assembly_member:
         designated_on: Utsedd den
@@ -348,40 +406,40 @@ sv:
     events:
       assemblies:
         create_assembly_member:
-          email_intro: En administratör för församlingen <a href="%{resource_url}">%{resource_name}</a> har lagt till dig som en av dess medlemmar.
-          email_outro: Du har fått denna avisering eftersom du har bjudits in till en grupp. Ta en titt på <a href="%{resource_url}">gruppsidan</a> för att bidra!
-          email_subject: Du har blivit inbjuden att vara medlem i församlingen %{resource_name}!
-          notification_title: Du har blivit registrerad som medlem i församlingen <a href="%{resource_path}">%{resource_name}</a>. Kolla <a href="%{resource_path}">mötessidan</a> för att bidra!
+          email_intro: En administratör för samrådet <a href="%{resource_url}">%{resource_name}</a> har lagt till dig som medlem.
+          email_outro: Du har fått det här meddelandet eftersom du har blivit inbjuden till ett samråd. Gå till <a href="%{resource_url}">samrådet</a> för att bidra!
+          email_subject: Du har blivit inbjuden till samrådet %{resource_name}!
+          notification_title: Du har blivit registrerad som medlem i samrådet <a href="%{resource_path}">%{resource_name}</a>. Gå till <a href="%{resource_path}">samrådet</a> för att bidra!
       assembly:
         role_assigned:
-          email_intro: Du har tilldelats som %{role} för församlingen "%{resource_title}".
-          email_outro: Du har fått det här meddelandet eftersom du är %{role} av församlingen "%{resource_title}".
-          email_subject: Du har tilldelats som %{role} för "%{resource_title}".
-          notification_title: Du har tilldelats som %{role} för montering <a href="%{resource_url}">%{resource_title}</a>.
+          email_intro: Du har tilldelats rollen %{role} för samrådet "%{resource_title}".
+          email_outro: Du har fått det här meddelandet eftersom du är %{role} i samrådet "%{resource_title}".
+          email_subject: Du har tilldelats rollen %{role} för "%{resource_title}".
+          notification_title: Du har tilldelats rollen %{role} för samrådet <a href="%{resource_url}">%{resource_title}</a>.
     help:
       participatory_spaces:
         assemblies:
-          contextual: "<p>En <strong>grupp</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Grupper håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en dialog) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på grupper.</p>\n"
-          page: "<p>En <strong>grupp</strong> är en grupp medlemmar i en organisation som regelbundet träffas för att fatta beslut om ett specifikt område eller omfång inom organisationen.</p> <p>Grupper håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas av detta organ).</p> <p>Exempel: En generalförsamling (som möts en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en dialog) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocedurerna) är alla exempel på grupper.</p>\n"
-          title: Vad är grupper?
+          contextual: "<p>Ett <strong>samråd</strong> är en grupp som regelbundet träffas för att fatta beslut om ett specifikt område eller inom en del av organisationen.</p> <p>Samråd håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas).</p> <p>Exempel: Ett årsmöte (som träffas en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en dialog) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocesserna) är alla exempel på samråd.</p>\n"
+          page: "<p>Ett <strong>samråd</strong> är en grupp som regelbundet träffas för att fatta beslut om ett specifikt område eller inom en del av organisationen.</p> <p>Samråd håller möten där vissa är slutna och andra är öppna. Om de är öppna är det möjligt att delta i dem (till exempel: att närvara om det finns plats, lägga till punkter på dagordningen eller att yttra sig om de förslag och beslut som fattas).</p> <p>Exempel: Ett årsmöte (som träffas en gång per år för att bestämma om organisationens verksamhetsplan samt utse dess styrelse genom omröstning), ett jämställdhetsråd (som möts varannan månad för att lägga fram förslag om hur man kan förbättra jämställdheten i organisationen) eller en utvärderingskommitté (som möts varje månad för att bevaka en dialog) eller en granskningsgrupp (som samlar in rapporter om incidenter eller missbruk samt förslag som kan förbättra beslutsprocesserna) är alla exempel på samråd.</p>\n"
+          title: Vad är samråd?
     log:
       value_types:
         assembly_presenter:
-          not_found: 'Gruppen hittades inte i databasen (ID: %{id})'
+          not_found: 'Samrådet hittades inte i databasen (ID: %{id})'
         assembly_type_presenter:
-          not_found: 'Grupptypen hittades inte i databasen (ID: %{id})'
+          not_found: 'Typen av samråd hittades inte i databasen (ID: %{id})'
     menu:
-      assemblies: Grupper
+      assemblies: Samråd
     metrics:
       assemblies:
-        description: Antal skapade grupper
-        object: grupper
-        title: Grupper
+        description: Antal skapade samråd
+        object: samråd
+        title: Samråd
     participatory_processes:
       show:
-        related_assemblies: Relaterade grupper
+        related_assemblies: Relaterade samråd
     statistics:
-      assemblies_count: Grupper
+      assemblies_count: Samråd
   layouts:
     decidim:
       assemblies:
@@ -389,10 +447,14 @@ sv:
           more_info: Mer information
           take_part: Delta
         index:
-          promoted_assemblies: Viktiga grupper
+          promoted_assemblies: Viktiga samråd just nu
+        metadata:
+          children_item:
+            one: "%{count} samråd"
+            other: "%{count} samråd"
         order_by_assemblies:
           assemblies:
-            one: "%{count} grupp"
-            other: "%{count} grupper"
+            one: "%{count} samråd"
+            other: "%{count} samråd"
       assembly_navigation:
         assembly_member_menu_item: Medlemmar

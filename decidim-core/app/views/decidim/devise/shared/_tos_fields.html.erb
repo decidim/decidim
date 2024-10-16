@@ -1,0 +1,16 @@
+<div id="card__tos" class="form__wrapper-block">
+  <h2 class="h4"><%= t("decidim.devise.registrations.new.tos_title") %></h2>
+
+  <div>
+    <% terms_of_service_summary_content_blocks.each do |content_block| %>
+      <%= cell content_block.manifest.cell, content_block %>
+    <% end %>
+  </div>
+
+  <%= form.check_box :tos_agreement, label: t("decidim.devise.registrations.new.tos_agreement", link: link_to(t("decidim.devise.registrations.new.terms"), decidim.page_path("terms-of-service"))), label_options: { class: "form__wrapper-checkbox-label" } %>
+</div>
+
+<div id="card__newsletter" class="form__wrapper-block">
+  <h2 class="h4"><%= t("decidim.devise.registrations.new.newsletter_title") %></h2>
+  <%= form.check_box :newsletter, label: t("decidim.devise.registrations.new.newsletter"), checked: @form.newsletter, label_options: { class: "form__wrapper-checkbox-label" } %>
+</div>

@@ -96,6 +96,7 @@ fi:
         duplicate: Kopioi
         edit: Muokkaa
         import_process: Tuo
+        menu_hidden: Piilota
         moderate: Moderoi
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
@@ -104,7 +105,7 @@ fi:
         new_process_user_role: Uusi prosessin hallintakäyttäjä
         preview: Esikatsele
         publish: Julkaise
-        resend_invitation: Lähetä kutsu uudelleen
+        resend_invitation: Lähetä kutsu uudestaan
         see_process: Näytä prosessi
         unpublish: Lopeta julkaisu
       filters:
@@ -175,7 +176,7 @@ fi:
           title: Kopioi osallistumisprosessi
       participatory_process_groups:
         destroy:
-          error: Osallistumisprosessien ryhmän poisto epäonnistui.
+          error: Osallistumistilojen ryhmän poisto epäonnistui.
           success: Osallistumisprosessien ryhmän poisto onnistui.
         edit:
           title: Muokkaa prosessiryhmää
@@ -188,7 +189,7 @@ fi:
           success: Osallistumisprosessien ryhmän päivitys onnistui.
       participatory_process_imports:
         create:
-          error: Virhe tuotaessa tätä osallistumisprosessia.
+          error: Tämän osallistumisprosessin tuonti epäonnistui.
           success: Osallistumisprosessin tuonti onnistui.
         new:
           import: Tuo
@@ -297,8 +298,8 @@ fi:
         participatory_processes: Osallistumisprosessit
       users:
         resend_invitation:
-          error: Kutsun uudelleenlähetys epäonnistui.
-          success: Kutsun uudelleenlähetys onnistui.
+          error: Kutsun uudestaanlähetys epäonnistui.
+          success: Kutsun uudestaanlähetys onnistui.
     admin_log:
       participatory_process:
         create: "%{user_name} loi osallistumisprosessin %{resource_name}"
@@ -332,12 +333,12 @@ fi:
           email_subject: Sinulle on myönnetty rooli %{role} kohteessa "%{resource_title}".
           notification_title: Sinulle on myönnetty rooli %{role} osallistumistilassa <a href="%{resource_url}">%{resource_title}</a>.
         step_activated:
-          email_intro: 'Vaihe %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Voit tutustua siihen tältä sivulta:'
+          email_intro: 'Vaihe %{resource_title} on nyt käytössä kohteessa %{participatory_space_title}. Voit tutustua siihen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
           notification_title: Vaihe %{resource_title} on nyt käytössä kohteessa <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
-          email_intro: 'Vaiheen %{resource_title} päivämäärät kohteessa %{participatory_space_title} on päivitetty. Voit tutustua siihen tältä sivulta:'
+          email_intro: 'Vaiheen %{resource_title} päivämäärät kohteessa %{participatory_space_title} on päivitetty. Voit tutustua siihen sivulta:'
           email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
           email_subject: Päivitys kohteessa %{participatory_space_title}
           notification_title: Päivämäärät on päivitetty vaiheelle <a href="%{resource_path}">%{resource_title}</a> osallistumistilassa <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
@@ -432,6 +433,7 @@ fi:
             select_participatory_process_type: Valitse prosessityyppi
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            taxonomies: Luokittelut
             title: Yleistä tietoa
             visibility: Näkyvyys
       content_blocks:
@@ -446,7 +448,7 @@ fi:
       index:
         title: Osallistumisprosessit
       last_activity:
-        new_participatory_process: Uusi osallistumisprosessi
+        new_participatory_process: 'Uusi osallistumisprosessi:'
       pages:
         home:
           highlighted_processes:

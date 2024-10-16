@@ -40,15 +40,16 @@ ro:
           error: A apărut o problemă la votarea comentariului.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Autentificați-vă cu</a> sau <a href="%{sign_up_url}">creați un cont</a> pentru a adăuga comentariul dumneavoastră.
         form:
           body:
             label: Comentariu
-            placeholder: Ce părere ai despre asta?
+            placeholder: Ce părere aveţi despre asta?
           form_error: Textul este obligatoriu și nu poate fi mai lung de %{length} caractere.
           submit_reply: Publicați răspuns
           submit_root_comment: Publicați comentariu
           user_group_id:
-            label: Comentează în calitate de
+            label: Comentați în calitate de
         opinion:
           label: Opinia ta despre acest subiect
           negative: Negativ
@@ -59,18 +60,25 @@ ro:
           positive_selected: Opinia ta despre acest subiect este pozitivă
         remaining_characters: "%{count} caractere rămase"
         remaining_characters_1: "%{count} caracter rămas"
-        title: Adaugă comentariul tău
+        title: Adaugați comentariul dumneavoastră
       comment:
         alignment:
           against: Împotrivă
           in_favor: Pentru
         cancel_reply: Anulează răspunsul
-        confirm_destroy: Sigur dorești să ştergi acest comentariu?
+        comment_label: Comentariu %{comment_id}
+        comment_label_reply: Comentariu %{comment_id} (răspuns la comentariul %{parent_comment_id})
+        confirm_destroy: Sigur doriți să ștergeți acest comentariu?
+        controls_label: Control comentariu
         delete: Șterge
-        deleted_at: Comentariu șters la %{date}
+        deleted_at: Comentariu șters pe %{date}
         deleted_user: Participant șters
         edit: Actualizare
         edited: Actualizat
+        hide_replies:
+          one: Ascundeți răspunsul
+          few: Ascundeți %{count} răspunsuri
+          other: Ascundeți %{count} răspunsuri
         moderated_at: Comentariu moderat pe %{date}
         reply: Răspunde
         report:
@@ -78,17 +86,17 @@ ro:
           already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
           close: Închide
           description: Este acest conținut neadecvat?
-          details: Comentarii suplimentare
+          details: Observaţii suplimentare
           reasons:
             does_not_belong: Conține activitate ilegală, amenințări cu sinuciderea, informații personale sau altceva ce consideri că nu aparține de %{organization_name}.
             offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
             spam: Conține clickbait, publicitate, escrocherii sau script rulat de roboți.
-          title: Raportează conținut nepotrivit
+          title: Raportați conținut nepotrivit
         show_replies:
           one: Arată răspunsul
           few: Arată %{count} răspunsuri
           other: Arată %{count} răspunsuri
-        single_comment_link_title: Obţine link
+        single_comment_link_title: Obține linkul
       comment_order_selector:
         order:
           best_rated: Cele mai apreciate
@@ -99,7 +107,7 @@ ro:
       comments:
         blocked_comments_for_unauthorized_user_warning: Trebuie să fii verificat pentru a trimite comentarii în acest moment, dar le poți citi pe cele anterioare.
         blocked_comments_for_user_warning: Nu poți comenta în acest moment, dar le poți citi pe cele anterioare.
-        blocked_comments_warning: Comentariile sunt dezactivate în acest moment, dar le poți citi pe cele anterioare.
+        blocked_comments_warning: Comentariile sunt momentan dezactivate, doar administratorii pot răspunde sau publica altele noi.
         comment_details_title: Detaliile comentariului
         loading: Se încarcă comentariile...
         single_comment_warning: <a href="%{url}">Vezi toate comentariile</a>

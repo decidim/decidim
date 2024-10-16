@@ -2,7 +2,7 @@ sv:
   activemodel:
     models:
       decidim/surveys/closed_survey_event: Enkäten avslutades
-      decidim/surveys/opened_survey_event: Enkäten startades
+      decidim/surveys/opened_survey_event: Enkäten startade
   activerecord:
     models:
       decidim/surveys/survey:
@@ -21,16 +21,16 @@ sv:
           global:
             announcement: Meddelande
             clean_after_publish: Ta bort svar vid publicering av enkäten
-            ends_at: Svar accepterade tills
-            ends_at_help: Lämna tomt för inget slutdatum
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
-            starts_at: Svar accepterade från
-            starts_at_help: Lämna tomt för inget startdatum
+            ends_at: Öppet för svar till
+            ends_at_help: Lämna tomt för att inte ha något slutdatum
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
+            starts_at: Öppet för svar från
+            starts_at_help: Lämna tomt för att inte ha något startdatum
           step:
             allow_answers: Tillåt svar
             allow_unregistered: Tillåt ej registrerade användare att besvara enkäten
-            allow_unregistered_help: Om valt krävs det ingen inloggning för att besvara enkäten. Detta kan leda till dåliga eller opålitliga data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Det blir också möjligt för en deltagare att besvara enkäten flera gånger igenom att använda olika webbläsare eller surfa privat.
+            allow_unregistered_help: Om aktiv kommer ingen inloggning att krävas för att besvara enkäten. Detta kan leda till dålig eller opålitlig data och det kommer att vara mer sårbart för automatiserade attacker. Använd med försiktighet! Tänk på att en deltagare kunde svara på samma enkät flera gånger, genom att använda olika webbläsare eller "privat surfning" i sin webbläsare.
             announcement: Meddelande
     events:
       surveys:
@@ -53,13 +53,24 @@ sv:
       answers_count: Svar
     surveys:
       admin:
+        component:
+          actions:
+            answers_alert: Om du publicerar komponenten kommer alla resultat att tas bort.
         exports:
           survey_user_answers: Svar från enkätdeltagarna
         surveys:
           update:
             invalid: Det gick inte att spara enkäten.
             success: Enkäten har sparats.
+      last_activity:
+        new_survey: 'Ny enkät:'
+      survey_confirmation_mailer:
+        confirmation:
+          body: Du har besvarat enkäten %{questionnaire_title} för %{participatory_space}
+          subject: Svarsbekräftelse för formuläret %{questionnaire_title}
+        export_name: Enkätsvar
       surveys:
         answer:
           invalid: Det gick inte att besvara enkäten.
+          spam_detected: Det gick inte att svara på formuläret. Kanske har du varit för snabb, kan du försöka igen?
           success: Enkäten har besvarats.

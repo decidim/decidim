@@ -202,7 +202,7 @@ ja:
         verify: 確認する
       admin_terms_of_service:
         accept:
-          error: 管理者向け利用規約に同意する際にエラーが発生しました。
+          error: 管理者の利用規約に同意中に問題が発生しました。
           success: 素晴らしい！あなたは管理者向け利用規約に同意しました。
         actions:
           accept: 利用規約に同意する
@@ -329,13 +329,15 @@ ja:
           default_step_settings: デフォルトのステップ設定
           global_settings: グローバル設定
           step_settings: ステップの設定
+        hide:
+          success: コンポーネントはメニューから非表示になりました。
         index:
           add: コンポーネントを追加
           headers:
             actions: アクション
             name: コンポーネント名
-            scope: コンポーネントのスコープ
             type: コンポーネントタイプ
+            visibility: 可視性
         new:
           add: コンポーネントを追加
           title: 'コンポーネントを追加: %{name}'
@@ -347,9 +349,15 @@ ja:
         update:
           error: このコンポーネントの更新中に問題が発生しました。
           success: コンポーネントは正常に更新されました。
+        visibility_label:
+          menu_hidden: メニュー非表示
+          published: 公開済
+          unpublished: 未公開
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
+        index:
+          text: 現在のユーザーのメールアドレス、名前、ニックネームで検索します。
         managed_user_name: 管理対象ユーザー
         solved: 解決済み
         title: 確認の競合
@@ -364,7 +372,7 @@ ja:
         user_name: ユーザー
       content_blocks:
         create:
-          error: コンテンツブロックの作成中にエラーが発生しました。
+          error: コンテンツブロックの作成中に問題が発生しました。
           success: コンテンツブロックを作成しました。
         destroy:
           error: コンテンツブロックの削除中に問題が発生しました。
@@ -424,7 +432,7 @@ ja:
           reportable_type_string_eq:
             label: タイプ
         officialized_at_null:
-          label: 都道府県：
+          label: 状態
           values:
             'false': 公式化済み
             'true': 公式化されていない
@@ -460,12 +468,15 @@ ja:
           title_cont: '%{collection} をタイトルで検索します。'
           user_name_or_user_nickname_or_user_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
         state_eq:
-          label: 都道府県：
+          label: 状態
           values:
             all: すべて
             pending: 保留中
             rejected: 拒否
             verified: 確認済み
+        taxonomies:
+          taxonomy_id_eq:
+            label: タクソノミー
       forms:
         file_help:
           import:
@@ -584,6 +595,8 @@ ja:
         settings: 設定
         static_page_topics: トピック
         static_pages: ページ
+        taxonomies: タクソノミー
+        taxonomy_filters: タクソノミーフィルター
         user_groups: グループ
         users: 参加者
       metrics:
@@ -778,7 +791,7 @@ ja:
           success: ニュースレターは正常に更新されました。送信する前に確認してください。
       officializations:
         block:
-          error: 参加者のブロック中にエラーが発生しました。
+          error: 参加者のブロック中に問題が発生しました。
           success: 参加者をブロックしました。
         create:
           success: 参加者が公式化されました。
@@ -812,7 +825,7 @@ ja:
           show: 表示
           title: 参加者のメールアドレスを表示
         unblock:
-          error: 参加者のブロック解除中にエラーが発生しました。
+          error: 参加者のブロック解除中に問題が発生しました。
           success: 参加者のブロックを解除しました。
       organization:
         edit:
@@ -1010,6 +1023,88 @@ ja:
         update:
           error: このページの更新中に問題が発生しました。
           success: ページが更新されました。
+      taxonomies:
+        actions: アクション
+        amount: 合計
+        count: カウント
+        create:
+          invalid: タクソノミーの作成中に問題が発生しました。
+          success: タクソノミーを作成しました。
+        destroy:
+          invalid: タクソノミーの削除中に問題が発生しました。
+          success: タクソノミーを削除しました。
+        edit:
+          back: 戻る
+          description: このタクソノミーのアイテムは、参加型スペースやコンポーネントなどのリソースを分類したりフィルターするために使用されます。 リストの順番を変更するにはドラッグアンドドロップを使用してください。
+          new_item: 新しい項目
+          no_items: このタクソノミーには現状アイテムがありません。アイテムのリストを作成して、参加型スペースやコンポーネントなどのリソースを分類またはフィルタリングできます。アイテムは最大3レベルまで入れ子にできます。
+          subtitle: '"%{taxonomy_name}" の項目'
+          title: タクソノミー「%{taxonomy_name} 」を編集
+          update: 更新
+        filters:
+          search_placeholder: 検索
+        index:
+          description: タクソノミーを使用すると、管理者がコンテンツを分類および整理できます。例えば、プロセスを地理的範囲で分類するためにタクソノミーを追加できます。
+          new_taxonomy: 新しいタクソノミー
+          no_items_found: 検索条件に一致するタクソノミーが見つかりませんでした。
+        name: 名前
+        new:
+          create: タクソノミーを作成
+          title: 新しいタクソノミー
+        no_taxonomies: 現在、タクソノミーはありません。ここでタクソノミーのリストを作成し、それぞれにアイテムを定義してリソースを分類またはフィルタリングします。
+        table:
+          to_next_page: 次のページにドラッグ
+          to_prev_page: 前のページにドラッグ
+        taxonomy_actions:
+          confirm_destroy: '%{name} を削除してもよろしいですか？全ての子アイテムも削除されます。'
+        update:
+          invalid: タクソノミーの更新中に問題が発生しました。
+          success: タクソノミーを更新しました。
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: 新規タクソノミフィルター
+        callout:
+          modify_taxonomy_html: このタクソノミーまたはそのアイテムを変更する必要がある場合は、 <a href="%{url}">タクソノミー</a> セクションの設定を通して行います。
+        create:
+          error: タクソノミーフィルタの作成中に問題が発生しました。
+          success: タクソノミーフィルターを作成しました。
+        destroy:
+          error: タクソノミーフィルタの削除中に問題が発生しました。
+          success: タクソノミーフィルタを削除しました。
+        edit:
+          back: 戻る
+          items: "{count} 個のアイテムを選択中です"
+          no_items: このタクソノミーで使えるアイテムはありません。タクソノミー設定でアイテムを作成できます。
+          title: タクソノミーフィルタを編集
+          update: タクソノミーフィルタを更新
+        form:
+          select_taxonomy: タクソノミーを選択
+        index:
+          description: タクソノミーフィルターは、管理者がタクソノミーに基づいて参加型スペースを分類したりフィルタリングしたりできるようにするものです。例えば、地理的範囲でプロセスをソートするためにタクソノミーフィルターを追加することができます。
+          empty: 現在、タクソノミーフィルターはありません。タクソノミーフィルターのリストを作成し、タクソノミーに基づいて参加型スペースをソートおよびフィルタリングしてください。
+        new:
+          back: 戻る
+          create: タクソノミーフィルタを作成
+          items: "%{count} 個のアイテムがあります"
+          title: 新規タクソノミーフィルター
+        table:
+          actions: アクション
+          confirm_destroy: フィルター %{name} を削除してもよろしいですか？
+          count: アイテム数
+          destroy: 削除
+          edit: 編集
+          name: 名前
+        update:
+          error: タクソノミーフィルタの更新に問題がありました。
+          success: タクソノミーフィルターを更新しました。
+      taxonomy_items:
+        edit:
+          title: '%{taxonomy} の項目を編集'
+          update: 項目の更新
+        new:
+          create: 項目の作成
+          none: なし
+          title: '%{taxonomy} の新しいアイテム'
       titles:
         admin_log: 管理者ログ
         area_types: エリア種別
@@ -1030,6 +1125,8 @@ ja:
         scope_types: スコープ種別
         scopes: スコープ
         statistics: アクティビティ
+        taxonomies: タクソノミー
+        taxonomy_filters: タクソノミーフィルター
         user_groups: グループ
         users: 管理者
       user_group:

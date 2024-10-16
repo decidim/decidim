@@ -177,10 +177,11 @@ describe "Admin manages initiative components" do
 
   context "when publish and unpublish a component" do
     let!(:component) do
-      create(:component, participatory_space: initiative, published_at:)
+      create(:component, participatory_space: initiative, published_at:, visible:)
     end
 
     let(:published_at) { nil }
+    let(:visible) { true }
 
     before do
       switch_to_host(organization.host)
@@ -198,16 +199,29 @@ describe "Admin manages initiative components" do
           expect(page).to have_css(".action-icon--unpublish")
         end
       end
-
-      it_behaves_like "manage component share tokens"
     end
 
     context "when the component is published" do
       let(:published_at) { Time.current }
 
+      it "hides the component from the menu" do
+        within ".component-#{component.id}" do
+          click_on "Hide"
+        end
+
+        within ".component-#{component.id}" do
+          expect(page).to have_css(".action-icon--menu-hidden")
+        end
+      end
+    end
+
+    context "when the component is hidden from the menu" do
+      let(:published_at) { Time.current }
+      let(:visible) { false }
+
       it "unpublishes the component" do
         within ".component-#{component.id}" do
-          page.find(".action-icon--unpublish").click
+          click_on "Unpublish"
         end
 
         within ".component-#{component.id}" do

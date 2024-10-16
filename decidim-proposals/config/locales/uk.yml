@@ -61,7 +61,6 @@ uk:
             announcement: Оголошення
             attachments_allowed: Дозволити вкладення
             comments_enabled: Коментарі увімкнено
-            geocoding_enabled: Геокодування увімкнено
             new_proposal_help_text: Підказки зі внесення нової пропозиції
             official_proposals_enabled: Службові пропозиції увімкнено
             proposal_answering_enabled: Увімкнено відповіді на пропозиції
@@ -198,7 +197,6 @@ uk:
           discard: Відкинути цю чернетку
           discard_confirmation: Ви дійсно бажаєте відкинути чернетку цієї пропозиції?
           send: Попередній перегляд
-          title: Редагувати чернетку пропозиції
         filters:
           all: Усі
           category: Категорія

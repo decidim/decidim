@@ -22,6 +22,7 @@ module Decidim
           end
         end
         resources :participatory_process_types
+        resources :participatory_process_filters, except: [:show]
         resources :participatory_processes, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
           resources :copies, controller: "participatory_process_copies", only: [:new, :create]
@@ -54,12 +55,17 @@ module Decidim
           resources :categories, except: [:show]
 
           resources :components do
+            collection do
+              put :reorder
+            end
             resource :permissions, controller: "component_permissions"
             member do
               put :publish
               put :unpublish
               get :share
+              put :hide
             end
+            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do
               get :example, on: :collection
@@ -86,6 +92,8 @@ module Decidim
               end
             end
           end
+
+          resources :participatory_process_share_tokens, except: [:show], path: "share_tokens"
         end
 
         scope "/participatory_processes/:participatory_process_slug/components/:component_id/manage" do

@@ -243,16 +243,13 @@ zh-TW:
       dismiss: 清除通知
     amendments:
       accepted:
-        error: 接受修正案時發生錯誤。
         success: 修正案已成功接受。
       amendable:
         button: 修正 %{model_name}
-        error: 在修改此資源時發生錯誤。
         promote_button: 晉升為 %{model_name}
         promote_confirm_text: 您確定要晉升此修正嗎？
         promote_help_text: 您可以提升此修正，並將其發布為獨立的 %{model_name}.
       created:
-        error: 創建修正案草稿時發生錯誤。
         success: 修正案草稿已成功創建。
       destroy_draft:
         error: 刪除修正案草稿時遇到問題。
@@ -300,7 +297,6 @@ zh-TW:
         error: 更新修正案草稿時遇到問題。
         success: 修正案草稿成功更新。
       withdraw:
-        error: 撤回修正案時發生錯誤.
         success: 修正案已成功撤回.
       wizard_step_form:
         steps:
@@ -802,7 +798,6 @@ zh-TW:
           title_required: 標題為必填欄位！
           uploaded: 已上傳
           validating: 驗證中...
-          validation_error: 驗證錯誤!
         select_file: 選擇檔案
       upload_help:
         dropzone: 將檔案拖曳到此處或點擊按鈕上傳。
@@ -1261,7 +1256,6 @@ zh-TW:
         subject: 一個資源已被檢舉。
     reports:
       create:
-        error: 在建立報告時發生錯誤。請再試一次。
         success: 報告已成功建立，將由管理員進行審查。
     resource_endorsements:
       create:

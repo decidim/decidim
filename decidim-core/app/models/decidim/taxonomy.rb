@@ -21,14 +21,18 @@ module Decidim
     belongs_to :parent,
                class_name: "Decidim::Taxonomy",
                counter_cache: :children_count,
+               inverse_of: :children,
                optional: true
 
     has_many :children,
              foreign_key: "parent_id",
              class_name: "Decidim::Taxonomy",
+             inverse_of: :parent,
              dependent: :destroy
 
     has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :destroy
+    has_many :taxonomy_filters, foreign_key: "root_taxonomy_id", class_name: "Decidim::TaxonomyFilter", dependent: :destroy
+    has_many :taxonomy_filter_items, foreign_key: "taxonomy_item_id", class_name: "Decidim::TaxonomyFilterItem", dependent: :destroy
 
     validates :name, presence: true
     validates :weight, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
@@ -50,6 +54,14 @@ module Decidim
       [:search_by_name]
     end
 
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(id name parent_id)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(children)
+    end
+
     def translated_name
       Decidim::TaxonomyPresenter.new(self).translated_name
     end
@@ -66,6 +78,10 @@ module Decidim
 
     def removable?
       true
+    end
+
+    def all_children
+      @all_children ||= children.flat_map { |child| [child] + child.all_children }
     end
 
     private

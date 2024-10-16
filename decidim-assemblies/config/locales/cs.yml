@@ -300,6 +300,7 @@ cs:
             select_parent_assembly: Vybrat nadřazené shromáždění
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
             social_handlers: Sociální
+            taxonomies: Taxonomie
             title: Obecná informace
             visibility: Viditelnost
         assemblies_types:

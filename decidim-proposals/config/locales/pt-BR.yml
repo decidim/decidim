@@ -131,7 +131,6 @@ pt-BR:
             comments_max_length: Tamanho máximo de comentários (deixe 0 para o valor padrão)
             default_sort_order_options:
               most_commented: Mais comentado
-            geocoding_enabled: Geocodificação habilitada
             minimum_votes_per_user: Mínimo de votos por usuário
             new_proposal_body_template: Novo modelo de corpo da proposta
             new_proposal_body_template_help: Você pode definir o texto pré-preenchido que as novas propostas terão
@@ -617,7 +616,6 @@ pt-BR:
           discard: Descarte este rascunho
           discard_confirmation: Deseja mesmo descartar este rascunho de proposta?
           send: Visualização
-          title: Editar proposta de rascunho
         filters:
           activity: Minha atividade
           all: Tudo

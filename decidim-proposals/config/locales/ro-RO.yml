@@ -136,7 +136,6 @@ ro:
               random: Aleator
               recent: Recente
               with_more_authors: Cu mai mulți autori
-            geocoding_enabled: Geocodarea a fost activată
             new_proposal_body_template: Model de conținut pentru o propunere nouă
             new_proposal_body_template_help: Poți defini textul precompletat pe care îl vor avea noile propuneri
             new_proposal_help_text: Text de ajutor pentru propunere nouă
@@ -378,6 +377,7 @@ ro:
             publish: Publică
             publish_answers: Publică răspunsuri
             select_component: Selectează o componentă
+            select_valuators: Selectați unul sau mai mulți evaluatori
             selected: selectate
             split: Împarte propuneri
             split_button: Împarte
@@ -421,11 +421,9 @@ ro:
             select_states: Verifică stadiul propunerilor de importat
         proposals_merges:
           create:
-            invalid: 'A apărut o problemă la combinarea propunerilor selectate, deoarece unele dintre ele:'
             success: Propunerile au fost combinate cu succes într-o propunere nouă.
         proposals_splits:
           create:
-            invalid: 'A apărut o problemă la împărțirea propunerilor selectate, deoarece unele dintre ele:'
             success: Propunerile au fost împărțite cu succes în altele noi.
       admin_log:
         proposal:
@@ -589,7 +587,6 @@ ro:
           discard: Renunță la această ciornă
           discard_confirmation: Sigur dorești să renunți la această ciornă de propunere?
           send: Previzualizează
-          title: Editează ciorna de propunere
         edit_form_fields:
           marker_added: Marker adăugat pe hartă.
         filters:

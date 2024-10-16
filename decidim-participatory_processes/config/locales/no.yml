@@ -175,7 +175,6 @@
           title: Kopier deltakende prosess
       participatory_process_groups:
         destroy:
-          error: Det oppstod en feil under slettingen av prosessgruppen.
           success: Prosessgruppen ble slettet.
         edit:
           title: Rediger prosessgruppe
@@ -422,8 +421,6 @@
           name: Fremhevede prosesser
       index:
         title: Deltakende prosesser
-      last_activity:
-        new_participatory_process: Ny deltakende prosess
       participatory_process_steps:
         index:
           back_to_process: Tilbake til prosesssiden

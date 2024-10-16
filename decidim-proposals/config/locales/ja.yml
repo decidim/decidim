@@ -8,7 +8,7 @@ ja:
         decidim_scope_id: スコープ
         has_address: 住所有り
         scope_id: 対象範囲
-        state: 都道府県：
+        state: 状態
         title: タイトル
         user_group_id: 共同草案として作成します
       proposal:
@@ -18,10 +18,11 @@ ja:
         automatic_hashtags: ハッシュタグが自動的に追加されました
         body: 本文
         category_id: カテゴリ
+        decidim_proposals_proposal_state_id: 状態
         decidim_scope_id: スコープ
         has_address: 住所有り
         scope_id: 対象範囲
-        state: 都道府県：
+        state: 状態
         suggested_hashtags: 推奨ハッシュタグ
         title: タイトル
         user_group_id: 次のように提案を作成
@@ -90,6 +91,13 @@ ja:
       decidim/proposals/voting_enabled_event: 提案投票を有効にしました
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: 提案 %{link} が作成されました
+            import_to_proposal_text: この提案 %{link} が作成されました
+            merge_to_proposal_text: 'この提案が作成されました: %{link}'
+            split_to_proposal_text: 'この提案が作成されました: %{link}'
       decidim/proposals/collaborative_draft:
         other: 共同草案
       decidim/proposals/proposal:
@@ -166,7 +174,12 @@ ja:
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
-            geocoding_enabled: ジオコーディングが有効
+            edit_time: 提案は、この時間までの間は著者が編集することができます
+            edit_time_units:
+              days: 日
+              hours: 時
+              minutes: 分
+            geocoding_enabled: マップは有効です
             minimum_votes_per_user: ユーザーあたりの最小投票数
             new_proposal_body_template: 新しい提案本文テンプレート
             new_proposal_body_template_help: 新しい提案に含まれる予定のテキストを定義することができます。
@@ -179,6 +192,10 @@ ja:
             proposal_edit_time_choices:
               infinite: いつでも提案を編集することを許可する
               limited: 特定の期間内での提案の編集を許可する
+            proposal_edit_time_unit_options:
+              days: 日
+              hours: 時
+              minutes: 分
             proposal_length: 提案本文の最大長
             proposal_limit: 参加者ごとの提案数制限
             proposal_wizard_step_1_help_text: 提案ウィザード "作成" ステップヘルプ テキスト
@@ -228,7 +245,14 @@ ja:
             votes_hidden: 投票を非表示にしました (投票が有効な場合、チェックを入れると投票数が非表示になります)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> の共著者として追加されました。
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: 提案「%{resource_title}」の評価者として割り当てられました。これは、今後数日以内にフィードバックや適切な対応を行うために信頼されていることを意味します。詳細は<a href="%{admin_proposal_info_url}">管理パネル</a>で確認してください。
+            email_outro: 提案の評価者のため、この通知を受け取りました。
+            email_subject: あなたは提案 %{resource_title} に評価者として割り当てられています。
+            notification_title: 誰かがあなたを提案 <a href="%{resource_path}">%{resource_title}</a> の評価者に割り当てました。詳細は<a href="%{admin_proposal_info_path}">管理者パネル</a>で確認してください。
           proposal_note_created:
             email_intro: '%{author_name} は %{resource_title} でプライベートノートを作成しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
             email_outro: 提案を評価できるため、この通知を受け取りました。
@@ -238,6 +262,24 @@ ja:
             email_intro: '"%{resource_title}" 内の "%{author_name}" "%{author_nickname}" によるプライベートノートで言及されました。<a href="%{admin_proposal_info_url}">管理パネル</a>で確認してください。'
             email_outro: プライベートノートで言及されているため、この通知を受信しました。
             email_subject: 誰かが提案 %{resource_title} のメモであなたをメンションしました。
+            notification_title: <a href="%{resource_path}">%{resource_title}"</a> 内の<a href="%{author_path}">%{author_name} %{author_nickname}</a> によるプライベートノートで言及されました。<a href="%{admin_proposal_info_path}">管理パネル</a>で確認してください。
+          proposal_note_replied:
+            email_intro: '%{author_name} は %{resource_title} のプライベートノートに返信しました。 <a href="%{admin_proposal_info_url}">管理パネル</a> で確認してください。'
+            email_outro: あなたがノートの作成者であるため、この通知を受信しました。
+            email_subject: "%{author_name} が %{resource_title} 内のあなたのプライベートノートに返信しました。"
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> が <a href="%{resource_path}">%{resource_title}</a>内のあなたのプライベートノートに返信しました。 <a href="%{admin_proposal_info_path}">管理者パネル</a> で確認してください。
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> は提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を承諾しました。
+        coauthor_invited:
+          actions:
+            accept: 承認
+            decline: 拒否
+          email_intro: 'あなたは提案「%{resource_title}」の共著者に招待されています。このページで招待を承認または拒否することができます：'
+          email_outro: 提案の著者が共著者になることを認識したいので、この通知を受け取りました。
+          email_subject: あなたは提案「%{resource_title}」の共著者に招待されています
+          notification_title: <a href="%{author_path}">%{author_name}</a> は提案 <a href="%{resource_path}">%{resource_title}</a> の共著者としてあなたを招待します。
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> は提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を拒否しました。
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} は、 <a href="%{resource_url}">%{resource_title}</a> の共同草案のコントリビューターとして承認されました。'
           email_outro: <a href="%{resource_url}">%{resource_title}</a> のコラボレーターであるため、この通知を受け取りました。
@@ -315,6 +357,8 @@ ja:
           email_outro: あなたが提案の著者であるため、この通知を受け取りました。
           email_subject: '%{resource_title} の提案範囲が更新されました'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案スコープが管理者によって更新されました。
+        rejected_coauthorship:
+          notification_title: <a href="%{author_path}">%{author_name}</a> からの提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を拒否しました。
         voting_enabled:
           email_intro: 'あなたは %{participatory_space_title} で提案に投票することができます! このページへの参加を開始します:'
           email_outro: '%{participatory_space_title}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
@@ -379,11 +423,15 @@ ja:
     proposals:
       actions:
         answer_proposal: 提案に回答
+        cancel_coauthor_invitation: 共著者の招待をキャンセル
+        cancel_coauthor_invitation_confirm: 共著者の招待をキャンセルしてもよろしいですか？
         delete_proposal_state_confirm: このステータスを削除してもよろしいですか？
         destroy: ステータスを削除
         edit_proposal: 提案を編集
         edit_proposal_state: ステータスを編集
         import: 別のコンポーネントからインポート
+        mark_as_coauthor: 共著者としてマーク
+        mark_as_coauthor_confirm: このユーザーを共同執筆者としてマークしてもよろしいですか？受信者は招待を承認または拒否するための通知を受け取ります。
         new: 新しい提案
         new_proposal_state: 新しいステータス
         participatory_texts: 参加型テキスト
@@ -466,10 +514,13 @@ ja:
         proposal_notes:
           create:
             error: 提案ノートの作成中に問題が発生しました。
-            success: 提案メモを作成しました。
+            success: 提案ノートを作成しました。
           form:
             note: メモ
             submit: 送信
+          reply:
+            error: 提案ノートの返信を作成中に問題が発生しました。
+            success: 提案ノートの返信を作成しました。
           title: プライベートノート
         proposal_states:
           create:
@@ -492,10 +543,12 @@ ja:
             success: ステータスを更新しました
         proposals:
           answer:
-            invalid: 提案に回答する際に問題が発生しました。
+            bulk_answer_error: ID [%{proposals}] の提案は、テンプレート "%{template}" の適用時にエラーが発生したため、回答できませんでした。このコンポーネントに対して回答テンプレートが期待される形式と一致しているかを、個別に適用して確認してください。
+            bulk_answer_success: '%{count} の提案は、テンプレート "%{template}" を使用して回答されます。数分後にページを更新してください。'
+            invalid: 提案に回答する際に問題がありました。
             success: 提案に回答しました。
           create:
-            invalid: 提案の作成中に問題が発生しました。
+            invalid: この提案を作成中に問題が発生しました。
             success: 提案を作成しました。
           edit:
             title: 提案を更新
@@ -508,6 +561,7 @@ ja:
             select_a_meeting: ミーティングを選択
           index:
             actions: アクション
+            apply_answer_template: 回答テンプレートを適用
             assign_to_valuator: 評価者に割り当てる
             assign_to_valuator_button: 割り当て
             cancel: キャンセル
@@ -515,6 +569,7 @@ ja:
             change_scope: スコープの変更
             merge: 新しいものにマージ
             merge_button: 結合
+            no_templates_available: 利用可能なテンプレートはありません
             publish: 公開
             publish_answers: 回答を公開
             select_component: コンポーネントを選択
@@ -574,7 +629,7 @@ ja:
             title: 別のコンポーネントから提案をインポート
         proposals_merges:
           create:
-            invalid: '選択した提案をマージする際に問題が発生しました:'
+            invalid: '選択された提案をマージする際に問題が発生しました:'
             success: 提案を正常に新しいものにマージしました。
         proposals_splits:
           create:
@@ -582,10 +637,10 @@ ja:
             success: 提案を新しいものに分割しました。
         valuation_assignments:
           create:
-            invalid: 評価者に提案を割り当てる際にエラーが発生しました。
+            invalid: 評価者に提案を割り当てる際に問題が発生しました。
             success: 評価者に提案を割り当てました。
           delete:
-            invalid: 評価者からの提案の割り当てを解除する際にエラーが発生しました。
+            invalid: 評価者からの提案の割り当てを解除する際に問題が発生しました。
             success: 評価者への提案の割り当てを解除しました。
       admin_log:
         proposal:
@@ -722,9 +777,24 @@ ja:
       create:
         error: 提案を保存する際に問題がありました。
         success: 提案は正常に作成されました。草案として保存されました。
+      creation:
+        text: この提案が作成されました
       destroy_draft:
         error: 共同草案を削除する際に問題が発生しました。
         success: 提案の下書きは正常に削除されました。
+      invite_coauthors:
+        cancel:
+          error: 共同執筆者の招待を取り消す際に問題が発生しました。
+          success: 共同執筆者の招待を取り消しました。
+        create:
+          error: 共同執筆者を招待する際に問題が発生しました。
+          success: "%{author_name} を共同執筆者として招待しました。"
+        destroy:
+          error: 招待を却下するのに問題が発生しました。
+          success: 招待は拒否されました。
+        update:
+          error: 招待を受け入れる際に問題が発生しました。
+          success: 招待が承認されました。
       last_activity:
         new_proposal: '新しい提案:'
         proposal_updated: '更新された提案:'
@@ -773,7 +843,7 @@ ja:
           discard: この下書きを破棄する
           discard_confirmation: この提案の下書きを破棄してもよろしいですか？
           send: プレビュー
-          title: 提案の草案を編集
+          title: 提案の下書きを編集
         edit_form_fields:
           marker_added: マーカーがマップに追加されました。
         filters:

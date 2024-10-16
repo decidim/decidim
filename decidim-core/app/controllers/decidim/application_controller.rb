@@ -16,6 +16,7 @@ module Decidim
     include NeedsTosAccepted
     include Headers::HttpCachingDisabler
     include Headers::ContentSecurityPolicy
+    include Headers::BrowserFeaturePermissions
     include ActionAuthorization
     include ForceAuthentication
     include SafeRedirect
@@ -55,6 +56,12 @@ module Decidim
     layout "layouts/decidim/application"
 
     skip_before_action :disable_http_caching, unless: :user_signed_in?
+
+    def store_share_token
+      session[:share_token] = params[:share_token] if params.has_key?(:share_token)
+
+      session[:share_token].presence
+    end
 
     private
 

@@ -1,4 +1,9 @@
-<% add_decidim_page_title component_name %>
+<% add_decidim_meta_tags(
+  description: translated_attribute(current_component.participatory_space.try(:description)),
+  title: component_name,
+  url: posts_url,
+  resource: current_component) %>
+
 <%= append_javascript_pack_tag "decidim_blogs" %>
 <%= append_stylesheet_pack_tag "decidim_blogs" %>
 

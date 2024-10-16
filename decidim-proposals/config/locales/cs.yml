@@ -18,6 +18,7 @@ cs:
         automatic_hashtags: Hashtagy automaticky přidány
         body: Tělo
         category_id: Kategorie
+        decidim_proposals_proposal_state_id: Stav
         decidim_scope_id: Rozsah
         has_address: Má adresu
         scope_id: Oblast působnosti
@@ -74,10 +75,12 @@ cs:
           attributes:
             base:
               not_official: Nejsou oficiální
+              voted: Obdrželi hlasy nebo potvrzení
         proposals_split:
           attributes:
             base:
               not_official: Nejsou oficiální
+              voted: Obdrželi hlasy nebo potvrzení
     models:
       decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
       decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
@@ -88,6 +91,13 @@ cs:
       decidim/proposals/voting_enabled_event: Hlasování návrhu je povoleno
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Návrh %{link} byl vytvořen
+            import_to_proposal_text: Tento návrh %{link} byl vytvořen
+            merge_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
+            split_to_proposal_text: 'Tento návrh byl vytvořen: %{link}'
       decidim/proposals/collaborative_draft:
         one: Návrh spolupráce
         few: Společné návrhy
@@ -154,10 +164,13 @@ cs:
             amendments_wizard_help_text: Nápověda průvodce k Pozměňovacím návrhům
             announcement: Oznámení
             attachments_allowed: Povolit přílohy
+            attachments_allowed_help: Povolením této možnosti se návrhy nastaví na režim mřížky a na kartě se objeví první obrázek.
+            can_accumulate_votes_beyond_threshold: Lze hromadit hlasy za hranicí
             collaborative_drafts_enabled: Společné koncepty povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             default_sort_order: Výchozí řazení návrhu
+            default_sort_order_help: Automaticky znamená, že pokud je hlasování povoleno, návrhy se zobrazují seřazené náhodně, a pokud je hlasování zablokováno, pak se zobrazují seřazené podle počtu hlasů.
             default_sort_order_options:
               automatic: Automaticky
               most_commented: Nejvíce komentované
@@ -167,7 +180,12 @@ cs:
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
-            geocoding_enabled: Geokódování povoleno
+            edit_time: Návrhy mohou autoři upravit dříve, než uplyne tato doba
+            edit_time_units:
+              days: Dní
+              hours: Hodin
+              minutes: Minut
+            geocoding_enabled: Mapy povoleny
             minimum_votes_per_user: Minimální počet hlasů na uživatele
             new_proposal_body_template: Šablona těla nového návrhu
             new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
@@ -180,13 +198,19 @@ cs:
             proposal_edit_time_choices:
               infinite: Povolit úpravy návrhů na nekonečnou dobu
               limited: Povolit úpravy návrhů v konkrétním časovém rámci
+            proposal_edit_time_unit_options:
+              days: Dní
+              hours: Hodin
+              minutes: Minut
             proposal_length: Maximální délka návrhu
             proposal_limit: Limit návrhu na uživatele
             proposal_wizard_step_1_help_text: Text průvodce kroku nápovědy "Vytvořit" Návrh
+            proposal_wizard_step_2_help_text: Text nápovědy ke kroku "Zveřejnit" průvodce návrhem
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
             threshold_per_proposal: Prah na návrh
+            vote_limit: Limit hlasů na účastníka
           step:
             amendment_creation_enabled: Umožnit pozměnění a doplnění
             amendment_creation_enabled_help: Účastníci mohou pozměňovat návrhy.
@@ -206,11 +230,13 @@ cs:
             creation_enabled: Účastníci mohou vytvářet návrhy
             creation_enabled_readonly: Toto nastavení je zakázáno, když aktivujete funkci Participativní texty. Chcete-li návrhy nahrát jako participativní text, klikněte na tlačítko Participativní texty a postupujte podle pokynů.
             default_sort_order: Výchozí řazení návrhu
+            default_sort_order_help: Automaticky znamená, že pokud je hlasování povoleno, návrhy se zobrazují seřazené náhodně, a pokud je hlasování zablokováno, pak se zobrazují seřazené podle počtu hlasů.
             default_sort_order_options:
               automatic: Automaticky
               most_commented: Nejvíce komentované
               most_endorsed: Nejvíce schvalované
               most_followed: Nejvíce sledované
+              most_voted: Nejvíce hlasovalo
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
@@ -221,12 +247,45 @@ cs:
             publish_answers_immediately_help_html: 'Mějte na paměti, že pokud odpovíte na jakýkoli návrh bez tohoto povolení, budete je muset publikovat ručně jejich výběrem a použitím publikační akce. Více informací o tom, jak to funguje, naleznete na <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank">stránce odpovědi návrhů</a>.'
             suggested_hashtags: Hashtagy navržené uživatelům pro nové návrhy
             votes_blocked: Hlasy blokovány
+            votes_enabled: Hlasování povoleno
+            votes_hidden: Skryté hlasy (pokud jsou hlasy povoleny, zaškrtnutím této položky se počet hlasů skryje)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: Byli jste přidáni jako spoluautor návrhu <a href="%{resource_path}">%{resource_title}</a>.
         admin:
+          proposal_assigned_to_valuator:
+            email_intro: Byli jste přiděleni jako hodnotitel k nnávrhu "%{resource_title}". To znamená, že vám důvěřujeme, že jim v příštích dnech poskytnete zpětnou vazbu a náležitou odpověď. Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.
+            email_outro: Obdrželi jste toto oznámení, protože můžete návrh hhodnotit.
+            email_subject: Byl jste přiřazen jako hodnotitel k návrhu %{resource_title}.
+            notification_title: Byli jste přiřazeni jako hodnotitel k nnávrhu <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
           proposal_note_created:
+            email_intro: '%{author_name} vytvořil soukromou poznámku v %{resource_title}. Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.'
             email_outro: Obdrželi jste toto oznámení, protože můžete návrh ohodnotit.
             email_subject: Někdo zanechal poznámku na návrh %{resource_title}.
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> vytvořil soukromou poznámku v <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
+          proposal_note_mentioned:
+            email_intro: Byli jste zmíněni v soukromé poznámce v "%{resource_title}" od "%{author_name}"%{author_nickname}". Podívejte se na <a href="%{admin_proposal_info_url}">administrátorský panel</a>.
+            email_outro: Obdrželi jste toto oznámení, protože jste byli zmíněni v soukromé poznámce.
+            email_subject: Někdo vás zmínil v poznámce k návrhu %{resource_title}.
+            notification_title: Byl jste zmíněn v soukromé poznámce v <a href="%{resource_path}">%{resource_title}</a> od <a href="%{author_path}">%{author_name} %{author_nickname}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
+          proposal_note_replied:
+            email_intro: '%{author_name} odpověděl na vaši soukromou poznámku v %{resource_title}. Podívejte se na <a href="%{admin_proposal_info_url}">admin panel</a>.'
+            email_outro: Obdrželi jste toto oznámení, protože jste autorem poznámky.
+            email_subject: "%{author_name} odpověděl na vaši soukromou poznámku v %{resource_title}."
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpověděl na vaši soukromou poznámku v <a href="%{resource_path}">%{resource_title}</a>. Podívejte se na <a href="%{admin_proposal_info_path}">administrátorský panel</a>.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> přijal vaši pozvánku, aby se stal spoluautorem návrhu <a href="%{resource_path}">%{resource_title}</a>.
+        coauthor_invited:
+          actions:
+            accept: Přijmout
+            decline: Odmítnout
+          email_intro: 'Byli jste pozváni jako spoluautor návrhu "%{resource_title}". Pozvánku můžete přijmout nebo odmítnout na této stránce:'
+          email_outro: Obdrželi jste toto oznámení, protože autor návrhu chce uznat vaše příspěvky tím, že se stanete spoluautorem.
+          email_subject: Byli jste pozváni, abyste se stal spoluautorem návrhu "%{resource_title} "
+          notification_title: <a href="%{author_path}">%{author_name}</a> by vás chtěl pozvat jako spoluautora návrhu <a href="%{resource_path}">%{resource_title}</a>.
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> odmítl vaši pozvánku, aby se stal spoluautorem návrhu <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} byl přijat k přístupu jako přispěvatel konceptu spolupráce <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Obdrželi jste toto oznámení, protože jste spolupracovníkem <a href="%{resource_url}">%{resource_title}</a>.
@@ -304,8 +363,13 @@ cs:
           email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
           email_subject: Rámec návrhu %{resource_title} byl aktualizován
           notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> byl aktualizován správcem.
+        rejected_coauthorship:
+          notification_title: Odmítli jste pozvání od <a href="%{author_path}">%{author_name}</a>, abyste se stali spoluautorem návrhu <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
+          email_intro: 'Hlasovat o návrzích můžete v %{participatory_space_title}! Začněte se účastnit na této stránce:'
           email_outro: Toto oznámení jste obdrželi, protože jste sledovali %{participatory_space_title}. Po předchozím propojení můžete přestat přijímat oznámení.
+          email_subject: Hlasování o návrhu bylo zahájeno pro %{participatory_space_title}
+          notification_title: Nyní můžete začít <a href="%{resource_path}">hlasovat o návrzích</a> v <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     gamification:
       badges:
         accepted_proposals:
@@ -322,7 +386,14 @@ cs:
         proposal_votes:
           conditions:
             - Procházejte a strávte nějaký čas čtením nápadů jiných lidí
-            - 
+            - Hlasujte podle návrhů, které se vám líbí nebo najdete zajímavé
+          description: Tento odznak se uděluje, když hlasujete pro návrhy ostatních.
+          description_another: Tento účastník hlasoval pro %{score} návrhů.
+          description_own: Hlasovali jste pro %{score} návrhy.
+          name: Hlasy k návrhům
+          next_level_in: Hlasujte pro %{score} další návrhy pro dosažení další úrovně!
+          unearned_another: Tento uživatel zatím nehlasoval pro žádné návrhy.
+          unearned_own: Zatím jste nehlasovali pro žádné návrhy.
         proposals:
           conditions:
             - Zvolte participační prostor pro účast vašeho zájmu s povoleným podáním návrhů
@@ -348,6 +419,7 @@ cs:
         object: návrhy
         title: Návrhy
       votes:
+        description: Počet hlasů pro návrhy
         object: hlasy
         title: Hlasy
     participatory_spaces:
@@ -357,11 +429,15 @@ cs:
     proposals:
       actions:
         answer_proposal: Odpověď na návrh
+        cancel_coauthor_invitation: Zrušit pozvánku spoluautora
+        cancel_coauthor_invitation_confirm: Opravdu chcete zrušit pozvánku spoluautora?
         delete_proposal_state_confirm: Opravdu chcete odstranit tento stav?
         destroy: Odstranit stav
         edit_proposal: Upravit návrh
         edit_proposal_state: Upravit stav
         import: Import z jiné součásti
+        mark_as_coauthor: Označit jako spoluautora
+        mark_as_coauthor_confirm: Opravdu chcete tohoto uživatele označit jako spoluautora? Příjemce obdrží oznámení, aby přijal nebo odmítl pozvánku.
         new: Nový návrh
         new_proposal_state: Nový status
         participatory_texts: Participující texty
@@ -454,6 +530,9 @@ cs:
           form:
             note: Poznámka
             submit: Předložit
+          reply:
+            error: Při vytváření poznámky k tomuto návrhu došlo k chybě.
+            success: Odpověď na návrh byla úspěšně vytvořena.
           title: Soukromé poznámky
         proposal_states:
           create:
@@ -476,7 +555,9 @@ cs:
             success: Status byl úspěšně aktualizován
         proposals:
           answer:
-            invalid: Při odpovědi na tento návrh se vyskytl problém.
+            bulk_answer_error: Návrhy s ID [%{proposals}] nemohly být zodpovězeny kvůli chybám při použití šablony "%{template}". Můžete zkontrolovat, že šablona odpovědi odpovídá očekávanému formátu této komponenty, a to individuálně.
+            bulk_answer_success: 'Na %{count} návrhy bude odpovězeno pomocí šablony „%{template}“. Počkejte prosím několik minut a obnovte stránku, abyste viděli aktualizace.'
+            invalid: Při odpovědi na tento návrh došlo k chybě.
             success: Návrh byl úspěšně zodpovězen.
           create:
             invalid: Při vytváření tohoto návrhu došlo k chybě.
@@ -492,6 +573,7 @@ cs:
             select_a_meeting: Vyberte schůzku
           index:
             actions: Akce
+            apply_answer_template: Použít šablonu odpovědi
             assign_to_valuator: Přiřadit hodnotiteli
             assign_to_valuator_button: Přiřadit
             cancel: Zrušit
@@ -499,9 +581,11 @@ cs:
             change_scope: Změnit rozsah
             merge: Sloučit do nového
             merge_button: Spojit
+            no_templates_available: Žádné šablony nejsou k dispozici
             publish: Publikovat
             publish_answers: Publikovat odpovědi
             select_component: Vyberte součást
+            select_valuators: Vyberte jednoho nebo více hodnotitelů
             selected: vybraný
             split: Rozdělit návrhy
             split_button: Rozdělit
@@ -537,6 +621,7 @@ cs:
             remove_assignment: Odstranit přiřazení
             remove_assignment_confirmation: Jste si jisti, že chcete odstranit hodnotitele z tohoto návrhu?
             valuators: Hodnotitelé
+            votes_count: Počet hlasů
           update_category:
             invalid: 'Tyto návrhy se již jmenují %{subject_name} v kategorii: %{proposals}.'
             select_a_category: Vyberte kategorii.
@@ -563,14 +648,14 @@ cs:
             success: Projekty byly úspěšně sloučeny do nové.
         proposals_splits:
           create:
-            invalid: 'Vyskytl se problém s rozdělením vybraných návrhů, protože některé z nich:'
+            invalid: 'Při rozdělování vybraných návrhů došlo k chybě, protože některé z nich:'
             success: Úspěšně rozdělil návrhy na nové.
         valuation_assignments:
           create:
             invalid: Při přiřazování návrhů hodnotiteli došlo k chybě.
             success: Návrhy byly úspěšně přiřazené hodnotiteli.
           delete:
-            invalid: Došlo k chybě při odebírání návrhů od hodnotitele.
+            invalid: Při odebírání návrhů od hodnotitele došlo k chybě.
             success: Hodnotitel byl úspěšně odebrán z návrhů.
       admin_log:
         proposal:
@@ -713,9 +798,24 @@ cs:
       create:
         error: Při ukládání návrhu došlo k chybám.
         success: Návrh byl úspěšně vytvořen. Uloženo jako návrh.
+      creation:
+        imported_text: Stalo se z něj tento návrh
       destroy_draft:
         error: Došlo k chybám s vymazáním návrhového návrhu.
         success: Koncept návrhu byl úspěšně smazán.
+      invite_coauthors:
+        cancel:
+          error: Při rušení pozvánky spoluautora došlo k chybě.
+          success: Pozvánka spoluautora byla úspěšně zrušena.
+        create:
+          error: Při pozvání spoluautora došlo k chybě.
+          success: "%{author_name} byl úspěšně pozván jako spoluautor."
+        destroy:
+          error: Při odmítání pozvánky došlo k chybě.
+          success: Pozvánka byla zamítnuta.
+        update:
+          error: Při přijímání pozvánky došlo k chybě.
+          success: Pozvánka byla přijata.
       last_activity:
         new_proposal: 'Nový návrh:'
         proposal_updated: 'Návrh aktualizován:'
@@ -745,6 +845,9 @@ cs:
         buttons:
           amend: Pozměnit
           comment: Komentář
+      proposal_votes:
+        create:
+          error: Při hlasování o návrhu došlo k chybě.
       proposals:
         dynamic_map_instructions:
           description: Souřadnice budou aktualizovány po kliknutí na tlačítko 'náhled'. Adresa se však nemění.
@@ -784,6 +887,7 @@ cs:
             few: "%{count} návrhů"
             many: "%{count} návrhů"
             other: "%{count} návrhů"
+          grid_mode: Mřížka
           list_mode: Režim seznamu
           new_proposal: Nový návrh
           see_all: Zobrazit všechny návrhy
@@ -838,13 +942,33 @@ cs:
           proposal_accepted_reason: 'Tento návrh byl přijat, protože:'
           proposal_in_evaluation_reason: Tento návrh se hodnotí
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
+          withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, dokud neobdržíte žádný hlas. Návrh není vymazán, objeví se v seznamu stažených návrhů.
           withdraw_confirmation_html: Jste si jisti, že chcete stáhnout tento návrh?<br><br><strong>Tuto akci nelze zrušit!</strong>
           withdraw_proposal: Návrh stáhnout
         update:
           title: Aktualizovat návrh
+        vote_button:
+          already_voted: Již hlasovalo
+          already_voted_hover: Odebrat hlas
+          maximum_votes_reached: Limit hlasů dosažen
+          no_votes_remaining: Žádné zbývající hlasy
+          vote: Hlasovat
+          votes_blocked: Hlasování zakázáno
         voting_rules:
+          can_accumulate_votes_beyond_threshold:
+            description: Každý návrh může sshromáždit více než %{limit} hlasů
+          minimum_votes_per_user:
+            description: Musíte rozdělit minimálně %{votes} hlasů mezi různé návrhy.
+            given_enough_votes: Dali jste dostatek hlasů.
+            votes_remaining: Musíte hlasovat o dalších %{remaining_votes} návrzích k vašim hlasům, které budou brány v úvahu.
           proposal_limit:
             description: Můžete vytvořit až %{limit} návrhů.
+          threshold_per_proposal:
+            description: Aby byly návrhy schváleny, musí dosáhnout %{limit} hlasů.
+          title: 'Hlasy podléhají těmto pravidlům:'
+          vote_limit:
+            description: Můžete hlasovat až pro %{limit} návrhů.
+            votes: Zbývá %{number} hlasů
         wizard_aside:
           back: Zadní
           back_from_step_1: Zpět k návrhům
@@ -871,6 +995,9 @@ cs:
       versions:
         index:
           title: Verze
+      withdraw:
+        errors:
+          has_votes: Tento návrh nemůže být stažen, protože již získal hlasy.
     resource_links:
       copied_from_component:
         proposal_proposal: Související návrhy

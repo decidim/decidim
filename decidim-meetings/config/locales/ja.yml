@@ -78,6 +78,10 @@ ja:
       decidim/meetings/update_meeting_event: ミーティングが更新されました
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'このミーティングで議論されました: %{link}'
       decidim/meetings/meeting:
         other: ミーティング
       decidim/meetings/minutes:
@@ -522,14 +526,14 @@ ja:
           click_here: すべてのミーティングを見る
           new_meeting: 新しいミーティング
           see_all: すべてのミーティングを見る
-          see_all_withdrawn: 撤回されたすべてのミーティングを見る
+          see_all_withdrawn: 取り消したすべてのミーティングを見る
           text_banner: 作成者が取り消したミーティングの一覧を表示しています． %{go_back_link}
         meeting:
           close_meeting: ミーティングを終了する
           edit_close_meeting: ミーティングレポートを編集
           edit_meeting: ミーティングを編集
           join_meeting: ミーティングに参加
-          reply_poll: 投票
+          reply_poll: 投票に返信
           view_poll: 投票を表示
         meetings:
           no_meetings_warning: 検索条件に一致するミーティングがないか，予定されているミーティングがありません．
@@ -654,7 +658,7 @@ ja:
         transparent: 透明性
         withdraw: 取り消し
       withdraw:
-        error: ミーティングを取り上げる際にエラーが発生しました。
+        error: ミーティングを取り消す際に問題がありました。
         success: ミーティングは正常に取り下げられました。
     metrics:
       meetings:

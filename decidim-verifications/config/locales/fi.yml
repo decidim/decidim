@@ -44,7 +44,7 @@ fi:
             confirm: Ennen valittua päivämäärää tehtyjen vahvistustietojen tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
             confirm_all: Vahvistusten tuhoamista ei voi peruuttaa. Haluatko varmasti jatkaa?
           destroy_nok: Vahvistusten kumoaminen epäonnistui.
-          destroy_ok: Kaikki hakua vastanneiden tunnistautumiset on peruutettu onnistuneesti.
+          destroy_ok: Kaikkien hakua vastanneiden tunnistautumisten peruuttaminen onnistui.
           info: Yhteensä %{count} vahvistettua osallistujaa.
           no_data: Ei vahvistettuja osallistujia.
           title: Tunnistautumisten peruuttaminen
@@ -90,7 +90,7 @@ fi:
           help:
             - Osallistujat pyytävät vahvistuskoodin lähettämistä heidän puhelimeensa.
             - Heidän on syötettävä koodi vahvistaakseen tilinsä.
-            - Jos he eivät saa koodia, he voivat pyytää sitä uudelleen.
+            - Jos he eivät saa koodia, he voivat pyytää sitä uudestaan.
       csv_census:
         explanation: Varmenna käyttäjätilisi organisaation henkilötietorekisterin avulla.
         name: Organisaation rekisteritiedot
@@ -157,8 +157,8 @@ fi:
         admin:
           census:
             create:
-              error: Rekisteritietojen tuonti epäonnistui.
-              success: '%{count} kohdetta tuotiin onnistuneesti (%{errors} virhettä).'
+              error: Henkilötietorekisterin tuonti epäonnistui.
+              success: '%{count} kohteen tuonti onnistui (%{errors} virhettä).'
             destroy_all:
               success: Kaikki henkilötietorekisterin tiedot on poistettu.
           destroy:
@@ -242,8 +242,8 @@ fi:
             online: Käytä online-vahvistusta
             rejection_clarity: Varmista, että kaikki tiedot näkyvät selvästi ladatussa kuvassa.
             rejection_correctness: Varmista, että syötetyt tiedot ovat oikein.
-            rejection_notice: Tilisi vahvistaminen epäonnistui. Yritä uudelleen.
-            send: Pyydä vahvistusta uudelleen
+            rejection_notice: Tilisi vahvistaminen epäonnistui. Yritä uudestaan.
+            send: Pyydä vahvistusta uudestaan
           new:
             send: Pyydä vahvistusta
             title: Lähetä henkilöllisyystodistuksesi

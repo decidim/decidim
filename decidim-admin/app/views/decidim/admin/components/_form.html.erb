@@ -13,9 +13,6 @@
       <div class="row column">
         <%= form.translated :text_field, :name, autofocus: true, aria: { label: :name } %>
       </div>
-      <div class="row column">
-        <%= form.number_field :weight %>
-      </div>
     </div>
   </div>
   <% if form.object.settings? %>
@@ -110,15 +107,6 @@
               <% end %>
             </div>
           </fieldset>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <% if component && component.persisted? && !component.published? %>
-    <div class="card" data-component="accordion" id="accordion-share_tokens">
-      <div id="panel-share_tokens" class="card-section">
-        <div class="row column">
-            <%= render partial: "decidim/admin/share_tokens/share_tokens", locals: { share_tokens: form.object.share_tokens } %>
         </div>
       </div>
     </div>

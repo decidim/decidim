@@ -23,7 +23,7 @@ fi:
               missing: ovat puutteellisia
               too_many: Voit valita enintään %{count} vaihtoehtoa.
         questionnaire:
-          request_invalid: Pyynnön käsittely ei onnistunut. Yritä uudestaan myöhemmin.
+          request_invalid: Pyynnön käsittely epäonnistui. Yritä uudestaan myöhemmin.
   decidim:
     forms:
       admin:
@@ -122,7 +122,7 @@ fi:
             up: Ylös
           update:
             invalid: Kyselylomakkeen tallentaminen epäonnistui.
-            success: Lomake tallennettu onnistuneesti.
+            success: Lomakkeen tallennus onnistui.
       admin_log:
         questionnaire:
           update: "%{user_name} päivitti kyselyä %{resource_name}"

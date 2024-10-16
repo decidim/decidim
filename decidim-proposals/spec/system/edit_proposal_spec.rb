@@ -52,10 +52,10 @@ describe "Edit proposals" do
 
       it "shows validation error when format is not accepted" do
         click_on "Edit proposal"
-        dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("participatory_text.md"), keep_modal_open: true) do
+        dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
-        expect(page).to have_content("only files with the following extensions are allowed: jpeg, jpg, pdf, png, rtf, txt")
+        expect(page).to have_content("Validation error!")
       end
 
       context "with a file and photo" do
@@ -186,7 +186,7 @@ describe "Edit proposals" do
       end
     end
 
-    context "with geocoding enabled" do
+    context "with maps enabled" do
       let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space: participatory_process) }
       let(:address) { "6 Villa des Nymphéas 75020 Paris" }
       let(:new_address) { "6 rue Sorbier 75020 Paris" }

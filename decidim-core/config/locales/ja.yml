@@ -19,6 +19,8 @@ ja:
         body: 本文
       report:
         details: 追加コメント
+      taxonomy:
+        name: タクソノミー名
       user:
         about: 私について
         email: あなたのメールアドレス
@@ -62,6 +64,9 @@ ja:
         password_confirmation: パスワードの確認
         remember_me: ログイン状態を維持する
     models:
+      decidim:
+        history:
+          other: 履歴
       decidim/amendment:
         other: 修正
       decidim/endorsement:
@@ -247,6 +252,20 @@ ja:
         create: "%{user_name} が %{resource_name} の静的ページを作成しました"
         delete: "%{user_name} が %{resource_name} の静的ページを削除しました"
         update: "%{user_name} は %{resource_name} 静的ページを更新しました"
+      taxonomy:
+        create: "%{user_name} がタクソノミー %{resource_name} を作成しました"
+        create_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内にタクソノミー %{resource_name} を作成しました"
+        delete: "%{user_name} がタクソノミー %{resource_name} を削除しました"
+        delete_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を削除しました"
+        update: "%{user_name} がタクソノミー %{resource_name} を更新しました"
+        update_with_parent: "%{user_name} が タクソノミー %{parent_taxonomy} 内のタクソノミー %{resource_name} を更新しました"
+      taxonomy_filter:
+        create: "%{user_name} がタクソノミー %{resource_name} に基づいたフィルターを作成しました"
+        create_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを作成しました"
+        delete: "%{user_name} がタクソノミー %{resource_name} に基づいたフィルターを削除しました"
+        delete_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを削除しました"
+        update: "%{user_name} はタクソノミー %{resource_name} に基づいてフィルターを更新しました"
+        update_with_filter_items_count: "%{user_name} はタクソノミー %{resource_name} に基づき、%{space_manifest_name} のために %{filter_items_count} 個のフィルターを使ってフィルターを更新しました"
       user:
         block: "%{user_name} がユーザー %{resource_name} をブロックしました"
         invite: "%{user_name} が参加者 %{resource_name} をロール %{role} で招待しました"
@@ -271,11 +290,11 @@ ja:
       dismiss: 通知を消去
     amendments:
       accepted:
-        error: 修正を承認中にエラーが発生しました。
+        error: 修正を受け入れる際に問題が発生しました。
         success: 修正が正常に受け入れられました。
       amendable:
         button: '%{model_name} を修正'
-        error: リソースの修正中にエラーが発生しました。
+        error: リソースの修正中に問題が発生しました。
         promote_button: '%{model_name} に昇格'
         promote_confirm_text: この修正を承認してもよろしいですか？
         promote_help_text: この修正を促進し、独立した%{model_name} として公開できます。
@@ -283,7 +302,7 @@ ja:
         title:
           other: "%{count} 件の修正"
       created:
-        error: 修正案の作成中にエラーが発生しました。
+        error: 修正案の作成中に問題が発生しました。
         success: 修正案が正常に作成されました。
       destroy_draft:
         error: 修正案を削除中に問題が発生しました。
@@ -335,7 +354,7 @@ ja:
         error: 修正案の更新中に問題が発生しました。
         success: 修正の下書きが正常に更新されました。
       withdraw:
-        error: 修正の撤回中にエラーが発生しました。
+        error: 修正案の取り消し中に問題がありました。
         success: 修正を撤回しました。
       wizard_step_form:
         steps:
@@ -570,6 +589,9 @@ ja:
           sign_up: プロフィールを完成してください
           subtitle: アカウントの作成を完了するため、次のフォームに記入してください
           username_help: 投稿に表示される公表名。匿名性を保証する目的で、任意の名前にすることができます。
+        new_tos_fields:
+          sign_up: アカウントを作成
+          sign_up_title: アカウントの作成を完了する
       registrations:
         create:
           error: アカウント作成中に問題が発生しました。
@@ -907,7 +929,7 @@ ja:
           title_required: タイトルが必要です
           uploaded: アップロード済
           validating: 検証中...
-          validation_error: 検証エラー
+          validation_error: 'バリデーションエラー: ファイルの拡張子またはサイズに問題がないか確認してください。'
         select_file: ファイルを選択
       upload_help:
         dropzone: ここにファイルをドロップするか、ボタンをクリックしてアップロードします
@@ -1065,6 +1087,8 @@ ja:
           not_found: 'スコープがデータベース上に見つかりませんでした (ID: %{id})'
         scope_type_presenter:
           not_found: 'スコープ種別がデータベース上に見つかりませんでした (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'データベース内にタクソノミーが見つかりませんでした (ID: %{id})'
     managed_users:
       expired_session: 参加者の現在の管理セッションの有効期限が切れています。
     map:
@@ -1243,6 +1267,7 @@ ja:
         administrators: 管理者
         allow_public_contact: 私をフォローしていないユーザーからでもダイレクトメッセージを送信できます
         allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取ります。いつでもオフにできます。
+        assigned_to_proposal: 誰かが私に提案の評価を割り当てた際に、メールを受信したいです
         direct_messages: ダイレクトメッセージを受信する
         email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
         everything_followed: 自分がフォローしているすべて
@@ -1261,6 +1286,7 @@ ja:
         push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で通知を許可する必要があります。
         receive_notifications_about: 通知を受け取りたい
         update_notifications_settings: 変更を保存
+        valuators: 評価者
       update:
         error: 通知設定の更新中に問題が発生しました。
         success: 通知設定が正常に更新されました。
@@ -1398,8 +1424,10 @@ ja:
         subject: リソースが報告されました
     reports:
       create:
-        error: レポートの作成中にエラーが発生しました。もう一度やり直してください。
+        error: レポートの作成中に問題が発生しました。もう一度やり直してください。
         success: レポートは正常に作成され、管理者によってレビューされます。
+    resource:
+      controls_label: リソースコントロール
     resource_endorsements:
       create:
         error: オススメする際に問題がありました。
@@ -1445,6 +1473,7 @@ ja:
         close_modal: ウィンドウを閉じる
         ok: OK
         title: 確定
+      confirm_unload: このページには保存されていない変更が含まれています。このページから移動してもよいですか？
       embed:
         title: 埋め込み動画コンテンツ
       extended_navigation_bar:
@@ -1522,6 +1551,8 @@ ja:
     tags:
       filter_results_for_category: 'カテゴリの検索結果: %{resource}'
       filter_results_for_scope: 'スコープの検索結果: %{resource}'
+    taxonomies:
+      prompt: '"%{name}"から選択'
     translation_bar:
       help_text: "<strong>警告:</strong>内容は自動的に翻訳されている場合があり、100%正確ではありません。"
       show_original: 元テキストを表示する
@@ -1643,10 +1674,10 @@ ja:
         ignore: |-
           招待を受け入れたくない場合は、このメールを無視してください。<br />上記のリンクにアクセスし、アカウントIDとパスワードを設定するまで、あなたのアカウントは作成されません。
         invited_you_as_admin: "%{invited_by} さんが %{application}の管理者としてあなたを招待しました。以下のリンクから承認できます。"
-        invited_you_as_private_user: "%{invited_by} が %{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。"
+        invited_you_as_private_user: "%{invited_by} が %{application} のプライベート参加者としてあなたを招待しました。以下のリンクから承認できます。"
         someone_invited_you: '%{application} にあなたを招待しました。以下のリンクから受け入れることができます。'
         someone_invited_you_as_admin: '%{application} の管理者としてあなたを招待しました。以下のリンクから承認できます。'
-        someone_invited_you_as_private_user: '%{application}の非公開参加者としてあなたを招待しました。以下のリンクから承認できます。'
+        someone_invited_you_as_private_user: '%{application} のプライベート参加者としてあなたは招待されています。以下のリンクから承認できます。'
         subject: 招待の説明
       invite_admin:
         subject: '%{organization} を管理するために招待されています'
@@ -1674,6 +1705,7 @@ ja:
         message: あなたのアカウントは、ログインに失敗した回数が多すぎるためロックされています。
         subject: 説明のロックを解除する
     omniauth_callbacks:
+      add_tos_errors: アカウントを作成するには、利用規約に同意する必要があります。
       failure: '「 %{kind} 」のため、%{reason}から認証できませんでした。'
       success: '%{kind} アカウントから正常に認証されました。'
     passwords:
@@ -1833,7 +1865,7 @@ ja:
       not_found: 見つかりませんでした。以前にアカウントを作成されましたか？
       not_locked: ロックされていません
       not_saved:
-        other: 'リクエストの処理中に複数のエラーが発生しました:'
+        other: 'リクエストの処理中にエラーが発生しました:'
       too_many_marks: '連続する句読点が多すぎます (例: !, ?)'
       too_much_caps: 大文字が多すぎます(テキストの25%以上)
       too_short: は短すぎます( %{count} 文字以下)

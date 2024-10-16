@@ -2,7 +2,7 @@ ro:
   activemodel:
     attributes:
       account:
-        delete_reason: Motivul pentru a-ți șterge contul
+        delete_reason: Motivul pentru care vă ștergeți contul
       common:
         created_at: Creat la
       conversation:
@@ -19,6 +19,8 @@ ro:
         body: Conținut
       report:
         details: Detalii
+      taxonomy:
+        name: Denumire taxonomie
       user:
         about: Despre
         email: E-mailul dumneavoastră
@@ -27,14 +29,14 @@ ro:
         password: Parolă
         password_confirmation: Confirmați parola
         personal_url: URL personal
-        remove_avatar: Elimină avatar
+        remove_avatar: Eliminați avatar
         tos_agreement: Acordul privind termenii și condițiile
     models:
       decidim/attachment_created_event: Atașament
       decidim/component_published_event: Componentă activă
       decidim/demoted_membership: Nu mai este un administrator de grup
       decidim/gamification/badge_earned_event: Insignă câștigată
-      decidim/gamification/level_up_event: Ai crescut în nivel
+      decidim/gamification/level_up_event: Ați crescut în nivel
       decidim/invited_to_group_event: Invitat în grup
       decidim/join_request_accepted_event: Cerere de înscriere acceptată
       decidim/join_request_rejected_event: Cerere de înscriere respinsă
@@ -43,7 +45,7 @@ ro:
       decidim/promoted_to_admin_event: Promovat ca administrator
       decidim/removed_from_group: Eliminat din grup
       decidim/resource_endorsed_event: Resursă susținută
-      decidim/resource_hidden_event: Resursă ascunsă
+      decidim/resource_hidden_event: Conținut ascuns
       decidim/user_group_created_event: Grup de utilizatori creat
       decidim/welcome_notification_event: Mesaj de întâmpinare
   activerecord:
@@ -79,6 +81,9 @@ ro:
     'false': 'Nu'
     'true': 'Da'
   date:
+    buttons:
+      close: Închideți
+      select: Selectați
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -88,35 +93,43 @@ ro:
   datetime:
     distance_in_words:
       half_a_minute: jumătate de minut
+      x_days:
+        one: 1 zi
+        few: "%{count} zile"
+        other: "%{count} zile"
+      x_seconds:
+        one: 1 secundă
+        few: "%{count} secunde"
+        other: "%{count} secunde"
   decidim:
     accessibility:
       external_link: Link extern
-      front_page_link: Du-te la prima pagină
-      logo: "Sigla oficială a %{organization}"
+      front_page_link: Mergeți la prima pagină
+      logo: "Logo-ul oficial al %{organization}"
       skip_button: Salt la conținutul principal
     account:
       blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
       delete:
         alert: Această acțiune nu poate fi anulată. Dacă vă ștergeți contul, nu veți mai putea să vă autentificați cu datele de autentificare. Ștergerea contului dvs. va duce la anonimizarea contribuțiilor dvs. Veți putea crea în continuare un cont nou, dar aceste contribuții nu vor fi asociate cu acesta.
         confirm:
-          close: Închide fereastra
+          close: Închideţi fereastra
           ok: Da, vreau să îmi șterg contul
-          question: Sigur dorești să-ți ștergi contul?
+          question: Sigur doriți să vă ștergeți contul?
           title: Șterge contul meu
-        explanation: Care este motivul pentru care dorești să-ți ștergi (opțional).
-        leaving_authorizations_behind: Unele date asociate autorizării dvs. vor fi salvate pentru securitate. Dacă creați un alt cont și autorizați din nou, aceste date vor fi recuperate în noul dvs. cont.
+        explanation: Vă rugăm, completați motivul pentru care doriți să vă ștergeți contul (opțional).
+        leaving_authorizations_behind: Unele date asociate autorizării dumneavoastră vor fi salvate pentru securitate. Dacă creați un alt cont și autorizați din nou, aceste date vor fi recuperate în noul dvs. cont.
       destroy:
-        error: A apărut o eroare la ștergerea contului tău.
-        success: Contul tău a fost șters cu succes.
+        error: A apărut o problemă la ștergerea contului dumneavoastră.
+        success: Contul dumneavoastră a fost șters cu succes.
       download_your_data_export:
         file_no_exists: Fișierul nu există
-        notice: Descărcarea datelor dvs. este în curs de desfășurare. Veți primi un e-mail atunci când este completă.
+        notice: Generarea fișierului de export a datelor dumneavoastră este în desfășurare. Veți primi un e-mail atunci când este completă.
       email_change:
-        body1: Am trimis un e-mail către %{unconfirmed_email} pentru a verifica noua ta adresă de e-mail.
-        body2: Ai nevoie să trimitem e-mailul de verificare din nou? %{resend_link} sau %{cancel_link}.
+        body1: Am trimis un e-mail către %{unconfirmed_email} pentru a verifica noua adresă de e-mail a dumneavoastră.
+        body2: Este nevoie să trimitem e-mailul de verificare din nou? %{resend_link} sau %{cancel_link}.
         cancel: anulare
-        cancel_error: Nu s-a putut anula schimbarea de e-mail.
-        cancel_successfully: Modificare e-mail anulată cu succes.
+        cancel_error: Nu am putut anula schimbarea de e-mail.
+        cancel_successfully: Modificarea de e-mail anulată cu succes.
         resend_error: Nu s-a putut retrimite e-mailul de confirmare.
         resend_successfully: E-mail de confirmare retrimis cu succes la %{unconfirmed_email}.
         send_again: Trimite din nou
@@ -128,7 +141,7 @@ ro:
       update:
         error: A apărut o eroare la actualizarea contului tău.
         success: Contul tău fost actualizat cu succes.
-        success_with_email_confirmation: Contul tău a fost actualizat cu succes. Vei primi un e-mail pentru a confirma noua ta adresă de e-mail.
+        success_with_email_confirmation: Contul dumneavoastră a fost actualizat cu succes. Veți primi un e-mail pentru a confirma noua dumneavoastră adresă de e-mail.
     activity:
       time_ago: "În urmă cu %{time}"
     admin:
@@ -144,7 +157,7 @@ ro:
         delete: "%{user_name} a șters tipul de zonă %{resource_name}"
         update: "%{user_name} a actualizat tipul de zonă %{resource_name}"
       attachment:
-        create: "%{user_name} a creat ataşamentul %{resource_name}"
+        create: "%{user_name} a creat atașamentul %{resource_name}"
         delete: "%{user_name} a șters atașamentul %{resource_name}"
         update: "%{user_name} a actualizat atașamentul %{resource_name}"
       attachment_collection:
@@ -152,16 +165,16 @@ ro:
         delete: "%{user_name} a șters colecția de atașamente %{resource_name}"
         update: "%{user_name} a actualizat colecția de atașamente %{resource_name}"
       category:
-        create: "%{user_name} a adăugat categoria %{resource_name} în spațiul %{space_name}"
-        delete: "%{user_name} a șters categoria %{resource_name} din spațiul %{space_name}"
-        update: "%{user_name} a actualizat categoria %{resource_name} în spațiul %{space_name}"
+        create: "%{user_name} a adăugat categoria %{resource_name} în spațiul participativ %{space_name}"
+        delete: "%{user_name} a șters categoria %{resource_name} din spațiul participativ %{space_name}"
+        update: "%{user_name} a actualizat categoria %{resource_name} din spațiul participativ %{space_name}"
       component:
-        create: "%{user_name} a adăugat componenta %{resource_name} la spațiul %{space_name}"
-        delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul %{space_name}"
+        create: "%{user_name} a adăugat componenta %{resource_name} în spațiul participativ %{space_name}"
+        delete: "%{user_name} a eliminat componenta %{resource_name} din spațiul participativ %{space_name}"
         export_component: "%{user_name} a exportat %{resource_name} %{component_name} în %{space_name} ca %{format_name}"
-        publish: "%{user_name} a publicat componenta %{resource_name} în spațiul %{space_name}"
-        unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul %{space_name}"
-        update_permissions_with_space: "%{user_name} a actualizat permisiunile %{resource_name} în %{space_name}"
+        publish: "%{user_name} a publicat componenta %{resource_name} în spațiul participativ %{space_name}"
+        unpublish: "%{user_name} a anulat publicarea componentei %{resource_name} din spațiul participativ %{space_name}"
+        update_permissions_with_space: "%{user_name} a actualizat permisiunile %{resource_name} din spațiul participativ %{space_name}"
       contextual_help_section:
         update: "%{user_name} a actualizat secțiunea de ajutor în %{resource_name}"
       helpers:
@@ -172,13 +185,13 @@ ro:
       impersonation_log:
         manage: "%{user_name} a gestionat %{resource_name} deoarece %{reason}"
       moderation:
-        hide: "%{user_name} a ascuns o resursă de tip %{resource_type} în spațiul %{space_name}"
+        hide: "%{user_name} a ascuns o resursă de tip %{resource_type} din spațiul participativ %{space_name}"
         unreport: "%{user_name} nu a raportat o resursă de tip %{resource_type} în spațiul %{space_name}"
       newsletter:
-        create: "%{user_name} a creat buletinul informativ %{resource_name}"
-        delete: "%{user_name} a șters buletinul informativ %{resource_name}"
+        create: "%{user_name} a creat newsletterul %{resource_name}"
+        delete: "%{user_name} a șters newsletterul %{resource_name}"
         deliver: "%{user_name} a livrat buletinul informativ %{resource_name}"
-        update: "%{user_name} a actualizat buletinul informativ %{resource_name}"
+        update: "%{user_name} a actualizat newsletterul %{resource_name}"
       oauth_application:
         create: "%{user_name} a creat aplicația OAuth %{resource_name}"
         delete: "%{user_name} a șters aplicația OAuth %{resource_name}"
@@ -205,6 +218,20 @@ ro:
         create: "%{user_name} a creat pagina statică %{resource_name}"
         delete: "%{user_name} a șters pagina statică %{resource_name}"
         update: "%{user_name} a actualizat pagina statică %{resource_name}"
+      taxonomy:
+        create: "%{user_name} a creat taxonomia %{resource_name}"
+        create_with_parent: "%{user_name} a creat taxonomia %{resource_name} în interiorul taxonomiei %{parent_taxonomy}"
+        delete: "%{user_name} a șters taxonomia %{resource_name}"
+        delete_with_parent: "%{user_name} a șters taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
+        update: "%{user_name} a actualizat taxonomia %{resource_name}"
+        update_with_parent: "%{user_name} a actualizat taxonomia %{resource_name} din cadrul taxonomiei %{parent_taxonomy}"
+      taxonomy_filter:
+        create: "%{user_name} a creat un filtru bazat pe taxonomia %{resource_name}"
+        create_with_filter_items_count: "%{user_name} a actualizat un filtru bazat pe taxonomia %{resource_name} ce conține %{filter_items_count} elemente pentru spațiul participativ %{space_manifest_name}"
+        delete: "%{user_name} a șters un filtru bazat pe %{resource_name}"
+        delete_with_filter_items_count: "%{user_name} a șters un filtru bazat pe taxonomia %{resource_name} ce conține %{filter_items_count} elemente pentru spațiul participativ %{space_manifest_name}"
+        update: "%{user_name} a actualizat un filtru bazat pe taxonomia %{resource_name}"
+        update_with_filter_items_count: "%{user_name} a actualizat un filtru bazat pe taxonomia %{resource_name} ce conține %{filter_items_count} elemente pentru spațiul participativ %{space_manifest_name}"
       user:
         block: "%{user_name} utilizator blocat %{resource_name}"
         invite: "%{user_name} a invitat participantul %{resource_name} cu rolul: %{role}"
@@ -227,15 +254,18 @@ ro:
       dismiss: Anulare notificare
     amendments:
       accepted:
-        error: S-a produs o eroare în timpul acceptării amendamentului.
         success: Amendamentul a fost acceptat cu succes.
       amendable:
         button: Fă un amendament pentru %{model_name}
-        error: A apărut o eroare la trimiterea unui amendament pentru această resursă.
         promote_button: Promovează la %{model_name}
         promote_confirm_text: Sigur dorești să promovezi acest amendament?
+      amendments:
+        title:
+          one: "%{count} amendament"
+          few: "%{count} amendamente"
+          other: "%{count} amendamente"
       created:
-        error: S-a produs o eroare la crearea ciornei de amendament.
+        error: A apărut o problemă la crearea ciornei de amendament.
         success: Ciorna de amendament a fost creată cu succes.
       destroy_draft:
         error: A apărut o eroare la ștergerea ciornei de amendament.
@@ -722,7 +752,7 @@ ro:
           filename: Nume fișier
           remove: Șterge
           replace: Înlocuiește
-          save: Salvează
+          save: Salvați
           title: Titlu
           title_required: Titlul este obligatoriu!
         select_file: Selectaţi fişierul
@@ -1010,7 +1040,7 @@ ro:
           register: Inregistrare
         hero:
           participate: Participă
-          participate_title: Participă la procesele platformei
+          participate_title: Participați la procesele platformei
           welcome: Bine ai venit la %{organization}!
         statistics:
           headline: Starea curentă a %{organization}
@@ -1078,8 +1108,9 @@ ro:
         subject: A fost raportată o resursă
     reports:
       create:
-        error: A apărut o eroare la crearea raportului. Te rugăm să încerci din nou.
         success: Raportul a fost creat cu succes şi va fi revizuit de un administrator.
+    resource:
+      controls_label: Control resursă
     resource_endorsements:
       create:
         error: A apărut o problemă în timpul înregistrării susținerii.
@@ -1182,6 +1213,8 @@ ro:
     tags:
       filter_results_for_category: 'Filtrează rezultatele pentru categoria: %{resource}'
       filter_results_for_scope: 'Filtrează rezultatele pentru domeniul: %{resource}'
+    taxonomies:
+      prompt: Selectați din "%{name}"
     translation_bar:
       help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
       show_original: Afișați textul original
@@ -1330,16 +1363,16 @@ ro:
     shared:
       links:
         back: Înapoi
-        forgot_your_password: Ți-ai uitat parola?
+        forgot_your_password: V-ați uitat parola?
         log_in: Autentificare
       minimum_password_length:
-        one: "(minim%{count} caracter)"
-        few: "(minim%{count} caractere)"
-        other: "(minim%{count} caractere)"
+        one: "(minimum %{count} caractere)"
+        few: "(minimum %{count} caractere)"
+        other: "(minimum %{count} caractere)"
     unlocks:
       new:
         resend_unlock_instructions: Retrimite instrucțiunile de deblocare
-      send_instructions: Veţi primi un e-mail cu instrucţiuni despre cum să vă deblocaţi contul în câteva minute.
+      send_instructions: Veți primi un e-mail cu instrucțiuni despre cum să vă deblocați contul în câteva minute.
       send_paranoid_instructions: Dacă contul tău există, vei primi un e-mail cu instrucțiuni pentru cum să-l deblochezi în câteva minute.
   doorkeeper:
     scopes:
@@ -1354,10 +1387,6 @@ ro:
       long_words: conține cuvinte care sunt prea lungi (peste 35 de caractere)
       must_start_with_caps: trebuie să înceapă cu o majusculă
       not_locked: nu a fost blocat
-      not_saved:
-        one: 'A apărut o eroare la procesarea cererii tale:'
-        few: 'Au existat mai multe erori la procesarea cererii dvs.:'
-        other: 'Au existat mai multe erori la procesarea cererii dvs.:'
       too_many_marks: folosește prea multe semne consecutive de punctuație (de ex. ! și ?)
       too_much_caps: utilizează prea multe majuscule (peste 25% din text)
   forms:
@@ -1418,8 +1447,8 @@ ro:
         title: Link-uri profil
       user_profile:
         account: Cont
-        authorizations: Autorizații
-        delete_my_account: Șterge contul meu
+        authorizations: Autorizări
+        delete_my_account: Ștergere cont
         my_data: Datele mele
         my_interests: Interesele mele
         notifications_settings: Setări notificări
@@ -1429,10 +1458,10 @@ ro:
     name: Română
     name_with_error: Română (eroare!)
   password_validator:
-    domain_included_in_password: este prea similar cu acest nume de domeniu
+    domain_included_in_password: este prea asemănător cu acest nume de domeniu
     email_included_in_password: este prea asemănător cu adresa de e-mail
     fallback: nu este valid
-    name_included_in_password: este prea asemănător cu numele tău
+    name_included_in_password: este prea asemănător cu numele dumneavoastră
     nickname_included_in_password: este prea similar cu nickname-ul dvs
     not_enough_unique_characters: nu are destule caractere unice
     password_not_allowed: nu este permis
@@ -1447,15 +1476,15 @@ ro:
     google_bookmark: Semn Google
     google_plus: Google+
     hacker_news: Știri hacker
-    linkedin: Linkedin
+    linkedin: LinkedIn
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
     share_to: Distribuie către %{name}
-    telegram: Telegramă
-    tumblr: Tumoră
+    telegram: Telegram
+    tumblr: Tumblr
     twitter: Twitter
-    vkontakte: Contacte
+    vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Deschideți WeChat, faceți clic pe butonul "Descoperire", apoi faceți clic pe meniul "Scan QR Code".
     weibo: Sina Weibo
@@ -1487,8 +1516,8 @@ ro:
       choose_diff_view_html: 'Mod vizualizare HTML:'
       choose_diff_view_mode: 'Mod comparare vizualizare:'
       option_escaped: Escapat
-      option_split: Side-cu parte
-      option_unescaped: Nescăpat
+      option_split: Alăturat
+      option_unescaped: Necodat (unescaped)
       option_unified: Unificat
   views:
     pagination:

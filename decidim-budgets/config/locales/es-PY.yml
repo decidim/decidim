@@ -20,6 +20,10 @@ es-PY:
         scope_id: Ámbito
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Se añadió a este presupuesto: %{link}'
       decidim/budgets/budget:
         one: Presupuesto
         other: Presupuestos
@@ -195,6 +199,8 @@ es-PY:
         vote: Votar
         voted_budgets: Presupuestos votados
         voted_on: Has votado a %{links}.
+      creation:
+        text: Se añadieron a este presupuesto
       last_activity:
         new_vote_at: Nueva votación presupuestaria en
       limit_announcement:
@@ -328,7 +334,7 @@ es-PY:
               errors:
                 budget_voting_rule_only_one: Solo debe habilitarse una norma de votación.
                 budget_voting_rule_required: Se requiere una norma para la votación.
-            geocoding_enabled: Geolocalización habilitada
+            geocoding_enabled: Mapas habilitados
             landing_page_content: Página de inicio de presupuestos
             more_information_modal: Modal de "Más información"
             projects_per_page: Proyectos por página

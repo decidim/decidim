@@ -69,8 +69,8 @@ module Decidim
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
             Decidim::Faker::Localized.paragraph(sentence_count: 3)
           end,
-          location: Decidim::Faker::Localized.sentence,
-          location_hints: Decidim::Faker::Localized.sentence,
+          location: Decidim::Faker::Localized.sentence(word_count: rand(2..20)),
+          location_hints: Decidim::Faker::Localized.sentence(word_count: rand(2..20)),
           start_time:,
           end_time:,
           address: "#{::Faker::Address.street_address} #{::Faker::Address.zip} #{::Faker::Address.city}",
@@ -170,6 +170,10 @@ module Decidim
           resource:,
           followers: resource.participatory_space.followers
         )
+
+        Decidim.traceability.perform_action!(:publish, resource, admin_user, visibility: "all") do
+          resource.publish!
+        end
 
         Decidim::Comments::Seed.comments_for(resource)
 

@@ -66,6 +66,14 @@ module Decidim
       def self.ransackable_scopes(_auth_object = nil)
         [:with_any_state, :related_to, :with_any_scope, :with_any_category]
       end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(id_string search_text title body)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(category scope)
+      end
     end
   end
 end

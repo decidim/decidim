@@ -22,7 +22,7 @@ ca:
       category:
         description: Descripció
         name: Nom
-        parent_id: Pare
+        parent_id: Categoria mare
         weight: Ordre de posició
       component:
         name: Nom
@@ -109,7 +109,7 @@ ca:
         code: Codi
         name: Nom
         organization: Organització
-        parent_id: Pare
+        parent_id: Àmbit pare
         scope_type: Tipus d'àmbit
         scope_type_id: Tipus d'àmbit
       scope_type:
@@ -202,7 +202,7 @@ ca:
         verify: Verificar
       admin_terms_of_service:
         accept:
-          error: S'ha produït un error en acceptar els Termes i Condicions d'administració.
+          error: Hi ha hagut un problema en acceptar els Termes i Condicions d'administració.
           success: Genial! Has acceptat les condicions del servei d'administració.
         actions:
           accept: Estic d'acord amb les condicions
@@ -329,13 +329,15 @@ ca:
           default_step_settings: Configuració per defecte
           global_settings: Configuració global
           step_settings: Configuració de fase
+        hide:
+          success: El component s'ha amagat correctament del menú.
         index:
           add: Afegeix un component
           headers:
             actions: Accions
             name: Nom del component
-            scope: Àmbit del component
             type: Tipus de component
+            visibility: Visibilitat
         new:
           add: Afegeix un component
           title: 'Afegir component: %{name}'
@@ -347,6 +349,10 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest component.
           success: El component s'ha actualitzat correctament.
+        visibility_label:
+          menu_hidden: Menú amagat
+          published: Publicat
+          unpublished: Despublicat
       conflicts:
         attempts: Intents
         'false': 'No'
@@ -366,7 +372,7 @@ ca:
         user_name: Usuària
       content_blocks:
         create:
-          error: S'ha produït un error creant el bloc de contingut.
+          error: Hi ha hagut un problema creant el bloc de contingut.
           success: El bloc de contingut s'ha creat correctament.
         destroy:
           error: S'ha produït un error en intentar eliminar aquest bloc de contingut.
@@ -469,6 +475,9 @@ ca:
             pending: Pendents
             rejected: Rebutjada
             verified: Verificades
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomia
       forms:
         file_help:
           import:
@@ -591,6 +600,8 @@ ca:
         settings: Configuració
         static_page_topics: Temes
         static_pages: Pàgines
+        taxonomies: Taxonomies
+        taxonomy_filters: Filtres de taxonomia
         user_groups: Grups
         users: Participants
       metrics:
@@ -785,7 +796,7 @@ ca:
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
       officializations:
         block:
-          error: S'ha produït un error en bloquejar a la participant.
+          error: Hi ha hagut un problema en bloquejar a la participant.
           success: Participant bloquejada correctament.
         create:
           success: Participant oficialitzada correctament.
@@ -819,7 +830,7 @@ ca:
           show: Mostra
           title: Mostra l'adreça de correu electrònic de la participant
         unblock:
-          error: S'ha produït un error en desbloquejar a la participant.
+          error: Hi ha hagut un problema en desbloquejar a la participant.
           success: Participant desbloquejada correctament.
       organization:
         edit:
@@ -1018,6 +1029,88 @@ ca:
         update:
           error: S'ha produït un error en l'actualització d'aquesta pàgina.
           success: La pàgina s'ha actualitzat correctament.
+      taxonomies:
+        actions: Accions
+        amount: Import
+        count: Recompte
+        create:
+          invalid: S'ha produït un error en crear aquesta taxonomia.
+          success: Taxonomia creada correctament.
+        destroy:
+          invalid: S'ha produït un error en eliminar aquesta taxonomia.
+          success: Taxonomia eliminada correctament.
+        edit:
+          back: Enrere
+          description: Els elements d'aquesta taxonomia es faran servir per a classificar o filtrar recursos, com ara espais de participació o components. Pots endreçar el llistat arrossegant els elements.
+          new_item: Nou element
+          no_items: Actualment no hi ha elements en aquesta taxonomia. Crea una llista d'elements per classificar o filtrar recursos, com ara espais participatius o components. Els elements es poden niar fins a tres nivells.
+          subtitle: Elements a %{taxonomy_name}"
+          title: Editar la taxonomina "%{taxonomy_name}"
+          update: Actualitzar
+        filters:
+          search_placeholder: Cercar
+        index:
+          description: Una taxonomia permet a les administradores categoritzar i organitzar-ne el contingut. Per exemple, afegir una taxonomia per classificar processos per àmbit geogràfic.
+          new_taxonomy: Nova taxonomia
+          no_items_found: No s'han trobat taxonomies que coincideixin amb els criteris de cerca.
+        name: Nom
+        new:
+          create: Crear taxonomia
+          title: Nova taxonomia
+        no_taxonomies: Actualment no hi ha taxonomies. Crea una llista de taxonomies i defineix-ne els elements per classificar o filtrar recursos.
+        table:
+          to_next_page: Passa a la pàgina següent
+          to_prev_page: Passa a la pàgina anterior
+        taxonomy_actions:
+          confirm_destroy: Segur que vols eliminar "%{name}"? També s'eliminaran tots els elements inclosos en aquesta.
+        update:
+          invalid: S'ha produït un error en actualitzar aquesta taxonomia.
+          success: Taxonomia actualitzada correctament.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nou filtre de taxonomia
+        callout:
+          modify_taxonomy_html: Si et cal modificar aquesta taxonomia o els seus elements, fes-ho a través de la configuració a la secció <a href="%{url}">Taxonomies</a>.
+        create:
+          error: S'ha produït un error en crear aquesta taxonomia.
+          success: Filtre de taxonomia creat correctament.
+        destroy:
+          error: S'ha produït un error eliminant aquest filtre de taxonomia.
+          success: Filtre de taxonomia eliminat correctament.
+        edit:
+          back: Enrere
+          items: "%{count} elements seleccionats"
+          no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
+          title: Editar el filtre de taxonomia
+          update: Actualitzar el filtre de taxonomia
+        form:
+          select_taxonomy: Seleccionar una taxonomia
+        index:
+          description: Un filtre de taxonomia permet a les administradores ordenar i filtrar espais de participació basats en una taxonomia. Per exemple, afegir un filtre de taxonomies per ordenar processos per àmbit territorial.
+          empty: Actualment no hi ha cap filtre de taxonomia. Creeu una llista de filtres de taxonomia aquí per ordenar i filtrar els espais de participació basats en una taxonomia.
+        new:
+          back: Enrere
+          create: Crear un filtre de taxonomia
+          items: "%{count} elements disponibles"
+          title: Nou filtre de taxonomia
+        table:
+          actions: Accions
+          confirm_destroy: Segur que vols esborrar el filtre "%{name}"?
+          count: Número d'elements
+          destroy: Esborrar
+          edit: Editar
+          name: Nom
+        update:
+          error: Hi ha hagut un problema actualitzant aquest filtre de taxonomia.
+          success: Filtre de taxonomia actualitzat correctament.
+      taxonomy_items:
+        edit:
+          title: Editar element a "%{taxonomy}"
+          update: Actualitza l'element
+        new:
+          create: Crea un element
+          none: Cap
+          title: Editar element a "%{taxonomy}"
       titles:
         admin_log: Registre d'administració
         area_types: Tipus d'àrees
@@ -1038,6 +1131,8 @@ ca:
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         statistics: Activitat
+        taxonomies: Taxonomies
+        taxonomy_filters: Filtres de taxonomies
         user_groups: Grups
         users: Administradores
       user_group:

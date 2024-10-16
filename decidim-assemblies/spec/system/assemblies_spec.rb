@@ -145,6 +145,13 @@ describe "Assemblies" do
     end
   end
 
+  it_behaves_like "followable space content for users" do
+    let(:assembly) { base_assembly }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let(:followable) { assembly }
+    let(:followable_path) { decidim_assemblies.assembly_path(assembly) }
+  end
+
   describe "when going to the assembly page" do
     let!(:assembly) { base_assembly }
     let!(:proposals_component) { create(:component, :published, participatory_space: assembly, manifest_name: :proposals) }
@@ -162,14 +169,6 @@ describe "Assemblies" do
     context "and requesting the assembly path with main data and type and duration blocks active" do
       before do
         visit decidim_assemblies.assembly_path(assembly)
-      end
-
-      describe "follow button" do
-        let!(:user) { create(:user, :confirmed, organization:) }
-        let(:followable) { assembly }
-        let(:followable_path) { decidim_assemblies.assembly_path(assembly) }
-
-        include_examples "follows"
       end
 
       context "when hero, main_data extra_data, metadata and dates_metadata blocks are enabled" do

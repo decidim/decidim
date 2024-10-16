@@ -20,6 +20,10 @@ fi-pl:
         scope_id: Teema
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Ehdotus lisättiin budjettiin: %{link}'
       decidim/budgets/budget:
         one: Budjetti
         other: Budjetit
@@ -120,7 +124,7 @@ fi-pl:
           update_budget:
             invalid: 'Nämä hankkeet ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
             select_a_project: Valitse hanke.
-            success: 'Seuraavat hankkeet päivitettiin onnistuneesti budjettiin %{subject_name}: %{projects}.'
+            success: 'Seuraavat hankkeet päivitys onnistui budjetissa %{subject_name}: %{projects}.'
           update_category:
             invalid: 'Näillä projekteilla oli jo aihepiiri %{subject_name}: %{projects}.'
             select_a_category: Valitse aihepiiri.
@@ -195,6 +199,8 @@ fi-pl:
         vote: Äänestä
         voted_budgets: Äänestetyt budjetit
         voted_on: Äänestit kohdetta %{links}.
+      creation:
+        text: Hankkeet lisättiin tähän budjettin
       last_activity:
         new_vote_at: Uusi budjetointiääni
       limit_announcement:
@@ -328,7 +334,7 @@ fi-pl:
               errors:
                 budget_voting_rule_only_one: Ainoastaan yksi äänestyssääntö voi olla kerrallaan valittuna.
                 budget_voting_rule_required: Yksi äänestyssääntö on valittava.
-            geocoding_enabled: Geokoodaus käytössä
+            geocoding_enabled: Karttatoiminnot käytössä
             landing_page_content: Budjetoinnin aloitussivun teksti
             more_information_modal: Lisätietoikkunan teksti
             projects_per_page: Suunnitelmat sivua kohden

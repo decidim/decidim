@@ -133,7 +133,6 @@ lv:
           title: Dublēt līdzdalības procesu
       participatory_process_groups:
         destroy:
-          error: Līdzdalības procesa grupas dzēšanas laikā radās kļūda.
           success: Līdzdalības procesa grupa ir veiksmīgi dzēsta.
         edit:
           title: Rediģēt procesa grupu
@@ -317,8 +316,6 @@ lv:
           name: Izceltie procesi
       index:
         title: Līdzdalības procesi
-      last_activity:
-        new_participatory_process: Jauns līdzdalības process
       participatory_processes:
         filters:
           counters:

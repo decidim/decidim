@@ -17,6 +17,32 @@ describe "Proposals" do
     { "en" => "<p>This test has <strong>many</strong> characters </p>" }
   end
 
+  context "when the user has not logged in" do
+    before do
+      visit_component
+    end
+
+    it "clicks the 'New proposal' button, logs in and redirects to the 'New proposal' form" do
+      expect(page).to have_css("a[data-redirect-url='#{main_component_path(component)}/new']")
+      expect(page).to have_css("a[data-dialog-open='loginModal']")
+
+      # We cannot use the click_on method because it clicks the span and we need to click in the button
+      # click_on "New proposal"
+      element = find("a", text: "New proposal")
+      execute_script("arguments[0].click();", element)
+
+      within "#loginModal" do
+        fill_in "Email", with: user.email
+        fill_in "Password", with: user.password
+        click_on "Log in"
+      end
+
+      expect(page).to have_content "Create your proposal"
+      expect(page).to have_content "Title"
+      expect(page).to have_content "Body"
+    end
+  end
+
   context "when creating a new proposal" do
     before do
       login_as user, scope: :user
@@ -43,9 +69,9 @@ describe "Proposals" do
 
       it "has helper character counter" do
         within "form.new_proposal" do
-          editor = find(".editor")
-          page.scroll_to(editor)
-          expect(editor.sibling("[id^=characters_]:not([id$=_sr])")).to have_content("At least 15 characters", count: 1)
+          within ".editor .input-character-counter__text" do
+            expect(page).to have_content("At least 15 characters", count: 1)
+          end
         end
       end
 

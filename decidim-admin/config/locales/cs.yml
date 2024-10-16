@@ -329,13 +329,15 @@ cs:
           default_step_settings: Výchozí nastavení kroku
           global_settings: Globální nastavení
           step_settings: Nastavení kroku
+        hide:
+          success: Komponenta byla úspěšně skryta z menu.
         index:
           add: Přidat komponentu
           headers:
             actions: Akce
             name: Název komponenty
-            scope: Oblast působnosti komponenty
             type: Typ komponenty
+            visibility: Viditelnost
         new:
           add: Přidat komponentu
           title: 'Přidat komponentu: %{name}'
@@ -347,9 +349,15 @@ cs:
         update:
           error: Při aktualizaci této komponenty došlo k chybě.
           success: Komponenta byla úspěšně aktualizována.
+        visibility_label:
+          menu_hidden: Menu skryto
+          published: Zveřejněno
+          unpublished: Nezveřejněno
       conflicts:
         attempts: Pokusy
         'false': 'Ne'
+        index:
+          text: Hledat podle aktuálního uživatelského e-mailu, jména nebo přezdívky.
         managed_user_name: Spravovaný uživatel
         solved: Vyřešeno
         title: Konflikty ověření
@@ -378,6 +386,11 @@ cs:
           update: Aktualizovat
       dashboard:
         pending_moderations:
+          announcement:
+            one: Je zde %{count} čekající na moderování
+            few: Jsou zde %{count} čekající na moderování
+            many: Je zde %{count} čekajících na moderování
+            other: Je tu %{count} čekajících na moderování
           goto_moderation: Přejít na globální moderaci
           title: Čekající moderování
         show:
@@ -464,6 +477,9 @@ cs:
             pending: Čekající
             rejected: Odmítnuto
             verified: Ověřeno
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomie
       forms:
         file_help:
           import:
@@ -594,6 +610,8 @@ cs:
         settings: Nastavení
         static_page_topics: Témata
         static_pages: Stránky
+        taxonomies: Taxonomie
+        taxonomy_filters: Filtry taxonomie
         user_groups: Skupiny
         users: Účastníci
       metrics:
@@ -1023,6 +1041,88 @@ cs:
         update:
           error: Při aktualizaci této stránky došlo k chybě.
           success: Stránka byla úspěšně aktualizována.
+      taxonomies:
+        actions: Akce
+        amount: Množství
+        count: Spočítat
+        create:
+          invalid: Při vytváření této taxonomie došlo k chybě.
+          success: Taxonomie byla úspěšně vytvořena.
+        destroy:
+          invalid: Při mazání této taxonomie došlo k chybě.
+          success: Taxonomie úspěšně zničena.
+        edit:
+          back: Zpět
+          description: Položky v této taxonomii budou použity pro klasifikaci nebo filtrování zdrojů, jako jsou participační prostory nebo komponenty. Použijte přetažení pro přeuspořádání seznamu.
+          new_item: Nová položka
+          no_items: V této taxonomii momentálně nejsou žádné položky. Vytvořte seznam položek pro klasifikaci nebo filtrování zdrojů, jako jsou participační prostory nebo komponenty. Položky mohou být vnořeny až do tří úrovní.
+          subtitle: Položky v "%{taxonomy_name}"
+          title: Upravit taxonomii "%{taxonomy_name}"
+          update: Aktualizovat
+        filters:
+          search_placeholder: Hledat
+        index:
+          description: Taxonomie umožňuje administrátorům kategorizovat a uspořádat obsah. Například přidat taxonomii pro klasifikaci procesů podle geografického rozsahu.
+          new_taxonomy: Nová taxonomie
+          no_items_found: Nebyly nalezeny žádné taxonomie odpovídající kritériím vyhledávání.
+        name: Název
+        new:
+          create: Vytvořit taxonomii
+          title: Nová taxonomie
+        no_taxonomies: Momentálně nejsou žádné taxonomie. Vytvořte zde seznam taxonomií a definovaných položek v každém z nich pro klasifikaci nebo filtrování zdrojů.
+        table:
+          to_next_page: Přetáhněte na další stránku
+          to_prev_page: Přetáhněte pro předchozí stránku
+        taxonomy_actions:
+          confirm_destroy: Opravdu chcete odstranit %{name}? Tímto odstraníte také všechny podřízené položky.
+        update:
+          invalid: Při aktualizaci této taxonomie došlo k chybě.
+          success: Taxonomie byla úspěšně aktualizována.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nový filtr taxonomie
+        callout:
+          modify_taxonomy_html: Pokud potřebujete změnit tuto taxonomii nebo její položky, proveďte to prostřednictvím nastavení konfigurace v sekci <a href="%{url}">Taxonomie</a>.
+        create:
+          error: Při vytváření tohoto filtru taxonomie došlo k chybě.
+          success: Filtr taxonomie byl úspěšně vytvořen.
+        destroy:
+          error: Při ničení tohoto filtru taxonomie došlo k chybě.
+          success: Filtr taxonomie úspěšně zničen.
+        edit:
+          back: Zpět
+          items: "%{count} položek vybráno"
+          no_items: Pro tuto taxonomii nejsou k dispozici žádné položky. Položky můžete vytvořit v nastavení taxonomie.
+          title: Upravit filtr taxonomie
+          update: Aktualizovat filtr taxonomie
+        form:
+          select_taxonomy: Vyberte taxonomii
+        index:
+          description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
+          empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
+        new:
+          back: Zpět
+          create: Vytvořit filtr taxonomie
+          items: "%{count} položek je k dispozici"
+          title: Nový filtr taxonomie
+        table:
+          actions: Akce
+          confirm_destroy: Opravdu chcete odstranit filtr %{name}?
+          count: Počet položek
+          destroy: Smazat
+          edit: Upravit
+          name: Název
+        update:
+          error: Při aktualizaci tohoto filtru taxonomie došlo k chybě.
+          success: Filtr taxonomie byl úspěšně aktualizován.
+      taxonomy_items:
+        edit:
+          title: Upravit položku v %{taxonomy}
+          update: Aktualizovat položku
+        new:
+          create: Vytvořit položku
+          none: Žádné
+          title: Nová položka v %{taxonomy}
       titles:
         admin_log: Správce protokolu
         area_types: Typy oblastí
@@ -1043,6 +1143,8 @@ cs:
         scope_types: Typy oblastí působnosti
         scopes: Oblasti působnosti
         statistics: Aktivita
+        taxonomies: Taxonomie
+        taxonomy_filters: Filtry taxonomie
         user_groups: Skupiny
         users: Administrátoři
       user_group:

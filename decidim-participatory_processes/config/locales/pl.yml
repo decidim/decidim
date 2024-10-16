@@ -181,7 +181,6 @@ pl:
           title: Duplikuj proces partycypacyjny
       participatory_process_groups:
         destroy:
-          error: Wystąpił błąd podczas usuwania grupy procesu partycypacyjnego.
           success: Grupa procesu partycypacyjnego została usunięta.
         edit:
           title: Edytuj grupę procesu
@@ -454,8 +453,6 @@ pl:
           name: Powiązane procesy
       index:
         title: Procesy partycypacyjne
-      last_activity:
-        new_participatory_process: Nowy proces partycypacyjny
       pages:
         home:
           highlighted_processes:

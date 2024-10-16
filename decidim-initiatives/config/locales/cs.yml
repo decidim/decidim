@@ -97,6 +97,7 @@ cs:
               accepted: Dostatek podpisů
               created: Vytvořeno
               discarded: Vyřazeno
+              open: Otevřeno
               rejected: Nedostatek podpisů
               validating: Technické ověření
           type_id_eq:
@@ -105,7 +106,7 @@ cs:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Hledat %{collection} podle názvu, popisu, ID nebo jména autora.
       initiatives_settings:
         update:
-          error: Došlo k chybě.
+          error: Při aktualizaci nastavení iniciativ došlo k chybě.
           success: Nastavení iniciativ bylo úspěšně aktualizováno.
       menu:
         attachments: Přílohy
@@ -243,8 +244,13 @@ cs:
           initiatives: Iniciativy
         index:
           initiatives_types:
+            alert_html: "<p>Musíte vytvořit alespoň jeden typ iniciativy, aby účastníci mohli začít vytvářet iniciativy.</p><p> %{link}</p>"
             button: Nový typ iniciativy
         initiatives:
+          accept:
+            success: Iniciativa byla úspěšně přijata.
+          discard:
+            success: Iniciativa byla úspěšně zrušena.
           edit:
             accept: Přijmout iniciativu
             confirm: Jste si jisti?
@@ -268,8 +274,14 @@ cs:
             edit: Upravit
             new: Nový
             photos: Fotky
+          publish:
+            success: Iniciativa byla úspěšně publikována.
+          reject:
+            success: Iniciativa byla úspěšně zamítnuta.
+          unpublish:
+            success: Iniciativa byla úspěšně zneveřejněna.
           update:
-            error: Došlo k chybě.
+            error: Při aktualizaci iniciativy došlo k chybě.
             success: Tato iniciativa byla úspěšně aktualizována.
         initiatives_settings:
           edit:
@@ -283,7 +295,7 @@ cs:
             title: Nastavení pro iniciativy
         initiatives_type_scopes:
           create:
-            error: Došlo k chybě.
+            error: Při vytváření nového rozsahu pro danou iniciativu došlo k chybě.
             success: Byla vytvořena nová oblast působnosti pro daný typ iniciativy.
           destroy:
             success: Oblast působnosti byla úspěšně odstraněna.
@@ -294,11 +306,11 @@ cs:
             create: Vytvořit
             title: Vytvořit rozsah typů iniciativy
           update:
-            error: Došlo k chybě.
+            error: Při aktualizaci rozsahu došlo k chybě.
             success: Rozsah působnosti byl úspěšně aktualizován
         initiatives_types:
           create:
-            error: Došlo k chybě.
+            error: Při vytváření typu iniciativy došlo k chybě.
             success: Byl úspěšně vytvořen nový typ iniciativy. Musíte definovat alespoň jeden rozsah pro tento typ iniciativy, aby mohl být použit.
           destroy:
             success: Druh iniciativy byl úspěšně odstraněn.
@@ -315,7 +327,7 @@ cs:
             create: Vytvořit
             title: Nový typ iniciativy
           update:
-            error: Došlo k chybě.
+            error: Při aktualizaci typu iniciativy došlo k chybě.
             success: Druh iniciativy byl úspěšně aktualizován.
       admin_log:
         initiative:
@@ -333,6 +345,7 @@ cs:
         accepted: Dostatek podpisů
         created: Vytvořeno
         discarded: Vyřazeno
+        open: Otevřeno
         rejected: Nedostatek podpisů
         validating: Technická validace
       application_helper:
@@ -591,6 +604,7 @@ cs:
           accepted: Dostatek podpisů
           created: Vytvořeno
           discarded: Zahozeno
+          open: Otevřeno
           rejected: Nedostatek podpisů
           validating: Technické ověření
       states:
@@ -598,7 +612,7 @@ cs:
         expired: Platnost vypršela
       unavailable_scope: Nedostupný rozsah
       update:
-        error: Došlo k chybě.
+        error: Při aktualizaci iniciativy došlo k chybě.
         success: Tato iniciativa byla úspěšně aktualizována.
     menu:
       initiatives: Iniciativy

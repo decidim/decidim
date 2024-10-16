@@ -17,5 +17,9 @@ describe "Report Meeting" do
            participatory_space: participatory_process)
   end
 
+  before do
+    stub_geocoding_coordinates([reportable.latitude, reportable.longitude])
+  end
+
   include_examples "reports"
 end

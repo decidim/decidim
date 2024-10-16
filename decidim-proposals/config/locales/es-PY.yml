@@ -18,6 +18,7 @@ es-PY:
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
         category_id: Categoría
+        decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
         scope_id: Ámbito
@@ -90,6 +91,16 @@ es-PY:
       decidim/proposals/voting_enabled_event: Votación de propuestas habilitada
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Se creó la propuesta %{link}
+            import_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
+            import_to_proposal_text: Se creó la propuesta %{link}
+            merge_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
+            merge_to_proposal_text: 'Esta propuesta fue creada: %{link}'
+            split_from_proposal_text: 'Se convirtió en esta propuesta: %{link}'
+            split_to_proposal_text: 'Esta propuesta fue creada: %{link}'
       decidim/proposals/collaborative_draft:
         one: Borrador colaborativo
         other: Borradores colaborativos
@@ -175,7 +186,7 @@ es-PY:
               days: Días
               hours: Horas
               minutes: Minutos
-            geocoding_enabled: Geocodificación habilitada
+            geocoding_enabled: Mapas habilitados
             minimum_votes_per_user: Votos mínimos por usuario
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
@@ -241,6 +252,8 @@ es-PY:
             votes_hidden: Votos ocultos (si los votos están habilitados, marcar esto ocultará el número de votos)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: Se te ha añadido como coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         admin:
           proposal_assigned_to_valuator:
             email_intro: Se te ha asignado como evaluadora de la propuesta "%{resource_title}". Esto significa que se  ha confiado en ti para dar tu opinión y dar una respuesta adecuada en los próximos días. Puedes ver la propuesta en el <a href="%{admin_proposal_info_url}">panel de administración</a>.
@@ -262,6 +275,18 @@ es-PY:
             email_outro: Has recibido esta notificación porque eres el autor de la nota privada.
             email_subject: "%{author_name} ha respondido a tu nota privada en %{resource_title}."
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respondido a tu nota privada en <a href="%{resource_path}">%{resource_title}</a>. Puedes verlo en el <a href="%{admin_proposal_info_path}">panel de administración</a>.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha aceptado tu invitación para ser coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
+        coauthor_invited:
+          actions:
+            accept: Aceptar
+            decline: Rechazar
+          email_intro: 'Te han invitado a ser coautora de la propuesta "%{resource_title}". Puedes aceptar o rechazar la invitación en esta página:'
+          email_outro: Has recibido esta notificación porque la autora de la propuesta quiere reconocer tus contribuciones convirtiéndote en coautora.
+          email_subject: Se te ha añadido como coautora de la propuesta "%{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name}</a> quiere que la invites a ser coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> ha rechazado tu invitación para ser coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} ha sido aceptada para acceder como contribuidora del borrador colaborativo <a href="%{resource_url}">%{resource_title}</a>.'
           email_outro: Has recibido esta notificación porque eres una contribuidora de <a href="%{resource_url}">%{resource_title}</a>.
@@ -339,6 +364,8 @@ es-PY:
           email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
           email_subject: El ámbito de la propuesta %{resource_title} ha sido actualizado
           notification_title: El ámbito de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado por una administradora.
+        rejected_coauthorship:
+          notification_title: Has rechazado la invitación de <a href="%{author_path}">%{author_name}</a> para convertirte en coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         voting_enabled:
           email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -403,11 +430,15 @@ es-PY:
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
+        cancel_coauthor_invitation: Cancelar la invitación de coautoría
+        cancel_coauthor_invitation_confirm: '¿Seguro que deseas cancelar la invitación de coautoría?'
         delete_proposal_state_confirm: '¿Seguro que quieres borrar este estado?'
         destroy: Borrar estado
         edit_proposal: Editar propuesta
         edit_proposal_state: Editar estado
         import: Importar desde otro componente
+        mark_as_coauthor: Marcar como coautora
+        mark_as_coauthor_confirm: '¿Seguro que quieres marcar a esta usuaria como coautora? La participatinte recibirá una notificación para aceptar o rechazar la invitación.'
         new: Nueva propuesta
         new_proposal_state: Nuevo estado
         participatory_texts: Textos participativos
@@ -521,10 +552,12 @@ es-PY:
             success: Estado actualizado correctamente
         proposals:
           answer:
-            invalid: Ha habido un problema al responder a esta propuesta.
+            bulk_answer_error: No se ha podido responder a las propuestas con IDs [%{proposals}] debido a errores aplicando la plantilla "%{template}". Puedes comprobar que la plantilla de respuesta coincide con el formato esperado para este componente aplicándolo individualmente.
+            bulk_answer_success: 'Las propuestas %{count} serán respondidas usando la plantilla "%{template}". Por favor, espera unos minutos y actualiza la página para ver las actualizaciones.'
+            invalid: Se ha producido un error al responder a esta propuesta.
             success: Propuesta respuesta con éxito.
           create:
-            invalid: Ha habido un problema al crear esta propuesta.
+            invalid: Se ha producido un error al crear esta propuesta.
             success: Propuesta creada correctamente.
           edit:
             title: Actualizar propuesta
@@ -537,6 +570,7 @@ es-PY:
             select_a_meeting: Seleccione una reunion
           index:
             actions: Acciones
+            apply_answer_template: Aplicar la plantilla de respuesta
             assign_to_valuator: Asignar a evaluadora
             assign_to_valuator_button: Asignar
             cancel: Cancelar
@@ -544,6 +578,7 @@ es-PY:
             change_scope: Cambiar ámbito
             merge: Sumérgete en uno nuevo
             merge_button: Unir
+            no_templates_available: No hay pantillas disponibles
             publish: Publicar
             publish_answers: Publicar respuestas
             select_component: Seleccione un componente
@@ -604,18 +639,18 @@ es-PY:
             title: Importar proyectos desde otro componente
         proposals_merges:
           create:
-            invalid: 'Ha habido un problema al fusionar las propuestas seleccionadas porque algunas de ellas:'
+            invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
             success: Fusionó con éxito las propuestas en una nueva.
         proposals_splits:
           create:
-            invalid: 'Ha habido un problema al dividir las propuestas seleccionadas porque algunas de ellas:'
+            invalid: 'Se ha producido un error al fusionar las propuestas seleccionadas porque algunas de ellas:'
             success: Dividió con éxito las propuestas en otras nuevas.
         valuation_assignments:
           create:
             invalid: Se ha producido un error al asignar propuestas a una evaluadora.
             success: Propuestas asignadas correctamente a una evaluadora.
           delete:
-            invalid: Se ha producido un error al deshacer la asignación de propuestas de una evaluadora.
+            invalid: Se ha producido un error al asignar propuestas a una evaluadora.
             success: Evaluadora desasignada correctamente.
       admin_log:
         proposal:
@@ -754,9 +789,27 @@ es-PY:
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada con éxito. Guardada como borrador.
+      creation:
+        imported_text: Se convirtió en esta propuesta
+        merged_text: Se convirtió en esta propuesta
+        splitted_text: Se convirtió en esta propuesta
+        text: Se creó esta propuesta
       destroy_draft:
         error: Se han producido errores al eliminar el borrador de la propuesta.
         success: El borrador de la propuesta fue eliminado con éxito.
+      invite_coauthors:
+        cancel:
+          error: Se ha producido un error al cancelar la invitación de coautoría.
+          success: Invitación de coautoría cancelada con éxito.
+        create:
+          error: Se ha producido un error al invitar a la coautora.
+          success: "%{author_name} ha sido invitada como coautora con éxito."
+        destroy:
+          error: Se ha producido un error al rechazar la invitación.
+          success: Se ha rechazado su invitación.
+        update:
+          error: Se ha producido un error al aceptar esta invitación.
+          success: Se ha aceptado la invitación.
       last_activity:
         new_proposal: 'Nueva propuesta:'
         proposal_updated: 'Propuesta actualizada:'
@@ -805,7 +858,7 @@ es-PY:
           discard: Descartar este borrador
           discard_confirmation: '¿Estás seguro que quieres descartar este borrador de propuesta?'
           send: Previsualizar
-          title: Editar borrador de propuesta
+          title: Editar el borrador de la propuesta
         edit_form_fields:
           marker_added: Marcador añadido al mapa.
         filters:
