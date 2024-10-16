@@ -319,6 +319,9 @@ is:
           fields:
             name: Nafn
             plural: Fleirtala
+        share_token:
+          fields:
+            created_at: Búið til á
         static_page:
           fields:
             created_at: Búið til á
@@ -439,6 +442,9 @@ is:
         no_scopes: Engar mælar á þessu stigi.
         update:
           success: Gildissvið uppfært með góðum árangri
+      share_tokens:
+        actions:
+          share: Deila
       static_pages:
         actions:
           view: Skoðaðu opinbera síðu
