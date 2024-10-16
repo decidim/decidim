@@ -1,6 +1,8 @@
 import Cookies from "js-cookie";
 
 const ONBOARDING_COOKIE_EXPIRY = 365;
+
+// The same key is set in the Decidim::OnboardingManager class to retrieve the data from the cookie and store it in the extended data attribute
 const DATA_KEY = "onboarding";
 
 /**

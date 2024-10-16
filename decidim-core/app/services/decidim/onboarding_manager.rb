@@ -18,6 +18,8 @@ module Decidim
   #    the user to the intended action.
   #
   class OnboardingManager
+    # The same key is set in onboarding_pending_action js file to manage the
+    # onboarding data in the cookie
     DATA_KEY = "onboarding"
 
     attr_reader :user
