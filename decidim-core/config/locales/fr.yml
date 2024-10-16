@@ -256,6 +256,13 @@ fr:
         create: "%{user_name} a créé le type de secteur %{resource_name}"
         delete: "%{user_name} a supprimé le type de secteur %{resource_name}"
         update: "%{user_name} a mis à jour le type de secteur %{resource_name}"
+      share_token:
+        create: "%{user_name} a créé un lien d'accès dans %{space_name}"
+        create_with_space: "%{user_name} a créé un lien d'accès pour %{resource_name} dans %{space_name}"
+        delete: "%{user_name} a supprimé un lien d'accès dans %{space_name}"
+        delete_with_space: "%{user_name} a supprimé un lien d'accès pour %{resource_name} dans %{space_name}"
+        update: "%{user_name} a mis à jour un lien d'accès dans %{space_name}"
+        update_with_space: "%{user_name} a mis à jour un lien d'accès pour %{resource_name} dans %{space_name}"
       static_page:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
