@@ -14,6 +14,7 @@ module Decidim
         def index; end
 
         def create
+          enforce_permission_to(:create, :questionnaire)
           Decidim::Surveys::CreateSurvey.call(current_component) do
             on(:ok) do |survey|
               flash[:notice] = I18n.t("surveys.create.success", scope: "decidim.surveys.admin")
@@ -33,6 +34,7 @@ module Decidim
         end
 
         def update
+          enforce_permission_to(:update, :questionnaire, questionnaire:)
           params["published_at"] = Time.current if params.has_key? "save_and_publish"
           @form = form(Admin::SurveyForm).from_params(params)
 
@@ -50,6 +52,7 @@ module Decidim
         end
 
         def publish
+          enforce_permission_to(:update, :questionnaire, questionnaire:)
           Decidim::Surveys::Admin::PublishSurvey.call(survey, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("surveys.publish.success", scope: "decidim.surveys.admin")
@@ -64,6 +67,7 @@ module Decidim
         end
 
         def unpublish
+          enforce_permission_to(:update, :questionnaire, questionnaire:)
           Decidim::Surveys::Admin::UnpublishSurvey.call(survey, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("surveys.unpublish.success", scope: "decidim.surveys.admin")
@@ -78,6 +82,7 @@ module Decidim
         end
 
         def destroy
+          enforce_permission_to(:destroy, :questionnaire, questionnaire:)
           Decidim::Commands::DestroyResource.call(survey, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("surveys.destroy.success", scope: "decidim.surveys.admin")
