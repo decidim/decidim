@@ -197,6 +197,7 @@ fr:
         reject: Rejeter
         send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
+        share_tokens: Liens d'accès
         user:
           new: Nouvel administrateur
         verify: Vérifier
@@ -595,6 +596,7 @@ fr:
         scopes: Secteurs
         see_site: Voir le site
         settings: Paramètres
+        share_tokens: Liens d'accès
         static_page_topics: Sujets
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
@@ -650,8 +652,10 @@ fr:
             plural: Pluriel
         share_token:
           fields:
+            actions: Actions
             expires_at: Expire le
             times_used: Nombre d'utilisations
+            token: Lien d’accès
         static_page:
           fields:
             created_at: Créée le
@@ -958,7 +962,44 @@ fr:
           success: Périmètre d'application mis à jour avec succès
       share_tokens:
         actions:
+          confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cet accès?
+          copy_link: Copier le lien
           destroy: Supprimer
+          edit: Modifier
+          preview: Aperçu
+        create:
+          invalid: Un problème est survenu lors de la génération du lien d'accès.
+          success: Lien d'accès créé avec succès.
+        destroy:
+          error: Un problème est survenu lors de la suppression du lien d'accès.
+          success: Lien d'accès supprimé avec succès.
+        edit:
+          title: 'Modifier les liens d''accès pour: %{name}'
+          update: Mettre à jour
+        form:
+          automatic: Automatique
+          custom: Personnalisé
+          custom_expiration: Expiration personnalisée
+          custom_token: Mot personnalisé
+          expires_at: Expire le
+          'false': 'Non'
+          never_expire: Jamais
+          token: Clé d'accès
+          'true': 'Oui'
+        index:
+          back_to_share_tokens: Retour aux liens d'accès
+          copied: Lien d'accès copié !
+          create_new_token: Créez votre premier lien d'accès !
+          empty_html: Il n'y a pas de liens d'accès actifs. %{new_token_link}
+          never: Jamais
+          new_share_token_button: Nouveau lien d'accès
+          title: 'liens d''accès pour: %{name}'
+        new:
+          create: Créer
+          title: 'Nouveau lien d''accès pour : %{name}'
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cet accès.
+          success: Lien d'accès mis à jour avec succès.
       shared:
         adjacent_navigation:
           next: Suivant
