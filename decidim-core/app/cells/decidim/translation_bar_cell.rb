@@ -32,7 +32,7 @@ module Decidim
       parsed_url.query = new_query
       url = parsed_url.to_s
 
-      link_to button_text, url, class: "button small hollow"
+      link_to button_text, url, class: "button button__sm button__transparent-secondary"
     end
 
     def button_text

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Preview pages with share token" do
+describe "preview pages with a share token" do
   let(:manifest_name) { "pages" }
 
   let(:body) do
@@ -16,5 +16,5 @@ describe "Preview pages with share token" do
   let!(:page_component) { create(:page, component:, body:) }
 
   include_context "with a component"
-  it_behaves_like "preview component with share_token"
+  it_behaves_like "preview component with a share_token"
 end
