@@ -14,8 +14,7 @@ module Decidim
     MAX_ITEMS_STACKED = 8
 
     def show
-      return if visible_endorsers.count.zero?
-
+      return render :empty if visible_endorsers.count.zero?
       return render :full if full_list?
 
       render
@@ -36,7 +35,9 @@ module Decidim
     # Returns an Array of presented Users/UserGroups
     def visible_endorsers
       @visible_endorsers ||= if voted_by_me?
-                               base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map { |identity| present(identity.normalized_author) }
+                               [present(current_user)] + base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map do |identity|
+                                                           present(identity.normalized_author)
+                                                         end
                              else
                                base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.normalized_author) }
                              end

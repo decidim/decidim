@@ -80,7 +80,22 @@ shared_examples "Endorse resource system specs" do
           within "#resource-#{resource.id}-endorsement-block" do
             click_on "Like"
             expect(page).to have_button("Dislike")
-            expect(page).to have_no_css('svg use[href*="ri-heart-fill"]')
+            expect(page).to have_css('svg use[href*="ri-heart-fill"]')
+          end
+        end
+
+        it "has endorsements from other users" do
+          author = create(:user, :confirmed, organization: resource.organization)
+          create(:endorsement, resource:, author:)
+          visit_resource
+          within "#endorser-list-#{resource.id}" do
+            expect(page).to have_content("Liked by #{author.name}")
+            click_on author.name
+          end
+          expect(page).to have_content("Liked by")
+          within "#endorsersModal-#{resource.id}" do
+            expect(page).to have_content(author.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -108,12 +123,12 @@ shared_examples "Endorse resource system specs" do
         it "can show the endorsements pop-up" do
           visit_resource
           within "#endorser-list-#{resource.id}" do
-            expect(page).to have_content("Liked by You")
-            click_on "You"
+            expect(page).to have_content("Liked by you")
+            click_on "you"
           end
           expect(page).to have_content("Liked by")
           within "#endorsersModal-#{resource.id}" do
-            expect(page).to have_content("Stop following")
+            expect(page).to have_content(user.name)
           end
         end
       end
@@ -159,7 +174,7 @@ shared_examples "Endorse resource system specs" do
             within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
               expect(page).to have_button("Dislike")
-              expect(page).to have_xpath('//svg//use[contains(@href, "ri-heart-fill")]')
+              expect(page).to have_css('svg use[href*="ri-heart-fill"]')
             end
           end
         end

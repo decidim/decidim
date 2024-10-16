@@ -1,6 +1,6 @@
 updateEndorsementBlock();
 function updateEndorsementBlock() {
-  var $endorsementBlock = document.getElementById('resource-<%= resource.id %>-endorsement-block');
+  var $endorsementBlock = document.getElementById('resource-<%= resource.reload.id %>-endorsement-block');
   var $endorsementButton = document.getElementById('resource-<%= resource.id %>-endorsement-button');
   var $endorsementIdentitiesButton = $endorsementButton.querySelector('#select-identity-button');
   var $endorsementListGrid = document.getElementById('endorser-list-<%= resource.id %>');
@@ -11,9 +11,9 @@ function updateEndorsementBlock() {
     $endorsersModal.remove();
   }
 
-  if ($endorsementListGrid !== null) {
-    $endorsementListGrid.outerHTML = '<%= j(cell("decidim/endorsers_list", resource)).strip.html_safe %>';
-  }
+  $endorsementListGrid.outerHTML = '<%= j(cell("decidim/endorsers_list", resource)).strip.html_safe %>';
+
+  console.log($endorsementListGrid.outerHTML);
 
   <%# If the endorsement button displays a modal to select the identity to endorse only the content of the button %>
   <%# has to be updated to maintain the function of the button to open the modal. Otherwise the button has to be fully %>
