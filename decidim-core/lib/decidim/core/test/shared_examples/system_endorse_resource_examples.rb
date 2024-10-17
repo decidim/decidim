@@ -209,7 +209,7 @@ shared_examples "Endorse resource system specs" do
             within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
               expect(page).to have_button("Like")
-              expect(page).to have_css('svg use[href*="ri-heart-line"]')
+              expect(page).to have_css('svg use[href*="ri-heart-fill"]')
             end
           end
         end
@@ -233,7 +233,6 @@ shared_examples "Endorse resource system specs" do
             end
             visit_resource
             click_on "Like"
-            expect(page).to have_css('svg use[href*="ri-heart-line"]')
           end
 
           context "when both identities picked" do
@@ -251,6 +250,7 @@ shared_examples "Endorse resource system specs" do
               add_likes
               find(".is-selected", match: :first).click
               click_on "Done"
+              expect(page).to have_css('svg use[href*="ri-heart-line"]')
               visit current_path
               click_on "Like"
 
@@ -268,10 +268,10 @@ shared_examples "Endorse resource system specs" do
               add_likes
               page.all(".is-selected")[1].click
               click_on "Done"
+              expect(page).to have_css('svg use[href*="ri-heart-fill"]')
               visit current_path
               expect(page).to have_css('svg use[href*="ri-heart-fill"]')
               click_on "Like"
-              expect(page).to have_css('svg use[href*="ri-heart-line"]')
 
               within ".identities-modal__list" do
                 expect(page).to have_css(".is-selected", count: 1)

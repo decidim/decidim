@@ -36,8 +36,8 @@ module Decidim
     def visible_endorsers
       @visible_endorsers ||= if voted_by_me?
                                base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map do |identity|
-                                                           present(identity.normalized_author)
-                                                         end + [present(current_user)]
+                                 present(identity.normalized_author)
+                               end + [present(current_user)]
                              else
                                base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.normalized_author) }
                              end
@@ -57,7 +57,7 @@ module Decidim
 
     def display_link(text, css_class: "")
       link_to(text, "#",
-              class: "text-sm font-semibold text-secondary inline-block",
+              class: "text-sm font-semibold text-secondary inline-block #{css_class}",
               data: { "dialog-open": "endorsersModal-#{model.id}" })
     end
   end
