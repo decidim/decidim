@@ -75,6 +75,7 @@ module Decidim
 
               expect(flash[:notice]).to be_present
               expect(user.reload.blocked?).to be(true)
+              expect(response).not_to redirect_to(moderated_users_path(blocked: true))
             end
           end
 

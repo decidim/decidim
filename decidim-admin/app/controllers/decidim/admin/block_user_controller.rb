@@ -22,7 +22,7 @@ module Decidim
         BlockUser.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("officializations.block.success", scope: "decidim.admin")
-            redirect_to moderated_users_path(blocked: true), notice:
+            redirect_to moderated_users_path, notice:
           end
 
           on(:invalid) do
