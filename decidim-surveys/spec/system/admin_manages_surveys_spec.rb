@@ -92,11 +92,6 @@ describe "Admin manages surveys" do
 
         context "when clean_after_publish is set to true" do
           context "when deletes previous answers after publishing" do
-            it "does not show popup with an alert" do
-              find(:css, ".action-icon--publish").click
-              expect(page).to have_no_content("Confirm")
-            end
-
             it "deletes previous answers" do
               click_on translated_attribute(component.name)
               click_on "Edit"

@@ -145,4 +145,8 @@ describe "Answer a survey" do
   def questionnaire_public_path
     main_component_path(component)
   end
+
+  def see_questionnaire_questions
+    click_on translated_attribute(questionnaire.title)
+  end
 end

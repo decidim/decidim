@@ -6,7 +6,7 @@ shared_examples_for "has questionnaire" do
   context "when the user is not logged in" do
     it "does not allow answering the questionnaire" do
       visit questionnaire_public_path
-      click_on translated_attribute(questionnaire.title)
+      see_questionnaire_questions
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
@@ -31,7 +31,7 @@ shared_examples_for "has questionnaire" do
 
       it "shows an empty page with a message" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_content("No questions configured for this form yet.")
       end
@@ -43,7 +43,7 @@ shared_examples_for "has questionnaire" do
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description, strip_tags: true)
 
-      click_on translated_attribute(questionnaire.title)
+      see_questionnaire_questions
 
       fill_in question.body["en"], with: "My first answer"
 
@@ -56,7 +56,7 @@ shared_examples_for "has questionnaire" do
       expect(page).to have_admin_callout(callout_success)
 
       visit questionnaire_public_path
-      click_on translated_attribute(questionnaire.title)
+      see_questionnaire_questions
 
       expect(page).to have_content("You have already answered this form.")
       expect(page).to have_no_i18n_content(question.body)
@@ -68,7 +68,7 @@ shared_examples_for "has questionnaire" do
 
       before do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
       end
 
       it "allows answering the first questionnaire" do
@@ -101,7 +101,7 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_admin_callout(callout_success)
 
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_content("You have already answered this form.")
       end
@@ -119,7 +119,7 @@ shared_examples_for "has questionnaire" do
 
     it "requires confirmation when exiting mid-answering" do
       visit questionnaire_public_path
-      click_on translated_attribute(questionnaire.title)
+      see_questionnaire_questions
 
       fill_in question.body["en"], with: "My first answer"
 
@@ -153,7 +153,7 @@ shared_examples_for "has questionnaire" do
 
       it "does not leak defaults from other answers" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_no_field(type: "radio", checked: true)
       end
@@ -176,7 +176,7 @@ shared_examples_for "has questionnaire" do
 
       before do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
       end
 
       it_behaves_like "a correctly ordered questionnaire"
@@ -187,7 +187,7 @@ shared_examples_for "has questionnaire" do
 
       before do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
         accept_confirm { click_on "Submit" }
       end
 
@@ -207,7 +207,7 @@ shared_examples_for "has questionnaire" do
 
       before do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         check "questionnaire_tos_agreement"
       end
@@ -219,7 +219,7 @@ shared_examples_for "has questionnaire" do
 
         it "shows a message indicating number of characters left" do
           visit questionnaire_public_path
-          click_on translated_attribute(questionnaire.title)
+          see_questionnaire_questions
 
           expect(page).to have_content("30 characters left")
         end
@@ -283,7 +283,7 @@ shared_examples_for "has questionnaire" do
 
       before do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         check "questionnaire_tos_agreement"
 
@@ -301,7 +301,7 @@ shared_examples_for "has questionnaire" do
 
       it "properly interprets HTML descriptions" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_css("b", text: "This question is important")
       end
@@ -342,7 +342,7 @@ shared_examples_for "has questionnaire" do
 
       before do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
       end
 
       context "when question is single_option type" do
@@ -436,7 +436,7 @@ shared_examples_for "has questionnaire" do
 
       it "renders the answer as a textarea" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_css("textarea#questionnaire_responses_0")
       end
@@ -450,7 +450,7 @@ shared_examples_for "has questionnaire" do
 
       it "renders the answer as a text field" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_field(id: "questionnaire_responses_0")
       end
@@ -464,7 +464,7 @@ shared_examples_for "has questionnaire" do
 
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_css(".js-radio-button-collection input[type=radio]", count: 2)
 
@@ -477,7 +477,7 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_admin_callout(callout_success)
 
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_content("You have already answered this form.")
         expect(page).to have_no_i18n_content(question.body)
@@ -490,7 +490,7 @@ shared_examples_for "has questionnaire" do
 
       it "renders answers as a collection of radio buttons" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_css(".js-check-box-collection input[type=checkbox]", count: 3)
 
@@ -506,7 +506,7 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_admin_callout(callout_success)
 
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_content("You have already answered this form.")
         expect(page).to have_no_i18n_content(question.body)
@@ -516,7 +516,7 @@ shared_examples_for "has questionnaire" do
         question.update!(max_choices: 2)
 
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_content("Max choices: 2")
 
@@ -559,7 +559,7 @@ shared_examples_for "has questionnaire" do
 
       it "renders the question answers as a collection of divs sortable on drag and drop" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_css("div.answer-questionnaire__sorting.js-collection-input", count: 5)
 
@@ -570,7 +570,7 @@ shared_examples_for "has questionnaire" do
 
       it "properly saves valid sortings" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         %w(We all like dark chocolate).reverse.each do |text|
           find("div.answer-questionnaire__sorting", text:).drag_to(find("div.answer-questionnaire__sorting", match: :first))
@@ -605,7 +605,7 @@ shared_examples_for "has questionnaire" do
 
       it "renders the question answers as a collection of radio buttons" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_css(".js-radio-button-collection input[type=radio]", count: 4)
 
@@ -624,7 +624,7 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_admin_callout(callout_success)
 
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_content("You have already answered this form.")
         expect(page).to have_no_i18n_content(question.body)
@@ -637,7 +637,7 @@ shared_examples_for "has questionnaire" do
 
       it "preserves the chosen answers if submission not correct" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
         choose radio_buttons[1][:id]
@@ -655,7 +655,7 @@ shared_examples_for "has questionnaire" do
 
         it "shows an error if the question is mandatory and the answer is not complete" do
           visit questionnaire_public_path
-          click_on translated_attribute(questionnaire.title)
+          see_questionnaire_questions
 
           radio_buttons = page.all(".js-radio-button-collection input[type=radio]")
           choose radio_buttons[0][:id]
@@ -689,7 +689,7 @@ shared_examples_for "has questionnaire" do
 
       it "renders the question answers as a collection of check boxes" do
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_css(".js-check-box-collection input[type=checkbox]", count: 6)
 
@@ -709,7 +709,7 @@ shared_examples_for "has questionnaire" do
         expect(page).to have_admin_callout(callout_success)
 
         visit questionnaire_public_path
-        click_on translated_attribute(questionnaire.title)
+        see_questionnaire_questions
 
         expect(page).to have_content("You have already answered this form.")
         expect(page).to have_no_i18n_content(question.body)
@@ -726,7 +726,7 @@ shared_examples_for "has questionnaire" do
 
         it "respects the max number of choices" do
           visit questionnaire_public_path
-          click_on translated_attribute(questionnaire.title)
+          see_questionnaire_questions
 
           expect(page).to have_content("Max choices: 2")
 
@@ -771,7 +771,7 @@ shared_examples_for "has questionnaire" do
 
         it "shows an error" do
           visit questionnaire_public_path
-          click_on translated_attribute(questionnaire.title)
+          see_questionnaire_questions
 
           checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
           check checkboxes[0][:id]
@@ -789,7 +789,7 @@ shared_examples_for "has questionnaire" do
 
         it "preserves the chosen answers" do
           visit questionnaire_public_path
-          click_on translated_attribute(questionnaire.title)
+          see_questionnaire_questions
 
           checkboxes = page.all(".js-check-box-collection input[type=checkbox]")
           check checkboxes[0][:id]
@@ -839,7 +839,7 @@ shared_examples_for "has questionnaire" do
 
           before do
             visit questionnaire_public_path
-            click_on translated_attribute(questionnaire.title)
+            see_questionnaire_questions
           end
 
           context "when the condition_question type is short answer" do
@@ -932,7 +932,7 @@ shared_examples_for "has questionnaire" do
 
           before do
             visit questionnaire_public_path
-            click_on translated_attribute(questionnaire.title)
+            see_questionnaire_questions
           end
 
           context "when the condition_question type is short answer" do
@@ -1014,7 +1014,7 @@ shared_examples_for "has questionnaire" do
 
           before do
             visit questionnaire_public_path
-            click_on translated_attribute(questionnaire.title)
+            see_questionnaire_questions
           end
 
           context "when the condition_question type is single option" do
@@ -1071,7 +1071,7 @@ shared_examples_for "has questionnaire" do
 
           before do
             visit questionnaire_public_path
-            click_on translated_attribute(questionnaire.title)
+            see_questionnaire_questions
           end
 
           context "when the condition_question type is single option" do
@@ -1129,7 +1129,7 @@ shared_examples_for "has questionnaire" do
 
           before do
             visit questionnaire_public_path
-            click_on translated_attribute(questionnaire.title)
+            see_questionnaire_questions
           end
 
           context "when the condition_question type is short answer" do
@@ -1250,7 +1250,7 @@ shared_examples_for "has questionnaire" do
       context "when a question has multiple display conditions" do
         before do
           visit questionnaire_public_path
-          click_on translated_attribute(questionnaire.title)
+          see_questionnaire_questions
         end
 
         context "when all conditions are mandatory" do
@@ -1339,7 +1339,7 @@ shared_examples_for "has questionnaire" do
 
           it "does not throw error" do
             visit questionnaire_public_path
-            click_on translated_attribute(questionnaire.title)
+            see_questionnaire_questions
 
             fill_in condition_question.body["en"], with: "My first answer"
 
