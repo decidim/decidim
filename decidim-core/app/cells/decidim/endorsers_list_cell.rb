@@ -35,9 +35,9 @@ module Decidim
     # Returns an Array of presented Users/UserGroups
     def visible_endorsers
       @visible_endorsers ||= if voted_by_me?
-                               [present(current_user)] + base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map do |identity|
+                               base_relation.where.not(author: current_user).limit(MAX_ITEMS_STACKED - 1).map do |identity|
                                                            present(identity.normalized_author)
-                                                         end
+                                                         end + [present(current_user)]
                              else
                                base_relation.limit(MAX_ITEMS_STACKED).map { |identity| present(identity.normalized_author) }
                              end
@@ -55,9 +55,9 @@ module Decidim
       @voted_by_me ||= model.endorsed_by?(current_user)
     end
 
-    def display_link(text)
+    def display_link(text, css_class: "")
       link_to(text, "#",
-              class: "text-sm font-semibold text-secondary inline-block first-letter:uppercase",
+              class: "text-sm font-semibold text-secondary inline-block",
               data: { "dialog-open": "endorsersModal-#{model.id}" })
     end
   end
