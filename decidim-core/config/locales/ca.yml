@@ -1164,7 +1164,7 @@ ca:
         active: Actives
         finished: 'Finalitzat el: %{end_date}'
         not_started: No s'ha iniciat encara
-        remaining: "resta %{time_distance}"
+        remaining: "Resta(en) %{time_distance}"
     metrics:
       download:
         csv: Descarregar les dades (csv)
