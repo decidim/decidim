@@ -320,7 +320,7 @@ module Decidim
         end
       end
 
-      context "when is moderated" do
+      context "when meeting is moderated" do
         let(:model) { create(:meeting, :hidden) }
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
@@ -330,7 +330,7 @@ module Decidim
         end
       end
 
-      context "when is private but transparent" do
+      context "when meeting is private but transparent" do
         let(:model) { create(:meeting, :not_official, :published, private_meeting: true, transparent: true) }
         let(:current_user) { model.author }
         let(:query) { "{ id }" }
@@ -341,22 +341,22 @@ module Decidim
         end
       end
 
-      context "when is private" do
+      context "when meeting is private" do
         let(:model) { create(:meeting, private_meeting: true) }
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns all the required fields" do
+        it "returns nothing" do
           expect(response).to be_nil
         end
       end
 
-      context "when is not published" do
+      context "when meeting is not published" do
         let(:model) { create(:meeting, published_at: nil) }
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns all the required fields" do
+        it "returns nothing" do
           expect(response).to be_nil
         end
       end

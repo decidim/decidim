@@ -204,7 +204,7 @@ module Decidim
         end
       end
 
-      context "when is moderated" do
+      context "when proposal is moderated" do
         let(:model) { create(:proposal, :hidden) }
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }

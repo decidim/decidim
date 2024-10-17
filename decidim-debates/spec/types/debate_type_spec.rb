@@ -130,12 +130,12 @@ module Decidim
         end
       end
 
-      context "when is moderated" do
+      context "when debate is moderated" do
         let(:model) { create(:debate, :open_ama, :hidden) }
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }
 
-        it "returns all the required fields" do
+        it "returns nothing" do
           expect(response).to be_nil
         end
       end

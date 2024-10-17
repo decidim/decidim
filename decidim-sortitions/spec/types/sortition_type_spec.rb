@@ -174,7 +174,7 @@ module Decidim
           let(:query) { "{ id }" }
           let(:root_value) { model.reload }
 
-          it "returns all the required fields" do
+          it "returns nothing" do
             allow(model).to receive(:visible?).and_return(false)
             expect(response).to be_nil
           end

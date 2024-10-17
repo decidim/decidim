@@ -23,8 +23,6 @@ module Decidim
               local_context(object, context)
             ).permissions
           end.allowed?
-          # rescue Decidim::PermissionAction::PermissionNotSetError
-          #   false
         end
 
         # Injects into context object current_participatory_space and current_component keys as they are needed

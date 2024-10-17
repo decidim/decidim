@@ -125,7 +125,7 @@ module Decidim
         end
       end
 
-      context "when is budget is not visible" do
+      context "when budget is not visible" do
         let(:current_component) { create(:budgets_component, organization: current_organization) }
         let(:budget) { create(:budget, component: current_component) }
         let(:model) { create(:project, budget:) }
