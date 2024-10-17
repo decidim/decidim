@@ -645,7 +645,7 @@ es:
             plural: Plural
         share_token:
           fields:
-            created_at: Creado el
+            created_at: Fecha de creación
             expires_at: Caduca el
             last_used_at: Último uso
             times_used: Veces utilizado
