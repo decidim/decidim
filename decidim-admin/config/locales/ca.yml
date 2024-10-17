@@ -1095,7 +1095,7 @@ ca:
         no_taxonomies: Actualment no hi ha taxonomies. Crea una llista de taxonomies i defineix-ne els elements per classificar o filtrar recursos.
         table:
           to_next_page: Passa a la pàgina següent
-          to_prev_page: Passa a la pàgina anterior
+          to_prev_page: Arrossega per passar a la pàgina anterior
         taxonomy_actions:
           confirm_destroy: Segur que vols eliminar "%{name}"? També s'eliminaran tots els elements inclosos en aquesta.
         update:
