@@ -11,7 +11,7 @@ module Decidim
 
         translatable_attribute :title, String
         attribute :weight, Integer, default: 0
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
         attribute :total_budget, Integer, default: 0
         attribute :decidim_scope_id, Integer
 
