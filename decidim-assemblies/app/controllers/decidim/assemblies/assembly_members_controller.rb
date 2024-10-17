@@ -4,24 +4,16 @@ module Decidim
   module Assemblies
     class AssemblyMembersController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
-      include AssemblyBreadcrumb
-
-      helper_method :collection
+      include Decidim::HasMembersPage
 
       def index
         raise ActionController::RoutingError, "No members for this assembly" if members.none?
 
         enforce_permission_to :list, :members
-        redirect_to decidim_assemblies.assembly_path(current_participatory_space) unless current_user_can_visit_space?
+        redirect_to decidim_assemblies.assembly_path(current_participatory_space) unless can_visit_index?
       end
 
       private
-
-      def members
-        @members ||= current_participatory_space.members.not_ceased
-      end
-
-      alias collection members
 
       def current_participatory_space
         return unless params[:assembly_slug]

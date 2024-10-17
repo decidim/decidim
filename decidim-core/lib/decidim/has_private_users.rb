@@ -33,6 +33,10 @@ module Decidim
         end
       end
 
+      def members_public_page?
+        private_space && participatory_space_private_users.published.any?
+      end
+
       def can_participate?(user)
         return true unless private_space?
         return false unless user
