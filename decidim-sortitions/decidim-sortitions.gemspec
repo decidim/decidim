@@ -35,5 +35,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Sortitions.version
   s.add_dependency "decidim-proposals", Decidim::Sortitions.version
 
+  s.add_development_dependency "decidim-assemblies", Decidim::Sortitions.version
   s.add_development_dependency "decidim-dev", Decidim::Sortitions.version
+  s.add_development_dependency "decidim-participatory_processes", Decidim::Sortitions.version
 end
