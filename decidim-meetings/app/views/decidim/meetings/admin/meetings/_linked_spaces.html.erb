@@ -1,0 +1,53 @@
+<%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
+
+<div class="card" data-component="accordion" id="accordion-linked-spaces">
+  <div class="card-divider">
+    <button class="card-divider-button" data-open="false" data-controls="panel-linked-spaces" type="button">
+      <%= icon "arrow-right-s-line" %>
+      <h2 class="card-title" id="linked-spaces"><%= t(".title") %></h2>
+    </button>
+  </div>
+
+  <div id="panel-linked-spaces" class="px-4">
+    <% if form.object.private_non_transparent_space? %>
+      <%= cell("decidim/announcement", t(".private_space_warning"), callout_class: "warning") %>
+    <% else %>
+      <%= cell("decidim/announcement", t(".private_meeting_warning"), callout_class: "warning js-private-warning hidden") %>
+
+      <div>
+        <label>
+          <%= t(".link_a_space") %>
+        </label>
+        <div>
+          <select id="add_component_select" name="add_component_select" placeholder="<%= t(".select") %>" class="w-full mt-2">
+            <option value=""><%= t(".select") %></option>
+            <%= find_meeting_components_for_select.map do |option| %>
+              <option value="<%= option[1] %>"><%= option[0] %></option>
+            <% end %>
+          </select>
+          <button class="button button__sm button__secondary add-service mt-2 js-add-component mb-8" type="button">
+            <%= t(".assign") %>
+          </button>
+        </div>
+      </div>
+    <% end %>
+
+    <template id="meeting_component_template">
+      <%= render "decidim/meetings/admin/meetings/component", component: nil %>
+    </template>
+
+    <table class="table-list w-full js-components <%= form.object.components.empty? && "hidden" %>">
+      <thead>
+        <tr>
+          <th><%= t(".table.component") %></th>
+          <th><%= t(".table.actions") %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% form.object.components.each do |component| %>
+          <%= render "decidim/meetings/admin/meetings/component", component: %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

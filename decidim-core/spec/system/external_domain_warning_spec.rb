@@ -51,6 +51,17 @@ describe "ExternalDomainWarning" do
     end
   end
 
+  context "when the source url has encoded characters" do
+    let(:destination) { "https://example.org/Me%2Cmyself%2Cand%2CI" }
+    let(:url) { "http://#{organization.host}/link?external_url=#{destination}" }
+
+    it "does not show invalid url alert" do
+      visit url
+      expect(page).to have_no_content("Invalid URL")
+      expect(page).to have_content("Me,myself,and,I")
+    end
+  end
+
   context "when url is invalid" do
     let(:invalid_url) { "http://#{organization.host}/link?external_url=foo" }
 
