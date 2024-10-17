@@ -23,7 +23,7 @@ describe "Answer a survey" do
     }
   end
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
-  let!(:survey) { create(:survey, component:, questionnaire:) }
+  let!(:survey) { create(:survey, component:, published_at: Time.current, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
   let(:mailer) { double(deliver_later: true) }
 
@@ -32,6 +32,8 @@ describe "Answer a survey" do
   context "when the survey does not allow answers" do
     it "does not allow answering the survey" do
       visit_component
+      choose "All"
+      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)
@@ -47,14 +49,7 @@ describe "Answer a survey" do
     let!(:user) { create(:user, :confirmed, organization:) }
 
     before do
-      component.update!(
-        step_settings: {
-          component.participatory_space.active_step.id => {
-            allow_answers: true,
-            allow_unregistered: false
-          }
-        }
-      )
+      survey.update!(allow_answers: true, allow_unregistered: false)
 
       login_as user, scope: :user
     end
@@ -63,6 +58,7 @@ describe "Answer a survey" do
       allow(Decidim::Surveys::SurveyConfirmationMailer).to receive(:confirmation).and_return(mailer)
 
       visit_component
+      click_on translated_attribute(questionnaire.title)
 
       expect(page).to have_i18n_content(questionnaire.title)
       expect(page).to have_i18n_content(questionnaire.description)

@@ -30,6 +30,8 @@ describe "Meeting registrations" do
     Decidim::EngineRouter.main_proxy(component).join_meeting_registration_path(meeting_id: meeting.id)
   end
 
+  def see_questionnaire_questions; end
+
   before do
     stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     meeting.update!(
