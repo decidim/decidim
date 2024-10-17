@@ -19,7 +19,7 @@ module Decidim
           emendation:
         )
       end
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :confirmed) }
       let(:amendable) { create(:proposal) }
       let(:emendation) { create(:proposal) }
 

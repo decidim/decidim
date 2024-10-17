@@ -11,7 +11,7 @@ module Decidim
       #
       # Returns nothing.
       def self.included(type)
-        type.field :commentable, CommentableType, null: false do
+        type.field :commentable, Decidim::Comments::CommentableInterface do
           argument :id, GraphQL::Types::String, "The commentable's ID", required: true
           argument :type, GraphQL::Types::String, "The commentable's class name. i.e. `Decidim::ParticipatoryProcess`", required: true
           argument :locale, GraphQL::Types::String, "The locale for which to get the comments text", required: true
