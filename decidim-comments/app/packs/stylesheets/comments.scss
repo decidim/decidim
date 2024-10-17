@@ -31,7 +31,7 @@
 }
 
 .comment {
-  @apply rounded-lg border-2 border-background p-3 pl-6;
+  @apply rounded-lg border-2 border-background-5 p-3 pl-6;
 
   &__header {
     @apply flex items-center gap-x-2 mb-2 relative;
@@ -67,7 +67,7 @@
   }
 
   &-reply {
-    @apply rounded-lg border-2 border-background ml-3 relative;
+    @apply rounded-lg border-2 border-background-5 ml-3 relative;
   }
 
   &-reply:empty {
@@ -75,7 +75,7 @@
   }
 
   &-reply::after {
-    @apply bg-background-3 inline-block absolute top-8 h-4/5 w-px -z-10;
+    @apply bg-background-5 inline-block absolute top-8 h-4/5 w-px -z-10;
 
     content: "";
   }
