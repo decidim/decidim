@@ -7,6 +7,22 @@ module Decidim
       include UserRoleChecker
       delegate :user_signed_in?, to: :controller
 
+      def render_comments
+        if supports_two_columns_layout?
+          render :comments_in_two_columns
+        else
+          render :comments_in_single_column
+        end
+      end
+
+      def comments_in_favor
+        model.comments.positive
+      end
+
+      def comments_against
+        model.comments.negative
+      end
+
       def add_comment
         render :add_comment if can_add_comments?
       end
@@ -38,6 +54,10 @@ module Decidim
       end
 
       private
+
+      def supports_two_columns_layout?
+        model.respond_to?(:comments_layout) && model.two_columns_layout?
+      end
 
       def can_add_comments?
         return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)

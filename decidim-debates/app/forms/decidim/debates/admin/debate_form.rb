@@ -15,6 +15,7 @@ module Decidim
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :decidim_category_id, Integer
         attribute :finite, Boolean, default: true
+        attribute :comments_layout, String, default: "single_column"
         attribute :scope_id, Integer
         attribute :comments_enabled, Boolean, default: true
 
@@ -23,6 +24,7 @@ module Decidim
         validates :instructions, translatable_presence: true
         validates :start_time, presence: { if: :validate_start_time? }, date: { before: :end_time, allow_blank: true, if: :validate_start_time? }
         validates :end_time, presence: { if: :validate_end_time? }, date: { after: :start_time, allow_blank: true, if: :validate_end_time? }
+        validates :comments_layout, presence: true, inclusion: { in: %w(single_column two_columns) }
 
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
@@ -35,6 +37,7 @@ module Decidim
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
           self.description = presenter.description(all_locales: description.is_a?(Hash))
+          self.comments_layout = model.comments_layout || "single_column"
         end
 
         def category
