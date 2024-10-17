@@ -272,7 +272,6 @@ module Decidim
           :moderation,
           :assembly,
           :assembly_user_role,
-          :assembly_member,
           :export_space,
           :import
         ].include?(permission_action.subject)
@@ -291,7 +290,6 @@ module Decidim
           :moderation,
           :assembly,
           :assembly_user_role,
-          :assembly_member,
           :export_space,
           :import
         ].include?(permission_action.subject)
