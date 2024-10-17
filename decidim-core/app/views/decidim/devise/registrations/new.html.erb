@@ -50,7 +50,13 @@
     </div>
 
     <div class="login__links">
-      <%= render "decidim/devise/shared/links" %>
+      <%- if current_organization.sign_up_enabled? && devise_mapping.confirmable? && controller_name != "confirmations" %>
+         <%= link_to t("devise.shared.links.didn_t_receive_confirmation_instructions"), new_confirmation_path(resource_name) %>
+      <% end -%>
+
+      <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != "unlocks" %>
+        <%= link_to t("devise.shared.links.didn_t_receive_unlock_instructions"), new_unlock_path(resource_name) %>
+      <% end -%>
     </div>
   <% end %>
 <% end %>
