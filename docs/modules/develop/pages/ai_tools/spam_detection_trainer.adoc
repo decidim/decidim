@@ -1,6 +1,6 @@
-= Real time training
+= Real-time training
 
-In some instances, there may be the need to add Real-time training of the spam data. To achieve that, Decidim allows you to subscribe to 2 different events.
+In some instances, there may be the need to add Real-time training of the spam data. To achieve that, Decidim allows you to subscribe to 2 different events. Take into account that if you follow this strategy, you could have lots of false positives, as some spammers are using relevant content provided by participants to "cheat" the system. 
 
 == Resource training
 
@@ -8,7 +8,7 @@ In order to enable realtime training for based on your data, you will need to su
 
 ```ruby
 Decidim::EventsManager.subscribe("decidim.admin.hide_resource:after") do |_event_name, data|
-  Decidim::MYModule::TrainHiddenResourceDataJob.perform_later(data[:resource])
+  Decidim::MyModule::TrainHiddenResourceDataJob.perform_later(data[:resource])
 end
 ```
 
