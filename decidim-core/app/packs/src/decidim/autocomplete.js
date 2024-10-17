@@ -1,6 +1,6 @@
 /* eslint max-lines: ["error", 350] */
 
-import * as AutoCompleteJS from "@tarekraafat/autocomplete.js";
+import AutoCompleteJS from "@tarekraafat/autocomplete.js";
 // Styles from node_modules/@tarekraafat/autocomplete.js
 // It needs to be done in JS because postcss-import does not find files in node_modules/
 import "@tarekraafat/autocomplete.js/dist/css/autoComplete.02.css";
