@@ -10,6 +10,9 @@ describe Decidim::Debates::Admin::UpdateDebate do
   let(:scope) { create(:scope, organization:) }
   let(:category) { create(:category, participatory_space: debate.component.participatory_space) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:attachment_params) { nil }
+  let(:current_files) { [] }
+  let(:uploaded_files) { [] }
   let(:form) do
     double(
       invalid?: invalid,
@@ -23,7 +26,10 @@ describe Decidim::Debates::Admin::UpdateDebate do
       scope:,
       category:,
       current_organization: organization,
-      comments_enabled: true
+      comments_enabled: true,
+      attachment: attachment_params,
+      add_documents: uploaded_files,
+      documents: current_files
     )
   end
   let(:invalid) { false }
@@ -65,6 +71,25 @@ describe Decidim::Debates::Admin::UpdateDebate do
       action_log = Decidim::ActionLog.last
       expect(action_log.version).to be_present
       expect(action_log.version.event).to eq "update"
+    end
+  end
+
+  context "when everything is ok with attachments" do
+    let(:uploaded_files) do
+      [
+        { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
+        { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+      ]
+    end
+
+    it "updates the debate with attachments" do
+      expect do
+        subject.call
+        debate.reload
+      end.to change(debate.attachments, :count).by(2)
+
+      debate_attachments = debate.attachments
+      expect(debate_attachments.count).to eq(2)
     end
   end
 end

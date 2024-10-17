@@ -22,12 +22,16 @@ describe Decidim::Debates::DebateForm do
   let(:parent_scope) { create(:scope, organization:) }
   let(:scope) { create(:subscope, parent: parent_scope) }
   let(:scope_id) { scope.id }
+  let(:uploaded_files) { [] }
+  let(:current_files) { [] }
   let(:attributes) do
     {
       category_id:,
       scope_id:,
       title:,
-      description:
+      description:,
+      add_documents: uploaded_files,
+      documents: current_files
     }
   end
 
@@ -71,6 +75,32 @@ describe Decidim::Debates::DebateForm do
     end
   end
 
+  context "when handling attachments" do
+    let(:uploaded_files) do
+      [
+        { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
+        { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+      ]
+    end
+
+    it "accepts valid attachments" do
+      expect(form).to be_valid
+      expect(form.add_documents.count).to eq(2)
+    end
+
+    context "when an attachment is invalid" do
+      let(:uploaded_files) do
+        [
+          { file: upload_test_file(Decidim::Dev.asset("invalid_extension.log"), content_type: "text/plain") }
+        ]
+      end
+
+      it "does not add the invalid file to the form" do
+        expect(form.documents).to be_empty
+      end
+    end
+  end
+
   describe "map_model" do
     subject { described_class.from_model(debate).with_context(context) }
 
@@ -90,6 +120,10 @@ describe Decidim::Debates::DebateForm do
 
     it "sets the debate" do
       expect(subject.debate).to eq(debate)
+    end
+
+    it "sets the attachments" do
+      expect(subject.documents).to eq(debate.documents)
     end
   end
 end
