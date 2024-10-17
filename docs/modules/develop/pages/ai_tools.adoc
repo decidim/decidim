@@ -9,3 +9,4 @@
 * xref:develop:ai_tools/spam_detection_strategy.adoc[Spam detection Strategy]
 * xref:develop:ai_tools/spam_detection_service.adoc[Spam detection Service]
 * xref:develop:ai_tools/spam_detection_analyzer.adoc[Spam detection Analyzer]
+* xref:develop:ai_tools/spam_detection_trainer.adoc[Real-time training]
