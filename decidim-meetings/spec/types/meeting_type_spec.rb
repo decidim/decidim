@@ -271,12 +271,34 @@ module Decidim
         end
       end
 
-      context "when meeting is private" do
+      context "when published meeting is private but transparent" do
         let(:model) { create(:meeting, :published, :not_official, :with_registrations_enabled, component:, private_meeting: true, transparent: true) }
         let(:query) { "{ privateMeeting }" }
 
         it "returns true" do
           expect(response["privateMeeting"]).to be true
+        end
+      end
+
+      context "when meeting is private but transparent" do
+        let(:model) { create(:meeting, :not_official, :published, private_meeting: true, transparent: true) }
+        let(:current_user) { model.author }
+        let(:query) { "{ id }" }
+        let(:root_value) { model.reload }
+
+        it "returns all the required fields" do
+          expect(response["id"]).to eq(model.id.to_s)
+        end
+      end
+
+      context "when meeting is private" do
+        let(:model) { create(:meeting, :published, private_meeting: true, transparent: false) }
+        let(:query) { "{ id }" }
+        let(:root_value) { model.reload }
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+        it "returns nothing" do
+          expect(response).to be_nil
         end
       end
 
@@ -296,6 +318,17 @@ module Decidim
 
         it "returns nothing" do
           expect(response).to be_nil
+        end
+      end
+
+      context "when participatory space is private but transparent" do
+        let(:participatory_space) { create(:assembly, :private, :transparent, organization: current_organization) }
+        let(:current_component) { create(:meeting_component, participatory_space:) }
+        let(:model) { create(:meeting, :published, component: current_component) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to include("id" => model.id.to_s)
         end
       end
 
@@ -326,27 +359,6 @@ module Decidim
         let(:root_value) { model.reload }
 
         it "returns all the required fields" do
-          expect(response).to be_nil
-        end
-      end
-
-      context "when meeting is private but transparent" do
-        let(:model) { create(:meeting, :not_official, :published, private_meeting: true, transparent: true) }
-        let(:current_user) { model.author }
-        let(:query) { "{ id }" }
-        let(:root_value) { model.reload }
-
-        it "returns all the required fields" do
-          expect(response["id"]).to eq(model.id.to_s)
-        end
-      end
-
-      context "when meeting is private" do
-        let(:model) { create(:meeting, private_meeting: true) }
-        let(:query) { "{ id }" }
-        let(:root_value) { model.reload }
-
-        it "returns nothing" do
           expect(response).to be_nil
         end
       end
