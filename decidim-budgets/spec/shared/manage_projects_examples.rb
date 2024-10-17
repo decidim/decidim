@@ -166,7 +166,7 @@ shared_examples "manage projects" do
     expect(page).to have_content("created the #{translated(attributes[:title])} project")
   end
 
-  context "when deleting a project" do
+  context "when soft deleting a project" do
     let!(:project2) { create(:project, budget:) }
 
     before do
@@ -175,7 +175,7 @@ shared_examples "manage projects" do
 
     it "deletes a project" do
       within "tr", text: translated(project2.title) do
-        accept_confirm { click_on "Delete" }
+        accept_confirm { click_on "Soft delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

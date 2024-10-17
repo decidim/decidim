@@ -7,6 +7,7 @@ module Decidim
       class ProposalsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
         include Decidim::Proposals::Admin::Filterable
+        include Decidim::Admin::HasTrashableResources
 
         helper Proposals::ApplicationHelper
         helper Decidim::Proposals::Admin::ProposalRankingsHelper
@@ -150,12 +151,24 @@ module Decidim
 
         private
 
+        def trashable_deleted_resource_type
+          :proposal
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= collection.find_by(id: params[:id])
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.trashed
+        end
+
         def collection
           @collection ||= Proposal.where(component: current_component).not_hidden.published
         end
 
         def proposals
-          @proposals ||= filtered_collection
+          @proposals ||= filtered_collection.not_trashed
         end
 
         def proposal

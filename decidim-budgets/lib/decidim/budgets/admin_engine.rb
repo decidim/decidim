@@ -13,6 +13,15 @@ module Decidim
 
       routes do
         resources :budgets do
+          collection do
+            get :manage_trash
+          end
+
+          member do
+            patch :soft_delete
+            patch :restore
+          end
+
           resources :projects do
             collection do
               post :update_category
@@ -20,6 +29,12 @@ module Decidim
               post :update_selected
               post :update_budget
               resource :proposals_import, only: [:new, :create]
+              get :manage_trash
+            end
+
+            member do
+              patch :soft_delete
+              patch :restore
             end
           end
         end

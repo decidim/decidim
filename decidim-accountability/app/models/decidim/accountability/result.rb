@@ -20,6 +20,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       component_manifest_name "accountability"
 

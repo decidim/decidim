@@ -18,6 +18,7 @@ FactoryBot.define do
     instructions { generate_localized_description(:debate_instructions, skip_injection:) }
     component { build(:debates_component, skip_injection:) }
     author { component.try(:organization) }
+    deleted_at { nil }
 
     trait :open_ama do
       start_time { 1.day.ago }

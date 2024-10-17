@@ -1,0 +1,11 @@
+<% add_decidim_page_title(t("components.manage_trash.title", scope: "decidim.admin")) %>
+
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t("components.manage_trash.title", scope: "decidim.admin") %>
+    </h1>
+  </div>
+</div>
+
+<%= render partial: "components_table", locals: { components: trashable_deleted_collection, view: :deleted } %>

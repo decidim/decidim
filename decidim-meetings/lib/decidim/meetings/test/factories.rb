@@ -47,6 +47,7 @@ FactoryBot.define do
     component { build(:meeting_component) }
     iframe_access_level { :all }
     iframe_embed_type { :none }
+    deleted_at { nil }
 
     author do
       component.try(:organization)
