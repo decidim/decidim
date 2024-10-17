@@ -1017,7 +1017,7 @@ es:
           next: Siguiente
           next_title: Siguiente elemento
           previous: Anterior
-          previous_title: Anterior elemento
+          previous_title: Elemento anterior
         gallery:
           add_images: Añadir imágenes
           edit_images: Editar imagenes
@@ -1095,7 +1095,7 @@ es:
         no_taxonomies: Actualmente no hay taxonomías. Crea una lista de taxonomías y define sus elementos para clasificar o filtrar recursos.
         table:
           to_next_page: Pasa a la siguiente página
-          to_prev_page: Pasa a la página anterior
+          to_prev_page: Arrastrar para pasar a la página anterior
         taxonomy_actions:
           confirm_destroy: '¿Seguro que quieres eliminar "%{name}"? También se eliminarán todos los elementos incluidos en esta.'
         update:
