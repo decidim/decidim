@@ -118,6 +118,7 @@ module Decidim
       end
 
       def can_reply?
+        return false if root_commentable.respond_to?(:two_columns_layout?) && root_commentable.two_columns_layout?
         return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
 
         user_signed_in? && accepts_new_comments? &&
