@@ -950,7 +950,6 @@ gl:
       edit_link:
         edit: Editar
       footer:
-        download_open_data: Descargar ficheiros Open Data
         made_with_open_source: Sitio web feito con <a target="_blank" href="https://github.com/decidim/decidim"> software libre</a>.
       header:
         main_menu: Menú principal

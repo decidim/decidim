@@ -1412,7 +1412,6 @@ ro:
       footer:
         cc_by_license: Licență Creative Commons
         decidim_logo: Logo decidim
-        download_open_data: Descarcă fișierele de date deschise
         log_in: Autentificare
         made_with_open_source: Site web creat cu <a target="_blank" href="https://github.com/decidim/decidim">software gratuit</a>.
       header:

@@ -65,6 +65,10 @@ ar:
         debate:
           create: "%{user_name} خلق النقاش %{resource_name} على الفضاء %{space_name}"
           update: "%{user_name} تحديث المناقشة %{resource_name} على %{space_name} الفضاء"
+      content_blocks:
+        highlighted_debates:
+          name: مناقشات
+          see_all: اعرض جميع المناقشات
       debates:
         count:
           debates_count:

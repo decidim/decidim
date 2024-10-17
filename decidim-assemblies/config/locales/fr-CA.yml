@@ -435,6 +435,10 @@ fr-CA:
         description: Nombre d'assemblées créées
         object: assemblées
         title: Assemblées
+    open_data:
+      help:
+        assemblies:
+          assembly_type: Le type de l'assemblée
     participatory_processes:
       show:
         related_assemblies: Assemblées associées

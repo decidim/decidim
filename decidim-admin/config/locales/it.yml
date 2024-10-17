@@ -496,12 +496,8 @@ it:
             plural: Plurale
         share_token:
           fields:
-            created_at: Creato il
             expires_at: Scade il
-            last_used_at: Ultimo utilizzo
             times_used: Volte usate
-            token: Token
-            user: Creata da
         static_page:
           fields:
             created_at: Creato il
@@ -742,15 +738,7 @@ it:
           success: OK, l'àmbito è stato aggiornato.
       share_tokens:
         actions:
-          confirm_destroy: Sei sicuro di voler eliminare questo token?
           destroy: Elimina
-          share: Condividi
-        destroy:
-          error: Si è verificato un problema durante la distruzione del token.
-          success: Token eliminato correttamente.
-        share_tokens:
-          help: Questi token sono utilizzati per condividere pubblicamente questa risorsa non pubblicata con qualsiasi utente. Saranno nascosti al momento della pubblicazione della risorsa. Clicca sull'icona di condivisione del token per visitare l'URL condivisibile.
-          title: Condividi token
       shared:
         gallery:
           add_images: Aggiungi immagini

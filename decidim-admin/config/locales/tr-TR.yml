@@ -425,12 +425,8 @@ tr:
             plural: Çoğul
         share_token:
           fields:
-            created_at: Oluşturulma tarihi
             expires_at: Süre sonu
-            last_used_at: Son kullanıldığı zaman
             times_used: Kullanım Sayısı
-            token: Jeton
-            user: Oluşturan
         static_page:
           fields:
             created_at: Düzenlendi
@@ -658,15 +654,7 @@ tr:
           success: Kapsam başarıyla güncellendi
       share_tokens:
         actions:
-          confirm_destroy: Bu jetonu silmek istediğinizden emin misiniz?
           destroy: Sil
-          share: Paylaş
-        destroy:
-          error: Bu jetonu yok ederken bir hata oluştu.
-          success: Jeton başarılı bir şekilde yok edildi.
-        share_tokens:
-          help: Bu jeton, yayınlanmamış kaynağı herhangi bir kullanıcıyla herkese açık olarak paylaşmak için kullanılır. Kaynak yayınlandığında gizlenecekler. Paylaşılabilir URL'yi ziyaret etmek için jetonun paylaş simgesine tıklayın.
-          title: Jeton paylaş
       shared:
         gallery:
           add_images: Resim ekle

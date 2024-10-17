@@ -1215,7 +1215,6 @@ nl:
       footer:
         cc_by_license: Creative Commons-licentie
         decidim_logo: Logo Decidimmen
-        download_open_data: Download Open Data-bestanden
         log_in: Aanmelden
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:

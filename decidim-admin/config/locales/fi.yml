@@ -655,12 +655,8 @@ fi:
             plural: Monikko
         share_token:
           fields:
-            created_at: Luontiaika
             expires_at: Vanhentumisaika
-            last_used_at: Viimeinen käyttöaika
             times_used: Käyttökertojen määrä
-            token: Tunniste
-            user: Tekijä
         static_page:
           fields:
             created_at: Luonnin ajankohta
@@ -967,16 +963,7 @@ fi:
           success: Teeman päivitys onnistui
       share_tokens:
         actions:
-          confirm_destroy: Haluatko varmasti poistaa tämän tunnisteen?
           destroy: Poista
-          share: Jaa
-        destroy:
-          error: Tunnisteen poistaminen epäonnistui.
-          success: Tunnisteen poistaminen onnistui.
-        share_tokens:
-          empty: Aktiivisia tunnisteita ei ole tällä hetkellä.
-          help: Näitä tunnisteita käytetään jaettaessa tätä julkaisematonta kohdetta muille käyttäjille. Ne piilotetaan, kun kohde julkaistaan. Klikkaa tunnisteen jakokuvaketta vieraillaksesi jaettavassa URL-osoitteessa.
-          title: Jakotunnisteet
       shared:
         adjacent_navigation:
           next: Seuraava

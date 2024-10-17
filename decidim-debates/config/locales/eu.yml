@@ -86,6 +86,10 @@ eu:
           close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
           create: "%{user_name} k %{resource_name} eztabaida sortu du %{space_name} espazioan"
           update: "%{user_name} k %{resource_name} eztabaida eguneratu du %{space_name} espazioan"
+      content_blocks:
+        highlighted_debates:
+          name: Eztabaidak
+          see_all: Ikusi eztabaida guztiak
       debate_m:
         commented_time_ago: Iruzkina eginda orain dela %{time}
       debates:

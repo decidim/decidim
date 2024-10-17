@@ -423,6 +423,49 @@ es:
         description: Número de apoyos a propuestas
         object: votos
         title: Votos
+    open_data:
+      help:
+        proposal_comments:
+          alignment: Si este comentario fue un favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
+        proposals:
+          address: La dirección de la propuesta en caso de que esta tenga una ubicación física
+          answer: La respuesta a la propuesta en el caso de que se haya respondido
+          answered_at: La fecha en que se respondió esta propuesta
+          attachments: El número de archivos adjuntos que tiene esta propuesta
+          author: Los datos de autoría de esta propuesta
+          body: La descripción de la propuesta
+          category: La categoría de la propuesta (por ejemplo, "Cultura")
+          comments: El número de comentarios que tiene esta propuesta
+          component: El componente al que pertenece esta propuesta
+          endorsements: El número de adhesiones ("me gusta") que tiene esta propuesta
+          followers: El número de seguidoras que tiene esta propuesta
+          id: El identificador único de la propuesta
+          is_amend: Si esta propuesta es una enmienda a otra propuesta o no
+          latitude: La latitud de la propuesta en caso de que esta tenga una ubicación física
+          longitude: La longitud de la propuesta en caso de que esta tenga una ubicación física
+          meeting_urls: Las URL de los encuentros de los que resultó o se debatió esta propuesta
+          original_proposal: La referencia de la propuesta original en el caso de que se trate de una enmienda
+          participatory_space: A qué espacio pertenece este proyecto (proceso participativo, asamblea, etc.)
+          published_at: La fecha en que se publicó esta propuesta
+          reference: El identificador único del recurso en esta plataforma
+          related_proposals: Las propuestas relacionadas con esta propuesta
+          scope: El ámbito territorial de la propuesta (por ejemplo, "Ciudad")
+          state: El estado de esta propuesta (por ejemplo, "Aceptado")
+          title: El título de la propuesta
+          url: La URL donde se puede encontrar esta propuesta
+          votes: El número de apoyos que tiene esta propuesta
+          withdrawn: Si esta propuesta fue retirada o no
+          withdrawn_at: Cuando fue retirada esta propuesta
     participatory_spaces:
       highlighted_proposals:
         last: Propuestas más recientes

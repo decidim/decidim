@@ -108,8 +108,11 @@ eu:
         one: Proposamena
         other: Proposamenak
       decidim/proposals/proposal_note:
-        one: Ohar
+        one: Oharra
         other: Oharrak
+      decidim/proposals/proposal_vote:
+        one: Botoa
+        other: Botoak
   decidim:
     admin:
       filters:
@@ -244,8 +247,8 @@ eu:
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
             publish_answers_immediately_help_html: 'Kontuz, proposamenen bati erantzuten badiozu hau gabe, eskuz argitaratu beharko dituzu, aukeratuz eta argitaratzeko ekintza erabiliz. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
             suggested_hashtags: Traolek erabiltzaileei proposamen berriak proposatu dizkie
-            votes_blocked: Botoiak blokeatuta
-            votes_enabled: Botoiak gaituta
+            votes_blocked: Bozketak blokeatuta
+            votes_enabled: Bozketak gaituta
             votes_hidden: Boto ezkutuak (botoak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
     events:
       proposals:
@@ -420,6 +423,49 @@ eu:
         description: Zenbat boto proposamenei
         object: botoak
         title: Botoak
+    open_data:
+      help:
+        proposal_comments:
+          alignment: Iruzkin hau aldekoa, kontrakoa edo neutrala bazen
+          author: Iruzkin hau egin duen parte-hartzailearen izena
+          body: Iruzkin bera
+          commentable_id: Iruzkingarriaren identifikazio bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          created_at: Zein datatan sortu zen iruzkin hau
+          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
+          id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
+          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          user_group: Iruzkin hau egin duen erabiltzaile taldearen izena (baldin badago)
+        proposals:
+          address: Proposamenaren helbidea, baldin eta proposamenak kokagune fisikoa badu
+          answer: Proposamenaren erantzuna, erantzunda baldin badago
+          answered_at: Zein datatan erantzun zen proposamen hau
+          attachments: Proposamen honek duen iruzkin kopurua
+          author: Proposamen honen egilearen data
+          body: Proposamenaren gorputza
+          category: 'Proposamenaren kategoria (adibidez: "Kultura")'
+          comments: Proposamen honek duen boto kopurua
+          component: Proposamena osagai honen barruan dago
+          endorsements: Proposamen honek duen onarpen ("atsegin dut") kopurua
+          followers: Proposamen honek duen jarraitzaile kopurua
+          id: Proposamenaren identifikatzaile bakarra
+          is_amend: Proposamen honek beste proposamen bat dakarren
+          latitude: Proposamenaren latitudea, baldin eta kokagune fisikoa badu
+          longitude: Proposamenaren luzera, baldin eta kokagune fisikoa badu
+          meeting_urls: Proposamen hau aurkeztu edo eztabaidatu zen bileretako URLak
+          original_proposal: Hasierako proposamenaren erreferentzia, zuzenketa bat bada
+          participatory_space: Zein espaziotakoa den proposamen hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)
+          published_at: Zein datatan argitaratu zen proposamen hau
+          reference: Baliabidearen identifikatzaile bakarra plataforma honetan
+          related_proposals: Proposamen honekin lotutako proposamenak
+          scope: Proposamenaren esparrua
+          state: Proposamen honen egoera (adibidez, "Onartua")
+          title: Proposamenaren izenburua
+          url: Proposamen hau URL honetan aurki daiteke
+          votes: Proposamen honek duen boto kopurua
+          withdrawn: Proposamen hau bertan behera geratu den
+          withdrawn_at: Noiz utzi zen bertan behera proposamen hau
     participatory_spaces:
       highlighted_proposals:
         last: Azken proposamenak
@@ -471,7 +517,7 @@ eu:
           resources:
             answers:
               one: proposamenari emandako erantzuna
-              other: proposamenei emandako erantzunak
+              other: erantzunak proposamenei
             proposals:
               one: proposamena
               other: proposamenak
@@ -728,8 +774,8 @@ eu:
           unfold: Zabaldu
         index:
           count:
-            one: "%{count} lankidetza zirriborroa"
-            other: "%{count} zirriborro kolaboratiboa"
+            one: "%{count} zirriborro kolaboratibo"
+            other: "%{count} zirriborro kolaboratibo"
         name: Zirriborro kolaboratzaileak
         new:
           add_file: Gehitu fitxategiak
@@ -762,7 +808,7 @@ eu:
           final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
           hidden_authors_count:
             one: eta pertsona %{count} gehiago
-            other: eta beste %{count} pertsona
+            other: eta %{count} pertsona gehiago
           info-message: Hau <strong>zirriborro kolaboratiboa </strong> da proposamen baterako. Horrek esan nahi du egileei proposamena taxutzen lagundu ahal diezula, jarraian agertzen den iruzkinen atala erabiliz, edo zuzenean hobetu daitekeela editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honetan aldaketak egin ahal izango dituzu.
           publish: Argitaratu
           publish_info: Argitaratu zirriborroaren bertsio hau edo
@@ -920,7 +966,7 @@ eu:
           estimated_cost: Gutxi gorabeherako kostua
           hidden_endorsers_count:
             one: eta pertsona %{count} gehiago
-            other: eta beste %{count} pertsona
+            other: eta %{count} pertsona gehiago
           link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
           link_to_collaborative_draft_text: Ikusi testu kolaboratiboaren ziriborroa
           link_to_promoted_emendation_help_text: Proposamen hau zuzenketa batetik dator
@@ -940,8 +986,12 @@ eu:
           already_voted_hover: Kendu botoa
           maximum_votes_reached: Botoen muga lortua
           no_votes_remaining: Ez da gelditzen botorik
-          vote: Proiektuaren alde egin
+          vote: Botoa
           votes_blocked: Bozketa desaktibatu da
+        votes_count:
+          count:
+            one: Botoa
+            other: Botoak
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Proposamen bakoitzak %{limit} boto baino gehiago jaso dezake

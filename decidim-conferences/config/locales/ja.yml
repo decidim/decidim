@@ -567,6 +567,27 @@ ja:
         title: メディアとリンク
     menu:
       conferences: カンファレンス
+    open_data:
+      help:
+        conferences:
+          decidim_scope_id: カンファレンスのスコープ
+          description: カンファレンスの詳しい説明
+          end_date: カンファレンスの終了日時
+          hashtag: Twitter/Xで使用されるカンファレンスハッシュタグ
+          id: このカンファレンスの固有ID
+          location: カンファレンスの場所. このカンファレンスが開催されるところ.
+          objectives: この感ファンレスの目的。開催する目標は何か。
+          promoted: カンファレンスがプロモートされるかどうか
+          reference: 会議の参照方法。このプラットフォームでの固有ID
+          remote_banner_image_url: カンファレンスバナー画像のURL
+          remote_hero_image_url: カンファレンスのヒーロー画像のURL
+          scope: カンファレンスのスコープ
+          scopes_enabled: スコープが有効かどうか
+          short_description: カンファレンスの簡単な説明
+          slogan: このカンファレンスのスローガン
+          slug: カンファレンスのスラグ（識別目的、URLに使用）
+          start_date: カンファレンスの開始日時
+          title: カンファレンスのタイトル
     statistics:
       conferences_count: カンファレンス
   devise:

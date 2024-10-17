@@ -193,7 +193,7 @@ eu:
         debates_cards_html: <i>Eztabaidak</i> txartelek erabilia
         debates_cards_text: Erabili txantiloi desberdinak irudi-blokerako
         default: Lehenetsia
-        default_description: Deitu gelaxka argudio gehigarririk gabe, erabiltzailea bera.
+        default_description: Deitu gelaxka argudio gehigarririk gabe, baina erabiltzailea bera.
         demo: Demoa
         demo_text: 'Zelula honek LastActivity itemen eredu bat jasotzen du eta elementu hauek erakusten ditu:'
         demo_text_2: Azken jarduera-orriak erabiltzen du, eduki-bloke batean eta dropdown-en barruan.
