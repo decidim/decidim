@@ -171,8 +171,8 @@ module Decidim
         Decidim.icons.register(name: "calendar-todo-line", icon: "calendar-todo-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "home-8-line", icon: "home-8-line", category: "system", description: "", engine: :core)
 
-        Decidim.icons.register(name: "like", icon: "heart-add-line", description: "Like", category: "action", engine: :core)
-        Decidim.icons.register(name: "dislike", icon: "dislike-line", description: "Dislike", category: "action", engine: :core)
+        Decidim.icons.register(name: "like", icon: "heart-line", description: "Like", category: "action", engine: :core)
+        Decidim.icons.register(name: "dislike", icon: "heart-fill", description: "Dislike", category: "action", engine: :core)
         Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "draggable", icon: "draggable", category: "system", description: "", engine: :core)
