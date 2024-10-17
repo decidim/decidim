@@ -4,19 +4,20 @@ require "spec_helper"
 
 module Decidim::Accountability
   describe ResultsCalculator do
-    subject { described_class.new(current_component, scope.id, category.id) }
+    subject { described_class.new(current_component, taxonomy.id) }
 
     let(:participatory_process) { create(:participatory_process, :with_steps) }
     let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
     let(:scope) { create(:scope, organization: current_component.organization) }
     let(:other_scope) { create(:scope, organization: current_component.organization) }
-    let(:category) { create(:category, participatory_space: current_component.participatory_space) }
+    let(:taxonomy) { create(:taxonomy, :with_parent, organization: current_component.organization) }
+    let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization: current_component.organization) }
+    let(:another_taxonomy) { create(:taxonomy, :with_parent, organization: current_component.organization) }
     let!(:result1) do
       create(
         :result,
         component: current_component,
-        category:,
-        scope:,
+        taxonomies: [taxonomy],
         parent: nil,
         progress: 40
       )
@@ -25,8 +26,7 @@ module Decidim::Accountability
       create(
         :result,
         component: current_component,
-        category:,
-        scope:,
+        taxonomies: [taxonomy, sub_taxonomy],
         parent: nil,
         progress: 20
       )
@@ -35,8 +35,7 @@ module Decidim::Accountability
       create(
         :result,
         component: current_component,
-        category:,
-        scope:,
+        taxonomies: [sub_taxonomy],
         parent: nil,
         progress: nil
       )
@@ -45,8 +44,7 @@ module Decidim::Accountability
       create(
         :result,
         component: current_component,
-        category:,
-        scope: other_scope,
+        taxonomies: [another_taxonomy],
         parent: nil,
         progress: 50
       )

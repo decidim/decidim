@@ -7,7 +7,6 @@ module Decidim
       # in order to use them in select forms for Proposals.
       #
       module ProposalsHelper
-        include Decidim::Admin::ResourceScopeHelper
         include Decidim::TranslatableAttributes
 
         def available_states

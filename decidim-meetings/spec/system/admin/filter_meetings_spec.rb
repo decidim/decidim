@@ -44,25 +44,15 @@ describe "Admin filters meetings" do
     end
   end
 
-  context "when filtering by scope" do
-    let!(:scope1) { create(:scope, organization:, name: { "en" => "Scope1" }) }
-    let!(:scope2) { create(:scope, organization:, name: { "en" => "Scope2" }) }
-    let!(:meeting_with_scope1) { create(:meeting, component:, scope: scope1) }
-    let(:meeting_with_scope1_title) { translated(meeting_with_scope1.title) }
-    let!(:meeting_with_scope2) { create(:meeting, component:, scope: scope2) }
-    let(:meeting_with_scope2_title) { translated(meeting_with_scope2.title) }
-
-    before { visit_component_admin }
-
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
-      let(:in_filter) { meeting_with_scope1_title }
-      let(:not_in_filter) { meeting_with_scope2_title }
-    end
-
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope2" do
-      let(:in_filter) { meeting_with_scope2_title }
-      let(:not_in_filter) { meeting_with_scope1_title }
-    end
+  it_behaves_like "a collection filtered by taxonomies" do
+    let!(:meeting_with_taxonomy11) { create(:meeting, component:, taxonomies: [taxonomy11]) }
+    let!(:meeting_with_taxonomy12) { create(:meeting, component:, taxonomies: [taxonomy12]) }
+    let!(:meeting_with_taxonomy21) { create(:meeting, component:, taxonomies: [taxonomy21]) }
+    let!(:meeting_with_taxonomy22) { create(:meeting, component:, taxonomies: [taxonomy22]) }
+    let(:resource_with_taxonomy11_title) { translated(meeting_with_taxonomy11.title) }
+    let(:resource_with_taxonomy12_title) { translated(meeting_with_taxonomy12.title) }
+    let(:resource_with_taxonomy21_title) { translated(meeting_with_taxonomy21.title) }
+    let(:resource_with_taxonomy22_title) { translated(meeting_with_taxonomy22.title) }
   end
 
   context "when filtering by origin" do

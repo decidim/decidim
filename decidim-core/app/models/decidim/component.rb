@@ -6,6 +6,7 @@ module Decidim
   # component that spans over several steps.
   class Component < ApplicationRecord
     include HasSettings
+    include HasTaxonomySettings
     include Publicable
     include Traceable
     include Loggable

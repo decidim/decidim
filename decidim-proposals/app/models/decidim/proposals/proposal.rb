@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Coauthorable
       include Decidim::HasComponent
+      include Decidim::Taxonomizable
       include Decidim::ScopableResource
       include Decidim::HasReference
       include Decidim::HasCategory
@@ -403,7 +404,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(auth_object = nil)
-        base = [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category]
+        base = [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_taxonomies]
         return base unless auth_object&.admin?
 
         # Add extra scopes for admins for the admin panel searches
@@ -419,7 +420,7 @@ module Decidim
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(category scope proposal_state)
+        %w(taxonomies proposal_state)
       end
 
       ransacker :state_published do

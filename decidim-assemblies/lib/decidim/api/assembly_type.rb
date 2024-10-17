@@ -7,6 +7,7 @@ module Decidim
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::ParticipatorySpaceResourceableInterface
+      implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::CategoriesContainerInterface
 
       description "An assembly"

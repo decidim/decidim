@@ -30,6 +30,7 @@ module Decidim
             return permission_action
           end
 
+          initiative_filters_action?
           return permission_action unless user.admin?
 
           initiative_type_action?
@@ -49,6 +50,14 @@ module Decidim
 
         def initiative
           @initiative ||= context.fetch(:initiative, nil) || context.fetch(:current_participatory_space, nil)
+        end
+
+        def initiative_filters_action?
+          return unless permission_action.subject == :taxonomy_filter
+
+          return disallow! unless user.admin?
+
+          allow!
         end
 
         def user_can_read_participatory_space?

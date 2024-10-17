@@ -44,6 +44,8 @@ en:
             values:
               'false': Selected for implementation
               'true': Not selected for implementation
+          taxonomies_part_of_contains:
+            label: Taxonomy
     budgets:
       actions:
         attachment_collections: Folders
@@ -215,9 +217,9 @@ en:
             total_budget: Total budget
         project:
           fields:
-            category: Category
             id: ID
             map: Map
+            taxonomies: Taxonomies
             title: Title
       order_summary_mailer:
         order_summary:
@@ -329,8 +331,10 @@ en:
         settings:
           global:
             announcement: Announcement
+            clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             form:
               errors:
                 budget_voting_rule_only_one: Only one voting rule must be enabled.
@@ -338,10 +342,13 @@ en:
             geocoding_enabled: Maps enabled
             landing_page_content: Budgets landing page
             more_information_modal: More information modal
+            no_taxonomy_filters_found: No taxonomy filters found.
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each project
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
             title: Title
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minimum number of projects to vote
@@ -394,8 +401,11 @@ en:
           related_proposal_urls: The URLs of the related proposals
           related_proposals: The related proposals to this project
           scope: The scope of the project (e.g. "City")
+          taxonomies: The taxonomies of the project
           title: The title of the project
           url: The URL of the project
+        results:
+          taxonomies: The taxonomies of the results
     orders:
       checkout:
         error: There was a problem processing your vote.

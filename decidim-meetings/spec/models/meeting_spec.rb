@@ -19,6 +19,10 @@ module Decidim::Meetings
     include_examples "resourceable"
     include_examples "reportable"
     include_examples "has comments availability attributes"
+    context "when it has taxonomies" do
+      subject { create(:meeting) }
+      include_examples "has taxonomies"
+    end
 
     it "has an association with one agenda" do
       subject.agenda = build_stubbed(:agenda)

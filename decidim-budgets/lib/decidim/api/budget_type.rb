@@ -3,7 +3,6 @@
 module Decidim
   module Budgets
     class BudgetType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ScopableInterface
       implements Decidim::Core::TraceableInterface
 
       description "A budget"

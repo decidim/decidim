@@ -11,7 +11,8 @@ module Decidim::Budgets
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
     let(:category) { create(:category, participatory_space: budget.component.participatory_space) }
     let(:scope) { create(:scope, organization: category.participatory_space.organization) }
-    let(:project) { create(:project, budget:, category:, scope:) }
+    let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: budget.component.organization) }
+    let(:project) { create(:project, budget:, category:, scope:, taxonomies:) }
 
     subject { described_class.new(project) }
 
@@ -30,6 +31,12 @@ module Decidim::Budgets
       it "includes the scope" do
         expect(serialized[:scope]).to include(id: project.scope.id)
         expect(serialized[:scope]).to include(name: project.scope.name)
+      end
+
+      it "includes the taxonomies" do
+        expect(serialized[:taxonomies].length).to eq(2)
+        expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
+        expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
       end
 
       it "includes the participatory space" do

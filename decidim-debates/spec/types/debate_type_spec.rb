@@ -2,10 +2,9 @@
 
 require "spec_helper"
 require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/categorizable_interface_examples"
+require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
 require "decidim/core/test/shared_examples/comments_examples"
 require "decidim/core/test/shared_examples/authorable_interface_examples"
-require "decidim/core/test/shared_examples/scopable_interface_examples"
 
 module Decidim
   module Debates
@@ -13,10 +12,10 @@ module Decidim
       include_context "with a graphql class type"
 
       let(:model) { create(:debate, :open_ama) }
+      let(:organization) { model.organization }
 
-      include_examples "categorizable interface"
+      include_examples "taxonomizable interface"
       include_examples "authorable interface"
-      include_examples "scopable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
