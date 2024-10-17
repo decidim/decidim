@@ -1,7 +1,7 @@
 <tr>
   <td>
     <% if conference.promoted? %>
-      <%= icon_with_tooltip "star-s-fill", t("decidim.admin.models.assembly.fields.promoted") %>
+      <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
     <% end %>
 
     <% if allowed_to? :update, :conference, conference: conference %>
@@ -17,9 +17,9 @@
   </td>
   <td class="table-list__state">
     <% if conference.published? %>
-      <span class="label !text-sm success"><%= t("decidim.admin.conferences.index.published") %></span>
+      <span class="label !text-sm success"><%= t("conferences.index.published", scope: "decidim.admin") %></span>
     <% else %>
-      <span class="label !text-sm alert"><%= t("decidim.admin.conferences.index.unpublished") %></span>
+      <span class="label !text-sm alert"><%= t("conferences.index.unpublished", scope: "decidim.admin") %></span>
     <% end %>
   </td>
   <td class="table-list__actions">
