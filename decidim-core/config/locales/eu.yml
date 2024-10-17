@@ -266,7 +266,9 @@ eu:
         create: "% {user_name} k sarbide-esteka bat sortu du % {space_name} espazioan"
         create_with_space: "%{user_name} k sarbide-esteka sortu du %{resource_name} %{space_name} espazioan"
         delete: "% {user_name} k sarbide-esteka bat ezabatu du % {space_name} espazioan"
-        delete_with_space: "% {user_name} k sarbide-esteka bat ezabatu du honentzat: %{resource_name}% {space_name} espazioan"
+        delete_with_space: "% {user_name} k sarbide-esteka bat eguneratu du honentzat: %{resource_name}% {space_name} espazioan"
+        update: "%{user_name} k eguneratu du sarbide-esteka bat %{space_name} espazioan"
+        update_with_space: "%{user_name} k eguneratu du sarbide-esteka bat honentzat: %{resource_name} %{space_name} espazioan"
       static_page:
         create: "%{user_name} k %{resource_name} orri estatikoa sortu du"
         delete: "%{user_name} k %{resource_name} orri estatikoa ezabatu du"
