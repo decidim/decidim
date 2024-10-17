@@ -43,6 +43,7 @@ export default class CommentsComponent {
           $(".add-comment textarea", this.$element).prop("disabled", false);
         });
       }
+      this._initializeSortDropdown();
     }
   }
 
@@ -316,5 +317,31 @@ export default class CommentsComponent {
     } else {
       $submit.attr("disabled", "disabled");
     }
+  }
+
+  /**
+  * Adds the behaviour for the drop down order section within comments.
+  * @private
+  * @returns {Void} - Returns nothing
+  */
+  _initializeSortDropdown() {
+    const orderSelect = document.querySelector("[data-order-comment-select]");
+
+    if (!orderSelect) {
+      return;
+    }
+    orderSelect.style.fontWeight = "bold";
+    orderSelect.style.borderColor = "black";
+
+    orderSelect.addEventListener("change", function(event) {
+      const selectedOption = orderSelect.querySelector(`[value=${event.target.value}`);
+      const orderUrl = selectedOption.dataset.orderCommentUrl;
+
+      Rails.ajax({
+        url: orderUrl,
+        type: "GET",
+        error: (data) => (console.error(data))
+      });
+    });
   }
 }
