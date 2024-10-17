@@ -8,6 +8,7 @@ module Decidim
       DummyAuthorizationHandler.new({})
     end
     let(:organization) { double(cta_button_path: "/", scopes: Decidim::Scope.none) }
+    let(:user) { create(:user, :confirmed) }
 
     before do
       view.extend AuthorizationFormHelper
@@ -18,6 +19,8 @@ module Decidim
       allow(view).to receive(:handler).and_return(handler)
       allow(view).to receive(:params).and_return(handler: "dummy_authorization_handler")
       allow(view).to receive(:authorizations_path).and_return("/authorizations")
+      allow(view).to receive(:current_user).and_return(user)
+      allow(view).to receive(:authorizations_back_path).and_return("/authorizations")
       allow(view).to receive(:stored_location).and_return("/processes")
       allow(view).to receive(:redirect_url).and_return("/")
     end

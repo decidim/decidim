@@ -12,13 +12,13 @@
 
         subsections << {
           title: t("authorizations.index.granted_verification", scope: "decidim.verifications"),
-          items: @granted_authorizations.map { |authorization| granted_authorization_display_data(authorization, redirect_url) }
-        } if @granted_authorizations.any?
+          items: granted_authorizations.map { |authorization| granted_authorization_display_data(authorization, redirect_url) }
+        } if granted_authorizations.any?
 
         subsections << {
           title: t("authorizations.index.pending_verification", scope: "decidim.verifications"),
-          items: @pending_authorizations.map { |authorization| pending_authorization_display_data(authorization, redirect_url) }
-        } if @pending_authorizations.any?
+          items: pending_authorizations.map { |authorization| pending_authorization_display_data(authorization, redirect_url) }
+        } if pending_authorizations.any?
 
         subsections << {
           title: t("authorizations.index.unauthorized_methods", scope: "decidim.verifications"),
