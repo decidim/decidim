@@ -1203,7 +1203,7 @@ es:
         active: Activas
         finished: 'Terminado el: %{end_date}'
         not_started: Aún no ha comenzado
-        remaining: "queda %{time_distance}"
+        remaining: "Queda(n) %{time_distance}"
     metrics:
       download:
         csv: Descargar datos (CSV)
