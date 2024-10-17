@@ -203,6 +203,10 @@
 
   &-order-by {
     @apply ml-auto flex place-items-center md:mt-0;
+
+    > form {
+      @apply flex;
+    }
   }
 
   &__actions {
@@ -339,5 +343,5 @@
 }
 
 .comments-label-dropdown {
-  @apply mr-2;
+  @apply mr-2 mt-2;
 }
