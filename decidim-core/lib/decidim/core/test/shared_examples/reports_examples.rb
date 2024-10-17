@@ -69,6 +69,7 @@ shared_examples "higher user role hides resource with comments" do
     around do |example|
       previous = Capybara.raise_server_errors
 
+      # Disabling server errors to that we can test page not found error.
       Capybara.raise_server_errors = false
       example.run
       Capybara.raise_server_errors = previous

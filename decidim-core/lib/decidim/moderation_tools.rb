@@ -83,10 +83,10 @@ module Decidim
       ) do
         @reportable.moderation.update!(hidden_at: Time.current)
         @reportable.try(:touch)
-
-        hide_comments!
-        send_notification_to_author if send_notification
       end
+
+      hide_comments!
+      send_notification_to_author if send_notification
     end
 
     def hide_comments!
@@ -94,12 +94,11 @@ module Decidim
 
       reportable.comments.each do |comment|
         tool = Decidim::ModerationTools.new(comment, @current_user)
-        unless Decidim::Report.where("decidim_moderation_id" => tool.moderation.id, "decidim_user_id" => @current_user.id).any?
         tool.create_report!({
                                 reason: "parent_hidden",
                                 details: I18n.t("report_details", scope: "decidim.reports.parent_hidden")
-                            })
-        end
+                            }) unless Decidim::Report.exists?("decidim_moderation_id" => tool.moderation.id, "decidim_user_id" => @current_user.id)
+
         tool.hide!
       end
     end
