@@ -12,7 +12,7 @@ eu:
         plural: Plurala
       attachment:
         attachment_collection_id: Karpeta
-        description: Descripción
+        description: Deskribapena
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
         weight: Kokapenaren hurrenkera
@@ -21,7 +21,7 @@ eu:
         name: Izena
         weight: Kokapenaren hurrenkera
       category:
-        description: Descripción
+        description: Deskribapena
         name: Izena
         parent_id: Nagusia
         weight: Kokapenaren hurrenkera
@@ -48,7 +48,7 @@ eu:
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-        cta_button_path: Deitu Ekintza-botoiaren bidera
+        cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Ekintza-botoiaren testua
         customize_welcome_notification: Pertsonalizatu ongietorri-jakinarazpena
         default_locale: Kokapen lehenetsia
@@ -125,7 +125,7 @@ eu:
         content: Edukia
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
-        slug: URL laburra
+        slug: URL l
         title: Titulua
         topic_id: Gaia
         weight: Kokapenaren hurrenkera
@@ -235,7 +235,7 @@ eu:
           error: Arazo bat egon da beste arlo bat sortzean.
           success: Arloa zuzen sortua.
         destroy:
-          has_spaces: Eremu honek mendekotasuna duten espazioak ditu. Kendu aurretik, ziurtatu ez duela parte hartzeko gunerik aipatzen.
+          has_spaces: Arlo honek mendekotasuna duten espazioak ditu. Kendu aurretik, ziurtatu ez duela parte hartzeko gunerik aipatzen.
           success: Arloa behar bezala suntsitua.
         edit:
           title: Editatu arloa
@@ -266,7 +266,7 @@ eu:
           success: Karpeta zuzen eguneratua.
       attachments:
         create:
-          error: Arazo bat egon da beste eranskin bat sortzean.
+          error: "Arazo bat egon da beste eranskin bat sortzean.\n"
           success: Fitxategi erantsia zuzen sortua.
         destroy:
           success: Fitxategi erantsia behar bezala ezabatua.
@@ -382,8 +382,8 @@ eu:
       dashboard:
         pending_moderations:
           announcement:
-            one: Moderazio bat falta da
-            other: '%{count} moderazio daude zain'
+            one: '%{count} moderazio falta dira'
+            other: '%{count} moderazio falta dira'
           goto_moderation: Joan moderazio globaletara
           title: Zain dauden moderazioak
         show:
@@ -519,15 +519,24 @@ eu:
           duplicate_headers:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
             message:
-              one: Bikoiztu %{columns} zutabeak.
-              other: Bikoiztu %{columns} zutabea.
+              one: Bikoiztu %{columns} zutabe.
+              other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
               detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              message:
+                one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
+                other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
             records:
               detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              message:
+                one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                other: Erroreak aurkitu dira % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
+            message:
+              one: Falta da %{columns} zutabe.
+              other: Falta dira %{columns} zutabe.
         error: Arazo bat egon da inportatzean.
         example_error: Arazo bat egon da aukeratutako tiporako adibide bat sortzean.
         new:
@@ -782,7 +791,7 @@ eu:
         create:
           success: Pate-hartzailea zuzen ofizializatua.
         destroy:
-          success: Parte-hartzailearen ofizializazioa behar bezala desgaitu da.
+          success: Parte-hartzailearen ofizializazioa behar bezala desgaitua.
         index:
           actions: Ekintzak
           badge: Garaikurra
@@ -900,6 +909,9 @@ eu:
       reminders:
         create:
           error: Arazo bat egon da ohartarazpenak sortzean.
+          success:
+            one: "%{count} erabiltzaile gogoratuko da."
+            other: "%{count} erabiltzaile gogoratuko dira."
         new:
           submit: Bidali
       resource_permissions:
@@ -1104,7 +1116,7 @@ eu:
         reportable:
           hide:
             invalid: Arazo bat egon da baliabidea ezkutatzean.
-            success: Edukia zuzen ezkutatua.
+            success: "Edukia zuzen ezkutatua.\n\n\n"
           unhide:
             invalid: Arazo bat egon da baliabidea erakustean.
             success: Edukia zuzen desezkutatua.

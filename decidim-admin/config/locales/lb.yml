@@ -494,7 +494,7 @@ lb:
             plural: Plural
         share_token:
           fields:
-            created_at: Erstellt am
+            created_at: Hergestellt in
             expires_at: Läuft ab am
             last_used_at: Zuletzt verwendet
             times_used: Anzahl Anwendungen
