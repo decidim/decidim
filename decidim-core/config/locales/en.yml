@@ -59,7 +59,7 @@ en:
         with_participatory_space: Participatory space
       decidim/user:
         current_password: Current password
-        email: Email
+        email: Email address
         name: Nickname
         password: Password
         password_confirmation: Password confirmation
@@ -665,6 +665,7 @@ en:
           show_password: Show password
           shown_password: Your password is shown
         placeholder_email: hi@example.org
+        placeholder_password: "**********"
     doorkeeper:
       authorizations:
         new:
