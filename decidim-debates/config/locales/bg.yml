@@ -80,8 +80,6 @@ bg:
           update:
             invalid: Възникна проблем при актуализирането на този дебат.
             success: Дебатът беше актуализиран успешно.
-        exports:
-          comments: Коментари
       admin_log:
         debate:
           close: "%{user_name} затвори дебата %{resource_name} в пространството %{space_name}"
