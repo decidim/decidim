@@ -722,14 +722,11 @@ cs:
         success: Obrázek byl úspěšně nahrán.
       drag_and_drop_help: Přidejte obrázky přetažením nebo vložením.
     endorsement_buttons_cell:
-      already_endorsed: Nelíbí se mi
       endorse: Líbí se mi
     endorsements:
       identities:
         done: Hotovo
         select_identity: Vybrat identitu
-    endorsers_list:
-      endorsed_by: Líbí se…
     errors:
       files:
         file_cannot_be_processed: Soubor nelze zpracovat
