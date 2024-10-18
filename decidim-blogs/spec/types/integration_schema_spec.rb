@@ -68,6 +68,24 @@ describe "Decidim::Api::QueryType" do
     }
   end
 
+  describe "commentable" do
+    let(:participatory_process_query) do
+      %(
+        commentable(id: "#{post.id}", type: "Decidim::Blogs::Post", locale: "en", toggleTranslations: false) {
+          __typename
+        }
+      )
+    end
+
+    it "executes successfully" do
+      expect { response }.not_to raise_error
+    end
+
+    it do
+      expect(response).to eq({ "commentable" => { "__typename" => "Post" } })
+    end
+  end
+
   describe "valid connection query" do
     let(:component_fragment) do
       %(
