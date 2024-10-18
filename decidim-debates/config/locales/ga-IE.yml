@@ -32,8 +32,6 @@ ga:
         debates:
           index:
             title: Díospóireachtaí
-        exports:
-          comments: Tráchtanna
       debates:
         edit:
           back: Ar Ais
