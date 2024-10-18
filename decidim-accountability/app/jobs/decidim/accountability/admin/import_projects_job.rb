@@ -32,7 +32,10 @@ module Decidim
             scope: project.scope || project.budget.scope,
             component:,
             status:,
-            progress: status&.progress || 0
+            progress: status&.progress || 0,
+            address: project.address,
+            latitude: project.latitude,
+            longitude: project.longitude
           }
           @result = Decidim.traceability.create!(
             Result,
