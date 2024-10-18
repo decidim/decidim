@@ -506,7 +506,6 @@ el:
         success: Η εικόνα ανέβηκε επιτυχώς.
       drag_and_drop_help: Προσθήκη εικόνων σύροντας τις & ρίχνοντας ή επικολλώντας αυτές.
     endorsement_buttons_cell:
-      already_endorsed: Δεν μου αρέσει
       endorse: Μου αρέσει
     endorsements:
       identities:
