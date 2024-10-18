@@ -10,6 +10,7 @@ module Decidim::Budgets
 
     include_examples "has reference"
     include_examples "resourceable"
+    include_examples "has taxonomies"
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }

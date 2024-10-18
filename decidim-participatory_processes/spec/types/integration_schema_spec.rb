@@ -9,7 +9,8 @@ describe "Decidim::Api::QueryType" do
 
   let(:locale) { "en" }
 
-  let(:participatory_process) { create(:participatory_process, organization: current_organization) }
+  let!(:taxonomy) { create(:taxonomy, :with_parent, :with_children, organization: current_organization) }
+  let(:participatory_process) { create(:participatory_process, organization: current_organization, taxonomies: [taxonomy]) }
 
   let(:participatory_process_query) do
     %(
@@ -92,7 +93,7 @@ describe "Decidim::Api::QueryType" do
         promoted
         publishedAt
         reference
-        scope {
+        taxonomies {
           children {
             id
           }
@@ -104,7 +105,6 @@ describe "Decidim::Api::QueryType" do
             id
           }
         }
-        scopesEnabled
         shortDescription {
             translation(locale: "#{locale}")
           }
@@ -173,8 +173,7 @@ describe "Decidim::Api::QueryType" do
       "promoted" => false,
       "publishedAt" => participatory_process.published_at.iso8601.to_s.gsub("Z", "+00:00"),
       "reference" => participatory_process.reference,
-      "scope" => participatory_process.scope,
-      "scopesEnabled" => participatory_process.scopes_enabled,
+      "taxonomies" => [{ "id" => taxonomy.id.to_s, "name" => { "translation" => taxonomy.name[locale] }, "parent" => { "id" => taxonomy.parent_id.to_s }, "children" => taxonomy.children.map { |child| { "id" => child.id.to_s } } }],
       "shortDescription" => { "translation" => participatory_process.short_description[locale] },
       "slug" => participatory_process.slug,
       "startDate" => participatory_process.start_date.to_s,

@@ -6,6 +6,7 @@ module Decidim
     class Sortition < ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasCategory
+      include Decidim::Taxonomizable
       include Decidim::Authorable
       include Decidim::HasComponent
       include Decidim::HasReference
@@ -43,7 +44,7 @@ module Decidim
       def similar_count
         Sortition.where(component:)
                  .where(decidim_proposals_component:)
-                 .with_category(category&.id)
+                 .with_taxonomies(*taxonomies.map(&:id))
                  .where(target_items:)
                  .count
       end
@@ -81,7 +82,7 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :additional_info, :witnesses]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :with_category]
+        [:with_any_state, :with_any_taxonomies]
       end
 
       def self.ransackable_attributes(_auth_object = nil)
@@ -91,7 +92,7 @@ module Decidim
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(author cancelled_by_user categorization category comment_threads comments component decidim_proposals_component resource_links_from
+        %w(author cancelled_by_user taxonomies comment_threads comments component decidim_proposals_component resource_links_from
            resource_links_to resource_permission user_group versions)
       end
     end

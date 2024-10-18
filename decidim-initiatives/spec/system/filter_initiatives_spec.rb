@@ -143,7 +143,7 @@ describe "Filter Initiatives", :slow do
       it "lists the accepted initiatives" do
         within "#panel-dropdown-menu-state" do
           click_filter_item "Open"
-          click_on(id: "dropdown-trigger-with_any_state_closed")
+          click_on(id: "dropdown-trigger-with_any_state_state_closed")
           click_filter_item "Enough signatures"
         end
 
@@ -156,7 +156,7 @@ describe "Filter Initiatives", :slow do
       it "lists the rejected initiatives" do
         within "#panel-dropdown-menu-state" do
           click_filter_item "Open"
-          click_on(id: "dropdown-trigger-with_any_state_closed")
+          click_on(id: "dropdown-trigger-with_any_state_state_closed")
           click_filter_item "Not enough signatures"
         end
 
