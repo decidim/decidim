@@ -106,11 +106,12 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
 
     describe "attendees_count" do
       let(:stats_name) { :attendees_count }
-      let!(:closed_meeting) { create(:meeting, :published, :closed, attendees_count: 20, component:) }
+      let!(:a_closed_meeting) { create(:meeting, :published, :closed, attendees_count: 5, component:) }
+      let!(:another_closed_meeting) { create(:meeting, :published, :closed, attendees_count: 15, component:) }
       let!(:hidden_meeting) { create(:meeting, :published, :closed, attendees_count: 25, component:) }
       let!(:closing_hidden) { create(:meeting, :published, :closed, closing_visible: false, attendees_count: 25, component:) }
 
-      it "counts the comments from visible meetings" do
+      it "counts the attendees count from visible meetings" do
         expect(Decidim::Meetings::Meeting.sum(:attendees_count)).to eq 70
         expect(subject).to eq 20
       end

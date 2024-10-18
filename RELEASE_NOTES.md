@@ -138,7 +138,7 @@ bin/rails decidim:upgrade:attachments_cleanup
 
 You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
 
-### 3.3. New Metric added
+### 3.3. Add Meetings' attendees metric
 
 We have added a new metric that indicates how many users have attended your meetings.
 
@@ -150,7 +150,7 @@ If you want to calculate this metric you could run the following command, where 
 
 You can see more details about this change on PR [\#13442](https://github.com/decidim/decidim/pull/13442)
 
-### 3.3. [[TITLE OF THE ACTION]]
+### 3.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
