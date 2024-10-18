@@ -677,14 +677,11 @@ sv:
         success: Bilden har laddats upp.
       drag_and_drop_help: Lägg till bilder genom att dra och släppa eller klistra in dem.
     endorsement_buttons_cell:
-      already_endorsed: Ogilla
       endorse: Gilla
     endorsements:
       identities:
         done: Klar
         select_identity: Välj identitet
-    endorsers_list:
-      endorsed_by: Gillad av…
     errors:
       files:
         file_cannot_be_processed: Filen kan inte bearbetas
