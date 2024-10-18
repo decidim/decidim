@@ -15,6 +15,13 @@ module Decidim
         end
       end
 
+      def render_column(comments, icon_name, title)
+        @comments = comments
+        @icon_name = icon_name
+        @title = title
+        render :column
+      end
+
       def comments_in_favor
         model.comments.positive
       end

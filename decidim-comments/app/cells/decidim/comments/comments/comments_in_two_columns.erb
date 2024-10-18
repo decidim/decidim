@@ -1,23 +1,4 @@
 <div class="comments-two-columns card__grid-grid">
-  <div class="column in-favor">
-    <h3><%= t("decidim.components.comments.in_favor") %></h3>
-    <% if comments_in_favor.any? %>
-      <% comments_in_favor.each do |comment| %>
-        <%= cell("decidim/comments/comment_thread", comment, order:) %>
-      <% end %>
-    <% else %>
-      <p><%= t("decidim.components.comments.no_comments_in_favor") %></p>
-    <% end %>
-  </div>
-
-  <div class="column against">
-    <h3><%= t("decidim.components.comments.against") %></h3>
-    <% if comments_against.any? %>
-      <% comments_against.each do |comment| %>
-        <%= cell("decidim/comments/comment_thread", comment, order:) %>
-      <% end %>
-    <% else %>
-      <p><%= t("decidim.components.comments.no_comments_against") %></p>
-    <% end %>
-  </div>
+  <%= render_column(comments_in_favor, "thumb-up-line", t("decidim.components.comments.in_favor")) %>
+  <%= render_column(comments_against, "thumb-down-line", t("decidim.components.comments.against")) %>
 </div>

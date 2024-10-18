@@ -65,17 +65,45 @@ export default class CommentsComponent {
 
   /**
    * Adds a new thread to the comments section.
+   * If the layout is a two-column layout, the comment is added to either
+   * the "in favor" or "against" column based on the alignment provided.
+   * If the layout is a single column, the comment is added to the main comment thread.
+   *
    * @public
-   * @param {String} threadHtml - The HTML content for the thread.
+   * @param {String} threadHtml - The HTML content for the thread to be added.
+   * @param {Number|null} alignment - Specifies the alignment of the comment.
+   *   If -1, the comment is added to the "against" column.
+   *   If 1, the comment is added to the "in favor" column.
+   *   If null, the comment is added to the general thread (single column layout).
    * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
-   *   herself was the author of the new thread. Defaults to false.
-   * @returns {Void} - Returns nothing
+   *   is the author of the new thread. Defaults to false.
+   * @returns {Void} - Does not return a value.
    */
-  addThread(threadHtml, fromCurrentUser = false) {
-    const $parent = $(".comments:first", this.$element);
+  addThread(threadHtml, alignment, fromCurrentUser = false) {
     const $comment = $(threadHtml);
-    const $threads = $(".comment-threads", this.$element);
-    this._addComment($threads, $comment);
+    const $commentsContainer = $(".comments-two-columns", this.$element);
+    const isTwoColumnsLayout = $commentsContainer.length > 0;
+    let $parent = null;
+
+    if (isTwoColumnsLayout) {
+      const $inFavorColumn = $(".comments-section__in-favor", this.$element);
+      const $againstColumn = $(".comments-section__against", this.$element);
+
+      if (alignment === -1 && $againstColumn.length > 0) {
+        $parent = $againstColumn;
+      } else if (alignment === 1 && $inFavorColumn.length > 0) {
+        $parent = $inFavorColumn;
+      }
+    }
+
+    if (!$parent || $parent.length === 0) {
+      $parent = $(".comments:first", this.$element);
+      const $threads = $(".comment-threads", this.$element);
+      this._addComment($threads, $comment);
+    } else {
+      this._addComment($parent, $comment);
+    }
+
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
@@ -174,7 +202,9 @@ export default class CommentsComponent {
    */
   _finalizeCommentCreation($parent, fromCurrentUser) {
     if (fromCurrentUser) {
-      const $add = $(".add-comment", $parent);
+      const $add = $(".add-comment", $parent).length > 0
+        ? $(".add-comment", $parent)
+        : $(".add-comment", this.$element);
       $("textarea", $add).each((_i, text) => {
         const $text = $(text);
         // Reset textarea content
