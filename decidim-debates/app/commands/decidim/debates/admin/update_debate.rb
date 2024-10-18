@@ -16,7 +16,8 @@ module Decidim
 
           super.merge({
                         title: parsed_title,
-                        description: parsed_description
+                        description: parsed_description,
+                        comments_layout: form.comments_layout
                       })
         end
       end
