@@ -688,14 +688,11 @@ es:
         success: Imagen subida correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsement_buttons_cell:
-      already_endorsed: No me gusta
       endorse: Me gusta
     endorsements:
       identities:
         done: Hecho
         select_identity: Seleccionar identidad
-    endorsers_list:
-      endorsed_by: Le gusta a…
     errors:
       files:
         file_cannot_be_processed: No se ha podido procesar el archivo
