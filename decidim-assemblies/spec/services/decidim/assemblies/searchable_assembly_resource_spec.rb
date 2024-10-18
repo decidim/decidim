@@ -15,7 +15,8 @@ module Decidim
           subtitle: Decidim::Faker::Localized.name,
           short_description: Decidim::Faker::Localized.sentence,
           description: description1,
-          users: [author]
+          users: [author],
+          is_transparent: false
         )
       end
       let(:participatory_space) { assembly }
