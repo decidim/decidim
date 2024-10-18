@@ -6,7 +6,7 @@ describe "endorse posts" do
   include_context "with a component"
   let(:manifest_name) { "blogs" }
   let(:organization) { create(:organization) }
-  let!(:post) { create(:post, author: user, component:, title: { en: "Blog post title" }) }
+  let!(:post) { create(:post, :published, author: user, component:, title: { en: "Blog post title" }) }
   let!(:resource) { post }
   let!(:resource_name) { translated(post.title) }
 

@@ -13,7 +13,7 @@ module Decidim
       let(:type_class) { Decidim::Blogs::BlogsType }
 
       let(:model) { create(:post_component) }
-      let!(:models) { create_list(:post, 3, component: model) }
+      let!(:models) { create_list(:post, 3, :published, component: model) }
 
       context "when sorting by posts id" do
         include_examples "connection has input sort", "posts", "id"
@@ -28,7 +28,7 @@ module Decidim
       end
 
       context "when sorting by endorsement_count" do
-        let!(:most_endorsed) { create(:post, :with_endorsements, component: model) }
+        let!(:most_endorsed) { create(:post, :published, :with_endorsements, component: model) }
 
         include_examples "connection has endorsement_count sort", "posts"
       end

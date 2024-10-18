@@ -39,6 +39,12 @@ en:
           new:
             create: Create
             title: Create post
+          publish:
+            invalid: There was a problem publishing this post.
+            success: Post successfully published.
+          unpublish:
+            invalid: There was a problem unpublishing this post.
+            success: Post successfully unpublished.
           update:
             invalid: There was a problem saving the post.
             success: Post successfully saved.

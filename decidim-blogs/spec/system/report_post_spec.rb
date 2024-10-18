@@ -6,7 +6,7 @@ describe "Report a post" do
   include_context "with a component"
 
   let(:manifest_name) { "blogs" }
-  let(:reportable) { create(:post, component:) }
+  let(:reportable) { create(:post, :published, component:) }
   let(:reportable_path) { resource_locator(reportable).path }
   let!(:user) { create(:user, :confirmed, organization:) }
 

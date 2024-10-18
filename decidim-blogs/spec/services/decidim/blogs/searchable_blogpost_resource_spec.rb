@@ -13,6 +13,7 @@ module Decidim
     let!(:resource) do
       create(
         :post,
+        :published,
         component: current_component,
         title: Decidim::Faker::Localized.name,
         body: description1

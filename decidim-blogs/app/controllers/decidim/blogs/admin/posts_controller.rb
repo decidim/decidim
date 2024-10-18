@@ -63,6 +63,38 @@ module Decidim
           end
         end
 
+        def publish
+          enforce_permission_to(:update, :blogpost, blog_post: post)
+
+          Decidim::Blogs::Admin::PublishPost.call(post, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("posts.publish.success", scope: "decidim.blogs.admin")
+              redirect_to posts_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("posts.publish.invalid", scope: "decidim.blogs.admin")
+              render action: "index"
+            end
+          end
+        end
+
+        def unpublish
+          enforce_permission_to(:update, :blogpost, blog_post: post)
+
+          Decidim::Blogs::Admin::UnpublishPost.call(post, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("posts.unpublish.success", scope: "decidim.blogs.admin")
+              redirect_to posts_path
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("posts.unpublish.invalid", scope: "decidim.blogs.admin")
+              render action: "index"
+            end
+          end
+        end
+
         private
 
         def post
