@@ -423,8 +423,6 @@ nl:
       identities:
         done: Voltooid
         select_identity: Selecteer identiteit
-    endorsers_list:
-      endorsed_by: Geliket door...
     errors:
       internal_server_error:
         title: Er was een probleem met de server
