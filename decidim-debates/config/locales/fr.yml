@@ -79,13 +79,15 @@ fr:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
-        exports:
-          comments: Commentaires
       admin_log:
         debate:
           close: "%{user_name} a clos le débat %{resource_name} dans l'espace %{space_name}"
           create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
+      content_blocks:
+        highlighted_debates:
+          name: Débats
+          see_all: Voir tous les débats
       debate_m:
         commented_time_ago: Commenté il y a %{time}
       debates:

@@ -81,8 +81,6 @@ cs:
           update:
             invalid: Při aktualizaci této debaty došlo k problému.
             success: Debata byla úspěšně aktualizována.
-        exports:
-          comments: Komentáře
       admin_log:
         debate:
           close: "%{user_name} ukončil debatu %{resource_name} ve skupině %{space_name}"

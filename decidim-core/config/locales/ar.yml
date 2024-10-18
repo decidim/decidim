@@ -545,14 +545,11 @@ ar:
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
     endorsement_buttons_cell:
-      already_endorsed: لا يعجبني
       endorse: يعجبني
     endorsements:
       identities:
         done: تم
         select_identity: حدد الهوية
-    endorsers_list:
-      endorsed_by: أعجب…
     errors:
       internal_server_error:
         copied: تم نسخ النص!
@@ -1563,7 +1560,6 @@ ar:
         data_consent_settings: إعدادات ملفات تعريف الارتباط
         decidim_logo: شعار Decidim
         decidim_title: Decidim
-        download_open_data: تحميل ملفات البيانات المفتوحة
         log_in: تسجيل الدخول
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
         resources: الموارد

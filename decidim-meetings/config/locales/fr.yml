@@ -310,6 +310,8 @@ fr:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre.
             success: Rencontre close avec succès.
+          component:
+            unlink: Délier
           create:
             invalid: Une erreur s'est produite lors de la création de cette rencontre.
             success: Rencontre créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
@@ -334,7 +336,16 @@ fr:
             select_a_registration_type: Veuillez sélectionner un type d'inscription
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
           index:
+            linked_meeting_warning_html: Cette réunion doit être modifiée à partir de <br><a href="%{href}">%{name}</a>
             title: Rencontres
+          linked_spaces:
+            assign: Assigner
+            link_a_space: Lier un espace
+            select: Sélectionner un espace
+            table:
+              actions: Actions
+              component: Espaces liés
+            title: Espaces liés
           new:
             create: Créer
             title: Créer une rencontre
@@ -561,6 +572,7 @@ fr:
           micro_camera_permissions_warning: Lorsque vous cliquez sur le bouton ci-dessous, on vous demandera des autorisations de microphone et/ou de caméra, et vous rejoindrez la vidéoconférence
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
+          redirect_notice: Cette réunion fait partie d'un autre espace, vous avez donc été redirigé(e) vers %{current_space_name}. <br>Si vous préférez, vous pouvez revenir à <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Votre code d'inscription
           registration_state:
             validated: Validé

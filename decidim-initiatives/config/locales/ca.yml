@@ -600,6 +600,29 @@ ca:
         success: La iniciativa s'ha actualitzat correctament.
     menu:
       initiatives: Iniciatives
+    open_data:
+      help:
+        initiatives:
+          answer: La resposta que ha rebut aquesta iniciativa (si n'hi ha)
+          answer_url: L'URL de la resposta (si n'hi ha)
+          answered_at: La data de la resposta (si n'hi ha)
+          area: L'àrea d'aquesta iniciativa
+          authors: Les autores d'aquesta iniciativa
+          created_at: La data en què va ser creada la iniciativa
+          description: La descripció de la iniciativa
+          first_progress_notification_at: La data en què es va enviar la primera notificació de progrés
+          hashtag: L'etiqueta que fa servir la iniciativa a Twitter/X
+          published_at: La data de publicació de la iniciativa
+          reference: La referència de la iniciativa. Un identificador únic per a aquesta plataforma.
+          scope: L'àmbit territorial de la iniciativa
+          second_progress_notification_at: La data en què es va enviar la segona notificació de progrés
+          signature_end_date: La data en què va finalitzar el període la recollida de signatures
+          signature_start_date: La data en què es va iniciar el període la recollida de signatures
+          signature_type: El tipus de recollida de signatures (presencial, digital o mixta)
+          signatures: El número de signatures que va recollir aquesta iniciativa
+          state: L'estat en què es troba aquesta iniciativa en aquest moment
+          title: El títol de la iniciativa
+          type: El tipus d'iniciativa
     resources:
       initiative:
         actions:

@@ -1223,7 +1223,6 @@ tr:
       footer:
         cc_by_license: Kar Amaçsız Lisanslama (Creative Commons License)
         decidim_logo: Decidim Logo
-        download_open_data: Açık Veri dosyalarını indir
         log_in: Giriş Yapın
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
         terms_of_service: Hizmet Kullanım Koşulları
