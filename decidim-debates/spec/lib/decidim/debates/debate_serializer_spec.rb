@@ -145,11 +145,11 @@ module Decidim
 
         describe "conclusions and closed at" do
           it "does not serializes the conclusion" do
-            expect(serialized).not_to have_key(:conclusions)
+            expect(serialized[:conclusions]).to be_nil
           end
 
           it "does not serializes the closed at" do
-            expect(serialized).not_to have_key(:closed_at)
+            expect(serialized[:closed_at]).to be_nil
           end
 
           context "when the debate is closed" do

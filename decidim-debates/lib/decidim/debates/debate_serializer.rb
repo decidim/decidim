@@ -15,7 +15,7 @@ module Decidim
 
       # Public: Exports a hash with the serialized data for this debate.
       def serialize
-        attrs = {
+        {
           id: debate.id,
           author: {
             **author_fields
@@ -44,17 +44,10 @@ module Decidim
           followers: debate.follows.size,
           url:,
           last_comment_at: debate.last_comment_at,
-          comments_enabled: debate.comments_enabled
+          comments_enabled: debate.comments_enabled,
+          conclusions: debate.conclusions,
+          closed_at: debate.closed_at
         }
-
-        if debate.closed?
-          attrs = attrs.merge({
-                                conclusions: debate.conclusions,
-                                closed_at: debate.closed_at
-                              })
-        end
-
-        attrs
       end
 
       private
