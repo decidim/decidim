@@ -118,6 +118,7 @@ module Decidim
         return disallow! unless can_view_private_space?
         return allow! if user&.admin?
         return allow! if process.published?
+        return allow! if user_can_preview_space?
 
         toggle_allow(can_manage_process?)
       end
@@ -238,6 +239,7 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -257,9 +259,16 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
+      end
+
+      def user_can_preview_space?
+        context[:share_token].present? && Decidim::ShareToken.use!(token_for: process, token: context[:share_token], user:)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
       end
 
       def taxonomy_filter_action?

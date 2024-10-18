@@ -45,6 +45,13 @@
             <td class="table-list__date"><%= l initiative.created_at, format: :short %></td>
             <td class="table-list__date"><%= initiative.published_at? ? l(initiative.published_at, format: :short) : "" %></td>
             <td class="table-list__actions">
+
+              <% if allowed_to? :read, :share_tokens, current_participatory_space: initiative %>
+                <%= icon_link_to "share-line", decidim_admin_initiatives.initiative_share_tokens_path(initiative), t("actions.share_tokens", scope: "decidim.admin"), class: "action-icon--new" %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
+
               <% if allowed_to? :edit, :initiative, initiative: initiative %>
                 <%= icon_link_to "pencil-line",
                                  decidim_admin_initiatives.edit_initiative_path(initiative.to_param),
