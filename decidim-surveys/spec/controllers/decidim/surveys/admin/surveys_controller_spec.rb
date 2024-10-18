@@ -11,6 +11,13 @@ module Decidim
         let(:component) { survey.component }
         let(:survey) { create(:survey) }
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
+        let(:params) do
+          {
+            component_id: survey.component.id,
+            participatory_process_slug: survey.component.participatory_space.slug,
+            id: survey.id
+          }
+        end
 
         before do
           request.env["decidim.current_organization"] = component.organization
@@ -19,16 +26,13 @@ module Decidim
         end
 
         describe "index" do
-          let(:survey) { create(:survey) }
-          let(:params) do
-            {
-              component_id: survey.component.id,
-              participatory_process_slug: survey.component.participatory_space.slug,
-              id: survey.id
-            }
+          it "renders the index template" do
+            get(:index, params:)
+            expect(response).to render_template(:index)
           end
 
-          it "renders the index template" do
+          it "renders the index template even when no surveys are present" do
+            allow(Decidim::Surveys::Survey).to receive(:where).and_return([])
             get(:index, params:)
             expect(response).to render_template(:index)
           end
