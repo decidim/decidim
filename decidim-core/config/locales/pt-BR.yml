@@ -650,14 +650,11 @@ pt-BR:
         success: Imagem carregada com sucesso.
       drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
     endorsement_buttons_cell:
-      already_endorsed: Dislike
       endorse: Like
     endorsements:
       identities:
         done: Concluído
         select_identity: Selecione a identidade
-    endorsers_list:
-      endorsed_by: Curtido por…
     errors:
       files:
         file_cannot_be_processed: O arquivo não pode ser processado
