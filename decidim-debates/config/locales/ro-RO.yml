@@ -80,8 +80,6 @@ ro:
           update:
             invalid: A apărut o problemă la actualizarea acestei dezbateri.
             success: Dezbatere actualizata cu succes.
-        exports:
-          comments: Comentarii
       admin_log:
         debate:
           close: "%{user_name} a închis dezbaterea %{resource_name} cu privire la spațiul %{space_name}"
