@@ -678,14 +678,11 @@ fr:
         success: L'image a été téléchargée avec succès.
       drag_and_drop_help: Ajoutez des images en les glissant - déposant ou en les collant depuis votre presse-papier.
     endorsement_buttons_cell:
-      already_endorsed: Je n'aime pas
       endorse: J’aime
     endorsements:
       identities:
         done: Terminé
         select_identity: Sélectionner une identité
-    endorsers_list:
-      endorsed_by: Soutenu par …
     errors:
       files:
         file_cannot_be_processed: Le fichier ne peut pas être traité
