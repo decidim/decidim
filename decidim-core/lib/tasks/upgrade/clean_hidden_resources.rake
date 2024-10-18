@@ -6,7 +6,7 @@ namespace :decidim do
       desc "Removes all related resources from hidden resource"
       task hidden_resources: :environment do
         logger.info("Removing child resources for hidden parents...")
-        Decidim::Moderation.hidden.find_each do |moderation_for_hidden_resource |
+        Decidim::Moderation.hidden.find_each do |moderation_for_hidden_resource|
           reportable = moderation_for_hidden_resource.reportable
           current_user = reportable.organization.admins.find_by!(email: Decidim::Ai::SpamDetection.reporting_user_email)
           tool = Decidim::ModerationTools.new(reportable, current_user)
