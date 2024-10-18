@@ -551,14 +551,11 @@ zh-TW:
         success: 圖片上傳成功.
       drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
     endorsement_buttons_cell:
-      already_endorsed: 不喜歡
       endorse: 喜歡！
     endorsements:
       identities:
         done: 已完成
         select_identity: 選擇身份
-    endorsers_list:
-      endorsed_by: 被喜歡...
     errors:
       internal_server_error:
         copied: 文字已複製!
