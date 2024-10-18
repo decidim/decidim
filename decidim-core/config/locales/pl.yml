@@ -648,14 +648,11 @@ pl:
         success: Obraz przesłany pomyślnie.
       drag_and_drop_help: Dodaj obrazy, przeciągając i upuszczając lub wklejając je.
     endorsement_buttons_cell:
-      already_endorsed: Nie lubię tego
       endorse: Lubię to
     endorsements:
       identities:
         done: Gotowe
         select_identity: Wybierz tożsamość
-    endorsers_list:
-      endorsed_by: Polubione przez…
     errors:
       files:
         file_cannot_be_processed: Plik nie może zostać przetworzony
