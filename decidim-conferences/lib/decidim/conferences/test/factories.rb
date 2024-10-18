@@ -24,6 +24,7 @@ FactoryBot.define do
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
+    deleted_at { nil }
     location { Faker::Lorem.sentence(word_count: 3) }
     show_statistics { true }
     start_date { 1.month.ago }

@@ -1,0 +1,25 @@
+<tr data-id="<%= post.id %>">
+  <td>
+    <% if allowed_to? :update, :blogpost, blog_post: post %>
+      <%= link_to translated_attribute(post.title), edit_post_path(post) %><br>
+    <% else %>
+      <%= translated_attribute(post.title) %><br>
+    <% end %>
+  </td>
+  <td>
+    <%= decidim_sanitize_editor post_description_admin(post) %>
+  </td>
+  <td>
+    <%= translated_attribute(post.try(:author).try(:name)) %>
+  </td>
+  <% publish_data = publish_data(post.published_at) %>
+  <td>
+    <%= content_tag :span, class: "padding-3", data: { tooltip: true, disable_hover: false, click_open: false }, title: publish_data[:popup] do
+      publish_data[:icon]
+    end %>
+    <%= l post.published_at, format: :decidim_short %>
+  </td>
+  <td class="table-list__actions">
+    <%= render partial: "decidim/blogs/admin/posts/actions", locals: { post:, view: } %>
+  </td>
+</tr>

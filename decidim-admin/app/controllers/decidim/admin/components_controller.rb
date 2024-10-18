@@ -6,12 +6,13 @@ module Decidim
     # admin panel.
     #
     class ComponentsController < Decidim::Admin::ApplicationController
-      helper_method :manifest, :current_participatory_space
+      include Decidim::Admin::HasTrashableResources
+      helper_method :manifest
 
       def index
         enforce_permission_to :read, :component
         @manifests = Decidim.component_manifests
-        @components = current_participatory_space.components
+        @components = current_participatory_space.components.not_trashed
       end
 
       def new
@@ -78,23 +79,6 @@ module Decidim
         end
       end
 
-      def destroy
-        @component = query_scope.find(params[:id])
-        enforce_permission_to :destroy, :component, component: @component
-
-        DestroyComponent.call(@component, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("components.destroy.success", scope: "decidim.admin")
-            redirect_to action: :index
-          end
-
-          on(:invalid) do
-            flash[:alert] = I18n.t("components.destroy.error", scope: "decidim.admin")
-            redirect_to action: :index
-          end
-        end
-      end
-
       def publish
         @component = query_scope.find(params[:id])
         enforce_permission_to :publish, :component, component: @component
@@ -153,6 +137,18 @@ module Decidim
       end
 
       private
+
+      def trashable_deleted_resource_type
+        :component
+      end
+
+      def trashable_deleted_resource
+        @trashable_deleted_resource = query_scope.find_by(id: params[:id])
+      end
+
+      def trashable_deleted_collection
+        @trashable_deleted_collection ||= current_participatory_space.components.trashed
+      end
 
       # Processes the component params so the form object defined in the manifest (component_form_class_name)
       # can assign and validate the attributes when using #from_params.

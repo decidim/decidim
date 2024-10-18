@@ -8,12 +8,13 @@ module Decidim
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
         include Decidim::Assemblies::Admin::Filterable
         include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
+        include Decidim::Admin::HasTrashableResources
         helper_method :current_assembly, :parent_assembly, :current_participatory_space
         layout "decidim/admin/assemblies"
 
         def index
           enforce_permission_to :read, :assembly_list
-          @assemblies = filtered_collection
+          @assemblies = filtered_collection.not_trashed
         end
 
         def new
@@ -73,6 +74,18 @@ module Decidim
 
         def collection
           @collection ||= OrganizationAssemblies.new(current_user.organization).query
+        end
+
+        def trashable_deleted_resource_type
+          :assembly
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= current_assembly
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.trashed
         end
 
         def current_assembly

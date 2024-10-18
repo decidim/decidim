@@ -23,24 +23,50 @@ describe Decidim::Meetings::Admin::MeetingsController do
     sign_in user
   end
 
-  describe "#destroy" do
+  describe "PATCH #soft_delete" do
+    it "soft deletes the meeting" do
+      expect(Decidim::Commands::SoftDeleteResource).to receive(:call).with(meeting, user).and_call_original
+
+      patch :soft_delete, params: { id: meeting.id }
+
+      expect(response).to redirect_to(meetings_path)
+      expect(flash[:notice]).to be_present
+      expect(meeting.reload.deleted_at).not_to be_nil
+    end
+  end
+
+  describe "PATCH #restore" do
     before do
-      proposal.coauthorships.clear
-      proposal.add_coauthor(meeting)
+      meeting.update!(deleted_at: Time.current)
     end
 
-    context "when having at least one proposal (invalid)" do
-      it "flashes an alert message" do
-        delete :destroy, params: { id: meeting.id }
+    it "restores the meeting" do
+      expect(Decidim::Commands::RestoreResource).to receive(:call).with(meeting, user).and_call_original
 
-        expect(flash[:alert]).not_to be_empty
-      end
+      patch :restore, params: { id: meeting.id }
 
-      it "renders the index view" do
-        delete :destroy, params: { id: meeting.id }
+      expect(response).to redirect_to(manage_trash_meetings_path)
+      expect(flash[:notice]).to be_present
+      expect(meeting.reload.deleted_at).to be_nil
+    end
+  end
 
-        expect(subject).to render_template(:index)
-      end
+  describe "GET #manage_trash" do
+    let!(:deleted_meeting) { create(:meeting, component: meeting_component, deleted_at: Time.current) }
+    let!(:active_meeting) { create(:meeting, component: meeting_component) }
+
+    it "lists only deleted meetings" do
+      get :manage_trash
+
+      expect(response).to have_http_status(:ok)
+      expect(controller.view_context.trashable_deleted_collection).to include(deleted_meeting)
+      expect(controller.view_context.trashable_deleted_collection).not_to include(active_meeting)
+    end
+
+    it "renders the deleted template" do
+      get :manage_trash
+
+      expect(response).to render_template(:manage_trash)
     end
   end
 end

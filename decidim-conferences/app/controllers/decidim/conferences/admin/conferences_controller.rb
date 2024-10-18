@@ -7,14 +7,15 @@ module Decidim
       #
       class ConferencesController < Decidim::Conferences::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
+        include Decidim::Admin::HasTrashableResources
 
-        helper_method :current_conference, :current_participatory_space
+        helper_method :current_conference, :current_participatory_space, :deleted_collection
         layout "decidim/admin/conferences"
         include Decidim::Conferences::Admin::Filterable
 
         def index
           enforce_permission_to :read, :conference_list
-          @conferences = filtered_collection
+          @conferences = filtered_collection.not_trashed
         end
 
         def new
@@ -71,6 +72,18 @@ module Decidim
 
         private
 
+        def trashable_deleted_resource_type
+          :conference
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= current_conference
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.trashed
+        end
+
         def current_conference
           @current_conference ||= collection.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])
@@ -85,6 +98,10 @@ module Decidim
 
         def conference_params
           { id: params[:slug] }.merge(params[:conference].to_unsafe_h)
+        end
+
+        def deleted_collection
+          @deleted_collection ||= filtered_collection.trashed
         end
       end
     end

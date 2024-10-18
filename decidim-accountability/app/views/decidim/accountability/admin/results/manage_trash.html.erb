@@ -1,0 +1,26 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <% if parent_result %>
+        <%= "#{translated_attribute(parent_result.title)} > " %>
+      <% end %>
+      <%= t(".title") %>
+    </h1>
+  </div>
+
+  <%= admin_filter_selector(:results) %>
+  <div class="table-scroll">
+    <table class="table-list">
+      <%= render partial: "decidim/accountability/admin/results/results-thead", locals: { query: } %>
+      <tbody>
+      <%= render partial: "decidim/accountability/admin/results/result-tr",
+                 collection: trashable_deleted_collection,
+                 as: :result,
+                 locals: { view: :deleted } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= decidim_paginate trashable_deleted_collection %>

@@ -7,32 +7,6 @@ describe "Proposals component" do # rubocop:disable RSpec/DescribeClass
   let(:organization) { component.organization }
   let!(:current_user) { create(:user, :confirmed, :admin, organization:) }
 
-  describe "on destroy" do
-    context "when there are no proposals for the component" do
-      it "destroys the component" do
-        expect do
-          Decidim::Admin::DestroyComponent.call(component, current_user)
-        end.to change(Decidim::Component, :count).by(-1)
-
-        expect(component).to be_destroyed
-      end
-    end
-
-    context "when there are proposals for the component" do
-      before do
-        create(:proposal, component:)
-      end
-
-      it "raises an error" do
-        expect do
-          Decidim::Admin::DestroyComponent.call(component, current_user)
-        end.to broadcast(:invalid)
-
-        expect(component).not_to be_destroyed
-      end
-    end
-  end
-
   describe "stats" do
     subject { current_stat[2] }
 

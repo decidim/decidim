@@ -67,4 +67,54 @@ describe Decidim::Proposals::Admin::ProposalsController do
       end
     end
   end
+
+  describe "PATCH soft_delete" do
+    let(:component) { create(:proposal_component) }
+    let(:proposal) { create(:proposal, component:) }
+
+    it "soft deletes the proposal" do
+      expect(Decidim::Commands::SoftDeleteResource).to receive(:call).with(proposal, user).and_call_original
+
+      patch :soft_delete, params: { id: proposal.id }
+
+      expect(response).to redirect_to(proposals_path)
+      expect(flash[:notice]).to be_present
+      expect(proposal.reload.deleted_at).not_to be_nil
+    end
+  end
+
+  describe "PATCH restore" do
+    let(:component) { create(:proposal_component) }
+    let!(:deleted_proposal) { create(:proposal, component:, deleted_at: Time.current) }
+
+    it "restores the deleted proposal" do
+      expect(Decidim::Commands::RestoreResource).to receive(:call).with(deleted_proposal, user).and_call_original
+
+      patch :restore, params: { id: deleted_proposal.id }
+
+      expect(response).to redirect_to(manage_trash_proposals_path)
+      expect(flash[:notice]).to be_present
+      expect(deleted_proposal.reload.deleted_at).to be_nil
+    end
+  end
+
+  describe "GET manage_trash" do
+    let(:component) { create(:proposal_component) }
+    let!(:deleted_proposal) { create(:proposal, component:, deleted_at: Time.current) }
+    let!(:active_proposal) { create(:proposal, component:) }
+
+    it "lists only deleted proposals" do
+      get :manage_trash
+
+      expect(response).to have_http_status(:ok)
+      expect(controller.view_context.trashable_deleted_collection).not_to include(active_proposal)
+      expect(controller.view_context.trashable_deleted_collection).to include(deleted_proposal)
+    end
+
+    it "renders the deleted proposals template" do
+      get :manage_trash
+
+      expect(response).to render_template(:manage_trash)
+    end
+  end
 end

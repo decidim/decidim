@@ -27,19 +27,16 @@
     </h1>
   </div>
 
-  <div class="table-scroll">
-    <table class="table-list">
-      <thead>
-        <th></th>
-        <th><%= t(".headers.name") %></th>
-        <th><%= t(".headers.type") %></th>
-        <th><%= t(".headers.visibility") %></th>
-        <th><%= t(".headers.actions") %></th>
-      </thead>
-
-      <tbody class="draggable-table" data-sort-url="<%= reorder_components_path %>" data-draggable-table>
-        <%= render partial: "component", collection: @components %>
-      </tbody>
-    </table>
-  </div>
+  <%= render partial: "components_table", locals: { components: @components, view: :index } %>
+  <% if allowed_to?(:manage_trash, :component, participatory_space: current_participatory_space) %>
+    <div class="card mt-4">
+      <%= link_to manage_trash_components_path, class: "flex items-center underline text-secondary" do %>
+        <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+        <%= t("actions.view_deleted_components", scope: "decidim.admin") %>
+        <span class="ml-2">
+        <%= icon_with_tooltip("information-line", t("tooltips.deleted_component_info", scope: "decidim.admin")) %>
+      </span>
+      <% end %>
+    </div>
+  <% end %>
 </div>

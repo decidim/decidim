@@ -6,6 +6,7 @@ module Decidim
       # This controller allows an admin to manage projects from a Participatory Process
       class ProjectsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
+        include Decidim::Admin::HasTrashableResources
         include Decidim::Budgets::Admin::Filterable
         helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
         helper Decidim::Budgets::ProjectsHelper
@@ -61,17 +62,6 @@ module Decidim
             on(:invalid) do
               flash.now[:alert] = I18n.t("projects.update.invalid", scope: "decidim.budgets.admin")
               render action: "edit"
-            end
-          end
-        end
-
-        def destroy
-          enforce_permission_to(:destroy, :project, project:)
-
-          Decidim::Commands::DestroyResource.call(project, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("projects.destroy.success", scope: "decidim.budgets.admin")
-              redirect_to budget_projects_path(budget)
             end
           end
         end
@@ -184,8 +174,20 @@ module Decidim
 
         private
 
+        def trashable_deleted_resource_type
+          :project
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection ||= filtered_collection.trashed
+        end
+
+        def find_parent_resource
+          @find_parent_resource ||= budget
+        end
+
         def projects
-          @projects ||= filtered_collection
+          @projects ||= filtered_collection.not_trashed
         end
 
         def orders
@@ -217,8 +219,10 @@ module Decidim
         end
 
         def project
-          @project ||= projects.find(params[:id])
+          @project ||= filtered_collection.find_by(id: params[:id])
         end
+
+        alias trashable_deleted_resource project
 
         def update_projects_bulk_response_successful(response, subject, extra = {})
           return if response[:successful].blank?

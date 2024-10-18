@@ -24,6 +24,7 @@ module Decidim
     include Decidim::TranslatableResource
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::SoftDeletable
     include Decidim::ShareableWithToken
 
     translatable_fields :title, :subtitle, :short_description, :description, :developer_group, :meta_scope, :local_area,

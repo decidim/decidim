@@ -921,6 +921,7 @@ traceabilty
 traducido
 Tramuntana
 traslatable
+trashable
 trgm
 trobada
 tsearch
