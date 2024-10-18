@@ -281,7 +281,7 @@ sv:
         initiatives_type_scopes:
           create:
             error: Ett fel har inträffat.
-            success: En ny indelning har skapats för namninsamlingen.
+            success: En ny indelning har skapats för initiativtypen.
           destroy:
             success: Indelningen har tagit borts.
           edit:
