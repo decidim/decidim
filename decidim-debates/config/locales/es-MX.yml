@@ -79,8 +79,6 @@ es-MX:
           update:
             invalid: Ha habido un problema al actualizar este debate.
             success: Debate actualizado con éxito.
-        exports:
-          comments: Comentarios
       admin_log:
         debate:
           close: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
