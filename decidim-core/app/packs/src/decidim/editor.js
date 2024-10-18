@@ -25,7 +25,7 @@ export default function createQuillEditor(container) {
   const toolbar = $(container).data("toolbar");
   const disabled = $(container).data("disabled");
 
-  const allowedEmptyContentSelector = "iframe";
+  const allowedEmptyContentSelector = "iframe,img";
   let quillToolbar = [
     ["bold", "italic", "underline", "linebreak"],
     [{ list: "ordered" }, { list: "bullet" }],
