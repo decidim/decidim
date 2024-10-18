@@ -682,14 +682,11 @@ fi:
         success: Kuvan lähettäminen onnistui.
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
     endorsement_buttons_cell:
-      already_endorsed: Poista tykkäys
       endorse: Tykkää
     endorsements:
       identities:
         done: Valmis
         select_identity: Valitse henkilöllisyys
-    endorsers_list:
-      endorsed_by: He tykkäävät tästä…
     errors:
       files:
         file_cannot_be_processed: Tiedostoa ei voida käsitellä
