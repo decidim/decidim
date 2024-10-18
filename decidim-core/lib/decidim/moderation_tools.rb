@@ -94,10 +94,12 @@ module Decidim
 
       reportable.comments.each do |comment|
         tool = Decidim::ModerationTools.new(comment, @current_user)
-        tool.create_report!({
+        unless Decidim::Report.exists?("decidim_moderation_id" => tool.moderation.id, "decidim_user_id" => @current_user.id)
+          tool.create_report!({
                                 reason: "parent_hidden",
                                 details: I18n.t("report_details", scope: "decidim.reports.parent_hidden")
-                            }) unless Decidim::Report.exists?("decidim_moderation_id" => tool.moderation.id, "decidim_user_id" => @current_user.id)
+                              })
+        end
 
         tool.hide!
       end

@@ -40,7 +40,7 @@ module Decidim
           end
 
           def resource_hidden?(resource)
-            resource.class.included_modules.include?(Decidim::Reportable) && resource.hidden? && !spam_reasons.include?(resource.reports&.last.&reason)
+            resource.class.included_modules.include?(Decidim::Reportable) && resource.hidden? && spam_reasons.exclude?(resource.reports&.last&.reason)
           end
 
           def spam_reasons

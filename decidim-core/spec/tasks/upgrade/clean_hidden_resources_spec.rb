@@ -23,9 +23,8 @@ describe "rake decidim:upgrade:clean:hidden_resources", type: :task do
     let!(:searchables) { create_list(:searchable_resource, 8, resource_type: "Decidim::Proposals") }
 
     it "it hides the reported resource and associated comments from search results" do
-      comments =  Decidim::Comments::Comment.where("decidim_root_commentable_id" => searchables.collect(&:id).sample(1))
+      comments = Decidim::Comments::Comment.where("decidim_root_commentable_id" => searchables.collect(&:id).sample(1))
       expect { task.execute }.to change(Decidim::SearchableResource, :count).by(-comments.size)
     end
   end
 end
-
