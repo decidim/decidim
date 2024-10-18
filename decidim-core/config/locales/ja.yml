@@ -664,14 +664,11 @@ ja:
         success: 画像が正常にアップロードされました。
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
     endorsement_buttons_cell:
-      already_endorsed: 取り消し
       endorse: いいね
     endorsements:
       identities:
         done: 完了
         select_identity: IDを選択
-    endorsers_list:
-      endorsed_by: オススメ
     errors:
       files:
         file_cannot_be_processed: ファイルを処理できません
