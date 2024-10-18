@@ -262,6 +262,13 @@ es-PY:
         create: "%{user_name} ha creado el tipo de ámbito %{resource_name}"
         delete: "%{user_name} ha eliminado el tipo de ámbito %{resource_name}"
         update: "%{user_name} ha actualizado el tipo de ámbito %{resource_name}"
+      share_token:
+        create: "%{user_name} ha creado un enlace de acceso en %{space_name}"
+        create_with_space: "%{user_name} ha creado un enlace de acceso para %{resource_name} en %{space_name}"
+        delete: "%{user_name} ha eliminado un enlace de acceso en %{space_name}"
+        delete_with_space: "%{user_name} ha eliminado un enlace de acceso para%{resource_name} en %{space_name}"
+        update: "%{user_name} ha actualizado un enlace de acceso en %{space_name}"
+        update_with_space: "%{user_name} ha actualizado un enlace de acceso para %{resource_name} en %{space_name}"
       static_page:
         create: "%{user_name} creó la página estática %{resource_name}"
         delete: "%{user_name} eliminó la página estática %{resource_name}"
@@ -684,14 +691,11 @@ es-PY:
         success: Imagen cargada correctamente.
       drag_and_drop_help: Puedes añadir imágenes arrastrando y soltándolas o también pegándolas.
     endorsement_buttons_cell:
-      already_endorsed: No me gusta
       endorse: Me gusta
     endorsements:
       identities:
         done: Hecho
         select_identity: Seleccionar identidad
-    endorsers_list:
-      endorsed_by: Le gusta a…
     errors:
       files:
         file_cannot_be_processed: No se ha podido procesar el archivo
@@ -1199,7 +1203,7 @@ es-PY:
         active: Activas
         finished: 'Terminado el: %{end_date}'
         not_started: Aún no ha comenzado
-        remaining: "queda %{time_distance}"
+        remaining: "Queda(n) %{time_distance}"
     metrics:
       download:
         csv: Descargar datos (CSV)
