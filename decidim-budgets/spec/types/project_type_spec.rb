@@ -93,21 +93,21 @@ module Decidim
 
       context "when participatory space is private and transparent" do
         let(:participatory_space) { create(:assembly, :published, :transparent, :private) }
-        let(:component) { create(:dummy_component, :published, participatory_space:) }
-        let(:budget) { create(:budget, component: current_component) }
+        let(:component) { create(:budgets_component, :published, participatory_space:) }
+        let(:budget) { create(:budget, component:) }
         let(:model) { create(:project, budget:) }
 
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
-          expect(response).to be_nil
+        it "returns the object" do
+          expect(response).to eq({ "id" => model.id.to_s })
         end
       end
 
       context "when participatory space is private" do
         let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
-        let(:current_component) { create(:budgets_component, participatory_space:) }
-        let(:budget) { create(:budget, component: current_component) }
+        let(:component) { create(:budgets_component, participatory_space:) }
+        let(:budget) { create(:budget, component:) }
         let(:model) { create(:project, budget:) }
         let(:query) { "{ id }" }
 
@@ -118,8 +118,8 @@ module Decidim
 
       context "when participatory space is not published" do
         let(:participatory_space) { create(:participatory_process, :with_steps, :unpublished, organization: current_organization) }
-        let(:current_component) { create(:budgets_component, participatory_space:) }
-        let(:budget) { create(:budget, component: current_component) }
+        let(:component) { create(:budgets_component, participatory_space:) }
+        let(:budget) { create(:budget, component:) }
         let(:model) { create(:project, budget:) }
         let(:query) { "{ id }" }
 
@@ -129,8 +129,8 @@ module Decidim
       end
 
       context "when component is not published" do
-        let(:current_component) { create(:budgets_component, :unpublished, organization: current_organization) }
-        let(:model) { create(:project, component: current_component) }
+        let(:component) { create(:budgets_component, :unpublished, organization: current_organization) }
+        let(:model) { create(:project, component:) }
         let(:query) { "{ id }" }
 
         it "returns nothing" do
@@ -139,8 +139,8 @@ module Decidim
       end
 
       context "when budget is not visible" do
-        let(:current_component) { create(:budgets_component, organization: current_organization) }
-        let(:budget) { create(:budget, component: current_component) }
+        let(:component) { create(:budgets_component, organization: current_organization) }
+        let(:budget) { create(:budget, component:) }
         let(:model) { create(:project, budget:) }
         let(:query) { "{ id }" }
         let(:root_value) { model.reload }

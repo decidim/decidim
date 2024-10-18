@@ -62,7 +62,7 @@ module Decidim
         let(:model) { create(:post, component: current_component) }
         let(:query) { "{ id }" }
 
-        it "returns nothing" do
+        it "returns the model" do
           expect(response).to include("id" => model.id.to_s)
         end
       end
