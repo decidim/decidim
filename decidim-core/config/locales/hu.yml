@@ -591,14 +591,11 @@ hu:
         success: Kép sikeresen feltöltve.
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsement_buttons_cell:
-      already_endorsed: Nem tetszik
       endorse: Tetszik
     endorsements:
       identities:
         done: Kész
         select_identity: Válassz azonosítót
-    endorsers_list:
-      endorsed_by: Kedvelte…
     errors:
       files:
         file_resolution_too_large: A fájl felbontása túl nagy
