@@ -79,8 +79,6 @@ fi:
           update:
             invalid: Keskustelun päivitys epäonnistui.
             success: Keskustelun päivitys onnistui.
-        exports:
-          comments: Kommentit
       admin_log:
         debate:
           close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
