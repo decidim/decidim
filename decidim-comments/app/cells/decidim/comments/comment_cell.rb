@@ -243,6 +243,10 @@ module Decidim
 
         action_authorized_button_to(:vote_comment, path, params.merge(resource: root_commentable), &)
       end
+
+      def decidim_verifications
+        Decidim::Verifications::Engine.routes.url_helpers
+      end
     end
   end
 end
