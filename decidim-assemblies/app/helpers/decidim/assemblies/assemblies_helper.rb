@@ -17,7 +17,7 @@ module Decidim
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
         [
-          *(if participatory_space.members.not_ceased.any?
+          *(if participatory_space.members_public_page?
               [{
                 name: t("assembly_member_menu_item", scope: "layouts.decidim.assembly_navigation"),
                 url: decidim_assemblies.assembly_assembly_members_path(participatory_space),
