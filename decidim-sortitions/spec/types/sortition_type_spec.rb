@@ -149,11 +149,11 @@ module Decidim
 
         context "when participatory space is private but transparent" do
           let(:participatory_space) { create(:assembly, :private, :transparent, organization: current_organization) }
-          let(:current_component) { create(:sortition_component, participatory_space:) }
+          let(:current_component) { create(:sortition_component, :published, participatory_space:) }
           let(:model) { create(:sortition, component: current_component) }
           let(:query) { "{ id }" }
 
-          it "returns nothing" do
+          it "returns the object" do
             expect(response).to include("id" => model.id.to_s)
           end
         end

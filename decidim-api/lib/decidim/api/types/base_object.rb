@@ -13,7 +13,7 @@ module Decidim
           context[subject] = object
 
           chain.unshift(allowed_to?(:read, :participatory_space, object, context)) if object.respond_to?(:participatory_space)
-          chain.unshift(allowed_to?(:read, :component, object, context)) if object.respond_to?(:component)
+          chain.unshift(allowed_to?(:read, :component, object, context)) if object.respond_to?(:component) && object.component.present?
 
           super && chain.all?
         end
@@ -54,7 +54,7 @@ module Decidim
         # @return Hash
         def self.local_context(object, context)
           context[:current_participatory_space] = object.participatory_space if object.respond_to?(:participatory_space)
-          context[:current_component] = object.component if object.respond_to?(:component)
+          context[:current_component] = object.component if object.respond_to?(:component) && object.component.present?
 
           context.to_h
         end
@@ -71,7 +71,7 @@ module Decidim
           ]
 
           permissions.unshift(object.participatory_space.manifest.permissions_class) if object.respond_to?(:participatory_space)
-          permissions.unshift(object.component.manifest.permissions_class) if object.respond_to?(:component)
+          permissions.unshift(object.component.manifest.permissions_class) if object.respond_to?(:component) && object.component.present?
 
           permissions
         end
