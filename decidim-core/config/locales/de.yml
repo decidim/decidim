@@ -693,14 +693,11 @@ de:
         success: Bild erfolgreich hochgeladen.
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
     endorsement_buttons_cell:
-      already_endorsed: Gefällt mir nicht
       endorse: Gefällt mir
     endorsements:
       identities:
         done: Erledigt
         select_identity: Identität auswählen
-    endorsers_list:
-      endorsed_by: Gefällt…
     errors:
       files:
         file_cannot_be_processed: Datei konnte nicht verarbeitet werden
