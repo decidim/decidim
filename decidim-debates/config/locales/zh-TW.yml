@@ -78,8 +78,6 @@ zh-TW:
           update:
             invalid: 更新此辯論時發生問題。
             success: 辯論已成功更新
-        exports:
-          comments: 評論
       admin_log:
         debate:
           close: "%{user_name} 在 %{space_name} 空間關閉了 %{resource_name} 辯論。"
