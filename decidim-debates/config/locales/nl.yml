@@ -71,8 +71,6 @@ nl:
           update:
             invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
             success: Debat succesvol bijgewerkt.
-        exports:
-          comments: Reacties
       admin_log:
         debate:
           create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"
