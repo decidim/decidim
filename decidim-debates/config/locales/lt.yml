@@ -80,8 +80,6 @@ lt:
           update:
             invalid: Atnaujinant šią diskusiją iškilo problema.
             success: Diskusija atnaujinta.
-        exports:
-          comments: Komentarai
       admin_log:
         debate:
           close: "%{user_name} uždarė %{resource_name} diskusiją %{space_name} erdvėje"
