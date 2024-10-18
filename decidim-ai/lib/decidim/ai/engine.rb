@@ -19,14 +19,6 @@ module Decidim
         end
       end
 
-      initializer "decidim_ai.events.hide_resource" do
-        config.to_prepare do
-          Decidim::EventsManager.subscribe("decidim.admin.hide_resource:after") do |_event_name, data|
-            Decidim::Ai::SpamDetection::TrainHiddenResourceDataJob.perform_later(data[:resource])
-          end
-        end
-      end
-
       initializer "decidim_ai.events.subscribe_profile" do
         config.to_prepare do
           Decidim::EventsManager.subscribe("decidim.update_account:after") do |_event_name, data|
@@ -37,9 +29,6 @@ module Decidim
           end
           Decidim::EventsManager.subscribe("decidim.create_user_group:after") do |_event_name, data|
             Decidim::Ai::SpamDetection::UserSpamAnalyzerJob.perform_later(data[:resource])
-          end
-          Decidim::EventsManager.subscribe("decidim.admin.block_user:after") do |_event_name, data|
-            Decidim::Ai::SpamDetection::TrainUserDataJob.perform_later(data[:resource])
           end
         end
       end
