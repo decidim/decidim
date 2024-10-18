@@ -16,7 +16,7 @@ module Decidim::Meetings
     end
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
-    let(:title) { Faker::Lorem.sentence(word_count: 1) }
+    let(:title) { Faker::Lorem.sentence(word_count: 3) }
     let(:description) { Faker::Lorem.sentence(word_count: 3) }
     let(:short_description) { Faker::Lorem.sentence(word_count: 1) }
     let(:location) { Faker::Lorem.sentence(word_count: 3) }
@@ -70,6 +70,7 @@ module Decidim::Meetings
     end
 
     it_behaves_like "a scopable resource"
+    it_behaves_like "etiquette validator", fields: [:title, :description, :registration_terms]
 
     it { is_expected.to be_valid }
 
