@@ -79,8 +79,6 @@ ca:
           update:
             invalid: S'ha produït un error en actualitzar aquest debat.
             success: Debate actualizado correctament.
-        exports:
-          comments: Comentaris
       admin_log:
         debate:
           close: "La participant %{user_name} ha tancat el debat %{resource_name} a l'espai %{space_name}"
