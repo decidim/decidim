@@ -972,7 +972,7 @@ es-MX:
           next: Siguiente
           next_title: Siguiente elemento
           previous: Anterior
-          previous_title: Anterior elemento
+          previous_title: Elemento anterior
         gallery:
           add_images: Añadir imágenes
           edit_images: Editar imagenes
