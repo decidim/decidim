@@ -11,6 +11,7 @@ describe Decidim::Debates::CreateDebate do
   let(:scope) { create(:scope, organization:) }
   let(:category) { create(:category, participatory_space: participatory_process) }
   let(:user) { create(:user, organization:) }
+  let(:attachments) { [] }
   let(:form) do
     double(
       invalid?: invalid,
@@ -21,7 +22,9 @@ describe Decidim::Debates::CreateDebate do
       category:,
       current_user: user,
       current_component:,
-      current_organization: organization
+      current_organization: organization,
+      add_documents: attachments,
+      documents: []
     )
   end
   let(:invalid) { false }
@@ -98,6 +101,26 @@ describe Decidim::Debates::CreateDebate do
     it "makes the author follow the debate" do
       subject.call
       expect(Decidim::Follow.where(user:, followable: debate).count).to eq(1)
+    end
+  end
+
+  context "when everything is ok with attachments" do
+    let(:attachments) do
+      [
+        { file: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) },
+        { file: upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")) }
+      ]
+    end
+
+    let(:debate) { Decidim::Debates::Debate.last }
+
+    it "creates the debate with attachments" do
+      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1)
+      expect { subject.call }.to change(Decidim::Attachment, :count).by(2)
+
+      debate_attachments = debate.attachments
+      expect(debate_attachments.count).to eq(2)
+      expect(debate_attachments.map(&:file).map(&:filename).map(&:to_s)).to contain_exactly("city.jpeg", "Exampledocument.pdf")
     end
   end
 
