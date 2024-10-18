@@ -691,14 +691,11 @@ eu:
         success: Irudia zuzen igota.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsement_buttons_cell:
-      already_endorsed: Ez dut atsegin
       endorse: Atsegin dut
     endorsements:
       identities:
         done: Eginda
         select_identity: Hautatu identitatea
-    endorsers_list:
-      endorsed_by: Gustuko du…
     errors:
       files:
         file_cannot_be_processed: Fitxategia ezin izan da prozesatu
