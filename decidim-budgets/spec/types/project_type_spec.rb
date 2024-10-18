@@ -91,6 +91,19 @@ module Decidim
         end
       end
 
+      context "when participatory space is private and transparent" do
+        let(:participatory_space) { create(:assembly, :published, :transparent, :private) }
+        let(:component) { create(:dummy_component, :published, participatory_space:) }
+        let(:budget) { create(:budget, component: current_component) }
+        let(:model) { create(:project, budget:) }
+
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
       context "when participatory space is private" do
         let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
         let(:current_component) { create(:budgets_component, participatory_space:) }

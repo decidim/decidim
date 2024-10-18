@@ -11,6 +11,80 @@ module Decidim
       let(:model) { create(:comment) }
       let(:sgid) { double("sgid", to_s: "1234") }
 
+      context "when participatory space is unpublished" do
+        let(:participatory_space) { create(:assembly, :unpublished) }
+        let(:component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, component:) }
+        let!(:moderation) { create(:moderation, reportable: commentable, hidden_at: 2.days.ago) }
+
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when participatory space is private and transparent" do
+        let(:participatory_space) { create(:assembly, :published, :transparent, :private) }
+        let(:component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, component:) }
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when participatory space is private" do
+        let(:participatory_space) { create(:assembly, :published, :private) }
+        let(:component) { create(:dummy_component, :published, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, component:) }
+
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when component is unpublished" do
+        let(:component) { create(:dummy_component, :unpublished) }
+        let(:commentable) { create(:dummy_resource, component:) }
+
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when resource is unpublished" do
+        let(:commentable) { create(:dummy_resource) }
+
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when resource is moderated" do
+        let(:commentable) { create(:dummy_resource, :published) }
+        let!(:moderation) { create(:moderation, reportable: commentable, hidden_at: 2.days.ago) }
+
+        let(:model) { create(:comment, commentable:) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
       describe "deleted comment" do
         let(:model) { create(:comment, :deleted) }
         let(:query) { "{ id }" }
@@ -31,7 +105,7 @@ module Decidim
 
       describe "author" do
         let(:query) { "{ author { name } }" }
-        let(:commentable) { build(:dummy_resource) }
+        let(:commentable) { build(:dummy_resource, :published) }
         let(:model) do
           create(:comment, author:, user_group:, commentable:)
         end

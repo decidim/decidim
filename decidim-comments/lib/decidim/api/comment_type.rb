@@ -86,7 +86,17 @@ module Decidim
       end
 
       def self.authorized?(object, context)
-        super && !object.hidden? && !object.deleted?
+        chain = []
+        if object.respond_to?(:commentable) && !object.commentable.is_a?(Decidim::Comments::Comment)
+          chain.unshift(allowed_to?(:read, object.commentable, object.commentable,
+                                    context))
+        end
+
+        chain.unshift(object.visible?)
+        chain.unshift(!object.hidden?)
+        chain.unshift(!object.deleted?)
+
+        super && chain.all?
       end
     end
   end

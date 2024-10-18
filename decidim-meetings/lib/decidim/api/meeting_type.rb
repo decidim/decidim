@@ -82,8 +82,6 @@ module Decidim
         context[:meeting] = object
 
         chain = [
-          allowed_to?(:read, :participatory_space, object, context),
-          allowed_to?(:read, :component, object, context),
           allowed_to?(:read, :meeting, object, context),
           object.published?,
           object.current_user_can_visit_meeting?(context[:current_user])

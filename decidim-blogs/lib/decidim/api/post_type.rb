@@ -22,13 +22,13 @@ module Decidim
         context[:post] = object
 
         chain = [
-          allowed_to?(:read, :participatory_space, object, context),
-          allowed_to?(:read, :component, object, context),
           allowed_to?(:read, :blogpost, object, context),
           !object.hidden?
         ].all?
 
         super && chain
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        false
       end
     end
   end

@@ -28,13 +28,7 @@ module Decidim
       def self.authorized?(object, context)
         context[:sortition] = object
 
-        chain = [
-          allowed_to?(:read, :participatory_space, object, context),
-          allowed_to?(:read, :component, object, context),
-          object.visible?
-        ].all?
-
-        super && chain
+        super && object.visible?
       end
     end
   end

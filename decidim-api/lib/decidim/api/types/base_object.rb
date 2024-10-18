@@ -6,14 +6,35 @@ module Decidim
       class BaseObject < GraphQL::Schema::Object
         field_class Types::BaseField
 
+        def self.authorized?(object, context)
+          chain = []
+
+          subject = determine_subject_name(object)
+          context[subject] = object
+
+          chain.unshift(allowed_to?(:read, :participatory_space, object, context)) if object.respond_to?(:participatory_space)
+          chain.unshift(allowed_to?(:read, :component, object, context)) if object.respond_to?(:component)
+
+          super && chain.all?
+        end
+
+        def self.determine_subject_name(object)
+          object.class.name.split("::").last.underscore.to_sym
+        end
+
         # This is a simplified adaptation of allowed_to? from NeedsPermission concern
         # @param action [Symbol] The action performed. Most cases the action is :read
-        # @param subject [Symbol] The name of the subject. Ex: :participatory_space, :component
+        # @param subject [Object] The name of the subject. Ex: :participatory_space, :component, or object
         # @param object [ActiveModel::Base] The object that is being represented.
         # @param context [GraphQL::Query::Context] The GraphQL context
         #
         # @return Boolean
         def self.allowed_to?(action, subject, object, context)
+          unless subject.is_a?(::Symbol)
+            subject = determine_subject_name(object)
+            context[subject] = object
+          end
+
           permission_action = Decidim::PermissionAction.new(scope: :public, action:, subject:)
 
           permission_chain(object).inject(permission_action) do |current_permission_action, permission_class|

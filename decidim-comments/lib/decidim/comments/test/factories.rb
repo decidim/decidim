@@ -8,7 +8,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     author { build(:user, organization: commentable.organization, skip_injection:) }
-    commentable { build(:dummy_resource, skip_injection:) }
+    commentable { build(:dummy_resource, :published, skip_injection:) }
     root_commentable { commentable }
     body { Decidim::Faker::Localized.paragraph }
     participatory_space { commentable.try(:participatory_space) }

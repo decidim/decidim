@@ -26,17 +26,6 @@ module Decidim
       field :parent, Decidim::Accountability::ResultType, "The parent result", null: true
       field :status, Decidim::Accountability::StatusType, "The status for this result", null: true
       field :timeline_entries, [Decidim::Accountability::TimelineEntryType, { null: true }], "The timeline entries for this result", null: true
-
-      def self.authorized?(object, context)
-        context[:debate] = object
-
-        chain = [
-          allowed_to?(:read, :participatory_space, object, context),
-          allowed_to?(:read, :component, object, context)
-        ].all?
-
-        super && chain
-      end
     end
   end
 end

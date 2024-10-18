@@ -16,6 +16,19 @@ module Decidim
       field :updated_at, Decidim::Core::DateTimeType, "When this budget was updated", null: true
 
       field :projects, [Decidim::Budgets::ProjectType, { null: true }], "The projects for this budget", null: false
+
+      def self.authorized?(object, context)
+        context[:budget] = object
+
+        chain = [
+          allowed_to?(:read, :project, object, context),
+          object.visible?
+        ].all?
+
+        super && chain
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        false
+      end
     end
   end
 end

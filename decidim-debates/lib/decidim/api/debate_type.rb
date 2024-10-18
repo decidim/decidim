@@ -25,13 +25,7 @@ module Decidim
       def self.authorized?(object, context)
         context[:debate] = object
 
-        chain = [
-          allowed_to?(:read, :participatory_space, object, context),
-          allowed_to?(:read, :component, object, context),
-          allowed_to?(:read, :debate, object, context)
-        ].all?
-
-        super && chain
+        super && allowed_to?(:read, :debate, object, context)
       end
     end
   end
