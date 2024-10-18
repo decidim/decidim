@@ -655,14 +655,11 @@ bg:
         success: Изображението е качено успешно.
       drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
     endorsement_buttons_cell:
-      already_endorsed: Не харесвам
       endorse: Харесвам
     endorsements:
       identities:
         done: Готово
         select_identity: Изберете самоличност
-    endorsers_list:
-      endorsed_by: Харесано от…
     errors:
       files:
         file_cannot_be_processed: Файлът не може да бъде обработен
