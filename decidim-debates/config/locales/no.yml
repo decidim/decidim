@@ -78,8 +78,6 @@
           update:
             invalid: Det oppstod et problem med å oppdatere denne innspillstråden.
             success: Innspillstråden ble oppdatert.
-        exports:
-          comments: Kommentarer
       admin_log:
         debate:
           close: "%{user_name} lukket tråden %{resource_name} under området %{space_name}"

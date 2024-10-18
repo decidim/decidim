@@ -455,7 +455,7 @@ eu:
           promoted_assemblies: Batzar nabarmenduak
         metadata:
           children_item:
-            one: "%{count} batzarra"
+            one: "%{count} batzar"
             other: "%{count} batzar"
         order_by_assemblies:
           assemblies:

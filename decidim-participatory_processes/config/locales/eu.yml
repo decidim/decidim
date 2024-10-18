@@ -25,7 +25,7 @@ eu:
         meta_scope: 'Metadatuak: esparrua'
         participatory_process_group_id: Prozesu-multzoa
         participatory_process_type_id: Prozesu mota
-        participatory_scope: Zer erabakitzen da
+        participatory_scope: Zer erabaki da
         participatory_structure: Nola erabakitzen da?
         private_space: Prozesu pribatua
         promoted: Nabarmendua
@@ -409,11 +409,11 @@ eu:
             json: JSON
         participatory_process_copies:
           form:
-            slug_help_html: 'URL testu laburrak erabiltzen dira prozesu honi aurre egiteko URLan sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
+            slug_help_html: 'URLetako testu laburrak erabiltzen dira prozesu honi aurre egiteko URLak sortzeko. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: %{url}'
         participatory_process_groups:
           form:
             metadata: Metadatuak
-            title: Prozesu honi buruz
+            title: "Prozesu honi buruz\n"
             visibility: Ikusgarritasuna
         participatory_process_imports:
           form:
@@ -429,7 +429,7 @@ eu:
             duration: Iraupena
             filters: iragazkiak
             images: Irudiak
-            metadata: Metadata
+            metadata: Metadatuak
             other: Beste
             related_processes: Elkarrekin lotutako prozesuak
             scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
