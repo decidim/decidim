@@ -107,7 +107,7 @@ module Decidim
       end
 
       def print
-        enforce_permission_to :read, :initiative, initiative: current_initiative
+        enforce_permission_to :print, :initiative, initiative: current_initiative
       end
 
       private

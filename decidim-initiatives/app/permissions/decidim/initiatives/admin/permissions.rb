@@ -135,8 +135,8 @@ module Decidim
           return unless permission_action.subject == :initiative
 
           case permission_action.action
-          when :read
-            toggle_allow(Decidim::Initiatives.print_enabled)
+          when :print
+            toggle_allow(Decidim::Initiatives.print_enabled && user.admin?)
           when :publish, :discard
             toggle_allow(initiative.validating?)
           when :unpublish
