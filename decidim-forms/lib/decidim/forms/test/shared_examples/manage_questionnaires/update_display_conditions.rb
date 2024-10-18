@@ -19,7 +19,8 @@ shared_examples_for "update display conditions" do
     end
 
     before do
-      visit_questionnaire_edit_path_and_expand_all
+      click_on "Save"
+      visit_manage_questions_and_expand_all
     end
 
     it "the related form appears" do
@@ -59,35 +60,31 @@ shared_examples_for "update display conditions" do
 
       click_on "Save"
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_manage_questions_and_expand_all
 
       expect(page).to have_css(".questionnaire-question-display-condition", count: 0)
     end
 
     it "still removes the question even if previous editions rendered the conditions invalid" do
-      within "form.edit_questionnaire" do
-        expect(page).to have_css(".questionnaire-question", count: 2)
+      expect(page).to have_css(".questionnaire-question", count: 2)
 
-        within ".questionnaire-question-display-condition:first-of-type" do
-          select condition_question.body["en"], from: "Question"
-          select "Includes text", from: "Condition"
-          fill_in find_nested_form_field_locator("condition_value_en"), with: ""
-        end
-
-        within ".questionnaire-question:last-of-type" do
-          click_on "Remove", match: :first
-        end
-
-        click_on "Save"
+      within ".questionnaire-question-display-condition:first-of-type" do
+        select condition_question.body["en"], from: "Question"
+        select "Includes text", from: "Condition"
+        fill_in find_nested_form_field_locator("condition_value_en"), with: ""
       end
+
+      within ".questionnaire-question:last-of-type" do
+        click_on "Remove", match: :first
+      end
+
+      click_on "Save"
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_questionnaire_edit_path_and_expand_all
+      visit_manage_questions_and_expand_all
 
-      within "form.edit_questionnaire" do
-        expect(page).to have_css(".questionnaire-question", count: 1)
-      end
+      expect(page).to have_css(".questionnaire-question", count: 1)
     end
   end
 end

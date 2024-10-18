@@ -89,8 +89,13 @@ en:
           edit:
             edit: Edit
             empty: There are no questions yet.
+            manage_questions: Manage questions
             questionnaire: Questionnaire
             title: Edit questionnaire template
+          edit_questions:
+            add_question: Add question
+            add_separator: Add separator
+            add_title_and_description: Add title and description
           form:
             title: Questionnaire template %{questionnaire_for}
           index:

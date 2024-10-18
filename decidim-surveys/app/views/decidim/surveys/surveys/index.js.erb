@@ -1,0 +1,4 @@
+var $surveys = $('#surveys');
+$surveys.html('<%= j(render partial: "surveys").strip.html_safe %>');
+
+document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $surveys[0] }));
