@@ -51,6 +51,9 @@ module Decidim
     end
 
     context "when valid" do
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.update_account:before"
+      it_behaves_like "fires an ActiveSupport::Notification event", "decidim.update_account:after"
+
       it "updates the users's name" do
         form.name = "Pepito de los palotes"
         expect { command.call }.to broadcast(:ok)
