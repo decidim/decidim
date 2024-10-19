@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe "Authentication" do
+  let!(:previous_omniauth_secrets) { Decidim.omniauth_providers }
+
   let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
   let(:omniauth_secrets) do
@@ -32,6 +34,10 @@ describe "Authentication" do
     allow(Decidim).to receive(:omniauth_providers).and_return(omniauth_secrets)
     switch_to_host(organization.host)
     visit decidim.root_path
+  end
+
+  after do
+    Decidim.omniauth_providers = previous_omniauth_secrets
   end
 
   describe "Create an account" do
