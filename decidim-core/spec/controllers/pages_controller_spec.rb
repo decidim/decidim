@@ -7,7 +7,18 @@ module Decidim
     describe PagesController do
       routes { Decidim::Core::Engine.routes }
 
-      let(:organization) { create(:organization) }
+      let(:organization) do
+        create(:organization, omniauth_settings: {
+                 "omniauth_settings_facebook_enabled" => true,
+                 "omniauth_settings_facebook_app_id" => Decidim::AttributeEncryptor.encrypt("overridden-app-id"),
+                 "omniauth_settings_facebook_app_secret" => Decidim::AttributeEncryptor.encrypt("overridden-app-secret"),
+                 "omniauth_settings_google_oauth2_enabled" => true,
+                 "omniauth_settings_google_oauth2_client_id" => Decidim::AttributeEncryptor.encrypt("overridden-client-id"),
+                 "omniauth_settings_google_oauth2_client_secret" => Decidim::AttributeEncryptor.encrypt("overridden-client-secret"),
+                 "omniauth_settings_twitter_enabled" => false,
+                 "omniauth_settings_test_enabled" => false
+               })
+      end
 
       before do
         request.env["decidim.current_organization"] = organization
