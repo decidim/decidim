@@ -315,6 +315,8 @@ en:
           close:
             invalid: There was a problem closing this meeting.
             success: Meeting successfully closed.
+          component:
+            unlink: Unlink
           create:
             invalid: There was a problem creating this meeting.
             success: Meeting successfully created. Notice this is unpublished yet, you need to manually publish it.
@@ -339,7 +341,18 @@ en:
             select_a_registration_type: Please select a registration type
             select_an_iframe_access_level: Please select an iframe access level
           index:
+            linked_meeting_warning_html: This meeting must be edited from <br><a href="%{href}">%{name}</a>
             title: Meetings
+          linked_spaces:
+            assign: Assign
+            link_a_space: Link a space
+            private_meeting_warning: Linked spaces will not be applied if the meeting is private and non transparent.
+            private_space_warning: Linked spaces will not be applied when the meeting belongs to a private non transparent space.
+            select: Select a space
+            table:
+              actions: Actions
+              component: Linked spaces
+            title: Linked spaces
           new:
             create: Create
             title: Create meeting
@@ -566,6 +579,7 @@ en:
           micro_camera_permissions_warning: When you click on the button below, you will be asked for microphone and/or camera permissions, and you will join the videoconference
           no_slots_available: No slots available
           organizations: Attending organizations
+          redirect_notice: This meeting is part of another space, so you have been moved to %{current_space_name}. <br>If you prefer, you can go back to <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Your registration code
           registration_state:
             validated: VALIDATED

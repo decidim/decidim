@@ -16,48 +16,35 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :assemblies_types
-        resources :assembly_filters, except: [:show]
+        constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
+          resources :assemblies_types
+          resources :assembly_filters, except: [:show]
 
-        resources :assemblies, param: :slug, except: [:show, :destroy] do
-          resource :publish, controller: "assembly_publications", only: [:create, :destroy]
-          resources :copies, controller: "assembly_copies", only: [:new, :create]
-          resources :members, controller: "assembly_members"
+          resources :assemblies, param: :slug, except: [:show, :destroy] do
+            resource :publish, controller: "assembly_publications", only: [:create, :destroy]
+            resources :copies, controller: "assembly_copies", only: [:new, :create]
+            resources :members, controller: "assembly_members"
 
-          resources :user_roles, controller: "assembly_user_roles" do
-            member do
-              post :resend_invitation, to: "assembly_user_roles#resend_invitation"
+            resources :user_roles, controller: "assembly_user_roles" do
+              member do
+                post :resend_invitation, to: "assembly_user_roles#resend_invitation"
+              end
             end
-          end
 
-          resources :attachment_collections, controller: "assembly_attachment_collections", except: [:show]
-          resources :attachments, controller: "assembly_attachments", except: [:show]
+            resources :attachment_collections, controller: "assembly_attachment_collections", except: [:show]
+            resources :attachments, controller: "assembly_attachments", except: [:show]
 
-          resource :export, controller: "assembly_exports", only: :create
+            resource :export, controller: "assembly_exports", only: :create
 
-          collection do
-            resources :imports, controller: "assembly_imports", only: [:new, :create]
-          end
-
-          resource :landing_page, only: [:edit, :update], controller: "assembly_landing_page" do
-            resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "assembly_landing_page_content_blocks"
-          end
-        end
-
-        scope "/assemblies/:assembly_slug" do
-          resources :categories, except: [:show]
-
-          resources :components do
             collection do
-              put :reorder
+              resources :imports, controller: "assembly_imports", only: [:new, :create]
             end
-            resource :permissions, controller: "component_permissions"
-            member do
-              put :publish
-              put :unpublish
-              get :share
-              put :hide
+
+            resource :landing_page, only: [:edit, :update], controller: "assembly_landing_page" do
+              resources :content_blocks, only: [:edit, :update, :destroy, :create], controller: "assembly_landing_page_content_blocks"
             end
+
+            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do
               get :example, on: :collection
@@ -65,35 +52,65 @@ module Decidim
             resources :reminders, only: [:new, :create]
           end
 
-          resources :moderations do
-            member do
-              put :unreport
-              put :hide
-              put :unhide
-            end
-            resources :reports, controller: "moderations/reports", only: [:index, :show]
-          end
+          scope "/assemblies/:assembly_slug" do
+            resources :categories, except: [:show]
 
-          resources :participatory_space_private_users, controller: "participatory_space_private_users" do
-            member do
-              post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
+            resources :components do
+              collection do
+                put :reorder
+              end
+              resource :permissions, controller: "component_permissions"
+              member do
+                put :publish
+                put :unpublish
+                get :share
+                put :hide
+              end
+              resources :exports, only: :create
+              resources :imports, only: [:new, :create] do
+                get :example, on: :collection
+              end
+              resources :reminders, only: [:new, :create]
             end
-            collection do
-              resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
-                delete :destroy_all
+
+            resources :moderations do
+              member do
+                put :unreport
+                put :hide
+                put :unhide
+              end
+              resources :reports, controller: "moderations/reports", only: [:index, :show]
+            end
+
+            resources :participatory_space_private_users, controller: "participatory_space_private_users" do
+              member do
+                post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
+              end
+              collection do
+                resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
+                  delete :destroy_all
+                end
               end
             end
           end
-        end
 
-        scope "/assemblies/:assembly_slug/components/:component_id/manage" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.admin_engine
+          scope "/assemblies/:assembly_slug/components/:component_id/manage" do
+            Decidim.component_manifests.each do |manifest|
+              next unless manifest.admin_engine
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.admin_engine, at: "/", as: "decidim_admin_assembly_#{manifest.name}"
+              constraints CurrentComponent.new(manifest) do
+                mount manifest.admin_engine, at: "/", as: "decidim_admin_assembly_#{manifest.name}"
+              end
             end
           end
+
+          resources :assembly_share_tokens, except: [:show], path: "share_tokens"
+        end
+      end
+
+      initializer "decidim_assemblies_admin.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Assemblies::AdminEngine, at: "/admin", as: "decidim_admin_assemblies"
         end
       end
 
