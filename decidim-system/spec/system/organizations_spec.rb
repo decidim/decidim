@@ -210,6 +210,7 @@ describe "Organizations" do
       let!(:organization) do
         create(:organization, name: { ca: "", en: "Citizen Corp", es: "" }, default_locale: :es, available_locales: ["es"], description: { es: "Un texto largo" })
       end
+      let!(:previous_omniauth_secrets) { Decidim.omniauth_providers }
 
       before do
         allow(Decidim).to receive(:omniauth_providers).and_return(
@@ -258,6 +259,7 @@ describe "Organizations" do
       end
 
       after do
+        Decidim.omniauth_providers = previous_omniauth_secrets
         # Reload the UpdateOrganizationForm
         Decidim::System.send(:remove_const, :BaseOrganizationForm)
         Decidim::System.send(:remove_const, :UpdateOrganizationForm)

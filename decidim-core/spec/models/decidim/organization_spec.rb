@@ -93,8 +93,14 @@ module Decidim
     end
 
     describe "enabled omniauth providers" do
+      let!(:previous_omniauth_secrets) { Decidim.omniauth_providers }
+
       before do
         allow(Decidim).to receive(:omniauth_providers).and_return(omniauth_secrets)
+      end
+
+      after do
+        Decidim.omniauth_providers = previous_omniauth_secrets
       end
 
       subject(:enabled_providers) { organization.enabled_omniauth_providers }
@@ -107,14 +113,8 @@ module Decidim
         end
 
         context "when providers are not enabled in secrets.yml" do
-          let!(:previous_omniauth_secrets) { Decidim.omniauth_providers }
-
           before do
             allow(Decidim).to receive(:omniauth_providers).and_return({})
-          end
-
-          after do
-            Decidim.omniauth_providers = previous_omniauth_secrets
           end
 
           it "returns no providers" do
