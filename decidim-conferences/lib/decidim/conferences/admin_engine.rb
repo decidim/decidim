@@ -71,6 +71,7 @@ module Decidim
                 get :share
                 put :hide
               end
+              resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
               resources :exports, only: :create
               resources :imports, only: [:new, :create] do
                 get :example, on: :collection
@@ -86,6 +87,8 @@ module Decidim
               end
               resources :reports, controller: "moderations/reports", only: [:index, :show]
             end
+
+            resources :conference_share_tokens, except: [:show], path: "share_tokens"
           end
 
           scope "/conferences/:conference_slug/components/:component_id/manage" do
@@ -96,32 +99,7 @@ module Decidim
                 mount manifest.admin_engine, at: "/", as: "decidim_admin_conference_#{manifest.name}"
               end
             end
-
-            resource :permissions, controller: "component_permissions"
-            member do
-              put :publish
-              put :unpublish
-              get :share
-              put :hide
-            end
-            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
-            resources :exports, only: :create
-            resources :imports, only: [:new, :create] do
-              get :example, on: :collection
-            end
-            resources :reminders, only: [:new, :create]
           end
-
-          resources :moderations do
-            member do
-              put :unreport
-              put :hide
-              put :unhide
-            end
-            resources :reports, controller: "moderations/reports", only: [:index, :show]
-          end
-
-          resources :conference_share_tokens, except: [:show], path: "share_tokens"
         end
       end
 
