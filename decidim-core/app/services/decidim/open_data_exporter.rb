@@ -37,6 +37,8 @@ module Decidim
       buffer = Zip::OutputStream.write_buffer do |out|
         add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: "users" }), user_data.read)
         add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: "users_groups" }), user_groups.read)
+        add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: "moderations" }), moderations.read)
+        add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: "moderated_users" }), moderated_users.read)
 
         open_data_component_manifests.each do |manifest|
           add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_component(manifest).read)
@@ -49,6 +51,26 @@ module Decidim
       end
 
       buffer.string
+    end
+
+    def moderated_users
+      collection = Decidim::UserModeration.joins(:user).where.not(decidim_users: { blocked_at: nil })
+      serializer = Decidim::Exporters::OpenDataBlockedUserSerializer
+      exporter = Decidim::Exporters::CSV.new(collection, serializer)
+
+      get_help_definition(:core, exporter, OpenStruct.new(name: "moderated_users")) unless collection.empty?
+
+      exporter.export
+    end
+
+    def moderations
+      collection = Decidim::Moderation.includes(:reports).hidden
+      serializer = Decidim::Exporters::OpenDataModerationSerializer
+      exporter = Decidim::Exporters::CSV.new(collection, serializer)
+
+      get_help_definition(:core, exporter, OpenStruct.new(name: "moderations")) unless collection.empty?
+
+      exporter.export
     end
 
     def user_groups
