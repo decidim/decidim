@@ -40,6 +40,7 @@ describe "User edit meeting" do
       visit_component
 
       click_on translated(meeting.title)
+      find("#dropdown-trigger-resource-#{meeting.id}").click
       click_on "Close meeting"
 
       expect(page).to have_content "Close meeting"
@@ -63,6 +64,7 @@ describe "User edit meeting" do
       visit_component
 
       click_on translated(meeting.title)
+      find("#dropdown-trigger-resource-#{meeting.id}").click
       click_on "Close meeting"
 
       expect(page).to have_content "Close meeting"
@@ -112,6 +114,7 @@ describe "User edit meeting" do
         visit_component
 
         click_on translated(meeting.title)
+        find("#dropdown-trigger-resource-#{meeting.id}").click
         click_on "Edit meeting report"
 
         expect(page).to have_content "Close meeting"
@@ -141,6 +144,7 @@ describe "User edit meeting" do
         visit_component
 
         click_on translated(meeting.title)
+        find("#dropdown-trigger-resource-#{meeting.id}").click
         click_on "Close meeting"
 
         expect(page).to have_content "Close meeting"

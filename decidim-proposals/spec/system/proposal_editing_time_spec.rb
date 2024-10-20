@@ -34,6 +34,7 @@ describe "editing a proposal" do
     let(:check_time) { 6.minutes }
 
     it "shows the edit button" do
+      find("#dropdown-trigger-resource-#{proposal.id}").click
       expect(page).to have_link("Edit")
     end
   end
@@ -43,6 +44,7 @@ describe "editing a proposal" do
     let(:check_time) { 12.minutes }
 
     it "does not show the edit button" do
+      find("#dropdown-trigger-resource-#{proposal.id}").click
       expect(page).to have_no_link("Edit")
     end
   end
@@ -52,6 +54,7 @@ describe "editing a proposal" do
     let(:check_time) { 30.minutes }
 
     it "shows the edit button" do
+      find("#dropdown-trigger-resource-#{proposal.id}").click
       expect(page).to have_link("Edit")
     end
 
@@ -59,6 +62,7 @@ describe "editing a proposal" do
       let(:check_time) { 2.hours }
 
       it "does not show the edit button" do
+        find("#dropdown-trigger-resource-#{proposal.id}").click
         expect(page).to have_no_link("Edit")
       end
     end
@@ -69,6 +73,7 @@ describe "editing a proposal" do
     let(:check_time) { 12.hours }
 
     it "shows the edit button" do
+      find("#dropdown-trigger-resource-#{proposal.id}").click
       expect(page).to have_link("Edit")
     end
 
@@ -76,6 +81,7 @@ describe "editing a proposal" do
       let(:check_time) { 2.days }
 
       it "does not show the edit button" do
+        find("#dropdown-trigger-resource-#{proposal.id}").click
         expect(page).to have_no_link("Edit")
       end
     end
