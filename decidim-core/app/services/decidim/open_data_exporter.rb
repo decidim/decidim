@@ -136,7 +136,7 @@ module Decidim
     end
 
     def core_readme
-      return if help_definition.fetch(:core, false)
+      return unless help_definition.fetch(:core, false)
 
       readme_file = "## #{I18n.t("decidim.open_data.help.core.main")}\n\n"
       help_definition.fetch(:core, []).each do |element, headers|
@@ -152,7 +152,7 @@ module Decidim
     end
 
     def space_readme
-      return if help_definition.fetch(:spaces, false)
+      return unless help_definition.fetch(:spaces, false)
 
       readme_file = "## #{I18n.t("decidim.open_data.help.core.spaces")}\n\n"
 
@@ -169,7 +169,7 @@ module Decidim
     end
 
     def component_readme
-      return if help_definition.fetch(:components, false)
+      return unless help_definition.fetch(:components, false)
 
       readme_file = "## #{I18n.t("decidim.open_data.help.core.components")}\n\n"
 
