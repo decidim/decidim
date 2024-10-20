@@ -19,6 +19,7 @@ describe "Amendment Wizard" do
     before do
       login_as user, scope: :user
       visit proposal_path
+      find("#dropdown-trigger-resource-#{proposal.id}").click
       click_on "Amend"
     end
 

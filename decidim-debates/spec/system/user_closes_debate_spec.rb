@@ -29,6 +29,7 @@ describe "User closes a debate" do
     end
 
     it "allows closing my debate", :slow do
+      find("#dropdown-trigger-resource-#{debate.id}").click
       find("button[data-dialog-open='close-debate']", text: "Close debate").click
 
       within ".close-debate-modal" do
@@ -57,6 +58,7 @@ describe "User closes a debate" do
     end
 
     it "is allowed to change the conclusions" do
+      find("#dropdown-trigger-resource-#{debate.id}").click
       click_on "Edit conclusions"
 
       within ".close-debate-modal" do
