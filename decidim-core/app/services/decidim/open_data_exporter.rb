@@ -127,10 +127,18 @@ module Decidim
     end
 
     def readme
-      readme_file = "# #{I18n.t("decidim.open_data.help.core.title", organization: translated_attribute(organization.name))}\n\n"
-      readme_file << "#{I18n.t("decidim.open_data.help.core.description")}\n\n"
+      "# #{I18n.t("decidim.open_data.help.core.title", organization: translated_attribute(organization.name))}\n\n
+#{I18n.t("decidim.open_data.help.core.description")}\n\n
+#{core_readme}
+#{space_readme}
+#{component_readme}
+"
+    end
 
-      readme_file << "## #{I18n.t("decidim.open_data.help.core.main")}\n\n" if help_definition.fetch(:core, false)
+    def core_readme
+      return if help_definition.fetch(:core, false)
+
+      readme_file = "## #{I18n.t("decidim.open_data.help.core.main")}\n\n"
       help_definition.fetch(:core, []).each do |element, headers|
         readme_file << "### #{element}\n\n"
 
@@ -140,8 +148,13 @@ module Decidim
 
         readme_file << "\n\n"
       end
+      readme_file
+    end
 
-      readme_file << "## #{I18n.t("decidim.open_data.help.core.spaces")}\n\n" if help_definition.fetch(:spaces, false)
+    def space_readme
+      return if help_definition.fetch(:spaces, false)
+
+      readme_file = "## #{I18n.t("decidim.open_data.help.core.spaces")}\n\n"
 
       help_definition.fetch(:spaces, []).each do |space, headers|
         readme_file << "### #{space}\n\n"
@@ -152,8 +165,13 @@ module Decidim
 
         readme_file << "\n\n"
       end
+      readme_file
+    end
 
-      readme_file << "## #{I18n.t("decidim.open_data.help.core.components")}\n\n" if help_definition.fetch(:components, false)
+    def component_readme
+      return if help_definition.fetch(:components, false)
+
+      readme_file = "## #{I18n.t("decidim.open_data.help.core.components")}\n\n"
 
       help_definition.fetch(:components, []).each do |component, headers|
         readme_file << "### #{component}\n\n"

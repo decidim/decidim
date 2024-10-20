@@ -3,7 +3,6 @@
 module Decidim
   module Exporters
     class OpenDataUserSerializer < Decidim::Exporters::Serializer
-
       # Public: Initializes the serializer with a resource
       def initialize(resource)
         @resource = resource
@@ -17,13 +16,17 @@ module Decidim
           nickname: presented.nickname,
           about: presented.about,
           avatar_url: presented.avatar_url(:thumb),
-          profile_url: (presented.profile_url rescue ""),
+          profile_url: begin
+            presented.profile_url
+          rescue StandardError
+            ""
+          end,
           direct_messages_enabled: (resource.direct_message_types != "followed-only"),
           deleted: presented.deleted?,
           badge: presented.badge,
           groups: {
-            id:  resource.accepted_user_groups.collect(&:id),
-            name:  resource.accepted_user_groups.collect(&:name),
+            id: resource.accepted_user_groups.collect(&:id),
+            name: resource.accepted_user_groups.collect(&:name)
           }
         }
       end
