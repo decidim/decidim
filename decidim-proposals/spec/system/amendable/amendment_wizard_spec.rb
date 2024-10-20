@@ -49,6 +49,7 @@ describe "Amendment Wizard" do
 
         it "redirects to the proposal page" do
           expect(page).to have_content(translated(proposal.title))
+          find("#dropdown-trigger-resource-#{proposal.id}").click
           expect(page).to have_css("#amend-button")
         end
       end
