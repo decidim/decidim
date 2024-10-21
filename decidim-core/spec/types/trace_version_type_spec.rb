@@ -8,7 +8,7 @@ module Decidim
     describe TraceVersionType do
       include_context "with a graphql class type"
 
-      let(:user) { create(:user) }
+      let(:user) { create(:user, :confirmed) }
       let(:change) do
         {
           "test" => "test object"

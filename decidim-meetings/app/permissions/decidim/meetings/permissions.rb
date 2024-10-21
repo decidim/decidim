@@ -41,6 +41,8 @@ module Decidim
             toggle_allow(can_register_invitation_meeting?)
           when :reply_poll
             toggle_allow(can_reply_poll?)
+          when :read
+            toggle_allow(!meeting.hidden? && meeting.current_user_can_visit_meeting?(user))
           end
         when :poll
           case permission_action.action

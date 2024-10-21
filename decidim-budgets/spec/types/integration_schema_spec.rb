@@ -7,7 +7,7 @@ require "decidim/budgets/test/factories"
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
   let(:component_type) { "Budgets" }
-  let!(:current_component) { create(:budgets_component, participatory_space: participatory_process) }
+  let!(:current_component) { create(:budgets_component, :published, participatory_space: participatory_process) }
   let!(:budget) { create(:budget, component: current_component) }
   let!(:projects) { create_list(:project, 2, budget:, category:) }
 
@@ -62,6 +62,24 @@ describe "Decidim::Api::QueryType" do
       },
       "weight" => 0
     }
+  end
+
+  describe "commentable" do
+    let(:participatory_process_query) do
+      %(
+        commentable(id: "#{projects.first.id}", type: "Decidim::Budgets::Project", locale: "en", toggleTranslations: false) {
+          __typename
+        }
+      )
+    end
+
+    it "executes successfully" do
+      expect { response }.not_to raise_error
+    end
+
+    it do
+      expect(response).to eq({ "commentable" => { "__typename" => "Project" } })
+    end
   end
 
   describe "valid connection query" do

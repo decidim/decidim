@@ -59,6 +59,10 @@ module Decidim
       def members_count
         object.accepted_memberships.count
       end
+
+      def self.authorized?(object, context)
+        super && !object.blocked?
+      end
     end
   end
 end

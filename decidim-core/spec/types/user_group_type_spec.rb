@@ -10,6 +10,15 @@ module Decidim
 
       let(:model) { create(:user_group) }
 
+      describe "moderated user group" do
+        let(:model) { create(:user_group, :blocked) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
       describe "id" do
         let(:query) { "{ id }" }
 
