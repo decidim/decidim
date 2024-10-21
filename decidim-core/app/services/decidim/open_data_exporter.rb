@@ -56,7 +56,7 @@ module Decidim
                         .select { |manifest| manifest.name == resource.to_sym }.first
 
       case export_manifest.manifest
-      when Decidim::Component
+      when Decidim::ComponentManifest
         data_for_component(export_manifest).read
       when Decidim::ParticipatorySpaceManifest
         data_for_participatory_space(export_manifest).read
