@@ -26,6 +26,9 @@ export default class CommentsComponent {
     this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
+
+    this._onTextInput = this._onTextInput.bind(this);
+    this._onToggleOpinion = this._onToggleOpinion.bind(this);
   }
 
   /**
@@ -297,6 +300,47 @@ export default class CommentsComponent {
   }
 
   /**
+   * Updates the state of the submit button based on input text and opinion selection.
+   *
+   * @param {Object} params - The parameters for updating the submit button state.
+   * @param {jQuery} params.$form - The form element.
+   * @param {boolean} params.isTextNotEmpty - Whether the text input is not empty.
+   * @param {boolean} params.isTwoColumnsLayout - Whether the layout is two-column.
+   * @param {boolean} params.isOpinionSelected - Whether an opinion (for/against) has been selected.
+   * @returns {void} - Does not return a value.
+   * @private
+   */
+  _updateSubmitButtonState({ $form, isTextNotEmpty, isTwoColumnsLayout, isOpinionSelected }) {
+    const $submit = $("button[type='submit']", $form);
+    if (isTextNotEmpty && (!isTwoColumnsLayout || isOpinionSelected)) {
+      $submit.removeAttr("disabled");
+    } else {
+      $submit.attr("disabled", "disabled");
+    }
+  }
+
+  /**
+   * Prepares parameters for updating the submit button state.
+   *
+   * @param {jQuery} $form - The form element.
+   * @returns {Object} - Returns an object with necessary parameters.
+   * @private
+   */
+  _prepareSubmitButtonStateParams($form) {
+    const $opinionButtons = $("[data-opinion-toggle] button", $form.closest(".add-comment"));
+    const isTwoColumnsLayout = $(".comments-two-columns", this.$element).length > 0;
+    const isOpinionSelected = $opinionButtons.filter("[aria-pressed='true']").length > 0;
+    const isTextNotEmpty = $("textarea", $form).val().length > 0;
+
+    return {
+      $form,
+      isTextNotEmpty,
+      isTwoColumnsLayout,
+      isOpinionSelected
+    };
+  }
+
+  /**
    * Event listener for the opinion toggle buttons.
    * @private
    * @param {Event} ev - The event object.
@@ -327,24 +371,21 @@ export default class CommentsComponent {
 
     // Announce the selected state for the screen reader
     $selectedState.text($btn.data("selected-label"));
+
+    this._updateSubmitButtonState(this._prepareSubmitButtonStateParams($form));
   }
 
   /**
    * Event listener for the comment field text input.
    * @private
-   * @param {Event} ev - The event object.
+   * @param {{target: (*|jQuery|HTMLElement)}} ev - The event object.
    * @returns {Void} - Returns nothing
    */
   _onTextInput(ev) {
     const $text = $(ev.target);
     const $add = $text.closest(".add-comment");
     const $form = $("form", $add);
-    const $submit = $("button[type='submit']", $form);
 
-    if ($text.val().length > 0) {
-      $submit.removeAttr("disabled");
-    } else {
-      $submit.attr("disabled", "disabled");
-    }
+    this._updateSubmitButtonState(this._prepareSubmitButtonStateParams($form));
   }
 }
