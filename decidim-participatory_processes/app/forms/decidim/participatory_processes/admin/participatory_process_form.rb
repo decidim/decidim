@@ -9,7 +9,7 @@ module Decidim
       class ParticipatoryProcessForm < Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
-        include Decidim::Admin::HasTaxonomyFormAttributes
+        include Decidim::HasTaxonomyFormAttributes
 
         mimic :participatory_process
 

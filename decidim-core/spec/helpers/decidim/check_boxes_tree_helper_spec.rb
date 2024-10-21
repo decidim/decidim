@@ -39,7 +39,7 @@ module Decidim
             data: { checkboxes_tree: "with_any_whatever_" },
             include_hidden: false,
             label: "<span>All</span>",
-            label_options: { "data-global-checkbox": "", value: "" },
+            label_options: { "data-global-checkbox": "", value: "", for: "_" },
             multiple: true,
             value: ""
           }
@@ -69,13 +69,34 @@ module Decidim
             label: "<span>An option</span>",
             multiple: true,
             include_hidden: false,
-            label_options: { "data-children-checkbox": "with_any_whatever_", value: "an_option" }
+            label_options: { "data-children-checkbox": "with_any_whatever_", value: "an_option", for: "_" }
           }
         end
 
         it "returns the options" do
           expect(helper.check_boxes_tree_options(value, label, **options)).to eq(expected_options)
         end
+      end
+    end
+
+    describe "#filter_taxonomy_values_for" do
+      let!(:taxonomy_filter) { create(:taxonomy_filter, :with_items, items_count: 5, root_taxonomy:) }
+      let!(:sub_filter) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item:) }
+      let(:root_taxonomy) { create(:taxonomy, organization:) }
+      let(:taxonomy_item) { create(:taxonomy, parent: root_taxonomy.children.first, organization:) }
+      let(:root) { helper.filter_taxonomy_values_for(taxonomy_filter) }
+      let(:leaf) { helper.filter_taxonomy_values_for(taxonomy_filter).leaf }
+      let(:nodes) { helper.filter_taxonomy_values_for(taxonomy_filter).node }
+
+      it "returns all the taxonomies" do
+        expect(root).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
+        expect(leaf.value).to eq(root_taxonomy.id)
+        expect(nodes.count).to eq(5)
+      end
+
+      it "returns all the sub filters" do
+        expect(nodes.first).to be_a(Decidim::CheckBoxesTreeHelper::TreeNode)
+        expect(nodes.first.node.count).to eq(1)
       end
     end
 

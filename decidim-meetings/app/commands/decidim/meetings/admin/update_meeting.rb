@@ -6,9 +6,9 @@ module Decidim
       # This command is executed when the user changes a Meeting from the admin
       # panel.
       class UpdateMeeting < Decidim::Commands::UpdateResource
-        fetch_form_attributes :scope, :category, :end_time, :start_time, :online_meeting_url, :registration_type,
+        fetch_form_attributes :end_time, :start_time, :online_meeting_url, :registration_type,
                               :registration_url, :registrations_enabled, :address, :latitude, :longitude, :location,
-                              :location_hints,
+                              :location_hints, :taxonomizations,
                               :private_meeting, :transparent, :iframe_embed_type, :comments_enabled,
                               :comments_start_time, :comments_end_time, :iframe_access_level
 

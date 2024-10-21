@@ -14,6 +14,8 @@ describe "Admin manages budgets" do
     visit_component_admin
   end
 
+  it_behaves_like "manage taxonomy filters in settings"
+
   describe "admin form" do
     before { click_on "New budget" }
 
@@ -96,62 +98,6 @@ describe "Admin manages budgets" do
       it "cannot delete the budget" do
         within "tr", text: translated(budget.title) do
           expect(page).to have_no_css(".action-icon--remove")
-        end
-      end
-    end
-  end
-
-  describe "when managing a budget with scopes" do
-    let!(:scopes) { create_list(:subscope, 3, organization:, parent: scope) }
-    let(:scope_id) { scope.id }
-    let(:participatory_space) { create(:participatory_process, organization:, scopes_enabled:) }
-    let!(:component) { create(:component, manifest:, settings: { scopes_enabled:, scope_id: }, participatory_space:) }
-    let!(:budget) { create(:budget, component: current_component) }
-    let!(:scope) { create(:scope, organization:) }
-    let(:scopes_enabled) { true }
-
-    before do
-      visit current_path
-    end
-
-    context "when the scope has subscopes" do
-      context "when scopes_enabled is true" do
-        it "displays the scope column" do
-          expect(component).to be_scopes_enabled
-          expect(component).to have_subscopes
-          expect(page).to have_content("Scope")
-        end
-      end
-
-      context "when scopes_enabled is false" do
-        let(:scopes_enabled) { false }
-
-        it "displays the scope column" do
-          expect(component).not_to be_scopes_enabled
-          expect(component).not_to have_subscopes
-          expect(page).to have_no_content("Scope")
-        end
-      end
-    end
-
-    context "when the scope does not have subscopes" do
-      let(:scope_id) { scopes.first.id }
-
-      context "when scopes_enabled is true" do
-        it "hides the scope column" do
-          expect(component).to be_scopes_enabled
-          expect(component).not_to have_subscopes
-          expect(page).to have_no_content("Scope")
-        end
-      end
-
-      context "when scopes_enabled is false" do
-        let(:scopes_enabled) { false }
-
-        it "displays the scope column" do
-          expect(component).not_to be_scopes_enabled
-          expect(component).not_to have_subscopes
-          expect(page).to have_no_content("Scope")
         end
       end
     end

@@ -5,7 +5,7 @@ module Decidim
     # This command is executed when the user creates a Debate from the public
     # views.
     class CreateDebate < Decidim::Commands::CreateResource
-      fetch_form_attributes :category, :scope
+      fetch_form_attributes :taxonomizations
 
       private
 

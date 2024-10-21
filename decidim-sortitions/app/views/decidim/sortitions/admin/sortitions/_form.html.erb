@@ -11,13 +11,28 @@
                           components_options(proposal_components),
                           prompt: t(".select_proposal_component") %>
         </div>
+      </div>
+    </div>
+  </div>
 
-        <div class="columns">
-          <%= form.categories_select :decidim_category_id,
-                                     @form.categories,
-                                     include_blank: t(".all_categories") %>
+  <% if @form.taxonomy_filters&.any? %>
+    <div class="card pt-4">
+      <div class="card-section">
+        <div class="row">
+          <h3 class="pb-4"><%= t(".select_taxonomies") %></h3>
+          <% @form.taxonomy_filters.each do |filter| %>
+            <div class="columns">
+              <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+            </div>
+          <% end %>
         </div>
+      </div>
+    </div>
+  <% end %>
 
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row">
         <div class="columns">
           <%= form.number_field :target_items, min: 1, step: 1 %>
         </div>

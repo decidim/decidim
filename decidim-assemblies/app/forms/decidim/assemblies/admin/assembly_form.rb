@@ -9,7 +9,7 @@ module Decidim
       class AssemblyForm < Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
-        include Decidim::Admin::HasTaxonomyFormAttributes
+        include Decidim::HasTaxonomyFormAttributes
 
         CREATED_BY = %w(city_council public others).freeze
 

@@ -47,16 +47,15 @@
           <%= form.geocoding_field :address %>
         </div>
       <% end %>
-      <% if @form.categories&.any? %>
-        <div class="row column">
-          <%= form.categories_select :category_id, @form.categories, include_blank: t(".select_a_category") %>
-        </div>
+
+      <% if @form.taxonomy_filters&.any? %>
+        <% @form.taxonomy_filters.each do |filter| %>
+          <div class="row column">
+            <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+          </div>
+        <% end %>
       <% end %>
-      <% if current_component.has_subscopes? %>
-        <div class="row column">
-          <%= scopes_select_field form, :scope_id, root: current_component.scope %>
-        </div>
-      <% end %>
+
       <% if component_settings.attachments_allowed? %>
         <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
       <% end %>

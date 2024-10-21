@@ -9,6 +9,7 @@ module Decidim
     # used in filters that uses checkboxes trees
     def check_boxes_tree_options(value, label, **options)
       parent_id = options.delete(:parent_id) || ""
+      object = options.delete(:object)
       checkbox_options = {
         value:,
         label:,
@@ -16,10 +17,16 @@ module Decidim
         include_hidden: false,
         label_options: {
           "data-children-checkbox": parent_id,
-          value:
+          value:,
+          for: "#{options[:namespace]}_#{options[:id]}"
         }
       }
       options.merge!(checkbox_options)
+      # as taxonomies work with a nested array of values, we need to manually check if the value is checked
+      matches = options[:id]&.match(/^with_any_taxonomies_([0-9]+)__taxonomy_([0-9]+)/)
+      if matches.present? && object.respond_to?(:with_any_taxonomies) && object.with_any_taxonomies&.dig(matches[1]).is_a?(Array)
+        options[:checked] = object.with_any_taxonomies[matches[1]].include?(value.to_s)
+      end
 
       if options.delete(:is_root_check_box) == true
         options[:label_options].merge!("data-global-checkbox": "")
@@ -37,9 +44,13 @@ module Decidim
     end
 
     # struct for leafs of checkboxes trees
-    TreePoint = Struct.new(:value, :label) do
+    TreePoint = Struct.new(:value, :label, :root) do
       def tree_node?
         is_a?(TreeNode)
+      end
+
+      def root?
+        root.present? || value.blank?
       end
     end
 
@@ -47,6 +58,23 @@ module Decidim
     # origin values.
     def filter_origin_values
       raise StandardError, "Not implemented"
+    end
+
+    def filter_taxonomy_values_for(taxonomy_filter)
+      taxonomies = filter_taxonomy_values_children(taxonomy_filter.taxonomies)
+      TreeNode.new(
+        TreePoint.new(taxonomy_filter.root_taxonomy_id, t("decidim.core.application_helper.filter_taxonomy_values.all"), true),
+        taxonomies
+      )
+    end
+
+    def filter_taxonomy_values_children(children)
+      children.map do |id, hash|
+        TreeNode.new(
+          TreePoint.new(id, decidim_escape_translated(hash[:taxonomy].name)),
+          filter_taxonomy_values_children(hash[:children])
+        )
+      end
     end
 
     def filter_categories_values

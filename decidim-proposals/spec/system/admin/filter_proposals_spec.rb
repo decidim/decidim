@@ -94,55 +94,52 @@ describe "Admin filters proposals" do
     end
   end
 
-  context "when filtering by scope" do
-    let!(:scope1) { create(:scope, organization:, name: { "en" => "Scope1" }) }
-    let!(:scope2) { create(:scope, organization:, name: { "en" => "Scope2" }) }
-    let!(:proposal_with_scope1) { create(:proposal, component:, scope: scope1) }
-    let(:proposal_with_scope1_title) { translated(proposal_with_scope1.title) }
-    let!(:proposal_with_scope2) { create(:proposal, component:, scope: scope2) }
-    let(:proposal_with_scope2_title) { translated(proposal_with_scope2.title) }
-
-    before { visit_component_admin }
-
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
-      let(:in_filter) { proposal_with_scope1_title }
-      let(:not_in_filter) { proposal_with_scope2_title }
-    end
-
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope2" do
-      let(:in_filter) { proposal_with_scope2_title }
-      let(:not_in_filter) { proposal_with_scope1_title }
-    end
+  it_behaves_like "a collection filtered by taxonomies" do
+    let!(:proposal_with_taxonomy11) { create(:proposal, component:, taxonomies: [taxonomy11]) }
+    let!(:proposal_with_taxonomy12) { create(:proposal, component:, taxonomies: [taxonomy12]) }
+    let!(:proposal_with_taxonomy21) { create(:proposal, component:, taxonomies: [taxonomy21]) }
+    let!(:proposal_with_taxonomy22) { create(:proposal, component:, taxonomies: [taxonomy22]) }
+    let(:resource_with_taxonomy11_title) { translated(proposal_with_taxonomy11.title) }
+    let(:resource_with_taxonomy12_title) { translated(proposal_with_taxonomy12.title) }
+    let(:resource_with_taxonomy21_title) { translated(proposal_with_taxonomy21.title) }
+    let(:resource_with_taxonomy22_title) { translated(proposal_with_taxonomy22.title) }
   end
 
   context "when filtering by multiple filters" do
-    let!(:scope1) { create(:scope, organization:, name: { "en" => "Scope1" }) }
-    let!(:scope2) { create(:scope, organization:, name: { "en" => "Scope2" }) }
-    let!(:answered_proposal_with_scope1) { create(:proposal, :with_answer, component:, scope: scope1) }
-    let!(:unanswered_proposal_with_scope1) { create(:proposal, component:, scope: scope1) }
-    let!(:answered_proposal_with_scope2) { create(:proposal, :with_answer, component:, scope: scope2) }
-    let!(:unanswered_proposal_with_scope2) { create(:proposal, component:, scope: scope2) }
+    let(:root_taxonomy1) { create(:taxonomy, organization: component.organization, name: { "en" => "Root1" }) }
+    let(:root_taxonomy2) { create(:taxonomy, organization: component.organization, name: { "en" => "Root2" }) }
+    let!(:taxonomy1) { create(:taxonomy, parent: root_taxonomy1, organization:, name: { "en" => "Taxonomy1" }) }
+    let!(:taxonomy2) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy2" }) }
+    let(:taxonomy1_filter) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, space_manifest: component.participatory_space.manifest.name) }
+    let(:taxonomy2_filter) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, space_manifest: component.participatory_space.manifest.name) }
+    let!(:taxonomy1_filter_item) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter, taxonomy_item: taxonomy1) }
+    let!(:taxonomy2_filter_item) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy2_filter, taxonomy_item: taxonomy2) }
+    let!(:answered_proposal_with_taxonomy1) { create(:proposal, :with_answer, component:, taxonomies: [taxonomy1]) }
+    let!(:unanswered_proposal_with_taxonomy1) { create(:proposal, component:, taxonomies: [taxonomy1]) }
+    let!(:answered_proposal_with_taxonomy2) { create(:proposal, :with_answer, component:, taxonomies: [taxonomy2]) }
+    let!(:unanswered_proposal_with_taxonomy2) { create(:proposal, component:, taxonomies: [taxonomy2]) }
 
     before do
-      apply_filter("Answered", "Answered")
+      component.update!(settings: { taxonomy_filters: [taxonomy1_filter.id, taxonomy2_filter.id] })
       visit_component_admin
+      apply_filter("Answered", "Answered")
     end
 
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
-      let(:in_filter) { translated(answered_proposal_with_scope1.title) }
-      let(:not_in_filter) { translated(answered_proposal_with_scope2.title) }
+    it_behaves_like "a sub-filtered collection", option1: "Taxonomy", option2: "Root1", filter: "Taxonomy1" do
+      let(:in_filter) { translated(answered_proposal_with_taxonomy1.title) }
+      let(:not_in_filter) { translated(answered_proposal_with_taxonomy2.title) }
     end
 
     context "when multiple filters are checked" do
       before do
-        apply_filter("Scope", "Scope1")
+        apply_sub_filter("Taxonomy", "Root1", "Taxonomy1")
       end
 
       it "has a link to remove all filters" do
-        expect(page).to have_content(translated(answered_proposal_with_scope1.title))
-        expect(page).to have_no_content(translated(unanswered_proposal_with_scope1.title))
-        expect(page).to have_no_content(translated(answered_proposal_with_scope2.title))
-        expect(page).to have_no_content(translated(unanswered_proposal_with_scope2.title))
+        expect(page).to have_content(translated(answered_proposal_with_taxonomy1.title))
+        expect(page).to have_no_content(translated(unanswered_proposal_with_taxonomy1.title))
+        expect(page).to have_no_content(translated(answered_proposal_with_taxonomy2.title))
+        expect(page).to have_no_content(translated(unanswered_proposal_with_taxonomy2.title))
 
         within("[data-applied-filters-tags]") do
           expect(page).to have_content("Remove all")
@@ -152,15 +149,15 @@ describe "Admin filters proposals" do
           click_on("Remove all")
         end
 
-        expect(page).to have_content(translated(answered_proposal_with_scope1.title))
-        expect(page).to have_content(translated(unanswered_proposal_with_scope1.title))
-        expect(page).to have_content(translated(answered_proposal_with_scope2.title))
-        expect(page).to have_content(translated(unanswered_proposal_with_scope2.title))
+        expect(page).to have_content(translated(answered_proposal_with_taxonomy1.title))
+        expect(page).to have_content(translated(unanswered_proposal_with_taxonomy1.title))
+        expect(page).to have_content(translated(answered_proposal_with_taxonomy2.title))
+        expect(page).to have_content(translated(unanswered_proposal_with_taxonomy2.title))
         expect(page).to have_css("[data-applied-filters-tags]", exact_text: "")
       end
 
       it "stores the filters in the session and recovers it when visiting the component page" do
-        within("tr[data-id='#{answered_proposal_with_scope1.id}']") do
+        within("tr[data-id='#{answered_proposal_with_taxonomy1.id}']") do
           click_on("Answer proposal")
         end
 
@@ -175,18 +172,18 @@ describe "Admin filters proposals" do
 
         within("[data-applied-filters-tags]") do
           expect(page).to have_content("Answered: Answered")
-          expect(page).to have_content("Scope: Scope1")
+          expect(page).to have_content("Taxonomy: Taxonomy1")
           expect(page).to have_content("Remove all")
         end
 
         filter_params = CGI.parse(URI.parse(page.current_url).query)
-        expect(filter_params["q[scope_id_eq]"]).to eq([scope1.id.to_s])
+        expect(filter_params["q[taxonomies_part_of_contains]"]).to eq([taxonomy1.id.to_s])
         expect(filter_params["q[with_any_state]"]).to eq(["state_published"])
       end
     end
 
     context "when the admin visits a proposal from a filtered list" do
-      let!(:other_proposal_with_scope2) { create(:proposal, :with_answer, component:, scope: scope2) }
+      let!(:other_proposal_with_taxonomy2) { create(:proposal, :with_answer, component:, taxonomies: [taxonomy2]) }
 
       before { visit_component_admin }
 

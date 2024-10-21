@@ -42,13 +42,8 @@
             <%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %>
           </th>
           <th>
-            <%= sort_link(query, :category_name, t("models.result.fields.category", scope: "decidim.accountability") ) %>
+            <%= sort_link(query, :taxonomies_name, t("models.result.fields.taxonomies", scope: "decidim.accountability") ) %>
           </th>
-          <% if resource_with_scopes_enabled? %>
-            <th>
-              <%= sort_link(query, :scope_name, t("models.result.fields.scope", scope: "decidim.accountability") ) %>
-            </th>
-          <% end %>
           <th>
             <%= sort_link(query, :status_name, t("models.result.fields.status", scope: "decidim.accountability") ) %>
           </th>
@@ -75,11 +70,8 @@
               <% end %>
             </td>
             <td>
-              <% if result.category %>
-                <%= translated_attribute result.category.name %>
-              <% end %>
+              <%= result.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
             </td>
-            <%= td_resource_scope_for(result.scope) %>
             <td>
               <% if result.status %>
                 <%= translated_attribute result.status.name %>

@@ -11,8 +11,6 @@ module Decidim
       include_context "with a graphql class type"
       let(:model) { create(:budget, :with_projects) }
 
-      include_examples "scopable interface"
-
       it_behaves_like "traceable interface" do
         let(:author) { create(:user, :admin, organization: model.component.organization) }
       end

@@ -18,10 +18,7 @@
           <th><%= check_box_tag "projects_bulk", "all", false, class: "js-check-all" %></th>
           <th><%= sort_link(query, :id, t("models.project.fields.id", scope: "decidim.budgets"), default_order: :desc) %></th>
           <th class="!text-left"><%= sort_link(query, :title, t("models.project.fields.title", scope: "decidim.budgets")) %></th>
-          <th><%= sort_link(query, :category_name, t("models.project.fields.category", scope: "decidim.budgets") ) %></th>
-          <% if current_component.has_subscopes? %>
-            <%= th_scope_sort_link %>
-          <% end %>
+          <th><%= sort_link(query, :taxonomies_name, t("models.project.fields.taxonomies", scope: "decidim.budgets") ) %></th>
           <th><%= sort_link(query, :confirmed_orders_count, t("index.confirmed_orders_count")) %></th>
           <th><%= sort_link(query, :selected, t(".selected")) %></th>
           <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>

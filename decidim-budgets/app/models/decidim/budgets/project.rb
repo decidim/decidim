@@ -6,6 +6,7 @@ module Decidim
     # title, description and any other useful information to render a custom project.
     class Project < Budgets::ApplicationRecord
       include Decidim::Resourceable
+      include Decidim::Taxonomizable
       include Decidim::ScopableResource
       include Decidim::HasCategory
       include Decidim::HasAttachments
@@ -139,7 +140,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_status, :with_any_scope, :with_any_category]
+        [:with_any_status, :with_any_taxonomies]
       end
 
       def self.ransackable_attributes(auth_object = nil)
@@ -151,7 +152,7 @@ module Decidim
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(category scope)
+        %w(taxonomies)
       end
     end
   end
