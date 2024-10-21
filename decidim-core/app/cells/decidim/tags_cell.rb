@@ -10,7 +10,7 @@ module Decidim
   #
   class TagsCell < Decidim::ViewModel
     def show
-      render if category? || scope?
+      render if category? || scope? || taxonomies.any?
     end
 
     def category
@@ -25,6 +25,17 @@ module Decidim
 
     def tags_classes
       (["tag-container"] + context[:extra_classes].to_a).join(" ")
+    end
+
+    def taxonomies
+      return [] unless model.respond_to?(:taxonomies)
+
+      @taxonomies ||= model.taxonomies.map do |taxonomy|
+        {
+          name: decidim_sanitize_translated(taxonomy.name),
+          url: resource_locator(model).index(filter: { "with_any_taxonomies[#{taxonomy.root_taxonomy.id}]" => [taxonomy.id.to_s] })
+        }
+      end
     end
 
     def category?

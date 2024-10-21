@@ -151,8 +151,7 @@ shared_examples "manage projects" do
       fill_in_i18n_editor(:project_description, "#project-description-tabs", **attributes[:description].except("machine_translations"))
       fill_in :project_budget_amount, with: 22_000_000
 
-      select translated(scope.name), from: :project_decidim_scope_id
-      select translated(category.name), from: :project_decidim_category_id
+      select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
       find("*[type=submit]").click
     end
@@ -161,6 +160,7 @@ shared_examples "manage projects" do
 
     within "table" do
       expect(page).to have_content(translated(attributes[:title]))
+      expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
     end
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} project")
@@ -259,8 +259,7 @@ shared_examples "manage projects" do
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
 
-        select translated(scope.name), from: :project_decidim_scope_id
-        select translated(category.name), from: :project_decidim_category_id
+        select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
         find("*[type=submit]").click
       end
@@ -269,6 +268,7 @@ shared_examples "manage projects" do
 
       within "table" do
         expect(page).to have_content("My project")
+        expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
       end
     end
   end

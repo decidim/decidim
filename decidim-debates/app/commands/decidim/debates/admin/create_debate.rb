@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user creates a Debate from the admin
       # panel.
       class CreateDebate < Decidim::Commands::CreateResource
-        fetch_form_attributes :category, :component, :information_updates, :instructions, :scope, :start_time, :end_time, :comments_enabled
+        fetch_form_attributes :taxonomizations, :component, :information_updates, :instructions, :start_time, :end_time, :comments_enabled
 
         protected
 

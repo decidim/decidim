@@ -102,7 +102,7 @@ module Decidim
       end
 
       def root_taxonomies
-        @root_taxonomies ||= current_organization.taxonomies.where(parent_id: nil)
+        @root_taxonomies ||= current_organization.taxonomies.roots
       end
 
       def taxonomy

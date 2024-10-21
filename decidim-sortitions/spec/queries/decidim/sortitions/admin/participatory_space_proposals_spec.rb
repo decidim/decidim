@@ -12,12 +12,12 @@ module Decidim
         let(:another_proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
         let(:proposals) { create_list(:proposal, 10, component: proposal_component, created_at: request_timestamp - 10.days) }
         let(:request_timestamp) { Time.now.utc }
-        let(:category) { nil }
+        let(:taxonomies) { [] }
         let(:decidim_proposals_component) { proposal_component }
         let(:sortition) do
           double(
             request_timestamp:,
-            category:,
+            taxonomies:,
             decidim_proposals_component:
           )
         end
@@ -47,31 +47,53 @@ module Decidim
           end
         end
 
-        context "when filtering by category" do
-          let(:proposal_category) { create(:category, participatory_space: participatory_process) }
-          let(:proposals_with_category) do
+        context "when filtering by taxonomy" do
+          let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
+          let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
+          let(:taxonomy_proposals) do
             create_list(:proposal, 10,
                         component: proposal_component,
-                        category: proposal_category,
+                        taxonomies: [taxonomy],
+                        created_at: request_timestamp - 10.days)
+          end
+          let(:sub_taxonomy_proposals) do
+            create_list(:proposal, 10,
+                        component: proposal_component,
+                        taxonomies: [sub_taxonomy],
                         created_at: request_timestamp - 10.days)
           end
 
-          context "and category is passed nil" do
+          context "and no taxonomies" do
             it "Contains all proposals" do
               expect(described_class.for(sortition)).to include(*proposals)
-              expect(described_class.for(sortition)).to include(*proposals_with_category)
+              expect(described_class.for(sortition)).to include(*taxonomy_proposals)
+              expect(described_class.for(sortition)).to include(*sub_taxonomy_proposals)
             end
           end
 
-          context "and category is passed" do
-            let(:category) { proposal_category }
+          context "and taxonomy is passed" do
+            let(:taxonomies) { [taxonomy] }
 
-            it "Contains proposals of the category" do
-              expect(described_class.for(sortition)).to include(*proposals_with_category)
+            it "Contains proposals of the taxonomy and sub_taxonomies" do
+              expect(described_class.for(sortition)).to include(*taxonomy_proposals)
+              expect(described_class.for(sortition)).to include(*sub_taxonomy_proposals)
             end
 
-            it "Do not contains proposals of the category" do
+            it "Do not contains proposals of the taxonomy" do
               expect(described_class.for(sortition)).not_to include(*proposals)
+            end
+          end
+
+          context "and sub_taxonomy is passed" do
+            let(:taxonomies) { [sub_taxonomy] }
+
+            it "Contains proposals of the sub_taxonomy" do
+              expect(described_class.for(sortition)).to include(*sub_taxonomy_proposals)
+            end
+
+            it "Do not contains proposals of the taxonomy" do
+              expect(described_class.for(sortition)).not_to include(*proposals)
+              expect(described_class.for(sortition)).not_to include(*taxonomy_proposals)
             end
           end
         end

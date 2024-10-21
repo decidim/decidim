@@ -45,7 +45,7 @@ shared_examples "a taxonomy filters controller" do
     it "shows no elements found" do
       expect(page).to have_content("Edit taxonomy filter")
       expect(page).to have_content("Taxonomy filter")
-      expect(page).to have_content("No items ara available for this taxonomies")
+      expect(page).to have_content("No items are available for this taxonomy")
     end
   end
 

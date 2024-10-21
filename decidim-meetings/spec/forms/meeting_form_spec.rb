@@ -26,11 +26,6 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 2.days.from_now }
     let(:end_time) { 2.days.from_now + 4.hours }
-    let(:parent_scope) { create(:scope, organization:) }
-    let(:scope) { create(:subscope, parent: parent_scope) }
-    let(:scope_id) { scope.id }
-    let(:category) { create(:category, participatory_space: participatory_process) }
-    let(:category_id) { category.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:type_of_meeting) { "in_person" }
@@ -40,10 +35,10 @@ module Decidim::Meetings
     let(:online_meeting_url) { "http://decidim.org" }
     let(:iframe_embed_type) { "none" }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
+    let(:taxonomies) { [] }
     let(:attributes) do
       {
-        decidim_scope_id: scope_id,
-        decidim_category_id: category_id,
+        taxonomies:,
         title:,
         description:,
         short_description:,
@@ -69,7 +64,12 @@ module Decidim::Meetings
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it_behaves_like "a scopable resource"
+    describe "taxonomies" do
+      let(:component) { current_component }
+      let(:participatory_space) { participatory_process }
+
+      it_behaves_like "a taxonomizable resource"
+    end
 
     it { is_expected.to be_valid }
 
@@ -128,22 +128,10 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when the category does not exist" do
-      let(:category_id) { category.id + 10 }
-
-      it { is_expected.not_to be_valid }
-    end
-
     it "validates address and store its coordinates" do
       expect(subject).to be_valid
       expect(subject.latitude).to eq(latitude)
       expect(subject.longitude).to eq(longitude)
-    end
-
-    it "properly maps category id from model" do
-      meeting = create(:meeting, component: current_component, category:)
-
-      expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
     end
 
     describe "when online meeting link is missing and type of meeting is online" do

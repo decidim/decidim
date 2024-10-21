@@ -30,6 +30,10 @@ module Decidim
             id: proposal.scope.try(:id),
             name: proposal.scope.try(:name) || empty_translatable
           },
+          taxonomies: {
+            id: proposal.taxonomies.map(&:id),
+            name: proposal.taxonomies.map(&:name)
+          },
           participatory_space: {
             id: proposal.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(proposal.participatory_space).url

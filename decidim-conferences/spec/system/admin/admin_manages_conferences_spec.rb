@@ -4,6 +4,8 @@ require "spec_helper"
 
 describe "Admin manages conferences" do
   include_context "when admin administrating a conference"
+  include_context "with taxonomy filters context"
+  let(:space_manifest) { "conferences" }
 
   before do
     switch_to_host(organization.host)

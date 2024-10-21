@@ -5,20 +5,23 @@ require "spec_helper"
 module Decidim::Conferences
   describe Admin::UpdateConference do
     describe "call" do
-      let(:my_conference) { create(:conference) }
-      let(:user) { create(:user, :admin, :confirmed, organization: my_conference.organization) }
+      let(:organization) { create(:organization) }
+      let(:my_conference) { create(:conference, taxonomies:, organization:) }
+      let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
+      let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let!(:participatory_processes) do
         create_list(
           :participatory_process,
           3,
-          organization: my_conference.organization
+          organization:
         )
       end
       let!(:assemblies) do
         create_list(
           :assembly,
           3,
-          organization: my_conference.organization
+          organization:
         )
       end
 
@@ -43,13 +46,14 @@ module Decidim::Conferences
             short_description_en: my_conference.short_description,
             short_description_ca: my_conference.short_description,
             short_description_es: my_conference.short_description,
-            current_organization: my_conference.organization,
+            current_organization: organization,
             scopes_enabled: my_conference.scopes_enabled,
             scope: my_conference.scope,
             objectives: my_conference.objectives,
             start_date: my_conference.start_date,
             end_date: my_conference.end_date,
             errors: my_conference.errors,
+            taxonomies: [taxonomy.id, taxonomies.first.id],
             show_statistics: my_conference.show_statistics,
             registrations_enabled: my_conference.registrations_enabled,
             available_slots: my_conference.available_slots,
@@ -67,7 +71,7 @@ module Decidim::Conferences
       end
       let(:context) do
         {
-          current_organization: my_conference.organization,
+          current_organization: organization,
           current_user: user,
           conference_id: my_conference.id
         }
@@ -117,6 +121,12 @@ module Decidim::Conferences
       describe "when the form is valid" do
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
+        end
+
+        it "updates the taxonomies" do
+          expect(my_conference.reload.taxonomies).to match_array(taxonomies)
+          command.call
+          expect(my_conference.reload.taxonomies).to contain_exactly(taxonomy, taxonomies.first)
         end
 
         it "updates the conference" do
@@ -210,12 +220,13 @@ module Decidim::Conferences
             remove_hero_image: false,
             banner_image: nil,
             remove_banner_image: false,
+            taxonomizations: [],
             promoted: my_conference.promoted,
             show_statistics: my_conference.show_statistics,
             registrations_enabled: my_conference.registrations_enabled,
             available_slots: my_conference.available_slots,
             registration_terms: my_conference.registration_terms,
-            current_organization: my_conference.organization,
+            current_organization: organization,
             current_user: user,
             participatory_processes_ids: participatory_processes.map(&:id),
             assemblies_ids: assemblies.map(&:id)
