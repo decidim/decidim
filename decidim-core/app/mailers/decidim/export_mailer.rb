@@ -32,10 +32,10 @@ module Decidim
     # user - The user to be notified.
     #
     # Returns nothing.
-    def download_your_data_export(user, filename, password)
+    def download_your_data_export(user, private_export, password)
       @user = user
       @organization = user.organization
-      @filename = filename
+      @private_export = private_export
       @password = password
 
       with_user(user) do

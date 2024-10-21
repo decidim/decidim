@@ -13,7 +13,7 @@ module Decidim
       save_or_upload_file(user, path)
       # Deletes temporary file
       File.delete(path)
-      ExportMailer.download_your_data_export(user, filename, password).deliver_later
+      ExportMailer.download_your_data_export(user, @export, password).deliver_later
     end
 
     private
@@ -23,7 +23,11 @@ module Decidim
     end
 
     def save_or_upload_file(user, path)
-      user.download_your_data_file.attach(io: File.open(path, "rb"), filename: File.basename(path))
+      @export = user.private_exports.build
+      @export.export_type = "download_your_data"
+      @export.file.attach(io: File.open(path, "rb"), filename: File.basename(path))
+      @export.expires_at = Decidim.download_your_data_expiry_time.from_now
+      @export.save!
     end
   end
 end
