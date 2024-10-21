@@ -91,5 +91,78 @@ describe Decidim::OpenDataExporter do
         end
       end
     end
+
+    describe "with a space" do
+      subject { described_class.new(organization, path, resource) }
+
+      let!(:assembly) { create(:assembly, :published, organization:) }
+      let(:resource) { "assemblies" }
+      let(:path) { "/tmp/test-open-data-assembly.csv" }
+
+      it "generates a zip file at the path" do
+        subject.export
+
+        expect(File.exist?(path)).to be(true)
+      end
+
+      describe "contents" do
+        let(:csv_data) { CSV.parse(File.read(path), headers: true, col_sep: ";") }
+
+        describe "test-open-data-assembly.csv" do
+          before do
+            subject.export
+          end
+
+          it "includes a CSV file" do
+            expect(csv_data).not_to be_nil
+          end
+
+          it "includes the resource's content" do
+            expect(csv_data.headers).to include("id")
+            expect(csv_data.headers).to include("title/en")
+            expect(csv_data.first["id"]).to eq(assembly.id.to_s)
+            expect(csv_data.first["title/en"]).to eq(translated_attribute(assembly.title["en"]))
+          end
+        end
+      end
+    end
+
+    describe "with a component" do
+      subject { described_class.new(organization, path, resource) }
+
+      let(:proposal_component) do
+        create(:proposal_component, organization:, published_at: Time.current)
+      end
+      let!(:proposal) { create(:proposal, :published, component: proposal_component, title: { en: "My super proposal" }) }
+      let(:resource) { "proposals" }
+      let(:path) { "/tmp/test-open-data-proposals.csv" }
+
+      it "generates a zip file at the path" do
+        subject.export
+
+        expect(File.exist?(path)).to be(true)
+      end
+
+      describe "contents" do
+        let(:csv_data) { CSV.parse(File.read(path), headers: true, col_sep: ";") }
+
+        describe "test-open-data-proposals.csv" do
+          before do
+            subject.export
+          end
+
+          it "includes a CSV file" do
+            expect(csv_data).not_to be_nil
+          end
+
+          it "includes the resource's content" do
+            expect(csv_data.headers).to include("id")
+            expect(csv_data.headers).to include("title/en")
+            expect(csv_data.first["id"]).to eq(proposal.id.to_s)
+            expect(csv_data.first["title/en"]).to eq(translated_attribute(proposal.title["en"]))
+          end
+        end
+      end
+    end
   end
 end
