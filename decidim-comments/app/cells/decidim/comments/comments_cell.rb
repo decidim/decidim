@@ -8,11 +8,26 @@ module Decidim
       delegate :user_signed_in?, to: :controller
 
       def render_comments
-        if supports_two_columns_layout?
+        if supports_two_columns_layout? && !mobile_view?
           render :comments_in_two_columns
+        elsif supports_two_columns_layout? && mobile_view?
+          @interleaved_comments = interleave_comments(comments_in_favor, comments_against)
+          render :comments_interleaved
         else
           render :comments_in_single_column
         end
+      end
+
+      def interleave_comments(comments_in_favor, comments_against)
+        result = []
+        max_length = [comments_in_favor.size, comments_against.size].max.to_i
+
+        max_length.times do |i|
+          result << comments_in_favor[i] if comments_in_favor[i]
+          result << comments_against[i] if comments_against[i]
+        end
+
+        result
       end
 
       def render_column(comments, icon_name, title)
@@ -126,7 +141,6 @@ module Decidim
       def commentable_type
         model.commentable_type
       end
-
       def comments_data
         {
           singleComment: single_comment?,
@@ -137,6 +151,7 @@ module Decidim
           order:
         }
       end
+
 
       def single_comment?
         single_comment.present?
@@ -186,6 +201,11 @@ module Decidim
         action_authorized_link_to(:comment, commentable_path, options) do
           t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
         end
+      end
+
+      def mobile_view?
+        # TODO: Implement this method
+        false
       end
     end
   end
