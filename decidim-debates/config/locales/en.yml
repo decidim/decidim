@@ -72,6 +72,8 @@ en:
             comments_visualization: Comments visualization
             comments_warning: Once the first comment is posted, the selected display option cannot be changed.
             debate_type: Debate type
+            errors:
+              comments_layout_locked: You cannot change the comment layout once comments have been posted.
             finite: Finite (With start and end times)
             open: Open (No start or end times)
             single_column: "Single column: Comments are displayed in a chronological order and can have replies."

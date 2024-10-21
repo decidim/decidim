@@ -6,7 +6,7 @@ module Decidim
       # This class holds a Form to create/update debates from Decidim's admin panel.
       class DebateForm < Decidim::Form
         include TranslatableAttributes
-
+        mimic :debate
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :instructions, String
@@ -25,10 +25,15 @@ module Decidim
         validates :start_time, presence: { if: :validate_start_time? }, date: { before: :end_time, allow_blank: true, if: :validate_start_time? }
         validates :end_time, presence: { if: :validate_end_time? }, date: { after: :start_time, allow_blank: true, if: :validate_end_time? }
         validates :comments_layout, presence: true, inclusion: { in: %w(single_column two_columns) }
+        validate :comments_layout_change, if: -> { debate.comments_count.positive? }
 
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
         validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
+
+        def debate
+          @debate ||= context[:debate]
+        end
 
         def map_model(model)
           self.finite = model.start_time.present? && model.end_time.present?
@@ -68,6 +73,10 @@ module Decidim
 
         def validate_start_time?
           end_time.present?
+        end
+
+        def comments_layout_change
+          errors.add(:comments_layout, I18n.t("form.errors.comments_layout_locked", scope: "decidim.debates.admin.debates")) if debate.comments_layout != comments_layout
         end
       end
     end
