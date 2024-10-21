@@ -26,6 +26,9 @@ export default class CommentsComponent {
     this.toggleTranslations = config.toggleTranslations;
     this.id = this.$element.attr("id") || this._getUID();
     this.mounted = false;
+
+    this._onTextInput = this._onTextInput.bind(this);
+    this._onToggleOpinion = this._onToggleOpinion.bind(this);
   }
 
   /**
@@ -66,17 +69,45 @@ export default class CommentsComponent {
 
   /**
    * Adds a new thread to the comments section.
+   * If the layout is a two-column layout, the comment is added to either
+   * the "in favor" or "against" column based on the alignment provided.
+   * If the layout is a single column, the comment is added to the main comment thread.
+   *
    * @public
-   * @param {String} threadHtml - The HTML content for the thread.
+   * @param {String} threadHtml - The HTML content for the thread to be added.
+   * @param {Number|null} alignment - Specifies the alignment of the comment.
+   *   If -1, the comment is added to the "against" column.
+   *   If 1, the comment is added to the "in favor" column.
+   *   If null, the comment is added to the general thread (single column layout).
    * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
-   *   herself was the author of the new thread. Defaults to false.
-   * @returns {Void} - Returns nothing
+   *   is the author of the new thread. Defaults to false.
+   * @returns {Void} - Does not return a value.
    */
-  addThread(threadHtml, fromCurrentUser = false) {
-    const $parent = $(".comments:first", this.$element);
+  addThread(threadHtml, alignment, fromCurrentUser = false) {
     const $comment = $(threadHtml);
-    const $threads = $(".comment-threads", this.$element);
-    this._addComment($threads, $comment);
+    const $commentsContainer = $(".comments-two-columns", this.$element);
+    const isTwoColumnsLayout = $commentsContainer.length > 0;
+    let $parent = null;
+
+    if (isTwoColumnsLayout) {
+      const $inFavorColumn = $(".comments-section__in-favor", this.$element);
+      const $againstColumn = $(".comments-section__against", this.$element);
+
+      if (alignment === -1 && $againstColumn.length > 0) {
+        $parent = $againstColumn;
+      } else if (alignment === 1 && $inFavorColumn.length > 0) {
+        $parent = $inFavorColumn;
+      }
+    }
+
+    if (!$parent || $parent.length === 0) {
+      $parent = $(".comments:first", this.$element);
+      const $threads = $(".comment-threads", this.$element);
+      this._addComment($threads, $comment);
+    } else {
+      this._addComment($parent, $comment);
+    }
+
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
@@ -175,7 +206,9 @@ export default class CommentsComponent {
    */
   _finalizeCommentCreation($parent, fromCurrentUser) {
     if (fromCurrentUser) {
-      const $add = $(".add-comment", $parent);
+      const $add = $(".add-comment", $parent).length > 0
+        ? $(".add-comment", $parent)
+        : $(".add-comment", this.$element);
       $("textarea", $add).each((_i, text) => {
         const $text = $(text);
         // Reset textarea content
@@ -268,6 +301,47 @@ export default class CommentsComponent {
   }
 
   /**
+   * Updates the state of the submit button based on input text and opinion selection.
+   *
+   * @param {Object} params - The parameters for updating the submit button state.
+   * @param {jQuery} params.$form - The form element.
+   * @param {boolean} params.isTextNotEmpty - Whether the text input is not empty.
+   * @param {boolean} params.isTwoColumnsLayout - Whether the layout is two-column.
+   * @param {boolean} params.isOpinionSelected - Whether an opinion (for/against) has been selected.
+   * @returns {void} - Does not return a value.
+   * @private
+   */
+  _updateSubmitButtonState({ $form, isTextNotEmpty, isTwoColumnsLayout, isOpinionSelected }) {
+    const $submit = $("button[type='submit']", $form);
+    if (isTextNotEmpty && (!isTwoColumnsLayout || isOpinionSelected)) {
+      $submit.removeAttr("disabled");
+    } else {
+      $submit.attr("disabled", "disabled");
+    }
+  }
+
+  /**
+   * Prepares parameters for updating the submit button state.
+   *
+   * @param {jQuery} $form - The form element.
+   * @returns {Object} - Returns an object with necessary parameters.
+   * @private
+   */
+  _prepareSubmitButtonStateParams($form) {
+    const $opinionButtons = $("[data-opinion-toggle] button", $form.closest(".add-comment"));
+    const isTwoColumnsLayout = $(".comments-two-columns", this.$element).length > 0;
+    const isOpinionSelected = $opinionButtons.filter("[aria-pressed='true']").length > 0;
+    const isTextNotEmpty = $("textarea", $form).val().length > 0;
+
+    return {
+      $form,
+      isTextNotEmpty,
+      isTwoColumnsLayout,
+      isOpinionSelected
+    };
+  }
+
+  /**
    * Event listener for the opinion toggle buttons.
    * @private
    * @param {Event} ev - The event object.
@@ -298,25 +372,22 @@ export default class CommentsComponent {
 
     // Announce the selected state for the screen reader
     $selectedState.text($btn.data("selected-label"));
+
+    this._updateSubmitButtonState(this._prepareSubmitButtonStateParams($form));
   }
 
   /**
    * Event listener for the comment field text input.
    * @private
-   * @param {Event} ev - The event object.
+   * @param {{target: (*|jQuery|HTMLElement)}} ev - The event object.
    * @returns {Void} - Returns nothing
    */
   _onTextInput(ev) {
     const $text = $(ev.target);
     const $add = $text.closest(".add-comment");
     const $form = $("form", $add);
-    const $submit = $("button[type='submit']", $form);
 
-    if ($text.val().length > 0) {
-      $submit.removeAttr("disabled");
-    } else {
-      $submit.attr("disabled", "disabled");
-    }
+    this._updateSubmitButtonState(this._prepareSubmitButtonStateParams($form));
   }
 
   /**

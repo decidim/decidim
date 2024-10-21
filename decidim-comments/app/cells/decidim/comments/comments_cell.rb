@@ -7,6 +7,43 @@ module Decidim
       include UserRoleChecker
       delegate :user_signed_in?, to: :controller
 
+      def render_comments
+        if supports_two_columns_layout?
+          @interleaved_comments ||= interleave_comments(comments_in_favor, comments_against)
+
+          render :comments_in_two_columns
+        else
+          render :comments_in_single_column
+        end
+      end
+
+      def interleave_comments(comments_in_favor, comments_against)
+        result = []
+        max_length = [comments_in_favor.size, comments_against.size].max.to_i
+
+        max_length.times do |i|
+          result << comments_in_favor[i] if comments_in_favor[i]
+          result << comments_against[i] if comments_against[i]
+        end
+
+        result
+      end
+
+      def render_column(comments, icon_name, title)
+        @comments = comments
+        @icon_name = icon_name
+        @title = title
+        render :column
+      end
+
+      def comments_in_favor
+        model.comments.positive
+      end
+
+      def comments_against
+        model.comments.negative
+      end
+
       def add_comment
         render :add_comment if can_add_comments?
       end
@@ -38,6 +75,10 @@ module Decidim
       end
 
       private
+
+      def supports_two_columns_layout?
+        model.respond_to?(:comments_layout) && model.two_columns_layout?
+      end
 
       def can_add_comments?
         return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
@@ -99,7 +140,6 @@ module Decidim
       def commentable_type
         model.commentable_type
       end
-
       def comments_data
         {
           singleComment: single_comment?,
@@ -110,6 +150,7 @@ module Decidim
           order:
         }
       end
+
 
       def single_comment?
         single_comment.present?
