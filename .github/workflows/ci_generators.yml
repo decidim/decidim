@@ -52,7 +52,7 @@ jobs:
           - command: bundle exec parallel_test --type rspec --pattern spec/lib/
             name: Lib
     name: ${{ matrix.test.name }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
@@ -70,6 +70,8 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
+      DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
+      DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
     steps:
       - uses: actions/checkout@v4
         with:

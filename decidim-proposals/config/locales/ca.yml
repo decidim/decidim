@@ -18,6 +18,7 @@ ca:
         automatic_hashtags: Hashtags afegits automàticament
         body: Cos
         category_id: Categoria
+        decidim_proposals_proposal_state_id: Estat
         decidim_scope_id: Àmbit
         has_address: Té adreça
         scope_id: Àmbit
@@ -90,6 +91,16 @@ ca:
       decidim/proposals/voting_enabled_event: Les propostes admeten suports
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: S'ha creat la proposta %{link}
+            import_from_proposal_text: 'S''ha convertit en aquesta proposta: %{link}'
+            import_to_proposal_text: S'ha creat la proposta %{link}
+            merge_from_proposal_text: 'S''ha convertit en aquesta proposta: %{link}'
+            merge_to_proposal_text: 'Es va crear aquesta proposta: %{link}'
+            split_from_proposal_text: 'S''ha convertit en aquesta proposta: %{link}'
+            split_to_proposal_text: 'Es va crear aquesta proposta: %{link}'
       decidim/proposals/collaborative_draft:
         one: Esborrany col·laboratiu
         other: Esborranys col·laboratius
@@ -778,6 +789,11 @@ ca:
       create:
         error: Hi ha hagut un error en desar la proposta.
         success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
+      creation:
+        imported_text: S'ha convertit en aquesta proposta
+        merged_text: S'ha convertit en aquesta proposta
+        splitted_text: S'ha convertit en aquesta proposta
+        text: Es va crear aquesta proposta
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
         success: L'esborrany de proposta s'ha eliminat correctament.

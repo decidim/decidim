@@ -78,6 +78,10 @@ ja:
       decidim/meetings/update_meeting_event: ミーティングが更新されました
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'このミーティングで議論されました: %{link}'
       decidim/meetings/meeting:
         other: ミーティング
       decidim/meetings/minutes:
@@ -529,7 +533,7 @@ ja:
           edit_close_meeting: ミーティングレポートを編集
           edit_meeting: ミーティングを編集
           join_meeting: ミーティングに参加
-          reply_poll: 投票
+          reply_poll: 投票に返信
           view_poll: 投票を表示
         meetings:
           no_meetings_warning: 検索条件に一致するミーティングがないか，予定されているミーティングがありません．

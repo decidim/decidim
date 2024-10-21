@@ -9,15 +9,15 @@ de:
         assembly_type: Versammlungstyp
         assembly_type_other: Sonstiger Versammlungstyp
         banner_image: Banner-Bild
-        closing_date: Einsendeschluss
-        closing_date_reason: Schlussdatums Grund
+        closing_date: Auflösungsdatum
+        closing_date_reason: Grund der Auflösung
         composition: Zusammensetzung
         copy_categories: Kategorien kopieren
         copy_components: Komponenten kopieren
         copy_features: Funktionen kopieren
         created_by: Erstellt von
         created_by_other: Erstellt von anderen
-        creation_date: Datum erstellt
+        creation_date: Gründungsdatum
         decidim_area_id: Bereich
         decidim_assemblies_type_id: Versammlungstyp
         decidim_scope_id: Umfang
@@ -25,7 +25,7 @@ de:
         developer_group: Promoter-Gruppe
         document: Dokument
         domain: Domain
-        duration: Dauer
+        duration: Aktiv bis
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
@@ -33,7 +33,7 @@ de:
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
         import_components: Komponenten importieren
-        included_at: Inbegriffen bei
+        included_at: Hinzugefügt am
         instagram: Instagram
         internal_organisation: Interne Organisation
         is_transparent: Ist transparent
@@ -46,7 +46,7 @@ de:
         private_space: Privatsphäre
         promoted: Hervorgehoben
         published_at: Veröffentlicht am
-        purpose_of_action: Zweck der Aktion
+        purpose_of_action: Handlungszweck
         scope_id: Umfang
         scopes_enabled: Bereiche aktiviert
         short_description: Kurze Beschreibung
@@ -281,11 +281,11 @@ de:
         assemblies:
           form:
             announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Gremien-Informationen angezeigt.
-            duration: Dauer
-            duration_help: Wenn die Dauer dieser Assembly begrenzt ist, wählen Sie das Enddatum aus. Andernfalls wird es als unbestimmt angezeigt.
+            duration: Aktiv bis
+            duration_help: Wenn die Dauer dieses Gremiums begrenzt ist, dann wählen Sie hier das Enddatum aus. Andernfalls wird das Datum als unbestimmt angezeigt.
             filters: Filter
             images: Bilder
-            included_at_help: Wählen Sie das Datum aus, an dem dieses Gremium zu Decidim hinzugefügt wurde. Es muss nicht unbedingt mit dem Erstellungsdatum identisch sein.
+            included_at_help: Wählen Sie das Datum aus, an dem dieses Gremium zur Plattform hinzugefügt wurde. Das Datum muss nicht zwingend mit dem Gründungsdatum übereinstimmen.
             metadata: Metadaten
             other: Andere
             select_a_created_by: Wählen Sie eine erstellt von aus
@@ -294,6 +294,7 @@ de:
             select_parent_assembly: Übergeordnetes Gremium auswählen
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
             social_handlers: Sozial
+            taxonomies: Taxonomien
             title: Allgemeine Information
             visibility: Sichtbarkeit
         assemblies_types:
@@ -329,8 +330,8 @@ de:
           creation_date: Erstellungsdatum
           data: Gremiendaten
           developer_group: Gruppe der Unterstützenden
-          duration: Dauer
-          included_at: Inbegriffen in
+          duration: Aktiv bis
+          included_at: Hinzugefügt am
           indefinite_duration: Unbestimmt
           local_area: Gebiet der Organisation
           meta_scope: Bereich
@@ -394,7 +395,7 @@ de:
             member_of: Mitglied von
       show:
         assembly_type: Montageart
-        duration: Dauer
+        duration: Aktiv bis
         private_space: Dies ist eine private Versammlung
         social_networks_title: Gremium besuchen unter
     assembly_members:

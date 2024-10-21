@@ -27,6 +27,7 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "embed_in_meeting_page" }
     let(:iframe_access_level) { "all" }
+    let(:components) { [] }
     let(:services) do
       [
         {
@@ -73,7 +74,8 @@ module Decidim::Meetings
         comments_enabled: true,
         comments_start_time: nil,
         comments_end_time: nil,
-        iframe_access_level:
+        iframe_access_level:,
+        components:
       )
     end
 

@@ -18,6 +18,7 @@ fr-CA:
         automatic_hashtags: Hashtags ajoutés automatiquement
         body: Corps du texte
         category_id: Catégorie
+        decidim_proposals_proposal_state_id: État
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
         scope_id: Périmètre d'application

@@ -7,10 +7,7 @@ fr:
         decidim_scope_id: Secteur
         description: Description
         end_date: Date de fin
-        meetings_ids: Rencontres associées
         progress: Avancement
-        project_ids: Projets inclus
-        proposals: Propositions incluses
         start_date: Date de début
         title: Titre
         updated_at: Mise à jour à
@@ -28,6 +25,10 @@ fr:
       decidim/accountability/result_progress_updated_event: Résultat du progrès mis à jour
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Ce résultat %{link} a été inclus
       decidim/accountability/result:
         one: Réalisation
         other: Réalisations

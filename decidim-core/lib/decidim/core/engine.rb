@@ -171,8 +171,8 @@ module Decidim
         Decidim.icons.register(name: "calendar-todo-line", icon: "calendar-todo-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "home-8-line", icon: "home-8-line", category: "system", description: "", engine: :core)
 
-        Decidim.icons.register(name: "like", icon: "heart-add-line", description: "Like", category: "action", engine: :core)
-        Decidim.icons.register(name: "dislike", icon: "dislike-line", description: "Dislike", category: "action", engine: :core)
+        Decidim.icons.register(name: "like", icon: "heart-line", description: "Like", category: "action", engine: :core)
+        Decidim.icons.register(name: "dislike", icon: "heart-fill", description: "Dislike", category: "action", engine: :core)
         Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "draggable", icon: "draggable", category: "system", description: "", engine: :core)
@@ -196,6 +196,7 @@ module Decidim
         Decidim.icons.register(name: "profile", icon: "team-line", description: "Groups", category: "profile", engine: :core)
         Decidim.icons.register(name: "user_group", icon: "team-line", description: "Groups", category: "profile", engine: :core)
         Decidim.icons.register(name: "link", icon: "link", description: "web / URL", category: "profile", engine: :core)
+        Decidim.icons.register(name: "unlink", icon: "link-unlink-m", description: "Unlink", category: "profile", engine: :core)
         Decidim.icons.register(name: "following", icon: "eye-2-line", description: "Following", category: "profile", engine: :core)
         Decidim.icons.register(name: "activity", icon: "bubble-chart-line", description: "Activity", category: "profile", engine: :core)
         Decidim.icons.register(name: "followers", icon: "group-line", description: "Followers", category: "profile", engine: :core)

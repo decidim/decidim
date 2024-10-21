@@ -79,7 +79,24 @@ shared_examples "Endorse resource system specs" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
             click_on "Like"
-            expect(page).to have_button("Dislike")
+            expect(page).to have_button("Like")
+            expect(page).to have_css('svg use[href*="ri-heart-fill"]')
+            expect(page).to have_css('#endorsement-button[aria-label="Undo the like"]')
+          end
+        end
+
+        it "has endorsements from other users" do
+          author = create(:user, :confirmed, organization: resource.organization)
+          create(:endorsement, resource:, author:)
+          visit_resource
+          within "#endorser-list-#{resource.id}" do
+            expect(page).to have_content("Liked by #{author.name}")
+            click_on author.name
+          end
+          expect(page).to have_content("Liked by")
+          within "#endorsersModal-#{resource.id}" do
+            expect(page).to have_content(author.name)
+            expect(page).to have_no_content(user.name)
           end
         end
       end
@@ -90,16 +107,33 @@ shared_examples "Endorse resource system specs" do
         it "is not able to endorse it again" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
-            expect(page).to have_button("Dislike")
-            expect(page).to have_no_button("Like")
+            expect(page).to have_css('svg use[href*="ri-heart-fill"]')
+            expect(page).to have_css('#endorsement-button[aria-label="Undo the like"]')
+            expect(page).to have_no_css('svg use[href*="ri-heart-line"]')
           end
         end
 
         it "is able to undo the endorsement" do
           visit_resource
           within "#resource-#{resource.id}-endorsement-block" do
-            click_on "Dislike"
+            expect(page).to have_css('svg use[href*="ri-heart-fill"]')
+            expect(page).to have_css('#endorsement-button[aria-label="Undo the like"]')
+            click_on "Like"
+            expect(page).to have_css('svg use[href*="ri-heart-line"]')
+            expect(page).to have_css('#endorsement-button[aria-label="Like"]')
             expect(page).to have_button("Like")
+          end
+        end
+
+        it "can show the endorsements pop-up" do
+          visit_resource
+          within "#endorser-list-#{resource.id}" do
+            expect(page).to have_content("Liked by you")
+            click_on "you"
+          end
+          expect(page).to have_content("Liked by")
+          within "#endorsersModal-#{resource.id}" do
+            expect(page).to have_content(user.name)
           end
         end
       end
@@ -143,9 +177,13 @@ shared_examples "Endorse resource system specs" do
           it "IS able to endorse", :slow do
             visit_resource
             within "#resource-#{resource.id}-endorsement-block" do
+              expect(page).to have_css('svg use[href*="ri-heart-line"]')
+              expect(page).to have_css('#endorsement-button[aria-label="Like"]')
               click_on "Like"
+              expect(page).to have_button("Like")
+              expect(page).to have_css('#endorsement-button[aria-label="Undo the like"]')
+              expect(page).to have_css('svg use[href*="ri-heart-fill"]')
             end
-            expect(page).to have_button("Dislike")
           end
         end
       end
@@ -176,7 +214,9 @@ shared_examples "Endorse resource system specs" do
           it "is able to endorse the resource" do
             within "#resource-#{resource.id}-endorsement-block" do
               click_on "Like"
-              expect(page).to have_button("Dislike")
+              expect(page).to have_button("Like")
+              expect(page).to have_css('svg use[href*="ri-heart-fill"]')
+              expect(page).to have_css('#endorsement-button[aria-label="Undo the like"]')
             end
           end
         end
@@ -199,7 +239,7 @@ shared_examples "Endorse resource system specs" do
               click_on "Done"
             end
             visit_resource
-            click_on "Dislike"
+            click_on "Like"
           end
 
           context "when both identities picked" do
@@ -217,6 +257,8 @@ shared_examples "Endorse resource system specs" do
               add_likes
               find(".is-selected", match: :first).click
               click_on "Done"
+              expect(page).to have_css('svg use[href*="ri-heart-line"]')
+              expect(page).to have_css('#select-identity-button[aria-label="Like"]')
               visit current_path
               click_on "Like"
 
@@ -234,8 +276,12 @@ shared_examples "Endorse resource system specs" do
               add_likes
               page.all(".is-selected")[1].click
               click_on "Done"
+              expect(page).to have_css('svg use[href*="ri-heart-fill"]')
+              expect(page).to have_css('#select-identity-button[aria-label="Undo the like"]')
               visit current_path
-              click_on "Dislike"
+              expect(page).to have_css('svg use[href*="ri-heart-fill"]')
+              expect(page).to have_css('#select-identity-button[aria-label="Undo the like"]')
+              click_on "Like"
 
               within ".identities-modal__list" do
                 expect(page).to have_css(".is-selected", count: 1)

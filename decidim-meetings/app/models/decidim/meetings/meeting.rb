@@ -45,6 +45,8 @@ module Decidim
         foreign_key: :decidim_user_id,
         source: :user
       )
+      has_many :meeting_links, dependent: :destroy, class_name: "Decidim::Meetings::MeetingLink", foreign_key: "decidim_meeting_id"
+      has_many :components, through: :meeting_links, class_name: "Decidim::Component", foreign_key: "decidim_component_id"
 
       enum iframe_access_level: [:all, :signed_in, :registered], _prefix: true
       enum iframe_embed_type: [:none, :embed_in_meeting_page, :open_in_live_event_page, :open_in_new_tab], _prefix: true
@@ -57,6 +59,7 @@ module Decidim
 
       geocoded_by :address
 
+      scope :closed, -> { where.not(closed_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }

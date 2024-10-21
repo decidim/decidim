@@ -96,6 +96,7 @@ fi:
         duplicate: Kopioi
         edit: Muokkaa
         import_process: Tuo
+        menu_hidden: Piilota
         moderate: Moderoi
         new_process: Uusi prosessi
         new_process_group: Uusi prosessiryhmä
@@ -432,6 +433,7 @@ fi:
             select_participatory_process_type: Valitse prosessityyppi
             select_process_group: Valitse prosessiryhmä
             slug_help_html: 'URL-tunnisteita käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimet, numerot ja viivat. Arvon on alettava kirjaimella. Esimerkki: %{url}'
+            taxonomies: Luokittelut
             title: Yleistä tietoa
             visibility: Näkyvyys
       content_blocks:
@@ -446,7 +448,7 @@ fi:
       index:
         title: Osallistumisprosessit
       last_activity:
-        new_participatory_process: Uusi osallistumisprosessi
+        new_participatory_process: 'Uusi osallistumisprosessi:'
       pages:
         home:
           highlighted_processes:

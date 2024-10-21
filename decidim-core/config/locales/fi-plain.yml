@@ -64,6 +64,10 @@ fi-pl:
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
     models:
+      decidim:
+        history:
+          one: Historia
+          other: Historia
       decidim/amendment:
         one: muutos
         other: Muutokset
@@ -269,6 +273,13 @@ fi-pl:
         delete_with_parent: "%{user_name} poisti kohteen %{resource_name} luokittelun %{parent_taxonomy} alta"
         update: "%{user_name} päivitti luokittelua %{resource_name}"
         update_with_parent: "%{user_name} päivitti kohdetta %{resource_name} luokittelun %{parent_taxonomy} alla"
+      taxonomy_filter:
+        create: "%{user_name} loi suodattimen luokittelulle %{resource_name}"
+        create_with_filter_items_count: "%{user_name} loi suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
+        delete: "%{user_name} poisti suodattimen luokittelulle %{resource_name}"
+        delete_with_filter_items_count: "%{user_name} poisti suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
+        update: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}"
+        update_with_filter_items_count: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
@@ -937,7 +948,7 @@ fi-pl:
           title_required: Tiedosto-otsikko tarvitaan!
           uploaded: Ladattu
           validating: Validoidaan...
-          validation_error: Validointivirhe!
+          validation_error: Virhe tiedoston tarkastamisessa! Varmista, että tiedostopääte ja tiedoston koko vastaavat palvelun asettamia rajoituksia.
         select_file: Valitse tiedosto
       upload_help:
         dropzone: Pudota tiedostot tähän tai paina viereistä nappia ladataksesi tiedostoja
@@ -1434,6 +1445,8 @@ fi-pl:
       create:
         error: Ilmoituksen luonti epäonnistui. Yritä uudestaan.
         success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+    resource:
+      controls_label: Kohteen hallintatoiminnot
     resource_endorsements:
       create:
         error: Suosituksen antaminen ei onnistunut.
@@ -1557,6 +1570,8 @@ fi-pl:
     tags:
       filter_results_for_category: 'Rajaa tulokset aihepiirin mukaan: %{resource}'
       filter_results_for_scope: 'Rajaa tulokset teeman mukaan: %{resource}'
+    taxonomies:
+      prompt: Valitse kohteesta "%{name}"
     translation_bar:
       help_text: "<strong>Varoitus:</strong> Sisältö saatetaan kääntää automaattisesti eikä koneelliset käännökset ole 100% tarkkoja."
       show_original: Näytä alkuperäinen teksti
