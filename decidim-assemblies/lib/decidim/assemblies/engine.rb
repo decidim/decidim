@@ -68,8 +68,8 @@ module Decidim
         Decidim.view_hooks.register(:user_profile_bottom, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           assemblies = OrganizationPublishedAssemblies.new(view_context.current_organization, view_context.current_user)
                                                       .query.distinct
-                                                      .joins(:members)
-                                                      .merge(Decidim::AssemblyMember.where(user: view_context.profile_holder))
+                                                      .joins(:participatory_space_private_users)
+                                                      .merge(Decidim::ParticipatorySpacePrivateUser.where(user: view_context.profile_holder))
                                                       .reorder(title: :asc)
 
           next unless assemblies.any?
