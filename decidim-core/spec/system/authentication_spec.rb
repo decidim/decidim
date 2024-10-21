@@ -3,12 +3,41 @@
 require "spec_helper"
 
 describe "Authentication" do
+  let!(:previous_omniauth_secrets) { Decidim.omniauth_providers }
+
   let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
+  let(:omniauth_secrets) do
+    {
+      facebook: {
+        enabled: true,
+        app_id: "fake-facebook-app-id",
+        app_secret: "fake-facebook-app-secret",
+        icon: "phone"
+      },
+      twitter: {
+        enabled: true,
+        api_key: "fake-twitter-api-key",
+        api_secret: "fake-twitter-api-secret",
+        icon: "phone"
+      },
+      google_oauth2: {
+        enabled: true,
+        client_id: nil,
+        client_secret: nil,
+        icon: "phone"
+      }
+    }
+  end
 
   before do
+    allow(Decidim).to receive(:omniauth_providers).and_return(omniauth_secrets)
     switch_to_host(organization.host)
     visit decidim.root_path
+  end
+
+  after do
+    Decidim.omniauth_providers = previous_omniauth_secrets
   end
 
   describe "Create an account" do
