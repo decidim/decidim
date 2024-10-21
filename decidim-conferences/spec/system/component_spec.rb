@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Initiative Components" do
+describe "Conference Components" do
   describe "private_non_transparent_space?" do
     subject { component }
 
