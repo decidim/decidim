@@ -11,8 +11,8 @@ module Decidim
     let(:component) { build(:component, manifest_name: "dummy", participatory_space:) }
 
     describe ".private_non_transparent_space?" do
-      # since the conferences don't respond to private_space? we are testing and mae sure it doesn't fail
-      it { expect(subject.private_non_transparent_space?).to be_falsey }
+      # since the conferences does not respond to private_space? we are testing and mae sure it does not fail
+      it { expect(subject).not_to be_private_non_transparent_space }
     end
   end
 end
