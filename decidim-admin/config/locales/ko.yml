@@ -490,7 +490,7 @@ ko:
             name: 이름
         share_token:
           fields:
-            created_at: 생성일
+            created_at: 생성 위치
             expires_at: 만료일
             last_used_at: 마지막으로 사용한 시간
             times_used: 사용 시간

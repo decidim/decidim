@@ -76,8 +76,6 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar este debate.
             success: Debate atualizado corretamente.
-        exports:
-          comments: Comentários
       admin_log:
         debate:
           close: "%{user_name} Fechou o debate %{resource_name} no espaço %{space_name}"

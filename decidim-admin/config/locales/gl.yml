@@ -531,7 +531,7 @@ gl:
             plural: Plural
         share_token:
           fields:
-            created_at: Creado o
+            created_at: Creado en
             expires_at: Caduca o
             last_used_at: Empregado por última vez
             times_used: Veces utilizado

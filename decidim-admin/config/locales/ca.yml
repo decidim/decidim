@@ -645,7 +645,7 @@ ca:
             plural: Plural
         share_token:
           fields:
-            created_at: Creat el
+            created_at: Data de creació
             expires_at: Caduca el
             last_used_at: Darrer cop que es va fer servir
             times_used: Cops utilitzat

@@ -80,8 +80,6 @@ eu:
           update:
             invalid: Arazo bat egon da eztabaida hau eguneratzean.
             success: Debate arrakastaz eguneratu da.
-        exports:
-          comments: Iruzkinak
       admin_log:
         debate:
           close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
@@ -178,7 +176,7 @@ eu:
           user_followers:
             email_intro: |-
               Kaixo,
-              %{author_name} %{author_nickname} k, jarraitzen ari zarenak, "%{resource_title}" eztabaida berri bat sortu du. Begiratu eta lagundu:
+              %{author_name} %{author_nickname} k, jarraitzen ari zarenak, "%{resource_title}" beste eztabaida bat sortu du. Begiratu eta lagundu:
             email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraitzen ari zarelako. Aurreko estekan jakinarazpenak jasotzeari utzi ahal diozu.
             email_subject: '%{author_nickname} k "%{resource_title}" beste eztabaida bat sortu du'
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> k sortu du <a href="%{resource_path}">%{resource_title}</a> eztabaida.

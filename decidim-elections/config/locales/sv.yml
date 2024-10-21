@@ -84,7 +84,7 @@ sv:
         officers_assigned_eq:
           label: Handläggare
           values:
-            assigned: Tilldelade
+            assigned: Valda
             unassigned: Inte tilldelad
         role_eq:
           label: Roll

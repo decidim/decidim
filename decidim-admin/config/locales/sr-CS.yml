@@ -379,6 +379,9 @@ sr:
           fields:
             name: Ime
             plural: Množina
+        share_token:
+          fields:
+            created_at: Stvoreno
         static_page:
           fields:
             created_at: Kreirano na
