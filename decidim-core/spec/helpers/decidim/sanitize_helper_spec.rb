@@ -51,7 +51,11 @@ module Decidim
         end
 
         it "escapes javascript: prepended by a line break in the URL" do
-          expect(helper.decidim_url_escape("\njavascript:alert('hello')")).to eq("\nalert(&#39;hello&#39;)")
+          expect(helper.decidim_url_escape("\njavascript:alert('hello')")).to eq("alert(&#39;hello&#39;)")
+        end
+
+        it "escapes javascript: prepended by an empty space in the URL" do
+          expect(helper.decidim_url_escape(" javascript:alert('hello')")).to eq("alert(&#39;hello&#39;)")
         end
       end
 
