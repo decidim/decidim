@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       account:
@@ -684,12 +685,15 @@ en:
       export:
         ready: Ready
       show:
-        download_data: Download the data
-        download_data_description_html: |-
-          A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>.
-          This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS).
-          If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Request data
+        type: Download type
+        expiration: Expiration
+        action: Action
+        download_data: Downloads area
+        download_your_data: Personal data
+        download: Download
+        download_data_description_1_html: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
+        download_data_description_2_html: You can request a .zip file with your submissions and personal data.
+        request_data: Request
     editor_images:
       create:
         error: Error uploading image.
