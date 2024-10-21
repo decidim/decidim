@@ -1,0 +1,20 @@
+= Spam detection Analyzer
+
+```ruby
+class ResourceAnalyzer < Decidim::Ai::SpamDetection::Resource::Base
+  def fields
+    [:title, :body, :etc]
+  end
+
+ protected
+
+  def query
+    Your::Model.including()
+  end
+
+  def resource_hidden?(resource); end
+  def batch_train; end
+  def train; end #  delegated to classifier
+  def untrain; end #  delegated to classifier
+end
+```

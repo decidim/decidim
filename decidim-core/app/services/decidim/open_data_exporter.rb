@@ -56,7 +56,7 @@ module Decidim
                         .select { |manifest| manifest.name == resource.to_sym }.first
 
       case export_manifest.manifest
-      when Decidim::Component
+      when Decidim::ComponentManifest
         data_for_component(export_manifest).read
       when Decidim::ParticipatorySpaceManifest
         data_for_participatory_space(export_manifest).read
@@ -112,7 +112,7 @@ module Decidim
 
     def get_help_definition(manifest_type, exporter, export_manifest)
       help_definition[manifest_type] = {} if help_definition[manifest_type].nil?
-      help_definition[manifest_type][export_manifest.name] = {}
+      help_definition[manifest_type][export_manifest.name] = {} if help_definition[manifest_type][export_manifest.name].blank?
       exporter.headers_without_locales.each do |header|
         help_definition[manifest_type][export_manifest.name][header] = I18n.t("decidim.open_data.help.#{export_manifest.name}.#{header}")
       end

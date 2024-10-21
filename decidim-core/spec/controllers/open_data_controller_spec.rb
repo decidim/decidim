@@ -26,7 +26,8 @@ module Decidim
         let(:generate_file) { true }
 
         it "redirects to download it" do
-          expect(controller).to redirect_to(open_data_file_url)
+          expect(response.content_type).to eq("application/zip")
+          expect(response).to have_http_status(:ok)
         end
       end
 

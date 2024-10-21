@@ -64,6 +64,7 @@ module Decidim
               get :share
               put :hide
             end
+            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
             resources :exports, only: :create
           end
 
@@ -75,6 +76,8 @@ module Decidim
             end
             resources :reports, controller: "moderations/reports", only: [:index, :show]
           end
+
+          resources :initiative_share_tokens, except: [:show], path: "share_tokens"
         end
 
         scope "/initiatives/:initiative_slug/components/:component_id/manage" do
