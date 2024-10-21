@@ -193,6 +193,7 @@ describe "Amend Proposal", versioning: true do
 
         context "when the user is not logged in and clicks" do
           before do
+            find("#dropdown-trigger-resource-#{proposal.id}").click
             click_on "Amend"
           end
 
@@ -209,6 +210,7 @@ describe "Amend Proposal", versioning: true do
             login_as user, scope: :user
             visit proposal_path
             expect(page).to have_content(proposal_title)
+            find("#dropdown-trigger-resource-#{proposal.id}").click
             click_on "Amend"
           end
 
@@ -228,6 +230,7 @@ describe "Amend Proposal", versioning: true do
               login_as user, scope: :user
               visit proposal_path
               expect(page).to have_content(proposal_title)
+              find("#dropdown-trigger-resource-#{proposal.id}").click
               click_on "Amend"
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "More sidewalks and less roads"
@@ -247,6 +250,7 @@ describe "Amend Proposal", versioning: true do
               login_as user, scope: :user
               visit proposal_path
               expect(page).to have_content(proposal_title)
+              find("#dropdown-trigger-resource-#{proposal.id}").click
               click_on "Amend"
               within ".new_amendment" do
                 fill_in "amendment[emendation_params][title]", with: "INVALID TITLE"

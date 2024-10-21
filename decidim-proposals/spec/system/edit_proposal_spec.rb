@@ -27,6 +27,7 @@ describe "Edit proposals" do
       visit_component
 
       click_on proposal_title
+      find("#dropdown-trigger-resource-#{proposal.id}").click
       click_on "Edit proposal"
 
       expect(page).to have_content "Edit proposal"
@@ -51,6 +52,7 @@ describe "Edit proposals" do
       end
 
       it "shows validation error when format is not accepted" do
+        find("#dropdown-trigger-resource-#{proposal.id}").click
         click_on "Edit proposal"
         dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
@@ -66,6 +68,7 @@ describe "Edit proposals" do
           visit current_path
 
           expect(page).to have_content("Documents")
+          find("#dropdown-trigger-resource-#{proposal.id}").click
           click_on "Edit proposal"
 
           click_on "Edit documents"
@@ -90,6 +93,7 @@ describe "Edit proposals" do
           let(:attachment_image_title) { Faker::Lorem.sentence }
 
           it "can change attachment titles" do
+            find("#dropdown-trigger-resource-#{proposal.id}").click
             click_on "Edit proposal"
             click_on "Edit documents"
             within ".upload-modal" do
@@ -121,6 +125,7 @@ describe "Edit proposals" do
           end
 
           it "displays them correctly on the edit form" do
+            find("#dropdown-trigger-resource-#{proposal.id}").click
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
             click_on "Edit proposal"
             expect(page).to have_content("Required fields are marked with an asterisk")
@@ -143,6 +148,7 @@ describe "Edit proposals" do
           end
 
           it "displays them correctly on the edit form" do
+            find("#dropdown-trigger-resource-#{proposal.id}").click
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
             click_on "Edit proposal"
             expect(page).to have_content("Required fields are marked with an asterisk")
@@ -160,6 +166,7 @@ describe "Edit proposals" do
         it "can add many images many times" do
           skip "REDESIGN_PENDING - Flaky test: upload modal fails on GitHub with multiple files https://github.com/decidim/decidim/issues/10961"
 
+          find("#dropdown-trigger-resource-#{proposal.id}").click
           click_on "Edit proposal"
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("city.jpeg"))
           dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("icon.png"))
@@ -202,6 +209,7 @@ describe "Edit proposals" do
         visit_component
 
         click_on translated(proposal.title)
+        find("#dropdown-trigger-resource-#{proposal.id}").click
         click_on "Edit proposal"
 
         expect(page).to have_field("Title", with: translated(proposal.title))
@@ -235,6 +243,7 @@ describe "Edit proposals" do
           visit_component
 
           click_on translated(proposal.title)
+          find("#dropdown-trigger-resource-#{proposal.id}").click
           click_on "Edit proposal"
 
           expect(page).to have_field("Title", with: translated(proposal.title))
@@ -263,6 +272,7 @@ describe "Edit proposals" do
         visit_component
 
         click_on proposal_title
+        find("#dropdown-trigger-resource-#{proposal.id}").click
         click_on "Edit proposal"
 
         expect(page).to have_content "Edit proposal"
@@ -287,6 +297,7 @@ describe "Edit proposals" do
         visit_component
 
         click_on proposal_title
+        find("#dropdown-trigger-resource-#{proposal.id}").click
         click_on "Edit proposal"
 
         expect(page).to have_content "Edit proposal"
@@ -319,6 +330,7 @@ describe "Edit proposals" do
           proposal.update!(body:)
           visit_component
           click_on proposal_title
+          find("#dropdown-trigger-resource-#{proposal.id}").click
           click_on "Edit proposal"
         end
 
