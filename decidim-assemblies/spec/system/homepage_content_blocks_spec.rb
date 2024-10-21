@@ -7,9 +7,7 @@ describe "Homepage assemblies content blocks" do
   let!(:promoted_assembly) { create(:assembly, :promoted, organization:) }
   let!(:unpromoted_assembly) { create(:assembly, organization:) }
   let!(:promoted_external_assembly) { create(:assembly, :promoted) }
-  let!(:highlighted_assemblies_content_block) {
-    create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_assemblies)
-  }
+  let!(:highlighted_assemblies_content_block) { create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_assemblies) }
 
   include_context "when admin administrating an assembly"
 
@@ -17,7 +15,6 @@ describe "Homepage assemblies content blocks" do
     switch_to_host(organization.host)
     login_as user, scope: :user
   end
-
 
   it "includes active assemblies to the homepage" do
     visit decidim.root_path

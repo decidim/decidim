@@ -10,8 +10,11 @@ describe "Homepage conferences content blocks" do
   let!(:promoted_external_conference) { create(:conference, :promoted) }
   let!(:highlighted_conferences_content_block) { create(:content_block, organization:, scope_name: :homepage, manifest_name: :highlighted_conferences) }
 
+  include_context "when admin administrating a conference"
+
   before do
     switch_to_host(organization.host)
+    login_as user, scope: :user
   end
 
   it "includes active conferences to the homepage" do
@@ -24,13 +27,6 @@ describe "Homepage conferences content blocks" do
 
       expect(page).to have_css("a.card__grid", count: 3)
     end
-  end
-
-  include_context "when admin administrating a conference"
-
-  before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
   end
 
   it "updates the number of highlighted conferences with a number input field" do
