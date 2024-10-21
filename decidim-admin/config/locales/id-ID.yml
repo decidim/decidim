@@ -351,6 +351,9 @@ id:
           fields:
             name: Nama
             plural: Jamak
+        share_token:
+          fields:
+            created_at: Dibuat di
         static_page:
           fields:
             created_at: Dibuat di

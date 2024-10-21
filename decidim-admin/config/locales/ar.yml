@@ -507,6 +507,7 @@ ar:
             plural: جمع
         share_token:
           fields:
+            created_at: أنشئت في
             expires_at: تنتهي صلاحيته في
             token: رمز التشفير - Token
             user: تم الإنشاء بواسطة

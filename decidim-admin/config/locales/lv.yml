@@ -379,6 +379,9 @@ lv:
           fields:
             name: Nosaukums
             plural: Daudzskaitlī
+        share_token:
+          fields:
+            created_at: Izveidots plkst.
         static_page:
           fields:
             created_at: Izveidots plkst.
