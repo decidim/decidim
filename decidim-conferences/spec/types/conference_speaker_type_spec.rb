@@ -99,10 +99,12 @@ module Decidim
       end
 
       context "when there is a user" do
-        let(:model) { create(:conference_speaker, :with_user) }
+        let(:conference) { create(:conference) }
+        let(:user) { create(:user, :confirmed, organization: conference.organization) }
+        let(:model) { create(:conference_speaker, user:, conference:) }
 
         describe "user" do
-          let(:query) { "{ user { name   } }" }
+          let(:query) { "{ user { name } }" }
 
           it "returns the decidim user for this speaker" do
             expect(response["user"]["name"]).to eq(model.user.name)

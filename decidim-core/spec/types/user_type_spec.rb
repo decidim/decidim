@@ -8,7 +8,34 @@ module Decidim
     describe UserType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:user) }
+      let(:model) { create(:user, :confirmed) }
+
+      describe "unconfirmed user" do
+        let(:model) { create(:user) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      describe "deleted user" do
+        let(:model) { create(:user, :deleted) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      describe "moderated user" do
+        let(:model) { create(:user, :blocked) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
 
       describe "name" do
         let(:query) { "{ name }" }
@@ -30,7 +57,7 @@ module Decidim
         let(:query) { "{ badge }" }
 
         context "when the user is officialized" do
-          let(:model) { create(:user, :officialized) }
+          let(:model) { create(:user, :confirmed, :officialized) }
 
           it "returns the icon to use for the verification badge" do
             expect(response).to include("badge" => "verified-badge")
@@ -38,7 +65,7 @@ module Decidim
         end
 
         context "when the user is not officialized" do
-          let(:model) { create(:user) }
+          let(:model) { create(:user, :confirmed) }
 
           it "returns empty" do
             expect(response).to include("badge" => "")
@@ -65,7 +92,7 @@ module Decidim
           let(:model) { create(:user, :deleted) }
 
           it "returns empty" do
-            expect(response).to include("profilePath" => "")
+            expect(response).to be_nil
           end
         end
       end
@@ -78,7 +105,7 @@ module Decidim
         end
 
         context "when user direct messages disabled" do
-          let(:model) { create(:user, direct_message_types: "followed-only") }
+          let(:model) { create(:user, :confirmed, direct_message_types: "followed-only") }
 
           it "returns the direct_messages status" do
             expect(response).to include("directMessagesEnabled" => "false")

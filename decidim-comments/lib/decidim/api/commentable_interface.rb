@@ -45,6 +45,12 @@ module Decidim
       def user_allowed_to_comment
         object.commentable? && object.user_allowed_to_comment?(context[:current_user])
       end
+
+      definition_methods do
+        def resolve_type(object, _context)
+          GraphQL::Types.const_get("#{object.class.name}Type")
+        end
+      end
     end
   end
 end

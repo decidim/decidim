@@ -13,6 +13,8 @@ module Decidim
         case permission_action.action
         when :create
           toggle_allow(can_create_debate?)
+        when :read
+          toggle_allow(!debate.hidden?)
         when :report
           allow!
         when :edit

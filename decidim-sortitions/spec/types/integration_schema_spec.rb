@@ -8,7 +8,8 @@ describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
   let(:component_type) { "Sortitions" }
   let!(:current_component) { create(:sortition_component, participatory_space: participatory_process) }
-  let!(:sortition) { create(:sortition, component: current_component, category:) }
+  let(:author) { create(:user, :confirmed, :admin, organization: current_component.organization) }
+  let!(:sortition) { create(:sortition, component: current_component, category:, author:) }
 
   let(:sortition_single_result) do
     sortition.reload
@@ -55,6 +56,24 @@ describe "Decidim::Api::QueryType" do
       },
       "weight" => 0
     }
+  end
+
+  describe "commentable" do
+    let(:participatory_process_query) do
+      %(
+        commentable(id: "#{sortition.id}", type: "Decidim::Sortitions::Sortition", locale: "en", toggleTranslations: false) {
+          __typename
+        }
+      )
+    end
+
+    it "executes successfully" do
+      expect { response }.not_to raise_error
+    end
+
+    it do
+      expect(response).to eq({ "commentable" => { "__typename" => "Sortition" } })
+    end
   end
 
   describe "valid connection query" do
