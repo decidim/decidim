@@ -2,33 +2,31 @@
 
 require "spec_helper"
 
-describe "Authorizations", with_authorization_workflows: ["dummy_authorization_handler"] do
+describe "Authorizations", with_authorization_workflows: %w(dummy_authorization_handler another_dummy_authorization_handler) do
   before do
     switch_to_host(organization.host)
   end
 
-  context "when a new user" do
+  context "when a new user visits authorizations" do
     let(:organization) { create(:organization, available_authorizations: authorizations) }
 
     let(:user) { create(:user, :confirmed, organization:) }
 
     context "when one authorization has been configured" do
-      let(:authorizations) { ["dummy_authorization_handler"] }
+      let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
       before do
-        visit decidim.root_path
-        within "#main-bar" do
-          click_on("Log in")
-        end
-
-        within "form.new_user", match: :first do
-          fill_in :session_user_email, with: user.email
-          fill_in :session_user_password, with: "decidim123456789"
-          find("*[type=submit]").click
-        end
+        sign_in
+        visit_authorizations
       end
 
-      it "redirects the user to the authorization form after the first sign in" do
+      it "shows one authorization link" do
+        expect(page).to have_css("a[data-verification]", text: "Example authorization")
+      end
+
+      it "allows the user to fill in the authorization form" do
+        click_on "Example authorization"
+
         fill_in "Document number", with: "123456789X"
 
         fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
@@ -38,6 +36,8 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
       end
 
       it "allows the user to skip it" do
+        click_on "Example authorization"
+
         click_on "start exploring"
         expect(page).to have_current_path decidim.account_path
 
@@ -50,6 +50,8 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
         let!(:other_user) { create(:user, :confirmed, organization: user.organization) }
 
         it "transfers the authorization from the deleted user" do
+          click_on "Example authorization"
+
           fill_in "Document number", with: document_number
 
           fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
@@ -69,6 +71,8 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
         let!(:other_user) { create(:user, :deleted, organization: user.organization) }
 
         it "transfers the authorization from the deleted user" do
+          click_on "Example authorization"
+
           fill_in "Document number", with: document_number
 
           fill_in_datepicker :authorization_handler_birthday_date, with: Time.current.change(day: 12).strftime("%d/%m/%Y")
@@ -110,24 +114,16 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
       end
     end
 
-    context "when multiple authorizations have been configured", with_authorization_workflows: %w(dummy_authorization_handler dummy_authorization_workflow) do
-      let(:authorizations) { %w(dummy_authorization_handler dummy_authorization_workflow) }
+    context "when multiple authorizations have been configured", with_authorization_workflows: %w(dummy_authorization_handler another_dummy_authorization_handler) do
+      let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
       before do
-        visit decidim.root_path
-        within "#main-bar" do
-          click_on("Log in")
-        end
-
-        within "form.new_user", match: :first do
-          fill_in :session_user_email, with: user.email
-          fill_in :session_user_password, with: "decidim123456789"
-          find("*[type=submit]").click
-        end
+        sign_in
+        visit_authorizations
       end
 
       it "allows the user to choose which one to authorize against to" do
-        expect(page).to have_css("a[href]", text: /\AVerify against /, count: 2)
+        expect(page).to have_css("a[data-verification]", count: 2)
       end
     end
   end
@@ -142,7 +138,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     end
 
     context "when user has not already been authorized" do
-      let(:authorizations) { ["dummy_authorization_handler"] }
+      let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
       it "allows the user to authorize against available authorizations" do
         visit_authorizations
@@ -177,7 +173,7 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     end
 
     context "when the user has already been authorized" do
-      let(:authorizations) { ["dummy_authorization_handler"] }
+      let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
       let!(:authorization) do
         create(:authorization, name: "dummy_authorization_handler", user:)
@@ -297,6 +293,132 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     end
   end
 
+  context "when there is onboarding action data and the user signs in" do
+    let(:organization) { create(:organization, available_authorizations: authorizations) }
+    let(:component) { create(:component, manifest_name: "dummy", organization:, permissions:) }
+    let(:commentable) { create(:dummy_resource, component:) }
+    let(:permissions) { nil }
+    let(:comment) { create(:comment, commentable:) }
+    let(:action) { :comment }
+    let(:extended_data) { { onboarding: { action:, model: commentable.to_gid } } }
+    let(:user) { create(:user, :confirmed, organization:, extended_data:) }
+    let(:commentable_path) { Decidim::ResourceLocatorPresenter.new(commentable).path }
+    let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
+    let!(:user_verification) { nil }
+
+    before do
+      sign_in
+    end
+
+    context "and there are no authorizations defined for the resource" do
+      it "the user is redirected to the resource" do
+        expect(page).to have_current_path commentable_path
+        expect(page).to have_content "You have been successfully authorized"
+      end
+    end
+
+    context "and there are authorizations defined for the resource" do
+      let(:permissions) do
+        {
+          action => {
+            authorization_handlers: {
+              dummy_authorization_handler: {
+                options: {
+                  allowed_postal_codes: "1234, 4567"
+                }
+              }
+            }
+          }
+        }
+      end
+
+      context "and the user is not verified with the authorization" do
+        it "the user onboarding extended data is maintained" do
+          expect(user.reload.extended_data["onboarding"]).to be_present
+        end
+
+        context "when there is only an authorization" do
+          it "the user is redirected to a page with the authorizations required to perform the action" do
+            expect(page).to have_current_path decidim_verifications.new_authorization_path(
+              handler: "dummy_authorization_handler",
+              postal_codes: "1234,4567",
+              redirect_url: decidim_verifications.onboarding_pending_authorizations_path
+            )
+            expect(page).to have_content "We need to verify your identity"
+            expect(page).to have_content "Verify with Example authorization"
+          end
+        end
+
+        context "when there are more than one authorization" do
+          let(:permissions) do
+            {
+              action => {
+                authorization_handlers: {
+                  dummy_authorization_handler: {
+                    options: {
+                      allowed_postal_codes: "1234, 4567"
+                    }
+                  },
+                  another_dummy_authorization_handler: {
+                    options: {}
+                  }
+                }
+              }
+            }
+          end
+
+          it "the user is redirected to a page with the authorizations required to perform the action" do
+            expect(page).to have_current_path decidim_verifications.onboarding_pending_authorizations_path
+            expect(page).to have_content "You are almost ready to comment on the #{translated_attribute(commentable.title)} dummy resource"
+            expect(page).to have_css("a[data-verification]", text: "Example authorization")
+            expect(page).to have_css("a[data-verification]", text: "Another example authorization")
+          end
+        end
+      end
+
+      context "and the user is verified with the authorization" do
+        let(:document_number) { "123456789X" }
+        let!(:user_verification) { create(:authorization, :granted, user:, name: "dummy_authorization_handler", metadata:) }
+
+        context "and the authorization is granted with metadata which meets the conditions to allow the action" do
+          let(:metadata) do
+            {
+              "postal_code" => "1234",
+              "document_number" => document_number
+            }
+          end
+
+          it "the user onboarding extended data is removed" do
+            expect(user.reload.extended_data["onboarding"]).to be_blank
+          end
+
+          it "the user is redirected to the resource with a success message" do
+            expect(page).to have_current_path commentable_path
+            expect(page).to have_content "You have been successfully authorized"
+          end
+        end
+
+        context "and the authorization is granted with metadata which does not meet the conditions to allow the action" do
+          let(:metadata) do
+            {
+              "postal_code" => "1111",
+              "document_number" => document_number
+            }
+          end
+
+          it "the user onboarding extended data is removed" do
+            expect(user.reload.extended_data["onboarding"]).to be_blank
+          end
+
+          it "the user is redirected to the resource with a failed authorization message" do
+            expect(page).to have_current_path commentable_path
+            expect(page).to have_content "You are not authorized to comment in this resource"
+          end
+        end
+      end
+    end
+  end
+
   private
 
   def visit_authorizations
@@ -305,5 +427,18 @@ describe "Authorizations", with_authorization_workflows: ["dummy_authorization_h
     end
 
     click_on "Authorizations"
+  end
+
+  def sign_in
+    visit decidim.root_path
+    within "#main-bar" do
+      click_on("Log in")
+    end
+
+    within "form.new_user", match: :first do
+      fill_in :session_user_email, with: user.email
+      fill_in :session_user_password, with: "decidim123456789"
+      find("*[type=submit]").click
+    end
   end
 end

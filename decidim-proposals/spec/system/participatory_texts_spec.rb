@@ -128,7 +128,7 @@ describe "Participatory texts" do
         include_context "when clicking on the amend button"
 
         it "cannot perform the action" do
-          expect(page).to have_content("Authorization required")
+          expect(page).to have_content("We need to verify your identity")
         end
       end
 

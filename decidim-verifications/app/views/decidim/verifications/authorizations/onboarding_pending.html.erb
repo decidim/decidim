@@ -1,0 +1,38 @@
+<% add_decidim_page_title(t("authorizations", scope: "layouts.decidim.user_profile")) %>
+<% content_for(:subtitle) { t("authorizations", scope: "layouts.decidim.user_profile") } %>
+<% redirect_url = onboarding_pending_authorizations_path %>
+
+<%= append_javascript_pack_tag "decidim_verifications" %>
+<%= append_stylesheet_pack_tag "decidim_verifications" %>
+
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="py-10">
+    <%= t(
+          "onboarding_message_html",
+          scope: "decidim.verifications.authorizations.onboarding_pending",
+          action: onboarding_manager.action_text.downcase,
+          resource_name: onboarding_manager.model_name.human.downcase,
+          resource_title: translated_attribute(onboarding_manager.model_title)
+        ) %>
+  </div>
+
+  <section class="authorizations-list">
+    <% onboarding_sections(
+        onboarding_manager,
+        redirect_url:,
+        granted_authorizations:,
+        pending_authorizations:,
+        unauthorized_methods:
+      ).each do |section| %>
+      <div class="verification__container-title"><%= section[:title] %></div>
+      <div class="verification__container my-4">
+        <% section[:items].each do |locals| %>
+          <%= render partial: "item", locals: %>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+  <p class="prose prose-a:text-secondary">
+    <%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.
+  </p>
+<% end %>

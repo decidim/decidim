@@ -27,8 +27,16 @@
         <div class="initiatives__selection__text">
           <h2 class="h5 text-secondary"><%= translated_attribute(type.title) %></h2>
           <span><%= decidim_sanitize_admin(translated_attribute(type.description)) %></span>
-          <%= authorized_create_modal_button(type, remote: true, class: "button button__sm button__secondary") do %>
-            <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
+          <%= action_authorized_link_to(
+                :create,
+                fill_data_create_initiative_index_path(initiative: { type_id: type.id }),
+                authorizations_modal_path: authorization_create_modal_initiative_path(type),
+                permissions_holder: type,
+                class: "button button__sm button__secondary",
+                "data-dialog-open": "not-authorized-modal",
+                onclick: "event.preventDefault();"
+              ) do %>
+              <%= t("verification_required", scope: "decidim.initiatives.create_initiative.select_initiative_type") %>
           <% end %>
         </div>
       </div>
