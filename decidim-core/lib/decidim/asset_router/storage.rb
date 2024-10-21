@@ -104,7 +104,7 @@ module Decidim
       # @return [Hash] The remote storage options hash
       def remote_storage_options
         @remote_storage_options ||= {
-          host: Rails.application.secrets.dig(:storage, :cdn_host)
+          host: ENV.fetch("STORAGE_CDN_HOST", nil)
         }.compact
       end
 
