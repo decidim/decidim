@@ -156,7 +156,7 @@ describe Decidim::OpenDataExporter do
           end
 
           it "includes the resource's content" do
-            expect(csv_data.headers).to include("")
+            expect(csv_data.headers).to include("id")
             expect(csv_data.headers).to include("title/en")
             expect(csv_data.first["id"]).to eq(proposal.id.to_s)
             expect(csv_data.first["title/en"]).to eq(translated_attribute(proposal.title["en"]))
