@@ -16,6 +16,7 @@ module Decidim
       include Decidim::Followable
       include Decidim::Reportable
       include Decidim::TranslatableResource
+      include Decidim::Publicable
       include Traceable
       include Loggable
 
@@ -38,10 +39,6 @@ module Decidim
                         index_on_update: ->(post) { post.visible? })
 
       class << self
-        def all_timestamp_attributes_in_model
-          super + ["published_at"]
-        end
-
         def log_presenter_class_for(_log)
           Decidim::Blogs::AdminLog::PostPresenter
         end
@@ -52,7 +49,7 @@ module Decidim
       end
 
       def published?
-        published_at <= Time.current
+        super && published_at <= Time.current
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.

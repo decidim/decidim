@@ -13,15 +13,6 @@ module Decidim
         def resource_class = Decidim::Blogs::Post
 
         def extra_params = { visibility: "all" }
-
-        def run_after_hooks
-          Decidim::EventsManager.publish(
-            event: "decidim.events.blogs.post_created",
-            event_class: Decidim::Blogs::CreatePostEvent,
-            resource:,
-            followers: resource.participatory_space.followers
-          )
-        end
       end
     end
   end

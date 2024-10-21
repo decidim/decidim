@@ -11,8 +11,8 @@ module Decidim
           let(:organization) { create(:organization) }
           let(:participatory_process) { create(:participatory_process, organization:) }
           let!(:post_component) { create(:post_component, participatory_space: participatory_process) }
-          let!(:unpublished) { create(:post, component: post_component, created_at: 2.days.ago, published_at: 2.days.from_now) }
-          let!(:published) { create(:post, component: post_component, created_at: 2.days.ago, published_at: 2.days.ago) }
+          let!(:unpublished) { create(:post, component: post_component, created_at: 2.days.ago) }
+          let!(:published) { create(:post, :published, component: post_component, created_at: 2.days.ago) }
           let!(:current_user) { create(:user, :admin, :confirmed, organization:) }
 
           before do

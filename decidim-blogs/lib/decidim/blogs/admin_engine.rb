@@ -12,6 +12,10 @@ module Decidim
 
       routes do
         resources :posts do
+          member do
+            put :publish
+            put :unpublish
+          end
           resources :attachment_collections, except: [:show]
           resources :attachments, except: [:show]
         end

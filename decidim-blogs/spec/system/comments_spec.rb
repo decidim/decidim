@@ -4,7 +4,7 @@ require "spec_helper"
 
 describe "Comments", perform_enqueued: true do
   let!(:component) { create(:post_component, organization:) }
-  let!(:commentable) { create(:post, component:) }
+  let!(:commentable) { create(:post, :published, component:) }
 
   let(:resource_path) { resource_locator(commentable).path }
 
