@@ -368,7 +368,7 @@ fi:
           developer_group: Prosessin kehittäjäryhmä, joka edistää tämän prosessin toteutumista.
           end_date: Prosessin päättymispäivä
           hashtag: Prosessia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
-          id: Prosessin uniikki tunniste
+          id: Prosessin yksilöllinen tunniste
           local_area: Prosessin paikallisalue, eli millä alueella prosessi tapahtuu.
           meta_scope: Prosessin teeman metatiedot
           participatory_process_group: Prosessin ryhmä, mikäli sellainen on määritetty
