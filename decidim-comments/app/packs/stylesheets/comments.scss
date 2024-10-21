@@ -28,6 +28,20 @@
   .author__avatar-container {
     @apply w-8 h-8;
   }
+
+  .comments-section {
+    &__header {
+      @apply flex items-center justify-center space-x-2 p-4 bg-secondary/5 rounded-b-md mb-4;
+
+      svg {
+        @apply w-6 h-6 mr-2 fill-secondary;
+      }
+    }
+
+    &__title {
+      @apply text-md font-semibold text-secondary;
+    }
+  }
 }
 
 .comment {
