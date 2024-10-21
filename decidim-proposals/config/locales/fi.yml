@@ -429,11 +429,11 @@ fi:
           alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
           author: Kommentin laatijan nimi
           body: Kommentin teksti
-          commentable_id: Kommentoitavan asian uniikki tunniste
+          commentable_id: Kommentoitavan asian yksilöllinen tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
-          id: Kommentin uniikki tunniste
+          id: Kommentin yksilöllinen tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
@@ -449,7 +449,7 @@ fi:
           component: Ehdotuksen komponentti
           endorsements: Ehdotuksen keräämien suositusten ("tykkäykset") lukumäärä
           followers: Ehdotusten seuraajien lukumäärä
-          id: Ehdotuksen uniikki tunniste
+          id: Ehdotuksen yksilöllinen tunniste
           is_amend: Onko tämä ehdotus toisen ehdotuksen muutosehdotus
           latitude: Ehdotuksen sijainnin leveysaste, mikäli ehdotus on määritetty tiettyyn paikkaan
           longitude: Ehdotuksen sijainnin pituusaste, mikäli ehdotus on määritetty tiettyyn paikkaan
