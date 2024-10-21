@@ -144,6 +144,8 @@ module Decidim
       end
 
       def type_class
+        return Decidim::Attributes::RichText if type == :text && editor == true
+
         TYPES[type][:klass]
       end
 
