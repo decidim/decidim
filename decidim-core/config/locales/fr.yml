@@ -683,6 +683,9 @@ fr:
       identities:
         done: Terminé
         select_identity: Sélectionner une identité
+    endorsers_list:
+      others: "%{count} de plus"
+      you: vous
     errors:
       files:
         file_cannot_be_processed: Le fichier ne peut pas être traité
