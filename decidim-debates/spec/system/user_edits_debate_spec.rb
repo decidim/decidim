@@ -32,6 +32,7 @@ describe "User edits a debate" do
       visit_component
 
       click_on debate.title.values.first
+      find("#dropdown-trigger-resource-#{debate.id}").click
       click_on "Edit debate"
 
       within ".edit_debate" do
@@ -66,6 +67,7 @@ describe "User edits a debate" do
       it "edits their debate", :slow do
         visit_component
         click_on debate.title.values.first
+        find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit debate"
 
         within ".edit_debate" do

@@ -28,6 +28,7 @@ describe "Edit collaborative_drafts" do
 
       click_on "Access collaborative drafts"
       click_on collaborative_draft.title
+      find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
       click_on "Edit collaborative draft"
 
       expect(page).to have_content "Edit collaborative draft"
@@ -56,6 +57,7 @@ describe "Edit collaborative_drafts" do
 
           click_on "Access collaborative drafts"
           click_on collaborative_draft.title
+          find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
           click_on "Edit collaborative draft"
 
           dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"))
@@ -76,6 +78,7 @@ describe "Edit collaborative_drafts" do
 
         click_on "Access collaborative drafts"
         click_on collaborative_draft.title
+        find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
         click_on "Edit collaborative draft"
       end
 
@@ -88,6 +91,7 @@ describe "Edit collaborative_drafts" do
 
         click_on "Access collaborative drafts"
         click_on collaborative_draft.title
+        find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
         click_on "Edit collaborative draft"
 
         within "form.edit_collaborative_draft" do
@@ -111,6 +115,7 @@ describe "Edit collaborative_drafts" do
 
         click_on "Access collaborative drafts"
         click_on collaborative_draft.title
+        find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
         click_on "Edit collaborative draft"
 
         within "form.edit_collaborative_draft" do
