@@ -35,16 +35,40 @@ module Decidim
 
     def data
       buffer = Zip::OutputStream.write_buffer do |out|
+        add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: "users" }), user_data.read)
+        add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: "users_groups" }), user_groups.read)
+
         open_data_component_manifests.each do |manifest|
           add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_component(manifest).read)
         end
         open_data_participatory_space_manifests.each do |manifest|
           add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_participatory_space(manifest).read)
         end
+
         add_file_to_output(out, "README.md", readme)
       end
 
       buffer.string
+    end
+
+    def user_groups
+      collection = Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob)
+      serializer = Decidim::Exporters::OpenDataUserGroupSerializer
+      exporter = Decidim::Exporters::CSV.new(collection, serializer)
+
+      get_help_definition(:core, exporter, OpenStruct.new(name: "user_groups")) unless collection.empty?
+
+      exporter.export
+    end
+
+    def user_data
+      collection = Decidim::User.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob)
+      serializer = Decidim::Exporters::OpenDataUserSerializer
+      exporter = Decidim::Exporters::CSV.new(collection, serializer)
+
+      get_help_definition(:core, exporter, OpenStruct.new(name: "users")) unless collection.empty?
+
+      exporter.export
     end
 
     def data_for_component(export_manifest, col_sep = Decidim.default_csv_col_sep)
@@ -103,9 +127,34 @@ module Decidim
     end
 
     def readme
-      readme_file = "# #{I18n.t("decidim.open_data.help.core.title", organization: translated_attribute(organization.name))}\n\n"
-      readme_file << "#{I18n.t("decidim.open_data.help.core.description")}\n\n"
-      readme_file << "## #{I18n.t("decidim.open_data.help.core.spaces")}\n\n" if help_definition.fetch(:spaces, false)
+      "# #{I18n.t("decidim.open_data.help.core.title", organization: translated_attribute(organization.name))}\n\n
+#{I18n.t("decidim.open_data.help.core.description")}\n\n
+#{core_readme}
+#{space_readme}
+#{component_readme}
+"
+    end
+
+    def core_readme
+      return unless help_definition.fetch(:core, false)
+
+      readme_file = "## #{I18n.t("decidim.open_data.help.core.main")}\n\n"
+      help_definition.fetch(:core, []).each do |element, headers|
+        readme_file << "### #{element}\n\n"
+
+        headers.each do |header, help_value|
+          readme_file << "* #{header}: #{help_value}\n"
+        end
+
+        readme_file << "\n\n"
+      end
+      readme_file
+    end
+
+    def space_readme
+      return unless help_definition.fetch(:spaces, false)
+
+      readme_file = "## #{I18n.t("decidim.open_data.help.core.spaces")}\n\n"
 
       help_definition.fetch(:spaces, []).each do |space, headers|
         readme_file << "### #{space}\n\n"
@@ -116,8 +165,13 @@ module Decidim
 
         readme_file << "\n\n"
       end
+      readme_file
+    end
 
-      readme_file << "## #{I18n.t("decidim.open_data.help.core.components")}\n\n" if help_definition.fetch(:components, false)
+    def component_readme
+      return unless help_definition.fetch(:components, false)
+
+      readme_file = "## #{I18n.t("decidim.open_data.help.core.components")}\n\n"
 
       help_definition.fetch(:components, []).each do |component, headers|
         readme_file << "### #{component}\n\n"
