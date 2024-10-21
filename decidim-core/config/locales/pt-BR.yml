@@ -650,14 +650,11 @@ pt-BR:
         success: Imagem carregada com sucesso.
       drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
     endorsement_buttons_cell:
-      already_endorsed: Dislike
       endorse: Like
     endorsements:
       identities:
         done: Concluído
         select_identity: Selecione a identidade
-    endorsers_list:
-      endorsed_by: Curtido por…
     errors:
       files:
         file_cannot_be_processed: O arquivo não pode ser processado
@@ -1803,7 +1800,6 @@ pt-BR:
         data_consent_settings: Configurações de cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
-        download_open_data: Baixar arquivos Open Data
         log_in: Iniciar sessão
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         resources: Recursos

@@ -572,6 +572,27 @@ ca:
         title: Multimedia i enllaços
     menu:
       conferences: Jornades
+    open_data:
+      help:
+        conferences:
+          decidim_scope_id: L'àmbit territorial de la jornada
+          description: Una descripció llarga de la jornada
+          end_date: La data en la qual va finalitzar aquesta jornada.
+          hashtag: L'etiqueta que fa servir la jornada a Twitter/X
+          id: L'identificador únic de la jornada
+          location: El lloc de celebració de la jornada. On es va dur a terme aquesta jornada.
+          objectives: Els objectius de la jornada. Quina va ser la meta.
+          promoted: Si la jornada està destacada o no
+          reference: La referència de la jornada. Un identificador únic per a aquesta plataforma.
+          remote_banner_image_url: L'URL de la imatge de capçalera de la jornada
+          remote_hero_image_url: L'URL de la imatge principal de la jornada
+          scope: L'àmbit territorial de la jornada
+          scopes_enabled: Si l'àmbit territorial està habilitat o no
+          short_description: Una descripció breu de la jornada
+          slogan: El lema d'aquesta jornada
+          slug: El nom curt de la jornada (utilitzat per a finalitats d'identificació, per a l'URL)
+          start_date: La data en la qual va començar aquesta jornada.
+          title: El títol de la jornada
     statistics:
       conferences_count: Jornades
   devise:

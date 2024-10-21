@@ -598,12 +598,8 @@ zh-TW:
             plural: 複數
         share_token:
           fields:
-            created_at: 建立於
             expires_at: 到期日
-            last_used_at: 上次使用時間
             times_used: 使用次數
-            token: 代幣
-            user: 創建者
         static_page:
           fields:
             created_at: 建立於
@@ -878,16 +874,7 @@ zh-TW:
           success: 範圍更新成功。
       share_tokens:
         actions:
-          confirm_destroy: 您確定要刪除此標記嗎？
           destroy: 刪除
-          share: 分享
-        destroy:
-          error: 刪除代幣時出現問題。
-          success: 代幣成功刪除。
-        share_tokens:
-          empty: 沒有有效的代幣.
-          help: 這些代幣用於向任何使用者公開分享此未發佈的資源。當資源被發佈時，它們將被隱藏。點擊代幣的分享圖標，以訪問可分享的URL。
-          title: 分享代幣
       shared:
         gallery:
           add_images: 添加圖案

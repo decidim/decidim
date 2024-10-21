@@ -506,8 +506,6 @@ ar:
         share_token:
           fields:
             expires_at: تنتهي صلاحيته في
-            token: رمز التشفير - Token
-            user: تم الإنشاء بواسطة
         static_page:
           fields:
             created_at: أنشئت في
@@ -731,7 +729,6 @@ ar:
       share_tokens:
         actions:
           destroy: حذف
-          share: مشاركة
       shared:
         gallery:
           add_images: إضافة صور

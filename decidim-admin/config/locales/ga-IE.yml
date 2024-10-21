@@ -234,9 +234,6 @@ ga:
           fields:
             name: Ainm
             plural: Iolra
-        share_token:
-          fields:
-            token: Licín
         static_page:
           fields:
             title: Teideal
@@ -336,7 +333,6 @@ ga:
       share_tokens:
         actions:
           destroy: Scrios
-          share: Roinn
       static_pages:
         edit:
           update: Nuashonraigh

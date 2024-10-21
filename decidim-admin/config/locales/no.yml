@@ -544,12 +544,8 @@
             plural: Flertall
         share_token:
           fields:
-            created_at: Opprettet i
             expires_at: Utløper
-            last_used_at: Sist brukt
             times_used: Ganger brukt
-            token: Token
-            user: Opprettet av
         static_page:
           fields:
             created_at: Opprettet på
@@ -799,15 +795,7 @@
           success: Temaet ble oppdatert
       share_tokens:
         actions:
-          confirm_destroy: Er du sikker på at du vil slette denne token?
           destroy: Slett
-          share: Del
-        destroy:
-          error: Et problem oppstod under ødelggelsen av token.
-          success: Token ble ødelagt.
-        share_tokens:
-          help: Disse tokenene brukes til å dele denne upubliserte ressursen til hvilken som helst bruker. De vil bli skjult når ressursen publiseres. Klikk på tokenenes deleikon for å besøke den delte URL-en.
-          title: Del tokener
       shared:
         gallery:
           add_images: Legg til bilder

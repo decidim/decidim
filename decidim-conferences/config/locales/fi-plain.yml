@@ -572,6 +572,27 @@ fi-pl:
         title: Media ja linkit
     menu:
       conferences: Konferenssit
+    open_data:
+      help:
+        conferences:
+          decidim_scope_id: Konferenssin teema
+          description: Konferenssin pitkä kuvaus
+          end_date: Konferenssin päättymispäivä.
+          hashtag: Konferenssia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
+          id: Konferenssin uniikki tunniste
+          location: Konferenssin paikka, eli missä konferenssi järjestetään.
+          objectives: Konferenssin tavoitteet tai päämäärät.
+          promoted: Onko konferenssi korostettu vai ei
+          reference: Konferenssin viittaus. Konferenssin uniikki tunniste tällä alustalla.
+          remote_banner_image_url: Konferenssin bannerikuvan URL-osoite
+          remote_hero_image_url: Konferenssin hero-kuvan URL-osoite
+          scope: Konferenssin teema
+          scopes_enabled: Ovatko teemat otettu käyttöön vai eivät
+          short_description: Konferenssin lyhyt kuvaus
+          slogan: Konferenssin tunnuslause
+          slug: Konferenssin URL-tunniste (URL-osoitteen osa, joka erottaa konferenssin muista konferensseista)
+          start_date: Konferenssin alkamispäivä.
+          title: Konferenssin otsikko
     statistics:
       conferences_count: Konferenssia
   devise:

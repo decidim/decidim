@@ -100,7 +100,7 @@ de:
           preview:
             current_step: Schritt %{step}
             of_total_steps: von %{total_steps}
-            tos_agreement: Mit der Teilnahme stimmen Sie den Nutzungsbedingungen zu
+            tos_agreement: 'Mit Ihrer Teilnahme stimmen Sie folgenden Nutzungsbedingungen zu:'
       admin_log:
         template:
           create: "%{user_name} hat die Umfragevorlage %{resource_name} erstellt"

@@ -866,7 +866,6 @@ id:
       edit_link:
         edit: Edit
       footer:
-        download_open_data: Unduh file Open Data
         made_with_open_source: Situs web dibuat dengan <a target="_blank" href="https://github.com/decidim/decidim">perangkat lunak gratis</a>.
       impersonation_warning:
         close_session: Tutup sesi

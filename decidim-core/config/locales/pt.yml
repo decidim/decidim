@@ -1216,7 +1216,6 @@ pt:
       footer:
         cc_by_license: Licença Creative Commons
         decidim_logo: Logótipo do Decidim
-        download_open_data: Transferir ficheiros Open Data
         log_in: Entrar
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
       header:

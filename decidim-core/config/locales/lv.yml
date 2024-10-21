@@ -1037,7 +1037,6 @@ lv:
       edit_link:
         edit: Labot
       footer:
-        download_open_data: Lejupielādējiet atvērto datu failus
         log_in: Pieteikties
         made_with_open_source: Vietne, kas izveidota ar <a target="_blank" href="https://github.com/decidim/decidim"> bezmaksas programmatūru </a>.
       header:

@@ -262,6 +262,13 @@ de:
         create: "%{user_name} hat den Thementyp %{resource_name} erstellt"
         delete: "%{user_name} hat den Thementyp %{resource_name} gelöscht"
         update: "%{user_name} hat den Thementyp %{resource_name} aktualisiert"
+      share_token:
+        create: "%{user_name} hat einen Zugangslink in %{space_name} erstellt"
+        create_with_space: "%{user_name} hat einen Zugangslink für %{resource_name} in %{space_name} erstellt"
+        delete: "%{user_name} hat einen Zugangslink in %{space_name} gelöscht"
+        delete_with_space: "%{user_name} hat einen Zugangslink für %{resource_name} in %{space_name} gelöscht"
+        update: "%{user_name} hat einen Zugangslink in %{space_name} aktualisiert"
+        update_with_space: "%{user_name} hat einen Zugangslink für %{resource_name} in %{space_name} aktualisiert"
       static_page:
         create: "%{user_name} hat die statische Seite %{resource_name} erstellt"
         delete: "%{user_name} hat die statische Seite %{resource_name} gelöscht"
@@ -686,14 +693,11 @@ de:
         success: Bild erfolgreich hochgeladen.
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
     endorsement_buttons_cell:
-      already_endorsed: Gefällt mir nicht
       endorse: Gefällt mir
     endorsements:
       identities:
         done: Erledigt
         select_identity: Identität auswählen
-    endorsers_list:
-      endorsed_by: Gefällt…
     errors:
       files:
         file_cannot_be_processed: Datei konnte nicht verarbeitet werden
@@ -1969,7 +1973,6 @@ de:
         data_consent_settings: Cookie Einstellungen
         decidim_logo: Decidim-Logo
         decidim_title: Decidim
-        download_open_data: Open Data Dateien herunterladen
         log_in: Anmelden
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
         resources: Ressourcen

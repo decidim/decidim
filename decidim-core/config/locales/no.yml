@@ -1236,7 +1236,6 @@
       footer:
         cc_by_license: Creative Commons lisens
         decidim_logo: Decidim logo
-        download_open_data: Last ned Åpen Data filer
         log_in: Logg inn
         made_with_open_source: Nettsted laget med <a target="_blank" href="https://github.com/decidim/decidim">fri programvare</a>.
       header:

@@ -432,6 +432,49 @@ ja:
         description: 作成された参加スペース数
         object: 参加スペース
         title: 参加スペース
+    open_data:
+      help:
+        assemblies:
+          announcement: アナウンス（コールアウト）情報
+          area: 参加スペースのエリア
+          assembly_type: 参加スペースの種別
+          closing_date: 参加スペースの終了日
+          closing_date_reason: 参加スペースが終了した理由
+          composition: 参加スペースの構成
+          created_by: この参加スペースの作成者
+          created_by_other: 参加スペースの他の作成者
+          creation_date: 参加スペースの作成日
+          decidim_scope_id: 参加スペースのスコープ
+          description: 参加スペースの詳しい説明
+          developer_group: 参加スペースの開発者グループ
+          duration: 参加スペースの期間
+          facebook_handler: Facebook 用のソーシャルメディアハンドラー
+          github_handler: GitHub 用のソーシャルメディアハンドラ
+          hashtag: Twitter/Xで使用される参加スペースのハッシュタグ
+          id: このアセンブリの固有ID
+          included_at: 参加スペースが含まれた日付
+          instagram_handler: Instagramのソーシャルメディアハンドラー
+          internal_organisation: 参加スペースの内部組織
+          is_transparent: 参加スペースの透明性があるかどうか
+          local_area: 参加スペースのローカルエリア
+          meta_scope: 参加スペースのスコープメタデータ
+          participatory_scope: 参加スペースの参加スコープ
+          participatory_structure: 参加スペースの参加構造
+          promoted: 参加スペースがプロモートされるかどうか
+          purpose_of_action: 参加スペースのアクションの目的
+          reference: 参加スペースの参照。このプラットフォームでの一意のID。
+          remote_banner_image_url: 参加スペースのバナー画像のURL
+          remote_hero_image_url: 参加スペースのヒーロー画像の URL
+          scope: 参加スペースのスコープ
+          scopes_enabled: スコープが有効かどうか
+          short_description: 参加スペースの簡単な説明
+          slug: 参加スペースのスラグ (識別目的、URLに使用)
+          special_features: この参加スペースにはどのような特別な機能があるか
+          subtitle: 参加スペースのサブタイトル
+          target: 参加スペースのターゲット
+          title: 参加スペースのタイトル
+          twitter_handler: Twitter 用のソーシャルメディアハンドラー
+          youtube_handler: YouTube用のソーシャルメディアハンドラー
     participatory_processes:
       show:
         related_assemblies: 関連する参加スペース

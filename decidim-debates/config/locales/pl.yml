@@ -81,8 +81,6 @@ pl:
           update:
             invalid: Wystąpił błąd podczas aktualizowania tej debaty.
             success: Debata została zaktualizowana pomyślnie.
-        exports:
-          comments: Komentarze
       admin_log:
         debate:
           close: "%{user_name} zamknął/zamknęła debatę %{resource_name} w przestrzeni %{space_name}"

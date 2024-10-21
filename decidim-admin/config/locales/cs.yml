@@ -665,12 +665,8 @@ cs:
             plural: Množné číslo
         share_token:
           fields:
-            created_at: Vytvořeno v
             expires_at: Vyprší v
-            last_used_at: Naposledy použito
             times_used: Kolikrát použito
-            token: Token
-            user: Vytvořil
         static_page:
           fields:
             created_at: Vytvořeno v
@@ -979,16 +975,7 @@ cs:
           success: Oblast působnosti byla úspěšně aktualizována
       share_tokens:
         actions:
-          confirm_destroy: Jste si jisti, že chcete odstranit tento token?
           destroy: Smazat
-          share: Sdílet
-        destroy:
-          error: Při zničení tokenu došlo k chybě.
-          success: Token byl úspěšně smazán.
-        share_tokens:
-          empty: Nejsou žádné aktivní tokeny.
-          help: Tyto tokeny se používají k veřejnému sdílení tohoto nezveřejněného zdroje každému uživateli. Budou skryty, když bude dokument publikován. Klikněte na ikonu sdílení tokenu a navštivte sdílenou URL.
-          title: Sdílet tokeny
       shared:
         adjacent_navigation:
           next: Další

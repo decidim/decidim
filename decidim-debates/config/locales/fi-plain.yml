@@ -79,13 +79,15 @@ fi-pl:
           update:
             invalid: Keskustelun päivittämisessä tapahtui virhe.
             success: Keskustelu päivitetty onnistuneesti.
-        exports:
-          comments: Kommentit
       admin_log:
         debate:
           close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
           create: "%{user_name} loi keskustelun %{resource_name} tilaan %{space_name}"
           update: "%{user_name} päivitti keskustelun %{resource_name} tilassa %{space_name}"
+      content_blocks:
+        highlighted_debates:
+          name: Keskustelut
+          see_all: Näytä kaikki keskustelut
       debate_m:
         commented_time_ago: Kommentoitu %{time} sitten
       debates:

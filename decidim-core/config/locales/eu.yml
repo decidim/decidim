@@ -64,6 +64,10 @@ eu:
         password_confirmation: Baieztatu pasahitza
         remember_me: Gogoratu
     models:
+      decidim:
+        history:
+          one: Historiala
+          other: Historiala
       decidim/amendment:
         one: Zuzenketa
         other: Zuzenketak
@@ -72,10 +76,10 @@ eu:
         other: Atxikimenduak
       decidim/user:
         one: Parte-hartzailea
-        other: Erabiltzaileak
+        other: Parte-hartzaileak
       decidim/user_group:
         one: Taldea
-        other: Taldeak
+        other: Erabiltzaile taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -103,6 +107,12 @@ eu:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
       half_a_minute: minutu erdia
+      less_than_x_minutes:
+        one: minutu bat baino gutxiago
+        other: '%{count} minutu baino gutxiago'
+      less_than_x_seconds:
+        one: segundo 1 baino gutxiago
+        other: '%{count} segundo baino gutxiago'
       short:
         about_x_days: "%{count} egun"
         about_x_hours: "%{count}h"
@@ -122,13 +132,13 @@ eu:
         x_years: "%{count} urte"
       x_days:
         one: Egun 1
-        other: "Egun bat"
+        other: "%{count} egun"
       x_hours:
         one: Ordu 1
         other: "%{count} ordu"
       x_minutes:
         one: Minutu 1
-        other: "Minutu %{count}"
+        other: "%{count} minutu"
       x_months:
         one: 1 hilabete
         other: "%{count} hilabete"
@@ -252,6 +262,13 @@ eu:
         create: "%{user_name} k %{resource_name} esparru mota sortu du"
         delete: "%{user_name} k %{resource_name} esparru mota ezabatu du"
         update: "%{user_name} k %{resource_name} esparru mota eguneratu du"
+      share_token:
+        create: "% {user_name} k sarbide-esteka bat sortu du % {space_name} espazioan"
+        create_with_space: "%{user_name} k sarbide-esteka sortu du %{resource_name} %{space_name} espazioan"
+        delete: "% {user_name} k sarbide-esteka bat ezabatu du % {space_name} espazioan"
+        delete_with_space: "% {user_name} k sarbide-esteka bat eguneratu du honentzat: %{resource_name}% {space_name} espazioan"
+        update: "%{user_name} k eguneratu du sarbide-esteka bat %{space_name} espazioan"
+        update_with_space: "%{user_name} k eguneratu du sarbide-esteka bat honentzat: %{resource_name} %{space_name} espazioan"
       static_page:
         create: "%{user_name} k %{resource_name} orri estatikoa sortu du"
         delete: "%{user_name} k %{resource_name} orri estatikoa ezabatu du"
@@ -298,10 +315,14 @@ eu:
         success: Aldaketa ongi onartu da.
       amendable:
         button: Zuzendu %{model_name}
-        error: Errore bat gertatu da baliabidea aldatzen.
+        error: Arazo bat egon da baliabide hori aldatzean.
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
+      amendments:
+        title:
+          one: "%{count} zuzenketa"
+          other: "%{count} zuzenketa"
       created:
         error: Arazo bat izan da zuzenketaren zirriborroa sortzean.
         success: Zuzenketa-zirriborroa zuzen sortu da.
@@ -670,14 +691,11 @@ eu:
         success: Irudia zuzen igota.
       drag_and_drop_help: Gehitu irudiak arrastatuz edo itsatsiz.
     endorsement_buttons_cell:
-      already_endorsed: Ez dut atsegin
       endorse: Atsegin dut
     endorsements:
       identities:
         done: Eginda
         select_identity: Hautatu identitatea
-    endorsers_list:
-      endorsed_by: Gustuko du…
     errors:
       files:
         file_cannot_be_processed: Fitxategia ezin izan da prozesatu
@@ -878,6 +896,9 @@ eu:
         other: "%{count} jarraitzaileak"
       no_followers: Ez da jarraitzailerik oraindik.
     following:
+      following_count:
+        one: "%{count} jarraitzaile"
+        other: "%{count} jarraitzaile"
       no_followings: Oraindik ez du inor edo ezer jarraitzen.
       non_public_followings: Jarraitutako baliabide batzuk ez dira publikoak.
     follows:
@@ -893,7 +914,7 @@ eu:
         explanation: Gida erantsitako fitxategien esteketarako
         help_messages:
           - URL formatu zuzenak onartzen dira soilik.
-          - Kontuan izan estekak publikoak izan behar direla parte-hartzaile guztiak sartu ahal izateko.
+          - Mesedez, kontuan izan estekak publikoak izan behar direla parte-hartzaile guztiak sartu ahal izateko.
       errors:
         decidim/user:
           password: Pasahitza laburregia da.
@@ -1302,6 +1323,41 @@ eu:
         message_2: Mesedez, saiatu berriro geroago.
         retry: Saiatu berriro
     open_data:
+      help:
+        core:
+          components: Osagaiak
+          description: ZIP fitxategi honetan fitxategiak daude plataforma prte-hartzaile hau aztertu eta ikertzeko.
+          spaces: Espazioak
+          title: Open Data fitxategiak %{organization} erakunderako
+      index:
+        description: 'Ongi etorri %{organization_name} Open Data orrira. Hemen, datu-fitxategiak aurkituko dituzu, aldian-aldian hainbat deliberazio- eta gobernantza-prozesutatik sortzen direnak honen barruan: %{organization_name}. Fitxategi horiek gardentasuna, irisgarritasuna eta lankidetza sustatzeko daude eskuragarri. Jarraian, aurkituko duzu fitxategi horiek zer diren, nola ireki eta nola landu behar diren eta fitxategi bakoitzaren edukiaren eta egituraren deskribapena.'
+        download_open_data: Deskargatu Open Data fitxategi guztiak
+        explanation:
+          body_1: Fitxategi hauek %{organization_name} erakundetik esportatutako datu baseak dira, hala nola proposamenak, iruzkinak eta bilerak. Datu gordinak ematen dituzte, egituratuak, analisirako, ikerketarako edo beste tresna batzuekin integratzeko erabil daitezkeenak. Datuak automatikoki eguneratzen dira 24 orduro, informazio berriena eskura duzula ziurtatuz.
+          body_2: Fitxategi horiek CSV (Conma-Separated Values) formatuan daude. Fitxategi formatu hori oso erabilia da, eta hainbat software-aplikazioren bidez ireki eta prozesa daiteke, kalkulu-orriak, testu-editoreak eta datuak aztertzeko tresnak barne.
+          title: Zer dira artxibo hauek?
+        how_to:
+          step_1:
+            body_html: Sakatu CSV fitxategiak zure ordenagailura deskargatzeko esteketan.
+            title: 1. Deskargatu artxiboak
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Kalkulu-orrien aplikazioak</b>: CSV fitxategiak ireki daitezke, Microsoft Excel, Google Sheets edo LibreOffice Calc bezalako aplikazioak erabiliz. Besterik gabe, ireki aplikazioa, hautatu "Ireki" Fitxategiaren menutik, eta aukeratu deskargatutako CSV fitxategia.</li>
+              <li><b>Testu-editoreak</b>: CSV fitxategiak edozein testu-editoretan ere ireki daitezke, hala nola Notepad edo Sublime Text. Honek datu gordinak erakutsiko ditu, lerro bakoitzak lerro bat eta balio bakoitza koma batez bereizita.</li>
+              <li><b>Datuak analizatzeko tresnak</b>:: Datuak analizatzeko tresnak ezagutzen badituzu, hala nola Python (pandekin), R, edo SQL datu-baseak, CSV fitxategi horiek inporta ditzakezu zuzenean tratatzeko eta aztertzeko.</li>
+              </ul>
+            title: 2. Ireki artxiboak
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Iragazi eta sailkatu</b>: Kalkulu-orrien aplikazioetan datuak iragazi eta ordenatu daitezke informazio-azpimultzo zehatzetan zentratzeko.</li>
+              <li><b>Azterketa</b>: Erabili datuak hainbat analisi egiteko, hala nola proposamenen kopurua zenbatzeko, iruzkinen joerak aztertzeko edo bileretan parte hartzea ebaluatzeko.</li>
+              <li><b>Bistaratzea</b>: Grafikoak, historialak eta beste bistaratze batzuk sor ditzakezu datuak interpretatzen laguntzeko.</li>
+              </ul>
+            title: 3. Datuekin lanean
+          title: Nola ireki eta lan egin fitxategi hauekin
+        title: Datu Irekiak
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxi barru.
     pad_iframe:
       disclaimer: Ohar-blok honen edukiak erregistratutako erabiltzaileek idatzi dituzte eta euren iritziak adierazi dituzte. %{organization} erakundea ezin da bere edukien erantzule izan.
@@ -1734,9 +1790,9 @@ eu:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
       new:
         sign_up: Sortu kontu bat
-      signed_up: Ongi etorri! Eginda sinatu duzu.
+      signed_up: Ongi etorri!  Ondo eman duzu izena.
       signed_up_but_inactive: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua oraindik ez baita aktibatuta.
-      signed_up_but_locked: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua blokeatuta dagoelako.
+      signed_up_but_locked: Ongi eman duzu izena. Hala ere, ezin duzu saioa hasi zure kontua giltzapetuta dagoelako.
       signed_up_but_unconfirmed: Berrespen-esteka duen mezu bat zure helbide elektronikora bidali da. Jarraitu esteka zure kontua aktibatzeko.
       update_needs_confirmation: Zure kontua arrakastaz eguneratu duzu, baina helbide elektroniko berria egiaztatu behar dugu. Egiaztatu zure posta elektronikoa eta berretsi esteka jarraitu zure helbide elektroniko berria berresteko.
       updated: Zure kontua ondo eguneratu da.
@@ -1949,9 +2005,9 @@ eu:
         data_consent_settings: Cookien konfigurazioa
         decidim_logo: Decidim-en logoa
         decidim_title: Decidim
-        download_open_data: Deskargatu Open Data fitxategiak
-        log_in: Sartu
+        log_in: Hasi saioa
         made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
+        open_data: Datu Irekiak
         resources: Baliabideak
         sign_up: Sortu kontu bat
         terms_of_service: Zerbitzuaren baldintzak
@@ -2002,7 +2058,7 @@ eu:
         title: Parte-hartzailearen ezarpenak
         user_groups: Taldeak
   locale:
-    name: Euskera
+    name: Euskara
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da

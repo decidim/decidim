@@ -441,6 +441,49 @@ cs:
         description: Počet vytvořených shromáždění
         object: shromáždění
         title: Shromáždění
+    open_data:
+      help:
+        assemblies:
+          announcement: Oznámení (vvyhlášení) informací
+          area: Oblast shromáždění
+          assembly_type: Typ shromáždění
+          closing_date: Datum ukončení shromáždění
+          closing_date_reason: Proč bylo shromáždění uzavřeno
+          composition: Složení shromáždění
+          created_by: Kdo vytvořil toto shromáždění
+          created_by_other: Ostatní tvůrci shromáždění
+          creation_date: Datum vytvoření tohoto shromáždění
+          decidim_scope_id: Rozsah shromáždění
+          description: Dlouhý popis shromáždění
+          developer_group: Skupina vývojářů shromáždění
+          duration: Doba trvání shromáždění
+          facebook_handler: Handler sociálních médií pro Facebook
+          github_handler: Handler sociálních médií pro GitHub
+          hashtag: Hashtag Shromáždění, používaný pro Twitter/X
+          id: Jedinečný identifikátor ttohoto shromáždění
+          included_at: Datum, kdy bylo shromáždění zahrnuto
+          instagram_handler: Handler sociálních médií pro Instagram
+          internal_organisation: Vnitřní organizace tohoto shromáždění
+          is_transparent: Zda je shromáždění transparentní, nebo ne
+          local_area: Místní oblast shromáždění
+          meta_scope: Rozsah metadat shromáždění
+          participatory_scope: Participační rozsah shromáždění
+          participatory_structure: Participační struktura shromáždění
+          promoted: Zda je shromáždění propagováno, nebo ne
+          purpose_of_action: Účel konání shromáždění
+          reference: Odkaz na shromáždění. Jedinečný identifikátor pro tuto platformu.
+          remote_banner_image_url: URL obrázku banneru shromáždění
+          remote_hero_image_url: URL obrázku předáka shromáždění
+          scope: Rozsah shromáždění
+          scopes_enabled: Zda jsou rozsahy povoleny nebo ne
+          short_description: Stručný popis shromáždění
+          slug: Slug shromáždění (používá se pro účely identifikace, pro URL)
+          special_features: Jaké speciální vlastnosti má toto shromáždění
+          subtitle: Podnadpis shromáždění
+          target: Cíl shromáždění
+          title: Název shromáždění
+          twitter_handler: Handler sociálních médií pro Twitter
+          youtube_handler: Handler sociálních médií pro YouTube
     participatory_processes:
       show:
         related_assemblies: Související shromáždění

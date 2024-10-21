@@ -592,6 +592,29 @@ ja:
         success: イニシアチブを更新しました。
     menu:
       initiatives: イニシアチブ
+    open_data:
+      help:
+        initiatives:
+          answer: このイニシアチブが受け取った回答 (もしあれば)
+          answer_url: 回答の URL (もしあれば)
+          answered_at: 回答の日時 (もしあれば)
+          area: このイニシアチブのエリア
+          authors: このイニシアチブの作成者
+          created_at: このイニシアチブの作成日時
+          description: イニシアチブの説明
+          first_progress_notification_at: 最初の進捗通知の送信日時
+          hashtag: Twitter/Xで使用されるイニシアチブのハッシュタグ
+          published_at: このイニシアチブの公開日時
+          reference: イニシアチブの参照方法。このプラットフォームでの固有ID
+          scope: イニシアチブのスコープ
+          second_progress_notification_at: 2回目の進捗通知の送信日時
+          signature_end_date: 署名の収集期間の終了日時
+          signature_start_date: 署名の収集期間の開始日時
+          signature_type: 署名コレクションの種類（オンラインまたは対面）
+          signatures: このイニシアチブでの署名の数
+          state: このイニシアチブの現時点での状態
+          title: イニシアチブのタイトル
+          type: イニシアチブの種別
     resources:
       initiative:
         actions:

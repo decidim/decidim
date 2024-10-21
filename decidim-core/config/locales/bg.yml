@@ -655,14 +655,11 @@ bg:
         success: Изображението е качено успешно.
       drag_and_drop_help: Добавете изображения чрез плъзгане и пускане или поставяне (paste).
     endorsement_buttons_cell:
-      already_endorsed: Не харесвам
       endorse: Харесвам
     endorsements:
       identities:
         done: Готово
         select_identity: Изберете самоличност
-    endorsers_list:
-      endorsed_by: Харесано от…
     errors:
       files:
         file_cannot_be_processed: Файлът не може да бъде обработен
@@ -1915,7 +1912,6 @@ bg:
         data_consent_settings: Настройки на бисквитките
         decidim_logo: Лого на Civil Power
         decidim_title: Civil Power
-        download_open_data: Изтеглете файлове с отворени данни
         log_in: Вход
         made_with_open_source: Уебсайта работи със <a target="_blank" href="https://github.com/decidim/decidim">свободен софтуер</a>.
         resources: Ресурси

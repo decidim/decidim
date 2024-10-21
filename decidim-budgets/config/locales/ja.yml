@@ -368,6 +368,26 @@ ja:
           email_outro: '%{participatory_space_title} をフォローしているため、この通知を受け取りました。前のリンク先から、通知の受信を停止することができます。'
           email_subject: '%{resource_title} の予算が %{participatory_space_title} に有効になりました。'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の予算が %{participatory_space_title} に有効になりました。
+    open_data:
+      help:
+        projects:
+          address: プロジェクトのアドレス (もしあれば)
+          budget: 'このプロジェクトが属するプロジェクトグループ (例: "2021 Budget")'
+          budget_amount: このプロジェクトの予算の合計
+          category: 'プロジェクトのカテゴリ (例: "文化")'
+          comments: このプロジェクトが受け取ったコメント数
+          component: プロジェクトが属するコンポーネント
+          confirmed_votes: このプロジェクトが受け取った確認済み投票数
+          created_at: プロジェクトの作成日時
+          description: プロジェクトの説明
+          id: プロジェクトの固有ID
+          participatory_space: このプロジェクトが所属するスペース（参加型プロセス、参加スペースなど）
+          related_proposal_titles: 関連する提案のタイトル
+          related_proposal_urls: 関連する提案のURL
+          related_proposals: このプロジェクトに関連する提案
+          scope: 'プロジェクトのスコープ (例: "市")'
+          title: プロジェクトのタイトル
+          url: プロジェクトの URL
     orders:
       checkout:
         error: 投票処理中に問題が発生しました。

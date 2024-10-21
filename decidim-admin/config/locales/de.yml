@@ -197,6 +197,7 @@ de:
         reject: Ablehnen
         send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
+        share_tokens: Zugangslinks
         user:
           new: Neuer Administrator
         verify: Überprüfen
@@ -598,6 +599,7 @@ de:
         scopes: Bereiche
         see_site: Seite ansehen
         settings: Einstellungen
+        share_tokens: Zugangslinks
         static_page_topics: Themen
         static_pages: Seiten
         taxonomies: Taxonomien
@@ -655,12 +657,11 @@ de:
             plural: Plural
         share_token:
           fields:
-            created_at: Erstellt am
+            actions: Aktionen
             expires_at: Läuft ab am
-            last_used_at: Zuletzt verwendet
+            registered_only: Nur registrierte?
             times_used: Anzahl Anwendungen
-            token: Token
-            user: Erstellt von
+            token: Zugangslink
         static_page:
           fields:
             created_at: Erstellt am
@@ -967,16 +968,50 @@ de:
           success: Bereich wurde erfolgreich aktualisiert
       share_tokens:
         actions:
-          confirm_destroy: Sind Sie sicher, dass Sie diesen Token löschen wollen?
+          confirm_destroy: Sind Sie sicher, dass Sie diesen Zugang löschen wollen?
+          copy_link: Link kopieren
           destroy: Löschen
-          share: Teilen
+          edit: Bearbeiten
+          preview: Vorschau
+        create:
+          invalid: Beim Erstellen des Zugangslinks ist ein Problem aufgetreten.
+          success: Zugangslink erfolgreich erstellt.
         destroy:
-          error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
-          success: Token wurde erfolgreich gelöscht.
-        share_tokens:
-          empty: Es gibt keine aktiven Token.
-          help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
-          title: Token teilen
+          error: Beim Löschen des Zugangslinks ist ein Problem aufgetreten.
+          success: Der Zugangslink wurde erfolgreich gelöscht.
+        edit:
+          title: 'Zugangslinks bearbeiten für: %{name}'
+          update: Aktualisieren
+        form:
+          automatic: Automatisch
+          custom: Personalisiert
+          custom_expiration: Benutzerdefiniertes Ablaufen
+          custom_token: Benutzerdefiniertes Wort
+          expires_at: Läuft ab am
+          'false': 'Nein'
+          never_expire: Niemals
+          registered_only: Nur registrierte?
+          token: Zugangsschlüssel
+          'true': 'Ja'
+        index:
+          back_to_share_tokens: Zurück zu den Zugangslinks
+          copied: Zugangslink kopiert!
+          copy_message: Der Text wurde erfolgreich in die Zwischenablage kopiert.
+          create_new_token: Einen ersten Zugangslink erstellen!
+          empty_html: Keine aktiven Zugangslinks vorhanden. %{new_token_link}
+          never: Niemals
+          new_share_token_button: Neuer Zugangslink
+          share_tokens_help_html: |
+            Erstellen und teilen Sie einen Zugangslink, um anderen die Ansicht dieser unveröffentlichten Ressource zu ermöglichen.
+            Zugangslinks können z.B. nur für registrierte Teilnehmer gültig sein oder falls nötig über ein Ablaufdatum verfügen.
+            Um einen neuen Zugangslink mit jemandem zu teilen, erstellen Sie ihn und kopieren Sie dann den Link mit dem Aktionssymbol "%{clipboard} Zwischenablage".
+          title: 'Zugangslink für: %{name}'
+        new:
+          create: Erstellen
+          title: 'Neuer Zugangslink für: %{name}'
+        update:
+          error: Bei der Aktualisierung dieses Zugangs ist ein Problem aufgetreten.
+          success: Zugangslink erfolgreich aktualisiert.
       shared:
         adjacent_navigation:
           next: Weiter

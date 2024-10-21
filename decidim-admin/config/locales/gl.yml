@@ -527,12 +527,8 @@ gl:
             plural: Plural
         share_token:
           fields:
-            created_at: Creado o
             expires_at: Caduca o
-            last_used_at: Empregado por última vez
             times_used: Veces utilizado
-            token: Token
-            user: Creado por
         static_page:
           fields:
             created_at: Creado en
@@ -774,15 +770,7 @@ gl:
           success: Ámbito actualizado con éxito
       share_tokens:
         actions:
-          confirm_destroy: Estás certo/a de querer eliminar este token?
           destroy: Eliminar
-          share: Compartir
-        destroy:
-          error: Produciuse un problema ao destruír o token.
-          success: Token eliminado con éxito.
-        share_tokens:
-          help: Estes tokens empréganse para compartir publicamente con calquera usuario este recurso non publicado. Ocultaranse cando o recurso sexa publicado. Preme na icona de compartir token para visitar o URL compartíbel.
-          title: Compartir tokens
       shared:
         gallery:
           add_images: Engadir imaxes

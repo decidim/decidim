@@ -314,6 +314,8 @@ fi-pl:
           close:
             invalid: Tapaamisen sulkeminen epäonnistui.
             success: Tapaamisen sulkeminen onnistui.
+          component:
+            unlink: Poista linkitys
           create:
             invalid: Tapaamisen luonti epäonnistui.
             success: Tapaamisen luonti onnistui. Huomaa, että tapaamista ei ole vielä julkaistu, sinun pitää julkaista se manuaalisesti.
@@ -338,7 +340,18 @@ fi-pl:
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
           index:
+            linked_meeting_warning_html: Tätä tapaamista tulee muokata kohteesta <br><a href="%{href}">%{name}</a>
             title: Tapahtumat
+          linked_spaces:
+            assign: Määritä
+            link_a_space: Liitä osallistumistila
+            private_meeting_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityinen ja läpinäkymätön.
+            private_space_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityisessä ja läpinäkymättömässä osallistumistilassa.
+            select: Valitse osallistumistila
+            table:
+              actions: Toiminnot
+              component: Liitetyt osallistumistilat
+            title: Liitetyt osallistumistilat
           new:
             create: Luo
             title: Luo tapahtuma
@@ -565,6 +578,7 @@ fi-pl:
           micro_camera_permissions_warning: Painaessasi alla olevaa painiketta, sinua pyydetään antamaan palvelulle oikeudet käyttää mikrofoniasi ja/tai kameraasi, minkä jälkeen voit liittyä tapaamiseen
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
+          redirect_notice: Tämä tapaaminen on toisessa osallistumistilassa, joten sinut on siirretty osallistumistilaan nimeltä %{current_space_name}.<br>Jos haluat, voit siirtyä takaisin osallistumistilaan nimeltä <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Ilmoittautumiskoodisi
           registration_state:
             validated: VAHVISTETTU
@@ -674,6 +688,45 @@ fi-pl:
         description: Tapahtumien määrä
         object: tapahtumat
         title: Tapahtumat
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
+          author: Kommentin laatijan nimi
+          body: Kommentin teksti
+          commentable_id: Kommentoitavan asian uniikki tunniste
+          commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
+          id: Kommentin uniikki tunniste
+          locale: Kommentoijan valitsema kieliasetus sivustolla
+          root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
+          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
+        meetings:
+          address: Tapaamisen osoite, mikäli tapaaminen on määritetty tiettyyn paikkaan
+          attachments: Tapaamisen liitteiden lukumäärä
+          attendees: Tapaamisen osallistuvien tai osallistuneiden ihmisten määrä
+          category: Tapaamisen aihepiiri (esim. "Kulttuuri")
+          comments: Tapaamisen kommenttien lukumäärä
+          component: Tapaamisen komponentti
+          contributions: Tapaamisen osallistujien tekemien kontribuutioiden lukumäärä
+          description: Tapaamisen kuvaus
+          end_time: Tapaamisen päättymisajankohta
+          followers: Tapaamisen seuraajien lukumäärä
+          id: Tapaamisen uniikki tunniste
+          location: Tapaamisen sijainti
+          organizations: Tapaamiseen osallistuvat tai osallistuneet organisaatiot
+          participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä tapaaminen kuuluu
+          published: Tapaamisen julkaisuajankohta
+          reference: Tapaamisen yksilöllinen tunniste tällä alustalla
+          related_proposals: Ehdotukset, jotka liittyvät tähän tapaamiseen
+          related_results: Tulokset, jotka liittyvät tähän tapaamiseen
+          scope: Tapaamisen teema (esim. "Kaupunki")
+          start_time: Tapaamisen alkamisajankohta
+          title: Tapaamisen otsikko
+          url: Tapaamisen URL-osoite
+          withdrawn: Onko tämä tapaaminen peruttu
+          withdrawn_at: Ajankohta, jolloin tapaaminen peruutettiin
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aiemmat tapahtumat

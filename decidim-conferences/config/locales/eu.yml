@@ -84,7 +84,7 @@ eu:
         other: Jardunaldiko hizlariak
       decidim/conference_user_role:
         one: Hitzaldiko erabiltzaile rola
-        other: Jardunaldiko hizlari rolak
+        other: Hitzaldiko hizlari rolak
   decidim:
     admin:
       actions:
@@ -572,6 +572,27 @@ eu:
         title: Media eta estekak
     menu:
       conferences: Jardunaldiak
+    open_data:
+      help:
+        conferences:
+          decidim_scope_id: Hitzaldiaren esparrua
+          description: Hitzaldiaren deskribapen luzea
+          end_date: Zein datatan amaitu zen hitzaldi hau.
+          hashtag: Hitzaldiaren traola, Twitter/Xerako erabilia
+          id: Hitzaldi honen identifikatzaile bakarra
+          location: Hitzaldiaren kokalekua. Non egingo da hitzaldi hau?
+          objectives: Hitzaldi honen helburuak. Zein da helburua?
+          promoted: Hitzaldia sustatu edo ez
+          reference: Hitzaldiaren erreferentzia. Identifikatzaile bakarra plataforma honetarako.
+          remote_banner_image_url: Hitzaldiaren irudiaren URLa
+          remote_hero_image_url: Batzarraren protagonistaren irudiaren URLa
+          scope: Hitzaldiaren esparrua
+          scopes_enabled: Esparruak gaituta dauden ala ez
+          short_description: Hitzaldiaren deskribapen laburra
+          slogan: Hitzaldi honen leloa
+          slug: Batzarraren lerroa (helburuen identifikaziorako erabiltzen da, URLrako)
+          start_date: Zein datatan hasi zen hitzaldi hau.
+          title: Hitzaldiaren izenburua
     statistics:
       conferences_count: Hitzaldiak
   devise:
