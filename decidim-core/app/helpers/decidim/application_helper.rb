@@ -9,6 +9,10 @@ module Decidim
     include Decidim::AmendmentsHelper
     include Decidim::CacheHelper
 
+    def layout_item_classes
+      "layout-item"
+    end
+
     # Truncates a given text respecting its HTML tags.
     #
     # text    - The String text to be truncated.
