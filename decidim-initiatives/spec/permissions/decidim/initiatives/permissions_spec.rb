@@ -283,6 +283,43 @@ describe Decidim::Initiatives::Permissions do
   context "when managing an initiative" do
     let(:action_subject) { :initiative }
 
+    context "when printing" do
+      let(:action_name) { :print }
+      let(:action) do
+        { scope: :public, action: :print, subject: :initiative }
+      end
+      let(:context) do
+        { initiative: }
+      end
+
+      before do
+        allow(Decidim::Initiatives).to receive(:print_enabled).and_return(true)
+      end
+
+      context "when user is a committee member" do
+        let(:initiative) { create(:initiative, :created, organization:) }
+
+        before do
+          create(:initiatives_committee_member, initiative:, user:)
+        end
+
+        it { is_expected.to be true }
+      end
+
+      context "when user is not an initiative author" do
+        let(:initiative) { create(:initiative, :created, organization:) }
+
+        it { is_expected.to be false }
+      end
+
+      context "when user is admin" do
+        let(:user) { create(:user, :admin, organization:) }
+        let(:initiative) { create(:initiative, :created, author: user, organization:) }
+
+        it { is_expected.to be true }
+      end
+    end
+
     context "when editing" do
       let(:action_name) { :edit }
       let(:action) do
