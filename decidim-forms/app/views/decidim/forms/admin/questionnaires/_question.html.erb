@@ -111,7 +111,7 @@
         <div class="questionnaire-question-matrix-rows" data-template="<%= matrix_row_template_selector %>">
           <div class="questionnaire-question-matrix-rows-list">
             <% question.matrix_rows_by_position.each do |matrix_row| %>
-              <%= fields_for "questionnaire[questions][#{question.to_param}][matrix_rows][]", matrix_row do |matrix_row_form| %>
+              <%= fields_for "questions[questions][#{question.to_param}][matrix_rows][]", matrix_row do |matrix_row_form| %>
                 <%= render "decidim/forms/admin/questionnaires/matrix_row", form: matrix_row_form, question:, editable: %>
               <% end %>
             <% end %>
@@ -126,7 +126,7 @@
       <div class="questionnaire-question-answer-options" data-template="<%= answer_option_template_selector %>">
         <div class="questionnaire-question-answer-options-list">
           <% question.answer_options.each do |answer_option| %>
-            <%= fields_for "questionnaire[questions][#{question.to_param}][answer_options][]", answer_option do |answer_option_form| %>
+            <%= fields_for "questions[questions][#{question.to_param}][answer_options][]", answer_option do |answer_option_form| %>
               <%= render "decidim/forms/admin/questionnaires/answer_option", form: answer_option_form, question:, editable: %>
             <% end %>
           <% end %>
@@ -153,7 +153,7 @@
       <div class="questionnaire-question-display-conditions" data-template="<%= display_condition_template_selector %>">
         <div class="questionnaire-question-display-conditions-list">
           <% question.display_conditions.each do |display_condition| %>
-            <%= fields_for "questionnaire[questions][#{question.to_param}][display_conditions][]", display_condition do |display_condition_form| %>
+            <%= fields_for "questions[questions][#{question.to_param}][display_conditions][]", display_condition do |display_condition_form| %>
               <%= render "decidim/forms/admin/questionnaires/display_condition", form: display_condition_form, question:, editable: %>
             <% end %>
           <% end %>

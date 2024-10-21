@@ -21,5 +21,9 @@ FactoryBot.define do
     end
     questionnaire { build(:questionnaire, :with_questions, skip_injection:) }
     component { build(:surveys_component, skip_injection:) }
+
+    trait :published do
+      published_at { Time.current }
+    end
   end
 end

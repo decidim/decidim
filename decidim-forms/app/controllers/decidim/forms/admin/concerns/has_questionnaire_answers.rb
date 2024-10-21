@@ -37,7 +37,7 @@ module Decidim
             def show
               enforce_permission_to :show, :questionnaire_answers
 
-              @participant = participant(participants_query.participant(params[:session_token]))
+              @participant = participant(participants_query.participant(params[:id]))
 
               render template: "decidim/forms/admin/questionnaires/answers/show"
             end
@@ -45,7 +45,7 @@ module Decidim
             def export_response
               enforce_permission_to :export_response, :questionnaire_answers
 
-              session_token = params[:session_token]
+              session_token = params[:id]
               answers = QuestionnaireUserAnswers.for(questionnaire)
 
               # i18n-tasks-use t("decidim.forms.admin.questionnaires.answers.export_response.title")

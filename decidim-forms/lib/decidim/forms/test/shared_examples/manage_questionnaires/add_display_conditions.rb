@@ -17,7 +17,8 @@ shared_examples_for "add display conditions" do
       let!(:question) { create(:questionnaire_question, questionnaire:, body:, question_type: "short_answer") }
 
       before do
-        visit_questionnaire_edit_path_and_expand_all
+        click_on "Save"
+        visit_manage_questions_and_expand_all
       end
 
       it "does not display an add display condition button" do
@@ -26,12 +27,10 @@ shared_examples_for "add display conditions" do
 
       context "when creating a new question" do
         it "disables the add display condition button if the question has not been saved" do
-          within "form.edit_questionnaire" do
-            click_on "Add question"
-            expand_all_questions
+          click_on "Add question"
+          expand_all_questions
 
-            expect(page).to have_button("Add display condition", disabled: true)
-          end
+          expect(page).to have_button("Add display condition", disabled: true)
         end
       end
     end
@@ -71,29 +70,28 @@ shared_examples_for "add display conditions" do
       let(:questions) { [question_short_answer, question_long_answer, question_single_option, question_multiple_option] }
 
       before do
-        visit_questionnaire_edit_path_and_expand_all
+        click_on "Save"
+        visit_manage_questions_and_expand_all
       end
 
       context "when clicking add display condition button" do
         it "adds a new display condition form with all correct elements" do
-          within "form.edit_questionnaire" do
-            within_add_display_condition do
-              expect(page).to have_select("Question")
-              expect(page).to have_select("Condition")
-              expect(page).to have_css("[id$=mandatory]")
+          within_add_display_condition do
+            expect(page).to have_select("Question")
+            expect(page).to have_select("Condition")
+            expect(page).to have_css("[id$=mandatory]")
 
-              select question_single_option.body["en"], from: "Question"
-              select "Answered", from: "Condition"
+            select question_single_option.body["en"], from: "Question"
+            select "Answered", from: "Condition"
 
-              expect(page).to have_no_select("Answer option")
-              expect(page).to have_no_css("[id$=condition_value_en]", visible: :visible)
+            expect(page).to have_no_select("Answer option")
+            expect(page).to have_no_css("[id$=condition_value_en]", visible: :visible)
 
-              select question_single_option.body["en"], from: "Question"
-              select "Equal", from: "Condition"
+            select question_single_option.body["en"], from: "Question"
+            select "Equal", from: "Condition"
 
-              expect(page).to have_select("Answer option")
-              expect(page).to have_no_css("[id$=condition_value_en]", visible: :visible)
-            end
+            expect(page).to have_select("Answer option")
+            expect(page).to have_no_css("[id$=condition_value_en]", visible: :visible)
           end
         end
 
