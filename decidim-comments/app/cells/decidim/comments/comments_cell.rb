@@ -8,11 +8,10 @@ module Decidim
       delegate :user_signed_in?, to: :controller
 
       def render_comments
-        if supports_two_columns_layout? && !mobile_view?
+        if supports_two_columns_layout?
+          @interleaved_comments ||= interleave_comments(comments_in_favor, comments_against)
+
           render :comments_in_two_columns
-        elsif supports_two_columns_layout? && mobile_view?
-          @interleaved_comments = interleave_comments(comments_in_favor, comments_against)
-          render :comments_interleaved
         else
           render :comments_in_single_column
         end
@@ -201,11 +200,6 @@ module Decidim
         action_authorized_link_to(:comment, commentable_path, options) do
           t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
         end
-      end
-
-      def mobile_view?
-        # TODO: Implement this method
-        false
       end
     end
   end
