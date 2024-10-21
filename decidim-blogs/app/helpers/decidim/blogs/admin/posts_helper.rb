@@ -37,7 +37,7 @@ module Decidim
 
         def publish_data(published_at)
           data = {}
-          if published_at > Time.current
+          if published_at.present? && published_at > Time.current
             data[:icon] = icon("time-line", aria_label: t("decidim.blogs.admin.posts.index.not_published_yet"), role: "img")
             data[:popup] = t("decidim.blogs.admin.posts.index.not_published_yet")
           end

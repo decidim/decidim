@@ -58,6 +58,10 @@ shared_examples "manage posts" do |audit_check: true|
       expect(page).to have_content("Post title 2")
     end
 
+    within "tr", text: translated(attributes[:title]) do
+      click_on "Publish"
+    end
+
     if audit_check == true
       visit decidim_admin.root_path
       expect(page).to have_content("created the #{translated(attributes[:title])} blog post")

@@ -8,7 +8,7 @@ describe "Social shares" do
   let(:participatory_process) { create(:participatory_process, hero_image:, organization:) }
   let(:hero_image) { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") }
   let(:component) { create(:post_component, participatory_space: participatory_process) }
-  let(:post) { create(:post, component:, body:) }
+  let(:post) { create(:post, :published, component:, body:) }
   let(:content_block) { create(:content_block, organization:, manifest_name: :hero, scope_name: :homepage) }
   let!(:attachment) { create(:attachment, :with_image, attached_to: post, file: attachment_file) }
   let(:body) { { en: "Description <p><img src=\"#{description_image_path}\"></p>" } }

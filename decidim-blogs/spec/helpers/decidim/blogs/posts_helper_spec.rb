@@ -7,7 +7,7 @@ module Decidim::Blogs
     describe "#render_schema_org_blog_posting_post" do
       subject { helper.render_schema_org_blog_posting_post(post) }
 
-      let!(:post) { create(:post) }
+      let!(:post) { create(:post, :published) }
 
       it "renders a schema.org event" do
         keys = JSON.parse(subject).keys

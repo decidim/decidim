@@ -21,8 +21,8 @@ describe "Explore posts" do
   end
 
   context "when there are posts" do
-    let!(:old_post) { create(:post, component:, created_at: 2.days.ago) }
-    let!(:new_post) { create(:post, component:, created_at: Time.current) }
+    let!(:old_post) { create(:post, :published, component:) }
+    let!(:new_post) { create(:post, component:, published_at: Time.current) }
 
     let!(:image) { create(:attachment, attached_to: old_post) }
 
@@ -49,7 +49,7 @@ describe "Explore posts" do
 
       context "when paginating" do
         let(:collection_size) { 25 }
-        let!(:collection) { create_list(:post, collection_size, component:) }
+        let!(:collection) { create_list(:post, collection_size, :published, component:) }
 
         before do
           visit_component
@@ -75,7 +75,7 @@ describe "Explore posts" do
       let(:posts_count) { 1 }
       let(:author) { organization }
       let(:body) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
-      let!(:post) { create(:post, component:, author:, body:) }
+      let!(:post) { create(:post, :published, component:, author:, body:) }
 
       before do
         visit resource_locator(post).path
@@ -113,7 +113,7 @@ describe "Explore posts" do
         expect(page).to have_i18n_content(post.title)
         expect(page).to have_i18n_content(post.body)
         expect(page).to have_content(translated(post.author.name))
-        expect(page).to have_content(post.created_at.strftime("%d/%m/%Y %H:%M"))
+        expect(page).to have_content(post.published_at.strftime("%d/%m/%Y %H:%M"))
       end
 
       it_behaves_like "has embedded video in description", :body
