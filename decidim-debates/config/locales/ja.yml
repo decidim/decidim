@@ -79,6 +79,8 @@ ja:
           update:
             invalid: このディベートを更新する際に問題が発生しました。
             success: ディベートが正常に更新されました。
+        exports:
+          comments: コメント
       admin_log:
         debate:
           close: "%{user_name} は、 %{resource_name} スペースの %{space_name} ディベートを終了しました"
