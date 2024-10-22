@@ -25,11 +25,12 @@
     <%
     label_options = {
       class: "answer-questionnaire__question-label questionnaire-question",
-      data: { "answer-idx": cleaned_answer_idx }
+      data: { "answer-idx": cleaned_answer_idx },
+      required: answer.question.mandatory
     }
     label_options[:for] = nil if %w(matrix_single matrix_multiple single_option multiple_option).include?(answer.question.question_type)
     %>
-    <%= label_tag field_id, answer.label, **label_options %>
+    <%= answer_form.send(:custom_label, :field_id, translated_attribute(answer.question.body), label_options) %>
     <% if translated_attribute(answer.question.description).present? %>
       <div class="answer-questionnaire__question-description">
         <%= decidim_sanitize_editor_admin translated_attribute(answer.question.description) %>
