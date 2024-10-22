@@ -136,6 +136,7 @@ en:
         new:
           authorize: Send
           authorize_with: Verify with %{authorizer}
+          tos_agreement: By verifying your identity you accept %{link}.
         onboarding_pending:
           completed_verifications: You have been successfully authorized, now you can %{action} in the %{resource_name}
           granted_verifications: Granted verifications
