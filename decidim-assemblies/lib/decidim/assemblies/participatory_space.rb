@@ -46,7 +46,6 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
   participatory_space.register_on_destroy_account do |user|
     Decidim::AssemblyUserRole.where(user:).destroy_all
-    Decidim::AssemblyMember.where(user:).destroy_all
   end
 
   participatory_space.seeds do
