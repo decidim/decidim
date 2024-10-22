@@ -78,6 +78,9 @@ ja:
           update:
             invalid: このディベートを更新する際に問題が発生しました。
             success: ディベートが正常に更新されました。
+        exports:
+          debate_comments: コメント
+          debates: ディベート
       admin_log:
         debate:
           close: "%{user_name} は、 %{resource_name} スペースの %{space_name} ディベートを終了しました"
@@ -219,5 +222,9 @@ ja:
         description: 作成されたディベート数
         object: ディベート
         title: ディベート
+    open_data:
+      help:
+        debate_comments:
+          alignment: このコメントが好意的、敵対的、中立的であった場合
     statistics:
       debates_count: ディベート
