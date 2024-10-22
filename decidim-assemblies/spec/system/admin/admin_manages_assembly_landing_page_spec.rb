@@ -24,7 +24,7 @@ describe "Admin manages assembly landing page" do
       visit edit_content_block_path(resource, related_assemblies_content_block)
 
       expect(related_assemblies_content_block.settings["max_results"]).to eq(6)
-      select 12, from: :content_block_settings_max_results
+      fill_in :content_block_settings_max_results, with: "12"
       click_on "Update"
 
       expect(page).to have_content("Related assemblies")
