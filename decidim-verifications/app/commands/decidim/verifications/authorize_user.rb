@@ -27,6 +27,8 @@ module Decidim
           return broadcast(:invalid)
         end
 
+        return broadcast(:invalid) unless set_tos_agreement
+
         Authorization.create_or_update_from(handler)
 
         broadcast(:ok)
@@ -78,6 +80,15 @@ module Decidim
         conflict.update(times: conflict.times + 1)
 
         conflict
+      end
+
+      def set_tos_agreement
+        user = handler.user
+
+        return true if user.tos_accepted? || !user.ephemeral?
+        return unless handler.try(:tos_agreement)
+
+        user.update(accepted_tos_version: @organization.tos_version)
       end
     end
   end

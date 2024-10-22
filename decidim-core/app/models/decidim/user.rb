@@ -45,6 +45,7 @@ module Decidim
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :tos_agreement, acceptance: true, if: :user_invited?
+    validates :tos_agreement, acceptance: true, if: :ephemeral?
     validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
 
     validate :all_roles_are_valid
