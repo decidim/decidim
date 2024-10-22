@@ -2,7 +2,8 @@
                                 budget_order_line_item_path(model.budget, project_id: model, show_only_added: options[:show_only_added]),
                                 method: vote_button_method,
                                 remote: true,
-                                class: "button w-full #{vote_button_classes}",
+                                resource: model,
+                                class: "button #{vote_button_classes}",
                                 id: "project-vote-button-#{model.id}",
                                 data: {
                                   add: !resource_added?,
