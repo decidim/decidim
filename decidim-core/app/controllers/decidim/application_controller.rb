@@ -59,6 +59,8 @@ module Decidim
 
     skip_before_action :disable_http_caching, unless: :user_signed_in?
 
+    before_action :check_ephemeral_user_session, if: :ephemeral_user_signed_in?
+
     def store_share_token
       session[:share_token] = params[:share_token] if params.has_key?(:share_token)
 
@@ -119,6 +121,41 @@ module Decidim
     # displays the JS response instead of the HTML one.
     def add_vary_header
       response.headers["Vary"] = "Accept"
+    end
+
+    def ephemeral_user_signed_in?
+      user_signed_in? && current_user.ephemeral?
+    end
+
+    def check_ephemeral_user_session
+      onboarding_manager = Decidim::OnboardingManager.new(current_user)
+
+      return destroy_ephemeral_session && redirect_to(decidim.root_path) if onboarding_manager.expired?
+
+      if onboarding_manager.valid?
+        authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
+        return destroy_ephemeral_session && redirect_to(decidim.root_path) if authorizations.global_code == :unauthorized
+      end
+
+      # TODO Sign out and Decidim::DestroyAccount if user is not authorized to
+      # perform the action after creating the verification
+
+      # TODO check allowed path of ephemeral users depending on their
+      # verification phase
+      return true
+    end
+
+    def destroy_ephemeral_session
+      Decidim::DestroyEphemeralUser.call(current_user) do
+        on(:ok) do
+          sign_out(current_user)
+          flash[:notice] = t("ephemeral_session_closed", scope: "decidim.devise.sessions.user")
+        end
+
+        on(:invalid) do
+          flash[:alert] = t("account.destroy.error", scope: "decidim")
+        end
+      end
     end
   end
 end
