@@ -740,6 +740,7 @@ ca:
         meeting_proposal: 'Propostes relacionades:'
         proposal_meeting: 'Trobades relacionades:'
     statistics:
+      attendees_count: Assistents a la reunió
       meetings_count: Trobades
   devise:
     mailer:
