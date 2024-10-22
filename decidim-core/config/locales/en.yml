@@ -734,6 +734,7 @@ en:
       others: "%{count} more"
       title: Liked by
       you: you
+    ephemeral_user: Visitant
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
