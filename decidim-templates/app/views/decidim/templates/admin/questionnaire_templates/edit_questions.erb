@@ -15,7 +15,7 @@
 
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <%= decidim_form_for(@form, url: update_questions_questionnaire_template_path(questionnaire), method: :patch, html: { class: "form-defaults form edit_questions_survey" }) do |form| %>
+    <%= decidim_form_for(@form, url: update_questions_questionnaire_template_path(template), method: :patch, html: { class: "form-defaults form edit_questions_survey" }) do |form| %>
       <%= render partial: "decidim/forms/admin/questionnaires/questions_form", object: form %>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">

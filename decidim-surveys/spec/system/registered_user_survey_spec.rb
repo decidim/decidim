@@ -23,7 +23,7 @@ describe "Answer a survey" do
     }
   end
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
-  let!(:survey) { create(:survey, component:, published_at: Time.current, questionnaire:) }
+  let!(:survey) { create(:survey, :published, component:, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
   let(:mailer) { double(deliver_later: true) }
 
@@ -47,10 +47,9 @@ describe "Answer a survey" do
   context "when the survey allow answers" do
     let(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization:) }
+    let!(:survey) { create(:survey, :published, :allow_answers, allow_unregistered: false, component:, questionnaire:) }
 
     before do
-      survey.update!(allow_answers: true, allow_unregistered: false)
-
       login_as user, scope: :user
     end
 

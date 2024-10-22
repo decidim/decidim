@@ -48,6 +48,10 @@ module Decidim
         false
       end
 
+      def clean_after_publish?
+        clean_after_publish
+      end
+
       def self.ransackable_scopes(_auth_object = nil)
         [:with_any_state]
       end

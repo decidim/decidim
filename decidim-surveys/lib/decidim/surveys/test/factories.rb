@@ -25,5 +25,13 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :allow_answers do
+      allow_answers { true }
+    end
+
+    trait :allow_unregistered do
+      allow_unregistered { true }
+    end
   end
 end

@@ -27,7 +27,7 @@ module Decidim
 
           transaction do
             publish_survey
-            delete_answers unless @questionnaire.published?
+            delete_answers if @survey.clean_after_publish?
           end
 
           broadcast(:ok, survey)

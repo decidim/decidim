@@ -23,7 +23,7 @@ describe "Answer a survey" do
     }
   end
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
-  let!(:survey) { create(:survey, component:, published_at: Time.current, questionnaire:) }
+  let!(:survey) { create(:survey, :published, component:, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0) }
 
   include_context "with a component"
