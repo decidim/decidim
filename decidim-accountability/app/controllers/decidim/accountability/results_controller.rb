@@ -16,6 +16,10 @@ module Decidim
         raise ActionController::RoutingError, "Not Found" unless result
       end
 
+      def home
+        @all_geocoded_results = results.geocoded
+      end
+
       private
 
       def results
