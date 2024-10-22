@@ -13,6 +13,10 @@
     </div>
   <% end %>
 
+  <% if current_user.ephemeral? && !current_user.tos_accepted? %>
+    <%= render partial: "tos_acceptance_field", locals: { form: } %>
+  <% end %>
+
   <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
     <%= link_to authorizations_back_path(current_user, redirect_url:), class: "button button__sm md:button__lg button__text-secondary" do %>
       <%= icon "arrow-left-line", class: "fill-current" %>
