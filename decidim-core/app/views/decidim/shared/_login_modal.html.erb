@@ -28,9 +28,13 @@
               <%= f.check_box :remember_me, label_options: { class: "form__wrapper-checkbox-label" } %>
               <%= link_to t("devise.shared.links.forgot_your_password"), new_password_path(:user) %>
           </div>
-          <div class="login__modal-links">
-            <%= link_to t(".sign_up"), decidim.new_user_registration_path, class: "sign-up-link" if current_organization.sign_up_enabled? %>
+          <div class="login__info flex justify-center font-semibold">
+            <p>
+              <%= t("decidim.devise.sessions.new.are_you_new?") %>
+              <%= link_to t(".sign_up"), decidim.new_user_registration_path, class: "sign-up-link" if current_organization.sign_up_enabled? %>
+            </p>
           </div>
+
         <% else %>
           <%= cell("decidim/announcement", t("sign_in_disabled", scope: "decidim.devise.sessions.new"), callout_class: "warning" ) %>
 
