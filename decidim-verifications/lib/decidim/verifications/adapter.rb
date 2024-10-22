@@ -63,7 +63,7 @@ module Decidim
         @manifest = manifest
       end
 
-      delegate :key, :name, :fullname, :description, :type, :icon, to: :manifest
+      delegate :key, :name, :fullname, :description, :type, :icon, :ephemeral?, to: :manifest
 
       #
       # Main entry point for the verification engine
