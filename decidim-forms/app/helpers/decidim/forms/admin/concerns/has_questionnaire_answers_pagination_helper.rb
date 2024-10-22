@@ -40,7 +40,7 @@ module Decidim
           end
 
           def current_idx
-            participant_ids.index(params[:session_token])
+            participant_ids.index(params[:id])
           end
         end
       end
