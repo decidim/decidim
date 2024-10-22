@@ -50,6 +50,15 @@ module Decidim
       duplicate.present? && duplicate.user.deleted?
     end
 
+    # Defines wether the identity of an ephemeral user with the same authorization
+    # can be transferred to the current session and replace the existing user.
+    #
+    # @return [Boolean] A boolean indicating whether the user identifier can be
+    #   transferred.
+    def user_transferrable?
+      duplicate.present? && [user, duplicate.user].all?(&:ephemeral?)
+    end
+
     # Fetches the duplicate record of the same authorization currently belonging
     # to other user than the user being authorized.
     #
