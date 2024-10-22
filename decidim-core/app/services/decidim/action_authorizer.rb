@@ -88,6 +88,10 @@ module Decidim
       def unauthorized?
         @code == :unauthorized
       end
+
+      def ephemeral?
+        @authorization_handler.ephemeral?
+      end
     end
 
     class AuthorizationStatusCollection
@@ -135,6 +139,10 @@ module Decidim
 
       def single_authorization_required?
         pending_authorizations_count == 1 && [:ok, :unauthorized].exclude?(global_code)
+      end
+
+      def ephemerable?
+        statuses.all?(&:ephemeral?)
       end
     end
 
