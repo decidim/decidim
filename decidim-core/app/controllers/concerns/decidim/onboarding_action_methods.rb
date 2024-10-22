@@ -42,6 +42,8 @@ module Decidim
       end
 
       def clear_onboarding_data!(user)
+        return if user.ephemeral?
+
         user.extended_data = user.extended_data.except(OnboardingManager::DATA_KEY)
         user.save!
       end
