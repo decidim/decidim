@@ -740,6 +740,7 @@ eu:
         meeting_proposal: 'Topaketari dagozkion proposamenak:'
         proposal_meeting: 'Proposamenarekin lotutako topaketak:'
     statistics:
+      attendees_count: Topaketara bertaratuak
       meetings_count: Topaketak
   devise:
     mailer:
