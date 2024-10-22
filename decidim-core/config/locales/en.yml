@@ -707,6 +707,7 @@ en:
         select_identity: Select identity
     endorsers_list:
       endorsed_by: Liked by…
+    ephemeral_user: Visitant
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
