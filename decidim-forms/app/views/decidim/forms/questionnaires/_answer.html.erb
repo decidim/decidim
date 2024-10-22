@@ -30,7 +30,7 @@
     }
     label_options[:for] = nil if %w(matrix_single matrix_multiple single_option multiple_option).include?(answer.question.question_type)
     %>
-    <%= answer_form.send(:custom_label, :field_id, translated_attribute(answer.question.body), label_options) %>
+    <%= answer_form.send(:custom_label, :field_id, decidim_escape_translated(answer.question.body), label_options) %>
     <% if translated_attribute(answer.question.description).present? %>
       <div class="answer-questionnaire__question-description">
         <%= decidim_sanitize_editor_admin translated_attribute(answer.question.description) %>
