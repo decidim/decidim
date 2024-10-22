@@ -19,6 +19,7 @@ module Decidim
         create_initiative?
         edit_public_initiative?
         update_public_initiative?
+        print_initiative?
 
         vote_initiative?
         sign_initiative?
@@ -120,6 +121,17 @@ module Decidim
               UserAuthorizations.for(user).any? ||
               Decidim::UserGroups::ManageableUserGroups.for(user).verified.any?
         )
+      end
+
+      def print_initiative?
+        return unless permission_action.action == :print &&
+                      permission_action.subject == :initiative
+
+        toggle_allow(Decidim::Initiatives.print_enabled && (authorship_or_admin? || committee_member?))
+      end
+
+      def committee_member?
+        InitiativesPromoted.by(user).exists?(id: initiative.id)
       end
 
       def vote_initiative?
