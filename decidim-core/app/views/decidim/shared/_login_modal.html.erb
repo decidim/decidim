@@ -47,10 +47,12 @@
 
     <% if current_organization.sign_in_enabled? %>
       <div data-dialog-actions>
-        <button type="submit" class="button button__lg button__secondary ">
-          <%= t("devise.sessions.new.log_in") %>
-          <%= icon "arrow-right-line", class: "fill-current" %>
-        </button>
+        <div class="form__wrapper-block w-full">
+          <button type="submit" class="button button__lg button__secondary">
+            <%= t("devise.sessions.new.log_in") %>
+            <%= icon "arrow-right-line", class: "fill-current" %>
+          </button>
+        </div>
       </div>
     <% end %>
   <% end %>
