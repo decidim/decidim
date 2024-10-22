@@ -28,6 +28,8 @@ module Decidim
       @user = user
     end
 
+    delegate :ephemeral?, to: :user
+
     # Checks if the onboarding data has an action and a model.
     #
     # Returns a boolean
@@ -157,6 +159,19 @@ module Decidim
     # Returns a String
     def finished_redirect_path
       @finished_redirect_path ||= onboarding_data["redirect_path"].presence || model_path
+    end
+
+    def expired?
+      return unless ephemeral?
+
+      session_duration > Decidim.config.expire_session_after.to_i
+    end
+
+    # Time in seconds since the creation of the user
+    #
+    # Returns an Integer
+    def session_duration
+      Time.current.to_i - (user.last_sign_in_at || user.created_at).to_i
     end
 
     private
