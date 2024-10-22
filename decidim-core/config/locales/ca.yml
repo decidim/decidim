@@ -699,6 +699,8 @@ ca:
         one: Li agrada a %{visible}
         other: Li agrada a %{visible} i a %{others}
       others: "%{count} més"
+      title: Li ha agradat a
+      you: tu
     errors:
       files:
         file_cannot_be_processed: No s'ha pogut processar el fitxer
