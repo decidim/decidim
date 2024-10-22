@@ -79,6 +79,9 @@ eu:
           update:
             invalid: Arazo bat egon da eztabaida hau eguneratzean.
             success: Debate arrakastaz eguneratu da.
+        exports:
+          debate_comments: Iruzkinak
+          debates: Eztabaidak
       admin_log:
         debate:
           close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
@@ -221,5 +224,41 @@ eu:
         description: Sortutako eztabaida kopurua
         object: eztabaidak
         title: eztabaidak
+    open_data:
+      help:
+        debate_comments:
+          alignment: Iruzkin hau aldekoa, kontrakoa edo neutrala bazen
+          author: Iruzkin hau egin duen parte-hartzailearen izena
+          body: Iruzkin bera
+          commentable_id: Iruzkingarriaren identifikazio bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          created_at: Zein datatan sortu zen iruzkin hau
+          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
+          id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
+          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          user_group: Iruzkin hau egin duen erabiltzaile-taldearen izena (baldin badago)
+        debates:
+          author: Eztabaida honen egilearen data
+          category: 'Eztabaidaren kategoria (adibidez: "Kultura")'
+          closed_at: Zein datatan itxi zen eztabaida hau
+          comments: Eztabaida honek duen iruzkin kopurua
+          comments_enabled: Eztabaida honek iruzkinak ditu baimenduta edo ez
+          component: Emaitzaren osagaia honi dagokio
+          conclusions: Eztabaidaren ondorioak itxita bazegoen
+          created_at: Zein datatan eta zein ordutan sortu zen eztabaida
+          description: Eztabaidaren deskribapena
+          end_time: Eztabaida hau amaitzen denean, eztabaida irekia bada eta denbora mugatua badu
+          followers: Eztabaida honek duen jarraitzaile kopurua
+          id: Eztabaidaren identifikatzaile bakarra
+          information_updates: Egileak eztabaidari egin dizkion eguneraketak
+          instructions: Jarraibideak eztabaida honetan iruzkina egiteko
+          last_comment_at: Zein datatan aipatu zen eztabaida hau azkenekoz?
+          participatory_space: Zein espaziotakoa da eztabaida hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          reference: Plataforma honetako baliabidearen identifikatzaile bakarra
+          scope: 'Eztabaidaren esparrua (adibidez: "Hiria")'
+          start_time: Eztabaida hau hasten denean, eztabaida irekia bada eta denbora mugatua badu
+          title: Eztabaidearen izenburua
+          url: Eztabaida hau URL honetan aurki daiteke
     statistics:
       debates_count: Eztabaidak
