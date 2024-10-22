@@ -63,6 +63,9 @@ eu:
         alignment:
           against: Aurka
           in_favor: Alde
+        answers:
+          one: "%{count} erantzun"
+          other: "%{count} erantzun"
         cancel_reply: Ezeztatu erantzuna
         comment_label: Iruzkindu %{comment_id}
         comment_label_reply: Iruzkindu %{comment_id} (erantzun %{parent_comment_id} iruzkinei)
@@ -93,6 +96,7 @@ eu:
           one: Erakutsi erantzuna
           other: Erakutsi %{count} erantzun
         single_comment_link_title: Lortu esteka
+        sort_by: 'Nork sortua:'
       comment_order_selector:
         order:
           best_rated: Balorazio onenak
