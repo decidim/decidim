@@ -33,5 +33,9 @@ FactoryBot.define do
     trait :allow_unregistered do
       allow_unregistered { true }
     end
+
+    trait :clean_after_publish do
+      clean_after_publish { true }
+    end
   end
 end

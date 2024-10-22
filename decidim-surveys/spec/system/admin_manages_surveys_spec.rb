@@ -11,7 +11,7 @@ describe "Admin manages surveys" do
            published_at: nil)
   end
   let!(:questionnaire) { create(:questionnaire) }
-  let!(:survey) { create(:survey, :published, component:, questionnaire:) }
+  let!(:survey) { create(:survey, :published, :clean_after_publish, component:, questionnaire:) }
 
   include_context "when managing a component as an admin"
 
@@ -86,7 +86,6 @@ describe "Admin manages surveys" do
         let(:components_path) { participatory_space_path }
 
         before do
-          survey.update!(clean_after_publish: true)
           visit components_path
         end
 
@@ -107,9 +106,7 @@ describe "Admin manages surveys" do
         end
 
         context "when clean_after_publish is set to false" do
-          before do
-            survey.update!(clean_after_publish: false)
-          end
+          let!(:survey) { create(:survey, :published, clean_after_publish: false, component:, questionnaire:) }
 
           it "does not delete previous answers after publishing" do
             expect(survey.clean_after_publish?).to be false
@@ -134,7 +131,7 @@ describe "Admin manages surveys" do
       }
     end
     let!(:questionnaire) { create(:questionnaire, description:) }
-    let!(:survey) { create(:survey, component:, published_at: Time.current, questionnaire:) }
+    let!(:survey) { create(:survey, :published, component:, questionnaire:) }
 
     it "updates the questionnaire description" do
       visit questionnaire_public_path
