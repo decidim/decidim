@@ -75,6 +75,15 @@ module Decidim
             redirect_to redirect_url || authorizations_path
           end
 
+          on(:transfer_user) do |authorized_user|
+            # TODO - Do not use touch
+            authorized_user.touch(:last_sign_in_at)
+            sign_out(current_user)
+            sign_in(authorized_user)
+
+            redirect_to decidim_verifications.onboarding_pending_authorizations_path
+          end
+
           on(:invalid) do
             flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications")
             render action: :new
