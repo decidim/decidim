@@ -46,6 +46,10 @@
 
     &-remember {
       @apply flex flex-row justify-between;
+
+      a {
+        @apply underline;
+      }
     }
 
     [data-announcement] {
