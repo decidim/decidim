@@ -699,6 +699,8 @@ es:
         one: Le gusta a %{visible}
         other: Le gusta a %{visible} y a %{others}
       others: "%{count} más"
+      title: Le ha gustado a
+      you: tú
     errors:
       files:
         file_cannot_be_processed: No se ha podido procesar el archivo
