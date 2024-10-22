@@ -79,6 +79,9 @@ es:
           update:
             invalid: Se ha producido un error al actualizar este debate.
             success: Debate actualizado correctamente.
+        exports:
+          debate_comments: Comentarios
+          debates: Debates
       admin_log:
         debate:
           close: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
@@ -221,5 +224,29 @@ es:
         description: Número de debates creados
         object: debates
         title: Debates
+    open_data:
+      help:
+        debate_comments:
+          alignment: Si este comentario fue a favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
+        debates:
+          author: Los datos de autoría de este debate
+          category: La categoría del resultado (por ejemplo, "Cultura")
+          closed_at: La fecha en la que la se cerró este debate
+          comments: El número de comentarios que tiene este debate
+          comments_enabled: Si este debate tiene comentarios habilitados o no
+          component: El componente al que pertenece este debate
+          conclusions: Las conclusiones del debate si se ha cerrado
+          created_at: La fecha y hora en que se creó este debate
+          description: La descripción del debate
     statistics:
       debates_count: Debates
