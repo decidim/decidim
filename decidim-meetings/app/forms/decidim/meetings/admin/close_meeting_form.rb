@@ -7,7 +7,7 @@ module Decidim
       class CloseMeetingForm < Decidim::Form
         include TranslatableAttributes
 
-        translatable_attribute :closing_report, String
+        translatable_attribute :closing_report, Decidim::Attributes::RichText
         attribute :video_url, String
         attribute :audio_url, String
         attribute :closing_visible, Boolean, default: true

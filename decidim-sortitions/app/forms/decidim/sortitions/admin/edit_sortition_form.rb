@@ -9,7 +9,7 @@ module Decidim
         mimic :sortition
 
         translatable_attribute :title, String
-        translatable_attribute :additional_info, String
+        translatable_attribute :additional_info, Decidim::Attributes::RichText
 
         validates :title, translatable_presence: true
         validates :additional_info, translatable_presence: true
