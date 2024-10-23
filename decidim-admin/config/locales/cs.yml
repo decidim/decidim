@@ -197,6 +197,7 @@ cs:
         reject: Odmítnout
         send_me_a_test_email: Pošlete mi testovací e-mail
         share: Sdílet
+        share_tokens: Přístupové odkazy
         user:
           new: Nový administrátor
         verify: Ověřit
@@ -608,6 +609,7 @@ cs:
         scopes: Oblasti působnosti
         see_site: Zobrazit web
         settings: Nastavení
+        share_tokens: Přístupové odkazy
         static_page_topics: Témata
         static_pages: Stránky
         taxonomies: Taxonomie
@@ -665,8 +667,11 @@ cs:
             plural: Množné číslo
         share_token:
           fields:
+            actions: Akce
             expires_at: Vyprší v
+            registered_only: Pouze registrovaní?
             times_used: Kolikrát použito
+            token: Přístupový odkaz
         static_page:
           fields:
             created_at: Vytvořeno v
@@ -975,7 +980,14 @@ cs:
           success: Oblast působnosti byla úspěšně aktualizována
       share_tokens:
         actions:
+          confirm_destroy: Opravdu chcete odstranit tento přístup?
+          copy_link: Kopírovat odkaz
           destroy: Smazat
+          edit: Upravit
+          preview: Náhled
+        create:
+          invalid: Při generování přístupového odkazu došlo k chybě.
+          success: Odkaz byl úspěšně vytvořen.
       shared:
         adjacent_navigation:
           next: Další
