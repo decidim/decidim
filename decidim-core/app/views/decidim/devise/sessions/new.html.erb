@@ -9,7 +9,7 @@
   <span class="login__info-separator"></span>
 
   <% cache current_organization do %>
-    <%= render "decidim/devise/shared/omniauth_buttons" %>
+    <%= render partial: "decidim/devise/shared/omniauth_buttons", locals: { is_horizontal: true } %>
   <% end %>
 
   <% if current_organization.sign_in_enabled? %>
