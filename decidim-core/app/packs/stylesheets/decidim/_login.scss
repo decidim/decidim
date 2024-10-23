@@ -1,6 +1,6 @@
 .login {
   &__info {
-    @apply text-gray-2 text-lg space-y-4 mb-10 prose-a:text-secondary prose-a:underline;
+    @apply text-gray-2 text-lg space-y-4 mt-10 prose-a:text-secondary prose-a:underline;
   }
 
   &__info-required {
@@ -32,7 +32,7 @@
   }
 
   &__links {
-    @apply flex flex-col gap-4 py-10 border-t-2 border-background;
+    @apply flex flex-col gap-4 py-10 border-t-2 border-background items-center;
 
     a {
       @apply w-fit text-secondary hover:underline;
@@ -42,6 +42,14 @@
   &__modal {
     &-links {
       @apply flex flex-col md:flex-row gap-4 justify-between items-start md:items-center [&>a]:text-secondary;
+    }
+
+    &-remember {
+      @apply flex flex-row justify-between;
+
+      a {
+        @apply underline;
+      }
     }
 
     [data-announcement] {
