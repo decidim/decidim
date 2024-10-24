@@ -25,8 +25,8 @@ fi:
         one: Budjetti
         other: Budjetit
       decidim/budgets/project:
-        one: Hanke
-        other: Hankkeet
+        one: Projekti
+        other: Projektit
   decidim:
     admin:
       filters:
@@ -44,13 +44,13 @@ fi:
       actions:
         attachment_collections: Kansiot
         attachments: Liitteet
-        confirm_destroy: Haluatko varmasti poistaa tämän hankkeen?
+        confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
         edit: Muokkaa
-        edit_projects: Hallinnoi hankkeita
-        import: Tuo ehdotuksia hankkeiksi
+        edit_projects: Hallinnoi projekteja
+        import: Tuo ehdotuksia projekteiksi
         new_budget: Uusi budjetti
-        new_project: Uusi hanke
+        new_project: Uusi projekti
         preview: Esikatsele
         send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
@@ -78,20 +78,20 @@ fi:
             invalid: Budjetin päivitys epäonnistui.
             success: Budjetin päivitys onnistui.
         exports:
-          projects: Hankkeet
+          projects: Projektit
         models:
           budget:
             name: Budjetti
           project:
-            name: Hanke
+            name: Projekti
         projects:
           create:
-            invalid: Hankkeen luonti epäonnistui.
-            success: Hankkeen luonti onnistui.
+            invalid: Projektin luonti epäonnistui.
+            success: Projektin luonti onnistui.
           destroy:
-            success: Hankkeen poisto onnistui.
+            success: Projektin poisto onnistui.
           edit:
-            title: Muokkaa hanketta
+            title: Muokkaa projektia
             update: Päivitä
           index:
             actions: Toiminnot
@@ -110,49 +110,49 @@ fi:
               'yes': 'Kyllä'
             title: Hankkeet
             update: Päivitä
-            update_budget_button: Päivitä hankkeen budjetti
+            update_budget_button: Päivitä projektin budjetti
             update_scope_button: Muuta teema
           new:
             create: Luo
-            title: Uusi hanke
+            title: Uusi projekti
           update:
-            invalid: Hankkeen poisto epäonnistui.
-            success: Hankkeen päivitys onnistui.
+            invalid: Projektin poisto epäonnistui.
+            success: Projektin päivitys onnistui.
           update_budget:
-            invalid: 'Nämä hankkeet ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
-            select_a_project: Valitse hanke.
-            success: 'Seuraavat hankkeet päivitys onnistui budjetissa %{subject_name}: %{projects}.'
+            invalid: 'Nämä projektit ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
+            select_a_project: Valitse projekti.
+            success: 'Seuraavien projektien päivitys onnistui budjetissa %{subject_name}: %{projects}.'
           update_category:
-            invalid: 'Näillä hankkeilla oli jo aihepiiri %{subject_name}: %{projects}.'
+            invalid: 'Näillä projekteilla oli jo aihepiiri %{subject_name}: %{projects}.'
             select_a_category: Valitse aihepiiri.
-            select_a_project: Valitse hanke.
-            success: 'Seuraavien hankkeiden aihepiirin päivitys onnistui %{subject_name}: %{projects}.'
+            select_a_project: Valitse projekti.
+            success: 'Seuraavien projektien aihepiirin päivitys onnistui %{subject_name}: %{projects}.'
           update_scope:
-            invalid: 'Näillä hankkeilla oli jo teema %{subject_name}: %{projects}.'
-            select_a_project: Valitse hanke.
+            invalid: 'Näillä projekteilla oli jo teema %{subject_name}: %{projects}.'
+            select_a_project: Valitse projekti.
             select_a_scope: Valitse teema.
-            success: 'Seuraavien hankkeiden teeman päivitys onnistui %{subject_name}: %{projects}.'
+            success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
           update_selected:
             invalid:
-              selected: 'Nämä hankkeet oli jo valittu toteutukseen: %{projects}.'
-              unselected: 'Näitä hankkeita ei oltu valittu toteutukseen: %{projects}.'
-            select_a_project: Valitse hanke.
+              selected: 'Nämä projektit oli jo valittu toteutukseen: %{projects}.'
+              unselected: 'Näitä projekteja ei oltu valittu toteutukseen: %{projects}.'
+            select_a_project: Valitse projekti.
             select_a_selection: Valitse toteutuksen tila.
             success:
-              selected: 'Näiden hankkeiden valinta toteutukseen onnistui: %{projects}.'
-              unselected: 'Näiden hankkeiden toteutukseen valinnan poistaminen onnistui: %{projects}.'
+              selected: 'Näiden projektien valinta toteutukseen onnistui: %{projects}.'
+              unselected: 'Näiden projektien toteutukseen valinnan poistaminen onnistui: %{projects}.'
         proposals_imports:
           create:
-            invalid: Ehdotusten tuominen hankkeiksi epäonnistui.
-            success: "%{number} ehdotuksen tuonti hankkeiksi onnistui."
+            invalid: Ehdotusten tuominen projekteiksi epäonnistui.
+            success: "%{number} ehdotuksen tuonti projekteiksi onnistui."
           new:
-            create: Tuo ehdotuksia hankkeiksi
+            create: Tuo ehdotuksia projekteiksi
             default_budget: Oletusbudjetti
             import_all_accepted_proposals: Tuo kaikki hyväksytyt ehdotukset
-            no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia hankkeiksi.
+            no_components: Tässä osallistumistilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia projekteiksi.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
-            title: Tuo ehdotuksia hankkeiksi
+            title: Tuo ehdotuksia projekteiksi
         reminders:
           orders:
             description: Käyttäjät saavat sähköpostiviestin, jossa on linkit budjetteihin, joissa heillä on odottavia ääniä.
@@ -192,7 +192,7 @@ fi:
           random: Satunnainen järjestys
         progress: Viimeistele äänestys
         remove_vote: Poista ääni
-        show: Näytä hankkeet
+        show: Näytä projektit
         vote: Äänestä
         voted_budgets: Äänestetyt budjetit
         voted_on: Äänestit kohdetta %{links}.
@@ -205,7 +205,7 @@ fi:
         budget:
           fields:
             name: Nimi
-            projects_count: Hankkeiden määrä
+            projects_count: Projektien määrä
             total_budget: Kokonaisbudjetti
         project:
           fields:
@@ -214,7 +214,7 @@ fi:
             title: Otsikko
       order_summary_mailer:
         order_summary:
-          selected_projects: 'Hankkeet, jotka valitsit:'
+          selected_projects: 'Projektit, jotka valitsit:'
           subject: Olet äänestänyt osallistumistilassa %{space_name}
           voted_on_space: Olet äänestänyt budjetista %{budget_name} osallistumistilassa %{space_name}.
           voted_on_space_with_scope: Olet äänestänyt budjetista %{budget_name} osallistumistilassa %{space_name} koskien teemaa %{scope_name} (%{scope_type}).
@@ -223,16 +223,16 @@ fi:
           are_you_sure: Jos muutat mieltäsi, voit muuttaa ääntäsi myöhemmin.
           cancel: Peruuta
           confirm: Vahvista
-          description: Olet valinnut nämä hankkeet osaksi budjettia.
+          description: Olet valinnut nämä projektit osaksi budjettia.
           title: Vahvista ääni
         budget_excess:
           budget_excess:
-            description: Tämä hanke ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen hankkeen äänestäsi tai äänestää nykyisten valintojen mukaisesti.
+            description: Tämä projekti ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
             title: Maksimibudjetti ylitetty
-          description: Tämä hanke ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen hankkeen äänestäsi tai äänestää nykyisten valintojen mukaisesti.
+          description: Tämä projekti ylittää maksimibudjetin, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
           ok: OK
           projects_excess:
-            description: Tämä hanke ylittää valittavien projektien maksimimäärän, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen hankkeen äänestäsi tai äänestää nykyisten valintojen mukaisesti.
+            description: Tämä projekti ylittää valittavien projektien maksimimäärän, minkä takia sitä ei voida lisätä ääneen. Halutessasi voit poistaa jonkin toisen projektin äänestäsi tai äänestää nykyisten valintojen mukaisesti.
             title: Maksimihankkeiden määrä ylitetty
         budget_summary:
           are_you_sure: Haluatko varmasti peruuttaa äänesi?
@@ -243,9 +243,9 @@ fi:
           vote: Äänestä budjettia
         count:
           projects_count:
-            one: 1 hanke
-            other: "%{count} hanketta"
-        empty: Ei yhtään hanketta
+            one: 1 projekti
+            other: "%{count} projektia"
+        empty: Ei yhtään projektia
         exit_modal:
           cancel: Palaa äänestykseen
           exit: Poistu äänestyksestä
@@ -264,18 +264,18 @@ fi:
           assigned: Varattu
           budget: Budjetti
           dynamic_help:
-            keep_adding_projects: Jatka hankkeiden lisäämistä
+            keep_adding_projects: Jatka projektien valitsemista
             minimum_reached: Olet saavuttanut äänestystä varten vaaditun vähimmäismäärän
-            start_adding_projects: Aloita lisäämällä hankkeita
+            start_adding_projects: Aloita valitsemalla projekteja
           minimum: Vähintään
           minimum_projects_rule:
-            description: Valitse vähintään %{minimum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Valitse vähintään %{minimum_number} haluamaasi projektia ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           projects_rule:
-            description: Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi projektia ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           projects_rule_maximum_only:
-            description: Valitse enintään %{maximum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Valitse enintään %{maximum_number} haluamaasi projektia ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           vote_threshold_percent_rule:
-            description: Varaa vähintään %{minimum_budget} hankkeille ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Varaa vähintään %{minimum_budget} projekteille ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
         orders:
           highest_cost: Kallein ensin
           label: Järjestä hankkeet
@@ -284,8 +284,8 @@ fi:
           random: Satunnainen järjestys
           selected: Valitut
         project:
-          add: Lisää hanke %{resource_name} ääneesi.
-          remove: Poista hanke %{resource_name} äänestäsi.
+          add: Lisää projekti %{resource_name} ääneesi.
+          remove: Poista projekti %{resource_name} äänestäsi.
           selected: Valittu
           votes:
             one: ääni
@@ -293,14 +293,14 @@ fi:
           you_voted: Äänestit tätä
         project_budget_button:
           add: Lisää
-          add_descriptive: Lisää hanke %{resource_name} ääneesi.
+          add_descriptive: Lisää projekti %{resource_name} ääneesi.
           added: Lisätty
-          added_descriptive: Hanke %{resource_name} lisätty ääneesi.
+          added_descriptive: Projekti %{resource_name} lisätty ääneesi.
         project_filter:
           added: Lisätty
           all: Kaikki
-        projects_for: Hankkeet kohteelle %{name}
-        select_projects: Valitse hankkeita
+        projects_for: Projektit kohteelle %{name}
+        select_projects: Valitse projekteja
         show:
           budget: Budjetti
       prompt: Valitse budjetti
@@ -331,18 +331,18 @@ fi:
             geocoding_enabled: Karttatoiminnot käytössä
             landing_page_content: Budjetoinnin aloitussivun teksti
             more_information_modal: Lisätietoikkunan teksti
-            projects_per_page: Hankkeet sivua kohden
-            resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle hankkeelle
+            projects_per_page: Projektit sivua kohden
+            resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle projektille
             scope_id: Teema
             scopes_enabled: Teemat käytössä
             title: Otsikko
             total_budget: Kokonaisbudjetti
-            vote_minimum_budget_projects_number: Valittavien hankkeiden vähimmäismäärä
-            vote_rule_minimum_budget_projects_enabled: 'Ota sääntö käyttöön: Valittavien hankkeiden vähimmäismäärä'
-            vote_rule_selected_projects_enabled: 'Ota sääntö käyttöön: Valittavien hankkeiden enimmäis- ja vähimmäismäärä'
+            vote_minimum_budget_projects_number: Valittavien projektien vähimmäismäärä
+            vote_rule_minimum_budget_projects_enabled: 'Ota sääntö käyttöön: Valittavien projektien vähimmäismäärä'
+            vote_rule_selected_projects_enabled: 'Ota sääntö käyttöön: Valittavien projektien enimmäis- ja vähimmäismäärä'
             vote_rule_threshold_percent_enabled: 'Ota sääntö käyttöön: Kokonaisbudjetin prosentuaalinen vähimmäismäärä'
-            vote_selected_projects_maximum: Valittavien hankkeiden enimmäismäärä
-            vote_selected_projects_minimum: Valittavien hankkeiden vähimmäismäärä
+            vote_selected_projects_maximum: Valittavien projektien enimmäismäärä
+            vote_selected_projects_minimum: Valittavien projektien vähimmäismäärä
             vote_threshold_percent: Äänestyksen kynnysprosentti
             workflow: Työnkulku
             workflow_choices:
@@ -379,9 +379,9 @@ fi:
         success: Äänesi on peruttu.
     resource_links:
       included_proposals:
-        project_proposal: Tähän hankkeeseen liittyvät ehdotukset
+        project_proposal: Tähän projektiin liittyvät ehdotukset
     statistics:
       orders_count: Kannatusta
-      projects_count: Hanketta
+      projects_count: Projektia
   index:
     confirmed_orders_count: Äänten määrä

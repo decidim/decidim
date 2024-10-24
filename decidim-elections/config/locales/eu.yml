@@ -416,6 +416,9 @@ eu:
           upcoming: Hurrengoak
         end_date: Amaitu
         footer:
+          remaining_time:
+            one: "Gainontzeko <strong>%{count} ordu %{minutes} minutu</strong> bozkatzeko."
+            other: "Gainontzeko <strong>%{count} ordu %{minutes} minutu</strong> bozkatzeko."
           view: Ikusi
           vote: Eman botoa
         label:

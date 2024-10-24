@@ -428,7 +428,7 @@ tr:
             plural: Çoğul
         share_token:
           fields:
-            created_at: Oluşturulma tarihi
+            created_at: Düzenlendi
             expires_at: Süre sonu
             last_used_at: Son kullanıldığı zaman
             times_used: Kullanım Sayısı
