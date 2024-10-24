@@ -101,6 +101,7 @@ cs:
           many: Zobrazit %{count} odpovědí
           other: Zobrazit %{count} odpovědí
         single_comment_link_title: Získat odkaz
+        sort_by: 'Řadit podle: '
       comment_order_selector:
         order:
           best_rated: Nejlépe hodnocené

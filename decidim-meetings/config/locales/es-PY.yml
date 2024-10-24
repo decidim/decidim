@@ -314,6 +314,8 @@ es-PY:
           close:
             invalid: Se ha producido un error al cerrar este encuentro.
             success: Encuentro cerrado con éxito.
+          component:
+            unlink: Suprimir el enlace
           create:
             invalid: Se ha producido un error al crear este encuentro.
             success: Encuentro creado correctamente. Ten en cuenta que aún no se ha publicado, deberás publicarlo manualmente.
@@ -338,7 +340,18 @@ es-PY:
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
           index:
+            linked_meeting_warning_html: Esta reunión debe ser editada desde <br><a href="%{href}">%{name}</a>
             title: Encuentros
+          linked_spaces:
+            assign: Asignar
+            link_a_space: Vincular un espacio
+            private_meeting_warning: Los espacios enlazados no se aplicarán si la reunión es privada y no transparente.
+            private_space_warning: Los espacios enlazados no se aplicarán cuando la reunión pertenezca a un espacio privado no transparente.
+            select: Selecciona un espacio
+            table:
+              actions: Acciones
+              component: Espacios vinculados
+            title: Espacios vinculados
           new:
             create: Crear
             title: Crear encuentro
@@ -565,6 +578,7 @@ es-PY:
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
+          redirect_notice: Este encuentro pertenece a otro espacio de participación, por lo que se te ha trasladado a %{current_space_name}.<br>Si lo prefieres, puedes volver a <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Tu codigo de registro
           registration_state:
             validated: Validado
@@ -674,6 +688,45 @@ es-PY:
         description: Número de reuniones creadas
         object: reuniones
         title: Reuniones
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Si este comentario fue un favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
+        meetings:
+          address: La dirección del encuentro en caso de que este sea presencial y tenga una ubicación física
+          attachments: El número de archivos adjuntos en este encuentro
+          attendees: El número de personas que asistieron a este encuentro
+          category: La categoría del encuentro (por ejemplo, "Cultura")
+          comments: El número de comentarios en este encuentro
+          component: El componente al que pertenece este encuentro
+          contributions: El número de contribuciones realizadas en este encuentro por las asistentes
+          description: La descripción del encuentro
+          end_time: La fecha y hora en que terminó este encuentro
+          followers: El número de seguidoras de este encuentro
+          id: El identificador único del encuentro
+          location: La localización del encuentro
+          organizations: Las organizaciones que asistieron a esta reunión
+          participatory_space: A qué espacio pertenece este encuentro (proceso participativo, asamblea, etc.)
+          published: Cuando se publicó el encuentro
+          reference: El identificador único del recurso en esta plataforma
+          related_proposals: Las propuestas relacionadas con este encuentro
+          related_results: Los resultados relacionados con este encuentro
+          scope: El ámbito territorial del encuentro (por ejemplo, "Ciudad")
+          start_time: La fecha y hora en que se inició este encuentro
+          title: El título del encuentro
+          url: La URL del encuentro
+          withdrawn: Si este encuentro fue retirado/cancelado
+          withdrawn_at: Cuando fue retirado/cancelado este encuentro
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros pasados

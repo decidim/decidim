@@ -395,11 +395,8 @@ sq:
             plural: Shumës
         share_token:
           fields:
-            created_at: Krijuar më
             expires_at: Skadon më
-            last_used_at: Hera e fundit që u përdor
             times_used: Sa herë është përdorur
-            token: Token
       moderated_users:
         index:
           reason: Arsyeja
@@ -503,7 +500,6 @@ sq:
       share_tokens:
         actions:
           destroy: Fshi
-          share: Shpërndaj
       static_page_topics:
         edit:
           title: Përpuno temën

@@ -228,7 +228,7 @@ eu:
           description: Garaikur hau aurrez aurre egiten diren bileretara joaten zarenean ematen da.
           description_another: Parte-hartzaile honek %{score} topeketatan hartu du parte.
           description_own: '%{score} topaketatan hartu duzu parte.'
-          name: Parte hartu den topkaetak
+          name: Honekin lotutako topaketak
           next_level_in: '%{score} topaketa gehiago hurrengo mailara iristeko!'
           unearned_another: Parte-hartzaile honek oraindik ez du topaketa batean ere parte hartu.
           unearned_own: Oraindik ez zara topaketa batere ere joan.
@@ -314,13 +314,15 @@ eu:
           close:
             invalid: Arazo bat egon da topaketa hau ixtean.
             success: Topaketa ongo itxia.
+          component:
+            unlink: Askatu
           create:
             invalid: Arazo bat egon da topaketa hau sortzean.
             success: Topaketa zuzen sortu da. Kontuan hartu oraindik ez dela argitaratu, eskuz argitaratu beharko duzu.
           destroy:
             invalid:
               proposals_count:
-                one: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen duelako.
+                one: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen dituelako.
                 other: Topaketa ezin da suntsitu, berari lotutako %{count} proposamen dituelako.
             success: Topaketa zuzen ezabatu da.
           edit:
@@ -338,7 +340,18 @@ eu:
             select_a_registration_type: Mesedez, aukeratu erregistro mota bat
             select_an_iframe_access_level: Mesedez, hautatu iframe maila bat
           index:
+            linked_meeting_warning_html: 'Topaketa hau hemendik editatu behar da: <br><a href="%{href}">%{name}</a>'
             title: Topaketa-zerrenda
+          linked_spaces:
+            assign: Esleitu
+            link_a_space: Lotu espazioa
+            private_meeting_warning: Loturiko espazioak ez dira aplikatuko topaketa pribatua bada eta gardena ez bada.
+            private_space_warning: Loturiko espazioak ez dira aplikatuko topketa espazio pribaturako eta ez gardenerako denean.
+            select: Hautatu espazioa
+            table:
+              actions: Ekintzak
+              component: Loturiko espazioak
+            title: Loturiko espazioak
           new:
             create: Sortu
             title: Sortu topaketa
@@ -387,7 +400,7 @@ eu:
             registration_form: Izena emateko formularioa
             registrations_count:
               one: '%{count} izen-emate izan da.'
-              other: Dena den, %{count} matrikulazioak.
+              other: '%{count} izen-emate izan dira.'
             reserved_slots_help: Utzi 0, ez baduzu erreserbatutako espaziorik.
             reserved_slots_less_than: '%{count} baino gutxiago izan behar du'
             title: Izen-emateak
@@ -565,6 +578,7 @@ eu:
           micro_camera_permissions_warning: Beheko botoia sakatzen duzunean, mikrofono eta/edo kamerarako baimena eskatuko zaizu eta bideohitzaldian sartuko zara
           no_slots_available: Ez dago leku librerik
           organizations: Bertaratutako erakundeak
+          redirect_notice: 'Bilera hau beste espazio baten parte da; beraz, % {current_space_name}-ra eraman behar izan zaituzte. Nahiago baduzu, hona itzul zaitezke: <a href="%{previous_space_url}">%{previous_space_name}</a>.'
           registration_code_help_text: Zure izena emateko kodea
           registration_state:
             validated: BALIDATUA
@@ -674,6 +688,45 @@ eu:
         description: Sortutako topaketa kopurua
         object: topaketak
         title: Topaketak
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Iruzkin hau aldekoa, kontrakoa edo neutrala zen?
+          author: Iruzkin hau egin duen parte-hartzailearen izena
+          body: Iruzkin bera
+          commentable_id: Iruzkingarriaren identifikazio bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          created_at: Zein datatan sortu zen iruzkin hau
+          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna bada edo erantzun batren erantzuna)
+          id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uztean zuen lokala (hizkuntza)
+          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          user_group: Iruzkin hau egin duen erabiltzaile taldearen izena (hala badagokio)
+        meetings:
+          address: Topaketaren helbidea, baldin eta aurrez aurre badago eta kokapen fisikoa badu
+          attachments: Bilera honetako atxikipen kopurua
+          attendees: Zenbat jende bildu da topaketa honetan?
+          category: 'Topaketaren kategoria (adibidez: "Kultura")'
+          comments: Zenbat iruzkin egin dira topaketa honetan?
+          component: Topaketari dagokion osagaia
+          contributions: Zenbat ekarpen egin dituzte nerabeek topaketa honetan?
+          description: Topaketaren deskribapena
+          end_time: Zein datatan eta ordutan amaituko da topaketa hau?
+          followers: Zenbat jarraitzaile ditu topaketa honek?
+          id: Topaketaren identifikatzaile bakarra
+          location: Topaketaren kokapena
+          organizations: Zein erakundek hartu du parte topaketa honetan?
+          participatory_space: Zein espaziotakoa datopaketa hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          published: Noiz argitaratu da topaketa?
+          reference: Plataforma honetako baliabidearen identifikatzaile bakarra
+          related_proposals: Topaketa honi buruzko proposamenak
+          related_results: Topaketa honen emaitzak
+          scope: 'Topaketaren esparrua (adibidez: "Hiria")'
+          start_time: Zein data eta ordutan hasi da topaketa hau
+          title: Topaketaren izenburua
+          url: Topaketaren URLa
+          withdrawn: Topaketa bertan behera geratu den ala ez
+          withdrawn_at: Noiz utzi zen bertan behera topaketa hau?
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Azken topaketak
@@ -687,6 +740,7 @@ eu:
         meeting_proposal: 'Topaketari dagozkion proposamenak:'
         proposal_meeting: 'Proposamenarekin lotutako topaketak:'
     statistics:
+      attendees_count: Topaketara bertaratuak
       meetings_count: Topaketak
   devise:
     mailer:

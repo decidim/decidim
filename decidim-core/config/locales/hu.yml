@@ -591,14 +591,11 @@ hu:
         success: Kép sikeresen feltöltve.
       drag_and_drop_help: Képek hozzáadása húzással és ejtéssel vagy beillesztéssel.
     endorsement_buttons_cell:
-      already_endorsed: Nem tetszik
       endorse: Tetszik
     endorsements:
       identities:
         done: Kész
         select_identity: Válassz azonosítót
-    endorsers_list:
-      endorsed_by: Kedvelte…
     errors:
       files:
         file_resolution_too_large: A fájl felbontása túl nagy
@@ -1778,7 +1775,6 @@ hu:
         data_consent_settings: Süti beállítások
         decidim_logo: Decidim-logó
         decidim_title: Decidim
-        download_open_data: Töltse le a Nyílt Adat fájlokat
         log_in: Bejelentkezés
         made_with_open_source: Az oldal <a target="_blank" href="https://github.com/decidim/decidim">nyílt forráskódú szoftverrel</a> készült.
         resources: Segédanyagok

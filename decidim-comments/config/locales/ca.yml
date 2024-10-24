@@ -63,6 +63,9 @@ ca:
         alignment:
           against: En contra
           in_favor: A favor
+        answers:
+          one: "%{count} resposta"
+          other: "%{count} respuestas"
         cancel_reply: Cancel·lar resposta
         comment_label: Comentari %{comment_id}
         comment_label_reply: Comentari %{comment_id} (respon al comentari %{parent_comment_id})
@@ -93,6 +96,7 @@ ca:
           one: Mostra la resposta
           other: Mostra les %{count} respostes
         single_comment_link_title: Obtenir enllaç
+        sort_by: 'Ordenar per: '
       comment_order_selector:
         order:
           best_rated: Més ben valorats

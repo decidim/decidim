@@ -1094,7 +1094,6 @@ zh-CN:
       footer:
         cc_by_license: 知识共享许可证
         decidim_logo: 解码徽标
-        download_open_data: 下载打开的数据文件
         made_with_open_source: 使用 <a target="_blank" href="https://github.com/decidim/decidim">免费软件</a> 创建的网站。
       impersonation_warning:
         close_session: 关闭会话

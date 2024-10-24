@@ -1212,7 +1212,6 @@ lb:
       footer:
         cc_by_license: Creative Commons Lizenz
         decidim_logo: Decidim-Logo
-        download_open_data: Open Data Dateien eroflueden
         log_in: Umelden
         made_with_open_source: Website mat <a target="_blank" href="https://github.com/decidim/decidim">fräi Software erstallt</a>.
       header:

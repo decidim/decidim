@@ -197,6 +197,7 @@ cs:
         reject: Odmítnout
         send_me_a_test_email: Pošlete mi testovací e-mail
         share: Sdílet
+        share_tokens: Přístupové odkazy
         user:
           new: Nový administrátor
         verify: Ověřit
@@ -608,6 +609,7 @@ cs:
         scopes: Oblasti působnosti
         see_site: Zobrazit web
         settings: Nastavení
+        share_tokens: Přístupové odkazy
         static_page_topics: Témata
         static_pages: Stránky
         taxonomies: Taxonomie
@@ -665,12 +667,11 @@ cs:
             plural: Množné číslo
         share_token:
           fields:
-            created_at: Vytvořeno v
+            actions: Akce
             expires_at: Vyprší v
-            last_used_at: Naposledy použito
+            registered_only: Pouze registrovaní?
             times_used: Kolikrát použito
-            token: Token
-            user: Vytvořil
+            token: Přístupový odkaz
         static_page:
           fields:
             created_at: Vytvořeno v
@@ -979,16 +980,50 @@ cs:
           success: Oblast působnosti byla úspěšně aktualizována
       share_tokens:
         actions:
-          confirm_destroy: Jste si jisti, že chcete odstranit tento token?
+          confirm_destroy: Opravdu chcete odstranit tento přístup?
+          copy_link: Kopírovat odkaz
           destroy: Smazat
-          share: Sdílet
+          edit: Upravit
+          preview: Náhled
+        create:
+          invalid: Při generování přístupového odkazu došlo k chybě.
+          success: Odkaz byl úspěšně vytvořen.
         destroy:
-          error: Při zničení tokenu došlo k chybě.
-          success: Token byl úspěšně smazán.
-        share_tokens:
-          empty: Nejsou žádné aktivní tokeny.
-          help: Tyto tokeny se používají k veřejnému sdílení tohoto nezveřejněného zdroje každému uživateli. Budou skryty, když bude dokument publikován. Klikněte na ikonu sdílení tokenu a navštivte sdílenou URL.
-          title: Sdílet tokeny
+          error: Při ničení přístupového odkazu došlo k chybě.
+          success: Přístupový odkaz byl úspěšně zničen.
+        edit:
+          title: 'Upravit přístupové odkazy pro: %{name}'
+          update: Aktualizovat
+        form:
+          automatic: Automaticky
+          custom: Vlastní
+          custom_expiration: Vlastní vypršení platnosti
+          custom_token: Vlastní slovo
+          expires_at: Vyprší v
+          'false': 'Ne'
+          never_expire: Nikdy
+          registered_only: Pouze registrovaní?
+          token: Přístupový klíč
+          'true': 'Ano'
+        index:
+          back_to_share_tokens: Zpět k přístupovým odkazům
+          copied: Odkaz byl zkopírován!
+          copy_message: Text byl úspěšně zkopírován do schránky.
+          create_new_token: Vytvořte svůj první přístupový odkaz!
+          empty_html: Nejsou žádné aktivní přístupové odkazy. %{new_token_link}
+          never: Nikdy
+          new_share_token_button: Nový přístupový odkaz
+          share_tokens_help_html: |
+            Vytvořte a sdílejte přístupový odkaz, který umožní ostatním zobrazit tento nezveřejněný zdroj.
+            Přístupové odkazy mohou být platné pouze pro registrované účastníky, nebo mít a v případě potřeby datum vypršení platnosti.
+            Pro sdílení nového přístupového odkazu s někým jej vytvořte a poté zkopírujte odkaz pomocí ikony akce "%{clipboard} schránky.
+          title: 'přístupové odkazy pro: %{name}'
+        new:
+          create: Vytvořit
+          title: 'Nový přístupový odkaz pro: %{name}'
+        update:
+          error: Při aktualizaci tohoto přístupu došlo k chybě.
+          success: Odkaz byl úspěšně aktualizován.
       shared:
         adjacent_navigation:
           next: Další

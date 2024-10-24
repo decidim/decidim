@@ -655,14 +655,11 @@ lt:
         success: Paveikslėlis įkeltas sėkmingai.
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
     endorsement_buttons_cell:
-      already_endorsed: Nepatinka
       endorse: Patinka
     endorsements:
       identities:
         done: Atlikta
         select_identity: Pasirinkite tapatybę
-    endorsers_list:
-      endorsed_by: Mėgiama…
     errors:
       internal_server_error:
         copied: Tekstas nukopijuotas!
@@ -1846,7 +1843,6 @@ lt:
         data_consent_settings: Slapukų nustatymai
         decidim_logo: '„Decidim“ logotipas'
         decidim_title: Decidim
-        download_open_data: Parsisiųsti atvirųjų duomenų rinkmenas
         log_in: Prisijungti
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
         resources: Ištekliai

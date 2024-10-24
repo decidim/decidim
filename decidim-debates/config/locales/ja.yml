@@ -79,12 +79,17 @@ ja:
             invalid: このディベートを更新する際に問題が発生しました。
             success: ディベートが正常に更新されました。
         exports:
-          comments: コメント
+          debate_comments: コメント
+          debates: ディベート
       admin_log:
         debate:
           close: "%{user_name} は、 %{resource_name} スペースの %{space_name} ディベートを終了しました"
           create: "%{user_name} が %{resource_name} スペースで %{space_name} ディベートを作成しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} ディベートを更新しました"
+      content_blocks:
+        highlighted_debates:
+          name: ディベート
+          see_all: すべてのディベートを見る
       debate_m:
         commented_time_ago: コメント %{time} 前
       debates:
@@ -217,5 +222,9 @@ ja:
         description: 作成されたディベート数
         object: ディベート
         title: ディベート
+    open_data:
+      help:
+        debate_comments:
+          alignment: このコメントが好意的、敵対的、中立的であった場合
     statistics:
       debates_count: ディベート
