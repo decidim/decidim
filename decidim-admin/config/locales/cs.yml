@@ -988,6 +988,42 @@ cs:
         create:
           invalid: Při generování přístupového odkazu došlo k chybě.
           success: Odkaz byl úspěšně vytvořen.
+        destroy:
+          error: Při ničení přístupového odkazu došlo k chybě.
+          success: Přístupový odkaz byl úspěšně zničen.
+        edit:
+          title: 'Upravit přístupové odkazy pro: %{name}'
+          update: Aktualizovat
+        form:
+          automatic: Automaticky
+          custom: Vlastní
+          custom_expiration: Vlastní vypršení platnosti
+          custom_token: Vlastní slovo
+          expires_at: Vyprší v
+          'false': 'Ne'
+          never_expire: Nikdy
+          registered_only: Pouze registrovaní?
+          token: Přístupový klíč
+          'true': 'Ano'
+        index:
+          back_to_share_tokens: Zpět k přístupovým odkazům
+          copied: Odkaz byl zkopírován!
+          copy_message: Text byl úspěšně zkopírován do schránky.
+          create_new_token: Vytvořte svůj první přístupový odkaz!
+          empty_html: Nejsou žádné aktivní přístupové odkazy. %{new_token_link}
+          never: Nikdy
+          new_share_token_button: Nový přístupový odkaz
+          share_tokens_help_html: |
+            Vytvořte a sdílejte přístupový odkaz, který umožní ostatním zobrazit tento nezveřejněný zdroj.
+            Přístupové odkazy mohou být platné pouze pro registrované účastníky, nebo mít a v případě potřeby datum vypršení platnosti.
+            Pro sdílení nového přístupového odkazu s někým jej vytvořte a poté zkopírujte odkaz pomocí ikony akce "%{clipboard} schránky.
+          title: 'přístupové odkazy pro: %{name}'
+        new:
+          create: Vytvořit
+          title: 'Nový přístupový odkaz pro: %{name}'
+        update:
+          error: Při aktualizaci tohoto přístupu došlo k chybě.
+          success: Odkaz byl úspěšně aktualizován.
       shared:
         adjacent_navigation:
           next: Další
