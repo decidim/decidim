@@ -2,11 +2,13 @@
 |===
 |Decidim version |Ruby version |Node version | Status
 
-|develop | 3.2.2 | 18.17.x | Unreleased
+|develop | 3.3.4 | 18.17.x | Unreleased
+
+|v0.29 | 3.2.2 | 18.17.x | Bug fixes and security updates
 
 |v0.28 | 3.1.1 | 18.17.x | Bug fixes and security updates
 
-|v0.27 | 3.0.2 | 16.18.x | Bug fixes and security updates
+|v0.27 | 3.0.2 | 16.18.x | Security updates
 
 |v0.26 | 2.7.5+ | 16.9.x | Not maintained
 
