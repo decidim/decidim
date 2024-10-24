@@ -161,6 +161,12 @@ module Decidim
       @finished_redirect_path ||= onboarding_data["redirect_path"].presence || model_path
     end
 
+    def component_path
+      return if component.blank?
+
+      EngineRouter.main_proxy(component).root_path
+    end
+
     def expired?
       return unless ephemeral?
 
