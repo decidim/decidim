@@ -653,6 +653,7 @@ en:
           sign_up_disabled: Account creation is disabled, you can use an existing account to access.
         user:
           timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
+          ephemeral_session_closed: Your guest session has finished
       shared:
         newsletter_modal:
           buttons:
