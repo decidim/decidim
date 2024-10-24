@@ -409,6 +409,15 @@ en:
           passport_number: Passport number
           postal_code: Postal code
         name: Another example authorization
+      ephemeral_dummy_authorization_handler:
+        explanation: Get verified by introducing a document number ending with "X".
+        fields:
+          allowed_postal_codes: Allowed postal codes (separated by commas)
+          allowed_scope_id: Allowed scope
+          document_number: Document number
+          postal_code: Postal code
+          scope_id: Scope
+        name: Ephemeral example authorization
       dummy_authorization_handler:
         explanation: Get verified by introducing a document number ending with "X".
         fields:
@@ -634,6 +643,7 @@ en:
           sign_up_disabled: Account creation is disabled, you can use an existing account to access.
         user:
           timed_out: You were inactive for too long and you have been automatically logged out from the service. If you would like to continue using the service, please log in again.
+          ephemeral_session_closed: Your guest session has finished
       shared:
         newsletter_modal:
           buttons:
@@ -698,6 +708,7 @@ en:
         select_identity: Select identity
     endorsers_list:
       endorsed_by: Liked by…
+    ephemeral_user: Visitant
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
@@ -1327,6 +1338,7 @@ en:
     onboarding_action_message:
       click_link: Click here
       cta_html: <a href="%{path}">%{link_text}</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
+      ephemeral_authorized_message: You have started a guest session, you can now participate
       expired_authorization_active_title: Your authorization has expired.
       finish_authorization_process: You can finish the authorization process
       incomplete_authorization_active_title: Your verification has not been completed with all the necessary information.
@@ -2026,6 +2038,7 @@ en:
         log_in: Log in
         main_menu: Main menu
         user_menu: User menu
+        confirm_close_ephemeral_session: To navigate out of this page your session will be closed. Are you sure?
       impersonation_warning:
         close_session: Close session
         description_html: You are managing the participant <b>%{user_name}</b>.

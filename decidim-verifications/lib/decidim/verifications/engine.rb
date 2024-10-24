@@ -15,7 +15,6 @@ module Decidim
               get :onboarding_pending
               get :renew_modal
               get :renew
-              post :renew_onboarding_data
               delete :clear_onboarding_data
             end
           end
@@ -23,6 +22,10 @@ module Decidim
           Decidim.authorization_engines.each do |manifest|
             mount manifest.engine, at: "/#{manifest.name}", as: "decidim_#{manifest.name}"
           end
+        end
+
+        resources :authorizations, only: nil do
+          post :renew_onboarding_data, on: :collection
         end
 
         namespace :admin do

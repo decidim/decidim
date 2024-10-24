@@ -9,6 +9,7 @@ module Decidim
                     :granted_authorizations, :pending_authorizations, :active_authorization_methods
 
       before_action :valid_handler, only: [:new, :create]
+      before_action :set_ephemeral_user, only: :renew_onboarding_data
 
       include Decidim::UserProfile
       include Decidim::HtmlSafeFlash
@@ -74,6 +75,15 @@ module Decidim
             redirect_to redirect_url || authorizations_path
           end
 
+          on(:transfer_user) do |authorized_user|
+            # TODO - Do not use touch
+            authorized_user.touch(:last_sign_in_at)
+            sign_out(current_user)
+            sign_in(authorized_user)
+
+            redirect_to decidim_verifications.onboarding_pending_authorizations_path
+          end
+
           on(:invalid) do
             flash[:alert] = t("authorizations.create.error", scope: "decidim.verifications")
             render action: :new
@@ -128,6 +138,21 @@ module Decidim
 
         logger.warn msg
         redirect_to(authorizations_path) && (return false)
+      end
+
+      def set_ephemeral_user
+        return if user_signed_in?
+
+        onboarding_manager = Decidim::OnboardingManager.new(Decidim::User.new(extended_data: onboarding_cookie_data))
+        authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
+        return unless authorizations.ephemerable?
+
+        form = Decidim::EphemeralUserForm.new(organization: current_organization, locale: current_locale)
+        CreateEphemeralUser.call(form) do
+          on(:ok) do |ephemeral_user|
+            sign_in(ephemeral_user)
+          end
+        end
       end
 
       def unauthorized_methods
