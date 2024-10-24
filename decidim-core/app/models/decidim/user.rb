@@ -199,7 +199,7 @@ module Decidim
     end
 
     def tos_accepted?
-      return true if managed
+      return true if managed && !ephemeral?
       return false if accepted_tos_version.nil?
 
       # For some reason, if we do not use `#to_i` here we get some
