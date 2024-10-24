@@ -17,9 +17,6 @@ Until we have the version 1.0 we support only the last three minor versions with
 
 | 0.26.x
 | :x:
-
-| \<= 0.25
-| :x:
 |===
 
 == Reporting a Vulnerability
