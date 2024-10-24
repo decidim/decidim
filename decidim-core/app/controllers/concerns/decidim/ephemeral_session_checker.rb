@@ -27,7 +27,10 @@ module Decidim
         authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
 
         return redirect_to decidim_verifications.onboarding_pending_authorizations_path unless authorizations_permitted_paths?(authorizations, onboarding_manager)
-        return destroy_ephemeral_session && redirect_to(decidim.root_path) if authorizations.global_code == :unauthorized
+        if authorizations.global_code == :unauthorized
+          flash[:alert] = t("unauthorized", scope: "decidim.core.actions")
+          return destroy_ephemeral_session && redirect_to(decidim.root_path)
+        end
       end
 
       return true
