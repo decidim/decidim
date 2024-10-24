@@ -348,6 +348,10 @@ cs:
             select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
           index:
             title: Setkání
+          linked_spaces:
+            assign: Přiřadit
+            table:
+              actions: Akce
           new:
             create: Vytvořit
             title: Vytvořte schůzku
