@@ -727,6 +727,8 @@ cs:
       identities:
         done: Hotovo
         select_identity: Vybrat identitu
+    endorsers_list:
+      you: vy
     errors:
       files:
         file_cannot_be_processed: Soubor nelze zpracovat
