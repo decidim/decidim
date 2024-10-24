@@ -2046,6 +2046,7 @@ en:
         log_in: Log in
         main_menu: Main menu
         user_menu: User menu
+        confirm_close_ephemeral_session: To navigate out of this page your session will be closed. Are you sure?
       impersonation_warning:
         close_session: Close session
         description_html: You are managing the participant <b>%{user_name}</b>.
