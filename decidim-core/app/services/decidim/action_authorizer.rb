@@ -144,6 +144,10 @@ module Decidim
       def ephemerable?
         statuses.all?(&:ephemeral?)
       end
+
+      def user_pending?
+        !global_code && statuses.any? { |status| [:missing, :expired, :incomplete].include?(status.code) }
+      end
     end
 
     class AuthorizationError < StandardError; end
