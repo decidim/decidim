@@ -1009,7 +1009,7 @@ sv:
           none: Ingen
           slug_help_html: 'Använd relativa sökvägar, inte fullständiga URL: er. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med en bokstav. Exempel: %{url}'
         index:
-          last_notable_change: Senast märkbara förändring
+          last_notable_change: Senaste större ändring
         new:
           create: Skapa sida
           title: Ny sida

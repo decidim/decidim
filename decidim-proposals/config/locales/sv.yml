@@ -192,7 +192,7 @@ sv:
             resources_permissions_enabled: Behörigheter kan ställas in för varje förslag
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
-            threshold_per_proposal: Minsta antal per förslag
+            threshold_per_proposal: Minst antal stöd per förslag
             vote_limit: Antal röster per deltagare
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
@@ -376,7 +376,7 @@ sv:
         title: Röster
     participatory_spaces:
       highlighted_proposals:
-        last: Senaste förslag
+        last: Senaste förslagen
         see_all: Visa alla förslag
     proposals:
       actions:

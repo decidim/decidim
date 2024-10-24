@@ -79,8 +79,6 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της συζήτησης.
             success: Η συζήτηση ενημερώθηκε με επιτυχία.
-        exports:
-          comments: Σχόλια
       admin_log:
         debate:
           close: "Ο/Η %{user_name} έκλεισε τον διάλογο %{resource_name} στον χώρο %{space_name}"
