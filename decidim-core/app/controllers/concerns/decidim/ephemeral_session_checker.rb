@@ -56,7 +56,10 @@ module Decidim
                    else
                      []
                    end
-      paths_list.prepend(decidim_verifications.onboarding_pending_authorizations_path)
+      paths_list.prepend(
+        decidim_verifications.onboarding_pending_authorizations_path,
+        decidim.page_path(terms_of_service_page)
+      )
 
       paths_list.find { |el| /\A#{URI.parse(el).path}/.match?(request.path) }
     end
