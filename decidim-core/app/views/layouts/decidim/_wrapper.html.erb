@@ -20,7 +20,9 @@ end
       <%= render partial: "layouts/decidim/header/main" %>
     </div>
     <div id="menu-bar-container">
-      <%= render partial: "layouts/decidim/header/menu" unless controller_name == "homepage" %>
+      <% unless current_user&.ephemeral? %>
+        <%= render partial: "layouts/decidim/header/menu" unless controller_name == "homepage" %>
+      <% end %>
     </div>
   </header>
 
