@@ -180,6 +180,17 @@ module Decidim
       Time.current.to_i - (user.last_sign_in_at || user.created_at).to_i
     end
 
+    # This method is used to determine if an ephemeral user has an onboarding
+    # page to be redirected or only an authorization is required to complete the
+    # verification
+    #
+    # Returns a Boolean
+    def available_authorization_selection_page?
+      return true unless valid? && ephemeral?
+
+      authorization_handlers.count > 1
+    end
+
     private
 
     def active_authorization_methods
