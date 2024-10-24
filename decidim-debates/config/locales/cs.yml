@@ -81,11 +81,18 @@ cs:
           update:
             invalid: Při aktualizaci této debaty došlo k problému.
             success: Debata byla úspěšně aktualizována.
+        exports:
+          debate_comments: Komentáře
+          debates: Debaty
       admin_log:
         debate:
           close: "%{user_name} ukončil debatu %{resource_name} ve skupině %{space_name}"
           create: "%{user_name} vytvořil debatu %{resource_name} o skupině %{space_name}"
           update: "%{user_name} aktualizovala %{resource_name} diskusi o %{space_name} prostoru"
+      content_blocks:
+        highlighted_debates:
+          name: Debaty
+          see_all: Zobrazit všechny debaty
       debate_m:
         commented_time_ago: Komentováno před %{time}
       debates:
@@ -221,5 +228,9 @@ cs:
         description: Počet vytvořených debat
         object: debaty
         title: Debaty
+    open_data:
+      help:
+        debate_comments:
+          commentable_id: Jedinečné ID komentovatelného
     statistics:
       debates_count: Debaty
