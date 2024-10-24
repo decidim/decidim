@@ -8,15 +8,19 @@
         <%= render partial: "layouts/decidim/logo_mobile", locals: { organization: current_organization } %>
       </div>
     </div>
-    <div class="main-bar__search">
-      <%= render partial: "layouts/decidim/header/main_search" %>
-    </div>
-    <div class="main-bar__links-desktop">
-      <%= render partial: "layouts/decidim/header/main_links_desktop" %>
-    </div>
-    <div class="main-bar__menu-mobile">
-      <%= render partial: "layouts/decidim/header/main_menu_mobile" %>
-    </div>
-    <%= render partial: "layouts/decidim/header/main_links_mobile_account" if current_user %>
+    <% if current_user&.ephemeral? %>
+      <%= render partial: "layouts/decidim/header/close_ephemeral_session" %>
+    <% else %>
+      <div class="main-bar__search">
+        <%= render partial: "layouts/decidim/header/main_search" %>
+      </div>
+      <div class="main-bar__links-desktop">
+        <%= render partial: "layouts/decidim/header/main_links_desktop" %>
+      </div>
+      <div class="main-bar__menu-mobile">
+        <%= render partial: "layouts/decidim/header/main_menu_mobile" %>
+      </div>
+      <%= render partial: "layouts/decidim/header/main_links_mobile_account" if current_user %>
+    <% end %>
   </div>
 </div>

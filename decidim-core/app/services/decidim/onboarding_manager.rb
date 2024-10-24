@@ -18,6 +18,8 @@ module Decidim
   #    the user to the intended action.
   #
   class OnboardingManager
+    # The same key is set in onboarding_pending_action js file to manage the
+    # onboarding data in the cookie
     DATA_KEY = "onboarding"
 
     attr_reader :user
@@ -25,6 +27,8 @@ module Decidim
     def initialize(user)
       @user = user
     end
+
+    delegate :ephemeral?, to: :user
 
     # Checks if the onboarding data has an action and a model.
     #
@@ -42,8 +46,8 @@ module Decidim
       onboarding_action
     end
 
-    # Returns the translation of the action to be performed if found, action
-    # elsewhere
+    # Returns the translation of the action to be performed if translation
+    # is found, otherwise the untranslated literal action key
     #
     # Returns a string
     def action_text
@@ -104,7 +108,7 @@ module Decidim
     # Returns the resource title associated to the action. If the model is defined
     # its title is used, if not the permissions holder title
     #
-    # Returns a Hash
+    # Returns a translations Hash or a String
     def model_title
       return unless valid?
 
@@ -155,6 +159,36 @@ module Decidim
     # Returns a String
     def finished_redirect_path
       @finished_redirect_path ||= onboarding_data["redirect_path"].presence || model_path
+    end
+
+    def component_path
+      return if component.blank?
+
+      EngineRouter.main_proxy(component).root_path
+    end
+
+    def expired?
+      return unless ephemeral?
+
+      session_duration > Decidim.config.expire_session_after.to_i
+    end
+
+    # Time in seconds since the creation of the user
+    #
+    # Returns an Integer
+    def session_duration
+      Time.current.to_i - (user.last_sign_in_at || user.created_at).to_i
+    end
+
+    # This method is used to determine if an ephemeral user has an onboarding
+    # page to be redirected or only an authorization is required to complete the
+    # verification
+    #
+    # Returns a Boolean
+    def available_authorization_selection_page?
+      return true unless valid? && ephemeral?
+
+      authorization_handlers.count > 1
     end
 
     private

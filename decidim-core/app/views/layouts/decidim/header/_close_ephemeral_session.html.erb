@@ -1,0 +1,8 @@
+<%= link_to(
+      icon("close-line"),
+      decidim.destroy_user_session_path,
+      method: :delete,
+      class: "close-button",
+      type: :button,
+      data: { close: "", confirm: t("layouts.decidim.header.confirm_close_ephemeral_session") }
+    ) %>
