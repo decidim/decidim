@@ -142,6 +142,8 @@ module Decidim
       end
 
       def ephemerable?
+        return if statuses.blank?
+
         statuses.all?(&:ephemeral?)
       end
 
