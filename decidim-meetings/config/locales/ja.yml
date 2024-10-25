@@ -731,6 +731,7 @@ ja:
         meeting_proposal: '関連する提案:'
         proposal_meeting: '関連するミーティング:'
     statistics:
+      attendees_count: ミーティング参加者
       meetings_count: ミーティング
   devise:
     mailer:
