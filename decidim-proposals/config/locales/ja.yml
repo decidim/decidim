@@ -442,9 +442,22 @@ ja:
           endorsements: この提案のオススメ(「いいね」) の数
           followers: 提案のフォロワー数
           id: 提案の固有ID
-          is_amend: この提案が別の提案を修正しているかどうか
+          is_amend: この提案が別の提案の修正版かどうか
           latitude: 提案に物理的な場所がある場合の提案の緯度
           longitude: 提案に物理的な場所がある場合の提案の経度
+          meeting_urls: この提案が提出または議論されたミーティングのURL
+          original_proposal: 修正版の場合、元の提案の参照
+          participatory_space: この提案が所属するスペース（参加型プロセス、参加スペースなど）
+          published_at: この提案の公開日時
+          reference: このプラットフォームでのリソースの固有ID
+          related_proposals: この提案に関連する提案
+          scope: '提案のスコープ (例: "市")'
+          state: 'この提案のステータス (例: "承認済み")'
+          title: 提案のタイトル
+          url: この提案が見つかるURL
+          votes: 提案の投票数
+          withdrawn: この提案が撤回されたかどうか
+          withdrawn_at: この提案が撤回された日時
     participatory_spaces:
       highlighted_proposals:
         last: 最近の提案
