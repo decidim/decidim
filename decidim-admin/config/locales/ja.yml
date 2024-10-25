@@ -197,6 +197,7 @@ ja:
         reject: 拒否
         send_me_a_test_email: テストメールを自分宛てに送信
         share: 共有
+        share_tokens: アクセスリンク
         user:
           new: 新しい管理者
         verify: 確認する
@@ -593,6 +594,7 @@ ja:
         scopes: スコープ
         see_site: サイトを見る
         settings: 設定
+        share_tokens: アクセスリンク
         static_page_topics: トピック
         static_pages: ページ
         taxonomies: タクソノミー
@@ -650,8 +652,11 @@ ja:
             plural: 複数形
         share_token:
           fields:
+            actions: アクション
             expires_at: 有効期限
+            registered_only: 登録者のみ？
             times_used: 利用回数
+            token: アクセス リンク
         static_page:
           fields:
             created_at: 作成日時
@@ -957,7 +962,46 @@ ja:
           success: スコープが正常に更新されました
       share_tokens:
         actions:
+          confirm_destroy: このアクセスを削除してもよろしいですか？
+          copy_link: リンクをコピー
           destroy: 削除
+          edit: 編集
+          preview: プレビュー
+        create:
+          invalid: アクセスリンクの生成中に問題が発生しました。
+          success: アクセスリンクを作成しました。
+        destroy:
+          error: アクセスリンクの削除中に問題が発生しました。
+          success: アクセスリンクを削除しました。
+        edit:
+          title: '%{name} へのアクセスリンクを編集'
+          update: 更新
+        form:
+          automatic: 自動
+          custom: カスタム
+          custom_expiration: カスタム有効期限
+          custom_token: カスタムワード
+          expires_at: 有効期限
+          'false': 'いいえ'
+          never_expire: 無期限
+          registered_only: 登録者のみ？
+          token: アクセスキー
+          'true': 'はい'
+        index:
+          back_to_share_tokens: アクセスリンクへ戻る
+          copied: アクセスリンクをコピーしました
+          copy_message: テキストをクリップボードにコピーしました。
+          create_new_token: 最初のアクセスリンクを作成します
+          empty_html: 有効なアクセスリンクはありません。 %{new_token_link}
+          never: 無期限
+          new_share_token_button: 新しいアクセスリンク
+          title: '%{name} へのアクセスリンク'
+        new:
+          create: 作成
+          title: '%{name} への新しいアクセスリンク'
+        update:
+          error: このアクセスを更新中に問題が発生しました。
+          success: アクセスリンクが更新されました。
       shared:
         adjacent_navigation:
           next: 次へ
