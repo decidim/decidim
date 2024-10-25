@@ -226,5 +226,37 @@ ja:
       help:
         debate_comments:
           alignment: このコメントが好意的、敵対的、中立的であった場合
+          author: このコメントを作成した参加者の名前
+          body: コメント本文
+          commentable_id: コメント対象の固有ID
+          commentable_type: コメント対象の種別 (結果、提案など)
+          created_at: コメントの作成日時
+          depth: コメントがコメントツリーのどこに位置しているか（回答、または回答の回答である場合）
+          id: コメントのID
+          locale: コメントを残した参加者の使っていたロケール（言語）
+          root_commentable_url: コメントに関連するリソースの URL
+          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
+        debates:
+          author: ディベートの作者に関するデータ
+          category: 'ディベートのカテゴリ (例: "文化")'
+          closed_at: ディベートの終了日時
+          comments: ディベートのコメント数
+          comments_enabled: ディベートのコメントを有効にするか無効にするか
+          component: ディベートが属するコンポーネント
+          conclusions: 終了している場合のディベートの結論
+          created_at: ディベートの作成日時
+          description: ディベートの説明
+          end_time: ディベートの終了予定日時（公開討論で時間が限られている場合）
+          followers: ディベートのフォロワー数
+          id: ディベートの固有ID
+          information_updates: 作者がディベートに加えた更新
+          instructions: ディベートにコメントするための指示
+          last_comment_at: ディベートが最後にコメントされた日時
+          participatory_space: このディベートが属するスペース（参加型プロセス、参加スペースなど）
+          reference: このプラットフォームでのリソースの固有ID
+          scope: 'ディベートのスコープ (例: "市")'
+          start_time: ディベートの開始予定日時（公開討論で時間が限られている場合）
+          title: ディベートのタイトル
+          url: このディベートが見つかるURL
     statistics:
       debates_count: ディベート
