@@ -141,7 +141,7 @@ module Decidim
         pending_authorizations_count == 1 && [:ok, :unauthorized].exclude?(global_code)
       end
 
-      def ephemerable?
+      def ephemeral?
         return if statuses.blank?
 
         statuses.all?(&:ephemeral?)

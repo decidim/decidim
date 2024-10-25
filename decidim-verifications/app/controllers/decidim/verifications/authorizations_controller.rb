@@ -145,7 +145,7 @@ module Decidim
 
         onboarding_manager = Decidim::OnboardingManager.new(Decidim::User.new(extended_data: onboarding_cookie_data))
         authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
-        return unless authorizations.ephemerable?
+        return unless authorizations.ephemeral?
 
         form = Decidim::EphemeralUserForm.new(organization: current_organization, locale: current_locale)
         CreateEphemeralUser.call(form) do
