@@ -50,7 +50,7 @@ module Decidim
       duplicate.present? && duplicate.user.deleted?
     end
 
-    # Defines wether the identity of an ephemeral user with the same authorization
+    # Defines whether the identity of an ephemeral user with the same authorization
     # can be transferred to the current session and replace the existing user.
     #
     # @return [Boolean] A boolean indicating whether the user identifier can be
