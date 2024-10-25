@@ -1,0 +1,29 @@
+<%= render layout: "layouts/decidim/shared/layout_center" do %>
+  <div class="text-center py-12">
+    <h1 class="h1 inline-block">
+      <%= t("title", scope: "decidim.budgets.order.status") %>
+    </h1>
+  </div>
+  <div class="page__container text-center">
+    <div class="editor-content">
+      <p>
+        <%= t(
+              "votes_count",
+              scope: "decidim.budgets.order.status",
+              count: current_order.total_projects,
+              budget_name: translated_attribute(current_order.budget.title)
+            ) %>
+      </p>
+      <% if pending_to_vote_budgets.present? %>
+        <p>
+          <%= t("pending_to_vote_budgets", scope: "decidim.budgets.order.status", count: pending_to_vote_budgets.count) %>
+        </p>
+
+        <%= link_to budgets_path, class: "button button__sm md:button__lg button__secondary" do %>
+          <span><%= t("continue_voting", scope: "decidim.budgets.order.status") %></span>
+          <%= icon "arrow-right-line", class: "fill-current" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

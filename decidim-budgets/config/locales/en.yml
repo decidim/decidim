@@ -216,6 +216,16 @@ en:
             map: Map
             taxonomies: Taxonomies
             title: Title
+      order:
+        status:
+          continue_voting: Continue voting
+          pending_to_vote_budgets:
+            one: You can vote in other budget
+            other: You can vote in other budgets
+          title: Your vote has been successfully accepted
+          votes_count:
+            one: Your vote for %{budget_name} has already been registered.
+            other: Your %{count} votes for %{budget_name} have already been registered.
       order_summary_mailer:
         order_summary:
           selected_projects: 'The projects that you have selected are:'
