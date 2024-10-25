@@ -76,8 +76,7 @@ module Decidim
           end
 
           on(:transfer_user) do |authorized_user|
-            # TODO - Do not use touch
-            authorized_user.touch(:last_sign_in_at)
+            authorized_user.update(last_sign_in_at: Time.current)
             sign_out(current_user)
             sign_in(authorized_user)
 
