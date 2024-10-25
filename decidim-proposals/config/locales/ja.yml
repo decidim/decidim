@@ -416,6 +416,35 @@ ja:
         description: 提案への投票数
         object: 投票
         title: 投票
+    open_data:
+      help:
+        proposal_comments:
+          author: このコメントを作成した参加者の名前
+          body: コメント本文
+          commentable_id: コメント対象の固有ID
+          commentable_type: コメント対象の種別 (結果、提案など)
+          created_at: コメントの作成日時
+          depth: コメントがコメントツリーのどこに位置しているか（回答、または回答の回答である場合）
+          id: コメントのID
+          locale: コメントを残した参加者の使っていたロケール（言語）
+          root_commentable_url: コメントに関連するリソースの URL
+          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
+        proposals:
+          address: 提案に物理的な場所がある場合の提案の所在地
+          answer: 回答済みの提案に対する回答
+          answered_at: 提案への回答の日時
+          attachments: 提案の添付ファイル数
+          author: 提案の作者に関するデータ
+          body: 提案本文
+          category: '提案のカテゴリ (例: "文化")'
+          comments: 提案のコメント数
+          component: 提案が属するコンポーネント
+          endorsements: この提案のオススメ(「いいね」) の数
+          followers: 提案のフォロワー数
+          id: 提案の固有ID
+          is_amend: この提案が別の提案を修正しているかどうか
+          latitude: 提案に物理的な場所がある場合の提案の緯度
+          longitude: 提案に物理的な場所がある場合の提案の経度
     participatory_spaces:
       highlighted_proposals:
         last: 最近の提案
