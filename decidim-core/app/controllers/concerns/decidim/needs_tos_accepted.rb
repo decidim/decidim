@@ -37,8 +37,7 @@ module Decidim
                          decidim.delete_account_path,
                          decidim.accept_tos_path,
                          decidim.download_your_data_path,
-                         decidim.export_download_your_data_path,
-                         decidim.download_file_download_your_data_path]
+                         decidim.export_download_your_data_path]
       # ensure that path with or without query string pass
       permitted_paths.find { |el| el.split("?").first == request.path }
     end

@@ -2,7 +2,6 @@
 
 module Decidim
   module PrivateDownloadHelper
-
     def attach_archive(export_data, name, user)
       path = Rails.root.join("tmp/#{SecureRandom.urlsafe_base64}.zip")
       export_data.read
@@ -22,6 +21,5 @@ module Decidim
       @export.save!
       @export.reload
     end
-
   end
 end

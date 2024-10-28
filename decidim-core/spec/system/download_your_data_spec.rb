@@ -19,15 +19,15 @@ describe "DownloadYourData" do
     describe "show button export data" do
       it "export the user's data" do
         within ".download-your-data" do
-          expect(page).to have_content(/Download the data/i)
-          expect(page).to have_content(user.email)
+          expect(page).to have_content("Here you can find all the downloads available for you")
+          expect(page).to have_content("You can request a .zip file with your submissions and personal data.")
         end
       end
     end
 
     describe "Export data" do
       it "exports a 7z with all user information" do
-        perform_enqueued_jobs { click_on "Request data" }
+        perform_enqueued_jobs { click_on "Request" }
 
         within_flash_messages do
           expect(page).to have_content("data is currently in progress")

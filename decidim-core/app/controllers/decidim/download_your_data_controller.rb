@@ -8,6 +8,19 @@ module Decidim
     include Decidim::UserProfile
     include Decidim::Paginable
 
+    # i18n-tasks-use t('decidim.download_your_data.show.answers')
+    # i18n-tasks-use t('decidim.download_your_data.show.assemblies')
+    # i18n-tasks-use t('decidim.download_your_data.show.debate_comments')
+    # i18n-tasks-use t('decidim.download_your_data.show.debates')
+    # i18n-tasks-use t('decidim.download_your_data.show.initiatives')
+    # i18n-tasks-use t('decidim.download_your_data.show.meeting_comments')
+    # i18n-tasks-use t('decidim.download_your_data.show.meetings')
+    # i18n-tasks-use t('decidim.download_your_data.show.participatory_processes')
+    # i18n-tasks-use t('decidim.download_your_data.show.projects')
+    # i18n-tasks-use t('decidim.download_your_data.show.proposal_comments')
+    # i18n-tasks-use t('decidim.download_your_data.show.proposals')
+    # i18n-tasks-use t('decidim.download_your_data.show.result_comments')
+    # i18n-tasks-use t('decidim.download_your_data.show.results')
     def show
       enforce_permission_to(:show, :user, current_user:)
 

@@ -21,7 +21,6 @@ module Decidim
       @export_format = export_format
     end
 
-
     def export
       dirname = File.dirname(path)
       FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
@@ -31,10 +30,10 @@ module Decidim
     private
 
     attr_reader :user, :export_format, :path
+
     def data
       user_data, user_attachments = data_and_attachments_for_user
       buffer = Zip::OutputStream.write_buffer do |out|
-
         save_user_data(out, user_data)
         save_user_attachments(out, user_attachments)
       end
@@ -77,7 +76,7 @@ module Decidim
           blobs = attachment.is_a?(ActiveStorage::Attached::One) ? [attachment.blob] : attachment.blobs
           blobs.each do |blob|
             blob.open do |blob_file|
-              output.put_next_entry("#{entity.parameterize}/#{blob.filename.to_s}")
+              output.put_next_entry("#{entity.parameterize}/#{blob.filename}")
               output.write blob_file.read.force_encoding("UTF-8")
             end
           end
