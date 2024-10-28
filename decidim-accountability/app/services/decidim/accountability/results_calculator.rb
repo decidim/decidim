@@ -23,7 +23,7 @@ module Decidim
 
       def results
         @results ||= begin
-          query = Result.where(
+          query = Result.not_trashed.where(
             parent_id: nil,
             component:
           )

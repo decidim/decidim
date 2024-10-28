@@ -34,7 +34,7 @@ Decidim.register_component(:accountability) do |component|
   end
 
   component.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
-    Decidim::Accountability::Result.where(component: components).count
+    Decidim::Accountability::Result.not_trashed.where(component: components).count
   end
 
   component.settings(:step) do |settings|
@@ -44,6 +44,7 @@ Decidim.register_component(:accountability) do |component|
   component.exports :results do |exports|
     exports.collection do |component_instance|
       Decidim::Accountability::Result
+        .not_trashed
         .where(component: component_instance)
         .includes(:category, :scope, :status, component: { participatory_space: :organization })
     end
@@ -57,7 +58,7 @@ Decidim.register_component(:accountability) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Accountability::Result, component_instance
-      ).includes(:author, :root_commentable, :commentable)
+      ).not_trashed.includes(:author, :root_commentable, :commentable)
     end
 
     exports.include_in_open_data = true

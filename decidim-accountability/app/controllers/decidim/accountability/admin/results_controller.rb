@@ -89,15 +89,15 @@ module Decidim
         end
 
         def result
-          @result ||= Result.where(component: current_component).find(params[:id])
+          @result ||= Result.not_trashed.where(component: current_component).find(params[:id])
         end
 
         def parent_result
-          @parent_result ||= Result.find_by(component: current_component, id: params[:parent_id])
+          @parent_result ||= Result.not_trashed.find_by(component: current_component, id: params[:parent_id])
         end
 
         def parent_results
-          @parent_results ||= Result.where(component: current_component, parent_id: nil)
+          @parent_results ||= Result.not_trashed.where(component: current_component, parent_id: nil)
         end
 
         def statuses

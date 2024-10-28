@@ -13,7 +13,7 @@ module Decidim
 
       routes do
         resources :statuses
-        resources :results, except: [:show] do
+        resources :results, except: [:show, :destroy] do
           member do
             patch :soft_delete
             patch :restore
