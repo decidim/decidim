@@ -1,19 +1,17 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/seven_zip_wrapper"
 
 module Decidim
   describe DownloadYourDataExporter do
-    subject { DownloadYourDataExporter.new(user, tmp_file_in, password) }
+    subject { DownloadYourDataExporter.new(user, tmp_file_in, "CSV") }
 
     let(:tmp_file_in) do
-      Dir::Tmpname.create(["download-your-data", ".7z"]) do
+      Dir::Tmpname.create(["download-your-data", ".zip"]) do
         # just get an empty file name
       end
     end
     let(:tmp_dir_out) { Dir.mktmpdir("download_your_data_exporter_spec") }
-    let(:password) { "download-your-data.7z>passwd" }
     let(:user) { create(:user, organization:) }
     let(:organization) { create(:organization) }
     let(:expected_files) do
@@ -47,8 +45,6 @@ module Decidim
         subject.export
 
         expect(File.exist?(tmp_file_in)).to be true
-
-        expect(Dir.entries(tmp_dir_out).count).to eq 4
       end
     end
 

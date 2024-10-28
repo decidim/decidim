@@ -16,6 +16,8 @@ module Decidim
       let(:collection_ids) { nil }
 
       it "sends an email with the result of the export" do
+        expect(Decidim::PrivateExport.count).to eq(0)
+
         expect(Decidim::Exporters.find_exporter(format)).to receive(:new)
           .with(
             initiatives.sort_by(&:id),
@@ -28,7 +30,10 @@ module Decidim
 
         email = last_email
         expect(email.subject).to include("export")
-        expect(email.body.encoded).to match("Please find attached a zipped version of your export.")
+        expect(email.body.encoded).to match("Your download is ready.")
+        expect(last_email.subject).to eq(%(Your export "initiatives" is ready))
+        expect(Decidim::PrivateExport.count).to eq(1)
+        expect(Decidim::PrivateExport.last.export_type).to eq("initiatives")
       end
 
       context "when a collection of ids is passed as a parameter using an odd ordering" do
@@ -41,13 +46,18 @@ module Decidim
               Decidim::Initiatives::InitiativeSerializer
             ).and_call_original
 
+          expect(Decidim::PrivateExport.count).to eq(0)
+
           perform_enqueued_jobs do
             subject
           end
 
           email = last_email
           expect(email.subject).to include("export")
-          expect(email.body.encoded).to match("Please find attached a zipped version of your export.")
+          expect(email.body.encoded).to match("Your download is ready.")
+          expect(last_email.subject).to eq(%(Your export "initiatives" is ready))
+          expect(Decidim::PrivateExport.count).to eq(1)
+          expect(Decidim::PrivateExport.last.export_type).to eq("initiatives")
         end
       end
     end
