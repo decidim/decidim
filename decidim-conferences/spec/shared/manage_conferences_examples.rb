@@ -18,6 +18,7 @@ shared_examples "manage conferences" do
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='conference-#{field}-tabs']", "full"
     end
     it_behaves_like "having a rich text editor for field", "#conference_registrations_terms", "content"
+    it_behaves_like "having no taxonomy filters defined"
 
     it "creates a new conference", versioning: true do
       within ".new_conference" do

@@ -249,14 +249,18 @@ module Decidim
       end
 
       def current_taxonomy_filters
-        manifest_name = defined?(current_participatory_space_manifest) ? current_participatory_space_manifest.name : current_participatory_space.manifest.name
-        @current_taxonomy_filters ||= TaxonomyFilter.for(manifest_name).map do |filter|
+        @current_taxonomy_filters ||= TaxonomyFilter.for(current_manifest.name).map do |filter|
           ["#{decidim_sanitize_translated(filter.name)} (#{filter.filter_items_count})", filter.id]
         end
       end
 
       def participatory_space_taxonomy_filters_path
-        Decidim::EngineRouter.new(current_participatory_space.mounted_admin_engine, {}).send("#{current_participatory_space.manifest.route_name}_filters_path")
+        model = current_participatory_space || current_manifest.model_class_name.constantize.new
+        Decidim::EngineRouter.new(model.mounted_admin_engine, {}).send("#{current_manifest.route_name}_filters_path")
+      end
+
+      def current_manifest
+        defined?(current_participatory_space_manifest) ? current_participatory_space_manifest : current_participatory_space.manifest
       end
     end
   end

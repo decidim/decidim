@@ -20,6 +20,19 @@ shared_context "with taxonomy filters context" do
   let!(:another_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: another_taxonomy) }
 end
 
+shared_examples "having no taxonomy filters defined" do
+  let!(:taxonomy_filter) { create(:taxonomy_filter) }
+  let!(:taxonomy_filter_item) { nil }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter) }
+  let!(:another_taxonomy_filter_item) { nil }
+
+  it "shows no taxonomy filters" do
+    expect(page).to have_content("Taxonomies")
+    expect(page).to have_content("No taxonomy filters found.")
+    expect(page).to have_link("Please define some filters for this participatory space before using this setting")
+  end
+end
+
 shared_examples "a taxonomy filters controller" do
   it "lists the taxonomy filters" do
     expect(page).to have_content("Taxonomy filters")

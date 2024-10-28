@@ -82,7 +82,7 @@ module Decidim
             items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
                          collection: filter_taxonomy_values_for(taxonomy_filter),
                          label: decidim_sanitize_translated(taxonomy_filter.name),
-                         id: "taxonomy")
+                         id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
           end
           items.append(method: :with_any_origin, collection: filter_origin_values, label: t("decidim.debates.debates.filters.origin"), id: "origin")
           items.append(method: :activity, collection: activity_filter_values, label: t("decidim.debates.debates.filters.activity"), id: "activity") if current_user

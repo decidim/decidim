@@ -50,7 +50,7 @@ module Decidim
             items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
                          collection: filter_taxonomy_values_for(taxonomy_filter),
                          label: decidim_sanitize_translated(taxonomy_filter.name),
-                         id: "taxonomy")
+                         id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
           end
           if linked_classes_for(Decidim::Proposals::CollaborativeDraft).any?
             items.append(

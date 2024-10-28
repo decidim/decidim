@@ -21,7 +21,7 @@ module Decidim
 
             return accessible_proposals_collection unless taxonomy_order_or_search?
 
-            # this is a trick to avoid duplicates  when using search in associations as suggested in:
+            # this is a trick to avoid duplicates when using search in associations as suggested in:
             # https://activerecord-hackery.github.io/ransack/going-further/other-notes/#problem-with-distinct-selects
             accessible_proposals_collection.includes(:taxonomies).joins(:taxonomies)
           end
