@@ -9,46 +9,51 @@ shared_examples "export debates" do
   it_behaves_like "export as JSON"
 
   it "exports a CSV" do
+    expect(Decidim::PrivateExport.count).to eq(0)
     find(".exports").click
     perform_enqueued_jobs { click_on "Comments as CSV" }
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
-    expect(last_email.subject).to include("debate_comments", "csv")
-    expect(last_email.attachments.length).to be_positive
-    expect(last_email.attachments.first.filename).to match(/^debate_comments.*\.zip$/)
+    expect(last_email.subject).to eq(%(Your export "debate_comments" is ready))
+    expect(Decidim::PrivateExport.count).to eq(1)
+    expect(Decidim::PrivateExport.last.export_type).to eq("debate_comments")
   end
 
   it "exports a JSON" do
+    expect(Decidim::PrivateExport.count).to eq(0)
     find(".exports").click
     perform_enqueued_jobs { click_on "Comments as JSON" }
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
-    expect(last_email.subject).to include("debate_comments", "json")
-    expect(last_email.attachments.length).to be_positive
-    expect(last_email.attachments.first.filename).to match(/^debate_comments.*\.zip$/)
+    expect(last_email.subject).to eq(%(Your export "debate_comments" is ready))
+    expect(Decidim::PrivateExport.count).to eq(1)
+    expect(Decidim::PrivateExport.last.export_type).to eq("debate_comments")
   end
 end
 
 shared_examples "export as CSV" do
   it "exports a CSV" do
+    expect(Decidim::PrivateExport.count).to eq(0)
     find("span.exports", text: export_type).click
     perform_enqueued_jobs { click_on "Debates as CSV" }
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
-    expect(last_email.subject).to include("debates", "csv")
-    expect(last_email.attachments.length).to be_positive
-    expect(last_email.attachments.first.filename).to match(/^debates.*\.zip$/)
+    expect(last_email.subject).to eq(%(Your export "debates" is ready))
+    expect(Decidim::PrivateExport.count).to eq(1)
+    expect(Decidim::PrivateExport.last.export_type).to eq("debates")
   end
 end
 
 shared_examples "export as JSON" do
   it "exports a JSON" do
+    expect(Decidim::PrivateExport.count).to eq(0)
+
     find("span.exports", text: export_type).click
     perform_enqueued_jobs { click_on "Debates as JSON" }
 
     expect(page).to have_admin_callout "Your export is currently in progress. You will receive an email when it is complete."
-    expect(last_email.subject).to include("debates", "json")
-    expect(last_email.attachments.length).to be_positive
-    expect(last_email.attachments.first.filename).to match(/^debates.*\.zip$/)
+    expect(last_email.subject).to eq(%(Your export "debates" is ready))
+    expect(Decidim::PrivateExport.count).to eq(1)
+    expect(Decidim::PrivateExport.last.export_type).to eq("debates")
   end
 end
