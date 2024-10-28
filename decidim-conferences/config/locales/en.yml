@@ -374,6 +374,8 @@ en:
         conferences:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
+            no_taxonomy_filters_found: No taxonomy filters found.
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
