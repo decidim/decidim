@@ -315,7 +315,7 @@ describe "Explore Collaborative Drafts", versioning: true do
 
               it "shows a button to edit" do
                 find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
-                expect(page).to have_css("#collaborative_draft_edit", text: "Edit collaborative draft")
+                expect(page).to have_css("#collaborative_draft_edit", text: "Edit")
               end
 
               it "does not show the Collaboration Requests from other users" do
@@ -352,7 +352,7 @@ describe "Explore Collaborative Drafts", versioning: true do
 
         it "shows a button to edit" do
           find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
-          expect(page).to have_css("#collaborative_draft_edit", text: "Edit collaborative draft")
+          expect(page).to have_css("#collaborative_draft_edit", text: "Edit")
         end
       end
     end

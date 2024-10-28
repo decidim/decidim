@@ -28,7 +28,7 @@ describe "Edit proposals" do
 
       click_on proposal_title
       find("#dropdown-trigger-resource-#{proposal.id}").click
-      click_on "Edit proposal"
+      click_on "Edit"
 
       expect(page).to have_content "Edit proposal"
       expect(page).to have_no_content("You can move the point on the map.")
@@ -53,7 +53,7 @@ describe "Edit proposals" do
 
       it "shows validation error when format is not accepted" do
         find("#dropdown-trigger-resource-#{proposal.id}").click
-        click_on "Edit proposal"
+        click_on "Edit"
         dynamically_attach_file(:proposal_documents, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
           expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions_image.join(", ")}")
         end
@@ -69,7 +69,7 @@ describe "Edit proposals" do
 
           expect(page).to have_content("Documents")
           find("#dropdown-trigger-resource-#{proposal.id}").click
-          click_on "Edit proposal"
+          click_on "Edit"
 
           click_on "Edit documents"
           within ".upload-modal" do
@@ -94,7 +94,7 @@ describe "Edit proposals" do
 
           it "can change attachment titles" do
             find("#dropdown-trigger-resource-#{proposal.id}").click
-            click_on "Edit proposal"
+            click_on "Edit"
             click_on "Edit documents"
             within ".upload-modal" do
               expect(page).to have_content("Has to be an image or a document")
@@ -127,7 +127,7 @@ describe "Edit proposals" do
           it "displays them correctly on the edit form" do
             find("#dropdown-trigger-resource-#{proposal.id}").click
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
-            click_on "Edit proposal"
+            click_on "Edit"
             expect(page).to have_content("Required fields are marked with an asterisk")
             click_on("Edit documents")
             within "[data-dialog]" do
@@ -150,7 +150,7 @@ describe "Edit proposals" do
           it "displays them correctly on the edit form" do
             find("#dropdown-trigger-resource-#{proposal.id}").click
             # With problematic code, should raise Selenium::WebDriver::Error::UnexpectedAlertOpenError
-            click_on "Edit proposal"
+            click_on "Edit"
             expect(page).to have_content("Required fields are marked with an asterisk")
             click_on("Edit documents")
             within "[data-dialog]" do
@@ -210,7 +210,7 @@ describe "Edit proposals" do
 
         click_on translated(proposal.title)
         find("#dropdown-trigger-resource-#{proposal.id}").click
-        click_on "Edit proposal"
+        click_on "Edit"
 
         expect(page).to have_field("Title", with: translated(proposal.title))
         expect(page).to have_field("Body", with: strip_tags(translated(proposal.body)))
@@ -244,7 +244,7 @@ describe "Edit proposals" do
 
           click_on translated(proposal.title)
           find("#dropdown-trigger-resource-#{proposal.id}").click
-          click_on "Edit proposal"
+          click_on "Edit"
 
           expect(page).to have_field("Title", with: translated(proposal.title))
           expect(page).to have_field("Body", with: strip_tags(translated(proposal.body)))
@@ -273,7 +273,7 @@ describe "Edit proposals" do
 
         click_on proposal_title
         find("#dropdown-trigger-resource-#{proposal.id}").click
-        click_on "Edit proposal"
+        click_on "Edit"
 
         expect(page).to have_content "Edit proposal"
 
@@ -298,7 +298,7 @@ describe "Edit proposals" do
 
         click_on proposal_title
         find("#dropdown-trigger-resource-#{proposal.id}").click
-        click_on "Edit proposal"
+        click_on "Edit"
 
         expect(page).to have_content "Edit proposal"
 
@@ -331,7 +331,7 @@ describe "Edit proposals" do
           visit_component
           click_on proposal_title
           find("#dropdown-trigger-resource-#{proposal.id}").click
-          click_on "Edit proposal"
+          click_on "Edit"
         end
 
         it_behaves_like "having a rich text editor", "edit_proposal", "basic"

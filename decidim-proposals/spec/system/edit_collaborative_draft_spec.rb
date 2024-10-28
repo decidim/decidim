@@ -29,7 +29,7 @@ describe "Edit collaborative_drafts" do
       click_on "Access collaborative drafts"
       click_on collaborative_draft.title
       find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
-      click_on "Edit collaborative draft"
+      click_on "Edit"
 
       expect(page).to have_content "Edit collaborative draft"
 
@@ -58,7 +58,7 @@ describe "Edit collaborative_drafts" do
           click_on "Access collaborative drafts"
           click_on collaborative_draft.title
           find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
-          click_on "Edit collaborative draft"
+          click_on "Edit"
 
           dynamically_attach_file(:collaborative_draft_documents, Decidim::Dev.asset("city.jpeg"))
 
@@ -79,7 +79,7 @@ describe "Edit collaborative_drafts" do
         click_on "Access collaborative drafts"
         click_on collaborative_draft.title
         find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
-        click_on "Edit collaborative draft"
+        click_on "Edit"
       end
 
       it_behaves_like "having a rich text editor", "edit_collaborative_draft", "basic"
@@ -92,7 +92,7 @@ describe "Edit collaborative_drafts" do
         click_on "Access collaborative drafts"
         click_on collaborative_draft.title
         find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
-        click_on "Edit collaborative draft"
+        click_on "Edit"
 
         within "form.edit_collaborative_draft" do
           fill_in :collaborative_draft_body, with: "A"
@@ -116,7 +116,7 @@ describe "Edit collaborative_drafts" do
         click_on "Access collaborative drafts"
         click_on collaborative_draft.title
         find("#dropdown-trigger-resource-#{collaborative_draft.id}").click
-        click_on "Edit collaborative draft"
+        click_on "Edit"
 
         within "form.edit_collaborative_draft" do
           fill_in :collaborative_draft_title, with: "A title with a #hashtag"
