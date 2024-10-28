@@ -13,9 +13,6 @@ module Decidim
     #
     # Returns nothing.
     def export(user, filename, private_export)
-      # DEBUG
-      raise "FOO BAR" if !private_export.is_a?(Decidim::PrivateExport)
-
       @user = user
       @organization = user.organization
       @private_export = private_export

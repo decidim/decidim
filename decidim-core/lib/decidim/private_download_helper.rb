@@ -5,6 +5,7 @@ module Decidim
 
     def attach_archive(export_data, name, user)
       path = Rails.root.join("tmp/#{SecureRandom.urlsafe_base64}.zip")
+      export_data.read
       File.binwrite(path, FileZipper.new(export_data.filename(name), export_data.read).zip)
 
       save_or_upload_file(user, name, path)
@@ -19,6 +20,7 @@ module Decidim
       @export.expires_at = Decidim.download_your_data_expiry_time.from_now
       @export.metadata = metadata
       @export.save!
+      @export.reload
     end
 
   end

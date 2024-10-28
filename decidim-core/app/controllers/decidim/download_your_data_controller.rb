@@ -27,7 +27,10 @@ module Decidim
     def download_file
       enforce_permission_to(:download, :user, current_user:)
 
-      if private_export.file.attached?
+      if private_export.expired?
+        flash[:error] = t("decidim.account.download_your_data_export.export_expired")
+        redirect_to download_your_data_path
+      elsif private_export.file.attached?
         redirect_to Rails.application.routes.url_helpers.rails_blob_url(private_export.file.blob, only_path: true)
       else
         flash[:error] = t("decidim.account.download_your_data_export.file_no_exists")
