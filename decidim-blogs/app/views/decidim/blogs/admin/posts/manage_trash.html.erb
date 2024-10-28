@@ -9,7 +9,7 @@
     <table class="table-list">
       <%= render partial: "posts-thead" %>
       <tbody>
-      <% trashable_deleted_collection.created_at_desc.each do |post| %>
+      <% trashable_deleted_collection.deleted_at_desc.each do |post| %>
         <%= render partial: "post-tr", locals: { post:, view: :deleted } %>
       <% end %>
       </tbody>

@@ -79,24 +79,25 @@ module Decidim
         end
       end
 
-        # i18n-tasks-use t('decidim.admin.trash_management.soft_delete.invalid')
-        # i18n-tasks-use t('decidim.admin.trash_management.soft_delete.success')
-        def soft_delete
-          enforce_permission_to(:soft_delete, trashable_deleted_resource_type, trashable_deleted_resource:)
+      # i18n-tasks-use t('decidim.admin.trash_management.soft_delete.invalid')
+      # i18n-tasks-use t('decidim.admin.trash_management.soft_delete.success')
+      def soft_delete
+        enforce_permission_to(:soft_delete, trashable_deleted_resource_type, trashable_deleted_resource:)
 
-          Decidim::Commands::SoftDeleteResource.call(trashable_deleted_resource, current_user) do
-            on(:ok) do
-              Decidim::Reminder.where(component: resource).destroy_all 
-              flash[:notice] = I18n.t("soft_delete.success", scope: trashable_i18n_scope, resource_name: human_readable_resource_name.capitalize)
-              redirect_to_resource_index
-            end
+        Decidim::Commands::SoftDeleteResource.call(trashable_deleted_resource, current_user) do
+          on(:ok) do
+            Decidim::Reminder.where(component: resource).destroy_all
+            flash[:notice] = I18n.t("soft_delete.success", scope: trashable_i18n_scope, resource_name: human_readable_resource_name.capitalize)
+            redirect_to_resource_index
+          end
 
-            on(:invalid) do
-              flash[:alert] = I18n.t("soft_delete.invalid", scope: trashable_i18n_scope, resource_name: human_readable_resource_name)
-              redirect_to_resource_index
-            end
+          on(:invalid) do
+            flash[:alert] = I18n.t("soft_delete.invalid", scope: trashable_i18n_scope, resource_name: human_readable_resource_name)
+            redirect_to_resource_index
           end
         end
+      end
+
       def publish
         @component = query_scope.find(params[:id])
         enforce_permission_to :publish, :component, component: @component
