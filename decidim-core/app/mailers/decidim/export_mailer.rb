@@ -32,11 +32,10 @@ module Decidim
     # user - The user to be notified.
     #
     # Returns nothing.
-    def download_your_data_export(user, private_export, password)
+    def download_your_data_export(user, private_export)
       @user = user
       @organization = user.organization
       @private_export = private_export
-      @password = password
 
       with_user(user) do
         mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: user.name))

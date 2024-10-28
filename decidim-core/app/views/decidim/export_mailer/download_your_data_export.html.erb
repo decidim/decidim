@@ -1,5 +1,5 @@
 <p class="email-instructions">
-  <%= t(".click_button", password: @password, date: l(Decidim.download_your_data_expiry_time.from_now, format: :decidim_short) ).html_safe %><br>
+  <%= t(".click_button", date: l(Decidim.download_your_data_expiry_time.from_now, format: :decidim_short) ) %><br>
 </p>
 
 <p class="email-button email-button__cta">

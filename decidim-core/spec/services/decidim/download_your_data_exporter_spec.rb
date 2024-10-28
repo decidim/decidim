@@ -48,8 +48,6 @@ module Decidim
 
         expect(File.exist?(tmp_file_in)).to be true
 
-        open_7z_and_extract_zip(tmp_file_in)
-
         expect(Dir.entries(tmp_dir_out).count).to eq 4
       end
     end
@@ -87,12 +85,6 @@ module Decidim
           end
         end
       end
-    end
-
-    private
-
-    def open_7z_and_extract_zip(file_path)
-      SevenZipWrapper.extract_and_decrypt(filename: file_path, password:, output_directory: tmp_dir_out)
     end
   end
 end
