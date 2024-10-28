@@ -25,12 +25,12 @@
     <%
     label_options = {
       class: "answer-questionnaire__question-label questionnaire-question",
-      data: { "answer-idx": cleaned_answer_idx },
+      data: { "answer-idx": cleaned_answer_idx }
     }
     label_options[:for] = nil if %w(matrix_single matrix_multiple single_option multiple_option).include?(answer.question.question_type)
     %>
 
-    <%= label_tag field_id, translated_attribute(answer.question.body), **label_options%>
+    <%= label_tag field_id, translated_attribute(answer.question.body), **label_options %>
       <% if answer.question.mandatory? %>
         <%= answer_form.send(:required_indicator) %>
       <% end %>
