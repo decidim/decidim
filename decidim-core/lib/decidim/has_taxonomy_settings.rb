@@ -7,6 +7,9 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
+      after_save :update_components_counter_cache
+      after_destroy :update_components_counter_cache
+
       def has_taxonomy_settings?
         settings.respond_to?(:taxonomy_filters) && settings.taxonomy_filters.present?
       end
@@ -27,6 +30,14 @@ module Decidim
         return [] unless has_taxonomy_settings?
 
         @available_taxonomy_ids ||= Decidim::TaxonomyFilterItem.where(taxonomy_filter_id: settings.taxonomy_filters).pluck(:taxonomy_item_id)
+      end
+
+      def update_components_counter_cache
+        return unless has_taxonomy_settings?
+
+        available_taxonomy_filters.each do |taxonomy_filter|
+          taxonomy_filter.update(components_count: taxonomy_filter.components.count)
+        end
       end
     end
   end

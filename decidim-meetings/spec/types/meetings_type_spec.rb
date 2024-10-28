@@ -38,7 +38,7 @@ module Decidim
           end
         end
 
-        context "when querying proposals with taxonomies" do
+        context "when querying meetings with taxonomies" do
           let(:root_taxonomy) { create(:taxonomy, organization: model.organization) }
           let(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: model.organization) }
           let!(:meetings_with_taxonomy) { create(:meeting, :published, component: model, taxonomies: [taxonomy]) }
