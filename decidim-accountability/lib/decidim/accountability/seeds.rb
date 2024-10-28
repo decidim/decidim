@@ -85,7 +85,7 @@ module Decidim
             end,
             address: "#{::Faker::Address.street_address} #{::Faker::Address.zip} #{::Faker::Address.city}",
             latitude: ::Faker::Address.latitude,
-            longitude: ::Faker::Address.longitude,
+            longitude: ::Faker::Address.longitude
           },
           visibility: "all"
         )
