@@ -26,6 +26,10 @@ de:
       decidim/accountability/result_progress_updated_event: Ergebnisfortschritt aktualisiert
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Das Ergebnis %{link} wurde erstellt
       decidim/accountability/result:
         one: Ergebnis
         other: Ergebnisse
