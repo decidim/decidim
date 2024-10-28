@@ -5,13 +5,7 @@
 <% else %>
   <% if allowed_to? :update, :blogpost, blog_post: post %>
     <%= icon_link_to "pencil-line", edit_post_path(post), t("actions.edit", scope: "decidim.blogs"), class: "action-icon--edit" %>
-  <% end %>
-
-  <% if allowed_to? :update, :blogpost, blog_post: post %>
     <%= icon_link_to "folder-line", post_attachment_collections_path(post), t("actions.attachment_collections", scope: "decidim.meetings"), class: "action-icon--attachment_collections" %>
-  <% end %>
-
-  <% if allowed_to? :update, :blogpost, blog_post: post %>
     <%= icon_link_to "attachment-line", post_attachments_path(post), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
   <% end %>
 
