@@ -740,6 +740,7 @@ en:
         meeting_proposal: 'Related proposals:'
         proposal_meeting: 'Related meetings:'
     statistics:
+      attendees_count: Meeting attendees
       meetings_count: Meetings
   devise:
     mailer:

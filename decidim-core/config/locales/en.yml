@@ -698,14 +698,19 @@ en:
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
     endorsement_buttons_cell:
-      already_endorsed: Dislike
+      already_endorsed: Undo the like
       endorse: Like
     endorsements:
       identities:
         done: Done
         select_identity: Select identity
     endorsers_list:
-      endorsed_by: Liked by…
+      endorsed_by:
+        one: Liked by %{visible}
+        other: Liked by %{visible} and %{others}
+      others: "%{count} more"
+      title: Liked by
+      you: you
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
