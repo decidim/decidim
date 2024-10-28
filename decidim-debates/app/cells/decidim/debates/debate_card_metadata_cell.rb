@@ -9,7 +9,7 @@ module Decidim
 
       alias debate model
 
-      delegate :type_of_meeting, :start_time, :end_time, :taxonomies, :withdrawn?, to: :debate
+      delegate :type_of_meeting, :start_time, :end_time, :withdrawn?, to: :debate
 
       def initialize(*)
         super

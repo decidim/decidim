@@ -6,7 +6,7 @@ module Decidim
     class MeetingCardMetadataCell < Decidim::CardMetadataCell
       alias meeting model
 
-      delegate :type_of_meeting, :start_time, :end_time, :taxonomies, :withdrawn?, to: :meeting
+      delegate :type_of_meeting, :start_time, :end_time, :withdrawn?, to: :meeting
 
       alias start_date start_time
       alias end_date end_time

@@ -10,7 +10,7 @@ describe Decidim::Debates::Admin::CreateDebate do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:taxonomizations) do
-    2.times.map do { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
   end
   let(:form) do
     double(
@@ -61,6 +61,16 @@ describe Decidim::Debates::Admin::CreateDebate do
     it "sets the taxonomies" do
       subject.call
       expect(debate.taxonomizations).to match_array(form.taxonomizations)
+    end
+
+    context "when no taxonomizations are set" do
+      let(:taxonomizations) { [] }
+
+      it "taxonomizations are empty" do
+        subject.call
+
+        expect(debate.taxonomizations).to be_empty
+      end
     end
 
     it "sets the component" do

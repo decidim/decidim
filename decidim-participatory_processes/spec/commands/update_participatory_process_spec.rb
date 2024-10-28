@@ -9,6 +9,7 @@ module Decidim::ParticipatoryProcesses
       let(:my_process) { create(:participatory_process, organization:, taxonomies:) }
       let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
       let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
+      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:params) do
         {
           participatory_process: {
@@ -46,7 +47,6 @@ module Decidim::ParticipatoryProcesses
           hero_image: my_process.hero_image.blob
         }
       end
-      let(:user) { create(:user, :admin, :confirmed, organization:) }
       let(:context) do
         {
           current_organization: organization,

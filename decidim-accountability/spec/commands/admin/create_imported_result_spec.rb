@@ -11,7 +11,7 @@ module Decidim::Accountability
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
     let(:taxonomizations) do
-      2.times.map do { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
     let(:start_date) { Date.yesterday }
     let(:end_date) { Date.tomorrow }
