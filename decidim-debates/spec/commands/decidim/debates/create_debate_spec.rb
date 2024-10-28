@@ -10,10 +10,7 @@ describe Decidim::Debates::CreateDebate do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
   let(:user) { create(:user, organization:) }
   let(:taxonomizations) do
-    [
-      build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil),
-      build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil)
-    ]
+    2.times.map do { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
   end
   let(:form) do
     double(

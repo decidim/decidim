@@ -26,10 +26,7 @@ module Decidim::Meetings
     let(:available_slots) { 0 }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
     let(:taxonomizations) do
-      [
-        build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil),
-        build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil)
-      ]
+      2.times.map do { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
     let(:form) do
       double(

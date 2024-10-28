@@ -12,10 +12,7 @@ module Decidim::Conferences
     let(:errors) { double.as_null_object }
     let(:hero_image) { nil }
     let(:taxonomizations) do
-      [
-        build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil),
-        build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil)
-      ]
+      2.times.map do { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
     let(:banner_image) { nil }
     let!(:participatory_processes) do
