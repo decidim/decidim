@@ -11,7 +11,7 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :posts do
+        resources :posts, except: [:destroy] do
           resources :attachment_collections, except: [:show]
           resources :attachments, except: [:show]
           get :manage_trash, on: :collection
