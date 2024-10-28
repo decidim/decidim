@@ -13,6 +13,8 @@ module Decidim
 
       # Scope to return only trashed (soft deleted) records.
       scope :trashed, -> { where.not(deleted_at: nil) }
+
+      scope :deleted_at_desc, -> { order(deleted_at: :desc) }
     end
 
     # Public: Checks whether the record has been trashed (soft deleted) or not.

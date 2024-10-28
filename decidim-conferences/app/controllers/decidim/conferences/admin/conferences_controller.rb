@@ -81,7 +81,7 @@ module Decidim
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection = filtered_collection.trashed
+          @trashable_deleted_collection = filtered_collection.trashed.deleted_at_desc
         end
 
         def current_conference

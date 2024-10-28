@@ -166,7 +166,7 @@ module Decidim
       end
 
       def trashable_deleted_collection
-        @trashable_deleted_collection ||= current_participatory_space.components.trashed
+        @trashable_deleted_collection ||= current_participatory_space.components.trashed.deleted_at_desc
       end
 
       # Processes the component params so the form object defined in the manifest (component_form_class_name)

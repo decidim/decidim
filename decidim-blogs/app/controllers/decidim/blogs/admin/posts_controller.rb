@@ -65,7 +65,7 @@ module Decidim
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection ||= Post.where(component: current_component).trashed.page(params[:page]).per(15)
+          @trashable_deleted_collection ||= Post.where(component: current_component).trashed.deleted_at_desc.page(params[:page]).per(15)
         end
 
         def post
