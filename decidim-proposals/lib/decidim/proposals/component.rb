@@ -134,6 +134,7 @@ Decidim.register_component(:proposals) do |component|
       space = component_instance.participatory_space
 
       collection = Decidim::Proposals::Proposal
+                   .not_trashed
                    .published
                    .not_hidden
                    .where(component: component_instance)

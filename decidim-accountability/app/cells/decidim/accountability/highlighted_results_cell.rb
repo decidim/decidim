@@ -12,6 +12,7 @@ module Decidim
 
       def published_components
         Decidim::Component
+          .not_trashed
           .where(
             participatory_space: model,
             manifest_name: :accountability

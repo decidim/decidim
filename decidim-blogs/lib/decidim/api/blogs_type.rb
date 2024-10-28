@@ -29,9 +29,9 @@ module Decidim
       def post(id:)
         scope =
           if context[:current_user]&.admin?
-            Post
+            Post.not_trashed
           else
-            Post.published
+            Post.not_trashed.published
           end
 
         Decidim::Core::ComponentFinderBase.new(model_class: scope).call(object, { id: }, context)

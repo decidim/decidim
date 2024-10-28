@@ -58,7 +58,7 @@ Decidim.register_component(:accountability) do |component|
     exports.collection do |component_instance|
       Decidim::Comments::Export.comments_for_resource(
         Decidim::Accountability::Result, component_instance
-      ).not_trashed.includes(:author, :root_commentable, :commentable)
+      ).includes(:author, :root_commentable, :commentable)
     end
 
     exports.include_in_open_data = true
