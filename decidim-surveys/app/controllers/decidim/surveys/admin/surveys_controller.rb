@@ -35,7 +35,6 @@ module Decidim
 
         def update
           enforce_permission_to(:update, :questionnaire, questionnaire:)
-          params["published_at"] = Time.current if params.has_key? "save_and_publish"
           @form = form(Admin::SurveyForm).from_params(params)
 
           Admin::UpdateSurvey.call(@form, survey, current_user) do

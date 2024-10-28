@@ -5,25 +5,33 @@ class AddSettingsToDecidimSurveysSurveys < ActiveRecord::Migration[7.0]
     self.table_name = :decidim_surveys_surveys
   end
 
-  def up
-    add_column :decidim_surveys_surveys, :starts_at, :datetime
-    add_column :decidim_surveys_surveys, :ends_at, :datetime
-    add_column :decidim_surveys_surveys, :announcement, :jsonb
-    add_column :decidim_surveys_surveys, :allow_answers, :boolean
-    add_column :decidim_surveys_surveys, :allow_unregistered, :boolean
-    add_column :decidim_surveys_surveys, :clean_after_publish, :boolean
-    add_column :decidim_surveys_surveys, :published_at, :datetime, index: true
+  def change
+    reversible do |dir|
+      dir.up do
+        add_column :decidim_surveys_surveys, :starts_at, :datetime
+        add_column :decidim_surveys_surveys, :ends_at, :datetime
+        add_column :decidim_surveys_surveys, :announcement, :jsonb
+        add_column :decidim_surveys_surveys, :allow_answers, :boolean
+        add_column :decidim_surveys_surveys, :allow_unregistered, :boolean
+        add_column :decidim_surveys_surveys, :clean_after_publish, :boolean
+        add_column :decidim_surveys_surveys, :published_at, :datetime
+        add_index :decidim_surveys_surveys, :published_at
 
-    Survey.update(published_at: Time.current)
-  end
+        Survey.find_each do |survey|
+          survey.update(published_at: survey.created_at)
+        end
+      end
 
-  def down
-    remove_column :decidim_surveys_surveys, :starts_at
-    remove_column :decidim_surveys_surveys, :ends_at
-    remove_column :decidim_surveys_surveys, :announcement
-    remove_column :decidim_surveys_surveys, :allow_answers
-    remove_column :decidim_surveys_surveys, :allow_unregistered
-    remove_column :decidim_surveys_surveys, :clean_after_publish
-    remove_column :decidim_surveys_surveys, :published_at
+      dir.down do
+        remove_index :decidim_surveys_surveys, :published_at
+        remove_column :decidim_surveys_surveys, :starts_at
+        remove_column :decidim_surveys_surveys, :ends_at
+        remove_column :decidim_surveys_surveys, :announcement
+        remove_column :decidim_surveys_surveys, :allow_answers
+        remove_column :decidim_surveys_surveys, :allow_unregistered
+        remove_column :decidim_surveys_surveys, :clean_after_publish
+        remove_column :decidim_surveys_surveys, :published_at
+      end
+    end
   end
 end

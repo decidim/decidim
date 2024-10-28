@@ -6,6 +6,10 @@
   <%= cell("decidim/announcement", { title: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.title"), body: t("decidim.forms.questionnaires.show.questionnaire_for_private_users.body") }, callout_class: "alert") %>
 <% end %>
 
+<% if questionnaire_for.respond_to?(:announcement) and questionnaire_for.announcement.present? %>
+  <%= cell("decidim/announcement", translated_attribute(questionnaire_for.announcement), callout_class: "warning") %>
+<% end %>
+
 <%= decidim_form_for(@form, url: update_url, method: :post, html: { multipart: true, class: "form answer-questionnaire" }, data: { "safe-path" => form_path }) do |form| %>
   <%= form_required_explanation %>
 
