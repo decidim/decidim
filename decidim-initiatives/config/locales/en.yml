@@ -153,6 +153,9 @@ en:
       titles:
         initiatives: Initiatives
         initiatives_types: Initiative types
+    download_your_data:
+      show:
+        initiatives: Initiatives export
     events:
       initiatives:
         admin:

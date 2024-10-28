@@ -12,14 +12,13 @@ module Decidim
     # export_data - The data containing the result of the export.
     #
     # Returns nothing.
-    def export(user, export_name, export_data)
+    def export(user, filename, private_export)
+      # DEBUG
+      raise "FOO BAR" if !private_export.is_a?(Decidim::PrivateExport)
+
       @user = user
       @organization = user.organization
-
-      filename = export_data.filename(export_name)
-      filename_without_extension = export_data.filename(export_name, extension: false)
-
-      attachments["#{filename_without_extension}.zip"] = FileZipper.new(filename, export_data.read).zip
+      @private_export = private_export
 
       with_user(user) do
         mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))

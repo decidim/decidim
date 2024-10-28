@@ -170,6 +170,10 @@ en:
             start: Start
             start_time: Start date
             title: Title
+    download_your_data:
+      show:
+        debate_comments: Debate comments export
+        debates: Debates export
     events:
       debates:
         create_debate_event:
