@@ -1581,12 +1581,6 @@ en:
         sign_up: Create an account
       mentions_modal:
         remove_recipient: Remove recipient %{name}
-      participatory_space_filters:
-        filters:
-          area: Area
-          areas: Areas
-          scope: Scope
-          select_an_area: Select an area
       progress: Progress
       public_participation:
         public_participation: Show my attendance publicly
@@ -1616,8 +1610,6 @@ en:
       participants_count: Participants
       users_count: Participants
     tags:
-      filter_results_for_category: 'Filter results for category: %{resource}'
-      filter_results_for_scope: 'Filter results for scope: %{resource}'
       filter_results_for_taxonomy: 'Filter results for: %{resource}'
     taxonomies:
       prompt: Select from "%{name}"

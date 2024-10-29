@@ -3,15 +3,12 @@ en:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Scope
         description: Description
         title: Title
         total_budget: Total budget
         weight: Order position
       project:
         budget_amount: Budget amount
-        decidim_category_id: Category
-        decidim_scope_id: Scope
         description: Description
         proposal_ids: Related proposals
         proposals: Proposals
@@ -257,8 +254,6 @@ en:
           message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
           title: You have not yet voted
         filters:
-          category: Category
-          scope: Scope
           search: Search
           status: Status
           status_values:
@@ -385,7 +380,6 @@ en:
           address: The address of the project (if any)
           budget: To which group of projects (e.g. "2021 Budget") this project belongs to
           budget_amount: The total amount of the budget for this project
-          category: The category of the project (e.g. "Culture")
           comments: The number of comments this project has received
           component: The component that the project belongs to
           confirmed_votes: The number of confirmed votes this project has received
@@ -396,12 +390,9 @@ en:
           related_proposal_titles: The titles of the related proposals
           related_proposal_urls: The URLs of the related proposals
           related_proposals: The related proposals to this project
-          scope: The scope of the project (e.g. "City")
           taxonomies: The taxonomies of the project
           title: The title of the project
           url: The URL of the project
-        results:
-          taxonomies: The taxonomies of the results
     orders:
       checkout:
         error: There was a problem processing your vote.

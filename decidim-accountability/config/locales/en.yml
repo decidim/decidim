@@ -301,7 +301,7 @@ en:
           root_commentable_url: The URL of the resource that ties to this comment
           user_group: The name of the user group that made this comment (if any)
         results:
-          category: The category of the result (e.g. "Culture")
+          taxonomies: The taxonomies of the result
           component: The component that the result belongs to
           created_at: The date when the result was created
           description: The description of the result
@@ -310,7 +310,6 @@ en:
           parent: The parent result (if any) of the result
           progress: The percentage of the execution of the result
           proposal_urls: The URLs of the proposals that are included in this result
-          scope: The scope of the result (e.g. "City")
           start_date: The date when the result starts execution
           status: The current status of this result
           title: The title of the result

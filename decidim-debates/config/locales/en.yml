@@ -3,15 +3,12 @@ en:
   activemodel:
     attributes:
       debate:
-        category_id: Category
         closed_at: Closed at
         conclusions: Conclusions
-        decidim_category_id: Category
         description: Description
         end_time: Ends at
         information_updates: Information updates
         instructions: Instructions to participate
-        scope_id: Scope
         start_time: Starts at
         title: Title
         user_group_id: Create debate as
