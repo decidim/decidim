@@ -216,9 +216,11 @@ en:
       order:
         status:
           continue_voting: Continue voting
+          download_vote: Download your vote
           pending_to_vote_budgets:
             one: You can vote in other budget
             other: You can vote in other budgets
+          share_vote: Share your vote
           title: Your vote has been successfully accepted
           votes_count:
             one: Your vote for %{budget_name} has already been registered.
