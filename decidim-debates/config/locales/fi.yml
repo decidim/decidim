@@ -243,6 +243,7 @@ fi:
           category: Keskustelun aihepiiri (esim. "Kulttuuri")
           closed_at: Keskustelun sulkemisaika
           comments: Keskustelun kommenttien määrä
+          comments_enabled: Onko tällä keskustelulla ollut kommentit sallittuna vai ei
           component: Keskustelun komponentti
           conclusions: Keskustelun johtopäätökset, mikäli se on päätetty
           created_at: Keskustelun luontiaika
