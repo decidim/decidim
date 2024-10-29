@@ -126,6 +126,19 @@ module Decidim
           end
         end
       end
+
+      describe ".ransackable_attributes" do
+        it "returns the correct ransackable attributes" do
+          expected_attributes = %w(ends_at starts_at allow_answers)
+          expect(described_class.ransackable_attributes).to eq(expected_attributes)
+        end
+      end
+
+      describe ".log_presenter_class_for" do
+        it "returns the correct presenter class for logs" do
+          expect(described_class.log_presenter_class_for(nil)).to eq(Decidim::Surveys::AdminLog::SurveyPresenter)
+        end
+      end
     end
   end
 end
