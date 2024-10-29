@@ -101,8 +101,6 @@ en:
             'false': Not accepted
             'true': Accepted
         meetings:
-          category_id_eq:
-            label: Category
           closed_at_present:
             label: State
             values:
@@ -113,8 +111,6 @@ en:
             values:
               'false': Past
               'true': Upcoming
-          scope_id_eq:
-            label: Scope
           taxonomies_part_of_contains:
             label: Taxonomy
           with_any_origin:

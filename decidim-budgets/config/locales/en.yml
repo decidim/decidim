@@ -35,10 +35,6 @@ en:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Category
-          scope_id_eq:
-            label: Scope
           selected_at_null:
             label: Selected
             values:

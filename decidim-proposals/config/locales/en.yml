@@ -118,8 +118,6 @@ en:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Category
           is_emendation_true:
             label: Type
             values:
@@ -127,8 +125,6 @@ en:
               'true': Amendments
           proposal_state_id_eq:
             label: State
-          scope_id_eq:
-            label: Scope
           state_eq:
             label: State
             values:
