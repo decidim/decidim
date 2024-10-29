@@ -16,14 +16,6 @@ module Decidim
       def serialize
         {
           id: project.id,
-          category: {
-            id: project.category.try(:id),
-            name: project.category.try(:name) || empty_translatable
-          },
-          scope: {
-            id: project.scope.try(:id),
-            name: project.scope.try(:name) || empty_translatable
-          },
           taxonomies: {
             id: project.taxonomies.map(&:id),
             name: project.taxonomies.map(&:name)

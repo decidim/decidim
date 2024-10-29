@@ -17,14 +17,6 @@ module Decidim
       def serialize
         {
           id: meeting.id,
-          category: {
-            id: meeting.category.try(:id),
-            name: meeting.category.try(:name)
-          },
-          scope: {
-            id: meeting.scope.try(:id),
-            name: meeting.scope.try(:name)
-          },
           participatory_space: {
             id: meeting.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(meeting.participatory_space).url

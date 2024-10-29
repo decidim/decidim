@@ -22,14 +22,6 @@ module Decidim
           author: {
             **author_fields
           },
-          category: {
-            id: proposal.category.try(:id),
-            name: proposal.category.try(:name) || empty_translatable
-          },
-          scope: {
-            id: proposal.scope.try(:id),
-            name: proposal.scope.try(:name) || empty_translatable
-          },
           taxonomies: {
             id: proposal.taxonomies.map(&:id),
             name: proposal.taxonomies.map(&:name)

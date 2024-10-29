@@ -10,8 +10,6 @@ module Decidim
       end
 
       let!(:proposal) { create(:proposal, :accepted, body:) }
-      let!(:category) { create(:category, participatory_space: component.participatory_space) }
-      let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
       let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
       let(:component) { proposal.component }
@@ -35,8 +33,6 @@ module Decidim
       end
 
       before do
-        proposal.update!(category:)
-        proposal.update!(scope:)
         proposal.update!(taxonomies:)
         proposal.link_resources(meetings, "proposals_from_meeting")
         proposal.link_resources(other_proposals, "copied_from_component")
@@ -133,16 +129,6 @@ module Decidim
               expect(serialized[:author]).to include(url: [profile_url("acme")])
             end
           end
-        end
-
-        it "serializes the category" do
-          expect(serialized[:category]).to include(id: category.id)
-          expect(serialized[:category]).to include(name: category.name)
-        end
-
-        it "serializes the scope" do
-          expect(serialized[:scope]).to include(id: scope.id)
-          expect(serialized[:scope]).to include(name: scope.name)
         end
 
         it "serializes the title" do

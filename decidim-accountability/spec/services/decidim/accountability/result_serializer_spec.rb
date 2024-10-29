@@ -11,8 +11,6 @@ module Decidim
 
       let!(:parent) { create(:result) }
       let!(:result) { create(:result, parent:, component: parent.component) }
-      let!(:category) { create(:category, participatory_space: component.participatory_space) }
-      let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
       let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
       let(:component) { result.component }
@@ -21,8 +19,6 @@ module Decidim
       let(:proposals) { create_list(:proposal, 2, component: proposal_component) }
 
       before do
-        result.update!(category:)
-        result.update!(scope:)
         result.update!(taxonomies:)
         result.link_resources(proposals, "included_proposals")
       end
@@ -32,16 +28,6 @@ module Decidim
 
         it "serializes the id" do
           expect(serialized).to include(id: result.id)
-        end
-
-        it "serializes the category" do
-          expect(serialized[:category]).to include(id: category.id)
-          expect(serialized[:category]).to include(name: category.name)
-        end
-
-        it "serializes the scope" do
-          expect(serialized[:scope]).to include(id: scope.id)
-          expect(serialized[:scope]).to include(name: scope.name)
         end
 
         it "serializes the taxonomies" do
