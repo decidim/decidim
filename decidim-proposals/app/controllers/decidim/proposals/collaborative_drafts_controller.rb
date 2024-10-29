@@ -27,8 +27,7 @@ module Decidim
         @collaborative_drafts = search
                                 .result
                                 .not_hidden
-                                .includes(:category)
-                                .includes(:scope)
+                                .includes(:taxonomies)
 
         @collaborative_drafts = reorder(@collaborative_drafts)
         @collaborative_drafts = paginate(@collaborative_drafts)

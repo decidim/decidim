@@ -138,7 +138,7 @@ Decidim.register_component(:proposals) do |component|
                    .published
                    .not_hidden
                    .where(component: component_instance)
-                   .includes(:scope, :category, :component)
+                   .includes(:taxonomies, :component)
 
       if space.user_roles(:valuator).where(user:).any?
         collection.with_valuation_assigned_to(user, space)

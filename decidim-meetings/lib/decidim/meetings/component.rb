@@ -44,7 +44,7 @@ Decidim.register_component(:meetings) do |component|
         .not_hidden
         .visible
         .where(component: component_instance)
-        .includes(:scope, :category, :attachments, component: { participatory_space: :organization })
+        .includes(:taxonomies, :attachments, component: { participatory_space: :organization })
     end
 
     exports.include_in_open_data = true

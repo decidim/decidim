@@ -66,7 +66,7 @@ Decidim.register_component(:budgets) do |component|
       budgets = resource_id ? Decidim::Budgets::Budget.find(resource_id) : Decidim::Budgets::Budget.where(decidim_component_id: component_instance)
       Decidim::Budgets::Project
         .where(decidim_budgets_budget_id: budgets)
-        .includes(:category, :component)
+        .includes(:taxonomies, :component)
     end
 
     exports.include_in_open_data = true
