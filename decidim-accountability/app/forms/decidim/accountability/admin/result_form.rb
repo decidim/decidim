@@ -5,9 +5,9 @@ module Decidim
     module Admin
       # This class holds a Form to create/update results from Decidim's admin panel.
       class ResultForm < Decidim::Form
-        include TranslatableAttributes
-        include TranslationsHelper
-        include HasTaxonomyFormAttributes
+        include Decidim::TranslatableAttributes
+        include Decidim::TranslationsHelper
+        include Decidim::HasTaxonomyFormAttributes
 
         translatable_attribute :title, String
         translatable_attribute :description, String

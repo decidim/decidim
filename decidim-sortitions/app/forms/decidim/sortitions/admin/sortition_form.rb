@@ -4,8 +4,8 @@ module Decidim
   module Sortitions
     module Admin
       class SortitionForm < Form
-        include TranslatableAttributes
-        include HasTaxonomyFormAttributes
+        include Decidim::TranslatableAttributes
+        include Decidim::HasTaxonomyFormAttributes
 
         mimic :sortition
 

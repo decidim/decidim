@@ -4,8 +4,8 @@ module Decidim
   module Debates
     # This class holds a Form to create/update debates from Decidim's public views.
     class DebateForm < Decidim::Form
-      include TranslatableAttributes
-      include HasTaxonomyFormAttributes
+      include Decidim::TranslatableAttributes
+      include Decidim::HasTaxonomyFormAttributes
 
       attribute :title, String
       attribute :description, String

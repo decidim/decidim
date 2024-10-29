@@ -5,10 +5,10 @@ module Decidim
     module Admin
       # This class holds a Form to create/update projects from Decidim's admin panel.
       class ProjectForm < Decidim::Form
-        include TranslatableAttributes
-        include HasTaxonomyFormAttributes
-        include AttachmentAttributes
-        include TranslationsHelper
+        include Decidim::TranslatableAttributes
+        include Decidim::HasTaxonomyFormAttributes
+        include Decidim::AttachmentAttributes
+        include Decidim::TranslationsHelper
         include Decidim::ApplicationHelper
 
         translatable_attribute :title, String

@@ -5,8 +5,8 @@ module Decidim
     module Admin
       # This class holds a Form to create/update debates from Decidim's admin panel.
       class DebateForm < Decidim::Form
-        include TranslatableAttributes
-        include HasTaxonomyFormAttributes
+        include Decidim::TranslatableAttributes
+        include Decidim::HasTaxonomyFormAttributes
 
         translatable_attribute :title, String
         translatable_attribute :description, String
