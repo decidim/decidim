@@ -448,7 +448,6 @@ en:
           attachments: The number of attachments this proposal has
           author: The data for the author of this proposal
           body: The proposal body
-          category: The category of the proposal (e.g. "Culture")
           comments: The number of comments this proposal has
           component: The component that the proposal belongs to
           endorsements: The number of endorsements ("likes") this proposal has
@@ -463,7 +462,6 @@ en:
           published_at: The date when this proposal was published
           reference: The unique identifier of the resource in this platform
           related_proposals: The proposals related to this proposal
-          scope: The scope of the proposal (e.g. "City")
           state: The status of this proposal (e.g. "Accepted")
           taxonomies: The taxonomies that this proposal belongs to
           title: The proposal title
@@ -862,14 +860,12 @@ en:
       models:
         proposal:
           fields:
-            category: Category
             comments: Comments
             id: ID
             notes: Notes
             official_proposal: Official proposal
             published_answer: Published answer
             published_at: Published at
-            scope: Scope
             state: Status
             taxonomies: Taxonomies
             title: Title

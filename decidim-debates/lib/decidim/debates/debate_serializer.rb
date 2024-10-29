@@ -34,6 +34,10 @@ module Decidim
             id: debate.scope.try(:id),
             name: debate.scope.try(:name)
           },
+          taxonomies: {
+            id: debate.taxonomies.map(&:id),
+            name: debate.taxonomies.map(&:name)
+          },
           participatory_space: {
             id: debate.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(debate.participatory_space).url

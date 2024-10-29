@@ -12,12 +12,14 @@ module Decidim
       let!(:debate) { create(:debate) }
       let!(:category) { create(:category, participatory_space: component.participatory_space) }
       let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
+      let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
       let(:component) { debate.component }
 
       before do
         debate.update!(category:)
         debate.update!(scope:)
+        proposal.update!(taxonomies:)
       end
 
       describe "#serialize" do
@@ -25,6 +27,12 @@ module Decidim
 
         it "serializes the id" do
           expect(serialized).to include(id: debate.id)
+        end
+
+        it "serializes the taxonomies" do
+          expect(serialized[:taxonomies].length).to eq(2)
+          expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
+          expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
         end
 
         describe "author" do

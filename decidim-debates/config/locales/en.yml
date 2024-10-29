@@ -242,7 +242,6 @@ en:
           user_group: The name of the user group that made this comment (if any)
         debates:
           author: The data for the author of this debate
-          category: The category of the debate (e.g. "Culture")
           closed_at: The date when this debate was closed
           comments: The number of comments this debate has
           comments_enabled: Wether this debate has comments enabled or not
@@ -258,8 +257,8 @@ en:
           last_comment_at: The date when this debate was commented by the last time
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this debate belongs to
           reference: The unique identifier of the resource in this platform
-          scope: The scope of the debate (e.g. "City")
           start_time: When this debate starts, if it is an open debate and has a limited time
+          taxonomies: The taxonomies of the project
           title: The debate title
           url: The URL where this debate can be found
     statistics:

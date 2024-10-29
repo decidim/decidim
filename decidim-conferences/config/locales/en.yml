@@ -579,7 +579,6 @@ en:
     open_data:
       help:
         conferences:
-          taxonomies: The taxonomies of the conference
           description: A long description of the conference
           end_date: The date when this conference ends.
           hashtag: The conference hashtag, used for Twitter/X
@@ -596,6 +595,7 @@ en:
           slogan: The slogan for this conference
           slug: The conference slug (used for identification purposes, for the URL)
           start_date: The date when this conference starts.
+          taxonomies: The taxonomies of the conference
           title: The conference title
     statistics:
       conferences_count: Conferences

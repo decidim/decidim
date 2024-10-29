@@ -450,7 +450,6 @@ en:
           created_by: Who has created this assembly
           created_by_other: Other creator of the assembly
           creation_date: The date of creation of this assembly
-          taxonomies: The taxonomies of the project
           description: A long description of the assembly
           developer_group: The developer group of the assembly
           duration: The duration of the assembly
@@ -476,6 +475,7 @@ en:
           special_features: Which special features this assembly has
           subtitle: The subtitle of the assembly
           target: The target of the assembly
+          taxonomies: The taxonomies of the project
           title: The assembly title
           twitter_handler: Social media handler for Twitter
           youtube_handler: Social media handler for YouTube

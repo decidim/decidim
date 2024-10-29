@@ -708,7 +708,6 @@ en:
           address: The address of the meeting in case it is in person and has a physical location
           attachments: The number of attachments in this meeting
           attendees: The number of people attending this meeting
-          category: The category of the meeting (e.g. "Culture")
           comments: The number of comments made in this meeting
           component: The component that the meeting belongs to
           contributions: The number of contributions in this meeting made by the atteendes
@@ -723,7 +722,6 @@ en:
           reference: The unique identifier of the resource in this platform
           related_proposals: The proposals related to this meeting
           related_results: The results related to this meeting
-          scope: The scope of the meeting (e.g. "City")
           start_time: The date and time that this meeting starts
           taxonomies: The taxonomies that this meeting belongs to
           title: The title of the meeting

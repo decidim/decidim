@@ -10,15 +10,7 @@ module Decidim
   #
   class TagsCell < Decidim::ViewModel
     def show
-      render if category? || scope? || taxonomies.any?
-    end
-
-    def category
-      render if category?
-    end
-
-    def scope
-      render if scope?
+      render if taxonomies.any?
     end
 
     private
@@ -38,30 +30,6 @@ module Decidim
       end
     end
 
-    def category?
-      model.category.present?
-    end
-
-    # deprecated
-    def link_to_category
-      accessible_title = t("decidim.tags.filter_results_for_category", resource: category_name)
-
-      link_to category_path, title: accessible_title, class: "tag" do
-        sr_title = content_tag(
-          :span,
-          accessible_title,
-          class: "sr-only"
-        )
-        display_title = content_tag(
-          :span,
-          category_name,
-          "aria-hidden": true
-        )
-
-        sr_title + display_title
-      end
-    end
-
     def link_to_tag(path, name, title)
       link_to path, title:, class: "tag" do
         sr_title = content_tag(
@@ -77,46 +45,6 @@ module Decidim
 
         icon("price-tag-3-line") + sr_title + display_title
       end
-    end
-
-    def category_name
-      decidim_html_escape model.category.translated_name
-    end
-
-    def category_path
-      resource_locator(model).index(filter: { filter_param(:category) => [model.category.id.to_s] })
-    end
-
-    def scope?
-      has_visible_scopes?(model)
-    end
-
-    # deprecated
-    def link_to_scope
-      accessible_title = t("decidim.tags.filter_results_for_scope", resource: scope_name)
-
-      link_to scope_path, title: accessible_title, class: "tag" do
-        sr_title = content_tag(
-          :span,
-          accessible_title,
-          class: "sr-only"
-        )
-        display_title = content_tag(
-          :span,
-          scope_name,
-          "aria-hidden": true
-        )
-
-        sr_title + display_title
-      end
-    end
-
-    def scope_name
-      translated_attribute model.scope.name
-    end
-
-    def scope_path
-      resource_locator(model).index(filter: { filter_param(:scope) => [model.scope.id] })
     end
 
     def filter_param(name)
