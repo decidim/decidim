@@ -98,7 +98,7 @@ describe "Explore projects", :slow do
 
         visit_budget
 
-        within "#panel-dropdown-menu-taxonomy-#{root_taxonomy.id}" do
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy.parent.id}" do
           click_filter_item decidim_escape_translated(taxonomy.name)
         end
 

@@ -604,8 +604,6 @@ en:
       application_helper:
         filter_area_values:
           all: All
-        filter_category_values:
-          all: All
         filter_scope_values:
           all: All
         filter_taxonomy_values:
