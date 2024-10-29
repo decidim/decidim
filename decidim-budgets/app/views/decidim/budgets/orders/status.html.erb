@@ -1,29 +1,43 @@
 <%= render layout: "layouts/decidim/shared/layout_center" do %>
-  <div class="text-center py-12">
+  <div class="flex flex-col gap-4 items-center text-center my-12">
+    <%= icon "checkbox-circle-line", class: "w-28 h-28 text-success fill-current" %>
+
     <h1 class="h1 inline-block">
       <%= t("title", scope: "decidim.budgets.order.status") %>
     </h1>
-  </div>
-  <div class="page__container text-center">
-    <div class="editor-content">
-      <p>
-        <%= t(
-              "votes_count",
-              scope: "decidim.budgets.order.status",
-              count: current_order.total_projects,
-              budget_name: translated_attribute(current_order.budget.title)
-            ) %>
-      </p>
-      <% if pending_to_vote_budgets.present? %>
-        <p>
-          <%= t("pending_to_vote_budgets", scope: "decidim.budgets.order.status", count: pending_to_vote_budgets.count) %>
-        </p>
 
-        <%= link_to budgets_path, class: "button button__sm md:button__lg button__secondary" do %>
-          <span><%= t("continue_voting", scope: "decidim.budgets.order.status") %></span>
-          <%= icon "arrow-right-line", class: "fill-current" %>
-        <% end %>
+    <p>
+      <%= t(
+            "votes_count",
+            scope: "decidim.budgets.order.status",
+            count: current_order.total_projects,
+            budget_name: translated_attribute(current_order.budget.title)
+          ) %>
+    </p>
+
+    <% if pending_to_vote_budgets.present? %>
+      <p class="text-bold">
+        <%= t("pending_to_vote_budgets", scope: "decidim.budgets.order.status", count: pending_to_vote_budgets.count) %>
+      </p>
+    <% end %>
+  </div>
+
+  <% if pending_to_vote_budgets.present? %>
+    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+      <button class="button button__sm md:button__lg button__text-secondary">
+        <span><%= t("share_vote", scope: "decidim.budgets.order.status") %></span>
+        <%= icon "share-line", class: "fill-current" %>
+      </button>
+
+      <button class="button button__sm md:button__lg button__transparent-secondary">
+        <span><%= t("download_vote", scope: "decidim.budgets.order.status") %></span>
+        <%= icon "download-line", class: "fill-current" %>
+      </button>
+
+      <%= link_to budgets_path, class: "button button__sm md:button__lg button__secondary" do %>
+        <span><%= t("continue_voting", scope: "decidim.budgets.order.status") %></span>
+        <%= icon "arrow-right-line", class: "fill-current" %>
       <% end %>
     </div>
-  </div>
+  <% end %>
 <% end %>
