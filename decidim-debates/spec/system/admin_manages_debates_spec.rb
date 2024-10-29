@@ -15,6 +15,6 @@ describe "Admin manages debates" do
   it_behaves_like "manage debates"
   it_behaves_like "manage taxonomy filters in settings"
   it_behaves_like "manage announcements"
-  it_behaves_like "export debates comments"
+  it_behaves_like "export debates"
   it_behaves_like "manage moderations"
 end

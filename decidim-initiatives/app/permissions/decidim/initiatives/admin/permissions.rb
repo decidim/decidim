@@ -40,6 +40,7 @@ module Decidim
           initiative_export_action?
           initiatives_settings_action?
           moderator_action?
+          share_tokens_action?
           allow! if permission_action.subject == :attachment
 
           permission_action
@@ -143,8 +144,8 @@ module Decidim
           return unless permission_action.subject == :initiative
 
           case permission_action.action
-          when :read
-            toggle_allow(Decidim::Initiatives.print_enabled)
+          when :print
+            toggle_allow(Decidim::Initiatives.print_enabled && user.admin?)
           when :publish, :discard
             toggle_allow(initiative.validating?)
           when :unpublish
@@ -184,6 +185,12 @@ module Decidim
 
         def moderator_action?
           return unless permission_action.subject == :moderation
+
+          allow!
+        end
+
+        def share_tokens_action?
+          return unless permission_action.subject == :share_tokens
 
           allow!
         end

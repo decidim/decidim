@@ -38,6 +38,13 @@ Decidim.register_component(:meetings) do |component|
     meetings.sum(:comments_count)
   end
 
+  component.register_stat :attendees_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, start_at, end_at|
+    meetings = Decidim::Meetings::Meeting.closed.not_hidden.published.where(component: components, closing_visible: true)
+    meetings = meetings.where(closed_at: start_at..) if start_at.present?
+    meetings = meetings.where(closed_at: ..end_at) if end_at.present?
+    meetings.sum(:attendees_count)
+  end
+
   component.exports :meetings do |exports|
     exports.collection do |component_instance|
       Decidim::Meetings::Meeting
