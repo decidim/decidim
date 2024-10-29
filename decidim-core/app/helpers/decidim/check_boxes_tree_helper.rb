@@ -71,58 +71,18 @@ module Decidim
     def filter_taxonomy_values_children(children)
       children.map do |id, hash|
         TreeNode.new(
-          TreePoint.new(id, decidim_escape_translated(hash[:taxonomy].name)),
+          TreePoint.new(id, decidim_escape_translated(hash[:taxonomy].name).html_safe),
           filter_taxonomy_values_children(hash[:children])
         )
       end
     end
 
-    def filter_categories_values
-      sorted_main_categories = current_participatory_space.categories.first_class.includes(:subcategories).sort_by do |category|
-        [category.weight, decidim_escape_translated(category.name)]
-      end
-
-      categories_values = sorted_main_categories.flat_map do |category|
-        sorted_descendant_categories = category.descendants.includes(:subcategories).sort_by do |subcategory|
-          [subcategory.weight, decidim_escape_translated(subcategory.name)]
-        end
-
-        subcategories = sorted_descendant_categories.flat_map do |subcategory|
-          TreePoint.new(subcategory.id.to_s, decidim_escape_translated(subcategory.name))
-        end
-
-        TreeNode.new(
-          TreePoint.new(category.id.to_s, decidim_escape_translated(category.name)),
-          subcategories
-        )
-      end
-
-      TreeNode.new(
-        TreePoint.new("", t("decidim.core.application_helper.filter_category_values.all")),
-        categories_values
-      )
-    end
-
-    def resource_filter_scope_values(resource)
-      if resource.is_a?(Scope)
-        filter_scopes_values_from([resource], current_participatory_space)
-      else
-        filter_scopes_values
-      end
-    end
-
-    def filter_scopes_values
-      return filter_scopes_values_from_parent(current_component.scope) if current_component.scope.present?
-
-      main_scopes = current_participatory_space.scopes.top_level
-                                               .includes(:scope_type, :children)
-      filter_scopes_values_from(main_scopes, current_participatory_space)
-    end
-
+    # pending initiatives removal
     def filter_global_scopes_values
       filter_scopes_values_from(current_organization.scopes.top_level)
     end
 
+    # pending initiatives removal
     def filter_areas_values
       areas_or_types = areas_for_select(current_organization)
 
@@ -162,22 +122,6 @@ module Decidim
     end
 
     private
-
-    def filter_scopes_values_from_parent(scope)
-      scopes_values = []
-      scope.children.each do |child|
-        unless child.children
-          scopes_values << TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization))
-          next
-        end
-        scopes_values << TreeNode.new(
-          TreePoint.new(child.id.to_s, translated_attribute(child.name, current_participatory_space.organization)),
-          scope_children_to_tree(child, current_participatory_space)
-        )
-      end
-
-      filter_tree_from(scopes_values)
-    end
 
     def filter_scopes_values_from(scopes, participatory_space = nil)
       scopes_values = scopes.compact.flat_map do |scope|

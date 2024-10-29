@@ -15,7 +15,7 @@ module Decidim
       let(:component) { debate.component }
 
       before do
-        proposal.update!(taxonomies:)
+        debate.update!(taxonomies:)
       end
 
       describe "#serialize" do

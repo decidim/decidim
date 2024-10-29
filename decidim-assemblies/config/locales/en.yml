@@ -450,6 +450,7 @@ en:
           created_by: Who has created this assembly
           created_by_other: Other creator of the assembly
           creation_date: The date of creation of this assembly
+          decidim_scope_id: The scope of the assembly
           description: A long description of the assembly
           developer_group: The developer group of the assembly
           duration: The duration of the assembly
@@ -470,6 +471,8 @@ en:
           reference: The reference of the assembly. An unique identifier for this platform.
           remote_banner_image_url: The URL of the assembly banner image
           remote_hero_image_url: The URL of the assembly hero image
+          scope: The scope of the assembly
+          scopes_enabled: Weather the scopes are enabled or not
           short_description: A short description of the assembly
           slug: The assembly slug (used for identification purposes, for the URL)
           special_features: Which special features this assembly has

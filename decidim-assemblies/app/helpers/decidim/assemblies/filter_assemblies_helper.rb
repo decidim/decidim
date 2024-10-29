@@ -30,6 +30,7 @@ module Decidim
                        label: decidim_sanitize_translated(taxonomy_filter.name),
                        id: "taxonomy")
         end
+
         items.reject { |item| item[:collection].blank? }
       end
 

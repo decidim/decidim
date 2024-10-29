@@ -9,10 +9,8 @@ module Decidim::Budgets
     let(:attachment) { create(:attachment, attached_to: project) }
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: project.participatory_space) }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
-    let(:category) { create(:category, participatory_space: budget.component.participatory_space) }
-    let(:scope) { create(:scope, organization: category.participatory_space.organization) }
     let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: budget.component.organization) }
-    let(:project) { create(:project, budget:, category:, scope:, taxonomies:) }
+    let(:project) { create(:project, budget:, taxonomies:) }
 
     subject { described_class.new(project) }
 
@@ -21,16 +19,6 @@ module Decidim::Budgets
 
       it "includes the id" do
         expect(serialized).to include(id: project.id)
-      end
-
-      it "includes the category" do
-        expect(serialized[:category]).to include(id: category.id)
-        expect(serialized[:category]).to include(name: category.name)
-      end
-
-      it "includes the scope" do
-        expect(serialized[:scope]).to include(id: project.scope.id)
-        expect(serialized[:scope]).to include(name: project.scope.name)
       end
 
       it "includes the taxonomies" do

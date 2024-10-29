@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This cell renders the category of a resource
+  # This cell renders the taxonomies of a resource
   # shown with the translated name and links to
   # the resource parent `component` and `participatory space` index.
   # The context `resource` must be present
   # example use inside another `cell`:
-  #   <%= cell("decidim/category", model.category, context: {resource: model}) %>
+  #   <%= cell("decidim/tags", model.taxonomies, context: {resource: model}) %>
   #
   class TagsCell < Decidim::ViewModel
     def show
