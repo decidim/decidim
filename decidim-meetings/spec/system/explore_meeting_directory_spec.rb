@@ -94,7 +94,7 @@ describe "Explore meeting directory" do
       it "allows filtering by taxonomy" do
         visit directory
 
-        within "#panel-dropdown-menu-taxonomy" do
+        within "#panel-dropdown-menu-taxonomy-#{root_taxonomy.id}" do
           click_filter_item decidim_escape_translated(taxonomy.name)
         end
 

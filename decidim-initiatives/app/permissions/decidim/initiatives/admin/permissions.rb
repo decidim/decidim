@@ -55,9 +55,7 @@ module Decidim
         def initiative_filters_action?
           return unless permission_action.subject == :taxonomy_filter
 
-          return disallow! unless user.admin?
-
-          allow!
+          toggle_allow(user.admin?)
         end
 
         def user_can_read_participatory_space?

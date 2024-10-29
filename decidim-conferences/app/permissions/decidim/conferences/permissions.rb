@@ -110,9 +110,8 @@ module Decidim
 
       def conference_filters_action?
         return unless permission_action.subject == :taxonomy_filter
-        return disallow! unless user.admin?
 
-        allow!
+        toggle_allow(user.admin?)
       end
 
       # Returns a collection of conferences where the given user has the

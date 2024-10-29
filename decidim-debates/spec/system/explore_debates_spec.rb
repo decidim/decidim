@@ -60,7 +60,7 @@ describe "Explore debates" do
         it "shows an empty page with a message" do
           visit_component
 
-          within "#panel-dropdown-menu-taxonomy" do
+          within "#panel-dropdown-menu-taxonomy-#{root_taxonomy.id}" do
             click_filter_item decidim_escape_translated(taxonomy.name)
           end
 
@@ -208,7 +208,7 @@ describe "Explore debates" do
         end
 
         it "can be filtered by taxonomy" do
-          within "#panel-dropdown-menu-taxonomy" do
+          within "#panel-dropdown-menu-taxonomy-#{root_taxonomy.id}" do
             uncheck "All"
             check decidim_escape_translated(taxonomy.name)
           end

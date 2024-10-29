@@ -63,9 +63,8 @@ module Decidim
 
       def assembly_filters_action?
         return unless permission_action.subject == :taxonomy_filter
-        return disallow! unless user.admin?
 
-        allow!
+        toggle_allow(user.admin?)
       end
 
       def assemblies_type_action?
