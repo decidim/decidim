@@ -68,8 +68,7 @@ RSpec.describe "Meeting search" do
   end
 
   it_behaves_like "a resource search", :published_meeting
-  it_behaves_like "a resource search with scopes", :published_meeting
-  it_behaves_like "a resource search with categories", :published_meeting
+  it_behaves_like "a resource search with taxonomies", :published_meeting
   it_behaves_like "a resource search with origin", :published_meeting
 
   it "displays all meetings without any filters" do

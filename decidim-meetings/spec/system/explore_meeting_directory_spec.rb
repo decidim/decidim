@@ -5,7 +5,6 @@ require "spec_helper"
 describe "Explore meeting directory" do
   let(:directory) { Decidim::Meetings::DirectoryEngine.routes.url_helpers.root_path }
   let(:organization) { create(:organization) }
-  let(:participatory_process) { create(:participatory_process, organization:) }
   let(:components) { create_list(:meeting_component, 3, organization:) }
   let(:meetings_selector) { "[id^='meetings__meeting_']" }
   let!(:meetings) do
@@ -13,11 +12,18 @@ describe "Explore meeting directory" do
       create_list(:meeting, 2, :published, :not_official, component:)
     end
   end
+  let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
+  let(:component) { meetings.first.component }
 
   before do
     # Required for the link to be pointing to the correct URL with the server
     # port since the server port is not defined for the test environment.
     allow(ActionMailer::Base).to receive(:default_url_options).and_return(port: Capybara.server_port)
+    component_settings = component["settings"]["global"].merge!(taxonomy_filters: taxonomy_filter_ids)
+    component.update!(settings: component_settings)
     switch_to_host(organization.host)
     visit directory
   end
@@ -68,54 +74,33 @@ describe "Explore meeting directory" do
     end
   end
 
-  describe "category filter" do
-    context "with a category" do
-      let!(:category1) { create(:category, participatory_space: participatory_process, name: { en: "Category1" }) }
+  describe "taxonomy filter" do
+    context "with a taxonomy" do
       let!(:meeting) do
         meeting = meetings.first
-        meeting.category = category1
+        meeting.taxonomies << taxonomy
         meeting.save
         meeting
       end
 
-      it "shows tags for category" do
+      it "shows tags for taxonomy" do
         visit directory
 
         within "#meetings" do
-          expect(page).to have_content(translated(meeting.category.name))
+          expect(page).to have_content(decidim_escape_translated(taxonomy.name))
         end
       end
 
-      it "allows filtering by category" do
+      it "allows filtering by taxonomy" do
         visit directory
 
-        within "#panel-dropdown-menu-category" do
-          click_filter_item translated(participatory_process.title)
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy.parent.id}" do
+          click_filter_item decidim_escape_translated(taxonomy.name)
         end
 
-        expect(page).to have_content(translated(participatory_process.title))
-        expect(page).to have_content(translated(meeting.category.name))
+        expect(page).to have_content(translated(meeting.title))
+        expect(page).to have_no_content(translated(meetings.second.title))
       end
-    end
-  end
-
-  context "with a scope" do
-    let!(:scope) { create(:scope, organization:) }
-    let!(:meeting) do
-      meeting = meetings.first
-      meeting.scope = scope
-      meeting.save
-      meeting
-    end
-
-    it "allows filtering by scope" do
-      visit directory
-
-      within "#panel-dropdown-menu-scope" do
-        click_filter_item translated(meeting.scope.name)
-      end
-
-      expect(page).to have_content(translated(meeting.scope.name))
     end
   end
 

@@ -4,6 +4,7 @@
       <tr role="row">
         <th><%= t(".name") %></th>
         <th><%= t(".count") %></th>
+        <th><%= t(".components_count") %></th>
         <th><%= t(".actions") %></th>
       </tr>
     </thead>
@@ -12,6 +13,7 @@
         <tr>
           <td><%= translated_attribute(taxonomy_filter.name) %></td>
           <td><%= taxonomy_filter.filter_items_count %></td>
+          <td><%= taxonomy_filter.components_count %></td>
           <td>
             <% if allowed_to? :update, :taxonomy_filter, taxonomy_filter: %>
               <%= icon_link_to "pencil-line", url_for(controller: params[:controller], action: :edit, id: taxonomy_filter.id), t(".edit"), class: "action-icon--edit" %>

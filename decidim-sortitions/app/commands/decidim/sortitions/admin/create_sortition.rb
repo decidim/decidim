@@ -49,16 +49,12 @@ module Decidim
             additional_info: form.additional_info,
             selected_proposals: [],
             candidate_proposals: [],
-            category:
+            taxonomizations: form.taxonomizations
           )
         end
 
-        def category
-          Decidim::Category.find(form.decidim_category_id) if form.decidim_category_id.present?
-        end
-
         def select_proposals_for(sortition)
-          draw = Draw.new(sortition)
+          draw = Draw.new(sortition.reload)
 
           sortition.update(
             selected_proposals: draw.results,

@@ -32,11 +32,9 @@
           <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
             <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
           <% end %>
-          <% if resource_with_scopes_enabled? %>
-            <th>
-              <%= sort_link(query, :scope_name, t("models.proposal.fields.scope", scope: "decidim.proposals") ) %>
-            </th>
-          <% end %>
+          <th>
+            <%= sort_link(query, :scope_name, t("models.meeting.fields.taxonomies", scope: "decidim.meetings") ) %>
+          </th>
           <th><%= t("actions.title", scope: "decidim.meetings") %></th>
         </tr>
       </thead>
@@ -73,7 +71,9 @@
                 <%= static_map_link(meeting, {}, { class: "static-map__admin" }) unless meeting.online? %>
               </td>
             <% end %>
-            <%= td_resource_scope_for(meeting.scope) %>
+            <td>
+              <%= present(meeting).taxonomy_names.join(", ") %>
+            </td>
             <td class="table-list__actions">
               <% if is_linked %>
                 <%= t(".linked_meeting_warning_html", href: edit_meeting_path(meeting), name: present(meeting).space_title) %>
