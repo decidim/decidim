@@ -55,8 +55,6 @@ hu:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Kategória
           closed_at_present:
             label: Állapot
             values:
@@ -67,8 +65,6 @@ hu:
             values:
               'false': Előzmények
               'true': Közelgő
-          scope_id_eq:
-            label: Hatókör
           with_any_origin:
             label: Kiindulópont
             values:
@@ -320,8 +316,6 @@ hu:
         questionnaire:
           update: "%{user_name} frissítette a kérdőívet a %{meeting_name} üléshez"
       application_helper:
-        filter_category_values:
-          all: Összes
         filter_meeting_space_values:
           all: Összes
       calendar_modal:
