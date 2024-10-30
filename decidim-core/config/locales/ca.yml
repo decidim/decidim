@@ -597,8 +597,6 @@ ca:
       application_helper:
         filter_area_values:
           all: Totes
-        filter_category_values:
-          all: Totes
         filter_scope_values:
           all: Tots
     devise:
@@ -1580,12 +1578,6 @@ ca:
         sign_up: Crea un compte
       mentions_modal:
         remove_recipient: Eliminar destinatària %{name}
-      participatory_space_filters:
-        filters:
-          area: Àrea
-          areas: Àrees
-          scope: Àmbit
-          select_an_area: Selecciona una àrea
       progress: Progrés
       public_participation:
         public_participation: Mostra públicament la meva assistència
@@ -1614,9 +1606,6 @@ ca:
       pages_count: Pàgines
       participants_count: Participants
       users_count: Participants
-    tags:
-      filter_results_for_category: 'Resultats al filtrar per la categoria: %{resource}'
-      filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
     taxonomies:
       prompt: Seleccionar de "%{name}"
     translation_bar:
