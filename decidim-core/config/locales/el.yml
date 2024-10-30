@@ -1158,10 +1158,6 @@ el:
         title: Αναφορά ακατάλληλου περιεχομένου
       floating_help:
         help: Βοήθεια
-      participatory_space_filters:
-        filters:
-          areas: Τομείς
-          select_an_area: Επιλέξτε τομέα
       reference:
         reference: 'Αναφορά: %{reference}'
       represent_user_group:
@@ -1175,9 +1171,6 @@ el:
         share_link: Κοινοποίηση συνδέσμου
     statistics:
       comments_count: Σχόλια
-    tags:
-      filter_results_for_category: 'Φιλτράρισμα αποτελεσμάτων για την κατηγορία: %{resource}'
-      filter_results_for_scope: 'Φιλτράρισμα αποτελεσμάτων για το πεδίο εφαρμογής: %{resource}'
     user_contact_disabled: Αυτός ο συμμετέχων δεν δέχεται άμεσα μηνύματα.
     user_conversations:
       create:
