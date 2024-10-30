@@ -69,7 +69,7 @@ it:
               'false': Conclusi
               'true': Prossimi
           scope_id_eq:
-            label: Ambito
+            label: Visibilità
           with_any_origin:
             values:
               user_group: Gruppi di utenti
@@ -305,6 +305,9 @@ it:
           value_types:
             organizer_presenter:
               not_found: 'L''organizzatore non è stato trovato nel database (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Tutte
       calendar_modal:
         calendar_url: URL del calendario
         export_calendar: Esporta il calendario
