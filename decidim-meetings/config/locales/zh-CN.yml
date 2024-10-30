@@ -43,6 +43,12 @@ zh-CN:
         other: 注册
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: 类别
+          scope_id_eq:
+            label: 范围
       meeting_copies:
         create:
           error: 重复这次会议时出现问题。
@@ -253,6 +259,9 @@ zh-CN:
           value_types:
             organizer_presenter:
               not_found: '在数据库中找不到组织者 (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: 所有的
       calendar_modal:
         calendar_url: 日历 URL
         export_calendar: 导出日历
