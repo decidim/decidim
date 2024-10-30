@@ -448,7 +448,7 @@ hu:
             'false': Közzétéve
             'true': Visszavont
         scope_id_eq:
-          label: Hatáskör
+          label: Hatókör
         search_label: Keresés
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
