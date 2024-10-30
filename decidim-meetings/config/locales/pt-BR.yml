@@ -110,7 +110,7 @@ pt-BR:
               'false': Passado
               'true': Próximos
           scope_id_eq:
-            label: Escopo
+            label: Âmbito
           with_any_origin:
             label: Origem
             values:
@@ -404,7 +404,7 @@ pt-BR:
           update: "%{user_name} atualizou o questionário para a reunião %{meeting_name}"
       application_helper:
         filter_category_values:
-          all: Todos
+          all: Tudo
         filter_meeting_space_values:
           all: Todos
       calendar:
