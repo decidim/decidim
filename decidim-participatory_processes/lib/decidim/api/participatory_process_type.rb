@@ -6,7 +6,7 @@ module Decidim
     class ParticipatoryProcessType < Decidim::Api::Types::BaseObject
       implements Decidim::Core::ParticipatorySpaceInterface
       implements Decidim::Core::ParticipatorySpaceResourceableInterface
-      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::CategoriesContainerInterface
 

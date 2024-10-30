@@ -10,7 +10,8 @@ describe "Decidim::Api::QueryType" do
 
   let(:locale) { "en" }
 
-  let!(:conference) { create(:conference, :diploma, organization: current_organization) }
+  let!(:taxonomy) { create(:taxonomy, :with_parent, :with_children, organization: current_organization) }
+  let!(:conference) { create(:conference, :diploma, organization: current_organization, taxonomies: [taxonomy]) }
   let(:conference_data) do
     {
       "attachments" => [],
@@ -31,7 +32,7 @@ describe "Decidim::Api::QueryType" do
       "reference" => conference.reference,
       "registrationTerms" => { "translation" => conference.registration_terms[locale] },
       "registrationsEnabled" => conference.registrations_enabled?,
-      "scope" => nil,
+      "taxonomies" => [{ "id" => taxonomy.id.to_s, "name" => { "translation" => taxonomy.name[locale] }, "parent" => { "id" => taxonomy.parent_id.to_s }, "children" => taxonomy.children.map { |child| { "id" => child.id.to_s } } }],
       "shortDescription" => { "translation" => conference.short_description[locale] },
       "showStatistics" => conference.show_statistics?,
       "slogan" => { "translation" => conference.slogan[locale] },
@@ -83,7 +84,10 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         registrationsEnabled
-        scope {
+        taxonomies {
+          parent {
+            id
+          }
           id
           children{
             id
@@ -188,7 +192,10 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         registrationsEnabled
-        scope {
+        taxonomies {
+          parent {
+            id
+          }
           id
           children{
             id

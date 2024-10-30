@@ -11,7 +11,7 @@ module Decidim
       let(:name) { :test }
       let(:value) { nil }
       let(:i18n_scope) { "decidim.components.dummy.settings.global" }
-      let(:form) { double(object: double(name => value)) }
+      let(:form) { double(object: double(name => value), object_name: name) }
       let(:choices) { [] }
       let(:attribute) do
         Decidim::SettingsManifest::Attribute.new(
@@ -28,6 +28,9 @@ module Decidim
       before do
         allow(view).to receive(:current_participatory_space).and_return(current_participatory_space)
         allow(view).to receive(:current_organization).and_return(organization)
+        allow(view).to receive(:current_participatory_space_manifest).and_return(current_participatory_space.manifest)
+        allow(view).to receive(:decidim_sanitize_translated).and_return("A text")
+        allow(nil).to receive(:html_safe).and_return("")
       end
 
       def render_input
@@ -173,6 +176,23 @@ module Decidim
 
         it "is supported" do
           expect(form).to receive(:datetime_field).with(:test, options)
+          render_input
+        end
+      end
+
+      describe "taxonomy_filters" do
+        let(:type) { :taxonomy_filters }
+        let!(:taxonomy1) { create(:taxonomy, :with_parent, organization:) }
+        let!(:taxonomy2) { create(:taxonomy, :with_parent, organization:) }
+        let!(:taxonomy_filter1) { create(:taxonomy_filter, root_taxonomy: taxonomy1.parent) }
+        let!(:taxonomy_filter2) { create(:taxonomy_filter, root_taxonomy: taxonomy2.parent) }
+        let(:choices) { [["A text (0)", taxonomy_filter1.id], ["A text (0)", taxonomy_filter2.id]] }
+        let(:options) { { include_blank: "Select a taxonomy filter" } }
+        let(:value) { [taxonomy_filter1.id] }
+
+        it "is supported" do
+          expect(view).to receive(:render).with(partial: "decidim/admin/components/taxonomy_filters_badge", locals: { value: taxonomy_filter1.id, title: "A text (0)", name:, object_name: form.object_name })
+          expect(view).to receive(:render).with(partial: "decidim/admin/components/taxonomy_filters_drawer", locals: { available_filters: choices, name: :test, form: })
           render_input
         end
       end

@@ -4,7 +4,6 @@ en:
     attributes:
       sortition:
         additional_info: Sortition information
-        decidim_category_id: Categories of the set of proposals in which you want to apply the draw
         decidim_proposals_component_id: Proposals set
         dice: Result of die roll. Roll a 6-sided die, or look for another random way to generate a number from 1 to 6, and enter here the resulting number in front of some witnesses. This contributes to the quality and guarantees of the randomness of the result
         target_items: Number of proposals to be selected (indicates the number of proposals you want to be selected by drawing lots of the group of proposals you have previously chosen)
@@ -25,8 +24,13 @@ en:
         name: Sortitions
         settings:
           global:
+            clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
+            no_taxonomy_filters_found: No taxonomy filters found.
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
     events:
       sortitions:
         sortition_created:
@@ -44,7 +48,6 @@ en:
         models:
           sortition:
             fields:
-              category: Category
               created_at: Creation date
               decidim_proposals_component: Proposals component
               dice: Dice
@@ -52,6 +55,7 @@ en:
               request_timestamp: Draw time
               seed: Seed
               target_items: Items to select
+              taxonomies: Taxonomies
               title: Title
         sortitions:
           confirm_destroy:
@@ -68,8 +72,9 @@ en:
             title: Update the information about the sortition
             update: Update
           form:
-            all_categories: All categories
+            all_taxonomies: All taxonomies
             select_proposal_component: Select the proposals set
+            select_taxonomies: Taxonomies of the set of proposals in which you want to apply the draw. Leave empty to apply the draw to all proposals on that taxonomy.
           index:
             title: Sortitions
           new:
@@ -111,16 +116,16 @@ en:
             other: Selected proposals
         show:
           algorithm: Sortition's algorithm code
-          any_category: from all categories
+          any_taxonomy: from all taxonomies
           cancelled: Cancelled sortition
           candidate_proposal_ids: Sortition proposals order and IDs
-          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{category_label}), with the following IDs (in bold the selected proposals)  '
-          category: from the %{category} category
+          candidate_proposals_info: 'The sortition was carried out among the following proposals (%{taxonomy_labels}), with the following IDs (in bold the selected proposals)  '
           dice_result: Dice result
           introduction: 'This page contains the results of the sortition %{reference}. By means of this sortition, %{target_items} number of results have been selected randomly and with an equal probability distribution from the set of proposals displayed bellow. Together with the results, the information displayed on this page provides all the information required to maximize guarantees and to reproduce the results. The key to the quality of this sortition is the double randomness provided by a the rolling of a dice(verified by witnesses) and the precise time of the sortition that provides input for an algorithm that generates a random selection. The time-seed for the sortition is so accurate (seconds) that it is impossible to control by humans thus providing a double "uncontrollable" input to guarantee a fair result.  '
           mathematical_result: Result (Dice x Seed)
           proposals_selected_by_sortition: Proposals selected by sortition
           sortition_reproducibility_details: Sortition reproducibility
+          taxonomies: from the %{taxonomies} taxonomies
           time_seed: Time seed
           witnesses: Witnesses
         sortition:
