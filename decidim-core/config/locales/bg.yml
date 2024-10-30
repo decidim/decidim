@@ -567,8 +567,6 @@ bg:
       application_helper:
         filter_area_values:
           all: Всички
-        filter_category_values:
-          all: Всички
         filter_scope_values:
           all: Всички
     devise:
@@ -1492,12 +1490,6 @@ bg:
         please_log_in: Моля влез в профила си
       mentions_modal:
         remove_recipient: Премахване на получател %{name}
-      participatory_space_filters:
-        filters:
-          area: Област
-          areas: Райони
-          scope: Обхват
-          select_an_area: Избери район
       progress: Прогрес
       public_participation:
         public_participation: Показване на присъствието ми публично
@@ -1526,9 +1518,6 @@ bg:
       pages_count: Страници
       participants_count: Участници
       users_count: Участници
-    tags:
-      filter_results_for_category: 'Филтриране на резултатите за категорията: %{resource}'
-      filter_results_for_scope: 'Филтриране на резултатите за обхвата: %{resource}'
     translation_bar:
       help_text: "<strong>Предупреждение:</strong> Възможно е съдържанието да е преведено автоматично и да не е 100 % точно."
       show_original: Показване на оригиналния текст
