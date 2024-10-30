@@ -740,6 +740,7 @@ es-MX:
         meeting_proposal: 'Propuestas relacionadas:'
         proposal_meeting: 'Encuentros relacionados:'
     statistics:
+      attendees_count: Asistentes a la reunión
       meetings_count: Encuentros
   devise:
     mailer:
