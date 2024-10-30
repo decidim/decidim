@@ -40,6 +40,8 @@ cs:
             values:
               'false': Vybráno pro implementaci
               'true': Nevybráno pro implementaci
+          taxonomies_part_of_contains:
+            label: Taxonomie
     budgets:
       actions:
         attachment_collections: Složky
@@ -217,6 +219,7 @@ cs:
           fields:
             id: ID
             map: Mapa
+            taxonomies: Taxonomie
             title: Titul
       order_summary_mailer:
         order_summary:
@@ -332,8 +335,10 @@ cs:
         settings:
           global:
             announcement: Oznámení
+            clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             form:
               errors:
                 budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno.
@@ -341,10 +346,13 @@ cs:
             geocoding_enabled: Mapy povoleny
             landing_page_content: Úvodní stránka rozpočtů
             more_information_modal: Více informací
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             projects_per_page: Počet projektů na stránku
             resources_permissions_enabled: Oprávnění k akcím lze nastavit pro každý projekt
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            taxonomy_filters: Vyberte filtry pro komponentu
+            taxonomy_filters_add: Přidat filtr
             title: Název
             total_budget: Celkový rozpočet
             vote_minimum_budget_projects_number: Minimální počet projektů k hlasování
@@ -395,6 +403,7 @@ cs:
           related_proposal_titles: Názvy souvisejících návrhů
           related_proposal_urls: URL adresy souvisejících návrhů
           related_proposals: Související návrhy k tomuto projektu
+          taxonomies: Taxonomie projektu
           title: Název projektu
           url: URL adresa projektu
     orders:
