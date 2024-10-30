@@ -113,15 +113,8 @@ da:
           results_count:
             one: 1 resultat
             other: "%{count} resultater"
-        filters:
-          all: Alle
-        home:
-          categories_label: Kategorier
-          subcategories_label: Underkategorier
         home_header:
           global_status: Samlet gennemførelsesstatus
-        nav_breadcrumb:
-          global: Samlet udførelse
         search:
           search: Søg efter handlinger
         show:
