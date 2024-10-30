@@ -2,10 +2,8 @@ tr:
   activemodel:
     attributes:
       debate:
-        category_id: Kategori
         closed_at: Kapandı
         conclusions: Sonuçlar
-        decidim_category_id: Kategori
         description: Açıklama
         end_time: Biter
         information_updates: Bilgi güncellemeleri
@@ -117,8 +115,6 @@ tr:
           state_values:
             closed: Kapalı
             open: Açık
-        form:
-          select_a_category: Lütfen bir kategori seçin
         index:
           new_debate: Yeni tartışma
         new:
