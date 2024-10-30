@@ -1011,10 +1011,6 @@
         title: Rapporter upassende bruker
       floating_help:
         help: Hjelp
-      participatory_space_filters:
-        filters:
-          areas: Områder
-          select_an_area: Velg et område
       public_participation:
         public_participation: Vis min deltagelse offentlig
       reference:
@@ -1041,9 +1037,6 @@
       pages_count: Sider
       participants_count: Deltakere
       users_count: Deltakere
-    tags:
-      filter_results_for_category: 'Filtrer resultater for kategori: %{resource}'
-      filter_results_for_scope: 'Filtrere resultater for tema: %{resource}'
     translation_bar:
       help_text: "<strong>Advarsel:</strong> Innhold kan automatisk bli oversatt og ikke alltid være 100 % nøyaktig."
       show_original: Vis originaltekst
