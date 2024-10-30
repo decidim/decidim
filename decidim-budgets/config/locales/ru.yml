@@ -4,7 +4,6 @@ ru:
     attributes:
       project:
         decidim_category_id: Категория
-        decidim_scope_id: Охват
         description: Описание
         proposal_ids: Подобные предложения
         title: Название
@@ -78,7 +77,6 @@ ru:
             other: "%{count} проектов"
         filters:
           category: Категория
-          scope: Охват
           search: Поиск
         project_budget_button:
           add: Добавить
