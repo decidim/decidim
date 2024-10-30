@@ -106,15 +106,8 @@ sr:
             one: 1 rezultat
             few: "%{count} rezultata"
             other: "%{count} rezultata"
-        filters:
-          all: Sve
-        home:
-          categories_label: Kategorije
-          subcategories_label: Podkategorije
         home_header:
           global_status: Sveopšte stanje izvršenja
-        nav_breadcrumb:
-          global: Sveopšte izvršenje
         search:
           search: Potraga za akcijama
         show:
