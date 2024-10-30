@@ -100,8 +100,6 @@ ca:
             'false': No acceptada
             'true': Acceptada
         meetings:
-          category_id_eq:
-            label: Categoria
           closed_at_present:
             label: Estat
             values:
@@ -112,8 +110,6 @@ ca:
             values:
               'false': Passades
               'true': Properes
-          scope_id_eq:
-            label: Àmbit
           with_any_origin:
             label: Origen
             values:
@@ -427,8 +423,6 @@ ca:
         questionnaire:
           update: "%{user_name} ha actualitzat el qüestionari per a la trobada %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Totes
         filter_meeting_space_values:
           all: Totes
       calendar:
@@ -538,7 +532,6 @@ ca:
           location_hints_help: 'Detalls d''ubicació: informació addicional. Exemple: la planta de l''edifici si es tracta d''una reunió presencial, o la contrasenya de la reunió si es tracta d''una reunió en línia amb accés restringit.'
           online_meeting_url_help: 'Enllaç: permetre que les participants es connectin directament a la teva trobada'
           registration_url_help: 'Enllaç: permetre a les participants anar al servei extern que estàs utilitzant per a les inscripcions'
-          select_a_category: Si us plau, selecciona una categoria
           select_a_meeting_type: Si us plau selecciona un tipus de trobada
           select_a_registration_type: Si us plau selecciona un tipus d'inscripció
           select_an_iframe_access_level: Si us plau, selecciona el nivell d'accés a l'iframe
@@ -706,7 +699,6 @@ ca:
           address: L'adreça de la trobada en cas que aquesta sigui presencial i tingui una ubicació física
           attachments: El nombre de fitxers adjunts en aquesta reunió
           attendees: El número de persones que van assistir a la trobada
-          category: 'La categoria de la trobada (per exemple: "Cultura")'
           comments: El número de comentaris en aquesta trobada
           component: El component al qual pertany aquesta trobada
           contributions: El número de contribucions realitzades en aquesta trobada per les assistents
@@ -721,7 +713,6 @@ ca:
           reference: L'identificador únic del recurs a aquesta plataforma
           related_proposals: Les propostes relacionades amb aquesta trobada
           related_results: Els resultats relacionats amb aquesta trobada
-          scope: 'L''àmbit territorial de la trobada (per exemple: "Ciutat")'
           start_time: La data i l'hora en què es va iniciar aquesta trobada
           title: El títol de la trobada
           url: L'URL de la trobada
