@@ -2,15 +2,12 @@ zh-TW:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: 範圍
         description: 說明
         title: 標題
         total_budget: 總預算
         weight: 排序位置
       project:
         budget_amount: 預算金額
-        decidim_category_id: 類別
-        decidim_scope_id: 範圍
         description: 說明
         proposal_ids: 相關提案
         proposals: 提案
@@ -26,10 +23,6 @@ zh-TW:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: 類別
-          scope_id_eq:
-            label: 範圍
           selected_at_null:
             label: 已選取
             values:
@@ -178,7 +171,6 @@ zh-TW:
             total_budget: 總預算
         project:
           fields:
-            category: 類別
             id: ID
             title: 標題
       order_summary_mailer:
@@ -218,8 +210,6 @@ zh-TW:
           message: 您的投票尚未被註冊，因為您尚未完成投票程序。您確定要退出投票嗎?
           title: 您尚未投票
         filters:
-          category: 類別
-          scope: 範圍
           search: 搜尋
           status: 狀態
           status_values:
