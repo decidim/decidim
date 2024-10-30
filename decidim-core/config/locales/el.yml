@@ -462,6 +462,9 @@ el:
       actions:
         login_before_access: Συνδεθείτε με τον λογαριασμό σας πριν από την πρόσβαση.
         unauthorized: Δεν είστε εξουσιοδοτημένοι να εκτελέσετε αυτήν την ενέργεια.
+      application_helper:
+        filter_category_values:
+          all: Όλα
     devise:
       omniauth_registrations:
         create:
