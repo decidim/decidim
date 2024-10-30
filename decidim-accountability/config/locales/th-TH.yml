@@ -143,12 +143,15 @@ th:
             success: สร้างรายการสําเร็จแล้ว
           destroy:
             success: ลบรายการเรียบร้อยแล้ว
+      models:
+        result:
+          fields:
+            category: หมวดหมู่
+            scope: ขอบเขต
       results:
         home:
-          categories_label: หมวดหมู่
           empty: ยังไม่มีผลลัพธ์
           empty_filters: ไม่มีผลลัพธ์ตามเกณฑ์นี้
-          subcategories_label: หมวดหมู่ย่อย
         home_header:
           global_status: สถานะการดำเนินการทั่วโลก
         nav_breadcrumb:
