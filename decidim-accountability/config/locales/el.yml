@@ -213,9 +213,6 @@ el:
             other: "%{count} αποτελέσματα"
         filters:
           all: Όλα
-        home:
-          categories_label: Κατηγορίες
-          subcategories_label: Υποκατηγορίες
         home_header:
           global_status: Κατάσταση καθολικής εκτέλεσης
         nav_breadcrumb:
