@@ -113,58 +113,21 @@ describe "Filter Participatory Processes" do
     end
   end
 
-  context "when filtering processes by scope" do
-    let!(:scope) { create(:scope, organization:) }
-    let!(:process_with_scope) { create(:participatory_process, scope:, organization:) }
-    let!(:process_without_scope) { create(:participatory_process, organization:) }
+  context "when filtering parent participatory processes by taxonomies" do
+    let!(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
+    let!(:process_with_taxonomy) { create(:participatory_process, taxonomies: [taxonomy], organization:) }
+    let!(:process_without_taxonomy) { create(:participatory_process, organization:) }
 
-    context "and choosing a scope" do
+    context "and choosing a taxonomy" do
       before do
-        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_scope: scope.id })
+        visit decidim_participatory_processes.participatory_processes_path(filter: { with_any_taxonomies: { taxonomy.parent_id => [taxonomy.id] } })
       end
 
-      it "lists all processes belonging to that scope" do
-        expect(page).to have_content(translated(process_with_scope.title))
-        expect(page).to have_no_content(translated(process_without_scope.title))
-      end
-    end
-  end
-
-  context "when filtering processes by area" do
-    let!(:area) { create(:area, organization:) }
-    let!(:other_area) { create(:area, organization:) }
-    let!(:process_with_area) { create(:participatory_process, area:, organization:) }
-    let!(:process_without_area) { create(:participatory_process, organization:) }
-
-    before do
-      visit decidim_participatory_processes.participatory_processes_path
-    end
-
-    context "and choosing an area" do
-      before do
-        within "#panel-dropdown-menu-area" do
-          click_filter_item translated(area.name)
+      it "lists all processes belonging to that taxonomy" do
+        within "#processes-grid" do
+          expect(page).to have_content(translated(process_with_taxonomy.title))
+          expect(page).to have_no_content(translated(process_without_taxonomy.title))
         end
-      end
-
-      it "lists all processes belonging to that area" do
-        expect(page).to have_content(translated(process_with_area.title))
-        expect(page).to have_no_content(translated(process_without_area.title))
-      end
-    end
-
-    context "when filters are disabled" do
-      let!(:process_with_area) { create(:participatory_process, area: create(:area, organization:), organization:) }
-      let!(:process_with_scope) { create(:participatory_process, scope: create(:scope, organization:), organization:) }
-      let(:organization) { create(:organization, enable_participatory_space_filters: false) }
-
-      before do
-        visit decidim_participatory_processes.participatory_processes_path
-      end
-
-      it "does not show filters" do
-        expect(page).to have_no_css(".with_area_areas_select_filter")
-        expect(page).to have_no_css(".with_scope_scopes_picker_filter")
       end
     end
   end

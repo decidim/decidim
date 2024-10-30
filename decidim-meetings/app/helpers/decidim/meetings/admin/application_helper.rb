@@ -7,7 +7,6 @@ module Decidim
       #
       module ApplicationHelper
         include Decidim::MapHelper
-        include Decidim::Admin::ResourceScopeHelper
         include Decidim::PaginateHelper
 
         def tabs_id_for_service(service)

@@ -17,7 +17,8 @@ module Decidim
         scope: :scope_field,
         enum: :collection_radio_buttons,
         time: :datetime_field,
-        integer_with_units: :integer_with_units
+        integer_with_units: :integer_with_units,
+        taxonomy_filters: :taxonomy_filters
       }.freeze
 
       # Renders a form field that matches a settings attribute's type.
@@ -53,21 +54,40 @@ module Decidim
           if attribute.translated?
             options[:tabs_id] = "#{options.delete(:tabs_prefix)}-#{name}-tabs"
             form.send(:translated, form_method, name, options)
-          elsif form_method == :collection_radio_buttons
-            render_enum_form_field(form, attribute, name, i18n_scope, options)
-          elsif form_method == :select_field
-            render_select_form_field(form, attribute, name, i18n_scope, options)
-          elsif form_method == :scope_field
-            scopes_select_field(form, name)
-          elsif form_method == :integer_with_units
-            integer_with_units(form, attribute, name, i18n_scope, options)
           else
-            form.send(form_method, name, options)
+            render_field_form_method(form_method, form, attribute, name, i18n_scope, options)
           end
         end.html_safe
       end
 
       private
+
+      # rubocop:disable Metrics/ParameterLists
+      def render_field_form_method(form_method, form, attribute, name, i18n_scope, options)
+        case form_method
+        when :collection_radio_buttons
+          render_enum_form_field(form, attribute, name, i18n_scope, options)
+        when :select_field
+          render_select_form_field(form, attribute, name, i18n_scope, options)
+        when :scope_field
+          scopes_select_field(form, name)
+        when :integer_with_units
+          integer_with_units(form, attribute, name, i18n_scope, options)
+        when :taxonomy_filters
+          if current_taxonomy_filters.blank?
+            label_tag(name, t(name, scope: i18n_scope)) +
+              content_tag(:p) do
+                content_tag(:span, t("no_taxonomy_filters_found", scope: i18n_scope), class: "text-gray mr-2") +
+                  link_to(t("define_taxonomy_filters", scope: i18n_scope), participatory_space_taxonomy_filters_path, class: "button button__text-secondary")
+              end.html_safe
+          else
+            taxonomy_filters(form, name, i18n_scope)
+          end
+        else
+          form.send(form_method, name, options)
+        end
+      end
+      # rubocop:enable Metrics/ParameterLists
 
       # Renders a select field collection input for the given attribute
       #
@@ -194,6 +214,53 @@ module Decidim
                                         { name: "#{form.field_name(name)}[1]", style: "flex: 1 1 75%;" })
 
         content_tag(:label, options[:label]) + content_tag(:div, number_field_html + select_field_html, class: "flex space-x-2 items-center")
+      end
+
+      # Renders a form field that includes a taxonomy filters input hidden for each taxonomy filter
+      # and a button to open a drawer with all the available taxonomy filters with actions to manage them.
+      #
+      # @param form (see #settings_attribute_input)
+      # @param name (see #settings_attribute_input)
+      # @param i18n_scope (see #settings_attribute_input)
+      def taxonomy_filters(form, name, i18n_scope)
+        values = (form.object.send(name) || []).filter_map do |id|
+          current_taxonomy_filters.find { |item| item[1].to_s == id.to_s }
+        end || []
+
+        button = content_tag(:div, class: "mt-2") do
+          content_tag(:button, t("#{name}_add", scope: i18n_scope), class: "button button__xs button__transparent-secondary", data: { dialog_open: "taxonomy_filters-dialog" })
+        end
+
+        container = content_tag(:div, id: "#{name}-filters_container") do
+          values.map do |fname, fid|
+            render partial: "decidim/admin/components/taxonomy_filters_badge", locals: { value: fid, title: fname, name:, object_name: form.object_name }
+          end.join.html_safe
+        end
+
+        current_items = content_tag(:div, class: "flex") do
+          container + link_to(t("clear_all", scope: i18n_scope), "#", class: "button button__text-secondary ml-4 #{"hidden" if values.blank?}", data: { clear_all: true })
+        end
+
+        drawer = decidim_drawer id: "#{name}-dialog" do
+          render partial: "decidim/admin/components/taxonomy_filters_drawer", locals: { form:, available_filters: current_taxonomy_filters, name: }
+        end
+
+        label_tag(name, t(name, scope: i18n_scope)) + current_items + button + drawer
+      end
+
+      def current_taxonomy_filters
+        @current_taxonomy_filters ||= TaxonomyFilter.for(current_manifest.name).map do |filter|
+          ["#{decidim_sanitize_translated(filter.name)} (#{filter.filter_items_count})", filter.id]
+        end
+      end
+
+      def participatory_space_taxonomy_filters_path
+        model = current_participatory_space || current_manifest.model_class_name.constantize.new
+        Decidim::EngineRouter.new(model.mounted_admin_engine, {}).send("#{current_manifest.route_name}_filters_path")
+      end
+
+      def current_manifest
+        defined?(current_participatory_space_manifest) ? current_participatory_space_manifest : current_participatory_space.manifest
       end
     end
   end
