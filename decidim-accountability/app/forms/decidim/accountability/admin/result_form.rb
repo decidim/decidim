@@ -22,6 +22,9 @@ module Decidim
         attribute :parent_id, Integer
         attribute :external_id, String
         attribute :weight, Float
+        attribute :address, String
+        attribute :latitude, Float
+        attribute :longitude, Float
 
         validates :title, translatable_presence: true
 
@@ -34,6 +37,8 @@ module Decidim
 
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
         validates :status, presence: true, if: ->(form) { form.decidim_accountability_status_id.present? }
+
+        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
 
         delegate :categories, to: :current_component
 
@@ -67,6 +72,18 @@ module Decidim
         # Returns the scope identifier related to the result
         def decidim_scope_id
           super || scope&.id
+        end
+
+        def geocoding_enabled?
+          Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
+        end
+
+        def has_address?
+          geocoding_enabled? && address.present?
+        end
+
+        def geocoded?
+          latitude.present? && longitude.present?
         end
 
         def category
