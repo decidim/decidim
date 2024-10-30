@@ -39,7 +39,7 @@ module Decidim
                        .published
                        .not_hidden
                        .only_amendables
-                       .includes(:category, :scope, :attachments, :coauthorships)
+                       .includes(:taxonomies, :attachments, :coauthorships)
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
@@ -54,7 +54,7 @@ module Decidim
           @voted_proposals = if current_user
                                ProposalVote.where(
                                  author: current_user,
-                                 proposal: @proposals.pluck(:id)
+                                 proposal: @proposals.pluck("decidim_proposals_proposals.id")
                                ).pluck(:decidim_proposal_id)
                              else
                                []
@@ -206,9 +206,8 @@ module Decidim
           search_text_cont: "",
           with_any_origin: nil,
           activity: "all",
-          with_any_category: nil,
+          with_any_taxonomies: nil,
           with_any_state: default_states,
-          with_any_scope: nil,
           related_to: "",
           type: "all"
         }
@@ -286,36 +285,12 @@ module Decidim
       def tab_panel_items
         @tab_panel_items ||= [
           {
-            enabled: @proposal.linked_resources(:projects, "included_proposals").present?,
-            id: "included_projects",
-            text: t("decidim/budgets/project", scope: "activerecord.models", count: 2),
-            icon: resource_type_icon_key("Decidim::Budgets::Project"),
+            enabled: ProposalHistoryCell.new(@proposal).render?,
+            id: "included_history",
+            text: t("decidim.history", scope: "activerecord.models", count: 2),
+            icon: resource_type_icon_key("history"),
             method: :cell,
-            args: ["decidim/linked_resources_for", @proposal, { type: :projects, link_name: "included_proposals" }]
-          },
-          {
-            enabled: @proposal.linked_resources(:results, "included_proposals").present?,
-            id: "included_results",
-            text: t("decidim/accountability/result", scope: "activerecord.models", count: 2),
-            icon: resource_type_icon_key("Decidim::Accountability::Result"),
-            method: :cell,
-            args: ["decidim/linked_resources_for", @proposal, { type: :results, link_name: "included_proposals" }]
-          },
-          {
-            enabled: @proposal.linked_resources(:meetings, "proposals_from_meeting").present?,
-            id: "included_meetings",
-            text: t("decidim/meetings/meeting", scope: "activerecord.models", count: 2),
-            icon: resource_type_icon_key("Decidim::Meetings::Meeting"),
-            method: :cell,
-            args: ["decidim/linked_resources_for", @proposal, { type: :meetings, link_name: "proposals_from_meeting" }]
-          },
-          {
-            enabled: @proposal.linked_resources(:proposals, "copied_from_component").present?,
-            id: "included_proposals",
-            text: t("decidim/proposals/proposal", scope: "activerecord.models", count: 2),
-            icon: resource_type_icon_key("Decidim::Proposals::Proposal"),
-            method: :cell,
-            args: ["decidim/linked_resources_for", @proposal, { type: :proposals, link_name: "copied_from_component" }]
+            args: ["decidim/proposals/proposal_history", @proposal]
           }
         ] + attachments_tab_panel_items(@proposal)
       end

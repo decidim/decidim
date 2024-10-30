@@ -43,6 +43,7 @@ module Decidim
   autoload :HasAttachments, "decidim/has_attachments"
   autoload :ComponentValidator, "decidim/component_validator"
   autoload :HasSettings, "decidim/has_settings"
+  autoload :HasTaxonomySettings, "decidim/has_taxonomy_settings"
   autoload :HasComponent, "decidim/has_component"
   autoload :HasCategory, "decidim/has_category"
   autoload :Followable, "decidim/followable"
@@ -551,6 +552,17 @@ module Decidim
   # use `config.cache_key_separator = ":"` in your initializer to have namespaced data
   config_accessor :cache_key_separator do
     "/"
+  end
+
+  # This is the maximum time that the cache will be stored. If nil, the cache will be stored indefinitely.
+  # Currently, cache is applied in the Cells where the method `cache_hash` is defined.
+  config_accessor :cache_expiry_time do
+    24.hours
+  end
+
+  # Same as before, but specifically for cell displaying stats
+  config_accessor :stats_cache_expiry_time do
+    10.minutes
   end
 
   # Enable/Disable the service worker

@@ -22,13 +22,9 @@ module Decidim
           author: {
             **author_fields
           },
-          category: {
-            id: proposal.category.try(:id),
-            name: proposal.category.try(:name) || empty_translatable
-          },
-          scope: {
-            id: proposal.scope.try(:id),
-            name: proposal.scope.try(:name) || empty_translatable
+          taxonomies: {
+            id: proposal.taxonomies.map(&:id),
+            name: proposal.taxonomies.map(&:name)
           },
           participatory_space: {
             id: proposal.participatory_space.id,
@@ -82,7 +78,7 @@ module Decidim
       end
 
       def related_proposals
-        proposal.linked_resources(:proposals, "copied_from_component").map do |proposal|
+        proposal.linked_resources(:proposals, %w(copied_from_component merged_from_component splitted_from_component)).map do |proposal|
           Decidim::ResourceLocatorPresenter.new(proposal).url
         end
       end

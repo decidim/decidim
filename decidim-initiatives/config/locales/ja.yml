@@ -9,8 +9,8 @@ ja:
         decidim_user_group_id: 作成者
         description: 説明
         hashtag: ハッシュタグ
-        offline_votes: In-personal 署名
-        offline_votes_for_scope: '%{scope_name} の In-personal 署名'
+        offline_votes: 対面署名
+        offline_votes_for_scope: '%{scope_name} の 対面署名'
         scope_id: スコープ
         signature_end_date: 署名の収集期間の終了
         signature_start_date: 署名の収集期間の開始
@@ -238,6 +238,10 @@ ja:
             alert_html: "<p>参加者がイニシアチブを作成できるように、少なくとも1つのイニシアチブ種別を作成する必要があります。</p><p> %{link}</p>"
             button: 新しいイニシアチブ種別
         initiatives:
+          accept:
+            success: イニシアチブは受理されました。
+          discard:
+            success: イニシアチブは破棄されました。
           edit:
             accept: イニシアチブを承認する
             confirm: よろしいですか？
@@ -261,6 +265,12 @@ ja:
             edit: 編集
             new: 新規作成
             photos: 写真
+          publish:
+            success: イニシアチブを公開しました。
+          reject:
+            success: イニシアチブはリジェクトされました。
+          unpublish:
+            success: イニシアチブは非公開になりました。
           update:
             error: イニシアチブの更新中に問題がありました。
             success: イニシアチブを更新しました。

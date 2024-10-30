@@ -1,0 +1,52 @@
+<div class="row column">
+  <label><%= t("share_tokens.form.expires_at", scope: "decidim.admin") %></label>
+  <%= form.collection_radio_buttons :no_expiration, [[true, t("share_tokens.form.never_expire", scope: "decidim.admin")], [false, t("share_tokens.form.custom", scope: "decidim.admin")]], :first, :last do |b| %>
+    <div>
+      <%= b.radio_button %>
+      <%= b.label %>
+    </div>
+  <% end %>
+  <div id="expires_at_field_wrapper" class="hidden mt-4 row column">
+    <%= form.datetime_field :expires_at, label: t("share_tokens.form.custom_expiration", scope: "decidim.admin") %>
+  </div>
+</div>
+
+<div class="row column">
+  <label><%= t("share_tokens.form.registered_only", scope: "decidim.admin") %></label>
+  <%= form.collection_radio_buttons :registered_only, [
+      [t("share_tokens.form.true", scope: "decidim.admin"), true],
+      [t("share_tokens.form.false", scope: "decidim.admin"), false]
+    ], :last, :first do |b| %>
+    <div>
+      <%= b.label do %>
+        <%= b.radio_button %>
+        <%= b.text %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const expiresButton = document.querySelector("input[name='share_token[no_expiration]'][value='false']");
+    const expiresAtRadioButtons = document.querySelectorAll("input[name='share_token[no_expiration]']");
+    const expiresAtWrapper = document.getElementById("expires_at_field_wrapper");
+    const expiresAtInput = document.querySelector("input[name='share_token[expires_at]']");
+
+    const toggleExpiresAtField = () => {
+      if (expiresButton.checked) {
+        expiresAtWrapper.classList.remove("hidden");
+      } else {
+        expiresAtWrapper.classList.add("hidden");
+        expiresAtInput.value = "";
+        expiresAtInput.removeAttribute("required");
+      }
+    };
+
+    expiresAtRadioButtons.forEach(expiresAtRadioButton => {
+      expiresAtRadioButton.addEventListener("change", toggleExpiresAtField);
+    });
+
+    toggleExpiresAtField();
+  });
+</script>

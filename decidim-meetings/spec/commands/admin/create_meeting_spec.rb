@@ -10,8 +10,6 @@ module Decidim::Meetings
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
-    let(:scope) { create(:scope, organization:) }
-    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -27,6 +25,7 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:iframe_embed_type) { "embed_in_meeting_page" }
     let(:iframe_access_level) { "all" }
+    let(:components) { [] }
     let(:services) do
       [
         {
@@ -38,6 +37,9 @@ module Decidim::Meetings
           "description" => { "en" => "Second description" }
         }
       ]
+    end
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
     let(:services_to_persist) do
       services.map { |service| Admin::MeetingServiceForm.from_params(service) }
@@ -55,8 +57,7 @@ module Decidim::Meetings
         address:,
         latitude:,
         longitude:,
-        scope:,
-        category:,
+        taxonomizations:,
         private_meeting:,
         transparent:,
         services_to_persist:,
@@ -73,7 +74,8 @@ module Decidim::Meetings
         comments_enabled: true,
         comments_start_time: nil,
         comments_end_time: nil,
-        iframe_access_level:
+        iframe_access_level:,
+        components:
       )
     end
 
@@ -92,14 +94,19 @@ module Decidim::Meetings
         expect { subject.call }.to change(Meeting, :count).by(1)
       end
 
-      it "sets the scope" do
+      it "sets the taxonomies" do
         subject.call
-        expect(meeting.scope).to eq scope
+        expect(meeting.taxonomizations).to match_array(taxonomizations)
       end
 
-      it "sets the category" do
-        subject.call
-        expect(meeting.category).to eq category
+      context "when no taxonomizations are set" do
+        let(:taxonomizations) { [] }
+
+        it "taxonomizations are empty" do
+          subject.call
+
+          expect(meeting.taxonomizations).to be_empty
+        end
       end
 
       it "sets the author" do

@@ -15,7 +15,7 @@ module Decidim
           address: :string,
           latitude: :string,
           longitude: :string,
-          decidim_proposals_proposal_state_id: :string
+          decidim_proposals_proposal_state_id: :state
         }
       end
 
@@ -23,6 +23,7 @@ module Decidim
       def parse_changeset(attribute, values, type, diff)
         return parse_i18n_changeset(attribute, values, type, diff) if [:i18n, :i18n_html].include?(type)
         return parse_scope_changeset(attribute, values, type, diff) if type == :scope
+        return parse_state_changeset(attribute, values, type, diff) if type == :state
         return parse_user_group_changeset(attribute, values, type, diff) if type == :user_group
 
         values = parse_values(attribute, values)
@@ -35,6 +36,22 @@ module Decidim
             label: I18n.t(attribute, scope: i18n_scope),
             old_value:,
             new_value:
+          }
+        )
+      end
+
+      def parse_state_changeset(attribute, values, type, diff)
+        return unless diff
+
+        old_scope = Decidim::Proposals::ProposalState.find_by(id: values[0])
+        new_scope = Decidim::Proposals::ProposalState.find_by(id: values[1])
+
+        diff.update(
+          attribute => {
+            type:,
+            label: I18n.t(attribute, scope: i18n_scope),
+            old_value: old_scope ? translated_attribute(old_scope.title) : "",
+            new_value: new_scope ? translated_attribute(new_scope.title) : ""
           }
         )
       end
