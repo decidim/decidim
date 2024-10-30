@@ -259,8 +259,6 @@ lv:
           values:
             'false': Publicēts
             'true': Nav publicēts
-        scope_id_eq:
-          label: Darbības tvērums
         search_label: Meklēt
         search_placeholder:
           name_or_nickname_or_email_cont: Meklējiet %{collection} pēc e-pasta adreses, vārda vai segvārda.
