@@ -11,13 +11,9 @@ describe "Admin manages debates" do
   end
 
   include_context "when managing a component as an admin"
-  before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-    visit_component_admin
-  end
 
   it_behaves_like "manage debates"
+  it_behaves_like "manage taxonomy filters in settings"
   it_behaves_like "manage announcements"
   it_behaves_like "export debates"
   it_behaves_like "manage moderations"

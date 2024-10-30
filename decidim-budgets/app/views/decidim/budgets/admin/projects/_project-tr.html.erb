@@ -13,13 +13,8 @@
     <% end %>
   </td>
   <td>
-    <% if project.category %>
-      <%= translated_attribute project.category.name %>
-    <% end %>
+    <%= project.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
   </td>
-  <% if current_component.has_subscopes? %>
-    <%= td_resource_scope_for(project.scope) %>
-  <% end %>
   <td>
     <%= project.confirmed_orders_count %>
   </td>

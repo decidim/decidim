@@ -3,6 +3,8 @@
 module Decidim
   module Meetings
     class BaseMeetingForm < Decidim::Form
+      include Decidim::HasTaxonomyFormAttributes
+
       attribute :address, String
       attribute :latitude, Float
       attribute :longitude, Float
@@ -17,6 +19,10 @@ module Decidim
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? && form.needs_address? }
       validates :start_time, presence: true, date: { before: :end_time }
       validates :end_time, presence: true, date: { after: :start_time }
+
+      def participatory_space_manifest
+        @participatory_space_manifest ||= current_component.participatory_space.manifest.name
+      end
 
       def type_of_meeting_select
         Decidim::Meetings::Meeting::TYPE_OF_MEETING.keys.map do |type|

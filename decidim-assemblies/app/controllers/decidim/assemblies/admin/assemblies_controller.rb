@@ -7,8 +7,9 @@ module Decidim
       #
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
         include Decidim::Assemblies::Admin::Filterable
-        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
-        helper_method :current_assembly, :parent_assembly, :current_participatory_space
+        include Decidim::Admin::ParticipatorySpaceAdminContext
+
+        helper_method :current_assembly, :parent_assembly
         layout "decidim/admin/assemblies"
 
         def index
