@@ -11,7 +11,7 @@ fr-CA:
       project:
         budget_amount: Montant du budget
         decidim_category_id: Catégorie
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Secteur
         description: Description
         proposal_ids: Propositions liées
         proposals: Propositions
@@ -253,7 +253,7 @@ fr-CA:
           title: Vous n'avez pas encore voté
         filters:
           category: Catégorie
-          scope: Périmètre d'application
+          scope: Secteur
           search: Rechercher
           status: Statut
           status_values:
