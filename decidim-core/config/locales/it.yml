@@ -378,6 +378,10 @@ it:
         name: Statistiche dell'organizzazione
       sub_hero:
         name: Testo in evidenza home
+    core:
+      application_helper:
+        filter_category_values:
+          all: Tutto
     devise:
       omniauth_registrations:
         new:
@@ -1027,6 +1031,7 @@ it:
       participatory_space_filters:
         filters:
           areas: Ambiti territoriali
+          scope: Ambito
           select_an_area: Seleziona un'area
       public_participation:
         public_participation: Mostra pubblicamente la mia presenza
