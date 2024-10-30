@@ -394,8 +394,6 @@ hu:
           JSON: JSON
         notice: Az Ön exportja jelenleg folyamatban van. Kapni fog egy e-mailt, ha befejeződött.
       filters:
-        category_id_eq:
-          label: Kategória
         filter_label: Szűrés
         invitation_accepted_at_present:
           label: Meghívás elfogadva
@@ -443,8 +441,6 @@ hu:
           values:
             'false': Közzétéve
             'true': Visszavont
-        scope_id_eq:
-          label: Hatáskör
         search_label: Keresés
         search_placeholder:
           name_or_nickname_or_email_cont: Keresés %{collection} email, név vagy becenév alapján.
@@ -898,10 +894,6 @@ hu:
           title: Engedélyek szerkesztése
         update:
           success: Engedélyek frissítése sikeres.
-      resources:
-        index:
-          headers:
-            scope: Hatókör
       scope_types:
         create:
           error: Hiba történt az új hatáskör-típus létrehozásakor.
