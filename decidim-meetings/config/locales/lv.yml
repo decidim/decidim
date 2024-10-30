@@ -47,6 +47,12 @@ lv:
         other: Reģistrācija
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategorija
+          scope_id_eq:
+            label: Darbības tvērums
       meeting_copies:
         create:
           error: Šīs sanāksmes dublēšanas laikā radās problēma.
