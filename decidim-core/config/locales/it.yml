@@ -1003,10 +1003,6 @@ it:
         title: Segnala utente inappropriato
       floating_help:
         help: Aiuto
-      participatory_space_filters:
-        filters:
-          areas: Ambiti territoriali
-          select_an_area: Seleziona un'area
       public_participation:
         public_participation: Mostra pubblicamente la mia presenza
       reference:
@@ -1033,9 +1029,6 @@ it:
       pages_count: Pagine
       participants_count: Partecipanti
       users_count: Partecipanti
-    tags:
-      filter_results_for_category: 'Filtra i risultati per categoria: %{resource}'
-      filter_results_for_scope: 'Filtra i risultati per l''ambito: %{resource}'
     translation_bar:
       help_text: "<strong>Attenzione:</strong> Il contenuto potrebbe essere tradotto automaticamente e non essere accurato al 100%."
       show_original: Mostra testo originale
