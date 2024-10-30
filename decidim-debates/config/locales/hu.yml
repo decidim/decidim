@@ -2,15 +2,12 @@ hu:
   activemodel:
     attributes:
       debate:
-        category_id: Kategória
         closed_at: Lezárva ekkor
         conclusions: Következtetések
-        decidim_category_id: Kategória
         description: Leírás
         end_time: Lejár ekkor
         information_updates: Információ frissítések
         instructions: Útmutató a részvételhez
-        scope_id: Hatókör
         start_time: Kezdődik
         title: Cím
         user_group_id: Vita létrehozása
@@ -118,8 +115,6 @@ hu:
           state_values:
             closed: Lezárva
             open: Nyitva
-        form:
-          select_a_category: Válassz kategóriát
         index:
           new_debate: Új vita
         new:
