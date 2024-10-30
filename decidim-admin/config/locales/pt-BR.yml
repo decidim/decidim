@@ -404,8 +404,6 @@ pt-BR:
           JSON: JSON
         notice: Sua exportação está atualmente em progresso. Você receberá um e-mail quando estiver completa.
       filters:
-        category_id_eq:
-          label: Categoria
         filter_label: Filtro
         invitation_accepted_at_present:
           label: Convite aceito
@@ -453,8 +451,6 @@ pt-BR:
           values:
             'false': Publicado
             'true': Não publicado
-        scope_id_eq:
-          label: Escopo
         search_label: Buscar
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
@@ -909,10 +905,6 @@ pt-BR:
           title: Editar permissões
         update:
           success: Permissões atualizadas com sucesso.
-      resources:
-        index:
-          headers:
-            scope: Escopo
       scope_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de âmbito.
@@ -1009,7 +1001,6 @@ pt-BR:
           success: Filtro de taxonomia criado com sucesso.
         edit:
           back: Retornar
-          no_items: Nenhum item está disponível para estas taxonomias. Você pode criar itens nas configurações de configuração da taxonomia.
         new:
           back: Voltar
           create: Criar filtro de taxonomia
@@ -1017,7 +1008,6 @@ pt-BR:
           title: Novo filtro de taxonomia
         table:
           actions: Ações
-          confirm_destroy: Tem certeza de que deseja excluir este filtro? %{name}?
           count: Número de itens
           destroy: Deletar
           edit: Editar
