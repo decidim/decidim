@@ -2,15 +2,12 @@ zh-TW:
   activemodel:
     attributes:
       debate:
-        category_id: 類別
         closed_at: 關閉於
         conclusions: 結論
-        decidim_category_id: 類別
         description: 說明
         end_time: 結束於
         information_updates: 資訊更新
         instructions: 參加指南
-        scope_id: 範圍
         start_time: 開始於
         title: 標題
         user_group_id: 建立辯論為
@@ -116,8 +113,6 @@ zh-TW:
           state_values:
             closed: 關閉
             open: 開啟
-        form:
-          select_a_category: 請選擇一個類別
         index:
           new_debate: 新辯論
         new:
