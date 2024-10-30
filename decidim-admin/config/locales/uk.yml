@@ -214,8 +214,6 @@ uk:
       exports:
         export_as: "%{name} як %{export_format}"
       filters:
-        category_id_eq:
-          label: Категорія
         officialized_at_null:
           label: Стан
           values:
