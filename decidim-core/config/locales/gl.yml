@@ -777,10 +777,6 @@ gl:
         help: Axuda
       mentions_modal:
         remove_recipient: Eliminar o destinatario %{name}
-      participatory_space_filters:
-        filters:
-          areas: Ámbitos
-          select_an_area: Seleccione unha área
       public_participation:
         public_participation: Amosar a miña presenza publicamente
       reference:
