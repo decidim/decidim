@@ -600,8 +600,6 @@ fi-pl:
       application_helper:
         filter_area_values:
           all: Kaikki
-        filter_category_values:
-          all: Kaikki
         filter_scope_values:
           all: Kaikki
     devise:
@@ -1580,12 +1578,6 @@ fi-pl:
         sign_up: Luo tili
       mentions_modal:
         remove_recipient: Poista vastaanottaja %{name}
-      participatory_space_filters:
-        filters:
-          area: Alue
-          areas: alueet
-          scope: Teema
-          select_an_area: Valitse alue
       progress: Edistyminen
       public_participation:
         public_participation: Näytä läsnäoloni julkisesti
@@ -1614,9 +1606,6 @@ fi-pl:
       pages_count: Sivua
       participants_count: Osallistujaa
       users_count: Osallistujaa
-    tags:
-      filter_results_for_category: 'Rajaa tulokset aihepiirin mukaan: %{resource}'
-      filter_results_for_scope: 'Rajaa tulokset teeman mukaan: %{resource}'
     taxonomies:
       prompt: Valitse kohteesta "%{name}"
     translation_bar:
