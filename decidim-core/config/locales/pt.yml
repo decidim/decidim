@@ -371,6 +371,10 @@ pt:
         name: Estatísticas da organização
       sub_hero:
         name: Faixa de sub hero
+    core:
+      application_helper:
+        filter_category_values:
+          all: Todos
     devise:
       omniauth_registrations:
         new:
@@ -998,6 +1002,7 @@ pt:
       participatory_space_filters:
         filters:
           areas: Áreas
+          scope: Âmbito
           select_an_area: Selecione uma área
       public_participation:
         public_participation: Mostrar publicamente a minha participação
