@@ -2,15 +2,12 @@ pt-BR:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Escopo
         description: Descrição
         title: Título
         total_budget: Orçamento total
         weight: Posição do pedido
       project:
         budget_amount: Valor do orçamento
-        decidim_category_id: Categoria
-        decidim_scope_id: Âmbito
         description: Descrição
         proposal_ids: Propostas relacionadas
         proposals: Propostas
@@ -30,10 +27,6 @@ pt-BR:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categoria
-          scope_id_eq:
-            label: Escopo
           selected_at_null:
             label: Selecionado
             values:
@@ -208,7 +201,6 @@ pt-BR:
             total_budget: Orçamento total
         project:
           fields:
-            category: Categoria
             id: ID
             map: Mapa
             title: Título
@@ -252,8 +244,6 @@ pt-BR:
           message: Seu voto não foi registrado porque você ainda não concluiu o processo de votação. Tem certeza que deseja sair da votação?
           title: Você ainda não votou
         filters:
-          category: Categoria
-          scope: Âmbito
           search: Pesquisa
           status: Status
           status_values:
