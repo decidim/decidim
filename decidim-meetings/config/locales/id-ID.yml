@@ -41,6 +41,12 @@ id:
         other: Pendaftaran
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Cakupan
       meeting_copies:
         create:
           error: Terjadi kesalahan saat menduplikasi rapat ini.
