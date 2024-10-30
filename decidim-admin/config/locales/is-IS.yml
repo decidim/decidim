@@ -237,6 +237,8 @@ is:
           values:
             'false': Opinberað
             'true': Ekki opinberað
+        scope_id_eq:
+          label: Svæði
         search_label: Leita
       impersonatable_users:
         index:
@@ -417,6 +419,10 @@ is:
       resource_permissions:
         edit:
           title: Breyta heimildum
+      resources:
+        index:
+          headers:
+            scope: Svæði
       scope_types:
         create:
           success: Gildissvið gerð búin til með góðum árangri.
