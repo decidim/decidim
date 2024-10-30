@@ -372,6 +372,10 @@ nl:
         name: Organisatie statistieken
       sub_hero:
         name: Sub hero banner
+    core:
+      application_helper:
+        filter_category_values:
+          all: Alle
     devise:
       omniauth_registrations:
         new:
@@ -998,6 +1002,7 @@ nl:
       participatory_space_filters:
         filters:
           areas: Onderwerpen
+          scope: Bereik
           select_an_area: Selecteer een onderwerp
       public_participation:
         public_participation: Maak mijn aanwezigheid openbaar
