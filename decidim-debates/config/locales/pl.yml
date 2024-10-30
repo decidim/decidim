@@ -2,15 +2,12 @@ pl:
   activemodel:
     attributes:
       debate:
-        category_id: Kategoria
         closed_at: Zamknięto
         conclusions: Wnioski
-        decidim_category_id: Kategoria
         description: Opis
         end_time: Skończy się
         information_updates: Aktualizacje informacji
         instructions: Instrukcje uczestnictwa
-        scope_id: Zakres
         start_time: Zaczyna się
         title: Tytuł
         user_group_id: Utwórz debatę jako
@@ -128,8 +125,6 @@ pl:
             closed: Zakończone
             open: Otwarte
           user_group: Grupy
-        form:
-          select_a_category: Wybierz kategorię
         index:
           new_debate: Nowa debata
         new:
