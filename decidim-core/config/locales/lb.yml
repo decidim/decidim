@@ -987,10 +987,6 @@ lb:
         title: Notzer mellen den net zoulässeg ass
       floating_help:
         help: Hëllef
-      participatory_space_filters:
-        filters:
-          areas: Beräicher
-          select_an_area: Wiel e Beräich
       public_participation:
         public_participation: Uweisen, dass ech ageloggt sinn
       reference:
@@ -1017,9 +1013,6 @@ lb:
       pages_count: Säiten
       participants_count: Benotzer
       users_count: Benotzer
-    tags:
-      filter_results_for_category: 'Resultater no Kategorie filteren: %{resource}'
-      filter_results_for_scope: 'Resultater no Uwendungsberäich filteren: %{resource}'
     translation_bar:
       help_text: "<strong>Warnung:</strong> Inhalt kéint automatesch iwwersetzt sinn an net 100% korrekt sinn."
       show_original: Originaltext weisen
