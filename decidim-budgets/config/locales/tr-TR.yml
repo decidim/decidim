@@ -21,6 +21,11 @@ tr:
         one: Proje
         other: Projeler
   decidim:
+    admin:
+      filters:
+        projects:
+          scope_id_eq:
+            label: Kapsam
     budgets:
       actions:
         attachment_collections: Klasörler
