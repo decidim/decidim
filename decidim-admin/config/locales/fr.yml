@@ -410,8 +410,6 @@ fr:
           JSON: JSON
         notice: Votre export est en cours. Vous recevrez un email quand il sera terminé.
       filters:
-        category_id_eq:
-          label: Catégorie
         filter_label: Filtre
         invitation_accepted_at_present:
           label: Invitation acceptée
@@ -460,8 +458,6 @@ fr:
             'false': Publié
             'true': Dépublié
         remove_all: Tout supprimer
-        scope_id_eq:
-          label: Secteur
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher les %{collection} par e-mail, nom ou pseudo.
@@ -925,10 +921,6 @@ fr:
           title: Modifier les autorisations
         update:
           success: Autorisations mises à jour avec succès.
-      resources:
-        index:
-          headers:
-            scope: Secteur
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de secteur.
@@ -1057,7 +1049,6 @@ fr:
       taxonomy_filters:
         edit:
           back: Revenir en arrière
-          no_items: Aucun élément n'est disponible pour cette taxonomie. Vous pouvez créer des éléments dans les paramètres de configuration de taxonomie.
           title: Modifier le filtre de taxonomie
           update: Mettre à jour le filtre de taxonomie
         form:
@@ -1072,7 +1063,6 @@ fr:
           title: Nouveau filtre de taxonomie
         table:
           actions: Actions
-          confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer le filtre %{name}?
           count: Nombre d'éléments
           destroy: Supprimer
           edit: Modifier
