@@ -233,10 +233,8 @@ cs:
         filters:
           all: Vše
         home:
-          categories_label: Kategorie
           empty: Zatím nejsou žádné výsledky.
           empty_filters: S těmito kritérii nejsou žádné výsledky.
-          subcategories_label: Podkategorie
         home_header:
           global_status: Globální stav provedení
         nav_breadcrumb:
