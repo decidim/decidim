@@ -49,6 +49,12 @@ uk:
         other: Зареєстрованих
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Категорія
+          scope_id_eq:
+            label: Обсяг
       meeting_copies:
         create:
           error: При спробі створити копію цієї зустрічі сталася помилка.
