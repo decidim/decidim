@@ -100,8 +100,6 @@ es:
             'false': No aceptada
             'true': Aceptada
         meetings:
-          category_id_eq:
-            label: Categoría
           closed_at_present:
             label: Estado
             values:
@@ -112,8 +110,6 @@ es:
             values:
               'false': Pasados
               'true': Próximos
-          scope_id_eq:
-            label: Ámbito
           with_any_origin:
             label: Origen
             values:
@@ -427,8 +423,6 @@ es:
         questionnaire:
           update: "%{user_name} ha actualizado el cuestionario del encuentro %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Todas
         filter_meeting_space_values:
           all: Todos
       calendar:
@@ -538,7 +532,6 @@ es:
           location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
           online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
           registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
-          select_a_category: Por favor, selecciona una categoría
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
           select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
@@ -706,7 +699,6 @@ es:
           address: La dirección del encuentro en caso de que este sea presencial y tenga una ubicación física
           attachments: El número de archivos adjuntos en este encuentro
           attendees: El número de personas que asistieron a este encuentro
-          category: La categoría del encuentro (por ejemplo, "Cultura")
           comments: El número de comentarios en este encuentro
           component: El componente al que pertenece este encuentro
           contributions: El número de contribuciones realizadas en este encuentro por las asistentes
@@ -721,7 +713,6 @@ es:
           reference: El identificador único del recurso en esta plataforma
           related_proposals: Las propuestas relacionadas con este encuentro
           related_results: Los resultados relacionados con este encuentro
-          scope: El ámbito territorial del encuentro (por ejemplo, "Ciudad")
           start_time: La fecha y hora en que se inició este encuentro
           title: El título del encuentro
           url: La URL del encuentro
