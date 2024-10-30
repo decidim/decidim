@@ -586,8 +586,6 @@ fr:
       application_helper:
         filter_area_values:
           all: Tout
-        filter_category_values:
-          all: Tout
         filter_scope_values:
           all: Tout
     devise:
@@ -1550,12 +1548,6 @@ fr:
         sign_up: Créer un compte
       mentions_modal:
         remove_recipient: Supprimer le destinataire %{name}
-      participatory_space_filters:
-        filters:
-          area: Périmètre d'assemblée
-          areas: Périmètres d'assemblée
-          scope: Secteur
-          select_an_area: Sélectionnez un périmètre d'assemblée
       progress: Avancement
       public_participation:
         public_participation: Afficher ma présence publiquement
@@ -1584,9 +1576,6 @@ fr:
       pages_count: Pages
       participants_count: Participants
       users_count: Participants
-    tags:
-      filter_results_for_category: 'Filtrer les résultats de la catégorie : %{resource}'
-      filter_results_for_scope: 'Filtrer les résultats pour le secteur : %{resource}'
     translation_bar:
       help_text: "<strong>Attention :</strong> Le contenu peut être automatiquement traduit et ne pas être exact à 100%."
       show_original: Afficher le texte original
