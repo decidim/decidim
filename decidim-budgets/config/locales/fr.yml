@@ -2,15 +2,12 @@ fr:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Secteur
         description: Description
         title: Titre
         total_budget: Budget total
         weight: Rang d'affichage
       project:
         budget_amount: Montant du budget
-        decidim_category_id: Catégorie
-        decidim_scope_id: Périmètre d'application
         description: Description
         proposal_ids: Propositions liées
         proposals: Propositions
@@ -30,10 +27,6 @@ fr:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Catégorie
-          scope_id_eq:
-            label: Secteur
           selected_at_null:
             label: Sélectionnés
             values:
@@ -208,7 +201,6 @@ fr:
             total_budget: Budget total
         project:
           fields:
-            category: Catégorie
             id: ID
             map: Carte
             title: Titre
@@ -252,8 +244,6 @@ fr:
           message: Votre vote n'a pas encore été enregistré car vous n'avez pas terminé le processus de vote. Êtes-vous sûr de vouloir quitter le vote ?
           title: Vous n'avez pas encore voté
         filters:
-          category: Catégorie
-          scope: Périmètre d'application
           search: Rechercher
           status: Statut
           status_values:
