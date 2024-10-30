@@ -2,14 +2,11 @@ tr:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Kapsam
         description: Açıklama
         title: Başlık
         total_budget: Toplam bütçe
       project:
         budget_amount: Bütçe tutarı
-        decidim_category_id: Kategori
-        decidim_scope_id: Kapsam
         description: Açıklama
         proposal_ids: İlgili teklifler
         selected: Uygulama için seçildi
@@ -130,8 +127,6 @@ tr:
             one: 1 proje
             other: "%{count} proje"
         filters:
-          category: Kategori
-          scope: Kapsam
           search: Arama
           status: Durum
           status_values:
