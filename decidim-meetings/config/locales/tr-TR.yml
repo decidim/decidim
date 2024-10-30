@@ -329,7 +329,6 @@ tr:
           location_hints_help: 'Konum ipuçları: ek bilgi. Örnek: Yüz yüze bir toplantıysa binanın katı veya kısıtlı erişime sahip çevrimiçi bir toplantıysa toplantı parolası.'
           online_meeting_url_help: 'Bağlantı: katılımcıların toplantınıza doğrudan bağlanmasına izin verin'
           registration_url_help: 'Bağlantı: katılımcıların kayıtlar için kullandığınız harici hizmete girmesine izin verin'
-          select_a_category: Lütfen bir kategori seçin
           select_a_meeting_type: Lütfen bir toplantı türü seçin
           select_a_registration_type: Lütfen bir kayıt türü seçin
         index:
