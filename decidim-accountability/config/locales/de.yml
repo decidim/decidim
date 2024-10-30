@@ -201,7 +201,7 @@ de:
             end_date: Enddatum
             id: ID
             progress: Fortschritt
-            scope: Themenbereich
+            scope: Umfang
             start_date: Startdatum
             status: Status
             title: Titel
@@ -223,10 +223,8 @@ de:
         filters:
           all: Alle
         home:
-          categories_label: Kategorien
           empty: Es liegen noch keine Ergebnisse vor.
           empty_filters: Es liegen noch keine Ergebnisse mit diesen Kriterien vor.
-          subcategories_label: Unterkategorien
         home_header:
           global_status: Globaler Umsetzungsstatus
         nav_breadcrumb:
@@ -245,7 +243,7 @@ de:
           category_id_eq:
             label: Kategorie
           scope_id_eq:
-            label: Themenbereich
+            label: Umfang
           status_id_eq:
             label: Status
     components:
