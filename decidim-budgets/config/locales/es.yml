@@ -2,15 +2,12 @@ es:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Ámbito
         description: Descripción
         title: Título
         total_budget: Presupuesto total
         weight: Orden de posición
       project:
         budget_amount: Importe del presupuesto
-        decidim_category_id: Categoría
-        decidim_scope_id: Ámbito
         description: Descripción
         proposal_ids: Propuestas relacionadas
         proposals: Propuestas
@@ -34,10 +31,6 @@ es:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categoría
-          scope_id_eq:
-            label: Ámbito
           selected_at_null:
             label: Seleccionado
             values:
@@ -214,7 +207,6 @@ es:
             total_budget: Presupuesto total
         project:
           fields:
-            category: Categoría
             id: ID
             map: Mapa
             title: Título
@@ -258,8 +250,6 @@ es:
           message: Tu voto no ha sido registrado porque aún no has completado el proceso de votación. ¿Seguro que quieres salir de la votación?
           title: Aún no has votado
         filters:
-          category: Categoría
-          scope: Ámbito
           search: Buscar
           status: Estado
           status_values:
@@ -381,7 +371,6 @@ es:
           address: La localización (dirección) del proyecto (si tiene)
           budget: A qué grupo de proyectos (por ejemplo, "Presupuestos 2021") pertenece este proyecto
           budget_amount: La cantidad total de presupuesto para este proyecto
-          category: La categoría del proyecto (por ejemplo, "Cultura")
           comments: El número de comentarios que ha recibido este proyecto
           component: El componente al que pertenece el proyecto
           confirmed_votes: El número de votos confirmados que ha recibido este proyecto
@@ -392,7 +381,6 @@ es:
           related_proposal_titles: Los títulos de las propuestas relacionadas
           related_proposal_urls: Las URL de las propuestas relacionadas
           related_proposals: Las propuestas relacionadas con este proyecto
-          scope: El ámbito territorial del proyecto (por ejemplo, "Ciudad")
           title: El título del proyecto
           url: La URL del proyecto
     orders:
