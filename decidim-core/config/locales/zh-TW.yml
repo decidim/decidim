@@ -1329,10 +1329,6 @@ zh-TW:
         help: 幫助
       mentions_modal:
         remove_recipient: 移除收件人 %{name}。
-      participatory_space_filters:
-        filters:
-          areas: 區域
-          select_an_area: 選擇一個地區
       public_participation:
         public_participation: 公開展示我的出席情況。
       reference:
@@ -1360,9 +1356,6 @@ zh-TW:
       pages_count: 頁
       participants_count: 參與者
       users_count: 參與者
-    tags:
-      filter_results_for_category: '篩選類別為 %{resource} 的結果。'
-      filter_results_for_scope: '篩選範圍為 %{resource} 的結果。'
     translation_bar:
       help_text: "<strong>警告：</strong>內容可能會被自動翻譯，並且可能不是100％準確。"
       show_original: 顯示原始文本
