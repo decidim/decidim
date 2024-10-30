@@ -11,6 +11,7 @@ it:
         end_time: Finisce a
         information_updates: Aggiornamenti delle informazioni
         instructions: Istruzioni per partecipare
+        scope_id: Obiettivo
         start_time: Inizia a
         title: Titolo
         user_group_id: Crea dibattito come
