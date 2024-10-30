@@ -240,8 +240,6 @@ lv:
       exports:
         export_as: "%{name} kā %{export_format}"
       filters:
-        category_id_eq:
-          label: Kategorija
         filter_label: Filtrēt
         officialized_at_null:
           label: Stāvoklis
@@ -258,8 +256,6 @@ lv:
           values:
             'false': Publicēts
             'true': Nav publicēts
-        scope_id_eq:
-          label: Darbības tvērums
         search_label: Meklēt
         search_placeholder:
           name_or_nickname_or_email_cont: Meklējiet %{collection} pēc e-pasta adreses, vārda vai segvārda.
