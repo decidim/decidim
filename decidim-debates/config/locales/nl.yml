@@ -2,10 +2,8 @@ nl:
   activemodel:
     attributes:
       debate:
-        category_id: Categorie
         closed_at: Gesloten op
         conclusions: Besluit
-        decidim_category_id: Categorie
         description: Omschrijving
         end_time: Eindigt op
         information_updates: Informatie updates
@@ -103,8 +101,6 @@ nl:
           state_values:
             closed: Gesloten
             open: Open
-        form:
-          select_a_category: Selecteer een categorie
         index:
           new_debate: Nieuw debat
         new:
