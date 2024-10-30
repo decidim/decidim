@@ -2,8 +2,6 @@ is-IS:
   activemodel:
     attributes:
       project:
-        decidim_category_id: Flokkur
-        decidim_scope_id: Umfang
         description: Lýsing
         proposal_ids: Tengdar tillögur
         title: Titill
@@ -59,8 +57,6 @@ is-IS:
             one: 1 verkefni
             other: "%{count} verkefni"
         filters:
-          category: Flokkur
-          scope: Umfang
           search: Leita
         show:
           budget: Fjárhagsáætlun
