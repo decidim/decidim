@@ -198,12 +198,10 @@ de:
       models:
         result:
           fields:
-            category: Kategorie
             created_at: Erstellt am
             end_date: Enddatum
             id: ID
             progress: Fortschritt
-            scope: Themenbereich
             start_date: Startdatum
             status: Status
             title: Titel
@@ -222,17 +220,11 @@ de:
           results_count:
             one: 1 Ergebnis
             other: "%{count} Ergebnisse"
-        filters:
-          all: Alle
         home:
-          categories_label: Kategorien
           empty: Es liegen noch keine Ergebnisse vor.
           empty_filters: Es liegen noch keine Ergebnisse mit diesen Kriterien vor.
-          subcategories_label: Unterkategorien
         home_header:
           global_status: Globaler Umsetzungsstatus
-        nav_breadcrumb:
-          global: Globale Ausführung
         no_results: Es gibt keine Projekte
         search:
           search: Suche nach Aktionen
@@ -244,10 +236,6 @@ de:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategorie
-          scope_id_eq:
-            label: Themenbereich
           status_id_eq:
             label: Status
     components:
