@@ -372,6 +372,10 @@ lb:
         name: Organisations-Statistiken
       sub_hero:
         name: Sub hero Banner
+    core:
+      application_helper:
+        filter_category_values:
+          all: All
     devise:
       omniauth_registrations:
         new:
@@ -995,6 +999,7 @@ lb:
       participatory_space_filters:
         filters:
           areas: Beräicher
+          scope: Ëmfang
           select_an_area: Wiel e Beräich
       public_participation:
         public_participation: Uweisen, dass ech ageloggt sinn
