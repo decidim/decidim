@@ -569,8 +569,6 @@ pt-BR:
       application_helper:
         filter_area_values:
           all: Tudo
-        filter_category_values:
-          all: Todos
         filter_scope_values:
           all: Tudo
     devise:
@@ -1427,12 +1425,6 @@ pt-BR:
         sign_up: Criar uma conta
       mentions_modal:
         remove_recipient: Remover destinatário %{name}
-      participatory_space_filters:
-        filters:
-          area: Área
-          areas: Áreas
-          scope:
-          select_an_area: Selecione uma área
       progress: Progresso
       public_participation:
         public_participation: Mostre minha presença publicamente
@@ -1461,9 +1453,6 @@ pt-BR:
       pages_count: Páginas
       participants_count: Participantes
       users_count: Participantes
-    tags:
-      filter_results_for_category: 'Filtrar resultados para a categoria: %{resource}'
-      filter_results_for_scope: 'Resultados do filtro para escopo: %{resource}'
     taxonomies:
       prompt: Selecionar do "%{name}"
     translation_bar:
