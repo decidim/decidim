@@ -50,6 +50,12 @@ sk:
         other: Registrácie
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategória
+          scope_id_eq:
+            label: Rozsah
       meeting_copies:
         create:
           error: Bolo tu chyba, že sa toto stretnutie zdvojnásobila.
