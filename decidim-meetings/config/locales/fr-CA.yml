@@ -96,8 +96,6 @@ fr-CA:
             'false': Non acceptée
             'true': Accepté
         meetings:
-          category_id_eq:
-            label: Catégorie
           closed_at_present:
             label: État
             values:
@@ -108,8 +106,6 @@ fr-CA:
             values:
               'false': Passés
               'true': À venir
-          scope_id_eq:
-            label: Périmètre
           with_any_origin:
             label: Origine
             values:
@@ -421,8 +417,6 @@ fr-CA:
         questionnaire:
           update: "%{user_name} a mis à jour le questionnaire pour la réunion %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Tous
         filter_meeting_space_values:
           all: Tous
       calendar:
@@ -532,7 +526,6 @@ fr-CA:
           location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
           online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre rencontre'
           registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
-          select_a_category: Veuillez sélectionner une catégorie
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
           select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
