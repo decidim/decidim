@@ -2,15 +2,12 @@ ca:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Àmbit
         description: Descripció
         title: Títol
         total_budget: Pressupost total
         weight: Ordre de posició
       project:
         budget_amount: Import del pressupost
-        decidim_category_id: Categoria
-        decidim_scope_id: Àmbit
         description: Descripció
         proposal_ids: Propostes relacionades
         proposals: Propostes
@@ -34,10 +31,6 @@ ca:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categoria
-          scope_id_eq:
-            label: Àmbit
           selected_at_null:
             label: Seleccionat
             values:
@@ -214,7 +207,6 @@ ca:
             total_budget: Pressupost total
         project:
           fields:
-            category: Categoria
             id: ID
             map: Mapa
             title: Títol
@@ -258,8 +250,6 @@ ca:
           message: El teu vot no ha estat registrat perquè encara no ha completat el procés de votació. Segur que vols sortir de la votació?
           title: Encara no has votat
         filters:
-          category: Categoria
-          scope: Àmbit
           search: Cerca
           status: Estat
           status_values:
@@ -381,7 +371,6 @@ ca:
           address: La localització (adreça) del projecte (si en té)
           budget: 'A quin grup de projectes (per exemple: "Pressupostos 2021") pertany aquest projecte'
           budget_amount: La quantitat total de pressupost per a aquest projecte
-          category: 'La categoria del projecte (per exemple: "Cultura")'
           comments: El número de comentaris que ha rebut aquest projecte
           component: El component al qual pertany el projecte
           confirmed_votes: El número de vots confirmats que ha rebut aquest projecte
@@ -392,7 +381,6 @@ ca:
           related_proposal_titles: Els títols de les propostes relacionades
           related_proposal_urls: Les URL de les propostes relacionades
           related_proposals: Les propostes relacionades amb aquest projecte
-          scope: 'L''àmbit territorial del projecte (per exemple: "Ciutat")'
           title: El títol del projecte
           url: L'URL del projecte
     orders:
