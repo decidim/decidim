@@ -410,8 +410,6 @@ eu:
           JSON: JSON
         notice: Zure esportazioa bidean da une honetan. Mezu elektroniko bat jasoko duzu bukatutakoan.
       filters:
-        category_id_eq:
-          label: Kategoria
         filter_label: Iragazkia
         invitation_accepted_at_present:
           label: Gonbidapena onartua
@@ -460,8 +458,6 @@ eu:
             'false': Argitaratua
             'true': Ez da argitaratu
         remove_all: Ezabatu denak
-        scope_id_eq:
-          label: Esparrua
         search_label: Bilatu
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
@@ -931,10 +927,6 @@ eu:
           title: Editatu baimenak
         update:
           success: Baimenak behar bezala eguneratuak.
-      resources:
-        index:
-          headers:
-            scope: Esparrua
       scope_types:
         create:
           error: Arazo bat egon da beste esparru mota bat sortzean.
@@ -1092,12 +1084,9 @@ eu:
         new:
           create: Sortu taxonomia
           title: Beste taxonomia bat
-        no_taxonomies: Gaur egun ez dago taxonomiarik. Sortu taxonomien zerrenda bat hemen, eta zehaztu elementuak horietako bakoitzean baliabideak sailkatzeko edo iragazteko.
         table:
           to_next_page: Arrastatu hurrengo orrira
           to_prev_page: Arrastatu aurreko orrira
-        taxonomy_actions:
-          confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula? Honek elementu txiki guztiak ere ezabatuko ditu.
         update:
           invalid: Arazo bat izan da taxonomia hau eguneratzean.
           success: Taxonomia zuzen eguneratua.
@@ -1115,7 +1104,6 @@ eu:
         edit:
           back: Atzera
           items: "%{count} elementu hautatu dira"
-          no_items: Ez dago taxonomia hauentzako elementurik. Taxonomia konfiguratzeko konfigurazioan sor ditzakezu elementuak.
           title: Editatu taxonomia-iragazkia
           update: Eguneratu taxonomia-iragazkia
         form:
@@ -1130,7 +1118,6 @@ eu:
           title: Beste taxonomia-iragazki bat
         table:
           actions: Ekintzak
-          confirm_destroy: Ziur zaude %{name} iragazkia ezabatu nahi duzula?
           count: Elementu kopurua
           destroy: Ezabatu
           edit: Editatu
