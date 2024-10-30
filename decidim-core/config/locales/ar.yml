@@ -1241,10 +1241,6 @@ ar:
         please_log_in: برجى تسجيل الدخول
       mentions_modal:
         remove_recipient: إزالة المستلم %{name}
-      participatory_space_filters:
-        filters:
-          areas: المناطق
-          select_an_area: اختر المنطقة
       public_participation:
         public_participation: إبراز حضوري علنا
       reference:
@@ -1272,9 +1268,6 @@ ar:
       pages_count: صفحات
       participants_count: المشاركون
       users_count: المشاركون
-    tags:
-      filter_results_for_category: 'تصفية نتائج التصنيف للفئة: %{resource}'
-      filter_results_for_scope: 'تصفية نتائج التصنيف للنطاق: %{resource}'
     translation_bar:
       help_text: "<strong>تحذير:</strong> المحتوى قد يتم ترجمته تلقائياً ولا يكون دقيقاً بنسبة 100%."
       show_original: إظهار النص الأصلي
