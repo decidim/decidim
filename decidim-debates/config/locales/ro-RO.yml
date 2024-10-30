@@ -2,15 +2,12 @@ ro:
   activemodel:
     attributes:
       debate:
-        category_id: Categorie
         closed_at: Închisă la
         conclusions: Concluzii
-        decidim_category_id: Categorie
         description: Descriere
         end_time: Se termină la
         information_updates: Actualizări informații
         instructions: Instrucţiuni de participare
-        scope_id: Domeniu de interes
         start_time: Începe la
         title: Titlu
         user_group_id: Creați o dezbatere în calitate de
@@ -120,8 +117,6 @@ ro:
           state_values:
             closed: Închisă
             open: Deschide
-        form:
-          select_a_category: Te rugăm selectează o categorie
         index:
           new_debate: Dezbatere nouă
         new:
