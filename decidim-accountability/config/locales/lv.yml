@@ -96,7 +96,9 @@ lv:
       models:
         result:
           fields:
+            category: Kategorija
             end_date: Beigu datums
+            scope: Darbības tvērums
             start_date: Sākuma datums
             status: Statuss
             title: Nosaukums
@@ -116,9 +118,6 @@ lv:
             other: "%{count} rezultāti"
         filters:
           all: Visi
-        home:
-          categories_label: Kategorijas
-          subcategories_label: Apakškategorijas
         home_header:
           global_status: Globālais izpildes statuss
         nav_breadcrumb:
@@ -137,6 +136,13 @@ lv:
             votes: Atbalsta
         timeline:
           title: Projekta attīstība
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorija
+          scope_id_eq:
+            label: Darbības tvērums
     components:
       accountability:
         name: Atbildība
