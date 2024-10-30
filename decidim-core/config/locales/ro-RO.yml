@@ -91,11 +91,39 @@ ro:
       decidim_with_month_name_short: "%d %b"
   datetime:
     distance_in_words:
+      about_x_hours:
+        one: aproximativ o oră
+        few: aproximativ %{count} ore
+        other: aproximativ %{count} ore
+      about_x_months:
+        one: aproximativ o lună
+        few: aproximativ %{count} luni
+        other: aproximativ %{count} luni
       half_a_minute: jumătate de minut
+      less_than_x_minutes:
+        one: mai puțin de un minut
+        few: mai puțin de %{count} minute
+        other: mai puțin de %{count} minute
+      less_than_x_seconds:
+        one: mai puțin de o secundă
+        few: mai puțin de %{count} secunde
+        other: mai puțin de %{count} secunde
       x_days:
         one: 1 zi
         few: "%{count} zile"
         other: "%{count} zile"
+      x_hours:
+        one: o oră
+        few: "%{count} ore"
+        other: "%{count} ore"
+      x_minutes:
+        one: un minut
+        few: "%{count} minute"
+        other: "%{count} minute"
+      x_months:
+        one: o lună
+        few: "%{count} luni"
+        other: "%{count} luni"
       x_seconds:
         one: 1 secundă
         few: "%{count} secunde"
@@ -105,6 +133,7 @@ ro:
       external_link: Link extern
       front_page_link: Mergeți la prima pagină
       logo: "Logo-ul oficial al %{organization}"
+      opens_in_new_tab: Deschideți în tab nou
       skip_button: Salt la conținutul principal
     account:
       blocked: Acest cont a fost blocat din cauza încălcării termenilor și condițiilor
@@ -146,6 +175,9 @@ ro:
     admin:
       actions:
         cancel: Anulați
+      password_change:
+        alert: Trebuie să vă schimbați parola pentru a merge mai departe.
+        notification: Utilizatorii cu rol de administrator trebuie să își schimbe parola o dată la %{count} zile.
     admin_log:
       area:
         create: "%{user_name} a creat zona %{resource_name}"
@@ -282,6 +314,7 @@ ro:
           withdrawn: |-
             Acest amendament pentru %{amendable_type} %{proposal_link}
             a fost retras de autor.
+      name: Amendamente
       new:
         amendment_author: Autorul modificării
         send: Crează
@@ -480,6 +513,10 @@ ro:
         name: Statisticile organizației
       sub_hero:
         name: Banner suberoi
+    core:
+      application_helper:
+        filter_category_values:
+          all: Toate
     devise:
       omniauth_registrations:
         new:
@@ -1188,6 +1225,7 @@ ro:
       participatory_space_filters:
         filters:
           areas: Zone
+          scope: Domeniu
           select_an_area: Selectează o zonă
       public_participation:
         public_participation: Arată public participarea mea
