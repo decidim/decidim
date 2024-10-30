@@ -372,8 +372,6 @@ ro:
           JSON: JSON
         notice: Exportul dvs. este în desfășurare. Veți primi un e-mail atunci când acesta este complet.
       filters:
-        category_id_eq:
-          label: Categorie
         filter_label: Filtru
         invitation_accepted_at_present:
           label: Invitația a fost acceptată
@@ -421,8 +419,6 @@ ro:
           values:
             'false': Publicat
             'true': Nepublicat
-        scope_id_eq:
-          label: Domeniu
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
@@ -854,10 +850,6 @@ ro:
           title: Editează drepturile
         update:
           success: Drepturile au fost actualizate cu succes.
-      resources:
-        index:
-          headers:
-            scope: Domeniu
       scope_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de domeniu.
@@ -953,7 +945,6 @@ ro:
         edit:
           back: Înapoi
           items: "%{count} elemente selectate"
-          no_items: Nu există elemente disponibile pentru această taxonomie. Puteți crea elemente în setările de configurare a taxonomiei.
           title: Actualizare filtru taxonomie
           update: Actualizare filtru taxonomie
         form:
@@ -968,7 +959,6 @@ ro:
           title: Filtru nou de taxonomie
         table:
           actions: Acțiuni
-          confirm_destroy: Sunteți sigur că doriți să ștergeți filtrul %{name}?
           count: Numărul de elemente
           destroy: Ștergere
           edit: Actualizare
