@@ -7,8 +7,7 @@ module Decidim
 
       implements Decidim::Comments::CommentableInterface
       implements Decidim::Core::AuthorableInterface
-      implements Decidim::Core::CategorizableInterface
-      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::TimestampsInterface
       implements Decidim::Meetings::ServicesInterface

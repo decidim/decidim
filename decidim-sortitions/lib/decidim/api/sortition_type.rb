@@ -5,7 +5,7 @@ module Decidim
     class SortitionType < Decidim::Api::Types::BaseObject
       implements Decidim::Core::AuthorableInterface
       implements Decidim::Comments::CommentableInterface
-      implements Decidim::Core::CategorizableInterface
+      implements Decidim::Core::TaxonomizableInterface
 
       description "A sortition"
 

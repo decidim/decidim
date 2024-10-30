@@ -10,13 +10,13 @@ describe "Decidim::Api::QueryType" do
 
   let!(:current_component) { create(:debates_component, participatory_space: participatory_process) }
   let(:author) { build(:user, :confirmed, organization: current_component.organization) }
-  let!(:debate) { create(:debate, :participant_author, author:, component: current_component, category:) }
+  let!(:debate) { create(:debate, :participant_author, author:, component: current_component, taxonomies:) }
 
   let(:debate_single_result) do
     {
       "acceptsNewComments" => debate.accepts_new_comments?,
       "author" => { "id" => debate.author.id.to_s },
-      "category" => { "id" => debate.category.id.to_s },
+      "taxonomies" => [{ "id" => debate.taxonomies.first.id.to_s }],
       "comments" => [],
       "commentsHaveAlignment" => debate.comments_have_alignment?,
       "commentsHaveVotes" => debate.comments_have_votes?,
@@ -83,7 +83,7 @@ describe "Decidim::Api::QueryType" do
               author {
                 id
               }
-              category {
+              taxonomies {
                 id
               }
               comments {
@@ -139,7 +139,7 @@ describe "Decidim::Api::QueryType" do
           author {
             id
           }
-          category {
+          taxonomies {
             id
           }
           comments {

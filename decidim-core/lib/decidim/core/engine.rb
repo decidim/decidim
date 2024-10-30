@@ -171,8 +171,8 @@ module Decidim
         Decidim.icons.register(name: "calendar-todo-line", icon: "calendar-todo-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "home-8-line", icon: "home-8-line", category: "system", description: "", engine: :core)
 
-        Decidim.icons.register(name: "like", icon: "heart-add-line", description: "Like", category: "action", engine: :core)
-        Decidim.icons.register(name: "dislike", icon: "dislike-line", description: "Dislike", category: "action", engine: :core)
+        Decidim.icons.register(name: "like", icon: "heart-line", description: "Like", category: "action", engine: :core)
+        Decidim.icons.register(name: "dislike", icon: "heart-fill", description: "Dislike", category: "action", engine: :core)
         Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "draggable", icon: "draggable", category: "system", description: "", engine: :core)
@@ -186,6 +186,7 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Amendment", icon: "git-branch-line", category: "activity", description: "Amendment", engine: :core)
         Decidim.icons.register(name: "Decidim::Category", icon: "price-tag-3-line", description: "Category", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::Scope", icon: "scan-line", description: "Scope", category: "activity", engine: :core)
+        Decidim.icons.register(name: "Decidim::Taxonomy", icon: "scan-line", description: "Taxonomy", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::User", icon: "user-line", description: "User", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::UserGroup", icon: "group-line", description: "User Group", category: "activity", engine: :core)
         Decidim.icons.register(name: "follow", icon: "notification-3-line", description: "Follow", category: "action", engine: :core)
@@ -312,10 +313,14 @@ module Decidim
           value_presence = ->(v) { v.present? }
           minute_start = ->(v) { v.to_time.strftime("%Y-%m-%dT%H:%M:00") }
           minute_end = ->(v) { v.to_time.strftime("%Y-%m-%dT%H:%M:59") }
+          integer_presence = ->(v) { v.to_i.positive? }
+          array_cast = ->(v) { Arel.sql("ARRAY[#{v.to_i}]") }
           config.add_predicate("dtgt", arel_predicate: "gt", formatter: minute_start, validator: value_presence, type: :datetime)
           config.add_predicate("dtlt", arel_predicate: "lt", formatter: minute_end, validator: value_presence, type: :datetime)
           config.add_predicate("dtgteq", arel_predicate: "gteq", formatter: minute_start, validator: value_presence, type: :datetime)
           config.add_predicate("dtlteq", arel_predicate: "lteq", formatter: minute_end, validator: value_presence, type: :datetime)
+          # this allows to search for an integer inside a column that is an array
+          config.add_predicate("contains", arel_predicate: "contains", formatter: array_cast, validator: integer_presence)
         end
       end
 

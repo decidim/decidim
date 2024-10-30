@@ -18,8 +18,7 @@ module Decidim
             with_any_date: "upcoming",
             activity: "all",
             with_availability: "",
-            with_any_scope: nil,
-            with_any_category: nil,
+            with_any_taxonomies: nil,
             with_any_state: nil,
             with_any_origin: nil,
             with_any_type: nil

@@ -3,10 +3,9 @@
 module Decidim
   module Budgets
     class ProjectType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Comments::CommentableInterface
-      implements Decidim::Core::CategorizableInterface
 
       description "A project"
 

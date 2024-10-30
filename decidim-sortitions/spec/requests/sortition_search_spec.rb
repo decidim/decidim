@@ -29,7 +29,7 @@ RSpec.describe "Sortition search" do
   end
 
   it_behaves_like "a resource search", :sortition
-  it_behaves_like "a resource search with categories", :sortition, :single
+  it_behaves_like "a resource search with taxonomies", :sortition
 
   it "displays all non-cancelled sortitions without any filters" do
     expect(subject).to include(decidim_escape_translated(sortition1.title))
