@@ -363,7 +363,7 @@ nl:
             'false': Ingediend
             'true': Niet-gepubliceerde
         scope_id_eq:
-          label: Bereik
+          label: Scope
         search_label: Zoeken
         search_placeholder:
           name_or_nickname_or_email_cont: Zoek %{collection} op e-mail, naam of bijnaam.
