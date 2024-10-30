@@ -50,6 +50,12 @@ ru:
         other: Зарегистрировались
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Категория
+          scope_id_eq:
+            label: Охват
       meeting_copies:
         create:
           error: При попытке создать копию этой встречи произошла ошибка.
