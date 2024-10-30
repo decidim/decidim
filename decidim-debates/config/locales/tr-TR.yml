@@ -11,6 +11,7 @@ tr:
         end_time: Biter
         information_updates: Bilgi güncellemeleri
         instructions: Katılma talimatları
+        scope_id: Kapsam
         start_time: Den başlar
         title: Başlık
         user_group_id: Olarak tartışma oluştur
