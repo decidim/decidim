@@ -11,6 +11,7 @@
         end_time: Avsluttes den
         information_updates: Oppdateringer
         instructions: Instruksjoner for å delta
+        scope_id: Tema
         start_time: Starter den
         title: Tittel
         user_group_id: Opprett innspillstråd som
