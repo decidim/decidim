@@ -4,7 +4,6 @@ id:
     attributes:
       project:
         decidim_category_id: Kategori
-        decidim_scope_id: Cakupan
         description: Deskripsi
         proposal_ids: Proposal terkait
         title: Judul
@@ -72,7 +71,6 @@ id:
             other: "%{count} proyek"
         filters:
           category: Kategori
-          scope: Cakupan
           search: Pencarian
         show:
           budget: Anggaran
