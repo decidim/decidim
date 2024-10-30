@@ -102,8 +102,10 @@ sk:
       models:
         result:
           fields:
+            category: Kategória
             end_date: Koniec
             progress: Postup
+            scope: Rozsah
             start_date: Začiatok 
             status: Stav
             title: Názov
@@ -125,9 +127,6 @@ sk:
             other: "%{count} výsledkov"
         filters:
           all: Všetko
-        home:
-          categories_label: Kategórie
-          subcategories_label: Podkategórie
         home_header:
           global_status: Globálny stav vykonávania
         nav_breadcrumb:
@@ -139,6 +138,13 @@ sk:
             back_to_resource: Naspať na výsledky
         timeline:
           title: Vývoj projektu
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategória
+          scope_id_eq:
+            label: Rozsah
     components:
       accountability:
         name: Zodpovednosť
