@@ -493,6 +493,10 @@ ar:
         name: احصائيات المنظمة
       sub_hero:
         name: البطل الفرعي راية
+    core:
+      application_helper:
+        filter_category_values:
+          all: الكل
     devise:
       omniauth_registrations:
         new:
@@ -1252,6 +1256,7 @@ ar:
       participatory_space_filters:
         filters:
           areas: المناطق
+          scope: نطاق
           select_an_area: اختر المنطقة
       public_participation:
         public_participation: إبراز حضوري علنا
