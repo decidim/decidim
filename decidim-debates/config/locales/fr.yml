@@ -2,15 +2,12 @@ fr:
   activemodel:
     attributes:
       debate:
-        category_id: Catégorie
         closed_at: Clôturé le
         conclusions: Conclusions
-        decidim_category_id: Catégorie
         description: Description
         end_time: Prend fin à
         information_updates: Informations mises à jour
         instructions: Instructions pour participer
-        scope_id: Secteur
         start_time: Commence à
         title: Titre
         user_group_id: Créer un débat en tant que
@@ -131,8 +128,6 @@ fr:
             closed: Fermé
             open: Ouvert
           user_group: Groupes
-        form:
-          select_a_category: Veuillez sélectionner une catégorie
         index:
           new_debate: Nouveau débat
         new:
@@ -232,7 +227,6 @@ fr:
           created_at: La date de création de ce commentaire
           id: L'identifiant de ce commentaire
         debates:
-          category: La catégorie du débat (par exemple "Culture")
           closed_at: La date de clôture de ce débat
           conclusions: Les conclusions du débat s'il est clos
           created_at: La date et l'heure de création du débat
