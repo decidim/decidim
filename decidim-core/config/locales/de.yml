@@ -1513,7 +1513,7 @@ de:
         filters:
           area: Gebiet
           areas: Bereiche
-          scope: Thema
+          scope: Umfang
           select_an_area: Wählen Sie einen Bereich aus
       progress: Fortschritt
       public_participation:
