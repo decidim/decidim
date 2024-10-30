@@ -2,9 +2,7 @@ ar:
   activemodel:
     attributes:
       debate:
-        category_id: الفئة
         closed_at: تم إغلاقه في
-        decidim_category_id: الفئة
         description: وصف
         end_time: ينتهي عند
         information_updates: تحديثات المعلومات
@@ -91,8 +89,6 @@ ar:
           origin: الأصل
           participants: المشاركون
           search: بحث
-        form:
-          select_a_category: الرجاء تحديد الفئة
         index:
           new_debate: نقاش جديد
         new:
