@@ -63,6 +63,9 @@ es-MX:
         alignment:
           against: En contra
           in_favor: A favor
+        answers:
+          one: "%{count} respuesta"
+          other: "%{count} respuestas"
         cancel_reply: Cancelar respuesta
         comment_label: Comentario %{comment_id}
         comment_label_reply: Comentario %{comment_id} (responder al comentario %{parent_comment_id})
@@ -93,6 +96,7 @@ es-MX:
           one: Mostrar la respuesta
           other: Mostrar las %{count} respuestas
         single_comment_link_title: Obtener enlace
+        sort_by: 'Ordenar por: '
       comment_order_selector:
         order:
           best_rated: Mejor valoración
