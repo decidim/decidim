@@ -1505,7 +1505,7 @@ fr-CA:
         filters:
           area: Périmètre d'assemblée
           areas: Zones d'application
-          scope: Secteur
+          scope: Périmètre d'application
           select_an_area: Sélectionnez une zone d'application
       progress: Avancement
       public_participation:
