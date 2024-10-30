@@ -238,8 +238,6 @@ ru:
       exports:
         export_as: "%{name} как %{export_format}"
       filters:
-        category_id_eq:
-          label: Категория
         officialized_at_null:
           label: Cостояние
           values:
