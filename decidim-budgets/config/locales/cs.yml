@@ -2,15 +2,12 @@ cs:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Oblast působnosti
         description: Popis
         title: Název
         total_budget: Celkový rozpočet
         weight: Pozice v řazení
       project:
         budget_amount: Částka rozpočtu
-        decidim_category_id: Kategorie
-        decidim_scope_id: Oblast působnosti
         description: Popis
         proposal_ids: Související návrhy
         proposals: Návrhy
@@ -38,10 +35,6 @@ cs:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategorie
-          scope_id_eq:
-            label: Oblast působnosti
           selected_at_null:
             label: Vybráno
             values:
@@ -222,7 +215,6 @@ cs:
             total_budget: Celkový rozpočet
         project:
           fields:
-            category: Kategorie
             id: ID
             map: Mapa
             title: Titul
@@ -268,8 +260,6 @@ cs:
           message: Váš hlas nebyl zaregistrován, protože jste ještě nedokončili proces hlasování. Opravdu chcete ukončit hlasování?
           title: Zatím jste nehlasovali
         filters:
-          category: Kategorie
-          scope: Oblast působnosti
           search: Vyhledávání
           status: Stav
           status_values:
@@ -395,7 +385,6 @@ cs:
           address: Adresa projektu (pokud existuje)
           budget: Do které skupiny projektů (např. „rozpočet 2021“) patří tento projekt
           budget_amount: Celková částka rozpočtu pro tento projekt
-          category: Kategorie projektu (např. "Kultura")
           comments: Počet komentářů, které tento projekt obdržel
           component: Složka, do které projekt patří,
           confirmed_votes: Počet potvrzených hlasů tohoto projektu
@@ -406,7 +395,6 @@ cs:
           related_proposal_titles: Názvy souvisejících návrhů
           related_proposal_urls: URL adresy souvisejících návrhů
           related_proposals: Související návrhy k tomuto projektu
-          scope: Rozsah projektu (např. „město“)
           title: Název projektu
           url: URL adresa projektu
     orders:
