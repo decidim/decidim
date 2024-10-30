@@ -52,6 +52,9 @@ si:
         import:
           errors: දෝෂ
       models:
+        result:
+          fields:
+            category: ප්‍රවර්ගය
         timeline_entry:
           fields:
             entry_date: දිනය
@@ -60,3 +63,8 @@ si:
           stats:
             comments: අදහස්
             meetings: රැස්වීම්
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: ප්‍රවර්ගය
