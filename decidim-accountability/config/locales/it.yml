@@ -105,12 +105,10 @@ it:
       models:
         result:
           fields:
-            category: Categoria
             created_at: Creato
             end_date: Data di fine
             id: ID
             progress: Avanzamento
-            scope: Ambito
             start_date: Data di inizio
             status: Stato
             title: Titolo
@@ -129,15 +127,8 @@ it:
           results_count:
             one: 1 risultato
             other: "%{count} risultati"
-        filters:
-          all: Tutti
-        home:
-          categories_label: Categorie
-          subcategories_label: Sottocategorie
         home_header:
           global_status: Stato di esecuzione globale
-        nav_breadcrumb:
-          global: Esecuzione globale
         search:
           search: Cerca azioni
         show:
@@ -148,10 +139,6 @@ it:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categoria
-          scope_id_eq:
-            label: Ambito
           status_id_eq:
             label: Stato
     components:
