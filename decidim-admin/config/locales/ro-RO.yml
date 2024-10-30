@@ -424,7 +424,7 @@ ro:
             'false': Publicat
             'true': Nepublicat
         scope_id_eq:
-          label: Domeniu
+          label: Domeniu de interes
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
@@ -864,7 +864,7 @@ ro:
       resources:
         index:
           headers:
-            scope: Domeniu
+            scope: Domeniu de interes
       scope_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de domeniu.
