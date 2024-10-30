@@ -96,8 +96,6 @@ bg:
             'false': Не се приема
             'true': Прието
         meetings:
-          category_id_eq:
-            label: Категория
           closed_at_present:
             label: Състояние
             values:
@@ -108,8 +106,6 @@ bg:
             values:
               'false': Минали
               'true': Предстоящо
-          scope_id_eq:
-            label: Обхват
           with_any_origin:
             label: Произход
             values:
@@ -410,8 +406,6 @@ bg:
         questionnaire:
           update: "%{user_name} актуализира въпросника за срещата %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Всички
         filter_meeting_space_values:
           all: Всички
       calendar:
@@ -521,7 +515,6 @@ bg:
           location_hints_help: 'Съвети за местоположение: допълнителна информация. Пример: етажът на сградата, ако е лична среща, или паролата за среща, ако е онлайн среща с ограничен достъп.'
           online_meeting_url_help: 'Връзка: позволява на участниците да се свързват директно с вашата среща'
           registration_url_help: 'Линк: позволете на участниците да отидат на външната услуга, която използвате за регистрации'
-          select_a_category: Моля, изберете категория
           select_a_meeting_type: Моля, изберете тип среща
           select_a_registration_type: Моля, изберете тип регистрация
           select_an_iframe_access_level: Моля, изберете ниво на достъп до iframe
