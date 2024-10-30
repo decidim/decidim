@@ -9,7 +9,7 @@ module Decidim
 
       alias debate model
 
-      delegate :type_of_meeting, :start_time, :end_time, :category, :withdrawn?, to: :debate
+      delegate :type_of_meeting, :start_time, :end_time, :withdrawn?, to: :debate
 
       def initialize(*)
         super
@@ -17,17 +17,8 @@ module Decidim
         @items.prepend(*debate_items)
       end
 
-      def category_item
-        return if category.blank?
-
-        {
-          text: category.translated_name,
-          icon: resource_type_icon_key("Decidim::Category")
-        }
-      end
-
       def debate_items
-        [duration, comments_count_item, endorsements_count_item, category_item, coauthors_item]
+        [duration, comments_count_item, endorsements_count_item] + taxonomy_items + [coauthors_item]
       end
 
       def duration
