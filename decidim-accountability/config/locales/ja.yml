@@ -198,12 +198,10 @@ ja:
       models:
         result:
           fields:
-            category: カテゴリ
             created_at: 作成日時
             end_date: 終了日
             id: ID
             progress: 進捗状況
-            scope: スコープ
             start_date: 開始日
             status: ステータス
             title: タイトル
@@ -221,17 +219,11 @@ ja:
         count:
           results_count:
             other: "%{count} 件の結果"
-        filters:
-          all: すべて
         home:
-          categories_label: カテゴリ
           empty: まだ結果はありません。
           empty_filters: この条件の結果はありません。
-          subcategories_label: サブカテゴリ
         home_header:
           global_status: グローバル実行状況
-        nav_breadcrumb:
-          global: グローバル実行
         no_results: プロジェクトがありません
         search:
           search: アクションを検索
@@ -243,10 +235,6 @@ ja:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: カテゴリ
-          scope_id_eq:
-            label: スコープ
           status_id_eq:
             label: ステータス
     components:
@@ -297,7 +285,6 @@ ja:
           root_commentable_url: このコメントに関連するリソースの URL
           user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         results:
-          category: '結果のカテゴリ (例: "文化")'
           component: 結果が属するコンポーネント
           created_at: 結果の作成日時
           description: 結果の説明
@@ -306,7 +293,6 @@ ja:
           parent: 結果の親の結果 (もしあれば)
           progress: 結果の実行の割合
           proposal_urls: この結果に含まれる提案のURL
-          scope: '結果のスコープ (例: "市")'
           start_date: 結果の実行を開始した日時
           status: この結果の現在の状態
           title: 結果のタイトル
