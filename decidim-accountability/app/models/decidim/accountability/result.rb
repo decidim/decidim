@@ -45,6 +45,8 @@ module Decidim
         datetime: :start_date
       )
 
+      geocoded_by :address
+
       def self.log_presenter_class_for(_log)
         Decidim::Accountability::AdminLog::ResultPresenter
       end

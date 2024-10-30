@@ -19,6 +19,7 @@ module Decidim
         create_initiative?
         edit_public_initiative?
         update_public_initiative?
+        print_initiative?
 
         vote_initiative?
         sign_initiative?
@@ -52,6 +53,7 @@ module Decidim
                       permission_action.action == :read
 
         return allow! if initiative.open? || initiative.rejected? || initiative.accepted?
+        return allow! if user_can_preview_space?
         return allow! if user && authorship_or_admin?
 
         disallow!
@@ -121,6 +123,17 @@ module Decidim
         )
       end
 
+      def print_initiative?
+        return unless permission_action.action == :print &&
+                      permission_action.subject == :initiative
+
+        toggle_allow(Decidim::Initiatives.print_enabled && (authorship_or_admin? || committee_member?))
+      end
+
+      def committee_member?
+        InitiativesPromoted.by(user).exists?(id: initiative.id)
+      end
+
       def vote_initiative?
         return unless permission_action.action == :vote &&
                       permission_action.subject == :initiative
@@ -179,6 +192,12 @@ module Decidim
         Decidim::Initiatives.do_not_require_authorization ||
             UserAuthorizations.for(user).any?
       )
+      end
+
+      def user_can_preview_space?
+        context[:share_token].present? && Decidim::ShareToken.use!(token_for: initiative, token: context[:share_token], user:)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
       end
 
       def initiative_committee_action?

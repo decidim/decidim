@@ -1,0 +1,9 @@
+= Language Detection Formatter
+
+```ruby
+class Formatter
+  def cleanup(text)
+    strip_tags(text)
+  end
+end
+```
