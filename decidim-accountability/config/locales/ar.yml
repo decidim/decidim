@@ -203,12 +203,10 @@ ar:
       models:
         result:
           fields:
-            category: الفئة
             created_at: تم الإنشاء
             end_date: تاريخ الانتهاء
             id: المعرف ID
             progress: تقدم
-            scope: النطاق
             start_date: تاريخ البدء
             status: الحالة
             title: عنوان
@@ -231,17 +229,11 @@ ar:
             few: "%{count} النتائج"
             many: "%{count} النتائج"
             other: "%{count} النتائج"
-        filters:
-          all: الكل
         home:
-          categories_label: الفئات
           empty: لا توجد نتائج بعد.
           empty_filters: لا توجد نتائج تطابق هذه المعايير.
-          subcategories_label: الفئات الفرعية
         home_header:
           global_status: حالة التنفيذ العالمي
-        nav_breadcrumb:
-          global: التنفيذ العالمي
         no_results: لا يوجد مشاريع
         search:
           search: البحث عن الإجراءات
@@ -253,10 +245,6 @@ ar:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: الفئة
-          scope_id_eq:
-            label: النطاق
           status_id_eq:
             label: الحالة
     components:
@@ -305,8 +293,6 @@ ar:
           locale: اللغة التي كانت لدى المشارك عندما ترك هذا التعليق
           root_commentable_url: عنوان URL للمورد الذي يربط بهذا التعليق
           user_group: اسم مجموعة المستخدم الذي صنع هذا التعليق (إن وجد)
-        results:
-          category: فئة النتيجة (مثل "الثقافة")
     participatory_spaces:
       highlighted_results:
         see_all: عرض كل النتائج (%{count})
