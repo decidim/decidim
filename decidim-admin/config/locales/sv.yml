@@ -409,8 +409,6 @@ sv:
           JSON: JSON
         notice: Din export håller på att behandlas. Du får ett e-postmeddelande när det är klart.
       filters:
-        category_id_eq:
-          label: Kategori
         filter_label: Filtrera
         invitation_accepted_at_present:
           label: Inbjudan har accepterats
@@ -459,8 +457,6 @@ sv:
             'false': Publicerade
             'true': Ej publicerade
         remove_all: Ta bort allt
-        scope_id_eq:
-          label: Indelning
         search_label: Sök
         search_placeholder:
           name_or_nickname_or_email_cont: Sök i %{collection} efter e-post, namn eller användarnamn.
@@ -926,10 +922,6 @@ sv:
           title: Redigera behörigheter
         update:
           success: Behörigheterna har uppdaterats.
-      resources:
-        index:
-          headers:
-            scope: Indelning
       scope_types:
         create:
           error: Det gick inte att skapa en ny typ av indelning.
@@ -1044,12 +1036,9 @@ sv:
         new:
           create: Skapa kategorisering
           title: Ny kategorisering
-        no_taxonomies: Det finns inga kategorier. Skapa en lista på kategorier och underkategorier här för att kunna använda för filtrering av innehåll.
         table:
           to_next_page: Dra till nästa sida
           to_prev_page: Dra till föregående sida
-        taxonomy_actions:
-          confirm_destroy: Är du säker på att du vill ta bort %{name}? Det kommer också att ta bort underkategorier.
         update:
           invalid: Det gick inte att uppdatera kategorin.
           success: Kategorin har uppdaterats.
@@ -1067,7 +1056,6 @@ sv:
         edit:
           back: Tillbaka
           items: "%{count} objekt valda"
-          no_items: Inga underkategorier är tillgängliga för kategorin. Du kan skapa underkategorier i inställningarna för kategorin.
           title: Redigera filter för kategori
           update: Uppdatera filter för kategori
         form:
@@ -1082,7 +1070,6 @@ sv:
           title: Nytt filter för kategori
         table:
           actions: Åtgärder
-          confirm_destroy: Är du säker på att du vill ta bort filtret %{name}?
           count: Antal objekt
           destroy: Radera
           edit: Redigera
