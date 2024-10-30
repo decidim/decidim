@@ -202,12 +202,10 @@ es-PY:
       models:
         result:
           fields:
-            category: Categoría
             created_at: Creado
             end_date: Fin
             id: ID
             progress: Progreso
-            scope: Ámbito
             start_date: Inicio
             status: Estado
             title: Título
@@ -226,17 +224,11 @@ es-PY:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
-        filters:
-          all: Todos
         home:
-          categories_label: Categorías
           empty: Aún no hay ningún resultado.
           empty_filters: No hay resultados con estos criterios.
-          subcategories_label: Subcategorías
         home_header:
           global_status: Estado de ejecución global
-        nav_breadcrumb:
-          global: Ejecución global
         no_results: No hay proyectos
         search:
           search: Buscar actuaciones
@@ -248,10 +240,6 @@ es-PY:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categoría
-          scope_id_eq:
-            label: Ámbito
           status_id_eq:
             label: Estado
     components:
@@ -264,6 +252,7 @@ es-PY:
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             display_progress_enabled: Mostrar progreso
+            geocoding_enabled: Mapas habilitados
             intro: Introducción
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
@@ -301,7 +290,6 @@ es-PY:
           root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
           user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
         results:
-          category: La categoría del resultado (por ejemplo, "Cultura")
           component: El componente al que pertenece el resultado
           created_at: La fecha en la que se creó este resultado
           description: La descripción del resultado
@@ -310,7 +298,6 @@ es-PY:
           parent: El resultado padre (si existe) del resultado
           progress: El porcentaje de ejecución del resultado
           proposal_urls: Las URL de las propuestas que se incluyen en este resultado
-          scope: El ámbito territorial del resultado (por ejemplo, "Ciudad")
           start_date: La fecha en la que estaba previsto el inicio de la ejecución del resultado
           status: El estado actual de este resultado
           title: El título del resultado
