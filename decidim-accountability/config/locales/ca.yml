@@ -264,6 +264,7 @@ ca:
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             display_progress_enabled: Mostrar el progrés
+            geocoding_enabled: Mapes habilitats
             intro: Introducció
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
