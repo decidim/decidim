@@ -6,7 +6,7 @@ shared_context "with taxonomy filters context" do
   let!(:root_taxonomy) { create(:taxonomy, organization:) }
   let!(:another_root_taxonomy) { create(:taxonomy, organization:) }
   let!(:unselected_root_taxonomy) { create(:taxonomy, organization:) }
-  let!(:taxonomy) { create(:taxonomy, organization:, parent: root_taxonomy) }
+  let!(:taxonomy) { create(:taxonomy, skip_injection: true, organization:, parent: root_taxonomy) }
   let!(:another_taxonomy) { create(:taxonomy, organization:, parent: root_taxonomy) }
   let!(:taxonomy_with_child) { create(:taxonomy, organization:, parent: root_taxonomy) }
   let!(:taxonomy_child) { create(:taxonomy, organization:, parent: taxonomy_with_child) }
