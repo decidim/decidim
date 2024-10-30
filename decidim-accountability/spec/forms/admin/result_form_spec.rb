@@ -34,7 +34,7 @@ module Decidim::Accountability
     let(:status) { create(:status, component: current_component, key: "ongoing", name: { en: "Ongoing" }) }
     let(:status_id) { status.id }
     let(:progress) { 89 }
-    let(:address) { "Carrer de Muntaner, 152, 08021 Barcelona" }
+    let(:address) { "Carrer de Sant Joan, 123, 08001 Barcelona" }
     let(:latitude) { 41.38879 }
     let(:longitude) { 2.15899 }
     let(:attributes) do

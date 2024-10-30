@@ -19,7 +19,7 @@ module Decidim
     def call
       return broadcast(:invalid) if form.invalid?
 
-      transaction do
+      with_events(with_transaction: true) do
         create_user_group
         create_membership
       end
@@ -30,7 +30,11 @@ module Decidim
 
     private
 
-    attr_reader :form
+    attr_reader :form, :user_group
+
+    def event_arguments
+      { resource: user_group }
+    end
 
     def create_user_group
       @user_group = UserGroup.create!(

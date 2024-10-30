@@ -21,6 +21,8 @@ jobs:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
+      DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
+      DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
     services:
       postgres:
         image: postgres:14
