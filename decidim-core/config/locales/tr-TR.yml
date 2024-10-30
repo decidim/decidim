@@ -373,6 +373,10 @@ tr:
         name: Organizasyon istatistikleri
       sub_hero:
         name: Alt ana afişi
+    core:
+      application_helper:
+        filter_category_values:
+          all: Herşey
     devise:
       omniauth_registrations:
         new:
@@ -1012,6 +1016,7 @@ tr:
       participatory_space_filters:
         filters:
           areas: alanlar
+          scope: Kapsam
           select_an_area: Bir bölge seçin
       progress: "Süreç\nİlerleme"
       reference:
