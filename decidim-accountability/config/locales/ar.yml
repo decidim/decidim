@@ -202,7 +202,7 @@ ar:
             end_date: تاريخ الانتهاء
             id: المعرف ID
             progress: تقدم
-            scope: النطاق
+            scope: نطاق
             start_date: تاريخ البدء
             status: الحالة
             title: عنوان
@@ -228,10 +228,8 @@ ar:
         filters:
           all: الكل
         home:
-          categories_label: الفئات
           empty: لا توجد نتائج بعد.
           empty_filters: لا توجد نتائج تطابق هذه المعايير.
-          subcategories_label: الفئات الفرعية
         home_header:
           global_status: حالة التنفيذ العالمي
         nav_breadcrumb:
@@ -258,7 +256,7 @@ ar:
           category_id_eq:
             label: الفئة
           scope_id_eq:
-            label: النطاق
+            label: نطاق
           status_id_eq:
             label: الحالة
     components:
