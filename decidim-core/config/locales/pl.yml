@@ -561,8 +561,6 @@ pl:
       application_helper:
         filter_area_values:
           all: Wszystkie
-        filter_category_values:
-          all: Wszystkie
         filter_scope_values:
           all: Wszystkie
     devise:
@@ -1487,12 +1485,6 @@ pl:
         sign_up: Utwórz konto
       mentions_modal:
         remove_recipient: Usuń odbiorcę %{name}
-      participatory_space_filters:
-        filters:
-          area: Obszar
-          areas: Kategorie
-          scope: Zakres
-          select_an_area: Wybierz kategorię
       progress: Postęp
       public_participation:
         public_participation: Wyświetl publicznie moje uczestnictwo
@@ -1521,9 +1513,6 @@ pl:
       pages_count: Stron
       participants_count: Użytkowników
       users_count: Uczestników
-    tags:
-      filter_results_for_category: 'Filtruj wyniki dla kategorii: %{resource}'
-      filter_results_for_scope: 'Filtruj wyniki dla zakresu: %{resource}'
     translation_bar:
       help_text: "<strong>Uwaga:</strong> Zawartość może być tłumaczeniem automatycznym i może nie być w 100% dokładna."
       show_original: Pokaż oryginalny tekst
