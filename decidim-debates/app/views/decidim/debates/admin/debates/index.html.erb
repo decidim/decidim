@@ -15,7 +15,7 @@
           <th><%= t("models.debate.fields.title", scope: "decidim.debates") %></th>
           <th><%= t("models.debate.fields.start_time", scope: "decidim.debates") %></th>
           <th><%= t("models.debate.fields.end_time", scope: "decidim.debates") %></th>
-          <%= th_resource_scope_label %>
+          <th><%= t("models.debate.fields.taxonomies", scope: "decidim.debates") %></th>
           <th><%= t("actions.title", scope: "decidim.debates") %></th>
         </tr>
       </thead>
@@ -39,7 +39,9 @@
                 <%= l debate.end_time, format: :long %>
               <% end %>
             </td>
-            <%= td_resource_scope_for(debate.scope) %>
+            <td>
+              <%= debate.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
+            </td>
             <td class="table-list__actions">
               <% if allowed_to? :update, :debate, debate: debate %>
                 <%= icon_link_to "pencil-line", edit_debate_path(debate), t("actions.edit", scope: "decidim.debates"), class: "action-icon--edit" %>

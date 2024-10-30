@@ -27,8 +27,7 @@ module Decidim
         @collaborative_drafts = search
                                 .result
                                 .not_hidden
-                                .includes(:category)
-                                .includes(:scope)
+                                .includes(:taxonomies)
 
         @collaborative_drafts = reorder(@collaborative_drafts)
         @collaborative_drafts = paginate(@collaborative_drafts)
@@ -144,9 +143,8 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_any_category: nil,
+          with_any_taxonomies: nil,
           with_any_state: %w(open),
-          with_any_scope: nil,
           related_to: ""
         }
       end
