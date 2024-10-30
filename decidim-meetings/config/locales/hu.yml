@@ -69,7 +69,7 @@ hu:
               'false': Előzmények
               'true': Közelgő
           scope_id_eq:
-            label: Hatókör
+            label: Hatáskör
           with_any_origin:
             label: Kiindulópont
             values:
