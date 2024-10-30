@@ -28,7 +28,7 @@ describe "Answer a survey" do
   end
   let(:user) { create(:user, :confirmed, organization: component.organization) }
   let!(:questionnaire) { create(:questionnaire, title:, description:) }
-  let!(:survey) { create(:survey, component:, published_at: Time.current, questionnaire:) }
+  let!(:survey) { create(:survey, :published, component:, questionnaire:) }
   let!(:question) { create(:questionnaire_question, questionnaire:, position: 0, description: question_description) }
 
   include_context "with a component"
@@ -126,6 +126,19 @@ describe "Answer a survey" do
       context "when displaying question description" do
         it_behaves_like "has embedded video in description", :question_description
       end
+    end
+  end
+
+  context "when survey has a custom announcement" do
+    let!(:survey) { create(:survey, :published, :announcement, :allow_answers, :allow_unregistered, component:, questionnaire:) }
+
+    before do
+      visit_component
+      click_on translated_attribute(questionnaire.title)
+    end
+
+    it "displays the announcement in the survey" do
+      expect(page).to have_content("This is a custom announcement.")
     end
   end
 
