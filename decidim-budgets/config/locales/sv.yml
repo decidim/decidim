@@ -2,15 +2,12 @@ sv:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Indelning
         description: Beskrivning
         title: Titel
         total_budget: Total budget
         weight: Position i listan
       project:
         budget_amount: Belopp
-        decidim_category_id: Kategori
-        decidim_scope_id: Indelning
         description: Beskrivning
         proposal_ids: Relaterade förslag
         proposals: Förslag
@@ -30,10 +27,6 @@ sv:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategori
-          scope_id_eq:
-            label: Indelning
           selected_at_null:
             label: Valda
             values:
@@ -208,7 +201,6 @@ sv:
             total_budget: Total budget
         project:
           fields:
-            category: Kategori
             id: ID
             map: Karta
             title: Titel
@@ -252,8 +244,6 @@ sv:
           message: Din röst har inte registrerats eftersom du ännu inte har slutfört omröstningen. Är du säker på att du vill lämna omröstningen?
           title: Du har ännu inte röstat
         filters:
-          category: Kategori
-          scope: Indelning
           search: Sök
           status: Status
           status_values:
