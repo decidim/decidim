@@ -40,6 +40,10 @@ shared_context "with a component" do
 
   let!(:category) { create(:category, participatory_space:) }
   let!(:scope) { create(:scope, organization:) }
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let!(:taxonomy) { create(:taxonomy, organization:, parent: root_taxonomy) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, space_manifest: participatory_space.manifest.name, root_taxonomy:) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
 
   let(:organization_traits) { [] }
 

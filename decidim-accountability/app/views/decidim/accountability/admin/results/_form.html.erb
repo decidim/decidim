@@ -18,15 +18,14 @@
 
       <% else %>
 
-        <% if current_component.has_subscopes? %>
-          <div class="row column">
-            <%= scopes_select_field form, :decidim_scope_id, root: current_component.scope %>
-          </div>
-        <% end %>
-
-        <div class="row column">
-          <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: true, disable_parents: false %>
+        <% if @form.taxonomy_filters&.any? %>
+          <% @form.taxonomy_filters.each do |filter| %>
+            <div class="row column">
+              <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+            </div>
+          <% end %>
         </div>
+        <% end %>
 
       <% end %>
 
@@ -39,6 +38,14 @@
           <%= form.date_field :end_date %>
         </div>
       </div>
+
+      <% if @form.geocoding_enabled? %>
+        <div class="row">
+          <div class="columns">
+            <%= form.geocoding_field(:address) %>
+          </div>
+        </div>
+      <% end %>
 
       <div class="row">
         <div class="columns">

@@ -127,7 +127,7 @@ edit_link(
       <div class="sortition__aside-element bg-background p-4 rounded">
         <div class="sortition__aside-element-item">
           <span class="sortition__aside-element-item__title">
-            <%= t("candidate_proposals_info", scope: "decidim.sortitions.sortitions.show", category_label: sortition_category_label(sortition)) %>
+            <%= t("candidate_proposals_info", scope: "decidim.sortitions.sortitions.show", taxonomy_labels: sortition_taxonomy_labels(sortition)) %>
           </span>
           <span class="sortition__aside-element-item__numbers">
             <%= sortition_proposal_candidate_ids sortition %>

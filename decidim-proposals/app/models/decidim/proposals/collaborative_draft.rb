@@ -5,6 +5,7 @@ module Decidim
     class CollaborativeDraft < Proposals::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::Coauthorable
+      include Decidim::Taxonomizable
       include Decidim::HasComponent
       include Decidim::ScopableResource
       include Decidim::HasReference
@@ -64,7 +65,7 @@ module Decidim
       ransacker_text_multi :search_text, [:title, :body]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :related_to, :with_any_scope, :with_any_category]
+        [:with_any_state, :related_to, :with_any_taxonomies]
       end
 
       def self.ransackable_attributes(_auth_object = nil)
