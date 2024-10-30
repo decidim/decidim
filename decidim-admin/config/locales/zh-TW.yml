@@ -365,8 +365,6 @@ zh-TW:
           JSON: JSON
         notice: 匯出處理中，完成後會發出通知
       filters:
-        category_id_eq:
-          label: 類別
         filter_label: 篩選
         invitation_accepted_at_present:
           label: 邀請已接受
@@ -414,8 +412,6 @@ zh-TW:
           values:
             'false': 已發佈
             'true': 取消發佈
-        scope_id_eq:
-          label: 範圍
         search_label: 搜尋
         search_placeholder:
           name_or_nickname_or_email_cont: 按電子郵件、姓名或暱稱搜索%{collection}。
@@ -837,10 +833,6 @@ zh-TW:
           title: 編輯權限
         update:
           success: 權限更新成功
-      resources:
-        index:
-          headers:
-            scope: 範圍
       scope_types:
         create:
           error: 建立新範圍類型時發生問題。
