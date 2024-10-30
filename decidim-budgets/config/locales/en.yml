@@ -428,8 +428,6 @@ en:
     orders:
       checkout:
         error: There was a problem processing your vote.
-        success_html: <p>Your vote has been successfully accepted.</p> <p class="text-sm font-normal">You can explore the <a class="text-secondary underline" href="%{rest_of_budgets_link}">rest of budgets</a>.</p>
-        success_no_left_budgets_html: Your vote has been successfully accepted.
       destroy:
         error: There was a problem canceling your vote.
         success: Your vote has been successfully canceled.

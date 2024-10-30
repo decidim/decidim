@@ -13,8 +13,6 @@ module Decidim
 
         Checkout.call(current_order) do
           on(:ok) do
-            i18n_key = pending_to_vote_budgets.any? ? "success_html" : "success_no_left_budgets_html"
-            flash[:notice] = I18n.t(i18n_key, scope: "decidim.orders.checkout", rest_of_budgets_link: "#budgets")
             redirect_to status_budget_order_path(budget)
           end
 
