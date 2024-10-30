@@ -210,12 +210,10 @@ cs:
       models:
         result:
           fields:
-            category: Kategorie
             created_at: Vytvořeno
             end_date: Datum ukončení
             id: ID
             progress: Průběh
-            scope: Oblast působnosti
             start_date: Počáteční datum
             status: Stav
             title: Název
@@ -236,17 +234,11 @@ cs:
             few: "%{count} výsledků"
             many: "%{count} výsledků"
             other: "%{count} výsledků"
-        filters:
-          all: Vše
         home:
-          categories_label: Kategorie
           empty: Zatím nejsou žádné výsledky.
           empty_filters: S těmito kritérii nejsou žádné výsledky.
-          subcategories_label: Podkategorie
         home_header:
           global_status: Globální stav provedení
-        nav_breadcrumb:
-          global: Globální provedení
         no_results: Nebyly nalezeny žádné projekty
         search:
           search: Hledat akce
@@ -258,10 +250,6 @@ cs:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategorie
-          scope_id_eq:
-            label: Oblast působnosti
           status_id_eq:
             label: Stav
     components:
@@ -311,7 +299,6 @@ cs:
           root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
           user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         results:
-          category: Kategorie výsledku (např. "Kultura")
           component: Komponenta, do které náleží výsledek
           created_at: Datum, kdy byl výsledek vytvořen
           description: Popis výsledku
@@ -320,7 +307,6 @@ cs:
           parent: Nadřazený výsledek (pokud existuje) výsledku
           progress: Procento provedení výsledku
           proposal_urls: URL návrhů, které jsou součástí tohoto výsledku
-          scope: Rozsah výsledku (např. "město")
           start_date: Datum, kdy se výsledek spustí
           status: Aktuální stav tohoto výsledku
           title: Název výsledku
