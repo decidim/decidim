@@ -522,8 +522,6 @@ hu:
       application_helper:
         filter_area_values:
           all: Összes
-        filter_category_values:
-          all: Összes
         filter_scope_values:
           all: Összes
     devise:
@@ -1370,12 +1368,6 @@ hu:
         please_log_in: Kérjük, jelentkezz be
       mentions_modal:
         remove_recipient: '%{name} címzett eltávolítása'
-      participatory_space_filters:
-        filters:
-          area: Terület
-          areas: Területek
-          scope: Hatókör
-          select_an_area: Válasszon ki egy területet
       progress: Folyamat
       public_participation:
         public_participation: Nyilvánosan mutassa a részvételemet
@@ -1404,8 +1396,6 @@ hu:
       pages_count: Oldalak
       participants_count: Résztvevők
       users_count: Résztvevők
-    tags:
-      filter_results_for_category: 'A kategória találatainak szűrése: %{resource}'
     translation_bar:
       help_text: "<strong>Figyelem:</strong> A tartalmat automatikusan fordíthatták, és nem 100% -ban pontos."
       show_original: Eredeti szöveg mutatása
