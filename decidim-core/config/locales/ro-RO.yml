@@ -627,7 +627,7 @@ ro:
         amendment_promoted:
           affected_user:
             email_intro: 'Un amendament respins pentru %{amendable_title} a fost publicat ca un nou %{amendable_type}. Îl poți vedea de pe această pagină:'
-            email_outro: Ai primit această notificare deoarece ești autorul amendamentului %{amendable_title}.
+            email_outro: Ați primit această notificare deoarece sunteți autorul amendamentului %{amendable_title}.
             email_subject: Un amendament primit de la %{emendation_author_nickname} a fost publicat ca un nou %{amendable_type}
             notification_title: Un <a href="%{emendation_path}">amendament respins</a> pentru <a href="%{amendable_path}">%{amendable_title}</a> a fost publicat ca un nou %{amendable_type} de <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
