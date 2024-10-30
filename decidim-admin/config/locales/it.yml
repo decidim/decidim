@@ -352,7 +352,7 @@ it:
             'false': Pubblicato
             'true': Non pubblicato (nascosto)
         scope_id_eq:
-          label: Ambito tematico
+          label: Obiettivi
         search_label: Ricerca
         search_placeholder:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
@@ -712,7 +712,7 @@ it:
       resources:
         index:
           headers:
-            scope: Ambito
+            scope: Obiettivi
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
