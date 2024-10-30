@@ -395,8 +395,6 @@ pl:
           JSON: JSON
         notice: Trwa eksportowanie. Po zakończeniu otrzymasz wiadomość e-mail.
       filters:
-        category_id_eq:
-          label: Kategoria
         filter_label: Filtr
         invitation_accepted_at_present:
           label: Zaproszenie zaakceptowane
@@ -445,8 +443,6 @@ pl:
             'false': Opublikowany
             'true': Nieopublikowany
         remove_all: Usuń wszystkie
-        scope_id_eq:
-          label: Zakres
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
@@ -915,10 +911,6 @@ pl:
           title: Edytuj uprawnienia
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
-      resources:
-        index:
-          headers:
-            scope: Zakres
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
