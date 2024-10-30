@@ -368,8 +368,6 @@ lt:
           JSON: JSON
         notice: Jūsų rinkmena šiuo metu eksportuojama. Kai eksportas bus baigtas, gausite el. laišką.
       filters:
-        category_id_eq:
-          label: Kategorija
         filter_label: Filtras
         invitation_accepted_at_present:
           label: Pakvietimas priimtas
@@ -417,8 +415,6 @@ lt:
           values:
             'false': Publikuota
             'true': Nebeskelbiama
-        scope_id_eq:
-          label: Apimtis
         search_label: Ieškoti
         search_placeholder:
           name_or_nickname_or_email_cont: Ieškoti %{collection} pagal el. pašto adresą, vardą ir pavardę arba naudotojo vardą.
@@ -864,10 +860,6 @@ lt:
           title: Redaguoti leidimus
         update:
           success: Leidimai atnaujinti.
-      resources:
-        index:
-          headers:
-            scope: Apimtis
       scope_types:
         create:
           error: Kuriant naujo tipo sritį iškilo problema.
