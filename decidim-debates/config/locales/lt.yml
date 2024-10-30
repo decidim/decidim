@@ -2,15 +2,12 @@ lt:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorija
         closed_at: Uždaryta
         conclusions: Išvados
-        decidim_category_id: Kategorija
         description: Aprašymas
         end_time: Biagiasi
         information_updates: Informacijos atnaujinimai
         instructions: Dalyvavimo instrukcija
-        scope_id: Sritis
         start_time: Prasideda
         title: Pavadinimas
         user_group_id: Sukurti diskusiją kaip
@@ -124,8 +121,6 @@ lt:
             closed: Uždaryta
             open: Atidaryta
           user_group: Grupės
-        form:
-          select_a_category: Pasirinkite kategoriją
         index:
           new_debate: Nauja diskusija
         new:
