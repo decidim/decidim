@@ -108,7 +108,7 @@ gl:
             end_date: Data de finalización
             id: ID
             progress: Progreso
-            scope: Ámbito
+            scope: Alcance
             start_date: Data de inicio
             status: Estado
             title: Título
@@ -128,9 +128,6 @@ gl:
             other: "%{count} resultados"
         filters:
           all: Todo
-        home:
-          categories_label: Categorías
-          subcategories_label: Subcategorías
         home_header:
           global_status: Estado de execución global
         nav_breadcrumb:
@@ -156,7 +153,7 @@ gl:
           category_id_eq:
             label: Categoría
           scope_id_eq:
-            label: Ámbito
+            label: Alcance
           status_id_eq:
             label: Estado
     components:
