@@ -2,15 +2,12 @@ cs:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorie
         closed_at: Uzavřeno v
         conclusions: Závěry
-        decidim_category_id: Kategorie
         description: Popis
         end_time: Končí v
         information_updates: Aktualizace informací
         instructions: Pokyny k účasti
-        scope_id: Oblast působnosti
         start_time: Začíná v
         title: Titul
         user_group_id: Vytvořte debatu jako
@@ -135,8 +132,6 @@ cs:
             closed: Uzavřeno
             open: Otevřeno
           user_group: Skupiny
-        form:
-          select_a_category: Vyberte kategorii
         index:
           new_debate: Nová debata
         new:
