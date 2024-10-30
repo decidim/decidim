@@ -323,8 +323,6 @@
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Kategori
         filter_label: Filter
         invitation_accepted_at_present:
           label: Invitasjonen er akseptert
@@ -372,8 +370,6 @@
           values:
             'false': Publisert
             'true': Avpublisert
-        scope_id_eq:
-          label: Tema
         search_label: Søk
         search_placeholder:
           name_or_nickname_or_email_cont: Søk %{collection} via email, navn eller kallenavn.
@@ -760,10 +756,6 @@
           title: Endre tillatelser
         update:
           success: Tillatelsene ble oppdatert.
-      resources:
-        index:
-          headers:
-            scope: Tema
       scope_types:
         create:
           error: Det oppstod et problem med å lage en ny tematype.
