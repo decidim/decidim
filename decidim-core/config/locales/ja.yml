@@ -582,8 +582,6 @@ ja:
       application_helper:
         filter_area_values:
           all: すべて
-        filter_category_values:
-          all: すべて
         filter_scope_values:
           all: すべて
     devise:
@@ -1560,12 +1558,6 @@ ja:
         sign_up: アカウントを作成
       mentions_modal:
         remove_recipient: 受信者 %{name} を削除
-      participatory_space_filters:
-        filters:
-          area: エリア
-          areas: エリア
-          scope: スコープ
-          select_an_area: エリアを選択
       progress: 進捗状況
       public_participation:
         public_participation: 参加を公開する
@@ -1594,9 +1586,6 @@ ja:
       pages_count: ページ
       participants_count: 参加者
       users_count: 参加者
-    tags:
-      filter_results_for_category: 'カテゴリの検索結果: %{resource}'
-      filter_results_for_scope: 'スコープの検索結果: %{resource}'
     taxonomies:
       prompt: '"%{name}"から選択'
     translation_bar:
