@@ -51,6 +51,12 @@ tr:
         other: Kayıtlar
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: kapsam
       meeting_copies:
         create:
           error: Bu toplantıyı kopyalarken bir sorun oluştu.
@@ -273,6 +279,9 @@ tr:
           value_types:
             organizer_presenter:
               not_found: 'Organizatör veritabanında bulunamadı (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Tümü
       calendar:
         meeting_to_event:
           read_more: Bu toplantı hakkında daha fazlasını okuyun
