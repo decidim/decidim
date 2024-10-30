@@ -393,7 +393,7 @@ eu:
           update: "%{user_name} erabiltzaileak galdetegia eguneratu du %{meeting_name} topaketan"
       application_helper:
         filter_category_values:
-          all: Guztiak
+          all: Denak
         filter_meeting_space_values:
           all: Guztiak
       calendar:
