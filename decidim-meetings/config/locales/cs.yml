@@ -106,8 +106,6 @@ cs:
             'false': Nepřijato
             'true': Přijato
         meetings:
-          category_id_eq:
-            label: Kategorie
           closed_at_present:
             label: Stav
             values:
@@ -118,8 +116,6 @@ cs:
             values:
               'false': Minulé
               'true': Nadcházející
-          scope_id_eq:
-            label: Oblast působnosti
           with_any_origin:
             label: Původ
             values:
@@ -429,8 +425,6 @@ cs:
         questionnaire:
           update: "%{user_name} aktualizoval dotazník pro schůzku %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Vše
         filter_meeting_space_values:
           all: Vše
       calendar:
@@ -542,7 +536,6 @@ cs:
           location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
           online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
           registration_url_help: 'Odkaz: umožnit účastníkům jít na externí službu, kterou používáte pro registrace'
-          select_a_category: Vyberte prosím kategorii
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
           select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
@@ -713,7 +706,6 @@ cs:
           address: Adresa schůzky v případě, že se koná osobně a má fyzické umístění
           attachments: Počet příloh v této schůzce
           attendees: Počet lidí účastnících se této schůzky
-          category: Kategorie schůzky (např. "Kultura")
           comments: Počet komentářů k této schůzce
           component: Komponenta, ke které schůzka patří,
           contributions: Počet příspěvků na této schůzce zúčastněných stran
@@ -728,7 +720,6 @@ cs:
           reference: Jedinečný identifikátor zdroje na této platformě
           related_proposals: Návrhy související s touto schůzkou
           related_results: Výsledky týkající se této schůzky
-          scope: Rozsah schůzky (např. „město“)
           start_time: Datum a čas zahájení této schůzky
           title: Název schůzky
           url: URL schůzky
