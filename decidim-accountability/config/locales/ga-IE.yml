@@ -74,9 +74,6 @@ ga:
       results:
         filters:
           all: Uile
-        home:
-          categories_label: Catagóirí
-          subcategories_label: Fochatagóirí
         show:
           stats:
             comments: Tráchtanna
