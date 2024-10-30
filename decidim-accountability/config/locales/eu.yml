@@ -223,10 +223,8 @@ eu:
         filters:
           all: Guztiak
         home:
-          categories_label: Kategoriak
           empty: Oraindik ez dago emaitzarik.
           empty_filters: Ez dago emaitzarik irizpide honekin.
-          subcategories_label: Azpikategoriak
         home_header:
           global_status: Gauzatzearen egoera orokorra
         nav_breadcrumb:
