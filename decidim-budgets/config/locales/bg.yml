@@ -2,15 +2,12 @@ bg:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Обхват
         description: Описание
         title: Заглавие
         total_budget: Общ бюджет
         weight: Подредба на позиция
       project:
         budget_amount: Бюджетна сума
-        decidim_category_id: Категория
-        decidim_scope_id: Сфера
         description: Описание
         proposal_ids: Свързани предложения
         proposals: Предложения
@@ -30,10 +27,6 @@ bg:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Категория
-          scope_id_eq:
-            label: Обхват
           selected_at_null:
             label: Избрани
             values:
@@ -208,7 +201,6 @@ bg:
             total_budget: Общ бюджет
         project:
           fields:
-            category: Категория
             id: ID
             map: Карта
             title: Заглавие
@@ -252,8 +244,6 @@ bg:
           message: Вашият глас не е регистриран, защото все още не сте завършили процеса на гласуване. Сигурни ли сте, че искате да излезете от гласуването?
           title: Все още не сте гласували
         filters:
-          category: Категория
-          scope: Обхват
           search: Търсене
           status: Статус
           status_values:
