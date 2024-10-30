@@ -66,7 +66,7 @@ describe "Explore results", :versioning do
         results.first.update!(address:, latitude:, longitude:)
 
         # Enable geocoding in the component
-        component.update!(settings: { geocoding_enabled: true })
+        component.update!(settings: { taxonomy_filters: taxonomy_filter_ids, geocoding_enabled: true })
 
         # Mock Decidim::Map.available?(:geocoding, :dynamic) to return true
         allow(Decidim::Map).to receive(:available?).with(:geocoding, :dynamic).and_return(true)
