@@ -96,8 +96,6 @@ pt-BR:
             'false': Não aceito
             'true': Aceitou
         meetings:
-          category_id_eq:
-            label: Categoria
           closed_at_present:
             label: Estado
             values:
@@ -108,8 +106,6 @@ pt-BR:
             values:
               'false': Passado
               'true': Próximos
-          scope_id_eq:
-            label: Escopo
           with_any_origin:
             label: Origem
             values:
@@ -402,8 +398,6 @@ pt-BR:
         questionnaire:
           update: "%{user_name} atualizou o questionário para a reunião %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Todos
         filter_meeting_space_values:
           all: Todos
       calendar:
@@ -511,7 +505,6 @@ pt-BR:
           location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
           online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
           registration_url_help: 'Link: permitir que os participantes possam acessar um serviço externo que você está usando para inscrições'
-          select_a_category: Por favor, selecione uma categoria
           select_a_meeting_type: Por favor, selecione um tipo de reunião
           select_a_registration_type: Por favor, selecione um tipo de registro
           select_an_iframe_access_level: Por favor, selecione um nível de acesso iframe
