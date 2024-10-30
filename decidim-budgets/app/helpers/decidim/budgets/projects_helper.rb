@@ -138,12 +138,12 @@ module Decidim
       def filter_sections
         @filter_sections ||= begin
           items = []
-          items.append(method: :with_any_status, collection: filter_status_values, label_scope: "decidim.budgets.projects.filters", id: "status") if voting_finished?
-          if current_component.has_subscopes?
-            items.append(method: :with_any_scope, collection: resource_filter_scope_values(budget.scope), label_scope: "decidim.budgets.projects.filters", id: "scope")
-          end
-          if current_participatory_space.categories.any?
-            items.append(method: :with_any_category, collection: filter_categories_values, label_scope: "decidim.budgets.projects.filters", id: "category")
+          items.append(method: :with_any_status, collection: filter_status_values, label: t("decidim.budgets.projects.filters.status"), id: "status") if voting_finished?
+          current_component.available_taxonomy_filters.each do |taxonomy_filter|
+            items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+                         collection: filter_taxonomy_values_for(taxonomy_filter),
+                         label: decidim_sanitize_translated(taxonomy_filter.name),
+                         id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
           end
         end
 

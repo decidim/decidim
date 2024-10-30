@@ -16,11 +16,13 @@ module Decidim
       end
 
       def method_missing(method_name, *_arguments)
-        @filter.present? && @filter.has_key?(method_name) ? @filter[method_name] : super
+        method = method_name.to_s.gsub(/\[[0-9]+\]$/, "").to_sym
+        @filter.present? && @filter.has_key?(method) ? @filter[method] : super
       end
 
       def respond_to_missing?(method_name, include_private = false)
-        (@filter.present? && @filter.has_key?(method_name)) || super
+        method = method_name.to_s.gsub(/\[[0-9]+\]$/, "").to_sym
+        (@filter.present? && @filter.has_key?(method)) || super
       end
     end
 

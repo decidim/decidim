@@ -13,6 +13,7 @@ describe "Admin manages proposals" do
   include_context "when managing a component as an admin"
 
   it_behaves_like "manage settings"
+  it_behaves_like "manage taxonomy filters in settings"
   it_behaves_like "manage proposals"
   it_behaves_like "manage moderations"
   it_behaves_like "export proposals"

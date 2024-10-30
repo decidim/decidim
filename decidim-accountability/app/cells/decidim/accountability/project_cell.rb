@@ -7,6 +7,7 @@ module Decidim
     # This cell renders a project
     class ProjectCell < Decidim::ViewModel
       include Decidim::Accountability::ApplicationHelper
+      include Cell::ViewModel::Partial
       delegate :children, :timeline_entries, to: :model
 
       alias result model
@@ -56,10 +57,6 @@ module Decidim
 
       def description
         decidim_sanitize_admin translated_attribute(result.description)
-      end
-
-      def scope
-        current_scope.presence
       end
     end
   end
