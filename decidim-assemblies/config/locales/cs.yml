@@ -287,12 +287,14 @@ cs:
         assemblies:
           form:
             announcement_help: Text, který sem vložíte, se uživateli zobrazí přímo pod informacemi o procesu.
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             duration: Doba trvání
             duration_help: Pokud je doba trvání tohoto shromáždění omezená, zvolte konečné datum, jinak se objeví jako neurčitá.
             filters: Filtry
             images: Obrázky
             included_at_help: Vyberte datum, kdy byla tato sestava přidána na platformu. Nemusí být nutně stejné jako datum vytvoření.
             metadata: Metadata
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             other: Ostatní
             select_a_created_by: Vybrat vytvořeno od
             select_an_area: Vyberte oblast
@@ -481,6 +483,7 @@ cs:
           special_features: Jaké speciální vlastnosti má toto shromáždění
           subtitle: Podnadpis shromáždění
           target: Cíl shromáždění
+          taxonomies: Taxonomie projektu
           title: Název shromáždění
           twitter_handler: Handler sociálních médií pro Twitter
           youtube_handler: Handler sociálních médií pro YouTube
