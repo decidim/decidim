@@ -22,6 +22,11 @@ pt:
         one: Projeto
         other: Projetos
   decidim:
+    admin:
+      filters:
+        projects:
+          scope_id_eq:
+            label: Âmbito
     budgets:
       actions:
         attachment_collections: Pastas
