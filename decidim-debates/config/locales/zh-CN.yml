@@ -2,10 +2,8 @@ zh-CN:
   activemodel:
     attributes:
       debate:
-        category_id: 类别
         closed_at: 关闭于
         conclusions: 四. 结论
-        decidim_category_id: 类别
         description: 描述
         end_time: 结束于
         information_updates: 信息更新
