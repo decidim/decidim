@@ -264,6 +264,7 @@ es:
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             display_progress_enabled: Mostrar progreso
+            geocoding_enabled: Mapas habilitados
             intro: Introducción
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
