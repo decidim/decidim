@@ -275,8 +275,6 @@ zh-CN:
           values:
             'false': 已发布
             'true': 未发布
-        scope_id_eq:
-          label: 范围
         search_label: 搜索
         search_placeholder:
           name_or_nickname_or_email_cont: 通过电子邮件、名称或昵称搜索 %{collection}。
@@ -561,10 +559,6 @@ zh-CN:
           title: 编辑权限
         update:
           success: 权限更新成功。
-      resources:
-        index:
-          headers:
-            scope: 范围
       scope_types:
         create:
           error: 创建新的范围类型时出现问题。
