@@ -588,8 +588,6 @@ sv:
       application_helper:
         filter_area_values:
           all: Alla
-        filter_category_values:
-          all: Alla
         filter_scope_values:
           all: Alla
     devise:
@@ -1524,12 +1522,6 @@ sv:
         sign_up: Skapa ett konto
       mentions_modal:
         remove_recipient: Ta bort mottagare %{name}
-      participatory_space_filters:
-        filters:
-          area: Område
-          areas: Områden
-          scope: Indelning
-          select_an_area: Välj ett område
       progress: Framsteg
       public_participation:
         public_participation: Visa mitt deltagande offentligt
@@ -1558,9 +1550,6 @@ sv:
       pages_count: Sidor
       participants_count: Deltagare
       users_count: Deltagare
-    tags:
-      filter_results_for_category: 'Filtrera resultat för kategori: %{resource}'
-      filter_results_for_scope: 'Filtrera resultat: %{resource}'
     taxonomies:
       prompt: Välj från "%{name}"
     translation_bar:
