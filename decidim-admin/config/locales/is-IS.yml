@@ -229,8 +229,6 @@ is-IS:
       exports:
         export_as: "%{name} sem %{export_format}"
       filters:
-        category_id_eq:
-          label: Flokkur
         officialized_at_null:
           label: Ríki
           values:
