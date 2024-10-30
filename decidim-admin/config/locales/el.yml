@@ -366,8 +366,6 @@ el:
           JSON: JSON
         notice: Η εξαγωγή σας είναι σε εξέλιξη. Θα λάβετε ένα email όταν ολοκληρωθεί.
       filters:
-        category_id_eq:
-          label: Κατηγορία
         filter_label: Φίλτρο
         invitation_accepted_at_present:
           label: Πρόσκληση αποδεκτή
@@ -415,8 +413,6 @@ el:
           values:
             'false': Δημοσιεύτηκε
             'true': Η δημοσίευση καταργήθηκε
-        scope_id_eq:
-          label: Πεδίο εφαρμογής
         search_label: Αναζήτηση
         search_placeholder:
           name_or_nickname_or_email_cont: Αναζήτηση συλλογής %{collection} με βάση το email, όνομα ή ψευδώνυμο.
@@ -832,10 +828,6 @@ el:
           title: Επεξεργασία δικαιωμάτων
         update:
           success: Τα δικαιώματα ενημερώθηκαν με επιτυχία.
-      resources:
-        index:
-          headers:
-            scope: Πεδίο εφαρμογής
       scope_types:
         create:
           error: Υπήρξε ένα πρόβλημα κατά τη δημιουργία ενός νέου τύπου πεδίου εφαρμογής.
