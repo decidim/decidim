@@ -579,11 +579,11 @@ fi-pl:
           description: Konferenssin pitkä kuvaus
           end_date: Konferenssin päättymispäivä.
           hashtag: Konferenssia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
-          id: Konferenssin uniikki tunniste
+          id: Konferenssin yksilöllinen tunniste
           location: Konferenssin paikka, eli missä konferenssi järjestetään.
           objectives: Konferenssin tavoitteet tai päämäärät.
           promoted: Onko konferenssi korostettu vai ei
-          reference: Konferenssin viittaus. Konferenssin uniikki tunniste tällä alustalla.
+          reference: Konferenssin viittaus. Konferenssin yksilöllinen tunniste tällä alustalla.
           remote_banner_image_url: Konferenssin bannerikuvan URL-osoite
           remote_hero_image_url: Konferenssin hero-kuvan URL-osoite
           scope: Konferenssin teema
