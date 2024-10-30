@@ -305,6 +305,9 @@ pt:
           value_types:
             organizer_presenter:
               not_found: 'O(A) organizador(a) não foi encontrado(a) na base de dados (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Todos
       calendar_modal:
         calendar_url: URL do calendário
         export_calendar: Exportar calendário
