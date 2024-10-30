@@ -2,15 +2,12 @@ sv:
   activemodel:
     attributes:
       debate:
-        category_id: Kategori
         closed_at: Avslutades
         conclusions: Slutsatser
-        decidim_category_id: Kategori
         description: Beskrivning
         end_time: Slutar vid
         information_updates: Uppdatering av uppgifter
         instructions: Instruktioner för att delta
-        scope_id: Indelning
         start_time: Startdatum
         title: Titel
         user_group_id: Skapa debatt som
@@ -124,8 +121,6 @@ sv:
             closed: Avslutade
             open: Öppna
           user_group: Grupper
-        form:
-          select_a_category: Välj en kategori
         index:
           new_debate: Ny debatt
         new:
