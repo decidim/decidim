@@ -410,8 +410,6 @@ de:
           JSON: JSON
         notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
-        category_id_eq:
-          label: Kategorie
         filter_label: Filtern
         invitation_accepted_at_present:
           label: Einladung angenommen
@@ -460,8 +458,6 @@ de:
             'false': Veröffentlicht
             'true': Unveröffentlicht
         remove_all: Alle entfernen
-        scope_id_eq:
-          label: Themenbereich
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Kontoname.
@@ -931,10 +927,6 @@ de:
           title: Berechtigungen bearbeiten
         update:
           success: Berechtigungen wurden erfolgreich aktualisiert.
-      resources:
-        index:
-          headers:
-            scope: Bereich
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.
@@ -1092,12 +1084,9 @@ de:
         new:
           create: Taxonomie erstellen
           title: Neue Taxonomie
-        no_taxonomies: Derzeit gibt es keine Taxonomien. Erstellen Sie hier eine Liste von Taxonomien und fügen Sie Elemente in jede von ihnen hinzu, um nach Ressourcen klassifizieren oder filtern zu können.
         table:
           to_next_page: Für die nächste Seite hinziehen
           to_prev_page: Für die vorherige Seite hinziehen
-        taxonomy_actions:
-          confirm_destroy: Sind Sie sicher, dass Sie die Taxonomie%{Name} entfernen möchten? Dadurch werden auch alle unter dieser Texonomie geführten Elemente gelöscht. Der mit der Taxonomie verbundene Inhalt wird nicht gelöscht, sondern ausschliesslich die Klassifizierungsinformationen.
         update:
           invalid: Beim Aktualisieren dieser Taxonomie ist ein Fehler aufgetreten.
           success: Taxonomie wurde erfolgreich aktualisiert.
@@ -1115,7 +1104,6 @@ de:
         edit:
           back: Zurück
           items: "%{count} ausgewählte Elemente"
-          no_items: Keine Elemente für diese Taxonomien verfügbar. Sie können Elemente in den Taxonomie-Konfigurationseinstellungen erstellen.
           title: Taxonomie-Filter bearbeiten
           update: Taxonomie-Filter aktualisieren
         form:
@@ -1130,7 +1118,6 @@ de:
           title: Neuer Taxonomie-Filter
         table:
           actions: Aktionen
-          confirm_destroy: Sind Sie sicher, dass Sie den Filter %{name} löschen möchten?
           count: Anzahl Elemente
           destroy: Löschen
           edit: Bearbeiten
