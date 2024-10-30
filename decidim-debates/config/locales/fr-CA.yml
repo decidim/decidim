@@ -79,6 +79,9 @@ fr-CA:
           update:
             invalid: Il y a eu un problème lors de la mise à jour de ce débat.
             success: Débat mis à jour avec succès.
+        exports:
+          debate_comments: Commentaires
+          debates: Débats
       admin_log:
         debate:
           close: "%{user_name} a clos le débat %{resource_name} dans l'espace %{space_name}"
@@ -221,5 +224,20 @@ fr-CA:
         description: Nombre de débats créés
         object: débats
         title: Débats
+    open_data:
+      help:
+        debate_comments:
+          author: Le nom du participant qui a fait ce commentaire
+          body: Le commentaire lui-même
+          created_at: La date de création de ce commentaire
+          id: L'identifiant de ce commentaire
+        debates:
+          category: La catégorie du débat (par exemple "Culture")
+          closed_at: La date de clôture de ce débat
+          conclusions: Les conclusions du débat s'il est clos
+          created_at: La date et l'heure de création du débat
+          description: La description du débat
+          id: L'identifiant unique du débat
+          title: Le titre du débat
     statistics:
       debates_count: Débats
