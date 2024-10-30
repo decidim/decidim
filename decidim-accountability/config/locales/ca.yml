@@ -202,12 +202,10 @@ ca:
       models:
         result:
           fields:
-            category: Categoria
             created_at: Creat
             end_date: Fi
             id: ID
             progress: Progrés
-            scope: Àmbit
             start_date: Inici
             status: Estat
             title: Títol
@@ -226,17 +224,11 @@ ca:
           results_count:
             one: Un resultat
             other: "%{count} resultats"
-        filters:
-          all: Tots
         home:
-          categories_label: Categories
           empty: Encara no hi ha cap resultat.
           empty_filters: No hi ha cap resultat amb aquest criteri.
-          subcategories_label: Subcategories
         home_header:
           global_status: Estat d'execució global
-        nav_breadcrumb:
-          global: Execució global
         no_results: No hi ha projectes
         search:
           search: Cercar actuacions
@@ -248,10 +240,6 @@ ca:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categoria
-          scope_id_eq:
-            label: Àmbit
           status_id_eq:
             label: Estat
     components:
@@ -302,7 +290,6 @@ ca:
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
           user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
         results:
-          category: 'La categoria del resultat (per exemple: "Cultura")'
           component: El component al qual pertany aquest resultat
           created_at: La data en què es va crear aquest resultat
           description: La descripció del resultat
@@ -311,7 +298,6 @@ ca:
           parent: El resultat pare (si existeix) del resultat
           progress: El percentatge d'execució del resultat
           proposal_urls: Les URL de les propostes que estan incloses en aquest resultat
-          scope: 'L''àmbit territorial del resultat (per exemple: "Ciutat")'
           start_date: La data en la qual estava previst l'inici de l'execució del resultat
           status: L'estat actual d'aquest resultat
           title: El títol del resultat
