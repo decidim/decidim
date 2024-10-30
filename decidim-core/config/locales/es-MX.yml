@@ -600,8 +600,6 @@ es-MX:
       application_helper:
         filter_area_values:
           all: Todas
-        filter_category_values:
-          all: Todas
         filter_scope_values:
           all: Todos
     devise:
@@ -1583,12 +1581,6 @@ es-MX:
         sign_up: Crea una cuenta
       mentions_modal:
         remove_recipient: Eliminar destinataria %{name}
-      participatory_space_filters:
-        filters:
-          area: Área
-          areas: Áreas
-          scope: Ámbito
-          select_an_area: Seleccione un area
       progress: Progreso
       public_participation:
         public_participation: Mostrar mi asistencia públicamente
@@ -1617,9 +1609,6 @@ es-MX:
       pages_count: Páginas
       participants_count: Participantes
       users_count: Participantes
-    tags:
-      filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
-      filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
     taxonomies:
       prompt: Seleccionar de "%{name}"
     translation_bar:
