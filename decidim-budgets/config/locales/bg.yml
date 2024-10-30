@@ -11,7 +11,7 @@ bg:
       project:
         budget_amount: Бюджетна сума
         decidim_category_id: Категория
-        decidim_scope_id: Сфера
+        decidim_scope_id: Обхват
         description: Описание
         proposal_ids: Свързани предложения
         proposals: Предложения
