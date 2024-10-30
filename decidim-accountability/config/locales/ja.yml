@@ -259,6 +259,7 @@ ja:
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
             display_progress_enabled: 進行状況を表示
+            geocoding_enabled: 地図は有効です
             intro: はじめに
             scope_id: スコープ
             scopes_enabled: スコープが有効
