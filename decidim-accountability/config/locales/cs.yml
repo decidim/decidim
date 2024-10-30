@@ -274,6 +274,7 @@ cs:
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             scope_id: Oblast působnosti
             scopes_enabled: Oblast působnosti povolena
+            taxonomy_filters_add: Přidat filtr
           step:
             comments_blocked: Komentáře blokovány
     events:
