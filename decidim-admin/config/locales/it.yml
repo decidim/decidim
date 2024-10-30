@@ -307,8 +307,6 @@ it:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Categorie
         filter_label: Filtro
         invitation_accepted_at_present:
           label: Invito accettato
@@ -349,8 +347,6 @@ it:
           values:
             'false': Pubblicato
             'true': Non pubblicato (nascosto)
-        scope_id_eq:
-          label: Ambito tematico
         search_label: Ricerca
         search_placeholder:
           name_or_nickname_or_email_cont: Cerca %{collection} per email, nome o pseudonimo.
@@ -703,10 +699,6 @@ it:
           title: Modifica permessi
         update:
           success: Autorizzazioni aggiornate correttamente.
-      resources:
-        index:
-          headers:
-            scope: Ambito
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
