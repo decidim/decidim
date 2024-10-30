@@ -2,15 +2,12 @@ el:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         title: Τίτλος
         total_budget: Συνολικός προϋπολογισμός
         weight: Θέση κατάταξης
       project:
         budget_amount: Ποσό προϋπολογισμού
-        decidim_category_id: Κατηγορία
-        decidim_scope_id: Πεδίο εφαρμογής
         description: Περιγραφή
         proposal_ids: Σχετικές προτάσεις
         proposals: Προτάσεις
@@ -27,10 +24,6 @@ el:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Κατηγορία
-          scope_id_eq:
-            label: Πεδίο εφαρμογής
           selected_at_null:
             label: Επιλέχθηκε
             values:
@@ -180,7 +173,6 @@ el:
             total_budget: Συνολικός προϋπολογισμός
         project:
           fields:
-            category: Κατηγορία
             id: ID
             title: Τίτλος
       order_summary_mailer:
@@ -220,8 +212,6 @@ el:
           message: Η ψήφος σας δεν έχει εγγραφεί επειδή δεν έχετε ολοκληρώσει ακόμα τη διαδικασία ψηφοφορίας. Είστε σίγουροι ότι θέλετε να βγείτε από την ψηφοφορία;
           title: Δεν έχετε ψηφίσει ακόμα
         filters:
-          category: Κατηγορία
-          scope: Πεδίο εφαρμογής
           search: Αναζήτηση
           status: Κατάσταση
           status_values:
