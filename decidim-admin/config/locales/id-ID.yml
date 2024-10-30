@@ -234,8 +234,6 @@ id:
       exports:
         export_as: "%{name} sebagai %{export_format}"
       filters:
-        category_id_eq:
-          label: Kategori
         officialized_at_null:
           label: Negara
           values:
