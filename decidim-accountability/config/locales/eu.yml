@@ -202,12 +202,10 @@ eu:
       models:
         result:
           fields:
-            category: Kategoria
             created_at: Noiz sortua
             end_date: Amaiera-data
             id: ID
             progress: Aurrerapena
-            scope: Esparrua
             start_date: Hasiera-data
             status: Egoera
             title: Izenburua
@@ -226,17 +224,11 @@ eu:
           results_count:
             one: Emaitza 1
             other: "%{count} emaitza"
-        filters:
-          all: Guztiak
         home:
-          categories_label: Kategoriak
           empty: Oraindik ez dago emaitzarik.
           empty_filters: Ez dago emaitzarik irizpide honekin.
-          subcategories_label: Azpikategoriak
         home_header:
           global_status: Gauzatzearen egoera orokorra
-        nav_breadcrumb:
-          global: Gauzatze osoa
         no_results: Ez dago proiekturik
         search:
           search: Bilatu ekintzak
@@ -248,10 +240,6 @@ eu:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategoria
-          scope_id_eq:
-            label: Esparrua
           status_id_eq:
             label: Egoera
     components:
@@ -302,7 +290,6 @@ eu:
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
           user_group: Iruzkin hau egin duen erabiltzaile taldearen izena (hala badagokio)
         results:
-          category: 'Emaitzaren kategoria (adibidez: "Kultura")'
           component: Emaitzaren osagaia honi dagokio
           created_at: Zein datatan sortu zen emaitza
           description: Emaitzaren deskribapena
@@ -311,7 +298,6 @@ eu:
           parent: Emaitzaren emaitza nagusia (baldin badago)
           progress: Emaitza gauzatzearen ehunekoa
           proposal_urls: Emaitza honetan jasotzen diren proposamenen URLak
-          scope: 'Emaitzaren esparrua (adibidez: "Hiria")'
           start_date: Zein datatan hasi da emaitza gauzatzen
           status: Emaitza honen egungo egoera
           title: Emaitzaren izenburua
