@@ -2,15 +2,12 @@ de:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Bereich
         description: Beschreibung
         title: Titel
         total_budget: Gesamtbudget
         weight: Reihenfolge
       project:
         budget_amount: Höhe des Budgets
-        decidim_category_id: Kategorie
-        decidim_scope_id: Umfang
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
         proposals: Vorschläge
@@ -30,10 +27,6 @@ de:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategorie
-          scope_id_eq:
-            label: Themenbereich
           selected_at_null:
             label: Ausgewählt
             values:
@@ -208,7 +201,6 @@ de:
             total_budget: Gesamt Budget
         project:
           fields:
-            category: Kategorie
             id: ID
             map: Karte
             title: Titel
@@ -252,8 +244,6 @@ de:
           message: Ihre Stimme wurde nicht registriert, weil Sie den Abstimmungsprozess noch nicht abgeschlossen haben. Sind Sie sicher, dass Sie die Abstimmung beenden möchten?
           title: Sie haben noch nicht abgestimmt
         filters:
-          category: Kategorie
-          scope: Umfang
           search: Suche
           status: Status
           status_values:
