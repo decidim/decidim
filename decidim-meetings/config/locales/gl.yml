@@ -50,6 +50,10 @@ gl:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Alcance
           with_any_origin:
             label: Orixe
             values:
@@ -259,8 +263,6 @@ gl:
             organizer_presenter:
               not_found: 'O organizador non se atopou na base de datos (ID: %{id})'
       application_helper:
-        filter_category_values:
-          all: Todas
         filter_meeting_space_values:
           all: Todas
       calendar_modal:
