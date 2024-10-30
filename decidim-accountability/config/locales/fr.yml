@@ -257,6 +257,7 @@ fr:
             comments_enabled: Activer le module de commentaire
             comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
             display_progress_enabled: Afficher les progrès
+            geocoding_enabled: Cartes activées
             intro: Introduction
             scope_id: Secteur
             scopes_enabled: Secteurs activés
