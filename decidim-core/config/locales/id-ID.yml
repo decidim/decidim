@@ -714,10 +714,6 @@ id:
         title: Laporkan masalah
       floating_help:
         help: Membantu
-      participatory_space_filters:
-        filters:
-          areas: Area
-          select_an_area: Pilih satu area
       reference:
         reference: 'Referensi: %{reference}'
       represent_user_group:
