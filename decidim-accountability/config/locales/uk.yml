@@ -89,8 +89,10 @@ uk:
       models:
         result:
           fields:
+            category: Категорія
             end_date: Дата закінчення
             progress: Перебіг
+            scope: Обсяг
             start_date: Дата початку
             status: Стан
             title: Назва
@@ -112,9 +114,6 @@ uk:
             other: "%{count} підсумків"
         filters:
           all: Усі
-        home:
-          categories_label: Категорії
-          subcategories_label: Підкатегорії
         home_header:
           global_status: Загальний стан виконання
         nav_breadcrumb:
@@ -126,6 +125,13 @@ uk:
             back_to_resource: Повернутися до підсумків
         timeline:
           title: Розвиток проекту
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Категорія
+          scope_id_eq:
+            label: Обсяг
     components:
       accountability:
         name: Звітність
