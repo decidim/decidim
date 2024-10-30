@@ -96,8 +96,6 @@ de:
             'false': Nicht angenommen
             'true': Angenommen
         meetings:
-          category_id_eq:
-            label: Kategorie
           closed_at_present:
             label: Status
             values:
@@ -108,8 +106,6 @@ de:
             values:
               'false': Vergangenheit
               'true': Anstehend
-          scope_id_eq:
-            label: Umfang
           with_any_origin:
             label: Ursprung
             values:
@@ -410,8 +406,6 @@ de:
         questionnaire:
           update: "%{user_name} hat den Fragebogen für die Veranstaltung %{meeting_name} aktualisiert"
       application_helper:
-        filter_category_values:
-          all: Alle
         filter_meeting_space_values:
           all: Alle
       calendar:
@@ -521,7 +515,6 @@ de:
           location_hints_help: 'Standorthinweise: Zusätzliche Informationen. Beispiel: die Etage des Gebäudes, wenn es sich um eine persönliche Sitzung oder das Sitzungspasswort, wenn es sich um ein Online-Meeting mit eingeschränktem Zugriff handelt.'
           online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
           registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
-          select_a_category: Bitte wählen sie eine Kategorie
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
           select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
