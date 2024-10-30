@@ -95,8 +95,6 @@ lt:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Kategorija
           closed_at_present:
             label: Būsena
             values:
@@ -107,8 +105,6 @@ lt:
             values:
               'false': Praėję
               'true': Artėjantys
-          scope_id_eq:
-            label: Apimtis
           with_any_origin:
             label: Kilmė
             values:
@@ -393,8 +389,6 @@ lt:
         questionnaire:
           update: "%{user_name} atnaujino klausimyną %{meeting_name} susirinkimui"
       application_helper:
-        filter_category_values:
-          all: Visi
         filter_meeting_space_values:
           all: Visi
       calendar_modal:
@@ -500,7 +494,6 @@ lt:
           location_hints_help: 'Vietos užuominos: papildoma informacija. Pavyzdžiui: pastato aukštas, jei tai yra susitikimas gyvai, arba susitikimo slaptažodis, jei tai virtualus susitikimas su ribota prieiga.'
           online_meeting_url_help: 'Nuoroda: leiskite dalyviams tiesiai prisijungti prie susitikimo'
           registration_url_help: 'Nuoroda: leiskite dalyviams prisijungti prie išorinės paslaugos, kurią naudojate registracijai'
-          select_a_category: Pasirinkite kategoriją
           select_a_meeting_type: Pasirinkite susitikimo tipą
           select_a_registration_type: Pasirinkite registracijos tipą
           select_an_iframe_access_level: Pasirinkite iframe prieigos lygį
