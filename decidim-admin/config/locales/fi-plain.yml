@@ -197,6 +197,7 @@ fi-pl:
         reject: Hylkää
         send_me_a_test_email: Lähetä minulle testisähköposti
         share: Jaa
+        share_tokens: Pääsylinkit
         user:
           new: Uusi hallintakäyttäjä
         verify: Vahvista
@@ -598,6 +599,7 @@ fi-pl:
         scopes: Teemat
         see_site: Näytä sivusto
         settings: Asetukset
+        share_tokens: Pääsylinkit
         static_page_topics: Aiheet
         static_pages: Sivut
         taxonomies: Luokittelut
@@ -655,8 +657,11 @@ fi-pl:
             plural: Monikko
         share_token:
           fields:
+            actions: Toiminnot
             expires_at: Vanhentumisaika
+            registered_only: Ainoastaan rekisteröityneille käyttäjille?
             times_used: Käyttökertojen määrä
+            token: Pääsylinkki
         static_page:
           fields:
             created_at: Luonnin ajankohta
@@ -963,7 +968,50 @@ fi-pl:
           success: Teema päivitetty onnistuneesti
       share_tokens:
         actions:
+          confirm_destroy: Haluatko varmasti poistaa tämän pääsylinkin?
+          copy_link: Kopioi linkki
           destroy: Poista
+          edit: Muokkaa
+          preview: Esikatsele
+        create:
+          invalid: Pääsylinkin luonti epäonnistui.
+          success: Pääsylinkin luonti onnistui.
+        destroy:
+          error: Pääsylinkin poisto epäonnistui.
+          success: Pääsylinkin poisto onnistui.
+        edit:
+          title: 'Muokkaa pääsylinkkiä kohteelle: %{name}'
+          update: Päivitä
+        form:
+          automatic: Automaattinen
+          custom: Mukautettu
+          custom_expiration: Mukautettu vanhentuminen
+          custom_token: Mukautettu sana
+          expires_at: Vanhentumisajankohta
+          'false': 'Ei'
+          never_expire: Ei koskaan
+          registered_only: Ainoastaan rekisteröityneille käyttäjille?
+          token: Pääsyavain
+          'true': 'Kyllä'
+        index:
+          back_to_share_tokens: Takaisin pääsyoikeuslinkkeihin
+          copied: Pääsylinkki kopioitu!
+          copy_message: Linkin kopiointi leikepöydälle onnistui.
+          create_new_token: Luo ensimmäinen pääsylinkkisi!
+          empty_html: Aktiivisia pääsylinkkejä ei ole. %{new_token_link}
+          never: Ei koskaan
+          new_share_token_button: Uusi pääsylinkki
+          share_tokens_help_html: |
+            Luo ja jaa pääsylinkkejä, mikäli haluat näyttää muilte, miltä toistaiseksi julkaisematon asia näyttää sivustolla.
+            Pääsylinkit voidaan rajata ainoastaan rekisteröityneille osallistujille ja niille voidaan asettaa myös vanhentumisaika.
+            Jakaaksesi pääsylinkin jollekin muulle, luo se ja kopioi se leikepöydälle käyttämällä "%{clipboard} leikepöytä" toimintokuvaketta.
+          title: 'pääsylinkit kohteelle: %{name}'
+        new:
+          create: Luo
+          title: 'Uusi pääsylinkki kohteelle: %{name}'
+        update:
+          error: Pääsylinkin päivittäminen epäonnistui.
+          success: Pääsylinkin päivittäminen onnistui.
       shared:
         adjacent_navigation:
           next: Seuraava
