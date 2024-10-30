@@ -97,8 +97,6 @@ ja:
             'false': 未承認
             'true': 承認済み
         meetings:
-          category_id_eq:
-            label: カテゴリ
           closed_at_present:
             label: 状態
             values:
@@ -109,8 +107,6 @@ ja:
             values:
               'false': 過去
               'true': 近日公開
-          scope_id_eq:
-            label: スコープ
           with_any_origin:
             label: オリジン
             values:
@@ -421,8 +417,6 @@ ja:
         questionnaire:
           update: "%{user_name} が %{meeting_name} ミーティングのアンケートを更新しました"
       application_helper:
-        filter_category_values:
-          all: すべて
         filter_meeting_space_values:
           all: すべて
       calendar:
@@ -531,7 +525,6 @@ ja:
           location_hints_help: '位置情報のヒント：追加情報。 例: 対面ミーティングでの建物のフロア、またはアクセス制限のあるオンラインミーティングでのミーティングパスワード。'
           online_meeting_url_help: 'リンク: 参加者があなたのミーティングに直接接続できるようにします'
           registration_url_help: 'リンク: 参加者が登録に使用している外部サービスにアクセスできるようにします'
-          select_a_category: カテゴリを選択してください
           select_a_meeting_type: ミーティング種別を選択してください
           select_a_registration_type: 登録種別を選択してください
           select_an_iframe_access_level: iframeアクセスレベルを選択してください
@@ -697,7 +690,6 @@ ja:
           address: ミーティングの場所、対面で行われ物理的な場所がある場合の所在地
           attachments: このミーティングの添付ファイル数
           attendees: このミーティングに出席する人数
-          category: 'ミーティングのカテゴリ (例: "文化")'
           comments: このミーティングでのコメント数
           component: ミーティングが属しているコンポーネント
           contributions: このミーティングの参加者による貢献数
@@ -712,7 +704,6 @@ ja:
           reference: このプラットフォームでのリソースの固有ID
           related_proposals: このミーティングに関連する提案
           related_results: このミーティングに関連する結果
-          scope: 'ミーティングのスコープ (例: "市")'
           start_time: このミーティングの開始日時
           title: ミーティングのタイトル
           url: ミーティングのURL
