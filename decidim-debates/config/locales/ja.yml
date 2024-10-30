@@ -2,15 +2,12 @@ ja:
   activemodel:
     attributes:
       debate:
-        category_id: カテゴリ
         closed_at: 終了日時
         conclusions: まとめ
-        decidim_category_id: カテゴリ
         description: 説明
         end_time: 終了時刻
         information_updates: 情報の更新
         instructions: 参加方法
-        scope_id: スコープ
         start_time: 開始
         title: タイトル
         user_group_id: ディベートを作成
@@ -129,8 +126,6 @@ ja:
             closed: 終了
             open: 公開
           user_group: グループ
-        form:
-          select_a_category: カテゴリを選択してください
         index:
           new_debate: 新しいディベート
         new:
@@ -238,7 +233,6 @@ ja:
           user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         debates:
           author: ディベートの作者に関するデータ
-          category: 'ディベートのカテゴリ (例: "文化")'
           closed_at: ディベートの終了日時
           comments: ディベートのコメント数
           comments_enabled: ディベートのコメントを有効にするか無効にするか
@@ -254,7 +248,6 @@ ja:
           last_comment_at: ディベートが最後にコメントされた日時
           participatory_space: このディベートが属するスペース（参加型プロセス、参加スペースなど）
           reference: このプラットフォームでのリソースの固有ID
-          scope: 'ディベートのスコープ (例: "市")'
           start_time: ディベートの開始予定日時（公開討論で時間が限られている場合）
           title: ディベートのタイトル
           url: このディベートが見つかるURL
