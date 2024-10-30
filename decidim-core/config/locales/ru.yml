@@ -246,6 +246,10 @@ ru:
         name: Статистика организации
       sub_hero:
         name: Под-богатырский баннер
+    core:
+      application_helper:
+        filter_category_values:
+          all: Все
     devise:
       omniauth_registrations:
         new:
