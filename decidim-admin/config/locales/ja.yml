@@ -409,8 +409,6 @@ ja:
           JSON: JSON
         notice: 現在エクスポートが進行中です。完了した際にはメールでお知らせします。
       filters:
-        category_id_eq:
-          label: カテゴリ
         filter_label: フィルター
         invitation_accepted_at_present:
           label: 招待が承認されました
@@ -459,8 +457,6 @@ ja:
             'false': 公開済み
             'true': 未公開
         remove_all: すべて削除
-        scope_id_eq:
-          label: スコープ
         search_label: 検索
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
@@ -925,10 +921,6 @@ ja:
           title: 権限の編集
         update:
           success: 権限は正常に更新されました。
-      resources:
-        index:
-          headers:
-            scope: スコープ
       scope_types:
         create:
           error: 新しいスコープ種別の作成中に問題が発生しました。
@@ -1085,12 +1077,9 @@ ja:
         new:
           create: タクソノミーを作成
           title: 新しいタクソノミー
-        no_taxonomies: 現在、タクソノミーはありません。ここでタクソノミーのリストを作成し、それぞれにアイテムを定義してリソースを分類またはフィルタリングします。
         table:
           to_next_page: 次のページにドラッグ
           to_prev_page: 前のページにドラッグ
-        taxonomy_actions:
-          confirm_destroy: '%{name} を削除してもよろしいですか？全ての子アイテムも削除されます。'
         update:
           invalid: タクソノミーの更新中に問題が発生しました。
           success: タクソノミーを更新しました。
@@ -1108,7 +1097,6 @@ ja:
         edit:
           back: 戻る
           items: "{count} 個のアイテムを選択中です"
-          no_items: このタクソノミーで使えるアイテムはありません。タクソノミー設定でアイテムを作成できます。
           title: タクソノミーフィルタを編集
           update: タクソノミーフィルタを更新
         form:
@@ -1123,7 +1111,6 @@ ja:
           title: 新規タクソノミーフィルター
         table:
           actions: アクション
-          confirm_destroy: フィルター %{name} を削除してもよろしいですか？
           count: アイテム数
           destroy: 削除
           edit: 編集
