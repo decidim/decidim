@@ -2,15 +2,12 @@ es-MX:
   activemodel:
     attributes:
       debate:
-        category_id: Categoría
         closed_at: Terminado el
         conclusions: Conclusiones
-        decidim_category_id: Categoría
         description: Descripción
         end_time: Fecha de fin
         information_updates: Actualizaciones de información
         instructions: Instrucciones para participar
-        scope_id: Ámbito
         start_time: Fecha de inicio
         title: Título
         user_group_id: Crear debate como
@@ -131,8 +128,6 @@ es-MX:
             closed: Cerrado
             open: Abierto
           user_group: Grupos
-        form:
-          select_a_category: Por favor, selecciona una categoría
         index:
           new_debate: Nuevo debate
         new:
@@ -240,7 +235,6 @@ es-MX:
           user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
         debates:
           author: Los datos de autoría de este debate
-          category: La categoría del resultado (por ejemplo, "Cultura")
           closed_at: La fecha en la que la se cerró este debate
           comments: El número de comentarios que tiene este debate
           comments_enabled: Si este debate tiene comentarios habilitados o no
@@ -256,7 +250,6 @@ es-MX:
           last_comment_at: La fecha del último comentario en este debate
           participatory_space: A qué espacio pertenece este debate (proceso participativo, asamblea, etc.)
           reference: El identificador único del recurso en esta plataforma
-          scope: El ámbito territorial del debate (por ejemplo, "Ciudad")
           start_time: Cuando empezó este debate, si era un debate abierto o tenía un tiempo limitado para participar.
           title: El título del debate
           url: La URL donde se puede encontrar este debate
