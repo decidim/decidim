@@ -500,6 +500,9 @@ zh-TW:
       actions:
         login_before_access: 請先登入您的帳戶再進行訪問.
         unauthorized: 您無權限執行此操作.
+      application_helper:
+        filter_category_values:
+          all: 全部
     devise:
       omniauth_registrations:
         create:
@@ -1368,6 +1371,7 @@ zh-TW:
       participatory_space_filters:
         filters:
           areas: 區域
+          scope: 範圍
           select_an_area: 選擇一個地區
       public_participation:
         public_participation: 公開展示我的出席情況。
