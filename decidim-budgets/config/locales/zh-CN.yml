@@ -19,6 +19,11 @@ zh-CN:
       decidim/budgets/project:
         other: 项目
   decidim:
+    admin:
+      filters:
+        projects:
+          scope_id_eq:
+            label: 范围
     budgets:
       actions:
         attachment_collections: 文件夹
