@@ -2,8 +2,6 @@ lv:
   activemodel:
     attributes:
       project:
-        decidim_category_id: Kategorija
-        decidim_scope_id: Darbības tvērums
         description: Apraksts
         proposal_ids: Saistītie priekšlikumi
         title: Nosaukums
@@ -78,8 +76,6 @@ lv:
             one: 1 projekts
             other: "%{count} projekti"
         filters:
-          category: Kategorija
-          scope: Darbības tvērums
           search: Meklēt
         orders:
           highest_cost: Lielākās izmaksas
