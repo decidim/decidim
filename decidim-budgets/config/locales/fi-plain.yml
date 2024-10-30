@@ -387,7 +387,7 @@ fi-pl:
           confirmed_votes: Vahvistettujen äänten määrä tälle projektille
           created_at: Projektin luontiaika
           description: Projektin kuvaus
-          id: Projektin uniikki tunniste
+          id: Projektin yksilöllinen tunniste
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä projekti kuuluu
           related_proposal_titles: Projektiin liitettyjen ehdotusten otsikot
           related_proposal_urls: Projektiin liitettyjen ehdotusten URL-osoitteet
