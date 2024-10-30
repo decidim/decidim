@@ -321,8 +321,6 @@ ko:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: 카테고리
         filter_label: 필터
         invitation_accepted_at_present:
           label: 초대 수락됨
@@ -356,8 +354,6 @@ ko:
           values:
             'false': 게시됨
             'true': 게시되지 않음
-        scope_id_eq:
-          label: 범위
         search_label: 검색
         search_placeholder:
           name_or_nickname_or_email_cont: 이메일, 이름 또는 닉네임으로 %{collection} 을(를) 검색합니다.
@@ -622,10 +618,6 @@ ko:
           title: 권한 수정
         update:
           success: 권한을 성공적으로 업데이트했습니다.
-      resources:
-        index:
-          headers:
-            scope: 범위
       scope_types:
         create:
           error: 새 영역 타입을 생성하는 도중 문제가 생겼습니다.
