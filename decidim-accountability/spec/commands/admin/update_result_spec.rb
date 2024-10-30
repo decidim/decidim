@@ -9,8 +9,6 @@ module Decidim::Accountability
     let(:result) { create(:result, progress: 10) }
     let(:organization) { result.component.organization }
     let(:user) { create(:user, organization:) }
-    let(:scope) { create(:scope, organization:) }
-    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:participatory_process) { result.component.participatory_space }
     let(:meeting_component) do
       create(:component, manifest_name: :meetings, participatory_space: participatory_process)
@@ -49,6 +47,12 @@ module Decidim::Accountability
         component: project_component
       )
     end
+    let(:address) { "Carrer de Sant Joan, 123, 08001 Barcelona" }
+    let(:latitude) { 41.38879 }
+    let(:longitude) { 2.15899 }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
     let(:form) do
       double(
         invalid?: invalid,
@@ -56,8 +60,7 @@ module Decidim::Accountability
         description: { en: "description" },
         proposal_ids: proposals.map(&:id),
         project_ids: projects.map(&:id),
-        scope:,
-        category:,
+        taxonomizations:,
         start_date:,
         end_date:,
         decidim_accountability_status_id: status.id,
@@ -65,7 +68,10 @@ module Decidim::Accountability
         current_user: user,
         parent_id: nil,
         external_id:,
-        weight:
+        weight:,
+        address:,
+        latitude:,
+        longitude:
       )
     end
     let(:invalid) { false }
@@ -102,14 +108,9 @@ module Decidim::Accountability
         expect(action_log.version).to be_present
       end
 
-      it "sets the scope" do
+      it "sets the taxonomies" do
         subject.call
-        expect(result.scope).to eq scope
-      end
-
-      it "sets the category" do
-        subject.call
-        expect(result.category).to eq category
+        expect(result.reload.taxonomies).to match_array(taxonomizations.map(&:taxonomy))
       end
 
       it "links proposals" do

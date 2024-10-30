@@ -11,7 +11,15 @@ describe "Explore projects", :slow do
     create_list(:project, projects_count, budget:)
   end
   let!(:project) { projects.first }
-  let(:categories) { create_list(:category, 3, participatory_space: component.participatory_space) }
+  let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
+
+  before do
+    component_settings = component["settings"]["global"].merge!(taxonomy_filters: taxonomy_filter_ids)
+    component.update!(settings: component_settings)
+  end
 
   describe "show" do
     let(:description) { { en: "Short description", ca: "Descripció curta", es: "Descripción corta" } }
@@ -84,32 +92,14 @@ describe "Explore projects", :slow do
         expect(filter_params["filter[search_text_cont]"]).to eq(["foobar"])
       end
 
-      it "allows filtering by scope" do
-        scope = create(:scope, organization:)
-        project.scope = scope
+      it "allows filtering by taxonomy" do
+        project.taxonomies = [taxonomy]
         project.save
 
         visit_budget
 
-        within "#panel-dropdown-menu-scope" do
-          click_filter_item translated(scope.name)
-        end
-
-        within "#projects" do
-          expect(page).to have_css(".card__list", count: 1)
-          expect(page).to have_content(translated(project.title))
-        end
-      end
-
-      it "allows filtering by category" do
-        category = categories.first
-        project.category = category
-        project.save
-
-        visit_budget
-
-        within "#panel-dropdown-menu-category" do
-          click_filter_item decidim_escape_translated(category.name)
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy.parent.id}" do
+          click_filter_item decidim_escape_translated(taxonomy.name)
         end
 
         within "#projects" do
