@@ -2,15 +2,12 @@ nl:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Scope
         description: Omschrijving
         title: Titel
         total_budget: Totale budget
         weight: Bestelpositie
       project:
         budget_amount: Budget bedrag
-        decidim_category_id: Categorie
-        decidim_scope_id: Reikwijdte
         description: Beschrijving
         proposal_ids: Verwante voorstellen
         proposals: Voorstellen
@@ -27,10 +24,6 @@ nl:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categorie
-          scope_id_eq:
-            label: Scope
           selected_at_null:
             label: Geselecteerd
             values:
@@ -137,7 +130,6 @@ nl:
             total_budget: Totale budget
         project:
           fields:
-            category: Categorie
             id: ID
             title: Titel
       order_summary_mailer:
@@ -175,8 +167,6 @@ nl:
           message: Je stem is niet geregistreerd omdat je het stemproces nog niet hebt voltooid. Weet je zeker dat je stemmen wil verlaten?
           title: Je hebt nog niet gestemd
         filters:
-          category: Categorie
-          scope: Reikwijdte
           search: Zoeken
           status: Status
           status_values:
