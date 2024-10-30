@@ -223,9 +223,6 @@ lt:
             other: "%{count} rezultatai"
         filters:
           all: Visi
-        home:
-          categories_label: Kategorijos
-          subcategories_label: Subkategorijos
         home_header:
           global_status: Bendra vykdymo būsena
         nav_breadcrumb:
