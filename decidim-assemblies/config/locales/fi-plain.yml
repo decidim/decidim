@@ -454,7 +454,7 @@ fi-pl:
           facebook_handler: Sosiaalisen median tunniste Facebookissa
           github_handler: Sosiaalisen median tunniste GitHubissa
           hashtag: Ryhmää vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
-          id: Ryhmän uniikki tunniste
+          id: Ryhmän yksilöllinen tunniste
           included_at: Ryhmän sisällyttämisen päivämäärä
           instagram_handler: Sosiaalisen median tunniste Instagramissa
           internal_organisation: Ryhmän sisäinen organisaatio
@@ -465,7 +465,7 @@ fi-pl:
           participatory_structure: Ryhmän osallistumisrakenne
           promoted: Onko ryhmä korostettu vai ei
           purpose_of_action: Ryhmän toiminnan tarkoitus
-          reference: Ryhmän viittaus. Ryhmän uniikki tunniste tällä alustalla.
+          reference: Ryhmän viittaus. Ryhmän yksilöllinen tunniste tällä alustalla.
           remote_banner_image_url: Ryhmän bannerikuvan URL-osoite
           remote_hero_image_url: Ryhmän hero-kuvan URL-osoite
           scope: Ryhmän teema
