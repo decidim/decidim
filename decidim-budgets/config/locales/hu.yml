@@ -2,15 +2,12 @@ hu:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Hatókör
         description: Leírás
         title: Cím
         total_budget: Teljes költségvetés
         weight: Sorbarendezés
       project:
         budget_amount: Költségvetés összege
-        decidim_category_id: Kategória
-        decidim_scope_id: Hatáskör
         description: Leírás
         proposal_ids: Kapcsolódó javaslatok
         proposals: Javaslatok
@@ -27,10 +24,6 @@ hu:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategória
-          scope_id_eq:
-            label: Hatókör
           selected_at_null:
             label: Kiválasztva
             values:
@@ -191,7 +184,6 @@ hu:
             total_budget: Teljes költségvetés
         project:
           fields:
-            category: Kategória
             id: Azonosító
             map: Térkép
             title: Cím
@@ -235,8 +227,6 @@ hu:
           message: Szavazatod nem regisztráltuk, mert még nem fejezted be a szavazási folyamatot. Biztosan kilépsz a szavazásból?
           title: Még nem szavaztál
         filters:
-          category: Kategória
-          scope: Hatáskör
           search: Keresés
           status: Státusz
           status_values:
