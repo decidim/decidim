@@ -24,6 +24,12 @@ is:
         transparent: Gegnsætt
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Flokkur
+          scope_id_eq:
+            label: Umfang
       meeting_copies:
         new:
           copy: Afrita
