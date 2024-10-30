@@ -2,15 +2,12 @@ ja:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: スコープ
         description: 説明
         title: タイトル
         total_budget: 予算の合計
         weight: 順番の位置
       project:
         budget_amount: 予算額
-        decidim_category_id: カテゴリ
-        decidim_scope_id: スコープ
         description: 説明
         proposal_ids: 関連する提案
         proposals: 提案
@@ -32,10 +29,6 @@ ja:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: カテゴリ
-          scope_id_eq:
-            label: スコープ
           selected_at_null:
             label: 選択済み
             values:
@@ -210,7 +203,6 @@ ja:
             total_budget: 予算の合計
         project:
           fields:
-            category: カテゴリ
             id: ID
             map: 地図
             title: タイトル
@@ -253,8 +245,6 @@ ja:
           message: 投票プロセスがまだ完了していないため、投票が登録されていません。投票を終了してもよろしいですか？
           title: まだ投票していません
         filters:
-          category: カテゴリ
-          scope: スコープ
           search: 検索
           status: 状態
           status_values:
@@ -374,7 +364,6 @@ ja:
           address: プロジェクトのアドレス (もしあれば)
           budget: 'このプロジェクトが属するプロジェクトグループ (例: "2021 Budget")'
           budget_amount: このプロジェクトの予算の合計
-          category: 'プロジェクトのカテゴリ (例: "文化")'
           comments: このプロジェクトが受け取ったコメント数
           component: プロジェクトが属するコンポーネント
           confirmed_votes: このプロジェクトが受け取った確認済み投票数
@@ -385,7 +374,6 @@ ja:
           related_proposal_titles: 関連する提案のタイトル
           related_proposal_urls: 関連する提案のURL
           related_proposals: このプロジェクトに関連する提案
-          scope: 'プロジェクトのスコープ (例: "市")'
           title: プロジェクトのタイトル
           url: プロジェクトの URL
     orders:
