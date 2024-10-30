@@ -111,15 +111,8 @@ zh-CN:
         count:
           results_count:
             other: "%{count} 个结果"
-        filters:
-          all: 所有的
-        home:
-          categories_label: 类别管理
-          subcategories_label: 子类别
         home_header:
           global_status: 全局执行状态
-        nav_breadcrumb:
-          global: 全局执行
         search:
           search: 搜索操作
         show:
