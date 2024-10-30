@@ -2,15 +2,12 @@ el:
   activemodel:
     attributes:
       debate:
-        category_id: Κατηγορία
         closed_at: Έκλεισε στις
         conclusions: Συμπεράσματα
-        decidim_category_id: Κατηγορία
         description: Περιγραφή
         end_time: Λήγει στις
         information_updates: Ενημερώσεις πληροφοριών
         instructions: Οδηγίες συμμετοχής
-        scope_id: Πεδίο εφαρμογής
         start_time: Ξεκινά στις
         title: Τίτλος
         user_group_id: Δημιουργία συζήτησης ως
@@ -118,8 +115,6 @@ el:
           state_values:
             closed: Κλειστό
             open: Άνοιγμα
-        form:
-          select_a_category: Please select a category
         index:
           new_debate: Νέα συζήτηση
         new:
