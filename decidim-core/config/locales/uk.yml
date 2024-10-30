@@ -191,6 +191,10 @@ uk:
         name: Статистика організації
       sub_hero:
         name: Під-багатирський банер
+    core:
+      application_helper:
+        filter_category_values:
+          all: Усі
     devise:
       omniauth_registrations:
         new:
