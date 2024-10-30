@@ -2,15 +2,12 @@ lt:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Apimtis
         description: Aprašymas
         title: Pavadinimas
         total_budget: Visas biudžetas
         weight: Vieta eilėje
       project:
         budget_amount: Biudžeto dydis
-        decidim_category_id: Kategorija
-        decidim_scope_id: Apimtis
         description: Aprašymas
         proposal_ids: Susiję pasiūlymai
         proposals: Pasiūlymai
@@ -29,10 +26,6 @@ lt:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategorija
-          scope_id_eq:
-            label: Apimtis
           selected_at_null:
             label: Pasirinktas
             values:
@@ -187,7 +180,6 @@ lt:
             total_budget: Visas biudžetas
         project:
           fields:
-            category: Kategorija
             id: ID
             title: Pavadinimas
       order_summary_mailer:
@@ -231,8 +223,6 @@ lt:
           message: Jūsų balsas nebuvo registruotas nes dar neįvykdėte viso balsavimo proceso. Ar tikrai norite išeiti iš balsavimo aplinkos?
           title: Dar nebasavote
         filters:
-          category: Kategorija
-          scope: Apimtis
           search: Ieškoti
           status: Būsena
           status_values:
