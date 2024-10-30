@@ -307,8 +307,6 @@ pt:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Categoria
         filter_label: Filtro
         invitation_accepted_at_present:
           label: Convite aceite
@@ -349,8 +347,6 @@ pt:
           values:
             'false': Publicado
             'true': Publicação removida
-        scope_id_eq:
-          label: Âmbito
         search_label: Pesquisa
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
@@ -696,10 +692,6 @@ pt:
           title: Editar permissões
         update:
           success: Permissões atualizadas corretamente.
-      resources:
-        index:
-          headers:
-            scope: Âmbito
       scope_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de âmbito.
