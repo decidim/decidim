@@ -138,9 +138,6 @@ nl:
             other: "%{count} resultaten"
         filters:
           all: Alle
-        home:
-          categories_label: Categorieën
-          subcategories_label: subcategorieën
         home_header:
           global_status: Globale uitvoeringstatus
         nav_breadcrumb:
