@@ -582,8 +582,6 @@ lt:
       application_helper:
         filter_area_values:
           all: Visos
-        filter_category_values:
-          all: Visos
         filter_scope_values:
           all: Visos
     devise:
@@ -1460,12 +1458,6 @@ lt:
         help: Pagalba
       mentions_modal:
         remove_recipient: Išimti gavėją %{name}
-      participatory_space_filters:
-        filters:
-          area: Aplinka
-          areas: Erdvės
-          scope: Sritis
-          select_an_area: Pasirinkti erdvę
       progress: Progresas
       public_participation:
         public_participation: Rodyti mano dalyvavimą viešai
@@ -1494,9 +1486,6 @@ lt:
       pages_count: Puslapiai
       participants_count: Dalyviai
       users_count: Dalyviai
-    tags:
-      filter_results_for_category: 'Filtruoti nurodytos kategorijos rezultatus: %{resource}'
-      filter_results_for_scope: 'Filtruoti srities rezultatus: %{resource}'
     translation_bar:
       help_text: "<strong>Dėmesio:</strong> Turinys gali būti išverstas automatiškai, bet nebus visiškai tikslus."
       show_original: Rodyti teksto originalą
