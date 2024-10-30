@@ -2,8 +2,6 @@ gl:
   activemodel:
     attributes:
       debate:
-        category_id: Categoría
-        decidim_category_id: Categoría
         description: Descrición
         end_time: Remata a
         information_updates: Actualizacións de información
@@ -78,8 +76,6 @@ gl:
           origin: Orixe
           participants: Participantes
           search: Busca
-        form:
-          select_a_category: Selecciona unha categoría
         index:
           new_debate: Novo debate
         new:
