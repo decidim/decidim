@@ -88,8 +88,6 @@ el:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Κατηγορία
           closed_at_present:
             label: Κατάσταση
             values:
@@ -100,8 +98,6 @@ el:
             values:
               'false': Παρελθόν
               'true': Προσεχείς
-          scope_id_eq:
-            label: Πεδίο εφαρμογής
           with_any_origin:
             label: Προέλευση
             values:
@@ -377,8 +373,6 @@ el:
         questionnaire:
           update: "Ο/Η %{user_name} ενημέρωσε το ερωτηματολόγιο για τη συνάντηση %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Όλα
         filter_meeting_space_values:
           all: Όλα
       calendar_modal:
@@ -481,7 +475,6 @@ el:
           location_hints_help: 'Υποδείξεις τοποθεσίας: πρόσθετες πληροφορίες. Παράδειγμα: ο όροφος του κτιρίου αν πρόκειται για προσωπική συνάντηση ή τον κωδικό πρόσβασης συνάντησης αν πρόκειται για ηλεκτρονική συνάντηση με περιορισμένη πρόσβαση.'
           online_meeting_url_help: 'Σύνδεσμος: επιτρέψτε στους συμμετέχοντες να συνδεθούν απευθείας με τη συνάντησή σας'
           registration_url_help: 'Σύνδεσμος: επιτρέψτε στους συμμετέχοντες να μεταβούν στην εξωτερική υπηρεσία που χρησιμοποιείτε για εγγραφές'
-          select_a_category: Επιλέξτε μια κατηγορία
           select_a_meeting_type: Παρακαλώ επιλέξτε έναν τύπο συνάντησης
           select_a_registration_type: Παρακαλώ επιλέξτε έναν τύπο εγγραφής
           select_an_iframe_access_level: Παρακαλώ επιλέξτε ένα επίπεδο πρόσβασης iframe
