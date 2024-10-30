@@ -2,15 +2,12 @@ fi-pl:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Teema
         description: Kuvaus
         title: Otsikko
         total_budget: Kokonaisbudjetti
         weight: Järjestysnumero
       project:
         budget_amount: Budjetti
-        decidim_category_id: Aihepiiri
-        decidim_scope_id: Teema
         description: Kuvaus
         proposal_ids: Liittyvät ehdotukset
         proposals: Ehdotukset
@@ -34,10 +31,6 @@ fi-pl:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Aihepiiri
-          scope_id_eq:
-            label: Teema
           selected_at_null:
             label: Valittu
             values:
@@ -214,7 +207,6 @@ fi-pl:
             total_budget: Kokonaisbudjetti
         project:
           fields:
-            category: Aihepiiri
             id: ID
             map: Kartta
             title: Otsikko
@@ -258,8 +250,6 @@ fi-pl:
           message: Ääntäsi ei ole kirjattu, koska et ole vielä suorittanut äänestystä loppuun asti. Haluatko varmasti poistua äänestyksestä?
           title: Et ole vielä äänestänyt
         filters:
-          category: Aihepiiri
-          scope: Teema
           search: Haku
           status: Tila
           status_values:
@@ -381,7 +371,6 @@ fi-pl:
           address: Projektin osoite (jos määritetty)
           budget: Mihin projektien ryhmään (esim. "2021 budjetti") tämä kyseinen projekti kuuluu
           budget_amount: Budjetin kokonaismäärä tälle projektille
-          category: Projektin aihepiiri (esim. "Kulttuuri")
           comments: Projektin saamien kommenttien määrä
           component: Projektin komponentti
           confirmed_votes: Vahvistettujen äänten määrä tälle projektille
@@ -392,7 +381,6 @@ fi-pl:
           related_proposal_titles: Projektiin liitettyjen ehdotusten otsikot
           related_proposal_urls: Projektiin liitettyjen ehdotusten URL-osoitteet
           related_proposals: Projektiin liitetyt ehdotukset
-          scope: Projektin teema (esim. "Kaupunki")
           title: Projektin otsikko
           url: Projektin URL-osoite
     orders:
