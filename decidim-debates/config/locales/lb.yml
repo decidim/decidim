@@ -2,10 +2,8 @@ lb:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorie
         closed_at: Geschlossen am
         conclusions: Zusammenfassung
-        decidim_category_id: Kategorie
         description: Beschreibung
         end_time: Endet am
         information_updates: Informationsaktualisierungen
@@ -54,8 +52,6 @@ lb:
           state_values:
             closed: Geschlossen
             open: Offen
-        form:
-          select_a_category: Bitte wählen sie eine Kategorie
         index:
           new_debate: Neue Debatte
         new:
