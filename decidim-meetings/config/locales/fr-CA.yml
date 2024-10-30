@@ -105,7 +105,7 @@ fr-CA:
               'false': Passés
               'true': À venir
           scope_id_eq:
-            label: Périmètre
+            label: Périmètre d'application
           with_any_origin:
             label: Origine
             values:
@@ -393,7 +393,7 @@ fr-CA:
           update: "%{user_name} a mis à jour le questionnaire pour la réunion %{meeting_name}"
       application_helper:
         filter_category_values:
-          all: Tous
+          all: Toutes
         filter_meeting_space_values:
           all: Tous
       calendar:
