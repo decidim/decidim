@@ -195,12 +195,10 @@ fr:
       models:
         result:
           fields:
-            category: Catégorie
             created_at: Créé le
             end_date: Date de fin
             id: ID
             progress: Avancement
-            scope: Secteur
             start_date: Date de début
             status: Statut
             title: Titre
@@ -219,17 +217,11 @@ fr:
           results_count:
             one: 1 réalisation
             other: "%{count} réalisations"
-        filters:
-          all: Tous
         home:
-          categories_label: Catégories
           empty: Il n'y a aucun résultat pour le moment.
           empty_filters: Il n'y a aucun résultat avec ces critères.
-          subcategories_label: Sous-catégories
         home_header:
           global_status: État d'exécution global
-        nav_breadcrumb:
-          global: Exécution globale
         no_results: Il n'y a aucun projet.
         search:
           search: Rechercher des réalisations
@@ -241,10 +233,6 @@ fr:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Catégorie
-          scope_id_eq:
-            label: Secteur
           status_id_eq:
             label: Statut
     components:
@@ -290,12 +278,10 @@ fr:
           id: L'identifiant de ce commentaire
           user_group: Le nom du groupe d'utilisateurs qui a fait ce commentaire (le cas échéant)
         results:
-          category: La catégorie du résultat (par exemple "Culture")
           description: La description du résultat
           id: L'identifiant unique du résultat
           parent: Le résultat parent (le cas échéant) du résultat
           progress: Le pourcentage d'exécution du résultat
-          scope: La portée du résultat (par exemple "Ville")
           status: Le statut actuel de ce résultat
           title: Le titre du résultat
     participatory_spaces:
