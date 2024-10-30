@@ -1499,7 +1499,7 @@ pl:
         filters:
           area: Obszar
           areas: Kategorie
-          scope: Zakres
+          scope: Niniejsze rozporządzenie stosuje się od dnia 1 stycznia 2018 r.
           select_an_area: Wybierz kategorię
       progress: Postęp
       public_participation:
