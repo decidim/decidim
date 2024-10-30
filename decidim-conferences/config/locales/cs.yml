@@ -379,12 +379,14 @@ cs:
         conferences:
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             registrations_count:
               one: Došlo k 1 registraci.
               few: Bylo zde %{count} registrací.
               many: Bylo zde %{count} registrací.
               other: Bylo zde %{count} registrací.
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            taxonomies: Taxonomie
         content_blocks:
           highlighted_conferences:
             max_results: Maximální počet zobrazených prvků
