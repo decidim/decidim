@@ -2,15 +2,12 @@ ca:
   activemodel:
     attributes:
       debate:
-        category_id: Categoria
         closed_at: Tancat el
         conclusions: Conclusions
-        decidim_category_id: Categoria
         description: Descripció
         end_time: Data de finalització
         information_updates: Actualitzacions d'informació
         instructions: Instruccions per participar
-        scope_id: Àmbit
         start_time: Data d'inici
         title: Títol
         user_group_id: Crea un debat com
@@ -131,8 +128,6 @@ ca:
             closed: Tancat
             open: Obert
           user_group: Grups
-        form:
-          select_a_category: Si us plau, selecciona una categoria
         index:
           new_debate: Nou debat
         new:
@@ -240,7 +235,6 @@ ca:
           user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
         debates:
           author: Les dades d'autoria d'aquesta debat
-          category: 'La categoria del resultat (per exemple: "Cultura")'
           closed_at: La data en què va ser tancar aquest debat
           comments: El número de comentaris que té aquest debat
           comments_enabled: Si aquest debat té els comentaris habilitats o no
@@ -256,7 +250,6 @@ ca:
           last_comment_at: La data del darrer comentari en aquest debat
           participatory_space: A quin espai pertany aquest debat (procés participatiu, assemblea, etc.)
           reference: L'identificador únic del recurs a aquesta plataforma
-          scope: 'L''àmbit territorial del debat (per exemple: "Ciutat")'
           start_time: Quan va començar aquest debat, si era un debat obert o si tenia un temps limitat per a participar.
           title: El títol del debat
           url: L'URL on es pot trobar aquest debat
