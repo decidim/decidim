@@ -2,8 +2,6 @@ lv:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorija
-        decidim_category_id: Kategorija
         description: Apraksts
         end_time: Beidzas plkst.
         information_updates: Informācijas atjauninājumi
