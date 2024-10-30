@@ -598,7 +598,7 @@ lt:
         filter_area_values:
           all: Visos
         filter_category_values:
-          all: Visos
+          all: Visi
         filter_scope_values:
           all: Visos
     devise:
