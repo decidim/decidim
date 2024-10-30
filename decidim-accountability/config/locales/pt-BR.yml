@@ -201,7 +201,7 @@ pt-BR:
             end_date: Data final
             id: ID
             progress: Progresso
-            scope: Escopo
+            scope: Âmbito
             start_date: Data de início
             status: Status
             title: Título
@@ -223,10 +223,8 @@ pt-BR:
         filters:
           all: Todos
         home:
-          categories_label: Categorias
           empty: Não existem resultados ainda.
           empty_filters: Não há resultados com este critério.
-          subcategories_label: Subcategorias
         home_header:
           global_status: Status de execução global
         nav_breadcrumb:
@@ -245,7 +243,7 @@ pt-BR:
           category_id_eq:
             label: Categoria
           scope_id_eq:
-            label: Escopo
+            label: Âmbito
           status_id_eq:
             label: Status
     components:
