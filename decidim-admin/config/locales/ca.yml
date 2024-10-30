@@ -410,8 +410,6 @@ ca:
           JSON: JSON
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
       filters:
-        category_id_eq:
-          label: Categoria
         filter_label: Filtre
         invitation_accepted_at_present:
           label: 'Invitació: acceptada'
@@ -460,8 +458,6 @@ ca:
             'false': Publicat
             'true': Despublicat
         remove_all: Eliminar tots
-        scope_id_eq:
-          label: Àmbit
         search_label: Cercar
         search_placeholder:
           name_or_nickname_or_email_cont: Buscar %{collection} per correu electrònic, nom o àlies.
@@ -931,10 +927,6 @@ ca:
           title: Edita els permisos
         update:
           success: Els permisos s'han actualitzat correctament.
-      resources:
-        index:
-          headers:
-            scope: Àmbit
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
@@ -1092,12 +1084,9 @@ ca:
         new:
           create: Crear taxonomia
           title: Nova taxonomia
-        no_taxonomies: Actualment no hi ha taxonomies. Crea una llista de taxonomies i defineix-ne els elements per classificar o filtrar recursos.
         table:
           to_next_page: Passa a la pàgina següent
           to_prev_page: Arrossega per passar a la pàgina anterior
-        taxonomy_actions:
-          confirm_destroy: Segur que vols eliminar "%{name}"? També s'eliminaran tots els elements inclosos en aquesta.
         update:
           invalid: S'ha produït un error en actualitzar aquesta taxonomia.
           success: Taxonomia actualitzada correctament.
@@ -1115,7 +1104,6 @@ ca:
         edit:
           back: Enrere
           items: "%{count} elements seleccionats"
-          no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
           title: Editar el filtre de taxonomia
           update: Actualitzar el filtre de taxonomia
         form:
@@ -1130,7 +1118,6 @@ ca:
           title: Nou filtre de taxonomia
         table:
           actions: Accions
-          confirm_destroy: Segur que vols esborrar el filtre "%{name}"?
           count: Número d'elements
           destroy: Esborrar
           edit: Editar
