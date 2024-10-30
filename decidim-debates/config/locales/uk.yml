@@ -2,8 +2,6 @@ uk:
   activemodel:
     attributes:
       debate:
-        category_id: Категорія
-        decidim_category_id: Категорія
         description: Опис
         end_time: 'Закінчується:'
         information_updates: Оновлення відомостей
@@ -79,8 +77,6 @@ uk:
           official: Службове
           origin: Джерело
           search: Шукати
-        form:
-          select_a_category: Будь ласка, виберіть категорію
         index:
           new_debate: Додати обговорення
         new:
