@@ -256,6 +256,10 @@ id:
         name: Statistik organisasi
       sub_hero:
         name: Spanduk sub hero
+    core:
+      application_helper:
+        filter_category_values:
+          all: Semua
     devise:
       omniauth_registrations:
         new:
