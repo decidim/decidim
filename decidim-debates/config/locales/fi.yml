@@ -2,15 +2,12 @@ fi:
   activemodel:
     attributes:
       debate:
-        category_id: Aihepiiri
         closed_at: Sulkeutumisaika
         conclusions: Johtopäätökset
-        decidim_category_id: Aihepiiri
         description: Kuvaus
         end_time: Päättymisaika
         information_updates: Tietojen päivitykset
         instructions: Osallistumisohjeet
-        scope_id: Teema
         start_time: Alkamisaika
         title: Otsikko
         user_group_id: Luo keskustelu käyttäjänä
@@ -131,8 +128,6 @@ fi:
             closed: Suljetut
             open: Avoimet
           user_group: Ryhmät
-        form:
-          select_a_category: Valitse aihepiiri
         index:
           new_debate: Uusi keskustelu
         new:
@@ -240,7 +235,6 @@ fi:
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
         debates:
           author: Keskustelun laatijan tiedot
-          category: Keskustelun aihepiiri (esim. "Kulttuuri")
           closed_at: Keskustelun sulkemisaika
           comments: Keskustelun kommenttien määrä
           comments_enabled: Onko tällä keskustelulla ollut kommentit sallittuna vai ei
@@ -256,7 +250,6 @@ fi:
           last_comment_at: Keskustelun viimeisimmän kommentin ajankohta
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä keskustelu kuuluu
           reference: Keskustelun yksilöllinen tunniste tällä alustalla
-          scope: Keskustelun teema (esim. "Kaupunki")
           start_time: Keskustelun alkamisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
           title: Keskustelun otsikko
           url: URL-osoite keskusteluun
