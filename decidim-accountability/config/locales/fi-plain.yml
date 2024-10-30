@@ -202,12 +202,10 @@ fi-pl:
       models:
         result:
           fields:
-            category: Aihepiiri
             created_at: Luontiaika
             end_date: Päättymispäivä
             id: ID
             progress: Edistyminen
-            scope: Teema
             start_date: Alkamispäivä
             status: Tila
             title: Otsikko
@@ -226,17 +224,11 @@ fi-pl:
           results_count:
             one: 1 tulos
             other: "%{count} tulosta"
-        filters:
-          all: Kaikki
         home:
-          categories_label: Aihepiirit
           empty: Ei yhtään tulosta.
           empty_filters: Tuloksia ei löytynyt annetuilla hakuehdoilla.
-          subcategories_label: Ala-aihepiiri
         home_header:
           global_status: Yleisen toteutuksen tila
-        nav_breadcrumb:
-          global: Yleinen toteutus
         no_results: Projekteja ei ole saatavilla
         search:
           search: Hae toimintoja
@@ -248,10 +240,6 @@ fi-pl:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Aihepiiri
-          scope_id_eq:
-            label: Teema
           status_id_eq:
             label: Tila
     components:
@@ -301,7 +289,6 @@ fi-pl:
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
         results:
-          category: Tuloksen aihepiiri (esim. "Kulttuuri")
           component: Tuloksen komponentti
           created_at: Tuloksen laatimisaika
           description: Tuloksen kuvaus
@@ -310,7 +297,6 @@ fi-pl:
           parent: Tuloksen isäntä, jos tulos on alitulos
           progress: Tuloksen toimeenpanon valmistumisprosentti
           proposal_urls: Tähän tulokseen sisällytettyjen ehdotusten URL-osoitteet
-          scope: Tuloksen teema (esim. "Kaupunki")
           start_date: Päivämäärä, jolloin tuloksen toteutus alkaa
           status: Tuloksen tämänhetkinen tila
           title: Tuloksen otsikko
