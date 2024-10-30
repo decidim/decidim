@@ -45,6 +45,9 @@ describe "Explore results", :versioning do
 
   context "when there are results" do
     let(:results_count) { 5 }
+    let(:address) { "Carrer de Sant Joan, 123, 08001 Barcelona" }
+    let(:latitude) { 41.38879 }
+    let(:longitude) { 2.15899 }
     let!(:results) do
       create_list(
         :result,
@@ -59,6 +62,16 @@ describe "Explore results", :versioning do
         results[0..2].each { |r| r.update!(taxonomies: [sub_taxonomy]) }
         results[3..-1].each { |r| r.update!(taxonomies: [other_sub_taxonomy]) }
 
+        # Add address to one result to see if it works correctly
+        results.first.update!(address:, latitude:, longitude:)
+
+        # Enable geocoding in the component
+        component.update!(settings: { geocoding_enabled: true })
+
+        # Mock Decidim::Map.available?(:geocoding, :dynamic) to return true
+        allow(Decidim::Map).to receive(:available?).with(:geocoding, :dynamic).and_return(true)
+
+        # Revisit the path to load updated results
         visit path
       end
 
@@ -66,6 +79,10 @@ describe "Explore results", :versioning do
         within("aside") do
           expect(page).to have_content(translated(component.name))
         end
+      end
+
+      it "shows the map" do
+        expect(page).to have_css(".accountability__map")
       end
 
       it "shows taxonomies and sub_taxonomies with results for enabled filters" do

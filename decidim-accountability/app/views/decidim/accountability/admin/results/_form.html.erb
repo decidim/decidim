@@ -39,6 +39,14 @@
         </div>
       </div>
 
+      <% if @form.geocoding_enabled? %>
+        <div class="row">
+          <div class="columns">
+            <%= form.geocoding_field(:address) %>
+          </div>
+        </div>
+      <% end %>
+
       <div class="row">
         <div class="columns">
           <%= form.select :decidim_accountability_status_id, statuses.map { |status| [translated_attribute(status.name), status.id, { "data-progress" => status.progress }] }, include_blank: true %>

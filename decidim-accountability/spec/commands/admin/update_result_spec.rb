@@ -47,6 +47,9 @@ module Decidim::Accountability
         component: project_component
       )
     end
+    let(:address) { "Carrer de Sant Joan, 123, 08001 Barcelona" }
+    let(:latitude) { 41.38879 }
+    let(:longitude) { 2.15899 }
     let(:taxonomizations) do
       2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
@@ -65,7 +68,10 @@ module Decidim::Accountability
         current_user: user,
         parent_id: nil,
         external_id:,
-        weight:
+        weight:,
+        address:,
+        latitude:,
+        longitude:
       )
     end
     let(:invalid) { false }

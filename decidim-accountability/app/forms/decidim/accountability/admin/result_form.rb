@@ -21,6 +21,9 @@ module Decidim
         attribute :parent_id, Integer
         attribute :external_id, String
         attribute :weight, Float
+        attribute :address, String
+        attribute :latitude, Float
+        attribute :longitude, Float
 
         validates :title, translatable_presence: true
 
@@ -28,6 +31,8 @@ module Decidim
 
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
         validates :status, presence: true, if: ->(form) { form.decidim_accountability_status_id.present? }
+
+        validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
@@ -48,6 +53,32 @@ module Decidim
         def projects
           @projects ||= Decidim.find_resource_manifest(:projects).try(:resource_scope, current_component)&.order(title: :asc)
                                &.select(:title, :id)&.map { |a| [a.title[I18n.locale.to_s], a.id] }
+        end
+
+        # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
+        #
+        # Returns a Decidim::Scope
+        def scope
+          @scope ||= @attributes["decidim_scope_id"].value ? current_component.scopes.find_by(id: @attributes["decidim_scope_id"].value) : current_component.scope
+        end
+
+        # Scope identifier
+        #
+        # Returns the scope identifier related to the result
+        def decidim_scope_id
+          super || scope&.id
+        end
+
+        def geocoding_enabled?
+          Decidim::Map.available?(:geocoding) && current_component.settings.geocoding_enabled?
+        end
+
+        def has_address?
+          geocoding_enabled? && address.present?
+        end
+
+        def geocoded?
+          latitude.present? && longitude.present?
         end
 
         def parent
