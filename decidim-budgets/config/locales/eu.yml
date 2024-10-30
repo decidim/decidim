@@ -2,15 +2,12 @@ eu:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Esparrua
         description: Deskribapena
         title: Izenburua
         total_budget: Aurrekontua guztira
         weight: Kokapenaren hurrenkera
       project:
         budget_amount: Aurrekontuaren zenbatekoa
-        decidim_category_id: Kategoria
-        decidim_scope_id: Esparrua
         description: Descripción
         proposal_ids: Honekin lotutako proposamenak
         proposals: Proposamenak
@@ -34,10 +31,6 @@ eu:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategoria
-          scope_id_eq:
-            label: Esparrua
           selected_at_null:
             label: Hautatua
             values:
@@ -214,7 +207,6 @@ eu:
             total_budget: Aurrekontua guztira
         project:
           fields:
-            category: Kategoria
             id: ID
             map: Mapa
             title: Titulua
@@ -258,8 +250,6 @@ eu:
           message: Zure botoa ez da erregistratu, oraindik ez duzulako osatu bozketa-prozesua. Ziur zaude bozketatik irten nahi duzula?
           title: Oraindik ez duzu bozkatu
         filters:
-          category: Kategoria
-          scope: Esparrua
           search: Bilatu
           status: Egoera
           status_values:
@@ -381,7 +371,6 @@ eu:
           address: Proiektuaren helbidea (hala badagokio)
           budget: 'Zein proiektu-talderi dagokio proiektu hau (adibidez: "Aurrekontua2021")'
           budget_amount: Proiektu honetarako aurrekontuaren zenbateko osoa
-          category: 'Proiektuaren kategoria (adibidez: "Kultura")'
           comments: Proiektu honek zenbat iruzkin jaso ditu?
           component: Proiektuaren osagaia
           confirmed_votes: Zenbat boto baieztatuta ditu proiektu honek?
@@ -392,7 +381,6 @@ eu:
           related_proposal_titles: Zerrendatutako proposamenen izenburuak
           related_proposal_urls: Zerrendatutako proposamenen URLak
           related_proposals: Zerrendatutako proposamenak proiektu honetarako
-          scope: 'Proiektuaren esparrua (adibidez: "Hiria")'
           title: Proiektuaren izenburua
           url: Proiektuaren URLa
     orders:
