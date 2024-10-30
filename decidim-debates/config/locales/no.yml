@@ -2,10 +2,8 @@
   activemodel:
     attributes:
       debate:
-        category_id: Kategori
         closed_at: Stengt
         conclusions: Konklusjoner
-        decidim_category_id: Kategori
         description: Beskrivelse
         end_time: Avsluttes den
         information_updates: Oppdateringer
@@ -117,8 +115,6 @@
           state_values:
             closed: Lukket
             open: Åpen
-        form:
-          select_a_category: Velg en kategori
         index:
           new_debate: Ny innspillstråd
         new:
