@@ -79,6 +79,9 @@ fi-pl:
           update:
             invalid: Keskustelun päivittämisessä tapahtui virhe.
             success: Keskustelu päivitetty onnistuneesti.
+        exports:
+          debate_comments: Kommentit
+          debates: Keskustelut
       admin_log:
         debate:
           close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
@@ -221,5 +224,41 @@ fi-pl:
         description: Keskustelujen määrä
         object: keskustelut
         title: Keskustelut
+    open_data:
+      help:
+        debate_comments:
+          alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
+          author: Kommentin laatijan nimi
+          body: Kommentin teksti
+          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
+          id: Kommentin yksilöllinen tunniste
+          locale: Kommentoijan valitsema kieliasetus sivustolla
+          root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
+          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
+        debates:
+          author: Keskustelun laatijan tiedot
+          category: Keskustelun aihepiiri (esim. "Kulttuuri")
+          closed_at: Keskustelun sulkemisaika
+          comments: Keskustelun kommenttien määrä
+          comments_enabled: Onko tällä keskustelulla ollut kommentit sallittuna vai ei
+          component: Keskustelun komponentti
+          conclusions: Keskustelun johtopäätökset, mikäli se on päätetty
+          created_at: Keskustelun luontiaika
+          description: Keskustelun kuvaus
+          end_time: Keskustelun päättymisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
+          followers: Keskustelun seuraajien lukumäärä
+          id: Keskustelun yksilöllinen tunniste
+          information_updates: Muutokset, joita keskustelun laatija on tehnyt keskusteluun
+          instructions: Keskustelun osallistumisohjeet
+          last_comment_at: Keskustelun viimeisimmän kommentin ajankohta
+          participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä keskustelu kuuluu
+          reference: Keskustelun yksilöllinen tunniste tällä alustalla
+          scope: Keskustelun teema (esim. "Kaupunki")
+          start_time: Keskustelun alkamisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
+          title: Keskustelun otsikko
+          url: URL-osoite keskusteluun
     statistics:
       debates_count: Keskustelua
