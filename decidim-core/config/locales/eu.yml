@@ -600,8 +600,6 @@ eu:
       application_helper:
         filter_area_values:
           all: Guztiak
-        filter_category_values:
-          all: Guztiak
         filter_scope_values:
           all: Guztiak
     devise:
@@ -1583,12 +1581,6 @@ eu:
         sign_up: Sortu kontu bat
       mentions_modal:
         remove_recipient: Kendu %{name} hartzailea
-      participatory_space_filters:
-        filters:
-          area: Arloa
-          areas: Arloak
-          scope: Esparrua
-          select_an_area: Hautatu arlo bat
       progress: Aurrerapena 
       public_participation:
         public_participation: Erakutsi nire asistentzia publikoki
@@ -1617,9 +1609,6 @@ eu:
       pages_count: Orrialdeak
       participants_count: Erabiltzaileak
       users_count: Parte-hartzaileak
-    tags:
-      filter_results_for_category: 'Emaitzak kategoriaren arabera iragaztean: %{resource}'
-      filter_results_for_scope: 'Emaitzak %{resource} esparruaren arabera iragaztean'
     taxonomies:
       prompt: 'Hautatu hemendik: "%{name}"'
     translation_bar:
