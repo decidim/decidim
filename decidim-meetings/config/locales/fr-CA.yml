@@ -695,6 +695,7 @@ fr-CA:
         meeting_proposal: 'Propositions créées lors de cette rencontre :'
         proposal_meeting: 'Rencontres associées :'
     statistics:
+      attendees_count: Participants à la réunion
       meetings_count: Rencontres
   devise:
     mailer:
