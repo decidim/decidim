@@ -318,6 +318,10 @@ zh-CN:
         name: 组织统计
       sub_hero:
         name: 子英雄广告
+    core:
+      application_helper:
+        filter_category_values:
+          all: 所有的
     devise:
       omniauth_registrations:
         new:
@@ -906,6 +910,7 @@ zh-CN:
       participatory_space_filters:
         filters:
           areas: 地区
+          scope: 范围
           select_an_area: 选择区域
       reference:
         reference: '引用: %{reference}'
