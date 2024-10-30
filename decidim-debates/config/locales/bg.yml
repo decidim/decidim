@@ -2,15 +2,12 @@ bg:
   activemodel:
     attributes:
       debate:
-        category_id: Категория
         closed_at: Затворено на
         conclusions: Заключения
-        decidim_category_id: Категория
         description: Описание
         end_time: Завършва на
         information_updates: Актуализации на информацията
         instructions: Инструкции за участие
-        scope_id: Обхват
         start_time: Започва в
         title: Заглавие
         user_group_id: Създаване на дебат като
@@ -124,8 +121,6 @@ bg:
             closed: Затворен
             open: Отворен
           user_group: Групи
-        form:
-          select_a_category: Моля, изберете категория
         index:
           new_debate: Нов дебат
         new:
