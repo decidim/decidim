@@ -80,6 +80,8 @@ fi-pl:
           update:
             invalid: Keskustelun päivittämisessä tapahtui virhe.
             success: Keskustelu päivitetty onnistuneesti.
+        exports:
+          comments: Kommentit
       admin_log:
         debate:
           close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
