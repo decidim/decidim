@@ -223,10 +223,8 @@ fi-pl:
         filters:
           all: Kaikki
         home:
-          categories_label: Aihepiirit
           empty: Ei yhtään tulosta.
           empty_filters: Tuloksia ei löytynyt annetuilla hakuehdoilla.
-          subcategories_label: Ala-aihepiiri
         home_header:
           global_status: Yleisen toteutuksen tila
         nav_breadcrumb:
