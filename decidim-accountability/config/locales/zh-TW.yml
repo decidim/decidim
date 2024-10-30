@@ -208,9 +208,6 @@ zh-TW:
             other: "%{count} 個結果"
         filters:
           all: 全部
-        home:
-          categories_label: 類別
-          subcategories_label: 子類別
         home_header:
           global_status: 全域執行狀態
         nav_breadcrumb:
