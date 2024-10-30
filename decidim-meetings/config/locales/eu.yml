@@ -100,8 +100,6 @@ eu:
             'false': Ez onartua
             'true': Onartua
         meetings:
-          category_id_eq:
-            label: Kategoria
           closed_at_present:
             label: Egoera
             values:
@@ -112,8 +110,6 @@ eu:
             values:
               'false': Aurrekoak
               'true': Hurrengoak
-          scope_id_eq:
-            label: Esparrua
           with_any_origin:
             label: Jatorria
             values:
@@ -427,8 +423,6 @@ eu:
         questionnaire:
           update: "%{user_name} erabiltzaileak galdetegia eguneratu du %{meeting_name} topaketan"
       application_helper:
-        filter_category_values:
-          all: Guztiak
         filter_meeting_space_values:
           all: Guztiak
       calendar:
@@ -538,7 +532,6 @@ eu:
           location_hints_help: 'Kokapen-aholkuak: informazio gehigarria. Adibidea: eraikinaren solairua, aurrez aurreko topaketa bada, edo aretoaren pasahitza, sarrera mugatua duen online topaketa bada.'
           online_meeting_url_help: 'Lotura: Utzi parte-hartzaileei zuzenean konektatzen zure topaketara'
           registration_url_help: 'Esteka: parte-hartzaileei aukera ematea izena emateko erabiltzen ari zaren kanpoko zerbitzura joateko'
-          select_a_category: Mesedez, hautatu kategoria bat
           select_a_meeting_type: Mesedez, hautatu topaketa mota bat
           select_a_registration_type: Mesedez, hautatu erregistro mota bat
           select_an_iframe_access_level: Mesedez, aukeratu iframe maila bat
@@ -706,7 +699,6 @@ eu:
           address: Topaketaren helbidea, baldin eta aurrez aurre badago eta kokapen fisikoa badu
           attachments: Bilera honetako atxikipen kopurua
           attendees: Zenbat jende bildu da topaketa honetan?
-          category: 'Topaketaren kategoria (adibidez: "Kultura")'
           comments: Zenbat iruzkin egin dira topaketa honetan?
           component: Topaketari dagokion osagaia
           contributions: Zenbat ekarpen egin dituzte nerabeek topaketa honetan?
@@ -721,7 +713,6 @@ eu:
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
           related_proposals: Topaketa honi buruzko proposamenak
           related_results: Topaketa honen emaitzak
-          scope: 'Topaketaren esparrua (adibidez: "Hiria")'
           start_time: Zein data eta ordutan hasi da topaketa hau
           title: Topaketaren izenburua
           url: Topaketaren URLa
