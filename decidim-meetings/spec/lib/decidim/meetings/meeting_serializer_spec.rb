@@ -10,8 +10,7 @@ module Decidim
       end
 
       let!(:meeting) { create(:meeting, :published, contributions_count: 5, attendees_count: 10, attending_organizations: "Some organization") }
-      let!(:category) { create(:category, participatory_space: component.participatory_space) }
-      let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
+      let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
       let(:component) { meeting.component }
 
@@ -25,8 +24,7 @@ module Decidim
       let(:proposals) { create_list(:proposal, 2, component: proposal_component) }
 
       before do
-        meeting.update!(category:)
-        meeting.update!(scope:)
+        meeting.update!(taxonomies:)
         meeting.link_resources(proposals, "proposals_from_meeting")
         meeting.link_resources(results, "meetings_through_proposals")
       end
@@ -38,14 +36,10 @@ module Decidim
           expect(serialized).to include(id: meeting.id)
         end
 
-        it "serializes the category" do
-          expect(serialized[:category]).to include(id: category.id)
-          expect(serialized[:category]).to include(name: category.name)
-        end
-
-        it "serializes the scope" do
-          expect(serialized[:scope]).to include(id: scope.id)
-          expect(serialized[:scope]).to include(name: scope.name)
+        it "serializes the taxonomies" do
+          expect(serialized[:taxonomies].length).to eq(2)
+          expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
+          expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
         end
 
         it "serializes the title" do

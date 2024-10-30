@@ -101,7 +101,6 @@ export default class CheckBoxesTree {
     const indeterminateSiblings = totalCheckSiblings.filter((checkbox) => checkbox.indeterminate)
 
     if (checkedSiblings.length === 0 && indeterminateSiblings.length === 0) {
-      parentCheck.checked = false;
       parentCheck.indeterminate = false;
     } else if (checkedSiblings.length === totalCheckSiblings.length && indeterminateSiblings.length === 0) {
       parentCheck.checked = true;

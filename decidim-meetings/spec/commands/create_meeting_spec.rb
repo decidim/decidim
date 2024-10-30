@@ -10,8 +10,6 @@ module Decidim::Meetings
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
-    let(:scope) { create(:scope, organization:) }
-    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -27,6 +25,9 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
     let(:form) do
       double(
         invalid?: invalid,
@@ -39,8 +40,6 @@ module Decidim::Meetings
         address:,
         latitude:,
         longitude:,
-        scope:,
-        category:,
         user_group_id:,
         current_user:,
         current_component:,
@@ -54,7 +53,8 @@ module Decidim::Meetings
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url:,
         iframe_embed_type:,
-        iframe_access_level:
+        iframe_access_level:,
+        taxonomizations:
       )
     end
 
@@ -89,14 +89,19 @@ module Decidim::Meetings
         expect(meeting.reload.followers).to include(current_user)
       end
 
-      it "sets the scope" do
+      it "sets the taxonomies" do
         subject.call
-        expect(meeting.scope).to eq scope
+        expect(meeting.taxonomizations).to match_array(taxonomizations)
       end
 
-      it "sets the category" do
-        subject.call
-        expect(meeting.category).to eq category
+      context "when no taxonomizations are set" do
+        let(:taxonomizations) { [] }
+
+        it "taxonomizations are empty" do
+          subject.call
+
+          expect(meeting.taxonomizations).to be_empty
+        end
       end
 
       it "sets the registration_terms" do
