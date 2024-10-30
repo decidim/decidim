@@ -344,6 +344,14 @@ cs:
           title: 'Přidat komponentu: %{name}'
         publish:
           success: Komponenta byla úspěšně publikována.
+        taxonomy_filters_badge:
+          remove: Odstranit
+        taxonomy_filters_drawer:
+          add_filter: Přidat filtr
+          clear_all: Vymazat vše
+          filters: Filtry
+          save: Uložit
+          title: Filtry
         title: Komponenty
         unpublish:
           success: Komponenta byla úspěšně zrušena.
@@ -1130,6 +1138,8 @@ cs:
           title: Nový filtr taxonomie
         table:
           actions: Akce
+          components_count: Počet komponentů
+          confirm_destroy: 'Jste si jisti, že chcete odstranit filtr %{name}? POZNÁMKA: Zdroje, které používají tento filtr, nebudou ovlivněny, ale ztratí odkaz na tento filtr.'
           count: Počet položek
           destroy: Smazat
           edit: Upravit
