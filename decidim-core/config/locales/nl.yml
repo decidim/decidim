@@ -989,10 +989,6 @@ nl:
         title: Meld een probleem
       floating_help:
         help: Help
-      participatory_space_filters:
-        filters:
-          areas: Onderwerpen
-          select_an_area: Selecteer een onderwerp
       public_participation:
         public_participation: Maak mijn aanwezigheid openbaar
       reference:
@@ -1019,9 +1015,6 @@ nl:
       pages_count: Pagina's
       participants_count: Deelnemers
       users_count: Deelnemers
-    tags:
-      filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
-      filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'
     user_contact_disabled: Deze gebruiker accepteert geen directe berichten.
     user_conversations:
       create:
