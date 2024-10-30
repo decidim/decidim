@@ -311,8 +311,6 @@ nl:
           FormPDF: PDF-bestand
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Categorie
         filter_label: Filteren
         invitation_accepted_at_present:
           label: Uitnodiging geaccepteerd
@@ -360,8 +358,6 @@ nl:
           values:
             'false': Ingediend
             'true': Niet-gepubliceerde
-        scope_id_eq:
-          label: Bereik
         search_label: Zoeken
         search_placeholder:
           name_or_nickname_or_email_cont: Zoek %{collection} op e-mail, naam of bijnaam.
@@ -756,10 +752,6 @@ nl:
           title: Bewerk toelatingen
         update:
           success: Machtigingen succesvol bijgewerkt.
-      resources:
-        index:
-          headers:
-            scope: Scope
       scope_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe scope type.
