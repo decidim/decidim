@@ -613,7 +613,7 @@ fi-pl:
           first_progress_notification_at: Ajankohta, jolloin ensimmäinen edistymisheräte lähetettiin
           hashtag: Aloitetta vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
           published_at: Aloitteen julkaisuaika
-          reference: Aloitteen viittaus. Aloitteen uniikki tunniste tällä alustalla.
+          reference: Aloitteen viittaus. Aloitteen yksilöllinen tunniste tällä alustalla.
           scope: Aloitteen teema
           second_progress_notification_at: Ajankohta, jolloin toinen edistymisheräte lähetettiin
           signature_end_date: Päivämäärä, jolloin aloitteen allekirjoitusten keräysaika päättyy
