@@ -273,6 +273,10 @@ gl:
         name: Estatísticas da organización
       sub_hero:
         name: Banner sub-heroe
+    core:
+      application_helper:
+        filter_category_values:
+          all: Todo
     devise:
       omniauth_registrations:
         new:
