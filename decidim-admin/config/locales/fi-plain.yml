@@ -410,8 +410,6 @@ fi-pl:
           JSON: JSON
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       filters:
-        category_id_eq:
-          label: Aihepiiri
         filter_label: Suodata
         invitation_accepted_at_present:
           label: Kutsu hyväksytty
@@ -460,8 +458,6 @@ fi-pl:
             'false': Julkaistu
             'true': Julkaisematon
         remove_all: Poista kaikki
-        scope_id_eq:
-          label: Teema
         search_label: Hae
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection}: Hae sähköpostilla, nimellä tai nimimerkillä'
@@ -931,10 +927,6 @@ fi-pl:
           title: Muokkaa käyttöoikeuksia
         update:
           success: Käyttöoikeudet päivitetty onnistuneesti.
-      resources:
-        index:
-          headers:
-            scope: Teema
       scope_types:
         create:
           error: Uuden teematyypin luomisessa tapahtui virhe.
@@ -1092,12 +1084,9 @@ fi-pl:
         new:
           create: Luo luokittelu
           title: Uusi luokittelu
-        no_taxonomies: Tällä hetkellä yhtään luokittelua ei ole määritetty. Luo luokitteluita tämän näkymän avulla ja määritä jokaiselle luokittelulle kohteet, jotta voit käyttää niitä luokitellaksesi tai suodattaaksesi asioita.
         table:
           to_next_page: Vedä seuraavalle sivulle
           to_prev_page: Vedä edelliselle sivulle
-        taxonomy_actions:
-          confirm_destroy: Haluatko varmasti poistaa luokittelun %{name}? Tämä poistaa myös kaikki kyseisen luokittelun alle määritetyt kohteet. Luokitteluun liitettyjä sisältöjä ei kuitenkaan poisteta, mutta itse luokittelutieto häviää niiltä.
         update:
           invalid: Luokittelun päivittäminen epäonnistui.
           success: Luokittelun päivittäminen onnistui.
@@ -1115,7 +1104,6 @@ fi-pl:
         edit:
           back: Takaisin
           items: "%{count} kohdetta valittu"
-          no_items: Tälle luokittelulle ei ole vielä luotu yhtään kohdetta. Voit luoda kohteita luokittelun asetusten kautta.
           title: Muokkaa luokittelun suodatinta
           update: Päivitä luokittelun suodatin
         form:
@@ -1130,7 +1118,6 @@ fi-pl:
           title: Uusi luokitteluiden suodatin
         table:
           actions: Toiminnot
-          confirm_destroy: Oletko varma, että haluat poistaa suodattimen nimeltä "%{name}"?
           count: Kohteiden määrä
           destroy: Poista
           edit: Muokkaa
