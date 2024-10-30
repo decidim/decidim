@@ -306,8 +306,6 @@ gl:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Categoría
         filter_label: Filtrar
         invitation_accepted_at_present:
           label: Convite aceptado
@@ -355,8 +353,6 @@ gl:
           values:
             'false': Publicado
             'true': Publicación borrada
-        scope_id_eq:
-          label: Ámbito
         search_label: Busca
         search_placeholder:
           name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
@@ -735,10 +731,6 @@ gl:
           title: Editar permisos
         update:
           success: Permisos actualizados correctamente.
-      resources:
-        index:
-          headers:
-            scope: Ámbito
       scope_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de alcance.
