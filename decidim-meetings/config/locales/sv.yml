@@ -96,8 +96,6 @@ sv:
             'false': Inte tackat ja
             'true': Tackat ja
         meetings:
-          category_id_eq:
-            label: Kategori
           closed_at_present:
             label: Status
             values:
@@ -108,8 +106,6 @@ sv:
             values:
               'false': Tidigare
               'true': Kommande
-          scope_id_eq:
-            label: Indelning
           with_any_origin:
             label: Ursprungligt
             values:
@@ -410,8 +406,6 @@ sv:
         questionnaire:
           update: "%{user_name} uppdaterade enkäten för mötet %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Alla
         filter_meeting_space_values:
           all: Alla
       calendar:
@@ -521,7 +515,6 @@ sv:
           location_hints_help: 'Ytterligare vägbeskrivning. Till exempel till en lokal eller lösenord till ett digitalt möte.'
           online_meeting_url_help: 'Länk: låt deltagare ansluta sig direkt till mötet'
           registration_url_help: 'Länk: låt deltagare registrera sig via en extern tjänst'
-          select_a_category: Välj en kategori
           select_a_meeting_type: Välj typ av möte
           select_a_registration_type: Välj sätt att registrera sig
           select_an_iframe_access_level: Välj vem som får tillgång till iframe
