@@ -121,8 +121,6 @@ sl:
         reject: Zavrni
         verify: Preveri
       filters:
-        scope_id_eq:
-          label: Področje
         state_eq:
           values:
             rejected: Zavrnjen
