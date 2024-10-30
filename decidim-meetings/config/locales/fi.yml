@@ -100,8 +100,6 @@ fi:
             'false': Muut paitsi hyväksytyt
             'true': Hyväksytyt
         meetings:
-          category_id_eq:
-            label: Aihepiiri
           closed_at_present:
             label: Tila
             values:
@@ -112,8 +110,6 @@ fi:
             values:
               'false': Menneet
               'true': Tulevat
-          scope_id_eq:
-            label: Teema
           with_any_origin:
             label: Alkuperä
             values:
@@ -427,8 +423,6 @@ fi:
         questionnaire:
           update: "%{user_name} päivitti tapaamisen %{meeting_name} kyselyä"
       application_helper:
-        filter_category_values:
-          all: Kaikki
         filter_meeting_space_values:
           all: Kaikki
       calendar:
@@ -538,7 +532,6 @@ fi:
           location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
           online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
           registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
-          select_a_category: Valitse aihepiiri
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
           select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
@@ -706,7 +699,6 @@ fi:
           address: Tapaamisen osoite, mikäli tapaaminen on määritetty tiettyyn paikkaan
           attachments: Tapaamisen liitteiden lukumäärä
           attendees: Tapaamisen osallistuvien tai osallistuneiden ihmisten määrä
-          category: Tapaamisen aihepiiri (esim. "Kulttuuri")
           comments: Tapaamisen kommenttien lukumäärä
           component: Tapaamisen komponentti
           contributions: Tapaamisen osallistujien tekemien kontribuutioiden lukumäärä
@@ -721,7 +713,6 @@ fi:
           reference: Tapaamisen yksilöllinen tunniste tällä alustalla
           related_proposals: Ehdotukset, jotka liittyvät tähän tapaamiseen
           related_results: Tulokset, jotka liittyvät tähän tapaamiseen
-          scope: Tapaamisen teema (esim. "Kaupunki")
           start_time: Tapaamisen alkamisajankohta
           title: Tapaamisen otsikko
           url: Tapaamisen URL-osoite
