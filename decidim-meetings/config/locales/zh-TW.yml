@@ -84,8 +84,6 @@ zh-TW:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: 分類
           closed_at_present:
             label: 狀態
             values:
@@ -96,8 +94,6 @@ zh-TW:
             values:
               'false': 過去
               'true': 即將舉行
-          scope_id_eq:
-            label: 範圍
           with_any_origin:
             label: 起源
             values:
@@ -373,8 +369,6 @@ zh-TW:
         questionnaire:
           update: "%{user_name} 更新了 %{meeting_name} 會議的問卷"
       application_helper:
-        filter_category_values:
-          all: 全部
         filter_meeting_space_values:
           all: 全部
       calendar_modal:
@@ -476,7 +470,6 @@ zh-TW:
           location_hints_help: '地點提示：額外的訊息。例如，如果是面對面的會議，可以提供建築物樓層的資訊；如果是限制存取權限的線上會議，可以提供會議密碼的資訊。'
           online_meeting_url_help: '連結：允許參與者直接連接到您的會議'
           registration_url_help: '連結：允許參與者進入您用於註冊的外部服務'
-          select_a_category: 請選擇一個類別
           select_a_meeting_type: 請選擇一種會議類型。
           select_a_registration_type: 請選擇一種註冊類型
           select_an_iframe_access_level: 請選擇一個 iframe 存取級別
