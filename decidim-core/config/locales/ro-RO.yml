@@ -1179,10 +1179,6 @@ ro:
         title: Raportează un utilizator nepotrivit
       floating_help:
         help: Ajutor
-      participatory_space_filters:
-        filters:
-          areas: Zone
-          select_an_area: Selectează o zonă
       public_participation:
         public_participation: Arată public participarea mea
       reference:
@@ -1209,9 +1205,6 @@ ro:
       pages_count: Pagini
       participants_count: Participanți
       users_count: Participanți
-    tags:
-      filter_results_for_category: 'Filtrează rezultatele pentru categoria: %{resource}'
-      filter_results_for_scope: 'Filtrează rezultatele pentru domeniul: %{resource}'
     taxonomies:
       prompt: Selectați din "%{name}"
     translation_bar:
