@@ -2,10 +2,8 @@ it:
   activemodel:
     attributes:
       debate:
-        category_id: Categoria
         closed_at: Chiuso il
         conclusions: Conclusioni
-        decidim_category_id: Categoria
         description: Descrizione
         end_time: Finisce a
         information_updates: Aggiornamenti delle informazioni
@@ -117,8 +115,6 @@ it:
           state_values:
             closed: Chiuso
             open: Apri
-        form:
-          select_a_category: Si prega di selezionare una categoria
         index:
           new_debate: Nuovo dibattito
         new:
