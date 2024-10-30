@@ -264,6 +264,7 @@ eu:
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 hasierako konfigurazioari eusteko)
             display_progress_enabled: Erakutsi aurrerapena
+            geocoding_enabled: Mapak gaituta
             intro: Intro
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
