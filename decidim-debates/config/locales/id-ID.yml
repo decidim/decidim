@@ -2,8 +2,6 @@ id:
   activemodel:
     attributes:
       debate:
-        category_id: Kategori
-        decidim_category_id: Kategori
         description: Deskripsi
         end_time: Berakhir pada
         information_updates: Pembaruan informasi
@@ -73,8 +71,6 @@ id:
           official: Resmi
           origin: Asal
           search: Pencarian
-        form:
-          select_a_category: Silakan pilih kategori
         index:
           new_debate: Debat baru
         new:
