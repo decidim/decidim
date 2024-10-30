@@ -412,7 +412,7 @@ es:
           update: "%{user_name} ha actualizado el cuestionario del encuentro %{meeting_name}"
       application_helper:
         filter_category_values:
-          all: Todas
+          all: Todos
         filter_meeting_space_values:
           all: Todos
       calendar:
