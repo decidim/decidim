@@ -79,6 +79,9 @@ es-MX:
           update:
             invalid: Ha habido un problema al actualizar este debate.
             success: Debate actualizado con éxito.
+        exports:
+          debate_comments: Comentarios
+          debates: Debates
       admin_log:
         debate:
           close: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
@@ -221,5 +224,41 @@ es-MX:
         description: Número de debates creados
         object: debates
         title: Debates
+    open_data:
+      help:
+        debate_comments:
+          alignment: Si este comentario fue a favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
+        debates:
+          author: Los datos de autoría de este debate
+          category: La categoría del resultado (por ejemplo, "Cultura")
+          closed_at: La fecha en la que la se cerró este debate
+          comments: El número de comentarios que tiene este debate
+          comments_enabled: Si este debate tiene comentarios habilitados o no
+          component: El componente al que pertenece este debate
+          conclusions: Las conclusiones del debate si se ha cerrado
+          created_at: La fecha y hora en que se creó este debate
+          description: La descripción del debate
+          end_time: Cuando terminaba este debate, si era un debate abierto o tenía un tiempo limitado para participar.
+          followers: El número de participantes que siguieron este debate
+          id: El identificador único del debate
+          information_updates: Las actualizaciones de contenido del debate que hizo la autora
+          instructions: Cuáles fueron las instrucciones para comentar/participar en este debate
+          last_comment_at: La fecha del último comentario en este debate
+          participatory_space: A qué espacio pertenece este debate (proceso participativo, asamblea, etc.)
+          reference: El identificador único del recurso en esta plataforma
+          scope: El ámbito territorial del debate (por ejemplo, "Ciudad")
+          start_time: Cuando empezó este debate, si era un debate abierto o tenía un tiempo limitado para participar.
+          title: El título del debate
+          url: La URL donde se puede encontrar este debate
     statistics:
       debates_count: Debates
