@@ -166,7 +166,7 @@ ro:
           title: Nu ai votat încă
         filters:
           category: Categorie
-          scope: Domeniu
+          scope: Domeniu de interes
           search: Caută
           status: Stadiu
           status_values:
