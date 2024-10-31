@@ -317,6 +317,7 @@ de:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             form:
               errors:
                 budget_voting_rule_only_one: Nur eine Abstimmungsregel kann aktiviert sein.
@@ -324,10 +325,13 @@ de:
             geocoding_enabled: Karten aktiviert
             landing_page_content: Budgets Landingpage
             more_information_modal: Weitere Informationen
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             projects_per_page: Projekte pro Seite
             resources_permissions_enabled: Berechtigungen können für jedes Projekt festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
             title: Titel
             total_budget: Gesamtbudget; Gesamtetat
             vote_minimum_budget_projects_number: Mindestanzahl von Projekten, um abzustimmen
@@ -362,6 +366,10 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
           email_subject: Das Budget %{resource_title} ist jetzt für %{participatory_space_title} aktiv.
           notification_title: Das Budget <a href="%{resource_path}">%{resource_title}</a> ist jetzt aktiv für %{participatory_space_title}.
+    open_data:
+      help:
+        projects:
+          taxonomies: Die Klassifizierungen des Projekts
     orders:
       checkout:
         error: Bei der Bearbeitung Ihrer Stimme ist ein Problem aufgetreten.
