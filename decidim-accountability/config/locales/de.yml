@@ -223,8 +223,10 @@ de:
         filters:
           all: Alle
         home:
+          categories_label: Kategorien
           empty: Es liegen noch keine Ergebnisse vor.
           empty_filters: Es liegen noch keine Ergebnisse mit diesen Kriterien vor.
+          subcategories_label: Unterkategorien
         home_header:
           global_status: Globaler Umsetzungsstatus
         nav_breadcrumb:
