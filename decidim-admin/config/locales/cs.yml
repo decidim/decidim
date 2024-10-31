@@ -1104,9 +1104,12 @@ cs:
         new:
           create: Vytvořit taxonomii
           title: Nová taxonomie
+        no_taxonomies: Momentálně nejsou žádné taxonomie. Vytvořte zde seznam taxonomií a definujte položky v každé z nich pro klasifikaci nebo filtrování zdrojů.
         table:
           to_next_page: Přetáhněte na další stránku
           to_prev_page: Přetáhněte pro předchozí stránku
+        taxonomy_actions:
+          confirm_destroy: 'Jste si jisti, že chcete odstranit %{name}? Tímto odstraníte také všechny podřízené položky. POZNÁMKA: Zdroje, které používají tuto taxonomii, nebudou ovlivněny, ale ztratí odkaz na tuto taxonomii.'
         update:
           invalid: Při aktualizaci této taxonomie došlo k chybě.
           success: Taxonomie byla úspěšně aktualizována.
@@ -1124,6 +1127,7 @@ cs:
         edit:
           back: Zpět
           items: "%{count} položek vybráno"
+          no_items: Pro tuto taxonomii nejsou k dispozici žádné položky. Položky můžete vytvořit v nastavení taxonomie.
           title: Upravit filtr taxonomie
           update: Aktualizovat filtr taxonomie
         form:
