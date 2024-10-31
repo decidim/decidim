@@ -377,6 +377,7 @@ de:
               one: Es gab 1 Registrierung.
               other: Es gab %{count} Registrierungen.
             slug_help_html: 'URL-Slugs werden verwendet, um URLs zu generieren, die auf diese Konferenz verweisen. Akzeptiert nur Buchstaben, Zahlen und Bindestriche und muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            taxonomies: Klassifizierungen
         content_blocks:
           highlighted_conferences:
             max_results: Maximale Anzahl angezeigter Elemente
@@ -572,6 +573,10 @@ de:
         title: Medien und Links
     menu:
       conferences: Konferenzen
+    open_data:
+      help:
+        conferences:
+          taxonomies: Die Klassifizierungen der Konferenz
     statistics:
       conferences_count: Konferenzen
   devise:
