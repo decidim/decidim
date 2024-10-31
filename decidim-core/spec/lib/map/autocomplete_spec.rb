@@ -61,7 +61,7 @@ module Decidim
     ).strip)
       end
 
-      context "when show_my_location_button? returns true" do
+      context "when show_my_location_button? returns an array" do
         before do
           allow(Decidim).to receive(:show_my_location_button).and_return([:proposals])
           allow(template).to receive(:current_component).and_return(double(manifest_name: :proposals))
