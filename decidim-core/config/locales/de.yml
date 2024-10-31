@@ -20,7 +20,7 @@ de:
       report:
         details: Zusätzliche Kommentare
       taxonomy:
-        name: Name der Taxonomie
+        name: Name der Klassifizierung
       user:
         about: Über
         email: Ihre E-Mail
@@ -274,14 +274,14 @@ de:
         delete: "%{user_name} hat die statische Seite %{resource_name} gelöscht"
         update: "%{user_name} hat die statische Seite %{resource_name} aktualisiert"
       taxonomy:
-        create: "%{user_name} hat die Taxonomie %{resource_name} erstellt"
-        create_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} erstellt"
-        delete: "%{user_name} hat die Taxonomie %{resource_name} gelöscht"
-        delete_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} gelöscht"
-        update: "%{user_name} hat die Taxonomie %{resource_name} aktualisiert"
-        update_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} aktualisiert"
+        create: "%{user_name} hat die Klassifizierung %{resource_name} erstellt"
+        create_with_parent: "%{user_name} hat die Klassifizierung %{resource_name} innerhalb der Klassifizierung %{parent_taxonomy} erstellt"
+        delete: "%{user_name} hat die Klassifizierung %{resource_name} gelöscht"
+        delete_with_parent: "%{user_name} hat die Klassifizierung %{resource_name} innerhalb der Klassifizierung %{parent_taxonomy} gelöscht"
+        update: "%{user_name} hat die Klassifizierung %{resource_name} aktualisiert"
+        update_with_parent: "%{user_name} hat die Klassifizierung %{resource_name} innerhalb der Klassifizierung %{parent_taxonomy} aktualisiert"
       taxonomy_filter:
-        create: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} erstellt"
+        create: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} erstellt"
         create_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} erstellt"
         delete: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} gelöscht"
         delete_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} gelöscht"
