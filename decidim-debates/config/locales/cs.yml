@@ -34,10 +34,14 @@ cs:
         settings:
           global:
             announcement: Oznámení
+            clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            taxonomy_filters: Vyberte filtry pro komponentu
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
