@@ -373,10 +373,13 @@ eu:
         conferences:
           form:
             available_slots_help: Utzi 0 mugak mugagabea badaude.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             registrations_count:
               one: Izen-emate 1 egon da.
               other: Dena den, %{count} matrikulazioak.
             slug_help_html: 'URL slugak erabiltzen dira hitzaldi honetako URLak sortzeko. Soilik onartzen ditu gutunak, zenbakiak eta gidoiak, eta letra batez hasi behar du. Adibidea: % {url}'
+            taxonomies: Taxonomiak
         content_blocks:
           highlighted_conferences:
             max_results: Erakusteko gehieneko elementu kopurua
@@ -592,6 +595,7 @@ eu:
           slogan: Hitzaldi honen leloa
           slug: Batzarraren lerroa (helburuen identifikaziorako erabiltzen da, URLrako)
           start_date: Zein datatan hasi zen hitzaldi hau.
+          taxonomies: Hitzaldiaren taxonomiak
           title: Hitzaldiaren izenburua
     statistics:
       conferences_count: Hitzaldiak
