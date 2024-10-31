@@ -42,6 +42,7 @@ cs:
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
             taxonomy_filters: Vyberte filtry pro komponentu
+            taxonomy_filters_add: Přidat filtr
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
@@ -171,6 +172,7 @@ cs:
             official_debate: Oficiální debata
             start: Začátek
             start_time: Datum zahájení
+            taxonomies: Taxonomie
             title: Titul
     events:
       debates:
@@ -230,6 +232,11 @@ cs:
     open_data:
       help:
         debate_comments:
+          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
+          author: Jméno účastníka, který vytvořil tento komentář
+          body: Samotný komentář
           commentable_id: Jedinečné ID komentovatelného
+          commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
+          created_at: Datum, kdy byl komentář vytvořen
     statistics:
       debates_count: Debaty
