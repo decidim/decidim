@@ -509,13 +509,16 @@ eu:
             amendments_enabled: Zuzenketak gaituta
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             dummy_global_attribute1: Balizko atributua 1
             dummy_global_attribute2: Balizko atributua 2
             dummy_global_translatable_text: Itzul daitekeen balizko testua
             enable_pads_creation: Gaitu ohar-blokeak sortzea
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             resources_permissions_enabled: Baliabideen baimenak gaituta
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
+            taxonomy_filters: Hautatu iragazkiak osagairako
           step:
             amendment_creation_enabled: Zuzenketa sortzea aktibatuta
             amendment_promotion_enabled: Zuzenketa sustatzea aktibatuta
@@ -601,6 +604,8 @@ eu:
         filter_area_values:
           all: Guztiak
         filter_scope_values:
+          all: Guztiak
+        filter_taxonomy_values:
           all: Guztiak
     devise:
       omniauth_registrations:
@@ -1609,6 +1614,8 @@ eu:
       pages_count: Orrialdeak
       participants_count: Erabiltzaileak
       users_count: Parte-hartzaileak
+    tags:
+      filter_results_for_taxonomy: 'Iragazkien emaitzak honetarako: %{resource}'
     taxonomies:
       prompt: 'Hautatu hemendik: "%{name}"'
     translation_bar:
