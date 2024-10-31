@@ -168,6 +168,8 @@ module Decidim
     end
 
     def ephemeral_tos_pending?
+      return if user.blank?
+
       user.ephemeral? && !user.tos_accepted?
     end
 
