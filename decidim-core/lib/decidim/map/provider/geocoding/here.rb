@@ -30,7 +30,7 @@ module Decidim
             # contain the street name unless they also have the "streets" key in
             # the "scoring" -> "fieldScore" attribute defined.
             street_result = results.find do |r|
-              r.data["scoring"]["fieldScore"].has_key?("streets")
+              r.data && r.data["scoring"] && r.data["scoring"]["fieldScore"] && r.data["scoring"]["fieldScore"].has_key?("streets")
             end
             return street_result.address if street_result
 
