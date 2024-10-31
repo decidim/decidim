@@ -2,16 +2,16 @@
 en:
   activemodel:
     attributes:
-      editor_image:
-        file: File
-      attachment:
-        documents: Documents
       account:
         delete_reason: Reason to delete your account
+      attachment:
+        documents: Documents
       common:
         created_at: Created at
       conversation:
         body: Body
+      editor_image:
+        file: File
       group:
         about: About
         avatar: Avatar
