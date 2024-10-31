@@ -87,6 +87,15 @@ module Decidim
       end
 
       it { is_expected.to eq(public_attributes) }
+
+      context "when user is ephemeral" do
+        let(:user) { create(:user, :ephemeral, :tos_not_accepted) }
+        let(:record) do
+          DummyAuthorizationHandler.new(user:)
+        end
+
+        it { is_expected.to eq(public_attributes.merge("tos_agreement" => :boolean)) }
+      end
     end
   end
 end
