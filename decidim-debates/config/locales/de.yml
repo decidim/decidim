@@ -34,8 +34,12 @@ de:
             announcement: Ankündigung
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
@@ -213,5 +217,9 @@ de:
         description: Anzahl der erstellten Debatten
         object: Debatten
         title: Debatten
+    open_data:
+      help:
+        debates:
+          taxonomies: Die Klassifizierungen des Projekts
     statistics:
       debates_count: Debatten
