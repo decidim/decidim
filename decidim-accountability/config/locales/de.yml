@@ -224,6 +224,8 @@ de:
         home:
           empty: Es liegen noch keine Ergebnisse vor.
           empty_filters: Es liegen noch keine Ergebnisse mit diesen Kriterien vor.
+          sub_taxonomies_label: Unterkategorien
+          taxonomies_label: Kategorien
         home_header:
           global_status: Globaler Umsetzungsstatus
         no_results: Es gibt keine Projekte
@@ -250,11 +252,14 @@ de:
           global:
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             display_progress_enabled: Fortschritt anzeigen
             intro: Einführung
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
           step:
             comments_blocked: Kommentare blockiert
     events:
