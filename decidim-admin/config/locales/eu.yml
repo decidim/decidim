@@ -1130,6 +1130,8 @@ eu:
           title: Beste taxonomia-iragazki bat
         table:
           actions: Ekintzak
+          components_count: Osagai kopurua
+          confirm_destroy: 'Ziur zaude %{name} iragazkia ezabatu nahi duzula? OHARRA: Iragazki hau erabiltzen ari diren baliabideei ez zaie eragingo, baina iragazki horren erreferentzia galduko dute.'
           count: Elementu kopurua
           destroy: Ezabatu
           edit: Editatu
