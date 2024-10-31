@@ -110,6 +110,8 @@ eu:
             values:
               'false': Aurrekoak
               'true': Hurrengoak
+          taxonomies_part_of_contains:
+            label: Taxonomia
           with_any_origin:
             label: Jatorria
             values:
@@ -151,16 +153,21 @@ eu:
         settings:
           global:
             announcement: Iragarpena
+            clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
             creation_enabled_for_participants: Parte-hartzaileek topaketak sortu ahal dituzte
             default_registration_terms: Izen-emate baldintzak lehenetsiak
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             enable_pads_creation: Gaitu pads sortzea
             maps_enabled: Mapak gaituta
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             registration_code_enabled: Izena emateko kodea aktibatuta
             resources_permissions_enabled: Topaketa bakoitzerako ekintza-baimenak ezar daitezke
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
+            taxonomy_filters: Hautatu iragazkiak osagairako
+            taxonomy_filters_add: Erantsi iragazkia
             terms_and_conditions_url_for_meeting_creators: Irizpide eta baldintzen URLa topaketen egileentzat
           step:
             announcement: Iragarpena
@@ -605,6 +612,7 @@ eu:
             map: Mapa
             official_meeting: Topaketa ofiziala
             start_time: Hasiera-data
+            taxonomies: Taxonomiak
             title: Titulua
       polls:
         answers:
@@ -714,6 +722,7 @@ eu:
           related_proposals: Topaketa honi buruzko proposamenak
           related_results: Topaketa honen emaitzak
           start_time: Zein data eta ordutan hasi da topaketa hau
+          taxonomies: Topaketa honi dagozkion taxonomiak
           title: Topaketaren izenburua
           url: Topaketaren URLa
           withdrawn: Topaketa bertan behera geratu den ala ez
