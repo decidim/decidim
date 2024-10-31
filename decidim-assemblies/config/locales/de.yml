@@ -281,12 +281,14 @@ de:
         assemblies:
           form:
             announcement_help: Der Text, den Sie hier eingeben, wird dem Benutzer direkt unter den Gremien-Informationen angezeigt.
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             duration: Aktiv bis
             duration_help: Wenn die Dauer dieses Gremiums begrenzt ist, dann wählen Sie hier das Enddatum aus. Andernfalls wird das Datum als unbestimmt angezeigt.
             filters: Filter
             images: Bilder
             included_at_help: Wählen Sie das Datum aus, an dem dieses Gremium zur Plattform hinzugefügt wurde. Das Datum muss nicht zwingend mit dem Gründungsdatum übereinstimmen.
             metadata: Metadaten
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             other: Andere
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_an_area: Wählen Sie einen Bereich
@@ -435,6 +437,10 @@ de:
         description: Anzahl der erstellten Gremien
         object: Gremien
         title: Gremien
+    open_data:
+      help:
+        assemblies:
+          taxonomies: Die Klassifizierungen des Projekts
     participatory_processes:
       show:
         related_assemblies: Ähnliche Versammlungen
