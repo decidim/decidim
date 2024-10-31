@@ -282,11 +282,11 @@ de:
         update_with_parent: "%{user_name} hat die Klassifizierung %{resource_name} innerhalb der Klassifizierung %{parent_taxonomy} aktualisiert"
       taxonomy_filter:
         create: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} erstellt"
-        create_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} erstellt"
-        delete: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} gelöscht"
-        delete_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} gelöscht"
-        update: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} aktualisiert"
-        update_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} aktualisiert"
+        create_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} erstellt"
+        delete: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} gelöscht"
+        delete_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} gelöscht"
+        update: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} aktualisiert"
+        update_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Klassifizierung %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} aktualisiert"
       user:
         block: "%{user_name} hat %{resource_name} blockiert"
         invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
@@ -509,13 +509,16 @@ de:
             amendments_enabled: Änderungen aktiviert
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximallänge der Kommentare
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             dummy_global_attribute1: Dummy-Attribut 1
             dummy_global_attribute2: Dummy-Attribut 2
             dummy_global_translatable_text: Übersetzbarer Blindtext
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             resources_permissions_enabled: Ressourcenberechtigungen aktiviert
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            taxonomy_filters: Filter für die Komponente auswählen
           step:
             amendment_creation_enabled: Änderungserstellung aktiviert
             amendment_promotion_enabled: Hervorheben von Änderungen aktiviert
@@ -601,6 +604,8 @@ de:
         filter_area_values:
           all: Alle
         filter_scope_values:
+          all: Alle
+        filter_taxonomy_values:
           all: Alle
     devise:
       omniauth_registrations:
@@ -1114,7 +1119,7 @@ de:
         scope_type_presenter:
           not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
         taxonomy_presenter:
-          not_found: 'Die Taxonomie wurde nicht in der Datenbank gefunden (ID: %{id})'
+          not_found: 'Die Klassifizierung wurde nicht in der Datenbank gefunden (ID: %{id})'
     managed_users:
       expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
     map:
@@ -1568,6 +1573,8 @@ de:
       pages_count: Seiten
       participants_count: Teilnehmer
       users_count: Benutzer
+    tags:
+      filter_results_for_taxonomy: 'Ergebnisse filtern nach: %{resource}'
     taxonomies:
       prompt: Wählen Sie aus "%{name}"
     translation_bar:
