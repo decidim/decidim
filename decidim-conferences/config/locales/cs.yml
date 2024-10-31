@@ -379,6 +379,7 @@ cs:
         conferences:
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             registrations_count:
               one: Došlo k 1 registraci.
@@ -604,6 +605,7 @@ cs:
           slogan: Slogan pro tuto konferenci
           slug: Konference slug (používá se pro účely identifikace, pro URL)
           start_date: Datum, kdy tato konference začne.
+          taxonomies: Taxonomie konference
           title: Název konference
     statistics:
       conferences_count: Konference
