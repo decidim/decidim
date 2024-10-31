@@ -373,10 +373,13 @@ fi:
         conferences:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli paikkojen määrää ei ole rajoitettu.
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             registrations_count:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
             slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
+            taxonomies: Luokittelut
         content_blocks:
           highlighted_conferences:
             max_results: Näytettävien elementtien enimmäismäärä
@@ -592,6 +595,7 @@ fi:
           slogan: Konferenssin tunnuslause
           slug: Konferenssin URL-tunniste (URL-osoitteen osa, joka erottaa konferenssin muista konferensseista)
           start_date: Konferenssin alkamispäivä.
+          taxonomies: Konferenssin luokittelut
           title: Konferenssin otsikko
     statistics:
       conferences_count: Konferenssia
