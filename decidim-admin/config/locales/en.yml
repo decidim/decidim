@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       area:
@@ -176,6 +177,11 @@ en:
         site: Website
   decidim:
     admin:
+      new_import:
+        accepted_mime_types:
+          json: JSON
+          xlsx: XLSX
+          csv: CSV
       actions:
         add: Add
         attachment:

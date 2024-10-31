@@ -1,10 +1,10 @@
-<% if request["postal_codes"].present?
-  postal_codes = request["postal_codes"].split(",") %>
-  <p><%= t("extra_explanation.postal_codes", scope: "decidim.verifications.dummy_authorization", postal_codes: postal_codes.join(", "), count: postal_codes.count, user_postal_code: request["user_postal_code"]) %></p>
+<% if params["postal_codes"].present?
+  postal_codes = params["postal_codes"].split(",") %>
+  <p><%= t("extra_explanation.postal_codes", scope: "decidim.verifications.dummy_authorization", postal_codes: postal_codes.join(", "), count: postal_codes.count, user_postal_code: params["user_postal_code"]) %></p>
 <% end %>
 
-<% if request["scope"] && (scope = Decidim::Scope.find(request["scope"]&.to_i)) %>
-  <p><%= t("extra_explanation.scope", scope: "decidim.verifications.dummy_authorization", scope_name: translated_attribute(scope.name), user_scope_name: request["user_scope_name"]) %></p>
+<% if params["scope"] && (scope = Decidim::Scope.find(params["scope"]&.to_i)) %>
+  <p><%= t("extra_explanation.scope", scope: "decidim.verifications.dummy_authorization", scope_name: translated_attribute(scope.name), user_scope_name: params["user_scope_name"]) %></p>
 <% end %>
 
 <div class="form__wrapper" data-partial-demo>
@@ -16,4 +16,3 @@
   </div>
   <%= scopes_select_field(form, :scope_id) %>
 </div>
-git
