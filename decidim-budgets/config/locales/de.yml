@@ -32,6 +32,8 @@ de:
             values:
               'false': Zur Umsetzung ausgewählt
               'true': Nicht zur Umsetzung ausgewählt
+          taxonomies_part_of_contains:
+            label: Klassifizierung
     budgets:
       actions:
         attachment_collections: Ordner
@@ -203,6 +205,7 @@ de:
           fields:
             id: ID
             map: Karte
+            taxonomies: Klassifizierungen
             title: Titel
       order_summary_mailer:
         order_summary:
