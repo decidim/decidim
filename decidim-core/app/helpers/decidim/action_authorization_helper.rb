@@ -176,7 +176,7 @@ module Decidim
     end
 
     def sign_in_required?(authorization_status)
-      return if user_signed_in?
+      return if current_user.present?
 
       !authorization_status&.ephemeral?
     end
