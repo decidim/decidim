@@ -110,6 +110,8 @@ fi:
             values:
               'false': Menneet
               'true': Tulevat
+          taxonomies_part_of_contains:
+            label: Luokittelu
           with_any_origin:
             label: Alkuperä
             values:
@@ -151,16 +153,21 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
+            clear_all: Tyhjennä kaikki
             comments_enabled: Kommentit ovat käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             creation_enabled_for_participants: Osallistujat voivat luoda tapaamisia
             default_registration_terms: Ilmoittautumisen oletusehdot
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             enable_pads_creation: Ota käyttöön muistioiden luominen
             maps_enabled: Karttatoiminnot käytössä
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             registration_code_enabled: Ilmoittautumiskoodit käytössä
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapaamiselle
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
             terms_and_conditions_url_for_meeting_creators: Ehtojen osoite (URL) tapaamisten luojille
           step:
             announcement: Ilmoitus
@@ -605,6 +612,7 @@ fi:
             map: Kartta
             official_meeting: Virallinen tapaaminen
             start_time: Alkamispäivä
+            taxonomies: Luokittelut
             title: Otsikko
       polls:
         answers:
@@ -714,6 +722,7 @@ fi:
           related_proposals: Ehdotukset, jotka liittyvät tähän tapaamiseen
           related_results: Tulokset, jotka liittyvät tähän tapaamiseen
           start_time: Tapaamisen alkamisajankohta
+          taxonomies: Tälle tapaamiselle määritetyt luokittelut
           title: Tapaamisen otsikko
           url: Tapaamisen URL-osoite
           withdrawn: Onko tämä tapaaminen peruttu
