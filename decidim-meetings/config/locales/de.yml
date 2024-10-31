@@ -153,6 +153,7 @@ de:
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             maps_enabled: Karten aktiviert
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
@@ -160,6 +161,8 @@ de:
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
             terms_and_conditions_url_for_meeting_creators: Nutzungsbedingungen URL für Meeting-Ersteller
           step:
             announcement: Ankündigung
@@ -667,6 +670,10 @@ de:
         description: Anzahl der erstellten Meetings
         object: Treffen
         title: Meetings
+    open_data:
+      help:
+        meetings:
+          taxonomies: Die Klassifizierungen, zu denen diese Veranstaltung gehört
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Treffen
