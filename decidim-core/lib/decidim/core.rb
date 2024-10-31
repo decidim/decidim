@@ -614,7 +614,7 @@ module Decidim
   config_accessor :omniauth_providers do
     {
       developer: {
-        enabled: Rails.env.development? || Rails.env.test?,
+        enabled: Rails.env.local?,
         icon: "phone-line"
       },
       facebook: {
