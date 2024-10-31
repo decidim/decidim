@@ -178,10 +178,13 @@ You can decide to enable it in a specific component only (eg "proposals") or eve
 Example:
 
 Use only "my location button" in meetings and proposals:
-```
+
+```bash
 DECIDIM_SHOW_MY_LOCATION_BUTTON=meetings,proposals
 ```
+
 or in an initializer:
+
 ```ruby
 Decidim.configure do |config|
   config.show_my_location_button = [:meetings, :proposals]
@@ -190,10 +193,12 @@ end
 
 the default value is `:all` equivalent to:
 
-```
+```bash
 DECIDIM_SHOW_MY_LOCATION_BUTTON=all
 ```
+
 or in an initializer:
+
 ```ruby
 Decidim.configure do |config|
   config.show_my_location_button = :all
