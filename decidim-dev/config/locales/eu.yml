@@ -14,6 +14,7 @@ eu:
       dummy:
         settings:
           global:
+            clear_all: Garbitu dena
             guided: Input gidatua
             guided_help: Laguntza-testua
             guided_readonly: Input desgaitua
@@ -22,6 +23,7 @@ eu:
             guided_rich_readonly_html: HTML<strong>laguntza</strong>testua input desgaiturako
             readonly_attribute: Soilik irakurtzeko atributua
             test: Proba bat
+            test_add: Erantsi testa
             test_choices:
               a: A aukera
               b: B aukera
