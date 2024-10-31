@@ -31,6 +31,16 @@ module Decidim
           expect(response["stats"]).to include("name" => "users_count", "value" => 5)
         end
       end
+
+      describe "taxonomies" do
+        let(:query) { %({ taxonomies { id } }) }
+        let!(:root_taxonomy) { create(:taxonomy, organization: model) }
+        let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: model) }
+
+        it "has root taxonomies only" do
+          expect(response["taxonomies"]).to contain_exactly("id" => root_taxonomy.id.to_s)
+        end
+      end
     end
   end
 end

@@ -43,6 +43,7 @@ module Decidim
   autoload :HasAttachments, "decidim/has_attachments"
   autoload :ComponentValidator, "decidim/component_validator"
   autoload :HasSettings, "decidim/has_settings"
+  autoload :HasTaxonomySettings, "decidim/has_taxonomy_settings"
   autoload :HasComponent, "decidim/has_component"
   autoload :HasCategory, "decidim/has_category"
   autoload :Followable, "decidim/followable"

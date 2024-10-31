@@ -9,7 +9,8 @@ describe "Decidim::Api::QueryType" do
 
   let(:locale) { "en" }
 
-  let!(:assembly) { create(:assembly, :with_type, organization: current_organization) }
+  let!(:taxonomy) { create(:taxonomy, :with_parent, organization: current_organization) }
+  let!(:assembly) { create(:assembly, :with_type, organization: current_organization, taxonomies: [taxonomy]) }
 
   let(:assembly_data) do
     {
@@ -56,7 +57,7 @@ describe "Decidim::Api::QueryType" do
       "publishedAt" => assembly.published_at.iso8601.to_s.gsub("Z", "+00:00"),
       "purposeOfAction" => { "translation" => assembly.purpose_of_action[locale] },
       "reference" => assembly.reference,
-      "scopesEnabled" => assembly.scopes_enabled?,
+      "taxonomies" => [{ "id" => taxonomy.id.to_s, "name" => { "translation" => taxonomy.name[locale] }, "parent" => { "id" => taxonomy.parent_id.to_s }, "children" => taxonomy.children.map { |child| { "id" => child.id.to_s } } }],
       "shortDescription" => { "translation" => assembly.short_description[locale] },
       "slug" => assembly.slug,
       "specialFeatures" => { "translation" => assembly.special_features[locale] },
@@ -171,7 +172,18 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         reference
-        scopesEnabled
+        taxonomies {
+          children {
+            id
+          }
+          id
+          name {
+            translation(locale: "#{locale}")
+          }
+          parent {
+            id
+          }
+        }
         shortDescription {
           translation(locale:"#{locale}")
         }
@@ -333,7 +345,18 @@ describe "Decidim::Api::QueryType" do
           translation(locale:"#{locale}")
         }
         reference
-        scopesEnabled
+        taxonomies {
+          children {
+            id
+          }
+          id
+          name {
+            translation(locale: "#{locale}")
+          }
+          parent {
+            id
+          }
+        }
         shortDescription {
           translation(locale:"#{locale}")
         }
