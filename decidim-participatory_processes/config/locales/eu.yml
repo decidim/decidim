@@ -449,10 +449,12 @@ eu:
         participatory_processes:
           form:
             announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio, prozesuaren informazioaren azpian.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             filters: iragazkiak
             images: Irudiak
             metadata: Metadatuak
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             other: Beste
             related_processes: Elkarrekin lotutako prozesuak
             scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
