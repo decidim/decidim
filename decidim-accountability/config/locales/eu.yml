@@ -208,6 +208,7 @@ eu:
             progress: Aurrerapena
             start_date: Hasiera-data
             status: Egoera
+            taxonomies: Taxonomiak
             title: Izenburua
         status:
           fields:
@@ -227,6 +228,8 @@ eu:
         home:
           empty: Oraindik ez dago emaitzarik.
           empty_filters: Ez dago emaitzarik irizpide honekin.
+          sub_taxonomies_label: Azpikategoriak
+          taxonomies_label: Kategoriak
         home_header:
           global_status: Gauzatzearen egoera orokorra
         no_results: Ez dago proiekturik
@@ -242,6 +245,8 @@ eu:
         results:
           status_id_eq:
             label: Egoera
+          taxonomies_part_of_contains:
+            label: Taxonomia
     components:
       accountability:
         actions:
@@ -249,13 +254,18 @@ eu:
         name: Jarraipena
         settings:
           global:
+            clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 hasierako konfigurazioari eusteko)
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk espazio parte-hartzaile honetarako.
             display_progress_enabled: Erakutsi aurrerapena
             geocoding_enabled: Mapak gaituta
             intro: Intro
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
+            taxonomy_filters: Hautatu iragazkiak osagairako
+            taxonomy_filters_add: Erantsi iragazkia
           step:
             comments_blocked: Iruzkin blokeatuak
     events:
@@ -300,6 +310,7 @@ eu:
           proposal_urls: Emaitza honetan jasotzen diren proposamenen URLak
           start_date: Zein datatan hasi da emaitza gauzatzen
           status: Emaitza honen egungo egoera
+          taxonomies: Emaitzaren taxonomiak
           title: Emaitzaren izenburua
           url: Emaitza hau aurkitu daitekeen URLa
     participatory_spaces:
