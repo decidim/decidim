@@ -31,7 +31,7 @@ module Decidim
             url: main_component_path(component),
             active: is_active_link?(main_component_path(component), :inclusive)
           }
-        end
+        end.compact
       end
     end
   end
