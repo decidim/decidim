@@ -24,6 +24,7 @@ en:
         name: Taxonomy name
       user:
         about: About
+        avatar: Avatar
         email: Your email
         encrypted_password: Password
         locale: Locale

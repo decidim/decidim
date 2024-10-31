@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  # autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
   autoload :ResourceHelper, "decidim/resource_helper"
 
   class ViewModel < Cell::ViewModel
