@@ -16,6 +16,13 @@ module Decidim
       #
       # - :ok when everything is valid.
       # - :invalid if the handler was not valid and we could not proceed.
+      # - :transferred if there is a duplicated authorization associated
+      #                to other user and the authorization can be
+      #                transferred.
+      # - :transfer_user if there is a duplicated authorization associated
+      #                  to an ephemeral user and the current user is also
+      #                  ephemeral the session is transferred to the user
+      #                  with the existing authorization
       #
       # Returns nothing.
       def call
