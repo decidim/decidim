@@ -32,10 +32,15 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
+            clear_all: Tyhjennä kaikki
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
@@ -163,6 +168,7 @@ fi:
             official_debate: Virallinen keskustelu
             start: Alkamisaika
             start_time: Alkamispäivä
+            taxonomies: Luokittelut
             title: Otsikko
     events:
       debates:
@@ -251,6 +257,7 @@ fi:
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä keskustelu kuuluu
           reference: Keskustelun yksilöllinen tunniste tällä alustalla
           start_time: Keskustelun alkamisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
+          taxonomies: Projektin luokittelut
           title: Keskustelun otsikko
           url: URL-osoite keskusteluun
     statistics:
