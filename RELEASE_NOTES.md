@@ -169,20 +169,33 @@ This no longer returns the running Decidim version by default and instead it wil
 
 If you would like to re-enable exposing the Decidim version number through the GraphQL API, you may do so by setting the `DECIDIM_API_DISCLOSE_SYSTEM_VERSION` environment variable to `true`. However, this is highly discouraged but may be required for some automation or integrations.
 
-### 5.2. [[TITLE OF THE CHANGE]]
+### 5.2 New configuration option for geolocation input forms
 
-In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
+Now a button to use the user's device location is enabled by default in Decidim. However this can be disabled with the new configuration option `show_my_location_button`, also available as an ENV var `DECIDIM_SHOW_MY_LOCATION_BUTTON`.
 
-If you have used code as such:
+You can decide to enable it in a specific component only (eg "proposals") or everywhere (by default).
 
+Example:
+
+Use only "my location button" in meetings and proposals:
+```
+DECIDIM_SHOW_MY_LOCATION_BUTTON=meetings,proposals
+```
+or in an initializer:
 ```ruby
-# Explain the usage of the API as it was in the previous version
-result = 1 + 1 if before
+Decidim.configure do |config|
+  config.show_my_location_button = [:meetings, :proposals]
+end
 ```
 
-You need to change it to:
+the default value is `:all` equivalent to:
 
+```
+DECIDIM_SHOW_MY_LOCATION_BUTTON=all
+```
+or in an initializer:
 ```ruby
-# Explain the usage of the API as it is in the new version
-result = 1 + 1 if after
-        ```
+Decidim.configure do |config|
+  config.show_my_location_button = :all
+end
+```
