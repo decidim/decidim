@@ -36,6 +36,8 @@ fi:
             values:
               'false': Valittu toteutukseen
               'true': Ei valittu toteutukseen
+          taxonomies_part_of_contains:
+            label: Luokittelu
     budgets:
       actions:
         attachment_collections: Kansiot
@@ -209,6 +211,7 @@ fi:
           fields:
             id: ID
             map: Kartta
+            taxonomies: Luokittelut
             title: Otsikko
       order_summary_mailer:
         order_summary:
@@ -318,8 +321,10 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
+            clear_all: Tyhjennä kaikki
             comments_enabled: Kommentit ovat käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             form:
               errors:
                 budget_voting_rule_only_one: Ainoastaan yksi äänestyssääntö voi olla kerrallaan valittuna.
@@ -327,10 +332,13 @@ fi:
             geocoding_enabled: Karttatoiminnot käytössä
             landing_page_content: Budjetoinnin aloitussivun teksti
             more_information_modal: Lisätietoikkunan teksti
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             projects_per_page: Projektit sivua kohden
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle projektille
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
             title: Otsikko
             total_budget: Kokonaisbudjetti
             vote_minimum_budget_projects_number: Valittavien projektien vähimmäismäärä
@@ -381,6 +389,7 @@ fi:
           related_proposal_titles: Projektiin liitettyjen ehdotusten otsikot
           related_proposal_urls: Projektiin liitettyjen ehdotusten URL-osoitteet
           related_proposals: Projektiin liitetyt ehdotukset
+          taxonomies: Projektin luokittelut
           title: Projektin otsikko
           url: Projektin URL-osoite
     orders:
