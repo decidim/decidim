@@ -509,13 +509,16 @@ fi:
             amendments_enabled: Muutokset käytössä
             comments_enabled: Kommentit käytössä
             comments_max_length: Kommenttien maksimipituus
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             dummy_global_attribute1: Esimerkkitietue 1
             dummy_global_attribute2: Esimerkkitietue 2
             dummy_global_translatable_text: Käännettävän tekstin esimerkki
             enable_pads_creation: Ota käyttöön muistioiden luominen
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
           step:
             amendment_creation_enabled: Muutosten luonti käytössä
             amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
@@ -601,6 +604,8 @@ fi:
         filter_area_values:
           all: Kaikki
         filter_scope_values:
+          all: Kaikki
+        filter_taxonomy_values:
           all: Kaikki
     devise:
       omniauth_registrations:
@@ -1606,6 +1611,8 @@ fi:
       pages_count: Sivua
       participants_count: Osallistujaa
       users_count: Osallistujaa
+    tags:
+      filter_results_for_taxonomy: 'Rajaa tulokset kohteelle: %{resource}'
     taxonomies:
       prompt: Valitse kohteesta "%{name}"
     translation_bar:
