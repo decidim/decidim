@@ -32,10 +32,15 @@ eu:
         settings:
           global:
             announcement: Iragarpena
+            clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
+            taxonomy_filters: Hautatu iragazkiak osagairako
+            taxonomy_filters_add: Erantsi iragazkia
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
@@ -163,6 +168,7 @@ eu:
             official_debate: Ofizial eztabaida
             start: Hasi
             start_time: Hasiera data
+            taxonomies: Taxonomiak
             title: Izenburua
     events:
       debates:
@@ -251,6 +257,7 @@ eu:
           participatory_space: Zein espaziotakoa da eztabaida hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
           reference: Plataforma honetako baliabidearen identifikatzaile bakarra
           start_time: Eztabaida hau hasten denean, eztabaida irekia bada eta denbora mugatua badu
+          taxonomies: Proiektuaren taxonomiak
           title: Eztabaidearen izenburua
           url: Eztabaida hau URL honetan aurki daiteke
     statistics:
