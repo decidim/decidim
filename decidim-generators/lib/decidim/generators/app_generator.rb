@@ -120,6 +120,10 @@ module Decidim
         gsub_file "config/environments/production.rb", /config\.assets.*$/, ""
       end
 
+      def patch_test_file
+        gsub_file "config/environments/test.rb", /config\.action_controller\.raise_on_missing_callback_actions.*$/, "# disabled raise_on_missing_callback_actions"
+      end
+
       def database_yml
         template "database.yml.erb", "config/database.yml", force: true
       end
@@ -129,7 +133,7 @@ module Decidim
       end
 
       def docker
-        template "Dockerfile.erb", "Dockerfile"
+        template "Dockerfile.erb", "Dockerfile", force: true
         template "docker-compose.yml.erb", "docker-compose.yml"
       end
 
@@ -243,12 +247,6 @@ module Decidim
             @production_gems.map(&:call)
           end
         end
-      end
-
-      def load_defaults_rails61
-        gsub_file "config/application.rb",
-                  /config.load_defaults 7.0/,
-                  "config.load_defaults 6.1"
       end
 
       def tweak_csp_initializer
