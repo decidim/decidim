@@ -79,7 +79,10 @@ module Decidim
     #
     # Returns an Array of Strings.
     def form_attributes
-      attributes.except("id", "user").keys
+      excluded = %w(id user)
+      excluded << "tos_agreement" unless ephemeral_tos_pending?
+
+      attributes.except(*excluded).keys
     end
 
     # The String partial path so Rails can render the handler as a form. This
