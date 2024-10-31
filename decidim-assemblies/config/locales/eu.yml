@@ -281,12 +281,14 @@ eu:
         assemblies:
           form:
             announcement_help: Hemen sartzen duzun testua batzarreko informazioaren azpian agertuko zaio parte-hartzaileari.
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             duration: Iraupena
             duration_help: Batzar honen iraupena mugatua bada, hautatu amaiera-data. Bestela, mugagabea izango da.
             filters: Iragazkiak
             images: Irudiak
             included_at_help: Hautatu zein egunetan gehitu zen batzar hori plataformara. Ez du zertan sortze-data bera izan.
             metadata: Metadata
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             other: Beste bat
             select_a_created_by: Hautatu egilea
             select_an_area: Hautatu Arlo bat
@@ -475,6 +477,7 @@ eu:
           special_features: Zein ezaugarri berezi ditu batzar honek
           subtitle: Batzarraren azpititulua
           target: Batzarraren helburua
+          taxonomies: Proiektuaren taxonomiak
           title: Batzarraren izenburua
           twitter_handler: Sare sozialetako arduraduna Twitterrerako
           youtube_handler: Sare sozialetako arduraduna You Tuberako
