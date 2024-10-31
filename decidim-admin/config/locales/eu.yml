@@ -344,6 +344,14 @@ eu:
           title: 'Gehitu osagaia: %{name}'
         publish:
           success: Osagaia zuzen argitaratua.
+        taxonomy_filters_badge:
+          remove: Kendu
+        taxonomy_filters_drawer:
+          add_filter: Erantsi iragazkia
+          clear_all: Garbitu dena
+          filters: Iragazkiak
+          save: Gorde
+          title: Iragazkiak
         title: Osagaiak
         unpublish:
           success: Osagaia behar bezala desargitaratua.
@@ -1084,9 +1092,12 @@ eu:
         new:
           create: Sortu taxonomia
           title: Beste taxonomia bat
+        no_taxonomies: Gaur egun ez dago taxonomiarik. Sortutaxonomia-zerrenda bat hemen eta zehaztu elementuak horietako bakoitzean baliabideak sailkatu edo iragazteko.
         table:
           to_next_page: Arrastatu hurrengo orrira
           to_prev_page: Arrastatu aurreko orrira
+        taxonomy_actions:
+          confirm_destroy: 'Ziur zaude %{name} ezabatu nahi duzula? Honek, gainera, haurren objektu guztiak ezabatuko ditu. OHARRA: Taxonomia hori erabiltzen ari diren baliabideek ez dute eraginik izango, baina taxonomia horren erreferentzia galduko dute.'
         update:
           invalid: Arazo bat izan da taxonomia hau eguneratzean.
           success: Taxonomia zuzen eguneratua.
@@ -1104,6 +1115,7 @@ eu:
         edit:
           back: Atzera
           items: "%{count} elementu hautatu dira"
+          no_items: Ez dago taxonomia honetarako elementurik. Taxonomia konfiguratzeko konfigurazioan sor ditzakezu elementuak.
           title: Editatu taxonomia-iragazkia
           update: Eguneratu taxonomia-iragazkia
         form:
