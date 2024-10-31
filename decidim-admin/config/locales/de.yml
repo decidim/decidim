@@ -1061,61 +1061,61 @@ de:
         amount: Anzahl
         count: Anzahl
         create:
-          invalid: Beim Erstellen dieser Taxonomie ist ein Fehler aufgetreten.
-          success: Taxonomie wurde erfolgreich erstellt.
+          invalid: Beim Erstellen dieser Klassifizierung ist ein Fehler aufgetreten.
+          success: Klassifizierung wurde erfolgreich erstellt.
         destroy:
-          invalid: Beim Löschen dieser Taxonomie ist ein Fehler aufgetreten.
-          success: Taxonomie erfolgreich gelöscht.
+          invalid: Beim Löschen dieser Klassifizierung ist ein Fehler aufgetreten.
+          success: Klassifizierung erfolgreich gelöscht.
         edit:
           back: Zurück
-          description: Die Elemente dieser Taxonomie werden verwendet, um Ressourcen zu klassifizieren oder zu filtern, wie Partizipationsbereiche oder Komponenten. Per "Drag and Drop" kann die Liste neu geordnet werden.
+          description: Die Elemente dieser Klassifizierung werden verwendet, um Ressourcen zu klassifizieren oder zu filtern, wie Partizipationsbereiche oder Komponenten. Per "Drag and Drop" kann die Liste neu geordnet werden.
           new_item: Neues Element
-          no_items: Es gibt derzeit keine Elemente in dieser Taxonomie. Erstellen Sie hier eine Liste von Elementen, um Ressourcen zu klassifizieren oder zu filtern, z. B. Partizizipationsbereiche oder Komponenten. Elemente können auf bis zu drei Ebenen verschachtelt werden.
+          no_items: Es gibt derzeit keine Elemente in dieser Klassifizierung. Erstellen Sie hier eine Liste von Elementen, um Ressourcen zu klassifizieren oder zu filtern, z. B. Partizipationsbereiche oder Komponenten. Elemente können auf bis zu drei Ebenen verschachtelt werden.
           subtitle: Elemente in "%{taxonomy_name}"
-          title: Taxonomie "%{taxonomy_name} " bearbeiten
+          title: Klassifizierung "%{taxonomy_name} " bearbeiten
           update: Aktualisieren
         filters:
           search_placeholder: Suchen
         index:
-          description: Eine Taxonomie erlaubt Admins Inhalte zu kategorisieren und zu organisieren. Zum Beispiel können Sie eine Taxonomie hinzufügen, um Prozesse nach geographischem Bereichen zu klassifizieren.
-          new_taxonomy: Neue Taxonomie
-          no_items_found: Es wurden keine Taxonomien gefunden, die Ihren Suchkriterien entsprechen.
+          description: Eine Klassifizierung erlaubt Admins Inhalte zu kategorisieren und zu organisieren. Zum Beispiel können Sie eine Taxonomie hinzufügen, um Prozesse nach geographischem Bereichen zu klassifizieren.
+          new_taxonomy: Neue Klassifizierung
+          no_items_found: Es wurden keine Klassifizierungen gefunden, die Ihren Suchkriterien entsprechen.
         name: Name
         new:
-          create: Taxonomie erstellen
-          title: Neue Taxonomie
+          create: Klassifizierung erstellen
+          title: Neue Klassifizierung
         table:
           to_next_page: Für die nächste Seite hinziehen
           to_prev_page: Für die vorherige Seite hinziehen
         update:
-          invalid: Beim Aktualisieren dieser Taxonomie ist ein Fehler aufgetreten.
-          success: Taxonomie wurde erfolgreich aktualisiert.
+          invalid: Beim Aktualisieren dieser Klassifizierung ist ein Fehler aufgetreten.
+          success: Klassifizierung wurde erfolgreich aktualisiert.
       taxonomy_filters:
         actions:
-          new_taxonomy_filter: Neuer Taxonomie-Filter
+          new_taxonomy_filter: Neuer Klassifizierung-Filter
         callout:
-          modify_taxonomy_html: Wenn Sie diese Taxonomie oder ihre Elemente ändern möchten, finden Sie die Konfigurationseinstellungen unter <a href="%{url}">Taxonomien</a>.
+          modify_taxonomy_html: Wenn Sie diese Klassifizierung oder ihre Elemente ändern möchten, finden Sie die Konfigurationseinstellungen unter <a href="%{url}">Klassifizierungen</a>.
         create:
-          error: Beim Erstellen dieses Taxonomie-Filters ist ein Fehler aufgetreten.
-          success: Taxonomie-Filter wurde erfolgreich erstellt.
+          error: Beim Erstellen dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
+          success: Klassifizierungsfilter wurde erfolgreich erstellt.
         destroy:
-          error: Beim Löschen dieses Taxonomie-Filters ist ein Fehler aufgetreten.
-          success: Taxonomie-Filter erfolgreich gelöscht.
+          error: Beim Löschen dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
+          success: Klassifizeriungsfilter erfolgreich gelöscht.
         edit:
           back: Zurück
           items: "%{count} ausgewählte Elemente"
-          title: Taxonomie-Filter bearbeiten
-          update: Taxonomie-Filter aktualisieren
+          title: Klassifizierungsfilter bearbeiten
+          update: Klassifizierungsfilter aktualisieren
         form:
-          select_taxonomy: Taxonomie auswählen
+          select_taxonomy: Klassifizierung auswählen
         index:
-          description: Ein Taxonomie-Filter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
-          empty: Derzeit gibt es keine Taxonomie-Filter. Erstellen Sie hier eine Liste von Taxonomie-Filtern, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
+          description: Ein Klassifizierungsfilter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
+          empty: Derzeit gibt es keine Klassifizierungsfilter. Erstellen Sie hier eine Liste von Klassifizierungsfilter, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
         new:
           back: Zurück
-          create: Taxonomie-Filter erstellen
+          create: Klassifizierungsfilter erstellen
           items: "%{count} Elemente verfügbar"
-          title: Neuer Taxonomie-Filter
+          title: Neuer Klassifizierungsfilter
         table:
           actions: Aktionen
           count: Anzahl Elemente
@@ -1123,8 +1123,8 @@ de:
           edit: Bearbeiten
           name: Name
         update:
-          error: Beim Aktualisieren dieses Taxonomie-Filters ist ein Fehler aufgetreten.
-          success: Taxonomie-Filter wurde erfolgreich aktualisiert.
+          error: Beim Aktualisieren dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
+          success: Klassifizierungsfilter wurde erfolgreich aktualisiert.
       taxonomy_items:
         edit:
           title: Element in %{taxonomy} bearbeiten
@@ -1153,8 +1153,8 @@ de:
         scope_types: Bereichstypen
         scopes: Bereiche
         statistics: Aktivität
-        taxonomies: Taxonomien
-        taxonomy_filters: Taxonomie-Filter
+        taxonomies: Klassifizierungen
+        taxonomy_filters: Klassifizierungsfilter
         user_groups: Benutzergruppen
         users: Administratoren
       user_group:
