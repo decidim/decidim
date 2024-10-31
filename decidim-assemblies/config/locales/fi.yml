@@ -281,12 +281,14 @@ fi:
         assemblies:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti ryhmän tietojen alapuolella.
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             duration_help: Jos ryhmän kesto on rajoitettu, valitse päättymispäivä. Muussa tapauksessa se näkyy määrittelemättömänä.
             filters: Suodattimet
             images: Kuvat
             included_at_help: Valitse päivämäärä, jolloin tämä ryhmä lisättiin alustalle. Sen ei välttämättä tarvitse olla sama kuin luontipäivä.
             metadata: Metatiedot
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             other: Muut
             select_a_created_by: Valitse luoja
             select_an_area: Valitse alue
@@ -475,6 +477,7 @@ fi:
           special_features: Mitä erityispiirteitä tällä ryhmällä on
           subtitle: Ryhmän alaotsikko
           target: Ryhmän tavoite
+          taxonomies: Projektin luokittelut
           title: Ryhmän otsikko
           twitter_handler: Sosiaalisen median tunniste Twitterissä
           youtube_handler: Sosiaalisen median tunniste YouTubessa
