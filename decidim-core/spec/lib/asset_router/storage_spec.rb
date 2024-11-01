@@ -110,7 +110,7 @@ module Decidim::AssetRouter
             end
 
             it "creates the redirect route to the variant" do
-              expect(asset.processed?).to be(true)
+              expect(asset.send(:processed?)).to be(true)
               expect(asset.key).to be_present
               expect(asset.blob.service.exist?(asset.key)).to be(false)
               expect(subject).to match(%r{^/rails/active_storage/representations/redirect/[^/]+/[^/]+/avatar\.jpg$})

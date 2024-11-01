@@ -28,7 +28,7 @@ module ActiveStorageMatchers
         when :redirect, :representation
           ActiveStorage::Blob.find_signed(key_match)
         when :disk
-          decoded = ActiveStorage.verifier.verified(key_match, purpose: :blob_key)
+          decoded = ActiveStorage.verifier.verified(key_match, purpose: :blob_key).with_indifferent_access
           ActiveStorage::Blob.find_by(key: decoded[:key]) if decoded
         end
     end

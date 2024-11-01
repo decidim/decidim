@@ -2,6 +2,10 @@
 en:
   activemodel:
     attributes:
+      content_block_attachment:
+        background_image: Background image
+      user_group:
+        avatar: Avatar
       account:
         delete_reason: Reason to delete your account
       attachment:
@@ -1303,10 +1307,12 @@ en:
         moderated: Content moderated
     notifications_digest_mailer:
       header:
+        real_time: Real time
         daily: Daily Notification Digest
         weekly: Weekly Notification Digest
       hello: Hello %{name},
       intro:
+        real_time: 'These is a notification on the activity you are following:'
         daily: 'These are the notifications from the last day based on the activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
       outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.

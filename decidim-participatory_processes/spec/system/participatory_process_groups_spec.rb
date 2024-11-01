@@ -189,12 +189,12 @@ describe "Participatory Process Groups" do
 
           within("#proposals__proposal_#{proposal1.id}") do
             expect(page).to have_content "First awesome proposal!"
-            expect(page).to have_i18n_content(process.title, strip_tags: true)
+            expect(page).to have_i18n_content(process.title)
           end
 
           within("#proposals__proposal_#{proposal2.id}") do
             expect(page).to have_content "Second fabulous proposal!"
-            expect(page).to have_i18n_content(other_process.title, strip_tags: true)
+            expect(page).to have_i18n_content(other_process.title)
           end
         end
       end
@@ -233,12 +233,12 @@ describe "Participatory Process Groups" do
 
           within("#accountability__result_#{result1.id}") do
             expect(page).to have_content "First awesome result!"
-            expect(page).to have_i18n_content(process.title, strip_tags: true)
+            expect(page).to have_i18n_content(process.title)
           end
 
           within("#accountability__result_#{result2.id}") do
             expect(page).to have_content "Second fabulous result!"
-            expect(page).to have_i18n_content(other_process.title, strip_tags: true)
+            expect(page).to have_i18n_content(other_process.title)
           end
         end
       end
