@@ -249,7 +249,7 @@ module Decidim
       end
 
       # This is only used to define the setter, as the getter will be overridden below.
-      alias_attribute :internal_state, :state
+      alias_method :internal_state, :state
 
       # Public: Returns the internal state of the proposal.
       #
