@@ -117,7 +117,7 @@ bg:
           proposal_state_id_eq:
             label: Състояние
           scope_id_eq:
-            label: Обхват
+            label: Сфера
           state_eq:
             label: Състояние
             values:
@@ -746,7 +746,7 @@ bg:
             official_proposal: Официално предложение
             published_answer: Публикуван отговор
             published_at: Публикувано на
-            scope: Обхват
+            scope: Сфера
             state: Статус
             title: Заглавие
             valuator: Оценител
