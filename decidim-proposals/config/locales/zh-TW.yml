@@ -87,7 +87,7 @@ zh-TW:
       filters:
         proposals:
           category_id_eq:
-            label: 分類
+            label: 類別
           is_emendation_true:
             label: 類別
             values:
@@ -627,7 +627,7 @@ zh-TW:
       models:
         proposal:
           fields:
-            category: 分類
+            category: 類別
             comments: 評論
             id: ID
             notes: 備註
