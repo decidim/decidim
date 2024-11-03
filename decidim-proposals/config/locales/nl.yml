@@ -344,7 +344,6 @@ nl:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
             delete_attachment: Bijlage verwijderen
-            select_a_category: Kies een categorie
             select_a_meeting: Selecteer een vergadering
           index:
             actions: acties
@@ -456,7 +455,6 @@ nl:
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
-          select_a_category: Selecteer een categorie
           send: Verzenden
           title: Bewerk gezamenlijk ontwerp
         filters:
@@ -532,14 +530,12 @@ nl:
       models:
         proposal:
           fields:
-            category: Categorie
             comments: Reacties
             id: ID
             notes: Opmerkingen
             official_proposal: Officieel voorstel
             published_answer: Gepubliceerd antwoord
             published_at: Gepubliceerd op
-            scope: Scope
             state: Staat
             title: Titel
             valuator: Beoordelaar
@@ -557,7 +553,6 @@ nl:
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
-          select_a_category: Selecteer een categorie
           send: Verzenden
           title: Bewerk voorstel
         edit_draft:
