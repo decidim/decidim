@@ -83,15 +83,11 @@ pt:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Categoria
           is_emendation_true:
             label: Tipo
             values:
               'false': Propostas
               'true': Revisões
-          scope_id_eq:
-            label: Âmbito
           state_eq:
             label: Estado
             values:
@@ -347,7 +343,6 @@ pt:
             attachment_legend: "(Opcional) Adicionar um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
             delete_attachment: Apagar anexo
-            select_a_category: Selecione uma categoria
             select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
@@ -458,7 +453,6 @@ pt:
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Retroceder
-          select_a_category: Por favor, selecione uma categoria
           send: Enviar
           title: Editar rascunho colaborativo
         filters:
@@ -534,14 +528,12 @@ pt:
       models:
         proposal:
           fields:
-            category: Categoria
             comments: Comentários
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
             published_answer: Resposta publicada
             published_at: Publicado em
-            scope: Âmbito
             state: Estado
             title: Título
             valuator: Avaliador
@@ -559,7 +551,6 @@ pt:
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
-          select_a_category: Por favor selecione uma categoria
           send: Enviar
           title: Editar proposta
         edit_draft:
