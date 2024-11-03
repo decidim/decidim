@@ -38,6 +38,11 @@
               <% end %>
             </td>
             <td class="table-list__actions">
+              <% if allowed_to? :read, :share_tokens, current_participatory_space: conference %>
+                <%= icon_link_to "share-line", decidim_admin_conferences.conference_share_tokens_path(conference), t("actions.share_tokens", scope: "decidim.admin"), class: "action-icon--new" %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
               <% if allowed_to? :update, :conference, conference: conference %>
                 <%= icon_link_to "pencil-line", edit_conference_path(conference), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
               <% end %>

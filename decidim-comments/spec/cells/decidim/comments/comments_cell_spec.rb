@@ -29,7 +29,7 @@ module Decidim::Comments
           older: "Older",
           most_discussed: "Most discussed"
         }.each do |key, title|
-          expect(subject).to have_css("a[href^='/comments?'][href$='&order=#{key}&reload=1']", text: title)
+          expect(subject).to have_css("select#order option[value='#{key}']", text: title)
         end
       end
 

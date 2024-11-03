@@ -8,24 +8,31 @@ describe Decidim::Debates::UpdateDebate do
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
-  let(:scope) { create(:scope, organization:) }
-  let(:category) { create(:category, participatory_space: participatory_process) }
   let(:user) { create(:user, organization:) }
   let(:author) { user }
   let!(:debate) { create(:debate, author:, component: current_component) }
+<<<<<<< HEAD
   let(:attachment_params) { nil }
   let(:current_files) { [] }
   let(:uploaded_files) { [] }
+=======
+  let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
+>>>>>>> origin/develop
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
       title: "title",
       description: "description",
+<<<<<<< HEAD
       scope_id: scope.id,
       category_id: category.id,
       id: debate.id,
       attachment: attachment_params,
       documents: current_files,
       add_documents: uploaded_files
+=======
+      taxonomies:,
+      id: debate.id
+>>>>>>> origin/develop
     ).with_context(
       current_organization: organization,
       current_participatory_space: current_component.participatory_space,
@@ -81,16 +88,9 @@ describe Decidim::Debates::UpdateDebate do
       let(:command) { subject }
     end
 
-    it "sets the scope" do
+    it "sets the taxonomies" do
       subject.call
-      debate.reload
-      expect(debate.scope).to eq scope
-    end
-
-    it "sets the category" do
-      subject.call
-      debate.reload
-      expect(debate.category).to eq category
+      expect(debate.reload.taxonomies).to match_array(taxonomies)
     end
 
     it "sets the title with i18n" do
@@ -111,7 +111,7 @@ describe Decidim::Debates::UpdateDebate do
         .with(
           Decidim::Debates::Debate,
           user,
-          hash_including(:category, :title, :description),
+          hash_including(:taxonomizations, :title, :description),
           visibility: "public-only"
         )
         .and_call_original

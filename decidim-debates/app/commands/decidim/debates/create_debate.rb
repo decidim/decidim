@@ -7,7 +7,7 @@ module Decidim
     class CreateDebate < Decidim::Commands::CreateResource
       include ::Decidim::MultipleAttachmentsMethods
 
-      fetch_form_attributes :category, :scope
+      fetch_form_attributes :taxonomizations
 
       def call
         return broadcast(:invalid) if invalid?

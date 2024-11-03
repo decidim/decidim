@@ -2,12 +2,12 @@
   <%= form.text_field :title %>
   <%= text_editor_for_debate_description(form) %>
 
-  <% if current_component.has_subscopes? %>
-    <%= scopes_select_field form, :scope_id, root: current_component.scope %>
-  <% end %>
-
-  <% if current_participatory_space.categories&.any? %>
-    <%= form.categories_select :category_id, current_participatory_space.categories, include_blank: t(".select_a_category"), disable_parents: false %>
+  <% if @form.taxonomy_filters&.any? %>
+      <% @form.taxonomy_filters.each do |filter| %>
+        <div class="row column">
+          <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+        </div>
+      <% end %>
   <% end %>
 
   <% if @form.id.blank? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>

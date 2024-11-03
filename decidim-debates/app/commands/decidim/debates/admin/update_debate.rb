@@ -8,7 +8,7 @@ module Decidim
       class UpdateDebate < Decidim::Commands::UpdateResource
         include Decidim::MultipleAttachmentsMethods
 
-        fetch_form_attributes :category, :information_updates, :instructions, :scope, :start_time, :end_time, :comments_enabled
+        fetch_form_attributes :taxonomizations, :information_updates, :instructions, :start_time, :end_time, :comments_enabled
 
         def call
           return broadcast(:invalid) if invalid?

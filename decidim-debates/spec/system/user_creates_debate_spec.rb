@@ -4,7 +4,10 @@ require "spec_helper"
 
 describe "User creates debate" do
   include_context "with a component"
+  include_context "with taxonomy filters context"
   let(:manifest_name) { "debates" }
+  let(:space_manifest) { participatory_process.manifest.name }
+  let(:taxonomies) { [taxonomy] }
 
   before do
     switch_to_host(organization.host)
@@ -12,7 +15,6 @@ describe "User creates debate" do
 
   context "when creating a new debate" do
     let(:user) { create(:user, :confirmed, organization:) }
-    let!(:category) { create(:category, participatory_space:) }
 
     context "when the user is logged in" do
       before do
@@ -23,7 +25,8 @@ describe "User creates debate" do
         let!(:component) do
           create(:debates_component,
                  :with_creation_enabled,
-                 participatory_space: participatory_process)
+                 participatory_space: participatory_process,
+                 settings: { taxonomy_filters: [taxonomy_filter.id] })
         end
 
         context "and attachments are not allowed" do
@@ -34,7 +37,7 @@ describe "User creates debate" do
             click_on "New debate"
           end
 
-          it "does not show the attachments form", :slow do
+          it "does not show the attachments form" do
             expect(page).to have_no_css("#debate_documents_button")
           end
         end
@@ -53,7 +56,7 @@ describe "User creates debate" do
             click_on "New debate"
           end
 
-          it "creates a new debate", :slow do
+          it "creates a new debate" do
             within ".new_debate" do
               fill_in :debate_title, with: "Should every organization use Decidim?"
               fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
@@ -91,6 +94,26 @@ describe "User creates debate" do
           it_behaves_like "having a rich text editor", "new_debate", "basic"
         end
 
+        it "creates a new debate", :slow do
+          visit_component
+
+          click_on "New debate"
+
+          within ".new_debate" do
+            fill_in :debate_title, with: "Should every organization use Decidim?"
+            fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
+            select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_content("successfully")
+          expect(page).to have_content("Should every organization use Decidim?")
+          expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
+          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
+          expect(page).to have_css("[data-author]", text: user.name)
+        end
+
         context "when creating as a user group" do
           let!(:user_group) { create(:user_group, :verified, organization:, users: [user]) }
 
@@ -102,7 +125,7 @@ describe "User creates debate" do
             within ".new_debate" do
               fill_in :debate_title, with: "Should every organization use Decidim?"
               fill_in :debate_description, with: "Add your comment on whether Decidim is useful for every organization."
-              select translated(category.name), from: :debate_category_id
+              select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
               select user_group.name, from: :debate_user_group_id
 
               find("*[type=submit]").click
@@ -111,12 +134,14 @@ describe "User creates debate" do
             expect(page).to have_content("successfully")
             expect(page).to have_content("Should every organization use Decidim?")
             expect(page).to have_content("Add your comment on whether Decidim is useful for every organization.")
-            expect(page).to have_content(translated(category.name))
+            expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
             expect(page).to have_css("[data-author]", text: user_group.name)
           end
         end
 
         context "when the user is not authorized" do
+          let!(:organization) { create(:organization, *organization_traits, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
+
           before do
             permissions = {
               create: {
