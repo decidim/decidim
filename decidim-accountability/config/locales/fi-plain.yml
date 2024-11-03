@@ -208,6 +208,7 @@ fi-pl:
             progress: Edistyminen
             start_date: Alkamispäivä
             status: Tila
+            taxonomies: Luokittelut
             title: Otsikko
         status:
           fields:
@@ -227,6 +228,8 @@ fi-pl:
         home:
           empty: Ei yhtään tulosta.
           empty_filters: Tuloksia ei löytynyt annetuilla hakuehdoilla.
+          sub_taxonomies_label: Ala-aihepiiri
+          taxonomies_label: Aihepiirit
         home_header:
           global_status: Yleisen toteutuksen tila
         no_results: Projekteja ei ole saatavilla
@@ -242,6 +245,8 @@ fi-pl:
         results:
           status_id_eq:
             label: Tila
+          taxonomies_part_of_contains:
+            label: Luokittelu
     components:
       accountability:
         actions:
@@ -249,12 +254,18 @@ fi-pl:
         name: Vastuullisuus
         settings:
           global:
+            clear_all: Tyhjennä kaikki
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             display_progress_enabled: Näytä edistyminen
+            geocoding_enabled: Karttatoiminnot käytössä
             intro: Esittelyteksti
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
           step:
             comments_blocked: Kommentointi estetty
     events:
@@ -299,6 +310,7 @@ fi-pl:
           proposal_urls: Tähän tulokseen sisällytettyjen ehdotusten URL-osoitteet
           start_date: Päivämäärä, jolloin tuloksen toteutus alkaa
           status: Tuloksen tämänhetkinen tila
+          taxonomies: Tuloksen luokittelut
           title: Tuloksen otsikko
           url: URL-osoite tulokseen
     participatory_spaces:
