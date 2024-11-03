@@ -11,28 +11,19 @@ describe Decidim::Debates::UpdateDebate do
   let(:user) { create(:user, organization:) }
   let(:author) { user }
   let!(:debate) { create(:debate, author:, component: current_component) }
-<<<<<<< HEAD
   let(:attachment_params) { nil }
   let(:current_files) { [] }
   let(:uploaded_files) { [] }
-=======
   let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
->>>>>>> origin/develop
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
       title: "title",
       description: "description",
-<<<<<<< HEAD
-      scope_id: scope.id,
-      category_id: category.id,
-      id: debate.id,
       attachment: attachment_params,
       documents: current_files,
-      add_documents: uploaded_files
-=======
+      add_documents: uploaded_files,
       taxonomies:,
       id: debate.id
->>>>>>> origin/develop
     ).with_context(
       current_organization: organization,
       current_participatory_space: current_component.participatory_space,

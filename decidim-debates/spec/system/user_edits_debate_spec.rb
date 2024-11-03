@@ -50,7 +50,7 @@ describe "User edits a debate" do
     end
 
     context "when attachments are disallowed" do
-      it "does not show the attachments form"do
+      it "does not show the attachments form" do
         visit_component
 
         click_on debate.title.values.first

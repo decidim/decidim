@@ -73,7 +73,7 @@ en:
             update: Update debate
           form:
             add_documents: Add documents
-            attachment_legend: (Optional) Add an attachment
+            attachment_legend: "(Optional) Add an attachment"
             debate_type: Debate type
             edit_documents: Edit documents
             finite: Finite (With start and end times)
