@@ -89,7 +89,7 @@ tr:
               'false': Teklifler
               'true': Değişiklikler
           scope_id_eq:
-            label: Kapsam
+            label: kapsam
           state_eq:
             label: Durum
             values:
@@ -578,7 +578,7 @@ tr:
             official_proposal: Resmi teklif
             published_answer: Yayınlanan cevap
             published_at: Yayınlandı
-            scope: Kapsam
+            scope: kapsam
             state: Durum
             title: Başlık
             valuator: Bilirkişi
