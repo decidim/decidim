@@ -117,8 +117,6 @@ fi-pl:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Aihepiiri
           is_emendation_true:
             label: Tyyppi
             values:
@@ -126,8 +124,6 @@ fi-pl:
               'true': Muutokset
           proposal_state_id_eq:
             label: Tila
-          scope_id_eq:
-            label: Teema
           state_eq:
             label: Tila
             values:
@@ -444,7 +440,6 @@ fi-pl:
           attachments: Ehdotuksen liitteiden lukumäärä
           author: Ehdotuksen laatijan tiedot
           body: Ehdotuksen kuvaus
-          category: Ehdotuksen aihepiiri (esim. "Kulttuuri")
           comments: Ehdotuksen saamien kommenttien määrä
           component: Ehdotuksen komponentti
           endorsements: Ehdotuksen keräämien suositusten ("tykkäykset") lukumäärä
@@ -459,7 +454,6 @@ fi-pl:
           published_at: Ehdotuksen julkaisun ajankohta
           reference: Tämän ehdotuksen yksilöllinen tunniste tällä alustalla
           related_proposals: Muut ehdotukset, jotka liittyvät tähän ehdotukseen
-          scope: Ehdotuksen teema (esim. "Kaupunki")
           state: Ehdotuksen tila (esim. "Hyväksytty")
           title: Ehdotuksen otsikko
           url: URL-osoite ehdotukseen
@@ -608,7 +602,6 @@ fi-pl:
             attachment_legend: "(Valinnainen) Lisää liite"
             created_in_meeting: Tämä ehdotus on luotu tapaamisessa
             delete_attachment: Poista liite
-            select_a_category: Valitse aihepiiri
             select_a_meeting: Valitse tapaaminen
           index:
             actions: Toiminnot
@@ -749,7 +742,6 @@ fi-pl:
         edit:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
-          select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa yhteistyöluonnosta
         empty: Yhteistyöluonnoksia ei ole vielä
@@ -858,14 +850,12 @@ fi-pl:
       models:
         proposal:
           fields:
-            category: Aihepiiri
             comments: Kommentit
             id: ID
             notes: Huomautuksia
             official_proposal: Virallinen ehdotus
             published_answer: Julkaistu vastaus
             published_at: Julkaistu
-            scope: Teema
             state: Tila
             title: Otsikko
             valuator: Arvioija
@@ -893,7 +883,6 @@ fi-pl:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
           edit_documents: Muokkaa asiakirjoja
-          select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Muokkaa ehdotusta
         edit_draft:
