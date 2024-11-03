@@ -180,13 +180,11 @@ uk:
       models:
         proposal:
           fields:
-            category: Категорія
             comments: Коментарі
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
             published_at: 'Оприлюднено:'
-            scope: Обсяг
             state: Стан
             title: Назва
             votes: Голоси
