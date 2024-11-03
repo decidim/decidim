@@ -106,8 +106,6 @@ bg:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Категория
           is_emendation_true:
             label: Тип
             values:
@@ -115,8 +113,6 @@ bg:
               'true': Изменения
           proposal_state_id_eq:
             label: Състояние
-          scope_id_eq:
-            label: Обхват
           state_eq:
             label: Състояние
             values:
@@ -501,7 +497,6 @@ bg:
             attachment_legend: "(Незадължително) Добавяне на прикачен файл"
             created_in_meeting: Това предложение е резултат от среща
             delete_attachment: Изтриване на прикачен файл
-            select_a_category: Изберете категория
             select_a_meeting: Избор на среща
           index:
             actions: Активности
@@ -636,7 +631,6 @@ bg:
         edit:
           attachment_legend: "(Незадължително) Добавяне на прикачен файл"
           back: Назад
-          select_a_category: Моля, изберете категория
           send: Изпрати
           title: Редактиране на съвместната чернова
         empty: Все още няма съвместни чернови
@@ -727,14 +721,12 @@ bg:
       models:
         proposal:
           fields:
-            category: Категория
             comments: Коментари
             id: ID
             notes: Бележки
             official_proposal: Официално предложение
             published_answer: Публикуван отговор
             published_at: Публикувано на
-            scope: Обхват
             state: Статус
             title: Заглавие
             valuator: Оценител
@@ -762,7 +754,6 @@ bg:
           attachment_legend: "(Незадължително) Добавяне на прикачен файл"
           back: Назад
           edit_documents: Редактиране на документ
-          select_a_category: Моля, изберете категория
           send: Изпрати
           title: Редактиране на предложение
         edit_draft:
