@@ -91,7 +91,7 @@ gl:
             values:
               'false': Propostas
           scope_id_eq:
-            label: Ámbito
+            label: Alcance
           state_eq:
             label: Estado
             values:
