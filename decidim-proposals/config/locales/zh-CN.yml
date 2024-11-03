@@ -68,15 +68,11 @@ zh-CN:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: 类别
           is_emendation_true:
             label: 类型
             values:
               'false': 建议
               'true': 修 正 案
-          scope_id_eq:
-            label: 范围
           state_eq:
             label: 状态
             values:
@@ -300,7 +296,6 @@ zh-CN:
           form:
             attachment_legend: "(可选) 添加附件"
             created_in_meeting: 这项建议来自一次会议
-            select_a_category: 选择一个类别
             select_a_meeting: 选择会议
           index:
             actions: 行动
@@ -410,7 +405,6 @@ zh-CN:
         edit:
           attachment_legend: "(可选) 添加附件"
           back: 后退
-          select_a_category: 请选择一个类别
           send: 发送
           title: 编辑协作草稿
         filters:
@@ -484,14 +478,12 @@ zh-CN:
       models:
         proposal:
           fields:
-            category: 类别
             comments: 评论
             id: ID
             notes: 注
             official_proposal: 正式提案
             published_answer: 已发布的答案
             published_at: 发布于
-            scope: 范围
             state: 状态
             title: 标题
             valuator: 值者
@@ -506,7 +498,6 @@ zh-CN:
         edit:
           attachment_legend: "(可选) 添加附件"
           back: 后退
-          select_a_category: 请选择一个类别
           send: 发送
           title: 编辑提案
         edit_draft:
