@@ -113,7 +113,7 @@ cs:
               'false': Návrhy
               'true': Pozměňovací návrhy
           scope_id_eq:
-            label: Oblast působnosti
+            label: Rozsah
           state_eq:
             label: Stav
             values:
