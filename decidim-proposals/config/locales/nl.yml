@@ -84,6 +84,10 @@ nl:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Categorie
+          scope_id_eq:
+            label: Scope
           valuator_role_ids_has:
             label: Toegewezen aan beoordelaar
         search_placeholder:
