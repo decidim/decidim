@@ -94,15 +94,11 @@ lt:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategorija
           is_emendation_true:
             label: Tipas
             values:
               'false': Pasiūlymai
               'true': Pataisos
-          scope_id_eq:
-            label: Apimtis
           state_eq:
             label: Būsena
             values:
@@ -425,7 +421,6 @@ lt:
             attachment_legend: "(Neprivaloma) Pridėti priedą"
             created_in_meeting: Šis pasiūlymas iškeltas susirinkime
             delete_attachment: Ištrinti prikabintą failą
-            select_a_category: Pasirinkite kategoriją
             select_a_meeting: Pasirinkite susitikimą
           index:
             actions: Veiksmai
@@ -556,7 +551,6 @@ lt:
         edit:
           attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
-          select_a_category: Pasirinkite kategoriją
           send: Siųsti
           title: Redaguoti bendrąjį juodraštį
         empty: Dar nėra bendrų juodraščių
@@ -651,14 +645,12 @@ lt:
       models:
         proposal:
           fields:
-            category: Kategorija
             comments: Komentarai
             id: ID
             notes: Užrašai
             official_proposal: Oficialus pasiūlymas
             published_answer: Paskelbtas atsakymas
             published_at: Paskelbta
-            scope: Apimtis
             state: Būsena
             title: Pavadinimas
             valuator: Vertintojas
@@ -680,7 +672,6 @@ lt:
           attachment_legend: "(Neprivaloma) Pridėti priedą"
           back: Atgal
           edit_documents: Redaguoti dokumentus
-          select_a_category: Pasirinkite kategoriją
           send: Siųsti
           title: Redaguoti pasiūlymą
         edit_draft:
