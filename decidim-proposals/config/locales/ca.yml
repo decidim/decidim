@@ -117,8 +117,6 @@ ca:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Categoria
           is_emendation_true:
             label: Tipus
             values:
@@ -126,8 +124,6 @@ ca:
               'true': Esmenes
           proposal_state_id_eq:
             label: Estat
-          scope_id_eq:
-            label: Àmbit
           state_eq:
             label: Estat
             values:
@@ -444,7 +440,6 @@ ca:
           attachments: El número de fitxers adjunt que té aquesta proposta
           author: Les dades d'autoria d'aquesta proposta
           body: La descripció de la proposta
-          category: 'La categoria de la proposta (per exemple: "Cultura")'
           comments: El número de comentaris que té aquesta proposta
           component: El component al qual pertany aquesta proposta
           endorsements: El número d'adhesions ("m'agrada") que té aquesta proposta
@@ -459,7 +454,6 @@ ca:
           published_at: La data en què es va publicar aquesta proposta
           reference: L'identificador únic del recurs a aquesta plataforma
           related_proposals: Les propostes relacionades amb aquesta proposta
-          scope: 'L''àmbit territorial de la propuesta (per exemple: "Ciutat")'
           state: 'L''estat d''aquesta proposta (per exemple: "Acceptada")'
           title: El títol de la proposta
           url: L'URL on es pot trobar aquesta proposta
@@ -609,7 +603,6 @@ ca:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
             created_in_meeting: Aquesta proposta prové d'una trobada
             delete_attachment: Suprimeix l'adjunt
-            select_a_category: Selecciona una categoria
             select_a_meeting: Selecciona una trobada
           index:
             actions: Accions
@@ -750,7 +743,6 @@ ca:
         edit:
           attachment_legend: "(Opcional) Afegeix un fitxer adjunt"
           back: Torna
-          select_a_category: Si us plau, selecciona una categoria
           send: Envia
           title: Edita l'esborrany col·laboratiu
         empty: Encara no hi ha cap esborrany col·laboratiu
@@ -859,14 +851,12 @@ ca:
       models:
         proposal:
           fields:
-            category: Categoria
             comments: Comentaris
             id: Identificador
             notes: Notes
             official_proposal: Proposta oficial
             published_answer: Resposta publicada
             published_at: Publicat a
-            scope: Àmbit
             state: Estat
             title: Títol
             valuator: Avaluadora
@@ -894,7 +884,6 @@ ca:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Torna
           edit_documents: Editar documents
-          select_a_category: Si us plau, selecciona una categoria
           send: Envia
           title: Edita proposta
         edit_draft:
