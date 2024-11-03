@@ -239,7 +239,6 @@ id:
           form:
             attachment_legend: "(Opsional) Tambahkan lampiran"
             created_in_meeting: Proposal ini berasal dari rapat
-            select_a_category: Pilih Kategori
             select_a_meeting: Pilih rapat
           index:
             actions: Tindakan
@@ -318,7 +317,6 @@ id:
         edit:
           attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
-          select_a_category: Silakan pilih kategori
           send: Kirim
           title: Edit draf kolaboratif
         filters:
@@ -390,13 +388,11 @@ id:
       models:
         proposal:
           fields:
-            category: Kategori
             comments: Komentar
             id: ID
             notes: Catatan
             official_proposal: Proposal resmi
             published_at: Diterbitkan di
-            scope: Cakupan
             state: Negara
             title: Judul
             votes: Suara
@@ -409,7 +405,6 @@ id:
         edit:
           attachment_legend: "(Opsional) Tambahkan lampiran"
           back: Kembali
-          select_a_category: Silakan pilih kategori
           send: Kirim
           title: Edit proposal
         edit_draft:
