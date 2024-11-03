@@ -109,8 +109,6 @@ pl:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategoria
           is_emendation_true:
             label: Typ
             values:
@@ -118,8 +116,6 @@ pl:
               'true': Poprawki
           proposal_state_id_eq:
             label: Stan
-          scope_id_eq:
-            label: Zakres
           state_eq:
             label: Stan
             values:
@@ -503,7 +499,6 @@ pl:
             attachment_legend: "(Opcjonalnie) Dodaj załącznik"
             created_in_meeting: Ta propozycja pochodzi ze spotkania
             delete_attachment: Usuń załącznik
-            select_a_category: Wybierz kategorię
             select_a_meeting: Wybierz spotkanie
           index:
             actions: Działania
@@ -640,7 +635,6 @@ pl:
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
-          select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj wspólny szkic
         empty: Nie ma jeszcze żadnych wspólnych wersji roboczych
@@ -735,14 +729,12 @@ pl:
       models:
         proposal:
           fields:
-            category: Kategoria
             comments: Komentarze
             id: ID
             notes: Notatki
             official_proposal: Oficjalna propozycja
             published_answer: Opublikowane odpowiedzi
             published_at: Opublikowano
-            scope: Zakres
             state: Status
             title: Tytuł
             valuator: Weryfikator
@@ -770,7 +762,6 @@ pl:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
           edit_documents: Edytuj dokumenty
-          select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj propozycję
         edit_draft:
