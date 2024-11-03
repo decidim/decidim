@@ -181,7 +181,7 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
 
-        %w(conferences design initiatives templates).each do |component|
+        %w(ai conferences design initiatives templates).each do |component|
           if options[:demo]
             gsub_file "Gemfile", /gem "decidim-#{component}".*/, "gem \"decidim-#{component}\", #{gem_modifier}"
           else
@@ -382,6 +382,12 @@ module Decidim
         copy_file "budgets_workflow_random.en.yml", "config/locales/budgets_workflow_random.en.yml"
 
         copy_file "budgets_initializer.rb", "config/initializers/decidim_budgets.rb"
+      end
+
+      def ai_toolkit
+        return unless options[:demo]
+
+        copy_file "ai_initializer.rb", "config/initializers/decidim_ai.rb"
       end
 
       def timestamp_service

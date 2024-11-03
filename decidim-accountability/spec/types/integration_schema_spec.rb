@@ -8,18 +8,13 @@ describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
   let(:component_type) { "Accountability" }
   let!(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
-  let!(:result) { create(:result, component: current_component, category:) }
+  let!(:result) { create(:result, component: current_component, taxonomies:) }
   let!(:timeline_entry) { create(:timeline_entry, result:) }
 
   let(:accountability_single_result) do
     {
       "acceptsNewComments" => result.accepts_new_comments?,
-      "category" => {
-        "id" => result.category.id.to_s,
-        "name" => { "translation" => result.category.name[locale] },
-        "parent" => nil,
-        "subcategories" => []
-      },
+      "taxonomies" => [{ "id" => result.taxonomies.first.id.to_s }],
       "children" => [],
       "childrenCount" => result.children.size,
       "comments" => [],
@@ -34,7 +29,6 @@ describe "Decidim::Api::QueryType" do
       "parent" => result.parent,
       "progress" => result.progress.to_f,
       "reference" => result.reference,
-      "scope" => result.scope,
       "startDate" => result.start_date.to_s,
       "status" => {
         "createdAt" => result.status.created_at.to_date.to_s,
@@ -90,17 +84,8 @@ describe "Decidim::Api::QueryType" do
           edges{
             node{
               acceptsNewComments
-              category {
+              taxonomies {
                 id
-                name {
-                  translation(locale: "#{locale}")
-                }
-                parent {
-                  id
-                }
-                subcategories {
-                  id
-                }
               }
               children {
                 id
@@ -124,18 +109,6 @@ describe "Decidim::Api::QueryType" do
               }
               progress
               reference
-              scope {
-                id
-                children {
-                  id
-                }
-                name {
-                  translation(locale:"#{locale}")
-                }
-                parent {
-                  id
-                }
-              }
               startDate
               status {
                 id
@@ -196,17 +169,8 @@ describe "Decidim::Api::QueryType" do
       fragment fooComponent on Accountability {
         result(id: #{result.id}) {
           acceptsNewComments
-          category {
+          taxonomies {
             id
-            name {
-              translation(locale: "#{locale}")
-            }
-            parent {
-              id
-            }
-            subcategories {
-              id
-            }
           }
           children {
             id
@@ -230,18 +194,6 @@ describe "Decidim::Api::QueryType" do
           }
           progress
           reference
-          scope {
-            id
-            children {
-              id
-            }
-            name {
-              translation(locale:"#{locale}")
-            }
-            parent {
-              id
-            }
-          }
           startDate
           status {
             id

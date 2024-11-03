@@ -42,11 +42,6 @@ module Decidim::Meetings
     let(:longitude) { 2.1234 }
     let(:start_time) { 2.days.from_now }
     let(:end_time) { 2.days.from_now + 4.hours }
-    let(:parent_scope) { create(:scope, organization:) }
-    let(:scope) { create(:subscope, parent: parent_scope) }
-    let(:scope_id) { scope.id }
-    let(:category) { create(:category, participatory_space: participatory_process) }
-    let(:category_id) { category.id }
     let(:private_meeting) { false }
     let(:transparent) { true }
     let(:type_of_meeting) { "in_person" }
@@ -56,10 +51,11 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:iframe_embed_type) { "none" }
+    let(:taxonomies) { [] }
+    let(:component_ids) { [] }
     let(:attributes) do
       {
-        decidim_scope_id: scope_id,
-        decidim_category_id: category_id,
+        taxonomies:,
         title_en: title[:en],
         description_en: description[:en],
         short_description_en: short_description[:en],
@@ -77,7 +73,8 @@ module Decidim::Meetings
         registrations_enabled:,
         type_of_meeting:,
         online_meeting_url:,
-        iframe_embed_type:
+        iframe_embed_type:,
+        component_ids:
       }
     end
 
@@ -85,7 +82,12 @@ module Decidim::Meetings
       stub_geocoding(address, [latitude, longitude])
     end
 
-    it_behaves_like "a scopable resource"
+    describe "taxonomies" do
+      let(:component) { current_component }
+      let(:participatory_space) { participatory_process }
+
+      it_behaves_like "a taxonomizable resource"
+    end
 
     it { is_expected.to be_valid }
 
@@ -144,12 +146,6 @@ module Decidim::Meetings
       it { is_expected.not_to be_valid }
     end
 
-    describe "when the category does not exist" do
-      let(:category_id) { category.id + 10 }
-
-      it { is_expected.not_to be_valid }
-    end
-
     it "validates address and store its coordinates" do
       expect(subject).to be_valid
       expect(subject.latitude).to eq(latitude)
@@ -162,12 +158,6 @@ module Decidim::Meetings
       local_services = described_class.from_model(meeting).services
       expect(local_services).to all be_an(Admin::MeetingServiceForm)
       expect(local_services.map(&:title_en)).to eq(services.map { |s| s["title"]["en"] })
-    end
-
-    it "properly maps category id from model" do
-      meeting = create(:meeting, component: current_component, category:)
-
-      expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
     end
 
     describe "services_to_persist" do
@@ -231,6 +221,24 @@ module Decidim::Meetings
       let(:iframe_embed_type) { "embed_in_meeting_page" }
 
       it { is_expected.not_to be_valid }
+    end
+
+    describe "when component_ids is present" do
+      let(:component_ids) { [current_component.id] }
+
+      it "returns the components" do
+        expect(form.components).to eq([current_component])
+      end
+    end
+
+    describe "when component_ids is present but meeting is private and non transparent" do
+      let(:component_ids) { [current_component.id] }
+      let(:private_meeting) { true }
+      let(:transparent) { false }
+
+      it "returns an empty array" do
+        expect(form.components).to eq([])
+      end
     end
   end
 end
