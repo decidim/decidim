@@ -76,7 +76,6 @@ describe "User edits a debate" do
         within ".edit_debate" do
           fill_in :debate_title, with: "Should every organization use Decidim?"
           fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
-          select translated(scope.name), from: :debate_scope_id
         end
 
         dynamically_attach_file(:debate_documents, image_path)
