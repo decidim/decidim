@@ -283,7 +283,6 @@ lv:
           form:
             attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
             created_in_meeting: Šis priekšlikums tika izteikts sanāksmē
-            select_a_category: Izvēlieties kategoriju
             select_a_meeting: Atlasiet sanāksmi
           index:
             actions: Darbības
@@ -395,7 +394,6 @@ lv:
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
-          select_a_category: Lūdzu, izvēlieties kategoriju
           send: Sūtīt
           title: Rediģēt sadarbības projektu
         filters:
@@ -471,13 +469,11 @@ lv:
       models:
         proposal:
           fields:
-            category: Kategorija
             comments: Komentāri
             notes: Piezīmes
             official_proposal: Oficiālais priekšlikums
             published_answer: Publicētā atbilde
             published_at: Publicēts plkst.
-            scope: Darbības tvērums
             state: Statuss
             title: Nosaukums
             valuator: Vērtētājs
@@ -492,7 +488,6 @@ lv:
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
-          select_a_category: Lūdzu, izvēlieties kategoriju
           send: Sūtīt
           title: Rediģēt priekšlikumu
         edit_draft:
