@@ -58,6 +58,13 @@ id:
       decidim/proposals/proposal_note:
         other: Catatan
   decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Cakupan
     components:
       proposals:
         actions:
