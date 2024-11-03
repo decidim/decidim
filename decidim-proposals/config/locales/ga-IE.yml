@@ -33,14 +33,10 @@ ga:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Catagóir
           is_emendation_true:
             label: Cineál
             values:
               'false': Moltaí
-          scope_id_eq:
-            label: Scóip
           state_eq:
             label: Staid
             values:
@@ -100,8 +96,6 @@ ga:
         proposals:
           edit:
             update: Nuashonraigh
-          form:
-            select_a_category: Roghnaigh catagóir
           index:
             actions: Gníomhartha
             assign_to_valuator_button: Ceap
@@ -144,7 +138,6 @@ ga:
               cancel: Cealaigh
         edit:
           back: Ar Ais
-          select_a_category: Roghnaigh catagóir le do thoil
           send: Seol
         filters:
           all: Uile
@@ -172,11 +165,9 @@ ga:
       models:
         proposal:
           fields:
-            category: Catagóir
             comments: Tráchtanna
             id: ID
             notes: Nótaí
-            scope: Scóip
             state: Stádas
             title: Teideal
             valuator: Luachálaí
@@ -188,7 +179,6 @@ ga:
       proposals:
         edit:
           back: Ar Ais
-          select_a_category: Roghnaigh catagóir le do thoil
           send: Seol
         edit_draft:
           send: Réamhamharc
