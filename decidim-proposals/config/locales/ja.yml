@@ -101,7 +101,7 @@ ja:
               'false': 提案
               'true': 修正
           scope_id_eq:
-            label: 対象範囲
+            label: スコープ
           state_eq:
             label: 州(県)
             values:
