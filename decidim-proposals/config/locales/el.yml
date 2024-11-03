@@ -88,15 +88,11 @@ el:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Κατηγορία
           is_emendation_true:
             label: Τύπος
             values:
               'false': Προτάσεις
               'true': Τροποποιήσεις
-          scope_id_eq:
-            label: Πεδίο εφαρμογής
           state_eq:
             label: Κατάσταση
             values:
@@ -413,7 +409,6 @@ el:
             attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
             created_in_meeting: Αυτή η πρόταση προέρχεται από μια σύσκεψη
             delete_attachment: Διαγραφή συνημμένου
-            select_a_category: Επιλέξτε μια κατηγορία
             select_a_meeting: Επιλέξτε σύσκεψη
           index:
             actions: Ενέργειες
@@ -542,7 +537,6 @@ el:
         edit:
           attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
           back: Πίσω
-          select_a_category: Επιλέξτε μια κατηγορία
           send: Αποστολή
           title: Επεξεργασία προσχεδίου συνεργασίας
         filters:
@@ -627,14 +621,12 @@ el:
       models:
         proposal:
           fields:
-            category: Κατηγορία
             comments: Σχόλια
             id: Αναγνωριστικό
             notes: Σημειώσεις
             official_proposal: Επίσημη πρόταση
             published_answer: Δημοσιευμένη απάντηση
             published_at: Δημοσιεύτηκε στις
-            scope: Πεδίο εφαρμογής
             state: Κατάσταση
             title: Τίτλος
             valuator: Εκτιμητής
@@ -656,7 +648,6 @@ el:
           attachment_legend: "(Προαιρετικά) Προσθήκη συνημμένου"
           back: Πίσω
           edit_documents: Επεξεργασία εγγράφων
-          select_a_category: Επιλέξτε μια κατηγορία
           send: Αποστολή
           title: Επεξεργασία πρότασης
         edit_draft:
