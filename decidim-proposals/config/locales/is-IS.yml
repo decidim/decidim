@@ -129,12 +129,10 @@ is:
       models:
         proposal:
           fields:
-            category: Flokkur
             comments: Athugasemdir
             id: Auðkenni
             notes: Skýringar
             official_proposal: Opinber tillaga
-            scope: Umfang
             title: Titill
             votes: Atkvæði
       proposals:
