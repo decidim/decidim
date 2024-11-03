@@ -89,7 +89,6 @@ is-IS:
         proposals:
           form:
             attachment_legend: "(Valfrjálst) Bæta við viðhengi"
-            select_a_category: Veldu flokk
           index:
             actions: Aðgerðir
             cancel: Hætta við
@@ -125,18 +124,15 @@ is-IS:
       models:
         proposal:
           fields:
-            category: Flokkur
             comments: Athugasemdir
             id: Auðkenni
             notes: Skýringar
             official_proposal: Opinber tillaga
-            scope: Umfang
             title: Titill
             votes: Atkvæði
       proposals:
         edit:
           back: Til baka
-          select_a_category: Vinsamlegast veldu flokk
           send: Senda
           title: Breyta tillögu
         edit_draft:
