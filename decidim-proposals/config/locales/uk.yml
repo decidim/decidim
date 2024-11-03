@@ -133,7 +133,6 @@ uk:
         proposals:
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
-            select_a_category: Оберіть категорію
           index:
             actions: Дії
             cancel: Скасувати
@@ -176,13 +175,11 @@ uk:
       models:
         proposal:
           fields:
-            category: Категорія
             comments: Коментарі
             id: Псевдонім
             notes: Примітки
             official_proposal: Службова пропозиція
             published_at: 'Оприлюднено:'
-            scope: Обсяг
             state: Стан
             title: Назва
             votes: Голоси
@@ -190,7 +187,6 @@ uk:
         edit:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Повернутись
-          select_a_category: Будь ласка, виберіть категорію
           send: Надіслати
           title: Редагувати пропозицію
         edit_draft:
