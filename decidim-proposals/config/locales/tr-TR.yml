@@ -87,8 +87,6 @@ tr:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategori
           is_emendation_true:
             label: Türü
             values:
@@ -96,8 +94,6 @@ tr:
               'true': Değişiklikler
           proposal_state_id_eq:
             label: Durum
-          scope_id_eq:
-            label: Kapsam
           state_eq:
             label: Durum
             values:
@@ -364,7 +360,6 @@ tr:
           form:
             attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
             created_in_meeting: Bu teklif bir toplantıdan geliyor
-            select_a_category: Bir kategori seç
             select_a_meeting: Bir toplantı seç
           index:
             actions: Eylemler
@@ -476,7 +471,6 @@ tr:
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
-          select_a_category: Lütfen bir kategori seçin
           send: Gönder
           title: Ortak taslak düzenle
         filters:
@@ -552,14 +546,12 @@ tr:
       models:
         proposal:
           fields:
-            category: Kategori
             comments: Yorumlar
             id: İD
             notes: Notlar
             official_proposal: Resmi teklif
             published_answer: Yayınlanan cevap
             published_at: Yayınlandı
-            scope: Kapsam
             state: Durum
             title: Başlık
             valuator: Bilirkişi
@@ -577,7 +569,6 @@ tr:
         edit:
           attachment_legend: "(İsteğe bağlı) Bir ek ekleyin"
           back: Geri
-          select_a_category: Lütfen bir kategori seçin
           send: Gönder
           title: Teklifi düzenle
         edit_draft:
