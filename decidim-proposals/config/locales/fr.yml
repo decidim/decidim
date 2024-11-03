@@ -107,8 +107,6 @@ fr:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Catégorie
           is_emendation_true:
             label: Type
             values:
@@ -116,8 +114,6 @@ fr:
               'true': Amendements
           proposal_state_id_eq:
             label: État
-          scope_id_eq:
-            label: Secteur
           state_eq:
             label: État
             values:
@@ -544,7 +540,6 @@ fr:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             created_in_meeting: Cette proposition provient d'une réunion
             delete_attachment: Supprimer la pièce jointe
-            select_a_category: Sélectionner une catégorie
             select_a_meeting: Sélectionnez une réunion
           index:
             actions: Actions
@@ -683,7 +678,6 @@ fr:
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
-          select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier un brouillon collaboratif
         empty: Il n'y a pas encore de brouillons collaboratifs
@@ -787,14 +781,12 @@ fr:
       models:
         proposal:
           fields:
-            category: Catégorie
             comments: Commentaires
             id: ID
             notes: Remarques
             official_proposal: Proposition officielle
             published_answer: Réponse publiée
             published_at: Publiée à
-            scope: Périmètre d'application
             state: État
             title: Titre
             valuator: Évaluateur
@@ -822,7 +814,6 @@ fr:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           edit_documents: Modifier les documents
-          select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
         edit_draft:
