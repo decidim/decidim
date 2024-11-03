@@ -80,6 +80,10 @@ lv:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategorija
+          scope_id_eq:
+            label: Darbības tvērums
           valuator_role_ids_has:
             label: Piešķirts vērtētājam
         search_placeholder:
