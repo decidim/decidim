@@ -117,8 +117,6 @@ eu:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategoria
           is_emendation_true:
             label: Mota
             values:
@@ -126,8 +124,6 @@ eu:
               'true': Zuzenketak
           proposal_state_id_eq:
             label: Egoera
-          scope_id_eq:
-            label: Esparrua
           state_eq:
             label: Egoera
             values:
@@ -444,7 +440,6 @@ eu:
           attachments: Proposamen honek duen iruzkin kopurua
           author: Proposamen honen egilearen data
           body: Proposamenaren gorputza
-          category: 'Proposamenaren kategoria (adibidez: "Kultura")'
           comments: Proposamen honek duen boto kopurua
           component: Proposamena osagai honen barruan dago
           endorsements: Proposamen honek duen onarpen ("atsegin dut") kopurua
@@ -459,7 +454,6 @@ eu:
           published_at: Zein datatan argitaratu zen proposamen hau
           reference: Baliabidearen identifikatzaile bakarra plataforma honetan
           related_proposals: Proposamen honekin lotutako proposamenak
-          scope: Proposamenaren esparrua
           state: Proposamen honen egoera (adibidez, "Onartua")
           title: Proposamenaren izenburua
           url: Proposamen hau URL honetan aurki daiteke
@@ -610,7 +604,6 @@ eu:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             created_in_meeting: Proposamen hau bilera batetik dator
             delete_attachment: Ezabatu eranskina
-            select_a_category: Hautatu kategoria bat
             select_a_meeting: Hautatu topaketa bat
           index:
             actions: Ekintzak
@@ -751,7 +744,6 @@ eu:
         edit:
           attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
           back: Atzera
-          select_a_category: Mesedez, hautatu kategoria bat
           send: Bidali
           title: Editatu zirriborro kolaboratiboa
         empty: Oraindik ez dago zirriborro kolaboratiborik
@@ -860,14 +852,12 @@ eu:
       models:
         proposal:
           fields:
-            category: Kategoria
             comments: Iruzkinak
             id: ID
             notes: Oharrak
             official_proposal: Proposamen ofiziala
             published_answer: Erantzuna argitaratuta
             published_at: Argitaratze-data
-            scope: Esparrua
             state: Egoera
             title: Titulua
             valuator: Ebaluatzailea
@@ -895,7 +885,6 @@ eu:
           attachment_legend: "(Aukerakoa) Gehitu eranskina"
           back: Atzera
           edit_documents: Editatu dokumentuak
-          select_a_category: Mesedez, hautatu kategoria bat
           send: Bidali
           title: Editatu proposamena
         edit_draft:
