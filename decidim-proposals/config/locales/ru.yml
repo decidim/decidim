@@ -209,13 +209,11 @@ ru:
       models:
         proposal:
           fields:
-            category: Категория
             comments: Комментарии
             id: Псевдоним
             notes: Примечания
             official_proposal: Служебное предложение
             published_at: 'Обнародовано:'
-            scope: Охват
             state: Cостояние
             title: Заголовок
             votes: Голоса
