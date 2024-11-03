@@ -9,8 +9,7 @@ describe "User creates debate", type: :system do
       title:,
       description:,
       user_group_id: nil,
-      scope:,
-      category:,
+      taxonomizations:,
       current_user: author,
       current_component: component,
       current_organization: organization

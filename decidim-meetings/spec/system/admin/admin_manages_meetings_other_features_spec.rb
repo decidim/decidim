@@ -8,6 +8,7 @@ describe "Admin manages meetings other features", serves_geocoding_autocomplete:
 
   include_context "when managing a component as an admin"
 
+  it_behaves_like "manage taxonomy filters in settings"
   it_behaves_like "manage registrations"
   it_behaves_like "manage announcements"
   it_behaves_like "manage agenda"

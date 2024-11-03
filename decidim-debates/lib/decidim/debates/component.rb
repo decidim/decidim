@@ -19,6 +19,7 @@ Decidim.register_component(:debates) do |component|
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope
+    settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
@@ -61,7 +62,7 @@ Decidim.register_component(:debates) do |component|
       Decidim::Debates::Debate
         .not_hidden
         .where(component: component_instance)
-        .includes(:scope, :category, component: { participatory_space: :organization })
+        .includes(:taxonomies, component: { participatory_space: :organization })
     end
 
     exports.include_in_open_data = true
