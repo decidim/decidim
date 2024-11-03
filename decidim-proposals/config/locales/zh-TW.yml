@@ -85,15 +85,11 @@ zh-TW:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: 分類
           is_emendation_true:
             label: 類別
             values:
               'false': 提案
               'true': 修正案
-          scope_id_eq:
-            label: 範圍
           state_eq:
             label: 狀態
             values:
@@ -404,7 +400,6 @@ zh-TW:
             attachment_legend: "(可選) 新增附件"
             created_in_meeting: 這個提案來自會議
             delete_attachment: 刪除附件
-            select_a_category: 選擇一個類別
             select_a_meeting: 選擇一個會議
           index:
             actions: 操作
@@ -532,7 +527,6 @@ zh-TW:
         edit:
           attachment_legend: "(可選) 新增附件"
           back: 返回
-          select_a_category: 請選擇一個類別
           send: 發送
           title: 編輯協作草稿
         filters:
@@ -615,14 +609,12 @@ zh-TW:
       models:
         proposal:
           fields:
-            category: 分類
             comments: 評論
             id: ID
             notes: 備註
             official_proposal: 正式提案
             published_answer: 已發布的回答
             published_at: 發佈於
-            scope: 範圍
             state: 狀態
             title: 標題
             valuator: 評估者
@@ -644,7 +636,6 @@ zh-TW:
           attachment_legend: "(可選) 新增附件"
           back: 返回
           edit_documents: 編輯文件
-          select_a_category: 請選擇一個類別
           send: 發送
           title: 編輯提案
         edit_draft:
