@@ -90,6 +90,21 @@ module Decidim::Budgets
     end
 
     context "when subscribed to the serialize event" do
+      before do
+        I18n.backend.store_translations(
+          :en,
+          decidim: {
+            open_data: {
+              help: {
+                projects: {
+                  test_field: "Test field for projects serializer subscription"
+                }
+              }
+            }
+          }
+        )
+      end
+
       ActiveSupport::Notifications.subscribe("decidim.serialize.budgets.project_serializer") do |_event_name, data|
         data[:serialized_data][:test_field] = "Resource class: #{data[:resource].class}"
       end
