@@ -448,10 +448,12 @@ fi-pl:
         participatory_processes:
           form:
             announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             duration: Kesto
             filters: Suodattimet
             images: kuvat
             metadata: metadata
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             other: muut
             related_processes: Liittyvät prosessit
             scope_type_max_depth_help: Rajaa teemasuodattimen syvyyttä; suodatin näyttää yleisestä teemasta valittuun teematyyppiin saakka.
