@@ -114,8 +114,6 @@ de:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategorie
           is_emendation_true:
             label: Art
             values:
@@ -123,8 +121,6 @@ de:
               'true': Änderungen
           proposal_state_id_eq:
             label: Status
-          scope_id_eq:
-            label: Umfang
           state_eq:
             label: Status
             values:
@@ -563,7 +559,6 @@ de:
             attachment_legend: "(Optional) Anhang hinzufügen"
             created_in_meeting: Dieser Vorschlag stammt von einer Besprechung
             delete_attachment: Anhang löschen
-            select_a_category: Kategorie auswählen
             select_a_meeting: Besprechung auswählen
           index:
             actions: Aktionen
@@ -704,7 +699,6 @@ de:
         edit:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
-          select_a_category: Bitte wählen Sie eine Kategorie
           send: Abschicken
           title: Gemeinsamen Entwurf bearbeiten
         empty: Es gibt noch keine kollaborative Entwürfe
@@ -810,14 +804,12 @@ de:
       models:
         proposal:
           fields:
-            category: Kategorie
             comments: Bemerkungen
             id: ID
             notes: Anmerkungen
             official_proposal: Offizieller Vorschlag
             published_answer: Veröffentlichte Antwort
             published_at: Veröffentlicht am
-            scope: Umfang
             state: Status
             title: Titel
             valuator: BewerterIn
@@ -845,7 +837,6 @@ de:
           attachment_legend: "(Optional) Fügen Sie einen Anhang hinzu"
           back: Zurück
           edit_documents: Dokumente bearbeiten
-          select_a_category: Bitte wählen Sie eine Kategorie
           send: Abschicken
           title: Vorschlag bearbeiten
         edit_draft:
