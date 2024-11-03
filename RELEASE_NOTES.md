@@ -201,6 +201,6 @@ or in an initializer:
 
 ```ruby
 Decidim.configure do |config|
-  config.show_my_location_button = :all
+  config.show_my_location_button = [:all]
 end
 ```
