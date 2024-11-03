@@ -80,15 +80,11 @@
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategori
           is_emendation_true:
             label: Type
             values:
               'false': Forslag
               'true': Endringer
-          scope_id_eq:
-            label: Tema
           state_eq:
             label: Tilstand
             values:
@@ -344,7 +340,6 @@
             attachment_legend: "(Valgfritt) Legg til et vedlegg"
             created_in_meeting: Dette forslaget kommer fra et møte
             delete_attachment: Slett vedlegg
-            select_a_category: Velg en kategori
             select_a_meeting: Velg et møte
           index:
             actions: Handlinger
@@ -439,7 +434,6 @@
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
-          select_a_category: Velg en kategori
           send: Send
           title: Rediger samarbeids utkastet
         filters:
@@ -513,13 +507,11 @@
       models:
         proposal:
           fields:
-            category: Kategori
             comments: Kommentarer
             id: ID
             notes: Merknader
             official_proposal: Offisielt forslag
             published_at: Publisert på
-            scope: Tema
             state: Status
             title: Tittel
             votes: Stemmer
@@ -532,7 +524,6 @@
         edit:
           attachment_legend: "(Valgfritt) Legg til et vedlegg"
           back: Tilbake
-          select_a_category: Velg en kategori
           send: Send
           title: Rediger forslaget
         edit_draft:
