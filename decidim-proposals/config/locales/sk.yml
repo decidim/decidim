@@ -79,6 +79,10 @@ sk:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategória
+          scope_id_eq:
+            label: Rozsah
           valuator_role_ids_has:
             label: Priradené ku hodnotiteľov
         search_placeholder:
