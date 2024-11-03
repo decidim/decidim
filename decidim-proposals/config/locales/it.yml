@@ -83,15 +83,11 @@ it:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Categoria
           is_emendation_true:
             label: Tipo
             values:
               'false': Proposte
               'true': Emendamenti
-          scope_id_eq:
-            label: Ambito
           state_eq:
             label: Stato
             values:
@@ -335,7 +331,6 @@ it:
             attachment_legend: "(Opzionale) Aggiungere un allegato"
             created_in_meeting: Questa proposta proviene da una riunione
             delete_attachment: Elimina allegato
-            select_a_category: Scegli una categoria
             select_a_meeting: Seleziona una riunione
           index:
             actions: Azioni
@@ -447,7 +442,6 @@ it:
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
-          select_a_category: Si prega di selezionare una categoria
           send: Inviare
           title: Modifica bozza collaborativa
         filters:
@@ -523,14 +517,12 @@ it:
       models:
         proposal:
           fields:
-            category: Categoria
             comments: Commenti
             id: ID
             notes: Gli appunti
             official_proposal: Proposta dell'Amministrazione
             published_answer: Risposta pubblicata
             published_at: Pubblicato a
-            scope: Visibilità
             state: Stato
             title: Titolo
             valuator: Valutatore
@@ -548,7 +540,6 @@ it:
         edit:
           attachment_legend: "(Opzionale) Aggiungi un allegato"
           back: Indietro
-          select_a_category: Seleziona una categoria
           send: Inviare
           title: Modifica la proposta
         edit_draft:
