@@ -63,6 +63,13 @@ id:
       decidim/proposals/proposal_vote:
         other: Suara
   decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Cakupan
     components:
       proposals:
         actions:
