@@ -99,15 +99,11 @@ ar:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: الفئة
           is_emendation_true:
             label: النوع
             values:
               'false': اقتراحات
               'true': تعديلات
-          scope_id_eq:
-            label: نطاق
           state_eq:
             label: الحالة
             values:
@@ -413,7 +409,6 @@ ar:
             attachment_legend: "(اختياري) إضافة مرفق"
             created_in_meeting: هذا الاقتراح يأتي من اجتماع
             delete_attachment: حذف المرفق
-            select_a_category: اختر تصنيف
             select_a_meeting: اختيار اجتماع
           index:
             actions: أفعال
@@ -530,7 +525,6 @@ ar:
         edit:
           attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
-          select_a_category: الرجاء تحديد الفئة
           send: إرسال
           title: تحرير المسودة التعاونية
         filters:
@@ -619,14 +613,12 @@ ar:
       models:
         proposal:
           fields:
-            category: الفئة
             comments: تعليقات
             id: هوية شخصية
             notes: ملاحظات
             official_proposal: الاقتراح الرسمي
             published_answer: الإجابة المنشورة
             published_at: نشرت في
-            scope: نطاق
             state: الحالة
             title: عنوان
             valuator: مُقيِّم
@@ -646,7 +638,6 @@ ar:
           attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
           edit_documents: تحرير الوثائق
-          select_a_category: الرجاء تحديد الفئة
           send: إرسال
           title: تعديل الاقتراح
         edit_draft:
