@@ -110,8 +110,6 @@ ja:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: カテゴリ
           is_emendation_true:
             label: タイプ
             values:
@@ -119,8 +117,6 @@ ja:
               'true': 修正
           proposal_state_id_eq:
             label: ステータス
-          scope_id_eq:
-            label: 対象範囲
           state_eq:
             label: 州(県)
             values:
@@ -436,7 +432,6 @@ ja:
           attachments: 提案の添付ファイル数
           author: 提案の作者に関するデータ
           body: 提案本文
-          category: '提案のカテゴリ (例: "文化")'
           comments: 提案のコメント数
           component: 提案が属するコンポーネント
           endorsements: この提案のオススメ(「いいね」) の数
@@ -451,7 +446,6 @@ ja:
           published_at: この提案の公開日時
           reference: このプラットフォームでのリソースの固有ID
           related_proposals: この提案に関連する提案
-          scope: '提案のスコープ (例: "市")'
           state: 'この提案のステータス (例: "承認済み")'
           title: 提案のタイトル
           url: この提案が見つかるURL
@@ -599,7 +593,6 @@ ja:
             attachment_legend: "(オプション) 添付ファイルを追加"
             created_in_meeting: この提案は会議から来ています
             delete_attachment: 添付ファイルを削除
-            select_a_category: カテゴリを選択
             select_a_meeting: ミーティングを選択
           index:
             actions: アクション
@@ -739,7 +732,6 @@ ja:
         edit:
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
-          select_a_category: カテゴリを選択してください
           send: 送信
           title: 共同草案を編集
         empty: 共同草案はまだありません
@@ -843,14 +835,12 @@ ja:
       models:
         proposal:
           fields:
-            category: カテゴリ
             comments: コメント
             id: ID
             notes: メモ
             official_proposal: 事務局の提案
             published_answer: 公開された回答
             published_at: 公開日時
-            scope: スコープ
             state: ステータス
             title: タイトル
             valuator: 評価者
@@ -878,7 +868,6 @@ ja:
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
           edit_documents: ドキュメントを編集
-          select_a_category: カテゴリを選択してください
           send: 送信
           title: 提案を編集
         edit_draft:
