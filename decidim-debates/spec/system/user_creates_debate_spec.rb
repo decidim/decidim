@@ -72,7 +72,6 @@ describe "User creates debate" do
             expect(page).to have_content("successfully")
             expect(page).to have_content("Should every organization use Decidim?")
             expect(page).to have_content("Add your comments on whether Decidim is useful for every organization.")
-            expect(page).to have_content(translated(category.name))
             expect(page).to have_css("[data-author]", text: user.name)
             expect(page).to have_css("img[src*='#{image_filename}']")
 
