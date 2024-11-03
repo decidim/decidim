@@ -125,8 +125,6 @@ cs:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategorie
           is_emendation_true:
             label: Typ
             values:
@@ -134,8 +132,6 @@ cs:
               'true': Pozměňovací návrhy
           proposal_state_id_eq:
             label: Stav
-          scope_id_eq:
-            label: Oblast působnosti
           state_eq:
             label: Stav
             values:
@@ -451,7 +447,6 @@ cs:
           attachments: Počet příloh, které má tento návrh
           author: Údaje pro autora tohoto návrhu
           body: Obsah návrhu
-          category: Kategorie návrhu (např. "Kultura")
           comments: Počet komentářů, které má tento návrh
           component: Komponenta, do které návrh patří
           endorsements: Počet souhlasů ("lajků"), které tento návrh získal
@@ -466,7 +461,6 @@ cs:
           published_at: Datum, kdy byl tento návrh zveřejněn
           reference: Jedinečný identifikátor zdroje na této platformě
           related_proposals: Návrhy související s tímto návrhem
-          scope: Rozsah návrhu (např. „město“)
           state: Stav tohoto návrhu (např. "přijato")
           title: Název návrhu
           url: URL, kde lze tento návrh nalézt
@@ -620,7 +614,6 @@ cs:
             attachment_legend: "(Volitelné) Přidání přílohy"
             created_in_meeting: Tento návrh pochází z jednání
             delete_attachment: Smazat přílohu
-            select_a_category: Vyberte kategorii
             select_a_meeting: Vyberte schůzku
           index:
             actions: Akce
@@ -763,7 +756,6 @@ cs:
         edit:
           attachment_legend: "(Volitelné) Přidání přílohy"
           back: Zadní
-          select_a_category: Vyberte kategorii
           send: Poslat
           title: Úprava konceptu spolupráce
         empty: Zatím neexistují žádné koncepty spolupráce
@@ -876,14 +868,12 @@ cs:
       models:
         proposal:
           fields:
-            category: Kategorie
             comments: Komentáře
             id: ID
             notes: Poznámky
             official_proposal: Oficiální návrh
             published_answer: Publikovaná odpověď
             published_at: Publikováno v
-            scope: Rozsah
             state: Stav
             title: Titul
             valuator: Hodnotitel
@@ -911,7 +901,6 @@ cs:
           attachment_legend: "(Volitelné) Přidání přílohy"
           back: Zadní
           edit_documents: Upravit dokumenty
-          select_a_category: Vyberte kategorii
           send: Poslat
           title: Upravit návrh
         edit_draft:
