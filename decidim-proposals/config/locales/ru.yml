@@ -133,7 +133,6 @@ ru:
         proposals:
           form:
             attachment_legend: "(Необязательно) Прикрепить файл"
-            select_a_category: Выберите категорию
           index:
             actions: Действия
             cancel: Отменить
@@ -176,13 +175,11 @@ ru:
       models:
         proposal:
           fields:
-            category: Категория
             comments: Комментарии
             id: Псевдоним
             notes: Примечания
             official_proposal: Служебное предложение
             published_at: 'Обнародовано:'
-            scope: Охват
             state: Cостояние
             title: Заголовок
             votes: Голоса
@@ -190,7 +187,6 @@ ru:
         edit:
           attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
-          select_a_category: Пожалуйста, выберите категорию
           send: Отправить
           title: Редактировать предложение
         edit_draft:
