@@ -36,7 +36,7 @@ en:
         settings:
           global:
             announcement: Announcement
-            attachments_allowed: Attachments allowed
+            attachments_allowed: Allow attachments
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
             scope_id: Scope
@@ -71,7 +71,7 @@ en:
             update: Update debate
           form:
             add_documents: Add documents
-            attachment_legend: Attachments
+            attachment_legend: (Optional) Add an attachment
             debate_type: Debate type
             edit_documents: Edit documents
             finite: Finite (With start and end times)
