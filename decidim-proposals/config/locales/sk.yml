@@ -287,7 +287,6 @@ sk:
           form:
             attachment_legend: "(Voliteľné) Pridanie prílohy"
             created_in_meeting: Tento návrh pochádza z rokovania
-            select_a_category: Vyberte kategóriu
             select_a_meeting: Vyberte schôdzku
           index:
             actions: Akcia
@@ -400,7 +399,6 @@ sk:
         edit:
           attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
-          select_a_category: Vyberte kategóriu
           send: Poslať
           title: Úprava konceptu spolupráce
         filters:
@@ -478,14 +476,12 @@ sk:
       models:
         proposal:
           fields:
-            category: Kategória
             comments: Komentáre
             id: ID
             notes: Poznámky
             official_proposal: Oficiálne návrh
             published_answer: Zverejnená odpoveď
             published_at: Publikované v
-            scope: Rozsah
             state: Štát
             title: Titul
             valuator: Hodnotiteľ
@@ -500,7 +496,6 @@ sk:
         edit:
           attachment_legend: "(Voliteľné) Pridanie prílohy"
           back: Zadná
-          select_a_category: Vyberte kategóriu
           send: Poslať
           title: Upraviť návrh
         edit_draft:
