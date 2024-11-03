@@ -344,6 +344,14 @@ fi-pl:
           title: 'Lisää komponentti: %{name}'
         publish:
           success: Komponentti julkaistu onnistuneesti.
+        taxonomy_filters_badge:
+          remove: Poista
+        taxonomy_filters_drawer:
+          add_filter: Lisää suodatin
+          clear_all: Tyhjennä kaikki
+          filters: Suodattimet
+          save: Tallenna
+          title: Suodattimet
         title: Komponentit
         unpublish:
           success: Komponentti julkaistu onnistuneesti.
@@ -1084,9 +1092,12 @@ fi-pl:
         new:
           create: Luo luokittelu
           title: Uusi luokittelu
+        no_taxonomies: Tällä hetkellä yhtään luokittelua ei ole määritetty. Luo luokitteluita tämän näkymän avulla ja määritä jokaiselle luokittelulle kohteet, jotta voit käyttää niitä luokitellaksesi tai suodattaaksesi asioita.
         table:
           to_next_page: Vedä seuraavalle sivulle
           to_prev_page: Vedä edelliselle sivulle
+        taxonomy_actions:
+          confirm_destroy: 'Haluatko varmasti poistaa kohteen %{name}? Tämä poistaa myös kaikki sen alla olevat kohteet. HUOMIOI: Tätä luokittelua hyödyntäviin resursseihin ei tehdä muutoksia, mutta ne menettävät liitoksen tähän luokitteluun.'
         update:
           invalid: Luokittelun päivittäminen epäonnistui.
           success: Luokittelun päivittäminen onnistui.
@@ -1104,6 +1115,7 @@ fi-pl:
         edit:
           back: Takaisin
           items: "%{count} kohdetta valittu"
+          no_items: Tälle luokittelulle ei ole vielä luotu yhtään kohdetta. Voit luoda kohteita luokittelun asetusten kautta.
           title: Muokkaa luokittelun suodatinta
           update: Päivitä luokittelun suodatin
         form:
@@ -1118,6 +1130,8 @@ fi-pl:
           title: Uusi luokitteluiden suodatin
         table:
           actions: Toiminnot
+          components_count: Komponenttien määrä
+          confirm_destroy: 'Oletko varma, että haluat poistaa suodattimen %{name}? HUOMIOI: Tätä suodatinta hyödyntäviin resursseihin ei tehdä muutoksia, mutta ne menettävät liitoksen tähän suodattimeen.'
           count: Kohteiden määrä
           destroy: Poista
           edit: Muokkaa
