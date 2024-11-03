@@ -74,15 +74,11 @@ hu:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategória
           is_emendation_true:
             label: Típus
             values:
               'false': Javaslatok
               'true': Módosítások
-          scope_id_eq:
-            label: Hatáskör
           state_eq:
             label: Állapot
             values:
@@ -375,7 +371,6 @@ hu:
           form:
             attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
             created_in_meeting: Ez a javaslat egy találkozóból származik
-            select_a_category: Válassz kategóriát
             select_a_meeting: Válasszon egy találkozót
           index:
             actions: Műveletek
@@ -491,7 +486,6 @@ hu:
         edit:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
-          select_a_category: Válassz kategóriát
           send: Küldés
           title: Közös vázlat szerkesztése
         filters:
@@ -570,14 +564,12 @@ hu:
       models:
         proposal:
           fields:
-            category: Kategória
             comments: Hozzászólások
             id: ID
             notes: Jegyzetek
             official_proposal: Hivatalos javaslat
             published_answer: Közzétett válasz
             published_at: 'Közzétéve:'
-            scope: Hatáskör
             state: Állapot
             title: Cím
             valuator: Értékelő
@@ -594,7 +586,6 @@ hu:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
           edit_documents: Dokumentum szerkesztése
-          select_a_category: Válassz kategóriát
           send: Küldés
           title: Javaslat szerkesztése
         edit_draft:
