@@ -106,8 +106,6 @@ sv:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategori
           is_emendation_true:
             label: Typ
             values:
@@ -115,8 +113,6 @@ sv:
               'true': Ändringsförslag
           proposal_state_id_eq:
             label: Status
-          scope_id_eq:
-            label: Indelning
           state_eq:
             label: Status
             values:
@@ -555,7 +551,6 @@ sv:
             attachment_legend: "(Frivilligt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
             delete_attachment: Ta bort bilaga
-            select_a_category: Välj en kategori
             select_a_meeting: Välj ett möte
           index:
             actions: Åtgärder
@@ -696,7 +691,6 @@ sv:
         edit:
           attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
-          select_a_category: Välj en kategori
           send: Skicka
           title: Redigera gemensamt utkast
         empty: Det finns inga gemensamma utkast ännu
@@ -800,14 +794,12 @@ sv:
       models:
         proposal:
           fields:
-            category: Kategori
             comments: Kommentarer
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
             published_answer: Publicerat svar
             published_at: Publicerad
-            scope: Indelning
             state: Status
             title: Titel
             valuator: Handläggare
@@ -835,7 +827,6 @@ sv:
           attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
           edit_documents: Ändra dokument
-          select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
         edit_draft:
