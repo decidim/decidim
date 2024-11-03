@@ -117,8 +117,6 @@ es-PY:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Categoría
           is_emendation_true:
             label: Tipo
             values:
@@ -126,8 +124,6 @@ es-PY:
               'true': Enmiendas
           proposal_state_id_eq:
             label: Estado
-          scope_id_eq:
-            label: Ámbito
           state_eq:
             label: Estado
             values:
@@ -444,7 +440,6 @@ es-PY:
           attachments: El número de archivos adjuntos que tiene esta propuesta
           author: Los datos de autoría de esta propuesta
           body: La descripción de la propuesta
-          category: La categoría de la propuesta (por ejemplo, "Cultura")
           comments: El número de comentarios que tiene esta propuesta
           component: El componente al que pertenece esta propuesta
           endorsements: El número de adhesiones ("me gusta") que tiene esta propuesta
@@ -459,7 +454,6 @@ es-PY:
           published_at: La fecha en que se publicó esta propuesta
           reference: El identificador único del recurso en esta plataforma
           related_proposals: Las propuestas relacionadas con esta propuesta
-          scope: El ámbito territorial de la propuesta (por ejemplo, "Ciudad")
           state: El estado de esta propuesta (por ejemplo, "Aceptado")
           title: El título de la propuesta
           url: La URL donde se puede encontrar esta propuesta
@@ -609,7 +603,6 @@ es-PY:
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             created_in_meeting: Esta propuesta viene de una reunión.
             delete_attachment: Eliminar archivo adjunto
-            select_a_category: Seleccione una categoría
             select_a_meeting: Seleccione una reunion
           index:
             actions: Acciones
@@ -750,7 +743,6 @@ es-PY:
         edit:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
           back: Volver
-          select_a_category: Por favor seleccione una categoría
           send: Enviar
           title: Editar borrador colaborativo
         empty: Todavía no hay borradores colaborativos
@@ -859,14 +851,12 @@ es-PY:
       models:
         proposal:
           fields:
-            category: Categoría
             comments: Comentarios
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
             published_answer: Respuesta publicada
             published_at: Publicado el
-            scope: Ámbito
             state: Estado
             title: Título
             valuator: Evaluadora
@@ -894,7 +884,6 @@ es-PY:
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Volver
           edit_documents: Editar documentos
-          select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Editar propuesta
         edit_draft:
