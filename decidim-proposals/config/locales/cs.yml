@@ -126,7 +126,7 @@ cs:
           proposal_state_id_eq:
             label: Stav
           scope_id_eq:
-            label: Oblast působnosti
+            label: Rozsah
           state_eq:
             label: Stav
             values:
