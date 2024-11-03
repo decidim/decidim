@@ -83,14 +83,10 @@ gl:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Categoría
           is_emendation_true:
             label: Tipo
             values:
               'false': Propostas
-          scope_id_eq:
-            label: Ámbito
           state_eq:
             label: Estado
             values:
@@ -321,7 +317,6 @@ gl:
           form:
             attachment_legend: "(Opcional) Engada un anexo"
             created_in_meeting: Esta proposta provén dunha reunión
-            select_a_category: Selecciona unha categoría
             select_a_meeting: Seleccione unha reunión
           index:
             actions: Accións
@@ -410,7 +405,6 @@ gl:
         edit:
           attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
-          select_a_category: Selecciona unha categoría
           send: Enviar
           title: Editar borrador colaborativo
         filters:
@@ -486,14 +480,12 @@ gl:
       models:
         proposal:
           fields:
-            category: Categoría
             comments: Comentarios
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
             published_answer: Resposta publicada
             published_at: Publicado en
-            scope: Alcance
             state: Estado
             title: Título
             valuator: Avaliador/a
@@ -512,7 +504,6 @@ gl:
           attachment_legend: "(Opcional) Engada un anexo"
           back: De volta
           edit_documents: Editar documentos
-          select_a_category: Selecciona unha categoría
           send: Enviar
           title: Editar proposta
         edit_draft:
