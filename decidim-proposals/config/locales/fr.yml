@@ -133,6 +133,9 @@ fr:
               state_published: Répondue
         search_placeholder:
           id_string_or_title_cont: Rechercher %{collection} par ID ou titre.
+    application:
+      geocoding:
+        not_configured: La géolocalisation n'est pas configurée !
     components:
       proposals:
         actions:
@@ -187,6 +190,7 @@ fr:
             resources_permissions_enabled: Les autorisations d'actions peuvent être définies pour chaque proposition
             scope_id: Secteur
             scopes_enabled: Secteurs activés
+            taxonomy_filters_add: Ajouter un filtre
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de votes par utilisateur
           step:
@@ -762,6 +766,11 @@ fr:
       destroy_draft:
         error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
         success: Le brouillon de la proposition a bien été supprimé.
+      forms:
+        errors:
+          device_not_supported: Votre appareil ne prend pas en charge les services de localisation. Veuillez entrer l'adresse manuellement.
+          no_device_location: Désolé, nous n'avons pas pu détecter votre position. Veuillez entrer l'adresse manuellement.
+        use_my_location: Utiliser ma position actuelle
       invite_coauthors:
         cancel:
           error: Une erreur s'est produite lors de l'annulation de l'invitation du co-auteur.
@@ -834,6 +843,7 @@ fr:
           scope: Portée
           search: Rechercher
           state: État
+          taxonomy_filters: Filtres
           type: Type
           voted: Ne montrer que les propositions pour lesquelles j'ai voté
         index:
