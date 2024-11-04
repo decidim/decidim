@@ -222,6 +222,9 @@ en:
             other: You can vote in other budgets
           share_vote: Share your vote
           title: Your vote has been successfully accepted
+          view_votes:
+            one: View vote
+            other: View votes
           votes_count:
             one: Your vote for %{budget_name} has already been registered.
             other: Your %{count} votes for %{budget_name} have already been registered.
