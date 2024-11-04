@@ -134,6 +134,8 @@ es:
               rejected: Rechazada
               validating: Validación técnica
               withdrawn: Retirada
+          taxonomies_part_of_contains:
+            label: Taxonomía
           valuator_role_ids_has:
             label: Asignada a evaluadora
           with_any_state:
@@ -143,6 +145,9 @@ es:
               state_published: Respondidas
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
+    application:
+      geocoding:
+        not_configured: '¡La geocodificación no está configurada!'
     components:
       proposals:
         actions:
@@ -163,6 +168,7 @@ es:
             attachments_allowed: Permitir adjuntos
             attachments_allowed_help: Al activar esta opción, las propuestas se mostrarán en modo de cuadrícula por defecto y la primera imagen aparecerá en la tarjeta.
             can_accumulate_votes_beyond_threshold: Puede acumular apoyos más allá del umbral
+            clear_all: Limpiar todo
             collaborative_drafts_enabled: Borradores colaborativos habilitados
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
@@ -177,6 +183,7 @@ es:
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio participativo antes de utilizar esta configuración.
             edit_time: Las autoras pueden editar las propuestas antes de que pase este tiempo
             edit_time_units:
               days: Días
@@ -187,6 +194,7 @@ es:
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             official_proposals_enabled: Propuestas oficiales habilitadas
             participatory_texts_enabled: Textos participativos habilitados
             participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
@@ -206,6 +214,8 @@ es:
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de apoyos por participante
           step:
@@ -455,6 +465,7 @@ es:
           reference: El identificador único del recurso en esta plataforma
           related_proposals: Las propuestas relacionadas con esta propuesta
           state: El estado de esta propuesta (por ejemplo, "Aceptado")
+          taxonomies: Las taxonomías a las que pertenece esta propuesta
           title: El título de la propuesta
           url: La URL donde se puede encontrar esta propuesta
           votes: El número de apoyos que tiene esta propuesta
@@ -832,6 +843,11 @@ es:
       destroy_draft:
         error: Se ha producido un error al eliminar el borrador colaborativo.
         success: El borrador de la propuesta fue eliminado correctamente.
+      forms:
+        errors:
+          device_not_supported: Su dispositivo no soporta servicios de ubicación. Por favor, introduzca la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
+          no_device_location: Lo sentimos, no hemos podido detectar tu ubicación. Por favor, introduce la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
+        use_my_location: Usar mi ubicación actual
       invite_coauthors:
         cancel:
           error: Se ha producido un error al cancelar la invitación de coautoría.
@@ -858,6 +874,7 @@ es:
             published_answer: Respuesta publicada
             published_at: Publicado el
             state: Estado
+            taxonomies: Taxonomías
             title: Título
             valuator: Evaluadora
             valuators: Evaluadoras
@@ -904,6 +921,7 @@ es:
           scope: Ámbito
           search: Buscar
           state: Estado
+          taxonomy_filters: Filtros
           type: Tipo
           voted: Apoyadas
         index:
