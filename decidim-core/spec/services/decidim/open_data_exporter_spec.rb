@@ -102,7 +102,7 @@ describe Decidim::OpenDataExporter do
     end
 
     describe "with user groups" do
-      let(:resource_file_name) { "users_groups" }
+      let(:resource_file_name) { "user_groups" }
       let(:resource_title) { "### user_groups" }
       let!(:resource) { create(:user_group, :confirmed, organization:) }
       let!(:unpublished_resource) { create(:user_group, :confirmed, :blocked, organization:) }
