@@ -403,7 +403,7 @@ module Decidim
         where(query, value:)
       end
 
-      def self.ransackable_scopes(auth_object = nil)
+      def self.ransackable_scopes(_auth_object = nil)
         [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_taxonomies, :valuator_role_ids_has]
       end
 
@@ -411,7 +411,7 @@ module Decidim
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :body]
 
-      def self.ransackable_attributes(auth_object = nil)
+      def self.ransackable_attributes(_auth_object = nil)
         %w(id_string search_text title body is_emendation comments_count proposal_votes_count published_at proposal_notes_count)
       end
 
