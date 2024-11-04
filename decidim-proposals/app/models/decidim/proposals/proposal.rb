@@ -403,12 +403,8 @@ module Decidim
         where(query, value:)
       end
 
-      def self.ransackable_scopes(auth_object = nil)
-        base = [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_taxonomies]
-        return base unless auth_object&.admin?
-
-        # Add extra scopes for admins for the admin panel searches
-        base + [:valuator_role_ids_has]
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_taxonomies, :valuator_role_ids_has]
       end
 
       # Create i18n ransackers for :title and :body.
@@ -416,7 +412,7 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :body]
 
       def self.ransackable_attributes(_auth_object = nil)
-        %w(id_string search_text title body is_emendation)
+        %w(id_string search_text title body is_emendation comments_count proposal_votes_count published_at proposal_notes_count)
       end
 
       def self.ransackable_associations(_auth_object = nil)
