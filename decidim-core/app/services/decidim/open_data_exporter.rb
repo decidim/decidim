@@ -39,9 +39,9 @@ module Decidim
 
     def data_for_all_resources
       buffer = Zip::OutputStream.write_buffer do |out|
-        add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: "users" }), user_data.read)
-        add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: "users_groups" }), user_groups.read)
-
+        core_data_manifests.each do |manifest|
+          add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_core(manifest).read)
+        end
         open_data_component_manifests.each do |manifest|
           add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_component(manifest).read)
         end
@@ -55,28 +55,32 @@ module Decidim
       buffer.string
     end
 
-    def user_groups
-      collection = Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob)
-      serializer = Decidim::Exporters::OpenDataUserGroupSerializer
-      exporter = Decidim::Exporters::CSV.new(collection, serializer)
-
-      get_help_definition(:core, exporter, OpenStruct.new(name: "user_groups")) unless collection.empty?
-
-      exporter.export
+    def core_data_manifests
+      [
+        OpenStruct.new(
+          name: :users,
+          collection: ->(organization) { Decidim::User.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
+          serializer: Decidim::Exporters::OpenDataUserSerializer
+        ),
+        OpenStruct.new(
+          name: :user_groups,
+          collection: ->(organization) { Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
+          serializer: Decidim::Exporters::OpenDataUserGroupSerializer
+        )
+      ]
     end
 
-    def user_data
-      collection = Decidim::User.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob)
-      serializer = Decidim::Exporters::OpenDataUserSerializer
-      exporter = Decidim::Exporters::CSV.new(collection, serializer)
+    def data_for_core(export_manifest)
+      collection = export_manifest.collection.call(organization)
+      exporter = Decidim::Exporters::CSV.new(collection, export_manifest.serializer)
 
-      get_help_definition(:core, exporter, OpenStruct.new(name: "users")) unless collection.empty?
+      get_help_definition(:core, exporter, export_manifest) unless collection.empty?
 
       exporter.export
     end
 
     def data_for_resource(resource)
-      export_manifest = (open_data_component_manifests + open_data_participatory_space_manifests)
+      export_manifest = (core_data_manifests + open_data_component_manifests + open_data_participatory_space_manifests)
                         .select { |manifest| manifest.name == resource.to_sym }.first
 
       case export_manifest.manifest
@@ -84,6 +88,8 @@ module Decidim
         data_for_component(export_manifest).read
       when Decidim::ParticipatorySpaceManifest
         data_for_participatory_space(export_manifest).read
+      else
+        data_for_core(export_manifest).read
       end
     end
 

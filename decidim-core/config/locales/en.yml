@@ -1371,6 +1371,7 @@ en:
         description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
         download:
           components: Components
+          core: Core
           spaces: Participatory spaces
           title: Download resources
         download_open_data: Download all the Open Data files
