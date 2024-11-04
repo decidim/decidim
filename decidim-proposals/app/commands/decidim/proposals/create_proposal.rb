@@ -82,8 +82,7 @@ module Decidim
               component: form.component
             )
 
-            proposal.category = form.category if form.category_id.present?
-            proposal.scope = form.scope if form.scope_id.present?
+            proposal.taxonomizations = form.taxonomizations if form.taxonomizations.present?
             proposal.documents = form.documents if form.documents.present?
             proposal.address = form.address if form.has_address? && !form.geocoded?
             proposal.add_coauthor(@current_user, user_group:)

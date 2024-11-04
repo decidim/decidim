@@ -7,9 +7,10 @@ describe Decidim::Debates::Admin::UpdateDebate do
 
   let(:debate) { create(:debate) }
   let(:organization) { debate.component.organization }
-  let(:scope) { create(:scope, organization:) }
-  let(:category) { create(:category, participatory_space: debate.component.participatory_space) }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:taxonomizations) do
+    2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+  end
   let(:form) do
     double(
       invalid?: invalid,
@@ -20,8 +21,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
-      scope:,
-      category:,
+      taxonomizations:,
       current_organization: organization,
       comments_enabled: true
     )
@@ -45,20 +45,15 @@ describe Decidim::Debates::Admin::UpdateDebate do
       expect(translated(debate.instructions)).to eq "instructions"
     end
 
-    it "sets the scope" do
+    it "sets the taxonomies" do
       subject.call
-      expect(debate.scope).to eq scope
-    end
-
-    it "sets the category" do
-      subject.call
-      expect(debate.category).to eq category
+      expect(debate.reload.taxonomies).to match_array(taxonomizations.map(&:taxonomy))
     end
 
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:update!)
-        .with(debate, user, hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time))
+        .with(debate, user, hash_including(:taxonomizations, :title, :description, :information_updates, :instructions, :end_time, :start_time))
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)
