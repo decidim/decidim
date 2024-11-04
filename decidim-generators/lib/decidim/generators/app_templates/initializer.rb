@@ -51,7 +51,7 @@ Decidim.configure do |config|
   # Sets the list of components where the "Show my current location" button will be displayed.
   # An array of component manifests is expected (e.g., [:proposals]).
   # If no value is specified in the environment configuration, the default is [:proposals]
-  config.show_my_location_button = Rails.application.secrets.decidim[:show_my_location_button].map(&:to_sym).presence || [:proposals]
+  # config.show_my_location_button = Decidim::Env.new("DECIDIM_SHOW_MY_LOCATION_BUTTON", "proposals").to_array
 
   # Map and Geocoder configuration
   #
