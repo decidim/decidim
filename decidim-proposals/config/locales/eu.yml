@@ -134,6 +134,8 @@ eu:
               rejected: Ukatua
               validating: Baliozkotze teknikoa
               withdrawn: Kenduta
+          taxonomies_part_of_contains:
+            label: Taxonomia
           valuator_role_ids_has:
             label: Esleituta ebaluatzaileari
           with_any_state:
@@ -143,6 +145,9 @@ eu:
               state_published: Erantzunda
         search_placeholder:
           id_string_or_title_cont: Bilatu %{collection} edo ID edo izenburuaren arabera.
+    application:
+      geocoding:
+        not_configured: Geokodifikazioa ez dago konfiguratuta!
     components:
       proposals:
         actions:
@@ -163,6 +168,7 @@ eu:
             attachments_allowed: Onartu eranskinak
             attachments_allowed_help: Aukera hori gaituta, proposamenak lehenetsita lauki moduan erakutsiko dira, eta lehen irudia txartelean agertuko da.
             can_accumulate_votes_beyond_threshold: Botoak metatu ditzake atalasetik haratago
+            clear_all: Garbitu dena
             collaborative_drafts_enabled: Lankidetza zirriborroak gaituta
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsita konfigurazioa mantendu nahi baduzu)
@@ -177,6 +183,7 @@ eu:
               random: Ausazkoa
               recent: Azkenak
               with_more_authors: Egile gehiagorekin
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
             edit_time: Proposamenak egileek edita ditzakete denbora luzea igaro baino lehen
             edit_time_units:
               days: Egunak
@@ -187,6 +194,7 @@ eu:
             new_proposal_body_template: Plantilla proposamen berriaren testurako
             new_proposal_body_template_help: Proposamen berriek izango duten testu aurredefinitua zehaztu ahal duzu
             new_proposal_help_text: Proposamen berriaren laguntza testua
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             official_proposals_enabled: Proposamen ofizialak gaituta
             participatory_texts_enabled: Testu parte-hartzaileak gaituta
             participatory_texts_enabled_readonly: Proposamenak badaude, ezin da ezarpen honekin elkarreragin. Mesedez, sor ezazu proposamen-osagai berria, ezaugarri hau aktibatu nahi baduzu edo baztertu `Testu parte hartzaileak` menuan inportatutako proposamen guztiak, desaktibatu nahi baduzu.
@@ -206,6 +214,8 @@ eu:
             resources_permissions_enabled: Ekintza-baimenak proposamen bakoitzerako ezarri daitezke
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
+            taxonomy_filters: Hautatu iragazkiak osagairako
+            taxonomy_filters_add: Erantsi iragazkia
             threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Botoen muga partaide bakoitzeko
           step:
@@ -455,6 +465,7 @@ eu:
           reference: Baliabidearen identifikatzaile bakarra plataforma honetan
           related_proposals: Proposamen honekin lotutako proposamenak
           state: Proposamen honen egoera (adibidez, "Onartua")
+          taxonomies: Proposamen honi dagozkion taxonomiak
           title: Proposamenaren izenburua
           url: Proposamen hau URL honetan aurki daiteke
           votes: Proposamen honek duen boto kopurua
@@ -833,6 +844,11 @@ eu:
       destroy_draft:
         error: Arazo bat egon da proposamenaren zirriborroa ezabatzean.
         success: Proposamenaren zirriborroa zuzen ezabatu da.
+      forms:
+        errors:
+          device_not_supported: Zure gailuak ez ditu kokapen-zerbitzuak onartzen. Mesedez, sartu helbidea eskuz.
+          no_device_location: Barkatu, ezin izan dugu zure kokapena antzeman. Mesedez, sartu helbidea eskuz.
+        use_my_location: Erabili nire egungo kokapena
       invite_coauthors:
         cancel:
           error: Arazo bat izan da egilekide-gonbidapena ezeztatzean.
@@ -859,6 +875,7 @@ eu:
             published_answer: Erantzuna argitaratuta
             published_at: Argitaratze-data
             state: Egoera
+            taxonomies: Taxonomiak
             title: Titulua
             valuator: Ebaluatzailea
             valuators: Ebaluatzaileak
@@ -905,6 +922,7 @@ eu:
           scope: Esparrua
           search: Bilatu
           state: Egoera
+          taxonomy_filters: Iragazkiak
           type: Mota
           voted: Bozkatuta
         index:
