@@ -23,7 +23,7 @@ module Decidim
         ParticipatorySpaceManifestPresenter.new(object.manifest, object.organization)
       end
 
-      field :components, [ComponentInterface], null: true, description: "Lists the components this space contains." do
+      field :components, [ComponentInterface, { null: true }], null: true, description: "Lists the components this space contains." do
         argument :filter, ComponentInputFilter, "Provides several methods to filter the results", required: false
         argument :order, ComponentInputSort, "Provides several methods to order the results", required: false
       end

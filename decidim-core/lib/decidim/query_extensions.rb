@@ -10,22 +10,6 @@ module Decidim
     #
     # Returns nothing.
     def self.included(type)
-      type.field :participatory_processes,
-                 [Decidim::ParticipatoryProcesses::ParticipatoryProcessType],
-                 null: true,
-                 description: "Lists all participatory_processes" do
-        argument :filter, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputFilter, "This argument lets you filter the results", required: false
-        argument :order, Decidim::ParticipatoryProcesses::ParticipatoryProcessInputSort, "This argument lets you order the results", required: false
-      end
-
-      type.field :participatory_process,
-                 Decidim::ParticipatoryProcesses::ParticipatoryProcessType,
-                 null: true,
-                 description: "Finds a participatory_process" do
-        argument :id, GraphQL::Types::ID, "The ID of the participatory space", required: false
-        argument :slug, String, "The slug of the participatory process", required: false
-      end
-
       type.field :component, Decidim::Core::ComponentInterface, null: true do
         description "Lists the components this space contains."
         argument :id, GraphQL::Types::ID, required: true, description: "The ID of the component to be found"
@@ -60,16 +44,6 @@ module Decidim
         argument :order, Decidim::Core::UserEntityInputSort, "Provides several methods to order the results", required: false
         argument :filter, Decidim::Core::UserEntityInputFilter, "Provides several methods to filter the results", required: false
       end
-    end
-
-    def participatory_processes(filter: {}, order: {})
-      manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
-      Decidim::Core::ParticipatorySpaceListBase.new(manifest:).call(object, { filter:, order: }, context)
-    end
-
-    def participatory_process(id: nil, slug: nil)
-      manifest = Decidim.participatory_space_manifests.select { |m| m.name == :participatory_processes }.first
-      Decidim::Core::ParticipatorySpaceFinderBase.new(manifest:).call(object, { id:, slug: }, context)
     end
 
     def component(id: {})

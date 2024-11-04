@@ -16,9 +16,7 @@ module Decidim
       end
     end
 
-    class ProposalsType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class ProposalsType < Decidim::Core::ComponentType
       graphql_name "Proposals"
       description "A proposals component of a participatory space."
 
