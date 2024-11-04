@@ -146,6 +146,9 @@ en:
               state_published: Answered
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
+    application:
+      geocoding:
+        not_configured: Geocoding is not configured!
     components:
       proposals:
         actions:
@@ -841,6 +844,11 @@ en:
       destroy_draft:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
+      forms:
+        errors:
+          device_not_supported: Your device does not support location services. Please enter the address manually.
+          no_device_location: Sorry, we could not detect your location. Please enter the address manually.
+        use_my_location: Use my current location
       invite_coauthors:
         cancel:
           error: There was a problem canceling the co-author invitation.
