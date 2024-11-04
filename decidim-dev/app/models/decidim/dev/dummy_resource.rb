@@ -10,6 +10,7 @@ module Decidim
       include Authorable
       include HasCategory
       include ScopableResource
+      include Taxonomizable
       include Decidim::Comments::Commentable
       include Followable
       include Traceable

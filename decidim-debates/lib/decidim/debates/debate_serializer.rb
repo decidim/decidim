@@ -26,13 +26,9 @@ module Decidim
           start_time: debate.start_time,
           end_time: debate.end_time,
           information_updates: debate.information_updates,
-          category: {
-            id: debate.category.try(:id),
-            name: debate.category.try(:name)
-          },
-          scope: {
-            id: debate.scope.try(:id),
-            name: debate.scope.try(:name)
+          taxonomies: {
+            id: debate.taxonomies.map(&:id),
+            name: debate.taxonomies.map(&:name)
           },
           participatory_space: {
             id: debate.participatory_space.id,

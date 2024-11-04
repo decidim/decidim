@@ -16,7 +16,9 @@
       <%= l debate.end_time, format: :long %>
     <% end %>
   </td>
-  <%= td_resource_scope_for(debate.scope) %>
+  <td>
+    <%= debate.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
+  </td>
   <td class="table-list__actions">
     <%= render partial: "decidim/debates/admin/debates/actions", locals: { debate:, view: } %>
   </td>

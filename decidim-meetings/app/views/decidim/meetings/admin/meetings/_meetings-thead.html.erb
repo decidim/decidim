@@ -18,11 +18,9 @@
   <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
     <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
   <% end %>
-  <% if resource_with_scopes_enabled? %>
-    <th>
-      <%= sort_link(query, :scope_name, t("models.proposal.fields.scope", scope: "decidim.proposals") ) %>
-    </th>
-  <% end %>
+  <th>
+    <%= sort_link(query, :scope_name, t("models.meeting.fields.taxonomies", scope: "decidim.meetings") ) %>
+  </th>
   <th><%= t("actions.title", scope: "decidim.meetings") %></th>
 </tr>
 </thead>

@@ -67,7 +67,7 @@ Decidim.register_component(:budgets) do |component|
       Decidim::Budgets::Project
         .not_trashed
         .where(decidim_budgets_budget_id: budgets)
-        .includes(:category, :component)
+        .includes(:taxonomies, :component)
     end
 
     exports.include_in_open_data = true
@@ -78,6 +78,7 @@ Decidim.register_component(:budgets) do |component|
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope
+    settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :workflow, type: :enum, default: "one", choices: -> { Decidim::Budgets.workflows.keys.map(&:to_s) }
     settings.attribute :projects_per_page, type: :integer, default: 12
     settings.attribute :vote_rule_threshold_percent_enabled, type: :boolean, default: true

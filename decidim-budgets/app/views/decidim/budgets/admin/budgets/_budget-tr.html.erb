@@ -12,9 +12,6 @@
   <td>
     <%= link_to budget.projects.count, budget_projects_path(budget) %>
   </td>
-  <% if current_component.has_subscopes? %>
-    <%= td_resource_scope_for(budget.scope) %>
-  <% end %>
   <td class="table-list__actions">
     <%= render partial: "decidim/budgets/admin/budgets/actions", locals: { budget:, view: } %>
   </td>

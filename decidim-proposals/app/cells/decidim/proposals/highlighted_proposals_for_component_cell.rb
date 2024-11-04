@@ -49,7 +49,7 @@ module Decidim
       end
 
       def proposals_to_render
-        @proposals_to_render ||= proposals.includes([:amendable, :category, :component, :scope]).limit(Decidim::Proposals.config.participatory_space_highlighted_proposals_limit)
+        @proposals_to_render ||= proposals.includes([:amendable, :component, :taxonomies]).limit(Decidim::Proposals.config.participatory_space_highlighted_proposals_limit)
       end
 
       def cache_hash
