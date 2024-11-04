@@ -587,6 +587,35 @@ module Decidim
     {}
   end
 
+  def self.open_data_manifests
+    [
+      OpenStruct.new(
+        name: :moderated_users,
+        collection: ->(organization) { organization.users.includes(:user_moderation).blocked },
+        serializer: Decidim::Exporters::OpenDataBlockedUserSerializer,
+        include_in_open_data: true
+      ),
+      OpenStruct.new(
+        name: :moderations,
+        collection: ->(organization) { Decidim::Moderation.where(participatory_space: organization.participatory_spaces).includes(:reports).hidden },
+        serializer: Decidim::Exporters::OpenDataModerationSerializer,
+        include_in_open_data: true
+      ),
+      OpenStruct.new(
+        name: :users,
+        collection: ->(organization) { Decidim::User.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
+        serializer: Decidim::Exporters::OpenDataUserSerializer,
+        include_in_open_data: true
+      ),
+      OpenStruct.new(
+        name: :user_groups,
+        collection: ->(organization) { Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
+        serializer: Decidim::Exporters::OpenDataUserGroupSerializer,
+        include_in_open_data: true
+      )
+    ]
+  end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
