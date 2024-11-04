@@ -347,6 +347,7 @@ en:
             name: Component name
             scope: Component scope
             type: Component type
+            visibility: Visibility
         manage_trash:
           title: Deleted components
         new:
