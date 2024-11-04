@@ -169,6 +169,7 @@ RSpec.shared_examples "manage debates" do
     let(:image_path) { Decidim::Dev.asset(image_filename) }
     let(:document_filename) { "Exampledocument.pdf" }
     let(:document_path) { Decidim::Dev.asset(document_filename) }
+    let(:invalid_document) { Decidim::Dev.asset("invalid_extension.log") }
 
     before do
       component_settings = current_component["settings"]["global"].merge!(attachments_allowed: true)
@@ -204,6 +205,13 @@ RSpec.shared_examples "manage debates" do
 
         expect(page).to have_css("img[src*='#{image_filename}']")
         expect(page).to have_content(document_filename)
+      end
+
+      it "shows validation error when format is not accepted" do
+        dynamically_attach_file(:debate_documents, invalid_document, keep_modal_open: true) do
+          expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
+        end
+        expect(page).to have_content("Validation error!")
       end
     end
 

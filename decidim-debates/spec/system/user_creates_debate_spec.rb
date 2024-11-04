@@ -80,6 +80,13 @@ describe "User creates debate" do
             expect(page).to have_css("a[href*='#{document_filename}']")
             expect(page).to have_content("Download file", count: 1)
           end
+
+          it "shows validation error when format is not accepted" do
+            dynamically_attach_file(:debate_documents, Decidim::Dev.asset("dummy-dummies-example.xlsx"), keep_modal_open: true) do
+              expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
+            end
+            expect(page).to have_content("Validation error!")
+          end
         end
 
         context "and rich_editor_public_view component setting is enabled" do
