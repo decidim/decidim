@@ -134,6 +134,8 @@ ca:
               rejected: Rebutjada
               validating: Validació tècnica
               withdrawn: Retirades
+          taxonomies_part_of_contains:
+            label: Taxonomia
           valuator_role_ids_has:
             label: Assignada a avaluadora
           with_any_state:
@@ -143,6 +145,9 @@ ca:
               state_published: Amb resposta
         search_placeholder:
           id_string_or_title_cont: Cerca %{collection} per ID o títol.
+    application:
+      geocoding:
+        not_configured: La geocodificació no està configurada!
     components:
       proposals:
         actions:
@@ -163,6 +168,7 @@ ca:
             attachments_allowed: Permetre adjunts
             attachments_allowed_help: En activar aquesta opció, les propostes es mostraran en mode de quadrícula per defecte i la primera imatge apareixerà a la targeta.
             can_accumulate_votes_beyond_threshold: Pot acumular suports més enllà del llindar
+            clear_all: Neteja-ho tot
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
@@ -177,6 +183,7 @@ ca:
               random: Aleatòriament
               recent: Recents
               with_more_authors: Amb més autores
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             edit_time: Les autores poden editar les seves propostes abans que passi aquest temps
             edit_time_units:
               days: Dies
@@ -187,6 +194,7 @@ ca:
             new_proposal_body_template: Plantilla pel text de nova proposta
             new_proposal_body_template_help: Pots definir el text predefinit que hauria de tenir una nova proposta
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             official_proposals_enabled: Propostes oficials habilitades
             participatory_texts_enabled: Texts participatius habilitats
             participatory_texts_enabled_readonly: No es pot interactuar amb aquesta configuració si hi ha propostes existents. Si us plau, crea un nou 'component de propostes' si vols habilitar aquesta característica o descarta totes les propostes importades al menú "textos participatius" si vols deshabilitar-lo.
@@ -206,6 +214,8 @@ ca:
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada proposta
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
             threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de propostes per participant
           step:
@@ -455,6 +465,7 @@ ca:
           reference: L'identificador únic del recurs a aquesta plataforma
           related_proposals: Les propostes relacionades amb aquesta proposta
           state: 'L''estat d''aquesta proposta (per exemple: "Acceptada")'
+          taxonomies: Les taxonomies a les quals pertany aquesta proposta
           title: El títol de la proposta
           url: L'URL on es pot trobar aquesta proposta
           votes: El número de suports que té aquesta proposta
@@ -832,6 +843,11 @@ ca:
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
         success: L'esborrany de proposta s'ha eliminat correctament.
+      forms:
+        errors:
+          device_not_supported: El teu dispositiu no admet serveis d'ubicació. Si us plau, introdueix l'adreça postal completa manualment (tipus de via, nom de la via, número, codi postal i ciutat).
+          no_device_location: Si us plau, no hem pogut detectar la teva ubicació. Si us plau, introdueix l'adreça postal completa manualment (tipus de via, nom de la via, número, codi postal i ciutat).
+        use_my_location: Fer servir la meva ubicació actual
       invite_coauthors:
         cancel:
           error: S'ha produït un error en cancel·lar la invitació de coautoria.
@@ -858,6 +874,7 @@ ca:
             published_answer: Resposta publicada
             published_at: Publicat a
             state: Estat
+            taxonomies: Taxonomies
             title: Títol
             valuator: Avaluadora
             valuators: Avaluadores
@@ -904,6 +921,7 @@ ca:
           scope: Àmbit
           search: Cerca
           state: Estat
+          taxonomy_filters:
           type: Tipus
           voted: Has donat suport
         index:
