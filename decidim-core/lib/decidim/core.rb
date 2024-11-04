@@ -43,6 +43,7 @@ module Decidim
   autoload :HasAttachments, "decidim/has_attachments"
   autoload :ComponentValidator, "decidim/component_validator"
   autoload :HasSettings, "decidim/has_settings"
+  autoload :HasTaxonomySettings, "decidim/has_taxonomy_settings"
   autoload :HasComponent, "decidim/has_component"
   autoload :HasCategory, "decidim/has_category"
   autoload :Followable, "decidim/followable"
@@ -843,6 +844,12 @@ module Decidim
   # ActiveJob::DeserializationError
   config_accessor :machine_translation_delay do
     0.seconds
+  end
+
+  # Public Setting that allows to configure which component will have "Use my current location" button
+  # in a geocoded address field. Accepts an array of component manifest names or simply the value ":all" to apply everywhere (default value)
+  config_accessor :show_my_location_button do
+    [:all]
   end
 
   def self.machine_translation_service_klass

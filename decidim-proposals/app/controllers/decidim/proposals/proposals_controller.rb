@@ -39,7 +39,7 @@ module Decidim
                        .published
                        .not_hidden
                        .only_amendables
-                       .includes(:category, :scope, :attachments, :coauthorships)
+                       .includes(:taxonomies, :attachments, :coauthorships)
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
@@ -54,7 +54,7 @@ module Decidim
           @voted_proposals = if current_user
                                ProposalVote.where(
                                  author: current_user,
-                                 proposal: @proposals.pluck(:id)
+                                 proposal: @proposals.pluck("decidim_proposals_proposals.id")
                                ).pluck(:decidim_proposal_id)
                              else
                                []
@@ -206,9 +206,8 @@ module Decidim
           search_text_cont: "",
           with_any_origin: nil,
           activity: "all",
-          with_any_category: nil,
+          with_any_taxonomies: nil,
           with_any_state: default_states,
-          with_any_scope: nil,
           related_to: "",
           type: "all"
         }

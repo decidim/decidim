@@ -28,7 +28,7 @@ module Decidim
           params = {
             title: project.title,
             description: project.description,
-            category: project.category,
+            taxonomies: project.taxonomies,
             scope: project.scope || project.budget.scope,
             component:,
             status:,

@@ -28,14 +28,15 @@ module Decidim
           expect(ids).not_to include(*other_proposals.map(&:id).map(&:to_s))
         end
 
-        context "when querying proposals with categories" do
-          let(:category) { create(:category, participatory_space: model.participatory_space) }
-          let!(:proposal_with_category) { create(:proposal, component: model, category:) }
-          let(:all_proposals) { published_proposals + [proposal_with_category] }
+        context "when querying proposals with taxonomies" do
+          let(:root_taxonomy) { create(:taxonomy, organization: model.organization) }
+          let(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization: model.organization) }
+          let!(:proposal_with_taxonomy) { create(:proposal, component: model, taxonomies: [taxonomy]) }
+          let(:all_proposals) { published_proposals + [proposal_with_taxonomy] }
 
-          let(:query) { "{ proposals { edges { node { id, category { id } } } } }" }
+          let(:query) { "{ proposals { edges { node { id, taxonomies { id } } } } }" }
 
-          it "return proposals with and without categories" do
+          it "return proposals with and without taxonomies" do
             ids = response["proposals"]["edges"].map { |edge| edge["node"]["id"] }
             expect(ids.count).to eq(3)
             expect(ids).to eq(all_proposals.map(&:id).sort.map(&:to_s))
