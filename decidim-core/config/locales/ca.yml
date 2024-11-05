@@ -506,13 +506,16 @@ ca:
             amendments_enabled: Esmenes habilitades
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             dummy_global_attribute1: Atribut de prova 1
             dummy_global_attribute2: Atribut de prova 2
             dummy_global_translatable_text: Text traduïble de proves
             enable_pads_creation: Habilitar la creació de pads
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             resources_permissions_enabled: Permisos de recursos habilitats
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            taxonomy_filters: Seleccionar filtres pel component
           step:
             amendment_creation_enabled: Creació d'esmenes habilitada
             amendment_promotion_enabled: Promoció d'esmenes habilitada
@@ -599,6 +602,8 @@ ca:
           all: Totes
         filter_scope_values:
           all: Tots
+        filter_taxonomy_values:
+          all: Totes
     devise:
       omniauth_registrations:
         create:
@@ -1606,6 +1611,8 @@ ca:
       pages_count: Pàgines
       participants_count: Participants
       users_count: Participants
+    tags:
+      filter_results_for_taxonomy: 'Resultats en filtrar per: %{resource}'
     taxonomies:
       prompt: Seleccionar de "%{name}"
     translation_bar:
