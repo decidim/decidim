@@ -5,4 +5,14 @@
   </h1>
 </div>
 <%= admin_filter_selector %>
-<%= render partial: "assemblies_table", locals: { assemblies: trashable_deleted_collection, view: :deleted } %>
+<div class="table-scroll">
+  <table class="table-list">
+    <%= render partial: "assemblies-thead" %>
+    <tbody>
+    <%= render partial: "decidim/assemblies/admin/assemblies/assembly_row",
+               collection: trashable_deleted_collection,
+               as: :assembly,
+               locals: { view: :deleted } %>
+    </tbody>
+  </table>
+</div>

@@ -7,4 +7,14 @@
 <div class="card" id="processes">
   <%= admin_filter_selector %>
 </div>
-<%= render partial: "processes_table", locals: { processes: trashable_deleted_collection, view: :deleted } %>
+<div class="table-scroll">
+  <table class="table-list">
+    <%= render partial: "processes_thead" %>
+    <tbody>
+    <%= render partial: "decidim/participatory_processes/admin/participatory_processes/process_row",
+               collection: trashable_deleted_collection,
+               as: :process,
+               locals: { view: :deleted } %>
+    </tbody>
+  </table>
+</div>

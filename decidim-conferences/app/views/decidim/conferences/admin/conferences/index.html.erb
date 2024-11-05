@@ -1,7 +1,17 @@
 <% add_decidim_page_title(t("decidim.admin.titles.conferences")) %>
 <div class="card" id="conferences">
   <%= admin_filter_selector %>
-  <%= render partial: "conferences_table", locals: { collection: @conferences, view: :index } %>
+  <div class="table-scroll">
+    <table class="table-list">
+      <%= render partial: "conferences_thead" %>
+      <tbody>
+        <%= render partial: "decidim/conferences/admin/conferences/conference_row",
+                   collection: @conferences,
+                   as: :conference,
+                   locals: { view: :index } %>
+      </tbody>
+    </table>
+  </div>
   <div class="card mt-4">
     <%= link_to manage_trash_conferences_path, class: "flex items-center underline text-secondary" do %>
       <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
