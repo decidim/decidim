@@ -19,9 +19,10 @@
     <table class="table-list">
       <%= render partial: "budgets-thead" %>
       <tbody>
-        <% budgets.each do |budget| %>
-          <%= render partial: "budget-tr", locals: { budget:, view: :index } %>
-        <% end %>
+        <%= render partial: "decidim/budgets/admin/budgets/budget-tr",
+                   collection: budgets,
+                   as: :budget,
+                   locals: { view: :index } %>
       </tbody>
     </table>
   </div>

@@ -12,9 +12,10 @@
     <table class="table-list">
       <%= render partial: "debates-thead" %>
       <tbody>
-        <% debates.each do |debate| %>
-          <%= render partial: "debate-tr", locals: { debate:, view: :index } %>
-        <% end %>
+        <%= render partial: "decidim/debates/admin/debates/debate-tr",
+                   collection: debates,
+                   as: :debate,
+                   locals: { view: :index } %>
       </tbody>
     </table>
   </div>

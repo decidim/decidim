@@ -11,9 +11,10 @@
     <table class="table-list">
       <%= render partial: "meetings-thead" %>
       <tbody>
-      <% trashable_deleted_collection.each do |meeting| %>
-        <%= render partial: "meeting-tr", locals: { meeting:, view: :deleted } %>
-      <% end %>
+        <%= render partial: "decidim/meetings/admin/meetings/meeting-tr",
+                   collection: trashable_deleted_collection,
+                   as: :meeting,
+                   locals: { view: :deleted } %>
       </tbody>
     </table>
   </div>

@@ -9,9 +9,10 @@
     <table class="table-list">
       <%= render partial: "posts-thead" %>
       <tbody>
-      <% trashable_deleted_collection.each do |post| %>
-        <%= render partial: "post-tr", locals: { post:, view: :deleted } %>
-      <% end %>
+        <%= render partial: "decidim/blogs/admin/posts/post-tr",
+                   collection: trashable_deleted_collection,
+                   as: :post,
+                   locals: { view: :deleted } %>
       </tbody>
     </table>
   </div>

@@ -21,9 +21,10 @@
     <table class="table-list">
       <%= render partial: "proposals-thead" %>
       <tbody>
-        <% proposals.each do |proposal| %>
-          <%= render partial: "proposal-tr", locals: { proposal:, view: :index } %>
-        <% end %>
+        <%= render partial: "decidim/proposals/admin/proposals/proposal-tr",
+                   collection: proposals,
+                   as: :proposal,
+                   locals: { view: :index } %>
       </tbody>
     </table>
   </div>

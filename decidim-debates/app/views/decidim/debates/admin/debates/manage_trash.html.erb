@@ -9,9 +9,10 @@
     <table class="table-list">
       <%= render partial: "debates-thead" %>
       <tbody>
-      <% trashable_deleted_collection.each do |debate| %>
-        <%= render partial: "debate-tr", locals: { debate:, view: :deleted } %>
-      <% end %>
+        <%= render partial: "decidim/debates/admin/debates/debate-tr",
+                   collection: trashable_deleted_collection,
+                   as: :debate,
+                   locals: { view: :deleted } %>
       </tbody>
     </table>
   </div>

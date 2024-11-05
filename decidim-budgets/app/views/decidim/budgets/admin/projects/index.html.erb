@@ -15,9 +15,10 @@
     <table class="table-list">
       <%= render partial: "projects-thead" %>
       <tbody>
-        <% projects.each do |project| %>
-          <%= render partial: "project-tr", locals: { project:, view: :index } %>
-        <% end %>
+        <%= render partial: "decidim/budget/admin/projects/project-tr",
+                   collection: projects,
+                   as: :project,
+                   locals: { view: :index } %>
       </tbody>
     </table>
     <% if allowed_to? :manage_trash, :project, participatory_space: current_participatory_space %>

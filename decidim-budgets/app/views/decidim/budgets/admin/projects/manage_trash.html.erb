@@ -15,9 +15,10 @@
     <table class="table-list">
       <%= render partial: "projects-thead" %>
       <tbody>
-      <% trashable_deleted_collection.each do |project| %>
-        <%= render partial: "project-tr", locals: { project:, view: :deleted } %>
-      <% end %>
+        <%= render partial: "decidim/budget/admin/projects/project-tr",
+                   collection: trashable_deleted_collection,
+                   as: :project,
+                   locals: { view: :deleted } %>
       </tbody>
     </table>
     <%= decidim_paginate projects %>

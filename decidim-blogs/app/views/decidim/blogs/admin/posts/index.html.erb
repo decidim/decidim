@@ -11,9 +11,10 @@
     <table class="table-list">
       <%= render partial: "posts-thead" %>
       <tbody>
-        <% posts.created_at_desc.each do |post| %>
-          <%= render partial: "post-tr", locals: { post:, view: :index } %>
-        <% end %>
+        <%= render partial: "decidim/blogs/admin/posts/post-tr",
+                   collection: posts,
+                   as: :post,
+                   locals: { view: :index } %>
       </tbody>
     </table>
   </div>

@@ -9,9 +9,10 @@
     <table class="table-list">
       <%= render partial: "budgets-thead" %>
       <tbody>
-      <% trashable_deleted_collection.each do |budget| %>
-        <%= render partial: "budget-tr", locals: { budget:, view: :deleted } %>
-      <% end %>
+        <%= render partial: "decidim/budgets/admin/budgets/budget-tr",
+                   collection: trashable_deleted_collection,
+                   as: :budget,
+                   locals: { view: :deleted } %>
       </tbody>
     </table>
   </div>
