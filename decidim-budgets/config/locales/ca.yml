@@ -36,6 +36,8 @@ ca:
             values:
               'false': Seleccionat per implementar
               'true': No s'ha seleccionat per implementar
+          taxonomies_part_of_contains:
+            label: Taxonomia
     budgets:
       actions:
         attachment_collections: Carpetes
@@ -209,6 +211,7 @@ ca:
           fields:
             id: ID
             map: Mapa
+            taxonomies: Taxonomies
             title: Títol
       order_summary_mailer:
         order_summary:
@@ -318,8 +321,10 @@ ca:
         settings:
           global:
             announcement: Avís
+            clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             form:
               errors:
                 budget_voting_rule_only_one: Només s'ha d'activar una norma de votació.
@@ -327,10 +332,13 @@ ca:
             geocoding_enabled: Mapes habilitats
             landing_page_content: Pàgina d'inici de pressupostos
             more_information_modal: Finestra de "Més informació"
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             projects_per_page: Projectes per pàgina
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada projecte
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
             title: Títol
             total_budget: Pressupost total
             vote_minimum_budget_projects_number: Número mínim de projectes a votar
@@ -381,6 +389,7 @@ ca:
           related_proposal_titles: Els títols de les propostes relacionades
           related_proposal_urls: Les URL de les propostes relacionades
           related_proposals: Les propostes relacionades amb aquest projecte
+          taxonomies: Les taxonomies del projecte
           title: El títol del projecte
           url: L'URL del projecte
     orders:
