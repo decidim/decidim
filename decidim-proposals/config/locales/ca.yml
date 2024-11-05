@@ -168,7 +168,7 @@ ca:
             attachments_allowed: Permetre adjunts
             attachments_allowed_help: En activar aquesta opció, les propostes es mostraran en mode de quadrícula per defecte i la primera imatge apareixerà a la targeta.
             can_accumulate_votes_beyond_threshold: Pot acumular suports més enllà del llindar
-            clear_all: Neteja-ho tot
+            clear_all: Netejar-ho tot
             collaborative_drafts_enabled: Esborranys col·laboratius habilitats
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
