@@ -208,6 +208,7 @@ ca:
             progress: Progrés
             start_date: Inici
             status: Estat
+            taxonomies: Taxonomies
             title: Títol
         status:
           fields:
@@ -227,6 +228,8 @@ ca:
         home:
           empty: Encara no hi ha cap resultat.
           empty_filters: No hi ha cap resultat amb aquest criteri.
+          sub_taxonomies_label: Subcategories
+          taxonomies_label: Categories
         home_header:
           global_status: Estat d'execució global
         no_results: No hi ha projectes
@@ -242,6 +245,8 @@ ca:
         results:
           status_id_eq:
             label: Estat
+          taxonomies_part_of_contains:
+            label: Taxonomia
     components:
       accountability:
         actions:
@@ -249,13 +254,18 @@ ca:
         name: Seguiment
         settings:
           global:
+            clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             display_progress_enabled: Mostrar el progrés
             geocoding_enabled: Mapes habilitats
             intro: Introducció
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
           step:
             comments_blocked: Comentaris bloquejats
     events:
