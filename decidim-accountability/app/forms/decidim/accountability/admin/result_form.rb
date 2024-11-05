@@ -10,7 +10,7 @@ module Decidim
         include Decidim::HasTaxonomyFormAttributes
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
 
         attribute :proposal_ids, Array[Integer]
         attribute :project_ids, Array[Integer]

@@ -1086,4 +1086,25 @@ FactoryBot.define do
         end
     end
   end
+
+  factory :blob, class: "ActiveStorage::Blob" do
+    transient do
+      filepath { Decidim::Dev.asset("city.jpeg") }
+    end
+
+    filename { File.basename(filepath) }
+    content_type { MiniMime.lookup_by_filename(filepath)&.content_type || "text/plain" }
+
+    before(:create) do |object, evaluator|
+      object.upload(File.open(evaluator.filepath))
+    end
+
+    trait :image do
+      filepath { Decidim::Dev.asset("city.jpeg") }
+    end
+
+    trait :document do
+      filepath { Decidim::Dev.asset("Exampledocument.pdf") }
+    end
+  end
 end

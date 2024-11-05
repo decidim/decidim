@@ -11,7 +11,7 @@ module Decidim
         attribute :decidim_accountability_result_id, Integer
         attribute :entry_date, Decidim::Attributes::LocalizedDate
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
 
         validates :entry_date, presence: true
         validates :title, translatable_presence: true

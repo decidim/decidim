@@ -10,7 +10,7 @@ module Decidim
         translatable_attribute :title, String do |field, _locale|
           validates field, length: { in: 15..150 }, if: proc { |resource| resource.send(field).present? }
         end
-        translatable_attribute :body, String
+        translatable_attribute :body, Decidim::Attributes::RichText
 
         validates :title, :body, translatable_presence: true
 
