@@ -76,7 +76,7 @@ module Decidim
           end
 
           on(:transfer_user) do |authorized_user|
-            authorized_user.update(last_sign_in_at: Time.current)
+            authorized_user.update(last_sign_in_at: Time.current, deleted_at: nil)
             sign_out(current_user)
             sign_in(authorized_user)
 
