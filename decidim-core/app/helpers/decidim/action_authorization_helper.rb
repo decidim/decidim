@@ -67,7 +67,7 @@ module Decidim
       permissions_holder = html_options.delete(:permissions_holder)
       authorization_status = get_authorization_status(action, resource, permissions_holder)
       redirect_path = valid_redirect(url, tag:, method: html_options[:method])
-      onboarding_options = onboarding_data_attributes(action, resource, permissions_holder, redirect_path)
+      onboarding_options = onboarding_data_attributes(authorization_status, action, resource, permissions_holder, redirect_path)
 
       if !current_user
         html_options = clean_authorized_to_data_open(html_options.merge(onboarding_options))
@@ -152,8 +152,9 @@ module Decidim
       authorization_status.pending_authorizations_count.positive? && authorization_status.global_code != :unauthorized
     end
 
-    def onboarding_data_attributes(action, resource, permissions_holder, redirect_path = nil)
+    def onboarding_data_attributes(authorization_status, action, resource, permissions_holder, redirect_path = nil)
       return {} if action.blank?
+      return {} unless pending_steps?(authorization_status)
 
       permissions_holder ||= try(:current_component) if resource.blank?
       return {} if [resource, permissions_holder].all?(&:blank?)
