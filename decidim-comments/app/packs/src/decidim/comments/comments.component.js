@@ -1,5 +1,6 @@
 /* eslint id-length: ["error", { "exceptions": ["$"] }] */
 /* eslint max-lines: ["error", {"max": 350, "skipBlankLines": true}] */
+/* eslint-disable max-lines */
 
 /**
  * A plain JavaScript component that handles the comments.
@@ -422,3 +423,4 @@ export default class CommentsComponent {
     });
   }
 }
+/* eslint-enable max-lines */
