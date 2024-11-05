@@ -32,10 +32,15 @@ ca:
         settings:
           global:
             announcement: Avís
+            clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
@@ -163,6 +168,7 @@ ca:
             official_debate: Debat oficial
             start: Comença
             start_time: Data d'inici
+            taxonomies: Taxonomies
             title: Títol
     events:
       debates:
@@ -251,6 +257,7 @@ ca:
           participatory_space: A quin espai pertany aquest debat (procés participatiu, assemblea, etc.)
           reference: L'identificador únic del recurs a aquesta plataforma
           start_time: Quan va començar aquest debat, si era un debat obert o si tenia un temps limitat per a participar.
+          taxonomies: Les taxonomies del projecte
           title: El títol del debat
           url: L'URL on es pot trobar aquest debat
     statistics:
