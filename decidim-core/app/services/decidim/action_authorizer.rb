@@ -98,13 +98,16 @@ module Decidim
       attr_reader :statuses
 
       def initialize(authorization_handlers, user, component, resource)
+        @ephemeral_user = user&.ephemeral?
         @authorization_handlers = authorization_handlers
-        @statuses = authorization_handlers&.map do |name, opts|
+        @statuses = authorization_handlers&.filter_map do |name, opts|
           handler = Verifications::Adapter.from_element(name)
+          next if @ephemeral_user && !handler.ephemeral?
+
           authorization = user ? Verifications::Authorizations.new(organization: user.organization, user:, name:).first : nil
           status_code, data = handler.authorize(authorization, opts["options"], component, resource)
           AuthorizationStatus.new(status_code, handler, data)
-        end
+        end || []
       end
 
       def ok?
