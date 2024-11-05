@@ -9,9 +9,7 @@ module Decidim
 
       def render_comments
         if supports_two_columns_layout?
-          @interleaved_comments ||= interleave_comments(comments_in_favor, comments_against)
-
-          render :comments_in_two_columns
+          render_comments_in_two_columns
         else
           render :comments_in_single_column
         end
@@ -37,11 +35,11 @@ module Decidim
       end
 
       def comments_in_favor
-        model.comments.positive
+        @comments_in_favor ||= model.comments.positive
       end
 
       def comments_against
-        model.comments.negative
+        @comments_against ||= model.comments.negative
       end
 
       def add_comment
@@ -78,6 +76,26 @@ module Decidim
 
       def supports_two_columns_layout?
         model.respond_to?(:comments_layout) && model.two_columns_layout?
+      end
+
+      def render_comments_in_two_columns
+        if model.closed?
+          top_comment_in_favor = comments_in_favor.order(up_votes_count: :desc).first
+          top_comment_against = comments_against.order(up_votes_count: :desc).first
+
+          other_comments_in_favor = comments_in_favor.where.not(id: top_comment_in_favor&.id)
+          other_comments_against = comments_against.where.not(id: top_comment_against&.id)
+
+          @sorted_comments_in_favor = [top_comment_in_favor].compact + other_comments_in_favor
+          @sorted_comments_against = [top_comment_against].compact + other_comments_against
+        else
+          @sorted_comments_in_favor = comments_in_favor
+          @sorted_comments_against = comments_against
+        end
+
+        @interleaved_comments ||= interleave_comments(@sorted_comments_in_favor, @sorted_comments_against)
+
+        render :comments_in_two_columns
       end
 
       def can_add_comments?
@@ -140,6 +158,7 @@ module Decidim
       def commentable_type
         model.commentable_type
       end
+
       def comments_data
         {
           singleComment: single_comment?,
@@ -150,7 +169,6 @@ module Decidim
           order:
         }
       end
-
 
       def single_comment?
         single_comment.present?

@@ -25,7 +25,7 @@ module Decidim
         validates :start_time, presence: { if: :validate_start_time? }, date: { before: :end_time, allow_blank: true, if: :validate_start_time? }
         validates :end_time, presence: { if: :validate_end_time? }, date: { after: :start_time, allow_blank: true, if: :validate_end_time? }
         validates :comments_layout, presence: true, inclusion: { in: %w(single_column two_columns) }
-        validate :comments_layout_change, if: -> { debate.comments_count.positive? }
+        validate :comments_layout_change, if: -> { debate&.comments_count&.positive? }
 
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
