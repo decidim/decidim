@@ -281,12 +281,14 @@ ca:
         assemblies:
           form:
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació de l'assemblea.
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             duration_help: Si la durada d'aquesta assemblea és limitada, selecciona la data de finalització. En cas contrari, apareixerà com a indefinida.
             filters: Filtres
             images: Imatges
             included_at_help: Selecciona la data en què es va afegir aquesta assemblea a la plataforma. No necessàriament ha de ser la mateixa que la data de creació.
             metadata: Metadades
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altre
             select_a_created_by: Selecciona una creadora
             select_an_area: Selecciona una Àrea
@@ -475,6 +477,7 @@ ca:
           special_features: Quines característiques especials té aquesta assemblea
           subtitle: El subtítol d'assemblea
           target: L'objectiu de l'assemblea
+          taxonomies: Les taxonomies del projecte
           title: El títol de l'assemblea
           twitter_handler: Controlador de xarxes socials per a Twitter/X
           youtube_handler: Controlador de xarxes socials per a YouTube
