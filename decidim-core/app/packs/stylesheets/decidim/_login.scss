@@ -32,7 +32,7 @@
   }
 
   &__links {
-    @apply flex flex-col gap-4 py-10 border-t-2 border-background items-center;
+    @apply flex flex-col gap-4 pb-10 border-background items-center;
 
     a {
       @apply w-fit text-secondary hover:underline;
