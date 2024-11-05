@@ -138,7 +138,19 @@ bin/rails decidim:upgrade:attachments_cleanup
 
 You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
 
-### 3.3. [[TITLE OF THE ACTION]]
+### 3.3. Add Meetings' attendees metric
+
+We have added a new metric that indicates how many users have attended your meetings.
+
+If you want to calculate this metric you could run the following command, where 2019-01-01 is the Y-m-d format for the starting date since you want the metric to take effect.
+
+```bash
+./bin/rails decidim:metrics:rebuild[meetings,2019-01-01]
+```
+
+You can see more details about this change on PR [\#13442](https://github.com/decidim/decidim/pull/13442)
+
+### 3.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -169,20 +181,38 @@ This no longer returns the running Decidim version by default and instead it wil
 
 If you would like to re-enable exposing the Decidim version number through the GraphQL API, you may do so by setting the `DECIDIM_API_DISCLOSE_SYSTEM_VERSION` environment variable to `true`. However, this is highly discouraged but may be required for some automation or integrations.
 
-### 5.2. [[TITLE OF THE CHANGE]]
+### 5.2 New configuration option for geolocation input forms
 
-In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
+Now a button to use the user's device location is enabled by default in Decidim. However this can be disabled with the new configuration option `show_my_location_button`, also available as an ENV var `DECIDIM_SHOW_MY_LOCATION_BUTTON`.
 
-If you have used code as such:
+You can decide to enable it in a specific component only (eg "proposals") or everywhere (by default).
 
-```ruby
-# Explain the usage of the API as it was in the previous version
-result = 1 + 1 if before
+Example:
+
+Use only "my location button" in meetings and proposals:
+
+```bash
+DECIDIM_SHOW_MY_LOCATION_BUTTON=meetings,proposals
 ```
 
-You need to change it to:
+or in an initializer:
 
 ```ruby
-# Explain the usage of the API as it is in the new version
-result = 1 + 1 if after
-        ```
+Decidim.configure do |config|
+  config.show_my_location_button = [:meetings, :proposals]
+end
+```
+
+the default value is `:all` equivalent to:
+
+```bash
+DECIDIM_SHOW_MY_LOCATION_BUTTON=all
+```
+
+or in an initializer:
+
+```ruby
+Decidim.configure do |config|
+  config.show_my_location_button = [:all]
+end
+```

@@ -20,7 +20,8 @@ RSpec.shared_context "when downloading open data files" do
     switch_to_host(organization.host)
     visit decidim.root_path
 
-    click_on "Download Open Data files"
+    click_on "Open Data"
+    click_on "Download all the Open Data files"
   end
 
   def extract_content_from_zip(download_path, file_name)

@@ -4,9 +4,6 @@ module Decidim
   module Blogs
     module ContentBlocks
       class HighlightedPostsCell < Decidim::ContentBlocks::HighlightedElementsCell
-        include Decidim::ComponentPathHelper
-        include Decidim::CardHelper
-
         def show
           render unless posts_count.zero?
         end

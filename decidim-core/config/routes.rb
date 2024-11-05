@@ -55,6 +55,8 @@ Decidim::Core::Engine.routes.draw do
 
   resource :locale, only: [:create]
 
+  post :locate, to: "geolocation#locate"
+
   Decidim.participatory_space_manifests.each do |manifest|
     mount manifest.context(:public).engine, at: "/", as: "decidim_#{manifest.name}"
   end
@@ -159,6 +161,7 @@ Decidim::Core::Engine.routes.draw do
   match "/404", to: "errors#not_found", via: :all
   match "/500", to: "errors#internal_server_error", via: :all
 
+  get "/open-data", to: "open_data#index", as: :open_data
   get "/open-data/download", to: "open_data#download", as: :open_data_download
 
   resource :follow, only: [:create, :destroy]

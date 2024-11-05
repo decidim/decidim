@@ -117,7 +117,7 @@ module Decidim
       end
 
       def message(value)
-        return content_tag(:div, value, class: "flash__message flex items-center") unless value.is_a?(Hash)
+        return content_tag(:div, value, class: "flash__message") unless value.is_a?(Hash)
 
         content_tag(:div, class: "flash__message") do
           concat value[:title]

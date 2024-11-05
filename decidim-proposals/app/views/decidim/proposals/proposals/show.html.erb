@@ -90,7 +90,7 @@ extra_admin_link(
   <% end %>
 
   <% if component_settings.geocoding_enabled? && @proposal.geocoded? %>
-    <div class="static-map__container">
+    <div class="static-map__container py-6">
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
     </div>
   <% end %>

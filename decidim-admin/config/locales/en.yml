@@ -198,6 +198,7 @@ en:
         reject: Reject
         send_me_a_test_email: Send me a test email
         share: Share
+        share_tokens: Access links
         user:
           new: New admin
         verify: Verify
@@ -344,6 +345,14 @@ en:
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
+        taxonomy_filters_badge:
+          remove: Remove
+        taxonomy_filters_drawer:
+          add_filter: Add filter
+          clear_all: Clear all
+          filters: Filters
+          save: Save
+          title: Filters
         title: Components
         unpublish:
           success: The component has been successfully unpublished.
@@ -410,8 +419,6 @@ en:
           JSON: JSON
         notice: Your export is currently in progress. You will receive an email when it is complete.
       filters:
-        category_id_eq:
-          label: Category
         filter_label: Filter
         invitation_accepted_at_present:
           label: Invite accepted
@@ -460,8 +467,6 @@ en:
             'false': Published
             'true': Unpublished
         remove_all: Remove all
-        scope_id_eq:
-          label: Scope
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
@@ -599,6 +604,7 @@ en:
         scopes: Scopes
         see_site: See site
         settings: Settings
+        share_tokens: Access links
         static_page_topics: Topics
         static_pages: Pages
         taxonomies: Taxonomies
@@ -656,12 +662,11 @@ en:
             plural: Plural
         share_token:
           fields:
-            created_at: Created at
+            actions: Actions
             expires_at: Expires at
-            last_used_at: Last time used
+            registered_only: Registered only?
             times_used: Times used
-            token: Token
-            user: Created by
+            token: Access link
         static_page:
           fields:
             created_at: Created at
@@ -931,10 +936,6 @@ en:
           title: Edit permissions
         update:
           success: Permissions updated successfully.
-      resources:
-        index:
-          headers:
-            scope: Scope
       scope_types:
         create:
           error: There was a problem creating a new scope type.
@@ -968,16 +969,50 @@ en:
           success: Scope updated successfully
       share_tokens:
         actions:
-          confirm_destroy: Are you sure you want to delete this token?
+          confirm_destroy: Are you sure you want to delete this access?
+          copy_link: Copy link
           destroy: Delete
-          share: Share
+          edit: Edit
+          preview: Preview
+        create:
+          invalid: There was a problem generating the access link.
+          success: Access link created successfully.
         destroy:
-          error: There was a problem destroying the token.
-          success: Token destroyed successfully.
-        share_tokens:
-          empty: There are no active tokens.
-          help: These tokens are used to publicly share this unpublished resource to any user. They will be hidden when the resource is published. Click on the token's share icon to visit the shareable URL.
-          title: Share tokens
+          error: There was a problem destroying the access link.
+          success: Access link successfully destroyed.
+        edit:
+          title: 'Edit access links for: %{name}'
+          update: Update
+        form:
+          automatic: Automatic
+          custom: Custom
+          custom_expiration: Custom expiration
+          custom_token: Custom word
+          expires_at: Expires at
+          'false': 'No'
+          never_expire: Never
+          registered_only: Registered only?
+          token: Access key
+          'true': 'Yes'
+        index:
+          back_to_share_tokens: Back to access links
+          copied: Access link Copied!
+          copy_message: The text was successfully copied to clipboard.
+          create_new_token: Create your first access link!
+          empty_html: There are no active access links. %{new_token_link}
+          never: Never
+          new_share_token_button: New access link
+          share_tokens_help_html: |
+            Create and share an access link to allow others to view this unpublished resource.
+            Access links can be valid for registered participants only or have and expiration date if necessary.
+            To share a new access link with someone, create it and then copy the link using the "%{clipboard} clipboard" action icon.
+          title: 'access links for: %{name}'
+        new:
+          create: Create
+          title: 'New access link for: %{name}'
+        update:
+          error: There was a problem updating this access.
+          success: Access link updated successfully.
       shared:
         adjacent_navigation:
           next: Next
@@ -1058,12 +1093,12 @@ en:
         new:
           create: Create taxonomy
           title: New taxonomy
-        no_taxonomies: There are currently no taxonomies. Create a list of taxonomies here and defined items in each of them to classify or filter resources.
+        no_taxonomies: There are currently no taxonomies. Create a list of taxonomies here and define items in each of them to classify or filter resources.
         table:
           to_next_page: Drag over for next page
           to_prev_page: Drag over for previous page
         taxonomy_actions:
-          confirm_destroy: Are you sure you want to delete %{name}? This will also delete all the children items.
+          confirm_destroy: 'Are you sure you want to delete %{name}? This will also delete all the children items. NOTE: Resources that are using this taxonomy will not be affected but they will lose the reference to this taxonomy.'
         update:
           invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.
@@ -1081,7 +1116,7 @@ en:
         edit:
           back: Back
           items: "%{count} items selected"
-          no_items: No items ara available for this taxonomies. You can create items in the taxonomy configuration settings.
+          no_items: No items are available for this taxonomy. You can create items in the taxonomy configuration settings.
           title: Edit taxonomy filter
           update: Update taxonomy filter
         form:
@@ -1096,7 +1131,8 @@ en:
           title: New taxonomy filter
         table:
           actions: Actions
-          confirm_destroy: Are you sure you want to delete the filter %{name}?
+          components_count: Components count
+          confirm_destroy: 'Are you sure you want to delete the filter %{name}? NOTE: Resources that are using this filter will not be affected but they will lose the reference to this filter.'
           count: Number of items
           destroy: Delete
           edit: Edit
