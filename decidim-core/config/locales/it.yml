@@ -65,6 +65,9 @@ it:
     'false': 'No'
     'true': 'Si'
   date:
+    buttons:
+      close: Chiudere
+      select: Seleziona
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
