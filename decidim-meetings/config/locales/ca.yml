@@ -110,6 +110,8 @@ ca:
             values:
               'false': Passades
               'true': Properes
+          taxonomies_part_of_contains:
+            label: Taxonomia
           with_any_origin:
             label: Origen
             values:
@@ -151,16 +153,21 @@ ca:
         settings:
           global:
             announcement: Avís
+            clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
             creation_enabled_for_participants: Les participants poden crear trobades
             default_registration_terms: Termes de registre per defecte
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             enable_pads_creation: Habilitar la creació de pads
             maps_enabled: Mapes habilitats
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             registration_code_enabled: Codi d'inscripció habilitat
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada trobada
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
             terms_and_conditions_url_for_meeting_creators: URL de termes i condicions per creadores de trobades
           step:
             announcement: Avís
@@ -605,6 +612,7 @@ ca:
             map: Mapa
             official_meeting: Trobada oficial
             start_time: Data d'inici
+            taxonomies: Taxonomies
             title: Títol
       polls:
         answers:
@@ -714,6 +722,7 @@ ca:
           related_proposals: Les propostes relacionades amb aquesta trobada
           related_results: Els resultats relacionats amb aquesta trobada
           start_time: La data i l'hora en què es va iniciar aquesta trobada
+          taxonomies: Les taxonomies a les quals pertany aquesta trobada
           title: El títol de la trobada
           url: L'URL de la trobada
           withdrawn: Si aquesta trobada va ser retirada/cancel·lada
