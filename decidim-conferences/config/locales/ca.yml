@@ -373,10 +373,13 @@ ca:
         conferences:
           form:
             available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades.
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
             slug_help_html: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta jornada. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            taxonomies: Taxonomies
         content_blocks:
           highlighted_conferences:
             max_results: Quantitat màxima d'elements a mostrar
@@ -592,6 +595,7 @@ ca:
           slogan: El lema d'aquesta jornada
           slug: El nom curt de la jornada (utilitzat per a finalitats d'identificació, per a l'URL)
           start_date: La data en la qual va començar aquesta jornada.
+          taxonomies: Les taxonomies de la jornada
           title: El títol de la jornada
     statistics:
       conferences_count: Jornades
