@@ -310,6 +310,7 @@ ca:
           proposal_urls: Les URL de les propostes que estan incloses en aquest resultat
           start_date: La data en la qual estava previst l'inici de l'execució del resultat
           status: L'estat actual d'aquest resultat
+          taxonomies: Les taxonomies del resultat
           title: El títol del resultat
           url: L'URL on es pot trobar aquest resultat
     participatory_spaces:
