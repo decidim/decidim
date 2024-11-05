@@ -111,7 +111,9 @@ module Decidim
       end
 
       def ok?
-        return true if statuses.blank?
+        # When no statuses are present for the action ephemeral users
+        # are not allowed to perform the action
+        return !@ephemeral_user if statuses.blank?
 
         statuses.all?(&:ok?)
       end
