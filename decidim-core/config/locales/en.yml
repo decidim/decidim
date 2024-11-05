@@ -637,7 +637,7 @@ en:
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
       sessions:
         new:
-          are_you_new?: New to the platform?
+          are_you_new?: Not registered yet?
           register: Create an account
           sign_in_disabled: You can access with an external account.
           sign_up_disabled: Account creation is disabled, you can use an existing account to access.
