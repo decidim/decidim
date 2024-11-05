@@ -76,11 +76,13 @@ module Decidim
           @trashable_deleted_collection ||= Debate.where(component: current_component).trashed.deleted_at_desc
         end
 
-        def debate
-          @debate ||= Debate.find_by(component: current_component, id: params[:id])
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= Debate.find_by(component: current_component, id: params[:id])
         end
 
-        alias trashable_deleted_resource debate
+        def debate
+          @debate ||= Debate.not_trashed.find_by(component: current_component, id: params[:id])
+        end
       end
     end
   end

@@ -100,15 +100,17 @@ module Decidim
           @trashable_deleted_collection ||= filtered_collection.trashed.deleted_at_desc
         end
 
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= Meeting.where(component: current_component).find_by(id: params[:id])
+        end
+
         def meetings
           @meetings ||= filtered_collection.not_trashed
         end
 
         def meeting
-          @meeting ||= Meeting.where(component: current_component).find_by(id: params[:id])
+          @meeting ||= Meeting.not_trashed.where(component: current_component).find_by(id: params[:id])
         end
-
-        alias trashable_deleted_resource meeting
 
         def collection
           @collection ||= Meeting.where(component: current_component).published.not_hidden

@@ -219,10 +219,12 @@ module Decidim
         end
 
         def project
-          @project ||= filtered_collection.find_by(id: params[:id])
+          @project ||= filtered_collection.not_trashed.find_by(id: params[:id])
         end
 
-        alias trashable_deleted_resource project
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= filtered_collection.find_by(id: params[:id])
+        end
 
         def update_projects_bulk_response_successful(response, subject, extra = {})
           return if response[:successful].blank?
