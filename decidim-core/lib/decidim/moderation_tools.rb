@@ -86,6 +86,8 @@ module Decidim
       end
 
       hide_comments!
+      hide_replies! if reportable.is_a?(Decidim::Comments::Comment)
+
       send_notification_to_author if send_notification
     end
 
@@ -98,6 +100,21 @@ module Decidim
           tool.create_report!({
                                 reason: "parent_hidden",
                                 details: I18n.t("report_details", scope: "decidim.reports.parent_hidden")
+                              })
+        end
+
+        tool.hide!
+      end
+    end
+
+    def hide_replies!
+      replies =  Decidim::Comments::Comment.where("decidim_commentable_id" => reportable.id)
+      replies.each do |reply|
+        tool = Decidim::ModerationTools.new(reply, @current_user)
+        unless Decidim::Report.exists?("decidim_moderation_id" => tool.moderation.id, "decidim_user_id" => @current_user.id)
+          tool.create_report!({
+                                  reason: "parent_hidden",
+                                  details: I18n.t("report_details", scope: "decidim.reports.parent_hidden")
                               })
         end
 
