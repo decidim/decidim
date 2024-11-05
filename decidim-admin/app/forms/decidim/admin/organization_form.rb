@@ -31,9 +31,9 @@ module Decidim
       attribute :customize_welcome_notification, Boolean
 
       translatable_attribute :welcome_notification_subject, String
-      translatable_attribute :welcome_notification_body, String
+      translatable_attribute :welcome_notification_body, Decidim::Attributes::RichText
 
-      translatable_attribute :admin_terms_of_service_body, String
+      translatable_attribute :admin_terms_of_service_body, Decidim::Attributes::RichText
 
       validates :welcome_notification_subject, :welcome_notification_body, translatable_presence: true, if: proc { |form| form.customize_welcome_notification }
 
