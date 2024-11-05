@@ -15,23 +15,23 @@ module Decidim
 
         mimic :assembly
 
-        translatable_attribute :composition, String
-        translatable_attribute :closing_date_reason, String
+        translatable_attribute :composition, Decidim::Attributes::RichText
+        translatable_attribute :closing_date_reason, Decidim::Attributes::RichText
         translatable_attribute :created_by_other, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
         translatable_attribute :developer_group, String
-        translatable_attribute :internal_organisation, String
+        translatable_attribute :internal_organisation, Decidim::Attributes::RichText
         translatable_attribute :local_area, String
         translatable_attribute :meta_scope, String
         translatable_attribute :participatory_scope, String
         translatable_attribute :participatory_structure, String
-        translatable_attribute :purpose_of_action, String
-        translatable_attribute :short_description, String
-        translatable_attribute :special_features, String
+        translatable_attribute :purpose_of_action, Decidim::Attributes::RichText
+        translatable_attribute :short_description, Decidim::Attributes::RichText
+        translatable_attribute :special_features, Decidim::Attributes::RichText
         translatable_attribute :subtitle, String
         translatable_attribute :target, String
         translatable_attribute :title, String
-        translatable_attribute :announcement, String
+        translatable_attribute :announcement, Decidim::Attributes::RichText
 
         attribute :created_by, String
         attribute :facebook_handler, String

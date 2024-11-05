@@ -22,7 +22,7 @@ module Decidim
         attribute :iframe_access_level, String
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
 

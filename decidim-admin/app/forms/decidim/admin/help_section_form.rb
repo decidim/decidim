@@ -9,7 +9,7 @@ module Decidim
       include TranslationsHelper
 
       attribute :id, String
-      translatable_attribute :content, String
+      translatable_attribute :content, Decidim::Attributes::RichText
 
       def name
         multi_translation("activerecord.models.#{manifest.model_class_name.underscore}.other")
