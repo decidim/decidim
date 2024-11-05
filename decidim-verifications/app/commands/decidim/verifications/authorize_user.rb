@@ -26,8 +26,8 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return transfer_authorization if !handler.unique? && handler.transferrable?
         return broadcast(:transfer_user, handler.duplicate.user) if !handler.unique? && handler.user_transferrable?
+        return transfer_authorization if !handler.unique? && handler.transferrable?
 
         if handler.invalid?
           register_conflict
