@@ -7,7 +7,7 @@ module Decidim
       class PageForm < Decidim::Form
         include TranslatableAttributes
 
-        translatable_attribute :body, String
+        translatable_attribute :body, Decidim::Attributes::RichText
       end
     end
   end

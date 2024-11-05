@@ -8,9 +8,9 @@ module Decidim
         include TranslatableAttributes
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
-        translatable_attribute :instructions, String
-        translatable_attribute :information_updates, String
+        translatable_attribute :description, Decidim::Attributes::RichText
+        translatable_attribute :instructions, Decidim::Attributes::RichText
+        translatable_attribute :information_updates, Decidim::Attributes::RichText
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :decidim_category_id, Integer

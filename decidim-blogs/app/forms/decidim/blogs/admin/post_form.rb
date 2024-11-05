@@ -8,7 +8,7 @@ module Decidim
         include TranslatableAttributes
 
         translatable_attribute :title, String
-        translatable_attribute :body, String
+        translatable_attribute :body, Decidim::Attributes::RichText
 
         attribute :decidim_author_id, Integer
         attribute :published_at, Decidim::Attributes::TimeWithZone

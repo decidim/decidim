@@ -8,8 +8,8 @@ module Decidim
         include TranslatableAttributes
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
-        translatable_attribute :tos, String
+        translatable_attribute :description, Decidim::Attributes::RichText
+        translatable_attribute :tos, Decidim::Attributes::RichText
 
         attribute :published_at, Decidim::Attributes::TimeWithZone
         attribute :questions, Array[QuestionForm]
