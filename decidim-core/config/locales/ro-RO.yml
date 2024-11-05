@@ -24,8 +24,10 @@ ro:
       user:
         about: Despre
         email: E-mailul dumneavoastră
+        encrypted_password: Parolă
         name: Numele
         nickname: Pseudonim
+        old_password: Parola curentă
         password: Parolă
         password_confirmation: Confirmați parola
         personal_url: URL personal
@@ -61,6 +63,11 @@ ro:
         password_confirmation: Confirmare parolă
         remember_me: Ține-mă minte
     models:
+      decidim:
+        history:
+          one: Istoric
+          few: Istoric
+          other: Istoric
       decidim/amendment:
         one: Amendament
         few: Amendamente
@@ -290,7 +297,7 @@ ro:
       user_moderation:
         unreport: "%{user_name} a anulat raportarea pentru %{resource_type} - %{unreported_user_name}"
     alert:
-      dismiss: Anulare notificare
+      dismiss: Închideți notificare
     amendments:
       accepted:
         error: Există o problemă la acceptarea amendamentului.
@@ -313,7 +320,7 @@ ro:
         success: Proiectul de amendament a fost șters cu succes.
       edit_draft:
         discard: Renunțați la acest proiect de amendament
-        send: Previzualizează
+        send: Previzualizați
         title: Editați proiectul de amendament
       emendation:
         actions:
@@ -364,12 +371,15 @@ ro:
     application:
       document:
         download: Descarcați fișier
+        visit_link: Accesați link-ul
       documents:
+        documents: Documente
         related_documents: Documente asociate
       photo:
         alt: Imagine media
         title: Imagine
       photos:
+        photos: Imagini
         related_photos: Imagini asociate
     author:
       avatar: 'Avatar: %{name}'
@@ -419,7 +429,7 @@ ro:
           explanation: Autorizarea ta expirat. Pentru a efectua această acțiune, trebuie să fii reautorizat cu "%{authorization}".
           title: Autorizarea a expirat
         incomplete:
-          cancel: Anulează
+          cancel: Anulați
           invalid_field: "%{field}"
           reauthorize: Reautorizează
           title: Te rugăm să reautorizezi
@@ -505,6 +515,8 @@ ro:
       highlighted_content_banner:
         name: Banner conținut evidențiat
       highlighted_elements_settings_form:
+        components:
+          all: Toate
         orders:
           label: 'Sortează elementele după:'
           random: Aleatoriu
@@ -534,6 +546,14 @@ ro:
         name: Statisticile organizației
       sub_hero:
         name: Banner suberoi
+    core:
+      application_helper:
+        filter_area_values:
+          all: Toate
+        filter_scope_values:
+          all: Toate
+        filter_taxonomy_values:
+          all: Toate
     devise:
       omniauth_registrations:
         new:
@@ -547,6 +567,9 @@ ro:
           log_in: Autentificare
           newsletter: Primește un buletin informativ ocazional cu informații relevante
           newsletter_title: Drepturi privind contactele
+          sign_up: Creați un cont
+          subtitle: Creați un cont pentru a participa la platformă.
+          terms: condițiile de utilizare
           tos_agreement: Prin înregistrare ești de acord cu %{link}.
           tos_title: Condiții de utilizare
           username_help: Numele public care apare pe postări. Pentru a garanta anonimitatea, poate fi orice nume.
@@ -554,6 +577,7 @@ ro:
         new:
           are_you_new?: Nou pe platformă?
           register: Creează un cont
+          sign_in_disabled: Puteți accesa printr-un cont extern.
       shared:
         newsletter_modal:
           buttons:
