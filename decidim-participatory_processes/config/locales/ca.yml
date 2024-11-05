@@ -448,10 +448,12 @@ ca:
         participatory_processes:
           form:
             announcement_help: El text que introdueixis aquí es mostrarà a la participant just a sota de la informació del procés.
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             duration: Durada
             filters: Filtres
             images: Imatges
             metadata: Metadades
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altres
             related_processes: Processos relacionats
             scope_type_max_depth_help: Restringeix la profunditat del filtre d'àmbit. Es mostrarà des del filtre general fins al filtre seleccionat.
