@@ -32,9 +32,9 @@ module Decidim
       attribute :tertiary_color, String
 
       translatable_attribute :cta_button_text, String
-      translatable_attribute :description, String
+      translatable_attribute :description, Decidim::Attributes::RichText
       translatable_attribute :highlighted_content_banner_title, String
-      translatable_attribute :highlighted_content_banner_short_description, String
+      translatable_attribute :highlighted_content_banner_short_description, Decidim::Attributes::RichText
       translatable_attribute :highlighted_content_banner_action_title, String
       translatable_attribute :highlighted_content_banner_action_subtitle, String
       translatable_attribute :omnipresent_banner_title, String
