@@ -7,14 +7,15 @@ module Decidim
     module Admin
       describe ImportProposalsToBudgets do
         describe "call" do
-          let!(:proposals) { create_list(:proposal, 3, :accepted) }
+          let!(:proposals) { create_list(:proposal, 3, :accepted, component: proposals_component) }
+          let(:proposals_component) { create(:proposal_component) }
 
           let!(:proposal) { proposals.first }
           let(:current_component) do
             create(
               :component,
               manifest_name: "budgets",
-              participatory_space: proposal.component.participatory_space
+              participatory_space: proposals_component.participatory_space
             )
           end
           let(:budget) { create(:budget, component: current_component) }
@@ -29,7 +30,7 @@ module Decidim
               current_user:,
               default_budget:,
               import_all_accepted_proposals:,
-              scope_id: scope,
+              scope_id: scope&.id,
               budget:,
               valid?: valid
             )
@@ -39,6 +40,23 @@ module Decidim
           let(:import_all_accepted_proposals) { true }
 
           let(:command) { described_class.new(form) }
+
+          shared_context "with scoped proposals" do
+            let(:scope) { create(:scope, organization:) }
+            let(:scoped_proposals) { proposals[0..1] }
+
+            before do
+              current_component.participatory_space.update!(scope: space_scope) if respond_to?(:space_scope)
+
+              settings = current_component.settings
+              settings.scope_id = component_scope.id if respond_to?(:component_scope)
+              settings.scopes_enabled = true
+              current_component.settings = settings
+              current_component.save!
+
+              scoped_proposals.each { |pr| pr.update!(decidim_scope_id: scope.id) }
+            end
+          end
 
           describe "when the form is not valid" do
             let(:valid) { false }
@@ -62,9 +80,15 @@ module Decidim
             end
 
             it "creates the projects" do
-              expect do
-                command.call
-              end.to change { Project.where(budget:).count }.by(1)
+              expect { command.call }.to change { Project.where(budget:).count }.by(3)
+            end
+
+            context "when a scope is defined" do
+              include_context "with scoped proposals"
+
+              it "only imports the proposals mapped to the defined scope" do
+                expect { command.call }.to(change { Project.where(budget:).where(scope:).count }.by(scoped_proposals.count))
+              end
             end
 
             context "when there are no proposals in the selected scope" do
@@ -114,9 +138,24 @@ module Decidim
               end
             end
 
+            context "when proposals were already imported to another budget within the same component" do
+              let(:another_budget) { create(:budget, component: current_component) }
+              let!(:mapped_projects) do
+                proposals.map do |pr|
+                  project = create(:project, title: pr.title, description: pr.body, budget: another_budget)
+                  project.link_resources([pr], "included_proposals")
+                  project
+                end
+              end
+
+              it "does not import it again" do
+                expect { command.call }.not_to(change { Project.where(budget:).count })
+              end
+            end
+
             it "links the proposals" do
               command.call
-              last_project = Project.where(budget:).last
+              last_project = Project.where(budget:).order(:id).first
 
               linked = last_project.linked_resources(:proposals, "included_proposals")
 
@@ -126,7 +165,7 @@ module Decidim
             it "only imports wanted attributes" do
               command.call
 
-              new_project = Project.where(budget:).last
+              new_project = Project.where(budget:).order(:id).first
               expect(new_project.title).to eq(proposal.title)
               expect(new_project.description).to eq(proposal.body)
               expect(new_project.category).to eq(proposal.category)
@@ -135,12 +174,12 @@ module Decidim
             end
 
             context "when the proposal does not have a cost" do
-              let!(:proposals) { create_list(:proposal, 3, :accepted, cost: nil) }
+              let!(:proposals) { create_list(:proposal, 3, :accepted, cost: nil, component: proposals_component) }
 
               it "imports the default budget" do
                 command.call
 
-                new_project = Project.where(budget:).last
+                new_project = Project.where(budget:).order(:id).first
                 expect(new_project.budget_amount).to eq(default_budget)
               end
             end
