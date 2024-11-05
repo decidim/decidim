@@ -257,7 +257,7 @@ es:
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
-            define_taxonomy_filters: Por favor, define algunos filtros para este espacio participativo antes de utilizar esta configuración.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             display_progress_enabled: Mostrar progreso
             geocoding_enabled: Mapas habilitados
             intro: Introducción
@@ -310,6 +310,7 @@ es:
           proposal_urls: Las URL de las propuestas que se incluyen en este resultado
           start_date: La fecha en la que estaba previsto el inicio de la ejecución del resultado
           status: El estado actual de este resultado
+          taxonomies: Las taxonomías del resultado
           title: El título del resultado
           url: La URL donde se puede encontrar este resultado
     participatory_spaces:
