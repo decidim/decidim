@@ -15,7 +15,7 @@
     <table class="table-list">
       <%= render partial: "projects-thead" %>
       <tbody>
-        <%= render partial: "decidim/budget/admin/projects/project-tr",
+        <%= render partial: "decidim/budgets/admin/projects/project-tr",
                    collection: trashable_deleted_collection,
                    as: :project,
                    locals: { view: :deleted } %>

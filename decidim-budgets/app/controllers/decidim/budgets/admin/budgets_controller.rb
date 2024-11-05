@@ -64,7 +64,7 @@ module Decidim
         end
 
         def budgets
-          @budgets ||= Budget.where(component: current_component).not_trashed.order(weight: :asc)
+          @budgets ||= Budget.not_trashed.where(component: current_component).order(weight: :asc)
         end
 
         def budget
