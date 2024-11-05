@@ -98,17 +98,22 @@ module Decidim
       attr_reader :statuses
 
       def initialize(authorization_handlers, user, component, resource)
+        @ephemeral_user = user&.ephemeral?
         @authorization_handlers = authorization_handlers
-        @statuses = authorization_handlers&.map do |name, opts|
+        @statuses = authorization_handlers&.filter_map do |name, opts|
           handler = Verifications::Adapter.from_element(name)
+          next if @ephemeral_user && !handler.ephemeral?
+
           authorization = user ? Verifications::Authorizations.new(organization: user.organization, user:, name:).first : nil
           status_code, data = handler.authorize(authorization, opts["options"], component, resource)
           AuthorizationStatus.new(status_code, handler, data)
-        end
+        end || []
       end
 
       def ok?
-        return true if statuses.blank?
+        # When no statuses are present for the action ephemeral users
+        # are not allowed to perform the action
+        return !@ephemeral_user if statuses.blank?
 
         statuses.all?(&:ok?)
       end
@@ -132,9 +137,9 @@ module Decidim
       end
 
       def pending_authorizations_count
-        return 0 if @authorization_handlers.blank?
+        return 0 if @statuses.blank?
 
-        @authorization_handlers.count
+        @statuses.count
       end
 
       def single_authorization_required?

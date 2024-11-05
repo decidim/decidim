@@ -36,7 +36,12 @@ module Decidim
     end
 
     def destroy_account!
-      Decidim::DestroyAccount.call(Decidim::DeleteAccountForm.from_params(delete_reason: "Ephemeral user session expired").with_context(current_user: user))
+      user.invalidate_all_sessions!
+
+      user.delete_reason = "Ephemeral user session expired"
+      user.deleted_at = Time.current
+      user.skip_reconfirmation!
+      user.save!
     end
   end
 end

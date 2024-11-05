@@ -23,7 +23,15 @@ module Decidim
       subject { handler.form_attributes }
 
       it { is_expected.to contain_exactly("handler_name") }
-      it { is_expected.not_to contain_exactly(:id, :user) }
+      it { is_expected.not_to contain_exactly(:id, :user, :tos_agreement) }
+
+      context "when the user is ephemeral and has not accepted tos" do
+        let(:ephemeral_user) { create(:user, :ephemeral, :tos_not_accepted) }
+        let(:params) { { user: ephemeral_user } }
+
+        it { is_expected.to contain_exactly("handler_name", "tos_agreement") }
+        it { is_expected.not_to contain_exactly(:id, :user) }
+      end
     end
 
     describe "to_partial_path" do

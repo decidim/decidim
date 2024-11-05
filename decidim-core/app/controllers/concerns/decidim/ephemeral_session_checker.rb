@@ -50,6 +50,18 @@ module Decidim
       end
     end
 
+    # This method determines which paths are allowed to the user based on the
+    # onboarding manager data and the associated authorizations. In all cases
+    # the user is allowed to visit the onboarding pending and the terms of
+    # service pages. In addition:
+    # * If the user is pending to complete an authorization is also allowed to
+    #   navigate in the pages to complete the authorizations and the
+    #   authorizations path to send the request.
+    # * If the user is authorized is also allowed to visit the paths determined
+    #   by the onboarding manager after finishing the authorization flow and
+    #   the associated component.
+    # The method checks the request path and checks if the path starts with one
+    # of the paths of the allowlist
     def authorizations_permitted_paths?(authorizations, onboarding_manager)
       paths_list = if authorizations.user_pending?
                      authorizations.statuses.map(&:current_path).compact.prepend(

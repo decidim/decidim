@@ -409,6 +409,8 @@ describe "Orders" do
 
           expect(page).to have_content("successfully")
 
+          page.find(".button", text: "View votes").click
+
           within "#order-progress .budget-summary__content", match: :first do
             expect(page).to have_css(".button", text: "delete your vote")
           end
@@ -458,7 +460,7 @@ describe "Orders" do
             before do
               find("[data-dialog-open='budget-confirm']", match: :first).click
               click_on "Confirm"
-              expect(page).to have_css(".flash.success")
+              expect(page).to have_css("h1", text: "Your vote has been successfully accepted")
             end
 
             it "shows private-only activity log entry" do

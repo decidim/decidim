@@ -9,10 +9,11 @@ module Decidim
     let(:permissions_holder) { nil }
     let(:user) { create(:user) }
     let(:action) { "foo" }
-    let(:status) { double(ok?: authorized, pending_authorizations_count:, global_code:) }
+    let(:status) { double(ok?: authorized, pending_authorizations_count:, global_code:, ephemeral?: ephemeral) }
     let(:authorized) { true }
     let(:pending_authorizations_count) { 0 }
     let(:global_code) { :ok }
+    let(:ephemeral) { false }
 
     let(:widget_text) { "Act" }
     let(:path) { "fake_path" }
@@ -116,6 +117,34 @@ module Decidim
           expect(subject).not_to match(path_as_action_or_href)
           expect(subject).to include('data-dialog-open="loginModal"')
           expect(subject).to include(*params[:widget_parts])
+        end
+
+        context "when there are pending ephemeral authorizations" do
+          let(:ephemeral) { true }
+          let(:authorized) { false }
+          let(:pending_authorizations_count) { 1 }
+
+          if params[:has_action]
+            it "renders a link to renew onboarding data including the pending action info in data attributes" do
+              expect(subject).not_to match(path_as_action_or_href)
+              expect(subject).not_to include('data-dialog-open="authorizationModal"')
+              expect(subject).to include('href="/authorizations/renew_onboarding_data"')
+              expect(subject).to include("data-onboarding-permissions-holder=\"#{component.to_gid}\"")
+              expect(subject).to include("data-onboarding-action=\"#{action}\"")
+              if params[:includes_redirect_data]
+                expect(subject).to include("data-onboarding-redirect-path=\"#{path}\"")
+              else
+                expect(subject).not_to include("data-onboarding-redirect-path=\"#{path}\"")
+              end
+              expect(subject).to match(/\A<a /)
+            end
+          else
+            it "renders a widget toggling the login modal" do
+              expect(subject).not_to match(path_as_action_or_href)
+              expect(subject).to include('data-dialog-open="loginModal"')
+              expect(subject).to include(*params[:widget_parts])
+            end
+          end
         end
       end
     end

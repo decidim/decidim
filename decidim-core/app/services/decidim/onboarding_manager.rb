@@ -173,7 +173,7 @@ module Decidim
       session_duration > Decidim.config.expire_session_after.to_i
     end
 
-    # Time in seconds since the creation of the user
+    # Time in seconds since the last login or creation of the user
     #
     # Returns an Integer
     def session_duration
