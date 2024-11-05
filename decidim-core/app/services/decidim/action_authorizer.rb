@@ -128,9 +128,9 @@ module Decidim
       end
 
       def pending_authorizations_count
-        return 0 if @authorization_handlers.blank?
+        return 0 if @statuses.blank?
 
-        @authorization_handlers.count
+        @statuses.count
       end
 
       def single_authorization_required?
