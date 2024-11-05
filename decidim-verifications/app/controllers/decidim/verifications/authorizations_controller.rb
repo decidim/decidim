@@ -8,7 +8,7 @@ module Decidim
       helper_method :handler, :unauthorized_methods, :authorization_method, :authorization,
                     :granted_authorizations, :pending_authorizations, :active_authorization_methods
 
-      before_action :valid_handler, only: [:new, :create]
+      before_action :valid_handler, :authorize_handler, only: [:new, :create]
       before_action :set_ephemeral_user, only: :renew_onboarding_data
 
       include Decidim::UserProfile
@@ -137,6 +137,10 @@ module Decidim
 
         logger.warn msg
         redirect_to(authorizations_path) && (return false)
+      end
+
+      def authorize_handler
+        raise Decidim::ActionForbidden if current_user.ephemeral? && !Decidim::Verifications::Adapter.from_element(handler_name).ephemeral?
       end
 
       def set_ephemeral_user
