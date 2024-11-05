@@ -344,6 +344,14 @@ ca:
           title: 'Afegir component: %{name}'
         publish:
           success: El component s'ha publicat correctament.
+        taxonomy_filters_badge:
+          remove: Eliminar
+        taxonomy_filters_drawer:
+          add_filter: Afegir un filtre
+          clear_all: Netejar-ho tot
+          filters: Filtres
+          save: Desar
+          title: Filtres
         title: Components
         unpublish:
           success: El component s'ha despublicat correctament.
@@ -1084,9 +1092,12 @@ ca:
         new:
           create: Crear taxonomia
           title: Nova taxonomia
+        no_taxonomies: Actualment no hi ha taxonomies. Crea una llista de taxonomies i defineix-ne els elements per classificar-los o filtrar els recursos.
         table:
           to_next_page: Passa a la pàgina següent
           to_prev_page: Arrossega per passar a la pàgina anterior
+        taxonomy_actions:
+          confirm_destroy: 'Segur que voleu suprimir %{name}? Això també suprimirà tots els elements secundaris. NOTA: Els recursos que utilitzen aquesta taxonomia no es veuran afectats, però perdran la referència a aquesta taxonomia.'
         update:
           invalid: S'ha produït un error en actualitzar aquesta taxonomia.
           success: Taxonomia actualitzada correctament.
@@ -1104,6 +1115,7 @@ ca:
         edit:
           back: Enrere
           items: "%{count} elements seleccionats"
+          no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
           title: Editar el filtre de taxonomia
           update: Actualitzar el filtre de taxonomia
         form:
@@ -1118,6 +1130,8 @@ ca:
           title: Nou filtre de taxonomia
         table:
           actions: Accions
+          components_count: Número de components
+          confirm_destroy: 'Segur que voleu suprimir el filtre %{name}? NOTA: Els recursos que utilitzen aquest filtre no es veuran afectats però perdran la referència a aquest filtre.'
           count: Número d'elements
           destroy: Esborrar
           edit: Editar
