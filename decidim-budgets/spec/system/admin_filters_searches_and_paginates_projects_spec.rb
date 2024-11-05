@@ -15,46 +15,15 @@ describe "Admin filters, searches, and paginates projects" do
     find("a[title='Manage projects']").click
   end
 
-  context "when filtering by scope" do
-    let!(:scope1) { create(:scope, organization: component.organization, name: { "en" => "Scope1" }) }
-    let!(:scope2) { create(:scope, organization: component.organization, name: { "en" => "Scope2" }) }
-    let!(:project_with_scope1) { create(:project, budget:, scope: scope1) }
-    let!(:project_with_scope2) { create(:project, budget:, scope: scope2) }
-    let(:project_with_scope1_title) { translated(project_with_scope1.title) }
-    let(:project_with_scope2_title) { translated(project_with_scope2.title) }
-
-    before { visit current_path }
-
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope1" do
-      let(:in_filter) { project_with_scope1_title }
-      let(:not_in_filter) { project_with_scope2_title }
-    end
-
-    it_behaves_like "a filtered collection", options: "Scope", filter: "Scope2" do
-      let(:in_filter) { project_with_scope2_title }
-      let(:not_in_filter) { project_with_scope1_title }
-    end
-  end
-
-  context "when filtering by category" do
-    let!(:category1) { create(:category, participatory_space:, name: { "en" => "Category1" }) }
-    let!(:category2) { create(:category, participatory_space:, name: { "en" => "Category2" }) }
-    let!(:project_with_category1) { create(:project, budget:, category: category1) }
-    let!(:project_with_category2) { create(:project, budget:, category: category2) }
-    let(:project_with_category1_title) { translated(project_with_category1.title) }
-    let(:project_with_category2_title) { translated(project_with_category2.title) }
-
-    before { visit current_path }
-
-    it_behaves_like "a filtered collection", options: "Category", filter: "Category1" do
-      let(:in_filter) { project_with_category1_title }
-      let(:not_in_filter) { project_with_category2_title }
-    end
-
-    it_behaves_like "a filtered collection", options: "Category", filter: "Category2" do
-      let(:in_filter) { project_with_category2_title }
-      let(:not_in_filter) { project_with_category1_title }
-    end
+  it_behaves_like "a collection filtered by taxonomies" do
+    let!(:project_with_taxonomy11) { create(:project, budget:, taxonomies: [taxonomy11]) }
+    let!(:project_with_taxonomy12) { create(:project, budget:, taxonomies: [taxonomy12]) }
+    let!(:project_with_taxonomy21) { create(:project, budget:, taxonomies: [taxonomy21]) }
+    let!(:project_with_taxonomy22) { create(:project, budget:, taxonomies: [taxonomy22]) }
+    let(:resource_with_taxonomy11_title) { translated(project_with_taxonomy11.title) }
+    let(:resource_with_taxonomy12_title) { translated(project_with_taxonomy12.title) }
+    let(:resource_with_taxonomy21_title) { translated(project_with_taxonomy21.title) }
+    let(:resource_with_taxonomy22_title) { translated(project_with_taxonomy22.title) }
   end
 
   context "when filtering by selected" do

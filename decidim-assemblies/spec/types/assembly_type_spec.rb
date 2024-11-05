@@ -4,6 +4,7 @@ require "spec_helper"
 require "decidim/api/test/type_context"
 
 require "decidim/core/test/shared_examples/attachable_interface_examples"
+require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
 require "decidim/core/test/shared_examples/participatory_space_resourcable_interface_examples"
 
 module Decidim
@@ -12,10 +13,11 @@ module Decidim
       include_context "with a graphql class type"
 
       let(:model) { create(:assembly) }
+      let(:organization) { model.organization }
 
       include_examples "attachable interface"
       include_examples "participatory space resourcable interface"
-      include_examples "categories container interface"
+      include_examples "taxonomizable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -158,14 +160,6 @@ module Decidim
 
         it "returns the participatoryStructure field" do
           expect(response["participatoryStructure"]["translation"]).to eq(model.participatory_structure["en"])
-        end
-      end
-
-      describe "scopesEnabled" do
-        let(:query) { "{ scopesEnabled }" }
-
-        it "returns the scopesEnabled field" do
-          expect(response["scopesEnabled"]).to eq(model.scopes_enabled)
         end
       end
 

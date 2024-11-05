@@ -8,17 +8,17 @@ describe Decidim::Debates::CreateDebate do
   let(:organization) { create(:organization, available_locales: [:en, :ca, :es], default_locale: :en) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
-  let(:scope) { create(:scope, organization:) }
-  let(:category) { create(:category, participatory_space: participatory_process) }
   let(:user) { create(:user, organization:) }
+  let(:taxonomizations) do
+    2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+  end
   let(:form) do
     double(
       invalid?: invalid,
       title: "title",
       description: "description",
       user_group_id: nil,
-      scope:,
-      category:,
+      taxonomizations:,
       current_user: user,
       current_component:,
       current_organization: organization
@@ -48,14 +48,18 @@ describe Decidim::Debates::CreateDebate do
       let(:command) { subject }
     end
 
-    it "sets the scope" do
+    it "sets the taxonomies" do
       subject.call
-      expect(debate.scope).to eq scope
+      expect(debate.taxonomizations).to match_array(taxonomizations)
     end
 
-    it "sets the category" do
-      subject.call
-      expect(debate.category).to eq category
+    context "when no taxonomizations are set" do
+      let(:taxonomizations) { [] }
+
+      it "taxonomizations are empty" do
+        subject.call
+        expect(debate.taxonomizations).to be_empty
+      end
     end
 
     it "sets the component" do
@@ -84,7 +88,7 @@ describe Decidim::Debates::CreateDebate do
         .with(
           Decidim::Debates::Debate,
           user,
-          hash_including(:category, :title, :description, :component, :author, :decidim_user_group_id),
+          hash_including(:taxonomizations, :title, :description, :component, :author, :decidim_user_group_id),
           visibility: "public-only"
         )
         .and_call_original

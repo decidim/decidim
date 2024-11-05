@@ -5,20 +5,19 @@ module Decidim
     module Admin
       # This class holds a Form to create/update projects from Decidim's admin panel.
       class ProjectForm < Decidim::Form
-        include TranslatableAttributes
-        include AttachmentAttributes
-        include TranslationsHelper
+        include Decidim::TranslatableAttributes
+        include Decidim::HasTaxonomyFormAttributes
+        include Decidim::AttachmentAttributes
+        include Decidim::TranslationsHelper
         include Decidim::ApplicationHelper
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
 
         attribute :address, String
         attribute :latitude, Float
         attribute :longitude, Float
         attribute :budget_amount, Integer
-        attribute :decidim_scope_id, Integer
-        attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]
         attribute :attachment, AttachmentForm
         attribute :selected, Boolean
@@ -29,22 +28,18 @@ module Decidim
         validates :description, translatable_presence: true
         validates :budget_amount, presence: true, numericality: { greater_than: 0 }
         validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
-        validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
-        validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
 
         validate :notify_missing_attachment_if_errored
 
-        delegate :categories, to: :current_component
         alias component current_component
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
           self.selected = model.selected?
+        end
 
-          return unless model.categorization
-
-          self.decidim_category_id = model.categorization.decidim_category_id
+        def participatory_space_manifest
+          @participatory_space_manifest ||= current_component.participatory_space.manifest.name
         end
 
         def proposals
@@ -70,27 +65,6 @@ module Decidim
         # Returns a Decidim::Budgets:Budget
         def budget
           @budget ||= context[:budget]
-        end
-
-        # Finds the Category from the decidim_category_id.
-        #
-        # Returns a Decidim::Category
-        def category
-          @category ||= categories.find_by(id: decidim_category_id)
-        end
-
-        # Finds the Scope from the given decidim_scope_id, uses the component scope if missing.
-        #
-        # Returns a Decidim::Scope
-        def scope
-          @scope ||= @attributes["decidim_scope_id"].value ? current_component.scopes.find_by(id: @attributes["decidim_scope_id"].value) : current_component.scope
-        end
-
-        # Scope identifier
-        #
-        # Returns the scope identifier related to the project
-        def decidim_scope_id
-          super || scope&.id
         end
 
         private

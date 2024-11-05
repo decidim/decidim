@@ -5,18 +5,19 @@ module Decidim
     module Admin
       # This class holds a Form to create/update debates from Decidim's admin panel.
       class DebateForm < Decidim::Form
-        include TranslatableAttributes
         mimic :debate
+
+        include Decidim::TranslatableAttributes
+        include Decidim::HasTaxonomyFormAttributes
+
         translatable_attribute :title, String
-        translatable_attribute :description, String
-        translatable_attribute :instructions, String
-        translatable_attribute :information_updates, String
+        translatable_attribute :description, Decidim::Attributes::RichText
+        translatable_attribute :instructions, Decidim::Attributes::RichText
+        translatable_attribute :information_updates, Decidim::Attributes::RichText
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
-        attribute :decidim_category_id, Integer
         attribute :finite, Boolean, default: true
         attribute :comments_layout, String, default: "single_column"
-        attribute :scope_id, Integer
         attribute :comments_enabled, Boolean, default: true
 
         validates :title, translatable_presence: true
@@ -27,17 +28,8 @@ module Decidim
         validates :comments_layout, presence: true, inclusion: { in: %w(single_column two_columns) }
         validate :comments_layout_change, if: -> { debate&.comments_count&.positive? }
 
-        validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
-        validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-        validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
-
-        def debate
-          @debate ||= context[:debate]
-        end
-
         def map_model(model)
           self.finite = model.start_time.present? && model.end_time.present?
-          self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
           presenter = DebatePresenter.new(model)
 
           self.title = presenter.title(all_locales: title.is_a?(Hash))
@@ -45,24 +37,8 @@ module Decidim
           self.comments_layout = model.comments_layout || "single_column"
         end
 
-        def category
-          return unless current_component
-
-          @category ||= current_component.categories.find_by(id: decidim_category_id)
-        end
-
-        # Finds the Scope from the given decidim_scope_id, uses the component scope if missing.
-        #
-        # Returns a Decidim::Scope
-        def scope
-          @scope ||= @attributes["scope_id"].value ? current_component.scopes.find_by(id: @attributes["scope_id"].value) : current_component.scope
-        end
-
-        # Scope identifier
-        #
-        # Returns the scope identifier related to the meeting
-        def scope_id
-          super || scope&.id
+        def participatory_space_manifest
+          @participatory_space_manifest ||= current_component.participatory_space.manifest.name
         end
 
         private

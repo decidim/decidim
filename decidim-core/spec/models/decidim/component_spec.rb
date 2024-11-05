@@ -14,6 +14,7 @@ module Decidim
 
     include_examples "publicable"
     include_examples "resourceable"
+    include_examples "taxonomy settings"
 
     it "overwrites the log presenter" do
       expect(described_class.log_presenter_class_for(:foo))
