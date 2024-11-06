@@ -574,7 +574,6 @@ zh-TW:
             error: 無法拒絕作為合作者，請稍後再試。
             success: "@%{user} 已被成功拒絕成為協作者。"
         show:
-          edit: 編輯協作草稿
           final_proposal: 最終提案
           final_proposal_help_text: 此草案已完成。請查看最終提案。
           hidden_authors_count:
@@ -690,7 +689,6 @@ zh-TW:
         show:
           answer: 回答
           changes_at_title: 修正案 "%{title}"
-          edit_proposal: 編輯提案
           estimated_cost: 預估成本
           hidden_endorsers_count:
             other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
@@ -704,7 +702,6 @@ zh-TW:
           proposal_in_evaluation_reason: 這個提案正在被評估中
           proposal_rejected_reason: '這個提案被拒絕了，因為：'
           withdraw_confirmation_html: 您確定要撤回此提案嗎？<br><br><strong>此操作無法取消！</strong>
-          withdraw_proposal: 撤回提案
         update:
           title: 更新提案
         voting_rules:
