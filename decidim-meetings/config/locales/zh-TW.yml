@@ -511,7 +511,6 @@ zh-TW:
           visit_finished: 查看過去的會議
           withdraw_btn_hint: 您可以撤回您的會議，如果您改變了主意。會議不會被刪除，而是會顯示在已撤回的會議列表中。
           withdraw_confirmation_html: 您確定要撤回此會議嗎？<br><br><strong>此操作無法取消！</strong>
-          withdraw_meeting: 撤回會議
         update:
           invalid: 更新會議時發生問題.
           success: 您已成功更新會議。
