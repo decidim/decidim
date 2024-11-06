@@ -516,7 +516,6 @@ ro:
           rejected_request:
             error: Nu ai putut fi respins drept colaborator, te rugăm să încerci din nou mai târziu.
         show:
-          edit: Editează ciorna colaborativă
           final_proposal: propunere finală
           final_proposal_help_text: Această ciornă este finalizată. Verifică propunerea finală
           hidden_authors_count:
@@ -628,7 +627,6 @@ ro:
         show:
           answer: Răspuns
           changes_at_title: Amendament pentru „%{title}”
-          edit_proposal: Editează propunerea
           estimated_cost: Cost estimat
           hidden_endorsers_count:
             one: și încă %{count} persoană
@@ -644,7 +642,6 @@ ro:
           proposal_in_evaluation_reason: Această propunere este în curs de evaluare
           proposal_rejected_reason: 'Această propunere a fost respinsă deoarece:'
           withdraw_confirmation_html: Sigur dorești să retragi această propunere?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
-          withdraw_proposal: Retrage propunerea
         update:
           title: Actualizează propunerea
         voting_rules:
