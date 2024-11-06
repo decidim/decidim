@@ -498,7 +498,6 @@ nl:
           rejected_request:
             error: Kan niet worden afgewezen als bijdrager, probeer het later opnieuw.
         show:
-          edit: Bewerk gezamenlijk ontwerp
           final_proposal: definitief voorstel
           final_proposal_help_text: Dit concept is voltooid. U kunt het definitieve voltooide voorstel zien
           hidden_authors_count:
@@ -605,7 +604,6 @@ nl:
         show:
           answer: Antwoord
           changes_at_title: Amendement op "%{title}"
-          edit_proposal: Bewerk voorstel
           estimated_cost: Geschatte kosten
           hidden_endorsers_count:
             one: en nog %{count} persoon
@@ -620,7 +618,6 @@ nl:
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
           withdraw_confirmation_html: Weet u zeker dat u dit voorstel wilt intrekken?<br><br><strong>Deze actie kan niet worden geannuleerd!</strong>
-          withdraw_proposal: Voorstel intrekken
         update:
           title: Update voorstel
         vote_button:
