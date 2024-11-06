@@ -8,7 +8,10 @@ module Decidim
         return Decidim::Meetings::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
 
-        return toggle_allow(!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user)) if permission_action.subject == :meeting && permission_action.action == :read
+        if permission_action.subject == :meeting && permission_action.action == :read
+          toggle_allow(!meeting&.hidden? && meeting&.current_user_can_visit_meeting?(user))
+          return permission_action
+        end
 
         return permission_action unless user
 
