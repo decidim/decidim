@@ -34,5 +34,8 @@ describe "Download Open Data files", download: true do
     click_on("Detailed explanation of each file")
     expect(page).to have_content("Below is a description of each dataset, including its schema (structure) and the type of information it contains")
     expect(page).to have_content("The component that the result belongs to")
+
+    click_on("License")
+    expect(page).to have_content("Open Database License")
   end
 end

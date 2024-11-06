@@ -73,6 +73,13 @@
       <% end %>
     </div>
 
+    <%# i18n-tasks-use t("decidim.open_data.index.explanation.title") %>
+    <%= render layout: "decidim/open_data/section", locals: { i18n_scope: "license" } do %>
+      <% link_database = link_to(t("license_database_name", scope: "decidim.open_data.index.license"), t("license_database_link", scope: "decidim.open_data.index.license")) %>
+      <% link_contents = link_to(t("license_contents_name", scope: "decidim.open_data.index.license"), t("license_contents_link", scope: "decidim.open_data.index.license")) %>
+      <p> <%= t("body_1_html", scope: "decidim.open_data.index.license", organization_name: current_organization_name, link_database:, link_contents:) %> </p>
+    <% end %>
+
     <div class="editor-content mt-8">
       <h2 class="h4"><%= t("title", scope: "decidim.open_data.index.download") %></h2>
       <h3 class="h5"><%= t("components", scope: "decidim.open_data.index.download") %></h3>
