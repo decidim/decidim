@@ -228,7 +228,6 @@ ru:
           title: Обнародуйте свое предложение
         show:
           answer: Ответить
-          edit_proposal: Редактировать предложение
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
