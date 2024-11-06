@@ -512,9 +512,9 @@ lt:
           see_all_withdrawn: Žiūrėti visus atšauktus susitikimus
           text_banner: Jūs žiūrite susitikimų, kuriuos atšaukė jų autoriai, sąrašą. %{go_back_link}.
         meeting:
-          close_meeting: Uždaryti susitikimą
+          close_meeting: Baigti susirinkimą
           edit_close_meeting: Redaguoti susitikimo ataskaitą
-          edit_meeting: Redaguoti susitikimą
+          edit_meeting: Redaguoti susirinkimą
           join_meeting: Prisijunkite prie susitikimo
         meetings:
           no_meetings_warning: Jūsų paieškos kriterijus atitinkančių susirinkimų nerasta arba neplanuojama.
