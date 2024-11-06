@@ -444,7 +444,6 @@ sk:
           rejected_request:
             error: Nemohol byť odmietnutý ako spolupracovník, skúste to znova neskôr.
         show:
-          edit: Úprava konceptu spolupráce
           final_proposal: konečný návrh
           final_proposal_help_text: Tento návrh je dokončený. Môžete vidieť konečný konečný návrh
           hidden_authors_count:
@@ -545,7 +544,6 @@ sk:
         show:
           answer: Odpovedať
           changes_at_title: doplňujúci návrh k "%{title}"
-          edit_proposal: Upraviť návrh
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a%{count} ďalšia osoba
@@ -561,7 +559,6 @@ sk:
           proposal_accepted_reason: 'Tento návrh bol prijatý, pretože:'
           proposal_in_evaluation_reason: Tento návrh sa hodnotí
           proposal_rejected_reason: 'Tento návrh bol zamietnutý, pretože:'
-          withdraw_proposal: Návrh stiahnuť
         voting_rules:
           proposal_limit:
             description: Môžete vytvoriť až %{limit} návrhov.
