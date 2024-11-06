@@ -128,11 +128,9 @@ hu:
           recent: Legfrissebb
           updated: Nemrégiben frissítve
         show:
-          close_debate: Vita lezárása
           debate_closed: Lezárva
           debate_conclusions_are: 'A vitát %{date} -n zárult le az alábbi következtetésekkel:'
           edit_conclusions: Következtetések szerkesztése
-          edit_debate: Vita szerkesztése
           groups_count: Csoportok
           open: Nyitott vita
           participants_count: Résztvevők
