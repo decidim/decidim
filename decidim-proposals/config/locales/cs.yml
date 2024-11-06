@@ -809,7 +809,6 @@ cs:
             error: Nemohl být odmítnut jako spolupracovník, zkuste to znovu později.
             success: "@%{user} byl úspěšně odmítnut jako spolupracovník."
         show:
-          edit: Úprava konceptu spolupráce
           final_proposal: konečný návrh
           final_proposal_help_text: Tento návrh je dokončen. Můžete vidět konečný konečný návrh
           hidden_authors_count:
@@ -969,7 +968,6 @@ cs:
         show:
           answer: Odpovědět
           changes_at_title: Pozměňovací návrh k "%{title}"
-          edit_proposal: Upravit návrh
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a %{count} další osoba
@@ -987,7 +985,6 @@ cs:
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
           withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, dokud neobdržíte žádný hlas. Návrh není vymazán, objeví se v seznamu stažených návrhů.
           withdraw_confirmation_html: Jste si jisti, že chcete stáhnout tento návrh?<br><br><strong>Tuto akci nelze zrušit!</strong>
-          withdraw_proposal: Návrh stáhnout
         update:
           title: Aktualizovat návrh
         vote_button:
