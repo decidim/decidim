@@ -130,11 +130,9 @@ ro:
           recent: Cele mai recente
           updated: Actualizate recent
         show:
-          close_debate: Închide dezbaterea
           debate_closed: Închisă
           debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
           edit_conclusions: Editează concluziile
-          edit_debate: Editează dezbaterea
           groups_count: Grupuri
           open: Dezbatere deschisă
           participants_count: Participanţi
