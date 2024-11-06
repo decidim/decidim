@@ -3,12 +3,6 @@
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
   <%= comment_as_for(form) %>
 
-  <div class="flex justify-between items-end mb-4">
-    <label class="comment__form-label" for="<%= add_comment_id %>">
-      <%= t("decidim.components.add_comment_form.form.body.label") %>
-    </label>
-  </div>
-
   <%= form.text_area(
     :body,
     id: add_comment_id,
