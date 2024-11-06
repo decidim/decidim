@@ -472,6 +472,9 @@ ar:
           see_all: عرض كافة الاجتماعات
           see_all_withdrawn: عرض جميع الاجتماعات المسحوبة
           text_banner: أنت تستعرض قائمة الاجتماعات التي تم سحبها من قبل مؤلفيها. %{go_back_link}.
+        meeting:
+          close_meeting: اجتماع قريب
+          edit_meeting: تعديل الاجتماعات
         meetings:
           upcoming_meetings_warning: حاليًا ، لا توجد اجتماعات مجدولة ، ولكن يمكنك هنا العثور على جميع الاجتماعات السابقة المدرجة.
         new:
