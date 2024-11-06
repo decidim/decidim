@@ -48,6 +48,7 @@ en:
           submit_reply: Publish reply
           submit_root_comment: Publish comment
           user_group_id:
+            your_profile: Your profile
             label: Comment as
         opinion:
           label: Your opinion about this topic

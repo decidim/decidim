@@ -74,8 +74,8 @@ module Decidim
       end
 
       def comment_as_options
-        [[current_user.name, ""]] + verified_user_groups.map do |group|
-          [group.name, group.id]
+        [[UserPresenter.new(current_user), ""]] + verified_user_groups.map do |group|
+          [UserGroupPresenter.new(group), group.id]
         end
       end
 

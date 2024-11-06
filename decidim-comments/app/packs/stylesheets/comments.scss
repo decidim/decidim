@@ -349,3 +349,42 @@
 .comments-label-dropdown {
   @apply mr-2 mt-2;
 }
+
+[id*="dropdown-menu-add-comment"] {
+  @apply flex flex-col py-0 mx-3.5 md:mx-0 border-t-0 border-gray-3 cursor-pointer;
+
+  &[aria-hidden="true"] {
+    @apply hidden;
+  }
+}
+
+[data-target*="dropdown-menu-add-comment"] {
+  @apply w-full flex items-center justify-between gap-2 p-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+
+  & > span {
+    @apply hidden font-semibold text-secondary;
+
+    &:only-of-type,
+    &.is-active {
+      @apply flex items-center gap-2 [&_svg]:fill-current;
+    }
+  }
+
+  > svg {
+    @apply w-6 h-6 flex-none text-secondary fill-current;
+  }
+
+  &[aria-expanded="false"] > svg:last-of-type,
+  &[aria-expanded="true"] > svg:first-of-type {
+    @apply hidden;
+  }
+
+  &[aria-expanded="true"] > svg:last-of-type,
+  &[aria-expanded="false"] > svg:first-of-type {
+    @apply block;
+  }
+}
+
+.radio_button {
+  @apply appearance-none w-5 h-4 border-transparent bg-secondary bg-[100%_100%] bg-center bg-no-repeat bg-[url('/images/option.svg')];
+}
