@@ -20,19 +20,16 @@
 <% end %>
 
 <% if @form.geocoding_enabled? %>
-  <%= form.geocoding_field(
-    :address,
-    placeholder: t("decidim.proposals.proposals.placeholder.address"),
-    data: {
-      screen_reader_announcement: t("decidim.proposals.proposals.edit_form_fields.marker_added")
-    }
-  ) %>
-
-  <div id="address_map" class="proposal__container">
-    <p class="help-text">
-      <%= t("instructions", scope: "decidim.proposals.proposals.dynamic_map_instructions") %> <%= t("description", scope: "decidim.proposals.proposals.dynamic_map_instructions") %>
-    </p>
-    <%= dynamic_map_for proposal_preview_data_for_map(@proposal) unless new_proposal %>
+  <div id="address_input">
+    <div class="address-fill">
+      <%= form.geocoding_field :address, placeholder: t("decidim.proposals.proposals.placeholder.address"), data: { screen_reader_announcement: t("decidim.proposals.proposals.edit_form_fields.marker_added") } %>
+    </div>
+    <div id="address_map" class="proposal__container">
+      <p class="help-text">
+        <%= t("instructions", scope: "decidim.proposals.proposals.dynamic_map_instructions") %> <%= t("description", scope: "decidim.proposals.proposals.dynamic_map_instructions") %>
+      </p>
+      <%= dynamic_map_for proposal_preview_data_for_map(@form.to_h) %>
+    </div>
   </div>
 <% end %>
 
