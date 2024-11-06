@@ -742,7 +742,6 @@ sv:
             error: Kunde inte avvisas som samarbetspartner, försök igen senare.
             success: "@%{user} har avvisats som medskapare."
         show:
-          edit: Redigera gemensamt utkast
           final_proposal: Färdigt förslag
           final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga förslaget
           hidden_authors_count:
@@ -893,7 +892,6 @@ sv:
         show:
           answer: Svara
           changes_at_title: Ändring till %{title}
-          edit_proposal: Redigera förslag
           estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
             one: och %{count} till person
@@ -909,7 +907,6 @@ sv:
           proposal_rejected_reason: 'Förslaget har avslagits på grund av att:'
           withdraw_btn_hint: Om du ändrar dig kan du återkalla förslaget, så länge det inte har fått någon röst. Förslaget raderas inte, utan står med i listan över återkallade förslag.
           withdraw_confirmation_html: Är du säker på att du vill dra tillbaka förslaget?<br><br><strong>Denna åtgärd kan inte ångras!</strong>
-          withdraw_proposal: Dra tillbaka förslaget
         update:
           title: Uppdatera förslag
         vote_button:
