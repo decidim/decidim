@@ -536,7 +536,9 @@ fr-CA:
           see_all_withdrawn: Voir toutes les réunions annulées
           text_banner: Vous consultez la liste des réunions annulées par leurs auteurs. %{go_back_link}.
         meeting:
+          close_meeting: Clore
           edit_close_meeting: Modifier le compte-rendu de la rencontre
+          edit_meeting: Modifier
           join_meeting: Participer à la rencontre
           reply_poll: Répondre au sondage
           view_poll: Voir le sondage
