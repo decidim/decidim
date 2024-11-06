@@ -485,7 +485,6 @@ it:
           rejected_request:
             error: Non può essere rifiutato come collaboratore, riprova più tardi.
         show:
-          edit: Modifica bozza collaborativa
           final_proposal: proposta finale
           final_proposal_help_text: Questa bozza è finita. Puoi vedere la proposta finale finale
           hidden_authors_count:
@@ -591,7 +590,6 @@ it:
         show:
           answer: Risposta
           changes_at_title: Modifica a "%{title}"
-          edit_proposal: Modifica la proposta
           estimated_cost: Costo stimato
           hidden_endorsers_count:
             one: e %{count} altra persona
@@ -606,7 +604,6 @@ it:
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
           withdraw_confirmation_html: Sei sicuro di voler ritirare questa proposta?<br><br><strong>Questa azione non può essere annullata!</strong>
-          withdraw_proposal: Ritirare la proposta
         update:
           title: Aggiorna proposta
         vote_button:
