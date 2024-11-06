@@ -14,12 +14,12 @@ describe "Download Open Data files", download: true do
 
     expect(File.basename(download_path)).to include("open-data.zip")
     Zip::File.open(download_path) do |zipfile|
-      expect(zipfile.glob("*open-data-conferences.csv").length).to eq(1)
+      expect(zipfile.glob("*open-data-meetings.csv").length).to eq(1)
     end
   end
 
-  describe "conferences" do
-    let(:file_name) { "open-data-conferences.csv" }
+  describe "meetings" do
+    let(:file_name) { "open-data-meetings.csv" }
 
     context "when there is none" do
       it "returns an empty file" do
@@ -29,25 +29,28 @@ describe "Download Open Data files", download: true do
       end
     end
 
-    context "when the conference is unpublished" do
-      let!(:conference) { create(:conference, :unpublished, organization:) }
-      let(:resource_title) { translated_attribute(conference.title).gsub('"', '""') }
+    context "when the meeting's component is unpublished" do
+      let!(:meeting) { create(:meeting, component:) }
+      let(:resource_title) { translated_attribute(meeting.title).gsub('"', '""') }
+      let(:component) { create(:meeting_component, :unpublished, organization:) }
 
       it_behaves_like "does not include it in the open data ZIP file"
     end
 
-    context "when the conference is published" do
-      let!(:conference) { create(:conference, :published, organization:) }
-      let(:resource_title) { translated_attribute(conference.title).gsub('"', '""') }
+    context "when the meeting's component is published" do
+      let!(:meeting) { create(:meeting, component:) }
+      let(:resource_title) { translated_attribute(meeting.title).gsub('"', '""') }
+      let(:component) { create(:meeting_component, organization:) }
 
       it_behaves_like "includes it in the open data ZIP file"
     end
   end
 
   describe "open data page" do
-    let(:resource_type) { "conferences" }
-    let!(:conference) { create(:conference, :published, organization:) }
-    let(:resource_title) { translated_attribute(conference.title).gsub('"', '""') }
+    let(:resource_type) { "meetings" }
+    let!(:meeting) { create(:meeting, component:) }
+    let(:component) { create(:meeting_component, organization:) }
+    let(:resource_title) { translated_attribute(meeting.title).gsub('"', '""') }
 
     it_behaves_like "includes it in the open data CSV file"
   end
