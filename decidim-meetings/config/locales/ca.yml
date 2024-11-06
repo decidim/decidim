@@ -549,9 +549,7 @@ ca:
           see_all_withdrawn: Veure totes les trobades cancel·lades
           text_banner: Estàs veient un llistat de trobades cancel·lades per les seves autores. %{go_back_link}.
         meeting:
-          close_meeting: Tancar la trobada
           edit_close_meeting: Editar l'informe de la trobada
-          edit_meeting: Editar la trobada
           join_meeting: Unir-se a la trobada
           reply_poll: Respondre sondeig/consulta
           view_poll: Veure sondeig/consulta
@@ -589,7 +587,6 @@ ca:
           visit_finished: Veure trobada passada
           withdraw_btn_hint: Pots cancel·lar la teva trobada si canvies de parer. La trobada no s'elimina, apareixerà al llistat de trobades cancel·lades.
           withdraw_confirmation_html: Segur que vols cancel·lar aquesta trobada?<br><br><strong>Aquesta acció no es pot desfer!</strong>
-          withdraw_meeting: Cancel·lar trobada
         update:
           invalid: Hi ha hagut un problema en actualitzar aquesta trobada.
           success: Has actualitzat la trobada amb èxit.
