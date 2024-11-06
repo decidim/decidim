@@ -604,7 +604,6 @@ lt:
             error: Nepavyko atmesti kaip bendraautoriaus. Bandykite dar kartą vėliau.
             success: "@%{user} atmestas kaip bendraautorius."
         show:
-          edit: Redaguoti bendrąjį juodraštį
           final_proposal: galutinis pasiūlymas
           final_proposal_help_text: Šis juodraštis baigtas. Patikrinkite galutinį pasiūlymą
           hidden_authors_count:
@@ -735,7 +734,6 @@ lt:
         show:
           answer: Atsakymas
           changes_at_title: '„%{title}“ pakeitimas'
-          edit_proposal: Redaguoti pasiūlymą
           estimated_cost: Numatomos išlaidos
           hidden_endorsers_count:
             one: ir dar %{count} žmogus
@@ -752,7 +750,6 @@ lt:
           proposal_in_evaluation_reason: Šis pasiūlymas šiuo metu vertinamas
           proposal_rejected_reason: 'Šis pasiūlymas buvo atmestas, nes:'
           withdraw_confirmation_html: Ar tikrai norite atsiimti šį pasiūlymą? <br><br><strong>Šio veiksmo atšaukti negalima!</strong>
-          withdraw_proposal: Atsiimti pasiūlymą
         update:
           title: Atnaujinti pasiūlymą
         voting_rules:
