@@ -146,9 +146,11 @@ eu:
           recent: Azkenak
           updated: Orain dela gutxi eguneratuak
         show:
+          close_debate: Itxi
           debate_closed: Itxita
           debate_conclusions_are: 'Eztabaida %{date} egunean itxi zen ondorio hauekin:'
           edit_conclusions: Editatu ondorioak
+          edit_debate: Editatu
           groups_count: Taldeak
           open: Eztabaida irekita
           participants_count: Parte-hartzaileak
