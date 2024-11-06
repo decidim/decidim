@@ -782,7 +782,6 @@ ja:
             error: コラボレーターとして拒否できませんでした。後でもう一度やり直してください。
             success: "@%{user} さんはコラボレーターとして正常に拒否されました。"
         show:
-          edit: 共同草案を編集
           final_proposal: 最終的な提案
           final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
           hidden_authors_count:
@@ -932,7 +931,6 @@ ja:
         show:
           answer: 回答
           changes_at_title: '「%{title} 」に修正'
-          edit_proposal: 提案を編集
           estimated_cost: 推定コスト
           hidden_endorsers_count:
             other: '%{count} 人以上'
@@ -947,7 +945,6 @@ ja:
           proposal_rejected_reason: 'この提案は以下の理由により拒否されました:'
           withdraw_btn_hint: 投票を受けていない限り、提案を取り消すことができます。 提案は削除されず、撤回された提案のリストに表示されます。
           withdraw_confirmation_html: この提案を撤回してもよろしいですか？<br><br><strong>この操作はキャンセルできません！</strong>
-          withdraw_proposal: 提案を撤回する
         update:
           title: 提案を更新
         vote_button:
