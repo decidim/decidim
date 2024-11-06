@@ -134,6 +134,8 @@ es-PY:
               rejected: Rechazadas
               validating: Validación técnica
               withdrawn: Retiradas
+          taxonomies_part_of_contains:
+            label: Taxonomía
           valuator_role_ids_has:
             label: Asignada a evaluadora
           with_any_state:
@@ -143,6 +145,9 @@ es-PY:
               state_published: Respondidas
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
+    application:
+      geocoding:
+        not_configured: '¡La geocodificación no está configurada!'
     components:
       proposals:
         actions:
@@ -163,6 +168,7 @@ es-PY:
             attachments_allowed: Permitir archivos adjuntos
             attachments_allowed_help: Al activar esta opción, las propuestas se mostrarán en modo de cuadrícula por defecto y la primera imagen aparecerá en la tarjeta.
             can_accumulate_votes_beyond_threshold: Puede acumular apoyos más allá del umbral
+            clear_all: Limpiar todo
             collaborative_drafts_enabled: Habilitar borradores colaborativos
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
@@ -177,6 +183,7 @@ es-PY:
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio participativo antes de utilizar esta configuración.
             edit_time: Las autoras pueden editar las propuestas antes de que pase este tiempo
             edit_time_units:
               days: Días
@@ -187,6 +194,7 @@ es-PY:
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Nuevo texto de ayuda de propuesta
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             official_proposals_enabled: Propuestas oficiales habilitadas
             participatory_texts_enabled: Textos participativos habilitados
             participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
@@ -206,6 +214,8 @@ es-PY:
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada propuesta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de apoyos por participante
           step:
@@ -455,6 +465,7 @@ es-PY:
           reference: El identificador único del recurso en esta plataforma
           related_proposals: Las propuestas relacionadas con esta propuesta
           state: El estado de esta propuesta (por ejemplo, "Aceptado")
+          taxonomies: Las taxonomías a las que pertenece esta propuesta
           title: El título de la propuesta
           url: La URL donde se puede encontrar esta propuesta
           votes: El número de apoyos que tiene esta propuesta
@@ -794,7 +805,6 @@ es-PY:
             error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
             success: "Se ha rechazado con éxito @%{user} como colaboradora."
         show:
-          edit: Editar borrador colaborativo
           final_proposal: propuesta final
           final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
           hidden_authors_count:
@@ -832,6 +842,11 @@ es-PY:
       destroy_draft:
         error: Se han producido errores al eliminar el borrador de la propuesta.
         success: El borrador de la propuesta fue eliminado con éxito.
+      forms:
+        errors:
+          device_not_supported: Su dispositivo no soporta servicios de ubicación. Por favor, introduzca la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
+          no_device_location: Lo sentimos, no hemos podido detectar tu ubicación. Por favor, introduce la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
+        use_my_location: Usar mi ubicación actual
       invite_coauthors:
         cancel:
           error: Se ha producido un error al cancelar la invitación de coautoría.
@@ -858,6 +873,7 @@ es-PY:
             published_answer: Respuesta publicada
             published_at: Publicado el
             state: Estado
+            taxonomies: Taxonomías
             title: Título
             valuator: Evaluadora
             valuators: Evaluadoras
@@ -904,6 +920,7 @@ es-PY:
           scope: Ámbito
           search: Buscar
           state: Estado
+          taxonomy_filters: Filtros
           type: Tipo
           voted: Votado
         index:
@@ -950,7 +967,6 @@ es-PY:
         show:
           answer: Respuesta
           changes_at_title: Enmienda a "%{title}"
-          edit_proposal: Editar propuesta
           estimated_cost: Coste estimado
           hidden_endorsers_count:
             one: y %{count} persona más
@@ -966,7 +982,6 @@ es-PY:
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún apoyo. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation_html: '¿Seguro que quieres retirar esta propuesta?<br><br><strong>Esta acción no se puede deshacer!</strong>'
-          withdraw_proposal: Retirar propuesta
         update:
           title: Actualizar propuesta
         vote_button:
