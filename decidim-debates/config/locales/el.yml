@@ -128,11 +128,9 @@ el:
           recent: Πιο πρόσφατες
           updated: Πρόσφατα ενημερωμένες
         show:
-          close_debate: Κλείσιμο συζήτησης
           debate_closed: Κλειστό
           debate_conclusions_are: 'Η συζήτηση έκλεισε στις %{date} με αυτά τα συμπεράσματα:'
           edit_conclusions: Επεξεργασία συμπερασμάτων
-          edit_debate: Επεξεργασία συζήτησης
           groups_count: Ομάδες
           open: Άνοιγμα συζήτησης
           participants_count: Συμμετέχοντες
