@@ -110,6 +110,8 @@ es-PY:
             values:
               'false': Pasados
               'true': Próximos
+          taxonomies_part_of_contains:
+            label: Taxonomía
           with_any_origin:
             label: Origen
             values:
@@ -151,16 +153,21 @@ es-PY:
         settings:
           global:
             announcement: Anuncio
+            clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             creation_enabled_for_participants: Las participantes pueden crear encuentros
             default_registration_terms: Términos de registro predeterminados
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             enable_pads_creation: Habilitar la creación de pads
             maps_enabled: Mapas habilitados
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             registration_code_enabled: Código de inscripción activado
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
             terms_and_conditions_url_for_meeting_creators: URL de términos y condiciones para las creadoras de encuentros
           step:
             announcement: Anuncio
@@ -542,9 +549,7 @@ es-PY:
           see_all_withdrawn: Ver todos los encuentros retirados
           text_banner: Estás viendo la lista de encuentros retirados por sus autores. %{go_back_link}.
         meeting:
-          close_meeting: Cerrar el encuentro
           edit_close_meeting: Editar el informe del encuentro
-          edit_meeting: Editar el encuentro
           join_meeting: Unirse al encuentro
           reply_poll: Responder consulta
           view_poll: Ver consulta
@@ -582,7 +587,6 @@ es-PY:
           visit_finished: Ver encuentro pasado
           withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
           withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
-          withdraw_meeting: Retirar encuentro
         update:
           invalid: Se ha producido un error al actualizar este encuentro.
           success: Has actualizado el encuentro con éxito.
@@ -605,6 +609,7 @@ es-PY:
             map: Mapa
             official_meeting: Encuentro oficial
             start_time: Fecha de inicio
+            taxonomies: Taxonomías
             title: Título
       polls:
         answers:
@@ -714,6 +719,7 @@ es-PY:
           related_proposals: Las propuestas relacionadas con este encuentro
           related_results: Los resultados relacionados con este encuentro
           start_time: La fecha y hora en que se inició este encuentro
+          taxonomies: Las taxonomías a las que pertenece este encuentro
           title: El título del encuentro
           url: La URL del encuentro
           withdrawn: Si este encuentro fue retirado/cancelado
