@@ -1,0 +1,106 @@
+= System 
+
+Every Decidim is multi-tenant by default. That means that you can have multiple organizations inside of your same installation. This is being used for instance for the Barcelona and Girona Provincials Governments, for offering Decidim installations to many small cities, or by the City of Barcelona, for giving service to lots of organizations (NGOs, cooperatives, etc).
+
+Even if you only have one Organization you also need to create one through the System Panel. It's available after you've installed Decidim, at `/system`. For instance if you domain is `example.org`, then it should be available at `http://example.org/system`.
+
+After you've freshly installed Decidim, you'll be redirected to the System panel log-in page:
+
+image::system-log_in.png[system panel log in]
+
+== 1. Create an admin account
+
+For logging in to this dashboard, you'll need to create a system admin account from your terminal:
+
+[source, console]
+....
+bin/rails decidim_system:create_admin
+....
+
+You'll be asked for an email and a password. For security, the password will not get displayed back at you and you'll need to confirm it. 
+
+== 2. Access the Dashboard
+
+With the email and password that you've added in the past step, you'll be able to log in. After you've logged in, you'll see an empty dashboard: 
+
+image::system-dashboard.png[system empty dashboard]
+
+== 3. Create a new organization
+
+Inside of the system panel, you need to create your Organization through the form:
+
+TIP: Please mind that some of these fields can't change through the System Form, as changing them could potentially leave your database in a broken state. You can change it through the console, but you'll be on your own.
+
+.System New Organization form
+|===
+|Field |Type |Description
+
+|Name
+|Required
+|Name of your organization. For instance, "Decidim Barcelona".
+
+|Reference prefix
+|Required
+|The reference prefix is used to uniquely identify resources across all organizations. It's for identifying different resources inside of Decidim. For instance, "BCN". You can change how it's created this reference through xref:configure:initializer.adoc[Decidim's initializer] (see **Custom resource reference**).
+
+|Host
+|Required
+|Fully qualified domain name. For instance, "example.org" or "decidim.barcelona".
+
+|Secondary hosts
+|Optional
+|Others domains or subdomains that point to this same installation. Normally this shouldn't be used. Enter each one of them in a new line. For instance, "example.com"
+
+|Organization admin name
+|Required
+|Name of the admin account. For instance, "Admin"
+
+|Organization admin email
+|Required
+|Email for the admin account. For instance, "admin@example.org"
+
+|Organization locales
+|Required
+|You'll need to configure at least one language. Decidim is multilanguage, meaning that you can have most of the admin contents with any number of languages. For seeing other languages you'll need to configure first the xref:configure:initializer.adoc[Decidim's initializer].
+
+|Force authentication
+|Optional
+|Check if you want to **Force users to authenticate before access organization**. That means that they don't see any published content and they only have access to the log-in form.
+
+|Users registration mode
+|Optional
+|Control how you want the login / participant register or signup to work. See below.
+
+|Available authorizations
+|Optional
+|How you want to authorize and verify that your participants are who they say they are. It depends a lot on your Organization, country, etc. See xref:customize:authorizations.adoc[Authorizations customization].
+
+|SMTP settings
+|Optional
+|Allows you to configure different SMTP servers for every Organzation in this installation. See xref:services:smtp.adoc[SMTP configuration].
+
+|Omniauth settings
+|Optional
+|Allows you to configure through external OAUTH providers for every Organization in this installation. See xref:services:social_providers.adoc[Social providers configuration].
+|===
+
+=== Users registration mode
+
+==== Allow participants to register and login
+
+Most of the installations use this setting. Means that everyone can register a participant account and login, without restrictions, only with an email account confirmation (and you can disable that confirmation also if you want to through xref:configure:initializer.adoc[Decidim's initializer])
+
+==== Don't allow participants to register, but allow existing participants to login
+
+This is for when you make a manual import of participants' accounts.
+
+==== Access only can be done with external accounts
+
+In the case where you have an external provider configured (like the `Omniauth settings`) and you want to have accounts from only this provider.
+
+== [Optional] 4. Edit an organization
+
+Finally, you can also Edit an organization, although some fields can not be changed as some contents in the database depends on them.
+
+For accessing your newly created Organization, you can do it going to the domain or subdomain that you've configured in `Host`.
+
