@@ -88,6 +88,8 @@ ru:
           back: Вернуться
           create: Создать
           title: Начать новое обсуждение
+        show:
+          edit_debate: Редактировать обсуждение
       models:
         debate:
           fields:
