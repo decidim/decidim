@@ -533,7 +533,7 @@ ca:
           see_all_withdrawn: Veure totes les trobades cancel·lades
           text_banner: Estàs veient un llistat de trobades cancel·lades per les seves autores. %{go_back_link}.
         meeting:
-          close_meeting: Tancar la trobada
+          close_meeting: Tancar trobada
           edit_close_meeting: Editar l'informe de la trobada
           edit_meeting: Editar la trobada
           join_meeting: Unir-se a la trobada
