@@ -449,10 +449,12 @@ es-MX:
         participatory_processes:
           form:
             announcement_help: El texto que ingreses aquí se mostrará al usuario justo debajo de la información del proceso.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             filters: Filtros
             images: Imágenes
             metadata: Metadatos
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
             related_processes: Procesos relacionados
             scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
