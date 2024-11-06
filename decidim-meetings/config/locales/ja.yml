@@ -535,9 +535,7 @@ ja:
           see_all_withdrawn: 取り消したすべてのミーティングを見る
           text_banner: 作成者が取り消したミーティングの一覧を表示しています． %{go_back_link}
         meeting:
-          close_meeting: ミーティングを終了する
           edit_close_meeting: ミーティングレポートを編集
-          edit_meeting: ミーティングを編集
           join_meeting: ミーティングに参加
           reply_poll: 投票に返信
           view_poll: 投票を表示
@@ -574,7 +572,6 @@ ja:
           visit_finished: 過去のミーティングを表示
           withdraw_btn_hint: 気が変わった場合はミーティングを取り消せます．ミーティングは削除されません．取り消されたミーティングのリストに表示されます．
           withdraw_confirmation_html: このミーティングを取り消してもよろしいですか?<br><br><strong>この操作はキャンセルできません!</strong>
-          withdraw_meeting: ミーティングを撤回する
         update:
           invalid: ミーティングの更新に問題がありました。
           success: ミーティングを更新しました．
