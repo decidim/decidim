@@ -533,9 +533,7 @@ pl:
           see_all_withdrawn: Zobacz wszystkie wycofane spotkania
           text_banner: Oglądasz listę spotkań wycofanych przez ich autorów. %{go_back_link}.
         meeting:
-          close_meeting: Zamknij spotkanie
           edit_close_meeting: Edytuj raport ze spotkania
-          edit_meeting: Edytuj spotkanie
           join_meeting: Dołącz do spotkania
           reply_poll: Odpowiedz na ankietę
           view_poll: Zobacz ankietę
@@ -574,7 +572,6 @@ pl:
           visit_finished: Zobacz poprzednie spotkanie
           withdraw_btn_hint: Możesz wycofać swoje spotkanie, jeśli zmienisz zdanie. Spotkanie nie zostanie usunięte, pojawi się na liście wycofanych spotkań.
           withdraw_confirmation_html: Czy na pewno chcesz wycofać to spotkanie?<br><br><strong>Tej akcji nie można anulować!</strong>
-          withdraw_meeting: Wycofaj spotkanie
         update:
           invalid: Wystąpił błąd podczas aktualizowania spotkania.
           success: Spotkanie zostało zaktualizowane.
