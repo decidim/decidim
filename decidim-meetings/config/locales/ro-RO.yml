@@ -481,7 +481,6 @@ ro:
           visit_finished: Arată întâlniri deja desfășurate
           withdraw_btn_hint: Poți să anulezi întâlnirea dacă te răzgândești. Întâlnirea nu va fi ștearsă, ci va apărea în lista de întâlniri anulate.
           withdraw_confirmation_html: Sigur dorești să retragi această întâlnire?<br><br><strong>Această acțiune nu poate fi anulată!</strong>
-          withdraw_meeting: Anulează întâlnirea
         update:
           invalid: A apărut o eroare la actualizarea ședinței.
           success: Ai actualizat întâlnirea cu succes.
