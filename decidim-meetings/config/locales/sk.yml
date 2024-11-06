@@ -280,6 +280,8 @@ sk:
           category: Kategória
           date: dátum
           search: Vyhľadávanie
+        meeting:
+          close_meeting: Zatvorte schôdzku
         meetings:
           upcoming_meetings_warning: V súčasnosti neexistujú žiadne plánované schôdzky, ale nájdete tu všetky minulé stretnutia.
         registration_confirm:
