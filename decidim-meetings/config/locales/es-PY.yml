@@ -516,9 +516,9 @@ es-PY:
           see_all_withdrawn: Ver todos los encuentros retirados
           text_banner: Estás viendo la lista de encuentros retirados por sus autores. %{go_back_link}.
         meeting:
-          close_meeting: Cerrar el encuentro
+          close_meeting: Cerrar encuentro
           edit_close_meeting: Editar el informe del encuentro
-          edit_meeting: Editar el encuentro
+          edit_meeting: Editar encuentro
           join_meeting: Unirse al encuentro
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con tu búsqueda o no hay ningún encuentro programado.
