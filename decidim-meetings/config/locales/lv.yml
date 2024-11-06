@@ -273,6 +273,8 @@ lv:
           category: Kategorija
           date: Datums
           search: Meklēt
+        meeting:
+          close_meeting: Slēgt sanāksmi
         meetings:
           upcoming_meetings_warning: Pašlaik nav plānotas sanāksmes, taču šeit varat atrast visas iepriekšējās sanāksmes.
         registration_confirm:
