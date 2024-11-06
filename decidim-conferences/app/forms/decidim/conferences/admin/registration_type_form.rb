@@ -11,7 +11,7 @@ module Decidim
         mimic :conference_registration_type
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
 
         attribute :weight, Integer
         attribute :price, Decimal

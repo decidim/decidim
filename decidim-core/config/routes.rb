@@ -55,6 +55,8 @@ Decidim::Core::Engine.routes.draw do
 
   resource :locale, only: [:create]
 
+  post :locate, to: "geolocation#locate"
+
   Decidim.participatory_space_manifests.each do |manifest|
     mount manifest.context(:public).engine, at: "/", as: "decidim_#{manifest.name}"
   end
