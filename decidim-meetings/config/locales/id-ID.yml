@@ -260,6 +260,8 @@ id:
           category: Kategori
           date: Tanggal
           search: Pencarian
+        meeting:
+          close_meeting: Tutup rapat
         meetings:
           upcoming_meetings_warning: Saat ini, tidak ada pertemuan yang dijadwalkan, tetapi di sini Anda dapat menemukan semua pertemuan sebelumnya yang terdaftar.
         registration_confirm:
