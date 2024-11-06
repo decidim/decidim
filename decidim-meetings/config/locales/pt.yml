@@ -383,6 +383,9 @@ pt:
           select_a_registration_type: Por favor seleccione um tipo de registo
         index:
           new_meeting: Nova reunião
+        meeting:
+          close_meeting: Encerrar reunião
+          edit_meeting: Editar reunião
         meetings:
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui pode encontrar listadas todas as reuniões passadas.
         new:
