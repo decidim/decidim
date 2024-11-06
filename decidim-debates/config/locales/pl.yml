@@ -138,11 +138,9 @@ pl:
           recent: Najnowsze
           updated: Ostatnio aktualizowane
         show:
-          close_debate: Zamknij debatę
           debate_closed: Zamknięta
           debate_conclusions_are: 'Debata została zamknięta %{date} z następującymi wnioskami:'
           edit_conclusions: Edytuj wnioski
-          edit_debate: Edytuj debatę
           groups_count: Grupy
           open: Otwarta
           participants_count: Użytkownicy
