@@ -128,11 +128,9 @@
           recent: Nyeste
           updated: Sist oppdatert
         show:
-          close_debate: Avslutt innspillstråd
           debate_closed: Lukket
           debate_conclusions_are: 'Innspillstråden er avsluttet den %{date}, med denne oppsummeringen:'
           edit_conclusions: Rediger oppsummering
-          edit_debate: Rediger innspillstråd
           groups_count: Grupper
           open: Åpen debatt
           participants_count: Deltakere
