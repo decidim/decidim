@@ -17,8 +17,9 @@ module Decidim
       return unless onboarding_manager.pending_action?
       return if authorization_status == :unauthorized
       return if pending_authorization_link_active?
+      return if ephemeral_authorized?
 
-      render ephemeral_authorized? ? :ephemeral_authorized : :show
+      render :show
     end
 
     private
@@ -46,19 +47,15 @@ module Decidim
     end
 
     def message_text
-      if ephemeral_authorized?
-        t("ephemeral_authorized_message", scope: "decidim.onboarding_action_message")
-      else
-        t(
-          "cta_html",
-          scope: "decidim.onboarding_action_message",
-          link_text:,
-          path: onboarding_path,
-          action: onboarding_manager.action_text.downcase,
-          resource_name: onboarding_manager.model_name.human.downcase,
-          resource_title: decidim_sanitize_translated(onboarding_manager.model_title)
-        )
-      end
+      t(
+        "cta_html",
+        scope: "decidim.onboarding_action_message",
+        link_text:,
+        path: onboarding_path,
+        action: onboarding_manager.action_text.downcase,
+        resource_name: onboarding_manager.model_name.human.downcase,
+        resource_title: decidim_sanitize_translated(onboarding_manager.model_title)
+      )
     end
 
     def link_text
