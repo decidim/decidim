@@ -162,11 +162,9 @@ is-IS:
           title: Birta tillöguna þína
         show:
           answer: Svara
-          edit_proposal: Breyta tillögu
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin
           proposal_rejected_reason: 'Þessi tillaga hefur verið hafnað vegna þess að:'
-          withdraw_proposal: Afturkalla tillögu
         voting_rules:
           proposal_limit:
             description: Þú getur búið til allt að %{limit} tillögur.
