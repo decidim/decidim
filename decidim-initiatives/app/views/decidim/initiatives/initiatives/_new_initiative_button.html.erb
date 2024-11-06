@@ -13,6 +13,7 @@
       </button>
     <% end %>
   <% elsif (initiative_type = available_initiative_types.first).present? %>
+    <% content_for(:redirect_after_login) { fill_data_create_initiative_index_path(initiative: { type_id: initiative_type.id }) } unless current_user %>
     <%= action_authorized_link_to(
           :create,
           fill_data_create_initiative_index_path(initiative: { type_id: initiative_type.id }),
