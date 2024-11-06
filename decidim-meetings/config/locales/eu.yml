@@ -518,7 +518,7 @@ eu:
         meeting:
           close_meeting: Itxi topaketa
           edit_close_meeting: Editatu topaketaren txostena
-          edit_meeting: Editatu topaketa
+          edit_meeting: Editatu bilera
           join_meeting: Izena eman
         meetings:
           no_meetings_warning: Ez dago bilaketa-irizpidearekin bat datorren topaketarik, edo ez dago topaketa programaturik.
