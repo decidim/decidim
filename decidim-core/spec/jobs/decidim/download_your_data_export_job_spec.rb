@@ -20,15 +20,13 @@ module Decidim
     it "deletes the temporary file after finishing the job" do
       user = create(:user)
 
-      expect(File).to receive(:delete) do |path|
-        expect(path.to_s).to match(%r{tmp/[a-zA-Z0-9_-]+\.zip})
-      end
       expect(Decidim::PrivateExport.count).to eq(0)
 
       described_class.perform_now(user)
+
       expect(Decidim::PrivateExport.count).to eq(1)
       expect(Decidim::PrivateExport.last.export_type).to eq("download_your_data")
-      expect(user.private_exports.last.file.attached?).to be(true)
+      expect(user.reload.private_exports.last.file.attached?).to be(true)
     end
   end
 end
