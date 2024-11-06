@@ -674,7 +674,7 @@ it:
         show:
           answer: Risposta
           changes_at_title: Modifica a "%{title}"
-          edit_proposal: Modifica la proposta
+          edit_proposal: Modifica proposta
           estimated_cost: Costo stimato
           hidden_endorsers_count:
             one: e %{count} altra persona
