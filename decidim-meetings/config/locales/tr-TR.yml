@@ -348,6 +348,9 @@ tr:
           select_a_registration_type: Lütfen bir kayıt türü seçin
         index:
           new_meeting: Yeni toplantı
+        meeting:
+          close_meeting: Toplantıyı kapat
+          edit_meeting: Toplantıyı Düzenle
         meetings:
           upcoming_meetings_warning: Şu anda planlanmış bir toplantı yok, ancak burada listelenen tüm geçmiş toplantıları bulabilirsiniz.
         new:
