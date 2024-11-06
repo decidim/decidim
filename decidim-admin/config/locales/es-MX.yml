@@ -344,6 +344,14 @@ es-MX:
           title: 'Agregar componente: %{name}'
         publish:
           success: El componente se ha publicado con éxito.
+        taxonomy_filters_badge:
+          remove: Eliminar
+        taxonomy_filters_drawer:
+          add_filter: Añadir un filtro
+          clear_all: Limpiar todo
+          filters: Filtros
+          save: Guardar
+          title: Filtros
         title: Componentes
         unpublish:
           success: El componente se ha despublicado sin éxito.
@@ -1084,9 +1092,12 @@ es-MX:
         new:
           create: Crear taxonomía
           title: Nueva taxonomía
+        no_taxonomies: Actualmente no hay taxonomías. Crea una lista de taxonomías y define sus elementos para clasificarlos o filtrar los recursos.
         table:
           to_next_page: Pasa a la siguiente página
           to_prev_page: Arrastrar para pasar a la página anterior
+        taxonomy_actions:
+          confirm_destroy: '¿Seguro que desea eliminar %{name}? Esto también eliminará todos los elementos secundarios. NOTA: Los recursos que utilizan esta taxonomía no se verán afectados pero perderán la referencia a esta taxonomía.'
         update:
           invalid: Se ha producido un error al actualizar esta taxonomía.
           success: Taxonomía actualizada correctamente.
@@ -1104,6 +1115,7 @@ es-MX:
         edit:
           back: Atrás
           items: "%{count} elementos seleccionados"
+          no_items: Aún no hay elementos disponibles para esta taxonomía. Puedes añadir elementos a través de los ajustes configuración de la taxonomía.
           title: Editar el filtro de taxonomía
           update: Actualizar el filtro de taxonomía
         form:
@@ -1118,6 +1130,8 @@ es-MX:
           title: Nuevo filtro de taxonomía
         table:
           actions: Acciones
+          components_count: Número de componentes
+          confirm_destroy: '¿Seguro que desea eliminar el filtro %{name}? NOTA: Los recursos que están usando este filtro no se verán afectados pero perderán la referencia a este filtro.'
           count: Número d'elementos
           destroy: Borrar
           edit: Editar
