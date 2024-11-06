@@ -535,7 +535,7 @@ eu:
         meeting:
           close_meeting: Itxi topaketa
           edit_close_meeting: Editatu topaketaren txostena
-          edit_meeting: Editatu topaketa
+          edit_meeting: Editatu bilera
           join_meeting: Izena eman
           reply_poll: Erantzun inkesta
           view_poll: Ikusi inkesta
