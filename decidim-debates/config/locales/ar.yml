@@ -97,6 +97,7 @@ ar:
           create: إنشاء
           title: نقاش جديد
         show:
+          edit_debate: تحرير النقاش
           groups_count: الفِرَق
           participants_count: المشاركون
       models:
