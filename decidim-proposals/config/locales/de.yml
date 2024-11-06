@@ -750,7 +750,6 @@ de:
             error: Konnte nicht als Mitarbeiter abgelehnt werden, versuche es später erneut.
             success: "@%{user} wurde als Mitwirkende erfolgreich abgelehnt."
         show:
-          edit: Bearbeiten Sie den gemeinsamen Entwurf
           final_proposal: Endgültiger Vorschlag
           final_proposal_help_text: Dieser Entwurf ist fertig. Sie können den endgültigen fertigen Vorschlag sehen
           hidden_authors_count:
@@ -903,7 +902,6 @@ de:
         show:
           answer: Antworten
           changes_at_title: Ergänzung zu „%{title}“
-          edit_proposal: Vorschlag bearbeiten
           estimated_cost: Geschätzte Kosten
           hidden_endorsers_count:
             one: und %{count} weitere Person
@@ -919,7 +917,6 @@ de:
           proposal_rejected_reason: 'Dieser Vorschlag wurde abgelehnt, weil:'
           withdraw_btn_hint: Sie können Ihren Vorschlag zurückziehen, wenn Sie es sich anders überlegen, solange Sie keine Stimme erhalten haben. Der Vorschlag wird nicht gelöscht, er erscheint in der Liste der zurückgezogenen Vorschläge.
           withdraw_confirmation_html: Sind Sie sicher, dass Sie diesen Vorschlag zurückziehen möchten?<br><br><strong>Diese Aktion kann nicht abgebrochen werden!</strong>
-          withdraw_proposal: Vorschlag zurückziehen
         update:
           title: Vorschlag aktualisieren
         vote_button:
