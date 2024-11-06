@@ -26,14 +26,14 @@ end
     </div>
   </header>
 
-  <div id="content" data-content>
-    <% if display_flash_messages.present? %>
-      <div id="flash-messages-container" class="container">
-        <%= display_flash_messages %>
-      </div>
-    <% end %>
+  <% if display_flash_messages.present? %>
+    <div id="flash-messages-container" class="container">
+      <%= display_flash_messages %>
+    </div>
+  <% end %>
+  <%= display_onboarding_action_message(current_user) if current_user %>
 
-    <%= display_onboarding_action_message(current_user) if current_user %>
+  <div id="content" data-content>
 
     <%= yield %>
   </div>

@@ -40,6 +40,7 @@ module Decidim
         if authorization_status == :unauthorized
           flash[:alert] = t("authorizations.onboarding_pending.unauthorized", scope: "decidim.verifications", action: onboarding_manager.action_text.downcase)
         else
+          flash[:warning] = t("ephemeral_authorized_message", scope: "decidim.onboarding_action_message")
           flash[:notice] = t(
             "authorizations.onboarding_pending.completed_verifications",
             scope: "decidim.verifications",
