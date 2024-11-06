@@ -514,7 +514,6 @@ tr:
           rejected_request:
             error: Ortak çalışan olarak reddedilemedi, lütfen daha sonra tekrar deneyin.
         show:
-          edit: Ortak taslak düzenle
           final_proposal: son teklif
           final_proposal_help_text: Bu taslak bitti. Son teklife göz atın
           hidden_authors_count:
@@ -618,7 +617,6 @@ tr:
         show:
           answer: Cevap
           changes_at_title: Değişiklikler "%{title}"
-          edit_proposal: Teklifi düzenle
           estimated_cost: Tahmini maliyet
           hidden_endorsers_count:
             one: ve %{count} kişi daha
@@ -633,7 +631,6 @@ tr:
           proposal_in_evaluation_reason: Bu teklif değerlendiriliyor
           proposal_rejected_reason: 'Bu teklif reddedildi çünkü:'
           withdraw_confirmation_html: Bu teklifi geri çekmek istediğinizden emin misiniz? <br> <br> <strong> Bu eylem iptal edilemez! </strong>
-          withdraw_proposal: Teklifi geri çek
         update:
           title: Teklif güncelleme
         voting_rules:
