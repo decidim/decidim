@@ -13,7 +13,6 @@ module Decidim
     #
     # user          - The user to export the data from.
     # path          - The String path where to write the zip file.
-    # password      - The password to protect the zip file.
     # export_format - The format of the data files inside the zip file. (CSV by default)
     def initialize(user, path, export_format = DEFAULT_EXPORT_FORMAT)
       @user = user
