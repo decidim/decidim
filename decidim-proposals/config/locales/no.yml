@@ -477,7 +477,6 @@
           rejected_request:
             error: Kunne ikke bli avvist som en samarbeidspartner, Prøv igjen senere.
         show:
-          edit: Rediger samarbeids utkastet
           final_proposal: endelig forslag
           final_proposal_help_text: Dette utkastet er ferdig. Sjekk ut det endelige forslaget
           hidden_authors_count:
@@ -575,7 +574,6 @@
         show:
           answer: Svar
           changes_at_title: Endring til "%{title}"
-          edit_proposal: Rediger forslaget
           estimated_cost: Estimert kostnad
           hidden_endorsers_count:
             one: og %{count} til person
@@ -590,7 +588,6 @@
           proposal_in_evaluation_reason: Dette forslaget blir evaluert
           proposal_rejected_reason: 'Dette forslaget ble avvist fordi:'
           withdraw_confirmation_html: Er du sikker på at du vil trekke tilbake dette forslaget?<br><br><strong>Denne handlingen kan ikke avbrytes!</strong>
-          withdraw_proposal: Trekk tilbake forslag
         update:
           title: Oppdater forslag
         voting_rules:
