@@ -31,10 +31,9 @@ end
       <%= display_flash_messages %>
     </div>
   <% end %>
+  <%= display_onboarding_action_message(current_user) %>
 
   <div id="content" data-content>
-    <%= display_onboarding_action_message(current_user) %>
-
     <%= yield %>
   </div>
 
