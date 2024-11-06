@@ -32,10 +32,15 @@ es-PY:
         settings:
           global:
             announcement: Anuncio
+            clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
@@ -137,11 +142,9 @@ es-PY:
           recent: Más recientes
           updated: Actualizados recientemente
         show:
-          close_debate: Cerrar debate
           debate_closed: Cerrado
           debate_conclusions_are: 'El debate se cerró el %{date} con estas conclusiones:'
           edit_conclusions: Editar conclusiones
-          edit_debate: Editar debate
           groups_count: Grupos
           open: Debate abierto
           participants_count: Participantes
@@ -159,6 +162,7 @@ es-PY:
             official_debate: Debate oficial
             start: Empieza
             start_time: Fecha de inicio
+            taxonomies: Taxonomías
             title: Título
     events:
       debates:
@@ -247,6 +251,7 @@ es-PY:
           participatory_space: A qué espacio pertenece este debate (proceso participativo, asamblea, etc.)
           reference: El identificador único del recurso en esta plataforma
           start_time: Cuando empezó este debate, si era un debate abierto o tenía un tiempo limitado para participar.
+          taxonomies: Las taxonomías del proyecto
           title: El título del debate
           url: La URL donde se puede encontrar este debate
     statistics:
