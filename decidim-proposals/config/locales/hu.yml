@@ -531,7 +531,6 @@ hu:
           rejected_request:
             error: Nem lehetett elutasítani a közreműködőt, próbálkozz később.
         show:
-          edit: Közös vázlat szerkesztése
           final_proposal: végleges javaslat
           final_proposal_help_text: Ez a vázlat készen áll. Nézd meg a javaslat végső verzióját
           hidden_authors_count:
@@ -635,7 +634,6 @@ hu:
         show:
           answer: Válasz
           changes_at_title: A (z) "%{title}" módosítása
-          edit_proposal: Javaslat szerkesztése
           estimated_cost: Becsült költség
           hidden_endorsers_count:
             one: és még %{count} személy
@@ -649,7 +647,6 @@ hu:
           proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
-          withdraw_proposal: Javaslat visszavonása
         vote_button:
           already_voted: Már szavazott
           maximum_votes_reached: Szavazási határon túl
