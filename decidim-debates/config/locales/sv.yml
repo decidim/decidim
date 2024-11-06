@@ -134,11 +134,9 @@ sv:
           recent: Senaste
           updated: Senast uppdaterade
         show:
-          close_debate: Avsluta debatt
           debate_closed: Avslutade
           debate_conclusions_are: 'Debatten avslutades %{date} med följande slutsatser:'
           edit_conclusions: Redigera slutsatser
-          edit_debate: Redigera debatt
           groups_count: Grupper
           open: Öppen debatt
           participants_count: Deltagare
