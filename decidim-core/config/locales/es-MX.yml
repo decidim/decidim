@@ -509,13 +509,16 @@ es-MX:
             amendments_enabled: Enmiendas habilitadas
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             dummy_global_attribute1: Atributo de prueba 1
             dummy_global_attribute2: Atributo de prueba 2
             dummy_global_translatable_text: Texto de ejemplo traducible
             enable_pads_creation: Habilitar la creación de pads
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             resources_permissions_enabled: Habilitar permisos de recursos
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
           step:
             amendment_creation_enabled: Creación de enmienda activada
             amendment_promotion_enabled: Promoción de enmienda activada
@@ -602,6 +605,8 @@ es-MX:
           all: Todas
         filter_scope_values:
           all: Todos
+        filter_taxonomy_values:
+          all: Todas
     devise:
       omniauth_registrations:
         create:
@@ -1609,6 +1614,8 @@ es-MX:
       pages_count: Páginas
       participants_count: Participantes
       users_count: Participantes
+    tags:
+      filter_results_for_taxonomy: 'Resultados al filtrar por: %{resource}'
     taxonomies:
       prompt: Seleccionar de "%{name}"
     translation_bar:
