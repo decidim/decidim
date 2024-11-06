@@ -146,6 +146,9 @@ en:
               state_published: Answered
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
+    application:
+      geocoding:
+        not_configured: Geocoding is not configured!
     components:
       proposals:
         actions:
@@ -807,7 +810,7 @@ en:
             error: Could not be rejected as a collaborator, please try again later.
             success: "@%{user} has been successfully rejected as a collaborator."
         show:
-          edit: Edit collaborative draft
+          edit: Edit
           final_proposal: Final proposal
           final_proposal_help_text: This draft is finished. Check out the final proposal
           hidden_authors_count:
@@ -845,6 +848,11 @@ en:
       destroy_draft:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
+      forms:
+        errors:
+          device_not_supported: Your device does not support location services. Please enter the address manually.
+          no_device_location: Sorry, we could not detect your location. Please enter the address manually.
+        use_my_location: Use my current location
       invite_coauthors:
         cancel:
           error: There was a problem canceling the co-author invitation.
@@ -965,7 +973,7 @@ en:
         show:
           answer: Answer
           changes_at_title: Amendment to "%{title}"
-          edit_proposal: Edit proposal
+          edit_proposal: Edit
           estimated_cost: Estimated cost
           hidden_endorsers_count:
             one: and %{count} more person
@@ -981,7 +989,7 @@ en:
           proposal_rejected_reason: 'This proposal has been rejected because:'
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any vote. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation_html: Are you sure you want to withdraw this proposal?<br><br><strong>This action cannot be cancelled!</strong>
-          withdraw_proposal: Withdraw proposal
+          withdraw_proposal: Withdraw
         update:
           title: Update proposal
         vote_button:
