@@ -237,6 +237,8 @@ uk:
           category: Категорія
           date: Дата
           search: Шукати
+        meeting:
+          close_meeting: Закрити зустріч
         meetings:
           upcoming_meetings_warning: Наразі нема запланованих зустрічей, але тут ви можете знайти перелік усіх попередніх зустрічей.
         registration_confirm:
