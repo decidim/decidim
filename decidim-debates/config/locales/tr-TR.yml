@@ -128,11 +128,9 @@ tr:
           recent: En yeni
           updated: Yeni güncellenmiş
         show:
-          close_debate: Tartışmayı kapat
           debate_closed: Kapalı
           debate_conclusions_are: 'Tartışma bu sonuçlarla %{date} tarihinde kapatıldı:'
           edit_conclusions: Sonuçları düzenleyin
-          edit_debate: Tartışmayı düzenle
           groups_count: Gruplar
           open: Açık tartışma
           participants_count: Katılımcılar
