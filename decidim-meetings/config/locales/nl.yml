@@ -445,7 +445,6 @@ nl:
           visit_finished: Bekijk voorbije vergadering
           withdraw_btn_hint: Je kunt je vergadering afgelasten indien nodig. De vergadering wordt niet verwijderd, deze verschijnt in de lijst met afgelaste vergaderingen.
           withdraw_confirmation_html: Weet je zeker dat je deze vergadering wil afgelasten? <br><br><strong>Deze actie kan niet worden ongedaan gemaakt</strong>
-          withdraw_meeting: Vergadering afgelasten
         update:
           invalid: Er was een probleem bij het bijwerken van de vergadering.
           success: De vergadering is succesvol bijgewerkt.
