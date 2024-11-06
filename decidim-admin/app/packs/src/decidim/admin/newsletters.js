@@ -54,9 +54,9 @@ $(() => {
       $participatorySpacesForSelect.hide();
     }
 
-    $(".form .spaces-block-tag").each(function(_i, blockTag) {
+    $(".form .spaces-block-tag").each(function (_i, blockTag) {
       const selectTag = $(blockTag).find(".chosen-select")
-      selectTag.change(function() {
+      selectTag.change(function () {
         let optionSelected = selectTag.find("option:selected").val()
         if (optionSelected === "all") {
           selectTag.find("option").not(":first").prop("selected", true);
@@ -67,16 +67,25 @@ $(() => {
       });
     })
 
-    $form.on("change", function() {
-      let $data = $form.serializeJSON().newsletter;
-      let $url = $form.data("recipients-count-newsletter-path");
+    $form.on("change", function(event) {
+      let formData = new FormData(event.target.closest("form"));
+      let url = $form.data("recipients-count-newsletter-path");
       const $modal = $("#recipients_count_spinner");
       $modal.removeClass("hide");
-      $.get($url, {data: $data}, function(recipientsCount) {
-        $("#recipients_count").text(recipientsCount);
-      }).always(function() {
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("POST", url, true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          $("#recipients_count").text(xhr.responseText);
+        }
         $modal.addClass("hide");
-      });
+      };
+      xhr.onerror = function() {
+        $modal.addClass("hide");
+      };
+      // Send the form data
+      xhr.send(formData);
     })
   }
 });
