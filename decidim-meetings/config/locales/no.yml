@@ -393,6 +393,9 @@
         index:
           click_here: Se alle møter
           new_meeting: Nytt møte
+        meeting:
+          close_meeting: Lukk møte
+          edit_meeting: Rediger møte
         meetings:
           upcoming_meetings_warning: For øyeblikket er det ingen planlagte møter, men her kan du finne alle de forrige møtene oppført.
         registration_confirm:
