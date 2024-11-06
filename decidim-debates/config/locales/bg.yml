@@ -134,11 +134,9 @@ bg:
           recent: Най-скорошни
           updated: Скоро обновени
         show:
-          close_debate: Затваряне на дебата
           debate_closed: Затворен
           debate_conclusions_are: 'Дебатът беше затворен на %{date} със следните заключения:'
           edit_conclusions: Редактиране на заключенията
-          edit_debate: Редактиране на дебата
           groups_count: Групи
           open: Отворен дебат
           participants_count: Участници
