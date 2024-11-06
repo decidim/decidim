@@ -541,7 +541,6 @@ pt-BR:
           rejected_request:
             error: Não foi possível rejeitá-lo como colaborador. Tente novamente mais tarde.
         show:
-          edit: Editar rascunho colaborativo
           final_proposal: proposta final
           final_proposal_help_text: Este rascunho está terminado. Você pode ver a proposta final concluída
           hidden_authors_count:
@@ -656,7 +655,6 @@ pt-BR:
         show:
           answer: Responda
           changes_at_title: Alteração para "%{title}"
-          edit_proposal: Editar proposta
           estimated_cost: Custo estimado
           hidden_endorsers_count:
             one: e mais %{count} pessoa
@@ -671,7 +669,6 @@ pt-BR:
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
           withdraw_confirmation_html: Tem certeza que deseja retirar esta proposta?<br><br><strong>Esta ação não pode ser cancelada!</strong>
-          withdraw_proposal: Retirar proposta
         update:
           title: Atualizar proposta
         vote_button:
