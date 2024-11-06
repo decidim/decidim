@@ -42,3 +42,149 @@ shared_context "with a graphql decidim component" do
     )
   end
 end
+
+shared_examples "with resource visibility" do
+  let(:process_space_factory) { :participatory_process }
+
+  context "when space is published" do
+    let!(:participatory_process) { create(process_space_factory, :published, :with_steps, organization: current_organization) }
+
+    context "when component is published" do
+      let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
+
+      context "when the user is admin" do
+        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result) }
+      end
+
+      context "when user is anonymous" do
+        let!(:current_user) { nil }
+
+        it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result) }
+      end
+
+      context "when user is normal user" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result) }
+      end
+    end
+
+    context "when component is not published" do
+      let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
+
+      context "when the user is admin" do
+        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result) }
+      end
+
+      context "when user is anonymous" do
+        let!(:current_user) { nil }
+
+        it { expect(response["participatoryProcess"]["components"].first).to be_nil }
+      end
+
+      context "when user is normal user" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]["components"].first).to be_nil }
+      end
+    end
+  end
+  context "when space is published but private" do
+    let!(:participatory_process) { create(process_space_factory, :published, :private, :with_steps, organization: current_organization) }
+
+    context "when component is published" do
+      let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
+
+      context "when the user is admin" do
+        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result) }
+      end
+
+      context "when user is anonymous" do
+        let!(:current_user) { nil }
+
+        it { expect(response["participatoryProcess"]).to be_nil }
+      end
+
+      context "when user is normal user" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]).to be_nil }
+      end
+    end
+
+    context "when component is not published" do
+      let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
+
+      context "when the user is admin" do
+        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result) }
+      end
+
+      context "when user is anonymous" do
+        let!(:current_user) { nil }
+
+        it { expect(response["participatoryProcess"]).to be_nil }
+      end
+
+      context "when user is normal user" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]).to be_nil }
+      end
+    end
+  end
+  context "when space is unpublished" do
+    let(:participatory_process) { create(process_space_factory, :unpublished, :with_steps, organization: current_organization) }
+
+    context "when component is published" do
+      let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
+
+      context "when the user is admin" do
+        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result) }
+      end
+
+      context "when user is anonymous" do
+        let!(:current_user) { nil }
+
+        it { expect(response["participatoryProcess"]).to be_nil }
+      end
+
+      context "when user is normal user" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]).to be_nil }
+      end
+    end
+
+    context "when component is not published" do
+      let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
+
+      context "when the user is admin" do
+        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result) }
+      end
+
+      context "when user is anonymous" do
+        let!(:current_user) { nil }
+
+        it { expect(response["participatoryProcess"]).to be_nil }
+      end
+
+      context "when user is normal user" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+        it { expect(response["participatoryProcess"]).to be_nil }
+      end
+    end
+  end
+end

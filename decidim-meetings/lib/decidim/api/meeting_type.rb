@@ -87,8 +87,6 @@ module Decidim
         ].all?
 
         super && chain
-      rescue Decidim::PermissionAction::PermissionNotSetError
-        false
       end
     end
   end

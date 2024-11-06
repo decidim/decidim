@@ -55,6 +55,8 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "commentable" do
+    let(:component_fragment) { nil }
+
     let(:participatory_process_query) do
       %(
         commentable(id: "#{debate.id}", type: "Decidim::Debates::Debate", locale: "en", toggleTranslations: false) {
@@ -182,5 +184,55 @@ describe "Decidim::Api::QueryType" do
     it do
       expect(response["participatoryProcess"]["components"].first["debate"]).to eq(debate_single_result)
     end
+  end
+
+  include_examples "with resource visibility" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Debates {
+        debate(id: #{debate.id}){
+          acceptsNewComments
+          author {
+            id
+          }
+          taxonomies {
+            id
+          }
+          comments {
+            id
+          }
+          commentsHaveAlignment
+          commentsHaveVotes
+          createdAt
+          description {
+            translation(locale: "#{locale}")
+          }
+          endTime
+          hasComments
+          id
+          image
+          informationUpdates {
+            translation(locale: "#{locale}")
+          }
+          instructions {
+            translation(locale: "#{locale}")
+          }
+          reference
+          startTime
+          title {
+            translation(locale: "#{locale}")
+          }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
+        }
+      }
+)
+    end
+
+    let(:component_factory) { :debates_component }
+    let(:lookout_key) { "debate" }
+    let(:query_result) { debate_single_result }
   end
 end

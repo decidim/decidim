@@ -4,11 +4,13 @@ module Decidim
   module Meetings
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        return permission_action unless user
-
         # Delegate the admin permission checks to the admin permissions class
         return Decidim::Meetings::Admin::Permissions.new(user, permission_action, context).permissions if permission_action.scope == :admin
         return permission_action if permission_action.scope != :public
+
+        toggle_allow(!meeting.hidden? && meeting.current_user_can_visit_meeting?(user)) if permission_action.subject == :meeting
+
+        return permission_action unless user
 
         case permission_action.subject
         when :answer
@@ -41,8 +43,6 @@ module Decidim
             toggle_allow(can_register_invitation_meeting?)
           when :reply_poll
             toggle_allow(can_reply_poll?)
-          when :read
-            toggle_allow(!meeting.hidden? && meeting.current_user_can_visit_meeting?(user))
           end
         when :poll
           case permission_action.action

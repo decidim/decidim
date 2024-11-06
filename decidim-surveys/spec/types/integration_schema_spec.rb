@@ -177,4 +177,72 @@ describe "Decidim::Api::QueryType" do
 
     it { expect(response["participatoryProcess"]["components"].first["survey"]).to eq(survey_single_result) }
   end
+
+  context "with resource visibility" do
+    include_examples "with resource visibility" do
+      let(:component_fragment) do
+        %(
+      fragment fooComponent on Surveys {
+        survey(id: #{survey.id}){
+          createdAt
+          id
+          questionnaire{
+            createdAt
+            description {
+              translation(locale:"#{locale}")
+            }
+            # forEntity {
+            #   id
+            #   __typename
+            # }
+            forType
+            id
+            questions {
+              answerOptions {
+                id
+                body { translation(locale:"#{locale}") }
+                freeText
+              }
+              body { translation(locale:"#{locale}") }
+              createdAt
+              description { translation(locale:"#{locale}") }
+              id
+              mandatory
+              maxChoices
+              position
+              questionType
+              updatedAt
+            }
+            title {
+              translation(locale:"#{locale}")
+            }
+            tos {
+              translation(locale:"#{locale}")
+            }
+            updatedAt
+          }
+          updatedAt
+        }
+      }
+)
+      end
+
+      let(:component_factory) { :surveys_component }
+      let(:lookout_key) { "survey" }
+      let(:query_result) { survey_single_result }
+
+      before do
+        current_component.reload
+        current_component.update!(
+          step_settings: {
+            current_component.participatory_space.active_step.id => {
+              allow_answers: true,
+              allow_unregistered: true
+            }
+          },
+          settings: { starts_at: 1.week.ago, ends_at: 1.day.from_now }
+        )
+      end
+    end
+  end
 end

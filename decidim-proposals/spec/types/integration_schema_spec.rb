@@ -91,6 +91,7 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "commentable" do
+    let(:component_fragment) { nil }
     let(:participatory_process_query) do
       %(
         commentable(id: "#{proposal.id}", type: "Decidim::Proposals::Proposal", locale: "en", toggleTranslations: false) {
@@ -314,5 +315,105 @@ describe "Decidim::Api::QueryType" do
     it do
       expect(response["participatoryProcess"]["components"].first["proposal"]).to eq(proposal_single_result)
     end
+  end
+
+  include_examples "with resource visibility" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Proposals {
+        proposal(id: #{proposal.id}) {
+          acceptsNewComments
+          address
+          amendments {
+            id
+            state
+            amender { id }
+            amendable { id }
+            emendation { id }
+            emendationType
+            amendableType
+          }
+          answer {
+            translation(locale:"#{locale}")
+          }
+          answeredAt
+          attachments {
+            thumbnail
+          }
+          author {
+            id
+          }
+          authors {
+            id
+          }
+          authorsCount
+          body {
+            translation(locale:"#{locale}")
+          }
+          taxonomies {
+            id
+          }
+          comments {
+            id
+          }
+          commentsHaveAlignment
+          commentsHaveVotes
+          coordinates{
+            latitude
+            longitude
+          }
+          createdAt
+          createdInMeeting
+          endorsements {
+            id
+            deleted
+             name
+            nickname
+            organizationName { translation(locale: "en") }
+            profilePath
+          }
+          endorsementsCount
+          fingerprint{
+            source
+            value
+          }
+          hasComments
+          id
+          meeting {
+            id
+          }
+          official
+          participatoryTextLevel
+          position
+          publishedAt
+          reference
+          state
+          title {
+            translation(locale:"#{locale}")
+          }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
+          versions {
+            id
+            changeset
+            createdAt
+            editor{
+              id
+            }
+          }
+          versionsCount
+          voteCount
+          withdrawn
+          withdrawnAt
+        }
+      }
+    )
+    end
+
+    let(:component_factory) { :proposal_component }
+    let(:lookout_key) { "proposal" }
+    let(:query_result) { proposal_single_result }
   end
 end

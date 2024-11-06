@@ -59,6 +59,7 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "commentable" do
+    let(:component_fragment) { nil }
     let(:participatory_process_query) do
       %(
         commentable(id: "#{sortition.id}", type: "Decidim::Sortitions::Sortition", locale: "en", toggleTranslations: false) {
@@ -162,5 +163,45 @@ describe "Decidim::Api::QueryType" do
     end
 
     it { expect(response["participatoryProcess"]["components"].first["sortition"]).to eq(sortition_single_result) }
+  end
+
+  include_examples "with resource visibility" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Sortitions {
+        sortition(id: #{sortition.id}){
+          acceptsNewComments
+          additionalInfo {  translation(locale: "#{locale}") }
+          author { id }
+          cancelReason { translation(locale: "#{locale}") }
+          cancelledByUser { id }
+          cancelledOn
+          candidateProposals
+          taxonomies { id }
+          comments { id }
+          commentsHaveAlignment
+          commentsHaveVotes
+          createdAt
+          dice
+          hasComments
+          id
+          reference
+          requestTimestamp
+          selectedProposals
+          targetItems
+          title { translation(locale: "#{locale}") }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
+          witnesses { translation(locale: "#{locale}") }
+        }
+      }
+    )
+    end
+
+    let(:component_factory) { :sortition_component }
+    let(:lookout_key) { "sortition" }
+    let(:query_result) { sortition_single_result }
   end
 end

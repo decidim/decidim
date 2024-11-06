@@ -91,4 +91,28 @@ describe "Decidim::Api::QueryType" do
 
     it { expect(response["participatoryProcess"]["components"].first["page"]).to eq(page_single_result) }
   end
+
+  include_examples "with resource visibility" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Pages {
+        page(id: #{page.id}){
+          body {
+            translation(locale:"#{locale}")
+          }
+          createdAt
+          id
+          title {
+            translation(locale:"#{locale}")
+          }
+          updatedAt
+        }
+      }
+)
+    end
+
+    let(:component_factory) { :page_component }
+    let(:lookout_key) { "page" }
+    let(:query_result) { page_single_result }
+  end
 end
