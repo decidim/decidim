@@ -93,7 +93,7 @@ module Decidim
           end
 
           def collection
-            @collection ||= TaxonomyFilter.where(space_manifest: participatory_space_manifest, root_taxonomy: root_taxonomies)
+            @collection ||= TaxonomyFilter.for(participatory_space_manifest).where(root_taxonomy: root_taxonomies)
           end
 
           def current_taxonomy_filter
@@ -101,7 +101,7 @@ module Decidim
           end
 
           def root_taxonomies
-            @root_taxonomies ||= current_organization.taxonomies.where(parent_id: nil)
+            @root_taxonomies ||= current_organization.taxonomies.roots
           end
 
           # Implement and return a valid (registered) participatory space manifest as a symbol (ie: :assemblies)

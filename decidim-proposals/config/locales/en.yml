@@ -118,8 +118,6 @@ en:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Category
           is_emendation_true:
             label: Type
             values:
@@ -127,8 +125,6 @@ en:
               'true': Amendments
           proposal_state_id_eq:
             label: State
-          scope_id_eq:
-            label: Scope
           state_eq:
             label: State
             values:
@@ -139,6 +135,8 @@ en:
               rejected: Rejected
               validating: Technical validation
               withdrawn: Withdrawn
+          taxonomies_part_of_contains:
+            label: Taxonomy
           valuator_role_ids_has:
             label: Assigned to valuator
           with_any_state:
@@ -148,6 +146,9 @@ en:
               state_published: Answered
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
+    application:
+      geocoding:
+        not_configured: Geocoding is not configured!
     components:
       proposals:
         actions:
@@ -168,6 +169,7 @@ en:
             attachments_allowed: Allow attachments
             attachments_allowed_help: By enabling this option, proposals will default to grid mode, and the first image will appear on the card.
             can_accumulate_votes_beyond_threshold: Can accumulate votes beyond threshold
+            clear_all: Clear all
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
@@ -182,6 +184,7 @@ en:
               random: Random
               recent: Recent
               with_more_authors: With more authors
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             edit_time: Proposals can be edited by authors before this much time passes
             edit_time_units:
               days: Days
@@ -192,6 +195,7 @@ en:
             new_proposal_body_template: New proposal body template
             new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
             new_proposal_help_text: New proposal help text
+            no_taxonomy_filters_found: No taxonomy filters found.
             official_proposals_enabled: Official proposals enabled
             participatory_texts_enabled: Participatory texts enabled
             participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
@@ -211,6 +215,8 @@ en:
             resources_permissions_enabled: Actions permissions can be set for each proposal
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per participant
           step:
@@ -445,7 +451,6 @@ en:
           attachments: The number of attachments this proposal has
           author: The data for the author of this proposal
           body: The proposal body
-          category: The category of the proposal (e.g. "Culture")
           comments: The number of comments this proposal has
           component: The component that the proposal belongs to
           endorsements: The number of endorsements ("likes") this proposal has
@@ -460,8 +465,8 @@ en:
           published_at: The date when this proposal was published
           reference: The unique identifier of the resource in this platform
           related_proposals: The proposals related to this proposal
-          scope: The scope of the proposal (e.g. "City")
           state: The status of this proposal (e.g. "Accepted")
+          taxonomies: The taxonomies that this proposal belongs to
           title: The proposal title
           url: The URL where this proposal can be found
           votes: The number of votes this proposal has
@@ -610,7 +615,6 @@ en:
             attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
             delete_attachment: Delete attachment
-            select_a_category: Select a category
             select_a_meeting: Select a meeting
           index:
             actions: Actions
@@ -751,7 +755,6 @@ en:
         edit:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
-          select_a_category: Please select a category
           send: Send
           title: Edit collaborative draft
         empty: There are no collaborative drafts yet
@@ -803,7 +806,7 @@ en:
             error: Could not be rejected as a collaborator, please try again later.
             success: "@%{user} has been successfully rejected as a collaborator."
         show:
-          edit: Edit collaborative draft
+          edit: Edit
           final_proposal: Final proposal
           final_proposal_help_text: This draft is finished. Check out the final proposal
           hidden_authors_count:
@@ -841,6 +844,11 @@ en:
       destroy_draft:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
+      forms:
+        errors:
+          device_not_supported: Your device does not support location services. Please enter the address manually.
+          no_device_location: Sorry, we could not detect your location. Please enter the address manually.
+        use_my_location: Use my current location
       invite_coauthors:
         cancel:
           error: There was a problem canceling the co-author invitation.
@@ -860,15 +868,14 @@ en:
       models:
         proposal:
           fields:
-            category: Category
             comments: Comments
             id: ID
             notes: Notes
             official_proposal: Official proposal
             published_answer: Published answer
             published_at: Published at
-            scope: Scope
             state: Status
+            taxonomies: Taxonomies
             title: Title
             valuator: Valuator
             valuators: Valuators
@@ -895,7 +902,6 @@ en:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
           edit_documents: Edit documents
-          select_a_category: Please select a category
           send: Send
           title: Edit proposal
         edit_draft:
@@ -916,6 +922,7 @@ en:
           scope: Scope
           search: Search
           state: Status
+          taxonomy_filters: Filters
           type: Type
           voted: Voted
         index:
@@ -962,7 +969,7 @@ en:
         show:
           answer: Answer
           changes_at_title: Amendment to "%{title}"
-          edit_proposal: Edit proposal
+          edit_proposal: Edit
           estimated_cost: Estimated cost
           hidden_endorsers_count:
             one: and %{count} more person
@@ -978,7 +985,7 @@ en:
           proposal_rejected_reason: 'This proposal has been rejected because:'
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any vote. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation_html: Are you sure you want to withdraw this proposal?<br><br><strong>This action cannot be cancelled!</strong>
-          withdraw_proposal: Withdraw proposal
+          withdraw_proposal: Withdraw
         update:
           title: Update proposal
         vote_button:

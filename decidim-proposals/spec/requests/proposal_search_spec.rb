@@ -45,8 +45,7 @@ RSpec.describe "Proposal search" do
   end
 
   it_behaves_like "a resource search", :proposal
-  it_behaves_like "a resource search with scopes", :proposal
-  it_behaves_like "a resource search with categories", :proposal
+  it_behaves_like "a resource search with taxonomies", :proposal
   it_behaves_like "a resource search with origin", :proposal
 
   it "displays all non-withdrawn and non-rejected proposals without any filters" do

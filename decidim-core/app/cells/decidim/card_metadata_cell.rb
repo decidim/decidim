@@ -110,22 +110,15 @@ module Decidim
       }
     end
 
-    def scope_item
-      return unless resource.is_a?(Decidim::ScopableResource) && has_visible_scopes?(resource)
+    def taxonomy_items
+      return [] unless resource.is_a?(Taxonomizable) && resource.taxonomies.any?
 
-      {
-        icon: resource_type_icon_key("Decidim::Scope"),
-        text: translated_attribute(resource.scope.name)
-      }
-    end
-
-    def category_item
-      return unless resource.is_a?(Decidim::HasCategory) && resource.category.present?
-
-      {
-        text: resource.category.translated_name,
-        icon: resource_type_icon_key("Decidim::Category")
-      }
+      resource.taxonomies.map do |taxonomy|
+        {
+          text: translated_attribute(taxonomy.name),
+          icon: resource_type_icon_key("Decidim::Taxonomy")
+        }
+      end
     end
 
     def enable_links?
