@@ -702,7 +702,7 @@ eu:
             error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
             success: "@%{user} behar bezala ukatu da kolaboratzaile gisa."
         show:
-          edit: Editatu lankidetza zirriborroa
+          edit: Editatu zirriborro kolaboratiboa
           final_proposal: azken proposamena
           final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
           hidden_authors_count:
