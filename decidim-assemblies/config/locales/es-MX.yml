@@ -281,12 +281,14 @@ es-MX:
         assemblies:
           form:
             announcement_help: El texto que introduzcas aquí se mostrará a la participante justo debajo de la información de la asamblea.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             duration: Duración
             duration_help: Si la duración de esta asamblea es limitada, selecciona la fecha de finalización. De lo contrario, aparecerá como indefinida.
             filters: Filtros
             images: Imágenes
             included_at_help: Selecciona la fecha en la que se añadió esta asamblea a la plataforma. No es necesario que sea la misma que la fecha de creación.
             metadata: Metadatos
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
             select_a_created_by: Selecciona creada por
             select_an_area: Seleccione un Área
@@ -475,6 +477,7 @@ es-MX:
           special_features: Qué características especiales tiene esta asamblea
           subtitle: El subtítulo de la asamblea
           target: El objetivo de la asamblea
+          taxonomies: Las taxonomías del proyecto
           title: El título de la asamblea
           twitter_handler: Controlador de redes sociales para Twitter/X
           youtube_handler: Controlador de redes sociales para YouTube
