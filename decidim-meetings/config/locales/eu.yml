@@ -549,7 +549,9 @@ eu:
           see_all_withdrawn: Ikusi bertan behera utzitako topaketa guztiak
           text_banner: Ikusten ari zara egileek bertan behera utzitako topaketak %{go_back_link}.
         meeting:
+          close_meeting: Itxi
           edit_close_meeting: Editatu topaketaren txostena
+          edit_meeting: Editatu
           join_meeting: Izena eman
           reply_poll: Erantzun inkesta
           view_poll: Ikusi inkesta
@@ -587,6 +589,7 @@ eu:
           visit_finished: Ikusi egindako topaketa
           withdraw_btn_hint: Topaketa bertan behera utz dezakezu iritzia aldatzen baduzu. Topaketa ez da ezabatu. Erretiratutakoen zerrendan agertuko da.
           withdraw_confirmation_html: Ziur zaude proposamen hau kendu nahi duzula? <br><br><strong>Ekintza hau ezin da desegin!</strong>
+          withdraw_meeting: Kendu
         update:
           invalid: Arazo bat izan da topaketa hau eguneratzean.
           success: Topaketa zuzen eguneratu duzu.
