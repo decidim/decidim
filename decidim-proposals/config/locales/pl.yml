@@ -688,7 +688,6 @@ pl:
             error: Nie można odrzucić, spróbuj ponownie później.
             success: "Użytkownik @%{user} został odrzucony jako współtwórca."
         show:
-          edit: Edytuj wspólny szkic
           final_proposal: ostateczna propozycja
           final_proposal_help_text: Ten szkic jest zakończony. zobacz ostateczną propozycję
           hidden_authors_count:
@@ -831,7 +830,6 @@ pl:
         show:
           answer: Odpowiedź
           changes_at_title: Poprawka do „%{title}”
-          edit_proposal: Edytuj propozycję
           estimated_cost: Szacowany koszt
           hidden_endorsers_count:
             one: i %{count} osoba więcej
@@ -849,7 +847,6 @@ pl:
           proposal_rejected_reason: 'Ta propozycja została odrzucona, ponieważ:'
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, dopóki nie otrzymasz żadnego głosu. Propozycja nie zostanie usunięta, pojawi się ona na liście wycofanych propozycji.
           withdraw_confirmation_html: Czy na pewno chcesz wycofać tę propozycję?<br><br><strong>Tej akcji nie można anulować!</strong>
-          withdraw_proposal: Wycofaj propozycję
         update:
           title: Aktualizuj propozycję
         vote_button:
