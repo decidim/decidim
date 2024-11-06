@@ -228,7 +228,6 @@ uk:
           title: Оприлюднити свою пропозицію
         show:
           answer: Відповісти
-          edit_proposal: Редагувати пропозицію
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
