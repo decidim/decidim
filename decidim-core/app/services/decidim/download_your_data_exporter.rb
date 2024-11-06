@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Public: Generates a 7z(seven zip) file with data files ready to be persisted
+  # Public: Generates a zip archive with data files ready to be persisted
   # somewhere so users can download their data.
   #
-  # In fact, the 7z file wraps a ZIP file which finally contains the data files.
   class DownloadYourDataExporter
     DEFAULT_EXPORT_FORMAT = "CSV"
     ZIP_FILE_NAME = "download-your-data.zip"

@@ -9,7 +9,7 @@ module Decidim
     #
     # user        - The user to be notified.
     # export_name - The name of the export.
-    # export_data - The data containing the result of the export.
+    # private_export - The private private_export where the export data has been attached.
     #
     # Returns nothing.
     def export(user, filename, private_export)
@@ -26,6 +26,7 @@ module Decidim
     # the result of a download_your_data export in a zipped file.
     #
     # user - The user to be notified.
+    # private_export - The private private_export where the export data has been attached.
     #
     # Returns nothing.
     def download_your_data_export(user, private_export)
