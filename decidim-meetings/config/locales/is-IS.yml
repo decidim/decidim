@@ -152,6 +152,8 @@ is:
           category: Flokkur
           date: Dagsetning
           search: Leita
+        meeting:
+          close_meeting: Loka fundi
         meetings:
           upcoming_meetings_warning: Eins og er, eru engar áætlanir fundar, en hér er hægt að finna allar fyrri fundi skráð.
         registration_confirm:
