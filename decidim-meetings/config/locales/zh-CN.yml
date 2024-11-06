@@ -308,6 +308,8 @@ zh-CN:
           select_a_category: 请选择一个类别
         index:
           new_meeting: 新会议
+        meeting:
+          close_meeting: 关闭会议
         meetings:
           upcoming_meetings_warning: 目前没有排定的会议，但在这里你可以找到过去所有会议的清单。
         new:
