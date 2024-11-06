@@ -7,8 +7,6 @@
     <label class="comment__form-label" for="<%= add_comment_id %>">
       <%= t("decidim.components.add_comment_form.form.body.label") %>
     </label>
-
-    <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
   </div>
 
   <%= form.text_area(
@@ -21,6 +19,7 @@
     label: false,
     data: { remaining_characters: "##{add_comment_id}-remaining-characters", input_emoji: true }
   ) %>
+  <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
 
   <div class="comment__form-submit">
     <button type="submit" class="button button__sm button__secondary" disabled="disabled">

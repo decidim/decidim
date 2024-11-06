@@ -9,7 +9,7 @@
     @apply mt-12;
 
     .remaining-character-count {
-      @apply block text-right text-sm text-gray-2;
+      @apply block text-left text-sm text-gray-2;
     }
 
     .form__wrapper {
@@ -309,7 +309,7 @@
     }
 
     &-submit {
-      @apply flex flex-col md:flex-row justify-between items-stretch md:items-end gap-4 mt-4;
+      @apply flex flex-col md:flex-row justify-end items-stretch md:items-end gap-4 mt-4;
     }
   }
 
