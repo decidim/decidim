@@ -87,6 +87,8 @@ gl:
           back: De volta
           create: Crear
           title: Novo debate
+        show:
+          edit_debate: Editar debate
       models:
         debate:
           fields:
