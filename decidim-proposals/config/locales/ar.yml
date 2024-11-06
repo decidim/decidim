@@ -574,7 +574,6 @@ ar:
           rejected_request:
             error: لا يمكن الرفض كمتعاون ، يرجى المحاولة مرة أخرى لاحقًا.
         show:
-          edit: تحرير المسودة التعاونية
           final_proposal: الاقتراح النهائي
           final_proposal_help_text: انتهى هذا المشروع. تحقق من الاقتراح النهائي
           hidden_authors_count:
@@ -699,7 +698,6 @@ ar:
         show:
           answer: إجابة
           changes_at_title: تعديل على "%{title}"
-          edit_proposal: تعديل الاقتراح
           estimated_cost: التكلفة التقديرية
           hidden_endorsers_count:
             zero: و %{count} المزيد من الناس
@@ -718,7 +716,6 @@ ar:
           proposal_in_evaluation_reason: هذا الاقتراح قيد التقييم
           proposal_rejected_reason: 'تم رفض هذا الاقتراح بسبب:'
           withdraw_confirmation_html: هل أنت متأكد من أنك تريد سحب هذا الاقتراح؟<br><br><strong>لا يمكن إلغاء هذا الإجراء!</strong>
-          withdraw_proposal: سحب الاقتراح
         update:
           title: تحديث الإقتراح
         vote_button:
