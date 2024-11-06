@@ -325,7 +325,7 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        within ".layout-author" do
+        within ".layout-author", match: :first do
           expect(page).to have_no_content("Accepted")
         end
         expect(page).to have_no_content("This proposal has been accepted")

@@ -96,6 +96,14 @@
 
 .layout-main__heading {
   @apply space-y-8;
+
+  .layout-author.has_status {
+    @apply mt-6;
+
+    &:last-of-type {
+      @apply mt-2;
+    }
+  }
 }
 
 .layout-author {

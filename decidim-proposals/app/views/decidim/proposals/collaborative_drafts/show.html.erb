@@ -25,18 +25,22 @@
       </div>
     <% end %>
 
-    <div class="layout-author">
+    <% if @collaborative_draft.state %>
+      <div class="layout-author has_status">
+        <span class="<%= collaborative_drafts_state_class(@collaborative_draft.state) %> label">
+          <%= humanize_collaborative_draft_state(@collaborative_draft.state) %>
+        </span>
+      </div>
+    <% end %>
+
+    <div class="layout-author <%= "has_status" if @collaborative_draft.state %>">
       <div class="relative flex items-center justify-center w-full">
         <div class="w-10/12 flex items-center gap-4">
           <%= cell "decidim/coauthorships", @collaborative_draft, context_actions: [] %>
-
-          <% if @collaborative_draft.state %>
-            <span class="<%= collaborative_drafts_state_class(@collaborative_draft.state) %> label">
-              <%= humanize_collaborative_draft_state(@collaborative_draft.state) %>
-            </span>
-          <% end %>
         </div>
-        <%= render "decidim/shared/resource_actions", resource: @collaborative_draft %>
+        <%= render "decidim/shared/resource_actions", resource: @collaborative_draft do %>
+          <%= render "decidim/proposals/collaborative_drafts/collaborative_actions" %>
+        <% end %>
       </div>
     </div>
   </section>

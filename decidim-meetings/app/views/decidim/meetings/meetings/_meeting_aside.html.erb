@@ -6,39 +6,6 @@
   </section>
 <% end %>
 
-<% if allowed_to?(:update, :meeting, meeting: meeting) || allowed_to?(:close, :meeting, meeting: meeting) || meeting.withdrawable_by?(current_user) %>
-  <section class="layout-aside__section layout-aside__buttons">
-    <% if allowed_to?(:update, :meeting, meeting: meeting) %>
-      <%= link_to edit_meeting_path(meeting), class: "button button__sm button__transparent-secondary w-full" do %>
-        <span><%= t("edit_meeting", scope: "decidim.meetings.meetings.meeting") %></span>
-        <%= icon "pencil-line" %>
-      <% end %>
-    <% end %>
-
-    <% if allowed_to?(:close, :meeting, meeting: meeting) %>
-      <% caption = meeting.closed? ? t("edit_close_meeting", scope: "decidim.meetings.meetings.meeting") : t("close_meeting", scope: "decidim.meetings.meetings.meeting") %>
-
-      <%= link_to edit_meeting_meeting_close_path(meeting_id: meeting.id, id: meeting.id), class: "button button__sm button__transparent-secondary w-full" do %>
-        <span><%= caption %></span>
-        <%= icon "pencil-line" %>
-      <% end %>
-    <% end %>
-
-    <% if meeting.withdrawable_by?(current_user) %>
-      <%= action_authorized_link_to(
-            :withdraw,
-            withdraw_meeting_path(meeting),
-            method: :put,
-            class: "button button__sm button__transparent-secondary w-full",
-            title: t("withdraw_btn_hint", scope: "decidim.meetings.meetings.show"),
-            data: { confirm: t("withdraw_confirmation_html", scope: "decidim.meetings.meetings.show") }
-          ) do %>
-          <span><%= t("withdraw_meeting", scope:"decidim.meetings.meetings.show") %></span>
-      <% end %>
-    <% end %>
-  </section>
-<% end %>
-
 <% if (meeting.closed? && meeting.closing_visible?) || (registration.present? && registration.meeting.component.settings.registration_code_enabled) || (meeting.services.any?) %>
 <section class="layout-aside__section layout-aside__buttons">
   <% if meeting.closed? && meeting.closing_visible? %>

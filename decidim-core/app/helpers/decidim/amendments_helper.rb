@@ -16,15 +16,6 @@ module Decidim
       cell("decidim/amendable/announcement", emendation)
     end
 
-    # Returns Html action button card to AMEND an amendable resource
-    def amend_button_for(amendable)
-      return unless amendments_enabled? && amendable.amendable?
-      return unless current_component.current_settings.amendment_creation_enabled
-      return unless can_participate_in_private_space?
-
-      cell("decidim/amendable/amend_button_card", amendable)
-    end
-
     # Checks if the user can participate in a participatory space
     # based on its settings related with Decidim::HasPrivateUsers.
     def can_participate_in_private_space?

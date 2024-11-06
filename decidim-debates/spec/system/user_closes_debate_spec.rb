@@ -29,7 +29,8 @@ describe "User closes a debate" do
     end
 
     it "allows closing my debate", :slow do
-      find("button[data-dialog-open='close-debate']", text: "Close debate").click
+      find("#dropdown-trigger-resource-#{debate.id}").click
+      find("button[data-dialog-open='close-debate']", text: "Close").click
 
       within ".close-debate-modal" do
         fill_in :debate_conclusions, with: "Yes, all organizations should use Decidim!"
@@ -57,6 +58,7 @@ describe "User closes a debate" do
     end
 
     it "is allowed to change the conclusions" do
+      find("#dropdown-trigger-resource-#{debate.id}").click
       click_on "Edit conclusions"
 
       within ".close-debate-modal" do
