@@ -450,7 +450,6 @@ gl:
           rejected_request:
             error: Non se puido rexeitar como colaborador, téntao de novo máis tarde.
         show:
-          edit: Editar borrador colaborativo
           final_proposal: proposta final
           final_proposal_help_text: Este borrador está rematado. Podes ver a proposta final rematada
           hidden_authors_count:
@@ -555,7 +554,6 @@ gl:
           title: Publica a túa proposta
         show:
           answer: Resposta
-          edit_proposal: Editar proposta
           hidden_endorsers_count:
             one: e %{count} persoas máis
             other: e %{count} persoas máis
@@ -564,7 +562,6 @@ gl:
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
-          withdraw_proposal: Retire a proposta
         voting_rules:
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
