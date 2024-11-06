@@ -126,11 +126,9 @@ zh-TW:
           recent: 最近
           updated: 最近更新
         show:
-          close_debate: 關閉辯論
           debate_closed: 關閉
           debate_conclusions_are: '此辯論已於 %{date} 結束，以下是總結結論：'
           edit_conclusions: 修改結論
-          edit_debate: 編輯辯論
           groups_count: 群組
           open: 開放性辯論
           participants_count: 參與者
