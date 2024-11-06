@@ -842,7 +842,7 @@ ca:
         show:
           answer: Resposta
           changes_at_title: Esmena a "%{title}"
-          edit_proposal: Edita proposta
+          edit_proposal: Edita la proposta
           estimated_cost: Cost estimat
           hidden_endorsers_count:
             one: i %{count} persona més
