@@ -359,7 +359,6 @@ id:
           rejected_request:
             error: Tidak dapat ditolak sebagai kolaborator, coba lagi nanti.
         show:
-          edit: Edit draf kolaboratif
           final_proposal: proposal terakhir
           final_proposal_help_text: Rancangan ini selesai. Anda dapat melihat proposal selesai akhir
           hidden_authors_count:
@@ -440,7 +439,6 @@ id:
           title: Publikasikan proposal Anda
         show:
           answer: Menjawab
-          edit_proposal: Edit proposal
           hidden_endorsers_count:
             other: dan %{count} lebih banyak orang
           link_to_collaborative_draft_help_text: Proposal ini adalah hasil dari draf kolaboratif. Tinjau sejarahnya
@@ -448,7 +446,6 @@ id:
           proposal_accepted_reason: 'Proposal ini telah diterima karena:'
           proposal_in_evaluation_reason: Proposal ini sedang dievaluasi
           proposal_rejected_reason: 'Proposal ini telah ditolak karena:'
-          withdraw_proposal: Tarik proposal
         voting_rules:
           proposal_limit:
             description: Anda dapat membuat hingga %{limit} proposal.
