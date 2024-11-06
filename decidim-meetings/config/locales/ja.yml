@@ -509,7 +509,7 @@ ja:
           see_all_withdrawn: 取り消したすべてのミーティングを見る
           text_banner: 作成者が取り消したミーティングの一覧を表示しています． %{go_back_link}
         meeting:
-          close_meeting: ミーティングを終了する
+          close_meeting: ミーティングを閉じる
           edit_close_meeting: ミーティングレポートを編集
           edit_meeting: ミーティングを編集
           join_meeting: ミーティングに参加
