@@ -1339,7 +1339,12 @@ fi:
           title: Avoimet datan tiedostot palvelulle %{organization}
       index:
         description: Tervetuloa %{organization_name} -palvelun avoimen datan sivulle. Tältä sivulta löydät datatiedostoja, joita päivitetään säännöllisesti erilaisten deliberatiivisten ja hallinnollisten prosessien perusteella palvelussa %{organization_name}. Nämä tiedostot ovat saatavilla edistääksemme avoimuutta, tiedon saatavuutta ja saavutettavuutta sekä yhteistyötarkoituksiin. Löydät alta yksityiskohtaisia tiedostoja kustakin tiedostosta sekä kuinka voit avata ja työskennellä tiedostojen kanssa. Jokaiselle tiedostolle on annettu myös selitykset ja rakennekuvaukset.
+        download:
+          components: Komponentit
+          spaces: Osallistumistilat
+          title: Lataa tietoja
         download_open_data: Lataa kaikki avoimet datatiedostot
+        download_resource: Lataa kohde %{resource_name} CSV-muodossa
         explanation:
           body_1: Nämä tiedostot on viety %{organization_name} -palvelun osallistumisprosesseista ja sisältävät asioita, kuten ehdotuksia, kommentteja ja tapaamisia. Tiedostot tarjotaan jäsenneltynä raakadatana, jota voidaan käyttää analyyseihin, tutkimuksiin tai integraatioihin muiden työkalujen kanssa. Tätä tietoa päivitetään automaattisest 24 tunnin välein, jotta sinulla olisi aina pääsy kaikista viimeisimpään tietoon.
           body_2: Nämä tiedostot ovat CSV-muodossa, jota käytetään laajasti tietojenkäsittelyssä. Kyseisen formaatin mukaisia tiedostoja voi avata ja käsitellä useilla erilaisilla ohjelmistoilla, kuten taulukkolaskentaohjelmistot, tekstinkäsittelyohjelmistot ja data-analyysityökalut.
