@@ -30,5 +30,9 @@ describe "Download Open Data files", download: true do
 
     expect(page).to have_content("Here, you will find data files that are regularly generated from various deliberative and governance processes within")
     expect(page).to have_content("Download results in CSV format")
+
+    click_on("Detailed explanation of each file")
+    expect(page).to have_content("Below is a description of each dataset, including its schema (structure) and the type of information it contains")
+    expect(page).to have_content("The component that the result belongs to")
   end
 end
