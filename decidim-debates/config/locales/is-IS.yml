@@ -65,6 +65,8 @@ is:
           back: Til baka
           create: Búa til
           title: Ný umræða
+        show:
+          edit_debate: Breyta umræðu
       models:
         debate:
           fields:
