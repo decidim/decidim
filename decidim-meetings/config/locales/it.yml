@@ -384,6 +384,9 @@ it:
           select_a_registration_type: Seleziona un tipo di registrazione
         index:
           new_meeting: Nuova riunione
+        meeting:
+          close_meeting: Chiusura meeting
+          edit_meeting: Modifica la riunione
         meetings:
           upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
         new:
