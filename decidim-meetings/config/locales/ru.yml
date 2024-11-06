@@ -267,6 +267,8 @@ ru:
           category: Категория
           date: Дата
           search: Поиск
+        meeting:
+          close_meeting: Закрыть встречу
         meetings:
           upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
         registration_confirm:
