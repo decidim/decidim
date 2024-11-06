@@ -253,6 +253,24 @@ describe "Admin manages newsletters" do
           expect(page).to have_content("5 / 5")
         end
       end
+
+      context "when the followers count varies" do
+        let!(:followers) do
+          deliverable_users.first(3).each do |follower|
+            create(:follow, followable: component.participatory_space, user: follower)
+          end
+        end
+
+        it "has a working user counter" do
+          visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+          expect(page).to have_content("This newsletter will be send to 5 users.")
+          uncheck("Send to all users")
+          uncheck("Send to participants")
+          check("Send to followers")
+          select_all
+          expect(page).to have_content("This newsletter will be send to 3 users.")
+        end
+      end
     end
 
     context "when participants are selected" do
@@ -262,6 +280,21 @@ describe "Admin manages newsletters" do
         deliverable_users.each do |participant|
           create(:dummy_resource, component:, author: participant, published_at: Time.current)
         end
+      end
+
+      it "has a working user counter" do
+        visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
+        expect(page).to have_content("This newsletter will be send to 5 users.")
+        uncheck("Send to all users")
+        uncheck("Send to followers")
+        check("Send to participants")
+
+        plural_name = assembly.model_name.route_key
+        within ".#{plural_name}-block" do
+          select translated(assembly.title), from: "newsletter_participatory_space_types_#{plural_name}__ids"
+        end
+
+        expect(page).to have_content("This newsletter will be send to 0 users.")
       end
 
       it "sends to participants", :slow do
