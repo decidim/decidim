@@ -9,31 +9,35 @@ module Decidim
   class OpenDataExporter
     FILE_NAME_PATTERN = "%{host}-open-data-%{entity}.csv"
 
-    include Decidim::TranslatableAttributes
+    attr_reader :organization, :path, :resource, :help_definition
 
-    attr_reader :organization, :path
+    include Decidim::TranslatableAttributes
 
     # Public: Initializes the class.
     #
     # organization - The Organization to export the data from.
     # path         - The String path where to write the zip file.
-    def initialize(organization, path)
+    # resource     - The String of the component or participatory space to export. If nil, it will export all.
+    def initialize(organization, path, resource = nil)
       @organization = organization
       @path = File.expand_path path
+      @resource = resource
       @help_definition = {}
     end
 
     def export
       dirname = File.dirname(path)
       FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
-      File.binwrite(path, data)
+      if resource.nil?
+        File.binwrite(path, data_for_all_resources)
+      else
+        File.write(path, data_for_resource(resource))
+      end
     end
 
     private
 
-    attr_reader :help_definition
-
-    def data
+    def data_for_all_resources
       buffer = Zip::OutputStream.write_buffer do |out|
         open_data_component_manifests.each do |manifest|
           add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_component(manifest).read)
@@ -45,6 +49,18 @@ module Decidim
       end
 
       buffer.string
+    end
+
+    def data_for_resource(resource)
+      export_manifest = (open_data_component_manifests + open_data_participatory_space_manifests)
+                        .select { |manifest| manifest.name == resource.to_sym }.first
+
+      case export_manifest.manifest
+      when Decidim::ComponentManifest
+        data_for_component(export_manifest).read
+      when Decidim::ParticipatorySpaceManifest
+        data_for_participatory_space(export_manifest).read
+      end
     end
 
     def data_for_component(export_manifest, col_sep = Decidim.default_csv_col_sep)

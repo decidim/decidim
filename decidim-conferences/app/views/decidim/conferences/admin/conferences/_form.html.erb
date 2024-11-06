@@ -116,5 +116,30 @@
     </div>
   </div>
 
+  <div class="card" data-component="accordion" id="accordion-taxonomies">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-taxonomies" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="taxonomies">
+          <%= t("taxonomies", scope: "decidim.conferences.admin.conferences.form") %>
+        </h2>
+      </button>
+    </div>
+    <div id="panel-taxonomies" class="card-section">
+      <div class="row column">
+        <% if @form.taxonomy_filters.blank? %>
+          <p class="text-gray mr-2 mt-4">
+            <%= t("no_taxonomy_filters_found", scope: "decidim.conferences.admin.conferences.form") %>
+            <%= link_to(t("define_taxonomy_filters", scope: "decidim.conferences.admin.conferences.form"), participatory_space_taxonomy_filters_path, class: "button button__text-secondary") %>
+          </p>
+        <% else %>
+          <% @form.taxonomy_filters.each do |filter| %>
+            <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+
 <%= append_javascript_pack_tag "decidim_conferences_admin" %>

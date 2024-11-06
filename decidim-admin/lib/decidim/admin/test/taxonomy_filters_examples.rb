@@ -6,7 +6,7 @@ shared_context "with taxonomy filters context" do
   let!(:root_taxonomy) { create(:taxonomy, organization:) }
   let!(:another_root_taxonomy) { create(:taxonomy, organization:) }
   let!(:unselected_root_taxonomy) { create(:taxonomy, organization:) }
-  let!(:taxonomy) { create(:taxonomy, organization:, parent: root_taxonomy) }
+  let!(:taxonomy) { create(:taxonomy, skip_injection: true, organization:, parent: root_taxonomy) }
   let!(:another_taxonomy) { create(:taxonomy, organization:, parent: root_taxonomy) }
   let!(:taxonomy_with_child) { create(:taxonomy, organization:, parent: root_taxonomy) }
   let!(:taxonomy_child) { create(:taxonomy, organization:, parent: taxonomy_with_child) }
@@ -18,6 +18,19 @@ shared_context "with taxonomy filters context" do
   let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let!(:another_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: another_taxonomy) }
+end
+
+shared_examples "having no taxonomy filters defined" do
+  let!(:taxonomy_filter) { create(:taxonomy_filter) }
+  let!(:taxonomy_filter_item) { nil }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter) }
+  let!(:another_taxonomy_filter_item) { nil }
+
+  it "shows no taxonomy filters" do
+    expect(page).to have_content("Taxonomies")
+    expect(page).to have_content("No taxonomy filters found.")
+    expect(page).to have_link("Please define some filters for this participatory space before using this setting")
+  end
 end
 
 shared_examples "a taxonomy filters controller" do
@@ -45,7 +58,7 @@ shared_examples "a taxonomy filters controller" do
     it "shows no elements found" do
       expect(page).to have_content("Edit taxonomy filter")
       expect(page).to have_content("Taxonomy filter")
-      expect(page).to have_content("No items ara available for this taxonomies")
+      expect(page).to have_content("No items are available for this taxonomy")
     end
   end
 

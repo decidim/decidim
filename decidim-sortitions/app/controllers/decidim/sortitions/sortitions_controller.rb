@@ -15,7 +15,7 @@ module Decidim
       def index
         @sortitions = search
                       .result
-                      .includes(:category)
+                      .includes(:taxonomies)
 
         @sortitions = reorder(@sortitions)
         @sortitions = paginate(@sortitions)
@@ -38,7 +38,7 @@ module Decidim
       def default_filter_params
         {
           search_text_cont: "",
-          with_category: "",
+          with_any_taxonomies: nil,
           with_any_state: "active"
         }
       end

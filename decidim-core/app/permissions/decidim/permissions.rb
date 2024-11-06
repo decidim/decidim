@@ -24,6 +24,7 @@ module Decidim
       user_group_action?
       user_group_invitations_action?
       apply_endorsement_permissions if permission_action.subject == :endorsement
+      show_my_location_button?
 
       permission_action
     end
@@ -190,6 +191,12 @@ module Decidim
       rescue Decidim::PermissionAction::PermissionNotSetError
         nil
       end
+    end
+
+    def show_my_location_button?
+      return unless permission_action.action == :locate && permission_action.subject == :geolocation
+
+      allow!
     end
 
     def not_already_active?(authorization)

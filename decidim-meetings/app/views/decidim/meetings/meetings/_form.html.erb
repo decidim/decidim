@@ -53,15 +53,11 @@
   <%= form.datetime_field :end_time %>
 </div>
 
-<% if current_participatory_space.has_subscopes? %>
-  <div>
-    <%= scopes_select_field form, :decidim_scope_id %>
-  </div>
+<% if @form.taxonomy_filters&.any? %>
+  <% @form.taxonomy_filters.each do |filter| %>
+    <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+  <% end %>
 <% end %>
-
-<div>
-  <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>
-</div>
 
 <div class="row column">
   <%= form.select :registration_type,
