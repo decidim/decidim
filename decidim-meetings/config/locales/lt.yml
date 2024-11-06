@@ -504,9 +504,7 @@ lt:
           see_all_withdrawn: Žiūrėti visus atšauktus susitikimus
           text_banner: Jūs žiūrite susitikimų, kuriuos atšaukė jų autoriai, sąrašą. %{go_back_link}.
         meeting:
-          close_meeting: Uždaryti susitikimą
           edit_close_meeting: Redaguoti susitikimo ataskaitą
-          edit_meeting: Redaguoti susitikimą
           join_meeting: Prisijunkite prie susitikimo
         meetings:
           no_meetings_warning: Jūsų paieškos kriterijus atitinkančių susirinkimų nerasta arba neplanuojama.
@@ -543,7 +541,6 @@ lt:
           visit_finished: Peržiūrėti susirinkimą
           withdraw_btn_hint: Galite išimti susirinkimą jei apsigalvojoje. Susirinkimas nebus ištrintas - jis atsidurs išimtų susirinkimų sąraše.
           withdraw_confirmation_html: Ar tikrai norite išimti šį susirinkimą? <br><br><strong>Šio veiksmo atšaukti negalima!</strong>
-          withdraw_meeting: Išimti susirinkimą
         update:
           invalid: Atnaujinant susirinkimą iškilo problema.
           success: Sėkmingai atnaujinote susirinkimą.
