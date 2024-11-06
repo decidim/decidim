@@ -804,6 +804,7 @@ fi-pl:
             error: Ei voitu hylätä osallistujaa, yritä myöhemmin uudelleen.
             success: "Käyttäjän @%{user} osallistumispyynnön hylkäys onnistui."
         show:
+          edit: Muokkaa
           final_proposal: lopullinen ehdotus
           final_proposal_help_text: Tämä luonnos on valmis. Voi katsoa lopullista ehdotusta
           hidden_authors_count:
@@ -966,6 +967,7 @@ fi-pl:
         show:
           answer: Vastaus
           changes_at_title: Muokkaus kohteelle "%{title}"
+          edit_proposal: Muokkaa
           estimated_cost: Arvioitu kustannus
           hidden_endorsers_count:
             one: ja %{count} muu henkilö
@@ -981,6 +983,7 @@ fi-pl:
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
           withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi ja ehdotus ei ole vielä saanut ääniä. Ehdotusta ei poisteta, vaan se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän ehdotuksen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
+          withdraw_proposal: Peru
         update:
           title: Muokkaa ehdotusta
         vote_button:
