@@ -585,7 +585,6 @@ el:
             error: Δεν ήταν δυνατή η απόρριψη ως συνεργάτη. Δοκιμάστε ξανά αργότερα.
             success: "@%{user} έχει απορριφθεί με επιτυχία ως συνεργάτης."
         show:
-          edit: Επεξεργασία προσχεδίου συνεργασίας
           final_proposal: τελική πρόταση
           final_proposal_help_text: Αυτό το προσχέδιο ολοκληρώθηκε. Δείτε την τελική πρόταση
           hidden_authors_count:
@@ -704,7 +703,6 @@ el:
         show:
           answer: Απάντηση
           changes_at_title: Τροποποίηση σε «%{title}»
-          edit_proposal: Επεξεργασία πρότασης
           estimated_cost: Εκτιμώμενο κόστος
           hidden_endorsers_count:
             one: και %{count} ακόμη άτομο
@@ -719,7 +717,6 @@ el:
           proposal_in_evaluation_reason: Αυτή η πρόταση αξιολογείται
           proposal_rejected_reason: 'Αυτή η πρόταση απορρίφθηκε επειδή:'
           withdraw_confirmation_html: Είστε σίγουροι ότι θέλετε να αποσύρετε αυτή την πρόταση; <br><br><strong> Αυτή η ενέργεια δεν ακυρώνεται!</strong>
-          withdraw_proposal: Απόσυρση πρότασης
         update:
           title: Ενημέρωση πρότασης
         voting_rules:
