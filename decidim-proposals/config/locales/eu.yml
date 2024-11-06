@@ -806,6 +806,7 @@ eu:
             error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
             success: "@%{user} behar bezala ukatu da kolaboratzaile gisa."
         show:
+          edit: Editatu
           final_proposal: azken proposamena
           final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
           hidden_authors_count:
@@ -968,6 +969,7 @@ eu:
         show:
           answer: Erantzun
           changes_at_title: Zuzenketa honi "%{title}"
+          edit_proposal: Editatu
           estimated_cost: Gutxi gorabeherako kostua
           hidden_endorsers_count:
             one: eta pertsona %{count} gehiago
@@ -983,6 +985,7 @@ eu:
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
           withdraw_btn_hint: Zure proposamena atzera bota dezakezu iritziz aldatzen baduzu, botorik jaso ez baduzu. Proposamena ez da ezabatzen, baztertutako proposamenen zerrendan agertuko da.
           withdraw_confirmation_html: Ziur zaude proposamen hau kendu nahi duzula? <br><br><strong>Ekintza hau ezin da desegin!</strong>
+          withdraw_proposal: Kendu
         update:
           title: Eguneratu proposamena
         vote_button:
