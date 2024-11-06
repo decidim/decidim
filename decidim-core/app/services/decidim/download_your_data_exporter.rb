@@ -11,23 +11,27 @@ module Decidim
     # Public: Initializes the class.
     #
     # user          - The user to export the data from.
-    # path          - The String path where to write the zip file.
+    # name          - The name of the export in private area
     # export_format - The format of the data files inside the zip file. (CSV by default)
-    def initialize(user, path, export_format = DEFAULT_EXPORT_FORMAT)
+    def initialize(user, name, export_format = DEFAULT_EXPORT_FORMAT)
       @user = user
-      @path = File.expand_path path
       @export_format = export_format
+      @name = name
     end
 
     def export
-      dirname = File.dirname(path)
-      FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
-      File.binwrite(path, data)
+      user_export = user.private_exports.build
+      user_export.export_type = name
+      user_export.file.attach(io: data, filename: "#{name}.zip", content_type: "application/zip")
+      user_export.expires_at = Decidim.download_your_data_expiry_time.from_now
+      user_export.metadata = {}
+      user_export.save!
+      user_export
     end
 
     private
 
-    attr_reader :user, :export_format, :path
+    attr_reader :user, :export_format, :name
 
     def data
       user_data, user_attachments = data_and_attachments_for_user
@@ -36,7 +40,8 @@ module Decidim
         save_user_attachments(out, user_attachments)
       end
 
-      buffer.string
+      buffer.rewind
+      buffer
     end
 
     def data_and_attachments_for_user
