@@ -549,9 +549,7 @@ fi:
           see_all_withdrawn: Näytä kaikki peruutetut tapaamiset
           text_banner: Katselet peruutettuja tapaamisia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
         meeting:
-          close_meeting: Sulje tapaaminen
           edit_close_meeting: Muokkaa tapaamisraporttia
-          edit_meeting: Muokkaa tapaamista
           join_meeting: Ilmoittaudu tapaamiseen
           reply_poll: Vastaa mielipidetiedusteluun
           view_poll: Näytä mielipidetiedustelu
@@ -589,7 +587,6 @@ fi:
           visit_finished: Näytä mennyt tapaaminen
           withdraw_btn_hint: Voit peruuttaa tapaamisen, jos muutat mieltäsi. Tapaamista ei poisteta kokonaan, eli se löytyy edelleen peruutettujen tapaamisten listasta.
           withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän tapaamisen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
-          withdraw_meeting: Peruuta tapaaminen
         update:
           invalid: Tapaamisen luonti epäonnistui.
           success: Tapaamisen luonti onnistui.
