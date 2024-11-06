@@ -701,7 +701,7 @@ de:
             error: Konnte nicht als Mitarbeiter abgelehnt werden, versuche es später erneut.
             success: "@%{user} wurde als Mitwirkende erfolgreich abgelehnt."
         show:
-          edit: Bearbeiten Sie den gemeinsamen Entwurf
+          edit: Gemeinsamen Entwurf bearbeiten
           final_proposal: Endgültiger Vorschlag
           final_proposal_help_text: Dieser Entwurf ist fertig. Sie können den endgültigen fertigen Vorschlag sehen
           hidden_authors_count:
