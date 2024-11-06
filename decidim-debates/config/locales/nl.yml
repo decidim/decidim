@@ -114,7 +114,6 @@ nl:
           recent: Meest recent
           updated: Onlangs bijgewerkt
         show:
-          edit_debate: Bewerk debat
           open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.
