@@ -438,7 +438,6 @@ lv:
           rejected_request:
             error: Nevarēja noraidīt sadarbības pieprasījumu, lūdzu, vēlāk mēģiniet vēlreiz.
         show:
-          edit: Rediģēt sadarbības projektu
           final_proposal: galīgais priekšlikums
           final_proposal_help_text: Šis projekts ir pabeigts. Iepazīstieties ar galīgo priekšlikumu
           hidden_authors_count:
@@ -535,7 +534,6 @@ lv:
         show:
           answer: Atbilde
           changes_at_title: Grozīts "%{title}"
-          edit_proposal: Rediģēt priekšlikumu
           estimated_cost: Paredzamās izmaksas
           hidden_endorsers_count:
             zero: un vēl %{count} personas
@@ -550,7 +548,6 @@ lv:
           proposal_accepted_reason: 'Šis priekšlikums ir pieņemts, jo:'
           proposal_in_evaluation_reason: Šis priekšlikums tiek vērtēts
           proposal_rejected_reason: 'Šis priekšlikums netika pieņemts, jo'
-          withdraw_proposal: Atsaukt priekšlikumu
         voting_rules:
           proposal_limit:
             description: Jūs varat izveidot līdz %{limit} priekšlikumiem.
