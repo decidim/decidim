@@ -36,6 +36,8 @@ es-MX:
             values:
               'false': Seleccionado para implementación
               'true': No seleccionado para la implementación
+          taxonomies_part_of_contains:
+            label: Taxonomía
     budgets:
       actions:
         attachment_collections: Carpetas
@@ -206,6 +208,7 @@ es-MX:
           fields:
             id: ID
             map: Mapa
+            taxonomies: Taxonomías
             title: Título
       order_summary_mailer:
         order_summary:
@@ -315,8 +318,10 @@ es-MX:
         settings:
           global:
             announcement: Anuncio
+            clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             form:
               errors:
                 budget_voting_rule_only_one: Solo debe habilitarse una norma de votación.
@@ -324,10 +329,13 @@ es-MX:
             geocoding_enabled: Mapas habilitados
             landing_page_content: Página de inicio de presupuestos
             more_information_modal: Modal de "Más información"
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             projects_per_page: Proyectos por página
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada proyecto
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
             title: Título
             total_budget: Presupuesto total
             vote_minimum_budget_projects_number: Número mínimo de proyectos a votar
@@ -378,6 +386,7 @@ es-MX:
           related_proposal_titles: Los títulos de las propuestas relacionadas
           related_proposal_urls: Las URL de las propuestas relacionadas
           related_proposals: Las propuestas relacionadas con este proyecto
+          taxonomies: Las taxonomías del proyecto
           title: El título del proyecto
           url: La URL del proyecto
     orders:
