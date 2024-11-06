@@ -373,10 +373,13 @@ es-PY:
         conferences:
           form:
             available_slots_help: Déjalo en 0 si tienes ranuras ilimitadas disponibles.
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             registrations_count:
               one: Ha habido 1 registro.
               other: Ha habido %{count} registros.
             slug_help_html: 'Las URL amigables se utilizan para generar las URL que apuntan a esta conferencia. Solo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            taxonomies: Taxonomías
         content_blocks:
           highlighted_conferences:
             max_results: Cantidad máxima de elementos a mostrar
@@ -592,6 +595,7 @@ es-PY:
           slogan: El lema de esta jornada
           slug: El nombre corto de la jornada (usado para fines de identificación, para la URL)
           start_date: La fecha en la que comenzó esta jornada.
+          taxonomies: Las taxonomías de la jornada
           title: El título de la jornada
     statistics:
       conferences_count: Jornadas
