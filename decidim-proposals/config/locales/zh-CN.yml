@@ -447,7 +447,6 @@ zh-CN:
           rejected_request:
             error: 无法以协作者身份拒绝，请稍后再试。
         show:
-          edit: 编辑协作草稿
           final_proposal: 最后提案
           final_proposal_help_text: 这个草稿已完成。查看最后建议
           hidden_authors_count:
@@ -541,7 +540,6 @@ zh-CN:
         show:
           answer: 答案
           changes_at_title: 对"%{title}" 的修正
-          edit_proposal: 编辑提案
           estimated_cost: 估计费用
           hidden_endorsers_count:
             other: 和更多 %{count} 人
@@ -555,7 +553,6 @@ zh-CN:
           proposal_in_evaluation_reason: 这项建议正在评估
           proposal_rejected_reason: '这一提议被否决，理由是：'
           withdraw_confirmation_html: 您确定要撤回此建议吗？<br><br><strong>此操作不能取消！</strong>
-          withdraw_proposal: 撤回提案
         update:
           title: 更新提议
         voting_rules:
