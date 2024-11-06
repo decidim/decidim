@@ -37,5 +37,9 @@ FactoryBot.define do
     trait :clean_after_publish do
       clean_after_publish { true }
     end
+
+    trait :announcement do
+      announcement { "This is a custom announcement." }
+    end
   end
 end
