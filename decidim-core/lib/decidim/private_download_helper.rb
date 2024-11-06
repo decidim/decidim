@@ -7,7 +7,7 @@ module Decidim
       @export.export_type = name
       @export.file.attach(io: StringIO.open(FileZipper.new(export_data.filename(name), export_data.read).zip), filename: "#{name}.zip")
       @export.expires_at = Decidim.download_your_data_expiry_time.from_now
-      @export.metadata = { }
+      @export.metadata = {}
       @export.save!
       @export.reload
     end

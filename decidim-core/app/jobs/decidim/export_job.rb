@@ -17,7 +17,7 @@ module Decidim
       serializer = export_manifest.serializer
 
       export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export
-      
+
       attach_archive(export_data, name, user)
 
       ExportMailer.export(user, name, @export).deliver_later

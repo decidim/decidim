@@ -4,14 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe DownloadYourDataExporter do
-    subject { DownloadYourDataExporter.new(user, tmp_file_in, "CSV") }
+    subject { DownloadYourDataExporter.new(user, "download-your-data", "CSV") }
 
-    let(:tmp_file_in) do
-      Dir::Tmpname.create(["download-your-data", ".zip"]) do
-        # just get an empty file name
-      end
-    end
-    let(:tmp_dir_out) { Dir.mktmpdir("download_your_data_exporter_spec") }
     let(:user) { create(:user, organization:) }
     let(:organization) { create(:organization) }
     let(:expected_files) do
@@ -35,17 +29,6 @@ module Decidim
         decidim-comments-comments-
         decidim-comments-commentvotes-
       )
-    end
-
-    describe "#export" do
-      it "compresses a password protected file" do
-        expect(File.exist?(tmp_file_in)).to be false
-
-        # generate 7z
-        subject.export
-
-        expect(File.exist?(tmp_file_in)).to be true
-      end
     end
 
     describe "#data_and_attachments_for_user" do
