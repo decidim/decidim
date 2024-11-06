@@ -134,11 +134,9 @@ lt:
           recent: Naujausia
           updated: Neseniai atnaujinta
         show:
-          close_debate: Uždaryti diskusiją
           debate_closed: Uždaryta
           debate_conclusions_are: 'Diskusija uždaryta %{date} ir padarytos šios išvados:'
           edit_conclusions: Keisti išvadas
-          edit_debate: Redaguoti diskusiją
           groups_count: Grupės
           open: Atverti diskusiją
           participants_count: Dalyviai
