@@ -515,9 +515,7 @@ pt-BR:
           see_all_withdrawn: Veja todas as reuniões retiradas
           text_banner: Você está vendo a lista de reuniões retiradas por seus autores. %{go_back_link}.
         meeting:
-          close_meeting: Encerrar reunião
           edit_close_meeting: Editar relatório da reunião
-          edit_meeting: Editar Reunião
           join_meeting: Participe da reunião
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
@@ -552,7 +550,6 @@ pt-BR:
           visit_finished: Ver reunião anterior
           withdraw_btn_hint: Você pode retirar sua reunião se mudar de ideia. A reunião não é excluída, ela aparecerá na lista de reuniões retiradas.
           withdraw_confirmation_html: Tem certeza de que deseja retirar esta reunião?<br><br><strong>esta ação não pode ser cancelada!</strong>
-          withdraw_meeting: Retirar reunião
         update:
           invalid: Houve um problema ao atualizar a reunião.
           success: Você atualizou a reunião com sucesso.
