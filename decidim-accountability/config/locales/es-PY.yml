@@ -223,8 +223,10 @@ es-PY:
         filters:
           all: Todos
         home:
+          categories_label: Categorías
           empty: Aún no hay ningún resultado.
           empty_filters: No hay resultados con estos criterios.
+          subcategories_label: Subcategorías
         home_header:
           global_status: Estado de ejecución global
         nav_breadcrumb:
