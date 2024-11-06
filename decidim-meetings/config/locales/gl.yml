@@ -312,6 +312,8 @@ gl:
           see_all: Ver todas as xuntanzas
           see_all_withdrawn: Ver todas as xuntanzas anuladas
           text_banner: Estás a ver todas as xuntanzas anuladas polos seus autores. %{go_back_link}.
+        meeting:
+          close_meeting: Pechar reunión
         meetings:
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
         registration_confirm:
