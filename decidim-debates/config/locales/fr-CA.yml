@@ -141,11 +141,9 @@ fr-CA:
           recent: Les plus récents
           updated: Mis à jour récemment
         show:
-          close_debate: Clore le débat
           debate_closed: Fermé
           debate_conclusions_are: 'Le débat a été clos le %{date} avec ces conclusions:'
           edit_conclusions: Modifier les conclusions
-          edit_debate: Modifier le débat
           groups_count: Groupes
           open: Ouvrir le débat
           participants_count: Participants
