@@ -128,11 +128,9 @@ it:
           recent: Più recenti
           updated: Aggiornato di recente
         show:
-          close_debate: Chiudi dibattito
           debate_closed: Chiuso
           debate_conclusions_are: 'Il dibattito si è concluso il %{date} con queste conclusioni:'
           edit_conclusions: Modifica conclusioni
-          edit_debate: Modifica dibattito
           groups_count: Gruppi
           open: Apri il dibattito
           participants_count: Partecipanti
