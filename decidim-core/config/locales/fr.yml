@@ -1306,7 +1306,11 @@ fr:
     open_data:
       index:
         description: Bienvenue sur la page sur les données ouvertes de %{organization_name}. Ici, vous trouverez des fichiers de données qui sont régulièrement générés à partir de divers processus de délibération et de gouvernance au sein de %{organization_name}. Ces dossiers sont mis à disposition pour promouvoir la transparence, l'accessibilité et la collaboration. Ci-dessous, vous trouverez des informations détaillées sur ce que sont ces fichiers, comment les ouvrir et travailler avec, et une description du contenu et de la structure de chaque fichier.
+        download:
+          spaces: Espaces participatifs
+          title: Télécharger les ressources
         download_open_data: Télécharger tous les fichiers de données ouvertes
+        download_resource: Télécharger %{resource_name} au format CSV
         explanation:
           body_1: Ces fichiers sont des jeux de données exportés à partir des processus participatifs de %{organization_name}, tels que les propositions, les commentaires et les réunions. Ils fournissent des données brutes et structurées qui peuvent être utilisées pour l'analyse, la recherche ou l'intégration avec d'autres outils. Les données sont mises à jour automatiquement toutes les 24 heures, vous assurant ainsi un accès aux informations les plus récentes.
           body_2: Ces fichiers sont au format CSV (valeurs séparées par des virgules), un format de fichier largement utilisé qui peut être ouvert et traité par une variété d'applications logicielles, y compris les programmes de feuilles de calcul, les éditeurs de texte et les outils d'analyse de données.
