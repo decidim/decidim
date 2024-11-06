@@ -525,9 +525,7 @@ sv:
           see_all_withdrawn: Visa alla inställda möten
           text_banner: Du visar möten som ställts in av sin arrangör. %{go_back_link}.
         meeting:
-          close_meeting: Avsluta möte
           edit_close_meeting: Redigera mötesrapport
-          edit_meeting: Redigera möte
           join_meeting: Gå med i mötet
           reply_poll: Svarsenkät
           view_poll: Visa enkät
@@ -564,7 +562,6 @@ sv:
           visit_finished: Visa tidigare möten
           withdraw_btn_hint: Du kan ställa in mötet om du ändrar dig. Mötet raderas inte utan kommer att synas i en lista med inställda möten.
           withdraw_confirmation_html: Är du säker på att du vill ställa in mötet?<br><br><strong>Den här åtgärden kan inte ångras!</strong>
-          withdraw_meeting: Ställ in möte
         update:
           invalid: Det gick inte att uppdatera mötet.
           success: Du har uppdaterat mötet.
