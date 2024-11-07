@@ -865,6 +865,7 @@ cs:
         errors:
           device_not_supported: Vaše zařízení nepodporuje služby určování polohy. Zadejte adresu ručně.
           no_device_location: Omlouváme se, ale nemohli jsme rozpoznat vaši polohu. Zadejte adresu ručně.
+        use_my_location: Použít mou aktuální polohu
       invite_coauthors:
         cancel:
           error: Při rušení pozvánky spoluautora došlo k chybě.
@@ -891,6 +892,7 @@ cs:
             published_answer: Publikovaná odpověď
             published_at: Publikováno v
             state: Stav
+            taxonomies: Taxonomie
             title: Titul
             valuator: Hodnotitel
             valuators: Hodnotitelé
@@ -937,7 +939,9 @@ cs:
           scope: Rozsah
           search: Vyhledávání
           state: Stav
+          taxonomy_filters: Filtry
           type: Typ
+          voted: Hlasováno
         index:
           click_here: Zobrazit všechny návrhy
           collaborative_drafts_list: Přístup ke konceptům spolupráce
@@ -960,6 +964,7 @@ cs:
           most_commented: Nejvíce komentované
           most_endorsed: Nejvíce schválené
           most_followed: Nejvíce sledované
+          most_voted: Nejvíce hlasovalo
           random: Náhodně
           recent: Nedávné
           with_more_authors: S více autory
@@ -985,6 +990,7 @@ cs:
         show:
           answer: Odpovědět
           changes_at_title: Pozměňovací návrh k "%{title}"
+          edit_proposal: Upravit
           estimated_cost: Odhadované náklady
           hidden_endorsers_count:
             one: a %{count} další osoba
@@ -1002,6 +1008,7 @@ cs:
           proposal_rejected_reason: 'Tento návrh byl zamítnut, protože:'
           withdraw_btn_hint: Pokud změníte názor, můžete svůj návrh stáhnout, dokud neobdržíte žádný hlas. Návrh není vymazán, objeví se v seznamu stažených návrhů.
           withdraw_confirmation_html: Jste si jisti, že chcete stáhnout tento návrh?<br><br><strong>Tuto akci nelze zrušit!</strong>
+          withdraw_proposal: Odebrat
         update:
           title: Aktualizovat návrh
         vote_button:
@@ -1011,6 +1018,12 @@ cs:
           no_votes_remaining: Žádné zbývající hlasy
           vote: Hlasovat
           votes_blocked: Hlasování zakázáno
+        votes_count:
+          count:
+            one: Hlas
+            few: Hlasy
+            many: Hlasů
+            other: Hlasů
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Každý návrh může sshromáždit více než %{limit} hlasů
