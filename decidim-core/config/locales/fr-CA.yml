@@ -1306,6 +1306,9 @@ fr-CA:
     open_data:
       index:
         description: Bienvenue sur la page sur les données ouvertes de %{organization_name}. Ici, vous trouverez des fichiers de données qui sont régulièrement générés à partir de divers processus de délibération et de gouvernance au sein de %{organization_name}. Ces dossiers sont mis à disposition pour promouvoir la transparence, l'accessibilité et la collaboration. Ci-dessous, vous trouverez des informations détaillées sur ce que sont ces fichiers, comment les ouvrir et travailler avec, et une description du contenu et de la structure de chaque fichier.
+        detailed:
+          spaces: Espaces participatifs
+          title: Explication détaillée de chaque fichier
         download:
           spaces: Espaces participatifs
           title: Télécharger les ressources
@@ -1336,6 +1339,8 @@ fr-CA:
               </ul>
             title: 3. Travailler avec les données
           title: Comment ouvrir et travailler avec ces fichiers
+        license:
+          title: Licence
         title: Données ouvertes
       not_available_yet: Les fichiers Open Data ne sont pas encore disponibles. Veuillez réessayer dans quelques minutes.
     pad_iframe:
