@@ -20,7 +20,7 @@ module Decidim
 
       private_export = attach_archive(export_data, name, user)
 
-      ExportMailer.export(user, name, private_export).deliver_later
+      ExportMailer.export(user, private_export).deliver_later
     end
     # rubocop:enable Metrics/ParameterLists
   end

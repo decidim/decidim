@@ -7,18 +7,17 @@ module Decidim
     # Public: Sends a notification email with the result of an export in a
     # zipped file.
     #
-    # user        - The user to be notified.
-    # export_name - The name of the export.
+    # user           - The user to be notified.
     # private_export - The private private_export where the export data has been attached.
     #
     # Returns nothing.
-    def export(user, filename, private_export)
+    def export(user, private_export)
       @user = user
       @organization = user.organization
       @private_export = private_export
 
       with_user(user) do
-        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: filename))
+        mail(to: "#{user.name} <#{user.email}>", subject: I18n.t("decidim.export_mailer.subject", name: private_export.export_type))
       end
     end
 

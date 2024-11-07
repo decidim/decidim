@@ -16,7 +16,7 @@ module Decidim
 
         private_export = attach_archive(export_data, title, user)
 
-        ExportMailer.export(user, title, private_export).deliver_later
+        ExportMailer.export(user, private_export).deliver_later
       end
     end
   end

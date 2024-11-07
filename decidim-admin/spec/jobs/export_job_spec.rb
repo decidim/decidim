@@ -26,7 +26,7 @@ module Decidim
             .and_return(double(export: export_data))
 
           expect(ExportMailer)
-            .to(receive(:export).with(user, anything, kind_of(Decidim::PrivateExport)))
+            .to(receive(:export).with(user, kind_of(Decidim::PrivateExport)))
             .and_return(double(deliver_later: true))
 
           ExportJob.perform_now(user, component, "dummies", "CSV")
@@ -42,7 +42,7 @@ module Decidim
             .and_return(double(export: export_data))
 
           expect(ExportMailer)
-            .to(receive(:export).with(user, anything, kind_of(Decidim::PrivateExport)))
+            .to(receive(:export).with(user, kind_of(Decidim::PrivateExport)))
             .and_return(double(deliver_later: true))
 
           ExportJob.perform_now(user, component, "dummies", "JSON")

@@ -12,8 +12,8 @@ module Decidim
 
     describe "export" do
       let(:export_data) { Decidim::Exporters::ExportData.new("content", "txt") }
-      let(:mail) { described_class.export(user, "dummy", private_download) }
-      let(:private_download) { create(:private_export, attached_to: user, export_data:) }
+      let(:mail) { described_class.export(user, private_download) }
+      let(:private_download) { create(:private_export, export_type: "dummy", attached_to: user, export_data:) }
 
       it "sets a subject" do
         expect(mail.subject).to include("dummy", "ready")
