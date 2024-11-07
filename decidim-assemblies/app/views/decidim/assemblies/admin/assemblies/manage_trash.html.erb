@@ -9,10 +9,10 @@
   <table class="table-list">
     <%= render partial: "assemblies_thead" %>
     <tbody>
-    <%= render partial: "decidim/assemblies/admin/assemblies/assembly_row",
-               collection: trashable_deleted_collection,
-               as: :assembly,
-               locals: { view: :deleted } %>
+      <%= render partial: "decidim/assemblies/admin/assemblies/assembly_row",
+                 collection: trashable_deleted_collection,
+                 as: :assembly,
+                 locals: { view: :deleted } %>
     </tbody>
   </table>
 </div>
