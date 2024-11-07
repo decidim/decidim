@@ -6,11 +6,11 @@
       <h2 class="card-title" id="title">
         <%= t("title", scope:) %>
       </h2>
-      <%= icon "arrow-up-s-line", class: "mb-4" %>
+      <%= icon "arrow-down-s-line", class: "mb-4" %>
     </button>
   </div>
 
-  <div id="panel-title--<%= i18n_scope %>" class="card-section" aria-hidden="true">
+  <div id="panel-title--<%= i18n_scope %>" class="card-section editor-content" aria-hidden="true">
     <%= yield %>
   </div>
 </div>

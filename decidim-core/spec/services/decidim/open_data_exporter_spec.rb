@@ -37,6 +37,24 @@ describe Decidim::OpenDataExporter do
           expect(csv_data).to include("This ZIP file contains files for studying and researching about this participation platform.")
         end
       end
+
+      describe "LICENSE.md" do
+        let(:csv_file_name) { "LICENSE.md" }
+
+        before do
+          subject.export
+        end
+
+        it "includes a LICENSE" do
+          expect(csv_file).not_to be_nil
+        end
+
+        it "includes the LICENSE content" do
+          expect(csv_data).to include("License")
+          expect(csv_data).to include("is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/")
+          expect(csv_data).to include("Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/")
+        end
+      end
     end
 
     describe "with users" do

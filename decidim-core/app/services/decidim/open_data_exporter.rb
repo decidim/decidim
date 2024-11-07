@@ -50,6 +50,7 @@ module Decidim
         end
 
         add_file_to_output(out, "README.md", readme)
+        add_file_to_output(out, "LICENSE.md", license)
       end
 
       buffer.string
@@ -206,6 +207,17 @@ module Decidim
       end
 
       readme_file
+    end
+
+    def license
+      link_database = "#{I18n.t("license_database_name", scope: "decidim.open_data.index.license")}: #{I18n.t("license_database_link", scope: "decidim.open_data.index.license")}"
+      link_contents = "#{I18n.t("license_contents_name", scope: "decidim.open_data.index.license")}: #{I18n.t("license_contents_link", scope: "decidim.open_data.index.license")}"
+
+      license_file = I18n.t("title", scope: "decidim.open_data.index.license")
+      license_file << "\n\n"
+      license_file << I18n.t("body_1_html", scope: "decidim.open_data.index.license", organization_name: translated_attribute(organization.name), link_database:, link_contents:)
+
+      license_file
     end
 
     def add_file_to_output(output, file_name, string)
