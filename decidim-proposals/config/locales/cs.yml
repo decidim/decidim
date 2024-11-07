@@ -815,6 +815,7 @@ cs:
           search: Vyhledávání
           state: Stav
           type: Typ
+          voted: Hlasováno
         index:
           click_here: Zobrazit všechny návrhy
           collaborative_drafts_list: Přístup ke konceptům spolupráce
@@ -837,6 +838,7 @@ cs:
           most_commented: Nejvíce komentované
           most_endorsed: Nejvíce schválené
           most_followed: Nejvíce sledované
+          most_voted: Nejvíce hlasovalo
           random: Náhodně
           recent: Nedávné
           with_more_authors: S více autory
@@ -890,6 +892,12 @@ cs:
           no_votes_remaining: Žádné zbývající hlasy
           vote: Hlasovat
           votes_blocked: Hlasování zakázáno
+        votes_count:
+          count:
+            one: Hlas
+            few: Hlasy
+            many: Hlasů
+            other: Hlasů
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Každý návrh může sshromáždit více než %{limit} hlasů
