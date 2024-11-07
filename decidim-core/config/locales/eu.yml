@@ -1342,7 +1342,12 @@ eu:
           title: Open Data fitxategiak %{organization} erakunderako
       index:
         description: 'Ongi etorri %{organization_name} Open Data orrira. Hemen, datu-fitxategiak aurkituko dituzu, aldian-aldian hainbat deliberazio- eta gobernantza-prozesutatik sortzen direnak honen barruan: %{organization_name}. Fitxategi horiek gardentasuna, irisgarritasuna eta lankidetza sustatzeko daude eskuragarri. Jarraian, aurkituko duzu fitxategi horiek zer diren, nola ireki eta nola landu behar diren eta fitxategi bakoitzaren edukiaren eta egituraren deskribapena.'
+        download:
+          components: Osagaiak
+          spaces: Espazio parte-hartzaileak
+          title: Deskargatu baliabideak
         download_open_data: Deskargatu Open Data fitxategi guztiak
+        download_resource: Deskargatu %{resource_name} CSV formatuan
         explanation:
           body_1: Fitxategi hauek %{organization_name} erakundetik esportatutako datu baseak dira, hala nola proposamenak, iruzkinak eta bilerak. Datu gordinak ematen dituzte, egituratuak, analisirako, ikerketarako edo beste tresna batzuekin integratzeko erabil daitezkeenak. Datuak automatikoki eguneratzen dira 24 orduro, informazio berriena eskura duzula ziurtatuz.
           body_2: Fitxategi horiek CSV (Conma-Separated Values) formatuan daude. Fitxategi formatu hori oso erabilia da, eta hainbat software-aplikazioren bidez ireki eta prozesa daiteke, kalkulu-orriak, testu-editoreak eta datuak aztertzeko tresnak barne.
