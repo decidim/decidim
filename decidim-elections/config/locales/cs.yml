@@ -1177,6 +1177,7 @@ cs:
           certify:
             add_images: Přidat obrázky
             error: Došlo k chybě při připojování certifikátu, zkuste to prosím znovu.
+            form_legend: Nahrajte prosím fotografii volebního certifikátu o uzavření
             heading: Přepočet hlasů - Nahrát certifikát
             info_text: Nahrajte prosím fotografii volebního certifikátu o uzavření.
             submit: Nahrát certifikát
