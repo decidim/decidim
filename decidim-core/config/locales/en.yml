@@ -691,8 +691,8 @@ en:
         action: Action
         download: Download
         download_data: Downloads area
-        download_data_description_1_html: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
-        download_data_description_2_html: You can request a .zip file with your submissions and personal data.
+        download_data_description_1: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
+        download_data_description_2: You can request a .zip file with your submissions and personal data.
         download_your_data: Personal data
         expiration: Expiration
         expired: Already expired
