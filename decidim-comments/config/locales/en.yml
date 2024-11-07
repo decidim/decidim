@@ -48,8 +48,8 @@ en:
           submit_reply: Publish reply
           submit_root_comment: Publish comment
           user_group_id:
-            your_profile: Your profile
             label: Comment as
+            your_profile: Your profile
         opinion:
           label: Your opinion about this topic
           negative: Negative

@@ -115,6 +115,14 @@
 
   &__as {
     @apply my-4;
+
+    &-author-container {
+      @apply flex justify-between items-center;
+    }
+
+    &-author-info {
+      @apply flex items-center gap-2;
+    }
   }
 
   .add-comment {

@@ -1,16 +1,19 @@
 <div class="comment__as">
-  <button id="dropdown-trigger-<%= comment_as_id %>" data-component="dropdown" data-target="dropdown-menu-<%= comment_as_id %>">
-    <label class="mr-2 inline-block text-xs" for="<%= comment_as_id %>">
-      <%= t("decidim.components.add_comment_form.form.user_group_id.your_profile") %>
-    </label>
+  <button id="dropdown-trigger-<%= comment_as_id %>" data-component="dropdown" data-target="dropdown-menu-<%= comment_as_id %>" data-comments-dropdown>
+    <div class="flex flex-col">
+      <label class="mr-2 inline-block text-xs" for="<%= comment_as_id %>">
+        <%= t("decidim.components.add_comment_form.form.user_group_id.your_profile") %>
+      </label>
+      <span></span>
+    </div>
     <%= icon "arrow-down-s-line" %>
     <%= icon "arrow-up-s-line" %>
   </button>
 
   <ul id="dropdown-menu-<%= comment_as_id %>" class="gap-4">
     <% comment_as_options.each do |option| %>
-      <li value="<%= option[1] %>" class="flex justify-between items-center">
-        <div class="flex items-center gap-2">
+      <li value="<%= option[1] %>" class="comment__as-author-container">
+        <div class="comment__as-author-info">
           <div class="author__avatar-container">
             <%= image_tag option[0].avatar_url(:thumb), alt: t("decidim.author.avatar", name: option[0].name), class: "author__avatar" %>
           </div>
@@ -18,7 +21,7 @@
           <%= option[0].name %>
         </div>
 
-        <input type="radio" name="comment[user_group_id]" value="true" class="w-5 h-4"/>
+        <input type="radio" name="comment[user_group_id]" value="true" class="w-5 h-4">
       </li>
     <% end %>
   </ul>
