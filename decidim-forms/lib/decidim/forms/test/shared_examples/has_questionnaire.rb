@@ -57,6 +57,32 @@ shared_examples_for "has questionnaire" do
       expect(page).to have_no_i18n_content(question.body)
     end
 
+    context "and there is a mandatory question" do
+      let!(:question) do
+        create(
+          :questionnaire_question,
+          questionnaire:,
+          question_type: "short_answer",
+          position: 0,
+          mandatory: true
+        )
+      end
+
+      before do
+        visit questionnaire_public_path
+      end
+
+      it "it renders the asterisk as a separated element" do
+        within "label.answer-questionnaire__question-label" do
+          expect(page).to have_content(translated_attribute(question.body).to_s)
+          within "span.label-required.has-tip" do
+            expect(page).to have_content("*")
+            expect(page).to have_content("Required field")
+          end
+        end
+      end
+    end
+
     context "with multiple steps" do
       let!(:separator) { create(:questionnaire_question, questionnaire:, position: 1, question_type: :separator) }
       let!(:question2) { create(:questionnaire_question, questionnaire:, position: 2) }

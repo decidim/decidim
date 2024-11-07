@@ -29,7 +29,17 @@
     }
     label_options[:for] = nil if %w(matrix_single matrix_multiple single_option multiple_option).include?(answer.question.question_type)
     %>
-    <%= label_tag field_id, answer.label, **label_options %>
+
+    <%= label_tag field_id, **label_options do %>
+      <%= translated_attribute(answer.question.body) %>
+      <% if answer.question.mandatory? %>
+        <%= answer_form.send(:required_indicator) %>
+      <% end %>
+      <% if answer.question.max_choices %>
+        <%= " (#{answer.send(:max_choices_label)})" %>
+      <% end %>
+    <% end %>
+
     <% if translated_attribute(answer.question.description).present? %>
       <div class="answer-questionnaire__question-description">
         <%= decidim_sanitize_editor_admin translated_attribute(answer.question.description) %>
