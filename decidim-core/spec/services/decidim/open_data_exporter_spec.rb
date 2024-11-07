@@ -2,6 +2,7 @@
 
 require "spec_helper"
 require "decidim/core/test/shared_examples/open_data_exporter_examples"
+
 describe Decidim::OpenDataExporter do
   subject { described_class.new(organization, path) }
 
@@ -36,6 +37,60 @@ describe Decidim::OpenDataExporter do
           expect(csv_data).to include("This ZIP file contains files for studying and researching about this participation platform.")
         end
       end
+
+      describe "LICENSE.md" do
+        let(:csv_file_name) { "LICENSE.md" }
+
+        before do
+          subject.export
+        end
+
+        it "includes a LICENSE" do
+          expect(csv_file).not_to be_nil
+        end
+
+        it "includes the LICENSE content" do
+          expect(csv_data).to include("License")
+          expect(csv_data).to include("is made available under the Open Database License: http://opendatacommons.org/licenses/odbl/1.0/")
+          expect(csv_data).to include("Database Contents License: http://opendatacommons.org/licenses/dbcl/1.0/")
+        end
+      end
+    end
+
+    describe "with users" do
+      let(:resource_file_name) { "users" }
+      let(:resource_title) { "### users" }
+      let!(:resource) { create(:user, :confirmed, organization:) }
+      let!(:unpublished_resource) { create(:user, :confirmed, :blocked, organization:) }
+      let(:help_lines) do
+        [
+          "* id: The unique identifier of the user",
+          "* direct_messages_enabled: Whether the user allows direct messages"
+        ]
+      end
+
+      it_behaves_like "open data exporter"
+
+      context "when user is deleted" do
+        let!(:resource) { create(:user, :confirmed, :deleted, organization:) }
+
+        it_behaves_like "open data exporter"
+      end
+    end
+
+    describe "with user groups" do
+      let(:resource_file_name) { "user_groups" }
+      let(:resource_title) { "### user_groups" }
+      let!(:resource) { create(:user_group, :confirmed, organization:) }
+      let!(:unpublished_resource) { create(:user_group, :confirmed, :blocked, organization:) }
+      let(:help_lines) do
+        [
+          "* id: The unique identifier of the user",
+          "* members_count: The number of the users belonging to the user group"
+        ]
+      end
+
+      it_behaves_like "open data exporter"
     end
 
     describe "with moderations" do

@@ -16,11 +16,7 @@ module Decidim
           nickname: presented.nickname,
           about: presented.about,
           avatar_url: presented.avatar_url(:thumb),
-          profile_url: begin
-            presented.profile_url
-          rescue StandardError
-            ""
-          end,
+          profile_url: presented.profile_url,
           direct_messages_enabled: (resource.direct_message_types != "followed-only"),
           deleted: presented.deleted?,
           badge: presented.badge,

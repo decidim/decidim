@@ -15,11 +15,7 @@ module Decidim
           name: presented.name,
           nickname: presented.nickname,
           avatar_url: presented.avatar_url(:thumb),
-          profile_url: begin
-            presented.profile_url
-          rescue StandardError
-            ""
-          end,
+          profile_url: presented.profile_url,
           deleted: presented.deleted?,
           badge: presented.badge,
           members_count: resource.accepted_memberships.count,

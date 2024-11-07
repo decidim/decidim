@@ -1386,6 +1386,11 @@ en:
           profile_url: The profile url
       index:
         description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
+        detailed:
+          body_1: 'Below is a description of each dataset, including its schema (structure) and the type of information it contains:'
+          components: Components
+          spaces: Participatory spaces
+          title: Detailed explanation of each file
         download:
           components: Components
           core: Core
@@ -1418,6 +1423,13 @@ en:
               </ul>
             title: 3. Working with the data
           title: How to open and work with these files
+        license:
+          body_1_html: This %{organization_name} database is made available under the %{link_database}. Any rights in individual contents of the database are licensed under the %{link_contents}.
+          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Database Contents License
+          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Open Database License
+          title: License
         title: Open Data
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     pad_iframe:
