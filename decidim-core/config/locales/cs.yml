@@ -1390,9 +1390,31 @@ cs:
           name: Zobrazované jméno uživatelské skupiny
           nickname: Uživatelské jméno skupiny uživatelů
           profile_url: URL profilu
+        users:
+          about: Text o uživateli
+          avatar_url: Avatar uživatele
+          badge: Odznak uživatele
+          deleted: Zda je uživatel odstraněn nebo ne
+          direct_messages_enabled: Zda uživatel povolí přímé zprávy
+          groups: ID a jméno skupiny uživatelů
+          id: Jedinečný identifikátor uživatele
+          name: Zobrazované jméno uživatele
+          nickname: Uživatelské jméno
+          profile_url: URL profilu
       index:
         description: Vítejte na stránce %{organization_name} Open Data. Zde naleznete datové soubory, které jsou pravidelně generovány z různých účelových procesů a procesů řízení v rámci %{organization_name}. Tyto soubory jsou k dispozici pro podporu transparentnosti, přístupnosti a spolupráce. Níže naleznete podrobné informace o tom, jaké jsou tyto soubory. jak s nimi otevřít a pracovat a popsat obsah a strukturu každého souboru.
+        detailed:
+          body_1: 'Níže je uveden popis každého souboru údajů, včetně schématu (struktury) a druhu informací, které obsahuje:'
+          components: Komponenty
+          spaces: Participační prostory
+          title: Podrobné vysvětlení každého souboru
+        download:
+          components: Komponenty
+          core: Jádro
+          spaces: Participační prostory
+          title: Stáhněte si zdroje
         download_open_data: Stáhnout všechny otevřené datové soubory
+        download_resource: Stáhnout %{resource_name} ve formátu CSV
         explanation:
           body_1: Tyto soubory jsou datové soubory exportované z participačních procesů %{organization_name} jako návrhy, připomínky a schůzky. Poskytují surové, strukturované údaje, které lze použít k analýze, výzkumu nebo integraci s jinými nástroji. Data jsou automaticky aktualizována každých 24 hodin, takže máte přístup k nejnovějším informacím.
           body_2: Tyto soubory jsou ve formátu CSV (Comma-Separated Values) který je široce používaný formát souboru, který lze otevřít a zpracovat různými softwarovými aplikacemi, včetně tabulkových programů, textových editorů a nástrojů pro analýzu údajů.
@@ -1418,6 +1440,13 @@ cs:
               </ul>
             title: 3. Pracujte s daty
           title: Jak tyto soubory otevřít a pracovat s nimi
+        license:
+          body_1_html: Tato databáze %{organization_name} je k dispozici pod %{link_database}. Jakákoli práva v jednotlivém obsahu databáze jsou licencována pod %{link_contents}.
+          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Licence obsahu databáze
+          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Open Database License
+          title: Licence
         title: Otevřená data
       not_available_yet: Soubory Open Data nejsou dosud k dispozici. Zkuste to prosím znovu za pár minut.
     pad_iframe:
@@ -1664,6 +1693,8 @@ cs:
       pages_count: Stránky
       participants_count: Účastníci
       users_count: Účastníci
+    tags:
+      filter_results_for_taxonomy: 'Filtrovat výsledky pro: %{resource}'
     taxonomies:
       prompt: Vybrat z "%{name}"
     translation_bar:
