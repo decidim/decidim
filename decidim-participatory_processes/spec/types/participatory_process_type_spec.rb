@@ -4,16 +4,18 @@ require "spec_helper"
 require "decidim/api/test/type_context"
 
 require "decidim/core/test/shared_examples/attachable_interface_examples"
+require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
 
 module Decidim
   module ParticipatoryProcesses
     describe ParticipatoryProcessType, type: :graphql do
       include_context "with a graphql class type"
 
-      let(:model) { create(:participatory_process, :with_scope) }
+      let(:model) { create(:participatory_process) }
+      let(:organization) { model.organization }
 
       include_examples "attachable interface"
-      include_examples "categories container interface"
+      include_examples "taxonomizable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -173,23 +175,6 @@ module Decidim
 
         it "returns all the required fields" do
           expect(response["participatoryStructure"]["translation"]).to eq(model.participatory_structure["en"])
-        end
-      end
-
-      describe "scopesEnabled" do
-        let(:query) { "{ scopesEnabled }" }
-
-        it "returns if the process has scopes enabled" do
-          expect(response["scopesEnabled"]).to be_in([true, false])
-          expect(response["scopesEnabled"]).to eq(model.scopes_enabled)
-        end
-      end
-
-      describe "scope" do
-        let(:query) { "{ scope { id } }" }
-
-        it "has a scope" do
-          expect(response).to include("scope" => { "id" => model.scope.id.to_s })
         end
       end
 

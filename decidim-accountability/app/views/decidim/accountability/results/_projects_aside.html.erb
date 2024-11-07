@@ -13,28 +13,30 @@
         extra_classes: "accountability__status__parent",
         render_blank: true
       ) %>
-  <% categories_hierarchy.each do |category| %>
+  <% taxonomies_hierarchy.each do |taxonomy| %>
     <%= cell(
           "decidim/accountability/status",
-          category,
-          url: results_path(filter: { with_category: category, with_scope: current_scope }),
+          taxonomy,
+          url: results_path(filter: { taxonomies_part_of_contains: taxonomy }),
           extra_classes: "accountability__status__parent",
           render_count: false,
           render_blank: true
         ) %>
   <% end %>
-  <% if category.present? %>
+  <% if taxonomy.present? %>
     <div>
       <%= external_icon "media/images/breadcrumb_arrow.svg" %>
       <%= cell(
             "decidim/accountability/status",
-            category,
+            taxonomy,
             extra_classes: "accountability__status__child",
-            url: results_path(filter: { with_category: category, with_scope: current_scope }),
+            url: results_path(filter: { taxonomies_part_of_contains: taxonomy }),
             render_blank: true
           ) %>
     </div>
   <% end %>
 </div>
 
-<%= render partial: "scope_filters" if current_component.has_subscopes? %>
+<div class="accountability__filters">
+  <%= render partial: "search" %>
+</div>

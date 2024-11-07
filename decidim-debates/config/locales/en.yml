@@ -3,15 +3,12 @@ en:
   activemodel:
     attributes:
       debate:
-        category_id: Category
         closed_at: Closed at
         conclusions: Conclusions
-        decidim_category_id: Category
         description: Description
         end_time: Ends at
         information_updates: Information updates
         instructions: Instructions to participate
-        scope_id: Scope
         start_time: Starts at
         title: Title
         user_group_id: Create debate as
@@ -36,10 +33,15 @@ en:
         settings:
           global:
             announcement: Announcement
+            clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
+            no_taxonomy_filters_found: No taxonomy filters found.
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -81,7 +83,8 @@ en:
             invalid: There was a problem updating this debate.
             success: Debate successfully updated.
         exports:
-          comments: Comments
+          debate_comments: Comments
+          debates: Debates
       admin_log:
         debate:
           close: "%{user_name} closed the %{resource_name} debate on the %{space_name} space"
@@ -131,8 +134,6 @@ en:
             closed: Closed
             open: Open
           user_group: Groups
-        form:
-          select_a_category: Please select a category
         index:
           new_debate: New debate
         new:
@@ -146,11 +147,11 @@ en:
           recent: Most recent
           updated: Recently updated
         show:
-          close_debate: Close debate
+          close_debate: Close
           debate_closed: Closed
           debate_conclusions_are: 'The debate was closed on %{date} with these conclusions:'
           edit_conclusions: Edit conclusions
-          edit_debate: Edit debate
+          edit_debate: Edit
           groups_count: Groups
           open: Open debate
           participants_count: Participants
@@ -168,6 +169,7 @@ en:
             official_debate: Official debate
             start: Start
             start_time: Start date
+            taxonomies: Taxonomies
             title: Title
     events:
       debates:
@@ -224,5 +226,40 @@ en:
         description: Number of debates created
         object: debates
         title: Debates
+    open_data:
+      help:
+        debate_comments:
+          alignment: If this comment was a favour, against or neutral
+          author: The name of the participant that made this comment
+          body: The comment itself
+          commentable_id: The unique id of the commentable
+          commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
+          created_at: The date when this comment was created
+          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          id: The id for this comment
+          locale: The locale (language) that the participant had when leaving this comment
+          root_commentable_url: The URL of the resource that ties to this comment
+          user_group: The name of the user group that made this comment (if any)
+        debates:
+          author: The data for the author of this debate
+          closed_at: The date when this debate was closed
+          comments: The number of comments this debate has
+          comments_enabled: Wether this debate has comments enabled or not
+          component: The component that the debate belongs to
+          conclusions: The conclusions of the debate if it was closed
+          created_at: The date and time when the debate was created
+          description: The debate description
+          end_time: When this debate ends, if it is an open debate and has a limited time
+          followers: The number of followers this debate has
+          id: The unique identifier of the debate
+          information_updates: The updates that the author has made to the debate
+          instructions: Which are the instructions to comment in this debate
+          last_comment_at: The date when this debate was commented by the last time
+          participatory_space: To which space (e.g. Participatory Process, or Assembly) this debate belongs to
+          reference: The unique identifier of the resource in this platform
+          start_time: When this debate starts, if it is an open debate and has a limited time
+          taxonomies: The taxonomies of the project
+          title: The debate title
+          url: The URL where this debate can be found
     statistics:
       debates_count: Debates

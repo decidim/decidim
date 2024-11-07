@@ -5,9 +5,9 @@ module Decidim
     # This command is executed when a participant or user group creates a Meeting from the public
     # views.
     class CreateMeeting < Decidim::Commands::CreateResource
-      fetch_form_attributes :scope, :category, :end_time, :start_time, :address, :latitude, :longitude,
+      fetch_form_attributes :end_time, :start_time, :address, :latitude, :longitude,
                             :online_meeting_url, :registration_type, :registration_url, :available_slots,
-                            :registrations_enabled, :component, :iframe_embed_type, :iframe_access_level
+                            :registrations_enabled, :taxonomizations, :component, :iframe_embed_type, :iframe_access_level
 
       protected
 

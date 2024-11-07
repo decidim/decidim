@@ -29,8 +29,7 @@ module Decidim
             [
               :with_any_type,
               :is_upcoming_true,
-              :scope_id_eq,
-              :category_id_eq,
+              :taxonomies_part_of_contains,
               :with_any_origin,
               :closed_at_present
             ]
@@ -39,8 +38,7 @@ module Decidim
           def filters_with_values
             {
               with_any_type: meeting_types,
-              scope_id_eq: scope_ids_hash(scopes.top_level),
-              category_id_eq: category_ids_hash(categories.first_class),
+              taxonomies_part_of_contains: taxonomy_ids_hash(available_root_taxonomies),
               closed_at_present: %w(true false),
               is_upcoming_true: %w(true false),
               with_any_origin: %w(participants official user_group)

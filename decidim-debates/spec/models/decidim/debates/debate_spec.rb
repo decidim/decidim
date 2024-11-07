@@ -13,7 +13,7 @@ describe Decidim::Debates::Debate do
 
   include_examples "endorsable"
   include_examples "has component"
-  include_examples "has category"
+  include_examples "has taxonomies"
   include_examples "resourceable"
   include_examples "has comments availability attributes"
 
