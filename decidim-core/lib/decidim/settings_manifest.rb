@@ -115,7 +115,8 @@ module Decidim
         enum: { klass: String, default: nil },
         select: { klass: String, default: nil },
         scope: { klass: Integer, default: nil },
-        time: { klass: Decidim::Attributes::TimeWithZone, default: nil }
+        time: { klass: Decidim::Attributes::TimeWithZone, default: nil },
+        taxonomy_filters: { klass: Array, default: [] }
       }.freeze
 
       attribute :type, Symbol, default: :boolean
@@ -144,6 +145,8 @@ module Decidim
       end
 
       def type_class
+        return Decidim::Attributes::RichText if type == :text && editor == true
+
         TYPES[type][:klass]
       end
 

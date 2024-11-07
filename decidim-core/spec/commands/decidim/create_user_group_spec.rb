@@ -40,6 +40,8 @@ module Decidim
         end
         let(:command) { described_class.new(form) }
 
+        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.create_user_group:after"
+
         describe "when the form is not valid" do
           before do
             allow(form).to receive(:invalid?).and_return(true)

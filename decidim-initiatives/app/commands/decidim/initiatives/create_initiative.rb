@@ -46,16 +46,28 @@ module Decidim
         end
       end
 
+      protected
+
+      def event_arguments
+        {
+          resource: initiative,
+          extra: {
+            event_author: form.current_user,
+            locale:
+          }
+        }
+      end
+
       private
 
-      attr_reader :form, :attachment
+      attr_reader :form, :attachment, :initiative
 
       # Creates the initiative and all default components
       def create_initiative
-        initiative = build_initiative
+        build_initiative
         return initiative unless initiative.valid?
 
-        initiative.transaction do
+        with_events(with_transaction: true) do
           initiative.save!
 
           @attached_to = initiative
@@ -72,7 +84,7 @@ module Decidim
       end
 
       def build_initiative
-        Initiative.new(
+        @initiative = Initiative.new(
           organization: form.current_organization,
           title: { current_locale => form.title },
           description: { current_locale => form.description },
@@ -86,7 +98,7 @@ module Decidim
       end
 
       def scoped_type
-        InitiativesTypeScope.order(:id).find_by(type: form.type)
+        InitiativesTypeScope.order(:id).find_by(type: form.type, scope: form.scope)
       end
 
       def signature_end_date

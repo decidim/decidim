@@ -6,7 +6,7 @@ module Decidim
       # This command is executed when the user changes a Debate from the admin
       # panel.
       class UpdateDebate < Decidim::Commands::UpdateResource
-        fetch_form_attributes :category, :information_updates, :instructions, :scope, :start_time, :end_time, :comments_enabled
+        fetch_form_attributes :taxonomizations, :information_updates, :instructions, :start_time, :end_time, :comments_enabled
 
         private
 

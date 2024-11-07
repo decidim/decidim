@@ -2,7 +2,7 @@
   <button id="trigger-menu-<%= id %>" data-controls="panel-dropdown-menu-<%= id %>" data-open="false" data-open-md="true">
     <%= icon "arrow-down-s-line" %>
     <%= icon "arrow-up-s-line" %>
-    <span><%= t(id, scope: label_scope) %></span>
+    <span><%= label %></span>
   </button>
   <div id="panel-dropdown-menu-<%= id %>">
     <%= form.send(

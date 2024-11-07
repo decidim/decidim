@@ -13,9 +13,14 @@ describe "User edit meeting" do
   let(:longitude) { 2.1234 }
   let(:component) do
     create(:meeting_component,
-           :with_creation_enabled,
-           participatory_space: participatory_process)
+           participatory_space: participatory_process,
+           settings: { creation_enabled_for_participants: true, taxonomy_filters: taxonomy_filter_ids })
   end
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   before do
     switch_to_host user.organization.host
@@ -35,18 +40,22 @@ describe "User edit meeting" do
       visit_component
 
       click_on translated(meeting.title)
-      click_on "Edit meeting"
+      find("#dropdown-trigger-resource-#{meeting.id}").click
+      click_on "Edit"
 
       expect(page).to have_content "Edit Your Meeting"
 
       within "form.meetings_form" do
         fill_in :meeting_title, with: new_title
         fill_in :meeting_description, with: new_description
+        select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+
         click_on "Update"
       end
 
       expect(page).to have_content(new_title)
       expect(page).to have_content(new_description)
+      expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
     end
 
     context "when using the front-end geocoder", :serves_geocoding_autocomplete do
@@ -65,7 +74,8 @@ describe "User edit meeting" do
           visit_component
 
           click_on translated(meeting.title)
-          click_on "Edit meeting"
+          find("#dropdown-trigger-resource-#{meeting.id}").click
+          click_on "Edit"
 
           expect(page).to have_content "Edit Your Meeting"
         end
@@ -77,7 +87,8 @@ describe "User edit meeting" do
         visit_component
 
         click_on translated(meeting.title)
-        click_on "Edit meeting"
+        find("#dropdown-trigger-resource-#{meeting.id}").click
+        click_on "Edit"
 
         expect(page).to have_content "Edit Your Meeting"
 
@@ -97,7 +108,8 @@ describe "User edit meeting" do
         visit_component
 
         click_on translated(meeting.title)
-        click_on "Edit meeting"
+        find("#dropdown-trigger-resource-#{meeting.id}").click
+        click_on "Edit"
 
         expect(page).to have_content "Edit Your Meeting"
 

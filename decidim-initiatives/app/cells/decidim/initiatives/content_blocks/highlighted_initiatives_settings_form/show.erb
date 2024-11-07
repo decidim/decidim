@@ -1,4 +1,4 @@
 <% form.fields_for :settings, form.object.settings do |settings_fields| %>
-  <%= settings_fields.select :max_results, [4, 8, 12], prompt: "", label: max_results_label %>
+  <%= settings_fields.number_field :max_results, label: max_results_label %>
   <%= settings_fields.select :order, order_select, prompt: "", label: order_label %>
 <% end %>

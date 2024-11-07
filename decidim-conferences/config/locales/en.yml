@@ -374,10 +374,13 @@ en:
         conferences:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
+            no_taxonomy_filters_found: No taxonomy filters found.
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            taxonomies: Taxonomies
         content_blocks:
           highlighted_conferences:
             max_results: Maximum amount of elements to show
@@ -593,6 +596,7 @@ en:
           slogan: The slogan for this conference
           slug: The conference slug (used for identification purposes, for the URL)
           start_date: The date when this conference starts.
+          taxonomies: The taxonomies of the conference
           title: The conference title
     statistics:
       conferences_count: Conferences

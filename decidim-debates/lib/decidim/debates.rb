@@ -9,5 +9,6 @@ require "decidim/debates/component"
 module Decidim
   # Base module for this engine.
   module Debates
+    autoload :DebateSerializer, "decidim/debates/debate_serializer"
   end
 end

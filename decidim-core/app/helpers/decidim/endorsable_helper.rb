@@ -3,16 +3,6 @@
 module Decidim
   # A Helper for views with Endorsable resources.
   module EndorsableHelper
-    # Invokes the decidim/endorsement_buttons cell.
-    def endorsement_buttons_cell(resource)
-      cell("decidim/endorsement_block", resource)
-    end
-
-    # Invokes the decidim/endorsers_list cell.
-    def endorsers_list_cell(resource)
-      cell("decidim/endorsers_list", resource)
-    end
-
     #
     # Public: Checks if the given resource has been endorsed by all identities of the user.
     #

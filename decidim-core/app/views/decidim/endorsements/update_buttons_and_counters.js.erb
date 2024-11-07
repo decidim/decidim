@@ -1,28 +1,25 @@
 updateEndorsementBlock();
 function updateEndorsementBlock() {
-  var $endorsementBlock = $('#resource-<%= resource.id %>-endorsement-block');
-  var $endorsementListTrigger = $('#resource-<%= resource.id %>-endorsement-block #dropdown-trigger');
-  var $endorsementButton = $('#resource-<%= resource.id %>-endorsement-button');
-  var $endorsementIdentitiesButton = $('#resource-<%= resource.id %>-endorsement-button #select-identity-button');
-  var $endorsementListGrid = $('#dropdown-menu-endorsers-list .endorsers-list__grid');
-  var endorsersCount = <%= j(cell("decidim/endorsers_list", resource).endorsers_count) %>
+  var $endorsementBlock = document.getElementById('resource-<%= resource.reload.id %>-endorsement-block');
+  var $endorsementButton = document.getElementById('resource-<%= resource.id %>-endorsement-button');
+  var $endorsementListGrid = document.getElementById('endorser-list-<%= resource.id %>');
 
-  $endorsementListTrigger[0].innerHTML = '<%= j(cell("decidim/endorsers_list", resource)).strip.html_safe %>';
-  $endorsementListGrid[0].innerHTML = '<%= j(cell("decidim/endorsers_list", resource).full_endorsers_list).strip.html_safe %>';
-  if (endorsersCount > 0) {
-    $endorsementListTrigger.removeClass('hidden');
-  } else {
-    $endorsementListTrigger.addClass('hidden');
+  var $endorsersModal = document.getElementById('endorsersModal-<%= resource.id %>');
+
+  if ($endorsersModal !== null) {
+    $endorsersModal.remove();
   }
+
+  $endorsementListGrid.outerHTML = '<%= j(cell("decidim/endorsers_list", resource)).strip.html_safe %>';
 
   <%# If the endorsement button displays a modal to select the identity to endorse only the content of the button %>
   <%# has to be updated to maintain the function of the button to open the modal. Otherwise the button has to be fully %>
   <%# updated because the form request also changes %>
-  if ($endorsementIdentitiesButton.length == 0) {
-    $endorsementButton[0].outerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).show).strip.html_safe %>';
-  } else {
-    $endorsementIdentitiesButton[0].innerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).button_content).strip.html_safe %>';
-  }
-  document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $endorsementBlock[0] }));
-  document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $endorsementListGrid[0] }));
+
+  $endorsementButton.outerHTML = '<%= j(cell("decidim/endorsement_buttons", resource).show).strip.html_safe %>';
+
+  $endorsementListGrid = document.getElementById('endorser-list-<%= resource.id %>');
+
+  document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $endorsementBlock }));
+  document.dispatchEvent(new CustomEvent("ajax:loaded", { detail: $endorsementListGrid }));
 }
