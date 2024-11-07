@@ -219,8 +219,15 @@ FactoryBot.define do
     end
 
     trait :deleted do
+      name { "" }
+      nickname { "" }
       email { "" }
+      delete_reason { "Fooo delete bar" }
+      admin { false }
       deleted_at { Time.current }
+      avatar { nil }
+      personal_url { "" }
+      about { "" }
     end
 
     trait :admin_terms_accepted do
