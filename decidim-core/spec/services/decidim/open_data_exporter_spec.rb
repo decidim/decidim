@@ -70,6 +70,12 @@ describe Decidim::OpenDataExporter do
       end
 
       it_behaves_like "open data exporter"
+
+      context "when user is deleted" do
+        let!(:resource) { create(:user, :confirmed, :deleted, organization:) }
+
+        it_behaves_like "open data exporter"
+      end
     end
 
     describe "with user groups" do
