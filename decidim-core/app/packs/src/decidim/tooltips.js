@@ -64,11 +64,11 @@ export default function(node) {
   tooltip.setAttribute("aria-hidden", true)
 
   // Used to detect if the user is on a mobile device by checking the user agent
-  const useMobile = (/Mobi|Android/i).test(navigator.userAgent);
+  const useMobile = (/Mobile|Android/i).test(navigator.userAgent);
 
   const toggleTooltip = (event) => {
     event.preventDefault();
-    // if the tooltip is visable in the dom, hide it otherwise display
+    // if the tooltip is visible in the dom, hide it otherwise display
     if (tooltip.getAttribute("aria-hidden") === "false") {
       tooltip.setAttribute("aria-hidden", "true");
       return
