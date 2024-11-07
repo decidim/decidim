@@ -113,6 +113,9 @@ export default class CommentsComponent {
         const $threads = $(".comment-threads", this.$element);
         this._addComment($threads, $comment);
       }
+    } else {
+      const $threads = $(".comment-threads", this.$element);
+      this._addComment($threads, $comment);
     }
 
     this._finalizeCommentCreation($parent, fromCurrentUser);

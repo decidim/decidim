@@ -43,6 +43,10 @@ module Decidim
 
         private
 
+        def debate
+          @debate ||= context[:debate]
+        end
+
         def validate_end_time?
           finite && start_time.present?
         end
