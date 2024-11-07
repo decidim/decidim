@@ -14,9 +14,9 @@ module Decidim
         serializer = Decidim::Forms::UserAnswersSerializer
         export_data = Decidim::Exporters::FormPDF.new(answers, serializer).export
 
-        attach_archive(export_data, title, user)
+        private_export = attach_archive(export_data, title, user)
 
-        ExportMailer.export(user, title, @export).deliver_later
+        ExportMailer.export(user, title, private_export).deliver_later
       end
     end
   end

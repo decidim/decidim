@@ -16,8 +16,8 @@ module Decidim
 
       export_data = Decidim::Exporters.find_exporter(format).new(collection, serializer).export
 
-      attach_archive(export_data, name, user)
-      ExportMailer.export(user, name, @export).deliver_later
+      private_export = attach_archive(export_data, name, user)
+      ExportMailer.export(user, name, private_export).deliver_later
     end
   end
 end

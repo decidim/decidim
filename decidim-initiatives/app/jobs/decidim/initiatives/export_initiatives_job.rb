@@ -13,9 +13,9 @@ module Decidim
           serializer
         ).export
 
-        attach_archive(export_data, "initiatives", user)
+        private_export = attach_archive(export_data, "initiatives", user)
 
-        ExportMailer.export(user, "initiatives", @export).deliver_later
+        ExportMailer.export(user, "initiatives", private_export).deliver_later
       end
 
       private
