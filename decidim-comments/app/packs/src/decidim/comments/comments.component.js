@@ -109,10 +109,8 @@ export default class CommentsComponent {
     }
 
     this._addComment($parent, $comment);
-
-    this._finalizeCommentCreation($parent, fromCurrentUser);
+    this._finalizeCommentCreation(fromCurrentUser);
   }
-
 
   /**
    * Adds a new reply to an existing comment.
@@ -202,16 +200,13 @@ export default class CommentsComponent {
    * Finalizes the new comment creation after the comment adding finishes
    * successfully.
    * @private
-   * @param {jQuery} $parent - The parent comment element to finalize.
    * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
    *   herself was the author of the new comment.
    * @returns {Void} - Returns nothing
    */
-  _finalizeCommentCreation($parent, fromCurrentUser) {
+  _finalizeCommentCreation(fromCurrentUser) {
     if (fromCurrentUser) {
-      const $add = $(".add-comment", $parent).length > 0
-        ? $(".add-comment", $parent)
-        : $(".add-comment", this.$element);
+      const $add =  $(".add-comment", this.$element);
       $("textarea", $add).each((_i, text) => {
         const $text = $(text);
         // Reset textarea content
