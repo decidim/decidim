@@ -7,8 +7,8 @@ module Decidim
     # Public: Sends a notification email with the result of an export in a
     # zipped file.
     #
-    # user           - The user to be notified.
-    # private_export - The private private_export where the export data has been attached.
+    # user        - The user to be notified.
+    # private_export - The PrivateExport instance where the export data has been attached.
     #
     # Returns nothing.
     def export(user, private_export)
@@ -25,7 +25,7 @@ module Decidim
     # the result of a download_your_data export in a zipped file.
     #
     # user - The user to be notified.
-    # private_export - The private private_export where the export data has been attached.
+    # private_export - The PrivateExport instance where the export data has been attached.
     #
     # Returns nothing.
     def download_your_data_export(user, private_export)
