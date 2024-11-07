@@ -576,6 +576,7 @@ fr-CA:
           visit_finished: Consulter l’historique des rencontres
           withdraw_btn_hint: Vous pouvez annuler votre réunion si vous changez d'avis. La réunion n'est pas supprimée, elle apparaîtra dans la liste des réunions retirées.
           withdraw_confirmation_html: Êtes-vous sûr de vouloir annuler cette réunion ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
+          withdraw_meeting: Retirer
         update:
           invalid: Une erreur s'est produite lors de la mise à jour de la réunion.
           success: La réunion a été mise à jour avec succès.
