@@ -1342,6 +1342,11 @@ eu:
           title: Open Data fitxategiak %{organization} erakunderako
       index:
         description: 'Ongi etorri %{organization_name} Open Data orrira. Hemen, datu-fitxategiak aurkituko dituzu, aldian-aldian hainbat deliberazio- eta gobernantza-prozesutatik sortzen direnak honen barruan: %{organization_name}. Fitxategi horiek gardentasuna, irisgarritasuna eta lankidetza sustatzeko daude eskuragarri. Jarraian, aurkituko duzu fitxategi horiek zer diren, nola ireki eta nola landu behar diren eta fitxategi bakoitzaren edukiaren eta egituraren deskribapena.'
+        detailed:
+          body_1: 'Jarraian, dataset bakoitzaren deskribapena dago, eskema (egitura) eta daukan informazio mota barne:'
+          components: Osagaiak
+          spaces: Espazio parte-hartzaileak
+          title: Espediente bakoitzaren azalpen zehatza
         download:
           components: Osagaiak
           spaces: Espazio parte-hartzaileak
@@ -1373,6 +1378,13 @@ eu:
               </ul>
             title: 3. Datuekin lanean
           title: Nola ireki eta lan egin fitxategi hauekin
+        license:
+          body_1_html: '%{organization_name} datu-base hau % {link_database} datu-basearen azpian eginda dago. Datu-basearen eduki indibidualen gaineko edozein eskubide % {link_content} -ren arabera dago baimenduta.'
+          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Datu-basearen Edukien Lizentzia
+          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Open Database Lizentzia
+          title: Lizentzia
         title: Datu Irekiak
       not_available_yet: Open Data fitxategiak oraindik ez daude erabilgarri, saiatu berriro minutu gutxi barru.
     pad_iframe:
