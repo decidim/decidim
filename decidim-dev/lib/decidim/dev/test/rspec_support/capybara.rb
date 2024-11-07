@@ -28,43 +28,6 @@ module Decidim
       "http"
     end
   end
-
-  module DownloadHelpers
-    TIMEOUT = 10
-    PATH = Rails.root.join("tmp/downloads")
-
-    def downloads
-      Dir[PATH.join("*")]
-    end
-
-    def download
-      downloads.first
-    end
-
-    def download_content
-      wait_for_download
-      File.read(download)
-    end
-
-    def wait_for_download
-      Timeout.timeout(TIMEOUT) do
-        sleep 0.1 until downloaded?
-      end
-    end
-
-    def downloaded?
-      !downloading? && downloads.any?
-    end
-
-    def downloading?
-      downloads.grep(/\.crdownload$/).any?
-    end
-
-    def clear_downloads
-      FileUtils.mkdir_p(PATH.to_s)
-      FileUtils.rm_f(downloads)
-    end
-  end
 end
 
 1.step do
@@ -109,7 +72,7 @@ Capybara.register_driver :headless_chrome do |app|
   options.add_preference(:download,
                          directory_upgrade: true,
                          prompt_for_download: false,
-                         default_directory: Decidim::DownloadHelpers::PATH.to_s)
+                         default_directory: DownloadHelper::PATH.to_s)
   options.add_preference(:browser, set_download_behavior: { behavior: "allow" })
 
   Capybara::Selenium::Driver.new(
@@ -224,6 +187,5 @@ RSpec.configure do |config|
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system
-  config.include Decidim::DownloadHelpers, type: :system
   config.include Devise::Test::IntegrationHelpers, type: :system
 end
