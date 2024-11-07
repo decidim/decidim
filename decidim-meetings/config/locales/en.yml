@@ -549,9 +549,9 @@ en:
           see_all_withdrawn: See all withdrawn meetings
           text_banner: You are viewing the list of meetings withdrawn by their authors. %{go_back_link}.
         meeting:
-          close_meeting: Close meeting
+          close_meeting: Close
           edit_close_meeting: Edit meeting report
-          edit_meeting: Edit meeting
+          edit_meeting: Edit
           join_meeting: Join meeting
           reply_poll: Reply poll
           view_poll: View poll
@@ -589,7 +589,7 @@ en:
           visit_finished: View past meeting
           withdraw_btn_hint: You can withdraw your meeting if you change your mind. The meeting is not deleted, it will appear in the list of withdrawn meetings.
           withdraw_confirmation_html: Are you sure you want to withdraw this meeting?<br><br><strong>This action cannot be cancelled!</strong>
-          withdraw_meeting: Withdraw meeting
+          withdraw_meeting: Withdraw
         update:
           invalid: There was a problem updating the meeting.
           success: You have updated the meeting successfully.

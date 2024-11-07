@@ -39,6 +39,69 @@
           </div>
         <% end %>
       <% end %>
+
+      <%# i18n-tasks-use t("decidim.open_data.index.detailed.title") %>
+      <%= render layout: "decidim/open_data/section", locals: { i18n_scope: "detailed" } do %>
+        <p> <%= t("body_1", scope: "decidim.open_data.index.detailed") %> </p>
+
+        <h3><%= t("components", scope: "decidim.open_data.index.detailed") %> </h3>
+        <% open_data_component_manifests.each do |export_manifest| %>
+          <div class="mt-8">
+            <h4><%= export_manifest.name %></h4>
+            <ul>
+              <% t(export_manifest.name, scope: "decidim.open_data.help").each do |i18n_key, i18n_value| %>
+                <li> <b><%= i18n_key %></b>: <%= i18n_value %> </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <hr class="mt-8 mb-4">
+
+        <h3><%= t("spaces", scope: "decidim.open_data.index.detailed") %> </h3>
+        <% open_data_participatory_space_manifests.each do |export_manifest| %>
+          <div class="mt-8">
+            <h4><%= export_manifest.name %></h4>
+            <ul>
+              <% t(export_manifest.name, scope: "decidim.open_data.help").each do |i18n_key, i18n_value| %>
+                <li> <b><%= i18n_key %></b>: <%= i18n_value %> </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+      <% end %>
+    </div>
+
+    <%# i18n-tasks-use t("decidim.open_data.index.explanation.title") %>
+    <%= render layout: "decidim/open_data/section", locals: { i18n_scope: "license" } do %>
+      <% link_database = link_to(t("license_database_name", scope: "decidim.open_data.index.license"), t("license_database_link", scope: "decidim.open_data.index.license")) %>
+      <% link_contents = link_to(t("license_contents_name", scope: "decidim.open_data.index.license"), t("license_contents_link", scope: "decidim.open_data.index.license")) %>
+      <p> <%= t("body_1_html", scope: "decidim.open_data.index.license", organization_name: current_organization_name, link_database:, link_contents:) %> </p>
+    <% end %>
+
+    <div class="editor-content mt-8">
+      <h2 class="h4"><%= t("title", scope: "decidim.open_data.index.download") %></h2>
+      <h3 class="h5"><%= t("components", scope: "decidim.open_data.index.download") %></h3>
+      <ul>
+        <% open_data_component_manifests.each do |manifest| %>
+          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name)) %></li>
+        <% end %>
+      </ul>
+
+      <h3 class="h5"><%= t("spaces", scope: "decidim.open_data.index.download") %></h3>
+      <ul>
+        <% open_data_participatory_space_manifests.each do |manifest| %>
+          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name)) %></li>
+        <% end %>
+      </ul>
+
+      <h3 class="h5"><%= t("core", scope: "decidim.open_data.index.download") %></h3>
+      <ul>
+        <% open_data_core.each do |name| %>
+          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: name), open_data_download_resource_path(name)) %></li>
+        <% end %>
+      </ul>
     </div>
 
     <div class="mt-4 flex flex-col items-center">

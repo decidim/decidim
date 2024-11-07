@@ -1348,11 +1348,44 @@ en:
         core:
           components: Components
           description: This ZIP file contains files for studying and researching about this participation platform.
+          main: Core
           spaces: Spaces
           title: Open Data files for %{organization}
+        user_groups:
+          avatar_url: The avatar of the user group
+          badge: The badge of the user group
+          deleted: Whether the user is deleted or not
+          id: The unique identifier of the user group
+          members: The id and name of the users belonging to the group
+          members_count: The number of the users belonging to the user group
+          name: The display name of user group
+          nickname: The username of the user group
+          profile_url: The profile url
+        users:
+          about: The about text of the user
+          avatar_url: The avatar of the user
+          badge: The badge of the user
+          deleted: Whether the user is deleted or not
+          direct_messages_enabled: Whether the user allows direct messages
+          groups: The id and name of the user group
+          id: The unique identifier of the user
+          name: The display name of user
+          nickname: The username of the user
+          profile_url: The profile url
       index:
         description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
+        detailed:
+          body_1: 'Below is a description of each dataset, including its schema (structure) and the type of information it contains:'
+          components: Components
+          spaces: Participatory spaces
+          title: Detailed explanation of each file
+        download:
+          components: Components
+          core: Core
+          spaces: Participatory spaces
+          title: Download resources
         download_open_data: Download all the Open Data files
+        download_resource: Download %{resource_name} in CSV format
         explanation:
           body_1: These files are datasets exported from %{organization_name}'s participatory processes, such as proposals, comments, and meetings. They provide raw, structured data that can be used for analysis, research, or integration with other tools. The data is updated automatically every 24 hours, ensuring that you have access to the most recent information.
           body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
@@ -1378,6 +1411,13 @@ en:
               </ul>
             title: 3. Working with the data
           title: How to open and work with these files
+        license:
+          body_1_html: This %{organization_name} database is made available under the %{link_database}. Any rights in individual contents of the database are licensed under the %{link_contents}.
+          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Database Contents License
+          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Open Database License
+          title: License
         title: Open Data
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     pad_iframe:

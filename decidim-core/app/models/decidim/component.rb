@@ -104,6 +104,7 @@ module Decidim
     end
 
     def private_non_transparent_space?
+      return false unless participatory_space.respond_to?(:private_space?)
       return false unless participatory_space.private_space?
 
       if participatory_space.respond_to?(:is_transparent?)

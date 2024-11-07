@@ -17,6 +17,7 @@ RSpec.shared_context "when downloading open data files" do
     open_data_file = Rails.root.join("tmp/#{organization.open_data_file_path}")
     FileUtils.rm_f(open_data_file)
     Decidim::OpenDataJob.perform_now(organization)
+
     switch_to_host(organization.host)
     visit decidim.root_path
 
