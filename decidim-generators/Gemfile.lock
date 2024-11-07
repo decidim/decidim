@@ -765,6 +765,7 @@ GEM
     uber (0.1.0)
     unicode-display_width (2.4.2)
     uniform_notifier (1.16.0)
+    uri (0.13.1)
     valid_email2 (4.0.6)
       activemodel (>= 3.2)
       mail (~> 2.5)
@@ -828,6 +829,7 @@ DEPENDENCIES
   net-pop (~> 0.1.1)
   net-smtp (~> 0.3.1)
   puma (>= 6.3.1)
+  uri (~> 0.11)
   web-console (~> 4.2)
   wicked_pdf (~> 2.1)
 
