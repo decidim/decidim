@@ -157,6 +157,7 @@ cs:
         admin:
           census:
             create:
+              error: Při importu členů organizace došlo k chybě.
               success: 'Počet úspěšně importovaných položek: %{count} (počet chyb: %{errors}).'
             destroy_all:
               success: Všechna data seznamu členů byly smazány.
