@@ -733,6 +733,7 @@ fr-CA:
             error: Ne peut être rejeté en tant que collaborateur, réessayez plus tard.
             success: "@%{user} a été rejeté en tant que collaborateur avec succès."
         show:
+          edit: Modifier
           final_proposal: proposition finale
           final_proposal_help_text: Ce brouillon est terminé. Vous pouvez voir la proposition finale terminée
           hidden_authors_count:
@@ -889,6 +890,7 @@ fr-CA:
         show:
           answer: Répondre
           changes_at_title: Amendement de (%{title}"
+          edit_proposal:
           estimated_cost: Coût estimé
           hidden_endorsers_count:
             one: et %{count} personne de plus
@@ -904,6 +906,7 @@ fr-CA:
           proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que :'
           withdraw_btn_hint: Si vous changez d'avis et tant que votre proposition n'a pas reçu de vote, vous pouvez toujours la retirer. Cette dernière ne sera pas supprimée, mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation_html: Êtes-vous sûr de vouloir retirer cette proposition ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
+          withdraw_proposal: Retirer
         update:
           title: Mettre à jour la proposition
         vote_button:
