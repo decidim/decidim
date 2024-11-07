@@ -73,8 +73,9 @@ end
 
 shared_examples "debates spam analysis" do
   let(:manifest_name) { "debates" }
-  let(:scope) { create(:scope, organization:) }
-  let(:category) { create(:category, participatory_space:) }
+  let(:taxonomizations) do
+    2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+  end
 
   context "when spam content is added" do
     let(:description) { "Claim your prize today so you can win." }
@@ -131,8 +132,9 @@ end
 
 shared_examples "meetings spam analysis" do
   let(:manifest_name) { "meetings" }
-  let(:scope) { create(:scope, organization:) }
-  let(:category) { create(:category, participatory_space:) }
+  let(:taxonomizations) do
+    2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+  end
 
   context "when spam content is added" do
     let(:description) { "Claim your prize today so you can win." }

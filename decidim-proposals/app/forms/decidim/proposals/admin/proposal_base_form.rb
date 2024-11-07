@@ -8,14 +8,13 @@ module Decidim
         include Decidim::TranslatableAttributes
         include Decidim::AttachmentAttributes
         include Decidim::ApplicationHelper
+        include Decidim::HasTaxonomyFormAttributes
 
         mimic :proposal
 
         attribute :address, String
         attribute :latitude, Float
         attribute :longitude, Float
-        attribute :category_id, Integer
-        attribute :scope_id, Integer
         attribute :attachment, AttachmentForm
         attribute :position, Integer
         attribute :created_in_meeting, Boolean
@@ -25,46 +24,19 @@ module Decidim
         attachments_attribute :photos
 
         validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
-        validates :category, presence: true, if: ->(form) { form.category_id.present? }
-        validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-        validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
         validates :meeting_as_author, presence: true, if: ->(form) { form.created_in_meeting? }
 
         validate :notify_missing_attachment_if_errored
 
-        delegate :categories, to: :current_component
-
         def map_model(model)
           body = translated_attribute(model.body)
           @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(body).extra_hashtags.map(&:name).map(&:downcase)
-
-          return unless model.categorization
-
-          self.category_id = model.categorization.decidim_category_id
-          self.scope_id = model.decidim_scope_id
         end
 
         alias component current_component
 
-        # Finds the Category from the category_id.
-        #
-        # Returns a Decidim::Category
-        def category
-          @category ||= categories.find_by(id: category_id)
-        end
-
-        # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
-        #
-        # Returns a Decidim::Scope
-        def scope
-          @scope ||= @attributes["scope_id"].value ? current_component.scopes.find_by(id: @attributes["scope_id"].value) : current_component.scope
-        end
-
-        # Scope identifier
-        #
-        # Returns the scope identifier related to the proposal
-        def scope_id
-          super || scope&.id
+        def participatory_space_manifest
+          @participatory_space_manifest ||= current_component.participatory_space.manifest.name
         end
 
         def geocoding_enabled?

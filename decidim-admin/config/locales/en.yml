@@ -345,6 +345,14 @@ en:
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
+        taxonomy_filters_badge:
+          remove: Remove
+        taxonomy_filters_drawer:
+          add_filter: Add filter
+          clear_all: Clear all
+          filters: Filters
+          save: Save
+          title: Filters
         title: Components
         unpublish:
           success: The component has been successfully unpublished.
@@ -411,8 +419,6 @@ en:
           JSON: JSON
         notice: Your export is currently in progress. You will receive an email when it is complete.
       filters:
-        category_id_eq:
-          label: Category
         filter_label: Filter
         invitation_accepted_at_present:
           label: Invite accepted
@@ -461,8 +467,6 @@ en:
             'false': Published
             'true': Unpublished
         remove_all: Remove all
-        scope_id_eq:
-          label: Scope
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
@@ -932,10 +936,6 @@ en:
           title: Edit permissions
         update:
           success: Permissions updated successfully.
-      resources:
-        index:
-          headers:
-            scope: Scope
       scope_types:
         create:
           error: There was a problem creating a new scope type.
@@ -1093,12 +1093,12 @@ en:
         new:
           create: Create taxonomy
           title: New taxonomy
-        no_taxonomies: There are currently no taxonomies. Create a list of taxonomies here and defined items in each of them to classify or filter resources.
+        no_taxonomies: There are currently no taxonomies. Create a list of taxonomies here and define items in each of them to classify or filter resources.
         table:
           to_next_page: Drag over for next page
           to_prev_page: Drag over for previous page
         taxonomy_actions:
-          confirm_destroy: Are you sure you want to delete %{name}? This will also delete all the children items.
+          confirm_destroy: 'Are you sure you want to delete %{name}? This will also delete all the children items. NOTE: Resources that are using this taxonomy will not be affected but they will lose the reference to this taxonomy.'
         update:
           invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.
@@ -1116,7 +1116,7 @@ en:
         edit:
           back: Back
           items: "%{count} items selected"
-          no_items: No items ara available for this taxonomies. You can create items in the taxonomy configuration settings.
+          no_items: No items are available for this taxonomy. You can create items in the taxonomy configuration settings.
           title: Edit taxonomy filter
           update: Update taxonomy filter
         form:
@@ -1131,7 +1131,8 @@ en:
           title: New taxonomy filter
         table:
           actions: Actions
-          confirm_destroy: Are you sure you want to delete the filter %{name}?
+          components_count: Components count
+          confirm_destroy: 'Are you sure you want to delete the filter %{name}? NOTE: Resources that are using this filter will not be affected but they will lose the reference to this filter.'
           count: Number of items
           destroy: Delete
           edit: Edit

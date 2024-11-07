@@ -30,8 +30,6 @@ module Decidim
         helper_method :current_participatory_space
         helper_method :current_participatory_space_manifest
         helper_method :current_participatory_space_context
-
-        delegate :manifest, to: :current_participatory_space, prefix: true
       end
 
       private
@@ -42,6 +40,18 @@ module Decidim
 
       def current_participatory_space
         raise NotImplementedError
+      end
+
+      def current_participatory_space_manifest
+        return current_participatory_space.manifest if current_participatory_space
+
+        manifest = Decidim.find_participatory_space_manifest(
+          self.class.name.demodulize.underscore.gsub("_controller", "")
+        )
+
+        raise NotImplementedError unless manifest
+
+        manifest
       end
 
       def authorize_participatory_space

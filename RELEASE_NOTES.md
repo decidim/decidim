@@ -17,6 +17,7 @@ gem "decidim-dev", github: "decidim/decidim"
 
 ```console
 sudo apt install p7zip # or the alternative installation process for your operating system. See "2.1. 7zip dependency introduction"
+sudo apt install wkhtmltopdf # or the alternative installation process for your operating system. See "2.7. wkhtmltopdf binary change"
 bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
@@ -110,6 +111,18 @@ bin/rails decidim_proposals:upgrade:set_categories
 
 You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
 
+### 2.7. wkhtmltopdf binary change
+
+For improving the support with latest versions of Ubuntu, and keeping a low size in Heroku/Docker images, we removed the `wkhtmltopdf-binary` gem dependency. This means that your package manager should have the `wkhtmltopdf` binary installed.
+
+In the case of Ubuntu/Debian, this is done with the following command:
+
+```bash
+sudo apt install wkhtmltopdf
+```
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
@@ -181,20 +194,38 @@ This no longer returns the running Decidim version by default and instead it wil
 
 If you would like to re-enable exposing the Decidim version number through the GraphQL API, you may do so by setting the `DECIDIM_API_DISCLOSE_SYSTEM_VERSION` environment variable to `true`. However, this is highly discouraged but may be required for some automation or integrations.
 
-### 5.2. [[TITLE OF THE CHANGE]]
+### 5.2 New configuration option for geolocation input forms
 
-In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
+Now a button to use the user's device location is enabled by default in Decidim. However this can be disabled with the new configuration option `show_my_location_button`, also available as an ENV var `DECIDIM_SHOW_MY_LOCATION_BUTTON`.
 
-If you have used code as such:
+You can decide to enable it in a specific component only (eg "proposals") or everywhere (by default).
 
-```ruby
-# Explain the usage of the API as it was in the previous version
-result = 1 + 1 if before
+Example:
+
+Use only "my location button" in meetings and proposals:
+
+```bash
+DECIDIM_SHOW_MY_LOCATION_BUTTON=meetings,proposals
 ```
 
-You need to change it to:
+or in an initializer:
 
 ```ruby
-# Explain the usage of the API as it is in the new version
-result = 1 + 1 if after
-        ```
+Decidim.configure do |config|
+  config.show_my_location_button = [:meetings, :proposals]
+end
+```
+
+the default value is `:all` equivalent to:
+
+```bash
+DECIDIM_SHOW_MY_LOCATION_BUTTON=all
+```
+
+or in an initializer:
+
+```ruby
+Decidim.configure do |config|
+  config.show_my_location_button = [:all]
+end
+```
