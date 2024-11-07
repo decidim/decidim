@@ -290,6 +290,13 @@ cs:
         create: "%{user_name} vytvořil/a typ rozsahu %{resource_name}"
         delete: "%{user_name} odstranil typ rozsahu %{resource_name}"
         update: "%{user_name} aktualizoval typ rozsahu %{resource_name}"
+      share_token:
+        create: "%{user_name} vytvořil přístupový odkaz v %{space_name}"
+        create_with_space: "%{user_name} vytvořil přístupový odkaz pro %{resource_name} v %{space_name}"
+        delete: "%{user_name} smazal přístupový odkaz v %{space_name}"
+        delete_with_space: "%{user_name} smazal přístupový odkaz pro %{resource_name} v %{space_name}"
+        update: "%{user_name} aktualizoval přístupový odkaz v %{space_name}"
+        update_with_space: "%{user_name} aktualizoval přístupový odkaz pro %{resource_name} v %{space_name}"
       static_page:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
@@ -538,13 +545,16 @@ cs:
             amendments_enabled: Pozměňovací návrhy povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentářů
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             dummy_global_attribute1: Zástupný atribut 1
             dummy_global_attribute2: Zástupný atribut 2
             dummy_global_translatable_text: Zástupný text k přeložení
             enable_pads_creation: Povolit vytvoření sdíleného textu
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             resources_permissions_enabled: Oprávnění zdrojů povoleno
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            taxonomy_filters: Vyberte filtry pro komponentu
           step:
             amendment_creation_enabled: Umožnit změnu a doplnění
             amendment_promotion_enabled: Propagace změn byla povolena
@@ -729,6 +739,8 @@ cs:
         done: Hotovo
         select_identity: Vybrat identitu
     endorsers_list:
+      others: "%{count} dalších"
+      title: Líbí se
       you: vy
     errors:
       files:
@@ -1365,8 +1377,19 @@ cs:
         core:
           components: Komponenty
           description: Tento ZIP soubor obsahuje soubory pro studium a výzkum této participační platformy.
+          main: Jádro
           spaces: Prostory
           title: Soubory otevřených dat pro %{organization}
+        user_groups:
+          avatar_url: Avatar uživatelské skupiny
+          badge: Odznak uživatelské skupiny
+          deleted: Zda je uživatel odstraněn nebo ne
+          id: Jedinečný identifikátor skupiny uživatelů
+          members: ID a jméno uživatelů patřících do skupiny
+          members_count: Počet uživatelů patřících do skupiny uživatelů
+          name: Zobrazované jméno uživatelské skupiny
+          nickname: Uživatelské jméno skupiny uživatelů
+          profile_url: URL profilu
       index:
         description: Vítejte na stránce %{organization_name} Open Data. Zde naleznete datové soubory, které jsou pravidelně generovány z různých účelových procesů a procesů řízení v rámci %{organization_name}. Tyto soubory jsou k dispozici pro podporu transparentnosti, přístupnosti a spolupráce. Níže naleznete podrobné informace o tom, jaké jsou tyto soubory. jak s nimi otevřít a pracovat a popsat obsah a strukturu každého souboru.
         download_open_data: Stáhnout všechny otevřené datové soubory
