@@ -153,6 +153,7 @@ cs:
           comment: Komentář
           create: Vytvořit
           endorse: Schválit
+          vote: Hlasovat
           vote_comment: Komentář hlasování
           withdraw: Ustoupit
         name: Návrhy
