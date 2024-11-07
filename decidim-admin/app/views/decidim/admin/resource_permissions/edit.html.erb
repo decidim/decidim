@@ -34,7 +34,7 @@
                       <% missing_permission = Decidim::Admin::PermissionForm.new(authorization_handlers: { b.value => {} }) %>
                       <%= action_permission_form.fields_for(action, missing_permission) do |missing_permission_form| %>
                         <div id="authorization-handler-<%= b.value %>" class="authorization-handler" style="display:none">
-                          <%= render "options_form", form: missing_permission_form, handler_name: b.value %>
+                          <%= render "options_form", form: missing_permission_form, handler_name: b.value, ephemeral_warning: b.object.ephemeral? %>
                         </div>
                       <% end %>
                     <% end %>

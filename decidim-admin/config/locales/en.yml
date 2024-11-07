@@ -1013,6 +1013,8 @@ en:
         edit:
           submit: Submit
           title: Edit permissions
+        options_form:
+          ephemeral_warning: In order to enable this authorisation method, you need to <a href="%{path}">revoke</a> all of the existing authorizations. This minimises the risk of verification conflicts.
         update:
           success: Permissions updated successfully.
       scope_types:
