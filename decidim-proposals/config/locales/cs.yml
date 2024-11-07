@@ -142,6 +142,8 @@ cs:
               rejected: Zamítnuto
               validating: Technické ověření
               withdrawn: Odebráno
+          taxonomies_part_of_contains:
+            label: Taxonomie
           valuator_role_ids_has:
             label: Přiřazeno k hodnotiteli
           with_any_state:
@@ -151,6 +153,9 @@ cs:
               state_published: Odpovězeno
         search_placeholder:
           id_string_or_title_cont: Hledat %{collection} podle ID nebo názvu.
+    application:
+      geocoding:
+        not_configured: Geocoding není nakonfigurován!
     components:
       proposals:
         actions:
@@ -158,6 +163,7 @@ cs:
           comment: Komentář
           create: Vytvořit
           endorse: Schválit
+          vote: Hlasovat
           vote_comment: Komentář hlasování
           withdraw: Ustoupit
         name: Návrhy
@@ -170,6 +176,7 @@ cs:
             attachments_allowed: Povolit přílohy
             attachments_allowed_help: Povolením této možnosti se návrhy nastaví na režim mřížky a na kartě se objeví první obrázek.
             can_accumulate_votes_beyond_threshold: Lze hromadit hlasy za hranicí
+            clear_all: Vymazat vše
             collaborative_drafts_enabled: Společné koncepty povoleny
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
@@ -184,6 +191,7 @@ cs:
               random: Náhodně
               recent: Nedávné
               with_more_authors: S více autory
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             edit_time: Návrhy mohou autoři upravit dříve, než uplyne tato doba
             edit_time_units:
               days: Dní
@@ -194,6 +202,7 @@ cs:
             new_proposal_body_template: Šablona těla nového návrhu
             new_proposal_body_template_help: Můžete definovat předem vyplněný text, který budou mít nové návrhy
             new_proposal_help_text: Nový text nápovědy návrhu
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             official_proposals_enabled: Oficiální návrhy povoleny
             participatory_texts_enabled: Povolené účastnické texty
             participatory_texts_enabled_readonly: Pokud existují stávající návrhy, nelze toto nastavení měnit. Pokud chcete tuto vlastnost povolit nebo vyhodit všechny importované návrhy v menu "participativní texty" prosím vytvořte novou složku "Návrhy", pokud ji chcete zakázat.
@@ -213,6 +222,8 @@ cs:
             resources_permissions_enabled: Pro každý návrh lze nastavit oprávnění akce
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            taxonomy_filters: Vyberte filtry pro komponentu
+            taxonomy_filters_add: Přidat filtr
             threshold_per_proposal: Prah na návrh
             vote_limit: Limit hlasů na účastníka
           step:
@@ -462,6 +473,7 @@ cs:
           reference: Jedinečný identifikátor zdroje na této platformě
           related_proposals: Návrhy související s tímto návrhem
           state: Stav tohoto návrhu (např. "přijato")
+          taxonomies: Taxonomie, do kterých tento návrh patří
           title: Název návrhu
           url: URL, kde lze tento návrh nalézt
           votes: Počet hlasů tohoto návrhu
@@ -809,6 +821,7 @@ cs:
             error: Nemohl být odmítnut jako spolupracovník, zkuste to znovu později.
             success: "@%{user} byl úspěšně odmítnut jako spolupracovník."
         show:
+          edit: Upravit
           final_proposal: konečný návrh
           final_proposal_help_text: Tento návrh je dokončen. Můžete vidět konečný konečný návrh
           hidden_authors_count:
@@ -848,6 +861,10 @@ cs:
       destroy_draft:
         error: Došlo k chybám s vymazáním návrhového návrhu.
         success: Koncept návrhu byl úspěšně smazán.
+      forms:
+        errors:
+          device_not_supported: Vaše zařízení nepodporuje služby určování polohy. Zadejte adresu ručně.
+          no_device_location: Omlouváme se, ale nemohli jsme rozpoznat vaši polohu. Zadejte adresu ručně.
       invite_coauthors:
         cancel:
           error: Při rušení pozvánky spoluautora došlo k chybě.
