@@ -552,7 +552,6 @@ minuscat
 misogi
 mlat
 mlon
-Mobi
 Moby
 modals
 modernizr
