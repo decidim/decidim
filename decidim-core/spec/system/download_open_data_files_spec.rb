@@ -22,4 +22,20 @@ describe "Download Open Data files", download: true do
       expect(zipfile.glob("*open-data-results.csv").length).to eq(1)
     end
   end
+
+  it "shows the page with the download links" do
+    switch_to_host(organization.host)
+    visit decidim.root_path
+    click_on "Open Data"
+
+    expect(page).to have_content("Here, you will find data files that are regularly generated from various deliberative and governance processes within")
+    expect(page).to have_content("Download results in CSV format")
+
+    click_on("Detailed explanation of each file")
+    expect(page).to have_content("Below is a description of each dataset, including its schema (structure) and the type of information it contains")
+    expect(page).to have_content("The component that the result belongs to")
+
+    click_on("License")
+    expect(page).to have_content("Open Database License")
+  end
 end
