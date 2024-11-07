@@ -2,6 +2,7 @@
 
 require "spec_helper"
 require "decidim/core/test/shared_examples/open_data_exporter_examples"
+
 describe Decidim::OpenDataExporter do
   subject { described_class.new(organization, path) }
 
