@@ -22,7 +22,7 @@ module Decidim
           expected_sections = [{
             method: :with_any_state,
             collection: helper.filter_surveys_date_values,
-            label_scope: "decidim.proposals.proposals.filters",
+            label: t("decidim.proposals.proposals.filters.state"),
             id: "state",
             type: :radio_buttons
           }]
