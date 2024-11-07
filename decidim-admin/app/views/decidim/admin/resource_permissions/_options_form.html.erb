@@ -1,8 +1,13 @@
 <%
   handler_name = local_assigns[:handler_name]
+  ephemeral_warning = local_assigns[:ephemeral_warning]
   schema = form.object.options_schema(handler_name)
   attributes = form.object.options_attributes(handler_name)
 %>
+
+<% if ephemeral_warning %>
+  <%= cell("decidim/announcement", t(".ephemeral_warning", path: decidim_admin.authorization_workflows_path), callout_class: "warning" ) %>
+<% end %>
 
 <%= form.fields_for(:authorization_handlers_options) do |options_form| %>
   <%= options_form.fields_for(handler_name, schema) do |attribute_options_form| %>
