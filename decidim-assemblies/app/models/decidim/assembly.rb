@@ -122,6 +122,11 @@ module Decidim
       Decidim::Assemblies::AdminLog::AssemblyPresenter
     end
 
+    # This is a overwrite for Decidim::ParticipatorySpaceResourceable.visible?
+    def visible?
+      published? && (!private_space? || (private_space? && is_transparent?))
+    end
+
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end
