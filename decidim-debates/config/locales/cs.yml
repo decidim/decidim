@@ -150,9 +150,11 @@ cs:
           recent: Nejnovější
           updated: Naposledy aktualizované
         show:
+          close_debate: Zavřít‏
           debate_closed: Uzavřeno
           debate_conclusions_are: 'Debata byla uzavřena dne %{date} těmito závěry:'
           edit_conclusions: Upravit závěry
+          edit_debate: Upravit
           groups_count: Skupiny
           open: Otevřená diskuse
           participants_count: Účastníci
