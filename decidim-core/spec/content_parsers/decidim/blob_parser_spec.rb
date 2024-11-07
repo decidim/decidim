@@ -63,7 +63,7 @@ module Decidim
     end
 
     before do
-      ActiveStorage::Current.url_options = { host: "https://example.lvh.me" }
+      ActiveStorage::Current.host = "https://example.lvh.me"
     end
 
     describe "#rewrite" do

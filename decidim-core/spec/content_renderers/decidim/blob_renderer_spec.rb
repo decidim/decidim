@@ -35,7 +35,7 @@ module Decidim
     end
 
     before do
-      ActiveStorage::Current.url_options = { host: current_host } if current_host
+      ActiveStorage::Current.host = current_host if current_host
     end
 
     describe "#render" do

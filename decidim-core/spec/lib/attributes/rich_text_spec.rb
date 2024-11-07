@@ -33,7 +33,7 @@ module Decidim
         end
 
         before do
-          ActiveStorage::Current.url_options = { host: current_host }
+          ActiveStorage::Current.host = current_host
         end
 
         it "converts the blob URL to a blob reference" do
@@ -67,7 +67,7 @@ module Decidim
         end
 
         before do
-          ActiveStorage::Current.url_options = { host: current_host }
+          ActiveStorage::Current.host = current_host
         end
 
         it "converts the blob reference to a blob URL" do
