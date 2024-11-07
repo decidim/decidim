@@ -6,6 +6,7 @@ cs:
         accordions:
           content_panel: Obsah panelu
           demo: Demo
+          demo_description: Po celou dobu uplatňování jsou výrazně používány k zobrazování/skrytí obsahu v tabulkách nebo skládání/rozkládání viditelných textů.
           github_source_html: Zdrojový kód na GitHub %{github_link}
           panel: Panel
           trigger: Spouštěč
