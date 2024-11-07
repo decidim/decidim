@@ -14,19 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const selectedLi = input.closest("li");
         selectedLi.style.display = "none";
 
-        dropdownMenu.querySelectorAll("li").forEach(li => {
+        dropdownMenu.querySelectorAll("li").forEach((li) => {
           if (li !== selectedLi) {
-              li.style.display = "";
+            li.style.display = "";
           }
         });
-
-        dropdownMenu.style.display = "none";
       }
     });
   });
-
-  button.addEventListener("click", () => {
-    dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "" : "none";
-  });
 });
-
