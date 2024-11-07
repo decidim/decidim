@@ -149,7 +149,7 @@ module Decidim
       end
 
       def sanitized(content)
-        decidim_sanitize_editor(content)
+        decidim_sanitize_editor_admin(content)
       end
     end
   end
