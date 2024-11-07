@@ -829,6 +829,7 @@ smartbreak
 Smileys
 Snowlvhme
 Snoworg
+softdeleteable
 somedatabase
 Sorbier
 sortings
