@@ -15,13 +15,16 @@ module Decidim
       #
       # Returns an ExportData instance.
       def export
-        html = controller.render_to_string(
-          template:,
-          layout:,
-          locals:
-        )
+        embed = Premailer.new(
+          controller.render_to_string(
+            template:,
+            layout:,
+            locals:
+          ),
+          with_html_string: true
+        ).to_inline_css
 
-        document = WickedPdf.new.pdf_from_string(html, orientation:)
+        document = WickedPdf.new.pdf_from_string(embed, orientation:)
 
         ExportData.new(document, "pdf")
       end

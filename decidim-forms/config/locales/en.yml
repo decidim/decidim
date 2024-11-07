@@ -33,6 +33,12 @@ en:
             description: Description
             tos: Terms of service
         questionnaires:
+          export:
+            question:
+              response: 'Response #%{number}'
+              title:
+                one: '1 response'
+                other: '%{count} total response'
           actions:
             back: Back to questions
             show: Show responses
