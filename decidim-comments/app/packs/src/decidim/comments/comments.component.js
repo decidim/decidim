@@ -93,33 +93,26 @@ export default class CommentsComponent {
 
     let $parent = null;
 
-    if (isTwoColumnsLayout) {
-      if (!isMobileScreen) {
-        const $inFavorColumn = $(".comments-section__in-favor", this.$element);
-        const $againstColumn = $(".comments-section__against", this.$element);
+    if (isTwoColumnsLayout && !isMobileScreen) {
+      const $inFavorColumn = $(".comments-section__in-favor", this.$element);
+      const $againstColumn = $(".comments-section__against", this.$element);
 
-        if (alignment === 1 && $inFavorColumn.length > 0) {
-          $parent = $inFavorColumn;
-        } else if (alignment === -1 && $againstColumn.length > 0) {
-          $parent = $againstColumn;
-        }
-
-        if ($parent) {
-          this._addComment($parent, $comment);
-        }
-      }
-
-      if (isMobileScreen) {
-        const $threads = $(".comment-threads", this.$element);
-        this._addComment($threads, $comment);
+      if (alignment === 1 && $inFavorColumn.length > 0) {
+        $parent = $inFavorColumn;
+      } else if (alignment === -1 && $againstColumn.length > 0) {
+        $parent = $againstColumn;
+      } else {
+        $parent = $(".comment-threads", this.$element);
       }
     } else {
-      const $threads = $(".comment-threads", this.$element);
-      this._addComment($threads, $comment);
+      $parent = $(".comment-threads", this.$element);
     }
+
+    this._addComment($parent, $comment);
 
     this._finalizeCommentCreation($parent, fromCurrentUser);
   }
+
 
   /**
    * Adds a new reply to an existing comment.
