@@ -1,17 +1,20 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 describe Decidim::Proposals::Admin::ProposalsController do
   routes { Decidim::Proposals::AdminEngine.routes }
 
-  let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
+  let(:component) { create(:proposal_component) }
+  let(:proposal) { create(:proposal, component:) }
+  let(:current_user) { create(:user, :confirmed, :admin, organization: component.organization) }
 
   before do
     request.env["decidim.current_organization"] = component.organization
     request.env["decidim.current_participatory_space"] = component.participatory_space
     request.env["decidim.current_component"] = component
-    sign_in user
+    sign_in current_user
   end
 
   describe "PATCH update" do
@@ -68,53 +71,8 @@ describe Decidim::Proposals::Admin::ProposalsController do
     end
   end
 
-  describe "PATCH soft_delete" do
-    let(:component) { create(:proposal_component) }
-    let(:proposal) { create(:proposal, component:) }
-
-    it "soft deletes the proposal" do
-      expect(Decidim::Commands::SoftDeleteResource).to receive(:call).with(proposal, user).and_call_original
-
-      patch :soft_delete, params: { id: proposal.id }
-
-      expect(response).to redirect_to(proposals_path)
-      expect(flash[:notice]).to be_present
-      expect(proposal.reload.deleted_at).not_to be_nil
-    end
-  end
-
-  describe "PATCH restore" do
-    let(:component) { create(:proposal_component) }
-    let!(:deleted_proposal) { create(:proposal, component:, deleted_at: Time.current) }
-
-    it "restores the deleted proposal" do
-      expect(Decidim::Commands::RestoreResource).to receive(:call).with(deleted_proposal, user).and_call_original
-
-      patch :restore, params: { id: deleted_proposal.id }
-
-      expect(response).to redirect_to(manage_trash_proposals_path)
-      expect(flash[:notice]).to be_present
-      expect(deleted_proposal.reload.deleted_at).to be_nil
-    end
-  end
-
-  describe "GET manage_trash" do
-    let(:component) { create(:proposal_component) }
-    let!(:deleted_proposal) { create(:proposal, component:, deleted_at: Time.current) }
-    let!(:active_proposal) { create(:proposal, component:) }
-
-    it "lists only deleted proposals" do
-      get :manage_trash
-
-      expect(response).to have_http_status(:ok)
-      expect(controller.view_context.trashable_deleted_collection).not_to include(active_proposal)
-      expect(controller.view_context.trashable_deleted_collection).to include(deleted_proposal)
-    end
-
-    it "renders the deleted proposals template" do
-      get :manage_trash
-
-      expect(response).to render_template(:manage_trash)
-    end
-  end
+  it_behaves_like "a soft-deletable resource",
+                  resource_name: :proposal,
+                  resource_path: :proposals_path,
+                  trash_path: :manage_trash_proposals_path
 end

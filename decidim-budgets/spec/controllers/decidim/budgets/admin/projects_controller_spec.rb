@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module Budgets
@@ -8,18 +9,19 @@ module Decidim
       describe ProjectsController do
         routes { Decidim::Budgets::AdminEngine.routes }
 
-        let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }
+        let(:current_user) { create(:user, :confirmed, :admin, organization: component.organization) }
+        let(:component) { create(:budgets_component) }
+        let!(:project) { create(:project, component:) }
+        let!(:additional_params) { { budget_id: project.budget.id } }
 
         before do
           request.env["decidim.current_organization"] = component.organization
           request.env["decidim.current_participatory_space"] = component.participatory_space
           request.env["decidim.current_component"] = component
-          sign_in user
+          sign_in current_user
         end
 
         describe "PATCH update" do
-          let(:component) { create(:budgets_component) }
-          let(:project) { create(:project, component:) }
           let(:project_title) { project.title }
           let(:project_params) do
             {
@@ -74,55 +76,10 @@ module Decidim
           end
         end
 
-        describe "PATCH soft_delete" do
-          let(:component) { create(:budgets_component) }
-          let!(:project) { create(:project, component:) }
-
-          it "soft deletes the project" do
-            expect(Decidim::Commands::SoftDeleteResource).to receive(:call).with(project, user).and_call_original
-
-            patch :soft_delete, params: { budget_id: project.budget.id, id: project.id }
-
-            expect(response).to redirect_to budget_projects_path(project.budget)
-            expect(flash[:notice]).not_to be_empty
-            expect(project.reload.deleted_at).not_to be_nil
-          end
-        end
-
-        describe "PATCH restore" do
-          let(:component) { create(:budgets_component) }
-          let!(:project) { create(:project, component:, deleted_at: Time.current) }
-
-          it "restores the project" do
-            expect(Decidim::Commands::RestoreResource).to receive(:call).with(project, user).and_call_original
-
-            patch :restore, params: { budget_id: project.budget.id, id: project.id }
-
-            expect(response).to redirect_to manage_trash_budget_projects_path(project.budget)
-            expect(flash[:notice]).not_to be_empty
-            expect(project.reload.deleted_at).to be_nil
-          end
-        end
-
-        describe "GET manage_trash" do
-          let(:component) { create(:budgets_component) }
-          let!(:deleted_project) { create(:project, component:, deleted_at: Time.current) }
-          let!(:active_project) { create(:project, component:) }
-
-          it "lists only deleted projects" do
-            get :manage_trash, params: { budget_id: deleted_project.budget.id }
-
-            expect(response).to have_http_status(:ok)
-            expect(controller.view_context.trashable_deleted_collection).to include(deleted_project)
-            expect(controller.view_context.trashable_deleted_collection).not_to include(active_project)
-          end
-
-          it "renders the deleted projects template" do
-            get :manage_trash, params: { budget_id: deleted_project.budget.id }
-
-            expect(response).to render_template(:manage_trash)
-          end
-        end
+        it_behaves_like "a soft-deletable resource",
+                        resource_name: :project,
+                        resource_path: :budget_projects_path,
+                        trash_path: :manage_trash_budget_projects_path
       end
     end
   end

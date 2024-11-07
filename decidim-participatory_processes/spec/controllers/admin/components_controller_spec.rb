@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module ParticipatoryProcesses
@@ -60,52 +61,11 @@ module Decidim
           end
         end
 
-        describe "PATCH soft_delete" do
-          it "soft deletes the component" do
-            expect(Decidim::Commands::SoftDeleteResource).to receive(:call).with(component, current_user).and_call_original
-
-            patch :soft_delete, params: { participatory_process_slug: participatory_process.slug, id: component.id }
-
-            expect(response).to redirect_to components_path
-            expect(flash[:notice]).to be_present
-            expect(component.reload.deleted_at).not_to be_nil
-          end
-        end
-
-        describe "PATCH restore" do
-          before do
-            component.update!(deleted_at: Time.current)
-          end
-
-          it "restores the component" do
-            expect(Decidim::Commands::RestoreResource).to receive(:call).with(component, current_user).and_call_original
-
-            patch :restore, params: { participatory_process_slug: participatory_process.slug, id: component.id }
-
-            expect(response).to redirect_to manage_trash_components_path
-            expect(flash[:notice]).to be_present
-            expect(component.reload.deleted_at).to be_nil
-          end
-        end
-
-        describe "GET manage_trash" do
-          let!(:deleted_component) { create(:component, :trashed, participatory_space: participatory_process) }
-          let!(:active_component) { create(:component, participatory_space: participatory_process) }
-
-          it "lists only deleted components" do
-            get :manage_trash, params: { participatory_process_slug: participatory_process.slug }
-
-            expect(response).to have_http_status(:ok)
-            expect(controller.send(:trashable_deleted_collection)).not_to include(active_component)
-            expect(controller.send(:trashable_deleted_collection)).to contain_exactly(deleted_component)
-          end
-
-          it "renders the deleted components template" do
-            get :manage_trash, params: { participatory_process_slug: participatory_process.slug }
-
-            expect(response).to render_template(:manage_trash)
-          end
-        end
+        it_behaves_like "a soft-deletable component",
+                        component_name: :component,
+                        space_name: :participatory_process,
+                        component_path: :components_path,
+                        trash_path: :manage_trash_components_path
       end
     end
   end

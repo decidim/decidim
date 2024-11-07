@@ -73,6 +73,10 @@ FactoryBot.define do
       published_at { Time.current }
     end
 
+    trait :trashed do
+      deleted_at { Time.current }
+    end
+
     trait :with_parent do
       parent { create(:assembly, organization:, skip_injection:) }
     end

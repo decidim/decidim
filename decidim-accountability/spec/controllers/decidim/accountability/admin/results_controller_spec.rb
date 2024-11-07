@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module Accountability
@@ -40,34 +41,10 @@ module Decidim
           end
         end
 
-        describe "PATCH soft_delete" do
-          it "soft deletes a result" do
-            patch(:soft_delete, params:)
-
-            expect(result.reload.deleted_at).not_to be_nil
-            expect(response).to redirect_to(results_path(parent_id: result.parent_id))
-          end
-        end
-
-        describe "PATCH restore" do
-          it "restores a soft deleted result" do
-            result.trash!
-            patch(:restore, params:)
-
-            expect(result.reload.deleted_at).to be_nil
-            expect(response).to redirect_to(manage_trash_results_path(parent_id: result.parent_id))
-          end
-        end
-
-        describe "GET manage_trash" do
-          it "renders the manage_trash view" do
-            get :manage_trash
-
-            expect(response).to have_http_status(:ok)
-
-            expect(subject).to render_template(:manage_trash)
-          end
-        end
+        it_behaves_like "a soft-deletable resource",
+                        resource_name: :result,
+                        resource_path: :results_path,
+                        trash_path: :manage_trash_results_path
       end
     end
   end

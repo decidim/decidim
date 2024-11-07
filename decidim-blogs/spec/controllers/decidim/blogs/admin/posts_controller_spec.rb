@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module Blogs
@@ -25,53 +26,10 @@ module Decidim
           sign_in current_user
         end
 
-        describe "PATCH soft_delete" do
-          it "soft deletes the post" do
-            expect(Decidim::Commands::SoftDeleteResource).to receive(:call).with(post, current_user).and_call_original
-
-            patch :soft_delete, params: { id: post.id }
-
-            expect(response).to redirect_to(posts_path)
-            expect(flash[:notice]).to be_present
-            expect(post.reload.deleted_at).not_to be_nil
-          end
-        end
-
-        describe "PATCH restore" do
-          before do
-            post.update!(deleted_at: Time.current)
-          end
-
-          it "restores the post" do
-            expect(Decidim::Commands::RestoreResource).to receive(:call).with(post, current_user).and_call_original
-
-            patch :restore, params: { id: post.id }
-
-            expect(response).to redirect_to(manage_trash_posts_path)
-            expect(flash[:notice]).to be_present
-            expect(post.reload.deleted_at).to be_nil
-          end
-        end
-
-        describe "GET manage_trash" do
-          let!(:deleted_post) { create(:post, component:, deleted_at: Time.current) }
-          let!(:active_post) { create(:post, component:) }
-          let(:deleted_posts) { controller.view_context.trashable_deleted_collection }
-
-          it "lists only deleted posts" do
-            get :manage_trash
-
-            expect(response).to have_http_status(:ok)
-            expect(deleted_posts).not_to include(active_post)
-            expect(deleted_posts).to include(deleted_post)
-          end
-
-          it "renders the deleted posts template" do
-            get :manage_trash
-
-            expect(response).to render_template(:manage_trash)
-          end
-        end
+        it_behaves_like "a soft-deletable resource",
+                        resource_name: :post,
+                        resource_path: :posts_path,
+                        trash_path: :manage_trash_posts_path
       end
     end
   end
