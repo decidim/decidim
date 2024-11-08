@@ -1335,11 +1335,44 @@ es:
         core:
           components: Componentes
           description: Este archivo ZIP contiene archivos para estudiar e investigar sobre esta plataforma de participación.
+          main: Núcleo
           spaces: Espacios
           title: Archivos de datos abiertos de %{organization}
+        user_groups:
+          avatar_url: El avatar del grupo de usuarias
+          badge: La insignia del grupo de usuarias
+          deleted: Si el grupo de usuarias fue eliminado o no
+          id: El identificador único del grupo de usuarias
+          members: El ID y el nombre de las usuarias que pertenecen al grupo
+          members_count: El número de miembros que forman parte del grupo de usuarias
+          name: El nombre que se muestra del grupo de usuarias
+          nickname: El nombre de usuaria del grupo de usuarias
+          profile_url: La URL del perfil del grupo de usuarias
+        users:
+          about: El texto "Acerca de" incluido en el perfil de usuaria
+          avatar_url: El avatar de la usuaria
+          badge: La insignia de la usuaria
+          deleted: Si la usuaria fue eliminada o no
+          direct_messages_enabled: Si la usuaria permite mensajes directos o no
+          groups: El ID y el nombre del grupo de usuarias
+          id: El identificador único de la usuaria
+          name: El nombre que se muestra de la usuaria
+          nickname: El nombre de usuaria de la usuaria
+          profile_url: La URL del perfil de la usuaria
       index:
         description: Bienvenida a la página de datos abiertos %{organization_name}. Aquí encontrarás archivos de datos que se generan regularmente a partir de varios procesos deliberados y de gobernanza dentro de %{organization_name}. Estos archivos están disponibles para promover la transparencia, accesibilidad y colaboración. A continuación, encontrarás información detallada sobre cuáles son estos archivos, cómo abrir y trabajar con ellos, y una descripción del contenido y la estructura de cada archivo.
+        detailed:
+          body_1: 'A continuación se muestra una descripción de cada conjunto de datos, incluyendo su esquema (estructura) y el tipo de información que contiene:'
+          components: Componentes
+          spaces: Espacios de participación
+          title: Explicación detallada de cada archivo
+        download:
+          components: Componentes
+          core: Núcleo
+          spaces: Espacio participativo
+          title: Descargar recursos
         download_open_data: Descargar todos los archivos de datos abiertos
+        download_resource: Descargar "%{resource_name}" en formato CSV
         explanation:
           body_1: Estos archivos son conjuntos de datos exportados desde los procesos participativos de %{organization_name}, como propuestas, comentarios y reuniones. Se proporcionan datos crudos y estructurados que pueden ser utilizados para el análisis, la investigación o la integración con otras herramientas. Los datos se actualizan automáticamente cada 24 horas, para asegurar tener acceso a la información más reciente posible.
           body_2: Estos archivos están en formato CSV (valores separados por comas), un formato de archivo ampliamente utilizado que puede ser abierto y procesado por una variedad de aplicaciones de software, incluyendo programas de hojas de cálculo, editores de texto y herramientas de análisis de datos.
@@ -1365,6 +1398,13 @@ es:
               </ul>
             title: 3. Trabajando con los datos
           title: Cómo abrir y trabajar con estos archivos
+        license:
+          body_1_html: Esta base de datos de "%{organization_name}" está disponible bajo %{link_database}. Cualquier derecho sobre los contenidos individuales de la base de datos está bajo la licencia %{link_contents}.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_name: Licencia de los contenidos en la base de datos
+          license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
+          license_database_name: Licencia Abierta para bases de datos
+          title: Licencia
         title: Datos abiertos
       not_available_yet: Los ficheros Open Data aún no están disponibles, inténtalo de nuevo en unos minutos.
     pad_iframe:
