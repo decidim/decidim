@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "wicked_pdf"
-
 module Decidim
   module Exporters
     # Inherits from abstract PDF exporter. This class is used to set
@@ -48,7 +46,7 @@ module Decidim
 
       protected
 
-      def add_data(composer)
+      def add_data!
         composer.text(translated_attribute(questionnaire.title), style: :h1)
         composer.text(decidim_sanitize_translated(questionnaire.description), style: :description)
         composer.text(I18n.t("question.title", scope:, count: collection.count), style: :section_title)
@@ -56,7 +54,7 @@ module Decidim
         local_collection = collection.map { |answer| ParticipantPresenter.new(participant: answer.first) }
 
         local_collection.each_with_index do |record, index|
-          add_response_box(composer, record, index)
+          add_response_box(record, index)
         end
       end
 
@@ -88,9 +86,7 @@ module Decidim
         ]
       end
 
-      def layout = composer.document.layout
-
-      def add_user_data(composer, record)
+      def add_user_data(record)
         cells = [
           layout.text(record.session_token, style: :td),
           layout.text(record.status, style: :td),
@@ -101,17 +97,17 @@ module Decidim
         composer.table([cells], header: ->(_table) { [header] }, cell_style: { border: { width: 0 } })
       end
 
-      def add_response_box(composer, record, index)
+      def add_response_box(record, index)
         composer.text(I18n.t("question.response", scope:, number: index + 1), style: :section_title)
-        add_user_data(composer, record)
+        add_user_data(record)
 
         record.answers.each do |answer|
           composer.text(answer.question, style: :question_title)
-          add_answer_body(composer, answer)
+          add_answer_body(answer)
         end
       end
 
-      def add_answer_body(composer, answer)
+      def add_answer_body(answer)
         return composer.text(answer.body[:string], style: :question_answer) if answer.body.has_key?(:string)
 
         if answer.attachments.any?

@@ -17,28 +17,26 @@ module Decidim
       def export
         composer.styles(**styles)
 
-        add_data(composer)
+        add_data!
 
         ExportData.new(composer.write_to_string, "pdf")
       end
 
       protected
 
+      def layout = composer.document.layout
+
       def composer
         @composer ||= ::HexaPDF::Composer.new
       end
 
-      def add_data(_composer)
+      def add_data!
         raise NotImplementedError
       end
 
       def font_family = "Times"
 
       def styles = {}
-
-      def controller
-        raise NotImplementedError
-      end
     end
   end
 end
