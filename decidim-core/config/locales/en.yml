@@ -1343,8 +1343,30 @@ en:
         core:
           components: Components
           description: This ZIP file contains files for studying and researching about this participation platform.
+          main: Core
           spaces: Spaces
           title: Open Data files for %{organization}
+        user_groups:
+          avatar_url: The avatar of the user group
+          badge: The badge of the user group
+          deleted: Whether the user is deleted or not
+          id: The unique identifier of the user group
+          members: The id and name of the users belonging to the group
+          members_count: The number of the users belonging to the user group
+          name: The display name of user group
+          nickname: The username of the user group
+          profile_url: The profile url
+        users:
+          about: The about text of the user
+          avatar_url: The avatar of the user
+          badge: The badge of the user
+          deleted: Whether the user is deleted or not
+          direct_messages_enabled: Whether the user allows direct messages
+          groups: The id and name of the user group
+          id: The unique identifier of the user
+          name: The display name of user
+          nickname: The username of the user
+          profile_url: The profile url
       index:
         description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
         detailed:
@@ -1354,6 +1376,7 @@ en:
           title: Detailed explanation of each file
         download:
           components: Components
+          core: Core
           spaces: Participatory spaces
           title: Download resources
         download_open_data: Download all the Open Data files
