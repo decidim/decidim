@@ -491,13 +491,16 @@ ja:
             amendments_enabled: 修正を有効にする
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             dummy_global_attribute1: ダミーステータス１
             dummy_global_attribute2: ダミーステータス2
             dummy_global_translatable_text: ダミー翻訳可能なテキスト
             enable_pads_creation: パッドの作成を有効にする
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             resources_permissions_enabled: リソースの権限を有効にする
             scope_id: スコープ
             scopes_enabled: スコープが有効
+            taxonomy_filters: コンポーネントのフィルタを選択
           step:
             amendment_creation_enabled: 修正の作成は有効です
             amendment_promotion_enabled: プロモーションの修正を有効にする
@@ -583,6 +586,8 @@ ja:
         filter_area_values:
           all: すべて
         filter_scope_values:
+          all: すべて
+        filter_taxonomy_values:
           all: すべて
     devise:
       omniauth_registrations:
@@ -1310,10 +1315,35 @@ ja:
         core:
           components: コンポーネント
           description: ZIPファイルには、この参加型プラットフォームについての研究や研究のためのファイルが含まれています。
+          main: コア
           spaces: スペース
           title: '%{organization} のデータファイルを開く'
+        user_groups:
+          avatar_url: ユーザーグループのアバター
+          badge: ユーザーグループのバッジ
+          deleted: ユーザーが削除されたかどうか
+          id: ユーザーグループの固有ID
+          members: グループに属するユーザーのIDと名前
+          members_count: ユーザーグループに属するユーザーの数
+          name: ユーザーグループの表示名
+          nickname: ユーザーグループのユーザー名
+          profile_url: プロファイルURL
+        users:
+          about: ユーザーの紹介テキスト
+          avatar_url: ユーザーのアバター
+          badge: ユーザーのバッジ
+          deleted: ユーザーが削除されたかどうか
+          direct_messages_enabled: ユーザーがダイレクトメッセージを許可しているかどうか
+          groups: ユーザーグループのIDと名前
+          id: ユーザーの固有ID
+          name: ユーザーの表示名
+          nickname: ユーザーのユーザー名
+          profile_url: プロファイルURL
       index:
         description: '%{organization_name} オープンデータページへようこそ。ここでは、 %{organization_name} 内のさまざまな審議およびガバナンスプロセスから定期的に生成されるデータファイルを提供しています。これらのファイルは、透明性、アクセス性、および協力を促進するために公開されています。以下に、これらのファイルが何であるか、どのように開いて使用するか、各ファイルの内容と構造についての詳細な情報を記載しています。'
+        detailed:
+          body_1: '以下は各データセットの説明です。各データセットのスキーマ（構造）や含まれている情報の種類を含みます。'
+          components: コンポーネント
         download_open_data: すべてのオープンデータファイルをダウンロード
         explanation:
           body_1: これらのファイルは、提案、コメント、ミーティングなど、 %{organization_name} の参加型プロセスからエクスポートされたデータセットです。 分析、研究、または他のツールとの統合に使用できる、生の構造化されたデータを提供します。 データは24時間ごとに自動的に更新され、最新の情報にアクセスできるようになります。
