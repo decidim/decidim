@@ -258,9 +258,6 @@ FactoryBot.define do
   end
 
   factory :private_export, class: "Decidim::PrivateExport" do
-    transient do
-      export_data { Decidim::Exporters.find_exporter("CSV").new(Decidim::Dev::DummyResource.user_collection(attached_to), Decidim::Dev::DummyResource.export_serializer).export }
-    end
     export_type { :download_your_data }
     attached_to { create(:user) }
     expires_at { 2.weeks.from_now }

@@ -3,14 +3,30 @@
 require "spec_helper"
 
 describe "DownloadYourData" do
+  let!(:public_resource) { create(:dummy_resource, :published, author: user) }
+
   let(:user) { create(:user, :confirmed, name: "Hodor User") }
   let(:organization) { user.organization }
-  let!(:expired_export) { create(:private_export, :expired, attached_to: user) }
-  let!(:active_export) { create(:private_export, attached_to: user) }
+  let!(:expired_export) do
+    export = Decidim::DownloadYourDataExporter.new(user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
+    export.expires_at = 2.weeks.ago
+    export.save!
+    export.reload
+  end
+  let!(:active_export) { Decidim::DownloadYourDataExporter.new(user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export }
   let(:other_user) { create(:user, :confirmed, organization:) }
+  let!(:other_user_public_resource) { create(:dummy_resource, :published, author: other_user) }
 
-  let!(:other_user_expired_export) { create(:private_export, :expired, attached_to: other_user) }
-  let!(:other_user_active_export) { create(:private_export, :expired, attached_to: other_user) }
+  let!(:other_user_expired_export) do
+    export = Decidim::DownloadYourDataExporter.new(other_user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
+    export.expires_at = 2.weeks.ago
+    export.save!
+    export.reload
+  end
+
+  let!(:other_user_active_export) do
+    Decidim::DownloadYourDataExporter.new(other_user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
+  end
 
   around do |example|
     previous = Capybara.raise_server_errors
@@ -25,7 +41,7 @@ describe "DownloadYourData" do
     login_as user, scope: :user
   end
 
-  context "when on the download your data page" do
+  shared_examples_for "downloading data" do
     before do
       visit decidim.download_your_data_path
     end
@@ -71,7 +87,7 @@ describe "DownloadYourData" do
         expect(page).to have_content("The export has expired. Try to generate a new export.")
       end
 
-      it "when requesting my own active file" do
+      it "when requesting my own active file", :slow, download: true do
         expect(active_export.file).to be_attached
         expect(downloads.length).to eq(0)
 
@@ -96,5 +112,15 @@ describe "DownloadYourData" do
         expect(last_email.subject).to include("Hodor User")
       end
     end
+  end
+
+  context "when user has not yet accepted tos" do
+    let(:user) { create(:user, :confirmed, name: "Hodor User", accepted_tos_version: nil) }
+
+    include_examples "downloading data"
+  end
+
+  context "when on the download your data page" do
+    include_examples "downloading data"
   end
 end

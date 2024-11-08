@@ -149,7 +149,6 @@ Capybara.default_max_wait_time = 10
 
 RSpec.configure do |config|
   config.before :each, type: :system do
-    clear_downloads
     driven_by(:headless_chrome)
 
     switch_to_default_host
