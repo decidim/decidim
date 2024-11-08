@@ -22,7 +22,7 @@ module Decidim
     private
 
     def open_data_core
-      [:users, :user_groups]
+      [:users, :user_groups, :metrics]
     end
 
     def open_data_component_manifests

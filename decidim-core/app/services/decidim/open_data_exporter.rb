@@ -67,6 +67,11 @@ module Decidim
           name: :user_groups,
           collection: ->(organization) { Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
           serializer: Decidim::Exporters::OpenDataUserGroupSerializer
+        ),
+        OpenStruct.new(
+          name: :metrics,
+          collection: ->(organization) { Decidim::Metric.where(organization:) },
+          serializer: Decidim::Exporters::OpenDataMetricSerializer
         )
       ]
     end

@@ -130,16 +130,6 @@ Decidim.register_component(:proposals) do |component|
     Decidim::Follow.where(decidim_followable_type: "Decidim::Proposals::Proposal", decidim_followable_id: proposals_ids).count
   end
 
-  component.exports :metrics do |exports|
-    exports.collection do |_component_instance|
-      Decidim::Metric.all
-    end
-
-    exports.include_in_open_data = true
-
-    exports.serializer Decidim::Exporters::MetricSerializer
-  end
-
   component.exports :proposals do |exports|
     exports.collection do |component_instance, user|
       space = component_instance.participatory_space
