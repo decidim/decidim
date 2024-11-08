@@ -30,5 +30,15 @@ module Decidim
     def remove_non_user_avatar
       false
     end
+
+    def self.ransackable_attributes(auth_object = nil)
+      return [] unless auth_object&.admin?
+
+      %w(full_name ceased_date)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(user)
+    end
   end
 end

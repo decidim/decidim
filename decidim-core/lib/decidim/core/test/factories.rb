@@ -1014,6 +1014,10 @@ FactoryBot.define do
       object.organization ||= object.token_for.organization
     end
 
+    trait :with_token do
+      token { SecureRandom.hex(32) }
+    end
+
     trait :expired do
       expires_at { 1.day.ago }
     end
@@ -1080,6 +1084,27 @@ FactoryBot.define do
         else
           "decidim"
         end
+    end
+  end
+
+  factory :blob, class: "ActiveStorage::Blob" do
+    transient do
+      filepath { Decidim::Dev.asset("city.jpeg") }
+    end
+
+    filename { File.basename(filepath) }
+    content_type { MiniMime.lookup_by_filename(filepath)&.content_type || "text/plain" }
+
+    before(:create) do |object, evaluator|
+      object.upload(File.open(evaluator.filepath))
+    end
+
+    trait :image do
+      filepath { Decidim::Dev.asset("city.jpeg") }
+    end
+
+    trait :document do
+      filepath { Decidim::Dev.asset("Exampledocument.pdf") }
     end
   end
 end

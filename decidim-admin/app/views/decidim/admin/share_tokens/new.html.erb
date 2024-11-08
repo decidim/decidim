@@ -1,0 +1,69 @@
+<% add_decidim_page_title(t(".title", name: resource_title)) %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t ".title", name: resource_title %>
+    <a class="button button__sm button__secondary" href="<%= share_tokens_path %>"><%= t("share_tokens.index.back_to_share_tokens", scope: "decidim.admin") %></a>
+  </h1>
+</div>
+<div class="item__edit-form">
+  <%= decidim_form_for(@form, url: share_tokens_path(:create), html: { class: "form-defaults form new_share_token" }) do |f| %>
+    <div class="card">
+      <div class="card-section">
+        <div class="form__wrapper">
+          <div class="card pt-4">
+            <div class="row column">
+              <label><%= t("share_tokens.form.token", scope: "decidim.admin") %></label>
+                <%= f.collection_radio_buttons :automatic_token, [
+                  [t("share_tokens.form.automatic", scope: "decidim.admin"), true],
+                  [t("share_tokens.form.custom", scope: "decidim.admin"), false]
+                ], :last, :first do |b| %>
+                <div>
+                  <%= b.label do %>
+                    <%= b.radio_button %>
+                    <%= b.text %>
+                  <% end %>
+                </div>
+              <% end %>
+              <div id="token-field-wrapper" class="hidden">
+                <%= f.text_field :token, label: t("share_tokens.form.custom_token", scope: "decidim.admin"), style: "text-transform: uppercase" %>
+              </div>
+            </div>
+            <%= render partial: "form", object: f %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const automaticTokenRadioButton = document.querySelector("input[name='share_token[automatic_token]'][value='true']");
+    const automaticTokenRadioButtons = document.querySelectorAll("input[name='share_token[automatic_token]']");
+    const tokenWrapper = document.getElementById("token-field-wrapper");
+    const tokenInput = document.querySelector("input[name='share_token[token]']");
+
+    const toggleTokenField = () => {
+      if (automaticTokenRadioButton.checked) {
+        tokenWrapper.classList.add("hidden");
+        tokenInput.value = "";
+        tokenInput.removeAttribute("required");
+      } else {
+        tokenWrapper.classList.remove("hidden");
+        tokenInput.focus();
+      }
+    };
+
+    automaticTokenRadioButtons.forEach(button => {
+      button.addEventListener("change", toggleTokenField);
+    });
+
+    toggleTokenField();
+  });
+</script>

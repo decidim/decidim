@@ -64,6 +64,10 @@ ca:
         password_confirmation: Confirmació de la contrasenya
         remember_me: Recorda'm
     models:
+      decidim:
+        history:
+          one: Historial
+          other: Historial
       decidim/amendment:
         one: Esmena
         other: Esmenes
@@ -269,6 +273,13 @@ ca:
         delete_with_parent: "%{user_name} ha esborrat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
         update: "%{user_name} ha acutalitzat la taxonomia \"%{resource_name}\""
         update_with_parent: "%{user_name} ha actualitzat \"%{resource_name}\" dins de la taxonomia \"%{parent_taxonomy}\""
+      taxonomy_filter:
+        create: "En/na %{user_name} ha creat un filtre basat en la taxonomia \"%{resource_name}\""
+        create_with_filter_items_count: "En/na %{user_name} ha creat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
+        delete: "En/na %{user_name} ha eliminat un filtre basat en la taxonomia \"%{resource_name}\""
+        delete_with_filter_items_count: "En/na %{user_name} ha eliminat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
+        update: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\""
+        update_with_filter_items_count: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
       user:
         block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
@@ -937,7 +948,7 @@ ca:
           title_required: Un títol és necessari!
           uploaded: Pujat
           validating: Validant...
-          validation_error: Error de validació!
+          validation_error: Error en la validació! Si us plau, revisa que l'arxiu tingui una extensió o una mida permesa.
         select_file: Selecciona un fitxer
       upload_help:
         dropzone: Arrossega-hi els arxius o fes clic per a pujar-los
@@ -1434,6 +1445,8 @@ ca:
       create:
         error: Hi ha hagut un problema en crear l'informe d'error. Si us plau, torna-ho a provar.
         success: El contingut s'ha denunciat amb èxit i serà revisat per una administradora.
+    resource:
+      controls_label: Controls de recursos
     resource_endorsements:
       create:
         error: S'ha produït un error durant l'acció d'adhesió.
@@ -1557,6 +1570,8 @@ ca:
     tags:
       filter_results_for_category: 'Resultats al filtrar per la categoria: %{resource}'
       filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
+    taxonomies:
+      prompt: Seleccionar de "%{name}"
     translation_bar:
       help_text: "<strong>Advertència:</strong> Pot ser que el contingut sigui traduït automàticament i no sigui 100% acurat."
       show_original: Mostra el text original

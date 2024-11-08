@@ -329,12 +329,15 @@ ja:
           default_step_settings: デフォルトのステップ設定
           global_settings: グローバル設定
           step_settings: ステップの設定
+        hide:
+          success: コンポーネントはメニューから非表示になりました。
         index:
           add: コンポーネントを追加
           headers:
             actions: アクション
             name: コンポーネント名
             type: コンポーネントタイプ
+            visibility: 可視性
         new:
           add: コンポーネントを追加
           title: 'コンポーネントを追加: %{name}'
@@ -346,6 +349,10 @@ ja:
         update:
           error: このコンポーネントの更新中に問題が発生しました。
           success: コンポーネントは正常に更新されました。
+        visibility_label:
+          menu_hidden: メニュー非表示
+          published: 公開済
+          unpublished: 未公開
       conflicts:
         attempts: 試行回数
         'false': 'いいえ'
@@ -425,7 +432,7 @@ ja:
           reportable_type_string_eq:
             label: タイプ
         officialized_at_null:
-          label: 都道府県：
+          label: 状態
           values:
             'false': 公式化済み
             'true': 公式化されていない
@@ -461,7 +468,7 @@ ja:
           title_cont: '%{collection} をタイトルで検索します。'
           user_name_or_user_nickname_or_user_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
         state_eq:
-          label: 都道府県：
+          label: 状態
           values:
             all: すべて
             pending: 保留中
@@ -589,6 +596,7 @@ ja:
         static_page_topics: トピック
         static_pages: ページ
         taxonomies: タクソノミー
+        taxonomy_filters: タクソノミーフィルター
         user_groups: グループ
         users: 参加者
       metrics:
@@ -1052,6 +1060,43 @@ ja:
         update:
           invalid: タクソノミーの更新中に問題が発生しました。
           success: タクソノミーを更新しました。
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: 新規タクソノミフィルター
+        callout:
+          modify_taxonomy_html: このタクソノミーまたはそのアイテムを変更する必要がある場合は、 <a href="%{url}">タクソノミー</a> セクションの設定を通して行います。
+        create:
+          error: タクソノミーフィルタの作成中に問題が発生しました。
+          success: タクソノミーフィルターを作成しました。
+        destroy:
+          error: タクソノミーフィルタの削除中に問題が発生しました。
+          success: タクソノミーフィルタを削除しました。
+        edit:
+          back: 戻る
+          items: "{count} 個のアイテムを選択中です"
+          no_items: このタクソノミーで使えるアイテムはありません。タクソノミー設定でアイテムを作成できます。
+          title: タクソノミーフィルタを編集
+          update: タクソノミーフィルタを更新
+        form:
+          select_taxonomy: タクソノミーを選択
+        index:
+          description: タクソノミーフィルターは、管理者がタクソノミーに基づいて参加型スペースを分類したりフィルタリングしたりできるようにするものです。例えば、地理的範囲でプロセスをソートするためにタクソノミーフィルターを追加することができます。
+          empty: 現在、タクソノミーフィルターはありません。タクソノミーフィルターのリストを作成し、タクソノミーに基づいて参加型スペースをソートおよびフィルタリングしてください。
+        new:
+          back: 戻る
+          create: タクソノミーフィルタを作成
+          items: "%{count} 個のアイテムがあります"
+          title: 新規タクソノミーフィルター
+        table:
+          actions: アクション
+          confirm_destroy: フィルター %{name} を削除してもよろしいですか？
+          count: アイテム数
+          destroy: 削除
+          edit: 編集
+          name: 名前
+        update:
+          error: タクソノミーフィルタの更新に問題がありました。
+          success: タクソノミーフィルターを更新しました。
       taxonomy_items:
         edit:
           title: '%{taxonomy} の項目を編集'
@@ -1081,6 +1126,7 @@ ja:
         scopes: スコープ
         statistics: アクティビティ
         taxonomies: タクソノミー
+        taxonomy_filters: タクソノミーフィルター
         user_groups: グループ
         users: 管理者
       user_group:

@@ -67,6 +67,8 @@ FactoryBot.define do
     trait :online do
       type_of_meeting { :online }
       online_meeting_url { "https://decidim.org" }
+      latitude { nil }
+      longitude { nil }
     end
 
     trait :hybrid do
@@ -175,6 +177,11 @@ FactoryBot.define do
         create(:moderation, reportable: meeting, hidden_at: 2.days.ago, skip_injection: evaluator.skip_injection)
       end
     end
+  end
+
+  factory :meeting_link, class: "Decidim::Meetings::MeetingLink" do
+    meeting
+    component
   end
 
   factory :registration, class: "Decidim::Meetings::Registration" do

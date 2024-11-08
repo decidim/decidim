@@ -263,6 +263,13 @@ en:
         create: "%{user_name} created the %{resource_name} scope type"
         delete: "%{user_name} deleted the %{resource_name} scope type"
         update: "%{user_name} updated the %{resource_name} scope type"
+      share_token:
+        create: "%{user_name} created an access link in %{space_name}"
+        create_with_space: "%{user_name} created an access link for %{resource_name} in %{space_name}"
+        delete: "%{user_name} deleted an access link in %{space_name}"
+        delete_with_space: "%{user_name} deleted an access link for %{resource_name} in %{space_name}"
+        update: "%{user_name} updated an access link in %{space_name}"
+        update_with_space: "%{user_name} updated an access link for %{resource_name} in %{space_name}"
       static_page:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
@@ -503,13 +510,16 @@ en:
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             dummy_global_attribute1: Dummy Attribute 1
             dummy_global_attribute2: Dummy Attribute 2
             dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
+            no_taxonomy_filters_found: No taxonomy filters found.
             resources_permissions_enabled: Resources permissions enabled
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Select filters for the component
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_promotion_enabled: Amendment promotion enabled
@@ -594,9 +604,9 @@ en:
       application_helper:
         filter_area_values:
           all: All
-        filter_category_values:
-          all: All
         filter_scope_values:
+          all: All
+        filter_taxonomy_values:
           all: All
     devise:
       omniauth_registrations:
@@ -689,14 +699,19 @@ en:
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
     endorsement_buttons_cell:
-      already_endorsed: Dislike
+      already_endorsed: Undo the like
       endorse: Like
     endorsements:
       identities:
         done: Done
         select_identity: Select identity
     endorsers_list:
-      endorsed_by: Liked by…
+      endorsed_by:
+        one: Liked by %{visible}
+        other: Liked by %{visible} and %{others}
+      others: "%{count} more"
+      title: Liked by
+      you: you
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
@@ -956,7 +971,7 @@ en:
           title_required: Title is required!
           uploaded: Uploaded
           validating: Validating...
-          validation_error: Validation error!
+          validation_error: Validation error! Check that the file has an allowed extension or size.
         select_file: Select file
       upload_help:
         dropzone: Drop files here or click the button to upload
@@ -1324,6 +1339,46 @@ en:
         message_2: Please, try again later.
         retry: Retry
     open_data:
+      help:
+        core:
+          components: Components
+          description: This ZIP file contains files for studying and researching about this participation platform.
+          spaces: Spaces
+          title: Open Data files for %{organization}
+      index:
+        description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
+        download:
+          components: Components
+          spaces: Participatory spaces
+          title: Download resources
+        download_open_data: Download all the Open Data files
+        download_resource: Download %{resource_name} in CSV format
+        explanation:
+          body_1: These files are datasets exported from %{organization_name}'s participatory processes, such as proposals, comments, and meetings. They provide raw, structured data that can be used for analysis, research, or integration with other tools. The data is updated automatically every 24 hours, ensuring that you have access to the most recent information.
+          body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
+          title: What are these files?
+        how_to:
+          step_1:
+            body_html: Click on the links provided below to download the CSV files to your computer.
+            title: 1. Download the files
+          step_2:
+            body_html: |-
+              <ul>
+                <li><b>Spreadsheet Applications</b>: You can open CSV files using applications like Microsoft Excel, Google Sheets, or LibreOffice Calc. Simply open the application, then select "Open" from the File menu, and choose the downloaded CSV file.</li>
+                <li><b>Text Editors</b>: CSV files can also be opened in any text editor, such as Notepad or Sublime Text. This will display the raw data, with each line representing a row and each value separated by a comma.</li>
+                <li><b>Data Analysis Tools</b>: If you are familiar with data analysis tools like Python (with pandas), R, or SQL databases, you can import these CSV files directly for processing and analysis.</li>
+              </ul>
+            title: 2. Open the files
+          step_3:
+            body_html: |-
+              <ul>
+                <li><b>Filtering and Sorting</b>: In spreadsheet applications, you can filter and sort the data to focus on specific subsets of information.</li>
+                <li><b>Analysis</b>: Use the data to perform various analyses, such as counting the number of proposals, analyzing trends in comments, or evaluating participation in meetings.</li>
+                <li><b>Visualization</b>: You can create charts, graphs, and other visualizations to help interpret the data.</li>
+              </ul>
+            title: 3. Working with the data
+          title: How to open and work with these files
+        title: Open Data
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     pad_iframe:
       disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
@@ -1541,12 +1596,6 @@ en:
         sign_up: Create an account
       mentions_modal:
         remove_recipient: Remove recipient %{name}
-      participatory_space_filters:
-        filters:
-          area: Area
-          areas: Areas
-          scope: Scope
-          select_an_area: Select an area
       progress: Progress
       public_participation:
         public_participation: Show my attendance publicly
@@ -1576,8 +1625,7 @@ en:
       participants_count: Participants
       users_count: Participants
     tags:
-      filter_results_for_category: 'Filter results for category: %{resource}'
-      filter_results_for_scope: 'Filter results for scope: %{resource}'
+      filter_results_for_taxonomy: 'Filter results for: %{resource}'
     taxonomies:
       prompt: Select from "%{name}"
     translation_bar:
@@ -1972,9 +2020,9 @@ en:
         data_consent_settings: Cookie settings
         decidim_logo: Decidim Logo
         decidim_title: Decidim
-        download_open_data: Download Open Data files
         log_in: Log in
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
+        open_data: Open Data
         resources: Resources
         sign_up: Create an account
         terms_of_service: Terms of Service

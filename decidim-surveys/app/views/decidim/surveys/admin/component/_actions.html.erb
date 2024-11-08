@@ -4,11 +4,12 @@
   <span class="action-space icon"></span>
 <% end %>
 
-<% if allowed_to? :share, :component, component: component %>
-  <%= icon_link_to "share-line", url_for(action: :share, id: component, controller: "components"), t("actions.share", scope: "decidim.admin"), target: :blank, class: "action-icon--share" %>
+<% if component.manifest.admin_engine && allowed_to?(:share, :component, component: component) %>
+  <%= icon_link_to "share-line", component_share_tokens_path(component_id: component), t("actions.share", scope: "decidim.admin"), class: "action-icon--share" %>
 <% else %>
   <span class="action-space icon"></span>
 <% end %>
+
 <% if allowed_to? :update, :component, component: component %>
   <%= icon_link_to "settings-4-line", url_for(action: :edit, id: component, controller: "components"), t("actions.configure", scope: "decidim.admin"), class: "action-icon--configure" %>
 <% else %>
@@ -17,7 +18,11 @@
 
 <% if allowed_to?(:update, :component, component: component) %>
   <% if component.published? %>
-    <%= icon_link_to "close-circle-line", url_for(action: :unpublish, id: component, controller: "components"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
+    <% if component.visible? %>
+      <%= icon_link_to "eye-close", url_for(action: :hide, id: component, controller: "components"), t("actions.menu_hidden", scope: "decidim.admin"), class: "action-icon--unpublish", method: :put %>
+    <% else %>
+      <%= icon_link_to "close-circle-line", url_for(action: :unpublish, id: component, controller: "components"), t("actions.unpublish", scope: "decidim.admin"), class: "action-icon--menu-hidden", method: :put %>
+    <% end %>
   <% else %>
     <%= icon_link_to "check-line", url_for(action: :publish, id: component, controller: "components"), t("actions.publish", scope: "decidim.admin"), class: "action-icon--publish", method: :put, data: { confirm: t(".answers_alert") } %>
   <% end %>

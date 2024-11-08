@@ -59,6 +59,7 @@ pt-BR:
         placeholders:
           content: Adicione conteúdo significativo à página estática %{page} no painel do administrador.
           title: Título padrão para %{page}
+        terms-of-service: Termos de serviço
       devise:
         passwords:
           edit:
@@ -73,6 +74,7 @@ pt-BR:
             did_not_receive_unlock_instructions?: Não recebeu instruções de desbloqueio?
             forgot_your_password?: Esqueceu sua senha?
             log_in: Iniciar sessão
+            sign_up: Criar uma conta
       menu:
         admins: Administradores
         dashboard: painel de controle
@@ -126,8 +128,10 @@ pt-BR:
           show: Exibir configurações avançadas
         create:
           error: Ocorreu um erro ao criar uma nova organização.
+          error_invitation: Ocorreu um erro ao criar uma nova organização. Revise o nome do administrador da organização.
         edit:
           secondary_hosts_hint: Insira cada um deles em uma nova linha
+          title: Editar organização
         file_upload_settings:
           content_types:
             admin_hint: Esses tipos MIME são permitidos para uploads de seções do admin. Os usuários de administração devem estar cientes dos riscos de carregar alguns formatos de documento, então você pode esperar que eles sejam mais cautelosos com o envio de arquivos.
@@ -152,6 +156,7 @@ pt-BR:
           default: Padrão?
           enabled: Habilitado
           locale: Local
+          organization_admin_email_hint: Nós enviaremos um e-mail para este endereço para que você possa confirmá-lo e configurar sua senha.
           reference_prefix_hint: O prefixo de referência é usado para identificar exclusivamente recursos em todas as organizações.
           secondary_hosts_hint: Insira cada um deles em uma nova linha.
           title: Nova organização
@@ -173,6 +178,8 @@ pt-BR:
           twitter:
             api_key: Chave da API
             api_secret: Senha API
+        resend_invitation:
+          success: O convite remete com sucesso.
         smtp_settings:
           fieldsets:
             sender: Remetente
@@ -184,10 +191,17 @@ pt-BR:
           success: Organização atualizada com sucesso.
         users_registration_mode:
           disabled: O acesso só pode ser feito com contas externas
+          enabled: Permitir que os participantes criem uma conta e façam login
+          existing: Não permitir que usuários se registrem, mas permitir que usuários existentes façam login
       shared:
         notices:
           no_organization_warning_html: Você deve criar uma organização para começar. Certifique-se de ler %{guide} antes de prosseguir.
           our_getting_started_guide: nosso guia inicial
+        organizations_list:
+          confirm_resend_invitation: Tem certeza de que deseja excluir este aplicativo?
+      system_checks:
+        active_job_queue:
+          decidim_documentation: Documentação do Decidim
       titles:
         dashboard: painel de controle
   layouts:

@@ -59,6 +59,9 @@ module Decidim
         end
 
         describe "when the form is valid" do
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.update_initiative:before"
+          it_behaves_like "fires an ActiveSupport::Notification event", "decidim.initiatives.update_initiative:after"
+
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
@@ -165,7 +168,7 @@ module Decidim
             let(:uploaded_files) do
               [
                 upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")),
-                upload_test_file(Decidim::Dev.test_file("verify_user_groups.csv", "text/csv"))
+                upload_test_file(Decidim::Dev.test_file("invalid_extension.log", "text/plain"))
               ]
             end
 

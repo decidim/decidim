@@ -329,12 +329,15 @@ es-PY:
           default_step_settings: Configuraciones de paso predeterminadas
           global_settings: Ajustes globales
           step_settings: Configuración de paso
+        hide:
+          success: El componente se ha ocultado correctamente del menú.
         index:
           add: Agregar componente
           headers:
             actions: Comportamiento
             name: Nombre del componente
             type: Tipo de componente
+            visibility: Visibilidad
         new:
           add: Agregar componente
           title: 'Agregar componente: %{name}'
@@ -346,6 +349,10 @@ es-PY:
         update:
           error: Se ha producido un error al actualizar este componente.
           success: El componente se actualizó con éxito.
+        visibility_label:
+          menu_hidden: Menú oculto
+          published: Publicado
+          unpublished: Despublicado
       conflicts:
         attempts: Intentos
         'false': 'No'
@@ -594,6 +601,7 @@ es-PY:
         static_page_topics: Temas
         static_pages: Páginas
         taxonomies: Taxonomías
+        taxonomy_filters: Filtros de taxonomía
         user_groups: Grupos de usuarios
         users: Usuarios
       metrics:
@@ -1058,6 +1066,43 @@ es-PY:
         update:
           invalid: Se ha producido un error al actualizar esta taxonomía.
           success: Taxonomía actualizada correctamente.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nuevo filtro de taxonomía
+        callout:
+          modify_taxonomy_html: Si necesitas modificar esta taxonomía o sus elementos, hazlo a través de la configuración en la sección <a href="%{url}">Taxonomías</a>.
+        create:
+          error: Se ha producido un error al crear esta taxonomía.
+          success: Filtro de taxonomía creado correctamente.
+        destroy:
+          error: Se ha producido un error eliminando este filtro de taxonomía.
+          success: Filtro de taxonomía eliminado correctamente.
+        edit:
+          back: Atrás
+          items: "%{count} elementos seleccionados"
+          no_items: Aún no hay elementos disponibles para esta taxonomía. Puedes añadir elementos a través de los ajustes configuración de la taxonomía.
+          title: Editar el filtro de taxonomía
+          update: Actualizar el filtro de taxonomía
+        form:
+          select_taxonomy: Seleccionar una taxonomía
+        index:
+          description: Un filtro de taxonomía permite a las administradoras ordenar y filtrar espacios de participación basados en una taxonomía. Por ejemplo, añadir un filtro de taxonomías para ordenar procesos por ámbito territorial.
+          empty: Actualmente no hay ningún filtro de taxonomía. Crea una lista de filtros de taxonomía aquí para ordenar y filtrar los espacios de participación basados en una taxonomía.
+        new:
+          back: Atrás
+          create: Crear un filtro de taxonomía
+          items: "%{count} elementos disponibles"
+          title: Nuevo filtro de taxonomía
+        table:
+          actions: Acciones
+          confirm_destroy: '¿Seguro que quieres borrar el filtro "%{name}"?'
+          count: Número d'elementos
+          destroy: Borrar
+          edit: Editar
+          name: Nombre
+        update:
+          error: Se ha producido un problema actualizando este filtro de taxonomía.
+          success: Filtro de taxonomía actualizado correctamente.
       taxonomy_items:
         edit:
           title: Editar elemento en "%{taxonomy}"
@@ -1087,6 +1132,7 @@ es-PY:
         scopes: Ámbitos
         statistics: Actividad
         taxonomies: Taxonomías
+        taxonomy_filters: Filtros de taxonomía
         user_groups: Grupos de usuarios
         users: Administradoras
       user_group:

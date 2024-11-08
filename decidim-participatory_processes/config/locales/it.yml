@@ -348,8 +348,6 @@ it:
           name: Processi evidenziati
       index:
         title: Processi partecipativi
-      last_activity:
-        new_participatory_process: Nuovo processo partecipativo
       participatory_process_steps:
         index:
           back_to_process: Torna alla pagina di processo

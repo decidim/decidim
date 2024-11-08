@@ -15,6 +15,8 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
+        resources :conference_filters, except: [:show]
+
         resources :conferences, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "conference_publications", only: [:create, :destroy]
           resources :copies, controller: "conference_copies", only: [:new, :create]
@@ -70,6 +72,7 @@ module Decidim
               get :share
               put :hide
             end
+            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do
               get :example, on: :collection
@@ -85,6 +88,8 @@ module Decidim
             end
             resources :reports, controller: "moderations/reports", only: [:index, :show]
           end
+
+          resources :conference_share_tokens, except: [:show], path: "share_tokens"
         end
 
         scope "/conferences/:conference_slug/components/:component_id/manage" do
@@ -102,6 +107,7 @@ module Decidim
         Decidim::Conferences::Menu.register_admin_conferences_components_menu!
         Decidim::Conferences::Menu.register_conferences_admin_registrations_menu!
         Decidim::Conferences::Menu.register_conferences_admin_attachments_menu!
+        Decidim::Conferences::Menu.register_conference_admin_menu!
         Decidim::Conferences::Menu.register_conferences_admin_menu!
         Decidim::Conferences::Menu.register_admin_menu_modules!
       end

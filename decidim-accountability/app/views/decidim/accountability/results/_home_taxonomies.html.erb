@@ -1,0 +1,34 @@
+<div class="accountability__grid">
+  <% first_class_taxonomies.each do |taxonomy| %>
+    <% subelements = cell(
+      "decidim/accountability/status",
+      taxonomy,
+      extra_classes: "accountability__status__background",
+      url: results_path(filter: { taxonomies_part_of_contains: taxonomy }),
+      render_blank: true
+    ) %>
+
+    <div>
+      <span class="accountability__grid-title"><%= t("results.home.taxonomies_label", scope: "decidim.accountability") %></span>
+      <%= subelements.call %>
+    </div>
+
+    <div>
+      <span class="accountability__grid-title"><%= t("results.home.sub_taxonomies_label", scope: "decidim.accountability") %></span>
+        <% if subelements.has_results? %>
+          <div class="accountability__subgrid">
+            <% taxonomy.children.where(id: current_component.available_taxonomy_ids).each do |sub_taxonomy| %>
+              <%= cell(
+                    "decidim/accountability/status",
+                    sub_taxonomy,
+                    extra_classes: "accountability__status__border",
+                    url: results_path(filter: { taxonomies_part_of_contains: sub_taxonomy })
+                  ) %>
+            <% end %>
+          </div>
+        <% else %>
+          <%= cell("decidim/announcement", t("no_results", scope: "decidim.accountability.results")) %>
+        <% end %>
+      </div>
+  <% end %>
+</div>

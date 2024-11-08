@@ -7,10 +7,7 @@ ro:
         decidim_scope_id: Domeniu de interes
         description: Descriere
         end_date: Data de sfârșit
-        meetings_ids: Ședințe incluse
         progress: Progres
-        project_ids: Proiecte incluse
-        proposals: Propuneri incluse
         start_date: Data de început
         subresults: Subrezultate
         title: Titlu

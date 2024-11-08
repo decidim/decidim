@@ -374,10 +374,13 @@ en:
         conferences:
           form:
             available_slots_help: Leave it to 0 if you have unlimited slots available.
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
+            no_taxonomy_filters_found: No taxonomy filters found.
             registrations_count:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
             slug_help_html: 'URL slugs are used to generate the URLs that point to this conference. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            taxonomies: Taxonomies
         content_blocks:
           highlighted_conferences:
             max_results: Maximum amount of elements to show
@@ -573,6 +576,28 @@ en:
         title: Media and Links
     menu:
       conferences: Conferences
+    open_data:
+      help:
+        conferences:
+          decidim_scope_id: The scope of the conference
+          description: A long description of the conference
+          end_date: The date when this conference ends.
+          hashtag: The conference hashtag, used for Twitter/X
+          id: The unique identifier of this conference
+          location: The conference location. Where this conference will take place.
+          objectives: The objectives for this conference. What is the goal.
+          promoted: Wheter the conference is promoted or not
+          reference: The reference of the conference. An unique identifier for this platform.
+          remote_banner_image_url: The URL of the conference banner image
+          remote_hero_image_url: The URL of the conference hero image
+          scope: The scope of the conference
+          scopes_enabled: Weather the scopes are enabled or not
+          short_description: A short description of the conference
+          slogan: The slogan for this conference
+          slug: The conference slug (used for identification purposes, for the URL)
+          start_date: The date when this conference starts.
+          taxonomies: The taxonomies of the conference
+          title: The conference title
     statistics:
       conferences_count: Conferences
   devise:

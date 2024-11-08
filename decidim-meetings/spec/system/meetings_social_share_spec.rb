@@ -26,6 +26,7 @@ describe "Social shares" do
   let(:resource) { meeting }
 
   before do
+    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     if content_block
       content_block.images_container.background_image = block_attachment_file
       content_block.save!

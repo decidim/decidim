@@ -22,6 +22,7 @@ bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:clean:invalid_records
+bin/rails decidim_proposals:upgrade:set_categories
 ```
 
 ### 1.3. Follow the steps and commands detailed in these notes
@@ -69,13 +70,45 @@ As of [#13380](https://github.com/decidim/decidim/pull/13380), the task named `d
 
 You can read more about this change on PR [#13380](https://github.com/decidim/decidim/pull/13380).
 
-### 2.4
+### 2.4 Cells expiration time
 
 Now the cache expiration time is configurable via initializers/ENV variables.
 
 Decidim uses cache in some HTML views (usually under the `cells/` folder). In the past the cache had no expiration time, now it is configurable using the ENV var `DECIDIM_CACHE_EXPIRATION_TIME` (this var expects an integer specifying the number of minutes for which the cache is valid).
 
 Also note, that now it comes with a default value of 24 hours (1440 minutes).
+
+You can read more about this change on PR [#13402](https://github.com/decidim/decidim/pull/13402).
+
+### 2.5. Ransack upgrade
+
+As part of Rails upgrade to version 7.1, we upgraded Ransack gem to version 4.2. Ransack has introduced a new security policy that requires mandatory allowlisting for the attributes and associations needed by search engine. If you have a regular Decidim installation, you can skip this step.
+
+If you are a plugin developer, you may need to add the following methods to your searchable models.
+
+If your plugins are extending the filters or search, you may need to override the following methods.
+
+```ruby
+def self.ransackable_attributes(_auth_object = nil)
+  []
+end
+
+def self.ransackable_associations(_auth_object = nil)
+  []
+end
+```
+
+You can read more about this change on PR [#13196](https://github.com/decidim/decidim/pull/13196).
+
+### 2.6. Amendments category fix
+
+We have identified a bug in the filtering system, as the amendments created did not share the category with the proposal it amended. This fix aims to fix historic data. To fix it, you need to run:
+
+```shell
+bin/rails decidim_proposals:upgrade:set_categories
+```
+
+You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
 
 ## 3. One time actions
 
@@ -93,7 +126,31 @@ bundle remove spring spring-watcher-listen
 
 You can read more about this change on PR [#13235](https://github.com/decidim/decidim/pull/13235).
 
-### 3.2. [[TITLE OF THE ACTION]]
+### 3.2. Clean up orphaned attachment blobs
+
+We have added a new task that helps you clean the orphaned attachment blobs. This task will remove all the attachment blobs that have been created for more than 1 hour and are not yet referenced by any attachment record. This helps cleaning your filesystem of unused files.
+
+You can run the task with the following command:
+
+```bash
+bin/rails decidim:upgrade:attachments_cleanup
+```
+
+You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
+
+### 3.3. Add Meetings' attendees metric
+
+We have added a new metric that indicates how many users have attended your meetings.
+
+If you want to calculate this metric you could run the following command, where 2019-01-01 is the Y-m-d format for the starting date since you want the metric to take effect.
+
+```bash
+./bin/rails decidim:metrics:rebuild[meetings,2019-01-01]
+```
+
+You can see more details about this change on PR [\#13442](https://github.com/decidim/decidim/pull/13442)
+
+### 3.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -124,20 +181,38 @@ This no longer returns the running Decidim version by default and instead it wil
 
 If you would like to re-enable exposing the Decidim version number through the GraphQL API, you may do so by setting the `DECIDIM_API_DISCLOSE_SYSTEM_VERSION` environment variable to `true`. However, this is highly discouraged but may be required for some automation or integrations.
 
-### 5.2. [[TITLE OF THE CHANGE]]
+### 5.2 New configuration option for geolocation input forms
 
-In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
+Now a button to use the user's device location is enabled by default in Decidim. However this can be disabled with the new configuration option `show_my_location_button`, also available as an ENV var `DECIDIM_SHOW_MY_LOCATION_BUTTON`.
 
-If you have used code as such:
+You can decide to enable it in a specific component only (eg "proposals") or everywhere (by default).
 
-```ruby
-# Explain the usage of the API as it was in the previous version
-result = 1 + 1 if before
+Example:
+
+Use only "my location button" in meetings and proposals:
+
+```bash
+DECIDIM_SHOW_MY_LOCATION_BUTTON=meetings,proposals
 ```
 
-You need to change it to:
+or in an initializer:
 
 ```ruby
-# Explain the usage of the API as it is in the new version
-result = 1 + 1 if after
-        ```
+Decidim.configure do |config|
+  config.show_my_location_button = [:meetings, :proposals]
+end
+```
+
+the default value is `:all` equivalent to:
+
+```bash
+DECIDIM_SHOW_MY_LOCATION_BUTTON=all
+```
+
+or in an initializer:
+
+```ruby
+Decidim.configure do |config|
+  config.show_my_location_button = [:all]
+end
+```

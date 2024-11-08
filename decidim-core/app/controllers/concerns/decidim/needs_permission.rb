@@ -40,7 +40,8 @@ module Decidim
           current_settings: try(:current_settings),
           component_settings: try(:component_settings),
           current_organization: try(:current_organization),
-          current_component: try(:current_component)
+          current_component: try(:current_component),
+          share_token: try(:store_share_token)
         }
       end
 

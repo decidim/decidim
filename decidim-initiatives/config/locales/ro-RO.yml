@@ -218,6 +218,10 @@ ro:
         exports:
           initiatives: Inițiative
         initiatives:
+          accept:
+            success: Inițiativa a fost acceptată cu succes.
+          discard:
+            success: Inițiativa a fost anulată cu succes.
           edit:
             accept: Acceptă inițiativa
             confirm: Sigur dorești asta?
@@ -240,6 +244,12 @@ ro:
             edit: Editare
             new: Nou
             photos: Poze
+          publish:
+            success: Inițiativa a fost publicată cu succes.
+          reject:
+            success: Inițiativa a fost respinsă.
+          unpublish:
+            success: Inițiativa a fost ascunsă cu succes.
           update:
             success: Inițiativa a fost actualizată cu succes.
         initiatives_settings:

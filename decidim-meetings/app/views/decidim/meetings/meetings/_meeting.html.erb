@@ -1,36 +1,48 @@
 <%= render layout: "layouts/decidim/shared/layout_item" do %>
+
+  <%= render partial: "schema_org_event_meeting" %>
+
   <section class="layout-main__section layout-main__heading">
-    <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
+      <h1 class="h2 decorator"><%= present(meeting).title(links: true, html_escape: true ) %></h1>
+      <%= cell "decidim/meetings/dates_and_map", meeting %>
+      <div class="block md:hidden">
+        <%= render partial: "meeting_aside", locals: { hide_modal: true } %>
+      </div>
 
-    <%= cell "decidim/meetings/dates_and_map", meeting %>
-    <%= render partial: "meeting_poll_actions", locals: { mobile: true } %>
+      <%= render partial: "meeting_poll_actions", locals: { mobile: true } %>
 
-    <div class="layout-author">
+    <% if meeting.private_meeting? || meeting.withdrawn? %>
+      <div class="layout-author has_status">
+        <% if meeting.private_meeting? %>
+          <span class="<%= meeting_type_badge_css_class("private") %> label">
+            <%= t("private_meeting", scope: "decidim.meetings.types") %>
+          </span>
+        <% end %>
+        <% if meeting.private_meeting? and meeting.transparent? %>
+          <span class="<%= meeting_type_badge_css_class("transparent") %> label">
+            <%= t("transparent", scope: "decidim.meetings.types") %>
+          </span>
+        <% end %>
+        <% if meeting.withdrawn? %>
+          <span class="<%= meeting_type_badge_css_class("withdraw") %> label">
+            <%= t("withdraw", scope: "decidim.meetings.types") %>
+          </span>
+        <% end %>
+      </div>
+    <% end %>
+
+    <div class="layout-author <%= "has_status" if meeting.private_meeting? || meeting.withdrawn? %>">
       <div class="relative flex items-center justify-center w-full">
         <div class="w-10/12 flex items-center gap-4">
           <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: nil, layout: :compact %>
         </div>
-        <%= render "decidim/shared/resource_actions", resource: meeting %>
+        <%= render "decidim/shared/resource_actions", resource: meeting do %>
+          <%= render "decidim/meetings/meetings/meeting_actions" %>
+        <% end %>
       </div>
-
-      <% if meeting.private_meeting? %>
-        <span class="<%= meeting_type_badge_css_class("private") %> label">
-          <%= t("private_meeting", scope: "decidim.meetings.types") %>
-        </span>
-      <% end %>
-      <% if meeting.private_meeting? and meeting.transparent? %>
-        <span class="<%= meeting_type_badge_css_class("transparent") %> label">
-          <%= t("transparent", scope: "decidim.meetings.types") %>
-        </span>
-      <% end %>
-      <% if meeting.withdrawn? %>
-        <span class="<%= meeting_type_badge_css_class("withdraw") %> label">
-          <%= t("withdraw", scope: "decidim.meetings.types") %>
-        </span>
-      <% end %>
     </div>
-  </section>
 
+  </section>
   <section class="layout-main__section">
     <div class="editor-content">
       <%= render_meeting_body(@meeting) %>
@@ -70,7 +82,9 @@
   <%= pad_iframe_for meeting %>
 
   <% content_for :aside do %>
-    <%= render partial: "meeting_aside" %>
+    <div class="hidden md:block">
+      <%= render partial: "meeting_aside" %>
+    </div>
   <% end %>
 
   <% content_for :item_footer do %>

@@ -792,7 +792,6 @@ ar:
           title_required: العنوان مطلوب!
           uploaded: تم التحميل
           validating: جارية المصادقة...
-          validation_error: خطأ في المصادقة!
         select_file: اختيار ملف
       upload_help:
         dropzone: قم بإسقاط الملفات هنا أو انقر للتحميل

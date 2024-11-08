@@ -50,7 +50,7 @@ jobs:
           - decidim-system
           - decidim-templates
           - decidim-verifications
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: ${{ matrix.working-directory }}
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60

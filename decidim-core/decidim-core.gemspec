@@ -69,7 +69,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rack-attack", "~> 6.0"
   s.add_dependency "rails", "~> 7.0.8"
   s.add_dependency "rails-i18n", "~> 7.0"
-  s.add_dependency "ransack", "~> 3.2.1"
+  s.add_dependency "ransack", "~> 4.2.0"
   s.add_dependency "redis", "~> 4.1"
   s.add_dependency "request_store", "~> 1.5.0"
   s.add_dependency "rubyXL", "~> 3.4"

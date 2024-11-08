@@ -9,36 +9,58 @@ module Decidim
   class OpenDataExporter
     FILE_NAME_PATTERN = "%{host}-open-data-%{entity}.csv"
 
-    attr_reader :organization, :path
+    attr_reader :organization, :path, :resource, :help_definition
+
+    include Decidim::TranslatableAttributes
 
     # Public: Initializes the class.
     #
     # organization - The Organization to export the data from.
     # path         - The String path where to write the zip file.
-    def initialize(organization, path)
+    # resource     - The String of the component or participatory space to export. If nil, it will export all.
+    def initialize(organization, path, resource = nil)
       @organization = organization
       @path = File.expand_path path
+      @resource = resource
+      @help_definition = {}
     end
 
     def export
       dirname = File.dirname(path)
       FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
-      File.binwrite(path, data)
+      if resource.nil?
+        File.binwrite(path, data_for_all_resources)
+      else
+        File.write(path, data_for_resource(resource))
+      end
     end
 
     private
 
-    def data
+    def data_for_all_resources
       buffer = Zip::OutputStream.write_buffer do |out|
         open_data_component_manifests.each do |manifest|
-          add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_component(manifest))
+          add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_component(manifest).read)
         end
         open_data_participatory_space_manifests.each do |manifest|
-          add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_participatory_space(manifest))
+          add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_participatory_space(manifest).read)
         end
+        add_file_to_output(out, "README.md", readme)
       end
 
       buffer.string
+    end
+
+    def data_for_resource(resource)
+      export_manifest = (open_data_component_manifests + open_data_participatory_space_manifests)
+                        .select { |manifest| manifest.name == resource.to_sym }.first
+
+      case export_manifest.manifest
+      when Decidim::ComponentManifest
+        data_for_component(export_manifest).read
+      when Decidim::ParticipatorySpaceManifest
+        data_for_participatory_space(export_manifest).read
+      end
     end
 
     def data_for_component(export_manifest, col_sep = Decidim.default_csv_col_sep)
@@ -59,6 +81,8 @@ module Decidim
             File.write(filename, exported.read)
 
             collection.push(filename)
+
+            get_help_definition(:components, exporter, export_manifest) unless collection.empty?
           end
         end
       end
@@ -76,17 +100,57 @@ module Decidim
     end
 
     def data_for_participatory_space(export_manifest)
-      collection = participatory_spaces.filter { |space| space.manifest.name == export_manifest.manifest.name }.flat_map do |participatory_space|
+      collection = participatory_spaces.flat_map do |participatory_space|
         export_manifest.collection.call(participatory_space)
       end
       serializer = export_manifest.open_data_serializer.nil? ? export_manifest.serializer : export_manifest.open_data_serializer
+      exporter = Decidim::Exporters::CSV.new(collection, serializer)
+      get_help_definition(:spaces, exporter, export_manifest) unless collection.empty?
 
-      Decidim::Exporters::CSV.new(collection, serializer).export
+      exporter.export
     end
 
-    def add_file_to_output(output, file_name, data)
+    def get_help_definition(manifest_type, exporter, export_manifest)
+      help_definition[manifest_type] = {} if help_definition[manifest_type].nil?
+      help_definition[manifest_type][export_manifest.name] = {} if help_definition[manifest_type][export_manifest.name].blank?
+      exporter.headers_without_locales.each do |header|
+        help_definition[manifest_type][export_manifest.name][header] = I18n.t("decidim.open_data.help.#{export_manifest.name}.#{header}")
+      end
+    end
+
+    def readme
+      readme_file = "# #{I18n.t("decidim.open_data.help.core.title", organization: translated_attribute(organization.name))}\n\n"
+      readme_file << "#{I18n.t("decidim.open_data.help.core.description")}\n\n"
+      readme_file << "## #{I18n.t("decidim.open_data.help.core.spaces")}\n\n" if help_definition.fetch(:spaces, false)
+
+      help_definition.fetch(:spaces, []).each do |space, headers|
+        readme_file << "### #{space}\n\n"
+
+        headers.each do |header, help_value|
+          readme_file << "* #{header}: #{help_value}\n"
+        end
+
+        readme_file << "\n\n"
+      end
+
+      readme_file << "## #{I18n.t("decidim.open_data.help.core.components")}\n\n" if help_definition.fetch(:components, false)
+
+      help_definition.fetch(:components, []).each do |component, headers|
+        readme_file << "### #{component}\n\n"
+
+        headers.each do |header, help_value|
+          readme_file << "* #{header}: #{help_value}\n"
+        end
+
+        readme_file << "\n\n"
+      end
+
+      readme_file
+    end
+
+    def add_file_to_output(output, file_name, string)
       output.put_next_entry(file_name)
-      output.write data.read
+      output.write string
     end
 
     def open_data_component_manifests

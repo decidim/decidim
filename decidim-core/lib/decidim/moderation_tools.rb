@@ -28,12 +28,16 @@ module Decidim
 
     # Public: fetches the participatory space of the resource's component or from the resource itself
     def participatory_space
-      @participatory_space ||= @reportable.component&.participatory_space || @reportable.try(:participatory_space)
+      @participatory_space ||= if reportable.class.respond_to?(:participatory_space?)
+                                 reportable
+                               else
+                                 reportable.component&.participatory_space || reportable.try(:participatory_space)
+                               end
     end
 
     # Public: updates the reported content for the moderation object associated with resource
     def update_reported_content!
-      moderation.update!(reported_content: @reportable.reported_searchable_content_text)
+      moderation.update!(reported_content: reportable.reported_searchable_content_text)
     end
 
     # Public: creates a new report for the given resource, having a basic set of options

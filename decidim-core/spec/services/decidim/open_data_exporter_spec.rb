@@ -7,6 +7,7 @@ describe Decidim::OpenDataExporter do
 
   let(:organization) { create(:organization) }
   let(:path) { "/tmp/test-open-data.zip" }
+  let(:zip_contents) { Zip::File.open(path) }
 
   describe "export" do
     it "generates a zip file at the path" do
@@ -16,96 +17,149 @@ describe Decidim::OpenDataExporter do
     end
 
     describe "contents" do
-      let(:zip_contents) { Zip::File.open(path) }
       let(:csv_file) { zip_contents.glob(csv_file_name).first }
       let(:csv_data) { csv_file.get_input_stream.read }
 
-      describe "proposals" do
-        let(:csv_file_name) { "*open-data-proposals.csv" }
-        let(:component) do
-          create(:proposal_component, organization:, published_at: Time.current)
-        end
-        let!(:proposal) { create(:proposal, :published, component:, title: { en: "My super proposal" }) }
+      describe "README.md" do
+        let(:csv_file_name) { "README.md" }
 
         before do
           subject.export
         end
 
-        it "includes a CSV with proposals" do
+        it "includes a README" do
           expect(csv_file).not_to be_nil
         end
 
-        it "includes the proposals data" do
-          expect(csv_data).to include(translated(proposal.title))
+        it "includes the README content" do
+          expect(csv_data).to include("# Open Data files for #{organization.name[:en]}")
+          expect(csv_data).to include("This ZIP file contains files for studying and researching about this participation platform.")
         end
+      end
+    end
 
-        context "with unpublished components" do
-          let(:component) do
-            create(:proposal_component, organization:, published_at: nil)
-          end
+    describe "with all the components and spaces" do
+      let(:proposal_component) do
+        create(:proposal_component, organization:, published_at: Time.current)
+      end
+      let!(:proposal) { create(:proposal, :published, component: proposal_component, title: { en: "My super proposal" }) }
+      let!(:proposal_comment) { create(:comment, commentable: proposal) }
+      let(:result_component) do
+        create(:accountability_component, organization:, published_at: Time.current)
+      end
+      let!(:result) { create(:result, component: result_component) }
+      let(:meeting_component) do
+        create(:meeting_component, organization:, published_at: Time.current)
+      end
+      let!(:meeting) { create(:meeting, :published, component: meeting_component) }
+      let!(:meeting_comment) { create(:comment, commentable: meeting) }
+      let!(:participatory_process) { create(:participatory_process, :published, organization:) }
+      let!(:assembly) { create(:assembly, :published, organization:) }
 
-          it "includes the proposals data" do
-            expect(csv_data).not_to include(translated(proposal.title))
-          end
+      before do
+        subject.export
+      end
+
+      it "includes all the data" do
+        {
+          proposals: proposal,
+          results: result,
+          meetings: meeting,
+          participatory_processes: participatory_process,
+          assemblies: assembly
+        }.each do |entity_name, entity|
+          csv_data = zip_contents.glob("*open-data-#{entity_name}.csv").first.get_input_stream.read
+          expect(csv_data).to include(entity.title["en"].gsub(/"/, '""'))
         end
       end
 
-      describe "results" do
-        let(:csv_file_name) { "*open-data-results.csv" }
-        let(:component) do
-          create(:accountability_component, organization:, published_at: Time.current)
-        end
-        let!(:result) { create(:result, component:) }
+      describe "README content" do
+        let(:file_data) { zip_contents.glob("README.md").first.get_input_stream.read }
 
-        before do
-          subject.export
-        end
-
-        it "includes a CSV with results" do
-          expect(csv_file).not_to be_nil
+        it "includes the help description for all the entities" do
+          expect(file_data).to include("## proposals")
+          expect(file_data).to include("## proposal_comments")
+          expect(file_data).to include("## results")
+          expect(file_data).to include("## meetings")
+          expect(file_data).to include("## meeting_comments")
+          expect(file_data).to include("## participatory_process")
+          expect(file_data).to include("## assemblies")
         end
 
-        it "includes the results data" do
-          expect(csv_data).to include(translated(result.title).gsub("\"", "\"\""))
+        it "does not have any missing translation" do
+          expect(file_data).not_to include("Translation missing")
         end
+      end
+    end
 
-        context "with unpublished components" do
-          let(:component) do
-            create(:accountability_component, organization:, published_at: nil)
+    describe "with a space" do
+      subject { described_class.new(organization, path, resource) }
+
+      let!(:assembly) { create(:assembly, :published, organization:) }
+      let(:resource) { "assemblies" }
+      let(:path) { "/tmp/test-open-data-assembly.csv" }
+
+      it "generates a zip file at the path" do
+        subject.export
+
+        expect(File.exist?(path)).to be(true)
+      end
+
+      describe "contents" do
+        let(:csv_data) { CSV.parse(File.read(path), headers: true, col_sep: ";") }
+
+        describe "test-open-data-assembly.csv" do
+          before do
+            subject.export
           end
 
-          it "includes the results data" do
-            expect(csv_data).not_to include(translated(result.title).gsub("\"", "\"\""))
+          it "includes a CSV file" do
+            expect(csv_data).not_to be_nil
+          end
+
+          it "includes the resource's content" do
+            expect(csv_data.headers).to include("id")
+            expect(csv_data.headers).to include("title/en")
+            expect(csv_data.first["id"]).to eq(assembly.id.to_s)
+            expect(csv_data.first["title/en"]).to eq(translated_attribute(assembly.title["en"]))
           end
         end
       end
+    end
 
-      describe "meetings" do
-        let(:csv_file_name) { "*open-data-meetings.csv" }
-        let(:component) do
-          create(:meeting_component, organization:, published_at: Time.current)
-        end
-        let!(:meeting) { create(:meeting, :published, component:) }
+    describe "with a component" do
+      subject { described_class.new(organization, path, resource) }
 
-        before do
-          subject.export
-        end
+      let(:proposal_component) do
+        create(:proposal_component, organization:, published_at: Time.current)
+      end
+      let!(:proposal) { create(:proposal, :published, component: proposal_component, title: { en: "My super proposal" }) }
+      let(:resource) { "proposals" }
+      let(:path) { "/tmp/test-open-data-proposals.csv" }
 
-        it "includes a CSV with meetings" do
-          expect(csv_file).not_to be_nil
-        end
+      it "generates a zip file at the path" do
+        subject.export
 
-        it "includes the meetings data" do
-          expect(csv_data).to include(meeting.title["en"].gsub(/"/, '""'))
-        end
+        expect(File.exist?(path)).to be(true)
+      end
 
-        context "with unpublished components" do
-          let(:component) do
-            create(:meeting_component, organization:, published_at: nil)
+      describe "contents" do
+        let(:csv_data) { CSV.parse(File.read(path), headers: true, col_sep: ";") }
+
+        describe "test-open-data-proposals.csv" do
+          before do
+            subject.export
           end
 
-          it "includes the meetings data" do
-            expect(csv_data).not_to include(meeting.title["en"])
+          it "includes a CSV file" do
+            expect(csv_data).not_to be_nil
+          end
+
+          it "includes the resource's content" do
+            expect(csv_data.headers).to include("id")
+            expect(csv_data.headers).to include("title/en")
+            expect(csv_data.first["id"]).to eq(proposal.id.to_s)
+            expect(csv_data.first["title/en"]).to eq(translated_attribute(proposal.title["en"]))
           end
         end
       end

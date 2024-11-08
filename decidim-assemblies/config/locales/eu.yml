@@ -294,6 +294,7 @@ eu:
             select_parent_assembly: Hautatu batzar nagusia
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
             social_handlers: Soziala
+            taxonomies: Taxonomiak
             title: Informazio orokorra
             visibility: Ikusgarritasuna
         assemblies_types:

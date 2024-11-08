@@ -447,6 +447,8 @@ ro:
           name: Conferințe evidențiate
       index:
         title: Conferințe
+      last_activity:
+        new_conference: 'Conferință nouă:'
       mailer:
         conference_registration_mailer:
           confirmation:

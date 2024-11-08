@@ -16,5 +16,13 @@ module Decidim
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::UserModerationPresenter
     end
+
+    def self.ransackable_attributes(_auth_object = nil)
+      []
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(reports user)
+    end
   end
 end

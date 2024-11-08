@@ -78,6 +78,10 @@ cs:
       decidim/meetings/update_meeting_event: Setkání bylo aktualizováno
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Bylo projednáno na této schůzce: %{link}'
       decidim/meetings/meeting:
         one: Setkání
         few: Setkání

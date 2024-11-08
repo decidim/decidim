@@ -473,6 +473,8 @@ es:
           name: Jornadas destacadas
       index:
         title: Jornadas
+      last_activity:
+        new_conference: 'Nueva jornada:'
       mailer:
         conference_registration_mailer:
           confirmation:

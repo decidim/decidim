@@ -445,8 +445,6 @@ bg:
           name: Свързани процеси
       index:
         title: Процеси на участие
-      last_activity:
-        new_participatory_process: Нов процес на участие
       pages:
         home:
           highlighted_processes:

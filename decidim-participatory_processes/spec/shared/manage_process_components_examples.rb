@@ -26,8 +26,6 @@ shared_examples "manage process components" do
           find(".dummy").click
         end
 
-        expect(page).to have_no_content("Share tokens")
-
         within ".item__edit-form .new_component" do
           fill_in_i18n(
             :component_name,
@@ -300,14 +298,6 @@ shared_examples "manage process components" do
     end
 
     context "when the component is unpublished" do
-      it "shows the share tokens section" do
-        within ".component-#{component.id}" do
-          click_on "Configure"
-        end
-
-        expect(page).to have_content("Share tokens")
-      end
-
       it "publishes the component" do
         within ".component-#{component.id}" do
           click_on "Publish"
@@ -337,20 +327,10 @@ shared_examples "manage process components" do
                                                 }
                                               ))
       end
-
-      it_behaves_like "manage component share tokens"
     end
 
     context "when the component is published" do
       let(:published_at) { Time.current }
-
-      it "does not show the share tokens section" do
-        within ".component-#{component.id}" do
-          click_on "Configure"
-        end
-
-        expect(page).to have_no_content("Share tokens")
-      end
 
       it "hides the component from the menu" do
         within ".component-#{component.id}" do

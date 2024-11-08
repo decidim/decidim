@@ -84,7 +84,7 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :newsletters, except: [:new, :create] do
       member do
-        get :recipients_count
+        post :recipients_count
         post :send_to_user
         get :preview
         get :select_recipients_to_deliver
@@ -108,8 +108,6 @@ Decidim::Admin::Engine.routes.draw do
       get :show
       put :accept
     end
-
-    resources :share_tokens, only: :destroy
 
     resources :moderations, controller: "global_moderations" do
       member do

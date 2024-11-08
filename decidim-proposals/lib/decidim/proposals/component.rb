@@ -31,6 +31,7 @@ Decidim.register_component(:proposals) do |component|
   component.settings(:global) do |settings|
     settings.attribute :scopes_enabled, type: :boolean, default: false
     settings.attribute :scope_id, type: :scope
+    settings.attribute :taxonomy_filters, type: :taxonomy_filters
     settings.attribute :vote_limit, type: :integer, default: 0, required: true
     settings.attribute :minimum_votes_per_user, type: :integer, default: 0, required: true
     settings.attribute :proposal_limit, type: :integer, default: 0, required: true
@@ -147,7 +148,7 @@ Decidim.register_component(:proposals) do |component|
                    .published
                    .not_hidden
                    .where(component: component_instance)
-                   .includes(:scope, :category, :component)
+                   .includes(:taxonomies, :component)
 
       if space.user_roles(:valuator).where(user:).any?
         collection.with_valuation_assigned_to(user, space)

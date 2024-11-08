@@ -9,7 +9,9 @@
         disabled: !model.has_available_slots?
       ) %>
     <% else %>
-      <%= render :registration_modal %>
+      <% unless options[:hide_modal] %>
+        <%= render :registration_modal %>
+      <% end %>
       <%= action_authorized_button_to(
         :join,
         i18n_join_text,

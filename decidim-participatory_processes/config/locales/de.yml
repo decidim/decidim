@@ -96,6 +96,7 @@ de:
         duplicate: Duplizieren
         edit: Bearbeiten
         import_process: Importieren
+        menu_hidden: Verbergen
         moderate: Moderieren
         new_process: Neuer Beteiligungsprozess
         new_process_group: Neue Prozessgruppe
@@ -433,6 +434,7 @@ de:
             select_participatory_process_type: Wählen Sie einen Prozesstyp aus
             select_process_group: Wählen Sie eine Prozessgruppe aus
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Prozess verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            taxonomies: Taxonomien
             title: Allgemeine Information
             visibility: Sichtbarkeit
       content_blocks:
@@ -447,7 +449,7 @@ de:
       index:
         title: Beteiligungsprozesse
       last_activity:
-        new_participatory_process: Neuer partizipativer Prozess
+        new_participatory_process: 'Neuer partizipativer Prozess:'
       pages:
         home:
           highlighted_processes:

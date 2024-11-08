@@ -51,7 +51,7 @@
 }
 
 .layout-item {
-  @apply container grid grid-cols-1 lg:grid-cols-12 py-4 lg:py-24 gap-12 lg:gap-x-0;
+  @apply container grid grid-cols-1 lg:grid-cols-12 py-4 lg:py-24 gap-12 lg:gap-x-0 pt-12;
 
   &__main {
     @apply xl:col-start-2 lg:col-span-8 xl:col-span-7 relative;
@@ -59,6 +59,10 @@
 
   &__aside {
     @apply lg:col-start-10 xl:col-start-10 lg:col-span-3 xl:col-span-2;
+
+    &--footer {
+      @apply order-last;
+    }
   }
 
   &__back {
@@ -92,6 +96,14 @@
 
 .layout-main__heading {
   @apply space-y-8;
+
+  .layout-author.has_status {
+    @apply mt-6;
+
+    &:last-of-type {
+      @apply mt-2;
+    }
+  }
 }
 
 .layout-author {
@@ -125,7 +137,7 @@
 }
 
 .layout-aside__ctas-buttons {
-  @apply fixed md:relative inset-x-0 bottom-0 z-30 md:z-0 flex flex-row-reverse md:flex-col items-center md:items-stretch last:[&>button]:font-semibold first:[&>button]:text-lg justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 last:[&>*]:w-1/2 md:last:[&>*]:w-auto h-20 md:h-fit first:[&>button]:py-3;
+  @apply md:relative inset-x-0 bottom-0 z-30 md:z-0 flex flex-row-reverse md:flex-col items-center md:items-stretch last:[&>button]:font-semibold first:[&>button]:text-lg justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 last:[&>*]:w-1/2 md:last:[&>*]:w-auto h-20 md:h-fit first:[&>button]:py-3;
 
   .meeting__aside-progress,
   .proposals__aside-progress {

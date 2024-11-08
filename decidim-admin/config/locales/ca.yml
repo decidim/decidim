@@ -329,12 +329,15 @@ ca:
           default_step_settings: Configuració per defecte
           global_settings: Configuració global
           step_settings: Configuració de fase
+        hide:
+          success: El component s'ha amagat correctament del menú.
         index:
           add: Afegeix un component
           headers:
             actions: Accions
             name: Nom del component
             type: Tipus de component
+            visibility: Visibilitat
         new:
           add: Afegeix un component
           title: 'Afegir component: %{name}'
@@ -346,6 +349,10 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest component.
           success: El component s'ha actualitzat correctament.
+        visibility_label:
+          menu_hidden: Menú amagat
+          published: Publicat
+          unpublished: Despublicat
       conflicts:
         attempts: Intents
         'false': 'No'
@@ -594,6 +601,7 @@ ca:
         static_page_topics: Temes
         static_pages: Pàgines
         taxonomies: Taxonomies
+        taxonomy_filters: Filtres de taxonomia
         user_groups: Grups
         users: Participants
       metrics:
@@ -1058,6 +1066,43 @@ ca:
         update:
           invalid: S'ha produït un error en actualitzar aquesta taxonomia.
           success: Taxonomia actualitzada correctament.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Nou filtre de taxonomia
+        callout:
+          modify_taxonomy_html: Si et cal modificar aquesta taxonomia o els seus elements, fes-ho a través de la configuració a la secció <a href="%{url}">Taxonomies</a>.
+        create:
+          error: S'ha produït un error en crear aquesta taxonomia.
+          success: Filtre de taxonomia creat correctament.
+        destroy:
+          error: S'ha produït un error eliminant aquest filtre de taxonomia.
+          success: Filtre de taxonomia eliminat correctament.
+        edit:
+          back: Enrere
+          items: "%{count} elements seleccionats"
+          no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
+          title: Editar el filtre de taxonomia
+          update: Actualitzar el filtre de taxonomia
+        form:
+          select_taxonomy: Seleccionar una taxonomia
+        index:
+          description: Un filtre de taxonomia permet a les administradores ordenar i filtrar espais de participació basats en una taxonomia. Per exemple, afegir un filtre de taxonomies per ordenar processos per àmbit territorial.
+          empty: Actualment no hi ha cap filtre de taxonomia. Creeu una llista de filtres de taxonomia aquí per ordenar i filtrar els espais de participació basats en una taxonomia.
+        new:
+          back: Enrere
+          create: Crear un filtre de taxonomia
+          items: "%{count} elements disponibles"
+          title: Nou filtre de taxonomia
+        table:
+          actions: Accions
+          confirm_destroy: Segur que vols esborrar el filtre "%{name}"?
+          count: Número d'elements
+          destroy: Esborrar
+          edit: Editar
+          name: Nom
+        update:
+          error: Hi ha hagut un problema actualitzant aquest filtre de taxonomia.
+          success: Filtre de taxonomia actualitzat correctament.
       taxonomy_items:
         edit:
           title: Editar element a "%{taxonomy}"
@@ -1087,6 +1132,7 @@ ca:
         scopes: Àmbits
         statistics: Activitat
         taxonomies: Taxonomies
+        taxonomy_filters: Filtres de taxonomies
         user_groups: Grups
         users: Administradores
       user_group:

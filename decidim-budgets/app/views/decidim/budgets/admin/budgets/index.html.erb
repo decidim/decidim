@@ -22,9 +22,6 @@
           <th><%= t("models.budget.fields.name", scope: "decidim.budgets") %></th>
           <th><%= t("models.budget.fields.total_budget", scope: "decidim.budgets") %></th>
           <th><%= t("models.budget.fields.projects_count", scope: "decidim.budgets") %></th>
-          <% if current_component.has_subscopes? %>
-           <%= th_resource_scope_label %>
-          <% end %>
           <th><%= t("actions.title", scope: "decidim.budgets") %></th>
         </tr>
       </thead>
@@ -44,9 +41,6 @@
             <td>
               <%= link_to budget.projects.count, budget_projects_path(budget) %>
             </td>
-            <% if current_component.has_subscopes? %>
-              <%= td_resource_scope_for(budget.scope) %>
-            <% end %>
             <td class="table-list__actions">
               <% if allowed_to? :update, :budget, budget: budget %>
                 <%= icon_link_to "pencil-line", edit_budget_path(budget), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>

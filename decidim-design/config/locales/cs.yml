@@ -12,6 +12,7 @@ cs:
           usage: Použití
           usage_p_1_html: 1. wrapper <code>div</code>, s atributem dat <code>data-component="accordion"</code>, přes všechny dostupné spouštěče a panely.
           usage_p_2_html: 2. spouštěcí prvek, uživatelsky proveditelný (jako tlačítko), ukazující na sbalitelný prvek prostřednictvím <code>data-controls="panel"</code>, kde <i>panel</i> je <code>id</code> panelu.
+          usage_p_3_html: 3. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
         activities:
           activities: Aktivity
         address:
@@ -35,6 +36,7 @@ cs:
           title: Dialogy
           usage_description: Dialog vyžaduje dva prvky
           usage_description_2_html: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
+          usage_description_html: 1. Uživatelsky proveditelný prvek, s data-attribute <code>data-dialog-open="example"</code>, kde je příkladem <code>id</code> modalu.
         follow:
           title: Sledovat
         forms:
@@ -49,6 +51,7 @@ cs:
           min_max_length: Min/Max délka
           min_max_length_description: Funguje pouze pro vstupní typ='text' a textarea
           multiselect: Vícenásobný výběr
+          multiselect_description_html: Multiselects jsou javascript funkce dostupné díky externí knihovně s názvem <a href="https://tom-select.js.org/" target="_blank" rel="noopener noreferrer">Tom Select</a>.
           regular_inputs_description: 'Zobrazí pouze běžné typy, úplný dostupný seznam: datum, datetime-local, e-mail, měsíc, číslo, heslo, vyhledávání, tel, text, čas, url, týden'
           textarea_required: je vyžadováno textové pole
           title: Formuláře
@@ -127,8 +130,12 @@ cs:
           not_required: Nevyžadováno
           properties: Vlastnosti
           right_aside: Vpravo
+          section_p_breakpoints: 'Pro správu maximální citlivosti elementů spoléháme na výchozí třídu `container` Tailwind, která udává následující zarážky:'
           section_p_code: Při implementaci nových modulů máte některé pomocníky, které vám automaticky poskytují kód potřebný k nastavení HTML struktury. Měli byste použít tyto pomocníky namísto přímého použití prvků div s třídami, abyste zachovali konzistenci.
           section_p_code_html: Základní rozložení můžete najít v %{link_section_code}
+          section_p_desktop: Souřadnicová síť pro desktop se skládá z 12 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 48px
+          section_p_mobile: Souřadnicová síť pro mobilní zařízení se skládá ze 4 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 16px. Pro velikosti menší než 320px jsou tyto okraje nastaveny na 8px
+          section_p_tablet: Souřadnicová síť pro tablet je složena z 8 pružných sloupců s odstupem mezi sloupci 16px a vlevo a vpravo 24px
           tablet: Tablet
           title: Rozložení
         typography:
@@ -143,6 +150,9 @@ cs:
       helpers:
         accountability: Odpovědnost
         activity: Aktivita
+        address_description: Adresa buňky obdrží zdroj a vyhledá geolokalizovatelné atributy, aby se vytvořilo specifické označení.
+        address_description_2: V závislosti na typu obsahu může být adresa online url. V takových případech jsou zobrazené informace zcela stejné, ale ve tvaru tak, aby se přizpůsobily.
+        ally_link: komponenta a11y-dropdown
         argument: Parametr
         assemblies: Shromáždění
         assembly_g: Shromáždění G
@@ -152,8 +162,11 @@ cs:
         background: Pozadí a okraje
         base: Podklad
         block_text: Použít extra_data blok
+        blog_cards_html: Použito na kartě <i>Blogy</i>
         blogs: Blogy
+        budget_card_html: Použito na kartě <i>Rozpočet projektů</i>. Tato karta vyžaduje, aby se správně zobrazila aktiva modulu, tj. <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>
         budgets: Rozpočty
+        callout_class: Třída volání
         callout_description: Tento atribut použije stav na oznámení. Ve výchozím nastavení používá sekundární barvu.
         card_g: Karta G
         card_l: Karta L
@@ -167,9 +180,11 @@ cs:
         conferences: Konference
         context: Kontext
         context_description: Tato buňka zobrazuje některé informace o uživateli. Je to vizuální nápověda k identifikaci zdroje/tvůrce obsahu. Po najetí myší se zobrazí nápověda s dalšími informacemi a odkazy na její profil.
+        context_description_2: Pro zdroje se tato buňka objevuje pod hlavní položkou. U jiného obsahu se objeví vedle samotného obsahu.
         debate_l: Rozprava L
         debate_s: Rozprava S
         debates: Rozpravy
+        debates_cards_html: Použito na kartě <i>Debaty</i>
         debates_cards_text: Použít jinou šablonu pro blok obrázků
         default: Výchozí
         default_description: Volání buňky bez dalších argumentů, pouze samotného uživatele.
@@ -180,6 +195,9 @@ cs:
         disabled: Deaktivován
         dropdowns: Rozbalovací nabídky
         dropdowns_demo_1_description: 'Následující příklad nebude patrný na počítači, ale na mobilu ano:'
+        dropdowns_demo_description: Stahovací nabídky se používají v celé aplikaci pro zmenšení velkých, snadno čitelných nabídek pro stolní zařízení, ale pro mobilní zařízení jsou příliš obsáhlé.
+        dropdowns_demo_description_html: 'Tato javascript funkce je rozšířena o malé css, pomocí pojmenování: skrytý obsah MUSÍ být <code>id</code> počínaje <i>dropdown-menu</i>.'
+        dropdowns_description_html: Stahovací nabídky jsou javascript funkce dostupná díky externí knihovně s názvem %{link}.
         dropdowns_usage_1_description: 2. Modální prvek, jehož <code>id</code> odpovídá hodnotě data-target, ke které se spouštěč vztahuje.
         dropdowns_usage_description: 'Rozevírací nabídka vyžaduje dva prvky:'
         dropdowns_usage_description_html: 1. Uživatelsky proveditelný prvek, s atributy <code>data-component="dropdown" data-target="dropdown-menu-element"</code>.
@@ -210,6 +228,7 @@ cs:
         participatory_processes: Participační procesy
         plain_text: Jsem prostý text
         plain_text_description: Můžete poskytnout jako první parametr jak prostý text, tak hash objekt
+        plain_text_vs_hash: Prostý text vs Hash
         post_g: Příspěvek G
         post_l: Příspěvek L
         post_s: Příspěvek S
@@ -225,11 +244,18 @@ cs:
         search: Hledat
         send: Odeslat
         share_button: Tlačítko Sdílet
+        share_usage_description_html: Ujistěte se, že v DOM je přítomen částečný <code>decidim/shared/share_modal</code>. Tato část je umístěna do rozvržení aplikace.
         sizes: Velikosti
         sortition_l: sortition_l
         sortitions: Losování
         source_code: Zdrojový kód
         state: Stav
+        tab_panels_context_description: Tato komponenta panelů shromažďuje veškerý související obsah nebo jiné zdroje hlavního zobrazeného prvku, aby se ušetřil svislý prostor. Kliknutím na kartu se aktivuje vytvořený panel pro zobrazení obsahu.
+        tab_panels_usage_description_arguments_html: "<strong>args</strong>: <i>Array</i>. Argumenty pro předchozí metodu"
+        tab_panels_usage_description_html: "<strong>povoleno</strong>: <i>Boolean</i>. Podmíněné vykreslení záložky"
+        tab_panels_usage_description_id_html: "<strong>id</strong>: <i>řetězec</i>. Jedinečné Id"
+        tab_panels_usage_description_remixicon_html: "<strong>ikona</strong>: <i>řetězec</i>. Klávesa Remixicon"
+        tab_panels_usage_description_tab_html: "<strong>text</strong>: <i>řetězec</i>. Název karty"
         tailwind: Tailwind název
         text: Text
         transparent: Průhledný
@@ -238,20 +264,24 @@ cs:
         typography_texts: Typografie a texty
         usage: Použití
         usage_background_1: Vedle pozadí
+        usage_background_2: Pozadí filtru vybraného postranního panelu
         usage_background_3: Výchozí barva ikony
         usage_background_4: Linky a oddělovače
         usage_background_5: Pozadí zápatí
         usage_background_6: Pozadí admin rozložení
         usage_base_1: Hlavní nav komponenta pozadí\nNav menu domovské stránky a prostoru Úvodní strana
         usage_base_2: Hlavní barva odkazů a tlačítek
+        usage_base_3: Grafické ozdobné prvky a barva zvýraznění\nKarty a seznam položek při najetí na okraj stavu
         usage_formelements_1: Výchozí pozadí vstupních prvků
         usage_state_2: Okraj výstražného upozornění
+        usage_state_3: Ohraničení výstrahy\nvyplnění ikony výstrahy
         usage_typography_1: Nadpisy a názvy sekcí
         usage_typography_2: Vložený text
         usage_typography_3: Text na tmavém pozadí
         usage_typography_4: Odkazy a tlačítka
         value: Hodnota
         variations: Variace
+        variations_cards_description: Každá karta bude vypadat jinak než s ohledem na vlastnosti zobrazeného dokumentu. Toto chování můžete přepsat v konkrétní buňce.
         variations_description: Existují tři různé verze této buňky. Každý z nich lépe zapadá do kontextu, který se zobrazuje.
         variations_text: Pokud jde o druh činnosti, buňka by mohla vykazovat odlišný obsah, uvést různé zdroje, zda patří do participačního prostoru či nikoli, má autora či nikoli.
       home:

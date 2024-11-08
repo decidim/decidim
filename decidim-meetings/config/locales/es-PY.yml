@@ -78,6 +78,10 @@ es-PY:
       decidim/meetings/update_meeting_event: Encuentro actualizado
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Se debatió en este encuentro: %{link}'
       decidim/meetings/meeting:
         one: Encuentro
         other: Encuentros

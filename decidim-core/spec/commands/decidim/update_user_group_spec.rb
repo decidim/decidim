@@ -41,6 +41,9 @@ module Decidim
         end
         let(:command) { described_class.new(form, user_group) }
 
+        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.update_user_group:before"
+        it_behaves_like "fires an ActiveSupport::Notification event", "decidim.update_user_group:after"
+
         context "when the form is not valid" do
           before do
             allow(form).to receive(:invalid?).and_return(true)

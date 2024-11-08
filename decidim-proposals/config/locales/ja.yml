@@ -8,7 +8,7 @@ ja:
         decidim_scope_id: スコープ
         has_address: 住所有り
         scope_id: 対象範囲
-        state: 都道府県：
+        state: 状態
         title: タイトル
         user_group_id: 共同草案として作成します
       proposal:
@@ -18,10 +18,11 @@ ja:
         automatic_hashtags: ハッシュタグが自動的に追加されました
         body: 本文
         category_id: カテゴリ
+        decidim_proposals_proposal_state_id: 状態
         decidim_scope_id: スコープ
         has_address: 住所有り
         scope_id: 対象範囲
-        state: 都道府県：
+        state: 状態
         suggested_hashtags: 推奨ハッシュタグ
         title: タイトル
         user_group_id: 次のように提案を作成
@@ -90,6 +91,13 @@ ja:
       decidim/proposals/voting_enabled_event: 提案投票を有効にしました
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: 提案 %{link} が作成されました
+            import_to_proposal_text: この提案 %{link} が作成されました
+            merge_to_proposal_text: 'この提案が作成されました: %{link}'
+            split_to_proposal_text: 'この提案が作成されました: %{link}'
       decidim/proposals/collaborative_draft:
         other: 共同草案
       decidim/proposals/proposal:
@@ -769,6 +777,8 @@ ja:
       create:
         error: 提案を保存する際に問題がありました。
         success: 提案は正常に作成されました。草案として保存されました。
+      creation:
+        text: この提案が作成されました
       destroy_draft:
         error: 共同草案を削除する際に問題が発生しました。
         success: 提案の下書きは正常に削除されました。
