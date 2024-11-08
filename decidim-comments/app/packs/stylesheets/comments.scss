@@ -28,6 +28,12 @@
   .author__avatar-container {
     @apply w-8 h-8;
   }
+
+  input[type="radio"] {
+    &:not(.reset-defaults) {
+      @apply inline-block mr-0;
+    }
+  }
 }
 
 .comment {
@@ -379,7 +385,7 @@
 }
 
 [data-target*="dropdown-menu-add-comment"] {
-  @apply w-full flex items-center justify-between gap-2 pl-0 py-2 pr-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+  @apply w-full flex items-center justify-between gap-2 px-0 py-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
   & > span {
     @apply hidden font-semibold text-secondary;

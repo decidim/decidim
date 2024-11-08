@@ -40,6 +40,7 @@ en:
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Log in</a> or <a href="%{sign_up_url}">create an account</a> to add your comment.
+        add_comment: Add comment
         form:
           body:
             label: Comment

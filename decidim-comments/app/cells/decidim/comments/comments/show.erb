@@ -22,7 +22,16 @@
           <%= cell("decidim/comments/comment_thread", comment, order:) %>
         <% end %>
       </div>
+
+      <button data-dialog-open="example" class="button button__lg button__secondary flex md:hidden">
+        <%= t("add_comment", scope: "decidim.components.add_comment_form") %>
+      </button>
+
+      <%= decidim_modal id: "example" do %>
+        <%= add_comment %>
+      <% end %>
       <%= add_comment %>
+
       <%= user_comments_blocked_warning %>
     </div>
     <%= cell("decidim/announcement", t("decidim.components.comments.loading"), callout_class: "primary loading-comments hidden") %>
