@@ -238,11 +238,22 @@ cs:
           commentable_id: Jedinečné ID komentovatelného
           commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
           created_at: Datum, kdy byl komentář vytvořen
+          depth: Místo, kde se tento komentář nachází je ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
           id: ID pro tento komentář
           locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
           root_commentable_url: Adresa URL zdroje, který má vazbu na tento komentář
           user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         debates:
+          author: Data pro autora této debaty
           closed_at: Datum, kdy byla tato debata uzavřena
+          comments: Počet komentářů, které má tato debata
+          comments_enabled: Zda tato rozprava byla povolena nebo ne
+          component: Komponenta, do které debata patří
+          conclusions: Závěry debaty, pokud byla uzavřena
+          created_at: Datum a čas, kdy byla debata zahájena
+          description: Popis debaty
+          end_time: Když tato debata skončí, pokud se jedná o otevřenou debatu a má omezenou dobu
+          followers: Počet sledujících, které má tato debata
+          id: Jedinečný identifikátor debaty
     statistics:
       debates_count: Debaty
