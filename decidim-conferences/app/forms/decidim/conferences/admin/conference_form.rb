@@ -12,10 +12,10 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :slogan, String
-        translatable_attribute :short_description, String
-        translatable_attribute :description, String
-        translatable_attribute :objectives, String
-        translatable_attribute :registration_terms, String
+        translatable_attribute :short_description, Decidim::Attributes::RichText
+        translatable_attribute :description, Decidim::Attributes::RichText
+        translatable_attribute :objectives, Decidim::Attributes::RichText
+        translatable_attribute :registration_terms, Decidim::Attributes::RichText
 
         mimic :conference
 

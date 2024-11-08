@@ -11,7 +11,7 @@ module Decidim
         include Decidim::ApplicationHelper
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
 
         attribute :address, String
         attribute :latitude, Float

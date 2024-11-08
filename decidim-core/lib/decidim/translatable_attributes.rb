@@ -34,12 +34,15 @@ module Decidim
       #   end
       #
       # Returns nothing.
+      # rubocop:disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
       def translatable_attribute(name, type, **options)
         attribute(name, { String => Object }, default: {})
 
         locales.each do |locale|
           attribute_name = "#{name}_#{locale}".gsub("-", "__")
           attribute attribute_name, type, **options
+
+          value_type = attribute_types[attribute_name.to_s]
 
           define_method attribute_name do
             field = public_send(name) || {}
@@ -51,7 +54,6 @@ module Decidim
                 # changed and the old value is still stored against the record.
                 field
               end
-            value_type = self.class.attribute_types[attribute_name.to_s]
             value_type ? value_type.cast(value) : value
           end
 
@@ -60,12 +62,15 @@ module Decidim
             final = super(value)
             return unless final # Do not set the `nil` values for the parent hash
 
+            final = value_type.serialize(final) if value_type
+
             public_send("#{name}=", field.merge(locale => final))
           end
 
           yield(attribute_name, locale) if block_given?
         end
       end
+      # rubocop:enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
 
       def locales
         Decidim.available_locales

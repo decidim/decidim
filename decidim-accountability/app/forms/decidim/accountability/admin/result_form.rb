@@ -9,7 +9,7 @@ module Decidim
         include TranslationsHelper
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
 
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
