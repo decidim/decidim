@@ -1344,7 +1344,15 @@ ja:
         detailed:
           body_1: '以下は各データセットの説明です。各データセットのスキーマ（構造）や含まれている情報の種類を含みます。'
           components: コンポーネント
+          spaces: 参加型スペース
+          title: 各ファイルの詳細な説明
+        download:
+          components: コンポーネント
+          core: コア
+          spaces: 参加型スペース
+          title: リソースをダウンロード
         download_open_data: すべてのオープンデータファイルをダウンロード
+        download_resource: '%{resource_name} をCSV形式でダウンロード'
         explanation:
           body_1: これらのファイルは、提案、コメント、ミーティングなど、 %{organization_name} の参加型プロセスからエクスポートされたデータセットです。 分析、研究、または他のツールとの統合に使用できる、生の構造化されたデータを提供します。 データは24時間ごとに自動的に更新され、最新の情報にアクセスできるようになります。
           body_2: ファイルはCSV(カンマ区切り) 形式です。これは広く使われているファイル形式で、表計算プログラム、テキストエディタ、データ分析ツールなど、様々なソフトウェア・アプリケーションで開いて処理できます。
@@ -1370,6 +1378,13 @@ ja:
               </ul>
             title: 3. データの操作
           title: これらのファイルを開いて操作する方法
+        license:
+          body_1_html: この %{organization_name} データベースは、 %{link_database} の下で利用可能になります。データベースの個々のコンテンツの権利は、 %{link_contents} の下でライセンスされます。
+          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Database Contents License
+          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Open Database License
+          title: ライセンス
         title: オープンデータ
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
     pad_iframe:
@@ -1616,6 +1631,8 @@ ja:
       pages_count: ページ
       participants_count: 参加者
       users_count: 参加者
+    tags:
+      filter_results_for_taxonomy: '%{resource} の検索結果'
     taxonomies:
       prompt: '"%{name}"から選択'
     translation_bar:
