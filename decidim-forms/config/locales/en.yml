@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       answer:
@@ -34,6 +35,11 @@ en:
             tos: Terms of service
         questionnaires:
           export:
+            completion: Completion
+            created_at: Answered on
+            ip_hash: IP Hash
+            session_token: User identifier
+            user_status: User status
             question:
               response: 'Response #%{number}'
               title:

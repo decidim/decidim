@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "wicked_pdf"
+require "hexapdf"
 
 module Decidim
   module Exporters
@@ -15,41 +15,26 @@ module Decidim
       #
       # Returns an ExportData instance.
       def export
-        embed = Premailer.new(
-          controller.render_to_string(
-            template:,
-            layout:,
-            locals:
-          ),
-          with_html_string: true
-        ).to_inline_css
+        composer.styles(**styles)
 
-        document = WickedPdf.new.pdf_from_string(embed, orientation:)
+        add_data(composer)
 
-        ExportData.new(document, "pdf")
-      end
-
-      # may be overwritten if needed
-      def orientation
-        "Portrait"
-      end
-
-      # implementing classes should return a valid ERB path here
-      def template
-        raise NotImplementedError
-      end
-
-      # implementing classes should return a valid ERB path here
-      def layout
-        raise NotImplementedError
-      end
-
-      # This method may be overwritten if the template needs more local variables
-      def locals
-        { collection: }
+        ExportData.new(composer.write_to_string, "pdf")
       end
 
       protected
+
+      def composer
+        @composer ||= ::HexaPDF::Composer.new
+      end
+
+      def add_data(_composer)
+        raise NotImplementedError
+      end
+
+      def font_family = "Times"
+
+      def styles = {}
 
       def controller
         raise NotImplementedError
