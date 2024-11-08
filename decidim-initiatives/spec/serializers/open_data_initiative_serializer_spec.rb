@@ -34,6 +34,10 @@ module Decidim::Initiatives
         expect(serialized).to include(created_at: initiative.created_at)
       end
 
+      it "includes the updated_at timestamp" do
+        expect(serialized).to include(updated_at: initiative.updated_at)
+      end
+
       it "includes the published_at timestamp" do
         expect(serialized).to include(published_at: initiative.published_at)
       end
@@ -76,6 +80,22 @@ module Decidim::Initiatives
 
       it "includes the second_progress_notification_at timestamp" do
         expect(serialized).to include(second_progress_notification_at: initiative.second_progress_notification_at)
+      end
+
+      it "includes the online_votes" do
+        expect(serialized).to include(online_votes: initiative.online_votes)
+      end
+
+      it "includes the offline_votes" do
+        expect(serialized).to include(offline_votes: initiative.offline_votes)
+      end
+
+      it "includes the comments_count" do
+        expect(serialized).to include(comments_count: initiative.comments_count)
+      end
+
+      it "includes the follows_count" do
+        expect(serialized).to include(follows_count: initiative.follows_count)
       end
 
       it "includes the scope id" do

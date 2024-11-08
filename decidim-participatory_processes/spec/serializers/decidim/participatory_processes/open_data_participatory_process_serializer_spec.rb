@@ -19,6 +19,7 @@ module Decidim::ParticipatoryProcesses
         expect(serialized).to include(url: "http://#{resource.organization.host}:#{Capybara.server_port}/processes/#{resource.slug}")
         expect(serialized).to include(subtitle: resource.subtitle)
         expect(serialized).to include(slug: resource.slug)
+        expect(serialized).to include(reference: resource.reference)
         expect(serialized).to include(hashtag: resource.hashtag)
         expect(serialized).to include(short_description: resource.short_description)
         expect(serialized).to include(description: resource.description)
@@ -32,6 +33,10 @@ module Decidim::ParticipatoryProcesses
         expect(serialized).to include(participatory_scope: resource.participatory_scope)
         expect(serialized).to include(participatory_structure: resource.participatory_structure)
         expect(serialized).to include(target: resource.target)
+        expect(serialized).to include(created_at: resource.created_at)
+        expect(serialized).to include(updated_at: resource.updated_at)
+        expect(serialized).to include(published_at: resource.published_at)
+        expect(serialized).to include(follows_count: resource.follows_count)
         expect(serialized).to include(promoted: resource.promoted)
         expect(serialized).to include(scopes_enabled: resource.scopes_enabled)
       end

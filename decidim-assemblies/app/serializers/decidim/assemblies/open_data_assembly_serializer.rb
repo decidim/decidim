@@ -23,7 +23,6 @@ module Decidim
             duration: resource.duration,
             participatory_structure: resource.participatory_structure,
             target: resource.target,
-            reference: resource.reference,
             decidim_scope_id: resource.decidim_scope_id,
             area: {
               id: resource.area.try(:id),
