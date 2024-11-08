@@ -2,7 +2,7 @@
 
 module Decidim
   class OpenDataController < Decidim::ApplicationController
-    helper_method :open_data_component_manifests, :open_data_participatory_space_manifests
+    helper_method :open_data_component_manifests, :open_data_participatory_space_manifests, :open_data_core
 
     def index; end
 
@@ -20,6 +20,10 @@ module Decidim
     end
 
     private
+
+    def open_data_core
+      [:users, :user_groups]
+    end
 
     def open_data_component_manifests
       @open_data_component_manifests ||= Decidim.component_manifests
