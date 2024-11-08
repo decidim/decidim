@@ -81,7 +81,7 @@ en:
             created_at: Answered on
             ip_hash: IP Hash
             question:
-              response: 'Response #%{number}'
+              response: 'Response #%{count}'
               title:
                 one: 1 response
                 other: "%{count} total responses"
