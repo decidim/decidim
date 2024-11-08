@@ -149,6 +149,18 @@ module Decidim
           expect(attribute.type_class).to eq(Integer)
           expect(attribute.default_value).to be_nil
         end
+
+        it "supports integer_with_units" do
+          attribute = SettingsManifest::Attribute.new(type: :integer_with_units)
+          expect(attribute.type_class).to eq(Decidim::Attributes::IntegerWithUnits)
+          expect(attribute.default_value).to eq([5, "minutes"])
+        end
+
+        it "supports taxonomy_filters" do
+          attribute = SettingsManifest::Attribute.new(type: :taxonomy_filters)
+          expect(attribute.type_class).to eq(Array)
+          expect(attribute.default_value).to eq([])
+        end
       end
 
       it "only allows valid types" do

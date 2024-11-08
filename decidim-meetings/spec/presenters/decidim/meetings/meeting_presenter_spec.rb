@@ -61,6 +61,18 @@ module Decidim::Meetings
       end
     end
 
+    describe "#taxonomy_names" do
+      let(:taxonomy1) { create(:taxonomy, :with_parent, organization:) }
+      let(:taxonomy2) { create(:taxonomy, :with_parent, organization:) }
+      let(:meeting) { create(:meeting, component: meeting_component, taxonomies: [taxonomy1, taxonomy2]) }
+
+      subject { presented_meeting.taxonomy_names }
+
+      it "returns the taxonomy names" do
+        expect(subject).to contain_exactly(translated(taxonomy1.name), translated(taxonomy2.name))
+      end
+    end
+
     describe "#description" do
       let(:description1) do
         Decidim::ContentProcessor.parse_with_processor(:hashtag, "Description #description", current_organization: organization).rewrite

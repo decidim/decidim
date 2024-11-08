@@ -32,6 +32,9 @@ module Decidim
 
         delegate :categories, to: :current_component
         delegate :scopes, to: :current_organization
+        delegate :taxonomies, to: :current_organization
+        delegate :available_root_taxonomies, to: :current_component
+        delegate :available_taxonomy_ids, to: :current_component
 
         def query
           @query ||= base_query.ransack(ransack_params, search_context: :admin, auth_object: current_user)
@@ -188,6 +191,10 @@ module Decidim
           query.klass.model_name.human(count: 2)
         end
 
+        def taxonomy_order_or_search?
+          ransack_params[:taxonomies_part_of_contains].present? || ransack_params[:s]&.include?("taxonomies_name")
+        end
+
         # A tree of Category IDs. Leaves are `nil`.
         def category_ids_hash(categories)
           categories.each_with_object({}) do |category, hash|
@@ -202,22 +209,28 @@ module Decidim
           end
         end
 
+        # A tree of Taxonomy IDs. Leaves are `nil`.
+        def taxonomy_ids_hash(taxonomies)
+          filtered_taxonomies = taxonomies.where(parent_id: nil).or(taxonomies.where(id: available_taxonomy_ids))
+          return nil if filtered_taxonomies.blank?
+
+          filtered_taxonomies.each_with_object({}) do |taxonomy, hash|
+            hash[taxonomy.id] = taxonomy_ids_hash(taxonomy.children)
+          end
+        end
+
         # Array<Symbol> of filters that implement a method to find translations.
         # Useful when translations cannot be found in i18n or come from a Model.
         def dynamically_translated_filters
-          [:scope_id_eq, :category_id_eq]
+          [:taxonomies_part_of_contains]
         end
 
         def find_dynamic_translation(filter, value)
           send("translated_#{filter}", value) if filter.in?(dynamically_translated_filters)
         end
 
-        def translated_scope_id_eq(id)
-          translated_attribute(scopes.find_by(id:).name)
-        end
-
-        def translated_category_id_eq(id)
-          translated_attribute(categories.find_by(id:).name)
+        def translated_taxonomies_part_of_contains(id)
+          translated_attribute(taxonomies.find_by(id:).name)
         end
       end
     end

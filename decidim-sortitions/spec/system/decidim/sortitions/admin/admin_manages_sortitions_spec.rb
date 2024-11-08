@@ -10,6 +10,7 @@ describe "Admin manages sortitions" do
   it_behaves_like "manage sortitions"
   it_behaves_like "cancel sortitions"
   it_behaves_like "update sortitions"
+  it_behaves_like "manage taxonomy filters in settings"
 
   context "when adding a new sortitions module" do
     let(:name) { "My super new sortitions component" }

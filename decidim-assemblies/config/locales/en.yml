@@ -282,12 +282,14 @@ en:
         assemblies:
           form:
             announcement_help: The text you enter here will be shown to the user right below the assembly information.
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
             filters: Filters
             images: Images
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
+            no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
             select_a_created_by: Select a created by
             select_an_area: Select an Area
@@ -476,6 +478,7 @@ en:
           special_features: Which special features this assembly has
           subtitle: The subtitle of the assembly
           target: The target of the assembly
+          taxonomies: The taxonomies of the project
           title: The assembly title
           twitter_handler: Social media handler for Twitter
           youtube_handler: Social media handler for YouTube

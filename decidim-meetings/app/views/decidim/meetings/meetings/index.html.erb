@@ -12,8 +12,7 @@
       filter_options: {
         date: !@forced_past_meetings,
         type: true,
-        scopes: current_component.has_subscopes?,
-        categories: current_component.categories.any?,
+        taxonomies: true,
         origin: component_settings.creation_enabled_for_participants?,
         space_type: false,
         activity: current_user.present?
