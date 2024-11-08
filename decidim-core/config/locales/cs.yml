@@ -739,6 +739,11 @@ cs:
         done: Hotovo
         select_identity: Vybrat identitu
     endorsers_list:
+      endorsed_by:
+        one: Líbí se %{visible}
+        few: Líbí se %{visible} a %{others}
+        many: Líbí se %{visible} a %{others}
+        other: Líbí se %{visible} a %{others}
       others: "%{count} dalších"
       title: Líbí se
       you: vy
