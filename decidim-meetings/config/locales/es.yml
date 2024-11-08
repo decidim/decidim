@@ -549,7 +549,9 @@ es:
           see_all_withdrawn: Ver todos los encuentros retirados
           text_banner: Estás viendo la lista de encuentros retirados por sus autores. %{go_back_link}.
         meeting:
+          close_meeting: Cerrar
           edit_close_meeting: Editar el informe del encuentro
+          edit_meeting: Editar
           join_meeting: Unirse al encuentro
           reply_poll: Responder consulta
           view_poll: Ver consulta
@@ -587,6 +589,7 @@ es:
           visit_finished: Ver encuentro pasado
           withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
           withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
+          withdraw_meeting: Retirar
         update:
           invalid: Se ha producido un error al actualizar este encuentro.
           success: Has actualizado el encuentro correctamente.
