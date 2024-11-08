@@ -3,29 +3,30 @@
 require "spec_helper"
 
 describe "DownloadYourData" do
-  let!(:public_resource) { create(:dummy_resource, :published, author: user) }
+  let(:component) { create(:component, :published, organization:) }
+  let!(:resource) { create(:dummy_resource, component:, author: user, published_at: Time.current) }
+  let!(:other_resource) { create(:dummy_resource, component:, author: other_user, published_at: Time.current) }
 
   let(:user) { create(:user, :confirmed, name: "Hodor User") }
   let(:organization) { user.organization }
   let!(:expired_export) do
-    export = Decidim::DownloadYourDataExporter.new(user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
+    export = Decidim::DownloadYourDataExporter.new(resource.author, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
     export.expires_at = 2.weeks.ago
     export.save!
     export.reload
   end
-  let!(:active_export) { Decidim::DownloadYourDataExporter.new(user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export }
+  let!(:active_export) { Decidim::DownloadYourDataExporter.new(resource.author, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export }
   let(:other_user) { create(:user, :confirmed, organization:) }
-  let!(:other_user_public_resource) { create(:dummy_resource, :published, author: other_user) }
 
   let!(:other_user_expired_export) do
-    export = Decidim::DownloadYourDataExporter.new(other_user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
+    export = Decidim::DownloadYourDataExporter.new(other_resource.author, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
     export.expires_at = 2.weeks.ago
     export.save!
     export.reload
   end
 
   let!(:other_user_active_export) do
-    Decidim::DownloadYourDataExporter.new(other_user, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
+    Decidim::DownloadYourDataExporter.new(other_resource.author, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export
   end
 
   around do |example|
@@ -81,13 +82,13 @@ describe "DownloadYourData" do
         expect(page).to have_content(ActiveRecord::RecordNotFound)
       end
 
-      it "when requesting my own expired file" do
+      it "when requesting current user's expired file" do
         visit decidim.download_download_your_data_path(expired_export)
 
         expect(page).to have_content("The export has expired. Try to generate a new export.")
       end
 
-      it "when requesting my own active file", :slow, download: true do
+      it "when requesting current user's active file", :slow, download: true do
         expect(active_export.file).to be_attached
         expect(downloads.length).to eq(0)
 
@@ -95,7 +96,7 @@ describe "DownloadYourData" do
         wait_for_download
 
         expect(downloads.length).to eq(1)
-        expect(download).to match(/.*\.zip/)
+        expect(download_path).to match(/.*\.zip/)
       end
     end
 

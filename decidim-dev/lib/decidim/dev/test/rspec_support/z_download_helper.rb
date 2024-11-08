@@ -8,10 +8,6 @@ module DownloadHelper
     Dir[PATH.join(name || "*")]
   end
 
-  def download(name = nil)
-    downloads(name).first
-  end
-
   def download_path(name = nil)
     wait_for_download(name)
     downloads(name).first
@@ -45,6 +41,7 @@ RSpec.configure do |config|
   config.include DownloadHelper, download: true
   config.before :each, download: true do
     FileUtils.mkdir_p DownloadHelper::PATH.to_s
+    page.driver.browser.download_path = DownloadHelper::PATH.to_s
     clear_downloads
   end
 end
