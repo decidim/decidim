@@ -1335,11 +1335,44 @@ ca:
         core:
           components: Components
           description: Aquest fitxer ZIP conté fitxers per l'estudi i la recerca sobre aquesta plataforma de participació.
+          main: Nucli
           spaces: Espais
           title: Fitxers de dades obertes de %{organization}
+        user_groups:
+          avatar_url: L'avatar del grup d'usuàries
+          badge: L'ensenya del grup d'usuàries
+          deleted: Si el grup d'usuàries va ser eliminat o no
+          id: L'identificador únic del grup d'usuàries
+          members: L'ID i el nom de les usuàries que pertanyen al grup
+          members_count: El número de membres que formen part del grup d'usuàries
+          name: El nom que es mostra del grup d'usuàries
+          nickname: El nom d'usuària del grup d'usuàries
+          profile_url: L'URL del perfil del grup d'usuàries
+        users:
+          about: El text "Quant a" inclòs al perfil d'usuària
+          avatar_url: L'avatar de la usuària
+          badge: L'ensenya de la usuària
+          deleted: Si la usuària va ser eliminada o no
+          direct_messages_enabled: Si la usuària permet missatges directes o no
+          groups: L'ID i el nom del grup d'usuàries
+          id: L'identificador únic de la usuària
+          name: El nom que es mostra de la usuària
+          nickname: El nom d'usuària de l'usuària
+          profile_url: L'URL del perfil de la usuària
       index:
         description: Benvinguda a la pàgina de dades oberta %{organization_name}. Aquí trobaràs fitxers de dades que es generen regularment a partir de diversos processos deliberats i de governança dins %{organization_name}. Aquests fitxers estan disponibles per promoure la transparència, accessibilitat i col·laboració. A continuació, trobaràs informació detallada sobre quins són aquests fitxers, com obrir i treballar amb ells, i una descripció del contingut i l'estructura de cada fitxer.
+        detailed:
+          body_1: 'A continuació es mostra una descripció de cada conjunt de dades, incloent-hi el seu esquema (estructura) i el tipus d''informació que conté:'
+          components: Components
+          spaces: Espais de participació
+          title: Explicació detallada de cada arxiu
+        download:
+          components: Components
+          core: Nucli
+          spaces: Espai participatiu
+          title: Descarregar recursos
         download_open_data: Descarrega tots els fitxers de dades obertes
+        download_resource: Descarregar "%{resource_name}" en format CSV
         explanation:
           body_1: Aquests fitxers són conjunts de dades exportades des dels processos participatius de %{organization_name}, com ara propostes, comentaris i reunions. Es proporcionen dades crues i estructurades que poden ser utilitzades per a l'anàlisi, la investigació o la integració amb altres eines. Les dades s'actualitzen automàticament cada 24 hores, per assegurar tenir accés a la informació més recent possible.
           body_2: Aquests fitxers estan en format CSV (valors separats per comes), un format de fitxer àmpliament utilitzat que pot ser obert i processat per una varietat d'aplicacions de programari, incloent-hi programes de fulls de càlcul, editors de text i eines d'anàlisi de dades.
@@ -1365,6 +1398,13 @@ ca:
               </ul>
             title: 3. Treballant amb les dades
           title: Com obrir i treballar amb aquests fitxers
+        license:
+          body_1_html: Aquesta base de dades de "%{organization_name}" està disponible sota %{link_database}. Qualsevol dret sobre els continguts individuals de la base de dades està sota la llicència %{link_contents}.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_name: Llicència dels continguts a la base de dades
+          license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
+          license_database_name: Llicència Oberta per a base de dades
+          title: Llicència
         title: Dades obertes
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
     pad_iframe:
