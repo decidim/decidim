@@ -34,6 +34,8 @@ ja:
             values:
               'false': 選択済み
               'true': 未選択
+          taxonomies_part_of_contains:
+            label: タクソノミー
     budgets:
       actions:
         attachment_collections: フォルダ
@@ -205,6 +207,7 @@ ja:
           fields:
             id: ID
             map: 地図
+            taxonomies: タクソノミー
             title: タイトル
       order_summary_mailer:
         order_summary:
@@ -311,8 +314,10 @@ ja:
         settings:
           global:
             announcement: お知らせ
+            clear_all: すべてクリア
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             form:
               errors:
                 budget_voting_rule_only_one: 有効にできる投票ルールは1つのみです。
@@ -320,10 +325,13 @@ ja:
             geocoding_enabled: マップは有効です
             landing_page_content: 予算ランディングページ
             more_information_modal: 詳しい情報
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             projects_per_page: ページあたりのプロジェクト数
             resources_permissions_enabled: プロジェクトごとにアクションの権限を設定できます
             scope_id: スコープ
             scopes_enabled: スコープは有効です
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
             title: タイトル
             total_budget: 予算の合計
             vote_minimum_budget_projects_number: 投票するプロジェクトの最小数
@@ -374,6 +382,7 @@ ja:
           related_proposal_titles: 関連する提案のタイトル
           related_proposal_urls: 関連する提案のURL
           related_proposals: このプロジェクトに関連する提案
+          taxonomies: このプロジェクトのタクソノミー
           title: プロジェクトのタイトル
           url: プロジェクトの URL
     orders:
