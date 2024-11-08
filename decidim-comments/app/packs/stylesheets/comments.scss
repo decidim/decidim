@@ -6,7 +6,7 @@
   }
 
   .add-comment {
-    @apply mt-12;
+    @apply mt-12 bg-gray-5 px-4 pb-6 pt-1 rounded-lg;
 
     .remaining-character-count {
       @apply block text-left text-sm text-gray-2;
@@ -122,6 +122,18 @@
 
     &-author-info {
       @apply flex items-center gap-2;
+    }
+
+    &-author-name {
+      @apply text-secondary font-semibold;
+    }
+
+    &-author-selected {
+      @apply flex flex-col;
+
+      .author__avatar-container {
+        @apply -mt-3.5;
+      }
     }
   }
 
@@ -367,7 +379,7 @@
 }
 
 [data-target*="dropdown-menu-add-comment"] {
-  @apply w-full flex items-center justify-between gap-2 p-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+  @apply w-full flex items-center justify-between gap-2 pl-0 py-2 pr-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
   & > span {
     @apply hidden font-semibold text-secondary;

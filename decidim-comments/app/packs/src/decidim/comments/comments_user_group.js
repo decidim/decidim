@@ -19,15 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
       if (authorInfo) {
         const authorContent = authorInfo.innerHTML;
 
-        button.querySelector("span").innerHTML = authorContent;
-        const selectedLi = input.closest("li");
-        selectedLi.style.display = "none";
-
-        dropdownMenu.querySelectorAll("li").forEach((li) => {
-          if (li !== selectedLi) {
-            li.style.display = "";
-          }
-        });
+        setTimeout(() => {
+          button.querySelector("span").innerHTML = authorContent;
+          const selectedLi = input.closest("li");
+            selectedLi.style.display = "none";
+            
+            dropdownMenu.querySelectorAll("li").forEach((li) => {
+              if (li !== selectedLi) {
+                li.style.display = "";
+              }
+            });
+        }, 2000);
       }
     });
   });
