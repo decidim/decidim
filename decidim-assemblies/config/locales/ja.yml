@@ -278,12 +278,14 @@ ja:
         assemblies:
           form:
             announcement_help: ここに入力したテキストは、アセンブリ情報のすぐ下に表示されます。
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 持続期間
             duration_help: この参加スペースの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
             filters: フィルタ
             images: 画像
             included_at_help: この参加スペースがプラットフォームに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
             metadata: メタデータ
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             other: その他
             select_a_created_by: 作成者を選択してください
             select_an_area: エリアを選択
@@ -472,6 +474,7 @@ ja:
           special_features: この参加スペースにはどのような特別な機能があるか
           subtitle: 参加スペースのサブタイトル
           target: 参加スペースのターゲット
+          taxonomies: このプロジェクトのタクソノミー
           title: 参加スペースのタイトル
           twitter_handler: Twitter 用のソーシャルメディアハンドラー
           youtube_handler: YouTube用のソーシャルメディアハンドラー
