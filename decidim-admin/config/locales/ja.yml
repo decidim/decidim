@@ -344,6 +344,14 @@ ja:
           title: 'コンポーネントを追加: %{name}'
         publish:
           success: コンポーネントは正常に公開されました。
+        taxonomy_filters_badge:
+          remove: 削除
+        taxonomy_filters_drawer:
+          add_filter: フィルターを追加
+          clear_all: すべてクリア
+          filters: フィルター
+          save: 保存
+          title: フィルター
         title: コンポーネント
         unpublish:
           success: コンポーネントの非公開に成功しました。
@@ -1077,9 +1085,12 @@ ja:
         new:
           create: タクソノミーを作成
           title: 新しいタクソノミー
+        no_taxonomies: 現在、タクソノミーはありません。ここでタクソノミーのリストを作成し、それぞれにアイテムを定義してリソースを分類またはフィルタリングします。
         table:
           to_next_page: 次のページにドラッグ
           to_prev_page: 前のページにドラッグ
+        taxonomy_actions:
+          confirm_destroy: '%{name} を削除してもよろしいですか？その場合全ての子アイテムも削除されます。 注意: このタクソノミーを使用しているリソース自体は影響を受けませんが、このタクソノミーへの参照は失われます。'
         update:
           invalid: タクソノミーの更新中に問題が発生しました。
           success: タクソノミーを更新しました。
@@ -1097,6 +1108,7 @@ ja:
         edit:
           back: 戻る
           items: "{count} 個のアイテムを選択中です"
+          no_items: このタクソノミーで使えるアイテムはありません。タクソノミー設定でアイテムを作成できます。
           title: タクソノミーフィルタを編集
           update: タクソノミーフィルタを更新
         form:
@@ -1111,6 +1123,8 @@ ja:
           title: 新規タクソノミーフィルター
         table:
           actions: アクション
+          components_count: コンポーネント数
+          confirm_destroy: 'フィルター %{name} を削除してもよろしいですか？ 注意: このフィルタを使用しているリソース自体は影響を受けませんが、このフィルタへの参照は失われます。'
           count: アイテム数
           destroy: 削除
           edit: 編集
