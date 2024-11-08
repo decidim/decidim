@@ -222,7 +222,7 @@ FactoryBot.define do
       name { "" }
       nickname { "" }
       email { "" }
-      delete_reason { "Fooo delete bar" }
+      delete_reason { "I want to delete my account" }
       admin { false }
       deleted_at { Time.current }
       avatar { nil }
