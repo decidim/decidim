@@ -17,7 +17,7 @@ gem "decidim-dev", "0.28.0.rc1"
 
 ```console
 sudo apt install p7zip # or the alternative installation process for your operating system. See "2.1. 7zip dependency introduction"
-sudo apt install wkhtmltopdf # or the alternative installation process for your operating system. See "2.7. wkhtmltopdf binary change"
+sudo apt install wkhtmltopdf # or the alternative installation process for your operating system. See "2.5. wkhtmltopdf binary change"
 bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
@@ -81,7 +81,7 @@ bin/rails decidim_proposals:upgrade:set_categories
 
 You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
 
-### 2.7. wkhtmltopdf binary change
+### 2.5. wkhtmltopdf binary change
 
 For improving the support with latest versions of Ubuntu, and keeping a low size in Heroku/Docker images, we removed the `wkhtmltopdf-binary` gem dependency. This means that your package manager should have the `wkhtmltopdf` binary installed.
 
