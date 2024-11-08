@@ -8,6 +8,7 @@ module Decidim
       def serialize
         super.merge(
           {
+            url: EngineRouter.main_proxy(resource).conference_url(resource),
             slogan: resource.slogan,
             reference: resource.reference,
             remote_hero_image_url: Decidim::Conferences::ConferencePresenter.new(resource).hero_image_url,

@@ -11,6 +11,7 @@ module Decidim
         {
           reference: resource.reference,
           title: resource.title,
+          url: EngineRouter.main_proxy(resource).initiative_url(resource),
           description: resource.description,
           state: resource.state,
           created_at: resource.created_at,

@@ -18,6 +18,10 @@ module Decidim::Initiatives
         expect(serialized).to include(title: initiative.title)
       end
 
+      it "includes the url" do
+        expect(serialized).to include(url: "http://#{initiative.organization.host}:#{Capybara.server_port}/initiatives/i-#{initiative.id}")
+      end
+
       it "includes the description" do
         expect(serialized).to include(description: initiative.description)
       end
