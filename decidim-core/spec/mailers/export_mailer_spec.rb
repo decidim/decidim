@@ -11,9 +11,8 @@ module Decidim
     let!(:organization) { create(:organization) }
 
     describe "export" do
-      let(:export_data) { Decidim::Exporters::ExportData.new("content", "txt") }
       let(:mail) { described_class.export(user, private_download) }
-      let(:private_download) { create(:private_export, export_type: "dummy", attached_to: user, export_data:) }
+      let!(:private_download) { Decidim::DownloadYourDataExporter.new(resource.author, "dummy", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export }
 
       it "sets a subject" do
         expect(mail.subject).to include("dummy", "ready")
@@ -31,7 +30,8 @@ module Decidim
 
     describe "download your data export" do
       let(:images) { [] }
-      let(:private_download) { create(:private_export, attached_to: user) }
+      let!(:private_download) { Decidim::DownloadYourDataExporter.new(resource.author, "download_your_data", Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT).export }
+
       let(:mail) { described_class.download_your_data_export(user, private_download) }
 
       it "sets a subject" do

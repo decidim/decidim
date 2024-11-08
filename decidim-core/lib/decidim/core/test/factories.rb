@@ -257,23 +257,6 @@ FactoryBot.define do
     end
   end
 
-  factory :private_export, class: "Decidim::PrivateExport" do
-    export_type { :download_your_data }
-    attached_to { create(:user) }
-    expires_at { 2.weeks.from_now }
-
-    trait :expired do
-      expires_at { 2.days.ago }
-    end
-
-    before(:create) do |private_export, evaluator|
-      path = Rails.root.join("tmp/#{SecureRandom.urlsafe_base64}.zip")
-      File.binwrite(path, Decidim::FileZipper.new(evaluator.export_data.filename(:download_your_data), evaluator.export_data.read).zip)
-
-      private_export.file.attach(io: File.open(path, "rb"), filename: File.basename(path))
-    end
-  end
-
   factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
     transient do
       skip_injection { false }
