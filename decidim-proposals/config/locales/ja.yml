@@ -127,6 +127,8 @@ ja:
               rejected: 却下済み
               validating: 技術的検証
               withdrawn: 撤回
+          taxonomies_part_of_contains:
+            label: タクソノミー
           valuator_role_ids_has:
             label: 評価者にアサインされました
           with_any_state:
@@ -136,6 +138,9 @@ ja:
               state_published: 回答済み
         search_placeholder:
           id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索します。'
+    application:
+      geocoding:
+        not_configured: ジオコーディングが設定されていません
     components:
       proposals:
         actions:
@@ -156,6 +161,7 @@ ja:
             attachments_allowed: 添付ファイルを許可
             attachments_allowed_help: このオプションを有効にすると、提案はデフォルトでグリッドモードになり、最初の画像がカードに表示されるようになります。
             can_accumulate_votes_beyond_threshold: しきい値以上の票を集めることができます
+            clear_all: すべてクリア
             collaborative_drafts_enabled: 共同草稿を有効にする
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
@@ -170,6 +176,7 @@ ja:
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             edit_time: 提案は、この時間までの間は著者が編集することができます
             edit_time_units:
               days: 日
@@ -180,6 +187,7 @@ ja:
             new_proposal_body_template: 新しい提案本文テンプレート
             new_proposal_body_template_help: 新しい提案に含まれる予定のテキストを定義することができます。
             new_proposal_help_text: 新しい提案ヘルプテキスト
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             official_proposals_enabled: 管理者の提案を有効にする
             participatory_texts_enabled: 参加型テキストを有効にする
             participatory_texts_enabled_readonly: 既存の提案がある場合は、この設定は操作できません。 この機能を有効にする場合は、新しい `提案 コンポーネント` を作成し、もし無効にしたい場合はインポートされたすべての提案を `参加型 テキスト` メニューから破棄してください。
@@ -199,6 +207,8 @@ ja:
             resources_permissions_enabled: アクションの権限を提案ごとに設定する
             scope_id: スコープ
             scopes_enabled: スコープが有効
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
             threshold_per_proposal: 提案ごとのしきい値
             vote_limit: 参加者ごとの投票制限
           step:
@@ -415,6 +425,7 @@ ja:
     open_data:
       help:
         proposal_comments:
+          alignment: このコメントが好意的、敵対的、中立的であった場合
           author: このコメントを作成した参加者の名前
           body: コメント本文
           commentable_id: コメント対象の固有ID
@@ -447,6 +458,7 @@ ja:
           reference: このプラットフォームでのリソースの固有ID
           related_proposals: この提案に関連する提案
           state: 'この提案のステータス (例: "承認済み")'
+          taxonomies: この提案が属しているタクソノミー
           title: 提案のタイトル
           url: この提案が見つかるURL
           votes: 提案の投票数
@@ -782,6 +794,7 @@ ja:
             error: コラボレーターとして拒否できませんでした。後でもう一度やり直してください。
             success: "@%{user} さんはコラボレーターとして正常に拒否されました。"
         show:
+          edit: 編集
           final_proposal: 最終的な提案
           final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
           hidden_authors_count:
@@ -815,6 +828,11 @@ ja:
       destroy_draft:
         error: 共同草案を削除する際に問題が発生しました。
         success: 提案の下書きは正常に削除されました。
+      forms:
+        errors:
+          device_not_supported:
+          no_device_location: 申し訳ありませんが、場所を検出できませんでした。アドレスを手動で入力してください。
+        use_my_location: 現在地を使用
       invite_coauthors:
         cancel:
           error: 共同執筆者の招待を取り消す際に問題が発生しました。
@@ -841,6 +859,7 @@ ja:
             published_answer: 公開された回答
             published_at: 公開日時
             state: ステータス
+            taxonomies: タクソノミー
             title: タイトル
             valuator: 評価者
             valuators: 評価者
@@ -887,6 +906,7 @@ ja:
           scope: スコープ
           search: 検索
           state: ステータス
+          taxonomy_filters: フィルター
           type: タイプ
           voted: 投票
         index:
@@ -931,6 +951,7 @@ ja:
         show:
           answer: 回答
           changes_at_title: '「%{title} 」に修正'
+          edit_proposal: 編集
           estimated_cost: 推定コスト
           hidden_endorsers_count:
             other: '%{count} 人以上'
@@ -945,6 +966,7 @@ ja:
           proposal_rejected_reason: 'この提案は以下の理由により拒否されました:'
           withdraw_btn_hint: 投票を受けていない限り、提案を取り消すことができます。 提案は削除されず、撤回された提案のリストに表示されます。
           withdraw_confirmation_html: この提案を撤回してもよろしいですか？<br><br><strong>この操作はキャンセルできません！</strong>
+          withdraw_proposal: 撤回する
         update:
           title: 提案を更新
         vote_button:
