@@ -204,6 +204,7 @@ ja:
             progress: 進捗状況
             start_date: 開始日
             status: ステータス
+            taxonomies: タクソノミー
             title: タイトル
         status:
           fields:
@@ -222,6 +223,8 @@ ja:
         home:
           empty: まだ結果はありません。
           empty_filters: この条件の結果はありません。
+          sub_taxonomies_label: サブカテゴリ
+          taxonomies_label: カテゴリ
         home_header:
           global_status: グローバル実行状況
         no_results: プロジェクトがありません
@@ -237,6 +240,8 @@ ja:
         results:
           status_id_eq:
             label: ステータス
+          taxonomies_part_of_contains:
+            label: タクソノミー
     components:
       accountability:
         actions:
@@ -244,13 +249,18 @@ ja:
         name: アカウンタビリティ
         settings:
           global:
+            clear_all: すべてクリア
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             display_progress_enabled: 進行状況を表示
             geocoding_enabled: 地図は有効です
             intro: はじめに
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             scope_id: スコープ
             scopes_enabled: スコープが有効
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
           step:
             comments_blocked: コメントをブロック
     events:
@@ -295,6 +305,7 @@ ja:
           proposal_urls: この結果に含まれる提案のURL
           start_date: 結果の実行を開始した日時
           status: この結果の現在の状態
+          taxonomies: 結果のタクソノミー
           title: 結果のタイトル
           url: この結果が見つかるURL
     participatory_spaces:
