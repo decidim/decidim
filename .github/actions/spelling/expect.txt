@@ -242,6 +242,7 @@ dsl
 dtend
 dtgt
 dtgteq
+dTHH
 dtlt
 dtlteq
 dtstart
