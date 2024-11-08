@@ -284,19 +284,25 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result) }
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+          end
         end
 
-        context "when user is anonymous" do
+        context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result.merge("projects" => [nil, nil])) }
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result.merge("projects" => [nil, nil]))
+          end
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result) }
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+          end
         end
       end
 
@@ -306,19 +312,25 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil
+          end
         end
 
-        context "when user is anonymous" do
+        context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it { expect(response["participatoryProcess"]["components"].first).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]["components"].first).to be_nil
+          end
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]["components"].first).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]["components"].first).to be_nil
+          end
         end
       end
     end
@@ -332,19 +344,25 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil
+          end
         end
 
-        context "when user is anonymous" do
+        context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it { expect(response["participatoryProcess"]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]).to be_nil
+          end
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]).to be_nil
+          end
         end
       end
 
@@ -354,19 +372,25 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil
+          end
         end
 
-        context "when user is anonymous" do
+        context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it { expect(response["participatoryProcess"]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]).to be_nil
+          end
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]).to be_nil
+          end
         end
       end
     end
@@ -380,19 +404,25 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil
+          end
         end
 
-        context "when user is anonymous" do
+        context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it { expect(response["participatoryProcess"]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]).to be_nil
+          end
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]).to be_nil
+          end
         end
       end
 
@@ -402,19 +432,25 @@ describe "Decidim::Api::QueryType" do
         context "when the user is admin" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to be_nil
+          end
         end
 
-        context "when user is anonymous" do
+        context "when user is visitor" do
           let!(:current_user) { nil }
 
-          it { expect(response["participatoryProcess"]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]).to be_nil
+          end
         end
 
         context "when user is normal user" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-          it { expect(response["participatoryProcess"]).to be_nil }
+          it "should not be visible" do
+            expect(response["participatoryProcess"]).to be_nil
+          end
         end
       end
     end

@@ -135,10 +135,6 @@ describe "Decidim::Api::QueryType" do
             description {
               translation(locale:"#{locale}")
             }
-            # forEntity {
-            #   id
-            #   __typename
-            # }
             forType
             id
             questions {
@@ -191,10 +187,6 @@ describe "Decidim::Api::QueryType" do
             description {
               translation(locale:"#{locale}")
             }
-            # forEntity {
-            #   id
-            #   __typename
-            # }
             forType
             id
             questions {
