@@ -339,10 +339,6 @@ module Decidim
                   "# config.available_locales = Rails.application.secrets.decidim[:available_locales].presence || [:en]"
       end
 
-      def path_test_config
-        gsub_file "config/environments/test.rb", /config\.cache_classes = true$/, "config.cache_classes = false"
-      end
-
       def dev_performance_config
         gsub_file "config/environments/development.rb", /^end\n$/, <<~CONFIG
 
