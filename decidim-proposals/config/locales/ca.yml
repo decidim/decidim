@@ -805,6 +805,7 @@ ca:
             error: No s'ha pogut rebutjar com a contribuïdora, si us plau tornau-ho a provar més tard.
             success: "S'ha rebutjat amb èxit a @%{user} com a col·laboradora."
         show:
+          edit: Editar
           final_proposal: Proposta final
           final_proposal_help_text: Aquest esborrany està finalitzat. Consulta la proposta final
           hidden_authors_count:
@@ -967,6 +968,7 @@ ca:
         show:
           answer: Resposta
           changes_at_title: Esmena a "%{title}"
+          edit_proposal: Editar
           estimated_cost: Cost estimat
           hidden_endorsers_count:
             one: i %{count} persona més
@@ -982,6 +984,7 @@ ca:
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
           withdraw_confirmation_html: Segur que vols retirar aquesta proposta? <br><br><strong>Aquesta acció no es pot desfer!</strong>
+          withdraw_proposal: Retirar
         update:
           title: Actualitzar la proposta
         vote_button:
