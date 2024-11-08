@@ -163,6 +163,7 @@ Decidim::Core::Engine.routes.draw do
 
   get "/open-data", to: "open_data#index", as: :open_data
   get "/open-data/download", to: "open_data#download", as: :open_data_download
+  get "/open-data/download/:resource", to: "open_data#download", as: :open_data_download_resource
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
