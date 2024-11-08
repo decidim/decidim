@@ -444,10 +444,12 @@ ja:
         participatory_processes:
           form:
             announcement_help: ここに入力したテキストは、参加型プロセス情報のすぐ下にユーザーに表示されます。
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 期間
             filters: フィルタ
             images: 画像
             metadata: メタデータ
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             other: その他
             related_processes: 関連する参加型プロセス
             scope_type_max_depth_help: スコープフィルターの深さを制限します。フィルターは、一般から選択したスコープタイプに表示されます。
