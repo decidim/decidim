@@ -370,9 +370,12 @@ ja:
         conferences:
           form:
             available_slots_help: 無制限のスロットがある場合は0のままにしてください。
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             registrations_count:
               other: '%{count} 件の登録がありました。'
             slug_help_html: 'URLスラグは、このカンファレンスを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
+            taxonomies: タクソノミー
         content_blocks:
           highlighted_conferences:
             max_results: 表示する要素の最大数
@@ -587,6 +590,7 @@ ja:
           slogan: このカンファレンスのスローガン
           slug: カンファレンスのスラグ（識別目的、URLに使用）
           start_date: カンファレンスの開始日時
+          taxonomies: このカンファレンスのタクソノミー
           title: カンファレンスのタイトル
     statistics:
       conferences_count: カンファレンス
