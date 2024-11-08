@@ -108,7 +108,7 @@ In the case of Ubuntu/Debian, this is done with the following command:
 sudo apt install wkhtmltopdf
 ```
 
-You can read more about this change on PR [#13616](https://github.com/decidim/decidim/pull/13616  ).
+You can read more about this change on PR [#13616](https://github.com/decidim/decidim/pull/13616).
 
 ## 3. One time actions
 
