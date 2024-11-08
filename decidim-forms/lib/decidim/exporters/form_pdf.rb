@@ -46,6 +46,7 @@ module Decidim
 
       protected
 
+      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.question.title')
       def add_data!
         composer.text(translated_attribute(questionnaire.title), style: :h1)
         composer.text(decidim_sanitize_translated(questionnaire.description), style: :description)
@@ -76,6 +77,11 @@ module Decidim
         }
       end
 
+      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.session_token')
+      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.user_status')
+      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.ip_hash')
+      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.completion')
+      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.created_at')
       def header
         [
           layout.text(I18n.t("session_token", scope:), style: :th),
@@ -97,8 +103,9 @@ module Decidim
         composer.table([cells], header: ->(_table) { [header] }, cell_style: { border: { width: 0 } })
       end
 
+      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.question.response')
       def add_response_box(record, index)
-        composer.text(I18n.t("question.response", scope:, number: index + 1), style: :section_title)
+        composer.text(I18n.t("question.response", scope:, count: index + 1), style: :section_title)
         add_user_data(record)
 
         record.answers.each do |answer|
