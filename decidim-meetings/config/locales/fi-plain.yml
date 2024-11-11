@@ -174,6 +174,10 @@ fi-pl:
             comments_blocked: Kommentointi on estetty
             creation_enabled_for_participants: Tapahtuman luonti sallittu osallistujille
             creation_enabled_for_user_groups: Tapahtuman luonti sallittu ryhmille
+    download_your_data:
+      show:
+        meeting_comments: Tapaamisten kommenttien vienti
+        meetings: Tapaamisten vienti
     events:
       meetings:
         meeting_closed:
