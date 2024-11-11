@@ -152,6 +152,9 @@ fi-pl:
       titles:
         initiatives: Aloitteet
         initiatives_types: Aloitetyypit
+    download_your_data:
+      show:
+        initiatives: Aloitteiden vienti
     events:
       initiatives:
         admin:
