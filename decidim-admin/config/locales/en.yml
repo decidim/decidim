@@ -1067,8 +1067,8 @@ en:
           success: Page updated successfully.
       taxonomies:
         actions: Actions
-        amount: Amount
-        count: Count
+        amount: Number of items
+        count: Associated resources
         create:
           invalid: There was a problem creating this taxonomy.
           success: Taxonomy created successfully.
