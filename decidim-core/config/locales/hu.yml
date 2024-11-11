@@ -580,9 +580,6 @@ hu:
     download_your_data:
       export:
         ready: Kész
-      show:
-        download_data: Töltsd le az adatokat
-        request_data: Adatkérés
     editor_images:
       create:
         error: Hiba történt a kép feltöltése közben.
@@ -762,10 +759,7 @@ hu:
           email_subject: "%{name} regisztrációja hivatalossá lett téva"
     export_mailer:
       download_your_data_export:
-        click_button: 'Kattintson a következő linkre az adatainak letöltéséhez. <br/> A fájl elérhető marad eddig %{date}<br/> Szüksége lesz egy a zip fájlt kicsomagoló programra. <a href="https://www.7-zip.org/"> 7-Zip</a>Windowson,<a href="https://www.keka.io/en/">Keka</a> (Mac-en) vagy <a href="https://peazip.github.io">PeaZip</a> (Linuxon). Jelszó: %{password}'
         download: Letöltés
-      export:
-        ready: Mellékelve találod az exportálás tömörített változatát.
       subject: A(z) "%{name}" exportálás kész
     filters:
       linked_classes:
