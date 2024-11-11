@@ -168,6 +168,7 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       download_your_data_export:
+        export_expired: The export has expired. Try to generate a new export.
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You will receive an email when it is complete.
       email_change:
@@ -687,12 +688,16 @@ en:
       export:
         ready: Ready
       show:
-        download_data: Download the data
-        download_data_description_html: |-
-          A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>.
-          This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS).
-          If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Request data
+        action: Action
+        download: Download
+        download_data: Downloads area
+        download_data_description_1: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
+        download_data_description_2: You can request a .zip file with your submissions and personal data.
+        download_your_data: Personal data
+        expiration: Expiration
+        expired: Already expired
+        request_data: Request
+        type: Download type
     editor_images:
       create:
         error: Error uploading image.
@@ -883,10 +888,11 @@ en:
           notification_title: Participant %{name} (%{nickname}) has been officialized.
     export_mailer:
       download_your_data_export:
-        click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
+        click_button_html: Click the next link to download your data.<br/>The file will be available for download until %{date}.
         download: Download
       export:
-        ready: Please find attached a zipped version of your export.
+        click_button_html: Your download is ready. <br/>The file will be available for download until %{date}.
+        download: Download
       subject: Your export "%{name}" is ready
     filters:
       linked_classes:
