@@ -357,9 +357,6 @@ zh-CN:
     download_your_data:
       export:
         ready: 准备好
-      show:
-        download_data: 下载数据
-        request_data: 请求数据
     endorsements:
       identities:
         done: 完成
@@ -496,8 +493,6 @@ zh-CN:
     export_mailer:
       download_your_data_export:
         download: 下载
-      export:
-        ready: 请找到您导出的压缩版本。
       subject: 您导出的"%{name}"已准备好
     filters:
       linked_classes:
