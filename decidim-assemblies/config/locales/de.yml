@@ -405,6 +405,9 @@ de:
         designated_on: Bezeichnet am
       index:
         title: Mitglieder
+    download_your_data:
+      show:
+        assemblies: Export der Gremien
     events:
       assemblies:
         create_assembly_member:
@@ -440,7 +443,47 @@ de:
     open_data:
       help:
         assemblies:
+          announcement: Die Ankündigungsinformationen (Banner)
+          area: Der Bereich des Gremiums
+          assembly_type: Der Typ des Gremiums
+          closing_date: Das Auflösungsdatum des Gremiums
+          closing_date_reason: Der Auflösungsgrund des Gremiums
+          composition: Die Zusammensetzung des Gremiums
+          created_by: Wer hat dieses Gremium gegründet hat
+          created_by_other: Weitere Gründungspersonen des Gremiums
+          creation_date: Das Gründungsdatum des Gremiums
+          decidim_scope_id: Die Themen des Gremiums
+          description: Eine lange Beschreibung des Gremiums
+          developer_group: Die Entwicklungsgruppe des Gremiums
+          duration: Die Dauer des Gremiums
+          facebook_handler: Social Media Handler für Facebook
+          github_handler: Social Media Handler für GitHub
+          hashtag: Der Gremium-Hashtag, verwendet für Twitter/X
+          id: Der eindeutige Bezeichnung dieser Assembly
+          included_at: Datum des Einbezugs des Ergebnisses
+          instagram_handler: Social Media Handler für Instagram
+          internal_organisation: Die interne Organisation dieses Gremiums
+          is_transparent: Ob das Gremium öffentlich zugänglich ist oder nicht
+          local_area: Der lokale Bereich des Gremiums
+          meta_scope: Die Bereichsmetadaten des Ergebnisses
+          participatory_scope: Der partizipative Bereich des Gremiums
+          participatory_structure: Die partizipative Struktur des Gremiums
+          promoted: Ob das Gremium hervorgehoben ist oder nicht
+          purpose_of_action: Der Zweck des Gremiums
+          reference: Die Referenz des Gremiums. Ein eindeutiger Identifikator für diese Plattform.
+          remote_banner_image_url: Die URL des Gremium-Bannerbildes
+          remote_hero_image_url: Die URL des Gremium-Titelbildes
+          scope: Die Themen des Gremiums
+          scopes_enabled: Ob Themen aktiviert sind oder nicht
+          short_description: Eine kurze Beschreibung des Gremiums
+          slug: Der URL-Slug des Gremiums (verwendet für Identifikationszwecke in der URL)
+          special_features: Welche besonderen Merkmale dieses Gremium hat
+          subtitle: Der Untertitel des Gremiums
+          target: Das Ziel des Gremiums
           taxonomies: Die Klassifizierungen des Projekts
+          title: Der Titel des Gremiums
+          twitter_handler: Social Media Handler für X/Twitter
+          youtube_handler: Social Media Handler für YouTube
     participatory_processes:
       show:
         related_assemblies: Ähnliche Versammlungen
