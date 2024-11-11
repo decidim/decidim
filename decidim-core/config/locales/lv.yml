@@ -360,9 +360,6 @@ lv:
     download_your_data:
       export:
         ready: Gatavs
-      show:
-        download_data: Lejupielādēt datus
-        request_data: Pieprasīt datus
     endorsements:
       identities:
         done: Pabeigts
@@ -501,8 +498,6 @@ lv:
     export_mailer:
       download_your_data_export:
         download: Lejupielādēt
-      export:
-        ready: Lūdzu, jūsu eksportēto datu saspiestā versija.
       subject: Jūsu eksportētais "%{name}" ir gatavs.
     filters:
       linked_classes:
