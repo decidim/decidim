@@ -644,9 +644,6 @@ lt:
     download_your_data:
       export:
         ready: Pasirengęs
-      show:
-        download_data: Parsisiųsti duomenis
-        request_data: Prašyti duomenų
     editor_images:
       create:
         error: Klaida įkeliant paveikslėlį.
@@ -822,10 +819,7 @@ lt:
           notification_title: Dalyvis %{name} (%{nickname}) buvo oficializuotas.
     export_mailer:
       download_your_data_export:
-        click_button: 'Spustelėkite ant sekančios nuorodos, kad atsisiųsti prieigos kodų duomenis.<br/>Failas bus prieinamas iki %{date}.<br/>Jums reikės <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) arba <a href="https://peazip.github.io">PeaZip</a> (Linux) kad jį atverti. Slaptažodis: %{password}'
         download: Atsisiųsti
-      export:
-        ready: Pridedame jūsų eksporto suspaustos rinkmenos variantą.
       subject: Jūsų eksportuojamas „%{name}“ yra parengtas
     filters:
       linked_classes:
