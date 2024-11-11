@@ -40,7 +40,10 @@ module Decidim
             orientation: "Landscape"
           )
 
+          second_diploma = Decidim::Conferences::ConferenceDiplomaPDF.new(@conference, @user).render
+
           attachments["conference-#{@user.nickname.parameterize}-diploma.pdf"] = diploma
+          attachments["new_conference-#{@user.nickname.parameterize}-diploma.pdf"] = second_diploma
         end
       end
     end
