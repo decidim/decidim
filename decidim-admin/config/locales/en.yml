@@ -1115,12 +1115,14 @@ en:
           success: Taxonomy filter successfully destroyed.
         edit:
           back: Back
-          items: "%{count} items selected"
-          no_items: No items are available for this taxonomy. You can create items in the taxonomy configuration settings.
           title: Edit taxonomy filter
           update: Update taxonomy filter
         form:
-          select_taxonomy: Select a taxonomy
+          all: All
+          items: "%{count} items selected"
+          name_help: The title of the filter to be displayed in the frontend.
+          no_items: No items are available for this taxonomy. You can create items in the taxonomy configuration settings.
+          space_filter: Available as filter for all %{manifest_name}
         index:
           description: A taxonomy filter allows admins to sort and filter participatory spaces based on a taxonomy. For example, add a taxonomy filter to sort processes by geographical scope.
           empty: There are currently no taxonomy filters. Create a list of taxonomy filters here to sort and filter participatory spaces based on a taxonomy.
@@ -1128,6 +1130,7 @@ en:
           back: Back
           create: Create taxonomy filter
           items: "%{count} items available"
+          select_taxonomy: Select a taxonomy
           title: New taxonomy filter
         table:
           actions: Actions

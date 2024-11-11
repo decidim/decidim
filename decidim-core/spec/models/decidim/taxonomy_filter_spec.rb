@@ -11,6 +11,29 @@ module Decidim
       it { is_expected.to be_valid }
       it { is_expected.to respond_to(:root_taxonomy) }
       it { is_expected.to respond_to(:filter_items) }
+
+      it "has the same name as the root taxonomy" do
+        expect(taxonomy_filter.name).to eq(root_taxonomy.name)
+        expect(taxonomy_filter.internal_name).to eq(root_taxonomy.name)
+      end
+    end
+
+    context "when the filter taxonomy has a custom name" do
+      subject(:taxonomy_filter) { build(:taxonomy_filter, root_taxonomy:, name: { en: "Custom name" }) }
+
+      it "has the custom name" do
+        expect(taxonomy_filter.name["en"]).to eq("Custom name")
+        expect(taxonomy_filter.internal_name).to eq(root_taxonomy.name)
+      end
+    end
+
+    context "when the filter taxonomy has a custom internal name" do
+      subject(:taxonomy_filter) { build(:taxonomy_filter, root_taxonomy:, internal_name: { en: "Custom internal name" }) }
+
+      it "has the custom internal name" do
+        expect(taxonomy_filter.internal_name["en"]).to eq("Custom internal name")
+        expect(taxonomy_filter.name).to eq(root_taxonomy.name)
+      end
     end
 
     context "when root taxonomy is missing" do
