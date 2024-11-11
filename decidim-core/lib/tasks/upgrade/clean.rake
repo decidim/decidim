@@ -9,8 +9,16 @@ namespace :decidim do
         :"decidim:upgrade:clean:notifications",
         :"decidim:upgrade:clean:follows",
         :"decidim:upgrade:clean:categories",
-        :"decidim:upgrade:clean:action_logs"
+        :"decidim:upgrade:clean:action_logs",
+        :"decidim:upgrade:clean:clean_deleted_users"
       ]
+
+
+      desc "Remove data from deleted users"
+      task clean_deleted_users: :environment do
+        logger.info("=== Removing extra data from deleted users")
+        Decidim::User.where.not(deleted_at: nil).update_all(personal_url: "", about: "")
+      end
 
       desc "Removes any action logs belonging to invalid resources"
       task :action_logs, [] => :environment do

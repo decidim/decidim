@@ -110,6 +110,16 @@ sudo apt install wkhtmltopdf
 
 You can read more about this change on PR [#13616](https://github.com/decidim/decidim/pull/13616).
 
+### 2.7. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
+
+As of [#13624](https://github.com/decidim/decidim/pull/13380), we are cleaning up better the deleted users records, by removing the about and personal url fields. As a result we added a new rake task that you can run on legacy databases. This task has already been added to generic `decidim:upgrade:clean:invalid_records` rake task.
+
+```ruby
+bin/rails decidim:upgrade:clean:clean_deleted_users
+```
+
+You can read more about this change on PR [#13624](https://github.com/decidim/decidim/pull/13624).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
