@@ -167,6 +167,7 @@ de:
         error: Beim Löschen Ihres Kontos ist ein Fehler aufgetreten.
         success: Ihr Konto wurde erfolgreich gelöscht.
       download_your_data_export:
+        export_expired: Der Export ist abgelaufen. Versuchen Sie, einen neuen Export zu generieren.
         file_no_exists: Diese Datei existiert nicht
         notice: Ihre Daten werden gerade bereitgestellt. Sie erhalten nach Fertigstellung eine E-Mail.
       email_change:
@@ -685,17 +686,36 @@ de:
     download_your_data:
       export:
         ready: Bereit
+      show:
+        action: Aktion
+        download: Herunterladen
+        download_data: Downloadbereich
+        download_data_description_1: Hier finden Sie alle für Ihr Konto verfügbaren Downloads. Diese .zip Dateien sind zwei Wochen verfügbar, bevor sie gelöscht werden.
+        download_data_description_2: Sie können eine .zip-Datei mit Ihren Beiträgen und personenbezogenen Daten anfordern.
+        download_your_data: Personenbezogene Daten
+        expiration: Ablaufdatum
+        expired: Bereits abgelaufen
+        request_data: Anfrage
+        type: Art des Downloads
     editor_images:
       create:
         error: Fehler beim Hochladen des Bildes.
         success: Bild erfolgreich hochgeladen.
       drag_and_drop_help: Sie können Bilder per Drag & Drop hinzufügen oder per Copy & Paste.
     endorsement_buttons_cell:
+      already_endorsed: Zustimmung zurückziehen
       endorse: Gefällt mir
     endorsements:
       identities:
         done: Erledigt
         select_identity: Identität auswählen
+    endorsers_list:
+      endorsed_by:
+        one: '%{visible} stimmt zu'
+        other: '%{visible} und %{others} stimmen zu'
+      others: "%{count} weitere"
+      title: Zustimmende
+      you: du
     errors:
       files:
         file_cannot_be_processed: Datei konnte nicht verarbeitet werden
@@ -867,6 +887,10 @@ de:
           notification_title: Teilnehmer %{name} (%{nickname}) wurde offiziell bestätigt.
     export_mailer:
       download_your_data_export:
+        click_button_html: Klicken Sie auf den nächsten Link, um Ihre Daten herunterzuladen.<br/>Die Datei steht bis %{date} zum Download zur Verfügung.
+        download: Herunterladen
+      export:
+        click_button_html: Ihr Download ist bereit. <br/>Die Datei steht bis %{date} zum Download zur Verfügung.
         download: Herunterladen
       subject: Ihr Export "%{name}" ist fertig
     filters:
@@ -1320,6 +1344,81 @@ de:
         message_2: Bitte später erneut versuchen.
         retry: Wiederholen
     open_data:
+      help:
+        core:
+          components: Komponenten
+          description: Diese ZIP-Datei enthält Dateien zum Studium und Recherchen über diese Mitwirkungsplattform.
+          main: Kern
+          spaces: Bereiche
+          title: Open Data Dateien für %{organization} 
+        user_groups:
+          avatar_url: Der Avatar der Gruppe
+          badge: Das Abzeichen der Gruppe
+          deleted: Ob der Benutzer gelöscht wurde oder nicht
+          id: Die eindeutige Bezeichnung des Gruppe
+          members: Die IDs und die Namen der Gruppenmitglieder
+          members_count: Die Anzahl Gruppenmitglieder
+          name: Der Anzeigename der Gruppe
+          nickname: Der Kontoname der Gruppe
+          profile_url: Die Profil-URL
+        users:
+          about: Der Beschreibungstext des Kontos
+          avatar_url: Der Avatar des Kontos
+          badge: Das Abzeichen des Kontos
+          deleted: Ob das Konto gelöscht wurde oder nicht
+          direct_messages_enabled: Ob das Konto Direktnachrichten erlaubt
+          groups: Die ID und der Name der Gruppe
+          id: Die eindeutige Bezeichnung des Kontos
+          name: Der Anzeigename des Kontos
+          nickname: Der Kontoname
+          profile_url: Die Profil-URL
+      index:
+        description: Willkommen zur Open-Data-Seite von %{organization_name}. Hier finden Sie Dateien, die regelmäßig aus den verschiedenen Deliberations- und Mitwirkungsprozessen auf %{organization_name} generiert werden. Diese Dateien werden zur Verfügung gestellt, um Transparenz, Zugänglichkeit und Zusammenarbeit zu fördern. Unten finden Sie detaillierte Informationen darüber, was diese Dateien sind, wie man sie öffnet und mit ihnen arbeitet und eine Beschreibung des Inhalts bzw. der Struktur jeder Datei.
+        detailed:
+          body_1: 'Unten ist eine Beschreibung für jeden Datensatz, einschließlich seines Schemas (Struktur) und der Art der darin enthaltenen Informationen:'
+          components: Komponenten
+          spaces: Beteiligungsbereiche
+          title: Detaillierte Erklärung für jede Datei
+        download:
+          components: Komponenten
+          core: Kern
+          spaces: Beteiligungsbereiche
+          title: Ressourcen herunterladen
+        download_open_data: Open Data Dateien herunterladen
+        download_resource: '%{resource_name} im CSV-Format herunterladen'
+        explanation:
+          body_1: Diese Dateien sind Datensätze, die aus den Partizipationsprozessen von %{organization_name} exportiert wurden, wie Vorschläge, Kommentare und Treffen. Sie liefern rohe, strukturierte Daten, die zur Analyse, Forschung oder Integration mit anderen Werkzeugen verwendet werden können. Die Daten werden automatisch alle 24 Stunden aktualisiert und stellen sicher, dass Sie Zugriff auf die neuesten Informationen haben.
+          body_2: Diese Dateien sind im CSV-Format (Comma-Separated Values) das ein weit verbreitetes Dateiformat ist, das von einer Vielzahl von Softwareanwendungen geöffnet und verarbeitet werden kann, einschließlich Tabellenkalkulationsprogramme, Texteditoren und Datenanalysewerkzeugen.
+          title: Was sind diese Dateien?
+        how_to:
+          step_1:
+            body_html: Klicken Sie auf die untenstehenden Links, um die CSV-Dateien auf Ihren Computer herunterzuladen.
+            title: 1. Dateien herunterladen
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Tabellenkalkulationen</b>: Sie können CSV-Dateien mit Anwendungen wie Microsoft Excel, Google Sheets, oder LibreOffice Calc öffnen. Öffnen Sie einfach die Anwendung, wählen Sie "Öffnen" aus dem Menü Datei und wählen Sie die heruntergeladene CSV-Datei.</li>
+              <li><b>Texteditoren</b>: CSV-Dateien können auch in jedem Texteditor geöffnet werden, B. Notepad oder Sublime Text. Hiermit werden die Rohdaten angezeigt, wobei jede Zeile eine Zeile und jeder Wert durch ein Komma getrennt sind.</li>
+              <li><b>Datenanalysetools</b>: Wenn Sie mit Datenanalysetools wie Python (mit Pandas) vertraut sind, R oder SQL-Datenbanken, können Sie diese CSV-Dateien direkt zur Verarbeitung und Analyse importieren.</li>
+              </ul>
+            title: 2. Öffnen Sie die Dateien
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtern und Sortieren</b>: In Tabellenkalkulations-Anwendungen Sie können die Daten filtern und sortieren, um sich auf bestimmte Untergruppen von Informationen zu konzentrieren.</li>
+              <li><b>Analyse</b>: Verwenden Sie die Daten für verschiedene Analysen, B. die Anzahl der Vorschläge, die Analyse von Trends in Kommentaren oder die Bewertung der Teilnahme an Meetings.</li>
+              <li><b>Visualisierung</b>: Sie können Diagramme, Diagramme und andere Visualisierungen erstellen, um die Daten zu interpretieren.</li>
+              </ul>
+            title: 3. Arbeiten mit den Daten
+          title: Wie man diese Dateien öffnet und mit ihnen arbeitet
+        license:
+          body_1_html: Diese Datenbank von %{organization_name} wird unter %{link_database} zur Verfügung gestellt. Alle Rechte an einzelnen Inhalten der Datenbank sind unter %{link_contents} lizenziert.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Lizenz für Datenbankinhalte
+          license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
+          license_database_name: Offene Datenbanklizenz
+          title: Lizenz
+        title: Offene Daten
       not_available_yet: Die Open Data-Dateien sind noch nicht verfügbar. Bitte versuchen Sie es in einigen Minuten erneut.
     pad_iframe:
       disclaimer: Der Inhalt dieses Blocks wird von registrierten Benutzern verfasst und gibt deren Meinung wieder. %{organization} kann nicht für den Inhalt verantwortlich gemacht werden.
@@ -1345,7 +1444,7 @@ de:
           participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
           welcome: Willkommen bei %{organization}!
         statistics:
-          headline: Aktueller Status von %{organization}
+          headline: Starea curentă a %{organization}
         sub_hero:
           register: Registrieren
           register_title: Konto erstellen
@@ -1512,7 +1611,7 @@ de:
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Verbergen
         hide_content: Diesen Inhalt verbergen
-        offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
+        offensive: Er enthält Formen von Rassismus, Sexismus, Verunglimpfungen, persönlichen Angriffen, Morddrohungen, Selbstmord oder jeder Form von Hassreden.
         reason: Begründung
         report: Meldung erfassen
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
@@ -1963,6 +2062,7 @@ de:
         decidim_title: Decidim
         log_in: Anmelden
         made_with_open_source: Website mit <a target="_blank" href="https://github.com/decidim/decidim">freier Software erstellt</a>.
+        open_data: Offene Daten
         resources: Ressourcen
         sign_up: Konto erstellen
         terms_of_service: Nutzungsbedingungen
