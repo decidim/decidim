@@ -167,6 +167,7 @@ fi-pl:
         error: Tilin poistossa tapahtui virhe.
         success: Tilisi poistaminen onnistui.
       download_your_data_export:
+        export_expired: Vientitiedosto on vanhentunut. Yritä luoda uusi vienti.
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       email_change:
@@ -682,10 +683,16 @@ fi-pl:
       export:
         ready: Valmis
       show:
-        download_data: Lataa tiedot
-        download_data_description_html: |-
-          Tiedosto sisältää kaikki tiliisi liitetyt tiedot ja se lähetetään osoitteeseen <strong>%{user_email}</strong>. Kyseinen sähköposti sisältää .zip-tiedoston ja salasanan, jolla kyseisen tiedoston voi avata.<br/><br/>Purkaaksesi tiedoston, tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille) tai <a href="https://www.keka.io/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille). Jos käytät Linux-käyttöjärjestelmää, useimmiten paketin avaamiseen tarvittava ohjelmisto on valmiiksi asennettuna järjestelmääsi. Jos näin ei kuitenkaan ole, voit käyttää <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller -ohjelmistoa</a> tai <a href="https://peazip.github.io">PeaZip-ohjelmistoa</a> paketin avaamiseen.
-        request_data: Pyydä tietoja
+        action: Toiminto
+        download: Lataa
+        download_data: Latausosio
+        download_data_description_1: Täältä löydät kaikki tililtäsi ladattavissa olevat tiedot. Nämä ZIP-tiedostot ovat ladattavissa kahden viikon ajan ennen kuin ne poistetaan.
+        download_data_description_2: Voit pyytää ZIP-tiedoston henkilökohtaisista tiedoistasi.
+        download_your_data: Omat tiedot
+        expiration: Vanhentumisaika
+        expired: Vanhentunut
+        request_data: Pyydä
+        type: Latauksen tyyppi
     editor_images:
       create:
         error: Kuvan lähettäminen epäonnistui.
@@ -875,10 +882,11 @@ fi-pl:
           notification_title: Osallistuja %{name} (%{nickname}) on virallistettu.
     export_mailer:
       download_your_data_export:
-        click_button: 'Napsauta Seuraava-linkkiä ladataksesi tietosi.<br/>Tiedosto on saatavilla %{date} saakka.<br/>Tarvitset paketin avaamiseen <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille), <a href="https://www.keka.io/en/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelmiston</a> (Linux-käyttöjärjestelmille). Salasana: %{password}'
+        click_button_html: Napsauta seuraavaa linkkiä ladataksesi tietosi.<br/>Tiedosto on ladattavissa %{date} saakka.
         download: Lataa
       export:
-        ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
+        click_button_html: Lataustiedostosi on valmis.<br/>Tiedosto on ladattavissa %{date} saakka.
+        download: Lataa
       subject: Tietojen vienti "%{name}" on valmis
     filters:
       linked_classes:
@@ -1335,12 +1343,39 @@ fi-pl:
         core:
           components: Komponentit
           description: Tämä ZIP-tiedosto sisältää tiedostoja tämän alustan tutkimiseen.
+          main: Ydin
           spaces: Tilat
           title: Avoimet datan tiedostot palvelulle %{organization}
+        user_groups:
+          avatar_url: Käyttäjäryhmän avatar-kuva
+          badge: Käyttäjäryhmän tunnusmerkki
+          deleted: Onko käyttäjä poistettu vai ei
+          id: Käyttäjäryhmän yksilöllinen tunniste
+          members: Ryhmään kuuluvien käyttäjien yksilöllinen tunniste (ID) ja nimi
+          members_count: Käyttäjäryhmään kuuluvien käyttäjien määrä
+          name: Käyttäjäryhmän nimi
+          nickname: Käyttäjäryhmän käyttäjänimi
+          profile_url: Profiilin URL-osoite
+        users:
+          about: Käyttäjäryhmän kuvaus
+          avatar_url: Käyttäjän avatar-kuva
+          badge: Käyttäjän tunnusmerkki
+          deleted: Onko käyttäjä poistettu vai ei
+          direct_messages_enabled: Salliiko käyttäjä yksityisviestit vai ei
+          groups: Käyttäjäryhmän yksilöivä tunniste (ID) ja nimi
+          id: Käyttäjän yksilöivä tunniste
+          name: Käyttäjän nimi
+          nickname: Käyttäjän käyttäjänimi
+          profile_url: Profiilin URL-osoite
       index:
         description: Tervetuloa %{organization_name} -palvelun avoimen datan sivulle. Tältä sivulta löydät datatiedostoja, joita päivitetään säännöllisesti erilaisten deliberatiivisten ja hallinnollisten prosessien perusteella palvelussa %{organization_name}. Nämä tiedostot ovat saatavilla edistääksemme avoimuutta, tiedon saatavuutta ja saavutettavuutta sekä yhteistyötarkoituksiin. Löydät alta yksityiskohtaisia tiedostoja kustakin tiedostosta sekä kuinka voit avata ja työskennellä tiedostojen kanssa. Jokaiselle tiedostolle on annettu myös selitykset ja rakennekuvaukset.
+        detailed:
+          components: Komponentit
+          spaces: Osallistumistilat
+          title: Jokaisen tiedoston selitteet
         download:
           components: Komponentit
+          core: Ydin
           spaces: Osallistumistilat
           title: Lataa tietoja
         download_open_data: Lataa kaikki avoimet datatiedostot
@@ -1370,6 +1405,12 @@ fi-pl:
               </ul>
             title: 3. Työskentele tietojen kanssa
           title: Miten nämä tiedostot avataan ja miten niiden kanssa työskennellään?
+        license:
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_name: Tietokannan sisällön lisenssi
+          license_database_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_database_name: Avoimien tietojen lisenssi
+          title: Lisenssi
         title: Avoin data
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
     pad_iframe:
