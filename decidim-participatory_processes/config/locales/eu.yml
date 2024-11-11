@@ -326,6 +326,9 @@ eu:
         create: "%{user_name} k %{resource_name} parte-hartzailea gonbidatu du %{space_name} parte hartze-prozesura"
         delete: "%{user_name} k %{resource_name} parte-hartzailea kendu du %{space_name} prozesu parte-hartzailetik"
         update: "%{user_name} k %{resource_name} parte-hartzailearen rola aldatu du %{space_name} prozesu parte-hartzailean"
+    download_your_data:
+      show:
+        participatory_processes: Esportatu Prozesu Parte-hartzailea
     events:
       participatory_process:
         role_assigned:
