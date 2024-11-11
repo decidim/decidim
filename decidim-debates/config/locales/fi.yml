@@ -170,6 +170,10 @@ fi:
             start_time: Alkamispäivä
             taxonomies: Luokittelut
             title: Otsikko
+    download_your_data:
+      show:
+        debate_comments: Keskustelujen kommenttien vienti
+        debates: Keskustelujen vienti
     events:
       debates:
         create_debate_event:
