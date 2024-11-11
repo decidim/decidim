@@ -80,6 +80,8 @@ de:
           update:
             invalid: Bei der Aktualisierung dieser Debatte ist ein Problem aufgetreten.
             success: Die Diskussion wurde erfolgreich aktualisiert.
+        exports:
+          comments: Kommentare
       admin_log:
         debate:
           close: "%{user_name} hat die Debatte %{resource_name} in %{space_name} geschlossen"
