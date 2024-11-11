@@ -313,9 +313,6 @@ gl:
     download_your_data:
       export:
         ready: Listo
-      show:
-        download_data: Descarga os datos
-        request_data: Solicitar datos
     editor_images:
       drag_and_drop_help: Engade imaxes arrastrándoas ou pegándoas aquí.
     errors:
@@ -442,8 +439,6 @@ gl:
     export_mailer:
       download_your_data_export:
         download: Descarga
-      export:
-        ready: Atopa unha versión comprimida da túa exportación.
       subject: A exportación "%{name}" está lista
     filters:
       linked_classes:
