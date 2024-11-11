@@ -366,6 +366,9 @@ fi-pl:
               disabled: Äänestys estetty
               enabled: Äänestys on käytössä
               finished: Äänestys päättynyt
+    download_your_data:
+      show:
+        projects: Projektien vienti
     events:
       budgets:
         budget_published:
