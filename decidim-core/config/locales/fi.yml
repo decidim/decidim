@@ -681,11 +681,6 @@ fi:
     download_your_data:
       export:
         ready: Valmis
-      show:
-        download_data: Lataa tiedot
-        download_data_description_html: |-
-          Tiedosto sisältää kaikki tiliisi liitetyt tiedot ja se lähetetään osoitteeseen <strong>%{user_email}</strong>. Kyseinen sähköposti sisältää .zip-tiedoston ja salasanan, jolla kyseisen tiedoston voi avata.<br/><br/>Purkaaksesi tiedoston, tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille) tai <a href="https://www.keka.io/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille). Jos käytät Linux-käyttöjärjestelmää, useimmiten paketin avaamiseen tarvittava ohjelmisto on valmiiksi asennettuna järjestelmääsi. Jos näin ei kuitenkaan ole, voit käyttää <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller -ohjelmistoa</a> tai <a href="https://peazip.github.io">PeaZip-ohjelmistoa</a> paketin avaamiseen.
-        request_data: Pyydä tietoja
     editor_images:
       create:
         error: Kuvan lähettäminen epäonnistui.
@@ -875,10 +870,7 @@ fi:
           notification_title: Osallistuja %{name} (%{nickname}) on virallistettu.
     export_mailer:
       download_your_data_export:
-        click_button: 'Napsauta Seuraava-linkkiä ladataksesi tietosi.<br/>Tiedosto on saatavilla %{date} saakka.<br/>Tarvitset paketin avaamiseen <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille), <a href="https://www.keka.io/en/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelmiston</a> (Linux-käyttöjärjestelmille). Salasana: %{password}'
         download: Lataa
-      export:
-        ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
       subject: Tietojen vienti "%{name}" on valmis
     filters:
       linked_classes:
