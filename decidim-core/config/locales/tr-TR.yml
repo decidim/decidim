@@ -424,9 +424,6 @@ tr:
     download_your_data:
       export:
         ready: Hazır
-      show:
-        download_data: Verileri indir
-        request_data: Veri talep et
     endorsements:
       identities:
         done: Bitti
@@ -573,8 +570,6 @@ tr:
     export_mailer:
       download_your_data_export:
         download: İndir
-      export:
-        ready: Lütfen dışa aktarımınızın sıkıştırılmış bir sürümünü ekte bulun.
       subject: '"%{name}" dışa aktarmanız hazır'
     filters:
       linked_classes:
