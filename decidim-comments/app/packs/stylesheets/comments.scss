@@ -412,7 +412,7 @@
 }
 
 #add-comment-modal[data-dialog] > * {
-  @apply absolute inset-1/2 ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 w-full max-h-[100vh] h-full overflow-y-auto p-0 bg-white z-50 rounded-none shadow-none;
+  @apply absolute inset-1/2 ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 w-full max-h-[100vh] h-full overflow-hidden p-0 bg-white z-50 rounded-none shadow-none;
 }
 
 #add-comment-modal[data-dialog] {
