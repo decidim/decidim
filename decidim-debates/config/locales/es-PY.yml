@@ -142,9 +142,11 @@ es-PY:
           recent: Más recientes
           updated: Actualizados recientemente
         show:
+          close_debate: Cerrar
           debate_closed: Cerrado
           debate_conclusions_are: 'El debate se cerró el %{date} con estas conclusiones:'
           edit_conclusions: Editar conclusiones
+          edit_debate: Editar
           groups_count: Grupos
           open: Debate abierto
           participants_count: Participantes
