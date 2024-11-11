@@ -542,9 +542,6 @@ zh-TW:
     download_your_data:
       export:
         ready: 準備就緒
-      show:
-        download_data: 下載資料
-        request_data: 請求數據
     editor_images:
       create:
         error: 上傳圖片時發生錯誤.
@@ -718,10 +715,7 @@ zh-TW:
           notification_title: 參與者 %{name} (%{nickname}) 已被官方認證。
     export_mailer:
       download_your_data_export:
-        click_button: '點擊下方鏈接下載您的資料。<br/>檔案將可取得直到 %{date}.<br/>您需要 <a href="https://www.7-zip.org/">7-Zip</a> (Windows)，<a href="https://www.keka.io/en/">Keka</a> (MacOS)，或<a href="https://peazip.github.io">PeaZip</a> (Linux) 來打開它。密碼: %{password}'
         download: 下載
-      export:
-        ready: 請查收附上的壓縮檔，這是您的匯出資料。
       subject: 您的匯出檔案 "%{name}" 已準備就緒。
     filters:
       linked_classes:
