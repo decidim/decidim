@@ -603,9 +603,6 @@ ro:
     download_your_data:
       export:
         ready: Gata
-      show:
-        download_data: Descarcă datele
-        request_data: Cere date
     editor_images:
       drag_and_drop_help: Adaugă imagini prin tragere & plasare sau lipirea lor.
     endorsement_buttons_cell:
@@ -759,10 +756,7 @@ ro:
           notification_title: Pagina de profil <a href="%{resource_path}"></a> din %{name} (%{nickname}), pe care o urmărești, a fost actualizată.
     export_mailer:
       download_your_data_export:
-        click_button: 'Dă-i clic pe următorul link pentru a descărca datele.<br/>Fișierul va fi disponibil până la %{date}.<br/>Vei avea nevoie de <a href="https://www.7-zip.org/">7-Zip</a> (pentru Windows), <a href="https://www.keka.io/en/">Keka</a> (pentru MacOS) sau <a href="https://peazip.github.io">PeaZip</a> (pentru Linux) pentru a-l deschide. Parola: %{password}'
         download: Descărcare
-      export:
-        ready: Atașat vei găsi o versiune arhivată a exportului.
       subject: Exportul tău "%{name}este gata
     filters:
       linked_classes:
