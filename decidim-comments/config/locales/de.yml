@@ -63,6 +63,9 @@ de:
         alignment:
           against: Gegen
           in_favor: Zugunsten
+        answers:
+          one: "%{count} Antwort"
+          other: "%{count} Antworten"
         cancel_reply: Antwort abbrechen
         comment_label: Kommentar %{comment_id}
         comment_label_reply: Kommentar %{comment_id} (Antwort auf Kommentar %{parent_comment_id})
@@ -93,6 +96,7 @@ de:
           one: Antwort anzeigen
           other: '%{count} Antworten anzeigen'
         single_comment_link_title: Link erhalten
+        sort_by: 'Sortieren nach: '
       comment_order_selector:
         order:
           best_rated: Am besten bewertet
