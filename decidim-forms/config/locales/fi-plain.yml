@@ -25,6 +25,9 @@ fi-pl:
         questionnaire:
           request_invalid: Pyynnön käsittely epäonnistui. Yritä uudestaan myöhemmin.
   decidim:
+    download_your_data:
+      show:
+        answers: Vastausten vienti
     forms:
       admin:
         models:
