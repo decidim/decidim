@@ -170,6 +170,10 @@ eu:
             start_time: Hasiera data
             taxonomies: Taxonomiak
             title: Izenburua
+    download_your_data:
+      show:
+        debate_comments: Esportatu eztabaiden iruzkinak
+        debates: Esportatu eztabaidak
     events:
       debates:
         create_debate_event:
