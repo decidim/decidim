@@ -105,6 +105,7 @@ shared_examples "with resource visibility" do
       end
     end
   end
+
   context "when space is published but private" do
     let!(:participatory_process) { create(process_space_factory, :published, :private, :with_steps, organization: current_organization) }
 
@@ -164,6 +165,7 @@ shared_examples "with resource visibility" do
       end
     end
   end
+
   context "when space is unpublished" do
     let(:participatory_process) { create(process_space_factory, :unpublished, :with_steps, organization: current_organization) }
 
