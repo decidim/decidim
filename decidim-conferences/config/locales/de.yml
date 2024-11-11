@@ -578,8 +578,25 @@ de:
     open_data:
       help:
         conferences:
+          decidim_scope_id: Das Thema der Konferenz
+          description: Eine lange Beschreibung der Konferenz
+          end_date: Das Datum, an dem diese Konferenz endet.
+          hashtag: Der Konferenz-Hashtag, verwendet für Twitter/X
+          id: Die eindeutige Bezeichnung dieser Konferenz
+          location: Der Tagungsort, wo diese Konferenz stattfinden wird.
+          objectives: Die Ziele dieser Konferenz.
+          promoted: Ob die Konferenz hervorgehoben ist oder nicht
+          reference: Die Referenz der Konferenz. Ein eindeutiger Identifikator für diese Plattform.
+          remote_banner_image_url: Die URL des Konferenz-Bannerbildes
+          remote_hero_image_url: Die URL des Konferenztitelbildes
+          scope: Das Thema der Konferenz
+          scopes_enabled: Ob Themen aktiviert sind oder nicht
+          short_description: Eine kurze Beschreibung der Konferenz
+          slogan: Das Motto dieser Konferenz
           slug: Der URL-Slug der Konferenz (verwendet für Identifikationszwecke in der URL)
+          start_date: Das Datum, an dem diese Konferenz beginnt.
           taxonomies: Die Klassifizierungen der Konferenz
+          title: Der Titel der Konferenz
     statistics:
       conferences_count: Konferenzen
   devise:
