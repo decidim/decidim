@@ -633,13 +633,6 @@ pl:
     download_your_data:
       export:
         ready: Gotowy
-      show:
-        download_data: Pobierz dane
-        download_data_description_html: |-
-          Plik zawierający wszystkie informacje związane z twoim kontem zostanie wysłany na adres <strong>%{user_email}</strong>. 
-          W e-mailu znajdziesz plik .zip i hasło potrzebne do otworzenia go.<br/><br/>Aby rozpakować plik, będziesz potrzebować programu <a href="https://www.7-zip.org/">7-Zip</a> (dla systemu Windows) albo <a href="https://www.keka.io/">Keka</a> (dla systemu MacOS).
-          Jeśli korzystasz z systemu Linux, w większości przypadków program będzie zainstalowany domyślnie. Jeśli nie, możesz użyć programu <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> albo <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Poproś o dane
     editor_images:
       create:
         error: Wystąpił błąd podczas przesyłania obrazu.
@@ -822,10 +815,7 @@ pl:
           notification_title: Uczestnik %{name} (%{nickname}) został oficjalnie zarejestrowany.
     export_mailer:
       download_your_data_export:
-        click_button: 'Kliknij poniższy przycisk, aby pobrać swoje dane. <br/>Plik będzie dostępny do %{date}. <br/>Będziesz potrzebował <a href=''''https://www.7-zip.org/''''>7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) lub <a href="https://peazip.github.io">PeaZip</a> (Linux) do otwarcia pliku. Hasło: %{password}'
         download: Pobieranie
-      export:
-        ready: Mail zawiera załączony plik eksportu.
       subject: Twój eksport "%{name}" jest gotowy
     filters:
       linked_classes:
