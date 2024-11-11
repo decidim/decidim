@@ -27,11 +27,13 @@
         <%= t("add_comment", scope: "decidim.components.add_comment_form") %>
       </button>
 
-      <%= add_comment %>
+      <div class="md:flex hidden">
+        <%= add_comment %>
+      </div>
       <%= user_comments_blocked_warning %>
     </div>
     <%= cell("decidim/announcement", t("decidim.components.comments.loading"), callout_class: "primary loading-comments hidden") %>
   </div>
 <% end %>
 
-<%= render "add_comment_modal" %>
+<%= render partial: "decidim/comments/comments/add_comment_modal" %>
