@@ -360,6 +360,10 @@ de:
         description: Anzahl der Beteiligungsprozesse in dieser Organisation
         object: Beteiligungsprozesse
         title: Beteiligungsprozesse
+    open_data:
+      help:
+        participatory_processes:
+          slug: Der URL-Slug des Prozesses (verwendet für Identifikationszwecke in der URL)
     participatory_process_groups:
       content_blocks:
         extra_data:
