@@ -257,6 +257,10 @@ en:
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
+    download_your_data:
+      show:
+        proposal_comments: Proposal comments export
+        proposals: Proposals export
     events:
       proposals:
         accepted_coauthorship:
@@ -806,7 +810,7 @@ en:
             error: Could not be rejected as a collaborator, please try again later.
             success: "@%{user} has been successfully rejected as a collaborator."
         show:
-          edit: Edit collaborative draft
+          edit: Edit
           final_proposal: Final proposal
           final_proposal_help_text: This draft is finished. Check out the final proposal
           hidden_authors_count:
@@ -969,7 +973,7 @@ en:
         show:
           answer: Answer
           changes_at_title: Amendment to "%{title}"
-          edit_proposal: Edit proposal
+          edit_proposal: Edit
           estimated_cost: Estimated cost
           hidden_endorsers_count:
             one: and %{count} more person
@@ -985,7 +989,7 @@ en:
           proposal_rejected_reason: 'This proposal has been rejected because:'
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any vote. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation_html: Are you sure you want to withdraw this proposal?<br><br><strong>This action cannot be cancelled!</strong>
-          withdraw_proposal: Withdraw proposal
+          withdraw_proposal: Withdraw
         update:
           title: Update proposal
         vote_button:

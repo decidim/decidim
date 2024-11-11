@@ -153,11 +153,11 @@ en:
           recent: Most recent
           updated: Recently updated
         show:
-          close_debate: Close debate
+          close_debate: Close
           debate_closed: Closed
           debate_conclusions_are: 'The debate was closed on %{date} with these conclusions:'
           edit_conclusions: Edit conclusions
-          edit_debate: Edit debate
+          edit_debate: Edit
           groups_count: Groups
           open: Open debate
           participants_count: Participants
@@ -177,6 +177,10 @@ en:
             start_time: Start date
             taxonomies: Taxonomies
             title: Title
+    download_your_data:
+      show:
+        debate_comments: Debate comments export
+        debates: Debates export
     events:
       debates:
         create_debate_event:

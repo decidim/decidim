@@ -127,6 +127,7 @@ module Decidim
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
   autoload :IconRegistry, "decidim/icon_registry"
   autoload :HasConversations, "decidim/has_conversations"
+  autoload :PrivateDownloadHelper, "decidim/private_download_helper"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"

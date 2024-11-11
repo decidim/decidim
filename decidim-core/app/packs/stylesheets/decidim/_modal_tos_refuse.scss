@@ -3,4 +3,8 @@
   [data-dialog-actions] {
     @apply flex-nowrap;
   }
+
+  a {
+    @apply underline text-secondary;
+  }
 }

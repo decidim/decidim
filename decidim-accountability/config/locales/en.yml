@@ -270,6 +270,10 @@ en:
             taxonomy_filters_add: Add filter
           step:
             comments_blocked: Comments blocked
+    download_your_data:
+      show:
+        result_comments: Result comments export
+        results: Results export
     events:
       accountability:
         proposal_linked:

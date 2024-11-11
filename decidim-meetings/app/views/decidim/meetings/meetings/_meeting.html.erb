@@ -12,7 +12,7 @@
       <%= render partial: "meeting_poll_actions", locals: { mobile: true } %>
 
     <% if meeting.private_meeting? || meeting.withdrawn? %>
-      <div class="layout-author block">
+      <div class="layout-author has_status">
         <% if meeting.private_meeting? %>
           <span class="<%= meeting_type_badge_css_class("private") %> label">
             <%= t("private_meeting", scope: "decidim.meetings.types") %>
@@ -31,12 +31,14 @@
       </div>
     <% end %>
 
-    <div class="layout-author">
+    <div class="layout-author <%= "has_status" if meeting.private_meeting? || meeting.withdrawn? %>">
       <div class="relative flex items-center justify-center w-full">
         <div class="w-10/12 flex items-center gap-4">
           <%= cell "decidim/author", author_presenter_for(meeting.normalized_author), from: meeting, context_actions: nil, layout: :compact %>
         </div>
-        <%= render "decidim/shared/resource_actions", resource: meeting %>
+        <%= render "decidim/shared/resource_actions", resource: meeting do %>
+          <%= render "decidim/meetings/meetings/meeting_actions" %>
+        <% end %>
       </div>
     </div>
 
