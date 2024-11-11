@@ -76,7 +76,7 @@ module Decidim
       end
 
       def author_url(author)
-        if author.respond_to?(:nickname) && !author.deleted?
+        if author.respond_to?(:nickname)
           profile_url(author.nickname) # is a Decidim::User or Decidim::UserGroup
         else
           root_url # is a Decidim::Organization
@@ -84,6 +84,8 @@ module Decidim
       end
 
       def profile_url(nickname)
+        return root_url if respond_to?(:deleted?) && deleted?
+
         Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
       end
 

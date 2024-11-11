@@ -27,6 +27,27 @@ describe Decidim::OpenDataExporter do
     it_behaves_like "open data exporter"
   end
 
+  describe "meeting created by deleted user" do
+    let!(:deleted_user) { create(:user, :confirmed, :deleted, organization:) }
+    let(:resource_file_name) { "meetings" }
+    let(:component) do
+      create(:meeting_component, organization:, published_at: Time.current)
+    end
+    let!(:resource) { create(:meeting, component:, author: deleted_user) }
+    let(:resource_title) { "## meetings" }
+    let(:help_lines) do
+      [
+          "* id: The unique identifier of the meeting"
+      ]
+    end
+    let(:unpublished_component) do
+      create(:meeting_component, organization:, published_at: nil)
+    end
+    let(:unpublished_resource) { create(:meeting, component: unpublished_component, author: deleted_user) }
+
+    it_behaves_like "open data exporter"
+  end
+
   describe "meeting_comments" do
     let(:resource_file_name) { "meeting_comments" }
     let(:component) do

@@ -73,37 +73,6 @@ describe Decidim::OpenDataExporter do
         end
       end
 
-      context "when there is a deleted user" do
-        let!(:deleted_user) { create(:user, :confirmed, :deleted, newsletter_notifications_at: Time.current, organization:) }
-
-        let(:proposal_component) do
-          create(:proposal_component, organization:, published_at: Time.current)
-        end
-
-        let!(:proposal) { create(:proposal, :published, component: proposal_component, title: { en: "My super proposal" }, users: [deleted_user]) }
-        let!(:proposal_comment) { create(:comment, commentable: proposal, author: deleted_user) }
-
-        let(:meeting_component) do
-          create(:meeting_component, organization:, published_at: Time.current)
-        end
-
-        let!(:meeting) { create(:meeting, :published, component: meeting_component, author: deleted_user) }
-
-        before do
-          subject.export
-        end
-
-        it "generates the zip file successfully" do
-          expect(File.exist?(path)).to be(true)
-
-          { proposals: proposal,
-            meetings: meeting }.each do |entity_name, entity|
-            csv_data = zip_contents.glob("*open-data-#{entity_name}.csv").first.get_input_stream.read
-            expect(csv_data).to include(entity.title["en"].gsub(/"/, '""'))
-          end
-        end
-      end
-
       describe "README content" do
         let(:file_data) { zip_contents.glob("README.md").first.get_input_stream.read }
 
