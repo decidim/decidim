@@ -1117,3 +1117,116 @@ shared_examples "comments blocked" do
     end
   end
 end
+
+shared_examples "comments with two columns" do
+  let!(:user) { create(:user, :confirmed, organization:) }
+
+  before do
+    login_as user, scope: :user
+  end
+
+  context "when debate is not closed" do
+    let!(:oldest_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago) }
+    let!(:older_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago) }
+    let!(:oldest_against_comment) { create(:comment, :against, commentable:, created_at: 4.days.ago) }
+    let!(:newer_against_comment) { create(:comment, :against, commentable:, created_at: 1.day.ago) }
+
+    it "shows the comments in two columns sorted by creation date in ascending order" do
+      visit resource_path
+
+      within(".comments-two-columns") do
+        check_comments_order(".comments-section__in-favor", [oldest_in_favor_comment, older_in_favor_comment])
+        check_comments_order(".comments-section__against", [oldest_against_comment, newer_against_comment])
+      end
+    end
+
+    it "allows the user to add a new comment at the end of the respective column" do
+      visit resource_path
+
+      add_new_comment("In favor", "This is a new comment in favor")
+
+      within(".comments-section__in_favor") do
+        expect(page).to have_content("This is a new comment in favor")
+      end
+    end
+
+    it "disables the publish button until 'in favor' or 'against' is selected" do
+      visit resource_path
+
+      expect(page).to have_button("Publish comment", disabled: true)
+
+      within(".comment__opinion-container") do
+        click_on "In favor"
+      end
+
+      within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+        fill_in_comment_field("This is a new comment in favor")
+        click_on "Publish comment"
+      end
+    end
+  end
+
+  context "when debate is closed" do
+    let!(:highest_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 5.days.ago, up_votes_count: 15) }
+    let!(:high_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 4.days.ago, up_votes_count: 10) }
+    let!(:older_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago, up_votes_count: 5) }
+    let!(:recent_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago, up_votes_count: 3) }
+    let!(:latest_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 1.day.ago, up_votes_count: 1) }
+
+    let!(:highest_voted_comment_against) { create(:comment, :against, commentable:, created_at: 6.days.ago, up_votes_count: 12) }
+    let!(:high_voted_comment_against) { create(:comment, :against, commentable:, created_at: 5.days.ago, up_votes_count: 8) }
+    let!(:older_comment_against) { create(:comment, :against, commentable:, created_at: 3.days.ago, up_votes_count: 4) }
+    let!(:recent_comment_against) { create(:comment, :against, commentable:, created_at: 2.days.ago, up_votes_count: 2) }
+    let!(:latest_comment_against) { create(:comment, :against, commentable:, created_at: 1.day.ago, up_votes_count: 1) }
+
+    before do
+      commentable.update!(closed_at: Time.current)
+    end
+
+    it "shows the top voted comments at the top of each column, followed by comments in ascending chronological order" do
+      visit resource_path
+
+      within(".comments-two-columns") do
+        check_comments_order(".comments-section__in-favor", [
+                               highest_voted_comment_in_favor,
+                               high_voted_comment_in_favor,
+                               older_comment_in_favor,
+                               recent_comment_in_favor,
+                               latest_comment_in_favor
+                             ])
+
+        check_comments_order(".comments-section__against", [
+                               highest_voted_comment_against,
+                               high_voted_comment_against,
+                               older_comment_against,
+                               recent_comment_against,
+                               latest_comment_against
+                             ])
+      end
+    end
+  end
+
+  def check_comments_order(section_selector, comments)
+    comments_section = all("#{section_selector} .comment-thread")
+    comments.each_with_index do |comment, index|
+      expect(comments_section[index]).to have_content(comment.body["en"])
+    end
+  end
+
+  def add_new_comment(opinion, comment_text)
+    within(".comment__opinion-container") do
+      click_on opinion
+    end
+
+    within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
+      fill_in_comment_field(comment_text)
+      click_on "Publish comment"
+    end
+  end
+
+  def fill_in_comment_field(comment_text)
+    field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
+    field.set " "
+    field.native.send_keys comment_text
+  end
+end
