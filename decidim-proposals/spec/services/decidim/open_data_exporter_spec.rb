@@ -37,13 +37,13 @@ describe Decidim::OpenDataExporter do
     let(:resource_title) { "## proposals" }
     let(:help_lines) do
       [
-          "* id: The unique identifier for the proposal"
+        "* id: The unique identifier for the proposal"
       ]
     end
     let(:unpublished_component) do
       create(:proposal_component, organization:, published_at: nil)
     end
-    let(:unpublished_resource) { create(:proposal, component: unpublished_component,  users: [deleted_user]) }
+    let(:unpublished_resource) { create(:proposal, component: unpublished_component, users: [deleted_user]) }
 
     it_behaves_like "open data exporter"
   end

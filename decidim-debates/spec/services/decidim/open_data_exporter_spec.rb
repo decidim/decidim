@@ -51,8 +51,8 @@ describe Decidim::OpenDataExporter do
     let(:resource_title) { "## debates" }
     let(:help_lines) do
       [
-          "* id: The unique identifier of the debate",
-          "* conclusions: The conclusions of the debate if it was closed"
+        "* id: The unique identifier of the debate",
+        "* conclusions: The conclusions of the debate if it was closed"
       ]
     end
     let(:unpublished_component) do

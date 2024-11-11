@@ -37,7 +37,7 @@ describe Decidim::OpenDataExporter do
     let(:resource_title) { "## meetings" }
     let(:help_lines) do
       [
-          "* id: The unique identifier of the meeting"
+        "* id: The unique identifier of the meeting"
       ]
     end
     let(:unpublished_component) do
