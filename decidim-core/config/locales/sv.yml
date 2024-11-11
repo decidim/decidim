@@ -664,11 +664,6 @@ sv:
     download_your_data:
       export:
         ready: Klar
-      show:
-        download_data: Hämta data
-        download_data_description_html: |-
-          En fil som innehåller all information kopplad till ditt konto kommer att skickas till <strong>%{user_email}</strong>. Detta e-postmeddelande kommer att innehålla en .zip-fil och ett lösenord för att öppna den.<br/><br/>För att packa upp filen behöver du <a href="https://www.7-zip.org/">7-Zip</a> (för Windows) eller <a href="https://www.keka.io/">Keka</a> (för MacOS). Om du använder Linux, för det mesta kommer du att ha den installerad som standard. Om inte, kan du använda <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> eller <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Begär data
     editor_images:
       create:
         error: Fel vid uppladdning av bild.
@@ -852,10 +847,7 @@ sv:
           notification_title: Deltagaren %{name} (%{nickname}) har fått officiell status.
     export_mailer:
       download_your_data_export:
-        click_button: 'Hämta dina data genom att klicka på länkten.<br/>Filen kommer vara tillgänglig till och med %{date}.<br/>Du kan använda <a href="https://www.7-zip.org/">7-Zip</a> (för Windows), <a href="https://www.keka.io/en/">Keka</a> (för MacOS) eller <a href="https://peazip.github.io">PeaZip</a> (för Linux) för att öppna den. Lösenord: %{password}'
         download: Hämta
-      export:
-        ready: En komprimerad version av exporten är bifogad.
       subject: Din export "%{name}" är klar
     filters:
       linked_classes:
