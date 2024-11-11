@@ -578,6 +578,7 @@ de:
     open_data:
       help:
         conferences:
+          slug: Der URL-Slug der Konferenz (verwendet für Identifikationszwecke in der URL)
           taxonomies: Die Klassifizierungen der Konferenz
     statistics:
       conferences_count: Konferenzen
