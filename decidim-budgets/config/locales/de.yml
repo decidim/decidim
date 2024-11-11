@@ -17,6 +17,10 @@ de:
         scope_id: Themenbereich
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Einbezug zum Budget: %{link}'
       decidim/budgets/budget:
         one: Budget
         other: Budgets
@@ -190,6 +194,8 @@ de:
         vote: Abstimmen
         voted_budgets: Gewählte Budgets
         voted_on: 'Sie haben über abgestimmt folgende Projekte abgestimmt: %{links}.'
+      creation:
+        text: Einbezug zum Budget
       last_activity:
         new_vote_at: Neue Budgetabstimmung bei
       limit_announcement:
@@ -315,6 +321,7 @@ de:
         settings:
           global:
             announcement: Ankündigung
+            clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
@@ -359,6 +366,9 @@ de:
               disabled: Abstimmung deaktiviert
               enabled: Abstimmung aktiviert
               finished: Abstimmung beendet
+    download_your_data:
+      show:
+        projects: Export der Projekte
     events:
       budgets:
         budget_published:
@@ -369,6 +379,7 @@ de:
     open_data:
       help:
         projects:
+          address: Projektadresse (falls vorhanden)
           taxonomies: Die Klassifizierungen des Projekts
     orders:
       checkout:
