@@ -497,9 +497,6 @@ el:
     download_your_data:
       export:
         ready: Έτοιμο
-      show:
-        download_data: Πραγματοποιήστε λήψη των δεδομένων
-        request_data: Αίτηση για δεδομένα
     editor_images:
       create:
         error: Σφάλμα φόρτωσης εικόνας.
@@ -645,8 +642,6 @@ el:
     export_mailer:
       download_your_data_export:
         download: Λήψη
-      export:
-        ready: Επισυνάπτεται μια συμπιεσμένη έκδοση της εξαγωγής σας.
       subject: Η εξαγωγή «%{name}» είναι έτοιμη
     filters:
       linked_classes:
