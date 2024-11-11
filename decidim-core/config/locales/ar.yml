@@ -539,9 +539,6 @@ ar:
     download_your_data:
       export:
         ready: جاهز
-      show:
-        download_data: قم بتنزيل البيانات
-        request_data: طلب البيانات
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
     endorsement_buttons_cell:
@@ -705,10 +702,7 @@ ar:
           notification_title: تم إضفاء الطابع الرسمي على المشارك %{name} (%{nickname}).
     export_mailer:
       download_your_data_export:
-        click_button: 'انقر فوق الرابط التالي لتحميل بياناتك.<br/>الملف سيكون متاحا حتى %{date}.<br/>ستحتاج إلى <a href="https://www.7-zip.org/">7-Zip</a> (للويندوز)، <a href="https://www.keka.io/en/">Keka</a> (لماكوس) أو <a href="https://peazip.github.io">PeaZip</a> (للينوكس) لفتحه. كلمة المرور: %{password}'
         download: تحميل
-      export:
-        ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
       subject: تصديرك "%{name}" جاهز
     filters:
       linked_classes:
