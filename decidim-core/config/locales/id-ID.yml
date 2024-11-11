@@ -296,9 +296,6 @@ id:
     download_your_data:
       export:
         ready: Siap
-      show:
-        download_data: Unduh datanya
-        request_data: Meminta data
     errors:
       internal_server_error:
         title: Ada masalah dengan server kami
@@ -418,8 +415,6 @@ id:
     export_mailer:
       download_your_data_export:
         download: Unduh
-      export:
-        ready: Silakan temukan terlampir versi zip dari ekspor Anda.
       subject: Ekspor Anda "%{name}" sudah siap
     filters:
       linked_classes:
