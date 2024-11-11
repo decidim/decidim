@@ -256,6 +256,10 @@ fi:
             votes_blocked: Äänet ovat tukossa
             votes_enabled: Äänet käytössä
             votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tämä valitseminen piilottaa äänimäärän)
+    download_your_data:
+      show:
+        proposal_comments: Ehdotuksen kommenttien vienti
+        proposals: Ehdotusten vienti
     events:
       proposals:
         accepted_coauthorship:
