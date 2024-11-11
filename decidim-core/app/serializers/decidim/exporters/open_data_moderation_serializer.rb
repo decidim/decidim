@@ -25,10 +25,6 @@ module Decidim
           }
         }
       end
-
-      private
-
-      attr_reader :resource
     end
   end
 end
