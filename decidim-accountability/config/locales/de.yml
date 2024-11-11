@@ -308,7 +308,7 @@ de:
           created_at: Das Erstellungsdatum des Ergebnisses
           description: Die Beschreibung des Ergebnisses
           end_date: Das Datum, an dem das Ergebnis umgesetzt und beendet ist
-          id: Der eindeutige Bezeichnung des Ergebnisses
+          id: Die eindeutige Bezeichnung des Ergebnisses
           parent: Das übergeordnete Ergebnis (falls vorhanden) des Ergebnisses
           progress: Der Prozentsatz der Umsetzung des Ergebnisses
           proposal_urls: Die URLs der Vorschläge, die in diesem Ergebnis enthalten sind
