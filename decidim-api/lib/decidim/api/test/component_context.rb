@@ -46,6 +46,24 @@ end
 shared_examples "with resource visibility" do
   let(:process_space_factory) { :participatory_process }
 
+  shared_examples "graphQL visible resource" do
+    it "is visible" do
+      expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+    end
+  end
+
+  shared_examples "graphQL hidden space" do
+    it "should not be visible" do
+      expect(response["participatoryProcess"]).to be_nil
+    end
+  end
+
+  shared_examples "graphQL hidden component" do
+    it "should not be visible" do
+      expect(response["participatoryProcess"]["components"].first).to be_nil
+    end
+  end
+
   context "when space is published" do
     let!(:participatory_process) { create(process_space_factory, :published, :with_steps, organization: current_organization) }
 
@@ -55,53 +73,36 @@ shared_examples "with resource visibility" do
       context "when the user is admin" do
         let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
 
       Decidim::ParticipatorySpaceUser::ROLES.each do |role|
         context "when the user is space #{role}" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-
-          it "should be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-          end
+          it_behaves_like "graphQL visible resource"
         end
       end
 
       context "when user is visitor" do
         let!(:current_user) { nil }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
     end
 
@@ -111,44 +112,32 @@ shared_examples "with resource visibility" do
       context "when the user is admin" do
         let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
 
       Decidim::ParticipatorySpaceUser::ROLES.each do |role|
         context "when the user is space #{role}" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
 
-          it "should be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-          end
+          it_behaves_like "graphQL visible resource"
         end
       end
 
       context "when user is visitor" do
         let!(:current_user) { nil }
 
-        it "should not be visible" do
-          expect(response["participatoryProcess"]["components"].first).to be_nil
-        end
+        it_behaves_like "graphQL hidden component"
       end
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-
-        it "should not be visible" do
-          expect(response["participatoryProcess"]["components"].first).to be_nil
-        end
+        it_behaves_like "graphQL hidden component"
       end
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first).to be_nil
-        end
+        it_behaves_like "graphQL hidden component"
       end
     end
   end
@@ -161,45 +150,30 @@ shared_examples "with resource visibility" do
 
       context "when the user is admin" do
         let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
 
       Decidim::ParticipatorySpaceUser::ROLES.each do |role|
         context "when the user is space #{role}" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-
-          it "should be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-          end
+          it_behaves_like "graphQL visible resource"
         end
       end
 
       context "when user is visitor" do
         let!(:current_user) { nil }
-
-        it "should not be visible" do
-          expect(response["participatoryProcess"]).to be_nil
-        end
+        it_behaves_like "graphQL hidden space"
       end
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-
-        it "should not be visible" do
-          expect(response["participatoryProcess"]).to be_nil
-        end
+        it_behaves_like "graphQL hidden space"
       end
     end
 
@@ -208,45 +182,30 @@ shared_examples "with resource visibility" do
 
       context "when the user is admin" do
         let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
 
       Decidim::ParticipatorySpaceUser::ROLES.each do |role|
         context "when the user is space #{role}" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-
-          it "should be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-          end
+          it_behaves_like "graphQL visible resource"
         end
       end
 
       context "when user is visitor" do
         let!(:current_user) { nil }
-
-        it "should not be visible" do
-          expect(response["participatoryProcess"]).to be_nil
-        end
+        it_behaves_like "graphQL hidden space"
 
         context "when user is member" do
           let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
           let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
-
-          it "should be visible" do
-            expect(response["participatoryProcess"]["components"].first).to be_nil
-          end
+          it_behaves_like "graphQL hidden component"
         end
       end
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-
-        it "should not be visible" do
-          expect(response["participatoryProcess"]).to be_nil
-        end
+        it_behaves_like "graphQL hidden space"
       end
     end
   end
@@ -259,45 +218,30 @@ shared_examples "with resource visibility" do
 
       context "when the user is admin" do
         let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
 
       Decidim::ParticipatorySpaceUser::ROLES.each do |role|
         context "when the user is space #{role}" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-
-          it "should be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-          end
+          it_behaves_like "graphQL visible resource"
         end
       end
 
       context "when user is visitor" do
         let!(:current_user) { nil }
-
-        it "should not be visible" do
-          expect(response["participatoryProcess"]).to be_nil
-        end
+        it_behaves_like "graphQL hidden space"
       end
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]).to be_nil
-        end
+        it_behaves_like "graphQL hidden space"
       end
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-
-        it "should not be visible" do
-          expect(response["participatoryProcess"]).to be_nil
-        end
+        it_behaves_like "graphQL hidden space"
       end
     end
 
@@ -306,45 +250,31 @@ shared_examples "with resource visibility" do
 
       context "when the user is admin" do
         let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-        end
+        it_behaves_like "graphQL visible resource"
       end
 
       Decidim::ParticipatorySpaceUser::ROLES.each do |role|
         context "when the user is space #{role}" do
           let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-
-          it "should be visible" do
-            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
-          end
+          it_behaves_like "graphQL visible resource"
         end
       end
 
       context "when user is visitor" do
         let!(:current_user) { nil }
-
-        it "should not be visible" do
-          expect(response["participatoryProcess"]).to be_nil
-        end
+        it_behaves_like "graphQL hidden space"
       end
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
-
-        it "should be visible" do
-          expect(response["participatoryProcess"]).to be_nil
-        end
+        it_behaves_like "graphQL hidden space"
       end
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
 
-        it "should not be visible" do
-          expect(response["participatoryProcess"]).to be_nil
-        end
+        it_behaves_like "graphQL hidden space"
       end
     end
   end
