@@ -366,6 +366,9 @@ eu:
               disabled: Bozketa desgaituta
               enabled: Bozketa gaituta
               finished: Bozketa amaituta
+    download_your_data:
+      show:
+        projects: Esportatu proiektuak
     events:
       budgets:
         budget_published:
