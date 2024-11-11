@@ -665,11 +665,6 @@ fr:
     download_your_data:
       export:
         ready: Prêt
-      show:
-        download_data: Télécharger les données
-        download_data_description_html: |-
-          Un fichier contenant toutes les informations associées à votre compte sera envoyé à <strong>%{user_email}</strong>. Cet e-mail contiendra un fichier .zip et un mot de passe pour l'ouvrir.<br/><br/>Pour décompresser le fichier, vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (pour Windows) ou <a href="https://www.keka.io/">Keka</a> (pour MacOS). Si vous utilisez Linux, la plupart du temps, vous l'aurez installé par défaut. Sinon, vous pouvez utiliser <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>.
-        request_data: Demander les données
     editor_images:
       create:
         error: Une erreur est survenue lors du téléchargement de l'image.
@@ -855,10 +850,7 @@ fr:
           notification_title: Le participant %{name} (%{nickname}) a été officialisé.
     export_mailer:
       download_your_data_export:
-        click_button: 'Cliquez sur le bouton suivant pour télécharger vos données.<br/>Le fichier sera disponible jusqu''au %{date}.<br/>Vous aurez besoin de <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (Linux) pour l''ouvrir. Mot de passe : %{password}'
         download: Télécharger
-      export:
-        ready: Vous trouverez ci-joint une version zippée de votre exportation.
       subject: Votre export "%{name}" est prêt
     filters:
       linked_classes:
