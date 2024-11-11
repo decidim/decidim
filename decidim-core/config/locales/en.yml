@@ -22,6 +22,8 @@ en:
         details: Additional comments
       taxonomy:
         name: Taxonomy name
+      taxonomy_filter:
+        root_taxonomy_id: From taxonomy
       user:
         about: About
         email: Your email

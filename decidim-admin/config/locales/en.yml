@@ -1106,7 +1106,7 @@ en:
         actions:
           new_taxonomy_filter: New taxonomy filter
         callout:
-          modify_taxonomy_html: If you need to modify this taxonomy or its items, do it through the configuration settings in the <a href="%{url}">Taxonomies</a> section.
+          modify_taxonomy_html: If you need to modify this taxonomy or its items, please do it through the configuration settings in the <a href="%{url}">Taxonomies</a> section.
         create:
           error: There was a problem creating this taxonomy filter.
           success: Taxonomy filter created successfully.
