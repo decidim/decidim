@@ -167,6 +167,7 @@ eu:
         error: Arazo bat egon da zure kontua ezabatzean.
         success: Zure kontua ezabatu egin da.
       download_your_data_export:
+        export_expired: Esportazioa amaitu da. Saiatu beste esportazio bat sortzen.
         file_no_exists: Fitxategia ez dago
         notice: Zure datuen deskarga aurrera doa. Posta elektroniko bat jasoko duzu osorik dagoenean.
       email_change:
@@ -681,6 +682,17 @@ eu:
     download_your_data:
       export:
         ready: Prest
+      show:
+        action: Ekintza
+        download: Deskargatu
+        download_data: Deskargen arloa
+        download_data_description_1: Hemen aurkituko dituzu zure konturako deskarga guztiak.Fitxategi hauek (.zip) bi astetan egongo dira eskuragarri ezabatu aurretik.
+        download_data_description_2: Zure bidalketak eta datu pertsonalak dituen .zip fitxategi bat eska dezakezu.
+        download_your_data: Datu pertsonalak
+        expiration: Iraungitze-data
+        expired: Dagoeneko iraungita
+        request_data: Eskaera
+        type: Deskarga mota
     editor_images:
       create:
         error: Errore bat egon da irudia eguneratzean.
@@ -871,7 +883,11 @@ eu:
           notification_title: '%{name} (%{nickname}) parte-hartzailea ofizializatu egin da.'
     export_mailer:
       download_your_data_export:
+        click_button_html: Sakatu hurrengo estekan zure datuak deskargatzeko. <br/> fitxategia eskuragarri egongo da %{date} arte.
         download: Deskarga
+      export:
+        click_button_html: Zure deskarga prest dago. <br/> fitxategia deskargatu ahal izango da %{date} arte.
+        download: Deskargatu
       subject: Prest duzu "%{name}" izeneko esportazioa
     filters:
       linked_classes:
