@@ -640,13 +640,6 @@ bg:
     download_your_data:
       export:
         ready: Готов
-      show:
-        download_data: Изтегляне на данни
-        download_data_description_html: |-
-          Файл, съдържащ цялата информация, свързана с вашия акаунт, ще бъде изпратен до <strong>%{user_email}</strong>.
-          Този имейл ще съдържа .zip файл и парола за отварянето му.<br/><br/>За да разархивирате файла, ще ви трябва <a href="https://www.7-zip.org/"> 7-Zip</a> (за Windows) или <a href="https://www.keka.io/">Keka</a> (за MacOS).
-          Ако използвате Linux, през повечето време ще го имате инсталиран по подразбиране. Ако не, можете да използвате <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> или <a href="https://peazip.github.io" >PeaZip</a>).
-        request_data: Заяви данни
     editor_images:
       create:
         error: Грешка при качването на изображението.
@@ -829,10 +822,7 @@ bg:
           notification_title: Участник %{name} (%{nickname}) е официализиран.
     export_mailer:
       download_your_data_export:
-        click_button: 'Щракнете върху следващата връзка, за да изтеглите вашите данни.<br/>Файлът ще бъде достъпен до %{date}.<br/>Ще ви трябва <a href="https://www.7-zip.org/"> 7-Zip</a> (за Windows), <a href="https://www.keka.io/en/">Keka</a> (за MacOS) или <a href="https:// peazip.github.io">PeaZip</a> (за Linux), за да го отворите. Парола: %{password}'
         download: Сваляне
-      export:
-        ready: Ще намерите като прикачен файл, компресирана версия на Вашия експорт.
       subject: Вашият експорт "%{name}" е готов
     filters:
       linked_classes:
