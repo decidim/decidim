@@ -78,6 +78,10 @@ de:
       decidim/meetings/update_meeting_event: Besprechung aktualisiert
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Diskutiert in der Veranstaltung: %{link}'
       decidim/meetings/meeting:
         one: Sitzung
         other: Sitzungen
@@ -149,6 +153,7 @@ de:
         settings:
           global:
             announcement: Ankündigung
+            clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
@@ -169,6 +174,10 @@ de:
             comments_blocked: Kommentare blockiert
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
             creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
+    download_your_data:
+      show:
+        meeting_comments: Kommentare zu Veranstaltungen exportieren
+        meetings: Export für Veranstaltungen
     events:
       meetings:
         meeting_closed:
@@ -193,7 +202,7 @@ de:
         meeting_registrations_over_percentage:
           email_intro: Die Slots der Sitzung "%{resource_title}" sind zu über %{percentage}% belegt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Besprechung sind.
-          email_subject: Slots der Sitzung "%{resource_title}" über %{percentage}% belegt
+          email_subject: Plätze der Sitzung "%{resource_title}" sind zu %{percentage}% belegt
           notification_title: Die Slots der Sitzung <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         meeting_updated:
           email_intro: 'Die Sitzung "%{resource_title}" wurde aktualisiert. Sie können die neue Version auf der Sitzungs-Seite lesen:'
@@ -312,6 +321,8 @@ de:
           close:
             invalid: Beim Abschliessen dieser Veranstaltung ist ein Problem aufgetreten.
             success: Veranstaltung erfolgreich abgeschlossen.
+          component:
+            unlink: Verlinkung aufheben
           create:
             invalid: Beim Erstellen dieser Veranstaltung ist ein Problem aufgetreten.
             success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
@@ -325,7 +336,7 @@ de:
             title: Meeting bearbeiten
             update: Aktualisieren
           form:
-            address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+            address_help: 'Adresse: wird vom Geocoder zur Lokalisierung verwendet'
             disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
             iframe_embed_type_html: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
@@ -512,7 +523,7 @@ de:
             in_person: Persönlich
             online: Online
         form:
-          address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+          address_help: 'Adresse: wird vom Geocoder zur Lokalisierung verwendet'
           available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
           create_as: Besprechung erstellen als
           disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungsdienstes ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
