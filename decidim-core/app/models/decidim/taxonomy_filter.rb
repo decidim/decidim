@@ -26,14 +26,14 @@ module Decidim
 
     # Public name for this filter, defaults to the root taxonomy name.
     def name
-      return root_taxonomy.name if super.blank?
+      return root_taxonomy.name if super&.compact_blank.blank?
 
       super
     end
 
     # Internal name for this filter, defaults to the root taxonomy name.
     def internal_name
-      return root_taxonomy.name if super.blank?
+      return root_taxonomy.name if super&.compact_blank.blank?
 
       super
     end

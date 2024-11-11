@@ -30,7 +30,7 @@
     </div>
     <div class="card-section pt-4">
       <div class="row column pb-8">
-        <%= form.check_box :space_filter, aria: { label: :space_filter }, label: t(".space_filter", manifest_name: t("decidim.admin.titles.#{participatory_space_manifest}", default: participatory_space_manifest), default: t("activemodel.attributes.taxonomy_filter.space_filter") ) %>
+        <%= form.check_box :space_filter, aria: { label: :space_filter }, label: t(".space_filter", manifest_name: t("decidim.admin.titles.#{participatory_space_manifest}", default: participatory_space_manifest).downcase, default: t("activemodel.attributes.taxonomy_filter.space_filter") ) %>
       </div>
     </div>
   </div>

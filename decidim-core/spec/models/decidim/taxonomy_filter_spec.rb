@@ -27,6 +27,15 @@ module Decidim
       end
     end
 
+    context "when the filter taxonomy has empty strings" do
+      subject(:taxonomy_filter) { build(:taxonomy_filter, root_taxonomy:, name: { en: "" }, internal_name: { en: "" }) }
+
+      it "has the same name as the root taxonomy" do
+        expect(taxonomy_filter.name).to eq(root_taxonomy.name)
+        expect(taxonomy_filter.internal_name).to eq(root_taxonomy.name)
+      end
+    end
+
     context "when the filter taxonomy has a custom internal name" do
       subject(:taxonomy_filter) { build(:taxonomy_filter, root_taxonomy:, internal_name: { en: "Custom internal name" }) }
 

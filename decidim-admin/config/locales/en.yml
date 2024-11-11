@@ -1134,12 +1134,15 @@ en:
           title: New taxonomy filter
         table:
           actions: Actions
-          components_count: Components count
+          components_count: Associated components
           confirm_destroy: 'Are you sure you want to delete the filter %{name}? NOTE: Resources that are using this filter will not be affected but they will lose the reference to this filter.'
-          count: Number of items
+          count: Number of items used
           destroy: Delete
           edit: Edit
-          name: Name
+          internal_name: Internal filter name
+          name: Public filter title
+          space_filter: Use to filter %{manifest_name}
+          taxonomy: From taxonomy
         update:
           error: There was a problem updating this taxonomy filter.
           success: Taxonomy filter updated successfully.
