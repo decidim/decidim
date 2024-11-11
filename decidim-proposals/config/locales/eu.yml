@@ -256,6 +256,10 @@ eu:
             votes_blocked: Bozketak blokeatuta
             votes_enabled: Bozketak gaituta
             votes_hidden: Boto ezkutuak (botoak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
+    download_your_data:
+      show:
+        proposal_comments: Esportatu proposamenen iruzkinak
+        proposals: Esportatu proposamenak
     events:
       proposals:
         accepted_coauthorship:
