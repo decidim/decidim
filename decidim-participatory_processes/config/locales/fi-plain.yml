@@ -325,6 +325,9 @@ fi-pl:
         create: "%{user_name} kutsui käyttäjän %{resource_name} osallisuusprosessiin %{space_name}"
         delete: "%{user_name} poisti käyttäjän %{resource_name} osallisuusprosessista %{space_name}"
         update: "%{user_name} muutti käyttäjän %{resource_name} roolia osallisuusprosessissa %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Osallistumisprosessien vienti
     events:
       participatory_process:
         role_assigned:
