@@ -1145,7 +1145,7 @@ shared_examples "comments with two columns" do
 
       add_new_comment("In favor", "This is a new comment in favor")
 
-      within(".comments-section__in_favor") do
+      within(".comments-section__in-favor") do
         expect(page).to have_content("This is a new comment in favor")
       end
     end
@@ -1163,6 +1163,23 @@ shared_examples "comments with two columns" do
         fill_in_comment_field("This is a new comment in favor")
         click_on "Publish comment"
       end
+    end
+
+    it "shows comments sorted by creation date when viewed on a small screen" do
+      visit resource_path
+
+      page.driver.browser.manage.window.resize_to(375, 667)
+
+      within(".comment-threads") do
+        comments = all(".comment-thread")
+
+        expect(comments[0]).to have_content(oldest_in_favor_comment.body["en"])
+        expect(comments[1]).to have_content(oldest_against_comment.body["en"])
+        expect(comments[2]).to have_content(older_in_favor_comment.body["en"])
+        expect(comments[3]).to have_content(newer_against_comment.body["en"])
+      end
+
+      page.driver.browser.manage.window.resize_to(1920, 1080)
     end
   end
 
