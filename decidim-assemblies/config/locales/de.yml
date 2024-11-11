@@ -33,7 +33,7 @@ de:
         import_attachments: Anhänge importieren
         import_categories: Kategorien importieren
         import_components: Komponenten importieren
-        included_at: Hinzugefügt am
+        included_at: Inbegriffen in
         instagram: Instagram
         internal_organisation: Interne Organisation
         is_transparent: Ist transparent
@@ -459,7 +459,7 @@ de:
           facebook_handler: Social Media Handler für Facebook
           github_handler: Social Media Handler für GitHub
           hashtag: Der Gremium-Hashtag, verwendet für Twitter/X
-          id: Der eindeutige Bezeichnung dieser Assembly
+          id: Die eindeutige Bezeichnung dieser Assembly
           included_at: Datum des Einbezugs des Ergebnisses
           instagram_handler: Social Media Handler für Instagram
           internal_organisation: Die interne Organisation dieses Gremiums
