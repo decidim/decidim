@@ -380,7 +380,21 @@ de:
       help:
         projects:
           address: Projektadresse (falls vorhanden)
+          budget: Zu welcher Projektgruppe (z.B. "Budget 2021") dieses Projekt gehört
+          budget_amount: Der Gesamtbetrag des Budgets für dieses Projekt
+          comments: Die Anzahl der Kommentare, die dieses Projekt erhalten hat
+          component: Komponente, zu der dieses Projekt gehört
+          confirmed_votes: Die Anzahl der bestätigten Stimmen, die dieses Projekt erhalten hat
+          created_at: Datum und Uhrzeit, an der das Projekt erstellt wurde
+          description: Die Beschreibung des Projekts
+          id: Die eindeutige Bezeichnung des Projekts
+          participatory_space: Zu welchem Bereich dieses Projekt gehört (z.B. Partizipationsprozesse oder Gremien)
+          related_proposal_titles: Titel der verknüpften Vorschläge
+          related_proposal_urls: URLs der verknüpften Vorschläge
+          related_proposals: Mit diesem Projekt verknüpfte Vorschläge
           taxonomies: Die Klassifizierungen des Projekts
+          title: Der Titel des Projekts
+          url: Die URL des Projekts
     orders:
       checkout:
         error: Bei der Bearbeitung Ihrer Stimme ist ein Problem aufgetreten.
