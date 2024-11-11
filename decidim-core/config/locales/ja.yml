@@ -663,11 +663,6 @@ ja:
     download_your_data:
       export:
         ready: 準備完了
-      show:
-        download_data: データをダウンロード
-        download_data_description_html: |-
-          あなたのアカウントに関連付けられたすべての情報を含むファイルを<strong>%{user_email}</strong> に送信します。このメールは.zipファイルとパスワードが添付されています。<br/><br/>ファイルを展開するには、 <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け) か <a href="https://www.keka.io/">Keka</a> (MacOSユーザー向け)等が必要です。Linuxをお使いの場合、すでにツールがインストールされているはずです。インストールされていない場合、 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> や <a href="https://peazip.github.io">PeaZip</a> が利用できます。
-        request_data: データを要求する
     editor_images:
       create:
         error: 画像のアップロードに失敗しました。
@@ -857,10 +852,7 @@ ja:
           notification_title: 参加者 %{name} (%{nickname}) が公式化されました。
     export_mailer:
       download_your_data_export:
-        click_button: '次のリンクをクリックするとあなたのデータがダウンロードできます。<br/>このファイルは %{date} まで利用できます。<br/>ファイルを開くには <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け), <a href="https://www.keka.io/en/">Keka</a> (MacOSユーザー向け) または <a href="https://peazip.github.io">PeaZip</a> (Linuxユーザー向け)等が必要です。パスワード:%{password}'
         download: ダウンロード
-      export:
-        ready: エクスポートのzipバージョンを見つけてください。
       subject: '"%{name}" のエクスポートの準備ができました'
     filters:
       linked_classes:
