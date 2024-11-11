@@ -35,11 +35,11 @@ module Decidim
       end
 
       def comments_in_favor
-        @comments_in_favor ||= model.comments.positive
+        @comments_in_favor ||= model.comments.positive.order(created_at: :asc)
       end
 
       def comments_against
-        @comments_against ||= model.comments.negative
+        @comments_against ||= model.comments.negative.order(created_at: :asc)
       end
 
       def add_comment
@@ -83,8 +83,8 @@ module Decidim
           top_comment_in_favor = comments_in_favor.order(up_votes_count: :desc).first
           top_comment_against = comments_against.order(up_votes_count: :desc).first
 
-          other_comments_in_favor = comments_in_favor.where.not(id: top_comment_in_favor&.id)
-          other_comments_against = comments_against.where.not(id: top_comment_against&.id)
+          other_comments_in_favor = comments_in_favor.where.not(id: top_comment_in_favor&.id).order(created_at: :asc)
+          other_comments_against = comments_against.where.not(id: top_comment_against&.id).order(created_at: :asc)
 
           @sorted_comments_in_favor = [top_comment_in_favor].compact + other_comments_in_favor
           @sorted_comments_against = [top_comment_against].compact + other_comments_against
