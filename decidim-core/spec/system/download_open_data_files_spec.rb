@@ -59,6 +59,7 @@ describe "Download Open Data files", download: true do
 
     I18n.t("decidim.open_data.help").each do |section|
       next if %w(core).include?(section.first.to_s)
+
       section.last.each do |dict|
         expect(page).to have_content(I18n.t("decidim.open_data.help.#{section.first}.#{dict.first}"))
       end
