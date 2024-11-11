@@ -366,9 +366,11 @@ en:
         participatory_processes:
           announcement: The announcement (callout) information
           area: The area where the process is taking place
+          created_at: The date this space was created
           description: A long description of the process
           developer_group: The developer group of the process. This is the organization that is promoting the process.
           end_date: The end date of the process
+          follows_count: The number of users following this space
           hashtag: The process hashtag, used for Twitter/X
           id: The unique identifier of this process
           local_area: The local area of the process. This is the organization area where the process is taking place.
@@ -378,6 +380,8 @@ en:
           participatory_scope: The participatory scope of the process
           participatory_structure: The participatory structure of the process. This is how the process is decided.
           promoted: Wheter the process is promoted or not
+          published_at: The date this space was published
+          reference: The unique reference of the space
           remote_hero_image_url: The URL of the process hero image
           scope: The scope of the process
           scopes_enabled: Whether the scopes are enabled or not
@@ -387,6 +391,8 @@ en:
           subtitle: The subtitle of the process
           target: The target of the process. This is who is called to participate in the process.
           title: The process title
+          updated_at: The last date this space was updated
+          url: The URL of the space
     participatory_process_groups:
       content_blocks:
         extra_data:
