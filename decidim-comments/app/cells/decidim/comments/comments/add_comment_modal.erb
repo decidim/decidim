@@ -1,0 +1,10 @@
+<%= decidim_modal id: "add-comment-modal" do %>
+  <div data-dialog-container-add-comment class="border-b border-gray-3 h-[72px]">
+    <h3 class="h3" id="dialog-title-show-email-modal" tabindex="-1" data-dialog-title>
+      <%= t("add_comment", scope: "decidim.components.add_comment_form") %>
+    </h3>
+  </div>
+  <div class="p-6">
+    <%= add_comment %>
+  </div>
+<% end %>

@@ -410,3 +410,11 @@
     @apply block;
   }
 }
+
+#add-comment-modal[data-dialog] > * {
+  @apply absolute inset-1/2 ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 w-full max-h-[100vh] h-full overflow-y-auto p-0 bg-white z-50 rounded-none shadow-none;
+}
+
+[data-dialog-container-add-comment] {
+  @apply grid grid-cols-[1fr] items-center justify-items-center gap-2 text-left;
+}

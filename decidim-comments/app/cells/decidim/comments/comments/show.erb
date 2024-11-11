@@ -23,17 +23,15 @@
         <% end %>
       </div>
 
-      <button data-dialog-open="example" class="button button__lg button__secondary flex md:hidden">
+      <button data-dialog-open="add-comment-modal" class="button button__lg button__secondary flex md:hidden w-full h-9 text-sm">
         <%= t("add_comment", scope: "decidim.components.add_comment_form") %>
       </button>
 
-      <%= decidim_modal id: "example" do %>
-        <%= add_comment %>
-      <% end %>
       <%= add_comment %>
-
       <%= user_comments_blocked_warning %>
     </div>
     <%= cell("decidim/announcement", t("decidim.components.comments.loading"), callout_class: "primary loading-comments hidden") %>
   </div>
 <% end %>
+
+<%= render "add_comment_modal" %>
