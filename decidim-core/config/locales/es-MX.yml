@@ -681,13 +681,6 @@ es-MX:
     download_your_data:
       export:
         ready: Listo
-      show:
-        download_data: Descargar los datos
-        download_data_description_html: |-
-          Se enviará un archivo con toda la información asociada a tu cuenta a <strong>%{user_email}</strong>.
-          Este correo electrónico contendrá un archivo .zip y una contraseña para abrirlo.<br/><br/>Para descomprimir el archivo, necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) o <a href="https://www.keka.io/">Keka</a> (para MacOS). Si usas Linux, la mayoría de las veces lo tendrás instalado por defecto. 
-          Si no, puedes utilizar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Solicitar datos
     editor_images:
       create:
         error: Error al cargar la imagen.
@@ -878,10 +871,7 @@ es-MX:
           notification_title: La participante %{name} (%{nickname}) ha sido oficializada.
     export_mailer:
       download_your_data_export:
-        click_button: 'Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible hasta %{date}.<br/>Necesitarás <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrirlo. Contraseña: %{password}'
         download: Descargar
-      export:
-        ready: Adjunto encontrará una versión comprimida de su exportación.
       subject: Su exportación "%{name}" está lista
     filters:
       linked_classes:
@@ -1338,11 +1328,44 @@ es-MX:
         core:
           components: Componentes
           description: Este archivo ZIP contiene archivos para estudiar e investigar sobre esta plataforma de participación.
+          main: Núcleo
           spaces: Espacios
           title: Archivos de datos abiertos de %{organization}
+        user_groups:
+          avatar_url: El avatar del grupo de usuarias
+          badge: La insignia del grupo de usuarias
+          deleted: Si el grupo de usuarias fue eliminado o no
+          id: El identificador único del grupo de usuarias
+          members: El ID y el nombre de las usuarias que pertenecen al grupo
+          members_count: El número de miembros que forman parte del grupo de usuarias
+          name: El nombre que se muestra del grupo de usuarias
+          nickname: El nombre de usuaria del grupo de usuarias
+          profile_url: La URL del perfil del grupo de usuarias
+        users:
+          about: El texto "Acerca de" incluido en el perfil de usuaria
+          avatar_url: El avatar de la usuaria
+          badge: La insignia de la usuaria
+          deleted: Si la usuaria fue eliminada o no
+          direct_messages_enabled: Si la usuaria permite mensajes directos o no
+          groups: El ID y el nombre del grupo de usuarias
+          id: El identificador único de la usuaria
+          name: El nombre que se muestra de la usuaria
+          nickname: El nombre de usuaria de la usuaria
+          profile_url: La URL del perfil de la usuaria
       index:
         description: Bienvenida a la página de datos abiertos %{organization_name}. Aquí encontrarás archivos de datos que se generan regularmente a partir de varios procesos deliberados y de gobernanza dentro de %{organization_name}. Estos archivos están disponibles para promover la transparencia, accesibilidad y colaboración. A continuación, encontrarás información detallada sobre cuáles son estos archivos, cómo abrir y trabajar con ellos, y una descripción del contenido y la estructura de cada archivo.
+        detailed:
+          body_1: 'A continuación se muestra una descripción de cada conjunto de datos, incluyendo su esquema (estructura) y el tipo de información que contiene:'
+          components: Componentes
+          spaces: Espacios de participación
+          title: Explicación detallada de cada archivo
+        download:
+          components: Componentes
+          core: Núcleo
+          spaces: Espacio participativo
+          title: Descargar recursos
         download_open_data: Descargar todos los archivos de datos abiertos
+        download_resource: Descargar "%{resource_name}" en formato CSV
         explanation:
           body_1: Estos archivos son conjuntos de datos exportados desde los procesos participativos de %{organization_name}, como propuestas, comentarios y reuniones. Se proporcionan datos crudos y estructurados que pueden ser utilizados para el análisis, la investigación o la integración con otras herramientas. Los datos se actualizan automáticamente cada 24 horas, para asegurar tener acceso a la información más reciente posible.
           body_2: Estos archivos están en formato CSV (valores separados por comas), un formato de archivo ampliamente utilizado que puede ser abierto y procesado por una variedad de aplicaciones de software, incluyendo programas de hojas de cálculo, editores de texto y herramientas de análisis de datos.
@@ -1368,6 +1391,13 @@ es-MX:
               </ul>
             title: 3. Trabajando con los datos
           title: Cómo abrir y trabajar con estos archivos
+        license:
+          body_1_html: Esta base de datos de "%{organization_name}" está disponible bajo %{link_database}. Cualquier derecho sobre los contenidos individuales de la base de datos está bajo la licencia %{link_contents}.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_name: Licencia de los contenidos en la base de datos
+          license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
+          license_database_name: Licencia Abierta para bases de datos
+          title: Licencia
         title: Datos abiertos
       not_available_yet: Los ficheros de datos abiertos aún no están disponibles, inténtalo de nuevo en unos minutos.
     pad_iframe:
