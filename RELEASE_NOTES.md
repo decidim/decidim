@@ -112,7 +112,7 @@ You can read more about this change on PR [#13616](https://github.com/decidim/de
 
 ### 2.7. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
 
-As of [#13624](https://github.com/decidim/decidim/pull/13380), we are cleaning up better the deleted users records, by removing the about and personal url fields. As a result we added a new rake task that you can run on legacy databases. This task has already been added to generic `decidim:upgrade:clean:invalid_records` rake task.
+When a user deleted their account, we mistakenly retained some metadata, such as the personal_url and about fields. Going forward, these fields will be automatically cleared upon deletion. To fix this issue for previously deleted accounts, we've added a new rake task that should be run on your production database.
 
 ```ruby
 bin/rails decidim:upgrade:clean:clean_deleted_users
