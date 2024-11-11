@@ -413,9 +413,6 @@ pt:
     download_your_data:
       export:
         ready: Pronto
-      show:
-        download_data: Transferir os dados
-        request_data: Solicitar dados
     endorsements:
       identities:
         done: Concluído
@@ -561,10 +558,7 @@ pt:
           notification_title: A <a href="%{resource_path}">página de perfil</a> de %{name} (%{nickname}), que você segue, foi atualizada.
     export_mailer:
       download_your_data_export:
-        click_button: 'Clique na ligação seguinta para descarregar os seus dados. <Br/> Irá precisar  de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS), ou <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrir o ficheiro. Palavra-chave: %{password}'
         download: Transferir
-      export:
-        ready: Por favor, encontre em anexo uma versão zip da sua exportação.
       subject: A sua exportação "%{name}" está pronta
     filters:
       linked_classes:
