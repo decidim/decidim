@@ -96,7 +96,7 @@ Decidim::Core::Engine.routes.draw do
     resource :download_your_data, only: [:show], controller: "download_your_data" do
       member do
         post :export
-        get :download_file
+        get "/:uuid", to: "download_your_data#download_file", as: :download
       end
     end
 

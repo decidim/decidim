@@ -95,6 +95,13 @@
           <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name)) %></li>
         <% end %>
       </ul>
+
+      <h3 class="h5"><%= t("core", scope: "decidim.open_data.index.download") %></h3>
+      <ul>
+        <% open_data_core.each do |name| %>
+          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: name), open_data_download_resource_path(name)) %></li>
+        <% end %>
+      </ul>
     </div>
 
     <div class="mt-4 flex flex-col items-center">

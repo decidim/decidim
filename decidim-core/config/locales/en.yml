@@ -168,6 +168,7 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       download_your_data_export:
+        export_expired: The export has expired. Try to generate a new export.
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You will receive an email when it is complete.
       email_change:
@@ -687,12 +688,16 @@ en:
       export:
         ready: Ready
       show:
-        download_data: Download the data
-        download_data_description_html: |-
-          A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>.
-          This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS).
-          If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Request data
+        action: Action
+        download: Download
+        download_data: Downloads area
+        download_data_description_1: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
+        download_data_description_2: You can request a .zip file with your submissions and personal data.
+        download_your_data: Personal data
+        expiration: Expiration
+        expired: Already expired
+        request_data: Request
+        type: Download type
     editor_images:
       create:
         error: Error uploading image.
@@ -883,10 +888,11 @@ en:
           notification_title: Participant %{name} (%{nickname}) has been officialized.
     export_mailer:
       download_your_data_export:
-        click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
+        click_button_html: Click the next link to download your data.<br/>The file will be available for download until %{date}.
         download: Download
       export:
-        ready: Please find attached a zipped version of your export.
+        click_button_html: Your download is ready. <br/>The file will be available for download until %{date}.
+        download: Download
       subject: Your export "%{name}" is ready
     filters:
       linked_classes:
@@ -1343,8 +1349,30 @@ en:
         core:
           components: Components
           description: This ZIP file contains files for studying and researching about this participation platform.
+          main: Core
           spaces: Spaces
           title: Open Data files for %{organization}
+        user_groups:
+          avatar_url: The avatar of the user group
+          badge: The badge of the user group
+          deleted: Whether the user is deleted or not
+          id: The unique identifier of the user group
+          members: The id and name of the users belonging to the group
+          members_count: The number of the users belonging to the user group
+          name: The display name of user group
+          nickname: The username of the user group
+          profile_url: The profile url
+        users:
+          about: The about text of the user
+          avatar_url: The avatar of the user
+          badge: The badge of the user
+          deleted: Whether the user is deleted or not
+          direct_messages_enabled: Whether the user allows direct messages
+          groups: The id and name of the user group
+          id: The unique identifier of the user
+          name: The display name of user
+          nickname: The username of the user
+          profile_url: The profile url
       index:
         description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
         detailed:
@@ -1354,6 +1382,7 @@ en:
           title: Detailed explanation of each file
         download:
           components: Components
+          core: Core
           spaces: Participatory spaces
           title: Download resources
         download_open_data: Download all the Open Data files
