@@ -405,6 +405,9 @@ fi-pl:
         designated_on: Nimetty
       index:
         title: Jäsenet
+    download_your_data:
+      show:
+        assemblies: Ryhmien vienti
     events:
       assemblies:
         create_assembly_member:
