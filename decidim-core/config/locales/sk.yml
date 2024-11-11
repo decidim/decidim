@@ -375,9 +375,6 @@ sk:
     download_your_data:
       export:
         ready: Pripravený
-      show:
-        download_data: Stiahnuť dáta
-        request_data: Vyžiadať dáta
     endorsements:
       identities:
         done: Hotovo
@@ -508,8 +505,6 @@ sk:
     export_mailer:
       download_your_data_export:
         download: Stiahnutie
-      export:
-        ready: V prílohe nájdete exportovanú exportovanú verziu.
       subject: Váš export "%{name}" je pripravený
     filters:
       linked_classes:
