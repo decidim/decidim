@@ -60,8 +60,36 @@ shared_examples "with resource visibility" do
         end
       end
 
+      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
+        context "when the user is space #{role}" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+      end
+
       context "when user is visitor" do
         let!(:current_user) { nil }
+
+        it "should be visible" do
+          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+        end
+      end
+
+      context "when user is member" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
+
+        it "should be visible" do
+          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+        end
+      end
+
+      context "when user is member" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
 
         it "should be visible" do
           expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
@@ -88,6 +116,16 @@ shared_examples "with resource visibility" do
         end
       end
 
+      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
+        context "when the user is space #{role}" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+      end
+
       context "when user is visitor" do
         let!(:current_user) { nil }
 
@@ -103,8 +141,18 @@ shared_examples "with resource visibility" do
           expect(response["participatoryProcess"]["components"].first).to be_nil
         end
       end
+
+      context "when user is member" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
+
+        it "should be visible" do
+          expect(response["participatoryProcess"]["components"].first).to be_nil
+        end
+      end
     end
   end
+
   context "when space is published but private" do
     let!(:participatory_process) { create(process_space_factory, :published, :private, :with_steps, organization: current_organization) }
 
@@ -119,11 +167,30 @@ shared_examples "with resource visibility" do
         end
       end
 
+      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
+        context "when the user is space #{role}" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+      end
+
       context "when user is visitor" do
         let!(:current_user) { nil }
 
         it "should not be visible" do
           expect(response["participatoryProcess"]).to be_nil
+        end
+      end
+
+      context "when user is member" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
+
+        it "should be visible" do
+          expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
         end
       end
 
@@ -147,11 +214,30 @@ shared_examples "with resource visibility" do
         end
       end
 
+      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
+        context "when the user is space #{role}" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+      end
+
       context "when user is visitor" do
         let!(:current_user) { nil }
 
         it "should not be visible" do
           expect(response["participatoryProcess"]).to be_nil
+        end
+
+        context "when user is member" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+          let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
+
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first).to be_nil
+          end
         end
       end
 
@@ -164,6 +250,7 @@ shared_examples "with resource visibility" do
       end
     end
   end
+
   context "when space is unpublished" do
     let(:participatory_process) { create(process_space_factory, :unpublished, :with_steps, organization: current_organization) }
 
@@ -178,10 +265,29 @@ shared_examples "with resource visibility" do
         end
       end
 
+      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
+        context "when the user is space #{role}" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+      end
+
       context "when user is visitor" do
         let!(:current_user) { nil }
 
         it "should not be visible" do
+          expect(response["participatoryProcess"]).to be_nil
+        end
+      end
+
+      context "when user is member" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
+
+        it "should be visible" do
           expect(response["participatoryProcess"]).to be_nil
         end
       end
@@ -206,10 +312,29 @@ shared_examples "with resource visibility" do
         end
       end
 
+      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
+        context "when the user is space #{role}" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it "should be visible" do
+            expect(response["participatoryProcess"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+      end
+
       context "when user is visitor" do
         let!(:current_user) { nil }
 
         it "should not be visible" do
+          expect(response["participatoryProcess"]).to be_nil
+        end
+      end
+
+      context "when user is member" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
+
+        it "should be visible" do
           expect(response["participatoryProcess"]).to be_nil
         end
       end
