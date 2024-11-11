@@ -805,6 +805,7 @@ es-MX:
             error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
             success: "Se ha rechazado con éxito @%{user} como colaboradora."
         show:
+          edit: Editar
           final_proposal: propuesta final
           final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
           hidden_authors_count:
@@ -967,6 +968,7 @@ es-MX:
         show:
           answer: Respuesta
           changes_at_title: Enmienda a "%{title}"
+          edit_proposal: Editar
           estimated_cost: Coste estimado
           hidden_endorsers_count:
             one: y %{count} persona más
@@ -982,6 +984,7 @@ es-MX:
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún apoyo. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation_html: '¿Seguro que quieres retirar esta propuesta?<br><br><strong>Esta acción no se puede deshacer!</strong>'
+          withdraw_proposal: Retirar
         update:
           title: Actualizar propuesta
         vote_button:
