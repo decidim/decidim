@@ -681,13 +681,6 @@ eu:
     download_your_data:
       export:
         ready: Prest
-      show:
-        download_data: Deskargatu datuak
-        download_data_description_html: |-
-          Artxibo bat bidaliko da zure kontura lotutako informazio guztiarekin hona: <strong>%{user_email}</strong>.
-          Korreo honek .zip artxibo bat izango du eta pasahitz bat zabaldu ahal izateko.<br/><br/>Artxiboa deskonprimitzeko, beharko duzu: <a href="https://www.7-zip.org/">7-Zip</a> (Windows) edo <a href="https://www.keka.io/">Keka</a> (MacOS). Linux erabiltzen baduzu, gehienetan instalatuta izango duzu defektuz. 
-          Bestela, erabil dezakezu: <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Eskaera datuak
     editor_images:
       create:
         error: Errore bat egon da irudia eguneratzean.
@@ -878,10 +871,7 @@ eu:
           notification_title: '%{name} (%{nickname}) parte-hartzailea ofizializatu egin da.'
     export_mailer:
       download_your_data_export:
-        click_button: 'Egin klik hurrengo loturan zure datuak deskargatzeko. <br/>Artxiboa eskuragai egongo da data honetara arte %{date}.<br/>Irekitzeko beharko duzu <a href="https://www.7-zip.org/">7-Zip</a> (Windowserako), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) o <a href="https://peazip.github.io">PeaZip</a> (Linuxerako). Pasahitza: %{password}'
         download: Deskarga
-      export:
-        ready: Mesedez, atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
       subject: Prest duzu "%{name}" izeneko esportazioa
     filters:
       linked_classes:
