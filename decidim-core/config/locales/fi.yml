@@ -167,6 +167,7 @@ fi:
         error: Tilisi poistaminen epäonnistui.
         success: Tilisi poistaminen onnistui.
       download_your_data_export:
+        export_expired: Vientitiedosto on vanhentunut. Yritä luoda uusi vienti.
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       email_change:
@@ -681,6 +682,17 @@ fi:
     download_your_data:
       export:
         ready: Valmis
+      show:
+        action: Toiminto
+        download: Lataa
+        download_data: Latausosio
+        download_data_description_1: Täältä löydät kaikki tililtäsi ladattavissa olevat tiedot. Nämä ZIP-tiedostot ovat ladattavissa kahden viikon ajan ennen kuin ne poistetaan.
+        download_data_description_2: Voit pyytää ZIP-tiedoston henkilökohtaisista tiedoistasi.
+        download_your_data: Omat tiedot
+        expiration: Vanhentumisaika
+        expired: Vanhentunut
+        request_data: Pyydä
+        type: Latauksen tyyppi
     editor_images:
       create:
         error: Kuvan lähettäminen epäonnistui.
@@ -870,6 +882,10 @@ fi:
           notification_title: Osallistuja %{name} (%{nickname}) on virallistettu.
     export_mailer:
       download_your_data_export:
+        click_button_html: Napsauta seuraavaa linkkiä ladataksesi tietosi.<br/>Tiedosto on ladattavissa %{date} saakka.
+        download: Lataa
+      export:
+        click_button_html: Lataustiedostosi on valmis.<br/>Tiedosto on ladattavissa %{date} saakka.
         download: Lataa
       subject: Tietojen vienti "%{name}" on valmis
     filters:
@@ -1327,12 +1343,40 @@ fi:
         core:
           components: Komponentit
           description: Tämä ZIP-tiedosto sisältää tiedostoja tämän alustan tutkimiseen.
+          main: Ydin
           spaces: Tilat
           title: Avoimet datan tiedostot palvelulle %{organization}
+        user_groups:
+          avatar_url: Käyttäjäryhmän avatar-kuva
+          badge: Käyttäjäryhmän tunnusmerkki
+          deleted: Onko käyttäjä poistettu vai ei
+          id: Käyttäjäryhmän yksilöllinen tunniste
+          members: Ryhmään kuuluvien käyttäjien yksilöllinen tunniste (ID) ja nimi
+          members_count: Käyttäjäryhmään kuuluvien käyttäjien määrä
+          name: Käyttäjäryhmän nimi
+          nickname: Käyttäjäryhmän käyttäjänimi
+          profile_url: Profiilin URL-osoite
+        users:
+          about: Käyttäjäryhmän kuvaus
+          avatar_url: Käyttäjän avatar-kuva
+          badge: Käyttäjän tunnusmerkki
+          deleted: Onko käyttäjä poistettu vai ei
+          direct_messages_enabled: Salliiko käyttäjä yksityisviestit vai ei
+          groups: Käyttäjäryhmän yksilöivä tunniste (ID) ja nimi
+          id: Käyttäjän yksilöivä tunniste
+          name: Käyttäjän nimi
+          nickname: Käyttäjän käyttäjänimi
+          profile_url: Profiilin URL-osoite
       index:
         description: Tervetuloa %{organization_name} -palvelun avoimen datan sivulle. Tältä sivulta löydät datatiedostoja, joita päivitetään säännöllisesti erilaisten deliberatiivisten ja hallinnollisten prosessien perusteella palvelussa %{organization_name}. Nämä tiedostot ovat saatavilla edistääksemme avoimuutta, tiedon saatavuutta ja saavutettavuutta sekä yhteistyötarkoituksiin. Löydät alta yksityiskohtaisia tiedostoja kustakin tiedostosta sekä kuinka voit avata ja työskennellä tiedostojen kanssa. Jokaiselle tiedostolle on annettu myös selitykset ja rakennekuvaukset.
+        detailed:
+          body_1: 'Alla on jokaisen tietojoukon selitteet, jotka kuvaavat tietojoukkojen rakenteen ja minkälaista tietoa ne sisältävät:'
+          components: Komponentit
+          spaces: Osallistumistilat
+          title: Jokaisen tiedoston selitteet
         download:
           components: Komponentit
+          core: Ydin
           spaces: Osallistumistilat
           title: Lataa tietoja
         download_open_data: Lataa kaikki avoimet datatiedostot
@@ -1362,6 +1406,13 @@ fi:
               </ul>
             title: 3. Työskentele tietojen kanssa
           title: Miten nämä tiedostot avataan ja miten niiden kanssa työskennellään?
+        license:
+          body_1_html: '%{organization_name} -palvelun tietokanta on lisensoitu %{link_database} -lisenssillä. Kaikki tietokannan sisällöt on lisensoitu %{link_contents} -lisenssillä.'
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_name: Tietokannan sisällön lisenssi
+          license_database_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_database_name: Avoimien tietojen lisenssi
+          title: Lisenssi
         title: Avoin data
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudestaan muutaman minuutin kuluttua.
     pad_iframe:
