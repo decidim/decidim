@@ -977,6 +977,22 @@ FactoryBot.define do
     end
   end
 
+  factory :user_block, class: "Decidim::UserBlock" do
+    transient do
+      organization { create(:organization) }
+      blocked_at { Time.current }
+    end
+    justification { generate(:title) }
+    blocking_user { create(:user, :admin, :confirmed, organization:) }
+    user { create(:user, :blocked, :confirmed, organization:) }
+
+    after(:create) do |object, evaluator|
+      object.user.block_id = object.id
+      object.user.blocked_at = evaluator.blocked_at
+      object.user.save!
+    end
+  end
+
   factory :user_report, class: "Decidim::UserReport" do
     transient do
       skip_injection { false }
@@ -990,7 +1006,7 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    user { build(:user) }
+    user { create(:user, :confirmed) }
   end
 
   factory :endorsement, class: "Decidim::Endorsement" do
