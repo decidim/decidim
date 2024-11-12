@@ -59,7 +59,7 @@ module Decidim
           end
 
           def valuator_role_ids
-            current_participatory_space.user_roles(:valuator).order_by_name.pluck(:id)
+            current_participatory_space.user_roles(:valuator).pluck(:id)
           end
 
           def translated_valuator_role_ids_has(valuator_role_id)
