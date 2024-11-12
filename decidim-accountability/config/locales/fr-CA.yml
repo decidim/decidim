@@ -251,6 +251,10 @@ fr-CA:
             scopes_enabled: Secteurs activés
           step:
             comments_blocked: Bloquer la création de nouveaux commentaires
+    download_your_data:
+      show:
+        result_comments: Export des commentaires des résultats
+        results: Export des résultats
     events:
       accountability:
         proposal_linked:
