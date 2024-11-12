@@ -24,7 +24,7 @@ module Decidim
         def find_valuators_for_select(participatory_space)
           return @valuators_for_select if @valuators_for_select
 
-          valuator_roles = participatory_space.user_roles(:valuator).order_by_name
+          valuator_roles = participatory_space.user_roles(:valuator)
           valuators = Decidim::User.where(id: valuator_roles.pluck(:decidim_user_id)).to_a
 
           @valuators_for_select = valuator_roles.map do |role|

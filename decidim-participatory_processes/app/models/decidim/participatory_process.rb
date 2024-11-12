@@ -193,7 +193,7 @@ module Decidim
     end
 
     def user_roles(role_name = nil)
-      roles = Decidim::ParticipatoryProcessUserRole.where(participatory_process: self)
+      roles = Decidim::ParticipatoryProcessUserRole.where(participatory_process: self).order_by_name
       return roles if role_name.blank?
 
       roles.where(role: role_name)

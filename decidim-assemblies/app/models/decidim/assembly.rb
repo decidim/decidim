@@ -154,7 +154,7 @@ module Decidim
     end
 
     def user_roles(role_name = nil)
-      roles = Decidim::AssemblyUserRole.where(assembly: self_and_ancestors)
+      roles = Decidim::AssemblyUserRole.where(assembly: self_and_ancestors).order_by_name
       return roles if role_name.blank?
 
       roles.where(role: role_name)
