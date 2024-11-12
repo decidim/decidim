@@ -1673,7 +1673,7 @@ en:
     tags:
       filter_results_for_taxonomy: 'Filter results for: %{resource}'
     taxonomies:
-      prompt: Select from "%{name}"
+      prompt: Please select an option
     translation_bar:
       help_text: "<strong>Warning:</strong> Content might be automatically translated and not be 100% accurate."
       show_original: Show original text

@@ -16,12 +16,16 @@ module Decidim
     validate :root_taxonomy_is_root
     validate :space_manifest_is_registered
 
+    scope :for, ->(space_manifest) { where(space_manifest:) }
+    scope :space_filters, -> { where(space_filter: true) }
+
+    # Returns the presenter class for this log.
+    #
+    # log - A Decidim::Log instance.
+    #
+    # Returns a Decidim::AdminLog::TaxonomyFilterPresenter class
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::TaxonomyFilterPresenter
-    end
-
-    def self.for(space_manifest)
-      where(space_manifest:)
     end
 
     # Public name for this filter, defaults to the root taxonomy name.

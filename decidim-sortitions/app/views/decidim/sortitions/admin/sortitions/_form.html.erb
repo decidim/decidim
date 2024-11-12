@@ -22,7 +22,7 @@
           <h3 class="pb-4"><%= t(".select_taxonomies") %></h3>
           <% @form.taxonomy_filters.each do |filter| %>
             <div class="columns">
-              <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+              <%= filter_taxonomy_items_select_field form, :taxonomies, filter, internal: true %>
             </div>
           <% end %>
         </div>
