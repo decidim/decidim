@@ -128,6 +128,7 @@ module Decidim
   autoload :IconRegistry, "decidim/icon_registry"
   autoload :HasConversations, "decidim/has_conversations"
   autoload :SoftDeletable, "decidim/soft_deletable"
+  autoload :PrivateDownloadHelper, "decidim/private_download_helper"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"

@@ -4,7 +4,7 @@
     <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all" %>
   </th>
   <th class="!text-left">
-    <%= sort_link(query, :title, t("models.proposal.fields.title", scope: "decidim.proposals") ) %>
+    <%= sort_link(query, :translated_title, t("models.proposal.fields.title", scope: "decidim.proposals") ) %>
   </th>
   <th>
     <%= sort_link(query, :published_at, t("models.proposal.fields.published_at", scope: "decidim.proposals") ) %>
@@ -37,7 +37,7 @@
   </th>
 
   <th>
-    <%= sort_link(query, :state, [:state, :is_emendation], t("models.proposal.fields.state", scope: "decidim.proposals") ) %>
+    <%= t("models.proposal.fields.state", scope: "decidim.proposals") %>
   </th>
 
   <th><%= t("actions.title", scope: "decidim.proposals") %></th>
