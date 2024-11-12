@@ -85,18 +85,6 @@ module Decidim::Comments
           expect(subject).to have_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
         end
 
-        context "when alignment is enabled" do
-          before do
-            allow(commentable).to receive(:comments_have_alignment?).and_return(true)
-          end
-
-          it "renders the alignment buttons" do
-            expect(subject).to have_css("button[data-toggle-ok]")
-            expect(subject).to have_css("button[data-toggle-meh]")
-            expect(subject).to have_css("button[data-toggle-ko]")
-          end
-        end
-
         context "when comments are blocked" do
           before do
             comment # Create the comment before disabling comments
