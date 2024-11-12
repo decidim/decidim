@@ -163,6 +163,10 @@ fr-CA:
             comments_blocked: Commentaires bloqués
             creation_enabled_for_participants: La création de réunions par les participants est activée
             creation_enabled_for_user_groups: La création de réunions par des groupes d'utilisateurs est activée
+    download_your_data:
+      show:
+        meeting_comments: Export des commentaires de réunion
+        meetings: Export des réunions
     events:
       meetings:
         meeting_closed:
