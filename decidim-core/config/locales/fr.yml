@@ -161,6 +161,7 @@ fr:
         error: Une erreur s'est produite lors de la suppression de votre compte.
         success: Votre compte a été supprimé avec succès.
       download_your_data_export:
+        export_expired: L'export a expiré. Essayez de générer un nouvel export.
         file_no_exists: Le fichier n'existe pas
         notice: Le téléchargement de vos données est en cours. Vous recevrez un email lorsque celui-ci sera terminé.
       email_change:
@@ -665,6 +666,17 @@ fr:
     download_your_data:
       export:
         ready: Prêt
+      show:
+        action: Action
+        download: Télécharger
+        download_data: Zone des téléchargements
+        download_data_description_1: Vous trouverez ici tous les téléchargements disponibles pour votre compte. Ces fichiers .zip seront disponibles pendant deux semaines avant d'être supprimés.
+        download_data_description_2: Vous pouvez demander un fichier .zip avec vos contributions et vos données personnelles.
+        download_your_data: Données personnelles
+        expiration: Expiration
+        expired: Déjà expiré
+        request_data: Requête 
+        type: Type de télechargement
     editor_images:
       create:
         error: Une erreur est survenue lors du téléchargement de l'image.
@@ -850,7 +862,10 @@ fr:
           notification_title: Le participant %{name} (%{nickname}) a été officialisé.
     export_mailer:
       download_your_data_export:
+        click_button_html: Cliquez sur le lien suivant pour télécharger vos données.<br/>Le fichier sera disponible au téléchargement jusqu'à %{date}.
         download: Télécharger
+      export:
+        click_button_html: Votre téléchargement est prêt. <br/>Le fichier sera disponible en téléchargement jusqu'à %{date}.
       subject: Votre export "%{name}" est prêt
     filters:
       linked_classes:
