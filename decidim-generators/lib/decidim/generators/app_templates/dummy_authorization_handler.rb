@@ -151,7 +151,7 @@ class DummyAuthorizationHandler < Decidim::AuthorizationHandler
     private
 
     def allowed_scope
-      @allowed_scope ||= Decidim::Scope.find(allowed_scope_id) if allowed_scope_id
+      @allowed_scope ||= Decidim::Scope.find(allowed_scope_id) if allowed_scope_id&.positive?
     end
 
     def user_scope
