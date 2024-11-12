@@ -68,6 +68,13 @@ Capybara.register_driver :headless_chrome do |app|
                     "--window-size=1920,1080"
                   end
   options.args << "--ignore-certificate-errors" if ENV["TEST_SSL"]
+
+  options.add_preference(:download,
+                         directory_upgrade: true,
+                         prompt_for_download: false,
+                         default_directory: DownloadHelper::PATH.to_s)
+  options.add_preference(:browser, set_download_behavior: { behavior: "allow" })
+
   Capybara::Selenium::Driver.new(
     app,
     browser: :chrome,

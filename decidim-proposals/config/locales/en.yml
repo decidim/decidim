@@ -257,6 +257,10 @@ en:
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
+    download_your_data:
+      show:
+        proposal_comments: Proposal comments export
+        proposals: Proposals export
     events:
       proposals:
         accepted_coauthorship:

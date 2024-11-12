@@ -171,6 +171,10 @@ en:
             start_time: Start date
             taxonomies: Taxonomies
             title: Title
+    download_your_data:
+      show:
+        debate_comments: Debate comments export
+        debates: Debates export
     events:
       debates:
         create_debate_event:

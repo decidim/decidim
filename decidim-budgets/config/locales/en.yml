@@ -382,6 +382,9 @@ en:
               disabled: Voting disabled
               enabled: Voting enabled
               finished: Voting finished
+    download_your_data:
+      show:
+        projects: Projects export
     events:
       budgets:
         budget_published:
