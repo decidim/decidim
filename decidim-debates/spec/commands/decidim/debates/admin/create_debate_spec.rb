@@ -9,6 +9,7 @@ describe Decidim::Debates::Admin::CreateDebate do
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
   let(:user) { create(:user, :admin, :confirmed, organization:) }
+  let(:comments_layout) { "single_column" }
   let(:taxonomizations) do
     2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
   end
@@ -27,7 +28,8 @@ describe Decidim::Debates::Admin::CreateDebate do
       component: current_component,
       current_organization: organization,
       finite:,
-      comments_enabled: true
+      comments_enabled: true,
+      comments_layout:
     )
   end
   let(:finite) { true }
@@ -117,6 +119,24 @@ describe Decidim::Debates::Admin::CreateDebate do
           )
 
         subject.call
+      end
+    end
+
+    context "when creating a debate with a single column layout" do
+      let(:comments_layout) { "single_column" }
+
+      it "creates a debate with a single column layout for comments" do
+        subject.call
+        expect(debate.comments_layout).to eq("single_column")
+      end
+    end
+
+    context "when creating a debate with a two columns layout" do
+      let(:comments_layout) { "two_columns" }
+
+      it "creates a debate with a two columns layout for comments" do
+        subject.call
+        expect(debate.comments_layout).to eq("two_columns")
       end
     end
   end

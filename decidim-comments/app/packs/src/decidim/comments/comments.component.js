@@ -214,14 +214,12 @@ export default class CommentsComponent {
         const $form = $(form);
         const $textarea = $form.find("textarea");
 
-        if ($textarea.is(":visible")) {
-          $textarea.val("");
+        $textarea.val("");
 
-          const characterCounter = $textarea.data("remaining-characters-counter");
-          if (characterCounter) {
-            characterCounter.handleInput();
-            characterCounter.updateStatus();
-          }
+        const characterCounter = $textarea.data("remaining-characters-counter");
+        if (characterCounter) {
+          characterCounter.handleInput();
+          characterCounter.updateStatus();
         }
       });
     }
