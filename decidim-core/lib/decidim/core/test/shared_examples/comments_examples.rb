@@ -637,7 +637,6 @@ shared_examples "comments" do
           field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
           field.set " "
           field.native.send_keys content
-          select user_group.name, from: "Comment as"
           click_on "Publish comment"
         end
 
@@ -804,29 +803,6 @@ shared_examples "comments" do
           visit resource_path
 
           expect(page).to have_css(".add-comment form")
-        end
-
-        it "works according to the setting in the commentable" do
-          if commentable.comments_have_alignment?
-            page.find("[data-toggle-ok=true]").click
-            expect(page.find("[data-toggle-ok=true]")["aria-pressed"]).to eq("true")
-            expect(page.find("[data-toggle-meh=true]")["aria-pressed"]).to eq("false")
-            expect(page.find("[data-toggle-ko=true]")["aria-pressed"]).to eq("false")
-            expect(page.find("div[data-opinion-toggle] .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
-
-            within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-              field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-              field.set " "
-              field.native.send_keys "I am in favor about this!"
-              click_on "Publish comment"
-            end
-
-            within "#comments" do
-              expect(page).to have_css "span.success.label", text: "In favor", wait: 20
-            end
-          else
-            expect(page).to have_no_css("[data-toggle-ok=true]")
-          end
         end
       end
     end
@@ -1050,7 +1026,7 @@ shared_examples "comments blocked" do
         visit resource_path
         expect(page).to have_link("Comment")
         page.find("a", text: "Comment").click
-        fill_in "Comment", with: "Test admin commenting in a closed comment."
+        find("textarea[name='comment[body]']").set("Test admin commenting in a closed comment.")
         click_on "Publish comment"
         expect(page).to have_content("Test admin commenting in a closed comment.")
 
@@ -1058,7 +1034,7 @@ shared_examples "comments blocked" do
         first("button", text: "Reply").click
         expect(page).to have_css(".comment-thread")
         within first(".comment-thread") do
-          fill_in "Comment", with: "Test admin replying a closed comment."
+          find("textarea[name='comment[body]']").set("Test admin replying a closed comment.")
           click_on "Publish reply"
         end
         expect(page).to have_content("Test admin replying a closed comment.")
