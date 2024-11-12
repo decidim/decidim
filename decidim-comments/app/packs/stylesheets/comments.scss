@@ -335,7 +335,7 @@
     }
 
     &-submit {
-      @apply flex flex-col md:flex-row justify-end items-stretch md:items-end gap-4 mt-4;
+      @apply flex flex-col md:flex-row md:justify-end items-stretch md:items-end gap-4 mt-4;
     }
   }
 
@@ -423,4 +423,8 @@
 
 [data-dialog-container-add-comment] {
   @apply grid grid-cols-[1fr] items-center justify-items-center gap-2 text-left;
+}
+
+.publish-comment-button {
+  @apply md:relative fixed inset-x-0 bottom-0 z-30 md:z-0 flex flex-row items-center md:items-end md:justify-end font-semibold justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 h-14 md:h-fit first:[&>button]:py-3;
 }
