@@ -164,6 +164,10 @@ fr-CA:
             start: Début
             start_time: Date de début
             title: Titre
+    download_your_data:
+      show:
+        debate_comments: Export des commentaires des débats
+        debates: Export des débats
     events:
       debates:
         create_debate_event:
