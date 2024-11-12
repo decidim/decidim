@@ -1311,7 +1311,7 @@ de:
           participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
           welcome: Willkommen bei %{organization}!
         statistics:
-          headline: Aktueller Status von %{organization}
+          headline: Starea curentă a %{organization}
         sub_hero:
           register: Registrieren
           register_title: Registrieren Sie sich um ein Konto anzulegen
@@ -1477,7 +1477,7 @@ de:
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Verbergen
         hide_content: Diesen Inhalt verbergen
-        offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
+        offensive: Er enthält Formen von Rassismus, Sexismus, Verunglimpfungen, persönlichen Angriffen, Morddrohungen, Selbstmord oder jeder Form von Hassreden.
         reason: Begründung
         report: Meldung erfassen
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
