@@ -12,7 +12,7 @@
 // This is necessary for testing purposes
 const $ = window.$;
 
-import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
+import changeReportFormBehavior from "src/decidim/change_report_form_behavior";
 
 export default class CommentsComponent {
   constructor($element, config) {
@@ -85,13 +85,13 @@ export default class CommentsComponent {
    *   is the author of the new thread. Defaults to false.
    * @returns {Void} - Does not return a value.
    */
-  addThread(threadHtml, alignment, fromCurrentUser = false) {
+  addThread(threadHtml, alignment = null, fromCurrentUser = false) {
     const $comment = $(threadHtml);
+    let $parent = null;
+
     const $commentsContainer = $(".comments-two-columns", this.$element);
     const isTwoColumnsLayout = $commentsContainer.length > 0;
     const isMobileScreen = window.innerWidth < 768;
-
-    let $parent = null;
 
     if (isTwoColumnsLayout && !isMobileScreen) {
       const $inFavorColumn = $(".comments-section__in-favor", this.$element);
@@ -109,7 +109,7 @@ export default class CommentsComponent {
     }
 
     this._addComment($parent, $comment);
-    this._finalizeCommentCreation(fromCurrentUser);
+    this._finalizeCommentCreation($parent, fromCurrentUser);
   }
 
   /**
@@ -165,7 +165,7 @@ export default class CommentsComponent {
         this._stopPolling();
       });
 
-      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
+      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container));
 
       if ($text.length && $text.get(0) !== null) {
         // Attach event to the DOM node, instead of the jQuery object
@@ -193,31 +193,37 @@ export default class CommentsComponent {
     $target.append($container);
 
     this._initializeComments($container);
-    document.dispatchEvent(new CustomEvent("comments:loaded", { detail: {commentsIds: [this.lastCommentId] }}));
+    document.dispatchEvent(new CustomEvent("comments:loaded", { detail: { commentsIds: [this.lastCommentId] } }));
   }
 
   /**
    * Finalizes the new comment creation after the comment adding finishes
    * successfully.
    * @private
+   * @param {jQuery} $parent - The parent element representing where the comment
+   *  was added.
    * @param {Boolean} fromCurrentUser - A boolean indicating whether the user
    *   herself was the author of the new comment.
    * @returns {Void} - Returns nothing
    */
-  _finalizeCommentCreation(fromCurrentUser) {
+  _finalizeCommentCreation($parent, fromCurrentUser) {
     if (fromCurrentUser) {
-      const $add =  $(".add-comment", this.$element);
-      $("textarea", $add).each((_i, text) => {
-        const $text = $(text);
-        // Reset textarea content
-        $text.val("")
-        // Update characterCounter component
-        const characterCounter = $text.data("remaining-characters-counter");
-        if (characterCounter) {
-          characterCounter.handleInput();
-          characterCounter.updateStatus();
+      const $addCommentForms = $(".add-comment", this.$element);
+
+      $addCommentForms.each((_i, form) => {
+        const $form = $(form);
+        const $textarea = $form.find("textarea");
+
+        if ($textarea.is(":visible")) {
+          $textarea.val("");
+
+          const characterCounter = $textarea.data("remaining-characters-counter");
+          if (characterCounter) {
+            characterCounter.handleInput();
+            characterCounter.updateStatus();
+          }
         }
-      })
+      });
     }
 
     // Restart the polling
