@@ -325,6 +325,9 @@ fr-CA:
         create: "%{user_name} a invité l'utilisateur %{resource_name} à la concertation %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de la concertation %{space_name}"
         update: "%{user_name} a changé le rôle de l'utilisateur %{resource_name} dans la concertation %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Export des processus participatifs
     events:
       participatory_process:
         role_assigned:
