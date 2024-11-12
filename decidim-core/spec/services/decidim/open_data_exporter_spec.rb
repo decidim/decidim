@@ -69,12 +69,12 @@ describe Decidim::OpenDataExporter do
         ]
       end
 
-      it_behaves_like "open data exporter"
+      it_behaves_like "open users data exporter"
 
       context "when user is deleted" do
         let!(:resource) { create(:user, :confirmed, :deleted, organization:) }
 
-        it_behaves_like "open data exporter"
+        it_behaves_like "open users data exporter"
       end
     end
 
@@ -90,7 +90,53 @@ describe Decidim::OpenDataExporter do
         ]
       end
 
-      it_behaves_like "open data exporter"
+      it_behaves_like "open users data exporter"
+    end
+
+    describe "with moderations" do
+      let(:resource_file_name) { "moderations" }
+      let(:resource_title) { "### moderations" }
+      let!(:target_component) { create(:component, manifest_name: :dummy, organization:) }
+      let!(:target_reportable) { create(:dummy_resource, component: target_component) }
+      let!(:other_reportable) { create(:dummy_resource, component: target_component) }
+
+      let!(:resource) { create(:moderation, reportable: target_reportable, hidden_at: Time.current) }
+      let!(:unpublished_resource) { create(:moderation, reportable: other_reportable) }
+      let(:help_lines) do
+        [
+          "* id: The unique identifier of the moderation",
+          "* reported_content: The content that has been reported"
+        ]
+      end
+
+      it_behaves_like "open moderation data exporter"
+    end
+
+    describe "with user moderations" do
+      let(:resource_file_name) { "moderated_users" }
+      let(:resource_title) { "### moderated_users" }
+      let(:admin) { create(:user, :admin, organization:) }
+
+      let(:user) { create(:user, :confirmed, organization:) }
+      let!(:moderation) { create(:user_moderation, user:) }
+      let(:user_report) { create(:user_report, moderation:, user: admin) }
+      let!(:user_block) { create(:user_block, user:, blocking_user: admin) }
+
+      let(:other_user) { create(:user, :confirmed, organization:) }
+      let!(:other_moderation) { create(:user_moderation, user: other_user) }
+      let(:other_user_report) { create(:user_report, moderation: other_moderation, user: admin) }
+
+      let!(:unpublished_resource) { other_user.reload }
+      let!(:resource) { user.reload }
+
+      let(:help_lines) do
+        [
+          "* id: The unique identifier of the user",
+          "* blocking_user: The name of the user that has performed the blocking"
+        ]
+      end
+
+      it_behaves_like "open moderation data exporter"
     end
 
     describe "with all the components and spaces" do
