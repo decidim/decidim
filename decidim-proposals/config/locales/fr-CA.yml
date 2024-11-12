@@ -231,6 +231,10 @@ fr-CA:
             votes_blocked: Votes bloqués
             votes_enabled: Activer le module de vote simple
             votes_hidden: Cacher les votes (si le module de votes est activé, le décompte des votes sera caché)
+    download_your_data:
+      show:
+        proposal_comments: Export des commentaires de proposition
+        proposals: Export des propositions
     events:
       proposals:
         accepted_coauthorship:
