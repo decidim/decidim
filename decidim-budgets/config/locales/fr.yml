@@ -352,6 +352,9 @@ fr:
               disabled: Vote désactivé
               enabled: Votes activés
               finished: Vote terminé
+    download_your_data:
+      show:
+        projects: Export des projets
     events:
       budgets:
         budget_published:
