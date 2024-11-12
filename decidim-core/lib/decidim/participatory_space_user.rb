@@ -37,6 +37,10 @@ module Decidim
         raise "Not implemented"
       end
 
+      def self.order_by_name
+        includes(:user).order("decidim_users.name ASC")
+      end
+
       private
 
       # Private: check if the process and the user have the same organization
