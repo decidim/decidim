@@ -1370,6 +1370,7 @@ fi-pl:
       index:
         description: Tervetuloa %{organization_name} -palvelun avoimen datan sivulle. Tältä sivulta löydät datatiedostoja, joita päivitetään säännöllisesti erilaisten deliberatiivisten ja hallinnollisten prosessien perusteella palvelussa %{organization_name}. Nämä tiedostot ovat saatavilla edistääksemme avoimuutta, tiedon saatavuutta ja saavutettavuutta sekä yhteistyötarkoituksiin. Löydät alta yksityiskohtaisia tiedostoja kustakin tiedostosta sekä kuinka voit avata ja työskennellä tiedostojen kanssa. Jokaiselle tiedostolle on annettu myös selitykset ja rakennekuvaukset.
         detailed:
+          body_1: 'Alla on jokaisen tietojoukon selitteet, jotka kuvaavat tietojoukkojen rakenteen ja minkälaista tietoa ne sisältävät:'
           components: Komponentit
           spaces: Osallistumistilat
           title: Jokaisen tiedoston selitteet
@@ -1406,6 +1407,7 @@ fi-pl:
             title: 3. Työskentele tietojen kanssa
           title: Miten nämä tiedostot avataan ja miten niiden kanssa työskennellään?
         license:
+          body_1_html: '%{organization_name} -palvelun tietokanta on lisensoitu %{link_database} -lisenssillä. Kaikki tietokannan sisällöt on lisensoitu %{link_contents} -lisenssillä.'
           license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
           license_contents_name: Tietokannan sisällön lisenssi
           license_database_link: https://opendatacommons.org/licenses/dbcl/1-0/
