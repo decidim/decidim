@@ -403,6 +403,9 @@ fr-CA:
         designated_on: Désigné le
       index:
         title: Membres
+    download_your_data:
+      show:
+        assemblies: Export des assemblées
     events:
       assemblies:
         create_assembly_member:
