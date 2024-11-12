@@ -21,8 +21,8 @@ module Decidim
       def map_model(model)
         self.root_taxonomy_id = model.root_taxonomy_id
         self.taxonomy_items = model.filter_items.map(&:taxonomy_item_id)
-        self.name = {} if model.attributes["name"].blank?
-        self.internal_name = {} if model.attributes["internal_name"].blank?
+        self.name = {} if model.attributes["name"]&.compact_blank.blank?
+        self.internal_name = {} if model.attributes["internal_name"]&.compact_blank.blank?
       end
 
       def taxonomy_items
