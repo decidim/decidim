@@ -7,6 +7,7 @@ describe "Admin manages assemblies" do
   include_context "with taxonomy filters context"
 
   let(:space_manifest) { "assemblies" }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:, space_filter: true) }
   let(:resource_controller) { Decidim::Assemblies::Admin::AssembliesController }
   let(:model_name) { assembly.class.model_name }
 

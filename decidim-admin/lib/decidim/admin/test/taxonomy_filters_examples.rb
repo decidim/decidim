@@ -18,7 +18,7 @@ shared_context "with taxonomy filters context" do
   let(:name) { { "en" => "The name for regular users" } }
   let(:internal_name) { { "en" => "The name for admins only" } }
   let(:space_filter) { true }
-  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:, space_filter: false) }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let!(:another_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: another_taxonomy) }
 end
