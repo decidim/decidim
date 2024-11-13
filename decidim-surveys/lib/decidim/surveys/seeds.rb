@@ -17,6 +17,8 @@ module Decidim
         questionnaire = create_questionnaire!(component:)
 
         create_questions!(questionnaire:)
+
+        rand(20).times { create_answers!(questionnaire:) }
       end
 
       def create_component!
@@ -71,12 +73,8 @@ module Decidim
       end
 
       def create_questions!(questionnaire:)
-        user = find_or_initialize_user_by(email: "survey-#{questionnaire.id}-#{rand(10_000)}@example.org")
-        session_token = Digest::MD5.hexdigest("#{user.id}-#{Rails.application.secret_key_base}")
-        ip_hash = Faker::Internet.device_token.slice(0, 24)
-
         %w(short_answer long_answer files).each_with_index do |text_question_type, index|
-          question = Decidim::Forms::Question.create!(
+          Decidim::Forms::Question.create!(
             mandatory: text_question_type == "short_answer",
             questionnaire:,
             body: Decidim::Faker::Localized.paragraph,
@@ -84,15 +82,6 @@ module Decidim
             position: index
           )
           next if text_question_type == "files"
-
-          Decidim::Forms::Answer.create!(
-            user:,
-            questionnaire:,
-            question:,
-            body: ::Faker::Lorem.paragraph(sentence_count: 1),
-            session_token:,
-            ip_hash:
-          )
         end
 
         %w(single_option multiple_option sorting).each_with_index do |multiple_choice_question_type, index|
@@ -113,22 +102,6 @@ module Decidim
             condition_type: :answered,
             mandatory: true
           )
-
-          answer = Decidim::Forms::Answer.create!(
-            user:,
-            questionnaire:,
-            question:,
-            body: nil,
-            session_token:,
-            ip_hash:
-          )
-
-          answer_option = question.answer_options.sample
-          Decidim::Forms::AnswerChoice.create!(
-            answer:,
-            answer_option:,
-            body: answer_option["en"]
-          )
         end
 
         %w(matrix_single matrix_multiple).each_with_index do |matrix_question_type, index|
@@ -143,24 +116,6 @@ module Decidim
             question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
             question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence, position:)
           end
-
-          answer = Decidim::Forms::Answer.create!(
-            user:,
-            questionnaire:,
-            question:,
-            body: nil,
-            session_token:,
-            ip_hash:
-          )
-
-          matrix_row = question.matrix_rows.sample
-          answer_option = question.answer_options.sample
-          Decidim::Forms::AnswerChoice.create!(
-            answer:,
-            answer_option:,
-            matrix_row:,
-            body: answer_option["en"]
-          )
         end
 
         Decidim::Forms::Question.create!(
@@ -168,6 +123,77 @@ module Decidim
           body: nil,
           question_type: "separator",
           position: 3
+        )
+      end
+
+      def create_answers!(questionnaire:, user: nil)
+        user = find_or_initialize_user_by(email: "survey-#{questionnaire.id}-#{rand(10_000)}@example.org") if user.nil?
+
+        answer_options = {
+          user:,
+          questionnaire:,
+          session_token: Digest::MD5.hexdigest("#{user.id}-#{Rails.application.secret_key_base}"),
+          ip_hash: Faker::Internet.device_token.slice(0, 24)
+        }
+
+        questionnaire.questions.each do |question|
+          case question.question_type
+          when "short_answer", "long_answer"
+            create_answer_for_text_question_type!(answer_options.merge({ question: }))
+          when "single_option", "multiple_option", "sorting"
+            create_answer_for_multiple_choice_question_type(answer_options.merge({ question: }))
+          when "matrix_single", "matrix_multiple"
+            create_answer_for_matrix_question_type(answer_options.merge({ question:}))
+          end
+        end
+      end
+
+      def create_answer_for_text_question_type!(options)
+          Decidim::Forms::Answer.create!(
+            user: options[:user],
+            questionnaire: options[:questionnaire],
+            question: options[:question],
+            body: ::Faker::Lorem.paragraph(sentence_count: 1),
+            session_token: options[:session_token],
+            ip_hash: options[:ip_hash]
+          )
+      end
+
+      def create_answer_for_multiple_choice_question_type(options)
+        answer = Decidim::Forms::Answer.create!(
+          user: options[:user],
+          questionnaire: options[:questionnaire],
+          question: options[:question],
+          body: nil,
+          session_token: options[:session_token],
+          ip_hash: options[:ip_hash]
+        )
+
+        answer_option = options[:question].answer_options.sample
+        Decidim::Forms::AnswerChoice.create!(
+          answer:,
+          answer_option:,
+          body: answer_option["en"]
+        )
+      end
+
+      def create_answer_for_matrix_question_type(options)
+        answer = Decidim::Forms::Answer.create!(
+          user: options[:user],
+          questionnaire: options[:questionnaire],
+          question: options[:question],
+          body: nil,
+          session_token: options[:session_token],
+          ip_hash: options[:ip_hash]
+        )
+
+        matrix_row = options[:question].matrix_rows.sample
+        answer_option = options[:question].answer_options.sample
+        Decidim::Forms::AnswerChoice.create!(
+          answer:,
+          answer_option:,
+          matrix_row:,
+          body: answer_option["en"]
         )
       end
     end
