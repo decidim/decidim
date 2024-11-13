@@ -8,9 +8,9 @@
 
     <% current_component_taxonomy_filters.each do |filter| %>
         <div class="row column">
-        <label class="w-full font-semibold block mb-4" for="taxonomies_<%= filter.id %>%">
+        <label class="w-full font-semibold block mb-4" for="taxonomies_for_filter_<%= filter.id %>">
             <%= decidim_sanitize_translated(filter.name) %>
-            <%= select_tag "taxonomies[]", options_for_select(taxonomy_items_options_for_filter(filter)), include_blank: I18n.t("decidim.taxonomies.prompt"), class: "w-full mt-2" %>
+            <%= select_tag "taxonomies[]", options_for_select(taxonomy_items_options_for_filter(filter)), include_blank: I18n.t("decidim.taxonomies.prompt"), class: "w-full mt-2", id: "taxonomies_for_filter_#{filter.id}" %>
         </label>
         </div>
     <% end %>

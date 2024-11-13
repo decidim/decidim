@@ -97,9 +97,9 @@ module Decidim
 
             on(:update_resources_taxonomies) do |response|
               interpolations = {
-                successful: response[:successful].map { |resource| translated_attribute(resource.title) }.to_sentence,
-                errored: response[:errored].map { |resource| translated_attribute(resource.title) }.to_sentence,
-                taxonomies: response[:taxonomies].map { |taxonomy| translated_attribute(taxonomy.name) }.to_sentence
+                successful: response[:successful].map { |resource| decidim_escape_translated(resource.title) }.to_sentence,
+                errored: response[:errored].map { |resource| decidim_escape_translated(resource.title) }.to_sentence,
+                taxonomies: response[:taxonomies].map { |taxonomy| decidim_escape_translated(taxonomy.name) }.to_sentence
               }
 
               flash[:notice] = update_projects_bulk_response_successful(interpolations, :taxonomy) if response[:successful].any?

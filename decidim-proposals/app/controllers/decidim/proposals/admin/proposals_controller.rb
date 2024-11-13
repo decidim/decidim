@@ -70,16 +70,16 @@ module Decidim
               if response[:successful].any?
                 flash[:notice] = t(
                   "proposals.update_taxonomies.success",
-                  taxonomies: response[:taxonomies].map { |taxonomy| translated_attribute(taxonomy.name) }.to_sentence,
-                  proposals: response[:successful].map { |resource| translated_attribute(resource.title) }.to_sentence,
+                  taxonomies: response[:taxonomies].map { |taxonomy| decidim_escape_translated(taxonomy.name) }.to_sentence,
+                  proposals: response[:successful].map { |resource| decidim_escape_translated(resource.title) }.to_sentence,
                   scope: "decidim.proposals.admin"
                 )
               end
               if response[:errored].any?
                 flash[:alert] = t(
                   "proposals.update_taxonomies.invalid",
-                  taxonomies: response[:taxonomies].map { |taxonomy| translated_attribute(taxonomy.name) }.to_sentence,
-                  proposals: response[:errored].map { |resource| translated_attribute(resource.title) }.to_sentence,
+                  taxonomies: response[:taxonomies].map { |taxonomy| decidim_escape_translated(taxonomy.name) }.to_sentence,
+                  proposals: response[:errored].map { |resource| decidim_escape_translated(resource.title) }.to_sentence,
                   scope: "decidim.proposals.admin"
                 )
               end

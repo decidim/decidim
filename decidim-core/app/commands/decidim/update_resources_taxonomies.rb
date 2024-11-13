@@ -51,8 +51,8 @@ module Decidim
           @response[:errored] << resource
         else
           update_resource_taxonomies!(resource)
+          @response[:successful] << resource
         end
-        @response[:successful] << resource
       end
     end
 
