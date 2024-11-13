@@ -195,6 +195,7 @@ cs:
         error: Při mazání účtu došlo k chybě.
         success: Účet byl úspěšně smazán.
       download_your_data_export:
+        export_expired: Export vypršel. Zkuste vytvořit nový export.
         file_no_exists: Soubor neexistuje
         notice: Probíhá stahování vašich dat. Po dokončení obdržíte e-mail.
       email_change:
@@ -721,6 +722,17 @@ cs:
     download_your_data:
       export:
         ready: Připraven
+      show:
+        action: Akce
+        download: Stáhnout
+        download_data: Oblast stahování
+        download_data_description_1: Zde naleznete všechna stažení, která jsou k dispozici pro váš účet. Tyto .zip soubory budou k dispozici po dobu dvou týdnů než budou odstraněny.
+        download_data_description_2: Můžete požádat o .zip soubor s vašimi příspěvky a osobními údaji.
+        download_your_data: Osobní údaje
+        expiration: Vypršení platnosti
+        expired: Již vypršela platnost
+        request_data: Požadavek
+        type: Typ stahování
     editor_images:
       create:
         error: Chyba při nahrávání obrázku.
@@ -913,7 +925,11 @@ cs:
           notification_title: Uživatel %{name} (%{nickname}) byl oficiálně zveřejněn.
     export_mailer:
       download_your_data_export:
+        click_button_html: Klikněte na následující odkaz pro stažení vašich dat.<br/>Soubor bude k dispozici ke stažení do %{date}.
         download: Stažení
+      export:
+        click_button_html: Vaše stahování je připraveno. <br/>Soubor bude k dispozici ke stažení do %{date}.
+        download: Stáhnout
       subject: Váš export "%{name}" je připraven
     filters:
       linked_classes:
@@ -1377,6 +1393,23 @@ cs:
           main: Jádro
           spaces: Prostory
           title: Soubory otevřených dat pro %{organization}
+        moderated_users:
+          about: Informační pole uživatele
+          block_reasons: Důvod, proč administrátor zablokoval uživatele
+          blocked_at: Datum a čas, kdy byl uživatel zablokován
+          blocking_user: Jméno uživatele, který provedl blokování
+          details: Podrobnosti zpráv
+          reasons: Seznam důvodů, proč byl profil nahlášen
+          user_id: Jedinečné ID nahlášeného uživatele
+        moderations:
+          hidden_at: Datum a čas, kdy byl obsah skryt
+          id: Jedinečný identifikátor moderace
+          report_count: Kolikrát to bylo nahlášeno
+          reportable_id: Jedinečné Id oznamovatelů
+          reportable_type: Typ nahlášení
+          reported_content: Nahlášený obsah
+          reported_url: Adresa url nahlášeného zdroje
+          reports: Seznam důvodů, pro které byl zdroj nahlášen
         user_groups:
           avatar_url: Avatar uživatelské skupiny
           badge: Odznak uživatelské skupiny
