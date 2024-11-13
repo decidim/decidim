@@ -7,9 +7,12 @@ module Decidim
       include UserRoleChecker
       delegate :user_signed_in?, to: :controller
 
-      def add_comment
+      def add_comment(id: "add-comment-anchor")
+        @id = id
         render :add_comment if can_add_comments?
       end
+
+      attr_reader :id
 
       def single_comment_warning
         return unless single_comment?

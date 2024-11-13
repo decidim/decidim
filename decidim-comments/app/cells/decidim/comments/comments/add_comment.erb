@@ -1,4 +1,4 @@
-<div class="add-comment" id="add-comment-anchor">
+<div class="add-comment" id="<%= id %>">
   <% if user_signed_in? %>
     <%== cell("decidim/comments/comment_form", model, root_depth:) %>
   <% else %>
