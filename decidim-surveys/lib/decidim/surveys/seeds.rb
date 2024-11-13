@@ -20,11 +20,18 @@ module Decidim
       end
 
       def create_component!
+        step_settings = if participatory_space.allows_steps?
+                          { participatory_space.active_step.id => { allow_answers: true } }
+                        else
+                          {}
+                        end
+
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name,
           manifest_name: :surveys,
           published_at: Time.current,
-          participatory_space:
+          participatory_space:,
+          step_settings:
         }
 
         Decidim.traceability.perform_action!(
