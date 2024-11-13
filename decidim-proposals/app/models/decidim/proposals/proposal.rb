@@ -347,7 +347,7 @@ module Decidim
         where(query, value:)
       end
 
-      def self.ransackable_scopes(auth_object = nil)
+      def self.ransackable_scopes(_auth_object = nil)
         [:with_any_origin, :with_any_state, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category, :valuator_role_ids_has]
       end
 
