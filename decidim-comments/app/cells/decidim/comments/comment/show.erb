@@ -1,4 +1,5 @@
-<%= content_tag :div, id: "comment_#{model.id}",
+<%= content_tag :div,
+                id: "comment_#{model.id}",
                 class: ["comment", "relative", ("top-comment" if top_comment_label.present?)].compact,
                 role: "comment",
                 data: { comment_id: model.id, parent: parent_element_id } do %>
@@ -63,7 +64,7 @@
                 <% end %>
               </li>
             <% end %>
-            <% if(extra_actions) %>
+            <% if (extra_actions) %>
               <% extra_actions.each do |action| %>
                 <li>
                   <%= link_to(*action) %>
