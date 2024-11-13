@@ -64,7 +64,7 @@ module Decidim
       end
 
       def create_questions!(questionnaire:)
-        %w(short_answer long_answer).each_with_index do |text_question_type, index|
+        %w(short_answer long_answer files).each_with_index do |text_question_type, index|
           Decidim::Forms::Question.create!(
             questionnaire:,
             body: Decidim::Faker::Localized.paragraph,
@@ -73,7 +73,7 @@ module Decidim
           )
         end
 
-        %w(single_option multiple_option).each_with_index do |multiple_choice_question_type, index|
+        %w(single_option multiple_option sorting).each_with_index do |multiple_choice_question_type, index|
           question = Decidim::Forms::Question.create!(
             questionnaire:,
             body: Decidim::Faker::Localized.paragraph,
