@@ -56,21 +56,6 @@ module Decidim
       buffer.string
     end
 
-    def core_data_manifests
-      [
-        OpenStruct.new(
-          name: :users,
-          collection: ->(organization) { Decidim::User.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
-          serializer: Decidim::Exporters::OpenDataUserSerializer
-        ),
-        OpenStruct.new(
-          name: :user_groups,
-          collection: ->(organization) { Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
-          serializer: Decidim::Exporters::OpenDataUserGroupSerializer
-        )
-      ]
-    end
-
     def data_for_core(export_manifest)
       collection = export_manifest.collection.call(organization)
       exporter = Decidim::Exporters::CSV.new(collection, export_manifest.serializer)
@@ -223,6 +208,10 @@ module Decidim
     def add_file_to_output(output, file_name, string)
       output.put_next_entry(file_name)
       output.write string
+    end
+
+    def core_data_manifests
+      @core_data_manifests ||= Decidim.open_data_manifests.select(&:include_in_open_data)
     end
 
     def open_data_component_manifests
