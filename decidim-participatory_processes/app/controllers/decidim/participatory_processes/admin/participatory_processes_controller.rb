@@ -23,7 +23,7 @@ module Decidim
 
         def index
           enforce_permission_to :read, :process_list
-          @participatory_processes = filtered_collection.not_trashed
+          @participatory_processes = filtered_collection
         end
 
         def new

@@ -36,7 +36,7 @@ Decidim.register_component(:accountability) do |component|
   end
 
   component.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
-    Decidim::Accountability::Result.not_trashed.where(component: components).count
+    Decidim::Accountability::Result.where(component: components).count
   end
 
   component.settings(:step) do |settings|
@@ -46,7 +46,6 @@ Decidim.register_component(:accountability) do |component|
   component.exports :results do |exports|
     exports.collection do |component_instance|
       Decidim::Accountability::Result
-        .not_trashed
         .where(component: component_instance)
         .includes(:taxonomies, :status, component: { participatory_space: :organization })
     end

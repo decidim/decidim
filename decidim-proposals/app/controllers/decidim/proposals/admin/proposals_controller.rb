@@ -168,11 +168,11 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= filtered_collection.not_trashed
+          @proposals ||= filtered_collection
         end
 
         def proposal
-          @proposal ||= collection.not_trashed.find(params[:id])
+          @proposal ||= collection.find(params[:id])
         end
 
         def proposal_ids

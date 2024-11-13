@@ -36,7 +36,7 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.register_stat :budgets_count, primary: true, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components|
-    Decidim::Budgets::Budget.not_trashed.where(component: components).count
+    Decidim::Budgets::Budget.where(component: components).count
   end
 
   component.register_stat :projects_count, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, start_at, end_at|
@@ -44,7 +44,7 @@ Decidim.register_component(:budgets) do |component|
   end
 
   component.register_stat :orders_count do |components, start_at, end_at|
-    budgets = Decidim::Budgets::Budget.not_trashed.where(component: components)
+    budgets = Decidim::Budgets::Budget.where(component: components)
     orders = Decidim::Budgets::Order.where(budget: budgets)
     orders = orders.where(created_at: start_at..) if start_at.present?
     orders = orders.where(created_at: ..end_at) if end_at.present?
@@ -63,9 +63,8 @@ Decidim.register_component(:budgets) do |component|
 
   component.exports :projects do |exports|
     exports.collection do |component_instance, _user, resource_id|
-      budgets = resource_id ? Decidim::Budgets::Budget.not_trashed.find(resource_id) : Decidim::Budgets::Budget.where(decidim_component_id: component_instance)
+      budgets = resource_id ? Decidim::Budgets::Budget.find(resource_id) : Decidim::Budgets::Budget.where(decidim_component_id: component_instance)
       Decidim::Budgets::Project
-        .not_trashed
         .where(decidim_budgets_budget_id: budgets)
         .includes(:taxonomies, :component)
     end

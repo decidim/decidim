@@ -11,7 +11,7 @@ module Decidim
       field :debates, Decidim::Debates::DebateType.connection_type, null: true, connection: true
 
       def debates
-        Debate.not_trashed.where(component: object).includes(:component)
+        Debate.where(component: object).includes(:component)
       end
 
       field :debate, Decidim::Debates::DebateType, null: true do
@@ -19,7 +19,7 @@ module Decidim
       end
 
       def debate(**args)
-        Debate.not_trashed.where(component: object).find_by(id: args[:id])
+        Debate.where(component: object).find_by(id: args[:id])
       end
     end
   end

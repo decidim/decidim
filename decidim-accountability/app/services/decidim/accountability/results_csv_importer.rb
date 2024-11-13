@@ -37,7 +37,7 @@ module Decidim
             next if row.empty?
 
             params = set_params_for_import_result_form(row, @component)
-            existing_result = Decidim::Accountability::Result.not_trashed.find_by(id: row["id"], component: @component) if row["id"].present?
+            existing_result = Decidim::Accountability::Result.find_by(id: row["id"], component: @component) if row["id"].present?
             params["result"].merge!(parse_date_params(row, "start_date"))
             params["result"].merge!(parse_date_params(row, "end_date"))
             @form = form(Decidim::Accountability::Admin::ResultForm).from_params(params, @extra_context)
@@ -117,18 +117,18 @@ module Decidim
       end
 
       def add_match_id(id)
-        last_created_result = Decidim::Accountability::Result.not_trashed.last
-        @matches_ids << [id, Decidim::Accountability::Result.not_trashed.last.id] if id.present? && last_created_result.present?
+        last_created_result = Decidim::Accountability::Result.last
+        @matches_ids << [id, Decidim::Accountability::Result.last.id] if id.present? && last_created_result.present?
       end
 
       def update_parents
         @matches_ids.each do |match|
-          Decidim::Accountability::Result.not_trashed.where(component: @component, parent_id: match.first).find_each { |result| result.update(parent_id: match.last) }
+          Decidim::Accountability::Result.where(component: @component, parent_id: match.first).find_each { |result| result.update(parent_id: match.last) }
         end
       end
 
       def remove_invalid_results
-        Decidim::Accountability::Result.not_trashed.includes(:parent).references(:parent)
+        Decidim::Accountability::Result.includes(:parent).references(:parent)
                                        .where(parents_decidim_accountability_results: { id: nil })
                                        .where.not(parent_id: nil).each do |result|
           Decidim::Commands::DestroyResource.call(result, @extra_context[:current_user])

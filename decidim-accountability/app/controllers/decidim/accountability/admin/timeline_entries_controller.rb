@@ -79,7 +79,7 @@ module Decidim
         end
 
         def result
-          @result ||= Result.not_trashed.where(component: current_component).find(params[:result_id])
+          @result ||= Result.where(component: current_component).find(params[:result_id])
         end
       end
     end

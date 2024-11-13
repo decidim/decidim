@@ -69,7 +69,7 @@ module Decidim
         end
 
         def debates
-          @debates ||= Debate.not_trashed.where(component: current_component).not_hidden
+          @debates ||= Debate.where(component: current_component).not_hidden
         end
 
         def trashable_deleted_collection
@@ -81,7 +81,7 @@ module Decidim
         end
 
         def debate
-          @debate ||= Debate.not_trashed.find_by(component: current_component, id: params[:id])
+          @debate ||= Debate.find_by(component: current_component, id: params[:id])
         end
       end
     end

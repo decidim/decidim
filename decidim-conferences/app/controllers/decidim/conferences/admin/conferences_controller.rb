@@ -15,7 +15,7 @@ module Decidim
 
         def index
           enforce_permission_to :read, :conference_list
-          @conferences = filtered_collection.not_trashed
+          @conferences = filtered_collection
         end
 
         def new

@@ -30,9 +30,9 @@ module Decidim
       def results
         @results ||= case options[:order]
                      when "recent"
-                       Decidim::Accountability::Result.not_trashed.where(component: model).order_by_most_recent
+                       Decidim::Accountability::Result.where(component: model).order_by_most_recent
                      else
-                       Decidim::Accountability::Result.not_trashed.where(component: model).order_randomly(random_seed)
+                       Decidim::Accountability::Result.where(component: model).order_randomly(random_seed)
                      end
       end
 

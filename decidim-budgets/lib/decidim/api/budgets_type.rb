@@ -11,7 +11,7 @@ module Decidim
       field :budgets, Decidim::Budgets::BudgetType.connection_type, null: true, connection: true
 
       def budgets
-        Budget.not_trashed.where(component: object).includes(:component)
+        Budget.where(component: object).includes(:component)
       end
 
       field :budget, Decidim::Budgets::BudgetType, null: true do
@@ -19,7 +19,7 @@ module Decidim
       end
 
       def budget(**args)
-        Budget.not_trashed.where(component: object).find_by(id: args[:id])
+        Budget.where(component: object).find_by(id: args[:id])
       end
     end
   end

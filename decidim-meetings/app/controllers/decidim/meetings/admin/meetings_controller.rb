@@ -105,11 +105,11 @@ module Decidim
         end
 
         def meetings
-          @meetings ||= filtered_collection.not_trashed
+          @meetings ||= filtered_collection
         end
 
         def meeting
-          @meeting ||= Meeting.not_trashed.where(component: current_component).find_by(id: params[:id])
+          @meeting ||= Meeting.where(component: current_component).find_by(id: params[:id])
         end
 
         def collection

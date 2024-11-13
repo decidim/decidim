@@ -69,7 +69,7 @@ module Decidim
         end
 
         def post
-          @post ||= Blogs::Post.not_trashed.find_by(component: current_component, id: params[:id])
+          @post ||= Blogs::Post.find_by(component: current_component, id: params[:id])
         end
       end
     end

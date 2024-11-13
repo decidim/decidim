@@ -187,7 +187,7 @@ module Decidim
         end
 
         def projects
-          @projects ||= filtered_collection.not_trashed
+          @projects ||= filtered_collection
         end
 
         def orders
@@ -219,7 +219,7 @@ module Decidim
         end
 
         def project
-          @project ||= filtered_collection.not_trashed.find_by(id: params[:id])
+          @project ||= filtered_collection.find_by(id: params[:id])
         end
 
         def trashable_deleted_resource

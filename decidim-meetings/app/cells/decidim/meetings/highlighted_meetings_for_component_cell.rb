@@ -32,7 +32,6 @@ module Decidim
         @base_relation ||= Decidim::Meetings::Meeting.where(component: model)
                                                      .not_withdrawn
                                                      .published
-                                                     .not_trashed
                                                      .not_hidden
                                                      .visible_for(current_user)
       end

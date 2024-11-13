@@ -15,7 +15,7 @@ module Decidim
 
         def index
           enforce_permission_to :read, :assembly_list
-          @assemblies = filtered_collection.not_trashed
+          @assemblies = filtered_collection
         end
 
         def new
