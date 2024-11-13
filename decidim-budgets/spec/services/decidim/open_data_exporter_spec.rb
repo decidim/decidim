@@ -23,5 +23,21 @@ describe Decidim::OpenDataExporter do
   end
   let(:unpublished_resource) { create(:project, component: unpublished_component) }
 
+  before do
+    I18n.backend.reload!
+    I18n.backend.store_translations(
+      :en,
+      decidim: {
+        open_data: {
+          help: {
+            projects: {
+              test_field: "Test field for projects serializer subscription"
+            }
+          }
+        }
+      }
+    )
+  end
+
   it_behaves_like "open data exporter"
 end
