@@ -687,6 +687,9 @@ ca:
         download_data_description_2: Pots sol·licitar un fitxer .zip amb les teves aportacions i informació personal.
         download_your_data: Dades personals
         expiration: Data de caducitat
+        expired: Ha caducat
+        request_data: Sol·licitar
+        type: Tipus de descàrrega
     editor_images:
       create:
         error: S'ha produït un error en carregar la imatge.
@@ -877,6 +880,10 @@ ca:
           notification_title: La participant %{name} (%{nickname}) ha estat oficialitzada.
     export_mailer:
       download_your_data_export:
+        click_button_html: Clica a l'enllaç següent per a descarregar les teves dades.<br/>El fitxer estarà disponible per a la seva descàrrega fins al %{date}.
+        download: Descarregar
+      export:
+        click_button_html: La teva descàrrega està llesta.<br/>El fitxer estarà disponible per a la seva descàrrega fins al %{date}.
         download: Descarregar
       subject: L'exportació "%{name}" està a punt
     filters:
@@ -1337,6 +1344,23 @@ ca:
           main: Nucli
           spaces: Espais
           title: Fitxers de dades obertes de %{organization}
+        moderated_users:
+          about: El text "Quant a" inclòs al perfil d'usuària
+          block_reasons: El motiu pel qual l'administradora va bloquejar a la usuària
+          blocked_at: Data i hora en la qual es va bloquejar a la usuària
+          blocking_user: El nom d'usuària de l'administradora que va fer el bloqueig
+          details: Els detalls dels informes de moderació
+          reasons: Un llistat dels motius pels quals s'ha reportat el perfil d'usuària
+          user_id: L'ID únic de la usuària reportada
+        moderations:
+          hidden_at: Data i hora en la qual es va amagar el contingut
+          id: L'identificador únic de la moderació
+          report_count: El número de vegades que ha estat reportada
+          reportable_id: L'identificador únic d'allò que es podia reportar
+          reportable_type: Tipus de contigut reportat
+          reported_content: El contingut que va ser reportat
+          reported_url: L'URL del recurs que va ser reportat
+          reports: Un llistat dels motius pels quals es va reportar el recurs
         user_groups:
           avatar_url: L'avatar del grup d'usuàries
           badge: L'ensenya del grup d'usuàries
