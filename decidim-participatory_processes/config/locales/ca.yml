@@ -325,6 +325,9 @@ ca:
         create: "%{user_name} ha convidat la participant %{resource_name} al procés participatiu %{space_name}"
         delete: "%{user_name} ha eliminat la participant %{resource_name} del procés participatiu %{space_name}"
         update: "%{user_name} ha canviat el rol de la participant %{resource_name} en el procés participatiu %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Exportar els processos participatius
     events:
       participatory_process:
         role_assigned:
