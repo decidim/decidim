@@ -1346,6 +1346,23 @@ fi:
           main: Ydin
           spaces: Tilat
           title: Avoimet datan tiedostot palvelulle %{organization}
+        moderated_users:
+          about: Käyttäjän henkilökohtainen kuvaus
+          block_reasons: Syy, miksi käyttäjä estettiin
+          blocked_at: Päivämäärä ja aika, jolloin käyttäjä estettiin
+          blocking_user: Eston tehneen käyttäjän nimi
+          details: Ilmoituksen tiedot
+          reasons: Lista profiilin ilmoittamisen syistä
+          user_id: Ilmoitetun käyttäjän yksilöllinen tunniste (ID)
+        moderations:
+          hidden_at: Päivämäärä ja aika, sisältö piilotettiin
+          id: Moderoinnin yksilöllinen tunniste
+          report_count: Ilmoitusten lukumäärä
+          reportable_id: Ilmoitettavan asian yksilöllinen tunniste
+          reportable_type: Ilmoitettavan asian tyyppi
+          reported_content: Ilmoitettu sisältö
+          reported_url: Ilmoitetun asian URL-osoite
+          reports: Lista ilmoittamisen syistä
         user_groups:
           avatar_url: Käyttäjäryhmän avatar-kuva
           badge: Käyttäjäryhmän tunnusmerkki
