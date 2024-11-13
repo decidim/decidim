@@ -15,6 +15,7 @@ module Decidim
         resources :proposals, only: [:show, :index, :new, :create, :edit, :update] do
           resources :valuation_assignments, only: [:destroy]
           collection do
+            post :update_taxonomies
             post :update_category
             post :publish_answers
             post :update_scope

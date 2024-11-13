@@ -626,6 +626,7 @@ en:
             assign_to_valuator: Assign to valuator
             assign_to_valuator_button: Assign
             cancel: Cancel
+            change_taxonomies: Change taxonomies
             change_category: Change category
             change_scope: Change scope
             merge: Merge into a new one
@@ -679,6 +680,11 @@ en:
             select_a_proposal: Please select a proposal.
             select_a_scope: Please select a scope.
             success: 'Proposals successfully updated to the %{subject_name} scope: %{proposals}.'
+          update_taxonomies:
+            select_a_proposal: Please select a proposal.
+            select_a_taxonomy: Please select a taxonomy.
+            invalid: 'These proposals already had the %{taxonomies} taxonomies: %{proposals}.'
+            success: 'Proposals successfully updated to the %{taxonomies} taxonomies: %{proposals}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals.

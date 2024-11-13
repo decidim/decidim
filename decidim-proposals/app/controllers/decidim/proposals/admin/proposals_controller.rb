@@ -11,7 +11,7 @@ module Decidim
         helper Proposals::ApplicationHelper
         helper Decidim::Proposals::Admin::ProposalRankingsHelper
         helper Decidim::Messaging::ConversationHelper
-        helper_method :proposals, :query, :form_presenter, :proposal, :proposal_ids
+        helper_method :proposals, :query, :form_presenter, :proposal, :proposal_ids, :current_component_taxonomy_filters
         helper Proposals::Admin::ProposalBulkActionsHelper
 
         before_action :check_admin_session_filters, only: [:index]
@@ -45,6 +45,43 @@ module Decidim
               render action: "new"
             end
           end
+        end
+
+        def update_taxonomies
+          enforce_permission_to :update, :proposal_taxonomy
+
+          Admin::UpdateProposalTaxonomies.call(params[:taxonomies], proposal_ids, current_organization) do
+            on(:invalid_taxonomy) do
+              flash[:error] = I18n.t(
+                "proposals.update_taxonomies.select_a_taxonomy",
+                scope: "decidim.proposals.admin"
+              )
+            end
+
+            on(:invalid_proposal_ids) do
+              flash[:alert] = I18n.t(
+                "proposals.update_taxonomies.select_a_proposal",
+                scope: "decidim.proposals.admin"
+              )
+            end
+
+            on(:update_proposals_taxonomies) do
+              flash[:notice] = t(
+                "proposals.update_taxonomies.success",
+                taxonomies: @response[:taxonomies].to_sentence,
+                proposals: @response[:successful].to_sentence,
+                scope: "decidim.proposals.admin"
+              )
+              flash[:alert] = t(
+                "proposals.update_taxonomies.invalid",
+                taxonomies: @response[:taxonomies].to_sentence,
+                proposals: @response[:errored].to_sentence,
+                scope: "decidim.proposals.admin"
+              )
+            end
+          end
+
+          redirect_to proposals_path
         end
 
         def update_category
@@ -170,6 +207,13 @@ module Decidim
           return if response[:successful].blank?
 
           case subject
+          when :taxonomy
+            t(
+              "proposals.update_taxonomies.success",
+              subject_name: response[:subject_name],
+              proposals: response[:successful].to_sentence,
+              scope: "decidim.proposals.admin"
+            )
           when :category
             t(
               "proposals.update_category.success",
@@ -210,6 +254,10 @@ module Decidim
 
         def form_presenter
           @form_presenter ||= present(@form, presenter_class: Decidim::Proposals::ProposalPresenter)
+        end
+
+        def current_component_taxonomy_filters
+          @current_component_taxonomy_filters ||= TaxonomyFilter.for(current_participatory_space.manifest.name).where(id: current_component.settings.taxonomy_filters)
         end
       end
     end
