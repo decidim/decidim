@@ -7,8 +7,10 @@ cs:
           content_panel: Obsah panelu
           demo: Demo
           demo_description: Po celou dobu uplatňování jsou výrazně používány k zobrazování/skrytí obsahu v tabulkách nebo skládání/rozkládání viditelných textů.
+          description_accordions_html: Accordions jsou javascriptovou funkcí, která je k dispozici díky externí knihovně s názvem %{link_code} a11y-accordion-component.
           github_source_html: Zdrojový kód na GitHub %{github_link}
           panel: Panel
+          title: Accordions
           trigger: Spouštěč
           usage: Použití
           usage_p: Akce vyžaduje nejméně tři prvky
