@@ -153,6 +153,7 @@ cs:
         actions:
           comment: Komentář
           join: Přidat se
+          reply_poll: Odpověď ankety
         name: Setkání
         settings:
           global:
