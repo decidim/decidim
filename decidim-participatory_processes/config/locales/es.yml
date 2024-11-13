@@ -326,6 +326,9 @@ es:
         create: "%{user_name} invitó a la participante %{resource_name} al proceso participativo %{space_name}"
         delete: "%{user_name} eliminó a la participante %{resource_name} del proceso participativo %{space_name}"
         update: "%{user_name} cambió el rol de la participante %{resource_name} en el proceso participativo %{space_name}"
+    download_your_data:
+      show:
+        participatory_processes: Exportar los procesos participativos
     events:
       participatory_process:
         role_assigned:
