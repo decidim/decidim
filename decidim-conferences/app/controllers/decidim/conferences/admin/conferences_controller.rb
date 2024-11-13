@@ -10,7 +10,7 @@ module Decidim
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::Conferences::Admin::Filterable
 
-        helper_method :current_conference, :current_participatory_space, :deleted_collection
+        helper_method :current_conference, :current_participatory_space
         layout "decidim/admin/conferences"
 
         def index
@@ -98,10 +98,6 @@ module Decidim
 
         def conference_params
           { id: params[:slug] }.merge(params[:conference].to_unsafe_h)
-        end
-
-        def deleted_collection
-          @deleted_collection ||= filtered_collection.trashed
         end
       end
     end
