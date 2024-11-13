@@ -151,11 +151,14 @@ module Decidim
       end
 
       def onboarding_action_params
-        if model.try(:component).present? || current_component.present?
-          { resource: model }
-        else
-          { resource: model, permissions_holder: model }
-        end
+        params = if model.try(:component).present? || current_component.present?
+                   { resource: model }
+                 else
+                   { resource: model, permissions_holder: model }
+                 end
+        return params if ResourceLocatorPresenter.new(model).url
+      rescue NoMethodError
+        params.merge!(data: { onboarding_redirect_path: request.path })
       end
 
       def blocked_comments_for_unauthorized_user_warning_link
