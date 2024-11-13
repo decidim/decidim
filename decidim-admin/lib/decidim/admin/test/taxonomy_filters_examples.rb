@@ -18,7 +18,7 @@ shared_context "with taxonomy filters context" do
   let(:name) { { "en" => "The name for regular users" } }
   let(:internal_name) { { "en" => "The name for admins only" } }
   let(:space_filter) { true }
-  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:, space_filter: true) }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:, space_filter: false) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let!(:another_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: another_taxonomy) }
 end
@@ -83,14 +83,14 @@ shared_examples "a taxonomy filters controller" do
       expect(page).to have_content(translated(another_taxonomy.name))
       uncheck translated(taxonomy.name)
       check translated(taxonomy_child.name)
-      fill_in_i18n :taxonomy_filter_internal_name, "#taxonomy_filter-internal_name-tabs", en: "A filter for participatory processes"
+      fill_in_i18n :taxonomy_filter_internal_name, "#taxonomy_filter-internal_name-tabs", en: "A filter for #{participatory_space_collection_name}"
       fill_in_i18n :taxonomy_filter_name, "#taxonomy_filter-name-tabs", en: "", ca: "", es: ""
-      uncheck "Available as filter for all participatory processes"
+      uncheck "Available as filter for all #{participatory_space_collection_name}"
       click_on "Update taxonomy filter"
       expect(page).to have_content("Taxonomy filter updated successfully")
       within "tr", text: translated(taxonomy_filter.root_taxonomy.name) do
         expect(page).to have_content("3")
-        expect(page).to have_content("A filter for participatory processes")
+        expect(page).to have_content("A filter for #{participatory_space_collection_name}")
         expect(page).to have_content(translated(taxonomy_filter.root_taxonomy.name), count: 2)
         expect(page).to have_content("No")
       end
@@ -114,14 +114,14 @@ shared_examples "a taxonomy filters controller" do
       expect(page).to have_content("4 items selected")
       uncheck translated(unselected_taxonomy_child.name)
       uncheck translated(unselected_taxonomy_grandchild.name)
-      fill_in_i18n :taxonomy_filter_internal_name, "#taxonomy_filter-internal_name-tabs", en: "A filter for participatory processes"
+      fill_in_i18n :taxonomy_filter_internal_name, "#taxonomy_filter-internal_name-tabs", en: "A filter for #{participatory_space_collection_name}"
       fill_in_i18n :taxonomy_filter_name, "#taxonomy_filter-name-tabs", en: "Category"
-      check "Available as filter for all participatory processes"
+      check "Available as filter for all #{participatory_space_collection_name}"
       click_on "Create taxonomy filter"
       expect(page).to have_content("Taxonomy filter created successfully")
       within "tr", text: translated(unselected_root_taxonomy.name) do
         expect(page).to have_content("2")
-        expect(page).to have_content("A filter for participatory processes")
+        expect(page).to have_content("A filter for #{participatory_space_collection_name}")
         expect(page).to have_content("Category")
         expect(page).to have_content("Yes")
       end
