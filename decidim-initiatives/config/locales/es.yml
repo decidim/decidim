@@ -152,6 +152,9 @@ es:
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
+    download_your_data:
+      show:
+        initiatives: Exportar las iniciativas
     events:
       initiatives:
         admin:
