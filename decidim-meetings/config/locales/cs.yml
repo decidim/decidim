@@ -116,6 +116,8 @@ cs:
             values:
               'false': Minulé
               'true': Nadcházející
+          taxonomies_part_of_contains:
+            label: Taxonomie
           with_any_origin:
             label: Původ
             values:
@@ -152,26 +154,36 @@ cs:
         actions:
           comment: Komentář
           join: Přidat se
+          reply_poll: Odpověď ankety
         name: Setkání
         settings:
           global:
             announcement: Oznámení
+            clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             creation_enabled_for_participants: Účastníci mohou vytvářet schůzky
             default_registration_terms: Výchozí podmínky registrace
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             enable_pads_creation: Povolit vytvoření sdíleného textu
             maps_enabled: Mapy povoleny
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             registration_code_enabled: Registrační kód povolen
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            taxonomy_filters: Vyberte filtry pro komponentu
+            taxonomy_filters_add: Přidat filtr
             terms_and_conditions_url_for_meeting_creators: URL pro Zásady a podmínky ke schůzce tvůrců
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled_for_participants: Vytváření schůzek od účastníků povoleno
             creation_enabled_for_user_groups: Vytvoření schůzky od skupin uživatelů povoleno
+    download_your_data:
+      show:
+        meeting_comments: Export komentářů schůzky
+        meetings: Exportovat schůzky
     events:
       meetings:
         meeting_closed:
@@ -317,6 +329,8 @@ cs:
           close:
             invalid: Při uzavření této schůzky došlo k chybě.
             success: Schůzka byla úspěšně uzavřena.
+          component:
+            unlink: Odpojit
           create:
             invalid: Při vytváření této schůzky došlo k chybě.
             success: Schůze byla úspěšně vytvořena. Všimněte si, že není publikována, musíte ji publikovat ručně.
@@ -343,6 +357,7 @@ cs:
             select_a_registration_type: Vyberte prosím typ registrace
             select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
           index:
+            linked_meeting_warning_html: Tato schůzka musí být upravena od <br><a href="%{href}">%{name}</a>
             title: Setkání
           linked_spaces:
             assign: Přiřadit
