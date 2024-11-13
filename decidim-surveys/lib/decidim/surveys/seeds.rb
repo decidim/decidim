@@ -143,57 +143,40 @@ module Decidim
           when "single_option", "multiple_option", "sorting"
             create_answer_for_multiple_choice_question_type(answer_options.merge({ question: }))
           when "matrix_single", "matrix_multiple"
-            create_answer_for_matrix_question_type(answer_options.merge({ question:}))
+            create_answer_for_matrix_question_type(answer_options.merge({ question: }))
           end
         end
       end
 
       def create_answer_for_text_question_type!(options)
-          Decidim::Forms::Answer.create!(
-            user: options[:user],
-            questionnaire: options[:questionnaire],
-            question: options[:question],
-            body: ::Faker::Lorem.paragraph(sentence_count: 1),
-            session_token: options[:session_token],
-            ip_hash: options[:ip_hash]
-          )
+        Decidim::Forms::Answer.create!(
+          **options.merge({ body: ::Faker::Lorem.paragraph(sentence_count: 1) })
+        )
       end
 
       def create_answer_for_multiple_choice_question_type(options)
-        answer = Decidim::Forms::Answer.create!(
-          user: options[:user],
-          questionnaire: options[:questionnaire],
-          question: options[:question],
-          body: nil,
-          session_token: options[:session_token],
-          ip_hash: options[:ip_hash]
-        )
-
+        answer = Decidim::Forms::Answer.create!(**options)
         answer_option = options[:question].answer_options.sample
+        body = answer_option["en"]
+
         Decidim::Forms::AnswerChoice.create!(
           answer:,
           answer_option:,
-          body: answer_option["en"]
+          body:
         )
       end
 
       def create_answer_for_matrix_question_type(options)
-        answer = Decidim::Forms::Answer.create!(
-          user: options[:user],
-          questionnaire: options[:questionnaire],
-          question: options[:question],
-          body: nil,
-          session_token: options[:session_token],
-          ip_hash: options[:ip_hash]
-        )
-
-        matrix_row = options[:question].matrix_rows.sample
+        answer = Decidim::Forms::Answer.create!(**options)
         answer_option = options[:question].answer_options.sample
+        matrix_row = options[:question].matrix_rows.sample
+        body = answer_option["en"]
+
         Decidim::Forms::AnswerChoice.create!(
           answer:,
           answer_option:,
           matrix_row:,
-          body: answer_option["en"]
+          body:
         )
       end
     end
