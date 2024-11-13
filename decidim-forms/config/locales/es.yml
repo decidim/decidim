@@ -25,6 +25,9 @@ es:
         questionnaire:
           request_invalid: Se ha producido un problema al procesar la solicitud. Por favor, vuelve a intentarlo.
   decidim:
+    download_your_data:
+      show:
+        answers: Exportar las respuestas
     forms:
       admin:
         models:
