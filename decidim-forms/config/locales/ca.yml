@@ -25,6 +25,9 @@ ca:
         questionnaire:
           request_invalid: Hi ha hagut un problema en gestionar la sol·licitud. Si us plau, torna-ho a provar.
   decidim:
+    download_your_data:
+      show:
+        answers: Exportar les respostes
     forms:
       admin:
         models:
