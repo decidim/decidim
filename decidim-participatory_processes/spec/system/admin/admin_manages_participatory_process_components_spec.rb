@@ -10,7 +10,6 @@ describe "Admin manages participatory process components" do
   describe "Soft delete" do
     let(:admin_resource_path) { decidim_admin_participatory_processes.components_path(participatory_process) }
     let(:trash_path) { decidim_admin_participatory_processes.manage_trash_components_path(participatory_process) }
-    let(:participatory_space_trash_path) { decidim_admin_participatory_processes.manage_trash_participatory_processes_path }
     let(:title) { { en: "My component" } }
     let!(:participatory_space_title) { participatory_process.title["en"] }
     let!(:resource) { create(:component, manifest_name: "proposals", participatory_space: participatory_process, deleted_at:, name: title) }
