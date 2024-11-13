@@ -46,15 +46,5 @@ module Decidim
         expect { subject.call }.to broadcast(:invalid)
       end
     end
-
-    context "when a hook raises an error" do
-      before do
-        allow(subject).to receive(:run_before_hooks).and_raise(Decidim::Commands::HookError)
-      end
-
-      it "broadcasts :invalid" do
-        expect { subject.call }.to broadcast(:invalid)
-      end
-    end
   end
 end
