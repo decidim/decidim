@@ -114,6 +114,13 @@ module Decidim
             question.matrix_rows.create!(body: Decidim::Faker::Localized.sentence, position:)
           end
         end
+
+        Decidim::Forms::Question.create!(
+          questionnaire:,
+          body: nil,
+          question_type: "separator",
+          position: 3
+        )
       end
     end
   end
