@@ -4,7 +4,9 @@
     <%= t "assemblies.manage_trash.title", scope: "decidim.admin" %>
   </h1>
 </div>
-<%= admin_filter_selector %>
+<div class="card" id="assemblies">
+  <%= admin_filter_selector %>
+</div>
 <div class="table-scroll">
   <table class="table-list">
     <%= render partial: "assemblies_thead" %>

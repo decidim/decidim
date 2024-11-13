@@ -18,9 +18,7 @@ module Decidim
       def call
         return broadcast(:invalid) if invalid?
 
-        run_before_hooks
         restore_resource
-        run_after_hooks
 
         broadcast(:ok, resource)
       rescue Decidim::Commands::HookError, StandardError
@@ -37,21 +35,11 @@ module Decidim
         Decidim.traceability.perform_action!(
           "restore",
           resource,
-          current_user,
-          **extra_params
+          current_user
         ) do
           resource.restore!
         end
       end
-
-      # Any extra params that you want to pass to the traceability service.
-      def extra_params = {}
-
-      # Useful for running any code that you may want to execute before restoring the resource.
-      def run_before_hooks; end
-
-      # Useful for running any code that you may want to execute after restoring the resource.
-      def run_after_hooks; end
     end
   end
 end
