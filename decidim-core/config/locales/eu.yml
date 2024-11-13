@@ -1347,6 +1347,23 @@ eu:
           main: Mamia
           spaces: Espazioak
           title: Open Data fitxategiak %{organization} erakunderako
+        moderated_users:
+          about: Erabiltzailearen eremua
+          block_reasons: Administratzaileak zergatik blokeatu zuen erabiltzailea
+          blocked_at: Zein egunetan eta ordutan blokeatu den erabiltzailea
+          blocking_user: Blokeoa egin duen erabiltzailearen izena
+          details: Txostenen xehetasunak
+          reasons: Profilaren berri emateko arrazoien zerrenda
+          user_id: Salatutako erabiltzailearen ID bakarra
+        moderations:
+          hidden_at: Zein egunetan eta ordutan ezkutatu den edukia
+          id: Eztabaidaren identifikatzaile bakarra
+          report_count: Zenbat aldiz jakinarazi den
+          reportable_id: Txostenaren id bakarra
+          reportable_type: Txosten mota
+          reported_content: Jakinarazi zen edukia
+          reported_url: Jakinarazitako baliabidearen url-a
+          reports: Profilaren berri emateko arrazoien zerrenda
         user_groups:
           avatar_url: Erabiltzaile-taldearen avatarra
           badge: Erabiltzaile-taldearen bereizgarria
