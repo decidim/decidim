@@ -167,6 +167,7 @@ es:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
       download_your_data_export:
+        export_expired: La exportación ha caducado. Intenta generar una nueva exportación.
         file_no_exists: El archivo no existe
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       email_change:
@@ -678,6 +679,14 @@ es:
     download_your_data:
       export:
         ready: Listo
+      show:
+        action: Acción
+        download: Descargar
+        download_data: Área de descargas
+        download_data_description_1: Aquí puedes encontrar todas las descargas disponibles para tu cuenta. Estos archivos .zip estarán disponibles durante dos semanas antes de ser eliminados.
+        download_data_description_2: Puedes solicitar un archivo .zip con tus contribuciones e información personal.
+        download_your_data: Datos personales
+        expiration: Fecha de caducidad
     editor_images:
       create:
         error: Error al subir la imagen.
