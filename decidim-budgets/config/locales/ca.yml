@@ -366,6 +366,9 @@ ca:
               disabled: Votació inhabilitada
               enabled: S'ha habilitat la votació
               finished: Votació finalitzada
+    download_your_data:
+      show:
+        projects: Exportar els projectes
     events:
       budgets:
         budget_published:
