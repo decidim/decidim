@@ -158,6 +158,9 @@ cs:
       titles:
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
+    download_your_data:
+      show:
+        initiatives: Export iniciativ
     events:
       initiatives:
         admin:
