@@ -25,6 +25,9 @@ cs:
         questionnaire:
           request_invalid: Při zpracování požadavku se vyskytl problém. Zkuste to znovu.
   decidim:
+    download_your_data:
+      show:
+        answers: Export odpovědí
     forms:
       admin:
         models:
