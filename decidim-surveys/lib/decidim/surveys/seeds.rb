@@ -4,7 +4,7 @@ require "decidim/components/namer"
 
 module Decidim
   module Surveys
-    class Seeds
+    class Seeds < Decidim::Seeds
       attr_reader :participatory_space
 
       def initialize(participatory_space:)
@@ -12,11 +12,14 @@ module Decidim
       end
 
       def call
-        admin_user = Decidim::User.find_by(
-          organization: participatory_space.organization,
-          email: "admin@example.org"
-        )
+        component = create_component!
 
+        questionnaire = create_questionnaire!(component:)
+
+        create_questions!(questionnaire:)
+      end
+
+      def create_component!
         params = {
           name: Decidim::Components::Namer.new(participatory_space.organization.available_locales, :surveys).i18n_name,
           manifest_name: :surveys,
@@ -24,7 +27,7 @@ module Decidim
           participatory_space:
         }
 
-        component = Decidim.traceability.perform_action!(
+        Decidim.traceability.perform_action!(
           "publish",
           Decidim::Component,
           admin_user,
@@ -32,7 +35,9 @@ module Decidim
         ) do
           Decidim::Component.create!(params)
         end
+      end
 
+      def create_questionnaire!(component:)
         questionnaire = Decidim::Forms::Questionnaire.new(
           title: Decidim::Faker::Localized.paragraph,
           description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
@@ -55,6 +60,10 @@ module Decidim
           visibility: "all"
         )
 
+        questionnaire
+      end
+
+      def create_questions!(questionnaire:)
         %w(short_answer long_answer).each_with_index do |text_question_type, index|
           Decidim::Forms::Question.create!(
             questionnaire:,
