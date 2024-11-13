@@ -68,7 +68,7 @@ export default function(node) {
 
   const toggleTooltip = (event) => {
     event.preventDefault();
-    // if the tooltip is visible in the dom, hide it otherwise display
+    // if the tooltip is visible in the DOM, hide it otherwise display
     if (tooltip.getAttribute("aria-hidden") === "false") {
       tooltip.setAttribute("aria-hidden", "true");
       return
