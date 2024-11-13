@@ -14,6 +14,7 @@ namespace :decidim do
 
       desc "Remove data from deleted users"
       task clean_deleted_users: :environment do
+        logger = Logger.new($stdout)
         logger.info("=== Removing extra data from deleted users")
         Decidim::User.where.not(deleted_at: nil).update_all(personal_url: "", about: "") # rubocop:disable Rails/SkipsModelValidations
       end
