@@ -278,6 +278,10 @@ cs:
             taxonomy_filters_add: Přidat filtr
           step:
             comments_blocked: Komentáře blokovány
+    download_your_data:
+      show:
+        result_comments: Export výsledků komentářů
+        results: Export výsledků
     events:
       accountability:
         proposal_linked:
