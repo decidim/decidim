@@ -264,6 +264,10 @@ cs:
             votes_blocked: Hlasy blokovány
             votes_enabled: Hlasování povoleno
             votes_hidden: Skryté hlasy (pokud jsou hlasy povoleny, zaškrtnutím této položky se počet hlasů skryje)
+    download_your_data:
+      show:
+        proposal_comments: Export komentářů návrhů
+        proposals: Export návrhů
     events:
       proposals:
         accepted_coauthorship:
