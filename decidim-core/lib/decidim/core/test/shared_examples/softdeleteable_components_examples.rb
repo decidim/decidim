@@ -20,7 +20,7 @@ shared_examples "a soft-deletable resource" do |resource_name:, resource_path:, 
   end
 
   describe "PATCH restore" do
-    before { deletable_resource.update!(deleted_at: Time.current) }
+    before { deletable_resource.destroy! }
 
     it "restores the #{resource_name}" do
       expect(Decidim::Commands::RestoreResource).to receive(:call).with(deletable_resource, current_user).and_call_original
@@ -38,7 +38,7 @@ shared_examples "a soft-deletable resource" do |resource_name:, resource_path:, 
     let(:deleted_items) { controller.view_context.trashable_deleted_collection }
 
     before do
-      deletable_resource.update!(deleted_at: Time.current)
+      deletable_resource.destroy!
     end
 
     it "lists only deleted #{resource_name.to_s.pluralize}" do
@@ -134,7 +134,7 @@ shared_examples "a soft-deletable space" do |space_name:, space_path:, trash_pat
   end
 
   describe "PATCH restore" do
-    before { soft_deletable_space.update!(deleted_at: Time.current) }
+    before { soft_deletable_space.destroy! }
 
     it "restores the #{space_name}" do
       expect(Decidim::Commands::RestoreResource).to receive(:call).with(soft_deletable_space, current_user).and_call_original

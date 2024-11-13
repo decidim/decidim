@@ -73,11 +73,11 @@ module Decidim
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection ||= Debate.where(component: current_component).trashed.deleted_at_desc
+          @trashable_deleted_collection ||= Debate.where(component: current_component).only_deleted.deleted_at_desc
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= Debate.find_by(component: current_component, id: params[:id])
+          @trashable_deleted_resource ||= Debate.with_deleted.find_by(component: current_component, id: params[:id])
         end
 
         def debate

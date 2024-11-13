@@ -61,11 +61,11 @@ module Decidim
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= Blogs::Post.find_by(component: current_component, id: params[:id])
+          @trashable_deleted_resource ||= Blogs::Post.with_deleted.find_by(component: current_component, id: params[:id])
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection ||= Post.where(component: current_component).trashed.deleted_at_desc.page(params[:page]).per(15)
+          @trashable_deleted_collection ||= Post.where(component: current_component).only_deleted.deleted_at_desc.page(params[:page]).per(15)
         end
 
         def post

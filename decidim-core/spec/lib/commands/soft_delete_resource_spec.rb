@@ -14,7 +14,7 @@ module Decidim
       it "soft deletes the resource" do
         subject.call
 
-        expect(resource.reload.trashed?).to be(true)
+        expect(resource.reload.deleted?).to be(true)
       end
 
       it "traces the action", versioning: true do
@@ -42,7 +42,7 @@ module Decidim
       end
 
       it "does not soft delete the resource and broadcasts :invalid" do
-        expect(resource).not_to receive(:trash!)
+        expect(resource).not_to receive(:destroy!)
         expect { subject.call }.to broadcast(:invalid)
       end
     end

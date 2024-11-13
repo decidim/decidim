@@ -60,7 +60,7 @@ module Decidim
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection ||= Budget.where(component: current_component).trashed.deleted_at_desc
+          @trashable_deleted_collection ||= Budget.where(component: current_component).only_deleted.deleted_at_desc
         end
 
         def budgets

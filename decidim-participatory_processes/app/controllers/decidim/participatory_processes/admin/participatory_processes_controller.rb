@@ -89,7 +89,7 @@ module Decidim
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection = filtered_collection.trashed.deleted_at_desc
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
         end
 
         def process_group

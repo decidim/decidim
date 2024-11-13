@@ -9,7 +9,7 @@ module Decidim
     describe "#trashed?" do
       context "when deleted_at is nil" do
         it "returns false" do
-          expect(resource.trashed?).to be false
+          expect(resource.deleted?).to be false
         end
       end
 
@@ -19,14 +19,14 @@ module Decidim
         end
 
         it "returns true" do
-          expect(resource.trashed?).to be true
+          expect(resource.deleted?).to be true
         end
       end
     end
 
     describe "#trash!" do
       it "sets deleted_at to current time" do
-        expect { resource.trash! }.to change(resource, :deleted_at).from(nil)
+        expect { resource.destroy! }.to change(resource, :deleted_at).from(nil)
       end
     end
 
@@ -55,8 +55,8 @@ module Decidim
       let!(:resource2) { create(:dummy_resource) }
 
       it "returns only trashed resources" do
-        expect(Decidim::Dev::DummyResource.trashed).to include(resource1)
-        expect(Decidim::Dev::DummyResource.trashed).not_to include(resource2)
+        expect(Decidim::Dev::DummyResource.only_deleted).to include(resource1)
+        expect(Decidim::Dev::DummyResource.only_deleted).not_to include(resource2)
       end
     end
   end

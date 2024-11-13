@@ -162,11 +162,11 @@ module Decidim
       end
 
       def trashable_deleted_resource
-        @trashable_deleted_resource = query_scope.find_by(id: params[:id])
+        @trashable_deleted_resource = query_scope.with_deleted.find_by(id: params[:id])
       end
 
       def trashable_deleted_collection
-        @trashable_deleted_collection ||= current_participatory_space.components.trashed.deleted_at_desc
+        @trashable_deleted_collection ||= current_participatory_space.components.only_deleted.deleted_at_desc
       end
 
       # Processes the component params so the form object defined in the manifest (component_form_class_name)

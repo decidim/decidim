@@ -11,7 +11,7 @@ describe "Admin manages proposal soft delete" do
   let(:admin_resource_path) { current_path }
   let(:trash_path) { "#{admin_resource_path}/proposals/manage_trash" }
   let(:title) { { en: "My proposal" } }
-  let!(:resource) { create(:proposal, component: current_component, deleted_at:, title:) }
+  let!(:resource) { create(:proposal, component: current_component, title:) }
 
   it_behaves_like "manage soft deletable resource", "proposal"
   it_behaves_like "manage trashed resource", "proposal"

@@ -73,11 +73,11 @@ module Decidim
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= Result.where(component: current_component).find_by(id: params[:id])
+          @trashable_deleted_resource ||= Result.with_deleted.where(component: current_component).find_by(id: params[:id])
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection = filtered_collection.trashed.deleted_at_desc
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
         end
 
         def find_parent_resource

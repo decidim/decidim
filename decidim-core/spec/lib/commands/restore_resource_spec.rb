@@ -14,7 +14,7 @@ module Decidim
       it "restores the resource" do
         subject.call
 
-        expect(resource.reload.trashed?).to be(false)
+        expect(resource.reload.deleted?).to be(false)
       end
 
       it "traces the action", versioning: true do
