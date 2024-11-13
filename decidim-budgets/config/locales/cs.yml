@@ -380,6 +380,9 @@ cs:
               disabled: Hlasování zakázáno
               enabled: Hlasování povoleno
               finished: Hlasování dokončeno
+    download_your_data:
+      show:
+        projects: Export projektů
     events:
       budgets:
         budget_published:
