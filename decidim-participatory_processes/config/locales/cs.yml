@@ -332,6 +332,9 @@ cs:
         create: "%{user_name} pozval uživatele %{resource_name} do procesu participace %{space_name}"
         delete: "%{user_name} odstranil uživatele %{resource_name} z procesu participace %{space_name}"
         update: "%{user_name} změnilo roli uživatele %{resource_name} ve %{space_name} účastnických procesech"
+    download_your_data:
+      show:
+        participatory_processes: Export particippačních procesů
     events:
       participatory_process:
         role_assigned:
