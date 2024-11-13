@@ -1,6 +1,6 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="card">
-  <div class="item_show__header">
+  <div class="item_show__header item_show__header--with-action-options">
     <h1 class="item_show__header-title">
       <div>
         <%= link_to decidim_escape_translated(budget.title), budgets_path %> &gt;
@@ -9,6 +9,8 @@
       </div>
       <%= render partial: "bulk-actions" %>
     </h1>
+
+    <%= render partial: "decidim/budgets/admin/projects/bulk_actions/taxonomy_change" %>
   </div>
   <%= admin_filter_selector(:projects) %>
   <div class="table-scroll">

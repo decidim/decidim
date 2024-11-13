@@ -15,8 +15,7 @@ module Decidim
         resources :budgets do
           resources :projects do
             collection do
-              post :update_category
-              post :update_scope
+              post :update_taxonomies
               post :update_selected
               post :update_budget
               resource :proposals_import, only: [:new, :create]

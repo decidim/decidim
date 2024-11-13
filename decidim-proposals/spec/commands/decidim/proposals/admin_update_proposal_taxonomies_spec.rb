@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe UpdateProposalScope do
+      describe UpdateProposalTaxonomies do
         describe "call" do
           let!(:proposal) { create(:proposal) }
           let!(:proposals) { create_list(:proposal, 3, component: proposal.component) }

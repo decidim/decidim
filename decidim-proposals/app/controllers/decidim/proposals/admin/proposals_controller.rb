@@ -6,12 +6,13 @@ module Decidim
       # This controller allows admins to manage proposals in a participatory process.
       class ProposalsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
+        include Decidim::Admin::ComponentTaxonomiesHelper
         include Decidim::Proposals::Admin::Filterable
 
         helper Proposals::ApplicationHelper
         helper Decidim::Proposals::Admin::ProposalRankingsHelper
         helper Decidim::Messaging::ConversationHelper
-        helper_method :proposals, :query, :form_presenter, :proposal, :proposal_ids, :current_component_taxonomy_filters
+        helper_method :proposals, :query, :form_presenter, :proposal, :proposal_ids
         helper Proposals::Admin::ProposalBulkActionsHelper
 
         before_action :check_admin_session_filters, only: [:index]
@@ -65,19 +66,23 @@ module Decidim
               )
             end
 
-            on(:update_proposals_taxonomies) do
-              flash[:notice] = t(
-                "proposals.update_taxonomies.success",
-                taxonomies: @response[:taxonomies].to_sentence,
-                proposals: @response[:successful].to_sentence,
-                scope: "decidim.proposals.admin"
-              )
-              flash[:alert] = t(
-                "proposals.update_taxonomies.invalid",
-                taxonomies: @response[:taxonomies].to_sentence,
-                proposals: @response[:errored].to_sentence,
-                scope: "decidim.proposals.admin"
-              )
+            on(:update_resources_taxonomies) do |response|
+              if response[:successful].any?
+                flash[:notice] = t(
+                  "proposals.update_taxonomies.success",
+                  taxonomies: response[:taxonomies].map { |taxonomy| translated_attribute(taxonomy.name) }.to_sentence,
+                  proposals: response[:successful].map { |resource| translated_attribute(resource.title) }.to_sentence,
+                  scope: "decidim.proposals.admin"
+                )
+              end
+              if response[:errored].any?
+                flash[:alert] = t(
+                  "proposals.update_taxonomies.invalid",
+                  taxonomies: response[:taxonomies].map { |taxonomy| translated_attribute(taxonomy.name) }.to_sentence,
+                  proposals: response[:errored].map { |resource| translated_attribute(resource.title) }.to_sentence,
+                  scope: "decidim.proposals.admin"
+                )
+              end
             end
           end
 
@@ -148,10 +153,6 @@ module Decidim
 
         def form_presenter
           @form_presenter ||= present(@form, presenter_class: Decidim::Proposals::ProposalPresenter)
-        end
-
-        def current_component_taxonomy_filters
-          @current_component_taxonomy_filters ||= TaxonomyFilter.for(current_participatory_space.manifest.name).where(id: current_component.settings.taxonomy_filters)
         end
       end
     end

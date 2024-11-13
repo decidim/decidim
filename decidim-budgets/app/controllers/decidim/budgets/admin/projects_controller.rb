@@ -6,6 +6,7 @@ module Decidim
       # This controller allows an admin to manage projects from a Participatory Process
       class ProjectsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
+        include Decidim::Admin::ComponentTaxonomiesHelper
         include Decidim::Budgets::Admin::Filterable
         helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
         helper Decidim::Budgets::ProjectsHelper
@@ -76,62 +77,37 @@ module Decidim
           end
         end
 
-        def update_category
-          enforce_permission_to :update, :project_category
+        def update_taxonomies
+          enforce_permission_to :update, :project_taxonomy
 
-          ::Decidim::Budgets::Admin::UpdateProjectCategory.call(params[:category][:id], project_ids) do
-            on(:invalid_category) do
-              flash.now[:error] = I18n.t(
-                "projects.update_category.select_a_category",
+          UpdateResourcesTaxonomies.call(params[:taxonomies], Decidim::Budgets::Project.where(id: project_ids), current_organization) do
+            on(:invalid_taxonomy) do
+              flash[:error] = I18n.t(
+                "projects.update_taxonomies.select_a_taxonomy",
                 scope: "decidim.budgets.admin"
               )
             end
 
             on(:invalid_project_ids) do
-              flash.now[:alert] = I18n.t(
-                "projects.update_category.select_a_project",
+              flash[:alert] = I18n.t(
+                "projects.update_taxonomies.select_a_project",
                 scope: "decidim.budgets.admin"
               )
             end
 
-            on(:update_projects_category) do
-              flash.now[:notice] = update_projects_bulk_response_successful(@response, :category)
-              flash.now[:alert] = update_projects_bulk_response_errored(@response, :category)
+            on(:update_resources_taxonomies) do |response|
+              interpolations = {
+                successful: response[:successful].map { |resource| translated_attribute(resource.title) }.to_sentence,
+                errored: response[:errored].map { |resource| translated_attribute(resource.title) }.to_sentence,
+                taxonomies: response[:taxonomies].map { |taxonomy| translated_attribute(taxonomy.name) }.to_sentence
+              }
+
+              flash[:notice] = update_projects_bulk_response_successful(interpolations, :taxonomy) if response[:successful].any?
+              flash[:alert] = update_projects_bulk_response_errored(interpolations, :taxonomy) if response[:errored].any?
             end
           end
 
-          respond_to do |format|
-            format.js { render :update_attribute, locals: { form_selector: "#js-form-recategorize-projects", attribute_selector: "#category_id" } }
-          end
-        end
-
-        def update_scope
-          enforce_permission_to :update, :project_scope
-
-          ::Decidim::Budgets::Admin::UpdateProjectScope.call(params[:scope_id], project_ids) do
-            on(:invalid_scope) do
-              flash.now[:error] = t(
-                "projects.update_scope.select_a_scope",
-                scope: "decidim.budgets.admin"
-              )
-            end
-
-            on(:invalid_project_ids) do
-              flash.now[:alert] = t(
-                "projects.update_scope.select_a_project",
-                scope: "decidim.budgets.admin"
-              )
-            end
-
-            on(:update_projects_scope) do
-              flash.now[:notice] = update_projects_bulk_response_successful(@response, :scope)
-              flash.now[:alert] = update_projects_bulk_response_errored(@response, :scope)
-            end
-          end
-
-          respond_to do |format|
-            format.js { render :update_attribute, locals: { form_selector: "#js-form-scope-change-projects", attribute_selector: "#scope_id" } }
-          end
+          redirect_to budget_projects_path
         end
 
         def update_selected
@@ -152,9 +128,15 @@ module Decidim
               )
             end
 
-            on(:update_projects_selection) do
-              flash.now[:notice] = update_projects_bulk_response_successful(@response, :selected, selection: @selection)
-              flash.now[:alert] = update_projects_bulk_response_errored(@response, :selected, selection: @selection)
+            on(:update_projects_selection) do |response, selection|
+              interpolations = {
+                subject_name: response[:subject_name],
+                successful: response[:successful].to_sentence,
+                errored: response[:errored].to_sentence
+              }
+
+              flash.now[:notice] = update_projects_bulk_response_successful(interpolations, :selected, selection:) if response[:successful].any?
+              flash.now[:alert] = update_projects_bulk_response_errored(interpolations, :selected, selection:) if response[:errored].any?
             end
           end
 
@@ -170,10 +152,16 @@ module Decidim
               flash.now[:alert] = t("projects.update_budget.select_a_project", scope: "decidim.budgets.admin")
             end
 
-            on(:update_projects_budget) do
-              moved_items(@response)
-              flash.now[:notice] = update_projects_bulk_response_successful(@response, :budget)
-              flash.now[:alert] = update_projects_bulk_response_errored(@response, :budget)
+            on(:update_projects_budget) do |response|
+              moved_items(response)
+              interpolations = {
+                subject_name: response[:subject_name],
+                successful: response[:successful].to_sentence,
+                errored: response[:errored].to_sentence
+              }
+
+              flash.now[:notice] = update_projects_bulk_response_successful(interpolations, :budget) if response[:successful].any?
+              flash.now[:alert] = update_projects_bulk_response_errored(interpolations, :budget) if response[:errored].any?
             end
           end
 
@@ -220,19 +208,10 @@ module Decidim
           @project ||= projects.find(params[:id])
         end
 
-        def update_projects_bulk_response_successful(response, subject, extra = {})
-          return if response[:successful].blank?
-
-          interpolations = {
-            subject_name: response[:subject_name],
-            projects: response[:successful].to_sentence
-          }
-
+        def update_projects_bulk_response_successful(interpolations, subject, extra = {})
           case subject
-          when :category
-            t("projects.update_category.success", scope: "decidim.budgets.admin", **interpolations)
-          when :scope
-            t("projects.update_scope.success", scope: "decidim.budgets.admin", **interpolations)
+          when :taxonomy
+            t("projects.update_taxonomies.success", scope: "decidim.budgets.admin", **interpolations)
           when :budget
             t("projects.update_budget.success", scope: "decidim.budgets.admin", **interpolations)
           when :selected
@@ -244,19 +223,10 @@ module Decidim
           end
         end
 
-        def update_projects_bulk_response_errored(response, subject, extra = {})
-          return if response[:errored].blank?
-
-          interpolations = {
-            subject_name: response[:subject_name],
-            projects: response[:errored].to_sentence
-          }
-
+        def update_projects_bulk_response_errored(interpolations, subject, extra = {})
           case subject
-          when :category
-            t("projects.update_category.invalid", scope: "decidim.budgets.admin", **interpolations)
-          when :scope
-            t("projects.update_scope.invalid", scope: "decidim.budgets.admin", **interpolations)
+          when :taxonomy
+            t("projects.update_taxonomies.invalid", scope: "decidim.budgets.admin", **interpolations)
           when :budget
             t("projects.update_budget.invalid", scope: "decidim.budgets.admin", **interpolations)
           when :selected

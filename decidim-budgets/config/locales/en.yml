@@ -96,9 +96,8 @@ en:
             actions: Actions
             cancel: Cancel
             change_budget: Change budget
-            change_category: Change category
-            change_scope: Change scope
             change_selected: Change selected state
+            change_taxonomies: Change taxonomies
             deselect_implementation: Unselect from implementation
             finished_orders: Finished votes
             pending_orders: Pending votes
@@ -118,28 +117,23 @@ en:
             invalid: There was a problem updating this project.
             success: Project successfully updated.
           update_budget:
-            invalid: 'These projects already are in the same budget or their budgets are more than the maximum allowed: %{projects}.'
+            invalid: 'These projects already are in the same budget or their budgets are more than the maximum allowed: %{errored}.'
             select_a_project: Please select a project.
-            success: 'Projects successfully updated to the %{subject_name} budget: %{projects}.'
-          update_category:
-            invalid: 'These projects already had the %{subject_name} category: %{projects}.'
-            select_a_category: Please select a category.
-            select_a_project: Please select a project.
-            success: 'Projects successfully updated to the %{subject_name} category: %{projects}.'
-          update_scope:
-            invalid: 'These projects already had the %{subject_name} scope: %{projects}.'
-            select_a_project: Please select a project.
-            select_a_scope: Please select a scope.
-            success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
+            success: 'Projects successfully updated to the %{subject_name} budget: %{successful}.'
           update_selected:
             invalid:
-              selected: 'These projects were already selected for implementation: %{projects}.'
-              unselected: 'These projects were already unselected from implementation: %{projects}.'
+              selected: 'These projects were already selected for implementation: %{errored}.'
+              unselected: 'These projects were already unselected from implementation: %{errored}.'
             select_a_project: Please select a project.
             select_a_selection: Please select an implementation state.
             success:
-              selected: 'These projects were successfully selected for implementation: %{projects}.'
-              unselected: 'These projects were successfully unselected from implementation: %{projects}.'
+              selected: 'These projects were successfully selected for implementation: %{successful}.'
+              unselected: 'These projects were successfully unselected from implementation: %{successful}.'
+          update_taxonomies:
+            invalid: 'These projects already had the %{taxonomies} taxonomies: %{errored}.'
+            select_a_project: Please select a project.
+            select_a_taxonomy: Please select a taxonomy.
+            success: 'Projects successfully updated to the %{taxonomies} taxonomies: %{successful}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into projects.
