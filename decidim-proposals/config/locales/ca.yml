@@ -256,6 +256,10 @@ ca:
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
+    download_your_data:
+      show:
+        proposal_comments: Exportar els comentaris a les propostes
+        proposals: Exportar les propostes
     events:
       proposals:
         accepted_coauthorship:
