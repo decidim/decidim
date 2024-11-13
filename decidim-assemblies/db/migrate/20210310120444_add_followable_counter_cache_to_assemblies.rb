@@ -7,7 +7,7 @@ class AddFollowableCounterCacheToAssemblies < ActiveRecord::Migration[5.2]
     reversible do |dir|
       dir.up do
         Decidim::Assembly.reset_column_information
-        Decidim::Assembly.find_each do |record|
+        Decidim::Assembly.unscoped.find_each do |record|
           record.class.reset_counters(record.id, :follows)
         end
       end
