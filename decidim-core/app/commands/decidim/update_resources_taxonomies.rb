@@ -17,8 +17,8 @@ module Decidim
     # Executes the command. Broadcasts these events:
     #
     # - :update_resources_taxonomies - when everything is ok, returns @response.
-    # - :invalid_taxonomy - if the taxonomy is blank.
-    # - :invalid_resource_ids - if the resource_ids is blank.
+    # - :invalid_taxonomies - if the taxonomy is blank.
+    # - :invalid_resources - if the resource_ids is blank.
     #
     # Returns @response hash:
     #
@@ -26,7 +26,7 @@ module Decidim
     # - :successful - Array of names of the updated resources
     # - :errored - Array of names of the resources not updated because they already had the scope assigned
     def call
-      return broadcast(:invalid_taxonomy) if @taxonomies.blank?
+      return broadcast(:invalid_taxonomies) if @taxonomies.blank?
       return broadcast(:invalid_resources) if @resources.blank? || !@resources.respond_to?(:find_each)
 
       update_resources_taxonomies

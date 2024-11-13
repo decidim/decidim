@@ -634,7 +634,6 @@ en:
             unassign_from_valuator: Unassign from valuator
             unassign_from_valuator_button: Unassign
             update: Update
-            update_scope_button: Update Scope
           new:
             create: Create
             title: Create proposal

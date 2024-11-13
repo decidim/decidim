@@ -109,7 +109,6 @@ en:
             title: Projects
             update: Update
             update_budget_button: Update project's budget
-            update_scope_button: Update scope
           new:
             create: Create
             title: New project

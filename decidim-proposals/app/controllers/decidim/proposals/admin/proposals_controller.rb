@@ -52,14 +52,14 @@ module Decidim
           enforce_permission_to :update, :proposal_taxonomy
 
           Admin::UpdateProposalTaxonomies.call(params[:taxonomies], proposal_ids, current_organization) do
-            on(:invalid_taxonomy) do
+            on(:invalid_taxonomies) do
               flash[:error] = I18n.t(
                 "proposals.update_taxonomies.select_a_taxonomy",
                 scope: "decidim.proposals.admin"
               )
             end
 
-            on(:invalid_proposal_ids) do
+            on(:invalid_resources) do
               flash[:alert] = I18n.t(
                 "proposals.update_taxonomies.select_a_proposal",
                 scope: "decidim.proposals.admin"

@@ -81,14 +81,14 @@ module Decidim
           enforce_permission_to :update, :project_taxonomy
 
           UpdateResourcesTaxonomies.call(params[:taxonomies], Decidim::Budgets::Project.where(id: project_ids), current_organization) do
-            on(:invalid_taxonomy) do
+            on(:invalid_taxonomies) do
               flash[:error] = I18n.t(
                 "projects.update_taxonomies.select_a_taxonomy",
                 scope: "decidim.budgets.admin"
               )
             end
 
-            on(:invalid_project_ids) do
+            on(:invalid_resources) do
               flash[:alert] = I18n.t(
                 "projects.update_taxonomies.select_a_project",
                 scope: "decidim.budgets.admin"
