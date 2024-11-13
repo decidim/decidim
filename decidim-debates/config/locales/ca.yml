@@ -170,6 +170,10 @@ ca:
             start_time: Data d'inici
             taxonomies: Taxonomies
             title: Títol
+    download_your_data:
+      show:
+        debate_comments: Exportar els comentaris als debats
+        debates: Exportar els debats
     events:
       debates:
         create_debate_event:
