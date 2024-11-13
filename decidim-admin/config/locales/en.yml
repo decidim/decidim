@@ -1129,7 +1129,6 @@ en:
         new:
           back: Back
           create: Create taxonomy filter
-          items: "%{count} items available"
           select_taxonomy: Select a taxonomy
           title: New taxonomy filter
         table:
