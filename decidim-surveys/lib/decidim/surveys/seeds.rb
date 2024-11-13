@@ -73,6 +73,7 @@ module Decidim
       def create_questions!(questionnaire:)
         %w(short_answer long_answer files).each_with_index do |text_question_type, index|
           Decidim::Forms::Question.create!(
+            mandatory: text_question_type == "short_answer",
             questionnaire:,
             body: Decidim::Faker::Localized.paragraph,
             question_type: text_question_type,
