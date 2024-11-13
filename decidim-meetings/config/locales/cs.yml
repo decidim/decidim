@@ -361,6 +361,7 @@ cs:
             title: Setkání
           linked_spaces:
             assign: Přiřadit
+            link_a_space: Propojit prostor
             table:
               actions: Akce
           new:
