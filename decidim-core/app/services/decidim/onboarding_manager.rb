@@ -228,6 +228,8 @@ module Decidim
       return Decidim::Core::Engine.routes.url_helpers.root_path if model.blank?
 
       ResourceLocatorPresenter.new(model).url
+    rescue NoMethodError
+      Decidim::Core::Engine.routes.url_helpers.root_path
     end
   end
 end
