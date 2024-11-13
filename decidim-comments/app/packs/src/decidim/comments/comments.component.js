@@ -48,6 +48,36 @@ export default class CommentsComponent {
         });
       }
       this._initializeSortDropdown();
+      this._handleResize();
+      window.addEventListener("resize", this._handleResize.bind(this));
+    }
+  }
+
+  /**
+   * Handles the logic for mounting the component and managing responsive display.
+   * @public
+   * @returns {void} - Does not return a value
+   */
+  _handleResize() {
+    const desktopContainer = document.getElementById("desktopContainer");
+    const mobileContainer = document.getElementById("mobileContainer");
+
+    if (window.innerWidth >= 768) {
+      // Display desktop, remove mobile
+      if (mobileContainer.parentElement) {
+        mobileContainer.remove();
+      }
+      if (!desktopContainer.parentElement) {
+        document.body.appendChild(desktopContainer);
+      }
+    } else {
+      // Display mobile, remove desktop
+      if (desktopContainer.parentElement) {
+        desktopContainer.remove();
+      }
+      if (!mobileContainer.parentElement) {
+        document.body.appendChild(mobileContainer);
+      }
     }
   }
 
