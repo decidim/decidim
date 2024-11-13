@@ -21,6 +21,7 @@ module Decidim
         hash.push(model.cache_key)
         hash.push(order)
         hash.push(current_user.try(:id))
+        hash.push(options)
         hash.join(Decidim.cache_key_separator)
       end
 
@@ -45,15 +46,15 @@ module Decidim
       end
 
       def form_id
-        "new_comment_for_#{commentable_type.demodulize}_#{model.id}"
+        "new_comment_for_#{commentable_type.demodulize}_#{model.id}-#{options[:id]}"
       end
 
       def add_comment_id
-        "add-comment-#{commentable_type.demodulize}-#{model.id}"
+        "add-comment-#{commentable_type.demodulize}-#{model.id}-#{options[:id]}"
       end
 
       def comment_as_id
-        "add-comment-#{commentable_type.demodulize}-#{model.id}-user-group-id"
+        "add-comment-#{commentable_type.demodulize}-#{model.id}-user-group-id-#{options[:id]}"
       end
 
       def root_depth
