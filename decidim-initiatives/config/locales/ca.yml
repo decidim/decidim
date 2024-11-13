@@ -152,6 +152,9 @@ ca:
       titles:
         initiatives: Iniciatives
         initiatives_types: Tipus d'iniciatives
+    download_your_data:
+      show:
+        initiatives: Exportar les iniciatives
     events:
       initiatives:
         admin:
