@@ -256,6 +256,10 @@ es:
             votes_blocked: Apoyos bloqueados
             votes_enabled: Apoyos habilitados
             votes_hidden: Votos ocultos (si los votos están habilitados, marcando esta opción ocultará el número de votos)
+    download_your_data:
+      show:
+        proposal_comments: Exportar los comentarios a las propuestas
+        proposals: Exportar las propuestas
     events:
       proposals:
         accepted_coauthorship:
