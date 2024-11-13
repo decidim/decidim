@@ -113,7 +113,7 @@ export default function(node) {
     tooltip.setAttribute("aria-hidden", false)
   }
 
-  // function to hide the tootip
+  // function to hide the tooltip
   const removeTooltip = () => {
     tooltip.setAttribute("aria-hidden", "true");
   }
