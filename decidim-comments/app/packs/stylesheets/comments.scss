@@ -44,8 +44,18 @@
   }
 }
 
+.comments-two-columns {
+  .most-upvoted-label {
+    @apply px-2 mb-2;
+  }
+}
+
 .comment {
   @apply rounded-lg border-2 border-background-5 p-3 pl-6;
+
+  &.top-comment {
+    border-color: #3E4C5C;
+  }
 
   &__header {
     @apply flex items-center gap-x-2 mb-2 relative;

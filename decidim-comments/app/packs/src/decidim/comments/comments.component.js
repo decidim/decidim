@@ -407,7 +407,7 @@ export default class CommentsComponent {
     orderSelect.style.borderColor = "black";
 
     orderSelect.addEventListener("change", function(event) {
-      const selectedOption = orderSelect.querySelector(`[value=${event.target.value}`);
+      const selectedOption = orderSelect.querySelector(`[value=${event.target.value}]`);
       const orderUrl = selectedOption.dataset.orderCommentUrl;
 
       Rails.ajax({

@@ -27,10 +27,12 @@ module Decidim
         result
       end
 
-      def render_column(comments, icon_name, title)
+      def render_column(top_comment, comments, icon_name, title)
+        @top_comment = top_comment
         @comments = comments
         @icon_name = icon_name
         @title = title
+
         render :column
       end
 
@@ -79,23 +81,31 @@ module Decidim
       end
 
       def render_comments_in_two_columns
-        if model.closed?
-          top_comment_in_favor = comments_in_favor.order(up_votes_count: :desc).first
-          top_comment_against = comments_against.order(up_votes_count: :desc).first
+        assign_top_comments if model.closed?
 
-          other_comments_in_favor = comments_in_favor.where.not(id: top_comment_in_favor&.id).order(created_at: :asc)
-          other_comments_against = comments_against.where.not(id: top_comment_against&.id).order(created_at: :asc)
+        @sorted_comments_in_favor = sorted_comments_without_top(comments_in_favor, @top_comment_in_favor)
+        @sorted_comments_against = sorted_comments_without_top(comments_against, @top_comment_against)
 
-          @sorted_comments_in_favor = [top_comment_in_favor].compact + other_comments_in_favor
-          @sorted_comments_against = [top_comment_against].compact + other_comments_against
-        else
-          @sorted_comments_in_favor = comments_in_favor
-          @sorted_comments_against = comments_against
-        end
-
-        @interleaved_comments ||= interleave_comments(@sorted_comments_in_favor, @sorted_comments_against)
+        top_comments = [@top_comment_in_favor, @top_comment_against].compact
+        remaining_comments = interleave_comments(@sorted_comments_in_favor, @sorted_comments_against)
+        @interleaved_comments ||= top_comments + remaining_comments
 
         render :comments_in_two_columns
+      end
+
+      def assign_top_comments
+        @top_comment_in_favor = top_comment(comments_in_favor)
+        @top_comment_against = top_comment(comments_against)
+      end
+
+      def top_comment(comments)
+        comments.reorder(up_votes_count: :desc).where("up_votes_count > 0").first
+      end
+
+      def sorted_comments_without_top(comments, top_comment)
+        return comments unless model.closed?
+
+        comments.where.not(id: top_comment&.id).order(created_at: :asc)
       end
 
       def can_add_comments?

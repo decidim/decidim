@@ -113,6 +113,7 @@ en:
         comment_details_title: Comment details
         in_favor: In Favor
         loading: Loading comments ...
+        top_comment_label: Most upvoted
         single_comment_warning: <a href="%{url}">View all comments</a>
         single_comment_warning_title: You are seeing a single comment
         title:

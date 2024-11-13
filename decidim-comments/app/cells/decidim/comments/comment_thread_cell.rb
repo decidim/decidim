@@ -10,6 +10,12 @@ module Decidim
         render :title
       end
 
+      def top_comment_label
+        return unless options[:top_comment]
+
+        I18n.t("decidim.components.comments.top_comment_label")
+      end
+
       private
 
       def has_threads?

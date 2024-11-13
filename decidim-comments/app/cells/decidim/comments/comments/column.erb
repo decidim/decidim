@@ -3,6 +3,13 @@
     <%= icon @icon_name, class: "icon" %>
     <span class="comments-section__title"><%= @title %></span>
   </div>
+
+  <% if @top_comment.present? %>
+    <div class="top-comment">
+      <%= cell("decidim/comments/comment_thread", @top_comment, order:, top_comment: true) %>
+    </div>
+  <% end %>
+
   <% if @comments.any? %>
     <% @comments.each do |comment| %>
       <%= cell("decidim/comments/comment_thread", comment, order:) %>
