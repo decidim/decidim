@@ -63,19 +63,17 @@ export default class CommentsComponent {
     const mobileContainer = document.getElementById("mobileContainer");
 
     if (window.innerWidth >= 768) {
-      // Display desktop, remove mobile
-      if (mobileContainer.parentElement) {
+      if (mobileContainer && mobileContainer.parentElement) {
         mobileContainer.remove();
       }
-      if (!desktopContainer.parentElement) {
+      if (desktopContainer && !desktopContainer.parentElement) {
         document.body.appendChild(desktopContainer);
       }
     } else {
-      // Display mobile, remove desktop
-      if (desktopContainer.parentElement) {
+      if (desktopContainer && desktopContainer.parentElement) {
         desktopContainer.remove();
       }
-      if (!mobileContainer.parentElement) {
+      if (mobileContainer && !mobileContainer.parentElement) {
         document.body.appendChild(mobileContainer);
       }
     }
