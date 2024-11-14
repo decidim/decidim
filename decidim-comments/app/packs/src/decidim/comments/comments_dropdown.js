@@ -11,17 +11,18 @@ const closeAddComment = function (addCommentCard) {
 document.addEventListener("DOMContentLoaded", () => {
   // Add comment card for mobile
   const addCommentCard = document.getElementById("add-comment-anchor");
-  const addButtonMobile = document.querySelector(".add-comment-mobile");
+  document.querySelectorAll(".add-comment-mobile").forEach((addButtonMobile) => {
+    if (addCommentCard.clientWidth <= 600) {
+      if (addButtonMobile) {
+        addButtonMobile.addEventListener("click", () => addCommentMobile(addCommentCard));
+      }
+    }
+  });
+  
+  // Close comment modal
   const closeButton = document.querySelector(
     "#add-comment-anchor .close-add-comment-fullscreen"
   );
-
-  if (addCommentCard.clientWidth <= 600) {
-    if (addButtonMobile) {
-      addButtonMobile.addEventListener("click", () => addCommentMobile(addCommentCard));
-    }
-  }
-
   if (closeButton) {
     closeButton.addEventListener("click", () =>
       closeAddComment(addCommentCard)

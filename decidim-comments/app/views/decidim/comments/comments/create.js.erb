@@ -24,7 +24,7 @@
 
   var $addCommentCard = $("#add-comment-anchor");
 
-  if ($(window).width() <= 600) {
+  if ($addCommentCard.hasClass("fullscreen")) {
     $addCommentCard.addClass("hidden");
     $addCommentCard.removeClass("fullscreen");
   }
