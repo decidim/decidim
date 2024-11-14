@@ -6,7 +6,7 @@ module Decidim::Admin
   describe UpdateComponentPermissions do
     subject(:command) { described_class.call(form, component, resource) }
 
-    let(:organization) { create(:organization, available_authorizations: ["dummy"]) }
+    let(:organization) { create(:organization, available_authorizations: ["another_dummy_authorization_handler"]) }
     let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
     let(:user) { create(:user, organization:) }
 
@@ -43,10 +43,10 @@ module Decidim::Admin
         permissions: {
           "create" => double(
             authorization_handlers: {
-              dummy: { options: { "perry" => "mason" } }
+              another_dummy_authorization_handler: { options: { "perry" => "mason" } }
             },
-            authorization_handlers_names: ["dummy"],
-            authorization_handlers_options: { "dummy" => { "perry" => "mason" } }
+            authorization_handlers_names: ["another_dummy_authorization_handler"],
+            authorization_handlers_options: { "another_dummy_authorization_handler" => { "perry" => "mason" } }
           )
         },
         current_user: user
@@ -57,7 +57,7 @@ module Decidim::Admin
       {
         "create" => {
           "authorization_handlers" => {
-            "dummy" => {
+            "another_dummy_authorization_handler" => {
               "options" => { "perry" => "mason" }
             }
           }
@@ -108,7 +108,7 @@ module Decidim::Admin
         {
           "create" => {
             "authorization_handlers" => {
-              "dummy" => {
+              "another_dummy_authorization_handler" => {
                 "options" => { "perry" => "mason" }
               }
             }
