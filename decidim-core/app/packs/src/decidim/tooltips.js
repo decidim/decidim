@@ -66,6 +66,11 @@ export default function(node) {
   // used to detect if the user is on a mobile device by checking the user agent
   const useMobile = (/Mobi|Android/i).test(navigator.userAgent);
 
+  // used not to collapse tooltip
+  let removeTooltip = () => {
+    tooltip.setAttribute("aria-hidden", "true");
+  }
+
   // used to allow clicks outside the tooltip to take place on the page or device
   const OutsideClick = (event) => {
     if (!tooltip.contains(event.target) && event.target !== node) {
@@ -73,10 +78,10 @@ export default function(node) {
     }
   }
 
-  // used not to display the tooltip while taking into account the outside tooltip click function
-  const removeTooltip = () => {
+  // function called again to allow clicks outside the tooltip to collapse the tooltip
+  removeTooltip = () => {
     tooltip.setAttribute("aria-hidden", "true");
-    document.removeEventListener("click", OutsideClick);
+    document.removeEventListener("click", OutsideClick)
   }
 
   const toggleTooltip = (event) => {
