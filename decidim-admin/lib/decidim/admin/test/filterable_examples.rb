@@ -75,8 +75,6 @@ shared_context "with filterable context" do
         page_has_content(ActionView::Base.full_sanitizer.sanitize(t))
       end
     end
-
-    after { search_by_text("") }
   end
 
   shared_examples "a filtered collection" do |options:, filter:|
