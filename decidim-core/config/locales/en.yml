@@ -2124,6 +2124,7 @@ en:
         sign_up: Create an account
         terms_of_service: Terms of Service
       header:
+        close: Close
         confirm_close_ephemeral_session: If you navigate out of this page, your session will be closed. Are you sure?
         log_in: Log in
         main_menu: Main menu
