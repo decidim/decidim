@@ -25,7 +25,7 @@ module Decidim
 
         Decidim.traceability.perform_action!("update_permissions", @component, current_user) do
           transaction do
-            ephemeral_changes
+            permissions_with_changes_in_ephemeral_handlers
             update_permissions
             raise ActiveRecord::Rollback unless clean_ephemeral_authorizations
 
@@ -55,7 +55,7 @@ module Decidim
       end
 
       def clean_ephemeral_authorizations
-        handler_names = ephemeral_changes.values.map { |config| config["authorization_handlers"].keys }.flatten.uniq
+        handler_names = permissions_with_changes_in_ephemeral_handlers.values.map { |config| config["authorization_handlers"].keys }.flatten.uniq
         ephemeral_handler_names = handler_names.select { |handler_name| Decidim::Verifications::Adapter.from_element(handler_name).ephemeral? }
 
         ephemeral_handler_names.each do |name|
