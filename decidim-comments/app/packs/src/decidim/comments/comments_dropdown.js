@@ -11,13 +11,13 @@ const closeAddComment = function (addCommentCard) {
 document.addEventListener("DOMContentLoaded", () => {
   // Add comment card for mobile
   const addCommentCard = document.getElementById("add-comment-anchor");
-  const addButtonMobile = document.querySelectorAll(".add-comment-mobile");
+  const addButtonMobile = document.querySelector(".add-comment-mobile");
   const closeButton = document.querySelector(
     "#add-comment-anchor .close-add-comment-fullscreen"
   );
 
   if (addCommentCard.clientWidth <= 600) {
-    if(addButtonMobile) {
+    if (addButtonMobile) {
       addButtonMobile.addEventListener("click", () => addCommentMobile(addCommentCard));
     }
   }
