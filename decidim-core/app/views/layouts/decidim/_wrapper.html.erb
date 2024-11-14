@@ -38,8 +38,10 @@ end
     <%= yield %>
   </div>
 
-  <footer>
-    <%= render partial: "layouts/decidim/footer/main" %>
-    <%= render partial: "layouts/decidim/footer/mini" %>
-  </footer>
+  <% unless current_user&.ephemeral? %>
+    <footer>
+      <%= render partial: "layouts/decidim/footer/main" %>
+      <%= render partial: "layouts/decidim/footer/mini" %>
+    </footer>
+  <% end %>
 </div>
