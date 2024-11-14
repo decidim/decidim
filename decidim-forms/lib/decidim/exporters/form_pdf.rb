@@ -48,9 +48,9 @@ module Decidim
 
       # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.question.title')
       def add_data!
-        composer.text(translated_attribute(questionnaire.title), style: :h1)
-        composer.text(decidim_sanitize_translated(questionnaire.description), style: :description)
-        composer.text(I18n.t("question.title", scope:, count: collection.count), style: :section_title)
+        composer.text(decidim_sanitize(translated_attribute(questionnaire.title), strip_tags: true), style: :h1)
+        composer.text(decidim_sanitize(translated_attribute(questionnaire.description), strip_tags: true), style: :description)
+        composer.text(I18n.t("title", scope: "decidim.forms.admin.questionnaires.answers.index", total: collection.count), style: :section_title)
 
         local_collection = collection.map { |answer| ParticipantPresenter.new(participant: answer.first) }
 
@@ -58,8 +58,6 @@ module Decidim
           add_response_box(record, index)
         end
       end
-
-      def scope = "decidim.forms.admin.questionnaires.export"
 
       def questionnaire = collection.first.first.questionnaire
 
@@ -77,18 +75,13 @@ module Decidim
         }
       end
 
-      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.session_token')
-      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.user_status')
-      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.ip_hash')
-      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.completion')
-      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.created_at')
       def header
         [
-          layout.text(I18n.t("session_token", scope:), style: :th),
-          layout.text(I18n.t("user_status", scope:), style: :th),
-          layout.text(I18n.t("ip_hash", scope:), style: :th),
-          layout.text(I18n.t("completion", scope:), style: :th),
-          layout.text(I18n.t("created_at", scope:), style: :th)
+          layout.text(I18n.t("session_token", scope: "decidim.forms.user_answers_serializer"), style: :th),
+          layout.text(I18n.t("user_status", scope: "decidim.forms.user_answers_serializer"), style: :th),
+          layout.text(I18n.t("ip_hash", scope: "decidim.forms.user_answers_serializer"), style: :th),
+          layout.text(I18n.t("completion", scope: "decidim.forms.user_answers_serializer"), style: :th),
+          layout.text(I18n.t("created_at", scope: "decidim.forms.user_answers_serializer"), style: :th)
         ]
       end
 
@@ -105,7 +98,7 @@ module Decidim
 
       # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.question.response')
       def add_response_box(record, index)
-        composer.text(I18n.t("question.response", scope:, count: index + 1), style: :section_title)
+        composer.text(I18n.t("title", number: index + 1, scope: "decidim.forms.admin.questionnaires.answers.export.answer"), style: :section_title)
         add_user_data(record)
 
         record.answers.each do |answer|

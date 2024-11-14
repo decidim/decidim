@@ -34,7 +34,7 @@ module Decidim
         raise NotImplementedError
       end
 
-      def font_family = "Times"
+      def font_family = "Helvetica"
 
       def styles = {}
     end
