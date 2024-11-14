@@ -52,7 +52,7 @@ describe "ephemeral action authorization" do
       it "creates an ephemeral user session" do
         expect { click_on "New proposal" }.to change { Decidim::User.ephemeral.count }.by(1)
 
-        expect(page).to have_link(href: "/users/sign_out")
+        expect(page).to have_link("Close", href: "/users/sign_out")
       end
 
       context "when ephemeral session is initiated" do
@@ -104,7 +104,7 @@ describe "ephemeral action authorization" do
 
           context "when data matches the authorization criteria" do
             it "the user is authorized and redirected to the action" do
-              expect(page).to have_content "You have been successfully authorized, now you can create a proposal in the component"
+              expect(page).to have_content "You have been successfully authorized"
               expect(page).to have_content "You have started a guest session, you can now participate"
 
               expect(page).to have_css "h1", text: "Create your proposal"
