@@ -11,12 +11,16 @@ const closeAddComment = function (addCommentCard) {
 document.addEventListener("DOMContentLoaded", () => {
   // Add comment card for mobile
   const addCommentCard = document.getElementById("add-comment-anchor");
-  const addButton = document.querySelector(".add-comment-mobile");
+  const addButtonMobile = document.querySelectorAll(".add-comment-mobile");
   const closeButton = document.querySelector(
     "#add-comment-anchor .close-add-comment-fullscreen"
   );
 
-  addButton.addEventListener("click", () => addCommentMobile(addCommentCard));
+  if (addCommentCard.clientWidth <= 600) {
+    if(addButtonMobile) {
+      addButtonMobile.addEventListener("click", () => addCommentMobile(addCommentCard));
+    }
+  }
 
   if (closeButton) {
     closeButton.addEventListener("click", () =>
@@ -24,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  // Dropdown menu for user_gruop
+
+  // Dropdown menu for user_group
   document.querySelectorAll("[data-comments-dropdown]").forEach((button) => {
     const dropdownId = button.getAttribute("data-target");
     const dropdownMenu = document.getElementById(dropdownId);
