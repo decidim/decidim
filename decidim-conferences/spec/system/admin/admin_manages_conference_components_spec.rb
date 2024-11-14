@@ -11,7 +11,7 @@ describe "Admin manages conference components" do
     let(:admin_resource_path) { decidim_admin_conferences.components_path(conference) }
     let(:trash_path) { decidim_admin_conferences.manage_trash_components_path(conference) }
     let(:title) { { en: "My component" } }
-    let!(:resource) { create(:component, manifest_name: "proposals", participatory_space: conference, deleted_at:, name: title) }
+    let!(:resource) { create(:component, manifest_name: "proposals", participatory_space: conference, name: title) }
 
     it_behaves_like "manage soft deletable component or space", "component"
     it_behaves_like "manage trashed resource", "component"

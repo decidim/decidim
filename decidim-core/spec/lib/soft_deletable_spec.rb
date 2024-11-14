@@ -9,17 +9,17 @@ module Decidim
     describe "#trashed?" do
       context "when deleted_at is nil" do
         it "returns false" do
-          expect(resource.deleted?).to be false
+          expect(resource).not_to be_deleted
         end
       end
 
       context "when deleted_at is set" do
         before do
-          resource.update!(deleted_at: Time.current)
+          resource.destroy!
         end
 
         it "returns true" do
-          expect(resource.deleted?).to be true
+          expect(resource).to be_deleted
         end
       end
     end
@@ -32,7 +32,7 @@ module Decidim
 
     describe "#restore!" do
       before do
-        resource.update!(deleted_at: Time.current)
+        resource.destroy!
       end
 
       it "clears the deleted_at field" do
@@ -42,7 +42,11 @@ module Decidim
 
     describe ".not_trashed" do
       let!(:resource1) { create(:dummy_resource) }
-      let!(:resource2) { create(:dummy_resource, deleted_at: Time.current) }
+      let!(:resource2) { create(:dummy_resource) }
+
+      before do
+        resource2.destroy!
+      end
 
       it "returns only resources that are not deleted" do
         expect(Decidim::Dev::DummyResource).to include(resource1)
@@ -51,8 +55,12 @@ module Decidim
     end
 
     describe ".trashed" do
-      let!(:resource1) { create(:dummy_resource, deleted_at: Time.current) }
+      let!(:resource1) { create(:dummy_resource) }
       let!(:resource2) { create(:dummy_resource) }
+
+      before do
+        resource1.destroy!
+      end
 
       it "returns only trashed resources" do
         expect(Decidim::Dev::DummyResource.only_deleted).to include(resource1)

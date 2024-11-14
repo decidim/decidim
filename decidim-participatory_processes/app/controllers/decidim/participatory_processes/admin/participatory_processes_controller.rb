@@ -101,8 +101,8 @@ module Decidim
         end
 
         def current_participatory_process
-          @current_participatory_process ||= collection.where(slug: params[:slug]).or(
-            collection.where(id: params[:slug])
+          @current_participatory_process ||= collection.with_deleted.where(slug: params[:slug]).or(
+            collection.with_deleted.where(id: params[:slug])
           ).first
         end
 

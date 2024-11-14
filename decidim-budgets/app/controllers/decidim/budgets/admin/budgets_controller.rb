@@ -72,7 +72,7 @@ module Decidim
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= Budget.find_by(component: current_component, id: params[:id])
+          @trashable_deleted_resource ||= Budget.with_deleted.find_by(component: current_component, id: params[:id])
         end
 
         def orders

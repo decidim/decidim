@@ -11,7 +11,7 @@ describe "Admin manages participatory process components" do
     let(:admin_resource_path) { decidim_admin_participatory_processes.components_path(participatory_process) }
     let(:trash_path) { decidim_admin_participatory_processes.manage_trash_components_path(participatory_process) }
     let(:title) { { en: "My component" } }
-    let!(:resource) { create(:component, manifest_name: "proposals", participatory_space: participatory_process, deleted_at:, name: title) }
+    let!(:resource) { create(:component, manifest_name: "proposals", participatory_space: participatory_process, name: title) }
 
     it_behaves_like "manage soft deletable component or space", "component"
     it_behaves_like "manage trashed resource", "component"

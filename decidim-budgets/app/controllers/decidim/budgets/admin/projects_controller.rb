@@ -223,7 +223,7 @@ module Decidim
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= filtered_collection.find_by(id: params[:id])
+          @trashable_deleted_resource ||= filtered_collection.with_deleted.find_by(id: params[:id])
         end
 
         def update_projects_bulk_response_successful(response, subject, extra = {})
