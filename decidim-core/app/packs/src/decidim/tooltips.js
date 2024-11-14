@@ -63,8 +63,21 @@ export default function(node) {
   // append to dom hidden, to apply css transitions
   tooltip.setAttribute("aria-hidden", true)
 
-  // Used to detect if the user is on a mobile device by checking the user agent
+  // used to detect if the user is on a mobile device by checking the user agent
   const useMobile = (/Mobi|Android/i).test(navigator.userAgent);
+
+  // used to allow clicks outside the tooltip to take place on the page or device
+  const OutsideClick = (event) => {
+    if (!tooltip.contains(event.target) && event.target !== node) {
+      removeTooltip();
+    }
+  }
+
+  // used not to display the tooltip while taking into account the outside tooltip click function
+  const removeTooltip = () => {
+    tooltip.setAttribute("aria-hidden", "true");
+    document.removeEventListener("click", OutsideClick);
+  }
 
   const toggleTooltip = (event) => {
     event.preventDefault();
@@ -111,11 +124,8 @@ export default function(node) {
     tooltip.style.left = `${positionX}px`
 
     tooltip.setAttribute("aria-hidden", false)
-  }
 
-  // function to hide the tooltip
-  const removeTooltip = () => {
-    tooltip.setAttribute("aria-hidden", "true");
+    setTimeout(() => document.addEventListener("click", OutsideClick))
   }
 
   if (useMobile) {
