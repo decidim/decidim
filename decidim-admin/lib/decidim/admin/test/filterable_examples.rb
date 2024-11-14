@@ -177,14 +177,14 @@ shared_examples "filtering collection by private/public" do
 end
 
 shared_examples "a collection filtered by taxonomies" do
-  let(:root_taxonomy1) { create(:taxonomy, organization: component.organization, name: { "en" => "Root1" }) }
-  let(:root_taxonomy2) { create(:taxonomy, organization: component.organization, name: { "en" => "Root2" }) }
-  let!(:taxonomy11) { create(:taxonomy, parent: root_taxonomy1, organization: component.organization, name: { "en" => "Taxonomy11" }) }
-  let!(:taxonomy12) { create(:taxonomy, parent: root_taxonomy1, organization: component.organization, name: { "en" => "Taxonomy12" }) }
-  let!(:taxonomy21) { create(:taxonomy, parent: root_taxonomy2, organization: component.organization, name: { "en" => "Taxonomy21" }) }
-  let!(:taxonomy22) { create(:taxonomy, parent: root_taxonomy2, organization: component.organization, name: { "en" => "Taxonomy22" }) }
-  let(:taxonomy1_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, space_manifest: component.participatory_space.manifest.name) }
-  let(:taxonomy2_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, space_manifest: component.participatory_space.manifest.name) }
+  let(:root_taxonomy1) { create(:taxonomy, organization:, name: { "en" => "Root1" }) }
+  let(:root_taxonomy2) { create(:taxonomy, organization:, name: { "en" => "Root2" }) }
+  let!(:taxonomy11) { create(:taxonomy, parent: root_taxonomy1, organization:, name: { "en" => "Taxonomy11" }) }
+  let!(:taxonomy12) { create(:taxonomy, parent: root_taxonomy1, organization:, name: { "en" => "Taxonomy12" }) }
+  let!(:taxonomy21) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy21" }) }
+  let!(:taxonomy22) { create(:taxonomy, parent: root_taxonomy2, organization:, name: { "en" => "Taxonomy22" }) }
+  let(:taxonomy1_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy1, space_manifest: participatory_space.manifest.name) }
+  let(:taxonomy2_filter1) { create(:taxonomy_filter, root_taxonomy: root_taxonomy2, space_manifest: participatory_space.manifest.name) }
   let!(:taxonomy_filter_item11) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter1, taxonomy_item: taxonomy11) }
   let!(:taxonomy_filter_item12) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy1_filter1, taxonomy_item: taxonomy12) }
   let!(:taxonomy_filter_item21) { create(:taxonomy_filter_item, taxonomy_filter: taxonomy2_filter1, taxonomy_item: taxonomy21) }
