@@ -81,14 +81,17 @@ module Decidim
       end
 
       def render_comments_in_two_columns
-        assign_top_comments if model.closed?
+        if model.closed?
+          assign_top_comments
 
-        @sorted_comments_in_favor = sorted_comments_without_top(comments_in_favor, @top_comment_in_favor)
-        @sorted_comments_against = sorted_comments_without_top(comments_against, @top_comment_against)
+          @sorted_comments_in_favor = sorted_comments_without_top(@top_comment_in_favor, comments_in_favor)
+          @sorted_comments_against = sorted_comments_without_top(@top_comment_against, comments_against)
+        else
+          @sorted_comments_in_favor = comments_in_favor
+          @sorted_comments_against = comments_against
+        end
 
-        top_comments = [@top_comment_in_favor, @top_comment_against].compact
-        remaining_comments = interleave_comments(@sorted_comments_in_favor, @sorted_comments_against)
-        @interleaved_comments ||= top_comments + remaining_comments
+        @interleaved_comments = interleave_comments(@sorted_comments_in_favor, @sorted_comments_against)
 
         render :comments_in_two_columns
       end
@@ -102,7 +105,7 @@ module Decidim
         comments.reorder(up_votes_count: :desc).where("up_votes_count > 0").first
       end
 
-      def sorted_comments_without_top(comments, top_comment)
+      def sorted_comments_without_top(top_comment, comments)
         return comments unless model.closed?
 
         comments.where.not(id: top_comment&.id).order(created_at: :asc)

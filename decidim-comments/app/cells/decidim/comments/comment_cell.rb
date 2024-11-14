@@ -44,6 +44,12 @@ module Decidim
         "comment_#{model.decidim_commentable_id}"
       end
 
+      def top_comment_label
+        return unless options[:top_comment]
+
+        I18n.t("decidim.components.comments.top_comment_label")
+      end
+
       def comment_label
         if reply?
           t("decidim.components.comment.comment_label_reply", comment_id: model.id, parent_comment_id: model.decidim_commentable_id)
