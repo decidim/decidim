@@ -1458,7 +1458,7 @@ en:
     onboarding_action_message:
       click_link: Click here
       cta_html: <a href="%{path}">%{link_text}</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
-      ephemeral_authorized_message: You have started a guest session, you can now participate
+      ephemeral_authorized_message: You have been successfully authorized.<br/>You have started a guest session, you can now participate.
       expired_authorization_active_title: Your authorization has expired.
       finish_authorization_process: You can finish the authorization process
       incomplete_authorization_active_title: Your verification has not been completed with all the necessary information.
