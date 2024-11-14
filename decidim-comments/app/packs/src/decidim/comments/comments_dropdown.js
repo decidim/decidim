@@ -1,4 +1,30 @@
+const addCommentMobile = function (addCommentCard) {
+  addCommentCard.classList.remove("hidden");
+  addCommentCard.classList.add("fullscreen");
+}
+
+const closeAddComment = function (addCommentCard) {
+  addCommentCard.classList.add("hidden");
+  addCommentCard.classList.add("fullscreen");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Add comment card for mobile
+  const addCommentCard = document.getElementById("add-comment-anchor");
+  const addButton = document.querySelector(".add-comment-mobile");
+  const closeButton = document.querySelector(
+    "#add-comment-anchor .close-add-comment-fullscreen"
+  );
+
+  addButton.addEventListener("click", () => addCommentMobile(addCommentCard));
+
+  if (closeButton) {
+    closeButton.addEventListener("click", () =>
+      closeAddComment(addCommentCard)
+    );
+  }
+
+  // Dropdown menu for user_gruop
   document.querySelectorAll("[data-comments-dropdown]").forEach((button) => {
     const dropdownId = button.getAttribute("data-target");
     const dropdownMenu = document.getElementById(dropdownId);

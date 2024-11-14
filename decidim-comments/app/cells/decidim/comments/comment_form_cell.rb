@@ -46,15 +46,15 @@ module Decidim
       end
 
       def form_id
-        "new_comment_for_#{commentable_type.demodulize}_#{model.id}-#{options[:id]}"
+        "new_comment_for_#{commentable_type.demodulize}_#{model.id}"
       end
 
       def add_comment_id
-        "add-comment-#{commentable_type.demodulize}-#{model.id}-#{options[:id]}"
+        "add-comment-#{commentable_type.demodulize}-#{model.id}"
       end
 
       def comment_as_id
-        "add-comment-#{commentable_type.demodulize}-#{model.id}-user-group-id-#{options[:id]}"
+        "add-comment-#{commentable_type.demodulize}-#{model.id}-user-group-id"
       end
 
       def root_depth

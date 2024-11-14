@@ -6,7 +6,11 @@
   }
 
   .add-comment {
-    @apply mt-12 bg-gray-5 px-4 pb-6 pt-1 rounded-lg w-full;
+    @apply mt-12 bg-white md:bg-gray-5 px-4 pb-6 pt-1 rounded-lg w-full;
+
+    .new_comment {
+      @apply w-full;
+    }
 
     .remaining-character-count {
       @apply block text-left text-sm text-gray-2;
@@ -411,20 +415,10 @@
   }
 }
 
-#add-comment-modal[data-dialog] > * {
-  @apply absolute inset-1/2 ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 w-full max-h-[100vh] h-full overflow-hidden p-0 bg-white z-50 rounded-none shadow-none;
-}
-
-#add-comment-modal[data-dialog] {
-  [data-dialog-closable] {
-    @apply text-black;
-  }
-}
-
-[data-dialog-container-add-comment] {
-  @apply grid grid-cols-[1fr] items-center justify-items-center gap-2 text-left;
-}
-
 .publish-comment-button {
   @apply md:relative fixed inset-x-0 bottom-0 z-30 md:z-0 flex flex-row items-center md:items-end md:justify-end font-semibold justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 h-14 md:h-fit first:[&>button]:py-3;
+}
+
+.fullscreen {
+  @apply fixed md:relative inset-0 w-screen md:w-full h-screen bg-white z-50 p-5 overflow-auto md:overflow-hidden;
 }
