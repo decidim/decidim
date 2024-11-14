@@ -6,14 +6,14 @@
   }
 
   .add-comment {
-    @apply mt-12 bg-white md:bg-gray-5 px-4 pb-6 pt-1 rounded-lg w-full;
+    @apply mt-12 bg-white md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
 
     .new_comment {
       @apply w-full;
     }
 
     .remaining-character-count {
-      @apply block text-left text-sm text-gray-2;
+      @apply block text-left text-sm text-gray-2 mx-4 md:m-0;
     }
 
     .form__wrapper {
@@ -124,7 +124,7 @@
   }
 
   &__as {
-    @apply my-4;
+    @apply my-4 px-4 md:p-0;
 
     &-author-container {
       @apply flex justify-between items-center;
@@ -341,6 +341,14 @@
     &-submit {
       @apply flex flex-col md:flex-row md:justify-end items-stretch md:items-end gap-4 mt-4;
     }
+
+    &-mobile-banner {
+      @apply flex relative md:hidden h-[72px] border-b border-gray justify-center items-center;
+
+      .close-button {
+        @apply absolute top-7 right-6 [&_svg]:w-4 [&_svg]:h-4;
+      }
+    }
   }
 
   &__opinion {
@@ -381,7 +389,7 @@
 }
 
 [id*="dropdown-menu-add-comment"] {
-  @apply flex flex-col py-0 mx-3.5 md:mx-0 border-t-0 border-gray-3 cursor-pointer;
+  @apply flex flex-col py-0 mx-0 border-t-0 border-gray-3 cursor-pointer;
 
   &[aria-hidden="true"] {
     @apply hidden;
@@ -420,5 +428,5 @@
 }
 
 .fullscreen {
-  @apply fixed md:relative inset-0 w-screen md:w-full h-screen bg-white z-50 p-5 overflow-auto md:overflow-hidden;
+  @apply fixed md:relative inset-0 w-screen md:w-full h-screen bg-white z-50 p-0 overflow-auto md:overflow-hidden;
 }

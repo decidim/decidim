@@ -1,7 +1,7 @@
 <%= form_for(form_object, url: decidim_comments.comments_path(order:), method: :post, remote: true, html: { id: form_id }) do |form| %>
-  <div class="flex relative md:hidden h-[72px] border-b border-gray justify-center items-center">
+  <div class="comment__form-mobile-banner">
     <p class="font-semibold text-2xl"><%= t("decidim.components.add_comment_form.add_comment") %></p>
-    <button type="button" class="absolute top-6 right-0 close-add-comment-fullscreen">
+    <button type="button" class="close-button close-add-comment-fullscreen">
       <%= icon "close-line" %>
     </button>
   </div>
@@ -9,16 +9,18 @@
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
   <%= comment_as_for(form) %>
 
-  <%= form.text_area(
-    :body,
-    id: add_comment_id,
-    class: "w-full min-h-[160px]",
-    maxlength: comments_max_length,
-    required: true,
-    placeholder: t("decidim.components.add_comment_form.form.body.placeholder"),
-    label: false,
-    data: { remaining_characters: "##{add_comment_id}-remaining-characters", input_emoji: true }
-  ) %>
+  <div class="px-4 md:p-0">
+    <%= form.text_area(
+      :body,
+      id: add_comment_id,
+      class: "w-full min-h-[160px]",
+      maxlength: comments_max_length,
+      required: true,
+      placeholder: t("decidim.components.add_comment_form.form.body.placeholder"),
+      label: false,
+      data: { remaining_characters: "##{add_comment_id}-remaining-characters", input_emoji: true }
+    ) %>
+  </div>
   <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
 
   <div class="comment__form-submit publish-comment-button">
