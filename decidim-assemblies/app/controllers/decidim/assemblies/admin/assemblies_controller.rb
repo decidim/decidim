@@ -9,7 +9,7 @@ module Decidim
         include Decidim::Assemblies::Admin::Filterable
         include Decidim::Admin::ParticipatorySpaceAdminContext
 
-        helper_method :current_assembly, :parent_assembly
+        helper_method :current_assembly, :parent_assembly, :parent_assembly_id
         layout "decidim/admin/assemblies"
 
         def index
