@@ -49,8 +49,8 @@ module Decidim
       end
 
       it "returns only resources that are not deleted" do
-        expect(Decidim::Dev::DummyResource).to include(resource1)
-        expect(Decidim::Dev::DummyResource).not_to include(resource2)
+        expect(Decidim::Dev::DummyResource.all).to include(resource1)
+        expect(Decidim::Dev::DummyResource.all).not_to include(resource2)
       end
     end
 
