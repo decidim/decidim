@@ -6,27 +6,35 @@
     <% if onboarding_manager.valid? %>
       <% authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources) %>
       <% if authorizations.single_authorization_required? && is_active_link?(authorizations.statuses.first.current_path) %>
-        <%= cell(
-          "decidim/announcement",
-          {
-            title: case authorizations.statuses.first.code
-                   when :expired
-                     t("expired_authorization_active_title", scope: "decidim.onboarding_action_message")
-                   when :incomplete
-                     t("incomplete_authorization_active_title", scope: "decidim.onboarding_action_message")
-                   else
-                     t("pending_authorization_active_title", scope: "decidim.onboarding_action_message")
-                   end,
-            body: t(
-                "pending_authorization_active_message",
-                scope: "decidim.onboarding_action_message",
-                action: onboarding_manager.action_text.downcase,
-                resource_name: onboarding_manager.model_name.human.downcase,
-                resource_title: decidim_sanitize_translated(onboarding_manager.model_title)
-              )
-          },
-          callout_class: "warning"
-        ) %>
+        <% if current_user.ephemeral? %>
+          <%= cell(
+            "decidim/announcement",
+            t("pending_ephemeral_authorization", scope: "decidim.onboarding_action_message"),
+            callout_class: "warning"
+          ) %>
+        <% else %>
+          <%= cell(
+            "decidim/announcement",
+            {
+              title: case authorizations.statuses.first.code
+                     when :expired
+                       t("expired_authorization_active_title", scope: "decidim.onboarding_action_message")
+                     when :incomplete
+                       t("incomplete_authorization_active_title", scope: "decidim.onboarding_action_message")
+                     else
+                       t("pending_authorization_active_title", scope: "decidim.onboarding_action_message")
+                     end,
+              body: t(
+                  "pending_authorization_active_message",
+                  scope: "decidim.onboarding_action_message",
+                  action: onboarding_manager.action_text.downcase,
+                  resource_name: onboarding_manager.model_name.human.downcase,
+                  resource_title: decidim_sanitize_translated(onboarding_manager.model_title)
+                )
+            },
+            callout_class: "warning"
+          ) %>
+        <% end %>
       <% end %>
     <% end %>
     <%= yield %>
