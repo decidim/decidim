@@ -167,3 +167,7 @@
     @apply inline-block;
   }
 }
+
+.table-list__text-ellipsis {
+  @apply whitespace-nowrap overflow-hidden text-ellipsis max-w-sm;
+}

@@ -1,0 +1,5 @@
+$('[data-assembly-id="<%= parent_assembly_id %>"]').after('<%= j(render(partial: "assemblies_tr")).strip.html_safe %>');
+
+var component = new window.Decidim.AdminAssembliesListComponent();
+
+component.run();
