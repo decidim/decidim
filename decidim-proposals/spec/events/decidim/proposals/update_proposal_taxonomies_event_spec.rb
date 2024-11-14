@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Proposals::Admin::UpdateProposalTaxonomiesEvent do
+describe Decidim::Proposals::UpdateProposalTaxonomiesEvent do
   let(:resource) { create(:proposal, title: "It is my super proposal") }
   let(:resource_title) { translated(resource.title) }
   let(:event_name) { "decidim.events.proposals.proposal_update_taxonomies" }

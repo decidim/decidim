@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     module Admin
-      #  A command with all the business logic when an admin batch updates proposals scope.
+      #  A command with all the business logic when an admin batch updates proposals taxonomies.
       class UpdateProposalTaxonomies < UpdateResourcesTaxonomies
         include TranslatableAttributes
         # Public: Initializes the command.
@@ -23,7 +23,7 @@ module Decidim
         def notify_author(proposal)
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_update_taxonomies",
-            event_class: Decidim::Proposals::Admin::UpdateProposalTaxonomiesEvent,
+            event_class: Decidim::Proposals::UpdateProposalTaxonomiesEvent,
             resource: proposal,
             affected_users: proposal.notifiable_identities
           )

@@ -50,6 +50,18 @@ module Decidim
               expect(subject).to broadcast(:update_resources_taxonomies)
               expect(resource.reload.taxonomies.first).to eq(taxonomy)
             end
+
+            it "notifies the authors about the change on taxonomies" do
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.proposals.proposal_update_taxonomies",
+                  event_class: Decidim::Proposals::UpdateProposalTaxonomiesEvent,
+                  resource:,
+                  affected_users: resource.notifiable_identities
+                )
+              command.call
+            end
           end
         end
       end
