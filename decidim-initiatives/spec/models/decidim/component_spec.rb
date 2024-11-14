@@ -6,6 +6,8 @@ module Decidim
   describe Component do
     subject { component }
 
+    it { is_expected.to act_as_paranoid }
+
     let!(:organization) { create(:organization) }
     let!(:participatory_space) { create(:initiative, organization:) }
     let(:component) { build(:component, manifest_name: "dummy", participatory_space:) }

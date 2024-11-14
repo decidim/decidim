@@ -11,7 +11,7 @@ module Decidim
       include Decidim::Randomable
       include Traceable
       include Loggable
-      include SoftDeletable
+      include Decidim::SoftDeletable
 
       component_manifest_name "budgets"
 
