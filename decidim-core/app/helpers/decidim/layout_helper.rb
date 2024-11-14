@@ -154,6 +154,12 @@ module Decidim
       "#{request.base_url}#{"?#{params.to_query}" unless params.empty?}"
     end
 
+    def root_url
+      return onboarding_manager.root_path if current_user&.ephemeral?
+
+      decidim.root_url(host: current_organization.host)
+    end
+
     private
 
     def each_decidim_engine
