@@ -97,7 +97,8 @@ module Decidim
           old_permissions = ((resource.present? ? resource_permissions.permissions : component.permissions) || {}).deep_stringify_keys
 
           selected_permissions.deep_stringify_keys.reject do |action, config|
-            Hashdiff.diff(config, old_permissions[action]).none? do |_, key, _|
+            old_config = old_permissions[action] || { "authorization_handlers" => {} }
+            Hashdiff.diff(config, old_config).none? do |_, key, _|
               handler_name = key.split(".")[1]
               next if handler_name.blank?
 
