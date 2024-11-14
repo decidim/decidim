@@ -59,7 +59,7 @@ module Decidim
         ephemeral_handler_names = handler_names.select { |handler_name| Decidim::Verifications::Adapter.from_element(handler_name).ephemeral? }
 
         ephemeral_handler_names.each do |name|
-          Decidim::Verifications::RevokeByNameAuthorizations.call(current_organization, name, current_user) do
+          Decidim::Verifications::RevokeByNameAuthorizations.call(current_user.organization, name, current_user) do
             on(:ok) do
               return true
             end
