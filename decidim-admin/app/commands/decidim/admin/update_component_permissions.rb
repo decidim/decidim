@@ -94,7 +94,7 @@ module Decidim
 
       def permissions_with_changes_in_ephemeral_handlers
         @permissions_with_changes_in_ephemeral_handlers ||= begin
-          old_permissions = (resource.present? ? resource_permissions.permissions : component.permissions).deep_stringify_keys
+          old_permissions = ((resource.present? ? resource_permissions.permissions : component.permissions) || {}).deep_stringify_keys
 
           selected_permissions.deep_stringify_keys.reject do |action, config|
             Hashdiff.diff(config, old_permissions[action]).none? do |_, key, _|
