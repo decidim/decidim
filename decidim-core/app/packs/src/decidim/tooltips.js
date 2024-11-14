@@ -125,6 +125,7 @@ export default function(node) {
 
     tooltip.setAttribute("aria-hidden", false)
 
+    // sleep time before hiding the element from the DOM
     setTimeout(() => document.addEventListener("click", OutsideClick))
   }
 
