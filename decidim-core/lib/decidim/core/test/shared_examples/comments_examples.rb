@@ -1125,7 +1125,57 @@ shared_examples "comments with two columns" do
     login_as user, scope: :user
   end
 
-  context "when debate is not closed" do
+  context "displays comments list in two columns" do
+    let!(:comments_in_favor) { create_list(:comment, 2, :in_favor, commentable:) }
+    let!(:comments_against) { create_list(:comment, 1, :against, commentable:) }
+
+    it "shows the list of comments for the resource" do
+      visit resource_path
+
+      expect(page).to have_css("#comments")
+      expect(page).to have_css(".comment", count: comments.length)
+
+      within(".comments-two-columns") do
+        check_comments_order(".comments-section__in-favor", comments_in_favor)
+        check_comments_order(".comments-section__against", comments_against)
+      end
+    end
+  end
+
+  context "in mobile view" do
+    it "shows kebab menu functionality" do
+      resize_window_to_mobile
+      visit resource_path
+
+      within "#comment_#{comments.first.id}" do
+        page.find("[id^='dropdown-trigger']").click
+        expect(page).to have_css("ul.dropdown.dropdown__bottom", visible: :visible)
+      end
+
+      resize_window_to_desktop
+    end
+  end
+
+  context "when viewing a single comment" do
+    let!(:single_comment) { create(:comment, commentable:, body: { "en" => "This is a single comment" }) }
+
+    before do
+      visit "#{resource_locator(commentable).path}?commentId=#{single_comment.id}"
+    end
+
+    it "displays only the single comment without columns" do
+      expect(page).to have_css("#comments")
+      expect(page).to have_css(".comment-thread", count: 1)
+      expect(page).to have_content("This is a single comment")
+      expect(page).to have_no_css(".comments-two-columns")
+      expect(page).to have_no_content("In Favor")
+      expect(page).to have_no_content("Against")
+      expect(page).to have_no_content("You are viewing only one comment")
+    end
+  end
+
+
+  context "when commentable is not closed" do
     let!(:oldest_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago) }
     let!(:older_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago) }
     let!(:oldest_against_comment) { create(:comment, :against, commentable:, created_at: 4.days.ago) }
@@ -1166,9 +1216,8 @@ shared_examples "comments with two columns" do
     end
 
     it "shows comments sorted by creation date when viewed on a small screen" do
+      resize_window_to_mobile
       visit resource_path
-
-      page.driver.browser.manage.window.resize_to(375, 667)
 
       within(".comment-threads") do
         comments = all(".comment-thread")
@@ -1179,30 +1228,29 @@ shared_examples "comments with two columns" do
         expect(comments[3]).to have_content(newer_against_comment.body["en"])
       end
 
-      page.driver.browser.manage.window.resize_to(1920, 1080)
+      resize_window_to_desktop
     end
   end
 
-  context "when debate is closed" do
-    let!(:highest_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 5.days.ago, up_votes_count: 15) }
+  context "when commentable is closed" do
+    let!(:commentable) { closed_commentable }
+    let!(:highest_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago, up_votes_count: 15) }
     let!(:high_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 4.days.ago, up_votes_count: 10) }
     let!(:older_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago, up_votes_count: 5) }
     let!(:recent_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago, up_votes_count: 3) }
     let!(:latest_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 1.day.ago, up_votes_count: 1) }
 
-    let!(:highest_voted_comment_against) { create(:comment, :against, commentable:, created_at: 6.days.ago, up_votes_count: 12) }
+    let!(:highest_voted_comment_against) { create(:comment, :against, commentable:, created_at: 2.days.ago, up_votes_count: 12) }
     let!(:high_voted_comment_against) { create(:comment, :against, commentable:, created_at: 5.days.ago, up_votes_count: 8) }
     let!(:older_comment_against) { create(:comment, :against, commentable:, created_at: 3.days.ago, up_votes_count: 4) }
     let!(:recent_comment_against) { create(:comment, :against, commentable:, created_at: 2.days.ago, up_votes_count: 2) }
     let!(:latest_comment_against) { create(:comment, :against, commentable:, created_at: 1.day.ago, up_votes_count: 1) }
 
     before do
-      commentable.update!(closed_at: Time.current)
+      visit resource_path
     end
 
     it "shows the top voted comments at the top of each column, followed by comments in ascending chronological order" do
-      visit resource_path
-
       within(".comments-two-columns") do
         check_comments_order(".comments-section__in-favor", [
                                highest_voted_comment_in_favor,
@@ -1219,6 +1267,20 @@ shared_examples "comments with two columns" do
                                recent_comment_against,
                                latest_comment_against
                              ])
+      end
+    end
+
+    it "shows the top voted comments with label at the top of each column" do
+      within(".comments-two-columns") do
+        within(".comments-section__in-favor") do
+          expect(page).to have_css(".most-upvoted-label", text: "Most upvoted")
+          expect(page).to have_content(highest_voted_comment_in_favor.body["en"])
+        end
+
+        within(".comments-section__against") do
+          expect(page).to have_css(".most-upvoted-label", text: "Most upvoted")
+          expect(page).to have_content(highest_voted_comment_against.body["en"])
+        end
       end
     end
   end
@@ -1245,5 +1307,13 @@ shared_examples "comments with two columns" do
     field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
     field.set " "
     field.native.send_keys comment_text
+  end
+
+  def resize_window_to_mobile
+    page.driver.browser.manage.window.resize_to(375, 667)
+  end
+
+  def resize_window_to_desktop
+    page.driver.browser.manage.window.resize_to(1920, 1080)
   end
 end
