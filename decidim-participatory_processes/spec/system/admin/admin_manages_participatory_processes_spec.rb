@@ -67,6 +67,7 @@ describe "Admin manages participatory processes", versioning: true do
     %w(short_description description announcement).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process-#{field}-tabs']", "full"
     end
+    it_behaves_like "having no taxonomy filters defined"
 
     it "creates a new participatory process" do
       within ".new_participatory_process" do

@@ -15,12 +15,13 @@
           "decidim/accountability/status",
           nil,
           title: t("decidim.accountability.results.home_header.global_status"),
-          progress: progress_calculator(current_scope, nil).presence,
+          progress: progress_calculator(nil).presence,
           extra_classes: "accountability__status__home"
         ) %>
   <% end %>
-
-  <%= render partial: "scope_filters" %>
+  <div class="accountability__filters">
+    <%= render partial: "search" %>
+  </div>
 <% end %>
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
@@ -51,13 +52,13 @@
   </section>
 
   <section class="layout-main__section">
-    <% if first_class_categories.empty? %>
+    <% if first_class_taxonomies.empty? %>
       <%= cell("decidim/announcement",
                params[:filter].present? ?
                t("empty_filters", scope: "decidim.accountability.results.home") :
                t("empty", scope: "decidim.accountability.results.home")) %>
     <% end %>
-    <%= render partial: "home_categories" %>
+    <%= render partial: "home_taxonomies" %>
   </section>
 
 <% end %>

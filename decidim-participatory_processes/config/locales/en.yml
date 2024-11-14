@@ -327,6 +327,9 @@ en:
         create: "%{user_name} invited the participant %{resource_name} to the %{space_name} participatory process"
         delete: "%{user_name} removed the participant %{resource_name} from the %{space_name} participatory process"
         update: "%{user_name} changed the role of the participant %{resource_name} in the %{space_name} participatory process"
+    download_your_data:
+      show:
+        participatory_processes: Participatory Processes export
     events:
       participatory_process:
         role_assigned:
@@ -450,10 +453,12 @@ en:
         participatory_processes:
           form:
             announcement_help: The text you enter here will be shown to the user right below the process information.
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             filters: Filters
             images: Images
             metadata: Metadata
+            no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
             related_processes: Related processes
             scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.

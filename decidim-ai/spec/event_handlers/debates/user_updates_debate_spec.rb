@@ -7,8 +7,7 @@ describe "User updates meeting", type: :system do
     Decidim::Debates::DebateForm.from_params(
       title:,
       description:,
-      scope_id: scope.id,
-      category_id: category.id,
+      taxonomizations:,
       id: debate.id
     ).with_context(
       current_organization: organization,

@@ -3,15 +3,12 @@ en:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Scope
         description: Description
         title: Title
         total_budget: Total budget
         weight: Order position
       project:
         budget_amount: Budget amount
-        decidim_category_id: Category
-        decidim_scope_id: Scope
         description: Description
         proposal_ids: Related proposals
         proposals: Proposals
@@ -35,15 +32,13 @@ en:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Category
-          scope_id_eq:
-            label: Scope
           selected_at_null:
             label: Selected
             values:
               'false': Selected for implementation
               'true': Not selected for implementation
+          taxonomies_part_of_contains:
+            label: Taxonomy
     budgets:
       actions:
         attachment_collections: Folders
@@ -215,9 +210,9 @@ en:
             total_budget: Total budget
         project:
           fields:
-            category: Category
             id: ID
             map: Map
+            taxonomies: Taxonomies
             title: Title
       order_summary_mailer:
         order_summary:
@@ -259,8 +254,6 @@ en:
           message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
           title: You have not yet voted
         filters:
-          category: Category
-          scope: Scope
           search: Search
           status: Status
           status_values:
@@ -329,8 +322,10 @@ en:
         settings:
           global:
             announcement: Announcement
+            clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             form:
               errors:
                 budget_voting_rule_only_one: Only one voting rule must be enabled.
@@ -338,10 +333,13 @@ en:
             geocoding_enabled: Maps enabled
             landing_page_content: Budgets landing page
             more_information_modal: More information modal
+            no_taxonomy_filters_found: No taxonomy filters found.
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each project
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
             title: Title
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minimum number of projects to vote
@@ -369,6 +367,9 @@ en:
               disabled: Voting disabled
               enabled: Voting enabled
               finished: Voting finished
+    download_your_data:
+      show:
+        projects: Projects export
     events:
       budgets:
         budget_published:
@@ -382,7 +383,6 @@ en:
           address: The address of the project (if any)
           budget: To which group of projects (e.g. "2021 Budget") this project belongs to
           budget_amount: The total amount of the budget for this project
-          category: The category of the project (e.g. "Culture")
           comments: The number of comments this project has received
           component: The component that the project belongs to
           confirmed_votes: The number of confirmed votes this project has received
@@ -393,7 +393,7 @@ en:
           related_proposal_titles: The titles of the related proposals
           related_proposal_urls: The URLs of the related proposals
           related_proposals: The related proposals to this project
-          scope: The scope of the project (e.g. "City")
+          taxonomies: The taxonomies of the project
           title: The title of the project
           url: The URL of the project
     orders:

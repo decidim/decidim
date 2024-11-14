@@ -62,91 +62,24 @@ describe "Filter Assemblies" do
     end
 
     it "does not show the assemblies types filter" do
-      within("#dropdown-menu-filters") do
-        expect(page).to have_no_css("#dropdown-menu-filters div.filter-container", text: "Type")
-      end
+      expect(page).to have_no_css("#dropdown-menu-filters div.filter-container", text: "Type")
     end
   end
 
-  context "when filtering parent assemblies by scope" do
-    let!(:scope) { create(:scope, organization:) }
-    let!(:assembly_with_scope) { create(:assembly, scope:, organization:) }
-    let!(:assembly_without_scope) { create(:assembly, organization:) }
+  context "when filtering parent assemblies by taxonomies" do
+    let!(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
+    let!(:assembly_with_taxonomy) { create(:assembly, taxonomies: [taxonomy], organization:) }
+    let!(:assembly_without_taxonomy) { create(:assembly, organization:) }
 
-    context "and choosing a scope" do
+    context "and choosing a taxonomy" do
       before do
-        visit decidim_assemblies.assemblies_path(filter: { with_any_scope: [scope.id] })
+        visit decidim_assemblies.assemblies_path(filter: { with_any_taxonomies: { taxonomy.parent_id => [taxonomy.id] } })
       end
 
-      it "lists all processes belonging to that scope" do
+      it "lists all processes belonging to that taxonomy" do
         within "#assemblies-grid" do
-          expect(page).to have_content(translated(assembly_with_scope.title))
-          expect(page).to have_no_content(translated(assembly_without_scope.title))
-        end
-      end
-    end
-  end
-
-  context "when filtering parent assemblies by area" do
-    let!(:area) { create(:area, organization:) }
-    let!(:assembly_with_area) { create(:assembly, area:, organization:) }
-    let!(:assembly_without_area) { create(:assembly, organization:) }
-
-    context "and choosing an area" do
-      before do
-        visit decidim_assemblies.assemblies_path
-
-        within "#dropdown-menu-filters div.filter-container", text: "Area" do
-          check translated(area.name)
-        end
-      end
-
-      it "enables the all option and lists all processes" do
-        within "#assemblies-grid" do
-          expect(page).to have_content(translated(assembly_with_area.title))
-          expect(page).to have_content(translated(assembly_without_area.title))
-        end
-      end
-    end
-
-    context "when there are more than two areas" do
-      let!(:other_area) { create(:area, organization:) }
-      let!(:other_area_without_assemblies) { create(:area, organization:) }
-      let!(:assembly_with_other_area) { create(:assembly, area: other_area, organization:) }
-
-      context "and choosing an area" do
-        before do
-          visit decidim_assemblies.assemblies_path
-
-          within "#dropdown-menu-filters div.filter-container", text: "Area" do
-            check translated(area.name)
-          end
-        end
-
-        it "lists all processes belonging to that area" do
-          within "#assemblies-grid" do
-            expect(page).to have_content(translated(assembly_with_area.title))
-            expect(page).to have_no_content(translated(assembly_without_area.title))
-          end
-        end
-      end
-
-      context "and choosing two areas with assemblies" do
-        before do
-          visit decidim_assemblies.assemblies_path
-
-          within "#dropdown-menu-filters div.filter-container", text: "Area" do
-            check translated(area.name)
-            check translated(other_area.name)
-          end
-        end
-
-        it "lists all processes belonging to both areas" do
-          within "#assemblies-grid" do
-            expect(page).to have_content(translated(assembly_with_area.title))
-            expect(page).to have_content(translated(assembly_with_other_area.title))
-            expect(page).to have_no_content(translated(assembly_without_area.title))
-          end
+          expect(page).to have_content(translated(assembly_with_taxonomy.title))
+          expect(page).to have_no_content(translated(assembly_without_taxonomy.title))
         end
       end
     end
