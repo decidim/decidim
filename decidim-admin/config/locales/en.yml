@@ -1140,7 +1140,7 @@ en:
           edit: Edit
           internal_name: Internal filter name
           name: Public filter title
-          space_filter: Use to filter %{manifest_name}
+          space_filter: Used to filter %{manifest_name}
           taxonomy: From taxonomy
         update:
           error: There was a problem updating this taxonomy filter.
