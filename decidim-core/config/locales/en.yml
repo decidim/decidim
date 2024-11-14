@@ -1357,6 +1357,23 @@ en:
           main: Core
           spaces: Spaces
           title: Open Data files for %{organization}
+        moderated_users:
+          about: The about field of the user
+          block_reasons: The reason why the admin user blocked the user
+          blocked_at: Date and time when the user has been blocked
+          blocking_user: The name of the user that has performed the blocking
+          details: The details of the reports
+          reasons: A list of the reasons why the profile has been reported
+          user_id: The unique ID of the reported user
+        moderations:
+          hidden_at: Date and time when the content has been hidden
+          id: The unique identifier of the moderation
+          report_count: The number of times it has been reported
+          reportable_id: The unique id of the reportable
+          reportable_type: Type of the reportable
+          reported_content: The content that has been reported
+          reported_url: The url of the reported resource
+          reports: A list of reasons for which the resource has been reported
         user_groups:
           avatar_url: The avatar of the user group
           badge: The badge of the user group
