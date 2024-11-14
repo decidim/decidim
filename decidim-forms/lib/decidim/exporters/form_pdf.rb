@@ -46,7 +46,6 @@ module Decidim
 
       protected
 
-      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.question.title')
       def add_data!
         composer.text(decidim_sanitize(translated_attribute(questionnaire.title), strip_tags: true), style: :h1)
         composer.text(decidim_sanitize(translated_attribute(questionnaire.description), strip_tags: true), style: :description)
@@ -96,7 +95,6 @@ module Decidim
         composer.table([cells], header: ->(_table) { [header] }, cell_style: { border: { width: 0 } })
       end
 
-      # i18n-tasks-use t('decidim.forms.admin.questionnaires.export.question.response')
       def add_response_box(record, index)
         composer.text(I18n.t("title", number: index + 1, scope: "decidim.forms.admin.questionnaires.answers.export.answer"), style: :section_title)
         add_user_data(record)
