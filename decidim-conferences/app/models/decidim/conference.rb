@@ -136,7 +136,7 @@ module Decidim
     end
 
     def user_roles(role_name = nil)
-      roles = Decidim::ConferenceUserRole.where(conference: self)
+      roles = Decidim::ConferenceUserRole.order_by_name.where(conference: self)
       return roles if role_name.blank?
 
       roles.where(role: role_name)
