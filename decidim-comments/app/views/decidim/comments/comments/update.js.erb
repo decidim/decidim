@@ -11,7 +11,10 @@ $(() => {
   var $comment = $("#comment_<%= @comment.id %>");
 
   var $edit_modal = document.getElementById(`editCommentModal${commentId}`)
-  $edit_modal.remove()
+
+  if ($edit_modal !== undefined) {
+    $edit_modal.remove()
+  }
 
   $comment.replaceWith(commentHtml);
 
