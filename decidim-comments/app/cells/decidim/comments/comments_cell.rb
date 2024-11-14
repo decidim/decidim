@@ -8,7 +8,9 @@ module Decidim
       delegate :user_signed_in?, to: :controller
 
       def render_comments
-        if supports_two_columns_layout?
+        if single_comment?
+          render_single_comment
+        elsif supports_two_columns_layout?
           render_comments_in_two_columns
         else
           render :comments_in_single_column
@@ -78,6 +80,11 @@ module Decidim
 
       def supports_two_columns_layout?
         model.respond_to?(:comments_layout) && model.two_columns_layout?
+      end
+
+      def render_single_comment
+        @sorted_comments_in_favor = [single_comment]
+        render :comments_in_single_column
       end
 
       def render_comments_in_two_columns
