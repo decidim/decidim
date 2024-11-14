@@ -61,7 +61,7 @@ describe "ephemeral action authorization" do
         end
 
         it "redirects to ephemeral verification form" do
-          expect(page).to have_content("We need to verify your identity")
+          expect(page).to have_content("Please verify your identity to proceed")
           expect(page).to have_css("h1", text: "Verify with Ephemeral example authorization")
         end
 

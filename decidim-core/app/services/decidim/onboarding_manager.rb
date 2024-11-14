@@ -161,6 +161,10 @@ module Decidim
       @finished_redirect_path ||= onboarding_data["redirect_path"].presence || model_path
     end
 
+    def root_path
+      component_path || Decidim::Core::Engine.routes.url_helpers.root_path
+    end
+
     def component_path
       return if component.blank?
 

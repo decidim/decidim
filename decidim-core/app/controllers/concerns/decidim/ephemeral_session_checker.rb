@@ -8,6 +8,8 @@ module Decidim
 
     included do
       before_action :check_ephemeral_user_session, if: :ephemeral_user_signed_in?
+
+      helper_method :onboarding_manager
     end
 
     private
@@ -16,10 +18,12 @@ module Decidim
       user_signed_in? && current_user.ephemeral?
     end
 
+    def onboarding_manager
+      @onboarding_manager ||= Decidim::OnboardingManager.new(current_user)
+    end
+
     def check_ephemeral_user_session
       return true unless request.format.html?
-
-      onboarding_manager = Decidim::OnboardingManager.new(current_user)
 
       return destroy_ephemeral_session && redirect_to(decidim.root_path) if onboarding_manager.expired?
 
