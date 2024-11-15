@@ -30,7 +30,7 @@ module Decidim
           CreateAssembly.call(@form) do
             on(:ok) do |assembly|
               flash[:notice] = I18n.t("assemblies.create.success", scope: "decidim.admin")
-              redirect_to assemblies_path(q: { parent_id_eq: assembly.parent_id })
+              redirect_to components_path(assembly)
             end
 
             on(:invalid) do
