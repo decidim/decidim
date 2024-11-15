@@ -586,7 +586,6 @@ fi:
           location: Konferenssin paikka, eli missä konferenssi järjestetään.
           objectives: Konferenssin tavoitteet tai päämäärät.
           promoted: Onko konferenssi korostettu vai ei
-          reference: Konferenssin viittaus. Konferenssin yksilöllinen tunniste tällä alustalla.
           remote_banner_image_url: Konferenssin bannerikuvan URL-osoite
           remote_hero_image_url: Konferenssin hero-kuvan URL-osoite
           scope: Konferenssin teema
