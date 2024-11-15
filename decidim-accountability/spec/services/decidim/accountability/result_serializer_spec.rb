@@ -102,6 +102,18 @@ module Decidim
         it "serializes the comments count" do
           expect(serialized).to include(comments_count: result.comments_count)
         end
+
+        it "serializes the address" do
+          expect(serialized).to include(address: result.address)
+        end
+
+        it "serializes the latitude" do
+          expect(serialized).to include(latitude: result.latitude)
+        end
+
+        it "serializes the longitude" do
+          expect(serialized).to include(longitude: result.longitude)
+        end
       end
     end
   end

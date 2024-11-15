@@ -41,7 +41,10 @@ module Decidim
           proposal_urls: proposals,
           reference: result.reference,
           children_count: result.children_count,
-          comments_count: result.comments_count
+          comments_count: result.comments_count,
+          address: result.address,
+          latitude: result.latitude,
+          longitude: result.longitude
         }
       end
 
