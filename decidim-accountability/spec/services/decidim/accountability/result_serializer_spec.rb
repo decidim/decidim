@@ -24,6 +24,7 @@ module Decidim
         result.link_resources(proposals, "included_proposals")
       end
 
+      # Internal field for admins. Test is implemented to make sure the external_id is not published
       describe "external_id" do
         it "is not published" do
           expect(subject.serialize).not_to have_key(:external_id)
