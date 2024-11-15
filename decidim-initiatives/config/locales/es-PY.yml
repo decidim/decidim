@@ -152,6 +152,9 @@ es-PY:
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
+    download_your_data:
+      show:
+        initiatives: Exportar las iniciativas
     events:
       initiatives:
         admin:
@@ -608,12 +611,9 @@ es-PY:
           answered_at: La fecha de la respuesta (si existe)
           area: El área de esta iniciativa
           authors: Las autoras de esta iniciativa
-          created_at: La fecha en la que la iniciativa fue creada
           description: La descripción de la iniciativa
           first_progress_notification_at: La fecha en la que se envió la primera notificación de progreso
           hashtag: La etiqueta que utiliza la iniciativa en Twitter/X
-          published_at: La fecha en la que se publicó la iniciativa
-          reference: La referencia de la iniciativa. Un identificador único para esta plataforma.
           scope: El ámbito territorial de la iniciativa
           second_progress_notification_at: La fecha en la que se envió la segunda notificación de progreso
           signature_end_date: La fecha en la que terminó el período de recogida de firmas
