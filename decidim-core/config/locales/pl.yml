@@ -275,16 +275,14 @@ pl:
       dismiss: Odrzuć powiadomienie
     amendments:
       accepted:
-        error: Wystąpił błąd podczas akceptowania poprawki.
         success: Poprawka została zaakceptowana.
       amendable:
         button: '%{model_name} - popraw'
-        error: Wystąpił błąd podczas wnoszenia poprawki do tego zasobu.
+        error: Wystąpił błąd podczas zmiany tego zasobu.
         promote_button: '%{model_name} - promuj'
         promote_confirm_text: Czy na pewno chcesz promować tę wersję?
         promote_help_text: Możesz promować tę korektę i opublikować ją jako niezależny %{model_name}.
       created:
-        error: Wystąpił błąd podczas tworzenia projektu poprawki.
         success: Projekt poprawki został pomyślnie utworzony.
       destroy_draft:
         error: Wystąpił błąd podczas usuwania szkicu poprawki.
@@ -334,7 +332,6 @@ pl:
         error: Wystąpił błąd podczas aktualizowania szkicu poprawki.
         success: Szkic poprawki został pomyślnie zaktualizowany.
       withdraw:
-        error: Wystąpił błąd podczas wycofywania poprawki.
         success: Poprawka została pomyślnie wycofana.
       wizard_step_form:
         steps:
@@ -917,7 +914,6 @@ pl:
           title_required: Tytul jest obowiazkowy!
           uploaded: Przesłano
           validating: Weryfikowanie...
-          validation_error: Błąd walidacji!
         select_file: Wybierz plik
       upload_help:
         dropzone: Upuść pliki tutaj lub użyj przycisku do przesłania
@@ -1408,7 +1404,6 @@ pl:
         subject: Zasób został zgłoszony
     reports:
       create:
-        error: Wystąpił błąd podczas tworzenia zgłoszenia. Proszę spróbować ponownie.
         success: Zgłoszenie zostało utworzone z powodzeniem i zostanie zweryfikowane przez administratora.
     resource_endorsements:
       create:
@@ -1846,11 +1841,6 @@ pl:
       nesting_too_deep: nie może wchodzić w skład podkategorii
       not_found: nie może zostać znaleziony. Czy utworzyłeś(aś) wcześniej konto?
       not_locked: nie był zablokowany
-      not_saved:
-        one: 'Wystąpił błąd podczas przetwarzania Twojego żądania:'
-        few: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
-        many: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
-        other: 'Podczas przetwarzania Twojego żądania wystąpiły błędy:'
       too_many_marks: używa zbyt wielu kolejnych znaków interpunkcyjnych (np.! i?)
       too_much_caps: używa zbyt dużej liczby wielkich liter (ponad 25% tekstu)
       too_short: jest za krótkie (poniżej %{count} znaków)

@@ -1,0 +1,59 @@
+name: Backport
+on:
+  pull_request_target:
+    types: ["labeled", "closed"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: "true"
+  RUBY_VERSION: 3.3.4
+
+jobs:
+  backport:
+    name: "Backporter"
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    # the below IF structure checks:
+    #  - PR repository must be the official Decidim repository ( decidim/decidim )
+    #  - default branch (develop)
+    #  - if the PR in discussion is already merged
+    #  - and does not the `no-backport` label
+    #  - AND
+    #     - trigger event is a close ( like in merge )
+    #     - OR
+    #     - trigger event adding a label AND any of the labels in the PR is a `type: fix`
+    # Checking if there is an existing backport PR falls in decidim-action-backporter responsibility
+    if: >
+      github.repository == 'decidim/decidim' &&
+      github.base_ref == 'develop' &&
+      github.event.pull_request.merged &&
+      !contains(github.event.pull_request.labels.*.name, 'no-backport')
+      && (
+        github.event.action == 'closed'
+        || (
+          github.event.action == 'labeled'
+            && (contains(github.event.pull_request.labels.*.name, 'type: fix') || contains(github.event.label.name, 'type: fix') )
+        )
+      )
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: 'develop'
+          token: ${{ secrets.ACTION_BACKPORTER_PAT }}
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+      - run: gem install decidim-maintainers_toolbox
+        name: Install toolbox
+      - run: |
+          git config user.name "decidim-bot"
+          git config user.email "23476292+decidim-bot@users.noreply.github.com"
+        name: Setting git
+      - run: decidim-action-backporter --github-token=${{ secrets.ACTION_BACKPORTER_PAT }} --pull_request_id=${{ github.event.pull_request.number }}
+        name: Create
+        shell: "bash"

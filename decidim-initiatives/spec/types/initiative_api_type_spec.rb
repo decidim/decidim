@@ -124,7 +124,8 @@ module Decidim
         end
 
         context "when there are initiatives" do
-          let(:initiatives) { create_list(:initiative, initiatives_type: model, organization: :current_organization) }
+          let(:scoped_type) { create(:initiatives_type_scope, type: model) }
+          let!(:initiatives) { create_list(:initiative, 5, scoped_type:, organization: model.organization) }
 
           it "returns the initiatives" do
             ids = response["initiatives"].map { |item| item["id"] }

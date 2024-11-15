@@ -159,15 +159,12 @@ lb:
       dismiss: Noriicht zou maachen
     amendments:
       accepted:
-        error: Beim Akzeptéieren vun der Ännerung ass e Feeler opgetrueden.
         success: D'Ännerung gouf ugeholl.
       amendable:
         button: '%{model_name} änneren'
-        error: Beim Änneren vun dëser Ressource ass e Feeler opgetrueden.
         promote_button: Zu engem %{model_name} befërderen
         promote_confirm_text: Möchten Sie diese Erweiterung wirklich fördern?
       created:
-        error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
         success: D'Ännerung gouf ugeholl.
       destroy_draft:
         error: Beim Läschen vun der Virbereedung zur Ännerung ass e Feeler opgetrueden.
@@ -922,7 +919,6 @@ lb:
         subject: Eng Ressource gouf gemellt
     reports:
       create:
-        error: Beim Erstellen vum Bericht ass e Feeler opgetrueden. W. e. g. probéier op en Neits.
         success: De Bericht gouf erstallt a gëtt vun engem Admin iwwerpréift.
     resource_endorsements:
       create:
@@ -1192,9 +1188,6 @@ lb:
       long_words: enthält Wieder déi ze laang sinn (méi wéi 35 Zeechen)
       must_start_with_caps: muss mat engem Groussbuschtaf ufänken
       not_locked: wo net gespaart
-      not_saved:
-        one: 'Bei denger Ufro ass en Feeler opgetrueden:'
-        other: 'Bei denger Ufro sin e puer Feeler opgetrueden:'
       too_many_marks: benotzt ze vill Sazzeechen (zB! und?)
       too_much_caps: benotzt ze vill Groussbuschtawen (über 25% des Textes)
   forms:

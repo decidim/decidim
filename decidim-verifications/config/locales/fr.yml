@@ -43,7 +43,7 @@ fr:
           destroy:
             confirm: Révoquer avant la date d'autorisation ne peut pas être annulée. Êtes-vous sûr de vouloir continuer ?
             confirm_all: La révocation des autorisations ne peut être annulée. Êtes-vous sur de vouloir continuer?
-          destroy_nok: Il y a eu un problème lors de la révocation des autorisations.
+          destroy_nok: Une erreur s'est produite lors de la révocation des autorisations.
           destroy_ok: Toutes les autorisations correspondantes ont été révoquées avec succès.
           info: Il y a un total de %{count} participants vérifiés.
           no_data: Aucun participant vérifié.
@@ -157,7 +157,6 @@ fr:
         admin:
           census:
             create:
-              error: Une erreur est survenue lors du recensement.
               success: '%{count} éléments importés avec succès (%{errors} erreurs).'
             destroy_all:
               success: Toutes les données du recensement ont été supprimées.

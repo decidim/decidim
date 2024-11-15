@@ -150,7 +150,6 @@ ar:
               random: عشوائي
               recent: الأخيرة
               with_more_authors: مع المزيد من المؤلفين
-            geocoding_enabled: تم تمكين الترميز الجغرافي
             new_proposal_body_template: نموذج جديد لمحتوى المُقتَرَح
             new_proposal_body_template_help: يمكنكم تعريف النص المعبأ مسبقاً الذي سيدرج في المقترحات الجديدة
             new_proposal_help_text: نص مساعدة اقتراح جديد
@@ -474,11 +473,9 @@ ar:
             select_states: تحقق من حالة مقترحات الاستيراد
         proposals_merges:
           create:
-            invalid: 'طرأت مشكلة في دمج الاقتراحات المحددة لأن بعضها:'
             success: دمج المقترحات بنجاح في واحدة جديدة.
         proposals_splits:
           create:
-            invalid: 'طرأت مشكلة في فصل الاقتراحات المحددة لأن بعضها:'
             success: تم تقسيم المقترحات بنجاح إلى مقترحات جديدة.
       admin_log:
         proposal:
@@ -656,7 +653,6 @@ ar:
           discard: تجاهل هذه المسودة
           discard_confirmation: هل أنت متأكد من أنك تريد التخلص من مسودة الاقتراح؟
           send: معاينة
-          title: تحرير مسودة الاقتراح
         filters:
           activity: نشاطي
           all: الكل

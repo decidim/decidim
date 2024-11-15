@@ -91,9 +91,6 @@ tr:
         start_exploring: keşfetmeye başla
       csv_census:
         admin:
-          census:
-            create:
-              error: Sayım alınırken bir hata oluştu.
           destroy:
             title: Tüm sayım verilerini sil
           index:

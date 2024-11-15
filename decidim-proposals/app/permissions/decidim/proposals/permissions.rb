@@ -15,6 +15,8 @@ module Decidim
           apply_proposal_permissions(permission_action)
         when :collaborative_draft
           apply_collaborative_draft_permissions(permission_action)
+        when :proposal_coauthor_invites
+          apply_proposal_coauthor_invites(permission_action)
         else
           permission_action
         end
@@ -157,6 +159,46 @@ module Decidim
         return toggle_allow(false) if collaborative_draft.requesters.include? user
 
         toggle_allow(collaborative_draft.created_by?(user))
+      end
+
+      def apply_proposal_coauthor_invites(permission_action)
+        return toggle_allow(false) unless coauthor
+        return toggle_allow(false) unless proposal
+
+        case permission_action.action
+        when :invite
+          toggle_allow(valid_coauthor? && !notification_already_sent?)
+        when :cancel
+          toggle_allow(valid_coauthor? && notification_already_sent?)
+        when :accept, :decline
+          toggle_allow(can_be_coauthor?)
+        end
+      end
+
+      def coauthor
+        context.fetch(:coauthor, nil)
+      end
+
+      def notification_already_sent?
+        @notification_already_sent ||= proposal.coauthor_invitations_for(coauthor).any?
+      end
+
+      def coauthor_in_comments?
+        @coauthor_in_comments ||= proposal.comments.where(author: coauthor).any?
+      end
+
+      def valid_coauthor?
+        return false unless proposal.authors.include?(user)
+        return false unless proposal.user_has_actions?(coauthor)
+
+        coauthor_in_comments?
+      end
+
+      def can_be_coauthor?
+        return false unless user == coauthor
+        return false unless proposal.user_has_actions?(coauthor)
+
+        notification_already_sent?
       end
     end
   end

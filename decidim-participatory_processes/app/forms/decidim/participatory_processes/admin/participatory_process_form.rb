@@ -9,18 +9,19 @@ module Decidim
       class ParticipatoryProcessForm < Form
         include TranslatableAttributes
         include Decidim::HasUploadValidations
+        include Decidim::HasTaxonomyFormAttributes
 
         mimic :participatory_process
 
-        translatable_attribute :announcement, String
-        translatable_attribute :description, String
+        translatable_attribute :announcement, Decidim::Attributes::RichText
+        translatable_attribute :description, Decidim::Attributes::RichText
         translatable_attribute :developer_group, String
         translatable_attribute :local_area, String
         translatable_attribute :meta_scope, String
         translatable_attribute :participatory_scope, String
         translatable_attribute :participatory_structure, String
         translatable_attribute :subtitle, String
-        translatable_attribute :short_description, String
+        translatable_attribute :short_description, Decidim::Attributes::RichText
         translatable_attribute :title, String
         translatable_attribute :target, String
 
@@ -65,6 +66,10 @@ module Decidim
           self.participatory_process_type_id = model.decidim_participatory_process_type_id
           self.related_process_ids = model.linked_participatory_space_resources(:participatory_process, "related_processes").pluck(:id)
           @processes = Decidim::ParticipatoryProcess.where(organization: model.organization).where.not(id: model.id)
+        end
+
+        def participatory_space_manifest
+          :participatory_processes
         end
 
         def scope

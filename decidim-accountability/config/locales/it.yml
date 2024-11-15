@@ -8,8 +8,6 @@ it:
         description: Descrizione
         end_date: Data di fine
         progress: Progresso
-        project_ids: Progetti inclusi
-        proposals: Proposte incluse
         start_date: Data di inizio
         title: Nome
         updated_at: Aggiornato al

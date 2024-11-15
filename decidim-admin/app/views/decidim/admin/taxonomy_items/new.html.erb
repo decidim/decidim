@@ -1,0 +1,12 @@
+<div class="form__wrapper">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: taxonomy_items_path(taxonomy), remote: true, html: { id: "taxonomy-item-form", class: "form-defaults form new_taxonomy_" }) do |f| %>
+      <h1>
+        <%= t ".title", taxonomy: translated_attribute(taxonomy.name) %>
+        <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
+      </h1>
+
+      <%= render partial: "form", object: f %>
+    <% end %>
+  </div>
+</div>

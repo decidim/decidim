@@ -102,7 +102,6 @@ bg:
       comments:
         blocked_comments_for_unauthorized_user_warning: Трябва да сте верифицирани, за да коментирате в този момент, но можете да прочетете предишните.
         blocked_comments_for_user_warning: Понастоящем не можете да коментирате, но можете да прочетете предходните коментари.
-        blocked_comments_warning: Коментарите в момента са деактивирани, но можете да прочетете предишните.
         comment_details_title: Детайли за коментара
         loading: Коментарите се зареждат...
         single_comment_warning: <a href="%{url}">Вижте всички коментари</a>

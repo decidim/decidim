@@ -91,7 +91,6 @@ el:
       comments:
         blocked_comments_for_unauthorized_user_warning: Πρέπει να επαληθευτείτε για να σχολιάσετε αυτή τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα.
         blocked_comments_for_user_warning: Δεν μπορείτε να σχολιάσετε αυτήν τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα σχόλια.
-        blocked_comments_warning: Τα σχόλια είναι απενεργοποιημένα αυτήν τη στιγμή, αλλά μπορείτε να διαβάσετε τα προηγούμενα σχόλια.
         comment_details_title: Λεπτομέρειες σχολίων
         loading: Φόρτωση σχολίων...
         single_comment_warning: <a href="%{url}">Δείτε όλα τα σχόλια</a>

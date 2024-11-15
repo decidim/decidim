@@ -670,7 +670,6 @@ pl:
         transparent: Transparentne
         withdraw: Wycofany
       withdraw:
-        error: Wystąpił błąd podczas wycofywania spotkania.
         success: Spotkanie zostało pomyślnie wycofane.
     metrics:
       meetings:

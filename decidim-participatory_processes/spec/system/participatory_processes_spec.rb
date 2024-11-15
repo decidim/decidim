@@ -202,6 +202,13 @@ describe "Participatory Processes" do
     end
   end
 
+  it_behaves_like "followable space content for users" do
+    let!(:participatory_process) { base_process }
+    let!(:user) { create(:user, :confirmed, organization:) }
+    let(:followable) { participatory_process }
+    let(:followable_path) { decidim_participatory_processes.participatory_process_path(participatory_process) }
+  end
+
   context "when going to the participatory process page" do
     let!(:participatory_process) { base_process }
     let!(:proposals_component) { create(:component, :published, participatory_space: participatory_process, manifest_name: :proposals) }
@@ -232,14 +239,6 @@ describe "Participatory Processes" do
           create(:content_block, organization:, scope_name: :participatory_process_homepage, manifest_name:, scoped_resource_id: participatory_process.id)
         end
         visit decidim_participatory_processes.participatory_process_path(participatory_process)
-      end
-
-      describe "follow button" do
-        let!(:user) { create(:user, :confirmed, organization:) }
-        let(:followable) { participatory_process }
-        let(:followable_path) { decidim_participatory_processes.participatory_process_path(participatory_process) }
-
-        include_examples "follows"
       end
 
       context "when requesting the process path" do

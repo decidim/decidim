@@ -105,25 +105,6 @@ shared_examples_for "a simple event" do |skip_space_checks|
     end
   end
 
-  describe "resource_path" do
-    it "is generated correctly" do
-      expect(subject.resource_path).to be_kind_of(String)
-    end
-  end
-
-  describe "resource_url" do
-    it "is generated correctly" do
-      expect(subject.resource_url).to be_kind_of(String)
-      expect(subject.resource_url).to start_with("http")
-    end
-  end
-
-  describe "resource_title" do
-    it "responds to the method" do
-      expect(subject).to respond_to(:resource_title)
-    end
-  end
-
   unless skip_space_checks
     describe "participatory_space_url" do
       it "is generated correctly" do
@@ -194,6 +175,39 @@ shared_examples_for "a simple event notification" do
 
     it "is html safe" do
       expect(subject.notification_title).not_to include("script")
+    end
+  end
+end
+
+shared_examples_for "a notification event only" do
+  describe "types" do
+    subject { described_class }
+
+    it "supports notifications" do
+      expect(subject.types).to include :notification
+    end
+
+    it "does not support emails" do
+      expect(subject.types).not_to include :email
+    end
+  end
+
+  describe "resource_path" do
+    it "is generated correctly" do
+      expect(subject.resource_path).to be_kind_of(String)
+    end
+  end
+
+  describe "resource_url" do
+    it "is generated correctly" do
+      expect(subject.resource_url).to be_kind_of(String)
+      expect(subject.resource_url).to start_with("http")
+    end
+  end
+
+  describe "resource_title" do
+    it "responds to the method" do
+      expect(subject).to respond_to(:resource_title)
     end
   end
 end

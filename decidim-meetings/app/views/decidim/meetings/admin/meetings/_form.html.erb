@@ -59,17 +59,14 @@
           <%= form.datetime_field :end_time %>
         </div>
       </div>
-      <div class="row">
-        <% if current_component.has_subscopes? %>
-          <div class="columns">
-            <%= scopes_select_field form, :decidim_scope_id, root: current_component.scope %>
+
+      <% if @form.taxonomy_filters&.any? %>
+        <% @form.taxonomy_filters.each do |filter| %>
+          <div class="row column">
+            <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
           </div>
         <% end %>
-
-        <div class="columns">
-          <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: "", disable_parents: false %>
-        </div>
-      </div>
+      <% end %>
 
       <div class="row column">
         <%= form.select :registration_type,
@@ -95,6 +92,7 @@
     </div>
   </div>
   <%= render "decidim/meetings/admin/meetings/services", form: , id: tabs_id_for_service(blank_service) %>
+  <%= render "decidim/meetings/admin/meetings/linked_spaces", form: %>
 </div>
 
 <%= append_javascript_pack_tag "decidim_meetings_admin" %>

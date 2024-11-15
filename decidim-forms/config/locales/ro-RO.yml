@@ -21,8 +21,6 @@ ro:
               too_long: este prea lung
             choices:
               missing: nu sunt completate
-        questionnaire:
-          request_invalid: A apărut o eroare la procesarea cererii. Te rugăm să încerci din nou.
   decidim:
     forms:
       admin:

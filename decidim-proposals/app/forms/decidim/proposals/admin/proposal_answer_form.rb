@@ -6,11 +6,12 @@ module Decidim
       # A form object to be used when admin users want to answer a proposal.
       class ProposalAnswerForm < Decidim::Form
         include TranslatableAttributes
+
         mimic :proposal_answer
 
-        translatable_attribute :answer, String
-        translatable_attribute :cost_report, String
-        translatable_attribute :execution_period, String
+        translatable_attribute :answer, Decidim::Attributes::RichText
+        translatable_attribute :cost_report, Decidim::Attributes::RichText
+        translatable_attribute :execution_period, Decidim::Attributes::RichText
         attribute :cost, Float
         attribute :internal_state, String
 

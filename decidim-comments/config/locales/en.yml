@@ -64,6 +64,9 @@ en:
         alignment:
           against: Against
           in_favor: In favor
+        answers:
+          one: "%{count} answer"
+          other: "%{count} answers"
         cancel_reply: Cancel reply
         comment_label: Comment %{comment_id}
         comment_label_reply: Comment %{comment_id} (reply to comment %{parent_comment_id})
@@ -94,6 +97,7 @@ en:
           one: Show reply
           other: Show %{count} replies
         single_comment_link_title: Get link
+        sort_by: 'Sort by: '
       comment_order_selector:
         order:
           best_rated: Best rated
@@ -104,7 +108,7 @@ en:
       comments:
         blocked_comments_for_unauthorized_user_warning: You need to be verified to comment at this moment, but you can read the previous ones.
         blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
-        blocked_comments_warning: Comments are disabled at this time, but you can read the previous ones.
+        blocked_comments_warning: Comments are currently disabled, only administrators can reply or post new ones.
         comment_details_title: Comment details
         loading: Loading comments ...
         single_comment_warning: <a href="%{url}">View all comments</a>

@@ -99,7 +99,6 @@ sk:
             attachments_allowed: Povoliť prílohy
             collaborative_drafts_enabled: Spoločné návrhy sú povolené
             comments_enabled: Komentáre povolené
-            geocoding_enabled: Geokódovanie povolené
             new_proposal_body_template: Telo šablóny nového návrhu
             new_proposal_body_template_help: Môžete definovať predvyplnený text, ktorý budú mať všetky nové návrhy
             new_proposal_help_text: Pomocný text ku novému návrhu
@@ -508,7 +507,6 @@ sk:
           discard: Zrušte tento návrh
           discard_confirmation: Naozaj chcete túto návrh zakázať?
           send: Náhľad
-          title: Upraviť koncept návrhu
         filters:
           activity: Moja aktivita
           all: Všetko

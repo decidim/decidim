@@ -11,6 +11,9 @@ module Decidim::Conferences
     let(:scope) { create(:scope, organization:) }
     let(:errors) { double.as_null_object }
     let(:hero_image) { nil }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
     let(:banner_image) { nil }
     let!(:participatory_processes) do
       create_list(
@@ -49,6 +52,7 @@ module Decidim::Conferences
         organization:,
         scopes_enabled: true,
         scope:,
+        taxonomizations:,
         errors:,
         show_statistics: false,
         objectives: { en: "objectives" },
@@ -133,6 +137,22 @@ module Decidim::Conferences
         subject.call
         linked_assemblies = conference.linked_participatory_space_resources(:assemblies, "included_assemblies")
         expect(linked_assemblies).to match_array(assemblies)
+      end
+
+      it "links to taxonomizations" do
+        subject.call
+
+        expect(conference.taxonomizations).to match_array(taxonomizations)
+      end
+
+      context "when no taxonomizations are set" do
+        let(:taxonomizations) { [] }
+
+        it "taxonomizations are empty" do
+          subject.call
+
+          expect(conference.taxonomizations).to be_empty
+        end
       end
 
       context "when sorting linked_participatory_space_resources" do

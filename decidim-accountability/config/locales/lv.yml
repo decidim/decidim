@@ -7,8 +7,6 @@ lv:
         decidim_scope_id: Darbības tvērums
         description: Apraksts
         end_date: Beigu datums
-        project_ids: Iekļautie projekti
-        proposals: Iekļautie priekšlikumi
         start_date: Sākuma datums
         title: Nosaukums
         updated_at: Atjaunināts plkst.

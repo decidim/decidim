@@ -1,0 +1,21 @@
+<div class="relative ml-auto">
+  <button id="dropdown-trigger-resource-<%= resource.id %>"
+          data-component="dropdown"
+          data-target="dropdown-menu-resource-<%= resource.id %>"
+          aria-label="<%= t("decidim.resource.controls_label") %>">
+    <span class="sr-only"><%= t("decidim.resource.controls_label") %></span>
+    <%# NOTE: having two times the icon call is intentional, as that is how the `dropdown` CSS code is done %>
+    <%= icon "more-2-fill" %>
+    <%= icon "more-2-fill" %>
+  </button>
+  <div id="dropdown-menu-resource-<%= resource.id %>" aria-hidden="true">
+    <ul class="dropdown dropdown__bottom divide-y divide-gray-3 px-4" role="menu">
+      <%= yield %>
+      <% unless defined?(skip_report) && skip_report %>
+        <li role="menuitem"><%= cell "decidim/report_button", resource %></li>
+      <% end %>
+      <li role="menuitem">
+        <%= cell "decidim/follow_button", resource, large: false %></li>
+    </ul>
+  </div>
+</div>

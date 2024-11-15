@@ -24,6 +24,10 @@ module Decidim
       15
     end
 
+    config_accessor :disclose_system_version do
+      %w(1 true yes).include?(ENV.fetch("DECIDIM_API_DISCLOSE_SYSTEM_VERSION", nil))
+    end
+
     # This declares all the types an interface or union can resolve to. This needs
     # to be done in order to be able to have them found. This is a shortcoming of
     # graphql-ruby and the way it deals with loading types, in combination with

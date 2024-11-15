@@ -17,6 +17,7 @@ module Decidim
 
       routes do
         resources :assemblies_types
+        resources :assembly_filters, except: [:show]
 
         resources :assemblies, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "assembly_publications", only: [:create, :destroy]
@@ -47,12 +48,17 @@ module Decidim
           resources :categories, except: [:show]
 
           resources :components do
+            collection do
+              put :reorder
+            end
             resource :permissions, controller: "component_permissions"
             member do
               put :publish
               put :unpublish
               get :share
+              put :hide
             end
+            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
             resources :exports, only: :create
             resources :imports, only: [:new, :create] do
               get :example, on: :collection
@@ -79,6 +85,8 @@ module Decidim
               end
             end
           end
+
+          resources :assembly_share_tokens, except: [:show], path: "share_tokens"
         end
 
         scope "/assemblies/:assembly_slug/components/:component_id/manage" do

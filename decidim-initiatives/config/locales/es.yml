@@ -100,7 +100,7 @@ es:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Buscar %{collection} por título, descripción, ID o autoría.
       initiatives_settings:
         update:
-          error: Se ha producido un error.
+          error: Se produjo un problema al actualizar la configuración de las iniciativas.
           success: La configuración de las iniciativas se ha actualizado correctamente.
       menu:
         attachments: Adjuntos
@@ -241,6 +241,10 @@ es:
             alert_html: "<p>Tienes que crear por lo menos un tipo de iniciativa para que las participantes puedan empezar a crear sus iniciativas.</p><p>%{link}</p>"
             button: Nuevo tipo de iniciativa
         initiatives:
+          accept:
+            success: La iniciativa se ha aceptado correctamente.
+          discard:
+            success: La iniciativa se ha descartado correctamente.
           edit:
             accept: Aceptar iniciativa
             confirm: '¿Estás seguro?'
@@ -264,8 +268,14 @@ es:
             edit: Editar
             new: Nueva
             photos: Fotos
+          publish:
+            success: La iniciativa se ha publicado correctamente.
+          reject:
+            success: La iniciativa se ha rechazado correctamente.
+          unpublish:
+            success: La iniciativa se ha despublicado correctamente.
           update:
-            error: Se ha producido un error.
+            error: Se ha producido un error al actualizar la iniciativa.
             success: La iniciativa se ha actualizado correctamente.
         initiatives_settings:
           edit:
@@ -279,7 +289,7 @@ es:
             title: Configuración de iniciativas
         initiatives_type_scopes:
           create:
-            error: Se ha producido un error.
+            error: Se ha producido un error al crear un nuevo ámbito para la iniciativa seleccionada.
             success: Se ha creado un nuevo ámbito para el tipo de iniciativa dado.
           destroy:
             success: El ámbito ha sido eliminado con éxito.
@@ -290,11 +300,11 @@ es:
             create: Crear
             title: Crear ámbito del tipo de iniciativa
           update:
-            error: Se ha producido un error.
+            error: Se ha producido un error al actualizar el ámbito.
             success: El ámbito ha sido actualizado con éxito.
         initiatives_types:
           create:
-            error: Se ha producido un error.
+            error: Se ha producido un error al crear el tipo de iniciativa.
             success: Un nuevo tipo de iniciativa ha sido creado con éxito. Necesitas definir al menos un ámbito para este tipo de iniciativa para que se pueda utilizar.
           destroy:
             success: El tipo de iniciativa se ha eliminado correctamente.
@@ -311,7 +321,7 @@ es:
             create: Crear
             title: Nuevo tipo de iniciativa
           update:
-            error: Se ha producido un error.
+            error: Se ha producido un error al actualizar el tipo de iniciativa.
             success: El tipo de iniciativa se ha actualizado correctamente.
       admin_log:
         initiative:
@@ -586,7 +596,7 @@ es:
         expired: Caducada
       unavailable_scope: Ámbito no disponible
       update:
-        error: Se ha producido un error.
+        error: Se ha producido un error al actualizar la iniciativa.
         success: La iniciativa se ha actualizado correctamente.
     menu:
       initiatives: Iniciativas

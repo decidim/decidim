@@ -19,6 +19,8 @@ cs:
         body: Tělo zprávy
       report:
         details: Další komentáře
+      taxonomy:
+        name: Název taxonomie
       user:
         about: O nás
         email: Váš email
@@ -62,6 +64,12 @@ cs:
         password_confirmation: Potvrzení hesla
         remember_me: Zapamatuj si mě
     models:
+      decidim:
+        history:
+          one: Historie
+          few: Historie
+          many: Historie
+          other: Historie
       decidim/amendment:
         one: Pozměňovací návrh
         few: Změny
@@ -286,6 +294,20 @@ cs:
         create: "%{user_name} vytvořila %{resource_name} statickou stránku"
         delete: "%{user_name} odstranila %{resource_name} statickou stránku"
         update: "%{user_name} aktualizovala %{resource_name} statickou stránku"
+      taxonomy:
+        create: "%{user_name} vytvořil taxonomii %{resource_name}"
+        create_with_parent: "%{user_name} vytvořil taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
+        delete: "%{user_name} odstranil %{resource_name} taxonomii"
+        delete_with_parent: "%{user_name} odstranil taxonomii %{resource_name} v taxonomii %{parent_taxonomy}"
+        update: "%{user_name} aktualizoval taxonomii %{resource_name}"
+        update_with_parent: "%{user_name} aktualizoval taxonomii %{resource_name} uvnitř taxonomie %{parent_taxonomy}"
+      taxonomy_filter:
+        create: "%{user_name} vytvořil filtr založený na taxonomii %{resource_name}"
+        create_with_filter_items_count: "%{user_name} vytvořil filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
+        delete: "%{user_name} odstranil filtr založený na taxonomii %{resource_name}"
+        delete_with_filter_items_count: "%{user_name} odstranil filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
+        update: "%{user_name} aktualizoval filtr založený na taxonomii %{resource_name}"
+        update_with_filter_items_count: "%{user_name} aktualizoval filtr založený na taxonomii %{resource_name} s %{filter_items_count} filtry pro %{space_manifest_name}"
       user:
         block: "%{user_name} zablokoval uživatele %{resource_name}"
         invite: "%{user_name} pozval uživatele %{resource_name} s rolí: %{role}"
@@ -310,7 +332,7 @@ cs:
       dismiss: Odmítnout oznámení
     amendments:
       accepted:
-        error: Při přijímání změny došlo k chybě.
+        error: Při přijímání pozměňovacího návrhu došlo k chybě.
         success: Tento pozměňovací návrh byl úspěšně přijat.
       amendable:
         button: Změna %{model_name}
@@ -377,11 +399,12 @@ cs:
         error: Při aktualizaci pozměňovacího návrhu došlo k potížím.
         success: Pozměňovací návrh byl úspěšně aktualizován.
       withdraw:
-        error: Došlo k chybě při odebrání pozměňovacího návrhu.
+        error: Při stahování pozměňovacího návrhu došlo k chybě.
         success: Pozměňovací návrh byl úspěšně stažen.
       wizard_step_form:
         steps:
           '1': Vytvořte svůj pozměňovací návrh
+          '2': Publikovat svůj pozměňovací návrh
     anonymous_user: Anonymní
     application:
       document:
@@ -389,6 +412,7 @@ cs:
         visit_link: Navštívit odkaz
       documents:
         component_documents:
+          dummy: Zástupné dokumenty ke komponentům
           meetings: Dokumenty ze schůzky
         documents: Dokumenty
         related_documents: Související dokumenty
@@ -617,7 +641,11 @@ cs:
           complete_profile: Dokončit profil
           nickname_help: Váš alias v %{organization}. Může obsahovat pouze písmena, číslice, '-' a '_'.
           sign_up: Prosím, vyplňte svůj profil
+          subtitle: Vyplňte prosím následující formulář pro dokončení vytvoření účtu
           username_help: Veřejné jméno, které se zobrazí ve vašich příspěvcích. S cílem zaručit anonymitu může být jakékoliv jméno.
+        new_tos_fields:
+          sign_up: Vytvořit účet
+          sign_up_title: Dokončit vytváření účtu
       registrations:
         create:
           error: Vyskytl se problém při vytváření účtu.
@@ -626,6 +654,8 @@ cs:
           log_in: Přihlásit
           newsletter: Chci dostávat příležitostný zpravodaj s relevantními informacemi
           newsletter_title: Povolení kontaktu
+          sign_up: Vytvořit účet
+          subtitle: Pro účast na platformě vytvořte účet.
           terms: podmínky poskytování služeb
           tos_agreement: Přihlášením souhlasíte s %{link}.
           tos_title: Smluvní podmínky
@@ -635,6 +665,7 @@ cs:
           are_you_new?: Jste na platformě poprvé?
           register: Vytvořit účet
           sign_in_disabled: Můžete přistupovat pomocí externího účtu.
+          sign_up_disabled: Vytvoření účtu je zakázáno, pro přístup můžete použít existující účet.
         user:
           timed_out: Byli jste neaktivní příliš dlouho a byli jste automaticky odhlášeni ze služby. Pokud chcete pokračovat v používání služby, přihlaste se prosím znovu.
       shared:
@@ -912,10 +943,16 @@ cs:
       create:
         button: Sledovat
         error: Při sledování tohoto zdroje došlo k chybě.
+        participatory_space: Sleduje <span>%{resource_name}</span>
       destroy:
         button: Ukončit sledování
         error: Při sledování tohoto zdroje došlo k chybě.
     forms:
+      attachment_link:
+        explanation: Pokyny pro odkazy na přílohy
+        help_messages:
+          - Akceptovány jsou pouze správné formáty URL.
+          - Vezměte prosím na vědomí, že odkazy musí být veřejné, aby k nim měli přístup všichni účastníci.
       errors:
         decidim/user:
           password: Heslo je příliš krátké.
@@ -956,7 +993,7 @@ cs:
           title_required: Název je povinný!
           uploaded: Nahráno
           validating: Probíhá ověřování...
-          validation_error: Chyba ověření!
+          validation_error: Chyba ověření! Zkontrolujte, zda má soubor povolenou příponu nebo velikost.
         select_file: Vyberte soubor
       upload_help:
         dropzone: Přetáhněte soubory sem nebo klikněte na tlačítko pro nahrání
@@ -1114,6 +1151,8 @@ cs:
           not_found: 'Oblast působnosti nebyla nalezena v databázi (ID: %{id})'
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Taxonomie nebyla v databázi nalezena (ID: %{id})'
     managed_users:
       expired_session: Aktuální relace správy účastníka vypršela.
     map:
@@ -1271,9 +1310,11 @@ cs:
         same_language: Obsah byl zveřejněn ve vašem preferovaném jazyce (%{language}), proto se v tomto e-mailu nezobrazuje automatický překlad.
         translated_text: 'Automaticky přeložený text:'
     notifications:
+      action_error: Při aktualizaci oznámení došlo k chybě.
       no_notifications: Zatím žádné oznámení.
       show:
         missing_event: Jejda, toto oznámení patří k položce, která již není k dispozici. Můžete ho zahodit.
+        moderated: Obsah upraven
     notifications_digest_mailer:
       header:
         daily: Denní výběr oznámení
@@ -1290,6 +1331,7 @@ cs:
         administrators: Správci
         allow_public_contact: Umožnit komukoli poslat mi přímou zprávu, i když je nesleduji.
         allow_push_notifications: Získejte oznámení a zjistěte, co se děje, když nejste na platformě. Kdykoliv je můžete vypnout.
+        assigned_to_proposal: Chci dostávat e-mail, když mi někdo přiřadí návrh na vyhodnocení
         direct_messages: Přijímat přímé zprávy od kohokoli
         email_on_moderations: Chci dostávat e-mail pokaždé, když je něco nahlášeno k moderování.
         everything_followed: Všechno, co sleduji
@@ -1308,6 +1350,7 @@ cs:
         push_notifications_reminder: Chcete-li dostávat oznámení z platformy, musíte je nejdříve povolit v nastavení prohlížeče.
         receive_notifications_about: Chci dostávat oznámení
         update_notifications_settings: Uložit změny
+        valuators: Hodnotitelé
       update:
         error: Při aktualizaci nastavení oznámení došlo k chybě.
         success: Nastavení oznámení bylo úspěšně aktualizováno.
@@ -1445,8 +1488,10 @@ cs:
         subject: Byl ohlášen zdroj
     reports:
       create:
-        error: Při vytváření shromáždění došlo k chybě. Zkuste to znovu.
+        error: Při vytváření zprávy došlo k chybě. Zkuste to prosím znovu.
         success: Zpráva byla úspěšně vytvořena a bude kontrolována administrátorem.
+    resource:
+      controls_label: Ovládání zdrojů
     resource_endorsements:
       create:
         error: Během akce schválení došlo k chybě.
@@ -1492,6 +1537,7 @@ cs:
         close_modal: Zavřít okno
         ok: OK
         title: Potvrdit
+      confirm_unload: Tato stránka obsahuje neuložené změny. Opravdu chcete opustit tuto stránku?
       embed:
         title: Vložený obsah videa
       extended_navigation_bar:
@@ -1569,6 +1615,8 @@ cs:
     tags:
       filter_results_for_category: 'Filtrovat výsledky pro kategorii: %{resource}'
       filter_results_for_scope: 'Výsledky filtru pro rozsah: %{resource}'
+    taxonomies:
+      prompt: Vybrat z "%{name}"
     translation_bar:
       help_text: "<strong>Upozornění:</strong> Obsah může být automaticky přeložen a nemusí být 100% přesný."
       show_original: Zobrazit původní text
@@ -1722,6 +1770,7 @@ cs:
         message: Váš účet byl uzamčen kvůli nadměrnému množství neúspěšných pokusů o přihlášení.
         subject: Odemkněte pokyny
     omniauth_callbacks:
+      add_tos_errors: Pro vytvoření účtu je nutné přijmout podmínky služby.
       failure: Nelze vás autentizovat z %{kind} protože "%{reason}".
       success: Úspěšně ověřeno z %{kind} účtu.
     passwords:
@@ -1881,12 +1930,13 @@ cs:
       long_words: obsahuje slova, která jsou příliš dlouhá (přes 35 znaků)
       must_start_with_caps: musí začínat velkým písmenem
       nesting_too_deep: nemůže být uvnitř podkategorie
+      not_found: se nepodařilo najít. Vytvořili jste si účet již dříve?
       not_locked: nebyl uzamčen
       not_saved:
         one: 'Při zpracování vašeho požadavku došlo k chybě:'
         few: 'Při zpracování vašeho požadavku došlo k několika chybám:'
-        many: 'Při zpracování vašeho požadavku došlo k mnoha chybám:'
-        other: 'Při zpracování vašeho požadavku došlo k nějakým chybám:'
+        many: 'Při zpracování vašeho požadavku došlo k několika chybám:'
+        other: 'Při zpracování vašeho požadavku došlo k několika chybám:'
       too_many_marks: používá příliš mnoho po sobě jdoucích interpunkčních znamének (např.! a?)
       too_much_caps: používá příliš mnoho velkých písmen (více než 25% textu)
       too_short: je příliš krátká (pod %{count} znaků)

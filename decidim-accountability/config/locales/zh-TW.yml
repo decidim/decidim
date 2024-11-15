@@ -7,10 +7,7 @@ zh-TW:
         decidim_scope_id: 範圍
         description: 說明
         end_date: 結束日期
-        meetings_ids: 包含的會議
         progress: 進度
-        project_ids: 包含的專案
-        proposals: 包含的建議
         start_date: 開始日期
         title: 標題
         updated_at: 更新時間

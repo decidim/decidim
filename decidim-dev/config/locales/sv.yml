@@ -3,7 +3,7 @@ sv:
     attributes:
       dummy_resource:
         created_at: Skapad
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Indelning
         field: Mitt fält
         start_date: Startdatum
         title: Titel
@@ -27,8 +27,8 @@ sv:
               baz: Baz
               foo: Foo
           step:
-            endorsements_blocked: Instämmanden är blockerade
-            endorsements_enabled: Instämmanden tillåtna
+            endorsements_blocked: Blockera gilla-markeringar
+            endorsements_enabled: Aktivera gilla-markeringar
             readonly_step_attribute: Skrivskyddade steg attribut
             test_options:
               bar: Bar

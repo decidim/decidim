@@ -221,7 +221,6 @@ nl:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
             comments_max_length: Commentaar maximale lengte (laat 0 voor standaardwaarde)
-            geocoding_enabled: Geocoding ingeschakeld
             landing_page_content: Budgetten landingspagina
             more_information_modal: Meer informatie
             projects_per_page: Projecten per pagina

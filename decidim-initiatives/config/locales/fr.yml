@@ -100,7 +100,6 @@ fr:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Rechercher %{collection} par titre, description, ID ou nom de l'auteur.
       initiatives_settings:
         update:
-          error: Une erreur est survenue.
           success: Les paramètres des pétitions ont bien été mis à jour.
       menu:
         attachments: Pièces jointes
@@ -261,7 +260,6 @@ fr:
             new: Nouvelle
             photos: Photos
           update:
-            error: Une erreur est survenue.
             success: La pétition a été mise à jour avec succès.
         initiatives_settings:
           edit:
@@ -275,7 +273,6 @@ fr:
             title: Paramètres des initiatives
         initiatives_type_scopes:
           create:
-            error: Une erreur est survenue.
             success: Un nouveau secteur pour ce type de pétition a été créé.
           destroy:
             success: Le secteur a été supprimé avec succès.
@@ -286,11 +283,8 @@ fr:
             create: Créer
             title: Créer un secteur pour ce type de pétition
           update:
-            error: Une erreur est survenue.
             success: Le secteur a été mis à jour avec succès.
         initiatives_types:
-          create:
-            error: Une erreur est survenue.
           destroy:
             success: Le type de pétition a été supprimé avec succès.
           edit:
@@ -306,7 +300,6 @@ fr:
             create: Créer
             title: Nouveau type de pétition
           update:
-            error: Une erreur est survenue.
             success: Le type de pétition a été mis à jour avec succès.
       admin_log:
         initiative:
@@ -581,7 +574,6 @@ fr:
         expired: Expirées
       unavailable_scope: Portée indisponible
       update:
-        error: Une erreur est survenue.
         success: La pétition a été mise à jour avec succès.
     menu:
       initiatives: Pétitions

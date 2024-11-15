@@ -3,8 +3,6 @@
 require "decidim/dev/test/rspec_support/tom_select"
 
 shared_examples "manage results" do
-  include_context "when managing an accountability component as an admin"
-
   describe "admin form" do
     before { click_on "New result", match: :first }
 
@@ -42,7 +40,8 @@ shared_examples "manage results" do
         fill_in_i18n(:result_title, "#result-title-tabs", **attributes[:title].except("machine_translations"))
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
-
+      end
+      within ".item__edit-sticky" do
         find("*[type=submit]").click
       end
 
@@ -66,21 +65,29 @@ shared_examples "manage results" do
 
         tom_select("#proposals_list", option_id: proposals.first(2).map(&:id))
 
-        select translated(scope.name), from: :result_decidim_scope_id
-        select translated(category.name), from: :result_decidim_category_id
-
+        select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
+      end
+      within ".item__edit-sticky" do
         find("*[type=submit]").click
       end
-
       expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).to have_content(translated(attributes[:title]))
+        expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
       end
 
       visit decidim_admin.root_path
       expect(page).to have_content("created result")
       expect(page).to have_content(attributes[:title]["en"])
+
+      visit decidim.last_activities_path
+      expect(page).to have_content("New result: #{translated(attributes[:title])}")
+
+      within "#filters" do
+        find("a", class: "filter", text: "Result", match: :first).click
+      end
+      expect(page).to have_content("New result: #{translated(attributes[:title])}")
     end
   end
 

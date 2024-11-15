@@ -127,7 +127,7 @@ $(() => {
     setTimer(timeoutInSeconds);
   });
 
-  window.addEventListener("beforeunload", () => {
+  window.addEventListener("pagehide", () => {
     clearInterval(exitInterval);
     return;
   });

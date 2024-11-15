@@ -7,6 +7,7 @@ module Decidim
       include FormFactory
       include Decidim::DeviseControllers
       include Decidim::DeviseAuthenticationMethods
+      include NeedsTosAccepted
 
       def new
         @form = form(OmniauthRegistrationForm).from_params(params[:user])
@@ -34,6 +35,12 @@ module Decidim
           on(:invalid) do
             set_flash_message :notice, :success, kind: @form.provider.capitalize
             render :new
+          end
+
+          on(:add_tos_errors) do
+            set_flash_message :alert, :add_tos_errors if @form.valid_tos?
+            session[:verified_email] = verified_email
+            render :new_tos_fields
           end
 
           on(:error) do |user|
@@ -75,7 +82,7 @@ module Decidim
       end
 
       def verified_email
-        @verified_email ||= oauth_data.dig(:info, :email)
+        @verified_email ||= oauth_data.dig(:info, :email).presence || session[:verified_email]
       end
 
       def oauth_hash

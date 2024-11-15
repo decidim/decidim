@@ -100,7 +100,7 @@ ca:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Cercar %{collection} per títol, descripció, ID o autoria.
       initiatives_settings:
         update:
-          error: S'ha produït un error.
+          error: S'ha produït un error en actualitzar la configuració de les iniciatives.
           success: La configuració de les iniciatives s'ha actualitzat correctament.
       menu:
         attachments: Adjunts
@@ -112,7 +112,7 @@ ca:
           see_initiative: Veure la iniciativa
         initiatives_settings: Configuració
         initiatives_submenu:
-          info: Sobre aquesta iniciativa
+          info: Quant a aquesta iniciativa
         initiatives_types: Tipus d'iniciatives
         moderations: Moderacions
       models:
@@ -241,6 +241,10 @@ ca:
             alert_html: "<p>Has de crear com a mínim un tipus d'iniciativa per tal que les participants puguin començar a crear les seves iniciatives.</p><p>%{link}</p>"
             button: Nou tipus d'iniciativa
         initiatives:
+          accept:
+            success: La iniciativa s'ha acceptat correctament.
+          discard:
+            success: La iniciativa s'ha descartat correctament.
           edit:
             accept: Accepta la iniciativa
             confirm: Segur?
@@ -264,8 +268,14 @@ ca:
             edit: Edita
             new: Nou
             photos: Fotografies
+          publish:
+            success: La iniciativa s'ha publicat correctament.
+          reject:
+            success: La iniciativa s'ha rebutjat correctament.
+          unpublish:
+            success: La iniciativa s'ha despublicat correctament.
           update:
-            error: S'ha produït un error.
+            error: S'ha produït un error en actualitzar la iniciativa.
             success: La iniciativa s'ha actualitzat correctament.
         initiatives_settings:
           edit:
@@ -279,7 +289,7 @@ ca:
             title: Configuració d'iniciatives
         initiatives_type_scopes:
           create:
-            error: S'ha produït un error.
+            error: S'ha produït un error en crear un nou àmbit per la iniciativa seleccionada.
             success: S'ha creat un nou àmbit per al tipus d'iniciativa donat.
           destroy:
             success: L'àmbit s'ha eliminat correctament.
@@ -290,11 +300,11 @@ ca:
             create: Crear
             title: Crea l'àmbit del tipus d'iniciativa
           update:
-            error: S'ha produït un error.
+            error: S'ha produït un error en actualitzar l'àmbit.
             success: L'àmbit s'ha actualitzat correctament.
         initiatives_types:
           create:
-            error: S'ha produït un error.
+            error: S'ha produït un error en crear el tipus d'iniciativa.
             success: S'ha creat amb èxit un nou tipus d'iniciativa. Has de definir com a mínim un àmbit per aquest tipus d'iniciativa perquè es pugui fer servir.
           destroy:
             success: S'ha eliminat correctament el tipus d'iniciativa.
@@ -311,7 +321,7 @@ ca:
             create: Crear
             title: Nou tipus d'iniciativa
           update:
-            error: S'ha produït un error.
+            error: S'ha produït un error en actualitzar el tipus d'iniciativa.
             success: El tipus d'iniciativa s'ha actualitzat correctament.
       admin_log:
         initiative:
@@ -586,7 +596,7 @@ ca:
         expired: Vençuda
       unavailable_scope: Àmbit no disponible
       update:
-        error: S'ha produït un error.
+        error: S'ha produït un error en actualitzar la iniciativa.
         success: La iniciativa s'ha actualitzat correctament.
     menu:
       initiatives: Iniciatives

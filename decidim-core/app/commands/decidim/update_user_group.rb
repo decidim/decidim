@@ -22,7 +22,9 @@ module Decidim
       return broadcast(:invalid) if form.invalid?
 
       was_verified = user_group.verified?
-      update_user_group
+      with_events do
+        update_user_group
+      end
       notify_admins if was_verified
 
       broadcast(:ok, user_group)
@@ -31,6 +33,10 @@ module Decidim
     private
 
     attr_reader :form, :user_group
+
+    def event_arguments
+      { resource: user_group }
+    end
 
     def update_user_group
       user_group_attributes = attributes

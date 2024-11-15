@@ -96,6 +96,7 @@ es-MX:
         duplicate: Duplicar
         edit: Editar
         import_process: Importar
+        menu_hidden: Ocultar
         moderate: Moderar
         new_process: Nuevo proceso
         new_process_group: Nuevo grupo de procesos
@@ -433,6 +434,7 @@ es-MX:
             select_participatory_process_type: Selecciona un tipo de proceso
             select_process_group: Seleccione un grupo de proceso
             slug_help_html: 'Los nombres cortos de URL se utilizan para generar las URL que apuntan a esta votación. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+            taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
       content_blocks:
@@ -447,7 +449,7 @@ es-MX:
       index:
         title: Procesos participativos
       last_activity:
-        new_participatory_process: Nuevo proceso participativo
+        new_participatory_process: 'Nuevo proceso participativo:'
       pages:
         home:
           highlighted_processes:

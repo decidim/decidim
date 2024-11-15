@@ -310,7 +310,6 @@ lt:
               errors:
                 budget_voting_rule_only_one: Turi būti įjungta tik viena balsavimo taisyklė.
                 budget_voting_rule_required: Būtina viena balsavimo taisyklė.
-            geocoding_enabled: Geokodavimas įjungtas
             landing_page_content: Biudžetų numatytasis puslapis
             more_information_modal: Išsamesnės informacijos modalinis langas
             projects_per_page: Projektų skaičius puslapyje

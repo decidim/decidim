@@ -12,6 +12,7 @@ module Decidim
         let(:uid) { "12345" }
         let(:oauth_signature) { OmniauthRegistrationForm.create_signature(provider, uid) }
         let(:verified_email) { email }
+        let(:tos_agreement) { true }
         let(:form_params) do
           {
             "user" => {
@@ -22,7 +23,8 @@ module Decidim
               "name" => "Facebook User",
               "nickname" => "facebook_user",
               "oauth_signature" => oauth_signature,
-              "avatar_url" => "http://www.example.com/foo.jpg"
+              "avatar_url" => "http://www.example.com/foo.jpg",
+              "tos_agreement" => tos_agreement
             }
           }
         end
@@ -122,7 +124,10 @@ module Decidim
                 name: "Facebook User",
                 nickname: "facebook_user",
                 avatar_url: "http://www.example.com/foo.jpg",
-                raw_data: {}
+                raw_data: {},
+                tos_agreement: true,
+                accepted_tos_version: user.accepted_tos_version,
+                newsletter_notifications_at: user.newsletter_notifications_at
               )
             command.call
           end

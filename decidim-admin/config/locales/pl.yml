@@ -202,7 +202,6 @@ pl:
         verify: Zweryfikuj
       admin_terms_of_service:
         accept:
-          error: Wystąpił błąd podczas akceptacji warunków użytkowania administratora.
           success: Świetnie! Zaakceptowano warunki użytkowania administratora.
         actions:
           accept: Zgadzam się z warunkami
@@ -334,7 +333,6 @@ pl:
           headers:
             actions: Działania
             name: Nazwa komponentu
-            scope: Zakres komponentu
             type: Typ komponentu
         new:
           add: Dodaj komponent
@@ -364,7 +362,6 @@ pl:
         user_name: Użytkownik
       content_blocks:
         create:
-          error: Wystąpił błąd podczas tworzenia bloku treści.
           success: Blok treści został utworzony.
         destroy:
           error: Wystąpił problem podczas próby usunięcia tego bloku treści.
@@ -788,7 +785,6 @@ pl:
           success: Newsletter został zaktualizowany. Przeczytaj go przed wysłaniem.
       officializations:
         block:
-          error: Wystąpił błąd podczas blokowania uczestnika.
           success: Uczestnik został zablokowany.
         create:
           success: Potwierdzenie autentyczności uczestnika powiodło się.
@@ -822,7 +818,6 @@ pl:
           show: Pokaż
           title: Pokaż adres e-mail uczestnika
         unblock:
-          error: Wystąpił błąd podczas odblokowywania użytkownika.
           success: Odblokowanie uczestnika powiodło się.
       organization:
         edit:
@@ -1023,6 +1018,8 @@ pl:
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana.
+      taxonomies:
+        count: Liczba
       titles:
         admin_log: Logi administratora
         area_types: Typy kategorii

@@ -342,7 +342,7 @@ cs:
               errors:
                 budget_voting_rule_only_one: Pouze jedno hlasovací pravidlo musí být povoleno.
                 budget_voting_rule_required: Je vyžadováno jedno pravidlo hlasování.
-            geocoding_enabled: Geokódování aktivováno
+            geocoding_enabled: Mapy povoleny
             landing_page_content: Úvodní stránka rozpočtů
             more_information_modal: Více informací
             projects_per_page: Počet projektů na stránku

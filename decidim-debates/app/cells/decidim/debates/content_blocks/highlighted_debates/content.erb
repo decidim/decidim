@@ -1,0 +1,16 @@
+<div class="content-block__title">
+  <h2 class="h2 decorator"><%= single_component ? translated_attribute(single_component.name) : t("name", scope: "decidim.components.debates") %></h2>
+  <div class="label text-lg"><%= items_count %></div>
+  <% if single_component %>
+    <%= link_to decidim_debates.root_path, class: "button button__sm button__text-secondary" do %>
+      <span><%= t("decidim.debates.content_blocks.highlighted_debates.see_all") %></span>
+      <%= icon "arrow-right-line" %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="participatory-space__block-grid">
+  <% debates_to_render.each do |debate| %>
+    <%= cell "decidim/debates/debate_g", debate %>
+  <% end %>
+</div>

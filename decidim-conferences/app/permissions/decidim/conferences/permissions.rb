@@ -45,6 +45,7 @@ module Decidim
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
+        conference_filters_action?
 
         return permission_action unless conference
 
@@ -107,6 +108,12 @@ module Decidim
         conferences_with_role_privileges(role).include? conference
       end
 
+      def conference_filters_action?
+        return unless permission_action.subject == :taxonomy_filter
+
+        toggle_allow(user.admin?)
+      end
+
       # Returns a collection of conferences where the given user has the
       # specific role privilege.
       def conferences_with_role_privileges(role)
@@ -127,6 +134,7 @@ module Decidim
 
         return allow! if user&.admin?
         return allow! if conference.published?
+        return allow! if user_can_preview_space?
 
         toggle_allow(can_manage_conference?)
       end
@@ -276,7 +284,8 @@ module Decidim
           :partner,
           :media_link,
           :registration_type,
-          :conference_invite
+          :conference_invite,
+          :share_tokens
         ].include?(permission_action.subject)
         allow! if is_allowed
       end
@@ -299,9 +308,16 @@ module Decidim
           :partner,
           :registration_type,
           :read_conference_registrations,
-          :export_conference_registrations
+          :export_conference_registrations,
+          :share_tokens
         ].include?(permission_action.subject)
         allow! if is_allowed
+      end
+
+      def user_can_preview_space?
+        context[:share_token].present? && Decidim::ShareToken.use!(token_for: conference, token: context[:share_token], user:)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
       end
 
       # Checks if the permission_action is to read the admin conferences list or

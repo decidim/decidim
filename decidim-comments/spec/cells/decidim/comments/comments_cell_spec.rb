@@ -29,7 +29,7 @@ module Decidim::Comments
           older: "Older",
           most_discussed: "Most discussed"
         }.each do |key, title|
-          expect(subject).to have_css("a[href^='/comments?'][href$='&order=#{key}&reload=1']", text: title)
+          expect(subject).to have_css("select#order option[value='#{key}']", text: title)
         end
       end
 
@@ -107,6 +107,39 @@ module Decidim::Comments
           it "renders the comments blocked warning" do
             expect(subject).to have_css(".flash.warning", text: I18n.t("decidim.components.comments.blocked_comments_warning"))
             expect(subject).to have_no_css(".flash.warning", text: I18n.t("decidim.components.comments.blocked_comments_for_user_warning"))
+            expect(subject).to have_no_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
+          end
+
+          context "and the user is an admin" do
+            let(:current_user) { create(:user, :admin, :confirmed, organization: component.organization) }
+
+            it "renders add comment" do
+              expect(subject).to have_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
+            end
+          end
+
+          context "and the user is a user manager" do
+            let(:current_user) { create(:user, :user_manager, :confirmed, organization: component.organization) }
+
+            it "renders add comment" do
+              expect(subject).to have_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
+            end
+          end
+
+          context "and the user is a valuator in the same participatory space" do
+            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, participatory_process: component.participatory_space, role: :valuator) }
+
+            it "renders add comment" do
+              expect(subject).to have_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
+            end
+          end
+
+          context "and the user is a valuator in a different participatory space" do
+            let!(:valuator_role) { create(:participatory_process_user_role, user: current_user, role: :valuator) }
+
+            it "does not render add comment" do
+              expect(subject).to have_no_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
+            end
           end
         end
 

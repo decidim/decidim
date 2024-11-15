@@ -1,5 +1,8 @@
 <% if user_role_config.component_is_accessible?(component.manifest_name) %>
-  <tr class="component-<%= component.id %>">
+  <tr class="draggable-content component-<%= component.id %>" draggable="true" data-record-id="<%= component.id %>">
+    <td class="text-center dragging-handle">
+      <%= icon("draggable", class: "dragger") %>
+    </td>
     <td>
       <% if component.manifest.admin_engine %>
         <%= link_to translated_attribute(component.name), manage_component_path(component) %><br>
@@ -10,7 +13,9 @@
     <td>
       <%= t "decidim.components.#{component.manifest.name}.name" %>
     </td>
-    <%= td_resource_scope_for(component.scope) %>
+    <td>
+      <%= render partial: "decidim/admin/components/visibility_label", locals: { component: } %>
+    </td>
     <td class="table-list__actions">
       <% if lookup_context.find_all("decidim/#{component.manifest_name}/admin/component/_actions").any? %>
         <%= render partial: "decidim/#{component.manifest_name}/admin/component/actions", locals: { component: } %>

@@ -275,7 +275,6 @@ el:
               errors:
                 budget_voting_rule_only_one: Μόνο ένας κανόνας ψηφοφορίας πρέπει να είναι ενεργοποιημένος.
                 budget_voting_rule_required: Απαιτείται ένας κανόνας ψηφοφορίας.
-            geocoding_enabled: Γεωκωδικοποίηση ενεργοποιημένη
             landing_page_content: Σελίδα προορισμού προϋπολογισμών
             more_information_modal: Παράθυρο για περισσότερες πληροφορίες
             projects_per_page: Έργα ανά σελίδα

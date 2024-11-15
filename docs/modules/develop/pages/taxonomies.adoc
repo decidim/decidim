@@ -1,0 +1,45 @@
+= Taxonomies in Decidim
+
+The concept of being "taxonomizable" in Decidim refers to the ability of various entities (such as proposals, participatory processes, assemblies, etc.) to be categorized and organized using taxonomies. This allows for better organization, filtering, and searching of these entities within the platform.
+
+Taxonomies replaces the old concepts of "Scopes", "Areas" and "Categories" in Decidim. They are a more flexible although require admins to define the taxonomies and assign them to the entities.
+
+== Types of taxonomies
+
+There are two types of taxonomies in Decidim:
+
+- **Root taxonomies**: These are the "parent" taxonomies that can have child taxonomies. They are used to group and organize child taxonomies. Resource cannot be directly assigned to root taxonomies but to their child taxonomies.
+
+- **Child taxonomies**: These are the "child" taxonomies that can be assigned to resources. They can be assigned to root taxonomies or other child taxonomies.
+
+== The `Taxonomizable` Concern in Decidim
+
+The `Taxonomizable` concern in Decidim is a module that provides functionality to categorize and organize different entities using taxonomies. This concern can be included in models to make them taxonomizable.
+
+=== Example Usage
+
+Here is an example of how the `Taxonomizable` concern might be used in a model:
+
+```ruby
+# frozen_string_literal: true
+
+module Decidim
+  class ParticipatoryProcess < ApplicationRecord
+    include Decidim::Taxonomizable
+
+    # Other model code...
+  end
+end
+```
+
+In this example, the `ParticipatoryProcess` model includes the `Decidim::Taxonomizable` concern, which allows it to be categorized using taxonomies that can be found as associations like:
+
+```ruby
+participatory_process.taxonomies
+```
+
+== Taxonomy filters
+
+Taxonomies can be used to filter entities in the frontend. The `Decidim::TaxonomyFilter` class is used to define the filters in each participatory space that will apply in the frontend.
+
+Each filter is associated with a root taxonomy and it will have a list of child filter items, each of them associated with a child taxonomy. These items will indicate which taxonomies are available to filter the entities in that particular participatory space or component.

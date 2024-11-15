@@ -7,10 +7,7 @@ ko:
         decidim_scope_id: 범위
         description: 상세정보
         end_date: 종료 날짜
-        meetings_ids: 포함된 회의
         progress: 진행 상황
-        project_ids: 포함된 프로젝트
-        proposals: 포함된 제안
         start_date: 시작 날짜
         title: 제목
         updated_at: 수정일

@@ -948,5 +948,511 @@ module Decidim
         end
       end
     end
+
+    # legacy form builder specs
+    it "should display labels by default" do
+      node = Capybara.string builder.text_field(:slug)
+      expect(node).to have_css("label[for='resource_slug']", text: "Slug")
+    end
+
+    describe "label" do
+      context "when there are not any errors and no class option is passed" do
+        it "should not have a class attribute" do
+          node = Capybara.string builder.text_field(:slug)
+          expect(node).to have_css('label:not([class=""])')
+        end
+      end
+
+      it "should not have error class multiple times" do
+        allow(resource).to receive(:errors).and_return(slug: ["required"])
+        node = Capybara.string builder.text_field(:slug)
+        error_class = node.find("label")["class"].split(/\s+/).keep_if do |v|
+          v == "is-invalid-label"
+        end
+        expect(error_class.size).to eq 1
+      end
+    end
+
+    describe "input generators" do
+      it "should generate text_field input without label" do
+        node = builder.text_field(:slug, label: false)
+
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug"]', text: "Slug")).to be_empty
+        expect(parsed.css('input[type="text"][name="resource[slug]"]')).not_to be_empty
+
+        expect(Capybara.string(node).find_field("resource_slug").value).to eq resource.slug
+      end
+
+      it "should generate text_field with class from options" do
+        node = builder.text_field(:slug, class: "righteous")
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('input.righteous[type="text"][name="resource[slug]"]')).not_to be_empty
+      end
+
+      shared_examples "generates label for field_type" do |field_type, html_field_type|
+        it "should generate #{field_type} input" do
+          node = Capybara.string builder.send(field_type, :slug)
+          expect(node).to have_css('label[for="resource_slug"]', text: "Slug")
+          expect(node).to have_css("input[type='#{html_field_type}'][name='resource[slug]']")
+          expect(node.find_field("resource_slug").value).to eq resource.slug
+        end
+      end
+
+      describe "fields_with_label" do
+        include_examples "generates label for field_type", :text_field, "text"
+        include_examples "generates label for field_type", :password_field, "password"
+        include_examples "generates label for field_type", :email_field, "email"
+        include_examples "generates label for field_type", :url_field, "url"
+        include_examples "generates label for field_type", :number_field, "number"
+      end
+
+      it "should generate phone_field input" do
+        node = builder.phone_field(:slug)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css("label")).to be_empty
+        expect(parsed.css('label[for="resource_slug"]', text: "Slug")).to be_empty
+        expect(parsed.css('input[type="tel"][name="resource[slug]"]')).not_to be_empty
+        expect(Capybara.string(node).find_field("resource_slug").value).to eq resource.slug
+      end
+
+      it "should generate text_area input" do
+        node = builder.text_area(:slug)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug"]', text: "Slug")).not_to be_empty
+        expect(parsed.css("textarea[name='resource[slug]']")).not_to be_empty
+        expect(Capybara.string(node).find_field("resource_slug").value.strip).to eq ""
+      end
+
+      it "should generate file_field input" do
+        node = builder.file_field(:slug)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug"]', text: "Slug")).not_to be_empty
+        expect(parsed.css('input[type="file"][name="resource[slug]"]')).not_to be_empty
+        expect(Capybara.string(node).find_field("resource_slug").value).to be_nil
+      end
+
+      it "should generate select input" do
+        choices = [["Choice #1", :a], ["Choice #2", :b]]
+
+        node = builder.select(:slug, choices)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug"]', text: "Slug")).not_to be_empty
+        expect(parsed.css('select[name="resource[slug]"]')).not_to be_empty
+        expect(parsed.css('select[name="resource[slug]"] option[value="a"]', text: "Choice #1")).not_to be_empty
+        expect(parsed.css('select[name="resource[slug]"] option[value="b"]', text: "Choice #2")).not_to be_empty
+      end
+
+      it "should generate check_box input" do
+        label = 'label[for="resource_slug"]'
+        name = '[name="resource[slug]"]'
+
+        node = builder.check_box(:slug)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css("#{label} input[type=\"hidden\"]#{name}[value=\"0\"]")).not_to be_empty
+        expect(parsed.css("#{label} input[type=\"checkbox\"]#{name}")).not_to be_empty
+        expect(parsed.css(label, text: "Slug")).not_to be_empty
+      end
+
+      it "should generate check_box input without a label" do
+        node = builder.check_box(:scopes, label: false)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('input[type="hidden"][name="resource[scopes]"][value="0"]')).not_to be_empty
+        expect(parsed.css('input[type="checkbox"][name="resource[scopes]"]')).not_to be_empty
+        expect(parsed.css('label[for="resource_scopes"]')).to be_empty
+      end
+
+      it "should generate check_box input with a label with HTML content" do
+        label_text = "Accepts terms and conditions"
+
+        node = builder.check_box(:slug, label: "<a href='/'>#{label_text}</a>")
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug"] a', text: label_text)).not_to be_empty
+      end
+
+      it "should generate radio_button input" do
+        node = builder.radio_button(:slug, "ok")
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug_ok"]')).not_to be_empty
+        expect(parsed.css('input[type="radio"][name="resource[slug]"]')).not_to be_empty
+      end
+
+      it "should generate radio_button input with a label" do
+        node = builder.radio_button(:slug, true, label: "Functioning")
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug_true"]', text: "Functioning")).not_to be_empty
+        expect(parsed.css('input[type="radio"][name="resource[slug]"]')).not_to be_empty
+      end
+
+      it "should generate radio_button without a label" do
+        node = builder.radio_button(:slug, "ok", label: false)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug_ok"]')).to be_empty
+        expect(parsed.css('input[label="false"]')).to be_empty
+        expect(parsed.css('input[type="radio"][name="resource[slug]"]')).not_to be_empty
+      end
+
+      it "should generate radio_button with label options" do
+        node = builder.radio_button(:slug, "ok", class: "very", label_options: { class: "special" })
+        parsed = Nokogiri::HTML(node)
+        expect(parsed.css('label.special[for="resource_slug_ok"]')).not_to be_empty
+        expect(parsed.css('input.very[type="radio"][name="resource[slug]"]')).not_to be_empty
+      end
+
+      it "should generate date_select input" do
+        select = "select#resource_start_time_"
+        option = 'option[selected="selected"]'
+        resource.start_time = Time.zone.parse("1969-06-18 20:30")
+
+        node = builder.label(:start_time) + builder.date_select(:start_time)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_start_time"]', text: "Start time")).not_to be_empty
+
+        %w(1 2 3).each do |i|
+          expect(parsed.css("select[name='resource[start_time(#{i}i)]']")).not_to be_empty
+        end
+        expect(parsed.css("#{select}1i #{option}[value=\"1969\"]")).not_to be_empty
+        expect(parsed.css("#{select}2i #{option}[value=\"6\"]")).not_to be_empty
+        expect(parsed.css("#{select}3i #{option}[value=\"18\"]")).not_to be_empty
+
+        %w(4 5).each do |i|
+          expect(parsed.css("select[name='resource[start_time(#{i}i)]']")).to be_empty
+        end
+      end
+
+      it "should generate date_select input with :discard_year => true" do
+        select = "select#resource_start_time_"
+        option = 'option[selected="selected"]'
+        resource.start_time = Time.zone.parse("1969-06-18 20:30")
+
+        node = Capybara.string(
+          builder.label(:start_time) +
+            builder.date_select(:start_time, discard_year: true)
+        )
+        expect(node)
+          .to have_css('label[for="resource_start_time"]', text: "Start time")
+        %w(2 3).each do |i|
+          expect(node).to have_css("select[name='resource[start_time(#{i}i)]']")
+        end
+        expect(node).to have_no_css("#{select}1i #{option}[value=\"1969\"]")
+        expect(node).to have_css("#{select}2i #{option}[value=\"6\"]")
+        expect(node).to have_css("#{select}3i #{option}[value=\"18\"]")
+        %w(1 4 5).each do |i|
+          expect(node)
+            .to have_no_css("select[name='resource[start_time(#{i}i)]']")
+        end
+      end
+
+      it "should generate datetime_select input" do
+        select = "select#resource_start_time_"
+        option = 'option[selected="selected"]'
+        resource.start_time = Time.zone.parse("1969-06-18 20:30")
+
+        node = Capybara.string(
+          builder.label(:start_time) +
+            builder.datetime_select(:start_time)
+        )
+        expect(node)
+          .to have_css('label[for="resource_start_time"]', text: "Start time")
+        %w(1 2 3 4 5).each do |i|
+          expect(node).to have_css("select[name='resource[start_time(#{i}i)]']")
+        end
+        expect(node).to have_css("#{select}1i #{option}[value=\"1969\"]")
+        expect(node).to have_css("#{select}2i #{option}[value=\"6\"]")
+        expect(node).to have_css("#{select}3i #{option}[value=\"18\"]")
+        expect(node).to have_css("#{select}4i #{option}[value=\"20\"]")
+        expect(node).to have_css("#{select}5i #{option}[value=\"30\"]")
+      end
+
+      it "should generate datetime_select input with :discard_year => true" do
+        select = "select#resource_start_time_"
+        option = 'option[selected="selected"]'
+        resource.start_time = Time.zone.parse("1969-06-18 20:30")
+
+        node = builder.label(:birthdate) + builder.datetime_select(:start_time, discard_year: true)
+
+        parsed = Nokogiri::HTML(node)
+        expect(parsed.css('label[for="resource_start_time"]', text: "Start time")).not_to be_empty
+
+        %w(2 3 4 5).each do |i|
+          expect(parsed.css("select[name='resource[start_time(#{i}i)]']")).not_to be_empty
+        end
+        expect(parsed.css("#{select}1i #{option}[value=\"1969\"]")).to be_empty
+        expect(parsed.css("select[name='author[birthdate(#1i)]']")).to be_empty
+        expect(parsed.css("#{select}2i #{option}[value=\"6\"]")).not_to be_empty
+        expect(parsed.css("#{select}3i #{option}[value=\"18\"]")).not_to be_empty
+        expect(parsed.css("#{select}4i #{option}[value=\"20\"]")).not_to be_empty
+        expect(parsed.css("#{select}5i #{option}[value=\"30\"]")).not_to be_empty
+      end
+
+      it "should generate time_zone_select input" do
+        resource.slug = "Perth"
+        node = builder.label(:slug) + builder.time_zone_select(:slug)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug"]', text: "Slug")).not_to be_empty
+        expect(parsed.css('select[name="resource[slug]"]')).not_to be_empty
+        expect(parsed.css('select[name="resource[slug]"] option[value="Perth"]',
+                          text: "(GMT+08:00) Perth")).not_to be_empty
+      end
+
+      it "should generate date_field input" do
+        resource.born_at = Date.new(2000, 1, 1)
+        node = builder.date_field(:born_at)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_born_at"]', text: "Born at")).not_to be_empty
+        expect(parsed.css('input[type="date"][name="resource[born_at]"]')).not_to be_empty
+        expect(Capybara.string(node).find_field("resource_born_at").value).to eq resource.born_at.to_s
+      end
+
+      it "should generate datetime_field input" do
+        start_time = Time.zone.parse("1969-06-18 20:30") + 42.years
+        resource.start_time = start_time
+
+        node = builder.datetime_field(:start_time)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_start_time"]', text: "Start time")).not_to be_empty
+        expect(parsed.css('input[type^="datetime"][name="resource[start_time]"]')).not_to be_empty
+
+        value = Time.zone.parse(Capybara.string(node).find_field("resource_start_time").value)
+        expect(value).to eq start_time.to_s
+      end
+
+      it "should generate search_field" do
+        node = builder.search_field(:slug)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug"]', text: "Slug")).not_to be_empty
+        expect(parsed.css('input[type="search"][name="resource[slug]"]')).not_to be_empty
+
+        expect(Capybara.string(node).find_field("resource_slug").value).to eq resource.slug
+      end
+
+      it "should generate color_field" do
+        resource.slug = "#000000"
+        node = builder.color_field(:slug)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_slug"]', text: "Slug")).not_to be_empty
+        expect(parsed.css('input[type="color"][name="resource[slug]"]')).not_to be_empty
+        expect(Capybara.string(node).find_field("resource_slug").value).to eq resource.slug
+      end
+
+      it "should generate collection_select input" do
+        selector = 'select[name="resource[scopes]"] option'
+
+        scopes = [
+          Decidim::Scope.new(id: 78, name: "Gulliver's Travels"),
+          Decidim::Scope.new(id: 133, name: "Treasure Island")
+        ]
+        allow(Decidim::Scope).to receive(:all).and_return(scopes)
+
+        node = builder.collection_select(:scopes, Decidim::Scope.all, :id, :name)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label[for="resource_scopes"]', text: "Scopes")).not_to be_empty
+        expect(parsed.css('select[name="resource[scopes]"]')).not_to be_empty
+        expect(parsed.css("#{selector}[value=\"78\"]", text: "Gulliver's Travels")).not_to be_empty
+        expect(parsed.css("#{selector}[value=\"133\"]", text: "Treasure Island")).not_to be_empty
+      end
+
+      describe "help_text" do
+        it "should add a span element" do
+          help_text = "Enter login"
+          node = Capybara.string builder.text_field(:slug, help_text:)
+          expect(node.find("span.help-text").text).to eq help_text
+        end
+
+        it "should not add help_text attribute" do
+          node =
+            Capybara.string builder.text_field(:slug, help_text: "Enter login")
+          expect(node.find_field("resource_slug")["help_text"]).to be_nil
+        end
+      end
+
+      context "when there are not any errors and no class option is passed" do
+        it "should not have a class attribute" do
+          node = Capybara.string builder.text_field(:slug)
+          expect(node).to have_css('input:not([class=""])')
+        end
+      end
+    end
+
+    describe "errors generator" do
+      it "should not display errors" do
+        node = builder.text_field(:slug)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css("small.form-error", text: "required")).to be_empty
+      end
+
+      it "should display errors" do
+        allow(resource).to receive(:errors).and_return(slug: ["required"])
+        node = builder.text_field(:slug)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css("small.form-error", text: "required")).not_to be_empty
+      end
+
+      %w(file_field email_field text_field url_field number_field
+         search_field color_field password_field).each do |field|
+        it "should display errors on #{field} inputs" do
+          allow(resource)
+            .to receive(:errors).and_return(slug: ["required"])
+          node = builder.public_send(field, :slug)
+          parsed = Nokogiri::HTML(node)
+
+          expect(parsed.css('label.is-invalid-label[for="resource_slug"]')).not_to be_empty
+          expect(parsed.css('input.is-invalid-input[name="resource[slug]"]')).not_to be_empty
+        end
+      end
+
+      %w(date_field datetime_field).each do |field|
+        it "should display errors on #{field} as date inputs" do
+          allow(resource)
+            .to receive(:errors).and_return(born_at: ["required"])
+          node = builder.public_send(field, :born_at)
+          parsed = Nokogiri::HTML(node)
+
+          expect(parsed.css('label.is-invalid-label[for="resource_born_at"]')).not_to be_empty
+          expect(parsed.css('input.is-invalid-input[name="resource[born_at]"]')).not_to be_empty
+        end
+      end
+
+      it "should display errors on text_area inputs" do
+        allow(resource).to receive(:errors).and_return(slug: ["required"])
+        node = builder.text_area(:slug)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label.is-invalid-label[for="resource_slug"]')).not_to be_empty
+        expect(parsed.css('textarea.is-invalid-input[name="resource[slug]"]')).not_to be_empty
+      end
+
+      it "should display errors on select inputs" do
+        allow(resource)
+          .to receive(:errors).and_return(scopes: ["required"])
+        node = builder.select(:scopes, [["Choice #1", :a], ["Choice #2", :b]])
+        parsed = Nokogiri::HTML(node)
+        expect(parsed.css('label.is-invalid-label[for="resource_scopes"]')).not_to be_empty
+        expect(parsed.css('select.is-invalid-input[name="resource[scopes]"]')).not_to be_empty
+      end
+
+      it "should display errors on date_select inputs" do
+        allow(resource).to receive(:errors).and_return(born_at: ["required"])
+        node = builder.date_select(:born_at)
+        parsed = Nokogiri::HTML(node)
+        expect(parsed.css('label.is-invalid-label[for="resource_born_at"]')).not_to be_empty
+
+        %w(1 2 3).each do |i|
+          expect(parsed.css("select.is-invalid-input[name='resource[born_at(#{i}i)]']")).not_to be_empty
+        end
+      end
+
+      it "should display errors on datetime_select inputs" do
+        allow(resource).to receive(:errors).and_return(born_at: ["required"])
+        node = builder.datetime_select(:born_at)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label.is-invalid-label[for="resource_born_at"]')).not_to be_empty
+
+        %w(1 2 3 4 5).each do |i|
+          expect(parsed.css("select.is-invalid-input[name='resource[born_at(#{i}i)]']")).not_to be_empty
+        end
+      end
+
+      it "should display errors on time_zone_select inputs" do
+        allow(resource).to receive(:errors).and_return(born_at: ["required"])
+        node = builder.time_zone_select(:born_at)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label.is-invalid-label[for="resource_born_at"]')).not_to be_empty
+        expect(parsed.css('select.is-invalid-input[name="resource[born_at]"]')).not_to be_empty
+      end
+
+      it "should display errors on collection_select inputs" do
+        allow(resource)
+          .to receive(:errors).and_return(scopes: ["required"])
+        node = builder.collection_select(:scopes, Decidim::Scope.all, :id, :title)
+        parsed = Nokogiri::HTML(node)
+
+        expect(parsed.css('label.is-invalid-label[for="resource_scopes"]')).not_to be_empty
+        expect(parsed.css('select.is-invalid-input[name="resource[scopes]"]')).not_to be_empty
+      end
+
+      # N.B. check_box and radio_button inputs do not have the is-invalid-input
+      # class applied
+      it "should display HTML errors when the option is specified" do
+        slug = ['required <a href="link_target">link</a>']
+
+        allow(resource).to receive(:errors).and_return(slug:)
+        node = Capybara.string(
+          builder.text_field(:slug, html_safe_errors: true)
+        )
+        expect(node).to have_link("link", href: "link_target")
+      end
+
+      it "should not display HTML errors when the option is not specified" do
+        slug = ['required <a href="link_target">link</a>']
+
+        allow(resource).to receive(:errors).and_return(slug:)
+        node = Capybara.string builder.text_field(:slug)
+        expect(node).to have_no_link("link", href: "link")
+      end
+
+      context "when class option given" do
+        it "should add it to the error class" do
+          allow(resource).to receive(:errors).and_return(slug: ["required"])
+          node = builder.text_field(:slug, class: "righteous")
+          parsed = Nokogiri::HTML(node)
+
+          expect(parsed.css('input.righteous.is-invalid-input[name="resource[slug]"]')).not_to be_empty
+        end
+      end
+
+      context "when invalid class option given" do
+        it "should add it to the error class" do
+          allow(resource).to receive(:errors).and_return(slug: ["required"])
+          node = builder.text_field(:slug, class: :illgotten)
+          parsed = Nokogiri::HTML(node)
+
+          expect(parsed.css('input.illgotten.is-invalid-input[name="resource[slug]"]')).not_to be_empty
+        end
+      end
+    end
+
+    describe "submit button generator" do
+      context "when button_class config is not set" do
+        it "should display form button with default class" do
+          node = builder.submit("Save")
+          parsed = Nokogiri::HTML(node)
+
+          expect(parsed.css('input[type="submit"][class="button"]')).not_to be_empty
+        end
+      end
+
+      context 'when option value is "superduper"' do
+        it "should display form button with 'superduper' class" do
+          node = builder.submit("Save", class: "superduper")
+          parsed = Nokogiri::HTML(node)
+
+          expect(parsed.css('input[type="submit"][class="superduper"]')).not_to be_empty
+        end
+      end
+    end
   end
 end

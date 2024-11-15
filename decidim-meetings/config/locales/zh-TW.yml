@@ -592,7 +592,6 @@ zh-TW:
         transparent: 透明
         withdraw: 撤回
       withdraw:
-        error: 退出會議時發生錯誤.
         success: 會議已成功撤回.
     metrics:
       meetings:

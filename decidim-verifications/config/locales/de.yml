@@ -157,7 +157,7 @@ de:
         admin:
           census:
             create:
-              error: Beim Import der Erhebung ist ein Fehler aufgetreten.
+              error: Beim Importieren der Erhebung ist ein Fehler aufgetreten.
               success: '%{count} Elemente erfolgreich hinzugefügt (%{errors} Fehler).'
             destroy_all:
               success: Alle Erhebungsdaten wurden gelöscht.

@@ -63,7 +63,6 @@ tr:
         title: 'Tarafından sipariş:'
       comments:
         blocked_comments_for_user_warning: Şu anda yorum yapamıyorsunuz, ancak öncekileri okuyabilirsiniz.
-        blocked_comments_warning: Yorumlar şu anda devre dışı, ancak öncekileri okuyabilirsiniz.
         comment_details_title: Yorum ayrıntıları
         loading: Yorumlar yükleniyor ...
         single_comment_warning_title: Tek bir yorum görüyorsunuz

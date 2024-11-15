@@ -37,6 +37,7 @@ module Decidim
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
+        assembly_filters_action?
         assemblies_type_action?
 
         return permission_action unless assembly
@@ -58,6 +59,12 @@ module Decidim
         return unless assembly.private_space?
 
         toggle_allow(user.admin? || can_manage_assembly?(role: :admin) || can_manage_assembly?(role: :collaborator))
+      end
+
+      def assembly_filters_action?
+        return unless permission_action.subject == :taxonomy_filter
+
+        toggle_allow(user.admin?)
       end
 
       def assemblies_type_action?
@@ -126,6 +133,7 @@ module Decidim
         return disallow! unless can_view_private_space?
         return allow! if user&.admin?
         return allow! if assembly.published?
+        return allow! if user_can_preview_space?
 
         toggle_allow(can_manage_assembly?)
       end
@@ -176,7 +184,7 @@ module Decidim
         return unless permission_action.action == :create &&
                       permission_action.subject == :assembly
 
-        toggle_allow(user.admin? || admin_assembly? || user_role == "admin")
+        toggle_allow(user.admin? || admin_assembly?)
       end
 
       def user_can_export_assembly?
@@ -266,6 +274,7 @@ module Decidim
           :assembly_user_role,
           :assembly_member,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -285,9 +294,16 @@ module Decidim
           :assembly_user_role,
           :assembly_member,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
+      end
+
+      def user_can_preview_space?
+        context[:share_token].present? && Decidim::ShareToken.use!(token_for: assembly, token: context[:share_token], user:)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
       end
 
       # Checks if the permission_action is to read the admin assemblies list or

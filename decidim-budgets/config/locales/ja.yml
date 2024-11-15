@@ -20,6 +20,10 @@ ja:
         scope_id: スコープ
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'この予算に追加されました： %{link}'
       decidim/budgets/budget:
         other: 予算
       decidim/budgets/project:
@@ -191,6 +195,8 @@ ja:
         vote: 投票
         voted_budgets: 投票された予算
         voted_on: '%{links} に投票しました。'
+      creation:
+        text: この予算に追加されました：
       last_activity:
         new_vote_at: 新しい予算投票日時
       limit_announcement:
@@ -321,7 +327,7 @@ ja:
               errors:
                 budget_voting_rule_only_one: 有効にできる投票ルールは1つのみです。
                 budget_voting_rule_required: 投票ルールが1つ必要です。
-            geocoding_enabled: ジオコーディングを有効にする
+            geocoding_enabled: マップは有効です
             landing_page_content: 予算ランディングページ
             more_information_modal: 詳しい情報
             projects_per_page: ページあたりのプロジェクト数

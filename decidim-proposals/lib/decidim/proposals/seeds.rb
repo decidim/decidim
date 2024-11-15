@@ -20,10 +20,13 @@ module Decidim
         5.times do |n|
           proposal = create_proposal!(component:)
 
-          emendation = create_emendation!(proposal:) if proposal.state.nil?
+          if proposal.state.nil? && component.settings.amendments_enabled?
+            emendation = create_emendation!(proposal:)
+            create_proposal_votes!(proposal: emendation)
+          end
 
           (n % 3).times do |_m|
-            create_proposal_votes!(proposal:, emendation:)
+            create_proposal_votes!(proposal:)
           end
 
           (n % 3).times do
@@ -60,6 +63,7 @@ module Decidim
           settings: {
             vote_limit: 0,
             attachments_allowed: [true, false].sample,
+            amendments_enabled: participatory_space.id.odd?,
             collaborative_drafts_enabled: true
           },
           step_settings:
@@ -218,11 +222,10 @@ module Decidim
         emendation
       end
 
-      def create_proposal_votes!(proposal:, emendation: nil)
+      def create_proposal_votes!(proposal:)
         author = find_or_initialize_user_by(email: random_email(suffix: "vote"))
 
         Decidim::Proposals::ProposalVote.create!(proposal:, author:) unless proposal.published_state? && proposal.rejected?
-        Decidim::Proposals::ProposalVote.create!(proposal: emendation, author:) if emendation
       end
 
       def create_proposal_notes!(proposal:)

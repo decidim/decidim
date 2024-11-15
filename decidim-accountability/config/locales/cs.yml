@@ -7,11 +7,9 @@ cs:
         decidim_scope_id: Oblast působnosti
         description: Popis
         end_date: Datum ukončení
-        meetings_ids: Zahrnuté schůzky
         progress: Průběh
-        project_ids: Zahrnuté projekty
-        proposals: Zahrnuté návrhy
         start_date: Datum zahájení
+        subresults: Dílčí výsledky
         title: Titul
         updated_at: Aktualizováno v
       status:
@@ -28,6 +26,14 @@ cs:
       decidim/accountability/result_progress_updated_event: Výsledek byl aktualizován
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Tento výsledek %{link} byl zahrnut
+            meetings_ids: 'Bylo projednáno na této schůzce: %{link}'
+            project_ids: 'Byl zahrnut do tohoto projektu: %{link}'
+            proposal_ids: 'Byl zahrnut do tohoto návrhu: %{link}'
+            text: 'Byl přidán k tomuto výsledku: %{link}'
       decidim/accountability/result:
         one: Výsledek
         few: Výsledek
@@ -181,6 +187,8 @@ cs:
       content_blocks:
         highlighted_results:
           results: Výsledky
+      creation:
+        text: Tento výsledek byl vytvořen
       import_mailer:
         import:
           errors: Chyby

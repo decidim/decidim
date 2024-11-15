@@ -38,6 +38,7 @@ module Decidim
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
+        taxonomy_filter_action?
         participatory_process_type_action?
 
         return permission_action unless process
@@ -117,6 +118,7 @@ module Decidim
         return disallow! unless can_view_private_space?
         return allow! if user&.admin?
         return allow! if process.published?
+        return allow! if user_can_preview_space?
 
         toggle_allow(can_manage_process?)
       end
@@ -237,6 +239,7 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -256,9 +259,24 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
+      end
+
+      def user_can_preview_space?
+        context[:share_token].present? && Decidim::ShareToken.use!(token_for: process, token: context[:share_token], user:)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
+      end
+
+      def taxonomy_filter_action?
+        return unless permission_action.subject == :taxonomy_filter
+        return disallow! unless user.admin?
+
+        # in the future we might want to prevent destruction if participatory processes are associated with the current taxonomy
+        allow!
       end
 
       def participatory_process_type_action?

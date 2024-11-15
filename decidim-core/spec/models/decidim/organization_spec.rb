@@ -22,6 +22,10 @@ module Decidim
           enabled: true,
           client_id: nil,
           client_secret: nil
+        },
+        test: {
+          enabled: true,
+          icon: "tools-line"
         }
       }
     end
@@ -276,6 +280,22 @@ module Decidim
       it "does not expire" do
         located = GlobalID::Locator.locate_signed(subject)
         expect(located).to eq(organization)
+      end
+    end
+
+    describe "#open_data_file_path" do
+      subject(:organization) { build(:organization, host: "example.org") }
+
+      context "without a resource" do
+        it "returns the default file name" do
+          expect(subject.open_data_file_path).to eq("example.org-open-data.zip")
+        end
+      end
+
+      context "with a resource" do
+        it "returns the file name" do
+          expect(subject.open_data_file_path("proposals")).to eq("example.org-open-data-proposals.csv")
+        end
       end
     end
   end

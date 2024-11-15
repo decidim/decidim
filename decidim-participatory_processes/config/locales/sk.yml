@@ -136,7 +136,6 @@ sk:
           title: Duplicitné participačné proces
       participatory_process_groups:
         destroy:
-          error: Došlo k chybe pri zrušení skupiny účastníckych procesov.
           success: Zúčastňujú skupina procesov bola úspešne zmazaná.
         edit:
           title: Upraviť skupinu procesov
@@ -315,8 +314,6 @@ sk:
           name: Zvýraznené procesy
       index:
         title: Participatívna procesy
-      last_activity:
-        new_participatory_process: Nový participačné proces
       participatory_processes:
         filters:
           counters:

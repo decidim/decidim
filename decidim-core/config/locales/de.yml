@@ -19,6 +19,8 @@ de:
         body: Haupttext
       report:
         details: Zusätzliche Kommentare
+      taxonomy:
+        name: Name der Taxonomie
       user:
         about: Über
         email: Ihre E-Mail
@@ -62,6 +64,10 @@ de:
         password_confirmation: Bestätigung des Passworts
         remember_me: Angemeldet bleiben
     models:
+      decidim:
+        history:
+          one: Verlauf
+          other: Verlauf
       decidim/amendment:
         one: Änderungsantrag
         other: Änderungsanträge
@@ -260,6 +266,20 @@ de:
         create: "%{user_name} hat die statische Seite %{resource_name} erstellt"
         delete: "%{user_name} hat die statische Seite %{resource_name} gelöscht"
         update: "%{user_name} hat die statische Seite %{resource_name} aktualisiert"
+      taxonomy:
+        create: "%{user_name} hat die Taxonomie %{resource_name} erstellt"
+        create_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} erstellt"
+        delete: "%{user_name} hat die Taxonomie %{resource_name} gelöscht"
+        delete_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} gelöscht"
+        update: "%{user_name} hat die Taxonomie %{resource_name} aktualisiert"
+        update_with_parent: "%{user_name} hat die Taxonomie %{resource_name} innerhalb der Taxonomie %{parent_taxonomy} aktualisiert"
+      taxonomy_filter:
+        create: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} erstellt"
+        create_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} erstellt"
+        delete: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} gelöscht"
+        delete_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} gelöscht"
+        update: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} aktualisiert"
+        update_with_filter_items_count: "%{user_name} hat einen Filter basierend auf der Taxonomie %{resource_name} mit %{filter_items_count} Filtern für %{space_manifest_name} aktualisiert"
       user:
         block: "%{user_name} hat %{resource_name} blockiert"
         invite: "%{user_name} hat den Benutzer %{resource_name} mit der Rolle %{role} eingeladen"
@@ -284,7 +304,7 @@ de:
       dismiss: Benachrichtigung schließen
     amendments:
       accepted:
-        error: Beim Akzeptieren der Änderung ist ein Fehler aufgetreten.
+        error: Beim Akzeptieren der Änderung ist ein Problem aufgetreten.
         success: Die Änderung wurde erfolgreich angenommen.
       amendable:
         button: '%{model_name} ändern'
@@ -297,7 +317,7 @@ de:
           one: "%{count} Anpassung"
           other: "%{count} Anpassungen"
       created:
-        error: Beim Erstellen des Änderungsvorschlags ist ein Fehler aufgetreten.
+        error: Bei der Erstellen des Änderungsentwurfs ist ein Problem aufgetreten.
         success: Der Änderungsvorschlag wurde erfolgreich erstellt.
       destroy_draft:
         error: Es gab einen Fehler beim Löschen des Änderungsvorschlags.
@@ -349,7 +369,7 @@ de:
         error: Es gab ein Problem bei der Aktualisierung des Änderungsvorschlags.
         success: Änderungsvorschlag erfolgreich aktualisiert.
       withdraw:
-        error: Beim Zurückziehen der Änderung ist ein Fehler aufgetreten.
+        error: Beim Zurückziehen der Änderung ist ein Problem aufgetreten.
         success: Die Änderung wurde erfolgreich zurückgezogen.
       wizard_step_form:
         steps:
@@ -587,6 +607,9 @@ de:
           sign_up: Bitte vervollständigen Sie Ihr Profil
           subtitle: Bitte füllen Sie das folgende Formular aus, um die Kontoerstellung abzuschließen
           username_help: Öffentlich sichtbarer Name, der in Ihren Beiträgen angezeigt wird. Um Anonymität zu gewährleisten, kann es sich um einen beliebigen Namen handeln.
+        new_tos_fields:
+          sign_up: Konto erstellen
+          sign_up_title: Kontoerstellung abschließen
       registrations:
         create:
           error: Es gab ein Problem bei der Erstellung Ihres Kontos.
@@ -930,7 +953,7 @@ de:
           title_required: Titel ist erforderlich!
           uploaded: Hochgeladen
           validating: Wird validiert...
-          validation_error: Validierungsfehler!
+          validation_error: Validierungsfehler! Überprüfen Sie, ob die Datei einen erlaubten Dateityp oder Größe hat.
         select_file: Datei auswählen
       upload_help:
         dropzone: Dateien hier ablegen oder die Schaltfläche zum Hochladen benutzen
@@ -1088,6 +1111,8 @@ de:
           not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
         scope_type_presenter:
           not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Die Taxonomie wurde nicht in der Datenbank gefunden (ID: %{id})'
     managed_users:
       expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
     map:
@@ -1423,8 +1448,10 @@ de:
         subject: Eine Ressource wurde gemeldet
     reports:
       create:
-        error: Beim Erstellen des Berichts ist ein Fehler aufgetreten. Bitte, versuche es noch einmal.
+        error: Bei der Erstellung des Berichts ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.
         success: Der Bericht wurde erfolgreich erstellt und wird von einem Administrator überprüft.
+    resource:
+      controls_label: Ressourcensteuerung
     resource_endorsements:
       create:
         error: Bei der Befürwortung ist ein Fehler aufgetreten.
@@ -1470,13 +1497,14 @@ de:
         close_modal: Fenster schließen
         ok: Ok
         title: Bestätigen
+      confirm_unload: Diese Seite enthält ungespeicherte Änderungen. Möchten Sie die Seite dennoch verlassen?
       embed:
         title: Eingebetteter Videoinhalt
       extended_navigation_bar:
         more: Mehr
         unfold: Entfalten
       filter_form_help:
-        help: Das untenstehende Formular filtert die Suchergebnisse dynamisch, wenn die Suchbedingungen geändert werden.
+        help: Die Suchresultate werden bei geänderten Filtereinstellungen automatisch aktualisiert.
         skip: Zu Ergebnissen springen
       flag_modal:
         already_reported: Dieser Inhalt wurde bereits gemeldet und wird von einem Administrator überprüft.
@@ -1547,6 +1575,8 @@ de:
     tags:
       filter_results_for_category: 'Ergebnisse nach Kategorie filtern: %{resource}'
       filter_results_for_scope: 'Ergebnisse nach Anwendungsbereich filtern: %{resource}'
+    taxonomies:
+      prompt: Wählen Sie aus "%{name}"
     translation_bar:
       help_text: "<strong>Warnung:</strong> Inhalt könnte automatisch übersetzt werden und nicht 100% korrekt sein."
       show_original: Originaltext anzeigen
@@ -1700,6 +1730,7 @@ de:
         message: Ihr Konto wurde aufgrund einer übermäßigen Anzahl fehlgeschlagener Anmeldeversuche gesperrt.
         subject: Anweisungen zur Entsperrung
     omniauth_callbacks:
+      add_tos_errors: Die Nutzungsbedingungen müssen akzeptiert werden, um ein Konto zu erstellen.
       failure: 'Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden. Grund: "%{reason}".'
       success: Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet.
     passwords:

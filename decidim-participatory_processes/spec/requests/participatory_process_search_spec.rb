@@ -11,18 +11,14 @@ RSpec.describe "Participatory process search" do
     create(
       :participatory_process,
       :active,
-      organization:,
-      area: create(:area, organization:),
-      scope: create(:scope, organization:)
+      organization:
     )
   end
   let!(:process2) do
     create(
       :participatory_process,
       :active,
-      organization:,
-      area: create(:area, organization:),
-      scope: create(:scope, organization:)
+      organization:
     )
   end
   let!(:past_process) { create(:participatory_process, :past, organization:) }
@@ -53,23 +49,7 @@ RSpec.describe "Participatory process search" do
     expect(subject).not_to include(decidim_escape_translated(upcoming_process.title))
   end
 
-  context "when filtering by area" do
-    let(:filter_params) { { with_any_area: process1.area.id } }
-
-    it "displays matching assemblies" do
-      expect(subject).to include(decidim_escape_translated(process1.title))
-      expect(subject).not_to include(decidim_escape_translated(process2.title))
-    end
-  end
-
-  context "when filtering by scope" do
-    let(:filter_params) { { with_any_scope: process1.scope.id } }
-
-    it "displays matching assemblies" do
-      expect(subject).to include(decidim_escape_translated(process1.title))
-      expect(subject).not_to include(decidim_escape_translated(process2.title))
-    end
-  end
+  it_behaves_like "a participatory space search with taxonomies", :participatory_process
 
   context "when filtering by date" do
     let(:filter_params) { { with_date: date } }

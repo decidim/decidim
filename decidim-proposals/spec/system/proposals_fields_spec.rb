@@ -6,10 +6,12 @@ describe "Proposals" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create(:category, participatory_space: participatory_process) }
-  let!(:scope) { create(:scope, organization:) }
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
@@ -39,32 +41,10 @@ describe "Proposals" do
                  :with_creation_enabled,
                  manifest:,
                  participatory_space: participatory_process,
-                 settings: { scopes_enabled: true, scope_id: participatory_process.scope&.id })
+                 settings: { taxonomy_filters: taxonomy_filter_ids })
         end
 
         let(:proposal_draft) { create(:proposal, :draft, component:, users: [user]) }
-
-        context "when process is not related to any scope" do
-          it "can be related to a scope" do
-            visit edit_draft_proposal_path(component, proposal_draft)
-
-            within "form.edit_proposal" do
-              expect(page).to have_content(/Scope/i)
-            end
-          end
-        end
-
-        context "when process is related to a leaf scope" do
-          let(:participatory_process) { scoped_participatory_process }
-
-          it "cannot be related to a scope" do
-            visit edit_draft_proposal_path(component, proposal_draft)
-
-            within "form.edit_proposal" do
-              expect(page).to have_no_content("Scope")
-            end
-          end
-        end
 
         it "creates a new proposal", :slow do
           visit edit_draft_proposal_path(component, proposal_draft)
@@ -72,8 +52,7 @@ describe "Proposals" do
           within ".edit_proposal" do
             fill_in :proposal_title, with: "More sidewalks and less roads"
             fill_in :proposal_body, with: "Cities need more people, not more cars"
-            select translated(category.name), from: :proposal_category_id
-            select translated(scope.name), from: :proposal_scope_id
+            select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
             find("*[type=submit]").click
           end
@@ -86,9 +65,32 @@ describe "Proposals" do
           expect(page).to have_content("successfully")
           expect(page).to have_content("More sidewalks and less roads")
           expect(page).to have_content("Cities need more people, not more cars")
-          expect(page).to have_content(translated(category.name))
-          expect(page).to have_content(translated(scope.name))
+          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
           expect(page).to have_author(user.name)
+        end
+
+        context "when no taxonomy filter is selected" do
+          let(:taxonomy_filter_ids) { [] }
+
+          it "creates a proposal without taxonomies" do
+            visit edit_draft_proposal_path(component, proposal_draft)
+
+            within ".edit_proposal" do
+              fill_in :proposal_title, with: "More sidewalks and less roads"
+              fill_in :proposal_body, with: "Cities need more people, not more cars"
+              expect(page).to have_no_content(decidim_sanitize_translated(root_taxonomy.name))
+
+              find("*[type=submit]").click
+            end
+
+            click_on "Publish"
+
+            expect(page).to have_content("successfully")
+            expect(page).to have_content("More sidewalks and less roads")
+            expect(page).to have_content("Cities need more people, not more cars")
+            expect(page).to have_no_content(decidim_sanitize_translated(taxonomy.name))
+            expect(page).to have_author(user.name)
+          end
         end
 
         context "when geocoding is enabled", :serves_geocoding_autocomplete do
@@ -99,8 +101,7 @@ describe "Proposals" do
                    participatory_space: participatory_process,
                    settings: {
                      geocoding_enabled: true,
-                     scopes_enabled: true,
-                     scope_id: participatory_process.scope&.id
+                     taxonomy_filters: taxonomy_filter_ids
                    })
           end
 
@@ -117,8 +118,7 @@ describe "Proposals" do
               expect(page).to have_css("[data-decidim-map]")
               expect(page).to have_content("You can move the point on the map.")
 
-              select translated(category.name), from: :proposal_category_id
-              select translated(scope.name), from: :proposal_scope_id
+              select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
               find("*[type=submit]").click
             end
@@ -133,8 +133,7 @@ describe "Proposals" do
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
             expect(page).to have_content(address)
-            expect(page).to have_content(translated(category.name))
-            expect(page).to have_content(translated(scope.name))
+            expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
             expect(page).to have_author(user.name)
           end
 
@@ -205,8 +204,7 @@ describe "Proposals" do
             within ".edit_proposal" do
               fill_in :proposal_title, with: "More sidewalks and less roads"
               fill_in :proposal_body, with: "Cities need more people, not more cars"
-              select translated(category.name), from: :proposal_category_id
-              select translated(scope.name), from: :proposal_scope_id
+              select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -217,8 +215,7 @@ describe "Proposals" do
             expect(page).to have_content("successfully")
             expect(page).to have_content("More sidewalks and less roads")
             expect(page).to have_content("Cities need more people, not more cars")
-            expect(page).to have_content(translated(category.name))
-            expect(page).to have_content(translated(scope.name))
+            expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
             expect(page).to have_author(user_group.name)
           end
 
@@ -230,8 +227,7 @@ describe "Proposals" do
                      participatory_space: participatory_process,
                      settings: {
                        geocoding_enabled: true,
-                       scopes_enabled: true,
-                       scope_id: participatory_process.scope&.id
+                       taxonomy_filters: taxonomy_filter_ids
                      })
             end
 
@@ -244,8 +240,7 @@ describe "Proposals" do
                 fill_in :proposal_title, with: "More sidewalks and less roads"
                 fill_in :proposal_body, with: "Cities need more people, not more cars"
                 fill_in :proposal_address, with: address
-                select translated(category.name), from: :proposal_category_id
-                select translated(scope.name), from: :proposal_scope_id
+                select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
@@ -257,8 +252,7 @@ describe "Proposals" do
               expect(page).to have_content("More sidewalks and less roads")
               expect(page).to have_content("Cities need more people, not more cars")
               expect(page).to have_content(address)
-              expect(page).to have_content(translated(category.name))
-              expect(page).to have_content(translated(scope.name))
+              expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
               expect(page).to have_author(user_group.name)
             end
           end
@@ -312,6 +306,7 @@ describe "Proposals" do
             click_on "Publish"
 
             expect(page).to have_content("successfully")
+            expect(page).to have_content("Images")
 
             within "#panel-images" do
               expect(page).to have_css("img[src*=\"city.jpeg\"]", count: 1)

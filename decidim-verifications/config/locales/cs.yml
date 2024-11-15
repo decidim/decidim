@@ -43,7 +43,7 @@ cs:
           destroy:
             confirm: Zrušení před datem autorizace nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
             confirm_all: Zrušení všech autorizací nelze vrátit zpět. Jste si jisti, že chcete pokračovat?
-          destroy_nok: Při rušení autorizace došlo k chybě.
+          destroy_nok: Při odebírání autorizací došlo k chybě.
           destroy_ok: Všechny odpovídající autorizace byly úspěšně zrušeny.
           info: Celkem je %{count} ověřených účastníků.
           no_data: Žádní ověření účastníci.
@@ -56,14 +56,24 @@ cs:
         grant_id_documents_offline_verification: "%{user_name} ověřil %{resource_name} pomocí offline autorizace dokladů totožnosti"
     authorization_handlers:
       admin:
+        another_dummy_authorization_handler:
+          help:
+            - Příklad autorizačního handleru, takže vývojáři mohou pochopit, jak funguje jednoduché ověření.
+            - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
+            - Ověřte se uvedením čísla cestovního pasu začínajícího písmenem „A“.
         csv_census:
           help:
             - Administrátoři nahrávají CSV s e-maily přijatých účastníků.
             - Pouze účastníci s e-mailem v souboru CSV mohou být ověřeni.
         default:
           help:
-            - 
+            - Nápověda pro autorizační handler není definována.
             - Vývojář musí definovat pomoc v překladu (i18n) klíč "%{authorization_handler}"
+        dummy_authorization_handler:
+          help:
+            - Příklad autorizačního handleru, takže vývojáři mohou pochopit, jak funguje jednoduché ověření.
+            - Zaměřuje se na vývojáře, aby mohli pochopit, jak zavést svůj vlastní ověřovací systém.
+            - Ověřte tím, že zavedete číslo dokumentu končící "X".
         id_documents:
           help:
             - Uživatelé vyplňují údaje o své totožnosti a nahrávají kopii svého dokladu.
@@ -76,6 +86,11 @@ cs:
             - Na adresu zasíláte dopis s ověřovacím kódem.
             - Označte dopis jako odeslaný.
             - Jakmile označíte dopis jako odeslaný, uživatel bude schopen kód zadat a tím se ověřit.
+        sms:
+          help:
+            - Účastníci požádají o zaslání ověřovacího kódu na svůj telefon.
+            - Musí zaadat kód, který bude ověřen.
+            - Pokud kód neobdrží, mohou o něj znovu požádat.
       csv_census:
         explanation: Získejte ověření pomocí členství v organizaci.
         name: Členství organizace
@@ -95,6 +110,7 @@ cs:
           email_intro: Účastník <a href="%{resource_url}">%{resource_title}</a> se pokusil ověřit údaji jiného účastníka (<a href="%{managed_user_url}">%{managed_user_name}</a>).
           email_outro: Zkontrolujte seznam konfliktů <a href="%{conflicts_url}">ověření</a> a kontaktujte uživatele pro ověření jejich údajů a vyřešení problému.
           email_subject: Neúspěšný pokus o ověření proti jinému uživateli
+          notification_title: Účastník <a href="%{resource_path}">%{resource_title}</a> se pokusil ověřit údaji jiného účastníka (<a href="%{managed_user_path}">%{managed_user_name}</a>).
     verifications:
       authorizations:
         authorization_metadata:
@@ -141,7 +157,6 @@ cs:
         admin:
           census:
             create:
-              error: Při importu členů organizace došlo k chybě.
               success: 'Počet úspěšně importovaných položek: %{count} (počet chyb: %{errors}).'
             destroy_all:
               success: Všechna data seznamu členů byly smazány.

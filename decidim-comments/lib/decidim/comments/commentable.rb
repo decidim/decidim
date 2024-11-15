@@ -67,6 +67,17 @@ module Decidim
           update_columns(comments_count:, updated_at: Time.current)
         end
         # rubocop:enable Rails/SkipsModelValidations
+
+        # Public: Returns an array with extra actions available for a comment and a user.
+        # Returns an array of hashes with the following keys:
+        #   - label: The label to be displayed in the UI.
+        #   - url: The action to be performed when the user clicks the label.
+        #   - method: The HTTP method to be used when performing the action (optional).
+        #   - icon: The icon to be displayed next to the label (optional).
+        #   - data: Any "data-*" attributes to be included in the link (optional).
+        def actions_for_comment(_comment, _current_user)
+          []
+        end
       end
     end
   end

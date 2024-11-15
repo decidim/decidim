@@ -63,7 +63,6 @@ eo:
         success: La amendo estis akceptita sukcese.
       amendable:
         button: Amendi %{model_name}
-        error: Okazis eraro ŝanĝante ĉi tiun rimedon.
       edit_draft:
         send: Antaŭvido
   devise:

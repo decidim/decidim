@@ -24,8 +24,12 @@ en:
               missing: are not complete
               too_many: You can choose a maximum of %{count}.
         questionnaire:
-          request_invalid: There was an error handling the request. Please try again.
+          request_invalid: There was a problem handling the request. Please try again.
   decidim:
+    download_your_data:
+      show:
+        answers: Answers export
+        survey_user_answers: Survey user answers
     forms:
       admin:
         models:

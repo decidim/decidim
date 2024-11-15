@@ -300,11 +300,9 @@ lt:
       dismiss: Atmesti pranešimą
     amendments:
       accepted:
-        error: Priimant pakeitimą įvyko klaida.
         success: Pakeitimas priimtas.
       amendable:
         button: Pakeisti %{model_name}
-        error: Keičiant šį išteklių įvyko klaida.
         promote_button: Pakelti iki %{model_name}
         promote_confirm_text: Ar tikrai norite palaikyti šią pataisą?
         promote_help_text: Galite paremti šią pataisą ir ją paskelbti kaip nepriklausomą %{model_name}.
@@ -315,7 +313,6 @@ lt:
           many: "%{count} pataisos"
           other: "%{count} pataisos"
       created:
-        error: Kuriant pakeitimo juodraštį įvyko klaida.
         success: Pakeitimo juodraštis sukurtas.
       destroy_draft:
         error: Šalinant šį pakeitimo juodraštį iškilo problema.
@@ -364,7 +361,6 @@ lt:
         error: Atnaujinant pataisos juodraštį iškilo problema.
         success: Pataisos juodraštis sėkmingai atnaujintas.
       withdraw:
-        error: Išimant pataisą įvyko klaida.
         success: Pataisa sėkmingai atsiimta.
       wizard_step_form:
         steps:
@@ -915,7 +911,6 @@ lt:
           title_required: Reikalingas pavadinimas!
           uploaded: Įkelta
           validating: Tvirtinama...
-          validation_error: Tvirtinimo klaida!
         select_file: Pasirinkite rinkmeną
       upload_help:
         dropzone: Užvilkite rinkmeną čia arba spauskite įkėlimo mygtuką
@@ -1390,7 +1385,6 @@ lt:
         subject: Apie išteklių pranešta
     reports:
       create:
-        error: Kuriant ataskaitą įvyko klaida. Bandykite dar kartą.
         success: Ataskaita sukurta ir ją peržiūrės administratorius.
     resource_endorsements:
       create:
@@ -1775,11 +1769,6 @@ lt:
       must_start_with_caps: pradėti būtina didžąja raide
       nesting_too_deep: negali priklausyti pakategorei
       not_locked: nebuvo užrakintas
-      not_saved:
-        one: 'Vykdant jūsų prašymą įvyko klaida:'
-        few: 'Vykdant jūsų prašymus įvyko klaida:'
-        many: 'Vykdant jūsų prašymus įvyko klaida:'
-        other: 'Vykdant jūsų prašymus įvyko klaida:'
       too_many_marks: naudojama per daug skyrybos ženklų iš eilės (pvz., ! ir ?)
       too_much_caps: naudojama per daug didžiųjų raidžių (daugiau kaip 25 proc. teksto)
       too_short: per trumpas (mažiau nei %{count} ženklų)

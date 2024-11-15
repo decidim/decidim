@@ -1,7 +1,7 @@
-<% add_decidim_page_title(translated_attribute(@page.title)) %>
-<% add_decidim_meta_tags({
-                           description: translated_attribute(@page.body)
-                         }) %>
+<% add_decidim_meta_tags(
+  title: translated_attribute(@page.title),
+  description: translated_attribute(@page.body),
+  resource: @page) %>
 
 <%= render layout:"layouts/decidim/shared/layout_center" do %>
   <div class="py-12 space-y-12">

@@ -20,6 +20,8 @@ en:
         body: Body
       report:
         details: Additional comments
+      taxonomy:
+        name: Taxonomy name
       user:
         about: About
         email: Your email
@@ -63,6 +65,10 @@ en:
         password_confirmation: Password confirmation
         remember_me: Remember me
     models:
+      decidim:
+        history:
+          one: History
+          other: History
       decidim/amendment:
         one: Amendment
         other: Amendments
@@ -162,6 +168,7 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       download_your_data_export:
+        export_expired: The export has expired. Try to generate a new export.
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You will receive an email when it is complete.
       email_change:
@@ -257,10 +264,31 @@ en:
         create: "%{user_name} created the %{resource_name} scope type"
         delete: "%{user_name} deleted the %{resource_name} scope type"
         update: "%{user_name} updated the %{resource_name} scope type"
+      share_token:
+        create: "%{user_name} created an access link in %{space_name}"
+        create_with_space: "%{user_name} created an access link for %{resource_name} in %{space_name}"
+        delete: "%{user_name} deleted an access link in %{space_name}"
+        delete_with_space: "%{user_name} deleted an access link for %{resource_name} in %{space_name}"
+        update: "%{user_name} updated an access link in %{space_name}"
+        update_with_space: "%{user_name} updated an access link for %{resource_name} in %{space_name}"
       static_page:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
         update: "%{user_name} updated the %{resource_name} static page"
+      taxonomy:
+        create: "%{user_name} created the %{resource_name} taxonomy"
+        create_with_parent: "%{user_name} created the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
+        delete: "%{user_name} deleted the %{resource_name} taxonomy"
+        delete_with_parent: "%{user_name} deleted the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
+        update: "%{user_name} updated the %{resource_name} taxonomy"
+        update_with_parent: "%{user_name} updated the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
+      taxonomy_filter:
+        create: "%{user_name} created a filter based on the taxonomy %{resource_name}"
+        create_with_filter_items_count: "%{user_name} created a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
+        delete: "%{user_name} deleted a filter based on the taxonomy %{resource_name}"
+        delete_with_filter_items_count: "%{user_name} deleted a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
+        update: "%{user_name} updated a filter based on the taxonomy %{resource_name}"
+        update_with_filter_items_count: "%{user_name} updated a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
       user:
         block: "%{user_name} blocked user %{resource_name}"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
@@ -285,11 +313,11 @@ en:
       dismiss: Dismiss notification
     amendments:
       accepted:
-        error: An error ocurred while accepting the amendment.
+        error: There was a problem accepting the amendment.
         success: The amendment has been accepted successfully.
       amendable:
         button: Amend %{model_name}
-        error: There has been an error amending this resource.
+        error: There was a problem amending this resource.
         promote_button: Promote to %{model_name}
         promote_confirm_text: Are you sure you want to promote this emendation?
         promote_help_text: You can promote this emendation and publish it as an independent %{model_name}.
@@ -298,7 +326,7 @@ en:
           one: "%{count} amendment"
           other: "%{count} amendments"
       created:
-        error: An error ocurred while creating the amendment draft.
+        error: There was a problem creating the amendment draft.
         success: Amendment draft has been created successfully.
       destroy_draft:
         error: There was a problem deleting the amendment draft.
@@ -350,7 +378,7 @@ en:
         error: There was a problem updating the amendment draft.
         success: Amendment draft successfully updated.
       withdraw:
-        error: An error ocurred while withdrawing the amendment.
+        error: There was a problem withdrawing the amendment.
         success: The amendment has been withdrawn successfully.
       wizard_step_form:
         steps:
@@ -483,13 +511,16 @@ en:
             amendments_enabled: Amendments enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             dummy_global_attribute1: Dummy Attribute 1
             dummy_global_attribute2: Dummy Attribute 2
             dummy_global_translatable_text: Dummy Translatable Text
             enable_pads_creation: Enable pads creation
+            no_taxonomy_filters_found: No taxonomy filters found.
             resources_permissions_enabled: Resources permissions enabled
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Select filters for the component
           step:
             amendment_creation_enabled: Amendment creation enabled
             amendment_promotion_enabled: Amendment promotion enabled
@@ -574,9 +605,9 @@ en:
       application_helper:
         filter_area_values:
           all: All
-        filter_category_values:
-          all: All
         filter_scope_values:
+          all: All
+        filter_taxonomy_values:
           all: All
     devise:
       omniauth_registrations:
@@ -588,6 +619,9 @@ en:
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the account creation
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
+        new_tos_fields:
+          sign_up: Create an account
+          sign_up_title: Finish creating your account
       registrations:
         create:
           error: There was a problem creating your account.
@@ -654,26 +688,35 @@ en:
       export:
         ready: Ready
       show:
-        download_data: Download the data
-        download_data_description_html: |-
-          A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>.
-          This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS).
-          If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Request data
+        action: Action
+        download: Download
+        download_data: Downloads area
+        download_data_description_1: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
+        download_data_description_2: You can request a .zip file with your submissions and personal data.
+        download_your_data: Personal data
+        expiration: Expiration
+        expired: Already expired
+        request_data: Request
+        type: Download type
     editor_images:
       create:
         error: Error uploading image.
         success: Image uploaded successfully.
       drag_and_drop_help: Add images by dragging & dropping or pasting them.
     endorsement_buttons_cell:
-      already_endorsed: Dislike
+      already_endorsed: Undo the like
       endorse: Like
     endorsements:
       identities:
         done: Done
         select_identity: Select identity
     endorsers_list:
-      endorsed_by: Liked by…
+      endorsed_by:
+        one: Liked by %{visible}
+        other: Liked by %{visible} and %{others}
+      others: "%{count} more"
+      title: Liked by
+      you: you
     errors:
       files:
         file_cannot_be_processed: File cannot be processed
@@ -845,10 +888,11 @@ en:
           notification_title: Participant %{name} (%{nickname}) has been officialized.
     export_mailer:
       download_your_data_export:
-        click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
+        click_button_html: Click the next link to download your data.<br/>The file will be available for download until %{date}.
         download: Download
       export:
-        ready: Please find attached a zipped version of your export.
+        click_button_html: Your download is ready. <br/>The file will be available for download until %{date}.
+        download: Download
       subject: Your export "%{name}" is ready
     filters:
       linked_classes:
@@ -933,7 +977,7 @@ en:
           title_required: Title is required!
           uploaded: Uploaded
           validating: Validating...
-          validation_error: Validation error!
+          validation_error: Validation error! Check that the file has an allowed extension or size.
         select_file: Select file
       upload_help:
         dropzone: Drop files here or click the button to upload
@@ -1091,6 +1135,8 @@ en:
           not_found: 'The scope was not found on the database (ID: %{id})'
         scope_type_presenter:
           not_found: 'The scope type was not found on the database (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'The taxonomy was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current administration session of a participant has expired.
     map:
@@ -1299,6 +1345,98 @@ en:
         message_2: Please, try again later.
         retry: Retry
     open_data:
+      help:
+        core:
+          components: Components
+          description: This ZIP file contains files for studying and researching about this participation platform.
+          main: Core
+          spaces: Spaces
+          title: Open Data files for %{organization}
+        moderated_users:
+          about: The about field of the user
+          block_reasons: The reason why the admin user blocked the user
+          blocked_at: Date and time when the user has been blocked
+          blocking_user: The name of the user that has performed the blocking
+          details: The details of the reports
+          reasons: A list of the reasons why the profile has been reported
+          user_id: The unique ID of the reported user
+        moderations:
+          hidden_at: Date and time when the content has been hidden
+          id: The unique identifier of the moderation
+          report_count: The number of times it has been reported
+          reportable_id: The unique id of the reportable
+          reportable_type: Type of the reportable
+          reported_content: The content that has been reported
+          reported_url: The url of the reported resource
+          reports: A list of reasons for which the resource has been reported
+        user_groups:
+          avatar_url: The avatar of the user group
+          badge: The badge of the user group
+          deleted: Whether the user is deleted or not
+          id: The unique identifier of the user group
+          members: The id and name of the users belonging to the group
+          members_count: The number of the users belonging to the user group
+          name: The display name of user group
+          nickname: The username of the user group
+          profile_url: The profile url
+        users:
+          about: The about text of the user
+          avatar_url: The avatar of the user
+          badge: The badge of the user
+          deleted: Whether the user is deleted or not
+          direct_messages_enabled: Whether the user allows direct messages
+          groups: The id and name of the user group
+          id: The unique identifier of the user
+          name: The display name of user
+          nickname: The username of the user
+          profile_url: The profile url
+      index:
+        description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
+        detailed:
+          body_1: 'Below is a description of each dataset, including its schema (structure) and the type of information it contains:'
+          components: Components
+          spaces: Participatory spaces
+          title: Detailed explanation of each file
+        download:
+          components: Components
+          core: Core
+          spaces: Participatory spaces
+          title: Download resources
+        download_open_data: Download all the Open Data files
+        download_resource: Download %{resource_name} in CSV format
+        explanation:
+          body_1: These files are datasets exported from %{organization_name}'s participatory processes, such as proposals, comments, and meetings. They provide raw, structured data that can be used for analysis, research, or integration with other tools. The data is updated automatically every 24 hours, ensuring that you have access to the most recent information.
+          body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
+          title: What are these files?
+        how_to:
+          step_1:
+            body_html: Click on the links provided below to download the CSV files to your computer.
+            title: 1. Download the files
+          step_2:
+            body_html: |-
+              <ul>
+                <li><b>Spreadsheet Applications</b>: You can open CSV files using applications like Microsoft Excel, Google Sheets, or LibreOffice Calc. Simply open the application, then select "Open" from the File menu, and choose the downloaded CSV file.</li>
+                <li><b>Text Editors</b>: CSV files can also be opened in any text editor, such as Notepad or Sublime Text. This will display the raw data, with each line representing a row and each value separated by a comma.</li>
+                <li><b>Data Analysis Tools</b>: If you are familiar with data analysis tools like Python (with pandas), R, or SQL databases, you can import these CSV files directly for processing and analysis.</li>
+              </ul>
+            title: 2. Open the files
+          step_3:
+            body_html: |-
+              <ul>
+                <li><b>Filtering and Sorting</b>: In spreadsheet applications, you can filter and sort the data to focus on specific subsets of information.</li>
+                <li><b>Analysis</b>: Use the data to perform various analyses, such as counting the number of proposals, analyzing trends in comments, or evaluating participation in meetings.</li>
+                <li><b>Visualization</b>: You can create charts, graphs, and other visualizations to help interpret the data.</li>
+              </ul>
+            title: 3. Working with the data
+          title: How to open and work with these files
+        license:
+          body_1_html: This %{organization_name} database is made available under the %{link_database}. Any rights in individual contents of the database are licensed under the %{link_contents}.
+          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Database Contents License
+          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Open Database License
+          title: License
+        title: Open Data
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     pad_iframe:
       disclaimer: The contents of this pad are written by registered users and express their opinions. %{organization} cannot be held responsible for its contents.
@@ -1426,8 +1564,10 @@ en:
         subject: A resource has been reported
     reports:
       create:
-        error: An error ocurred while creating the report. Please, try it again.
+        error: There was a problem creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+    resource:
+      controls_label: Resource controls
     resource_endorsements:
       create:
         error: There was a problem during the endorsement action.
@@ -1473,6 +1613,7 @@ en:
         close_modal: Close modal
         ok: OK
         title: Confirm
+      confirm_unload: This page contains unsaved changes. Are you sure you want to leave this page?
       embed:
         title: Embedded video content
       extended_navigation_bar:
@@ -1513,12 +1654,6 @@ en:
         sign_up: Create an account
       mentions_modal:
         remove_recipient: Remove recipient %{name}
-      participatory_space_filters:
-        filters:
-          area: Area
-          areas: Areas
-          scope: Scope
-          select_an_area: Select an area
       progress: Progress
       public_participation:
         public_participation: Show my attendance publicly
@@ -1548,8 +1683,9 @@ en:
       participants_count: Participants
       users_count: Participants
     tags:
-      filter_results_for_category: 'Filter results for category: %{resource}'
-      filter_results_for_scope: 'Filter results for scope: %{resource}'
+      filter_results_for_taxonomy: 'Filter results for: %{resource}'
+    taxonomies:
+      prompt: Select from "%{name}"
     translation_bar:
       help_text: "<strong>Warning:</strong> Content might be automatically translated and not be 100% accurate."
       show_original: Show original text
@@ -1703,6 +1839,7 @@ en:
         message: Your account has been locked due to an excessive amount of unsuccessful log in attempts.
         subject: Unlock instructions
     omniauth_callbacks:
+      add_tos_errors: Terms of service must be accepted in order to create an account.
       failure: Could not authenticate you from %{kind} because "%{reason}".
       success: Successfully authenticated from %{kind} account.
     passwords:
@@ -1863,7 +2000,7 @@ en:
       not_found: could not be found. Have you created an account previously?
       not_locked: was not locked
       not_saved:
-        one: 'There''s been an error processing your request:'
+        one: 'There has been an error processing your request:'
         other: 'There were multiple errors when processing your request:'
       too_many_marks: is using too many consecutive punctuation marks (e.g. ! and ?)
       too_much_caps: is using too many capital letters (over 25% of the text)
@@ -1941,9 +2078,9 @@ en:
         data_consent_settings: Cookie settings
         decidim_logo: Decidim Logo
         decidim_title: Decidim
-        download_open_data: Download Open Data files
         log_in: Log in
         made_with_open_source: Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
+        open_data: Open Data
         resources: Resources
         sign_up: Create an account
         terms_of_service: Terms of Service

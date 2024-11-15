@@ -136,7 +136,6 @@ gl:
         verify_via_csv: "%{user_name} verificar a %{resource_name} grupo de usuarios a través dun ficheiro CSV"
     amendments:
       accepted:
-        error: Produciuse un erro ao aceptar a emenda.
         success: A modificación foi aceptada con éxito.
       amendable:
         button: Modificar %{model_name}
@@ -488,7 +487,6 @@ gl:
           title_required: O título é obrigatorio!
           uploaded: Cargado
           validating: Validando...
-          validation_error: Erro de validación!
       upload_help:
         explanation: Guía para %{attribute}
     gamification:
@@ -737,7 +735,6 @@ gl:
         subject: Informouse un recurso
     reports:
       create:
-        error: Produciuse un erro ao crear o informe. Por favor, proba de novo.
         success: O informe foi creado con éxito e será revisado por un administrador.
     scopes:
       global: Alcance global

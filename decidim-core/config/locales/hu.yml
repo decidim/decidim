@@ -249,7 +249,6 @@ hu:
       dismiss: Értesítés elvetése
     amendments:
       accepted:
-        error: A módosítás elfogadása közben hiba történt.
         success: A módosítást sikeresen elfogadták.
       amendable:
         button: 'Módosítás: %{model_name}'
@@ -258,7 +257,6 @@ hu:
         promote_confirm_text: Biztos benne, hogy támogatni kívánja ezt a helyreigazítást?
         promote_help_text: Támogathatja ezt a helyesbítést, valamint közzéteheti azt független %{model_name} elemként.
       created:
-        error: A módosító javaslat tervezet létrehozása során hiba történt.
         success: A módosító javaslat tervezet sikeresen létrejött.
       destroy_draft:
         error: Hiba történt a módosító javaslat tervezetének törlésekor.
@@ -309,7 +307,6 @@ hu:
         error: Probléma merült fel a módosító javaslat frissítésével.
         success: A módosító javaslat sikeresen frissítve.
       withdraw:
-        error: A módosítás visszavonása során hiba történt.
         success: A módosítás visszavonása sikeres.
       wizard_step_form:
         steps:
@@ -831,7 +828,6 @@ hu:
           title_required: A cím megadása kötelező!
           uploaded: Feltöltve
           validating: Ellenőrzés...
-          validation_error: Hitelesítési hiba!
         select_file: Fájl kiválasztása
       upload_help:
         dropzone: Húzza ide a fájlt vagy használja a gombot a feltöltéshez
@@ -1295,7 +1291,6 @@ hu:
         subject: Egy erőforrást jelentettek
     reports:
       create:
-        error: Hiba történt a jelentés létrehozásakor. Kérlek, próbáld újra.
         success: A jelentést létrehozása sikeres, de még egy adminisztrátora felülvizsgálja.
     resource_endorsements:
       create:
@@ -1709,9 +1704,6 @@ hu:
       must_start_with_caps: nagybetűvel kell kezdenie
       nesting_too_deep: nem lehet alkategóriában belüli
       not_locked: nem volt zárva
-      not_saved:
-        one: 'Hiba történt a kérelmed feldolgozásakor:'
-        other: 'Több hiba történt a művelet végrehajtása során:'
       too_many_marks: túl sok egymást követő írásjelet használ (pl. és!)
       too_much_caps: túl sok nagybetűt használ (a szöveg több mint 25% -a)
   forms:

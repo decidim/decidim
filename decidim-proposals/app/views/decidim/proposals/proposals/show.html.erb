@@ -1,8 +1,8 @@
-<% add_decidim_meta_tags({
-                           description: present(@proposal).body,
-                           title: present(@proposal).title,
-                           url: proposal_url(@proposal.id)
-                         }) %>
+<% add_decidim_meta_tags(
+  description: present(@proposal).body,
+  title: present(@proposal).title,
+  url: proposal_url(@proposal.id),
+  resource: @proposal) %>
 
 <%
 edit_link(
@@ -46,12 +46,20 @@ extra_admin_link(
     <% end %>
 
     <% unless component_settings.participatory_texts_enabled? %>
-      <div class="layout-author">
-        <%= cell "decidim/coauthorships", @proposal, context_actions: [:date] %>
-
-        <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
+      <% unless ["section","subsection"].include?(@proposal.participatory_text_level) %>
+        <div class="layout-author has_status">
           <%= cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text) %>
-        <% end %>
+        </div>
+      <% end %>
+      <div class="layout-author <%= "has_status" unless %w(section subsection).include?(@proposal.participatory_text_level) %>">
+        <div class="relative flex items-center justify-center w-full">
+          <div class="w-10/12 flex items-center gap-4">
+            <%= cell "decidim/coauthorships", @proposal, context_actions: [:date] %>
+          </div>
+          <%= render "decidim/shared/resource_actions", resource: @proposal do %>
+            <%= render "decidim/proposals/proposals/proposal_actions" %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </section>
@@ -77,7 +85,7 @@ extra_admin_link(
   <% end %>
 
   <% if component_settings.geocoding_enabled? && @proposal.geocoded? %>
-    <div class="static-map__container">
+    <div class="static-map__container py-6">
       <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
     </div>
   <% end %>
@@ -88,6 +96,8 @@ extra_admin_link(
     <%= cell "decidim/amendable/amendments", @proposal %>
   </section>
 
+  <%= cell "decidim/tags", @proposal %>
+
   <%= render partial: "actions" %>
 
   <% content_for :item_footer do %>
@@ -95,7 +105,7 @@ extra_admin_link(
 
      <ul class="metadata__container layout-main__section" data-metadata-footer>
        <%= content_tag :li, resource_reference(@proposal), class: "metadata__item" %>
-       <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_version_path(@proposal, @proposal.versions.count)), class: "metadata__item" %>
+       <%= content_tag :li, resource_version(proposal_presenter, versions_path: proposal_version_path(@proposal, proposal_presenter.versions.count)), class: "metadata__item" %>
 
        <% fingerprint_id = dom_id(@proposal, :fingerprint_dialog) %>
        <%= content_tag :li, class: "metadata__item" do %>

@@ -21,8 +21,6 @@ zh-TW:
               too_long: 太長
             choices:
               missing: 尚未完成
-        questionnaire:
-          request_invalid: 處理請求時發生錯誤。請再試一次。
   decidim:
     forms:
       admin:

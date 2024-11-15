@@ -78,6 +78,10 @@ cs:
       decidim/meetings/update_meeting_event: Setkání bylo aktualizováno
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Bylo projednáno na této schůzce: %{link}'
       decidim/meetings/meeting:
         one: Setkání
         few: Setkání
@@ -372,6 +376,13 @@ cs:
           update:
             invalid: Při aktualizaci této schůze došlo k chybě.
             success: Anketa ke schůzi byla úspěšně aktualizována.
+        poll:
+          form:
+            announcement_html:
+              - Pokud otázka obdrží odpovědi nebo je zveřejněna/uzavřena, již ji nelze upravovat.
+              - Otázku můžete kdykoliv přidat.
+              - Průzkum bude ukončen po zveřejnění výsledků všech vytvořených otázek.
+              - Navštivte <a href='%{admin_link}'>stránku administrace anket</a> pro odeslání dotazů a publikování výsledků.
         registrations:
           edit:
             save: Uložit
@@ -452,6 +463,7 @@ cs:
       iframe_embed_type:
         embed_in_meeting_page: Vložit do stránky schůzky
         none: Žádný
+        open_in_live_event_page: Otevřít na stránce živé události
         open_in_new_tab: Otevřít URL v nové kartě
       last_activity:
         meeting_updated: 'Schůze aktualizována:'
@@ -541,6 +553,8 @@ cs:
           edit_close_meeting: Upravit zprávu schůzky
           edit_meeting: Upravit schůzku
           join_meeting: Připojit se ke schůzce
+          reply_poll: Odpověď ankety
+          view_poll: Zobrazit anketu
         meetings:
           no_meetings_warning: Žádná schůzka neodpovídá vašim kritériím nebo není naplánována žádná schůzka.
           upcoming_meetings_warning: V současné době neexistují žádné plánované schůzky, ale naleznete zde všechny minulé schůzky.
@@ -602,10 +616,17 @@ cs:
             title: Titul
       polls:
         answers:
+          index:
+            administrate: Spravovat
+            title: Anketa
           index_admin:
             back_to_meeting: Zpět na schůzku
+            title: Správa ankety
+            view_poll: Zobrazit anketu
         questions:
           closed_question:
+            announcement: Odpovědi na tuto otázku byly uzavřeny.
+            question: Otázka
             question_results: Výsledky
           index:
             empty_questions: Během této schůzky budou zaslány některé dotazy a vy na ně budete moci odpovědět. Zobrazí se zde.
@@ -619,6 +640,8 @@ cs:
             sent: Odesláno
             statuses:
               closed: Výsledky byly odeslány (uzavřeny)
+              published: Odesláno (otevřeno)
+              unpublished: Čeká na odeslání
           published_question:
             max_choices_alert: Je vybráno příliš mnoho možností
             question: Otázka
@@ -661,7 +684,7 @@ cs:
         transparent: Průhledný
         withdraw: Staženo
       withdraw:
-        error: Došlo k chybě při stahování schůzky.
+        error: Při stahování schůzky došlo k chybě.
         success: Schůzka byla úspěšně stažena.
     metrics:
       meetings:

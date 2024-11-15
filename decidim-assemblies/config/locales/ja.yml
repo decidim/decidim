@@ -291,6 +291,7 @@ ja:
             select_parent_assembly: 親参加スペースを選択
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
             social_handlers: ソーシャル
+            taxonomies: タクソノミー
             title: 一般情報
             visibility: 公開範囲
         assemblies_types:

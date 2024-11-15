@@ -1,4 +1,6 @@
-<% add_decidim_meta_tags(title: t("media.index.title", scope: "decidim")) %>
+<% add_decidim_meta_tags(
+  title: t("media.index.title", scope: "decidim"),
+  resource: current_participatory_space) %>
 <% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
 
 <%

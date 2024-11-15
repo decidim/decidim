@@ -25,11 +25,16 @@ module Decidim
           )
         end
 
+        let(:space) { assembly }
+
         before do
           request.env["decidim.current_organization"] = organization
           request.env["decidim.current_assembly"] = assembly
           sign_in current_user
         end
+
+        it_behaves_like "a reorder components controller", slug_attribute: :assembly_slug
+        it_behaves_like "a components controller to hide", slug_attribute: :assembly_slug
 
         describe "PATCH update" do
           let(:component_params) do

@@ -1,6 +1,6 @@
 = Share tokens
 
-Share tokens can be assigned to any model to provide a system to share unpublished resources with expirable and manageable tokens.
+Share tokens can be assigned to any model to provide a system to share unpublished resources with expiration dates through the creation/destruction of tokens.
 
 A share token is created by a user with an expiration time, and can be added as a query param to access otherwise restricted locations.
 
@@ -12,7 +12,7 @@ The model must `include Decidim::ShareableWithToken` and implement `shareable_ur
 ----
 # Public: Public URL for your_resource with given share token as query parameter
 def shareable_url(share_token)
-  your_resource_public_path(self, share_token: share_token.token)
+  your_resource_public_url(self, share_token: share_token.token)
 end
 ----
 
@@ -31,27 +31,169 @@ return unless token.present?
 allow! if Decidim::ShareToken.use!(token_for: your_resource, token: token)
 ----
 
+Note that, if you are using a controller who is inheriting from `Decidim::ApplicationController`, you do not need to include the `:share_token` in the context when calling methods like `enforce_permission_to`, as it is already included in the `Decidim::NeedsPermissions` class through the method `store_share_token`.
+
 == Manage tokens
 
-Render the partial `decidim-admin/app/views/decidim/admin/share_tokens/_share_tokens.html.erb` inside a view, with:
+By default, participatory spaces like process, assemblies, conferences and initiatives are configured to have share tokens, as well as the individual components that are included in them. Participatory spaces have a "Share tokens" tab in the admin view, where you can create new tokens, see the list of existing ones, and revoke them.
+Tokens can also be managed in the components view similarly as other resources to give pre-access (with and action icon like permissions for instance).
+
+Tokens generated for a participatory space are valid for all the components included in it (regardless of their publication status), and tokens generated for a component are valid for that component only.
+
+== Implementation for participatory spaces
+
+In order to implement share tokens for a participatory spaces, you need to:
+
+=== 1. Routes
+
+Add the `share_tokens` CRUD routes in your `admin_engine.rb` file:
 
 [source,ruby]
 ----
-locals: { share_tokens: your_share_tokens_variable }
-----
-
-to let admins see and manage tokens for that resource.
-
-== Link to url with token
-
-Implement a `share` action (see below) in the resource controller (admin scope), redirecting to a url with a newly generated token, so you can call `share_my_resource_url`.
-
-[source,ruby]
-----
-def share
-  @your_resource = YourResource.find(params[:id]) # or whatever
-  share_token = @your_resource.share_tokens.create!(user: current_user, organization: current_organization)
-
-  redirect_to share_token.url
+scope "/assemblies/:assembly_slug" do
+  ...
+  resources :assembly_share_tokens, except: [:show], path: "share_tokens"
+  ...
 end
 ----
+
+=== 2. Controller
+
+Add the controller for the participatory space, it only requires to inherit from `Decidim::Admin::ShareTokensController` and define the `resource` method to return the participatory space:
+
+[source,ruby]
+----
+# frozen_string_literal: true
+
+module Decidim
+  module Assemblies
+    module Admin
+      # This controller allows sharing unpublished things.
+      # It is targeted for customizations for sharing unpublished things that lives under
+      # an assembly.
+      class AssemblyShareTokensController < Decidim::Admin::ShareTokensController
+        include Concerns::AssemblyAdmin
+
+        def resource
+          current_assembly
+        end
+      end
+    end
+  end
+end
+----
+
+=== 3. Menu entry
+
+Add the menu entry for the share tokens in the participatory space admin view. In Decidim we do this in the `menu.rb` file for each participatory space:
+
+[source,ruby]
+----
+Decidim.menu :admin_assembly_menu do |menu|
+  ...
+  menu.add_item :assembly_share_tokens,
+                I18n.t("menu.share_tokens", scope: "decidim.admin"),
+                decidim_admin_assemblies.assembly_share_tokens_path(current_participatory_space),
+                active: is_active_link?(decidim_admin_assemblies.assembly_share_tokens_path(current_participatory_space)),
+                icon_name: "share-line",
+                if: allowed_to?(:read, :share_tokens, current_participatory_space:)
+  ...
+end
+----
+
+=== 4. Model
+
+Ensure your participatory space model includes the `Decidim::ShareableWithToken` module and implements the `shareable_url` method:
+
+[source,ruby]
+----
+module Decidim
+  class Assembly < ApplicationRecord
+    ...
+    include Decidim::ShareableWithToken
+    ...
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).assembly_url(self, share_token: share_token.token)
+    end
+    ...
+  end
+end
+----
+
+=== 5. Permissions
+
+Add the permissions logic to the participatory space controller in the `permissions.rb` file:
+
+For admin controllers:
+
+[source,ruby]
+----
+allow! if permission_action.subject == :share_tokens
+----
+
+For frontend controllers:
+
+[source,ruby]
+----
+token = context[:share_token]
+
+return unless token.present?
+
+allow! if Decidim::ShareToken.use!(token_for: current_assembly, token: token)
+----
+
+== Implementation for components
+
+Components all inherit from `Decidim::Component`, so they already have the `Decidim::ShareableWithToken` module included. But you still need to do some steps:
+
+=== 1. Routes
+
+Add the `share_tokens` CRUD routes in your `admin_engine.rb` file:
+
+[source,ruby]
+----
+scope "/assemblies/:assembly_slug" do
+  ...
+  resources :components do
+    ...
+    resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
+    ...
+  end
+end
+----
+
+=== 2. Controller
+
+Add the controller for the component, it only requires to inherit from `Decidim::Admin::ShareTokensController` and define the `resource` method to return the component:
+
+[source,ruby]
+----
+# frozen_string_literal: true
+
+module Decidim
+  module Assemblies
+    module Admin
+      # This controller allows sharing unpublished things.
+      # It is targeted for customizations for sharing unpublished things that lives under
+      # an assembly.
+      class ComponentShareTokensController < Decidim::Admin::ShareTokensController
+        include Concerns::AssemblyAdmin
+
+        def resource
+          @resource ||= current_participatory_space.components.find(params[:component_id])
+        end
+      end
+    end
+  end
+end
+----
+
+=== 3. Permissions
+
+Similarly, add the same permissions logic to the component controller in the `permissions.rb` file as for participatory spaces.
+
+
+== Other implementations
+
+You can implement share tokens for any other model by following the same steps as for participatory spaces and components.
+In that case, however, you might have to override some methods from the `Decidim::Admin::ShareTokensController` to adapt them to your model (check the source code for details).

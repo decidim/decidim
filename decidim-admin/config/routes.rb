@@ -84,7 +84,7 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :newsletters, except: [:new, :create] do
       member do
-        get :recipients_count
+        post :recipients_count
         post :send_to_user
         get :preview
         get :select_recipients_to_deliver
@@ -109,8 +109,6 @@ Decidim::Admin::Engine.routes.draw do
       put :accept
     end
 
-    resources :share_tokens, only: :destroy
-
     resources :moderations, controller: "global_moderations" do
       member do
         put :unreport
@@ -121,6 +119,11 @@ Decidim::Admin::Engine.routes.draw do
     end
 
     resources :conflicts, only: [:index, :edit, :update], controller: "conflicts"
+
+    resources :taxonomies, except: [:show] do
+      patch :reorder, on: :collection
+      resources :items, only: [:new, :create, :edit, :update], controller: "taxonomy_items"
+    end
 
     root to: "dashboard#show"
   end

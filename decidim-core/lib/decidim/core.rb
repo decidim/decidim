@@ -13,6 +13,7 @@ module Decidim
   autoload :TranslatableAttributes, "decidim/translatable_attributes"
   autoload :TranslatableResource, "decidim/translatable_resource"
   autoload :JsonbAttributes, "decidim/jsonb_attributes"
+  autoload :LegacyFormBuilder, "decidim/legacy_form_builder"
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
@@ -29,6 +30,7 @@ module Decidim
   autoload :Coauthorable, "decidim/coauthorable"
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
+  autoload :Taxonomizable, "decidim/taxonomizable"
   autoload :Scopable, "decidim/scopable"
   autoload :ScopableParticipatorySpace, "decidim/scopable_participatory_space"
   autoload :ScopableComponent, "decidim/scopable_component"
@@ -41,6 +43,7 @@ module Decidim
   autoload :HasAttachments, "decidim/has_attachments"
   autoload :ComponentValidator, "decidim/component_validator"
   autoload :HasSettings, "decidim/has_settings"
+  autoload :HasTaxonomySettings, "decidim/has_taxonomy_settings"
   autoload :HasComponent, "decidim/has_component"
   autoload :HasCategory, "decidim/has_category"
   autoload :Followable, "decidim/followable"
@@ -124,6 +127,7 @@ module Decidim
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
   autoload :IconRegistry, "decidim/icon_registry"
   autoload :HasConversations, "decidim/has_conversations"
+  autoload :PrivateDownloadHelper, "decidim/private_download_helper"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"
@@ -551,6 +555,17 @@ module Decidim
     "/"
   end
 
+  # This is the maximum time that the cache will be stored. If nil, the cache will be stored indefinitely.
+  # Currently, cache is applied in the Cells where the method `cache_hash` is defined.
+  config_accessor :cache_expiry_time do
+    24.hours
+  end
+
+  # Same as before, but specifically for cell displaying stats
+  config_accessor :stats_cache_expiry_time do
+    10.minutes
+  end
+
   # Enable/Disable the service worker
   config_accessor :service_worker_enabled do
     Rails.env.exclude?("development")
@@ -571,6 +586,39 @@ module Decidim
   # Read more: https://docs.decidim.org/en/develop/configure/initializer#_content_security_policy
   config_accessor :content_security_policies_extra do
     {}
+  end
+
+  CoreDataManifest = Data.define(:name, :collection, :serializer, :include_in_open_data)
+
+  def self.open_data_manifests
+    [
+      CoreDataManifest.new(
+        name: :moderated_users,
+        collection: lambda { |organization|
+                      Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: organization.id }).where.not(decidim_users: { blocked_at: nil })
+                    },
+        serializer: Decidim::Exporters::OpenDataBlockedUserSerializer,
+        include_in_open_data: true
+      ),
+      CoreDataManifest.new(
+        name: :moderations,
+        collection: ->(organization) { Decidim::Moderation.where(participatory_space: organization.participatory_spaces).includes(:reports).hidden },
+        serializer: Decidim::Exporters::OpenDataModerationSerializer,
+        include_in_open_data: true
+      ),
+      CoreDataManifest.new(
+        name: :users,
+        collection: ->(organization) { Decidim::User.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
+        serializer: Decidim::Exporters::OpenDataUserSerializer,
+        include_in_open_data: true
+      ),
+      CoreDataManifest.new(
+        name: :user_groups,
+        collection: ->(organization) { Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
+        serializer: Decidim::Exporters::OpenDataUserGroupSerializer,
+        include_in_open_data: true
+      )
+    ]
   end
 
   # Public: Registers a global engine. This method is intended to be used

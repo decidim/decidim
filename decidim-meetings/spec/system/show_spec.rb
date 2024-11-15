@@ -9,6 +9,7 @@ describe "show" do
   let!(:meeting) { create(:meeting, :published, component:) }
 
   before do
+    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     visit_component
     click_on meeting.title[I18n.locale.to_s]
   end

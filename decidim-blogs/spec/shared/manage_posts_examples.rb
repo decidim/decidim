@@ -62,6 +62,14 @@ shared_examples "manage posts" do |audit_check: true|
       visit decidim_admin.root_path
       expect(page).to have_content("created the #{translated(attributes[:title])} blog post")
     end
+
+    visit decidim.last_activities_path
+    expect(page).to have_content("New post: #{translated(attributes[:title])}")
+
+    within "#filters" do
+      find("a", class: "filter", text: "Post", match: :first).click
+    end
+    expect(page).to have_content("New post: #{translated(attributes[:title])}")
   end
 
   describe "deleting a post" do

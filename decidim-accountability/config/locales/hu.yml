@@ -7,10 +7,7 @@ hu:
         decidim_scope_id: Hatókör
         description: Leírás
         end_date: Befejezés dátuma
-        meetings_ids: Mellékelt találkozók
         progress: Folyamat
-        project_ids: Mellékelt projektek
-        proposals: Mellékelt javaslatok
         start_date: Kezdő dátum
         title: Cím
         updated_at: Frissítve

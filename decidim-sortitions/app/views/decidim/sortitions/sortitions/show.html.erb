@@ -1,8 +1,8 @@
-<% add_decidim_meta_tags({
-                           description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
-                           title: decidim_escape_translated(sortition.title),
-                           url: sortition_url(sortition.to_param)
-                         }) %>
+<% add_decidim_meta_tags(
+  description: decidim_sanitize_editor(translated_attribute(sortition.additional_info)),
+  title: decidim_escape_translated(sortition.title),
+  url: sortition_url(sortition.to_param),
+  resource: sortition) %>
 
 <%
 edit_link(
@@ -76,6 +76,10 @@ edit_link(
 
   <section class="layout-main__section layout-main__buttons" data-buttons>
     <%= cell "decidim/comments_button", nil %>
+
+    <div class="ml-auto lg:ml-0">
+      <%= cell "decidim/share_button", nil %>
+    </div>
   </section>
 
   <% content_for :aside do %>
@@ -123,16 +127,13 @@ edit_link(
       <div class="sortition__aside-element bg-background p-4 rounded">
         <div class="sortition__aside-element-item">
           <span class="sortition__aside-element-item__title">
-            <%= t("candidate_proposals_info", scope: "decidim.sortitions.sortitions.show", category_label: sortition_category_label(sortition)) %>
+            <%= t("candidate_proposals_info", scope: "decidim.sortitions.sortitions.show", taxonomy_labels: sortition_taxonomy_labels(sortition)) %>
           </span>
           <span class="sortition__aside-element-item__numbers">
             <%= sortition_proposal_candidate_ids sortition %>
           </span>
         </div>
       </div>
-    </section>
-    <section class="layout-aside__section actions__secondary">
-      <%= cell "decidim/share_button", nil %>
     </section>
   <% end %>
   <% content_for :item_footer do %>

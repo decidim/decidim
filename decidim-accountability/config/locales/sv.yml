@@ -4,14 +4,12 @@ sv:
       result:
         decidim_accountability_status_id: Status
         decidim_category_id: Kategori
-        decidim_scope_id: Omfattning
+        decidim_scope_id: Indelning
         description: Beskrivning
         end_date: Slutdatum
-        meetings_ids: Inkluderade möten
         progress: Genomförande
-        project_ids: Projekt som omfattas
-        proposals: Förslag som omfattas
         start_date: Startdatum
+        subresults: Delresultat
         title: Titel
         updated_at: Uppdaterad
       status:
@@ -39,6 +37,11 @@ sv:
         confirm_destroy: Vill du radera detta %{name}?
         destroy: Radera
         edit: Redigera
+        import: Importera från en annan komponent
+        import_csv: Importera resultat från CSV-fil
+        new_result: Nytt resultat
+        new_status: Ny status
+        new_timeline_entry: Ny post i tidslinje
         preview: Förhandsvisa
         timeline_entries: Projektutveckling
         title: Åtgärder
@@ -48,13 +51,13 @@ sv:
           results: Resultat
         import_results:
           new:
-            download_export: Ladda ner exporten som CSV
+            download_export: Ladda ner exporten som CSV-fil
             import: Importera
             info: |
-              <p>Vi rekommenderar att du följer dessa steg:</p>
+              <p>Vi rekommenderar att du följer de här stegen:</p>
               <ol>
-              <li><a href='%{link_new_status}' target='_blank'>Skapa statusarna för de resultat</a> som du vill lägga till</li>
-              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> via denna administratörspanel innan du använder Import, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
+              <li><a href='%{link_new_status}' target='_blank'>Skapa status för de resultat</a> som du vill lägga till</li>
+              <li><a href='%{link_new_result}' target='_blank'>Skapa minst ett resultat manuellt</a> från administratörspanelen innan du importerar, för att få en bättre förståelse för formatet och vad du behöver fylla i.</li>
               <li>%{link_export_csv}</li>
               <li>Genomför ändringarna lokalt. Du kan endast ändra följande kolumner i CSV-filen:
               <ul>
@@ -71,8 +74,10 @@ sv:
               </ul>
               </li>
               </ol>
+            title: Importera resultat från CSV-fil
         imports:
           create:
+            invalid: Det gick inte att importera resultaten.
             success: Importen av filen har påbörjats. Inom några minuter kommer du att få ett e-postmeddelande med importresultatet.
         models:
           result:
@@ -88,10 +93,19 @@ sv:
             new_items:
               one: 1 valt projekt kommer att importeras
               other: "%{count} valda projekt kommer att importeras"
-            no_components: Det finns inga budgetkomponenter i detta deltagande utrymme för att exportera projekt till resultat.
+            no_components: Det finns inga budget-komponenter att importera projekt från i den här processen.
             origin_component_id: Ursprungskomponent
             select_component: Välj en komponent
+            success:
+              one: 1 projekt väntar på att importeras. Du får ett e-postmeddelande när det är klart.
+              other: "%{count} projekt väntar på att importeras. Du får ett e-postmeddelande när det är klart."
+            title: Importera från en annan komponent
         results:
+          create:
+            invalid: Det gick inte att skapa resultatet.
+            success: Resultatet har skapats.
+          destroy:
+            success: Resultatet har raderats.
           edit:
             title: Redigera resultat
             update: Uppdatera resultat
@@ -100,10 +114,18 @@ sv:
           new:
             create: Skapa resultat
             title: Nytt resultat
+          update:
+            invalid: Det gick inte att uppdatera resultatet.
+            success: Resultatet har uppdaterats.
         shared:
           subnav:
             statuses: Status
         statuses:
+          create:
+            invalid: Det gick inte att skapa statusen.
+            success: Statusen har skapats.
+          destroy:
+            success: Statusen har raderats.
           edit:
             title: Redigera status
             update: Uppdatera status
@@ -112,7 +134,15 @@ sv:
           new:
             create: Skapa status
             title: Ny status
+          update:
+            invalid: Det gick inte att uppdatera statusen.
+            success: Statusen har uppdaterats.
         timeline_entries:
+          create:
+            invalid: Det gick inte att skapa den här posten.
+            success: Posten har skapats.
+          destroy:
+            success: Posten har raderats.
           edit:
             title: Redigera post
             update: Uppdatera post
@@ -121,6 +151,9 @@ sv:
           new:
             create: Skapa post
             title: Ny post
+          update:
+            invalid: Det gick inte att uppdatera den här posten.
+            success: Posten har uppdaterats.
       admin_log:
         result:
           create: "%{user_name} skapade resultatet %{resource_name} i %{space_name}"
@@ -143,16 +176,17 @@ sv:
       import_mailer:
         import:
           errors: Fel
+          errors_present: Det gick inte att importera resultaten.
           row_number: Rad
-          subject: Lyckad import av resultat
-          success: Lyckad import av resultat. Du kan granska resultaten i administrationsgränssnittet.
+          subject: Resultaten har importerats
+          success: Resultaten har importerats. Du kan granska resultaten i administrationsgränssnittet.
       import_projects_mailer:
         import:
           added_projects:
             one: Ett resultat importerades från projekt.
             other: "%{count} resultat importerades från projekt."
           subject: Projekten har importerats
-          success: Projekten har importerats till resultat. Du kan se resultaten i administrationsgränssnittet.
+          success: Projekten har importerats till resultat i %{component_name}. Du kan se resultaten i administrationsgränssnittet.
       last_activity:
         new_result: 'Nytt resultat:'
       models:
@@ -163,7 +197,7 @@ sv:
             end_date: Slutdatum
             id: ID
             progress: Genomförande
-            scope: Omfång
+            scope: Indelning
             start_date: Startdatum
             status: Status
             title: Titel
@@ -186,9 +220,11 @@ sv:
           all: Alla
         home:
           categories_label: Kategorier
+          empty: Det finns inget resultat ännu.
+          empty_filters: Det finns inget resultat med de här kriterierna.
           subcategories_label: Underkategorier
         home_header:
-          global_status: Global genomförandestatus
+          global_status: Status för genomförande
         nav_breadcrumb:
           global: Globalt genomförande
         no_results: Det finns inga projekt
@@ -205,24 +241,24 @@ sv:
           category_id_eq:
             label: Kategori
           scope_id_eq:
-            label: Omfång
+            label: Indelning
           status_id_eq:
             label: Status
     components:
       accountability:
         actions:
-          comment: Kommentar
-        name: Ansvarsskyldighet
+          comment: Kommentera
+        name: Genomförande
         settings:
           global:
-            comments_enabled: Kommentarer på
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            comments_enabled: Aktivera kommentarer
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
             display_progress_enabled: Visa behandling
             intro: Intro
-            scope_id: Omfång
-            scopes_enabled: Omfång aktiverade
+            scope_id: Indelning
+            scopes_enabled: Aktivera indelningar
           step:
-            comments_blocked: Kommentarer blockerade
+            comments_blocked: Stäng av kommentarer
     events:
       accountability:
         proposal_linked:

@@ -18,6 +18,36 @@ module Decidim
 
         organization = create_organization!
 
+        if organization.taxonomies.none?
+          taxonomy = create_taxonomy!(name: "Scopes", parent: nil)
+          3.times do
+            sub_taxonomy = create_taxonomy!(name: ::Faker::Address.state, parent: taxonomy)
+
+            5.times do
+              create_taxonomy!(name: ::Faker::Address.city, parent: sub_taxonomy)
+            end
+          end
+
+          taxonomy = create_taxonomy!(name: "Areas", parent: nil)
+          sub_taxonomy = create_taxonomy!(name: "Territorial", parent: taxonomy)
+          3.times do
+            create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
+          end
+          sub_taxonomy = create_taxonomy!(name: "Sectorial", parent: taxonomy)
+          5.times do
+            create_taxonomy!(name: ::Faker::Lorem.word, parent: sub_taxonomy)
+          end
+
+          taxonomy = create_taxonomy!(name: "Categories", parent: nil)
+          3.times do
+            sub_taxonomy = create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: taxonomy)
+
+            5.times do
+              create_taxonomy!(name: ::Faker::Lorem.sentence(word_count: 5), parent: sub_taxonomy)
+            end
+          end
+        end
+
         if organization.top_scopes.none?
           province = create_scope_type!(name: "province", plural: "provinces")
           municipality = create_scope_type!(name: "municipality", plural: "municipalities")

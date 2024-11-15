@@ -44,7 +44,7 @@ en:
           destroy:
             confirm: Revoke before date authorizations cannot be undone. Are you sure you want to continue?
             confirm_all: Revoke all the authorizations cannot be undone. Are you sure you want to continue?
-          destroy_nok: There has been a problem while revoking authorizations.
+          destroy_nok: There was a problem while revoking authorizations.
           destroy_ok: All matched authorizations have been revocated successfully.
           info: There are a total of %{count} verified participants.
           no_data: No verified participants.
@@ -158,7 +158,7 @@ en:
         admin:
           census:
             create:
-              error: There was an error importing census.
+              error: There was a problem importing census.
               success: Successfully imported %{count} items (%{errors} errors).
             destroy_all:
               success: All census data have been deleted.

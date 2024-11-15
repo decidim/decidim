@@ -1,3 +1,9 @@
+<% add_decidim_meta_tags(
+  description: translated_attribute(current_participatory_space.short_description),
+  title: component_name,
+  url: debates_url,
+  resource: current_component) %>
+
 <% content_for :aside do %>
   <h1 class="title-decorator"><%= component_name %></h1>
 

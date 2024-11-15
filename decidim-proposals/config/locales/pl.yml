@@ -173,7 +173,6 @@ pl:
               random: Losowo
               recent: Ostatnie
               with_more_authors: Z większą liczbą autorów
-            geocoding_enabled: Włączono geokodowanie
             minimum_votes_per_user: Minimalna liczba głosów na użytkownika
             new_proposal_body_template: Szablon treści nowej propozycji
             new_proposal_body_template_help: Możesz zdefiniować częściowo wypełnioną treść nowej propozycji
@@ -494,10 +493,8 @@ pl:
             success: Status zaktualizowany pomyślnie
         proposals:
           answer:
-            invalid: Wystąpił błąd podczas odpowiadania na tę propozycję.
             success: Odpowiedziano na propozycję.
           create:
-            invalid: Podczas tworzenia tej propozycji wystąpił błąd.
             success: Propozycja została utworzona.
           edit:
             title: Zaktualizuj propozycję
@@ -579,18 +576,14 @@ pl:
             title: Importuj propozycje z innego komponentu
         proposals_merges:
           create:
-            invalid: 'Wystąpił błąd podczas łączenia wybranych propozycji, ponieważ niektóre z nich:'
             success: Pomyślnie połączono propozycje.
         proposals_splits:
           create:
-            invalid: 'Wystąpił błąd podczas dzielenia wybranych propozycji, ponieważ niektóre z nich:'
             success: Pomyślnie podzielono propozycje.
         valuation_assignments:
           create:
-            invalid: Wystąpił błąd podczas przypisywania propozycji do weryfikatora.
             success: Przypisano propozycje do weryfikatora.
           delete:
-            invalid: Wystąpił błąd podczas usuwania przypisania propozycji do weryfikatora.
             success: Anulowano przypisanie weryfikatora do propozycji.
       admin_log:
         proposal:
@@ -784,7 +777,6 @@ pl:
           discard: Porzuć ten szkic
           discard_confirmation: Czy na pewno chcesz porzucić ten szkic propozycji?
           send: Podgląd
-          title: Edytuj szkic propozycji
         edit_form_fields:
           marker_added: Znacznik dodany do mapy.
         filters:

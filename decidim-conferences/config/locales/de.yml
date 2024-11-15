@@ -473,6 +473,8 @@ de:
           name: Hervorgehobene Konferenzen
       index:
         title: Konferenzen
+      last_activity:
+        new_conference: 'Neue Konferenz:'
       mailer:
         conference_registration_mailer:
           confirmation:

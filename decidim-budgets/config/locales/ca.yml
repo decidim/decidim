@@ -20,6 +20,10 @@ ca:
         scope_id: Àmbit
   activerecord:
     models:
+      decidim:
+        budgets:
+          project:
+            text: 'Es va afegir a aquest pressupost: %{link}'
       decidim/budgets/budget:
         one: Pressupost
         other: Pressupostos
@@ -195,6 +199,8 @@ ca:
         vote: Vota
         voted_budgets: Pressupostos votats
         voted_on: Has votat a %{links}.
+      creation:
+        text: Es van afegir a aquest pressupost
       last_activity:
         new_vote_at: Nova votació pressupostària a
       limit_announcement:
@@ -328,7 +334,7 @@ ca:
               errors:
                 budget_voting_rule_only_one: Només s'ha d'activar una norma de votació.
                 budget_voting_rule_required: Es requereix una norma per a la votació.
-            geocoding_enabled: Geolocalització habilitada
+            geocoding_enabled: Mapes habilitats
             landing_page_content: Pàgina d'inici de pressupostos
             more_information_modal: Finestra de "Més informació"
             projects_per_page: Projectes per pàgina

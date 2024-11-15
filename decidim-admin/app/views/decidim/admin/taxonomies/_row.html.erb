@@ -1,0 +1,33 @@
+<tr class="draggable-taxonomy" data-taxonomy-id="<%= taxonomy.id %>" role="row">
+  <td role="cell" class="w-12 js-drag-handle"><%== icon("draggable", class: "dragger") %></td>
+  <td role="cell">
+    <ul class="taxonomy">
+      <li><%= link_to translated_attribute(taxonomy.name), taxonomy.root? ? edit_taxonomy_path(taxonomy) : edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "js-drawer-editor" %></li>
+      <li><%= taxonomy.root? ? taxonomy.children_count : taxonomy.taxonomizations_count %></li>
+      <li class="taxonomy-list__actions"><%= render "taxonomy_actions", taxonomy: %></li>
+    </ul>
+    <% if with_children && taxonomy.children.any? %>
+      <div class="js-sortable js-draggable-<%= taxonomy.id %>"
+           data-draggable-handle=".js-drag-handle"
+           data-draggable-accept-from=".js-draggable-<%= taxonomy.id %>"
+           data-sort-url="<%= reorder_taxonomies_path %>"
+           data-parent-id="<%= taxonomy.id %>">
+        <% taxonomy.children.each do |child| %>
+          <%= render partial: "decidim/admin/taxonomies/row_children", locals: { child:, class_name: "", grandchild: false } %>
+
+          <% if child.children.any? %>
+            <div class="js-sortable js-draggable-<%= child.id %>"
+                 data-draggable-handle=".js-drag-handle"
+                 data-draggable-accept-from=".js-draggable-<%= child.id %>"
+                 data-sort-url="<%= reorder_taxonomies_path %>"
+                 data-parent-id="<%= child.id %>">
+              <% child.children.each do |grandchild| %>
+                <%= render partial: "decidim/admin/taxonomies/row_children", locals: { child: grandchild, class_name: "ml-6", grandchild: true } %>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </td>
+</tr>

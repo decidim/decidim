@@ -6,8 +6,12 @@ module Decidim
     class DecidimType < Decidim::Api::Types::BaseObject
       description "Decidim's framework-related properties."
 
-      field :version, GraphQL::Types::String, "The current decidim's version of this deployment.", null: false
+      field :version, GraphQL::Types::String, "The current decidim's version of this deployment.", null: true
       field :application_name, GraphQL::Types::String, "The current installation's name.", null: false
+
+      def version
+        object.version if Decidim::Api.disclose_system_version
+      end
     end
   end
 end

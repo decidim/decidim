@@ -7,6 +7,7 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Coauthorable
       include Decidim::HasComponent
+      include Decidim::Taxonomizable
       include Decidim::ScopableResource
       include Decidim::HasReference
       include Decidim::HasCategory
@@ -402,17 +403,21 @@ module Decidim
         where(query, value:)
       end
 
-      def self.ransackable_scopes(auth_object = nil)
-        base = [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_scope, :with_any_category]
-        return base unless auth_object&.admin?
-
-        # Add extra scopes for admins for the admin panel searches
-        base + [:valuator_role_ids_has]
+      def self.ransackable_scopes(_auth_object = nil)
+        [:with_any_origin, :with_any_state, :state_eq, :voted_by, :coauthored_by, :related_to, :with_any_taxonomies, :valuator_role_ids_has]
       end
 
       # Create i18n ransackers for :title and :body.
       # Create the :search_text ransacker alias for searching from both of these.
       ransacker_i18n_multi :search_text, [:title, :body]
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(id_string search_text title body is_emendation comments_count proposal_votes_count published_at proposal_notes_count)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(taxonomies proposal_state)
+      end
 
       ransacker :state_published do
         Arel.sql("CASE
@@ -500,10 +505,51 @@ module Decidim
         end
       end
 
+      def user_has_actions?(user)
+        return false if authors.include?(user)
+        return false if user&.blocked?
+        return false if user&.deleted?
+        return false unless user&.confirmed?
+
+        true
+      end
+
+      def actions_for_comment(comment, current_user)
+        return if comment.commentable != self
+        return unless authors.include?(current_user)
+        return unless user_has_actions?(comment.author)
+
+        if coauthor_invitations_for(comment.author).any?
+          [
+            {
+              label: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation"),
+              url: EngineRouter.main_proxy(component).cancel_proposal_invite_coauthors_path(proposal_id: id, id: comment.author.id),
+              icon: "user-forbid-line",
+              method: :delete,
+              data: { confirm: I18n.t("decidim.proposals.actions.cancel_coauthor_invitation_confirm") }
+            }
+          ]
+        else
+          [
+            {
+              label: I18n.t("decidim.proposals.actions.mark_as_coauthor"),
+              url: EngineRouter.main_proxy(component).proposal_invite_coauthors_path(proposal_id: id, id: comment.author.id),
+              icon: "user-add-line",
+              method: :post,
+              data: { confirm: I18n.t("decidim.proposals.actions.mark_as_coauthor_confirm") }
+            }
+          ]
+        end
+      end
+
+      def coauthor_invitations_for(user)
+        Decidim::Notification.where(event_class: "Decidim::Proposals::CoauthorInvitedEvent", resource: self, user:)
+      end
+
       private
 
       def copied_from_other_component?
-        linked_resources(:proposals, "copied_from_component").any?
+        linked_resources(:proposals, %w(splitted_from_component merged_from_component copied_from_component)).any?
       end
     end
   end

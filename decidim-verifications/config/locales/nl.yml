@@ -99,9 +99,6 @@ nl:
         start_exploring: begin met verkennen
       csv_census:
         admin:
-          census:
-            create:
-              error: Er is een fout opgetreden bij het importeren van census.
           destroy:
             title: Verwijder alle censusgegevens
           index:

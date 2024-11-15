@@ -1,0 +1,22 @@
+<div id="js-apply-answer-template-actions" class="hide js-bulk-action-form">
+  <%= form_tag(update_multiple_answers_proposals_path, method: :post, id: "js-form-apply-answer-template", class: "form form-defaults flex items-center gap-x-2") do %>
+    <div class="hide">
+      <% proposals.each do |proposal| %>
+        <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-proposal js-proposal-id-#{proposal.id}" %>
+      <% end %>
+    </div>
+    <%= hidden_field_tag :template_id %>
+
+    <%= bulk_templates_select(
+          current_component,
+          templates.present? ?
+            t("apply_answer_template", scope: "decidim.proposals.admin.proposals.index") :
+            t("no_templates_available", scope: "decidim.proposals.admin.proposals.index"),
+          id: "template_id_select"
+        ) %>
+
+    <%= submit_tag(t("decidim.proposals.admin.proposals.index.update"), id: "js-submit-apply-answer-template", class: "button button__sm button__secondary small button--simple float-left") %>
+
+    <button id="js-cancel-apply-answer-template" class="button button__sm button__secondary button__sm button__secondary js-cancel-bulk-action" type="button"><%= t("decidim.proposals.admin.proposals.index.cancel") %></button>
+  <% end %>
+</div>

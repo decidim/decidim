@@ -39,7 +39,7 @@ es:
         is_transparent: Es transparente
         local_area: Área de organización
         meta_scope: Metadatos de ámbito
-        parent_id: Asamblea principal
+        parent_id: Asamblea madre
         participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
@@ -235,7 +235,7 @@ es:
           positions:
             other: Otro
             president: Presidencia
-            secretary: Secretaria
+            secretary: Secretaría
             vice_president: Vicepresidencia
         assembly_user_role:
           fields:
@@ -291,9 +291,10 @@ es:
             select_a_created_by: Selecciona una creadora
             select_an_area: Selecciona un área
             select_an_assembly_type: Selecciona un tipo de asamblea
-            select_parent_assembly: Selecciona una asamblea principal
+            select_parent_assembly: Selecciona una asamblea madre
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
             social_handlers: Social
+            taxonomies: Taxonomías
             title: Información general
             visibility: Visibilidad
         assemblies_types:

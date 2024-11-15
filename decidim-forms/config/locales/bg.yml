@@ -22,8 +22,6 @@ bg:
             choices:
               missing: не са завършени
               too_many: Можете да изберете максимум %{count}.
-        questionnaire:
-          request_invalid: Възникна грешка при обработката на заявката. Моля, опитайте отново.
   decidim:
     forms:
       admin:

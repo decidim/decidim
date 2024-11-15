@@ -91,9 +91,6 @@ zh-CN:
         start_exploring: 开始探索中
       csv_census:
         admin:
-          census:
-            create:
-              error: 导入普查时出错。
           destroy:
             title: 删除所有普查数据
           index:

@@ -13,7 +13,7 @@
     <%= form_required_explanation %>
   </div>
 
-  <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: omniauth_registrations_path(resource_name)) do |f| %>
+  <%= decidim_form_for(@form, namespace: "registration", as: resource_name, url: decidim.omniauth_registrations_path(resource_name), html: { id: "omniauth-register-form" }) do |f| %>
 
     <div class="form__wrapper">
       <%= f.text_field :name, help_text: t("decidim.devise.omniauth_registrations.new.username_help"), autocomplete: "name", placeholder: "John Doe" %>
@@ -21,6 +21,8 @@
       <%= f.text_field :nickname, help_text: t("decidim.devise.omniauth_registrations.new.nickname_help", organization: current_organization_name), autocomplete: "nickname", placeholder: "johndoe" %>
 
       <%= f.email_field :email, autocomplete: "email", placeholder: t("placeholder_email", scope: "decidim.devise.shared") %>
+
+      <%= render partial: "decidim/devise/shared/tos_fields", locals: { form: f, user: :user } %>
 
       <%= f.hidden_field :uid %>
       <%= f.hidden_field :provider %>
@@ -35,3 +37,5 @@
     </div>
   <% end %>
 <% end %>
+
+<%= render "decidim/devise/shared/newsletter_modal" %>

@@ -19,6 +19,7 @@ en:
         automatic_hashtags: Hashtags automatically added
         body: Body
         category_id: Category
+        decidim_proposals_proposal_state_id: State
         decidim_scope_id: Scope
         has_address: Has address
         scope_id: Scope
@@ -91,6 +92,16 @@ en:
       decidim/proposals/voting_enabled_event: Proposal voting enabled
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: The proposal %{link} was created
+            import_from_proposal_text: 'It became this proposal: %{link}'
+            import_to_proposal_text: This proposal %{link} was created
+            merge_from_proposal_text: 'It became this proposal: %{link}'
+            merge_to_proposal_text: 'This proposal was created: %{link}'
+            split_from_proposal_text: 'It became this proposal: %{link}'
+            split_to_proposal_text: 'This proposal was created: %{link}'
       decidim/proposals/collaborative_draft:
         one: Collaborative draft
         other: Collaborative drafts
@@ -107,8 +118,6 @@ en:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Category
           is_emendation_true:
             label: Type
             values:
@@ -116,8 +125,6 @@ en:
               'true': Amendments
           proposal_state_id_eq:
             label: State
-          scope_id_eq:
-            label: Scope
           state_eq:
             label: State
             values:
@@ -128,6 +135,8 @@ en:
               rejected: Rejected
               validating: Technical validation
               withdrawn: Withdrawn
+          taxonomies_part_of_contains:
+            label: Taxonomy
           valuator_role_ids_has:
             label: Assigned to valuator
           with_any_state:
@@ -137,6 +146,9 @@ en:
               state_published: Answered
         search_placeholder:
           id_string_or_title_cont: Search %{collection} by ID or title.
+    application:
+      geocoding:
+        not_configured: Geocoding is not configured!
     components:
       proposals:
         actions:
@@ -157,6 +169,7 @@ en:
             attachments_allowed: Allow attachments
             attachments_allowed_help: By enabling this option, proposals will default to grid mode, and the first image will appear on the card.
             can_accumulate_votes_beyond_threshold: Can accumulate votes beyond threshold
+            clear_all: Clear all
             collaborative_drafts_enabled: Collaborative drafts enabled
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
@@ -171,16 +184,18 @@ en:
               random: Random
               recent: Recent
               with_more_authors: With more authors
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             edit_time: Proposals can be edited by authors before this much time passes
             edit_time_units:
               days: Days
               hours: Hours
               minutes: Minutes
-            geocoding_enabled: Geocoding enabled
+            geocoding_enabled: Maps enabled
             minimum_votes_per_user: Minimum votes per user
             new_proposal_body_template: New proposal body template
             new_proposal_body_template_help: You can define prefilled text that the new Proposals will have
             new_proposal_help_text: New proposal help text
+            no_taxonomy_filters_found: No taxonomy filters found.
             official_proposals_enabled: Official proposals enabled
             participatory_texts_enabled: Participatory texts enabled
             participatory_texts_enabled_readonly: Cannot interact with this setting if there are existing proposals. Please, create a new `Proposals component` if you want to enable this feature or discard all imported proposals in the `Participatory Texts` menu if you want to disable it.
@@ -200,6 +215,8 @@ en:
             resources_permissions_enabled: Actions permissions can be set for each proposal
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
             threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per participant
           step:
@@ -240,8 +257,14 @@ en:
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
+    download_your_data:
+      show:
+        proposal_comments: Proposal comments export
+        proposals: Proposals export
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: You have been added as a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         admin:
           proposal_assigned_to_valuator:
             email_intro: You have been assigned as a valuator to the proposal "%{resource_title}". This means you have been trusted to give them feedback and a proper response in the next coming days. Check it out at <a href="%{admin_proposal_info_url}">the admin panel</a>.
@@ -263,6 +286,18 @@ en:
             email_outro: You have received this notification because you are the author of the note.
             email_subject: "%{author_name} has replied your private note in %{resource_title}."
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> has replied your private note in <a href="%{resource_path}">%{resource_title}</a>. Check it out at <a href="%{admin_proposal_info_path}">the admin panel</a>.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> has accepted your invitation to become a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
+        coauthor_invited:
+          actions:
+            accept: Accept
+            decline: Decline
+          email_intro: 'You have been invited to be a co-author of the proposal "%{resource_title}". You can accept or decline the invitation in this page:'
+          email_outro: You have received this notification because the author of the proposal wants to recognize your contributions by becoming a co-author.
+          email_subject: You have been invited to be a co-author of the proposal "%{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name}</a> would like to invite you as a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> has declined your invitation to become a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} has been accepted to access as a contributor of the <a href="%{resource_url}">%{resource_title}</a> collaborative draft.'
           email_outro: You have received this notification because you are a collaborator of <a href="%{resource_url}">%{resource_title}</a>.
@@ -340,6 +375,8 @@ en:
           email_outro: You have received this notification because you are the author of the proposal.
           email_subject: The %{resource_title} proposal scope has been updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal scope has been updated by an admin.
+        rejected_coauthorship:
+          notification_title: You have declined the invitation from <a href="%{author_path}">%{author_name}</a> to become a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
           email_intro: 'You can vote proposals in %{participatory_space_title}! Start participating in this page:'
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
@@ -397,6 +434,48 @@ en:
         description: Number of votes to proposals
         object: votes
         title: Votes
+    open_data:
+      help:
+        proposal_comments:
+          alignment: If this comment was a favour, against or neutral
+          author: The name of the participant that made this comment
+          body: The comment itself
+          commentable_id: The unique id of the commentable
+          commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
+          created_at: The date when this comment was created
+          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          id: The id for this comment
+          locale: The locale (language) that the participant had when leaving this comment
+          root_commentable_url: The URL of the resource that ties to this comment
+          user_group: The name of the user group that made this comment (if any)
+        proposals:
+          address: The address of the proposal in case the proposal has a physical location
+          answer: The answer to the proposal in the case it has been answered
+          answered_at: The date when this proposal was answered
+          attachments: The number of attachments this proposal has
+          author: The data for the author of this proposal
+          body: The proposal body
+          comments: The number of comments this proposal has
+          component: The component that the proposal belongs to
+          endorsements: The number of endorsements ("likes") this proposal has
+          followers: The number of followers this proposal has
+          id: The unique identifier for the proposal
+          is_amend: Wheter this proposal is ammedning another proposal
+          latitude: The latitude of the proposal in case it has a physical location
+          longitude: The longitude of the proposal in case it has a physical location
+          meeting_urls: The URLs of the meetings where this proposal was presented or discussed in
+          original_proposal: The reference of the original proposal if this is an amendment
+          participatory_space: To which space (e.g. Participatory Process, or Assembly) this proposal belongs to
+          published_at: The date when this proposal was published
+          reference: The unique identifier of the resource in this platform
+          related_proposals: The proposals related to this proposal
+          state: The status of this proposal (e.g. "Accepted")
+          taxonomies: The taxonomies that this proposal belongs to
+          title: The proposal title
+          url: The URL where this proposal can be found
+          votes: The number of votes this proposal has
+          withdrawn: Wheter this proposal has been withdrawn
+          withdrawn_at: When this proposal was withdrawn
     participatory_spaces:
       highlighted_proposals:
         last: Last proposals
@@ -404,11 +483,15 @@ en:
     proposals:
       actions:
         answer_proposal: Answer proposal
+        cancel_coauthor_invitation: Cancel co-author invitation
+        cancel_coauthor_invitation_confirm: Are you sure you want to cancel the co-author invitation?
         delete_proposal_state_confirm: Are you sure you want to delete this state?
         destroy: Delete state
         edit_proposal: Edit proposal
         edit_proposal_state: Edit state
         import: Import proposals from another component
+        mark_as_coauthor: Mark as co-author
+        mark_as_coauthor_confirm: Are you sure you want to mark this user as a co-author? The receiver will receive a notification to accept or decline the invitation.
         new: New proposal
         new_proposal_state: New status
         participatory_texts: Participatory texts
@@ -522,10 +605,12 @@ en:
             success: Status updated successfully
         proposals:
           answer:
-            invalid: There has been a problem answering this proposal.
+            bulk_answer_error: Proposals with IDs [%{proposals}] could not be answered due errors applying the template "%{template}". You can check that the answer template matches the expected format for this component by applying it individually.
+            bulk_answer_success: '%{count} proposals will be answered using the template "%{template}". Please wait a few minutes and refresh the page to see the updates.'
+            invalid: There was a problem answering this proposal.
             success: Proposal successfully answered.
           create:
-            invalid: There has been a problem creating this proposal.
+            invalid: There was a problem creating this proposal.
             success: Proposal successfully created.
           edit:
             title: Update proposal
@@ -534,10 +619,10 @@ en:
             attachment_legend: "(Optional) Add an attachment"
             created_in_meeting: This proposal comes from a meeting
             delete_attachment: Delete attachment
-            select_a_category: Select a category
             select_a_meeting: Select a meeting
           index:
             actions: Actions
+            apply_answer_template: Apply answer template
             assign_to_valuator: Assign to valuator
             assign_to_valuator_button: Assign
             cancel: Cancel
@@ -545,6 +630,7 @@ en:
             change_scope: Change scope
             merge: Merge into a new one
             merge_button: Merge
+            no_templates_available: No templates available
             publish: Publish
             publish_answers: Publish answers
             select_component: Select a component
@@ -605,18 +691,18 @@ en:
             title: Import proposals from another component
         proposals_merges:
           create:
-            invalid: 'There has been a problem merging the selected proposals because some of them:'
+            invalid: 'There was a problem merging the selected proposals because some of them:'
             success: Successfully merged the proposals into a new one.
         proposals_splits:
           create:
-            invalid: 'There has been a problem splitting the selected proposals because some of them:'
+            invalid: 'There was a problem splitting the selected proposals because some of them:'
             success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
-            invalid: There was an error assigning proposals to a valuator.
+            invalid: There was a problem assigning proposals to a valuator.
             success: Proposals assigned to a valuator successfully.
           delete:
-            invalid: There was an error unassigning proposals from a valuator.
+            invalid: There was a problem unassigning proposals from a valuator.
             success: Valuator unassigned from proposals successfully.
       admin_log:
         proposal:
@@ -673,7 +759,6 @@ en:
         edit:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
-          select_a_category: Please select a category
           send: Send
           title: Edit collaborative draft
         empty: There are no collaborative drafts yet
@@ -725,7 +810,7 @@ en:
             error: Could not be rejected as a collaborator, please try again later.
             success: "@%{user} has been successfully rejected as a collaborator."
         show:
-          edit: Edit collaborative draft
+          edit: Edit
           final_proposal: Final proposal
           final_proposal_help_text: This draft is finished. Check out the final proposal
           hidden_authors_count:
@@ -755,24 +840,46 @@ en:
       create:
         error: There was a problem saving the proposal.
         success: Proposal successfully created. Saved as a Draft.
+      creation:
+        imported_text: It became this proposal
+        merged_text: They became this proposal
+        splitted_text: It became this proposal
+        text: This proposal was created
       destroy_draft:
         error: There was a problem deleting the collaborative draft.
         success: Proposal draft was successfully deleted.
+      forms:
+        errors:
+          device_not_supported: Your device does not support location services. Please enter the address manually.
+          no_device_location: Sorry, we could not detect your location. Please enter the address manually.
+        use_my_location: Use my current location
+      invite_coauthors:
+        cancel:
+          error: There was a problem canceling the co-author invitation.
+          success: Co-author invitation successfully canceled.
+        create:
+          error: There was a problem inviting the co-author.
+          success: "%{author_name} successfully invited as a co-author."
+        destroy:
+          error: There was a problem declining the invitation.
+          success: The invitation has been declined.
+        update:
+          error: There was a problem accepting the invitation.
+          success: The invitation has been accepted.
       last_activity:
         new_proposal: 'New proposal:'
         proposal_updated: 'Proposal updated:'
       models:
         proposal:
           fields:
-            category: Category
             comments: Comments
             id: ID
             notes: Notes
             official_proposal: Official proposal
             published_answer: Published answer
             published_at: Published at
-            scope: Scope
             state: Status
+            taxonomies: Taxonomies
             title: Title
             valuator: Valuator
             valuators: Valuators
@@ -799,14 +906,13 @@ en:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
           edit_documents: Edit documents
-          select_a_category: Please select a category
           send: Send
           title: Edit proposal
         edit_draft:
           discard: Discard this draft
           discard_confirmation: Are you sure you want to discard this proposal draft?
           send: Preview
-          title: Edit Proposal Draft
+          title: Edit proposal draft
         edit_form_fields:
           marker_added: Marker added to the map.
         filters:
@@ -820,6 +926,7 @@ en:
           scope: Scope
           search: Search
           state: Status
+          taxonomy_filters: Filters
           type: Type
           voted: Voted
         index:
@@ -866,7 +973,7 @@ en:
         show:
           answer: Answer
           changes_at_title: Amendment to "%{title}"
-          edit_proposal: Edit proposal
+          edit_proposal: Edit
           estimated_cost: Estimated cost
           hidden_endorsers_count:
             one: and %{count} more person
@@ -882,7 +989,7 @@ en:
           proposal_rejected_reason: 'This proposal has been rejected because:'
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any vote. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation_html: Are you sure you want to withdraw this proposal?<br><br><strong>This action cannot be cancelled!</strong>
-          withdraw_proposal: Withdraw proposal
+          withdraw_proposal: Withdraw
         update:
           title: Update proposal
         vote_button:

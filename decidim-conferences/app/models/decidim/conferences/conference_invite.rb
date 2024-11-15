@@ -22,6 +22,16 @@ module Decidim
         Decidim::Conferences::AdminLog::InvitePresenter
       end
 
+      def self.ransackable_attributes(auth_object = nil)
+        return [] unless auth_object&.admin?
+
+        %w(accepted_at rejected_at sent_at)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(user)
+      end
+
       def self.user_collection(user)
         where(decidim_user_id: user.id)
       end

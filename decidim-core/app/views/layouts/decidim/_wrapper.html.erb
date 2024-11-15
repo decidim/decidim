@@ -20,16 +20,16 @@ end
       <%= render partial: "layouts/decidim/header/main" %>
     </div>
     <div id="menu-bar-container">
-      <% if display_flash_messages.present? %>
-        <div id="flash-messages-container" class="container">
-          <%= display_flash_messages %>
-        </div>
-      <% end %>
       <%= render partial: "layouts/decidim/header/menu" unless controller_name == "homepage" %>
     </div>
   </header>
 
   <div id="content" data-content>
+    <% if display_flash_messages.present? %>
+      <div id="flash-messages-container" class="container">
+        <%= display_flash_messages %>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 
