@@ -1311,6 +1311,24 @@ fr-CA:
         message_2: Veuillez réessayer plus tard.
         retry: Réessayer
     open_data:
+      help:
+        moderated_users:
+          about: Le champ "A propos" de l'utilisateur
+          block_reasons: La raison pour laquelle l'administrateur a bloqué l'utilisateur
+          blocked_at: Date et heure auxquelles l'utilisateur a été bloqué
+          blocking_user: Le nom de l'utilisateur qui a effectué le blocage
+          details: Les détails des signalements
+          reasons: Une liste des raisons pour lesquelles le profil a été signalé
+          user_id: L'identifiant unique de l'utilisateur signalé
+        moderations:
+          hidden_at: Date et heure auxquelles le contenu a été masqué
+          id: L'identifiant unique de la modération
+          report_count: Le nombre de fois où il a été signalé
+          reportable_id: L'identifiant unique du signalement
+          reportable_type: Type du signalement
+          reported_content: Le contenu qui a été signalé
+          reported_url: L'url de la ressource signalée
+          reports: Une liste des raisons pour lesquelles la ressource a été signalée
       index:
         description: Bienvenue sur la page sur les données ouvertes de %{organization_name}. Ici, vous trouverez des fichiers de données qui sont régulièrement générés à partir de divers processus de délibération et de gouvernance au sein de %{organization_name}. Ces dossiers sont mis à disposition pour promouvoir la transparence, l'accessibilité et la collaboration. Ci-dessous, vous trouverez des informations détaillées sur ce que sont ces fichiers, comment les ouvrir et travailler avec, et une description du contenu et de la structure de chaque fichier.
         detailed:
