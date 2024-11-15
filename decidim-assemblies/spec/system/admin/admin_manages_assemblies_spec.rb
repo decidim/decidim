@@ -25,7 +25,7 @@ describe "Admin manages assemblies" do
 
       it "hides the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).to have_content("Private participants")
+          expect(page).to have_content("Members")
         end
       end
     end
@@ -35,7 +35,7 @@ describe "Admin manages assemblies" do
 
       it "shows the private user menu entry" do
         within_admin_sidebar_menu do
-          expect(page).to have_no_content("Private participants")
+          expect(page).to have_no_content("Members")
         end
       end
     end
