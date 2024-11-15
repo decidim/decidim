@@ -470,7 +470,6 @@ ca:
           participatory_structure: L'estructura participativa de l'assemblea
           promoted: Si l'assemblea està destacada o no
           purpose_of_action: El propòsit de l'acció de l'assemblea
-          reference: La referència de l'assemblea. Un identificador únic per a aquesta plataforma.
           remote_banner_image_url: L'URL de la imatge de capçalera (imatge principal) de l'assemblea
           remote_hero_image_url: L'URL de la imatge principal de l'assemblea
           scope: L'àmbit territorial de l'assemblea
