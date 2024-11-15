@@ -62,15 +62,15 @@ module Decidim
 
       def styles
         {
-          h1: { font: composer.document.fonts.add(font_family, variant: :bold), font_size: 18, margin: [0, 0, 10, 0] },
-          th: { font: composer.document.fonts.add(font_family, variant: :bold), font_size: 10, margin: [0, 0, 10, 0] },
-          td: { font: composer.document.fonts.add(font_family), font_size: 10, margin: [0, 0, 10, 0] },
-          description: { font: composer.document.fonts.add(font_family), margin: [0, 0, 10, 0], font_size: 10 },
-          section_title: { font: composer.document.fonts.add(font_family, variant: :bold), margin: [15, 0, 15, 0], font_size: 16 },
-          question_title: { font: composer.document.fonts.add(font_family, variant: :bold), margin: [10, 0, 10, 0], font_size: 12 },
-          question_answer: { font: composer.document.fonts.add(font_family), margin: [10, 0, 10, 0], font_size: 10 },
-          file_info: { font: composer.document.fonts.add(font_family), margin: [10, 0, 10, 0], font_size: 8 },
-          link: { font: composer.document.fonts.add(font_family), margin: [10, 0, 10, 0], font_size: 10, underline: true }
+          h1: { font: bold_font, font_size: 18, margin: [0, 0, 10, 0] },
+          th: { font: bold_font, font_size: 10, margin: [0, 0, 10, 0] },
+          td: { font: , font_size: 10, margin: [0, 0, 10, 0] },
+          description: { font: , margin: [0, 0, 10, 0], font_size: 10 },
+          section_title: { font: bold_font, margin: [15, 0, 15, 0], font_size: 16 },
+          question_title: { font: bold_font, margin: [10, 0, 10, 0], font_size: 12 },
+          question_answer: { font: , margin: [10, 0, 10, 0], font_size: 10 },
+          file_info: { font: , margin: [10, 0, 10, 0], font_size: 8 },
+          link: { font:, margin: [10, 0, 10, 0], font_size: 10, underline: true }
         }
       end
 

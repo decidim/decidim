@@ -23,8 +23,20 @@ module Decidim
       end
 
       protected
+      delegate :document, to: :composer
+      delegate :layout, to: :document
 
-      def layout = composer.document.layout
+      def font
+        @font = load_font("source-sans-pro-v21-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-regular.ttf")
+      end
+
+      def bold_font
+        @bold_font = load_font("source-sans-pro-v21-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-700.ttf")
+      end
+
+      def load_font(path)
+        document.fonts.add(Decidim::Core::Engine.root.join("app/packs/fonts/decidim/").join(path))
+      end
 
       def composer
         @composer ||= ::HexaPDF::Composer.new
@@ -33,8 +45,6 @@ module Decidim
       def add_data!
         raise NotImplementedError
       end
-
-      def font_family = "Helvetica"
 
       def styles = {}
     end
