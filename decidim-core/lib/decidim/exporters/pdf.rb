@@ -23,6 +23,7 @@ module Decidim
       end
 
       protected
+
       delegate :document, to: :composer
       delegate :layout, to: :document
 
