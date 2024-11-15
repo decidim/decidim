@@ -476,7 +476,6 @@ cs:
           participatory_structure: Participační struktura shromáždění
           promoted: Zda je shromáždění propagováno, nebo ne
           purpose_of_action: Účel konání shromáždění
-          reference: Odkaz na shromáždění. Jedinečný identifikátor pro tuto platformu.
           remote_banner_image_url: URL obrázku banneru shromáždění
           remote_hero_image_url: URL obrázku předáka shromáždění
           scope: Rozsah shromáždění
