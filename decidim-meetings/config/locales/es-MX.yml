@@ -174,6 +174,10 @@ es-MX:
             comments_blocked: Comentarios bloqueados
             creation_enabled_for_participants: Habilitar la creación de encuentros por parte de las participantes
             creation_enabled_for_user_groups: Habilitar la creación de encuentros por parte de los grupos de usuarias
+    download_your_data:
+      show:
+        meeting_comments: Exportar los comentarios en los encuentros
+        meetings: Exportar los encuentros
     events:
       meetings:
         meeting_closed:
