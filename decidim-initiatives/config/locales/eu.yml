@@ -611,12 +611,9 @@ eu:
           answered_at: Erantzunaren data (balego)
           area: Ekimen honen arloa
           authors: Ekimen honen egileak
-          created_at: Zein datatan sortu zen ekimen hau
           description: Ekimenaren deskribapena
           first_progress_notification_at: Zein datatan bidali zen aurrerapenaren lehen jakinarazpena?
           hashtag: Ekimenaren traola, Twitter/Xerako erabilia
-          published_at: Zein datatan argitaratu zen ekimen hau
-          reference: Ekimenaren erreferentzia. Identifikatzaile bakarra plataforma honetarako.
           scope: Ekimenaren esparrua
           second_progress_notification_at: Zein datatan bidali zen aurrerapenaren bigarren jakinarazpena
           signature_end_date: Zein datatan amaitzen da sinadura biltzeko epea
