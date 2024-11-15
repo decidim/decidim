@@ -43,6 +43,23 @@ module Decidim
           }
         }
       end
+
+      context "when participatory_spaces ARE private but transparent" do
+        it "does NOT indexes a SearchableResource after ParticipatorySpace update" do
+          participatory_space.update(published_at: Time.current, private_space: true)
+          organization.available_locales.each do |locale|
+            searchables = Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale:)
+            expect(searchables.size).to eq(0)
+          end
+
+          participatory_space.update(published_at: Time.current, private_space: true, is_transparent: true)
+          organization.available_locales.each do |locale|
+            searchables = Decidim::SearchableResource.where(resource_type: participatory_space.class.name, resource_id: participatory_space.id, locale:)
+            expect(searchables.size).to eq(1)
+            expect(searchables.first.content_a).to eq(I18n.transliterate(translated(participatory_space.title, locale:)))
+          end
+        end
+      end
     end
   end
 end
