@@ -93,6 +93,16 @@ sudo apt install wkhtmltopdf
 
 You can read more about this change on PR [#13616](https://github.com/decidim/decidim/pull/13616).
 
+### 2.6. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
+
+When a user deleted their account, we mistakenly retained some metadata, such as the personal_url and about fields. Going forward, these fields will be automatically cleared upon deletion. To fix this issue for previously deleted accounts, we've added a new rake task that should be run on your production database.
+
+```ruby
+bin/rails decidim:upgrade:clean:clean_deleted_users
+```
+
+You can read more about this change on PR [#13624](https://github.com/decidim/decidim/pull/13624).
+
 ## 3. One time actions
 
 ### 3.1. Verifications documents configurations
