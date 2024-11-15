@@ -81,7 +81,7 @@ module Decidim
       end
 
       def order
-        options[:order] || "older"
+        options[:order]
       end
 
       def decidim
