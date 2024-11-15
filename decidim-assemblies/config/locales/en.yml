@@ -190,7 +190,7 @@ en:
           info: About this assembly
           landing_page: Landing page
           moderations: Moderations
-          private_users: Private participants
+          private_users: Members
           see_assembly: See assembly
         assemblies_types: Assemblies types
       models:
@@ -322,7 +322,7 @@ en:
           title: About this assembly
       assembly_members:
         index:
-          members: Private participants
+          members: Members
       assembly_types:
         commission: Comission
         consultative_advisory: Consultative/Advisory
@@ -477,4 +477,4 @@ en:
             one: "%{count} assemblies"
             other: "%{count} assemblies"
       assembly_navigation:
-        assembly_member_menu_item: Private participants
+        assembly_member_menu_item: Members

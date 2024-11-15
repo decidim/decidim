@@ -128,7 +128,7 @@ en:
           info: About this process
           landing_page: Landing page
           moderations: Moderations
-          private_users: Private participants
+          private_users: Members
           process_admins: Process admins
           steps: Phases
       models:
@@ -461,7 +461,7 @@ en:
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
-            private_notice: You will be able to manage private participants after setting it as private
+            private_notice: You will be able to manage members after setting it as private
             related_processes: Related processes
             scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
             select_an_area: Select an Area
