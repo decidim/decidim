@@ -8,7 +8,7 @@ module Decidim
       class UpdateImportedResult < Decidim::Commands::UpdateResource
         include Decidim::Accountability::Admin::HasResultCommand
 
-        fetch_form_attributes :scope, :category, :title, :description, :start_date, :end_date, :progress,
+        fetch_form_attributes :taxonomizations, :title, :description, :start_date, :end_date, :progress,
                               :decidim_accountability_status_id, :external_id, :weight
 
         # Initializes an UpdateImportedResult Command.

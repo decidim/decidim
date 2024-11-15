@@ -11,15 +11,13 @@ module Decidim
     include FormFactory
     include Messaging::ConversationHelper
     include HasProfileBreadcrumb
+    include AjaxPermissionHandler
 
     before_action :authenticate_user!
     before_action :ensure_profile_manager
 
     helper Decidim::ResourceHelper
     helper_method :user, :conversations, :conversation
-
-    # overwrite original rescue_from to ensure we print messages from ajax methods (update)
-    rescue_from Decidim::ActionForbidden, with: :ajax_user_has_no_permission
 
     def index
       enforce_permission_to :list, :conversation, interlocutor: user
@@ -93,14 +91,6 @@ module Decidim
     end
 
     private
-
-    # Rescue ajax calls and print the update.js view which prints the info on the message ajax form
-    # Only if the request is AJAX, otherwise behave as Decidim standards
-    def ajax_user_has_no_permission
-      return user_has_no_permission unless request.xhr?
-
-      render_unprocessable_entity I18n.t("actions.unauthorized", scope: "decidim.core")
-    end
 
     def render_unprocessable_entity(message)
       render action: :update, locals: { error: message }, status: :unprocessable_entity

@@ -10,9 +10,9 @@ module Decidim::Accountability
     let(:user) { create(:user, organization:) }
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
-    let(:scope) { create(:scope, organization:) }
-    let(:category) { create(:category, participatory_space: participatory_process) }
-
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
     let(:start_date) { Date.yesterday }
     let(:end_date) { Date.tomorrow }
     let(:status) { create(:status, component: current_component, key: "ongoing", name: { en: "Ongoing" }) }
@@ -57,8 +57,7 @@ module Decidim::Accountability
         description: { en: "description" },
         proposal_ids: proposals.map(&:id),
         project_ids: projects.map(&:id),
-        scope:,
-        category:,
+        taxonomizations:,
         start_date:,
         end_date:,
         decidim_accountability_status_id: status.id,
@@ -86,20 +85,15 @@ module Decidim::Accountability
         expect { subject.call }.to change(Result, :count).by(1)
       end
 
-      it "sets the scope" do
+      it "sets the taxonomies" do
         subject.call
-        expect(result.scope).to eq scope
+        expect(result.taxonomizations).to eq taxonomizations
       end
 
       it "creates a new version for the result", versioning: true do
         subject.call
         expect(result.versions.count).to eq 1
         expect(result.versions.last.whodunnit).to eq user.to_gid.to_s
-      end
-
-      it "sets the category" do
-        subject.call
-        expect(result.category).to eq category
       end
 
       it "sets the component" do

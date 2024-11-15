@@ -6,6 +6,7 @@ module Decidim
   # component that spans over several steps.
   class Component < ApplicationRecord
     include HasSettings
+    include HasTaxonomySettings
     include Publicable
     include Traceable
     include Loggable
@@ -102,6 +103,7 @@ module Decidim
     end
 
     def private_non_transparent_space?
+      return false unless participatory_space.respond_to?(:private_space?)
       return false unless participatory_space.private_space?
 
       if participatory_space.respond_to?(:is_transparent?)
