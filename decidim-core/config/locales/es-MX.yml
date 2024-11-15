@@ -167,6 +167,7 @@ es-MX:
         error: Se ha producido un error al eliminar tu cuenta.
         success: Tu cuenta se ha eliminado correctamente.
       download_your_data_export:
+        export_expired: La exportación ha caducado. Intenta generar una nueva exportación.
         file_no_exists: El archivo no existe
         notice: La descarga de tus datos está en curso. Recibirás un correo electrónico cuando se complete.
       email_change:
@@ -681,6 +682,17 @@ es-MX:
     download_your_data:
       export:
         ready: Listo
+      show:
+        action: Acción
+        download: Descargar
+        download_data: Área de descargas
+        download_data_description_1: Aquí puedes encontrar todas las descargas disponibles para tu cuenta. Estos archivos .zip estarán disponibles durante dos semanas antes de ser eliminados.
+        download_data_description_2: Puedes solicitar un archivo .zip con tus contribuciones e información personal.
+        download_your_data: Datos personales
+        expiration: Fecha de caducidad
+        expired: Ha caducado
+        request_data: Solicitar
+        type: Tipo de descarga
     editor_images:
       create:
         error: Error al cargar la imagen.
@@ -871,6 +883,10 @@ es-MX:
           notification_title: La participante %{name} (%{nickname}) ha sido oficializada.
     export_mailer:
       download_your_data_export:
+        click_button_html: Haz clic en el siguiente enlace para descargar tus datos.<br/>El archivo estará disponible para su descarga hasta el %{date}.
+        download: Descargar
+      export:
+        click_button_html: Tu descarga está lista. <br/>El archivo estará disponible para su descarga hasta el %{date}.
         download: Descargar
       subject: Su exportación "%{name}" está lista
     filters:
@@ -1331,6 +1347,23 @@ es-MX:
           main: Núcleo
           spaces: Espacios
           title: Archivos de datos abiertos de %{organization}
+        moderated_users:
+          about: El texto "Acerca de" incluido en el perfil de usuaria
+          block_reasons: La razón por la que administradora bloqueó a la usuaria
+          blocked_at: Fecha y hora en que la se bloqueó a la usuaria
+          blocking_user: El nombre de usuaria de la administradora que realizó el bloqueo
+          details: Los detalles de los informes de moderación
+          reasons: Una lista de las razones por las que se ha reportado el perfil de usuaria
+          user_id: El ID único de la usuaria reportada
+        moderations:
+          hidden_at: Fecha y hora en que se ocultó el contenido
+          id: El identificador único de la moderación
+          report_count: El número de veces que ha sido reportada
+          reportable_id: El identificador único de aquello que se podía reportar
+          reportable_type: Tipo de contenido reportado
+          reported_content: El contenido que fue reportado
+          reported_url: La URL del recurso que fue reportado
+          reports: Una lista de las razones por las que fue reportado el recurso
         user_groups:
           avatar_url: El avatar del grupo de usuarias
           badge: La insignia del grupo de usuarias
