@@ -268,6 +268,10 @@ es-MX:
             taxonomy_filters_add: Añadir un filtro
           step:
             comments_blocked: Comentarios bloqueados
+    download_your_data:
+      show:
+        result_comments: Exportar los comentarios a los resultados
+        results: Exportar los resultados
     events:
       accountability:
         proposal_linked:
