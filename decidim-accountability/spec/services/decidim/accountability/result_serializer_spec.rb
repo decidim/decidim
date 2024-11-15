@@ -95,8 +95,12 @@ module Decidim
           expect(serialized).to include(updated_at: result.updated_at)
         end
 
-        it "serializes the the children count" do
+        it "serializes the children count" do
           expect(serialized).to include(children_count: result.children_count)
+        end
+
+        it "serializes the comments count" do
+          expect(serialized).to include(comments_count: result.comments_count)
         end
       end
     end

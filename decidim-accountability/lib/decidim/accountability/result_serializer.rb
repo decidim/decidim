@@ -40,7 +40,8 @@ module Decidim
           component: { id: component.id },
           proposal_urls: proposals,
           reference: result.reference,
-          children_count: result.children_count
+          children_count: result.children_count,
+          comments_count: result.comments_count
         }
       end
 
