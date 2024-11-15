@@ -363,6 +363,9 @@ es-MX:
               disabled: Votación deshabilitada
               enabled: Votación habilitada
               finished: Votación finalizada
+    download_your_data:
+      show:
+        projects: Exportar los proyectos
     events:
       budgets:
         budget_published:
