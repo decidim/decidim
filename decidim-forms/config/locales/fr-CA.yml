@@ -28,6 +28,7 @@ fr-CA:
     download_your_data:
       show:
         answers: Export des réponses
+        survey_user_answers: Réponses à l'enquête
     forms:
       admin:
         models:
