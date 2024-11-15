@@ -306,7 +306,7 @@ en:
           root_commentable_url: The URL of the resource that ties to this comment
           user_group: The name of the user group that made this comment (if any)
         results:
-          Address: The address of the project (if any)
+          address: The address of the project (if any)
           children_count: The number of child results
           comments_count: The number of comments that this result has
           component: The component that the result belongs to
