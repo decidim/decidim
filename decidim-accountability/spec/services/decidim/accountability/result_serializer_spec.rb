@@ -26,8 +26,7 @@ module Decidim
 
       describe "external_id" do
         it "is not published" do
-          serialized_result = subject.serialize
-          expect(serialized_result).not_to have_key(:external_id)
+          expect(subject.serialize).not_to have_key(:external_id)
         end
       end
 
