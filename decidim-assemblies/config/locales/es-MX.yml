@@ -405,6 +405,9 @@ es-MX:
         designated_on: Designado en
       index:
         title: Miembros
+    download_your_data:
+      show:
+        assemblies: Exportar las asambleas
     events:
       assemblies:
         create_assembly_member:
@@ -467,7 +470,6 @@ es-MX:
           participatory_structure: La estructura participativa de la asamblea
           promoted: Si la asamblea está destacada o no
           purpose_of_action: El propósito de la acción de la asamblea
-          reference: La referencia de la asamblea. Un identificador único para esta plataforma.
           remote_banner_image_url: La URL de la imagen de la cabecera (imagen principal) de la asamblea
           remote_hero_image_url: La URL de la imagen principal de la asamblea
           scope: El ámbito territorial de asamblea
