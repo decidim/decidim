@@ -586,7 +586,6 @@ ca:
           location: El lloc de celebració de la jornada. On es va dur a terme aquesta jornada.
           objectives: Els objectius de la jornada. Quina va ser la meta.
           promoted: Si la jornada està destacada o no
-          reference: La referència de la jornada. Un identificador únic per a aquesta plataforma.
           remote_banner_image_url: L'URL de la imatge de capçalera de la jornada
           remote_hero_image_url: L'URL de la imatge principal de la jornada
           scope: L'àmbit territorial de la jornada
