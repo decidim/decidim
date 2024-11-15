@@ -46,6 +46,9 @@ FactoryBot.define do
     end_date { "30/9/2017" }
     status { create(:status, component:, skip_injection:) }
     progress { rand(1..100) }
+    address { Faker::Lorem.sentence(word_count: 3) }
+    latitude { Faker::Address.latitude }
+    longitude { Faker::Address.longitude }
   end
 
   factory :timeline_entry, class: "Decidim::Accountability::TimelineEntry" do

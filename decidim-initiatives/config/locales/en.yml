@@ -153,6 +153,9 @@ en:
       titles:
         initiatives: Initiatives
         initiatives_types: Initiative types
+    download_your_data:
+      show:
+        initiatives: Initiatives export
     events:
       initiatives:
         admin:
@@ -242,6 +245,10 @@ en:
             alert_html: "<p>You must create at least one initiative type so participants can start creating initiatives.</p><p> %{link}</p>"
             button: New initiative type
         initiatives:
+          accept:
+            success: The initiative has been successfully accepted.
+          discard:
+            success: The initiative has been successfully discarded.
           edit:
             accept: Accept initiative
             confirm: Are you sure?
@@ -265,6 +272,12 @@ en:
             edit: Edit
             new: New
             photos: Photos
+          publish:
+            success: The initiative has been successfully published.
+          reject:
+            success: The initiative has been successfully rejected.
+          unpublish:
+            success: The initiative has been successfully unpublished.
           update:
             error: There was a problem updating the initiative.
             success: The initiative has been successfully updated.
@@ -591,6 +604,35 @@ en:
         success: The initiative has been successfully updated.
     menu:
       initiatives: Initiatives
+    open_data:
+      help:
+        initiatives:
+          answer: The answer that this initiative has received (if any)
+          answer_url: The URL of the answer (if any)
+          answered_at: The date of the answer (if any)
+          area: The area of this initiative
+          authors: The authors of this initiative
+          comments_count: The number of comments that this initiative has
+          created_at: The date this space was created
+          description: The description of the initiative
+          first_progress_notification_at: The date when the first progress notification was sent
+          follows_count: The number of users following this space
+          hashtag: The initiative hashtag, used for Twitter/X
+          offline_votes: The number of signatures that this inititative received outside of this platform
+          online_votes: The number of signatures that this initiative received online (directly through the platform)
+          published_at: The date this space was published
+          reference: The unique reference of the space
+          scope: The scope of the initiative
+          second_progress_notification_at: The date when the second progress notification was sent
+          signature_end_date: The date when the signature collection period ends
+          signature_start_date: The date when the signature collection period started
+          signature_type: The type of signature collection (online or in-person)
+          signatures: The number of signatures that this initiative has
+          state: The state that this initiative has in this moment
+          title: The title of the initiative
+          type: The type of the initiative
+          updated_at: The last date this space was updated
+          url: The URL of the space
     resources:
       initiative:
         actions:

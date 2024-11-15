@@ -44,7 +44,8 @@ module Decidim
                         icon_name: "government-line",
                         position: 2.2,
                         active: is_active_link?(decidim_admin_assemblies.assemblies_path) ||
-                                is_active_link?(decidim_admin_assemblies.assemblies_types_path),
+                                is_active_link?(decidim_admin_assemblies.assemblies_types_path) ||
+                                is_active_link?(decidim_admin_assemblies.assembly_filters_path),
                         if: allowed_to?(:enter, :space_area, space_name: :assemblies)
         end
       end
@@ -78,6 +79,7 @@ module Decidim
                           active: is_active_link?(manage_component_path(component)) ||
                                   is_active_link?(decidim_admin_assemblies.edit_component_path(current_participatory_space, component)) ||
                                   is_active_link?(decidim_admin_assemblies.edit_component_permissions_path(current_participatory_space, component)) ||
+                                  is_active_link?(decidim_admin_assemblies.component_share_tokens_path(current_participatory_space, component)) ||
                                   participatory_space_active_link?(component),
                           if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
           end
@@ -145,6 +147,13 @@ module Decidim
                         decidim_admin_assemblies.moderations_path(current_participatory_space),
                         icon_name: "flag-line",
                         if: allowed_to?(:read, :moderation, assembly: current_participatory_space)
+
+          menu.add_item :assembly_share_tokens,
+                        I18n.t("menu.share_tokens", scope: "decidim.admin"),
+                        decidim_admin_assemblies.assembly_share_tokens_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_assemblies.assembly_share_tokens_path(current_participatory_space)),
+                        icon_name: "share-line",
+                        if: allowed_to?(:read, :share_tokens, current_participatory_space:)
         end
       end
 
@@ -165,6 +174,14 @@ module Decidim
                         active: is_active_link?(decidim_admin_assemblies.new_import_path),
                         icon_name: "price-tag-3-line",
                         if: allowed_to?(:import, :assembly)
+
+          menu.add_item :taxonomy_filters,
+                        I18n.t("menu.taxonomy_filters", scope: "decidim.admin"),
+                        decidim_admin_assemblies.assembly_filters_path,
+                        position: 3,
+                        icon_name: "price-tag-3-line",
+                        if: allowed_to?(:manage, :taxonomy_filter),
+                        active: is_active_link?(decidim_admin_assemblies.assembly_filters_path)
 
           menu.add_item :assemblies_types,
                         I18n.t("menu.assemblies_types", scope: "decidim.admin"),

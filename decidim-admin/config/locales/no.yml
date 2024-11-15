@@ -274,7 +274,6 @@
           headers:
             actions: Handlinger
             name: Komponentnavn
-            scope: Komponenttype
             type: Komponenttype
         new:
           add: Legg til komponent
@@ -849,6 +848,8 @@
           without_topic: Sider uten emne
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
+      taxonomies:
+        count: Antall
       titles:
         admin_log: Admin logg
         area_types: Områdetyper

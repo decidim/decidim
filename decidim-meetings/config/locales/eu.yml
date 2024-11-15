@@ -78,6 +78,10 @@ eu:
       decidim/meetings/update_meeting_event: Topaketa eguneratua
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: '%{link} topaketan eztabaidatu da'
       decidim/meetings/meeting:
         one: Topaketa
         other: Topaketak
@@ -378,7 +382,7 @@ eu:
           form:
             available_slots_help: Utzi 0an izen-emate mugagabeak edukiz gero.
             invites: Gonbidapenak
-            recommendation_message: Pribatutasuna dela eta, izena emateko formulario hau kentzea gomendatzen dizugu, behar ez duzunean. Besterik adierazi ezean, hau da, topaketa amaitu eta 3 hilabetera.
+            recommendation_message: 'Markatu lauki hau "Aktibatu sinadurak azpiesparruaren arabera" gaitu baduzu eta esparru globala esparru nagusi gisa eratu baduzu. Lauki hori gaitzean, ekimenak sortzeko laguntzaileak ez du ekimen-motaren hautaketarik egingo. Konfigurazio horrek nola funtzionatzen duen jakiteko, kontsultatu esteka hau: <a href="https://docs.decidim.org/en/admin/spaces/initiatives/" target="_blank">link</a>.'
             registration_email_help: Testu hau erregistroa berresteko posta elektronikoaren erdian agertuko da. Erregistro-kodearen ondoren.
             registration_form: Izena emateko formularioa
             registrations_count:
@@ -476,7 +480,7 @@ eu:
           apple: Gehitu Appleren egutegira
           full_details_html: Xehetasun guztiak edukitzeko, zoaz hona %{link}
           google: Gehitu Googleren egutegira
-          outlook: Ireki Outlooken egutegia
+          outlook: Gehitu Outlooken egutegira
         count:
           meetings_count:
             one: "topaketa 1"
@@ -663,7 +667,7 @@ eu:
         transparent: Gardena
         withdraw: Kenduta
       withdraw:
-        error: Errore bat egon da topaketa bertan behera uztean.
+        error: Arazo bat izan da topaketa kentzean.
         success: Zuzenketa zuzen kendu da.
     metrics:
       meetings:

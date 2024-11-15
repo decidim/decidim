@@ -18,6 +18,7 @@ de:
         automatic_hashtags: Hashtags werden automatisch hinzugefügt
         body: Haupttext
         category_id: Kategorie
+        decidim_proposals_proposal_state_id: Status
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
         scope_id: Bereich
@@ -90,6 +91,13 @@ de:
       decidim/proposals/voting_enabled_event: Vorschlagsabstimmung aktiviert
   activerecord:
     models:
+      decidim:
+        proposals:
+          proposal:
+            budget_text: Der Vorschlag %{link} wurde erstellt
+            import_to_proposal_text: Dieser Vorschlag %{link} wurde erstellt
+            merge_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
+            split_to_proposal_text: 'Dieser Vorschlag wurde erstellt: %{link}'
       decidim/proposals/collaborative_draft:
         one: Gemeinsamer Entwurf
         other: Gemeinsame Entwürfe
@@ -175,7 +183,7 @@ de:
               days: Tage
               hours: Stunden
               minutes: Minuten
-            geocoding_enabled: Geocoding aktiviert
+            geocoding_enabled: Karten aktiviert
             minimum_votes_per_user: Minimal erforderliche Anzahl Stimmen eines Abstimmenden
             new_proposal_body_template: Textvorlage für neuen Vorschlag
             new_proposal_body_template_help: Sie können den vorgefüllten Text der neuen Vorschläge bestimmen
@@ -241,6 +249,8 @@ de:
             votes_hidden: Stimmenanzahl ausgeblendet (falls die Stimmensammlung aktiviert ist, wird die Anzahl Stimmen nicht angezeigt)
     events:
       proposals:
+        accepted_coauthorship:
+          notification_title: Sie wurden als Co-AutorIn zum Vorschlag <a href="%{resource_path}">%{resource_title}</a> hinzugefügt.
         admin:
           proposal_assigned_to_valuator:
             email_intro: Ihnen wurde der Vorschlag "%{resource_title}" zur Bewertung zugewiesen. Das bedeutet, dass von Ihnen in den nächsten Tagen eine Rückmeldung und Einschätzung erwartet wird. Jetzt <a href="%{admin_proposal_info_url}">im Admin-Panel</a> anschauen.
@@ -262,6 +272,18 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor der Noitz sind.
             email_subject: "%{author_name} hat auf Ihre private Notiz unter %{resource_title} geantwortet."
             notification_title: <a href="%{author_path}">%{author_name}</a> hat Ihre private Notiz unter <a href="%{resource_path}">%{resource_title}</a> beantworter. Jetzt im <a href="%{admin_proposal_info_path">Admin-Panel</a> anzeigen.
+        coauthor_accepted_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> hat Ihre Einladung angenommen, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
+        coauthor_invited:
+          actions:
+            accept: Akzeptieren
+            decline: Ablehnen
+          email_intro: 'Sie wurden eingeladen, Co-AutorIn des Vorschlags "%{resource_title}" zu werden. Sie können die Einladung auf dieser Seite akzeptieren oder ablehnen:'
+          email_outro: Sie haben diese Mitteilung erhalten, weil die verfassende Person des Vorschlags Ihren Beitrag anerkennen möchte, indem er Sie als mitverfassende Person ernennt.
+          email_subject: Sie wurden eingeladen, als mitverfassende Person des Vorschlags "%{resource_title}" bezeichnet zu werden
+          notification_title: <a href="%{author_path}">%{author_name}</a> hat Ihre Einladung angenommen, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
+        coauthor_rejected_invite:
+          notification_title: <a href="%{coauthor_path}">%{coauthor_name}</a> hat Ihre Einladung abgelehnt, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
         collaborative_draft_access_accepted:
           email_intro: '%{requester_name} wurde zur Mitwirkung am kollaborativen Entwurf <a href="%{resource_url}">%{resource_title}</a> akzeptiert.'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie bei <a href="%{resource_url}">%{resource_title}</a> mitwirken.
@@ -339,6 +361,8 @@ de:
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
           email_subject: Der Bereich des Vorschlags %{resource_title} wurde aktualisiert
           notification_title: Der Bereich des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
+        rejected_coauthorship:
+          notification_title: Sie haben die Einladung von <a href="%{author_path}">%{author_name}</a> abgelehnt, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
         voting_enabled:
           email_intro: 'Sie können über Vorschläge in %{participatory_space_title} abstimmen! Jetzt auf dieser Seite abstimmen:'
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie %{participatory_space_title} folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
@@ -403,11 +427,15 @@ de:
     proposals:
       actions:
         answer_proposal: Vorschlag beantworten
+        cancel_coauthor_invitation: Einladung zur Mitverfassung zurückziehen
+        cancel_coauthor_invitation_confirm: Sind Sie sicher, dass Sie die Einladung zur Mitverfassung zurückziehen möchten?
         delete_proposal_state_confirm: Möchten Sie diesen Status wirklich löschen?
         destroy: Status löschen
         edit_proposal: Vorschlag bearbeiten
         edit_proposal_state: Status bearbeiten
         import: Importieren von einer anderen Komponente
+        mark_as_coauthor: Als mitverfassende Person markieren
+        mark_as_coauthor_confirm: Sind Sie sicher, dass Sie diese Person als Mitverfassende markieren möchten? Die empfangende Person erhält eine Benachrichtigung, womit sie die Einladung annehmen oder ablehnen kann.
         new: Neuer Vorschlag
         new_proposal_state: Neuer Status
         participatory_texts: Partizipative Texte
@@ -521,10 +549,12 @@ de:
             success: Status erfolgreich aktualisiert
         proposals:
           answer:
-            invalid: Es gab ein Problem bei der Beantwortung dieses Vorschlags.
+            bulk_answer_error: Vorschläge mit IDs [%{proposals}] konnten nicht beantwortet werden, da sie die Vorlage "%{template}" anwenden. Sie können überprüfen, ob die Antwortvorlage dem erwarteten Format für diese Komponente entspricht, indem Sie sie einzeln anwenden.
+            bulk_answer_success: '%{count} Vorschläge werden mit der Vorlage "%{template}" beantwortet. Bitte warten Sie ein paar Minuten und aktualisieren Sie die Seite, um die Updates zu sehen.'
+            invalid: Bei der Beantwortung dieses Vorschlags ist ein Problem aufgetreten.
             success: Der Vorschlag wurde erfolgreich beantwortet.
           create:
-            invalid: Beim Erstellen dieses Vorschlags ist ein Fehler aufgetreten.
+            invalid: Beim Erstellen dieses Vorschlags ist ein Problem aufgetreten.
             success: Vorschlag erfolgreich erstellt.
           edit:
             title: Vorschlag aktualisieren
@@ -537,6 +567,7 @@ de:
             select_a_meeting: Besprechung auswählen
           index:
             actions: Aktionen
+            apply_answer_template: Antwortvorlage anwenden
             assign_to_valuator: Zuweisen zur Bewertung
             assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
@@ -544,6 +575,7 @@ de:
             change_scope: Umfang ändern
             merge: Zu einem neuen zusammenführen
             merge_button: Zusammenführen
+            no_templates_available: Keine Vorlagen verfügbar
             publish: Veröffentlichen
             publish_answers: Antworten veröffentlichen
             select_component: Komponente auswählen
@@ -604,18 +636,18 @@ de:
             title: Vorschläge aus einer anderen Komponente importieren
         proposals_merges:
           create:
-            invalid: 'Es gab ein Problem beim Zusammenführen der ausgewählten Vorschläge, weil ein paar von ihnen:'
+            invalid: 'Beim Zusammenführen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Erfolgreich die Vorschläge in eine neue zusammengeführt.
         proposals_splits:
           create:
-            invalid: 'Es gab ein Problem beim Aufteilen der ausgewählten Vorschläge, weil ein paar von ihnen:'
+            invalid: 'Beim Aufteilen der ausgewählten Vorschläge ist ein Problem aufgetreten, weil ein paar von ihnen:'
             success: Die Vorschläge wurden erfolgreich in neue aufgeteilt.
         valuation_assignments:
           create:
-            invalid: Bei der Zuweisung der Vorschläge zur Bewertung ist ein Fehler aufgetreten.
+            invalid: Beim Zuweisen der Vorschläge zur Bewertung ist ein Problem aufgetreten.
             success: Die Vorschläge wurden erfolgreich zur Bewertung zugewiesen.
           delete:
-            invalid: Beim Zurückziehen der Zuweisung der Vorschläge zur Bewertung ist ein Fehler aufgetreten.
+            invalid: Bei Aufheben der Zuweisung der Vorschläge zur Einschätzung ist ein Fehler aufgetreten.
             success: Die Zuweisung zur Bewertung der Vorschläge wurde erfolgreich aufgehoben.
       admin_log:
         proposal:
@@ -754,9 +786,24 @@ de:
       create:
         error: Beim Speichern des Vorschlags ist ein Fehler aufgetreten.
         success: Der Vorschlag wurde erfolgreich erstellt. Gespeichert als Entwurf.
+      creation:
+        text: Dieser Vorschlag wurde erstellt
       destroy_draft:
         error: Es gab Fehler beim Löschen des Vorschlagsentwurfs.
         success: Der Vorschlagsentwurf wurde erfolgreich gelöscht.
+      invite_coauthors:
+        cancel:
+          error: Beim Zurückziehen der Einladung zur Mitverfassung ist ein Fehler aufgetreten.
+          success: Einladung zur Mitverfassung erfolgreich zurückgezogen.
+        create:
+          error: Beim Einladen zur Mitverfassung ist ein Problem aufgetreten.
+          success: "%{author_name} wurde erfolgreich zur Mitverfassung eingeladen."
+        destroy:
+          error: Beim Ablehnen der Einladung ist ein Problem aufgetreten.
+          success: Die Einladung wurde abgelehnt.
+        update:
+          error: Beim Akzeptieren der Einladung ist ein Problem aufgetreten.
+          success: Die Einladung wurde akzeptiert.
       last_activity:
         new_proposal: 'Neuer Vorschlag:'
         proposal_updated: 'Vorschlag aktualisiert:'

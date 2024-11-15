@@ -26,15 +26,10 @@ describe Decidim::Debates::Admin::DebateForm do
   end
   let(:start_time) { 2.days.from_now }
   let(:end_time) { 2.days.from_now + 4.hours }
-  let(:category) { create(:category, participatory_space: participatory_process) }
-  let(:category_id) { category.id }
-  let(:parent_scope) { create(:scope, organization:) }
-  let(:scope) { create(:subscope, parent: parent_scope) }
-  let(:scope_id) { scope.id }
+  let(:taxonomies) { [] }
   let(:attributes) do
     {
-      decidim_category_id: category_id,
-      scope_id:,
+      taxonomies:,
       title:,
       description:,
       instructions:,
@@ -43,8 +38,15 @@ describe Decidim::Debates::Admin::DebateForm do
     }
   end
 
-  it_behaves_like "a scopable resource"
   it_behaves_like "etiquette validator", fields: [:title, :description]
+
+  describe "taxonomies" do
+    let(:component) { current_component }
+    let(:participatory_space) { participatory_process }
+
+    it_behaves_like "a taxonomizable resource"
+  end
+
   it { is_expected.to be_valid }
 
   describe "when title is missing" do
@@ -102,22 +104,11 @@ describe Decidim::Debates::Admin::DebateForm do
     it { is_expected.not_to be_valid }
   end
 
-  describe "when the category does not exist" do
-    let(:category_id) { category.id + 10 }
-
-    it { is_expected.not_to be_valid }
-  end
-
   describe "from model" do
     subject { described_class.from_model(debate).with_context(context) }
 
     let(:component) { create(:debates_component) }
-    let(:category) { create(:category, participatory_space: component.participatory_space) }
-    let(:debate) { create(:debate, category:, component:) }
-
-    it "sets the form category id correctly" do
-      expect(subject.decidim_category_id).to eq category.id
-    end
+    let(:debate) { create(:debate, component:) }
 
     it "sets the finite value correctly" do
       expect(subject.finite).to be(false)

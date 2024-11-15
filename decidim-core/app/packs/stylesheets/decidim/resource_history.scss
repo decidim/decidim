@@ -1,0 +1,31 @@
+.resource_history {
+  @apply flex flex-col gap-3.5 lg:gap-[20px] p-4;
+
+  &__item {
+    @apply flex flex-row gap-2.5;
+
+    &_icon {
+      @apply w-8 h-8 rounded-full border-secondary border flex justify-center items-center;
+
+      &-creation {
+        @apply bg-secondary w-6 h-6 rounded-full flex justify-center items-center;
+      }
+    }
+
+    &_content {
+      @apply flex flex-col lg:items-center lg:flex-row lg:gap-1;
+    }
+
+    &_date {
+      @apply text-sm text-gray-2;
+    }
+  }
+
+  &_text {
+    @apply flex flex-col lg:flex-none lg:block relative;
+  }
+
+  &__line {
+    @apply absolute -left-[26px] lg:-left-[130px] top-3.5 lg:top-[26px] w-px h-full bg-secondary;
+  }
+}

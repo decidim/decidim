@@ -7,10 +7,7 @@ bg:
         decidim_scope_id: Сфера
         description: Описание
         end_date: Крайна дата
-        meetings_ids: Включени срещи
         progress: Напредък
-        project_ids: Включени проекти
-        proposals: Включени предложения
         start_date: Начална дата
         title: Заглавие
         updated_at: Обновен на

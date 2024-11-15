@@ -137,6 +137,7 @@ cs:
           success: Řečník konference byl úspěšně zveřejněn.
         unpublish:
           invalid: Při rušení publikování tohoto řečníka došlo k chybě.
+          success: Řečník konference byl úspěšně zneveřejněn.
         update:
           error: Při této konferenci došlo k chybě při aktualizaci řečníka.
           success: Řečník konference byl úspěšně aktualizován.
@@ -482,6 +483,8 @@ cs:
           name: Zvýrazněné konference
       index:
         title: Konference
+      last_activity:
+        new_conference: 'Nová konference:'
       mailer:
         conference_registration_mailer:
           confirmation:

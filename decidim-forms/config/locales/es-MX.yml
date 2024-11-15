@@ -23,7 +23,7 @@ es-MX:
               missing: no están completos
               too_many: Puedes elegir un máximo de %{count} opciones.
         questionnaire:
-          request_invalid: Ha ocurrido un error al enviar tu solicitud. Por favor, Inténtalo de nuevo.
+          request_invalid: Se ha producido un problema al procesar la solicitud. Por favor, vuelve a intentarlo.
   decidim:
     forms:
       admin:

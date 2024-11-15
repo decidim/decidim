@@ -318,7 +318,7 @@ fi-pl:
         create:
           error: Tämän komponentin luomisessa tapahtui virhe.
           success: Komponentti luotu onnistuneesti.
-          success_landing_page: Komponentti luotu onnistuneesti. Voit lisätä sisältölohkon tälle komponentille osallistumistilan etusivulle. Siirry <a href="%{landing_page_path}">Laskeutumissivu-osioon</a> lisätäksesi komponentin osallistumistilan etusivulle.
+          success_landing_page: Komponentin luonti onnistui. Voit lisätä sisältölohkon tälle komponentille osallistumistilan etusivulle. Siirry <a href="%{landing_page_path}">Laskeutumissivu-osioon</a> lisätäksesi komponentin osallistumistilan etusivulle.
         destroy:
           error: Tämän komponentin tuhoamisessa tapahtui virhe.
           success: Komponentti poistettu onnistuneesti.
@@ -329,13 +329,15 @@ fi-pl:
           default_step_settings: Vaiheiden oletusasetukset
           global_settings: Yleiset asetukset
           step_settings: Vaiheiden asetukset
+        hide:
+          success: Komponentin piilottaminen valikosta onnistui.
         index:
           add: Lisää komponentti
           headers:
             actions: Toiminnot
             name: Komponentin nimi
-            scope: Komponentin teema
             type: Komponentin tyyppi
+            visibility: Näkyvyys
         new:
           add: Lisää komponentti
           title: 'Lisää komponentti: %{name}'
@@ -347,9 +349,15 @@ fi-pl:
         update:
           error: Tämän komponentin päivittämisessä tapahtui virhe.
           success: Komponentti päivitetty onnistuneesti.
+        visibility_label:
+          menu_hidden: Piilotettu valikosta
+          published: Julkaistu
+          unpublished: Julkaisematon
       conflicts:
         attempts: Yritykset
         'false': 'Ei'
+        index:
+          text: Etsi nykyisen käyttäjän sähköpostin, nimen tai nimimerkin perusteella.
         managed_user_name: Hallittu käyttäjä
         solved: Ratkaistu
         title: Vahvistusten ristiriidat
@@ -467,6 +475,9 @@ fi-pl:
             pending: Odottavat
             rejected: Hylätyt
             verified: Vahvistetut
+        taxonomies:
+          taxonomy_id_eq:
+            label: Luokittelu
       forms:
         file_help:
           import:
@@ -589,6 +600,8 @@ fi-pl:
         settings: Asetukset
         static_page_topics: Aiheet
         static_pages: Sivut
+        taxonomies: Luokittelut
+        taxonomy_filters: Luokitteluiden suodattimet
         user_groups: Käyttäjäryhmät
         users: Käyttäjät
       metrics:
@@ -817,7 +830,7 @@ fi-pl:
           show: Näytä
           title: Näytä osallistujan sähköpostiosoite
         unblock:
-          error: Käyttäjän eston peruuttaminen epäonnistui.
+          error: Osallistujan eston peruuttaminen epäonnistui.
           success: Käyttäjän eston peruuttaminen onnistui.
       organization:
         edit:
@@ -1016,6 +1029,88 @@ fi-pl:
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivun päivitys onnistui.
+      taxonomies:
+        actions: Toiminnot
+        amount: Määrä
+        count: Määrä
+        create:
+          invalid: Luokittelun luominen epäonnistui.
+          success: Luokittelun luominen onnistui.
+        destroy:
+          invalid: Luokittelun poistaminen epäonnistui.
+          success: Luokittelun poistaminen onnistui.
+        edit:
+          back: Takaisin
+          description: Tämän luokittelun kohteita käytetään luokittelemaan tai suodattamaan asioita, kuten osallistumistiloja tai komponentteja. Listan kohteita voi järjestää haluttuun järjestykseen vetämällä ja pudottamalla kohteita halutuille paikoille.
+          new_item: Uusi kohde
+          no_items: Tässä luokittelussa ei tällä hetkellä ole kohteita. Luo kohteet luokitteleaksesi tai suodattaaksesi asioita, kuten osallistumistiloja tai komponentteja. Kohteita voidaan lisätä enintään kolmelle tasolle.
+          subtitle: Kohteet luokittelussa "%{taxonomy_name}"
+          title: Muokkaa luokittelua "%{taxonomy_name}"
+          update: Päivitä
+        filters:
+          search_placeholder: Hae
+        index:
+          description: Luokittelu mahdollistaa asioiden ja sisällön luokittelun ja järjestämisen. Voit esimerkiksi lisätä luokittelun maantieteellisten alueiden mukaan.
+          new_taxonomy: Uusi luokittelu
+          no_items_found: Hakukriteerejä vastaavia luokitteluja ei löytynyt.
+        name: Nimi
+        new:
+          create: Luo luokittelu
+          title: Uusi luokittelu
+        no_taxonomies: Tällä hetkellä yhtään luokittelua ei ole määritetty. Luo luokitteluita tämän näkymän avulla ja määritä jokaiselle luokittelulle kohteet, jotta voit käyttää niitä luokitellaksesi tai suodattaaksesi asioita.
+        table:
+          to_next_page: Vedä seuraavalle sivulle
+          to_prev_page: Vedä edelliselle sivulle
+        taxonomy_actions:
+          confirm_destroy: Haluatko varmasti poistaa luokittelun %{name}? Tämä poistaa myös kaikki kyseisen luokittelun alle määritetyt kohteet. Luokitteluun liitettyjä sisältöjä ei kuitenkaan poisteta, mutta itse luokittelutieto häviää niiltä.
+        update:
+          invalid: Luokittelun päivittäminen epäonnistui.
+          success: Luokittelun päivittäminen onnistui.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Uusi luokitteluiden suodatin
+        callout:
+          modify_taxonomy_html: Jos haluat muokata tätä luokittelua tai sen kohteita, voit tehdä sen <a href="%{url}">Luokittelut-osion</a> asetusten kautta.
+        create:
+          error: Luokittelun suodattimen luonti epäonnistui.
+          success: Luokittelun suodattimen luonti onnistui.
+        destroy:
+          error: Luokittelun suodattimen poisto epäonnistui.
+          success: Luokittelun suodattimen poisto onnistui.
+        edit:
+          back: Takaisin
+          items: "%{count} kohdetta valittu"
+          no_items: Tälle luokittelulle ei ole vielä luotu yhtään kohdetta. Voit luoda kohteita luokittelun asetusten kautta.
+          title: Muokkaa luokittelun suodatinta
+          update: Päivitä luokittelun suodatin
+        form:
+          select_taxonomy: Valitse luokittelu
+        index:
+          description: Luokittelun suodatin mahdollistaa hallintakäyttäjille osallistumistilojen järjestämisen ja suodatuksen luokittelun perusteella. Voit esimerkiksi lisätä maantieteellisen luokittelun asioille.
+          empty: Yhtään luokitteluiden suodatinta ei ole luotu. Lisää uusia luokitteluiden suodattimia järjestääksesi tai suodattaaksesi osallistumistiloja kyseisen luokittelun mukaan.
+        new:
+          back: Takaisin
+          create: Luo luokitteluiden suodatin
+          items: "Yhteensä %{count} kohdetta"
+          title: Uusi luokitteluiden suodatin
+        table:
+          actions: Toiminnot
+          confirm_destroy: Oletko varma, että haluat poistaa suodattimen nimeltä "%{name}"?
+          count: Kohteiden määrä
+          destroy: Poista
+          edit: Muokkaa
+          name: Nimi
+        update:
+          error: Luokittelun suodattimen päivittäminen epäonnistui.
+          success: Luokittelun suodattimen päivittäminen onnistui.
+      taxonomy_items:
+        edit:
+          title: Muokkaa kohdetta luokittelussa %{taxonomy}
+          update: Päivitä kohde
+        new:
+          create: Luo kohde
+          none: Ei mitään
+          title: Uusi kohde luokittelussa %{taxonomy}
       titles:
         admin_log: Hallintatoimintojen lokitiedot
         area_types: Aluetyypit
@@ -1036,6 +1131,8 @@ fi-pl:
         scope_types: Teematyypit
         scopes: Teemat
         statistics: Toiminta
+        taxonomies: Luokittelut
+        taxonomy_filters: Luokitteluiden suodattimet
         user_groups: Käyttäjäryhmät
         users: Hallintakäyttäjät
       user_group:

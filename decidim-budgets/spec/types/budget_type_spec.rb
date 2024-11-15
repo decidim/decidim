@@ -9,9 +9,7 @@ module Decidim
   module Budgets
     describe BudgetType, type: :graphql do
       include_context "with a graphql class type"
-      let(:model) { create(:budget) }
-
-      include_examples "scopable interface"
+      let(:model) { create(:budget, :with_projects) }
 
       it_behaves_like "traceable interface" do
         let(:author) { create(:user, :admin, organization: model.component.organization) }
@@ -50,7 +48,7 @@ module Decidim
       end
 
       describe "projects" do
-        let!(:budget2) { create(:budget) }
+        let!(:budget2) { create(:budget, :with_projects) }
         let(:query) { "{ projects { id } }" }
 
         it "returns the budget projects" do

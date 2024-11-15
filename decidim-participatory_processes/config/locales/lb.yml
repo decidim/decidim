@@ -145,7 +145,6 @@ lb:
           title: Beteiligungsprozess duplizieren
       participatory_process_groups:
         destroy:
-          error: Beim Löschen der Beteiligungsprozessgruppe ist ein Fehler aufgetreten.
           success: Beteiligungsprozess erfolgreich gelöscht.
         edit:
           title: Prozessgruppe bearbeiten
@@ -294,8 +293,6 @@ lb:
           name: Hervorgehobene Beteiligungsprozesse
       index:
         title: Bedeelegungsprozesser
-      last_activity:
-        new_participatory_process: Neuer partizipativer Prozess
       participatory_process_steps:
         index:
           back_to_process: Zurück zur Prozessseite

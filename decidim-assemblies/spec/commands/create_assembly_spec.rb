@@ -22,6 +22,9 @@ module Decidim::Assemblies
     let(:related_process_ids) { [participatory_processes.map(&:id)] }
     let(:hero_image) { nil }
     let(:banner_image) { nil }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
 
     let(:form) do
       instance_double(
@@ -48,6 +51,7 @@ module Decidim::Assemblies
         scopes_enabled: true,
         scope:,
         area:,
+        taxonomizations:,
         parent: nil,
         private_space: false,
         errors:,
@@ -180,6 +184,22 @@ module Decidim::Assemblies
           subject.call
 
           expect(assembly.assembly_type).to be_nil
+        end
+      end
+
+      it "links to taxonomizations" do
+        subject.call
+
+        expect(assembly.taxonomizations).to match_array(taxonomizations)
+      end
+
+      context "when no taxonomizations are set" do
+        let(:taxonomizations) { [] }
+
+        it "taxonomizations are empty" do
+          subject.call
+
+          expect(assembly.taxonomizations).to be_empty
         end
       end
 

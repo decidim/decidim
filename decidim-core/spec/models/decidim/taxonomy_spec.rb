@@ -104,7 +104,7 @@ module Decidim
           expect(root_taxonomy.children_count).to eq(1)
           expect { taxonomy.destroy }.to change(Decidim::Taxonomy, :count).by(-2)
           expect(Decidim::Taxonomy.find_by(id: taxonomy.id)).to be_nil
-          expect(root_taxonomy.children_count).to eq(0)
+          expect(root_taxonomy.reload.children_count).to eq(0)
         end
 
         context "when more than 3 levels of children" do
@@ -121,6 +121,14 @@ module Decidim
 
         it "can be deleted if it has taxonomizations" do
           expect { taxonomy.destroy }.to change(Decidim::Taxonomy, :count).by(-1)
+        end
+      end
+
+      context "with filters" do
+        let!(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
+
+        it "can be deleted if it has filters" do
+          expect { root_taxonomy.destroy }.to change(Decidim::Taxonomy, :count).by(-1)
         end
       end
 
@@ -145,20 +153,111 @@ module Decidim
           expect(taxonomization).to be_invalid
         end
       end
+
+      context "when adding taxonomy filters" do
+        let(:taxonomy_filter) { build(:taxonomy_filter, root_taxonomy:) }
+
+        it "can be associated with a taxonomy filter" do
+          expect(root_taxonomy.filters_count).to eq(0)
+          root_taxonomy.taxonomy_filters << taxonomy_filter
+          root_taxonomy.save
+          expect(root_taxonomy.taxonomy_filters).to include(taxonomy_filter)
+          expect(root_taxonomy.filters_count).to eq(1)
+        end
+      end
     end
 
-    context "when using ransackable scopes" do
+    context "when using ransackable taxonomies" do
       let(:taxonomy_attributes1) { attributes_for(:taxonomy) }
       let(:taxonomy_attributes2) { attributes_for(:taxonomy) }
       let(:taxonomy_name1) { taxonomy_attributes1[:name] }
       let(:taxonomy_name2) { taxonomy_attributes2[:name] }
-      let!(:taxonomy1) { create(:taxonomy, name: taxonomy_name1, organization:) }
-      let!(:taxonomy2) { create(:taxonomy, name: taxonomy_name2, organization:) }
+      let!(:taxonomy1) { create(:taxonomy, :with_parent, name: taxonomy_name1, organization:) }
+      let!(:sub_taxonomy1) { create(:taxonomy, parent: taxonomy1, organization:) }
+      let!(:taxonomy2) { create(:taxonomy, :with_parent, name: taxonomy_name2, organization:) }
 
       it "returns taxonomies matching the name" do
         result = described_class.search_by_name(translated(taxonomy_attributes1[:name]))
         expect(result).to include(taxonomy1)
         expect(result).not_to include(taxonomy2)
+        expect(result).not_to include(sub_taxonomy1)
+      end
+
+      it "returns taxonomies and sub taxonomies matching the part_of" do
+        result = described_class.part_of(taxonomy1.id)
+        expect(result).to include(taxonomy1)
+        expect(result).to include(sub_taxonomy1)
+        expect(result).not_to include(taxonomy2)
+      end
+
+      it "returns sub taxonomies matching the part_of" do
+        result = described_class.part_of(sub_taxonomy1.id)
+        expect(result).to include(sub_taxonomy1)
+        expect(result).not_to include(taxonomy1)
+        expect(result).not_to include(taxonomy2)
+      end
+    end
+
+    describe "cycles validation" do
+      subject(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+      let(:sub_taxonomy) { create(:taxonomy, parent: taxonomy) }
+      let(:sub_sub_taxonomy) { create(:taxonomy, parent: sub_taxonomy) }
+
+      it "do not allows two taxonomies cycles" do
+        taxonomy.parent = sub_taxonomy
+        expect(subject).to be_invalid
+      end
+
+      it "do not allows three taxonomies cycles" do
+        taxonomy.parent = sub_sub_taxonomy
+        expect(subject).to be_invalid
+      end
+    end
+
+    describe "part_of for top level taxonomies" do
+      subject { build(:taxonomy, organization:) }
+
+      it "is empty before save" do
+        expect(subject.part_of).to be_empty
+      end
+
+      it "is updated after save" do
+        subject.save
+        expect(subject.part_of).to eq([subject.id])
+      end
+
+      context "with parent taxonomy" do
+        subject { taxonomy }
+
+        it "is updated after save" do
+          subject.save
+          expect(subject.part_of).to eq([subject.id, root_taxonomy.id])
+        end
+      end
+    end
+
+    describe "creating several taxonomies on a transaction" do
+      let(:taxonomies) { build_list(:taxonomy, 8, organization:) }
+
+      before do
+        taxonomy.transaction do
+          taxonomies.each_with_index do |tax, i|
+            tax.parent_id = taxonomies[i / 2].id if i.positive?
+            tax.save!
+          end
+        end
+      end
+
+      it "updates part_of lists" do
+        {
+          0 => [0],
+          1 => [1, 0],
+          2 => [2, 1, 0],
+          3 => [3, 1, 0],
+          4 => [4, 2, 1, 0]
+        }.each do |s1, list|
+          expect(taxonomies[s1].part_of).to eq(list.map { |i| taxonomies[i].id })
+        end
       end
     end
   end

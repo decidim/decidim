@@ -39,7 +39,7 @@ ca:
         is_transparent: És transparent
         local_area: Àrea d'organització
         meta_scope: Metadades d'àmbit
-        parent_id: Assemblea principal
+        parent_id: Assemblea mare
         participatory_processes_ids: Processos participatius relacionats
         participatory_scope: Què es decideix?
         participatory_structure: Com es decideix
@@ -205,7 +205,7 @@ ca:
           attachments: Adjunts
           categories: Categories
           components: Components
-          info: Sobre aquesta assemblea
+          info: Quant a aquesta assemblea
           landing_page: Pàgina d'inici
           moderations: Moderacions
           private_users: Participants privades
@@ -291,9 +291,10 @@ ca:
             select_a_created_by: Selecciona una creadora
             select_an_area: Selecciona una Àrea
             select_an_assembly_type: Selecciona un tipus d'assemblea
-            select_parent_assembly: Selecciona una assemblea principal
+            select_parent_assembly: Selecciona una assemblea mare
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
             social_handlers: Social
+            taxonomies: Taxonomies
             title: Informació general
             visibility: Visibilitat
         assemblies_types:
@@ -337,13 +338,13 @@ ca:
           participatory_scope: Què es decideix
           participatory_structure: Com es decideix
           target: Qui participa
-          title: Sobre aquesta assemblea
+          title: Quant a aquesta assemblea
         filters:
           names:
             all: Totes
           type: Tipus
         show:
-          title: Sobre aquesta assemblea
+          title: Quant a aquesta assemblea
       assembly_members:
         index:
           members: Membres

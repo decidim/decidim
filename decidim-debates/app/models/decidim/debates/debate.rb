@@ -7,6 +7,7 @@ module Decidim
     # debate.
     class Debate < Debates::ApplicationRecord
       include Decidim::HasComponent
+      include Decidim::Taxonomizable
       include Decidim::HasCategory
       include Decidim::Resourceable
       include Decidim::Followable
@@ -42,6 +43,7 @@ module Decidim
                         index_on_create: ->(debate) { debate.visible? },
                         index_on_update: ->(debate) { debate.visible? })
 
+      scope :updated_at_desc, -> { order(arel_table[:updated_at].desc) }
       scope :open, -> { where(closed_at: nil) }
       scope :closed, -> { where.not(closed_at: nil) }
       scope :authored_by, ->(author) { where(author:) }
@@ -206,11 +208,19 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :description]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :with_any_origin, :with_any_category, :with_any_scope]
+        [:with_any_state, :with_any_origin, :with_any_taxonomies]
       end
 
       def self.ransack(params = {}, options = {})
         DebateSearch.new(self, params, options)
+      end
+
+      def self.ransackable_attributes(_auth_object = nil)
+        %w(search_text title description)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(taxonomies)
       end
 
       private

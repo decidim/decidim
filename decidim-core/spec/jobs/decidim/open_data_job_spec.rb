@@ -9,11 +9,11 @@ describe Decidim::OpenDataJob do
 
   describe "perform" do
     before do
-      organization.open_data_file.purge
+      organization.open_data_files.purge
     end
 
     it "uploads the generated file" do
-      expect { subject.perform_now(organization) }.to change { organization.open_data_file.attached? }.from(false).to(true)
+      expect { subject.perform_now(organization) }.to change { organization.open_data_files.attached? }.from(false).to(true)
     end
   end
 

@@ -1,0 +1,5 @@
+<div class="form__wrapper">
+  <div class="py-4">
+    <%= form.select :root_taxonomy_id, options_for_select(root_taxonomies.map { |t| [translated_attribute(t.name), t.id.to_s] }, selected: @form&.root_taxonomy&.id&.to_s), { include_blank: "-- #{t(".select_taxonomy")} --" }, name: :root_taxonomy_id %>
+  </div>
+</div>

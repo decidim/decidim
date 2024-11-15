@@ -105,14 +105,14 @@ describe "User activity" do
     it "displays activities filter with the correct options" do
       within("#dropdown-menu-resource") do
         resource_types.push("All activity types").each do |type|
-          expect(page).to have_css("label", text: type)
+          expect(page).to have_link(type)
         end
       end
     end
 
     it "displays activities filter with the All types option checked by default" do
       within("#dropdown-menu-resource") do
-        expect(page.find("input[value='all']", visible: false)).to be_checked
+        expect(page).to have_link("All activity types", class: "filter is-active")
       end
     end
 

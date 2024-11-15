@@ -59,7 +59,6 @@ uk:
           recent: Нещодавнє
         title: 'Впорядкувати за:'
       comments:
-        blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
         loading: Завантаження коментарів...
     events:
       comments:

@@ -1,14 +1,20 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples "manage debates" do
-  let!(:debate) { create(:debate, category:, component: current_component) }
+  include_context "with taxonomy filters context"
+  let(:space_manifest) { participatory_process.manifest.name }
+  let(:taxonomies) { [taxonomy] }
+  let!(:debate) { create(:debate, taxonomies:, component: current_component) }
   let(:attributes) { attributes_for(:debate, :closed, component: current_component) }
 
-  before { visit_component_admin }
+  before do
+    current_component.update!(settings: { taxonomy_filters: [taxonomy_filter.id] })
+    visit_component_admin
+  end
 
   describe "listing" do
     context "with hidden debates" do
-      let!(:my_other_debate) { create(:debate, category:, component: current_component) }
+      let!(:my_other_debate) { create(:debate, taxonomies:, component: current_component) }
 
       before do
         my_other_debate.update!(title: { en: "Debate <strong>title</strong>" })
@@ -105,7 +111,7 @@ RSpec.shared_examples "manage debates" do
     fill_in_timepicker :debate_end_time_time, with: "12:50"
 
     within ".new_debate" do
-      select translated(category.name), from: :debate_decidim_category_id
+      select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
 
       find("*[type=submit]").click
     end
@@ -118,6 +124,14 @@ RSpec.shared_examples "manage debates" do
 
     visit decidim_admin.root_path
     expect(page).to have_content("created the #{translated(attributes[:title])} debate on the")
+
+    visit decidim.last_activities_path
+    expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
+
+    within "#filters" do
+      find("a", class: "filter", text: "Debate", match: :first).click
+    end
+    expect(page).to have_content("New debate: #{decidim_sanitize_translated(attributes[:title])}")
   end
 
   it "creates a new open debate" do
@@ -135,7 +149,7 @@ RSpec.shared_examples "manage debates" do
     expect(page).to have_no_selector "#debate_end_time"
 
     within ".new_debate" do
-      select translated(category.name), from: :debate_decidim_category_id
+      select(decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}")
 
       find("*[type=submit]").click
     end

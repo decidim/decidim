@@ -110,6 +110,18 @@ module Decidim
       end
     end
 
+    describe ".visible?" do
+      let!(:private_assembly) { create(:assembly, :private, :opaque) }
+      let!(:private_transparent_assembly) { create(:assembly, :private, :transparent) }
+      let!(:public_assembly) { create(:assembly, :public) }
+
+      it "returns the right visibility" do
+        expect(private_assembly).not_to be_visible
+        expect(private_transparent_assembly).to be_visible
+        expect(public_assembly).to be_visible
+      end
+    end
+
     describe "scopes" do
       describe "public_spaces" do
         let!(:private_assembly) { create(:assembly, :private, :opaque) }
@@ -144,6 +156,30 @@ module Decidim
       describe "past_spaces" do
         it "returns none" do
           expect(described_class.past_spaces).to eq ApplicationRecord.none.to_a
+        end
+      end
+    end
+
+    describe "taxonomies" do
+      let!(:taxonomy) { create(:taxonomy, :with_parent) }
+      let(:assembly) { build(:assembly, taxonomies: [taxonomy], organization: taxonomy.organization) }
+
+      it { is_expected.to be_valid }
+
+      context "when a root taxonomy is assigned" do
+        let(:taxonomy) { create(:taxonomy) }
+
+        it "is not valid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "when a taxonomy from another organization is assigned" do
+        let!(:organization) { create(:organization) }
+        let(:assembly) { build(:assembly, taxonomies: [taxonomy]) }
+
+        it "is not valid" do
+          expect(subject).not_to be_valid
         end
       end
     end

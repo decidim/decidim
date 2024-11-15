@@ -52,5 +52,29 @@ module Decidim
         end
       end
     end
+
+    describe "taxonomies" do
+      let!(:taxonomy) { create(:taxonomy, :with_parent) }
+      let(:conference) { build(:conference, taxonomies: [taxonomy], organization: taxonomy.organization) }
+
+      it { is_expected.to be_valid }
+
+      context "when a root taxonomy is assigned" do
+        let(:taxonomy) { create(:taxonomy) }
+
+        it "is not valid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "when a taxonomy from another organization is assigned" do
+        let!(:organization) { create(:organization) }
+        let(:conference) { build(:conference, taxonomies: [taxonomy]) }
+
+        it "is not valid" do
+          expect(subject).not_to be_valid
+        end
+      end
+    end
   end
 end

@@ -202,7 +202,7 @@ eu:
         verify: Egiaztatu
       admin_terms_of_service:
         accept:
-          error: Errore bat egon da zerbitzuaren administrazio-baldintzak onartzean.
+          error: Arazoa izan da zerbitzuaren baldintzak onartzean.
           success: Ederto! Onartu dituzu zerbitzuaren administrazio-baldintzak.
         actions:
           accept: Bat nator baldintzekin
@@ -234,7 +234,7 @@ eu:
           error: Arazo bat egon da beste arlo bat sortzean.
           success: Arloa zuzen sortua.
         destroy:
-          has_spaces: Eremu honek mendekotasuna duten espazioak ditu. Kendu aurretik, ziurtatu ez duela parte hartzeko gunerik aipatzen.
+          has_spaces: Arlo honek mendekotasuna duten espazioak ditu. Kendu aurretik, ziurtatu ez duela parte hartzeko gunerik aipatzen.
           success: Arloa behar bezala suntsitua.
         edit:
           title: Editatu arloa
@@ -265,7 +265,7 @@ eu:
           success: Karpeta zuzen eguneratua.
       attachments:
         create:
-          error: Arazo bat egon da beste eranskin bat sortzean.
+          error: "Arazo bat egon da beste eranskin bat sortzean.\n"
           success: Fitxategi erantsia zuzen sortua.
         destroy:
           success: Fitxategi erantsia behar bezala ezabatua.
@@ -329,13 +329,15 @@ eu:
           default_step_settings: Faseen ezarpen lehenetsiak
           global_settings: Ezarpen globalak
           step_settings: Ezarpenen faseak
+        hide:
+          success: Osagaia zuzen ezkutatu da menutik.
         index:
           add: Gehitu osagaia
           headers:
             actions: Ekintzak
             name: Osagaiaren izena
-            scope: Osagaiaren esparrua
             type: Osagai mota
+            visibility: Ikusgarritasuna
         new:
           add: Gehitu osagaia
           title: 'Gehitu osagaia: %{name}'
@@ -347,9 +349,15 @@ eu:
         update:
           error: Arazo bat egon da osagai hau eguneratzean.
           success: Osagaia zuzen eguneratua.
+        visibility_label:
+          menu_hidden: Menu ezkutua
+          published: Argitaratua
+          unpublished: Despublikatua
       conflicts:
         attempts: Saiakerak
         'false': 'Ez'
+        index:
+          text: Bilatu gaur egungo erabiltzailearen posta elektronikoaren, izenaren edo ezizenaren bidez.
         managed_user_name: Erabiltzaile kudeatua
         solved: Ebatzita
         title: Egiaztapen-arazoak
@@ -364,7 +372,7 @@ eu:
         user_name: Erabiltzailea
       content_blocks:
         create:
-          error: Errorea izan da eduki-blokea sortzean
+          error: Arazo bat izan da edukien blokea sortzean.
           success: Eduki-blokea zuzen sortua.
         destroy:
           error: Arazoa izan da eduki-bloke hau ezabatzen saiatzean
@@ -467,6 +475,9 @@ eu:
             pending: Zain
             rejected: Ukatua
             verified: Egiaztatua
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomia
       forms:
         file_help:
           import:
@@ -580,6 +591,8 @@ eu:
         settings: Ezarpenak
         static_page_topics: Gaiak
         static_pages: Orriak
+        taxonomies: Taxonomiak
+        taxonomy_filters: Taxonomia-iragazkiak
         user_groups: Erabiltzaile-taldeak
         users: Parte-hartzaileak 
       metrics:
@@ -774,12 +787,12 @@ eu:
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
       officializations:
         block:
-          error: Errore bat egon da parte-hartzaile hau blokeatzean.
+          error: Arazo bat izan da parte-hartzailea blokeatzean.
           success: Parte-hartzailea zuzen blokeatua.
         create:
           success: Pate-hartzailea zuzen ofizializatua.
         destroy:
-          success: Parte-hartzailearen ofizializazioa behar bezala desgaitu da.
+          success: Parte-hartzailearen ofizializazioa behar bezala desgaitua.
         index:
           actions: Ekintzak
           badge: Garaikurra
@@ -788,7 +801,7 @@ eu:
           name: Izena
           nickname: Ezizena
           not_officialized: Ez ofizializatua
-          officialize: Ofizializatzen du
+          officialize: Ofiziala
           officialized: Ofizializatua
           reofficialize: Berriro ofizializatzen du
           reports: Txostenak
@@ -808,7 +821,7 @@ eu:
           show: Erakutsi
           title: Erakutsi parte-hartzailearen helbide elektronikoa
         unblock:
-          error: Errore bat egon da parte-hartzailea desblokeatzean.
+          error: Arazo bat izan da parte-hartzailea desblokeatzean.
           success: Parte-hartzailea zuzen desblokeatua.
       organization:
         edit:
@@ -1004,6 +1017,88 @@ eu:
         update:
           error: Arazo bat egon da orri hau eguneratzean.
           success: Orria zuzen eguneratua.
+      taxonomies:
+        actions: Ekintzak
+        amount: Kopurua
+        count: Zenbaketa
+        create:
+          invalid: Arazo bat egon da kategoria hau sortzean.
+          success: Kategoria zuzen sortua.
+        destroy:
+          invalid: Arazo bat egon da osagai hau ezabatzean.
+          success: Taxonomia behar bezala suntsitua.
+        edit:
+          back: Atzera
+          description: Taxonomia honetako elementuak baliabideak sailkatzeko edo iragazteko erabiliko dira, hala nola espazio edo osagai parte-hartzaileak. Arrastatu eta utzi zerrenda berrantolatzeko.
+          new_item: Elementu berria
+          no_items: Gaur egun ez dago taxonomia honetako elementurik. Sortu hemen elementuen zerrenda bat baliabideak sailkatzeko edo iragazteko, hala nola espazio edo osagai parte-hartzaileak. Elementuak hiru mailatan sailka daitezke.
+          subtitle: 'Elementuak hemen: "%{taxonomy_name}"'
+          title: Editatu "%{taxonomy_name}" taxonomia
+          update: Gorde
+        filters:
+          search_placeholder: Bilatu
+        index:
+          description: Taxonomiak edukiak sailkatzeko eta antolatzeko aukera ematen die administratuei. Adibidez, gehitu taxonomia bat prozesuak sailkatzeko eremu geografikoaren arabera.
+          new_taxonomy: Taxonomia berria
+          no_items_found: Ez dago bilaketa-irizpidearekin bat datorren taxonomiarik.
+        name: Izena
+        new:
+          create: Sortu taxonomia
+          title: Beste taxonomia bat
+        no_taxonomies: Gaur egun ez dago taxonomiarik. Sortu taxonomien zerrenda bat hemen, eta zehaztu elementuak horietako bakoitzean baliabideak sailkatzeko edo iragazteko.
+        table:
+          to_next_page: Arrastatu hurrengo orrira
+          to_prev_page: Arrastatu aurreko orrira
+        taxonomy_actions:
+          confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula? Honek elementu txiki guztiak ere ezabatuko ditu.
+        update:
+          invalid: Arazo bat izan da taxonomia hau eguneratzean.
+          success: Taxonomia zuzen eguneratua.
+      taxonomy_filters:
+        actions:
+          new_taxonomy_filter: Beste taxonomia-iragazki bat
+        callout:
+          modify_taxonomy_html: Taxonomia hau edo bere elementuak aldatu behar badituzu, egin ezazu Taxonomiak ataleko <a href="%{url}">Taxonomies</a> ezarpenen bidez.
+        create:
+          error: Arazo bai izan da taxonomia-iragazki hau sortzean.
+          success: Taxonomia-iragazkia zuzen sortua.
+        destroy:
+          error: Arazo bat izan da taxonomia-iragazki hau suntsitzean.
+          success: Taxonomia-iragazkia behar bezala suntsitua.
+        edit:
+          back: Atzera
+          items: "%{count} elementu hautatu dira"
+          no_items: Ez dago taxonomia hauentzako elementurik. Taxonomia konfiguratzeko konfigurazioan sor ditzakezu elementuak.
+          title: Editatu taxonomia-iragazkia
+          update: Eguneratu taxonomia-iragazkia
+        form:
+          select_taxonomy: Hautatu taxonomia bat
+        index:
+          description: Taxonomia-iragazki batek aukera ematen die administratzaileei espazio parte-hartzaileak taxonomia batean oinarrituta ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera sailkatzeko.
+          empty: Gaur egun ez dago taxonomia-iragazkirik. Sortutaxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
+        new:
+          back: Atzera
+          create: Sortu taxonomia-iragazkia
+          items: "%{count} elementu eskuragarri"
+          title: Beste taxonomia-iragazki bat
+        table:
+          actions: Ekintzak
+          confirm_destroy: Ziur zaude %{name} iragazkia ezabatu nahi duzula?
+          count: Elementu kopurua
+          destroy: Ezabatu
+          edit: Editatu
+          name: Izena
+        update:
+          error: Arazo bai izan da taxonomia-iragazki hau eguneratzean.
+          success: Taxonomia-iragazkia zuzen eguneratua.
+      taxonomy_items:
+        edit:
+          title: 'Editatu elementua hemen: %{taxonomy}'
+          update: Eguneratu elementua
+        new:
+          create: Sortu elementua
+          none: Bat ere ez
+          title: 'Beste elementu bat hemen: %{taxonomy}'
       titles:
         admin_log: Administratzaile-erregistroa
         area_types: Arlo motak
@@ -1024,6 +1119,8 @@ eu:
         scope_types: Esparru motak
         scopes: Esparruak
         statistics: Jarduera
+        taxonomies: Taxonomiak
+        taxonomy_filters: Taxonomia-iragazkiak
         user_groups: Erabiltzaile-taldeak
         users: Administratzaileak
       user_group:

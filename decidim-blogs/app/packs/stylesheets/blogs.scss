@@ -7,26 +7,6 @@
     }
   }
 
-  &__actions {
-    @apply flex flex-col md:flex-row justify-between items-center gap-10 pt-10;
-
-    &-left {
-      @apply flex items-center gap-2;
-    }
-
-    &-right {
-      @apply flex items-center gap-4;
-
-      button {
-        @apply flex items-center gap-1;
-      }
-    }
-
-    .is-active span:last-child {
-      @apply text-white bg-secondary border-secondary;
-    }
-  }
-
   &__endorsers {
     @apply space-y-3;
 

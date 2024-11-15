@@ -244,7 +244,6 @@ tr:
           headers:
             actions: Eylemler
             name: Bileşen Adı
-            scope: Bileşen kapsamı
             type: Bileşen tipi
         new:
           add: Bileşen ekle
@@ -707,6 +706,8 @@ tr:
           without_topic: Konu olmayan sayfalar
         update:
           error: Bu sayfa güncellenirken bir hata oluştu.
+      taxonomies:
+        count: saymak
       titles:
         admin_log: Yönetici günlüğü
         area_types: Alan türleri

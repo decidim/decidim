@@ -33,6 +33,16 @@ module Decidim
         update!(rejected_at: Time.current, accepted_at: nil)
       end
       alias decline! reject!
+
+      def self.ransackable_attributes(auth_object = nil)
+        return [] unless auth_object&.admin?
+
+        %w(accepted_at rejected_at sent_at)
+      end
+
+      def self.ransackable_associations(_auth_object = nil)
+        %w(user)
+      end
     end
   end
 end

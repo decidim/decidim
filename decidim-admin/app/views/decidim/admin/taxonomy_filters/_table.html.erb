@@ -1,0 +1,33 @@
+<div class="table-scroll mt-8" role="table" aria-labelledby="taxonomies-title">
+  <table class="table-list">
+    <thead>
+      <tr role="row">
+        <th><%= t(".name") %></th>
+        <th><%= t(".count") %></th>
+        <th><%= t(".components_count") %></th>
+        <th><%= t(".actions") %></th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <% collection.each do |taxonomy_filter| %>
+        <tr>
+          <td><%= translated_attribute(taxonomy_filter.name) %></td>
+          <td><%= taxonomy_filter.filter_items_count %></td>
+          <td><%= taxonomy_filter.components_count %></td>
+          <td>
+            <% if allowed_to? :update, :taxonomy_filter, taxonomy_filter: %>
+              <%= icon_link_to "pencil-line", url_for(controller: params[:controller], action: :edit, id: taxonomy_filter.id), t(".edit"), class: "action-icon--edit" %>
+            <% else %>
+              <span class="action-space icon"></span>
+            <% end %>
+            <% if allowed_to? :destroy, :taxonomy_filter, taxonomy_filter: %>
+              <%= icon_link_to "delete-bin-line", url_for(controller: params[:controller], action: :destroy, id: taxonomy_filter.id), t(".destroy"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_destroy", name: strip_tags(translated_attribute(taxonomy_filter.name))) } %>
+            <% else %>
+              <span class="action-space icon"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

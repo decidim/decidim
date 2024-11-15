@@ -4,6 +4,7 @@ sv:
       post:
         body: Innehåll
         decidim_author_id: Författare
+        published_at: Publicerad
         title: Titel
     models:
       decidim/blogs/create_post_event: Nytt blogginlägg
@@ -23,18 +24,31 @@ sv:
         title: Åtgärder
       admin:
         posts:
+          create:
+            invalid: Det gick inte att skapa inlägget.
+            success: Inlägget har skapats.
+          destroy:
+            success: Inlägget har raderats.
           edit:
             save: Uppdatera
             title: Redigera inlägg
           index:
+            not_published_yet: Ej publicerat.
             title: Inlägg
           new:
             create: Skapa
             title: Skapa inlägg
           update:
             invalid: Det gick inte att spara inlägget.
+            success: Inlägget har sparats.
+      admin_log:
+        post:
+          create: "%{user_name} skapade blogginlägget %{resource_name} i %{space_name}"
+          delete: "%{user_name} raderade blogginlägget %{resource_name} från %{space_name}"
+          update: "%{user_name} uppdaterade blogginlägget %{resource_name} i %{space_name}"
       content_blocks:
         highlighted_posts:
+          last_published: Senast publicerade
           name: Inlägg
           see_all: Se alla inlägg
       last_activity:
@@ -45,26 +59,33 @@ sv:
             author: Författare
             body: Innehåll
             official_blog_post: Officiellt inlägg
+            published_at: Publicerad
             title: Titel
+      posts:
+        index:
+          count:
+            one: "%{count} inlägg"
+            other: "%{count} inlägg"
+          empty: Det finns inga inlägg ännu.
     components:
       blogs:
         actions:
           comment: Kommentera
           create: Skapa
           destroy: Radera
-          endorse: Instäm
+          endorse: Gilla
           update: Uppdatera
         name: Blogg
         settings:
           global:
             announcement: Meddelande
-            comments_enabled: Kommentarer aktiverade
-            comments_max_length: Maximal längd för kommentarer (Lämna 0 för standardvärde)
+            comments_enabled: Aktivera kommentarer
+            comments_max_length: Maximal kommentarslängd (ange 0 för att använda standardvärdet)
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerade
-            endorsements_blocked: Instämmanden är blockerade
-            endorsements_enabled: Instämmanden tillåtna
+            comments_blocked: Stäng av kommentarer
+            endorsements_blocked: Blockera gilla-markeringar
+            endorsements_enabled: Aktivera gilla-markeringar
     events:
       blogs:
         post_created:

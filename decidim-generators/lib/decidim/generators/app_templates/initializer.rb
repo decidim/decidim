@@ -393,6 +393,8 @@ Decidim.configure do |config|
 
   # Additional optional configurations (see decidim-core/lib/decidim/core.rb)
   config.cache_key_separator = Rails.application.secrets.decidim[:cache_key_separator] if Rails.application.secrets.decidim[:cache_key_separator].present?
+  config.cache_expiry_time = Rails.application.secrets.decidim[:cache_expiry_time].to_i.minutes if Rails.application.secrets.decidim[:cache_expiry_time].present?
+  config.stats_cache_expiry_time = Rails.application.secrets.decidim[:stats_cache_expiry_time].to_i.minutes if Rails.application.secrets.decidim[:stats_cache_expiry_time].present?
   config.expire_session_after = Rails.application.secrets.decidim[:expire_session_after].to_i.minutes if Rails.application.secrets.decidim[:expire_session_after].present?
   config.enable_remember_me = Rails.application.secrets.decidim[:enable_remember_me].present? unless Rails.application.secrets.decidim[:enable_remember_me] == "auto"
   if Rails.application.secrets.decidim[:session_timeout_interval].present?

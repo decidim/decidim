@@ -59,7 +59,6 @@ const createDropdown = (component) => {
   const dropdownOptions = {};
   dropdownOptions.dropdown = component.dataset.target;
   dropdownOptions.hover = component.dataset.hover === "true";
-  dropdownOptions.isOpen = component.dataset.open === "true";
   dropdownOptions.autoClose = component.dataset.autoClose === "true";
 
   // This snippet allows to disable the dropdown based on the current viewport
@@ -77,6 +76,17 @@ const createDropdown = (component) => {
   if (isDisabled) {
     return
   }
+
+  dropdownOptions.isOpen = component.dataset.open === "true";
+
+  const isOpen = Object.keys(screens).some((key) => {
+    if (!isScreenSize(key)) {
+      return false;
+    }
+    return Boolean(component.dataset[`open-${key}`.replace(/-([a-z])/g, (str) => str[1].toUpperCase())]);
+  });
+
+  dropdownOptions.isOpen = dropdownOptions.isOpen || isOpen;
 
   if (!component.id) {
     // when component has no id, we enforce to have it one
@@ -103,20 +113,6 @@ const createDropdown = (component) => {
       window.scrollTo({ top: heightToScroll, behavior: "smooth" });
     });
   }
-
-  // Disable focus on children elements so we can pass the AXE accessibility tests
-  const dropdownMenu = document.getElementById(dropdownOptions.dropdown);
-  if (dropdownMenu.getAttribute("aria-hidden") === "true") {
-    dropdownMenu.
-      querySelectorAll("a, input, button").
-      forEach((element) => { element.tabIndex = -1 })
-  }
-
-  component.addEventListener("click", () => {
-    dropdownMenu.
-      querySelectorAll("a, input, button").
-      forEach((element) => { element.tabIndex = 0 })
-  })
 
   Dropdowns.render(component.id, dropdownOptions);
 }

@@ -23,6 +23,10 @@
       @apply font-sans text-white;
     }
 
+    &-metadata svg {
+      @apply fill-current;
+    }
+
     &-title {
       @apply truncate;
     }

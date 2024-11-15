@@ -38,7 +38,7 @@ shared_examples "comments" do
     expect(page).to have_css(".comment", minimum: 1)
 
     within ".comment-order-by" do
-      click_on "Best rated"
+      select "Best rated", from: "order"
     end
 
     expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
@@ -54,7 +54,7 @@ shared_examples "comments" do
       expect(page).to have_css(".comment", minimum: 1)
 
       within("#accordion-#{single_comment.id}") do
-        expect(page).to have_content "Hide reply"
+        expect(page).to have_content "1 answer"
       end
     end
 
@@ -500,6 +500,16 @@ shared_examples "comments" do
         expect(page).to have_css("span.comments-count", text: "#{commentable.comments.count} comments")
         expect(page.find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}").value).to be_empty
       end
+
+      it "shows the entry in last activities" do
+        visit decidim.last_activities_path
+        expect(page).to have_content("New comment: #{content}")
+
+        within "#filters" do
+          find("a", class: "filter", text: "Comment", match: :first).click
+        end
+        expect(page).to have_content("New comment: #{content}")
+      end
     end
 
     context "when user adds a new comment with a link" do
@@ -550,19 +560,22 @@ shared_examples "comments" do
         let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
         let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
 
-        it "displays the hide button" do
+        it "displays a way to to display content" do
           visit current_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("Hide reply")
+            expect(page).to have_content("1 answer")
+            click_on "1 answer"
             expect(page).to have_content(new_reply_body)
           end
         end
 
-        it "displays the show button" do
+        it "displays a way hide content" do
           visit current_path
           within "#comment_#{thread.id}" do
-            click_on "Hide reply"
-            expect(page).to have_content("Show reply")
+            expect(page).to have_content("1 answer")
+            click_on "1 answer"
+            expect(page).to have_content("1 answer")
+            click_on "1 answer"
             expect(page).to have_no_content(new_reply_body)
           end
         end
@@ -573,9 +586,10 @@ shared_examples "comments" do
           it "displays the show button" do
             visit current_path
             within "#comment_#{thread.id}" do
-              click_on "Hide 3 replies"
-              expect(page).to have_content("Show 3 replies")
+              expect(page).to have_content("3 answers")
               expect(page).to have_no_content(new_reply_body)
+              click_on "3 answers"
+              expect(page).to have_content(new_reply_body)
             end
           end
         end
@@ -737,6 +751,20 @@ shared_examples "comments" do
               expect(page).to have_content("Edited")
             end
           end
+
+          it "has only one edit modal" do
+            expect(page).to have_css("#editCommentModal#{comment.id}", visible: :hidden, count: 1)
+            3.times do |index|
+              sleep 2
+              within "#comment_#{comment.id}" do
+                page.find("[id^='dropdown-trigger']").click
+                click_on "Edit"
+              end
+              fill_in "edit_comment_#{comment.id}", with: " This comment has been edited #{1 + index} times"
+              click_on "Send"
+            end
+            expect(page).to have_css("#editCommentModal#{comment.id}", visible: :all, count: 1)
+          end
         end
       end
     end
@@ -842,10 +870,11 @@ shared_examples "comments" do
             skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
             visit current_path
-            expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/, visible: :all)
             page.find("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up").click
-            expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
-            expect(page).to have_css("#comment_#{comment_on_comment.id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/, visible: :all)
+            expect(page).to have_css("#comment_#{comment_on_comment.id} > [data-comment-footer] >.comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/,
+                                                                                                                                                                visible: :all)
           end
         end
       end

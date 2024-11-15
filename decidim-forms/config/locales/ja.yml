@@ -23,7 +23,7 @@ ja:
               missing: は完全ではありません
               too_many: 最大 %{count} 個まで選択できます。
         questionnaire:
-          request_invalid: リクエストの処理中にエラーが発生しました。もう一度やり直してください。
+          request_invalid: リクエストの処理中に問題が発生しました。もう一度やり直してください。
   decidim:
     forms:
       admin:

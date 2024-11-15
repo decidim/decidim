@@ -260,6 +260,13 @@ fr:
         create: "%{user_name} a créé la page statique %{resource_name}"
         delete: "%{user_name} a supprimé la page statique %{resource_name}"
         update: "%{user_name} a mis à jour la page statique %{resource_name}"
+      taxonomy_filter:
+        create: "%{user_name} a créé un filtre basé sur la taxonomie %{resource_name}"
+        create_with_filter_items_count: "%{user_name} a créé un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
+        delete: "%{user_name} a supprimé un filtre basé sur la taxonomie %{resource_name}"
+        delete_with_filter_items_count: "%{user_name} a supprimé un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
+        update: "%{user_name} a mis à jour un filtre basé sur la taxonomie %{resource_name}"
+        update_with_filter_items_count: "%{user_name} a mis à jour un filtre basé sur la taxonomie %{resource_name} avec %{filter_items_count} filtres pour %{space_manifest_name}"
       user:
         block: "%{user_name} a bloqué l'utilisateur %{resource_name}"
         invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle : %{role}"
@@ -284,7 +291,7 @@ fr:
       dismiss: Rejeter la notification
     amendments:
       accepted:
-        error: Une erreur s'est produite lors de l'acceptation de l'amendement.
+        error: Une erreur s'est produite lors de l'acceptation de cet amendement.
         success: L'amendement a été accepté avec succès.
       amendable:
         button: Modifier %{model_name}
@@ -297,7 +304,7 @@ fr:
           one: "%{count} amendement"
           other: "%{count} amendements"
       created:
-        error: Une erreur s’est produite lors de la création du projet d'amendement.
+        error: Une erreur s'est produite lors de la création du brouillon d'amendement.
         success: Le projet d'amendement a été créé avec succès.
       destroy_draft:
         error: Il y a eu un problème de suppression du projet d'amendement.
@@ -349,7 +356,7 @@ fr:
         error: Une erreur s'est produite lors de la modification de ce projet d'amendement.
         success: Le projet d'amendement a été mis à jour avec succès.
       withdraw:
-        error: Une erreur s'est produite lors du retrait de l'amendement.
+        error: Une erreur s'est produite lors du retrait de cet amendement.
         success: L'amendement a été retiré avec succès.
       wizard_step_form:
         steps:
@@ -586,6 +593,9 @@ fr:
           sign_up: Veuillez compléter votre profil
           subtitle: Veuillez compléter le formulaire suivant afin de compléter l’inscription
           username_help: Le nom est public et apparaît dans votre profil et sur vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
+        new_tos_fields:
+          sign_up: Créer un compte
+          sign_up_title: Finalisez la création de votre compte
       registrations:
         create:
           error: Il y a eu un problème pour créer votre compte.
@@ -923,7 +933,7 @@ fr:
           title_required: Le titre est requis !
           uploaded: Téléchargé
           validating: Validation en cours...
-          validation_error: Erreur de validation !
+          validation_error: Erreur de validation ! Vérifiez que le fichier a une extension ou taille autorisée.
         select_file: Sélectionnez un fichier
       upload_help:
         dropzone: Déposez des fichiers ici ou cliquez sur le bouton pour télécharger
@@ -1463,6 +1473,7 @@ fr:
         close_modal: Fermer la fenêtre de dialogue
         ok: Ok
         title: Valider
+      confirm_unload: Cette page contient des modifications non enregistrées. Êtes-vous sûr(e) de vouloir quitter cette page ?
       embed:
         title: Contenu vidéo intégré
       extended_navigation_bar:
@@ -1692,6 +1703,7 @@ fr:
         message: Votre compte a été verrouillé en raison d'une quantité excessive de tentatives de connexion infructueuses.
         subject: Instructions de déverrouillage
     omniauth_callbacks:
+      add_tos_errors: Les conditions d'utilisation doivent être acceptées afin de créer un compte.
       failure: Impossible de vous authentifier à partir de %{kind} car "%{reason}".
       success: Authentifié avec succès à partir de %{kind} compte.
     passwords:
@@ -1852,7 +1864,7 @@ fr:
       not_found: n'a pas pu être trouvé. Avez-vous créé un compte précédemment ?
       not_locked: n'était pas verrouillé
       not_saved:
-        one: 'Une erreur est survenue pendant le traitement de votre requête.'
+        one: 'Une erreur est survenue pendant le traitement de votre requête:'
         other: 'Plusieurs erreurs sont survenues pendant le traitement de votre requête.'
       too_many_marks: utilise trop de signes de ponctuation consécutifs (par exemple! et?)
       too_much_caps: utilise trop de lettres majuscules (plus de 25% du texte)

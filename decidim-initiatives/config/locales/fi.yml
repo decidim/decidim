@@ -90,7 +90,7 @@ fi:
             values:
               accepted: Tarpeeksi allekirjoituksia
               created: Luotu
-              discarded: Hylätyt
+              discarded: Perutut
               open: Avoimet
               rejected: Liian vähän allekirjoituksia
               validating: Teknisessä validoinnissa
@@ -100,7 +100,7 @@ fi:
           title_or_description_or_id_string_or_author_name_or_author_nickname_cont: Etsi kohteita %{collection} otsikon, kuvauksen, ID-numeron tai laatijan nimellä.
       initiatives_settings:
         update:
-          error: Tapahtui virhe.
+          error: Aloitteiden asetusten päivittäminen epäonnistui.
           success: Aloitteiden asetusten päivitys onnistui.
       menu:
         attachments: Liitteet
@@ -241,11 +241,15 @@ fi:
             alert_html: "<p>Sinun tulee luoda vähintään yksi aloitetyyppi, jotta osallistujat voivat luoda aloitteita.</p><p>%{link}</p>"
             button: Uusi aloitetyyppi
         initiatives:
+          accept:
+            success: Aloitteen hyväksyminen onnistui.
+          discard:
+            success: Aloitteen peruminen onnistui.
           edit:
             accept: Hyväksy aloite
             confirm: Oletko varma?
             confirm_send_to_technical_validation: Oletko varma?
-            discard: Hylkää aloite
+            discard: Peru aloite
             export_pdf_signatures: Vie allekirjoitukset PDF-asiakirjaan
             export_votes: Lataa allekirjoitukset
             reject: Torju aloite
@@ -264,8 +268,14 @@ fi:
             edit: Muokkaa
             new: Uusi
             photos: Kuvat
+          publish:
+            success: Aloitteen julkaisu onnistui.
+          reject:
+            success: Aloitteen hylkääminen onnistui.
+          unpublish:
+            success: Aloitteen julkaisun lopetus onnistui.
           update:
-            error: Tapahtui virhe.
+            error: Aloitteen päivittäminen epäonnistui.
             success: Aloitteen päivitys onnistui.
         initiatives_settings:
           edit:
@@ -279,7 +289,7 @@ fi:
             title: Aloitteiden asetukset
         initiatives_type_scopes:
           create:
-            error: Tapahtui virhe.
+            error: Teeman luominen aloitteelle epäonnistui.
             success: Aloitetyypille on luotu uusi teema.
           destroy:
             success: Teeman poisto onnistui.
@@ -290,11 +300,11 @@ fi:
             create: Luo
             title: Luo aloitetyypin teema
           update:
-            error: Tapahtui virhe.
+            error: Teeman päivittäminen epäonnistui.
             success: Teeman päivitys onnistui.
         initiatives_types:
           create:
-            error: Tapahtui virhe.
+            error: Aloitetyypin luonti epäonnistui.
             success: Uuden aloitetyypin luonti onnistui. Sinun on määritettävä vähintään yksi teema tälle aloitetyypille, jotta sitä voi käyttää.
           destroy:
             success: Aloitetyypin poisto onnistui.
@@ -311,13 +321,13 @@ fi:
             create: Luo
             title: Uusi aloitetyyppi
           update:
-            error: Tapahtui virhe.
+            error: Aloitetyypin päivitys epäonnistui.
             success: Aloitetyypin päivitys onnistui.
       admin_log:
         initiative:
           publish: "%{user_name} julkaisi aloitteen %{resource_name}"
           send_to_technical_validation: "%{user_name} lähetti aloitteen %{resource_name} tekniseen tarkastukseen"
-          unpublish: "%{user_name} hylkäsi aloitteen %{resource_name}"
+          unpublish: "%{user_name} perui aloitteen %{resource_name}"
           update: "%{user_name} päivitti aloitetta %{resource_name}"
         initiatives_settings:
           update: "%{user_name} päivitti aloitteiden asetuksia"
@@ -328,7 +338,7 @@ fi:
       admin_states:
         accepted: Tarpeeksi allekirjoituksia
         created: Luotu
-        discarded: Hylätty
+        discarded: Peruttu
         open: Avoimet
         rejected: Liian vähän allekirjoituksia
         validating: Teknisessä tarkastuksessa
@@ -366,7 +376,7 @@ fi:
         finish:
           back: Takaisin
           back_to_initiatives: Takaisin aloitteisiin
-          callout_text: Onnittelut! Aloitteesi on luotu onnistuneesti.
+          callout_text: Onnittelut! Aloitteen luominen onnistui.
           confirm: Aloite lähetetään hallintakäyttäjän tarkastettavaksi ja julkaistavaksi. Julkaisun jälkeen et voi enää muokata aloitetta. Haluatko varmasti jatkaa?
           edit_my_initiative: Muokkaa aloitettani
           go_to_my_initiatives: Siirry omiin aloitteisiini
@@ -577,7 +587,7 @@ fi:
         badge_name:
           accepted: Tarpeeksi allekirjoituksia
           created: Luotu
-          discarded: Hylätty
+          discarded: Peruttu
           open: Avoimet
           rejected: Liian vähän allekirjoituksia
           validating: Teknisessä tarkastuksessa
@@ -586,7 +596,7 @@ fi:
         expired: Vanhentuneet
       unavailable_scope: Teema ei ole saatavilla
       update:
-        error: Tapahtui virhe.
+        error: Aloitteen päivitys epäonnistui.
         success: Aloitteen päivitys onnistui.
     menu:
       initiatives: Aloitteet

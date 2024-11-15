@@ -1,0 +1,10 @@
+<%= form.collection_check_boxes :taxonomy_items, collection, :value, :name do |item| %>
+  <div>
+    <%= item.label { item.check_box + item.text } %>
+  </div>
+  <% if item.object.children.any? %>
+    <div class="ml-4">
+      <%= render "decidim/admin/taxonomy_filters/check_boxes", form:, collection: item.object.children %>
+    </div>
+  <% end %>
+<% end %>

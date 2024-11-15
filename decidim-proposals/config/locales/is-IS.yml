@@ -27,7 +27,6 @@ is-IS:
             announcement: Tilkynning
             attachments_allowed: Leyfa viðhengi
             comments_enabled: Athugasemdir virkt
-            geocoding_enabled: Geocoding virkt
             new_proposal_help_text: Ný tillaga hjálpartexta
             official_proposals_enabled: Opinberar tillögur virkar
             proposal_answering_enabled: Tillaga svarað virkt
@@ -144,7 +143,6 @@ is-IS:
           discard: Fargaðu þessari drög
           discard_confirmation: Ertu viss um að þú viljir fleygja þessari tillögu drög?
           send: Preview
-          title: Breyta tillögu drög
         filters:
           category: Flokkur
           origin: Uppruni

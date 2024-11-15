@@ -5,6 +5,7 @@ abcd
 abcert
 abcloktpes
 accesslist
+Aceasta
 acentos
 acro
 activejob
@@ -21,9 +22,12 @@ admins
 adoc
 AFFERO
 AGPL
+aitools
 Ajuntament
 Ajuntamentde
 alabs
+alecslupu
+Alexandru
 amd
 amendables
 AMR
@@ -66,6 +70,7 @@ backticks
 barcat
 Basecontroller
 Batchloader
+bayes
 bbb
 Bbbb
 BCN
@@ -90,6 +95,7 @@ boundingbox
 Brakus
 breadcrumb
 browserstack
+builder
 bugfixing
 byebug
 bytesize
@@ -123,6 +129,7 @@ childs
 chromedriver
 cht
 cityhall
+cld
 clickable
 clickbait
 cmax
@@ -282,6 +289,7 @@ ERVz
 Esa
 espa
 estat
+este
 Etags
 etherpad
 evanfuture
@@ -357,6 +365,7 @@ gpu
 gql
 Graphi
 graphiql
+Gruhier
 groupless
 grup
 gsutil
@@ -406,6 +415,7 @@ iframes
 iife
 Ijkl
 ilike
+illgotten
 impersonatable
 inbox
 includeurl
@@ -467,6 +477,7 @@ LCell
 legacysupport
 Lesch
 lfo
+libu
 libicu
 libpq
 libreadline
@@ -499,6 +510,7 @@ lsclusters
 lte
 lteq
 LTREE
+Lupu
 lvh
 lvml
 magick
@@ -541,6 +553,7 @@ misogi
 mlat
 mlon
 Moby
+Mobi
 modals
 modernizr
 modernizrrc
@@ -578,6 +591,7 @@ NEWCODE
 newsletterable
 newusermanager
 newwindow
+ngrams
 nicknamizable
 nicknamize
 nie
@@ -715,6 +729,7 @@ promotal
 promotors
 proposta
 Propostes
+propozitie
 Propuesta
 prosemirror
 protonmail
@@ -886,6 +901,7 @@ thant
 thedoggokeeper
 thelma
 thepassword
+THH
 thi
 Tiene
 tilelayer
@@ -917,6 +933,7 @@ tzid
 tzip
 uber
 ucw
+udev
 ueee
 ugc
 ujs
@@ -950,6 +967,7 @@ unresolveable
 unsigning
 unsigns
 unsubscribes
+untrains
 unvotes
 upcomingfoobar
 UPDREF

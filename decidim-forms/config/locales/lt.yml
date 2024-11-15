@@ -21,8 +21,6 @@ lt:
               too_long: per ilgas
             choices:
               missing: nepilnas - trūksta elementų
-        questionnaire:
-          request_invalid: Tvarkant prašymą įvyko klaida. Bandykite dar kartą.
   decidim:
     forms:
       admin:

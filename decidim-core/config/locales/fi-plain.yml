@@ -19,6 +19,8 @@ fi-pl:
         body: Viestin teksti
       report:
         details: Lisätiedot
+      taxonomy:
+        name: Luokittelun nimi
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
@@ -62,6 +64,10 @@ fi-pl:
         password_confirmation: Salasanan vahvistus
         remember_me: Muista minut
     models:
+      decidim:
+        history:
+          one: Historia
+          other: Historia
       decidim/amendment:
         one: muutos
         other: Muutokset
@@ -260,6 +266,20 @@ fi-pl:
         create: "%{user_name} loi staattisen sivun %{resource_name}"
         delete: "%{user_name} poisti staattisen sivun %{resource_name}"
         update: "%{user_name} päivitti staattista sivua %{resource_name}"
+      taxonomy:
+        create: "%{user_name} loi luokittelun %{resource_name}"
+        create_with_parent: "%{user_name} loi kohteen %{resource_name} luokittelun %{parent_taxonomy} alle"
+        delete: "%{user_name} poisti luokittelun %{resource_name}"
+        delete_with_parent: "%{user_name} poisti kohteen %{resource_name} luokittelun %{parent_taxonomy} alta"
+        update: "%{user_name} päivitti luokittelua %{resource_name}"
+        update_with_parent: "%{user_name} päivitti kohdetta %{resource_name} luokittelun %{parent_taxonomy} alla"
+      taxonomy_filter:
+        create: "%{user_name} loi suodattimen luokittelulle %{resource_name}"
+        create_with_filter_items_count: "%{user_name} loi suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
+        delete: "%{user_name} poisti suodattimen luokittelulle %{resource_name}"
+        delete_with_filter_items_count: "%{user_name} poisti suodattimen luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
+        update: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}"
+        update_with_filter_items_count: "%{user_name} päivitti suodatinta luokittelulle %{resource_name}, missä on %{filter_items_count} suodatinta kohteelle %{space_manifest_name}"
       user:
         block: "%{user_name} esti käyttäjän %{resource_name}"
         invite: "%{user_name} kutsui käyttäjän %{resource_name} roolilla: %{role}"
@@ -284,7 +304,7 @@ fi-pl:
       dismiss: Piilota ilmoitus
     amendments:
       accepted:
-        error: Muutoksen hyväksyntä epäonnistui.
+        error: Muutoksen hyväksyminen epäonnistui.
         success: Muutoksen hyväksyntä onnistui.
       amendable:
         button: Muuta %{model_name}
@@ -297,7 +317,7 @@ fi-pl:
           one: "%{count} muutos"
           other: "%{count} muutosta"
       created:
-        error: Muutosluonnoksen lisäys epäonnistui.
+        error: Muutoksen luonti epäonnistui.
         success: Muutosluonnoksen lisäys onnistui.
       destroy_draft:
         error: Muutosluonnoksen poisto epäonnistui.
@@ -587,6 +607,9 @@ fi-pl:
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi tilisi luonnin
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
+        new_tos_fields:
+          sign_up: Luo tili
+          sign_up_title: Viimeistele tilin luominen
       registrations:
         create:
           error: Käyttäjätilin luonti epäonnistui.
@@ -925,7 +948,7 @@ fi-pl:
           title_required: Tiedosto-otsikko tarvitaan!
           uploaded: Ladattu
           validating: Validoidaan...
-          validation_error: Validointivirhe!
+          validation_error: Virhe tiedoston tarkastamisessa! Varmista, että tiedostopääte ja tiedoston koko vastaavat palvelun asettamia rajoituksia.
         select_file: Valitse tiedosto
       upload_help:
         dropzone: Pudota tiedostot tähän tai paina viereistä nappia ladataksesi tiedostoja
@@ -1083,6 +1106,8 @@ fi-pl:
           not_found: 'Teemaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'Luokittelua ei löytynyt tietokannasta (ID: %{id})'
     managed_users:
       expired_session: Eri käyttäjänä kirjautumisen istunto on vanhentunut.
     map:
@@ -1288,7 +1313,7 @@ fi-pl:
       name: Offline
       show:
         message_1: Verkkoyhteytesi näyttää olevan poissa käytöstä tällä hetkellä.
-        message_2: Yritä myöhemmin uudelleen.
+        message_2: Yritä myöhemmin uudestaan.
         retry: Yritä uudestaan
     open_data:
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudelleen muutaman minuutin kuluttua.
@@ -1385,7 +1410,7 @@ fi-pl:
           manage_user_group_admins: Hallinnoi ylläpitäjiä
           manage_user_group_users: Hallinnoi jäseniä
           message: Viesti
-          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudelleen
+          resend_email_confirmation_instructions: Lähetä sähköpostin vahvistusohjeet uudestaan
         confirmation_instructions_sent: Sähköpostivahvistuksen ohjeet lähetetty.
         create_user_group: Luo ryhmä
         edit_profile: Muokkaa profiilia
@@ -1418,8 +1443,10 @@ fi-pl:
         subject: Resurssi on ilmoitettu
     reports:
       create:
-        error: Ilmoituksen luonnissa tapahtui virhe. Yritä uudestaan.
+        error: Ilmoituksen luonti epäonnistui. Yritä uudestaan.
         success: Ilmoitus on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+    resource:
+      controls_label: Kohteen hallintatoiminnot
     resource_endorsements:
       create:
         error: Suosituksen antaminen ei onnistunut.
@@ -1465,6 +1492,7 @@ fi-pl:
         close_modal: Sulje ikkuna
         ok: OK
         title: Vahvista
+      confirm_unload: Sinulla on tallentamattomia muutoksia. Oletko varma, että haluat poistua tältä sivulta?
       embed:
         title: Upotettu videosisältö
       extended_navigation_bar:
@@ -1542,6 +1570,8 @@ fi-pl:
     tags:
       filter_results_for_category: 'Rajaa tulokset aihepiirin mukaan: %{resource}'
       filter_results_for_scope: 'Rajaa tulokset teeman mukaan: %{resource}'
+    taxonomies:
+      prompt: Valitse kohteesta "%{name}"
     translation_bar:
       help_text: "<strong>Varoitus:</strong> Sisältö saatetaan kääntää automaattisesti eikä koneelliset käännökset ole 100% tarkkoja."
       show_original: Näytä alkuperäinen teksti
@@ -1695,6 +1725,7 @@ fi-pl:
         message: Tilisi on lukittu liian monen epäonnistuneen kirjautumisyrityksen vuoksi.
         subject: Avaa ohjeet
     omniauth_callbacks:
+      add_tos_errors: Tilin luominen edellyttää käyttöehtojen hyväksyntää.
       failure: Sisäänkirjautuminen epäonnistui palvelulla %{kind} koska "%{reason}".
       success: Kirjauduit onnistuneesti sisään %{kind} -tilillä.
     passwords:
@@ -1838,7 +1869,7 @@ fi-pl:
   errors:
     messages:
       allowed_file_content_types: 'ainoastaan seuraavat tiedostomuodot on sallittu: %{types}'
-      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudelleen
+      already_confirmed: on jo vahvistettu, yritä kirjautua sisään uudestaan
       blank: ei voi olla tyhjä
       cannot_be_blank: ei voi olla tyhjä
       confirmation: ei täsmää kentän %{attribute} kanssa
@@ -1854,9 +1885,6 @@ fi-pl:
       nesting_too_deep: ei voi olla ala-aihepiirin sisällä
       not_found: ei löytynyt. Oletko luonut tilin aikaisemmin?
       not_locked: ei lukittu
-      not_saved:
-        one: 'Virhe käsiteltäessä pyyntöä:'
-        other: 'Virheitä käsiteltäessä pyyntöä:'
       too_many_marks: liian monta välimerkkiä peräkkäin (esim. ! ja ?)
       too_much_caps: liian monta isoa kirjainta (yli 25% tekstistä)
       too_short: liian lyhyt (alle %{count} merkkiä)

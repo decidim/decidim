@@ -7,10 +7,7 @@ fi-pl:
         decidim_scope_id: Teema
         description: Kuvaus
         end_date: Päättymispäivä
-        meetings_ids: Sisällytetyt tapaamiset
         progress: Edistyminen
-        project_ids: Liitetyt suunnitelmat
-        proposals: Sisällytetyt ehdotukset
         start_date: Alkamispäivä
         subresults: Alitulokset
         title: Otsikko
@@ -29,6 +26,14 @@ fi-pl:
       decidim/accountability/result_progress_updated_event: Tuloksen edistyminen päivitetty
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: Tulos %{link} liitettiin hankkeeseen
+            meetings_ids: 'Tuloksesta keskusteltiin tapaamisessa: %{link}'
+            project_ids: 'Tulos liitettiin hankkeeseen: %{link}'
+            proposal_ids: 'Tulos liitettiin ehdotukseen: %{link}'
+            text: 'Liitettiin osaksi tulosta: %{link}'
       decidim/accountability/result:
         one: Tulos
         other: Tulokset
@@ -176,6 +181,8 @@ fi-pl:
       content_blocks:
         highlighted_results:
           results: Tulokset
+      creation:
+        text: Tämä tulos luotiin
       import_mailer:
         import:
           errors: Virheet

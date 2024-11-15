@@ -127,7 +127,6 @@ zh-CN:
           title: 重复的参与进程
       participatory_process_groups:
         destroy:
-          error: 销毁参与性进程小组时出错。
           success: 参与进程组已成功删除。
         edit:
           title: 编辑流程组
@@ -311,8 +310,6 @@ zh-CN:
           name: 高亮的进程
       index:
         title: 参与进程
-      last_activity:
-        new_participatory_process: 新的参与进程
       participatory_process_steps:
         index:
           back_to_process: 返回进程页面

@@ -103,7 +103,7 @@ fr-CA:
       comments:
         blocked_comments_for_unauthorized_user_warning: Vous devez valider votre inscription pour commenter maintenant, mais vous pouvez lire les commentaires précédents.
         blocked_comments_for_user_warning: Vous n'êtes pas en mesure de commenter pour le moment, mais vous pouvez lire les précédents.
-        blocked_comments_warning: Les commentaires sont actuellement désactivés, mais vous pouvez lire ceux déjà saisis.
+        blocked_comments_warning: Les commentaires sont actuellement désactivés, seuls les administrateurs peuvent répondre ou en poster de nouveaux.
         comment_details_title: Détails du commentaire
         loading: Chargement des commentaires ...
         single_comment_warning: <a href="%{url}">Voir tous les commentaires</a>

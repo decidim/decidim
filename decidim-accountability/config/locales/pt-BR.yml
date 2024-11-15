@@ -7,11 +7,9 @@ pt-BR:
         decidim_scope_id: Âmbito
         description: Descrição
         end_date: Data final
-        meetings_ids: Reuniões incluídas
         progress: Progresso
-        project_ids: Projetos incluídos
-        proposals: Propostas incluídas
         start_date: Data de início
+        subresults: Subresultados
         title: Título
         updated_at: Atualizado em
       status:
@@ -28,6 +26,10 @@ pt-BR:
       decidim/accountability/result_progress_updated_event: Progresso do resultado atualizado
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            text: 'Foi adicionado a este resultado: %{link}'
       decidim/accountability/result:
         one: Resultado
         other: Resultados
@@ -175,6 +177,8 @@ pt-BR:
       content_blocks:
         highlighted_results:
           results: Resultados
+      creation:
+        text: Este resultado foi criado
       import_mailer:
         import:
           errors: Erros

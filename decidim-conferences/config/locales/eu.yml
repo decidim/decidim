@@ -155,7 +155,7 @@ eu:
       conferences:
         create:
           error: Arazo bat egon da hitzaldi hau sortzean.
-          success: Konferentzia ondo sortu da.
+          success: Hitzaldia zuzen sortua.
         edit:
           update: Eguneratu
         exports:
@@ -255,7 +255,7 @@ eu:
           fields:
             conference_meetings: Hitzaldiaren topaketak
             price: Prezioa
-            registrations_count: Erregistroak zenbatzea
+            registrations_count: Erregistro kopurua
             title: Izenburua
             weight: Kokapenaren hurrenkera
           name: Izen-emate mota
@@ -473,6 +473,8 @@ eu:
           name: Nabarmendutako konferentziak
       index:
         title: Hitzaldiak
+      last_activity:
+        new_conference: 'Beste hitzaldi bat:'
       mailer:
         conference_registration_mailer:
           confirmation:

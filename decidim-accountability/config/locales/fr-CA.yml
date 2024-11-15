@@ -7,10 +7,7 @@ fr-CA:
         decidim_scope_id: Périmètre d'application
         description: Description
         end_date: Date de fin
-        meetings_ids: Rencontres associées
         progress: Avancement
-        project_ids: Projets inclus
-        proposals: Propositions incluses
         start_date: Date de début
         title: Titre
         updated_at: Mise à jour à

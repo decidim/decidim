@@ -91,7 +91,6 @@ ar:
       comments:
         blocked_comments_for_unauthorized_user_warning: يجب أن تكون عضوا محققا من أجل التعليق حالياً، ولكن يمكنك قراءة ما سبق.
         blocked_comments_for_user_warning: لا يمكنك التعليق في هذه اللحظة ، ولكن يمكنك قراءة التعليقات السابقة.
-        blocked_comments_warning: التعليقات معطلة في هذا الوقت ، لكن يمكنك قراءة التعليقات السابقة.
         comment_details_title: تفاصيل التعليق
         loading: جارٍ تحميل التعليقات ...
         single_comment_warning: <a href="%{url}"> عرض جميع التعليقات</a>

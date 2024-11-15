@@ -168,7 +168,6 @@ hu:
           title: Részvételi folyamat duplikálása
       participatory_process_groups:
         destroy:
-          error: Hiba történt a részvételi folyamatcsoport törlése során.
           success: Részvételi folyamat csoport törlése sikeres.
         edit:
           title: Folyamat csoport szerkesztése
@@ -403,8 +402,6 @@ hu:
           name: Kiemelt folyamatok
       index:
         title: Részvételi folyamatok
-      last_activity:
-        new_participatory_process: Új részvételi folyamat
       participatory_process_steps:
         index:
           back_to_process: Vissza a folyamatok oldalára

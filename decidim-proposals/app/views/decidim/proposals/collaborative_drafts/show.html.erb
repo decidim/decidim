@@ -1,9 +1,9 @@
 <% add_decidim_page_title(t("name", scope: "decidim.proposals.collaborative_drafts")) %>
-<% add_decidim_meta_tags({
-                           description: present(@collaborative_draft).body,
-                           title: present(@collaborative_draft).title,
-                           url: collaborative_draft_url(@collaborative_draft.id)
-                         }) %>
+<% add_decidim_meta_tags(
+  description: present(@collaborative_draft).body,
+  title: present(@collaborative_draft).title,
+  url: collaborative_draft_url(@collaborative_draft.id),
+  resource: @collaborative_draft) %>
 
 <%= append_stylesheet_pack_tag "decidim_proposals", media: "all" %>
 <%= append_javascript_pack_tag "decidim_proposals" %>
@@ -25,14 +25,23 @@
       </div>
     <% end %>
 
-    <div class="layout-author">
-      <%= cell "decidim/coauthorships", @collaborative_draft, context_actions: [] %>
-
-      <% if @collaborative_draft.state %>
+    <% if @collaborative_draft.state %>
+      <div class="layout-author has_status">
         <span class="<%= collaborative_drafts_state_class(@collaborative_draft.state) %> label">
           <%= humanize_collaborative_draft_state(@collaborative_draft.state) %>
         </span>
-      <% end %>
+      </div>
+    <% end %>
+
+    <div class="layout-author <%= "has_status" if @collaborative_draft.state %>">
+      <div class="relative flex items-center justify-center w-full">
+        <div class="w-10/12 flex items-center gap-4">
+          <%= cell "decidim/coauthorships", @collaborative_draft, context_actions: [] %>
+        </div>
+        <%= render "decidim/shared/resource_actions", resource: @collaborative_draft do %>
+          <%= render "decidim/proposals/collaborative_drafts/collaborative_actions" %>
+        <% end %>
+      </div>
     </div>
   </section>
 
@@ -44,7 +53,14 @@
 
   <%= attachments_for @collaborative_draft %>
 
-  <%= render partial: "actions" %>
+  <%= cell "decidim/tags", @collaborative_draft %>
+
+  <section class="layout-main__section layout-main__buttons" data-buttons>
+    <%= cell "decidim/comments_button", nil %>
+    <div class="ml-auto lg:ml-0">
+      <%= cell "decidim/share_button", nil %>
+    </div>
+  </section>
 
   <% content_for :item_footer do %>
     <%= comments_for @collaborative_draft %>

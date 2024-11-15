@@ -20,7 +20,7 @@ module Decidim
       end
 
       def button_classes
-        "button button__sm button__text-secondary"
+        "button button__sm button__transparent-secondary w-full"
       end
 
       def icon_name

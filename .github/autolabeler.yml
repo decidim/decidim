@@ -13,6 +13,7 @@ dependencies:
 javascript: "*.js"
 "module: accountability": decidim-accountability/**/*
 "module: admin": decidim-admin/**/*
+"module: ai": decidim-ai/**/*
 "module: api": decidim-api/**/*
 "module: assemblies": decidim-assemblies/**/*
 "module: blogs": decidim-blogs/**/*

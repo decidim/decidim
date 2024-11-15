@@ -456,6 +456,16 @@ take over user accounts.
 |80
 |No
 
+|DECIDIM_CACHE_EXPIRATION_TIME
+|The default number of minutes where a cache in Decidim will be applied (currently Decidim applies cache to some pieces of html called cells). If empty has no expiration time (but you can clear the cache anytime with the command `rails tmp:clear`). Note that zero ("0") is different than an empty string and it will disable the cache completely.
+|1440
+|No
+
+|DECIDIM_STATS_CACHE_EXPIRATION_TIME
+|Same as before but for the default number of minutes for html that displays stats.
+|10
+|No
+
 |DECIDIM_MAXIMUM_ATTACHMENT_SIZE
 |The maximum file size of an attachment (in Megabytes).
 
@@ -618,6 +628,25 @@ Additional context: This has been revealed as an issue during a security audit o
 |false
 |No
 
+|*DECIDIM_SPAM_DETECTION_BACKEND_USER*
+| The adapter type needed for user classifier. (for CI purposes, you can set "memory")
+| redis
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_USER_REDIS_URL*
+| The redis connection url used by the user classifier
+| redis://localhost:6379/3
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE*
+| The adapter type needed for resource classifier. (for CI purposes, you can set "memory")
+| redis
+| No
+
+|*DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE_REDIS_URL*
+| The redis connection url used by the resource classifier
+| redis://localhost:6379/2
+| No
 
 |===
 

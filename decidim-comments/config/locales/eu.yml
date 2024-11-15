@@ -100,7 +100,7 @@ eu:
       comments:
         blocked_comments_for_unauthorized_user_warning: Egiaztatuta egon behar zara momentu honetan iruzkina egiteko, baina aurreko iruzkinak irakur ditzakezu.
         blocked_comments_for_user_warning: Oraindik ez duzu iruzkinik egin, baina aurrekoak irakurri ditzakezu.
-        blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
+        blocked_comments_warning: Iruzkinak desaktibatuta daude, administratzaileek soilik erantzun dezakete edo berriak argitaratu.
         comment_details_title: Iruzkinaren xehetasunak
         loading: Iruzkinak kargatzen...
         single_comment_warning: <a href="%{url}">k erakusten ditu iruzkin guztiak</a>
@@ -150,7 +150,7 @@ eu:
         reply_created:
           email_intro: "%{author_name} k zure iruzkina erantzun du hemen: %{resource_title}. Orri honetan irakur dezakezu:"
           email_outro: Jakinarazpen hau jaso duzu zure iruzkina erantzun delako.
-          email_subject: "%{author_name}-k zure iruzkina erantzun du hemen: %{resource_title}"
+          email_subject: "%{author_name} k zure iruzkina erantzun du hemen: %{resource_title}"
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> -k zure iruzkinari erantzun dio <a href="%{resource_path}">%{resource_title}</a>
         user_group_mentioned:
           email_intro: Zure talde bat aipatu dute

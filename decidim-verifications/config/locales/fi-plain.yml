@@ -90,7 +90,7 @@ fi-pl:
           help:
             - Osallistujat pyytävät vahvistuskoodin lähettämistä heidän puhelimeensa.
             - Heidän on syötettävä koodi vahvistaakseen tilinsä.
-            - Jos he eivät saa koodia, he voivat pyytää sitä uudelleen.
+            - Jos he eivät saa koodia, he voivat pyytää sitä uudestaan.
       csv_census:
         explanation: Varmenna käyttäjätilisi organisaation henkilötietorekisterin avulla.
         name: Organisaation rekisteritiedot
@@ -157,7 +157,7 @@ fi-pl:
         admin:
           census:
             create:
-              error: Rekisteritietojen tuonnissa tapahtui virhe.
+              error: Henkilötietorekisterin tuonti epäonnistui.
               success: '%{count} kohdetta tuotiin onnistuneesti (%{errors} virhettä).'
             destroy_all:
               success: Kaikki henkilötietorekisterin tiedot on poistettu.

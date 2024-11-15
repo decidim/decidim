@@ -628,7 +628,6 @@ lt:
         transparent: Skaidrus
         withdraw: Atsiimta
       withdraw:
-        error: Išimant susirinkimą įvyko klaida.
         success: Susirinkimas sėkmingai išimtas.
     metrics:
       meetings:

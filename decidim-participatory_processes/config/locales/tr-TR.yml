@@ -147,7 +147,6 @@ tr:
           title: Yinelenen katılımcı süreç
       participatory_process_groups:
         destroy:
-          error: Katılımcı süreç grubu yok edilirken bir hata oluştu.
           success: Katılımcı süreç grubu başarıyla silindi.
         edit:
           title: İşlem grubunu düzenle
@@ -353,8 +352,6 @@ tr:
           name: Vurgulanan süreçler
       index:
         title: Katılımcı süreçler
-      last_activity:
-        new_participatory_process: Yeni katılımcı süreç
       participatory_process_steps:
         index:
           back_to_process: Süreç sayfasına geri dön

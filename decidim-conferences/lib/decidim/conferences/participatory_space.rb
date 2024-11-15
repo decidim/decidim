@@ -36,6 +36,19 @@ Decidim.register_participatory_space(:conferences) do |participatory_space|
     context.layout = "layouts/decidim/admin/conference"
   end
 
+  participatory_space.exports :conferences do |export|
+    export.collection do
+      Decidim::Conference
+        .public_spaces
+        .includes(:taxonomies, :attachment_collections, :categories)
+    end
+
+    export.include_in_open_data = true
+
+    export.serializer Decidim::Conferences::ConferenceSerializer
+    export.open_data_serializer Decidim::Conferences::OpenDataConferenceSerializer
+  end
+
   participatory_space.register_on_destroy_account do |user|
     Decidim::ConferenceUserRole.where(user:).destroy_all
     Decidim::ConferenceSpeaker.where(user:).destroy_all

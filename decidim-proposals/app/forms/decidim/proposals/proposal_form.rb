@@ -7,6 +7,7 @@ module Decidim
       include Decidim::TranslatableAttributes
       include Decidim::AttachmentAttributes
       include Decidim::HasUploadValidations
+      include Decidim::HasTaxonomyFormAttributes
 
       mimic :proposal
 
@@ -17,8 +18,6 @@ module Decidim
       attribute :address, String
       attribute :latitude, Float
       attribute :longitude, Float
-      attribute :category_id, Integer
-      attribute :scope_id, Integer
       attribute :attachment, AttachmentForm
       attribute :suggested_hashtags, Array[String]
 
@@ -32,15 +31,11 @@ module Decidim
         maximum: ->(record) { record.component.settings.proposal_length }
       }
       validates :address, geocoding: true, if: ->(form) { form.has_address? && !form.geocoded? }
-      validates :category, presence: true, if: ->(form) { form.category_id.present? }
-      validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-      validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
 
       validate :body_is_not_bare_template
       validate :notify_missing_attachment_if_errored
 
       alias component current_component
-      delegate :categories, to: :current_component
 
       def map_model(model)
         self.title = translated_attribute(model.title)
@@ -51,34 +46,11 @@ module Decidim
         self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
 
         self.user_group_id = model.user_groups.first&.id
-        self.category_id = model.categorization.decidim_category_id if model.categorization
-
-        # The scope attribute is with different key (decidim_scope_id), so it
-        # has to be manually mapped.
-        self.scope_id = model.scope.id if model.scope
-
         self.documents = model.attachments
       end
 
-      # Finds the Category from the category_id.
-      #
-      # Returns a Decidim::Category
-      def category
-        @category ||= categories.find_by(id: category_id)
-      end
-
-      # Finds the Scope from the given scope_id, uses participatory space scope if missing.
-      #
-      # Returns a Decidim::Scope
-      def scope
-        @scope ||= @attributes["scope_id"].value ? current_component.scopes.find_by(id: @attributes["scope_id"].value) : current_component.scope
-      end
-
-      # Scope identifier
-      #
-      # Returns the scope identifier related to the proposal
-      def scope_id
-        super || scope&.id
+      def participatory_space_manifest
+        @participatory_space_manifest ||= current_component.participatory_space.manifest.name
       end
 
       def geocoding_enabled?

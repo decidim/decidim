@@ -267,7 +267,6 @@ ar:
           headers:
             actions: أفعال
             name: اسم المكون
-            scope: مجال المكون
             type: نوع المكون
         new:
           add: إضافة عنصر
@@ -772,6 +771,8 @@ ar:
           without_topic: صفحات بدون موضوع
         update:
           error: حدثت مشكلة أثناء تحديث هذه الصفحة.
+      taxonomies:
+        count: عد
       titles:
         admin_log: سجل المسؤول
         area_types: أنواع المناطق

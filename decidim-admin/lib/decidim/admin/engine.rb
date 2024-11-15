@@ -6,7 +6,6 @@ require "active_support/all"
 require "devise"
 require "devise-i18n"
 require "decidim/core"
-require "foundation_rails_helper"
 require "doorkeeper"
 require "doorkeeper-i18n"
 require "hashdiff"
@@ -26,6 +25,7 @@ module Decidim
       end
 
       initializer "decidim_admin.register_icons" do |_app|
+        Decidim.icons.register(name: "lock-2-line", icon: "lock-2-line", category: "system", description: "Block user icon", engine: :admin)
         Decidim.icons.register(name: "layout-masonry-line", icon: "layout-masonry-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "service-line", icon: "service-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "fullscreen-line", icon: "fullscreen-line", category: "system", description: "", engine: :admin)

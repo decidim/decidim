@@ -8,8 +8,7 @@ module Decidim
         include TranslatableAttributes
 
         attribute :services, Array[MeetingServiceForm]
-        attribute :decidim_scope_id, Integer
-        attribute :decidim_category_id, Integer
+        attribute :component_ids, Array[Integer]
         attribute :private_meeting, Boolean
         attribute :transparent, Boolean
         attribute :registration_type, String
@@ -23,7 +22,7 @@ module Decidim
         attribute :iframe_access_level, String
 
         translatable_attribute :title, String
-        translatable_attribute :description, String
+        translatable_attribute :description, Decidim::Attributes::RichText
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
 
@@ -37,9 +36,6 @@ module Decidim
         validates :online_meeting_url, url: true, if: ->(form) { form.online_meeting? || form.hybrid_meeting? }
         validates :comments_start_time, date: { before: :comments_end_time, allow_blank: true, if: proc { |obj| obj.comments_end_time.present? } }
         validates :comments_end_time, date: { after: :comments_start_time, allow_blank: true, if: proc { |obj| obj.comments_start_time.present? } }
-        validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
-        validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validates :decidim_scope_id, scope_belongs_to_component: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :clean_type_of_meeting, presence: true
         validates(
           :iframe_access_level,
@@ -48,14 +44,11 @@ module Decidim
         )
         validate :embeddable_meeting_url
 
-        delegate :categories, to: :current_component
-
         def map_model(model)
           self.services = model.services.map do |service|
             MeetingServiceForm.from_model(service)
           end
 
-          self.decidim_category_id = model.categorization.decidim_category_id if model.categorization
           self.type_of_meeting = model.type_of_meeting
 
           presenter = MeetingEditionPresenter.new(model)
@@ -67,31 +60,24 @@ module Decidim
           services.reject(&:deleted)
         end
 
+        # linked components
+        def components
+          return [] if private_non_transparent_space?
+
+          if private_meeting && !transparent
+            []
+          else
+            Decidim::Component.where(id: component_ids)
+          end
+        end
+
+        delegate :private_non_transparent_space?, to: :current_component
+
         def number_of_services
           services.size
         end
 
         alias component current_component
-
-        # Finds the Scope from the given decidim_scope_id, uses component scope if missing.
-        #
-        # Returns a Decidim::Scope
-        def scope
-          @scope ||= @attributes["decidim_scope_id"].value ? current_component.scopes.find_by(id: @attributes["decidim_scope_id"].value) : current_component.scope
-        end
-
-        # Scope identifier
-        #
-        # Returns the scope identifier related to the meeting
-        def decidim_scope_id
-          super || scope&.id
-        end
-
-        def category
-          return unless current_component
-
-          @category ||= categories.find_by(id: decidim_category_id)
-        end
 
         def clean_type_of_meeting
           type_of_meeting.presence

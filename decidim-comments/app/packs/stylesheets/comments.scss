@@ -22,7 +22,7 @@
   }
 
   &__header {
-    @apply flex flex-col md:flex-row md:items-center gap-x-2 mb-4;
+    @apply flex justify-between md:flex-row md:items-center mb-4;
   }
 
   .author__avatar-container {
@@ -31,10 +31,10 @@
 }
 
 .comment {
-  @apply rounded-lg border-2 border-background p-3 pl-6;
+  @apply rounded-lg border-2 border-background-5 p-3 pl-6;
 
   &__header {
-    @apply flex items-center gap-x-2 mb-2 -ml-10 relative;
+    @apply flex items-center gap-x-2 mb-2 relative;
 
     a[href^="/profile"] > span:first-child {
       @apply z-10;
@@ -43,11 +43,22 @@
     &--edited {
       @apply text-sm font-semibold;
     }
+
+    /* affects the left margin of the avatar in the comment replies */
+    & ~ [data-comment-footer] {
+      .comment__header {
+        @apply -ml-10;
+      }
+    }
   }
 
   /* overwrite default dropdown styles */
   [data-target*="dropdown"] {
     @apply md:flex w-auto cursor-pointer text-sm text-secondary;
+
+    > svg {
+      @apply h-3 w-3;
+    }
   }
 
   /* overwrite default dropdown styles */
@@ -56,11 +67,11 @@
   }
 
   &__footer-grid {
-    @apply grid grid-cols-2 items-center mt-4;
+    @apply grid items-center mt-4;
   }
 
   &-reply {
-    @apply rounded-lg border-2 border-background ml-3 relative;
+    @apply rounded-lg border-2 border-background-5 ml-3 relative;
   }
 
   &-reply:empty {
@@ -68,7 +79,7 @@
   }
 
   &-reply::after {
-    @apply bg-background-3 inline-block absolute top-8 h-4/5 w-px -z-10;
+    @apply bg-background-5 inline-block absolute top-8 h-4/5 w-px -z-10;
 
     content: "";
   }
@@ -195,11 +206,15 @@
   }
 
   &-order-by {
-    @apply ml-auto grid grid-cols-4 place-items-center mt-4 md:mt-0;
+    @apply ml-auto flex place-items-center md:mt-0;
+
+    > form {
+      @apply flex;
+    }
   }
 
   &__actions {
-    @apply flex items-center gap-4;
+    @apply flex items-center justify-center gap-4;
 
     .button[aria-expanded="false"] {
       svg:first-of-type {
@@ -236,6 +251,50 @@
         @apply block;
       }
     }
+  }
+
+  &__reply-button {
+    @apply flex items-center justify-center;
+
+    .button[aria-expanded="false"] {
+      svg:first-of-type {
+        @apply block;
+      }
+
+      svg:last-of-type {
+        @apply hidden;
+      }
+
+      span:first-of-type {
+        @apply block;
+      }
+
+      span:last-of-type {
+        @apply hidden;
+      }
+    }
+
+    .button[aria-expanded="true"] {
+      svg:first-of-type {
+        @apply hidden;
+      }
+
+      svg:last-of-type {
+        @apply block;
+      }
+
+      span:first-of-type {
+        @apply hidden;
+      }
+
+      span:last-of-type {
+        @apply block;
+      }
+    }
+  }
+
+  &__votes-actions {
+    @apply flex justify-between;
   }
 
   &__content {
@@ -285,4 +344,8 @@
   .comment__content > * {
     @apply text-md;
   }
+}
+
+.comments-label-dropdown {
+  @apply mr-2 mt-2;
 }

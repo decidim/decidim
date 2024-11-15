@@ -150,7 +150,6 @@ lt:
               random: Atsitiktinai
               recent: Naujausi
               with_more_authors: Turintys daugiausia autorių
-            geocoding_enabled: Geokodavimas įjungtas
             new_proposal_body_template: Naujo pasiūlymo pagrindinės dalies šablonas
             new_proposal_body_template_help: Galite nustatyti naujiuose pasiūlymuose būsimą iš anksto užpildytą tekstą
             new_proposal_help_text: Naujo pasiūlymo pagalbos tekstas
@@ -416,10 +415,8 @@ lt:
           title: Privačios pastabos
         proposals:
           answer:
-            invalid: Atsakant į šį pasiūlymą iškilo problema.
             success: Į pasiūlymą atsakyta.
           create:
-            invalid: Kuriant šį pasiūlymą iškilo problema.
             success: Pasiūlymas sukurtas.
           edit:
             title: Atnaujinti pasiūlymą
@@ -495,18 +492,14 @@ lt:
             select_states: Patikrinti importuoti skirtų pasiūlymų būseną
         proposals_merges:
           create:
-            invalid: 'Suliejant pasirinktus pasiūlymus iškilo problema, nes kai kurie iš jų:'
             success: Pasiūlymai sulieti į vieną naują pasiūlymą.
         proposals_splits:
           create:
-            invalid: 'Iškilo problema skaidant pasirinktus pasiūlymus, nes kai kurie iš jų:'
             success: Pasiūlymai išskaidyti į naujus.
         valuation_assignments:
           create:
-            invalid: Pavedant pasiūlymus vertintojui įvyko klaida.
             success: Pasiūlymai pavesti vertintojui.
           delete:
-            invalid: Naikinant vertintojui pavestus pasiūlymus įvyko klaida.
             success: Vertintojas sėkmingai pašalintas nuo pasiūlymų.
       admin_log:
         proposal:
@@ -694,7 +687,6 @@ lt:
           discard: Ištrinti šį juodraštį
           discard_confirmation: Ar tikrai norite ištrinti šį pasiūlymo juodraštį?
           send: Peržiūrėti
-          title: Redaguoti pasiūlymo projektą
         filters:
           activity: Mano veikla
           all: Visi

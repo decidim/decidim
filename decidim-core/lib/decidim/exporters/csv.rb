@@ -30,6 +30,12 @@ module Decidim
         @headers ||= processed_collection.inject([]) { |keys, resource| keys | resource.keys }
       end
 
+      def headers_without_locales
+        return [] if collection.empty?
+
+        @headers_without_locales ||= @serializer.new(collection.first).run.keys
+      end
+
       protected
 
       def custom_sanitize(value)

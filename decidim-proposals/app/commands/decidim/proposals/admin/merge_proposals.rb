@@ -32,7 +32,7 @@ module Decidim
         def merge_proposals
           transaction do
             merged_proposal = create_new_proposal
-            merged_proposal.link_resources(proposals_to_link, "copied_from_component")
+            merged_proposal.link_resources(proposals_to_link, "merged_from_component")
             form.proposals.each(&:destroy!) if form.same_component?
             merged_proposal
           end
@@ -46,7 +46,7 @@ module Decidim
 
         def previous_links
           @previous_links ||= form.proposals.flat_map do |proposal|
-            proposal.linked_resources(:proposals, "copied_from_component")
+            proposal.linked_resources(:proposals, "merged_from_component")
           end
         end
 

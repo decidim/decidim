@@ -19,6 +19,8 @@ es:
         body: Cuerpo
       report:
         details: Comentarios adicionales
+      taxonomy:
+        name: Nombre de la taxonomía
       user:
         about: Acerca de
         email: Tu correo electrónico
@@ -62,6 +64,10 @@ es:
         password_confirmation: Confirmación de contraseña
         remember_me: Recuérdame
     models:
+      decidim:
+        history:
+          one: Historial
+          other: Historial
       decidim/amendment:
         one: Enmienda
         other: Enmiendas
@@ -260,6 +266,20 @@ es:
         create: "%{user_name} creó la página estática %{resource_name}"
         delete: "%{user_name} eliminó la página estática %{resource_name}"
         update: "%{user_name} actualizó la página estática %{resource_name}"
+      taxonomy:
+        create: "%{user_name} ha creado la taxonomía \"%{resource_name}\""
+        create_with_parent: "%{user_name} ha creado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
+        delete: "%{user_name} ha borrado la taxonomía \"%{resource_name}\""
+        delete_with_parent: "%{user_name} ha borrado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
+        update: "%{user_name} ha actualizado la taxonomía \"%{resource_name}\""
+        update_with_parent: "%{user_name} ha actulizado \"%{resource_name}\" dentro de la taxonomía \"%{parent_taxonomy}\""
+      taxonomy_filter:
+        create: "%{user_name} ha creado un filtro basado en la taxonomía \"%{resource_name}\""
+        create_with_filter_items_count: "%{user_name} ha creado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
+        delete: "%{user_name} ha eliminado un filtro basado en la taxonomía \"%{resource_name}\""
+        delete_with_filter_items_count: "%{user_name} ha eliminado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
+        update: "%{user_name} ha eliminado un filtro basado en la taxonomía \"%{resource_name}\""
+        update_with_filter_items_count: "%{user_name} ha eliminado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
       user:
         block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
         invite: "%{user_name} invitó a la participante %{resource_name} con el rol: %{role}"
@@ -284,11 +304,11 @@ es:
       dismiss: Descartar notificación
     amendments:
       accepted:
-        error: Ocurrió un error al aceptar la enmienda.
+        error: Se ha producido un error al aceptar la enmienda.
         success: La enmienda ha sido aceptada correctamente.
       amendable:
         button: Enmendar %{model_name}
-        error: Se ha producido un error al modificar este recurso.
+        error: Se ha producido un error al enmendar este recurso.
         promote_button: Promocionar a %{model_name}
         promote_confirm_text: '¿Seguro que quieres promocionar esta enmienda?'
         promote_help_text: Puedes promocionar esta enmienda y publicarla como una %{model_name} independiente.
@@ -297,7 +317,7 @@ es:
           one: "%{count} enmienda"
           other: "%{count} enmiendas"
       created:
-        error: Se ha producido un error al crear el borrador de enmienda.
+        error: Se ha producido un error al actualizar el borrador de la enmienda.
         success: El borrador de enmienda se ha creado correctamente.
       destroy_draft:
         error: Hubo un problema al eliminar el borrador de enmienda.
@@ -584,6 +604,9 @@ es:
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario para completar la creación de la cuenta
           username_help: Nombre público que aparece en tus aportaciones. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
+        new_tos_fields:
+          sign_up: Crear una cuenta
+          sign_up_title: Terminar de crear tu cuenta
       registrations:
         create:
           error: Se ha producido un error al crear tu cuenta.
@@ -925,7 +948,7 @@ es:
           title_required: '¡Se requiere un título!'
           uploaded: Subido
           validating: Validando...
-          validation_error: '¡Error de validación!'
+          validation_error: '¡Error en la validación! Por favor, comprueba que el archivo tenga una extensión o tamaño permitidos.'
         select_file: Seleccione un archivo
       upload_help:
         dropzone: Arrastra los archivos aquí o haz clic en el botón para subirlos
@@ -1083,6 +1106,8 @@ es:
           not_found: 'El ámbito no se encontró en la base de datos (ID: %{id})'
         scope_type_presenter:
           not_found: 'El tipo de ámbito no se encontró en la base de datos (ID: %{id})'
+        taxonomy_presenter:
+          not_found: 'No se ha encontrado la taxonomía en la base de datos (ID: %{id})'
     managed_users:
       expired_session: La sesión actual de administración de una participante ha caducado.
     map:
@@ -1418,8 +1443,10 @@ es:
         subject: Un contenido ha sido denunciado
     reports:
       create:
-        error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
+        error: Se ha producido un problema al crear el informe de error. Por favor, vuelve a intentarlo.
         success: El contenido se ha denunciado con éxito y será revisado por una administradora.
+    resource:
+      controls_label: Controles de recursos
     resource_endorsements:
       create:
         error: Se ha producido un error durante la acción de adhesión.
@@ -1465,6 +1492,7 @@ es:
         close_modal: Cerrar el modal
         ok: De acuerdo
         title: Confirmar
+      confirm_unload: Esta página contiene cambios sin guardar. ¿Seguro que quieres abandonar esta página?
       embed:
         title: Contenido de vídeo incrustado
       extended_navigation_bar:
@@ -1542,6 +1570,8 @@ es:
     tags:
       filter_results_for_category: 'Resultados al filtrar por la categoría: %{resource}'
       filter_results_for_scope: 'Resultados al filtrar por el ámbito: %{resource}'
+    taxonomies:
+      prompt: Seleccionar de "%{name}"
     translation_bar:
       help_text: "<strong>Advertencia:</strong> El contenido puede ser traducido automáticamente y no ser 100% preciso."
       show_original: Mostrar el texto original
@@ -1694,6 +1724,7 @@ es:
         message: Tu cuenta ha sido bloqueada debido a una cantidad excesiva de intentos fallidos de inicio de sesión.
         subject: Desbloquear instrucciones
     omniauth_callbacks:
+      add_tos_errors: Se tienen que aceptar los términos y condiciones de uso para crear una cuenta.
       failure: No puedes autenticarte desde %{kind} porque "%{reason}".
       success: Se ha autenticado correctamente desde la cuenta %{kind}.
     passwords:
@@ -1854,8 +1885,8 @@ es:
       not_found: no se pudo encontrar. ¿Has creado una cuenta anteriormente?
       not_locked: No estaba bloqueado
       not_saved:
-        one: 'Se ha producido un error procesando tu solicitud:'
-        other: 'Hubo varios errores al procesar tu solicitud:'
+        one: 'Se ha producido un error al procesar tu solicitud:'
+        other: 'Se han producido varios errores al procesar tu solicitud:'
       too_many_marks: Estás usando demasiados signos de puntuación consecutivos (por ejemplo,! y?)
       too_much_caps: Está usando demasiadas letras mayúsculas (más del 25% del texto)
       too_short: es demasiado corto (menos %{count} caracteres)

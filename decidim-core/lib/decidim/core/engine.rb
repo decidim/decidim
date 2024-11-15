@@ -11,7 +11,6 @@ require "acts_as_list"
 require "devise"
 require "devise-i18n"
 require "devise_invitable"
-require "foundation_rails_helper"
 require "active_link_to"
 require "rails-i18n"
 require "date_validator"
@@ -56,7 +55,8 @@ module Decidim
 
       initializer "decidim_core.register_icons", after: "decidim_core.add_social_share_services" do
         Decidim.icons.register(name: "phone-line", icon: "phone-line", category: "system", description: "", engine: :core)
-
+        Decidim.icons.register(name: "more-2-fill", icon: "more-2-fill", category: "system", description: "Resource Action button", engine: :core)
+        Decidim.icons.register(name: "more-fill", icon: "more-fill", category: "system", description: "Resource Action button", engine: :core)
         Decidim.icons.register(name: "upload-cloud-2-line", icon: "upload-cloud-2-line", category: "system",
                                description: "Upload cloud 2 line used in attachments form", engine: :core)
         Decidim.icons.register(name: "arrow-right-line", icon: "arrow-right-line", category: "system",
@@ -104,6 +104,7 @@ module Decidim
         Decidim.icons.register(name: "account-pin-circle-line", icon: "account-pin-circle-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "award-line", icon: "award-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "eye-2-line", icon: "eye-2-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "eye-close", icon: "eye-close-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "group-line", icon: "group-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "team-line", icon: "team-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "apps-2-line", icon: "apps-2-line", category: "system", description: "", engine: :core)
@@ -151,6 +152,7 @@ module Decidim
         Decidim.icons.register(name: "arrow-up-s-fill", icon: "arrow-up-s-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "treasure-map-line", icon: "treasure-map-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "chat-new-line", icon: "chat-new-line", category: "system", description: "", engine: :core)
+        Decidim.icons.register(name: "history", icon: "history-line", category: "system", description: "History timeline", engine: :core)
         Decidim.icons.register(name: "draft-line", icon: "draft-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "user-voice-line", icon: "user-voice-line", category: "system", description: "", engine: :core)
 
@@ -169,8 +171,8 @@ module Decidim
         Decidim.icons.register(name: "calendar-todo-line", icon: "calendar-todo-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "home-8-line", icon: "home-8-line", category: "system", description: "", engine: :core)
 
-        Decidim.icons.register(name: "like", icon: "heart-add-line", description: "Like", category: "action", engine: :core)
-        Decidim.icons.register(name: "dislike", icon: "dislike-line", description: "Dislike", category: "action", engine: :core)
+        Decidim.icons.register(name: "like", icon: "heart-line", description: "Like", category: "action", engine: :core)
+        Decidim.icons.register(name: "dislike", icon: "heart-fill", description: "Dislike", category: "action", engine: :core)
         Decidim.icons.register(name: "drag-move-2-line", icon: "drag-move-2-line", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "drag-move-2-fill", icon: "drag-move-2-fill", category: "system", description: "", engine: :core)
         Decidim.icons.register(name: "draggable", icon: "draggable", category: "system", description: "", engine: :core)
@@ -184,6 +186,7 @@ module Decidim
         Decidim.icons.register(name: "Decidim::Amendment", icon: "git-branch-line", category: "activity", description: "Amendment", engine: :core)
         Decidim.icons.register(name: "Decidim::Category", icon: "price-tag-3-line", description: "Category", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::Scope", icon: "scan-line", description: "Scope", category: "activity", engine: :core)
+        Decidim.icons.register(name: "Decidim::Taxonomy", icon: "scan-line", description: "Taxonomy", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::User", icon: "user-line", description: "User", category: "activity", engine: :core)
         Decidim.icons.register(name: "Decidim::UserGroup", icon: "group-line", description: "User Group", category: "activity", engine: :core)
         Decidim.icons.register(name: "follow", icon: "notification-3-line", description: "Follow", category: "action", engine: :core)
@@ -194,6 +197,7 @@ module Decidim
         Decidim.icons.register(name: "profile", icon: "team-line", description: "Groups", category: "profile", engine: :core)
         Decidim.icons.register(name: "user_group", icon: "team-line", description: "Groups", category: "profile", engine: :core)
         Decidim.icons.register(name: "link", icon: "link", description: "web / URL", category: "profile", engine: :core)
+        Decidim.icons.register(name: "unlink", icon: "link-unlink-m", description: "Unlink", category: "profile", engine: :core)
         Decidim.icons.register(name: "following", icon: "eye-2-line", description: "Following", category: "profile", engine: :core)
         Decidim.icons.register(name: "activity", icon: "bubble-chart-line", description: "Activity", category: "profile", engine: :core)
         Decidim.icons.register(name: "followers", icon: "group-line", description: "Followers", category: "profile", engine: :core)
@@ -241,6 +245,34 @@ module Decidim
         app.config.action_mailer.deliver_later_queue_name = :mailers
       end
 
+      initializer "decidim_core.active_storage", before: "active_storage.configs" do |app|
+        next if app.config.active_storage.service_urls_expire_in.present?
+
+        # Ensure that the ActiveStorage URLs are valid long enough because with
+        # the default configuration they would expire in 5 minutes which is a
+        # problem:
+        #   a) for the backend blob URL replacement
+        #   and
+        #   b) for caching
+        #
+        # Note the limitations for each storage service regarding the signed URL
+        # expiration times. This limitation has to be also considered when
+        # defining a caching strategy, otherwise e.g. images or files may not
+        # display correctly when caching is enabled.
+        #
+        # ActiveStorage disk service (default): no limitation
+        #
+        # S3: maximum is 7 days from the creation of the URL
+        # https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html
+        #
+        # Google: maximum is 7 days (604800 seconds)
+        # https://cloud.google.com/storage/docs/access-control/signed-urls
+        #
+        # Azure: no limitation
+        # https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview#best-practices-when-using-sas
+        app.config.active_storage.service_urls_expire_in = 7.days
+      end
+
       initializer "decidim_core.signed_global_id", after: "global_id" do |app|
         next if app.config.global_id.fetch(:expires_in, nil).present?
 
@@ -279,6 +311,12 @@ module Decidim
         app.config.exceptions_app = Decidim::Core::Engine.routes
       end
 
+      initializer "decidim_core.direct_uploader_paths", after: "decidim_core.exceptions_app" do |_app|
+        config.to_prepare do
+          ActiveStorage::DirectUploadsController.include Decidim::DirectUpload
+        end
+      end
+
       initializer "decidim_core.locales" do |app|
         app.config.i18n.fallbacks = true
       end
@@ -303,10 +341,14 @@ module Decidim
           value_presence = ->(v) { v.present? }
           minute_start = ->(v) { v.to_time.strftime("%Y-%m-%dT%H:%M:00") }
           minute_end = ->(v) { v.to_time.strftime("%Y-%m-%dT%H:%M:59") }
+          integer_presence = ->(v) { v.to_i.positive? }
+          array_cast = ->(v) { Arel.sql("ARRAY[#{v.to_i}]") }
           config.add_predicate("dtgt", arel_predicate: "gt", formatter: minute_start, validator: value_presence, type: :datetime)
           config.add_predicate("dtlt", arel_predicate: "lt", formatter: minute_end, validator: value_presence, type: :datetime)
           config.add_predicate("dtgteq", arel_predicate: "gteq", formatter: minute_start, validator: value_presence, type: :datetime)
           config.add_predicate("dtlteq", arel_predicate: "lteq", formatter: minute_end, validator: value_presence, type: :datetime)
+          # this allows to search for an integer inside a column that is an array
+          config.add_predicate("contains", arel_predicate: "contains", formatter: array_cast, validator: integer_presence)
         end
       end
 
@@ -410,7 +452,7 @@ module Decidim
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :user_group, :hashtag, :link]
+          config.content_processors += [:user, :user_group, :hashtag, :link, :blob]
         end
       end
 
@@ -732,7 +774,9 @@ module Decidim
       end
 
       config.to_prepare do
-        FoundationRailsHelper::FlashHelper.include Decidim::FlashHelperExtensions
+        ActiveSupport.on_load(:action_view) do
+          include Decidim::FlashHelperExtensions
+        end
       end
     end
   end

@@ -7,8 +7,9 @@ require "decidim/proposals/test/factories"
 describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component"
   let(:component_type) { "Proposals" }
+  let(:organization) { participatory_process.organization }
   let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
-  let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :participant_author, component: current_component, category:) }
+  let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :participant_author, component: current_component, taxonomies:) }
   let!(:amendments) { create_list(:proposal_amendment, 5, amendable: proposal, emendation: proposal) }
 
   let(:proposal_single_result) do
@@ -34,7 +35,7 @@ describe "Decidim::Api::QueryType" do
       "authors" => proposal.authors.map { |a| { "id" => a.id.to_s } },
       "authorsCount" => proposal.authors.size,
       "body" => { "translation" => proposal.body[locale] },
-      "category" => { "id" => proposal.category.id.to_s },
+      "taxonomies" => [{ "id" => proposal.taxonomies.first.id.to_s }],
       "comments" => [],
       "commentsHaveAlignment" => proposal.comments_have_alignment?,
       "commentsHaveVotes" => proposal.comments_have_votes?,
@@ -59,7 +60,6 @@ describe "Decidim::Api::QueryType" do
       "position" => proposal.position,
       "publishedAt" => proposal.published_at.iso8601.to_s.gsub("Z", "+00:00"),
       "reference" => proposal.reference,
-      "scope" => proposal.scope,
       "state" => proposal.state,
       "title" => { "translation" => proposal.title[locale] },
       "totalCommentsCount" => proposal.comments_count,
@@ -125,7 +125,7 @@ describe "Decidim::Api::QueryType" do
               body {
                 translation(locale:"#{locale}")
               }
-              category {
+              taxonomies {
                 id
               }
               comments {
@@ -162,9 +162,6 @@ describe "Decidim::Api::QueryType" do
               position
               publishedAt
               reference
-              scope {
-                id
-              }
               state
               title {
                 translation(locale:"#{locale}")
@@ -230,7 +227,7 @@ describe "Decidim::Api::QueryType" do
           body {
             translation(locale:"#{locale}")
           }
-          category {
+          taxonomies {
             id
           }
           comments {
@@ -267,9 +264,6 @@ describe "Decidim::Api::QueryType" do
           position
           publishedAt
           reference
-          scope {
-            id
-          }
           state
           title {
             translation(locale:"#{locale}")

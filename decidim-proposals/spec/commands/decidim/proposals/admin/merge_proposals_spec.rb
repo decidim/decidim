@@ -56,7 +56,7 @@ module Decidim
               command.call
               proposal = Proposal.where(component: target_component).last
 
-              linked = proposal.linked_resources(:proposals, "copied_from_component")
+              linked = proposal.linked_resources(:proposals, "merged_from_component")
 
               expect(linked).to match_array(proposals)
             end
@@ -93,13 +93,13 @@ module Decidim
                 other_proposals = create_list(:proposal, 3, component: other_component)
 
                 proposals.each_with_index do |proposal, index|
-                  proposal.link_resources(other_proposals[index], "copied_from_component")
+                  proposal.link_resources(other_proposals[index], "merged_from_component")
                 end
 
                 command.call
 
                 proposal = Proposal.where(component: target_component).last
-                linked = proposal.linked_resources(:proposals, "copied_from_component")
+                linked = proposal.linked_resources(:proposals, "merged_from_component")
                 expect(linked).to match_array(other_proposals)
               end
             end

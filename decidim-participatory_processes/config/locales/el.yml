@@ -168,7 +168,6 @@ el:
           title: Αντιγραφή διαδικασίας συμμετοχής
       participatory_process_groups:
         destroy:
-          error: Παρουσιάστηκε σφάλμα κατά την καταστροφή της ομάδας διαδικασιών συμμετοχής.
           success: Η ομάδα διαδικασιών συμμετοχής διαγράφηκε με επιτυχία.
         edit:
           title: Επεξεργασία ομάδας διαδικασιών
@@ -403,8 +402,6 @@ el:
           name: Επισημασμένες διαδικασίες
       index:
         title: Διαδικασίες συμμετοχής
-      last_activity:
-        new_participatory_process: Νέα διαδικασία συμμετοχής
       participatory_process_steps:
         index:
           back_to_process: Πίσω στην σελίδα της διαδικασίας

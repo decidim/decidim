@@ -11,7 +11,7 @@
         <%== cell("decidim/author", author_presenter) %>
       </span>
       <span class="text-gray-2 text-sm">
-        <%= time_tag created_at, time_ago_in_words(created_at) %>
+        <%= time_tag created_at, format: :decidim_short %>
       </span>
       <% if edited? %>
         <span class="label">
@@ -21,7 +21,9 @@
 
       <div class="relative ml-auto">
         <button id="dropdown-trigger-<%= context_menu_id %>" data-component="dropdown" data-target="dropdown-menu-<%= context_menu_id %>" aria-label="<%= t("decidim.components.comment.controls_label") %>">
-          &#8230;
+          <%# NOTE: having two times the icon call is intentional, as that is how the `dropdown` CSS code is done %>
+          <%= icon "more-fill" %>
+          <%= icon "more-fill" %>
         </button>
 
         <div id="dropdown-menu-<%= context_menu_id %>" aria-hidden="true">
@@ -70,10 +72,26 @@
       </div>
     </div>
 
-    <div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>">
+    <div data-comment-footer data-component="accordion" id="accordion-<%= model.id %>" class="relative">
       <div class="comment__footer-grid">
-        <%= render :actions %>
-        <%= votes %>
+        <div class="comment__votes-actions">
+          <%= render :actions %>
+          <%= votes %>
+        </div>
+      </div>
+      <div class="comment__reply-button">
+        <% if depth.zero? && has_replies_in_children? %>
+          <button class="button button__xs button__transparent-secondary border-white absolute top-4" data-comment-hide data-controls="comment-<%= model.id %>-replies" data-open="false" id="comment-<%= model.id %>-replies-trigger">
+            <span data-show-comment-reply class="font-normal" aria-label="<%= t("decidim.components.comment.show_replies", count: replies.size) %>">
+              <%= t("decidim.components.comment.answers", count: replies.size) %>
+            </span>
+            <%= icon "arrow-down-s-line" %>
+            <span data-hide-comment-reply class="font-normal" aria-label="<%= t("decidim.components.comment.hide_replies", count: replies.size) %>">
+              <%= t("decidim.components.comment.answers", count: replies.size) %>
+            </span>
+            <%= icon "arrow-up-s-line" %>
+          </button>
+        <% end %>
       </div>
       <% if can_reply? %>
         <div id="panel-<%= reply_id %>" class="add-comment" data-additional-reply>

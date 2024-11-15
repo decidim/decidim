@@ -162,7 +162,6 @@ nl:
       dismiss: Negeer notificatie
     amendments:
       accepted:
-        error: Er is een fout opgetreden bij het accepteren van het amendement.
         success: Het amendement is met succes aangenomen.
       amendable:
         button: Wijzigen %{model_name}
@@ -170,7 +169,6 @@ nl:
         promote_button: Promoot naar %{model_name}
         promote_confirm_text: Weet je zeker dat je deze eervolle vermelding wilt promoten?
       created:
-        error: Er is een fout opgetreden tijdens het aanmaken van het amendement.
         success: Het amendement werd met succes aangemaakt.
       destroy_draft:
         error: Er was een probleem bij het verwijderen van het amendement.
@@ -933,7 +931,6 @@ nl:
         subject: Een bron is gemeld
     reports:
       create:
-        error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
     resource_endorsements:
       create:
@@ -1183,9 +1180,6 @@ nl:
       long_words: bevat woorden die te lang zijn (meer dan 35 tekens)
       must_start_with_caps: moet beginnen met een hoofdletter
       not_locked: was niet vergrendeld
-      not_saved:
-        one: 'Er is een fout opgetreden bij de verwerking van je aanvraag:'
-        other: 'Er zijn fouten opgetreden bij de verwerking van je aanvraag:'
       too_many_marks: gebruikt te veel opeenvolgende leestekens (bijvoorbeeld ! en?)
       too_much_caps: gebruikt te veel hoofdletters (meer dan 25% van de tekst)
   forms:

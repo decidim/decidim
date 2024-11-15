@@ -99,9 +99,6 @@
         start_exploring: begynn å utforske
       csv_census:
         admin:
-          census:
-            create:
-              error: Det oppstod et problem under import av folketellingen.
           destroy:
             title: Slett alle folketellingsdata
           index:

@@ -10,6 +10,8 @@ module Decidim
     include Decidim::Traceable
 
     before_create :set_default_weight
+    before_validation :update_part_of, on: :update
+    after_create_commit :create_part_of
 
     translatable_fields :name
 
@@ -21,20 +23,26 @@ module Decidim
     belongs_to :parent,
                class_name: "Decidim::Taxonomy",
                counter_cache: :children_count,
+               inverse_of: :children,
                optional: true
 
     has_many :children,
              foreign_key: "parent_id",
              class_name: "Decidim::Taxonomy",
+             inverse_of: :parent,
              dependent: :destroy
 
     has_many :taxonomizations, class_name: "Decidim::Taxonomization", dependent: :destroy
+    has_many :taxonomy_filters, foreign_key: "root_taxonomy_id", class_name: "Decidim::TaxonomyFilter", dependent: :destroy
+    has_many :taxonomy_filter_items, foreign_key: "taxonomy_item_id", class_name: "Decidim::TaxonomyFilterItem", dependent: :destroy
 
     validates :name, presence: true
     validates :weight, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
     validate :validate_max_children_levels
+    validate :forbid_cycles
 
     default_scope { order(:weight) }
+    scope :roots, -> { where(parent_id: nil) }
 
     ransacker_i18n :name
 
@@ -42,12 +50,24 @@ module Decidim
       where("name ->> ? ILIKE ?", I18n.locale.to_s, "%#{name}%")
     }
 
+    scope :part_of, lambda { |id|
+      where("part_of @> ARRAY[?]", id.to_i)
+    }
+
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::TaxonomyPresenter
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:search_by_name]
+      [:search_by_name, :part_of]
+    end
+
+    def self.ransackable_attributes(_auth_object = nil)
+      %w(id name parent_id part_of)
+    end
+
+    def self.ransackable_associations(_auth_object = nil)
+      %w(children)
     end
 
     def translated_name
@@ -68,12 +88,39 @@ module Decidim
       true
     end
 
+    def all_children
+      @all_children ||= children.flat_map { |child| [child] + child.all_children }
+    end
+
     private
 
     def set_default_weight
       return if weight.present?
 
       self.weight = Taxonomy.where(parent_id:).count
+    end
+
+    def forbid_cycles
+      return unless parent_id
+
+      errors.add(:parent_id, :invalid) if parent.part_of.include?(id)
+    end
+
+    def create_part_of
+      build_part_of
+      save if changed?
+    end
+
+    def update_part_of
+      build_part_of
+    end
+
+    def build_part_of
+      if parent
+        part_of.clear.append(id).concat(parent.reload.part_of)
+      else
+        part_of.clear.append(id)
+      end
     end
 
     def validate_max_children_levels

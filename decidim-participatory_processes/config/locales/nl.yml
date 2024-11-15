@@ -145,7 +145,6 @@ nl:
           title: Inspraakproces dupliceren
       participatory_process_groups:
         destroy:
-          error: Er is een fout opgetreden tijdens het vernietigen van de Participatory procesgroep.
           success: Participatieve procesgroep succesvol verwijderd.
         edit:
           title: Bewerk groep
@@ -347,8 +346,6 @@ nl:
           name: Uitgelichte processen
       index:
         title: Inspraakproces
-      last_activity:
-        new_participatory_process: Nieuw participatief proces
       participatory_process_steps:
         index:
           back_to_process: Terug naar de procespagina

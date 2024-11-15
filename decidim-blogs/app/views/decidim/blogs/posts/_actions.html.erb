@@ -1,18 +1,11 @@
-<div class="blog__actions">
-  <div class="blog__actions-left">
-    <% if endorsements_enabled? %>
-      <%= endorsement_buttons_cell(post) %>
-    <% end %>
+<section class="layout-main__section layout-main__buttons  pt-10" data-buttons>
+    <%= cell("decidim/endorsement_block", post) %>
 
-    <%= cell "decidim/comments_button", nil %>
-  </div>
+  <%= cell "decidim/comments_button", nil %>
 
-  <div class="blog__actions-right">
-    <%= follow_button_for(post, false, button_classes: "button button__sm button__text-secondary") %>
-
+  <div class="ml-auto lg:ml-0">
     <%= cell "decidim/share_button", nil %>
-    <%= cell "decidim/report_button", post %>
   </div>
-</div>
+</section>
 
-<%= cell "decidim/endorsers_list", post, layout: :full %>
+<%= cell "decidim/endorsers_list", post %>

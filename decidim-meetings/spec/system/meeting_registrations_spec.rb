@@ -31,6 +31,7 @@ describe "Meeting registrations" do
   end
 
   before do
+    stub_geocoding_coordinates([meeting.latitude, meeting.longitude])
     meeting.update!(
       registrations_enabled:,
       registration_form_enabled:,
@@ -187,6 +188,8 @@ describe "Meeting registrations" do
 
             expect(page).to have_css(".button", text: "Cancel your registration")
             expect(page).to have_text("19 slots remaining")
+            find("#dropdown-trigger-resource-#{meeting.id}").click
+
             expect(page).to have_text("Stop following")
             expect(page).to have_no_text("Participants")
             expect(page).to have_no_css("#panel-participants")
@@ -207,6 +210,7 @@ describe "Meeting registrations" do
             expect(page).to have_content("successfully")
 
             expect(page).to have_text("19 slots remaining")
+            find("#dropdown-trigger-resource-#{meeting.id}").click
             expect(page).to have_text("Stop following")
             expect(page).to have_text("Participants")
             within "#panel-participants" do
@@ -234,6 +238,7 @@ describe "Meeting registrations" do
 
             expect(page).to have_css(".button", text: "Cancel your registration")
             expect(page).to have_text("19 slots remaining")
+            find("#dropdown-trigger-resource-#{meeting.id}").click
             expect(page).to have_text("Stop following")
           end
         end
@@ -245,7 +250,6 @@ describe "Meeting registrations" do
             visit_meeting
 
             click_on "Register"
-
             within "#meeting-registration-confirm-#{meeting.id}" do
               expect(page).to have_content "I represent a group"
               expect(page).to have_content "Show my attendance publicly"
@@ -313,13 +317,9 @@ describe "Meeting registrations" do
         it "shows errors for invalid file" do
           visit questionnaire_public_path
 
-          dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"))
+          dynamically_attach_file("questionnaire_responses_0_add_documents", Decidim::Dev.asset("verify_user_groups.csv"), keep_modal_open: true)
 
-          expect(page).to have_field("public_participation", checked: false)
-          find_by_id("questionnaire_tos_agreement").set(true)
-          accept_confirm { click_on "Submit" }
-
-          expect(page).to have_content("Needs to be reattached")
+          expect(page).to have_content("Validation error!")
         end
 
         context "and the announcement for the meeting is configured" do
@@ -366,6 +366,7 @@ describe "Meeting registrations" do
         visit_meeting
 
         click_on "Cancel your registration"
+
         within ".meeting__cancelation-modal" do
           click_on "Cancel your registration"
         end

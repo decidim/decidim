@@ -108,7 +108,6 @@ zh-CN:
             collaborative_drafts_enabled: 协作草稿已启用
             comments_enabled: 评论已启用
             comments_max_length: 评论最大长度 (默认值留0)
-            geocoding_enabled: 地理编码已启用
             new_proposal_body_template: 新的提案正文模板
             new_proposal_body_template_help: 您可以定义新建议将包含的预填文本
             new_proposal_help_text: 新建议帮助文本
@@ -514,7 +513,6 @@ zh-CN:
           discard: 丢弃这个草稿
           discard_confirmation: 您确定要放弃这个建议草案吗？
           send: 预览
-          title: 编辑提案草案
         filters:
           activity: 我的活动
           all: 所有的

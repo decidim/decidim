@@ -58,6 +58,11 @@
             <% end %>
           </td>
           <td class="table-list__actions">
+            <% if allowed_to? :read, :share_tokens, current_participatory_space: process %>
+              <%= icon_link_to "share-line", decidim_admin_participatory_processes.participatory_process_share_tokens_path(process), t("actions.share_tokens", scope: "decidim.admin"), class: "action-icon--new" %>
+            <% else %>
+              <span class="action-space icon"></span>
+            <% end %>
 
             <% if allowed_to? :update, :process, process: process %>
               <%= icon_link_to "pencil-line", edit_participatory_process_path(process), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>

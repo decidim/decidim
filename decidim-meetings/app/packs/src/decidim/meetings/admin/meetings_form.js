@@ -86,10 +86,16 @@ $(() => {
   if ($form.length > 0) {
     const $privateMeeting = $form.find("#private_meeting");
     const $transparent = $form.find("#transparent");
+    const $warning = $form.find(".js-private-warning");
+    const $assign = $form.find(".js-add-component");
 
     const toggleDisabledHiddenFields = () => {
       const enabledPrivateSpace = $privateMeeting.find("input[type='checkbox']").prop("checked");
+      const enabledTransparent = $transparent.find("input[type='checkbox']").prop("checked");
+
       $transparent.find("input[type='checkbox']").attr("disabled", "disabled");
+      $warning?.toggleClass("hidden", !enabledPrivateSpace || enabledTransparent);
+      $assign?.attr("disabled", enabledPrivateSpace && !enabledTransparent);
 
       if (enabledPrivateSpace) {
         $transparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
@@ -97,6 +103,8 @@ $(() => {
     };
 
     $privateMeeting.on("change", toggleDisabledHiddenFields);
+    $transparent.on("change", toggleDisabledHiddenFields);
+
     toggleDisabledHiddenFields();
 
     attachGeocoding($form.find("#meeting_address"));

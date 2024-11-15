@@ -328,7 +328,6 @@ bg:
               errors:
                 budget_voting_rule_only_one: Трябва да бъде активирано само едно правило за гласуване.
                 budget_voting_rule_required: Изисква се едно правило за гласуване.
-            geocoding_enabled: Координатите са активирани
             landing_page_content: Целева страница на „Бюджети“
             more_information_modal: Диалогов прозорец за повече информация
             projects_per_page: Проекти на страница

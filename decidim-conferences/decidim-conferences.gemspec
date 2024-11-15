@@ -33,10 +33,6 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Conferences.version
   s.add_dependency "decidim-meetings", Decidim::Conferences.version
   s.add_dependency "wicked_pdf", "~> 2.7"
-  # Latest version of wkhtmltopdf-binary downloads more versions of the binary
-  # This brings problems with deployment in certain environments, as Heroku
-  # Hopefully they will fix this situation soon
-  s.add_dependency "wkhtmltopdf-binary", "= 0.12.6.6"
 
   s.add_development_dependency "decidim-admin", Decidim::Conferences.version
   s.add_development_dependency "decidim-dev", Decidim::Conferences.version

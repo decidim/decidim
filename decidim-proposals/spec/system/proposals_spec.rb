@@ -7,10 +7,9 @@ describe "Proposals" do
   include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:category) { create(:category, participatory_space: participatory_process) }
-  let!(:scope) { create(:scope, organization:) }
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
   let!(:user) { create(:user, :confirmed, organization:) }
-  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization:, scope:) }
 
   let(:address) { "Some address" }
   let(:latitude) { 40.1234 }
@@ -36,11 +35,7 @@ describe "Proposals" do
     let!(:component) do
       create(:proposal_component,
              manifest:,
-             participatory_space: participatory_process,
-             settings: {
-               scopes_enabled: true,
-               scope_id: participatory_process.scope&.id
-             })
+             participatory_space: participatory_process)
     end
 
     let!(:proposals) { create_list(:proposal, 3, component:) }
@@ -73,24 +68,13 @@ describe "Proposals" do
       expect(page).to have_content(proposal.published_at.strftime("%d/%m/%Y %H:%M"))
     end
 
-    context "when process is not related to any scope" do
-      let!(:proposal) { create(:proposal, component:, scope:) }
+    context "when proposal has a taxonomies" do
+      let!(:proposal) { create(:proposal, component:, taxonomies: [taxonomy]) }
 
-      it "can be filtered by scope" do
+      it "can be filtered by taxonomy" do
         visit_component
         click_on proposal_title
-        expect(page).to have_content(translated(scope.name))
-      end
-    end
-
-    context "when process is related to a child scope" do
-      let!(:proposal) { create(:proposal, component:, scope:) }
-      let(:participatory_process) { scoped_participatory_process }
-
-      it "does not show the scope name" do
-        visit_component
-        click_on proposal_title
-        expect(page).to have_no_content(translated(scope.name))
+        expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
       end
     end
 
@@ -259,7 +243,7 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_i18n_content(meeting.title)
+        expect(page).to have_i18n_content(decidim_sanitize_translated(meeting.title))
       end
     end
 
@@ -278,7 +262,7 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_i18n_content(result.title)
+        expect(page).to have_i18n_content(decidim_sanitize_translated(result.title))
       end
     end
 
@@ -341,7 +325,9 @@ describe "Proposals" do
         visit_component
         click_on proposal_title
 
-        expect(page).to have_no_content("Accepted")
+        within ".layout-author", match: :first do
+          expect(page).to have_no_content("Accepted")
+        end
         expect(page).to have_no_content("This proposal has been accepted")
         expect(page).not_to have_i18n_content(proposal.answer)
       end
@@ -384,7 +370,7 @@ describe "Proposals" do
       visit_component
       click_on proposal_title
 
-      expect(page).to have_i18n_content(project.title)
+      expect(page).to have_i18n_content(decidim_sanitize_translated(project.title))
     end
   end
 
@@ -720,6 +706,38 @@ describe "Proposals" do
 
         expect(page).to have_no_css(".card__grid-img img[src*='proposal_image_placeholder.svg']")
         expect(page).to have_css(".card__grid-img img")
+      end
+    end
+
+    context "when proposal does not have history" do
+      let!(:proposal) { create(:proposal, component:) }
+
+      it "shows the proposal with no history panel" do
+        visit_component
+        click_on proposal_title
+
+        expect(page).to have_no_content("History")
+        expect(page).to have_no_content("This proposal was created")
+      end
+    end
+
+    context "when proposal have history" do
+      let!(:proposal) { create(:proposal, component:) }
+      let(:budget_component) do
+        create(:component, manifest_name: :budgets, participatory_space: proposal.component.participatory_space)
+      end
+      let(:project) { create(:project, component: budget_component) }
+
+      before do
+        project.link_resources([proposal], "included_proposals")
+      end
+
+      it "shows the proposal with history panel" do
+        visit_component
+        click_on proposal_title
+
+        expect(page).to have_content("History")
+        expect(page).to have_content("This proposal was created")
       end
     end
   end

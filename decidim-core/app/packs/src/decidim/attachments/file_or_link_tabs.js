@@ -36,10 +36,14 @@ const initializeTabs = (container) => {
     updateTabsState(container);
   });
 
-  uploadsContainer.addEventListener("DOMSubtreeModified", () => {
-    updateTabsState(container);
-    console.log("DOMSubtreeModified");
+  const observer = new MutationObserver((mutationsList) => {
+    mutationsList.forEach((mutation) => {
+      if (mutation.type === "childList") {
+        updateTabsState(container);
+      }
+    });
   });
+  observer.observe(uploadsContainer, {childList: true, subtree: true});
 
   updateTabsState(container);
 };
