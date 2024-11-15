@@ -166,6 +166,10 @@ es-PY:
             start_time: Fecha de inicio
             taxonomies: Taxonomías
             title: Título
+    download_your_data:
+      show:
+        debate_comments: Exportar los comentarios en los debates
+        debates: Exportar los debates
     events:
       debates:
         create_debate_event:
