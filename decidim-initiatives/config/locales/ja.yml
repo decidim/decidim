@@ -600,12 +600,9 @@ ja:
           answered_at: 回答の日時 (もしあれば)
           area: このイニシアチブのエリア
           authors: このイニシアチブの作成者
-          created_at: このイニシアチブの作成日時
           description: イニシアチブの説明
           first_progress_notification_at: 最初の進捗通知の送信日時
           hashtag: Twitter/Xで使用されるイニシアチブのハッシュタグ
-          published_at: このイニシアチブの公開日時
-          reference: イニシアチブの参照方法。このプラットフォームでの固有ID
           scope: イニシアチブのスコープ
           second_progress_notification_at: 2回目の進捗通知の送信日時
           signature_end_date: 署名の収集期間の終了日時
