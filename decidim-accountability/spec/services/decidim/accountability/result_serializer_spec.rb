@@ -90,6 +90,14 @@ module Decidim
         it "serializes the reference" do
           expect(serialized).to include(reference: result.reference)
         end
+
+        it "serializes the updated date" do
+          expect(serialized).to include(updated_at: result.updated_at)
+        end
+
+        it "serializes the the children count" do
+          expect(serialized).to include(children_count: result.children_count)
+        end
       end
     end
   end
