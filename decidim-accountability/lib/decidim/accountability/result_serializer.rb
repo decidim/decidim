@@ -37,7 +37,8 @@ module Decidim
           created_at: result.created_at,
           url:,
           component: { id: component.id },
-          proposal_urls: proposals
+          proposal_urls: proposals,
+          reference: result.reference
         }
       end
 

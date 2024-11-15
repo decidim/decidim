@@ -86,6 +86,10 @@ module Decidim
           expect(serialized[:proposal_urls].length).to eq(2)
           expect(serialized[:proposal_urls].first).to match(%r{http.*/proposals})
         end
+
+        it "serializes the reference" do
+          expect(serialized).to include(reference: result.reference)
+        end
       end
     end
   end
