@@ -1,10 +1,12 @@
 <%= form_for(form_object, url: decidim_comments.comments_path(order:), method: :post, remote: true, html: { id: form_id }) do |form| %>
-  <div class="comment__form-mobile-banner">
-    <p class="font-semibold text-2xl"><%= t("decidim.components.add_comment_form.add_comment") %></p>
-    <button type="button" class="close-button close-add-comment-fullscreen">
-      <%= icon "close-line" %>
-    </button>
-  </div>
+  <% unless reply? %>
+    <div class="comment__form-mobile-banner">
+      <p class="font-semibold text-2xl"><%= t("decidim.components.add_comment_form.add_comment") %></p>
+      <button type="button" class="close-button close-add-comment-fullscreen">
+        <%= icon "close-line" %>
+      </button>
+    </div>
+  <% end %>
   <%= form.hidden_field :commentable_gid, id: nil %>
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
   <%= comment_as_for(form) %>
@@ -23,16 +25,16 @@
   </div>
   <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
 
-  <div class="comment__form-submit publish-comment-button">
-    <button type="submit" class="button button__sm button__secondary h-9 close-comment-fullscreen" disabled="disabled">
-      <span>
-      <% if reply? %>
-        <%= t("decidim.components.add_comment_form.form.submit_reply") %>
-      <% else %>
-        <%= t("decidim.components.add_comment_form.form.submit_root_comment") %>
-      <% end %>
-      </span>
-      <%= icon "chat-1-line" %>
-    </button>
+  <div class="comment__form-submit">
+    <div class="<%= reply? ? "" : "publish-comment-button" %>">
+      <button type="submit" 
+              class="button button__sm button__secondary <%= reply? ? "w-full" : "h-9 close-comment-fullscreen" %>" 
+              disabled="disabled">
+        <span>
+          <%= reply? ? t("decidim.components.add_comment_form.form.submit_reply") : t("decidim.components.add_comment_form.form.submit_root_comment") %>
+        </span>
+        <%= icon "chat-1-line" %>
+      </button>
+    </div>
   </div>
 <% end %>
