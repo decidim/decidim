@@ -324,8 +324,8 @@ en:
           status: The current status of this result
           taxonomies: The taxonomies of the result
           title: The title of the result
-          url: The URL where this result can be found
           updated_at: The last date this space was updated
+          url: The URL where this result can be found
     participatory_spaces:
       highlighted_results:
         see_all: See all results
