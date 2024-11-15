@@ -596,7 +596,6 @@ cs:
           location: Místo konference, kde se bude konat.
           objectives: Cíle této konference. Co je cílem.
           promoted: Zda je konference propagována, nebo ne
-          reference: Odkaz na konferenci. Jedinečný identifikátor pro tuto platformu.
           remote_banner_image_url: URL obrázku banneru konference
           remote_hero_image_url: URL obrázku přední osobnosti konference
           scope: Rozsah konference
