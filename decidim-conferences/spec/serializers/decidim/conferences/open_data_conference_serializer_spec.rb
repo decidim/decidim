@@ -18,6 +18,7 @@ module Decidim::Conferences
         expect(serialized).to include(slug: resource.slug)
         expect(serialized).to include(hashtag: resource.hashtag)
         expect(serialized).to include(title: resource.title)
+        expect(serialized).to include(url: "http://#{resource.organization.host}:#{Capybara.server_port}/conferences/#{resource.slug}")
         expect(serialized).to include(slogan: resource.slogan)
         expect(serialized).to include(reference: resource.reference)
         expect(serialized).to include(short_description: resource.short_description)
@@ -31,6 +32,10 @@ module Decidim::Conferences
         expect(serialized).to include(end_date: resource.end_date)
         expect(serialized).to include(scopes_enabled: resource.scopes_enabled)
         expect(serialized).to include(decidim_scope_id: resource.decidim_scope_id)
+        expect(serialized).to include(created_at: resource.created_at)
+        expect(serialized).to include(updated_at: resource.updated_at)
+        expect(serialized).to include(published_at: resource.published_at)
+        expect(serialized).to include(follows_count: resource.follows_count)
       end
 
       context "when conference has scope" do
