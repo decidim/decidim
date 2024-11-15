@@ -47,12 +47,19 @@ namespace :decidim do
           end
         end
         importer.import!
-        puts "    Created taxonomies: #{result[:created].count}"
-        result[:created].each do |name|
+        puts "    Created taxonomies: #{result[:taxonomies_created].count}"
+        result[:taxonomies_created].each do |name|
           puts "      - #{name}"
         end
-        puts "    Assigned resources: #{result[:assigned].count}"
-        result[:assigned].each do |name, resources|
+        puts "    Created filters: #{result[:filters_created].count}"
+        result[:filters_created].each do |name, items|
+          puts "      - #{name}:"
+          items.each do |item|
+            puts "        - #{item}"
+          end
+        end
+        puts "    Assigned resources: #{result[:taxonomies_assigned].count}"
+        result[:taxonomies_assigned].each do |name, resources|
           puts "      - #{name}:"
           resources.each do |object_id|
             puts "        - #{object_id}"

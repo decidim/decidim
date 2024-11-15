@@ -7,7 +7,7 @@ module Decidim
         @organization = organization
         @model = model
         @roots = roots
-        @result = { created: [], assigned: {} }
+        @result = { taxonomies_created: [], taxonomies_assigned: {}, filters_created: {} }
       end
 
       attr_reader :organization, :model, :roots, :result
@@ -18,7 +18,9 @@ module Decidim
           element["taxonomies"].each do |item_name, taxonomy|
             import_taxonomy_item(root, item_name, taxonomy)
           end
-          # puts element["filters"]
+          element["filters"].each do |filter_name, filter|
+            import_filter(root, filter_name, filter)
+          end
         end
       end
 
@@ -39,19 +41,48 @@ module Decidim
         name = taxonomy.name[organization.default_locale]
         unless resource.taxonomies.include?(taxonomy)
           resource.taxonomies << taxonomy
-          @result[:assigned][name] ||= []
-          @result[:assigned][name] << object_id unless @result[:assigned][name].include?(object_id)
+          @result[:taxonomies_assigned][name] ||= []
+          @result[:taxonomies_assigned][name] << object_id unless @result[:taxonomies_assigned][name].include?(object_id)
         end
       end
 
+      def import_filter(root, name, data)
+        filter = find_taxonomy_filter(root, name) || root.taxonomy_filters.create!(space_filter: filter["space_filter"], space_manifest: filter["space_manifest"]) do
+          @result[:filters_created][name] = 0
+        end
+
+        taxonomy = root
+        data["items"].each do |item_names|
+          item_names.each do |item_name|
+            taxonomy = find_taxonomy!(taxonomy.children, item_name)
+          end
+          next if filter.filter_items.exists?(taxonomy_item: taxonomy)
+
+          filter.filter_items.create!(taxonomy_item: taxonomy) do
+            @result[:filters_created][name] ||= []
+            @result[:filters_created][name] << item_names.join(" > ")
+          end
+        end
+
+        # TODO: add filter to components settings
+      end
+
+      def find_taxonomy(association, name)
+        association.find_by("name->>? = ?", organization.default_locale, name)
+      end
+
       def find_taxonomy!(association, name)
-        association.find_by("name->>? = ?", organization.default_locale, name) || create_taxonomy!(association, name)
+        find_taxonomy(association, name) || create_taxonomy!(association, name)
       end
 
       def create_taxonomy!(association, name)
         association.create!(name: { organization.default_locale => name }, organization:) do
-          @result[:created] << name
+          @result[:taxonomies_created] << name
         end
+      end
+
+      def find_taxonomy_filter(root_taxonomy, name)
+        root_taxonomy.taxonomy_filters.all.detect { |filter| filter.name[organization.default_locale] == name }
       end
 
       def root_taxonomies

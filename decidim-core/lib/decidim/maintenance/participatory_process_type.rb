@@ -36,7 +36,7 @@ module Decidim
             I18n.t("decidim.admin.titles.participatory_process_types") => {
               space_filter: true,
               space_manifest: "participatory_processes",
-              items: all.map { |type| type.name[I18n.locale.to_s] },
+              items: all.map { |type| [type.name[I18n.locale.to_s]] },
               components: []
             }
           }
