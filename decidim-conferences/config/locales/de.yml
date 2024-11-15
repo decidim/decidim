@@ -586,7 +586,6 @@ de:
           location: Der Tagungsort, wo diese Konferenz stattfinden wird.
           objectives: Die Ziele dieser Konferenz.
           promoted: Ob die Konferenz hervorgehoben ist oder nicht
-          reference: Die Referenz der Konferenz. Ein eindeutiger Identifikator für diese Plattform.
           remote_banner_image_url: Die URL des Konferenz-Bannerbildes
           remote_hero_image_url: Die URL des Konferenztitelbildes
           scope: Das Thema der Konferenz
