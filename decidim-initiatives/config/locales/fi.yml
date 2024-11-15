@@ -611,12 +611,9 @@ fi:
           answered_at: Vastauksen ajankohta, mikäli aloitteeseen on vastattu
           area: Alue, johon aloite liittyy
           authors: Aloitteen laatijat
-          created_at: Aloitteen laatimisaika
           description: Aloitteen kuvaus
           first_progress_notification_at: Ajankohta, jolloin ensimmäinen edistymisheräte lähetettiin
           hashtag: Aloitetta vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
-          published_at: Aloitteen julkaisuaika
-          reference: Aloitteen viittaus. Aloitteen yksilöllinen tunniste tällä alustalla.
           scope: Aloitteen teema
           second_progress_notification_at: Ajankohta, jolloin toinen edistymisheräte lähetettiin
           signature_end_date: Päivämäärä, jolloin aloitteen allekirjoitusten keräysaika päättyy
