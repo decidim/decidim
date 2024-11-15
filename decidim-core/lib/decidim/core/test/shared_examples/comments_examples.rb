@@ -130,7 +130,7 @@ shared_examples "comments" do
         visit resource_path
       end
 
-      it "does not show the add commnet button" do
+      it "does not show the add comment button" do
         expect(page).to have_no_content("Add comment")
       end
 
@@ -162,11 +162,11 @@ shared_examples "comments" do
         expect(page).to have_no_css(".fullscreen")
       end
 
-      it "does not show the add commnet button" do
+      it "does not show the add comment button" do
         expect(page).to have_no_content("Add comment")
       end
 
-      it "allos user to comment" do
+      it "allows user to comment" do
         find("textarea[name='comment[body]']").set("Test comment with a computer.")
         click_on "Publish comment"
         expect(page).to have_content("Test comment with a computer.")
@@ -183,7 +183,7 @@ shared_examples "comments" do
         visit resource_path
       end
 
-      it "shows the add commnet button" do
+      it "shows the add comment button" do
         expect(page).to have_content("Add comment")
       end
 
