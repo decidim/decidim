@@ -627,12 +627,9 @@ cs:
           answered_at: Datum odpovědi (pokud existuje)
           area: Oblast této iniciativy
           authors: Autoři této iniciativy
-          created_at: Datum, kdy byla tato iniciativa vytvořena
           description: Popis iniciativy
           first_progress_notification_at: Datum, kdy bylo odesláno první oznámení o pokroku
           hashtag: Hashtag Iniciativy, používaný pro Twitter/X
-          published_at: Datum, kdy byla tato iniciativa zveřejněna
-          reference: Odkaz na iniciativu, jedinečný identifikátor pro tuto platformu.
           scope: Rozsah iniciativy
           second_progress_notification_at: Datum, kdy bylo odesláno druhé oznámení o pokroku
           signature_end_date: Datum, kdy končí doba sběru podpisů
