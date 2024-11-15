@@ -1,4 +1,4 @@
-<%= content_tag :div, id: dom_id(resource) do %>
+<%= content_tag :div, id: dom_id(resource), class: "card__search" do %>
   <%= content_tag title_tag, class: "h4 card__search-title" do %>
     <%= link_to resource_path, class: "card__search" do %>
       <%= title %>
