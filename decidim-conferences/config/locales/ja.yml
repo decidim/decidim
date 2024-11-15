@@ -581,7 +581,6 @@ ja:
           location: カンファレンスの場所. このカンファレンスが開催されるところ.
           objectives: この感ファンレスの目的。開催する目標は何か。
           promoted: カンファレンスがプロモートされるかどうか
-          reference: 会議の参照方法。このプラットフォームでの固有ID
           remote_banner_image_url: カンファレンスバナー画像のURL
           remote_hero_image_url: カンファレンスのヒーロー画像のURL
           scope: カンファレンスのスコープ
