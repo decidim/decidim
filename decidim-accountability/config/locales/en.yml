@@ -306,19 +306,26 @@ en:
           root_commentable_url: The URL of the resource that ties to this comment
           user_group: The name of the user group that made this comment (if any)
         results:
+          Address: The address of the project (if any)
+          children_count: The number of child results
+          comments_count: The number of comments that this result has
           component: The component that the result belongs to
           created_at: The date when the result was created
           description: The description of the result
           end_date: The date when the result ends execution and it is finished
           id: The unique identifier of the result
+          latitude: The latitude of the project in case it has a physical location
+          longitude: The longitude of the project in case it has a physical location
           parent: The parent result (if any) of the result
           progress: The percentage of the execution of the result
           proposal_urls: The URLs of the proposals that are included in this result
+          reference: The unique reference of the space
           start_date: The date when the result starts execution
           status: The current status of this result
           taxonomies: The taxonomies of the result
           title: The title of the result
           url: The URL where this result can be found
+          updated_at: The last date this space was updated
     participatory_spaces:
       highlighted_results:
         see_all: See all results
