@@ -29,6 +29,7 @@ en:
     download_your_data:
       show:
         answers: Answers export
+        survey_user_answers: Survey user answers
     forms:
       admin:
         models:
