@@ -91,9 +91,8 @@ en:
           project:
             name: Project
         pabulib_exports:
-          pabulib_exports:
-            create:
-              invalid: Please correct the errors on the form.
+          create:
+            invalid: Please correct the errors on the form.
           show:
             cancel: Cancel
             create: Export
@@ -107,9 +106,9 @@ en:
               <p>
                 In order to calculate the voting result using this method, you can use the %{tool_link}.
               </p>
-            explanation_link_label_format: Pabulib format
             explanation_link_label_equal_shares: Method of Equal Shares
             explanation_link_label_equal_shares_tool: online computation tool
+            explanation_link_label_format: Pabulib format
             export_details_data: Data attributes
             export_details_general: General details
             fields:
@@ -117,7 +116,7 @@ en:
                 help: The country where the voting was held.
                 label: Country (%{field})
               default_score:
-                help: "The default score for the scoring vote type (default: %{default_value})."
+                help: 'The default score for the scoring vote type (default: %{default_value}).'
                 label: Default score (%{field})
               description:
                 help: Description of the voting describing what was voted on.
@@ -126,31 +125,31 @@ en:
                 help: The instance of the voting, for example, for yearly recurring votings would be the year of voting.
                 label: Instance (%{field})
               max_length:
-                help: "Maximum amount of projects to be selected (default: %{default_value})."
+                help: 'Maximum amount of projects to be selected (default: %{default_value}).'
                 label: Maximum length (%{field})
-              min_length:
-                help: "Minimum amount of projects to be selected (default: %{default_value})."
-                label: Minimum length (%{field})
               max_points:
-                help: "Maximum points assigned to the selected projects (default: %{default_value})."
+                help: 'Maximum points assigned to the selected projects (default: %{default_value}).'
                 label: Maximum points (%{field})
-              min_points:
-                help: "Minimum points assigned to the selected projects (default: %{default_value})."
-                label: Minimum points (%{field})
               max_sum_cost:
-                help: "Maximum sum for the cost of a project (default: %{default_value})."
+                help: 'Maximum sum for the cost of a project (default: %{default_value}).'
                 label: Maximum sum cost (%{field})
-              min_sum_cost:
-                help: "Minimum sum for the cost of a project (default: %{default_value})."
-                label: Minimum sum cost (%{field})
               max_sum_points:
                 help: Maximum sum of the assigned points for each project.
                 label: Maximum sum points (%{field})
+              min_length:
+                help: 'Minimum amount of projects to be selected (default: %{default_value}).'
+                label: Minimum length (%{field})
+              min_points:
+                help: 'Minimum points assigned to the selected projects (default: %{default_value}).'
+                label: Minimum points (%{field})
+              min_sum_cost:
+                help: 'Minimum sum for the cost of a project (default: %{default_value}).'
+                label: Minimum sum cost (%{field})
               min_sum_points:
-                help: "Minimum sum of the assigned points for each project (default: %{default_value})."
+                help: 'Minimum sum of the assigned points for each project (default: %{default_value}).'
                 label: Minimum sum points (%{field})
               scoring_fn:
-                help: "Scoring function for the ordinal type voting (default: %{default_value})."
+                help: 'Scoring function for the ordinal type voting (default: %{default_value}).'
                 label: Scoring function (%{field})
               unit:
                 help: The voting unit within the voting, for example, an area.
