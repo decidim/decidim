@@ -7,6 +7,11 @@ en:
         title: Title
         total_budget: Total budget
         weight: Order position
+      pabulib_vote_types:
+        approval: Approval (%{type})
+        cumulative: Cumulative (%{type})
+        ordinal: Ordinal (%{type})
+        scoring: Scoring (%{type})
       project:
         budget_amount: Budget amount
         description: Description
@@ -77,12 +82,84 @@ en:
             invalid: There was a problem updating this budget.
             success: Budget successfully updated.
         exports:
+          formats:
+            pabulib: Pabulib
           projects: Projects
         models:
           budget:
             name: Budget
           project:
             name: Project
+        pabulib_exports:
+          pabulib_exports:
+            create:
+              invalid: Please correct the errors on the form.
+          show:
+            cancel: Cancel
+            create: Export
+            explanation_html: |
+              <p>
+                This view will create a %{format_link} export for the participatory budgeting voting results.
+              </p>
+              <p>
+                This export can be used to create a voting result for the participatory budgeting voting using the %{equal_shares_link}.
+              </p>
+              <p>
+                In order to calculate the voting result using this method, you can use the %{tool_link}.
+              </p>
+            explanation_link_label_format: Pabulib format
+            explanation_link_label_equal_shares: Method of Equal Shares
+            explanation_link_label_equal_shares_tool: online computation tool
+            export_details_data: Data attributes
+            export_details_general: General details
+            fields:
+              country:
+                help: The country where the voting was held.
+                label: Country (%{field})
+              default_score:
+                help: "The default score for the scoring vote type (default: %{default_value})."
+                label: Default score (%{field})
+              description:
+                help: Description of the voting describing what was voted on.
+                label: Description (%{field})
+              instance:
+                help: The instance of the voting, for example, for yearly recurring votings would be the year of voting.
+                label: Instance (%{field})
+              max_length:
+                help: "Maximum amount of projects to be selected (default: %{default_value})."
+                label: Maximum length (%{field})
+              min_length:
+                help: "Minimum amount of projects to be selected (default: %{default_value})."
+                label: Minimum length (%{field})
+              max_points:
+                help: "Maximum points assigned to the selected projects (default: %{default_value})."
+                label: Maximum points (%{field})
+              min_points:
+                help: "Minimum points assigned to the selected projects (default: %{default_value})."
+                label: Minimum points (%{field})
+              max_sum_cost:
+                help: "Maximum sum for the cost of a project (default: %{default_value})."
+                label: Maximum sum cost (%{field})
+              min_sum_cost:
+                help: "Minimum sum for the cost of a project (default: %{default_value})."
+                label: Minimum sum cost (%{field})
+              max_sum_points:
+                help: Maximum sum of the assigned points for each project.
+                label: Maximum sum points (%{field})
+              min_sum_points:
+                help: "Minimum sum of the assigned points for each project (default: %{default_value})."
+                label: Minimum sum points (%{field})
+              scoring_fn:
+                help: "Scoring function for the ordinal type voting (default: %{default_value})."
+                label: Scoring function (%{field})
+              unit:
+                help: The voting unit within the voting, for example, an area.
+                label: Unit (%{field})
+              vote_type:
+                help: How are the voting results evaluated (see the documentation for more information).
+                label: Vote type (%{field})
+            format_info_html: Please refer to the %{link} documentation to learn more about these details.
+            title: Export voting results for %{budget} to Pabulib format
         projects:
           create:
             invalid: There was a problem creating this project.
