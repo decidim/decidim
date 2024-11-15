@@ -16,7 +16,7 @@ const closeAddComment = function (addCommentCard) {
 
 document.addEventListener("DOMContentLoaded", () => {
   // Add comment card for mobile
-  const smBreakpoint = parseInt(screens.sm.replace("px", ""), 10); 
+  const smBreakpoint = parseInt(screens.sm.replace("px", ""), 10);
   const addCommentCard = document.getElementById("add-comment-anchor");
   document.querySelectorAll(".add-comment-mobile").forEach((addButtonMobile) => {
     if (window.matchMedia(`(max-width: ${smBreakpoint}px)`).matches) {
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
-  
+
   // Close comment modal
   const closeButton = document.querySelector(
     "#add-comment-anchor .close-add-comment-fullscreen"

@@ -120,6 +120,24 @@ shared_examples "comments" do
       expect(page).to have_no_css(".add-comment form")
       expect(page).to have_css(".comment-thread")
     end
+
+    context "when user visit a mobile browser" do
+      before do
+        driven_by(:iphone)
+        switch_to_host(organization.host)
+        visit decidim.root_path
+        click_on "Accept all"
+        visit resource_path
+      end
+
+      it "does not show the add commnet button" do
+        expect(page).to have_no_content("Add comment")
+      end
+
+      it "shows a message so user can Log in or create an account" do
+        expect(page).to have_content("Log in or create an account to add your comment.")
+      end
+    end
   end
 
   context "when authenticated" do
@@ -130,6 +148,60 @@ shared_examples "comments" do
 
     it "shows form to add comments to user" do
       expect(page).to have_css(".add-comment form")
+    end
+
+    context "when user visit a computer browser" do
+      before do
+        switch_to_host(organization.host)
+        visit decidim.root_path
+        login_as user, scope: :user
+        visit resource_path
+      end
+
+      it "does not show a modal with form to add comments" do
+        expect(page).to have_no_css(".fullscreen")
+      end
+
+      it "does not show the add commnet button" do
+        expect(page).to have_no_content("Add comment")
+      end
+
+      it "allos user to comment" do
+        find("textarea[name='comment[body]']").set("Test comment with a computer.")
+        click_on "Publish comment"
+        expect(page).to have_content("Test comment with a computer.")
+      end
+    end
+
+    context "when user visit a mobile browser" do
+      before do
+        driven_by(:iphone)
+        switch_to_host(organization.host)
+        visit decidim.root_path
+        click_on "Accept all"
+        login_as user, scope: :user
+        visit resource_path
+      end
+
+      it "shows the add commnet button" do
+        expect(page).to have_content("Add comment")
+      end
+
+      it "does not show a message so user can Log in or create an account" do
+        expect(page).to have_no_content("Log in or create an account to add your comment.")
+      end
+
+      it "shows a modal with the comment form" do
+        click_on "Add comment"
+        expect(page).to have_content("Add comment")
+        expect(page).to have_content("1000 characters left")
+        expect(page).to have_css(".add-comment form")
+        expect(page).to have_css(".fullscreen")
+
+        find("textarea[name='comment[body]']").set("Test comment with a mobile phone.")
+        click_on "Publish comment"
+        expect(page).to have_content("Test comment with a mobile phone.")
+      end
     end
 
     context "when user is not authorized to comment" do
