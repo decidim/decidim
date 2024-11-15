@@ -470,7 +470,6 @@ fi-pl:
           participatory_structure: Ryhmän osallistumisrakenne
           promoted: Onko ryhmä korostettu vai ei
           purpose_of_action: Ryhmän toiminnan tarkoitus
-          reference: Ryhmän viittaus. Ryhmän yksilöllinen tunniste tällä alustalla.
           remote_banner_image_url: Ryhmän bannerikuvan URL-osoite
           remote_hero_image_url: Ryhmän hero-kuvan URL-osoite
           scope: Ryhmän teema
