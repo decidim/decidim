@@ -449,6 +449,7 @@ de:
           closing_date: Das Auflösungsdatum des Gremiums
           closing_date_reason: Der Auflösungsgrund des Gremiums
           composition: Die Zusammensetzung des Gremiums
+          created_at: Erstellungsdatum des Raums
           created_by: Wer hat dieses Gremium gegründet hat
           created_by_other: Weitere Gründungspersonen des Gremiums
           creation_date: Das Gründungsdatum des Gremiums
@@ -457,6 +458,7 @@ de:
           developer_group: Die Entwicklungsgruppe des Gremiums
           duration: Die Dauer des Gremiums
           facebook_handler: Social Media Handler für Facebook
+          follows_count: Die Anzahl der Benutzer, die diesem Raum folgen
           github_handler: Social Media Handler für GitHub
           hashtag: Der Gremium-Hashtag, verwendet für Twitter/X
           id: Die eindeutige Bezeichnung dieser Assembly
@@ -469,6 +471,7 @@ de:
           participatory_scope: Der partizipative Bereich des Gremiums
           participatory_structure: Die partizipative Struktur des Gremiums
           promoted: Ob das Gremium hervorgehoben ist oder nicht
+          published_at: Das Datum der Veröffentlichung des Raums
           purpose_of_action: Der Zweck des Gremiums
           remote_banner_image_url: Die URL des Gremium-Bannerbildes
           remote_hero_image_url: Die URL des Gremium-Titelbildes
