@@ -1,3 +1,9 @@
+// The code: 1. Manages a responsive "Add Comment" modal: Opens fullscreen on mobile (<= sm) and closes it via a "close" button.
+// 2. Handles dropdown menus: Dynamically updates button content based on user selection, hides selected items, and manages dropdown visibility.
+// This creates a responsive, interactive comment interface with mobile-friendly design and dynamic user group selection.
+
+import { screens } from "tailwindcss/defaultTheme";
+
 const addCommentMobile = function (addCommentCard) {
   addCommentCard.classList.remove("hidden");
   addCommentCard.classList.add("fullscreen");
@@ -5,14 +11,15 @@ const addCommentMobile = function (addCommentCard) {
 
 const closeAddComment = function (addCommentCard) {
   addCommentCard.classList.add("hidden");
-  addCommentCard.classList.add("fullscreen");
+  addCommentCard.classList.remove("fullscreen");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   // Add comment card for mobile
+  const smBreakpoint = parseInt(screens.sm.replace("px", ""), 10); 
   const addCommentCard = document.getElementById("add-comment-anchor");
   document.querySelectorAll(".add-comment-mobile").forEach((addButtonMobile) => {
-    if (addCommentCard.clientWidth <= 600) {
+    if (window.matchMedia(`(max-width: ${smBreakpoint}px)`).matches) {
       if (addButtonMobile) {
         addButtonMobile.addEventListener("click", () => addCommentMobile(addCommentCard));
       }
