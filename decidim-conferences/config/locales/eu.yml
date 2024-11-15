@@ -586,7 +586,6 @@ eu:
           location: Hitzaldiaren kokalekua. Non egingo da hitzaldi hau?
           objectives: Hitzaldi honen helburuak. Zein da helburua?
           promoted: Hitzaldia sustatu edo ez
-          reference: Hitzaldiaren erreferentzia. Identifikatzaile bakarra plataforma honetarako.
           remote_banner_image_url: Hitzaldiaren irudiaren URLa
           remote_hero_image_url: Batzarraren protagonistaren irudiaren URLa
           scope: Hitzaldiaren esparrua
