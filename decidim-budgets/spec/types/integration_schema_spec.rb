@@ -2,10 +2,54 @@
 
 require "spec_helper"
 require "decidim/api/test/component_context"
-require "decidim/budgets/test/factories"
 
 describe "Decidim::Api::QueryType" do
-  include_context "with a graphql decidim component"
+  include_context "with a graphql decidim component" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Budgets {
+        budget(id: #{budget.id}) {
+          createdAt
+          description {
+            translation(locale:"#{locale}")
+          }
+          id
+          projects {
+            acceptsNewComments
+            attachments{
+              type
+            }
+            budget_amount
+            comments{ id }
+            commentsHaveAlignment
+            commentsHaveVotes
+            createdAt
+            description{ translation(locale: "#{locale}")}
+            hasComments
+            id
+            reference
+            taxonomies{ id }
+            selected
+            title{ translation(locale: "#{locale}")}
+            totalCommentsCount
+            type
+            updatedAt
+            userAllowedToComment
+          }
+          title {
+            translation(locale:"#{locale}")
+          }
+          total_budget
+          updatedAt
+          versions {
+            id
+          }
+          versionsCount
+        }
+      }
+    )
+    end
+  end
   let(:component_type) { "Budgets" }
   let!(:current_component) { create(:budgets_component, :published, participatory_space: participatory_process) }
   let!(:budget) { create(:budget, component: current_component) }
@@ -137,51 +181,6 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Budgets {
-        budget(id: #{budget.id}) {
-          createdAt
-          description {
-            translation(locale:"#{locale}")
-          }
-          id
-          projects {
-            acceptsNewComments
-            attachments{
-              type
-            }
-            budget_amount
-            comments{ id }
-            commentsHaveAlignment
-            commentsHaveVotes
-            createdAt
-            description{ translation(locale: "#{locale}")}
-            hasComments
-            id
-            reference
-            taxonomies{ id }
-            selected
-            title{ translation(locale: "#{locale}")}
-            totalCommentsCount
-            type
-            updatedAt
-            userAllowedToComment
-          }
-          title {
-            translation(locale:"#{locale}")
-          }
-          total_budget
-          updatedAt
-          versions {
-            id
-          }
-          versionsCount
-        }
-      }
-    )
-    end
-
     it "executes successfully" do
       expect { response }.not_to raise_error
     end
@@ -192,51 +191,6 @@ describe "Decidim::Api::QueryType" do
   end
 
   context "with resource visibility" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Budgets {
-        budget(id: #{budget.id}) {
-          createdAt
-          description {
-            translation(locale:"#{locale}")
-          }
-          id
-          projects {
-            acceptsNewComments
-            attachments{
-              type
-            }
-            budget_amount
-            comments{ id }
-            commentsHaveAlignment
-            commentsHaveVotes
-            createdAt
-            description{ translation(locale: "#{locale}")}
-            hasComments
-            id
-            reference
-            taxonomies{ id }
-            selected
-            title{ translation(locale: "#{locale}")}
-            totalCommentsCount
-            type
-            updatedAt
-            userAllowedToComment
-          }
-          title {
-            translation(locale:"#{locale}")
-          }
-          total_budget
-          updatedAt
-          versions {
-            id
-          }
-          versionsCount
-        }
-      }
-    )
-    end
-
     let(:component_factory) { :budgets_component }
     let(:lookout_key) { "budget" }
     let(:query_result) do
@@ -390,6 +344,123 @@ describe "Decidim::Api::QueryType" do
 
           it "should not be visible" do
             expect(response["participatoryProcess"]).to be_nil
+          end
+        end
+      end
+    end
+
+    context "when space is published, private and transparent" do
+      let(:process_space_factory) { :assembly }
+      let(:space_type) { "assembly" }
+
+      let(:participatory_process_query) do
+        %(
+      assembly(id: #{participatory_process.id}) {
+        components(filter: {type: "#{component_type}"}){
+          id
+          name {
+            translation(locale: "#{locale}")
+          }
+          weight
+          __typename
+          ...fooComponent
+        }
+        id
+      }
+    )
+      end
+      let!(:participatory_process) { create(process_space_factory, :published, :private, :transparent, organization: current_organization) }
+
+      context "when component is published" do
+        let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
+
+        context "when the user is admin" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it "is visible" do
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+
+        Decidim::AssemblyUserRole::ROLES.each do |role|
+          context "when the user is space #{role}" do
+            let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+            it "is visible" do
+              expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
+            end
+          end
+        end
+
+        context "when user is visitor" do
+          let!(:current_user) { nil }
+
+          it "is visible" do
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result.merge("projects" => [nil, nil]))
+          end
+        end
+
+        context "when user is member" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+          let!(:participatory_space_private_user) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
+
+          it "is visible" do
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+
+        context "when user is normal user" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "is visible" do
+            expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
+          end
+        end
+      end
+
+      context "when component is not published" do
+        let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
+
+        context "when the user is admin" do
+          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+          it "is visible" do
+            expect(response["assembly"]["components"].first[lookout_key]).to be_nil
+          end
+        end
+
+        Decidim::ParticipatorySpaceUser::ROLES.each do |role|
+          context "when the user is space #{role}" do
+            let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+            it "is visible" do
+              expect(response["assembly"]["components"].first[lookout_key]).to be_nil
+            end
+          end
+        end
+
+        context "when user is visitor" do
+          let!(:current_user) { nil }
+
+          it "should not be visible" do
+            expect(response["assembly"]["components"].first).to be_nil
+          end
+
+          context "when user is member" do
+            let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+            let!(:participatory_space_private_user) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
+
+            it "should not be visible" do
+              expect(response["assembly"]["components"].first).to be_nil
+            end
+          end
+        end
+
+        context "when user is normal user" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+
+          it "should not be visible" do
+            expect(response["assembly"]["components"].first).to be_nil
           end
         end
       end

@@ -2,10 +2,44 @@
 
 require "spec_helper"
 require "decidim/api/test/component_context"
-require "decidim/budgets/test/factories"
+require "decidim/sortitions/test/factories"
 
 describe "Decidim::Api::QueryType" do
-  include_context "with a graphql decidim component"
+  include_context "with a graphql decidim component" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Sortitions {
+        sortition(id: #{sortition.id}){
+          acceptsNewComments
+          additionalInfo {  translation(locale: "#{locale}") }
+          author { id }
+          cancelReason { translation(locale: "#{locale}") }
+          cancelledByUser { id }
+          cancelledOn
+          candidateProposals
+          taxonomies { id }
+          comments { id }
+          commentsHaveAlignment
+          commentsHaveVotes
+          createdAt
+          dice
+          hasComments
+          id
+          reference
+          requestTimestamp
+          selectedProposals
+          targetItems
+          title { translation(locale: "#{locale}") }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
+          witnesses { translation(locale: "#{locale}") }
+        }
+      }
+    )
+    end
+  end
   let(:component_type) { "Sortitions" }
   let!(:current_component) { create(:sortition_component, participatory_space: participatory_process) }
   let(:author) { create(:user, :confirmed, :admin, organization: current_component.organization) }
@@ -124,40 +158,6 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Sortitions {
-        sortition(id: #{sortition.id}){
-          acceptsNewComments
-          additionalInfo {  translation(locale: "#{locale}") }
-          author { id }
-          cancelReason { translation(locale: "#{locale}") }
-          cancelledByUser { id }
-          cancelledOn
-          candidateProposals
-          taxonomies { id }
-          comments { id }
-          commentsHaveAlignment
-          commentsHaveVotes
-          createdAt
-          dice
-          hasComments
-          id
-          reference
-          requestTimestamp
-          selectedProposals
-          targetItems
-          title { translation(locale: "#{locale}") }
-          totalCommentsCount
-          type
-          updatedAt
-          userAllowedToComment
-          witnesses { translation(locale: "#{locale}") }
-        }
-      }
-    )
-    end
-
     it "executes successfully" do
       expect { response }.not_to raise_error
     end
@@ -166,40 +166,6 @@ describe "Decidim::Api::QueryType" do
   end
 
   include_examples "with resource visibility" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Sortitions {
-        sortition(id: #{sortition.id}){
-          acceptsNewComments
-          additionalInfo {  translation(locale: "#{locale}") }
-          author { id }
-          cancelReason { translation(locale: "#{locale}") }
-          cancelledByUser { id }
-          cancelledOn
-          candidateProposals
-          taxonomies { id }
-          comments { id }
-          commentsHaveAlignment
-          commentsHaveVotes
-          createdAt
-          dice
-          hasComments
-          id
-          reference
-          requestTimestamp
-          selectedProposals
-          targetItems
-          title { translation(locale: "#{locale}") }
-          totalCommentsCount
-          type
-          updatedAt
-          userAllowedToComment
-          witnesses { translation(locale: "#{locale}") }
-        }
-      }
-    )
-    end
-
     let(:component_factory) { :sortition_component }
     let(:lookout_key) { "sortition" }
     let(:query_result) { sortition_single_result }

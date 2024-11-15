@@ -2,10 +2,92 @@
 
 require "spec_helper"
 require "decidim/api/test/component_context"
-require "decidim/budgets/test/factories"
 
 describe "Decidim::Api::QueryType" do
-  include_context "with a graphql decidim component"
+  include_context "with a graphql decidim component" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Meetings {
+        meeting(id: #{meeting.id}){
+          acceptsNewComments
+          address
+          agenda {
+            id
+          }
+          attachments {
+            thumbnail
+          }
+          attendeeCount
+          attendingOrganizations
+          taxonomies {
+            id
+          }
+          closed
+          closingReport {
+            translation(locale: "#{locale}")
+          }
+          isWithdrawn
+          videoUrl
+          audioUrl
+          comments {
+            id
+          }
+          commentsHaveAlignment
+          commentsHaveVotes
+          contributionCount
+          coordinates {
+            latitude
+            longitude
+          }
+          createdAt
+          description {
+            translation(locale: "#{locale}")
+          }
+          endTime
+          hasComments
+          id
+          location {
+            translation(locale: "#{locale}")
+          }
+          locationHints {
+            translation(locale: "#{locale}")
+          }
+          privateMeeting
+          proposalsFromMeeting {
+            id
+          }
+          reference
+          registrationForm {
+            id
+          }
+          registrationsEnabled
+          registrationTerms {
+            translation(locale: "#{locale}")
+          }
+          registrationsEnabled
+          remainingSlots
+          services{
+            description {
+              translation(locale: "#{locale}")
+            }
+            title {
+              translation(locale: "#{locale}")
+            }
+          }
+          startTime
+          title {
+            translation(locale: "#{locale}")
+          }
+          totalCommentsCount
+          transparent
+          type
+          updatedAt
+          userAllowedToComment
+        }
+      }
+)
+    end
+  end
   let(:component_type) { "Meetings" }
 
   let!(:current_component) { create(:meeting_component, participatory_space: participatory_process) }
@@ -199,89 +281,6 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Meetings {
-        meeting(id: #{meeting.id}){
-          acceptsNewComments
-          address
-          agenda {
-            id
-          }
-          attachments {
-            thumbnail
-          }
-          attendeeCount
-          attendingOrganizations
-          taxonomies {
-            id
-          }
-          closed
-          closingReport {
-            translation(locale: "#{locale}")
-          }
-          isWithdrawn
-          videoUrl
-          audioUrl
-          comments {
-            id
-          }
-          commentsHaveAlignment
-          commentsHaveVotes
-          contributionCount
-          coordinates {
-            latitude
-            longitude
-          }
-          createdAt
-          description {
-            translation(locale: "#{locale}")
-          }
-          endTime
-          hasComments
-          id
-          location {
-            translation(locale: "#{locale}")
-          }
-          locationHints {
-            translation(locale: "#{locale}")
-          }
-          privateMeeting
-          proposalsFromMeeting {
-            id
-          }
-          reference
-          registrationForm {
-            id
-          }
-          registrationsEnabled
-          registrationTerms {
-            translation(locale: "#{locale}")
-          }
-          registrationsEnabled
-          remainingSlots
-          services{
-            description {
-              translation(locale: "#{locale}")
-            }
-            title {
-              translation(locale: "#{locale}")
-            }
-          }
-          startTime
-          title {
-            translation(locale: "#{locale}")
-          }
-          totalCommentsCount
-          transparent
-          type
-          updatedAt
-          userAllowedToComment
-        }
-      }
-)
-    end
-
     it "executes successfully" do
       expect { response }.not_to raise_error
     end
@@ -300,89 +299,6 @@ describe "Decidim::Api::QueryType" do
   end
 
   include_examples "with resource visibility" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Meetings {
-        meeting(id: #{meeting.id}){
-          acceptsNewComments
-          address
-          agenda {
-            id
-          }
-          attachments {
-            thumbnail
-          }
-          attendeeCount
-          attendingOrganizations
-          taxonomies {
-            id
-          }
-          closed
-          closingReport {
-            translation(locale: "#{locale}")
-          }
-          isWithdrawn
-          videoUrl
-          audioUrl
-          comments {
-            id
-          }
-          commentsHaveAlignment
-          commentsHaveVotes
-          contributionCount
-          coordinates {
-            latitude
-            longitude
-          }
-          createdAt
-          description {
-            translation(locale: "#{locale}")
-          }
-          endTime
-          hasComments
-          id
-          location {
-            translation(locale: "#{locale}")
-          }
-          locationHints {
-            translation(locale: "#{locale}")
-          }
-          privateMeeting
-          proposalsFromMeeting {
-            id
-          }
-          reference
-          registrationForm {
-            id
-          }
-          registrationsEnabled
-          registrationTerms {
-            translation(locale: "#{locale}")
-          }
-          registrationsEnabled
-          remainingSlots
-          services{
-            description {
-              translation(locale: "#{locale}")
-            }
-            title {
-              translation(locale: "#{locale}")
-            }
-          }
-          startTime
-          title {
-            translation(locale: "#{locale}")
-          }
-          totalCommentsCount
-          transparent
-          type
-          updatedAt
-          userAllowedToComment
-        }
-      }
-)
-    end
-
     let(:component_factory) { :meeting_component }
     let(:lookout_key) { "meeting" }
     let(:query_result) { meeting_single_result }
