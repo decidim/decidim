@@ -449,6 +449,7 @@ eu:
           closing_date: Zein datatan ixten den batzarra
           closing_date_reason: Zergatik itxi zen batzarra
           composition: Batzarraren osaera
+          created_at: Zein datatan sortu zen espazio hau
           created_by: Nork sortu zuen batzar hau
           created_by_other: Batzarraren beste sortzaile bat
           creation_date: Zein datatan sortu zen batzar hau
@@ -457,6 +458,7 @@ eu:
           developer_group: Batzarraren talde garatzailea
           duration: Batzarraren iraupena
           facebook_handler: Sare sozialetako arduraduna Facebookerako
+          follows_count: Espazio hau zenbat erabiltzailek jarraitzen duten
           github_handler: Sare sozialetako arduraduna GitHuberako
           hashtag: Batzarraren traola, Twitter/Xentzat erabilia
           id: Batzar honen identifikatzaile bakarra
