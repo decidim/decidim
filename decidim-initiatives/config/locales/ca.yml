@@ -611,12 +611,9 @@ ca:
           answered_at: La data de la resposta (si n'hi ha)
           area: L'àrea d'aquesta iniciativa
           authors: Les autores d'aquesta iniciativa
-          created_at: La data en què va ser creada la iniciativa
           description: La descripció de la iniciativa
           first_progress_notification_at: La data en què es va enviar la primera notificació de progrés
           hashtag: L'etiqueta que fa servir la iniciativa a Twitter/X
-          published_at: La data de publicació de la iniciativa
-          reference: La referència de la iniciativa. Un identificador únic per a aquesta plataforma.
           scope: L'àmbit territorial de la iniciativa
           second_progress_notification_at: La data en què es va enviar la segona notificació de progrés
           signature_end_date: La data en què va finalitzar el període la recollida de signatures
