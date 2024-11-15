@@ -1,6 +1,6 @@
-<div class="add-comment hidden md:flex" id="add-comment-anchor">
+<div class="add-comment hidden md:flex <%= reply? ? "" : "mt-12" %>" id="add-comment-anchor">
   <% if user_signed_in? %>
-    <%== cell("decidim/comments/comment_form", model, id:, root_depth:) %>
+    <%== cell("decidim/comments/comment_form", model, root_depth:) %>
   <% else %>
     <p>
       <span>

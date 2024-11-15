@@ -11,12 +11,14 @@ module Decidim
         render :add_comment if can_add_comments?
       end
 
-      attr_reader :id
-
       def single_comment_warning
         return unless single_comment?
 
         render :single_comment_warning
+      end
+
+      def reply?
+        model.is_a?(Decidim::Comments::Comment)
       end
 
       def comments_loading

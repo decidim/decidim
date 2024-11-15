@@ -6,7 +6,7 @@
   }
 
   .add-comment {
-    @apply mt-12 bg-white md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
+    @apply md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
 
     .new_comment {
       @apply w-full;
@@ -58,6 +58,14 @@
     & ~ [data-comment-footer] {
       .comment__header {
         @apply -ml-10;
+      }
+
+      [data-target*="dropdown-menu-add-comment"] {
+        @apply w-full flex items-center justify-between gap-2 px-0 py-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+
+        > svg {
+          @apply w-6 h-6 flex-none text-secondary fill-current;
+        }
       }
     }
   }
