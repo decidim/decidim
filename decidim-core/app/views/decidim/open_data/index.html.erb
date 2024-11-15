@@ -70,6 +70,20 @@
           </div>
         <% end %>
 
+        <hr class="mt-8 mb-4">
+
+        <h3><%= t("core", scope: "decidim.open_data.index.download") %></h3>
+        <% open_data_core_manifests.each do |export_manifest| %>
+          <div class="mt-8">
+            <h4><%= export_manifest.name %></h4>
+            <ul>
+              <% t(export_manifest.name, scope: "decidim.open_data.help").each do |i18n_key, i18n_value| %>
+                <li> <b><%= i18n_key %></b>: <%= i18n_value %> </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
       <% end %>
     </div>
 
@@ -98,8 +112,8 @@
 
       <h3 class="h5"><%= t("core", scope: "decidim.open_data.index.download") %></h3>
       <ul>
-        <% open_data_core.each do |name| %>
-          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: name), open_data_download_resource_path(name)) %></li>
+        <% open_data_core_manifests.each do |manifest| %>
+          <li><%= link_to(t("download_resource", scope: "decidim.open_data.index", resource_name: manifest.name), open_data_download_resource_path(manifest.name)) %></li>
         <% end %>
       </ul>
     </div>
