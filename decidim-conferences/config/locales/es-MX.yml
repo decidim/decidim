@@ -586,7 +586,6 @@ es-MX:
           location: El lugar de celebración de la jornada. Donde se llevó a cabo esta jornada.
           objectives: Los objetivos de esta jornada. Cuál fue la meta.
           promoted: Si la jornada está destacada o no
-          reference: La referencia de la jornada. Un identificador único para esta plataforma.
           remote_banner_image_url: La URL de la imagen de la cabecera de la jornada
           remote_hero_image_url: La URL de la imagen principal de la jornada
           scope: El ámbito territorial de la jornada
