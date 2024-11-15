@@ -36,7 +36,7 @@ describe "Assembly members" do
       it "the menu link is not shown" do
         visit decidim_assemblies.assembly_path(assembly)
 
-        expect(page).to have_no_content("Private participants")
+        expect(page).to have_no_content("Members")
       end
     end
   end
@@ -73,7 +73,7 @@ describe "Assembly members" do
         it "the menu link is not shown" do
           visit decidim_assemblies.assembly_path(assembly)
 
-          expect(page).to have_no_content("Private participants")
+          expect(page).to have_no_content("Members")
         end
       end
     end
@@ -103,8 +103,8 @@ describe "Assembly members" do
           visit decidim_assemblies.assembly_path(assembly)
 
           within ".participatory-space__nav-container" do
-            expect(page).to have_content("Private participants")
-            click_on "Private participants"
+            expect(page).to have_content("Members")
+            click_on "Members"
           end
 
           expect(page).to have_current_path decidim_assemblies.assembly_assembly_members_path(assembly)
