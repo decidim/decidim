@@ -3,6 +3,15 @@
 namespace :decidim do
   namespace :budgets do
     namespace :export do
+      # Usage:
+      #   rake decidim:budgets:export:budget_pabulib[123,tmp/budget-results-123.pb]
+      #
+      # As extra arguments you can define the configuration options for the
+      # export with the `key=value` format, for example:
+      #   rake decidim:budgets:export:budget_pabulib[123,tmp/budget-results-123.pb,description="My export",unit="South District"]
+      #
+      # For all available export options, please refer to the arguments
+      # available at `Decidim::Budgets::Admin::PabulibExportForm`.
       desc "Export voting results to Pabulib format"
       task :budget_pabulib, [:budget_id, :output_path] => :environment do |_, args|
         if args.budget_id.blank?
