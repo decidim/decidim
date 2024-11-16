@@ -13,7 +13,6 @@ module Decidim
 
       validates :title, :description, presence: true
       validates :title, :description, etiquette: true
-      validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validate :editable_by_user
 
       def map_model(debate)
