@@ -367,9 +367,11 @@ fi:
         participatory_processes:
           announcement: Ilmoituksen sisältö
           area: Alue, jota prosessi koskee
+          created_at: Tilan luontiaika
           description: Prosessin pitkä kuvaus
           developer_group: Prosessin kehittäjäryhmä, joka edistää tämän prosessin toteutumista.
           end_date: Prosessin päättymispäivä
+          follows_count: Tilaa seuraavien käyttäjien määrä
           hashtag: Prosessia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
           id: Prosessin yksilöllinen tunniste
           local_area: Prosessin paikallisalue, eli millä alueella prosessi tapahtuu.
@@ -379,6 +381,8 @@ fi:
           participatory_scope: Prosessin osallistumisen laajuus
           participatory_structure: Prosessin osallistumisrakenne. Määrittää, miten prosessin lopputulokset määrätään.
           promoted: Onko prosessi korostettu vai ei
+          published_at: Tilan julkaisuaika
+          reference: Tilan yksilöllinen viite
           remote_hero_image_url: Prosessin hero-kuvan URL-osoite
           scope: Prosessin teema
           scopes_enabled: Ovatko teemat otettu käyttöön vai eivät
@@ -388,6 +392,8 @@ fi:
           subtitle: Prosessin alaotsikko
           target: Prosessin tavoite. Määrittää esimerkiksi, keitä prosessiin osallistuu.
           title: Prosessin otsikko
+          updated_at: Tilan viimeisen päivityksen aika
+          url: Tilan URL-osoite
     participatory_process_groups:
       content_blocks:
         extra_data:
