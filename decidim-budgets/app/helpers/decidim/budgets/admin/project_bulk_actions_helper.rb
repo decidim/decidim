@@ -24,7 +24,7 @@ module Decidim
         def extra_export_links
           [
             {
-              type: :projects,
+              type: :voting_results,
               format: :pb,
               format_name: t("decidim.budgets.admin.exports.formats.pabulib"),
               href: budget_pabulib_export_path(budget)

@@ -85,6 +85,7 @@ en:
           formats:
             pabulib: Pabulib
           projects: Projects
+          voting_results: Voting results
         models:
           budget:
             name: Budget
