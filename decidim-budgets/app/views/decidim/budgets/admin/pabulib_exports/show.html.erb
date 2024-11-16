@@ -8,6 +8,18 @@
   </h1>
 </div>
 
+<% if budget.orders.finished.count > 10000 %>
+  <%= cell(
+    "decidim/announcement",
+    t(
+      ".large_dataset_warning_html",
+      amount: budget.orders.finished.count,
+      command: "rake decidim:budgets:export:budget_pabulib[#{budget.id},tmp/budget-results-#{budget.id}.pb]"
+    ),
+    callout_class: "alert"
+  ) %>
+<% end %>
+
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: budget_pabulib_export_path(budget), html: { class: "form form-defaults export_projects" }) do |f| %>

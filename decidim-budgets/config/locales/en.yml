@@ -159,6 +159,9 @@ en:
                 help: How are the voting results evaluated (see the documentation for more information).
                 label: Vote type (%{field})
             format_info_html: Please refer to the %{link} documentation to learn more about these details.
+            large_dataset_warning_html: |
+              <p>Your dataset contains %{amount} votes and is therefore very large for exporting through this user interface.</p>
+              <p>Please consider exporting your dataset from the console with the following command: <code>%{command}</code></p>
             title: Export voting results for %{budget} to Pabulib format
         projects:
           create:
