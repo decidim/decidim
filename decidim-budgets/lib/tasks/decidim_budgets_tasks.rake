@@ -29,8 +29,11 @@ namespace :decidim do
         end
 
         organization = budget.organization
-        preferred_locale = ENV.fetch("DECIDIM_LOCALE", "")
-        translated_attribute = ->(value) { value[preferred_locale] || value[organization.default_locale] || value.values.first }
+        preferred_locale = ENV.fetch("DECIDIM_LOCALE", ENV.fetch("LANGUAGE", ENV.fetch("LANG", ""))).split(".").first.sub("_", "-")
+        preferred_locale_short = preferred_locale.split("-").first
+        translated_attribute = lambda do |value|
+          value[preferred_locale] || value[preferred_locale_short] || value[organization.default_locale] || value.values.first
+        end
 
         component = budget.component
         config = {
