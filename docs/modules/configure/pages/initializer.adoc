@@ -528,7 +528,6 @@ To disable the etiquette validator, set the following in your application's conf
 config.disable_etiquette_validator = true
 ....
 
-
 Alternatively, you can use an environment variable:
 [source,ruby]
 ....
