@@ -455,6 +455,7 @@ cs:
           closing_date: Datum ukončení shromáždění
           closing_date_reason: Proč bylo shromáždění uzavřeno
           composition: Složení shromáždění
+          created_at: Datum, kdy byl tento prostor vytvořen
           created_by: Kdo vytvořil toto shromáždění
           created_by_other: Ostatní tvůrci shromáždění
           creation_date: Datum vytvoření tohoto shromáždění
@@ -463,6 +464,7 @@ cs:
           developer_group: Skupina vývojářů shromáždění
           duration: Doba trvání shromáždění
           facebook_handler: Handler sociálních médií pro Facebook
+          follows_count: Počet uživatelů sledujících tento prostor
           github_handler: Handler sociálních médií pro GitHub
           hashtag: Hashtag Shromáždění, používaný pro Twitter/X
           id: Jedinečný identifikátor ttohoto shromáždění
@@ -475,7 +477,9 @@ cs:
           participatory_scope: Participační rozsah shromáždění
           participatory_structure: Participační struktura shromáždění
           promoted: Zda je shromáždění propagováno, nebo ne
+          published_at: Datum, kdy byl tento prostor publikován
           purpose_of_action: Účel konání shromáždění
+          reference: Jedinečný odkaz na prostor
           remote_banner_image_url: URL obrázku banneru shromáždění
           remote_hero_image_url: URL obrázku předáka shromáždění
           scope: Rozsah shromáždění
@@ -488,6 +492,7 @@ cs:
           taxonomies: Taxonomie projektu
           title: Název shromáždění
           twitter_handler: Handler sociálních médií pro Twitter
+          updated_at: Poslední datum, kdy byl tento prostor aktualizován
           youtube_handler: Handler sociálních médií pro YouTube
     participatory_processes:
       show:
