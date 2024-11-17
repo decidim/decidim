@@ -553,6 +553,7 @@ misogi
 mlat
 mlon
 Moby
+Mobi
 modals
 modernizr
 modernizrrc
@@ -900,6 +901,7 @@ thant
 thedoggokeeper
 thelma
 thepassword
+THH
 thi
 Tiene
 tilelayer

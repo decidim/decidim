@@ -26,7 +26,7 @@ describe Decidim::Forms::ExportQuestionnaireAnswersJob do
         .to receive(:export)
         .and_return(mailer)
       expect(mailer)
-        .to receive(:deliver_now)
+        .to receive(:deliver_later)
 
       subject.perform_now(user, title, collection)
     end
