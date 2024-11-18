@@ -109,8 +109,6 @@ ja:
           create:
             invalid: 結果の作成中に問題がありました。
             success: 結果が正常に作成されました。
-          destroy:
-            success: 結果を削除しました。
           edit:
             title: 結果を編集
             update: 結果を更新
