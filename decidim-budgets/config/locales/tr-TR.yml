@@ -21,8 +21,6 @@ tr:
       actions:
         attachment_collections: Klasörler
         attachments: Ekler
-        confirm_destroy: Bu projeyi silmek istediğinize emin misiniz?
-        destroy: Sil
         edit: Düzenle
         edit_projects: Projeleri Yönet
         import: Teklifleri projelere aktarın
