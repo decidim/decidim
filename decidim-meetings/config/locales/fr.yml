@@ -234,8 +234,6 @@ fr:
         attachment_collections: Dossiers
         attachments: Documents liés
         close: Clore
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
-        destroy: Supprimer
         edit: Modifier
         invalid_destroy:
           proposals_count:
@@ -315,12 +313,6 @@ fr:
           create:
             invalid: Une erreur s'est produite lors de la création de cette rencontre.
             success: Rencontre créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
-          destroy:
-            invalid:
-              proposals_count:
-                one: La rencontre ne peut être supprimée car %{count} proposition y est rattachée.
-                other: La rencontre ne peut être supprimée car %{count} propositions y sont rattachées.
-            success: La rencontre a été supprimée avec succès
           edit:
             title: Modifier la rencontre
             update: Mettre à jour
