@@ -38,8 +38,6 @@ kaa:
         results:
           create:
             success: Nátiyje tabıslı jaratıldı.
-          destroy:
-            success: Nátiyje tabıslı óshirildi.
           edit:
             title: Nátiyjeni ózgertiw
             update: Nátiyjeni jańalaw
