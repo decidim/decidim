@@ -229,8 +229,6 @@ pt-BR:
         attachment_collections: Pastas
         attachments: Anexos
         close: Fechar
-        confirm_destroy: Deseja mesmo excluir este encontro?
-        destroy: Excluir
         edit: Editar
         invalid_destroy:
           proposals_count:
@@ -308,12 +306,6 @@ pt-BR:
           create:
             invalid: Houve um problema ao criar esta reunião.
             success: Reunião criada com sucesso. Note que ainda não foi publicada, você precisa publicá-la manualmente.
-          destroy:
-            invalid:
-              proposals_count:
-                one: A reunião não pode ser destruída porque tem %{count} proposta associada a ela.
-                other: A reunião não pode ser destruída porque tem %{count} propostas associadas a ela.
-            success: Reunião excluída com sucesso
           edit:
             title: Editar reuniões
             update: Atualizar
