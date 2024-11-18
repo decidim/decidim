@@ -320,9 +320,6 @@ es-PY:
           error: Hubo un error al crear este componente.
           success: Componente creado con éxito.
           success_landing_page: Componente creado con éxito. Puedes añadir un bloque de contenido para este componente en la página de inicio del espacio de participación. <a href="%{landing_page_path}">Ve a la página de inicio</a> para configurarla.
-        destroy:
-          error: Ha habido un error al eliminar este componente.
-          success: Componente borrado con éxito.
         edit:
           title: Editar componente
           update: Actualizar
