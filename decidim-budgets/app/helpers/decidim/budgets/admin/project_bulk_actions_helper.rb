@@ -14,6 +14,23 @@ module Decidim
             ]
           )
         end
+
+        private
+
+        def render_dropdown(component:, resource_id:, filters:)
+          render partial: "decidim/admin/exports/dropdown", locals: { component:, resource_id:, filters:, extra_export_links: }
+        end
+
+        def extra_export_links
+          [
+            {
+              type: :voting_results,
+              format: :pb,
+              format_name: t("decidim.budgets.admin.exports.formats.pabulib"),
+              href: budget_pabulib_export_path(budget)
+            }
+          ]
+        end
       end
     end
   end

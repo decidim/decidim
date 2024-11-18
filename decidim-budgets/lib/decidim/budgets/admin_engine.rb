@@ -20,6 +20,7 @@ module Decidim
               post :update_selected
               post :update_budget
               resource :proposals_import, only: [:new, :create]
+              resource :pabulib_export, only: [:show, :create]
             end
           end
         end

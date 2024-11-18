@@ -1,0 +1,151 @@
+<% add_decidim_page_title(t(".title", budget: translated_attribute(budget.title))) %>
+
+<% format_link = link_to(t(".explanation_link_label_format"), "https://pabulib.org/format", target: "_blank") %>
+
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title", budget: translated_attribute(budget.title)) %>
+  </h1>
+</div>
+
+<% if budget.orders.finished.count > 10000 %>
+  <%= cell(
+    "decidim/announcement",
+    t(
+      ".large_dataset_warning_html",
+      amount: budget.orders.finished.count,
+      command: "rake decidim:budgets:export:budget_pabulib[#{budget.id},tmp/budget-results-#{budget.id}.pb]"
+    ),
+    callout_class: "alert"
+  ) %>
+<% end %>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: budget_pabulib_export_path(budget), html: { class: "form form-defaults export_projects" }) do |f| %>
+      <div class="form__wrapper">
+        <div class="card">
+          <div class="card-divider"></div>
+          <div class="row column">
+            <%= t(
+              ".explanation_html",
+              format_link:,
+              equal_shares_link: link_to(t(".explanation_link_label_equal_shares"), "https://equalshares.net/", target: "_blank"),
+              tool_link: link_to(t(".explanation_link_label_equal_shares_tool"), "https://equalshares.net/tools/compute/", target: "_blank")
+            ) %>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-divider"></div>
+          <div class="card-section">
+            <div class="row column">
+              <h2><%= t(".export_details_general") %></h2>
+            </div>
+
+            <div class="row column">
+              <%= f.text_field :description, label: t(".fields.description.label", field: "description"), help_text: t(".fields.description.help") %>
+            </div>
+            <div class="row column">
+              <%= f.text_field :country, label: t(".fields.country.label", field: "country"), help_text: t(".fields.country.help") %>
+            </div>
+            <div class="row column">
+              <%= f.text_field :unit, label: t(".fields.unit.label", field: "unit"), help_text: t(".fields.unit.help") %>
+            </div>
+            <div class="row column">
+              <%= f.text_field :instance, label: t(".fields.instance.label", field: "instance"), help_text: t(".fields.instance.help") %>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-divider"></div>
+          <div class="card-section">
+            <div class="row column">
+              <h2><%= t(".export_details_data") %></h2>
+              <p><%= t(".format_info_html", link: format_link) %></p>
+            </div>
+
+            <div class="row column">
+              <%= f.select :vote_type, pabulib_vote_type_options, label: t(".fields.vote_type.label", field: "vote_type"), help_text: t(".fields.vote_type.help") %>
+            </div>
+
+            <div class="row column">
+              <%= f.number_field :min_length, label: t(".fields.min_length.label", field: "min_length"), help_text: t(".fields.min_length.help", default_value: 1) %>
+            </div>
+            <div class="row column">
+              <%= f.number_field :max_length, label: t(".fields.max_length.label", field: "max_length"), help_text: t(".fields.max_length.help", default_value: "∞") %>
+            </div>
+
+            <div data-selector="vote_type" data-value="approval" class="hide">
+              <div class="row column">
+                <%= f.number_field :min_sum_cost, label: t(".fields.min_sum_cost.label", field: "min_sum_cost"), help_text: t(".fields.min_sum_cost.help", default_value: 0) %>
+              </div>
+              <div class="row column">
+                <%= f.number_field :max_sum_cost, label: t(".fields.max_sum_cost.label", field: "max_sum_cost"), help_text: t(".fields.max_sum_cost.help", default_value: "∞") %>
+              </div>
+            </div>
+
+            <div data-selector="vote_type" data-value="ordinal" class="hide">
+              <div class="row column">
+                <%= f.select :scoring_fn, pabulib_scoring_fn_options, label: t(".fields.scoring_fn.label", field: "scoring_fn"), help_text: t(".fields.scoring_fn.help", default_value: pabulib_scoring_fn_options.first) %>
+              </div>
+            </div>
+
+            <div data-selector="vote_type" data-value="cumulative" class="hide">
+              <div class="row column">
+                <%= f.number_field :min_sum_points, label: t(".fields.min_sum_points.label", field: "min_sum_points"), help_text: t(".fields.min_sum_points.help", default_value: 0) %>
+              </div>
+              <div class="row column">
+                <%= f.number_field :max_sum_points, label: t(".fields.max_sum_points.label", field: "max_sum_points"), help_text: t(".fields.max_sum_points.help") %>
+              </div>
+            </div>
+
+            <div data-selector="vote_type" data-value="cumulative scoring" class="hide">
+              <div class="row column">
+                <%= f.number_field :min_points, label: t(".fields.min_points.label", field: "min_points"), help_text: t(".fields.min_points.help", default_value: 0) %>
+              </div>
+              <div class="row column">
+                <%= f.number_field :max_points, label: t(".fields.max_points.label", field: "max_points"), help_text: t(".fields.max_points.help", default_value: "max_sum_points") %>
+              </div>
+            </div>
+
+            <div data-selector="vote_type" data-value="scoring" class="hide">
+              <div class="row column">
+                <%= f.number_field :default_score, label: t(".fields.default_score.label", field: "default_score"), help_text: t(".fields.default_score.help", default_value: 0) %>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= link_to t(".cancel"), budget_projects_path(budget), class: "button button__sm button__secondary" %>
+          <%= f.submit t(".create"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("decidim:loaded", function() {
+    var typeSelect = document.getElementById("pabulib_export_vote_type");
+    var conditionalSections = document.querySelectorAll("[data-selector='vote_type']")
+    var showTypeFields = function() {
+      conditionalSections.forEach(function(section) {
+        var target = section.dataset.value.split(" ");
+        if (target.includes(typeSelect.value)) {
+          section.classList.remove("hide");
+        } else {
+          section.classList.add("hide");
+        }
+      });
+    };
+
+    typeSelect.addEventListener("change", function() {
+      showTypeFields();
+    });
+    showTypeFields();
+  });
+</script>

@@ -17,5 +17,14 @@
         <% end %>
       <% end %>
     <% end %>
+    <% if defined?(extra_export_links) && extra_export_links.is_a?(Array) %>
+      <% extra_export_links.each do |link| %>
+        <%= link_to link[:href], method: link[:method] do %>
+          <li class="exports--format--<%= link[:format] %> exports--<%= link[:type] %>">
+            <%= t("decidim.admin.exports.export_as", name: t("decidim.#{component.manifest.name}.admin.exports.#{link[:type]}"), export_format: link[:format_name]) %>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
   </ul>
 </div>
