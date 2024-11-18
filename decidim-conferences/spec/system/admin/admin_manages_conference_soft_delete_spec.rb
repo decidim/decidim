@@ -8,7 +8,7 @@ describe "Admin manages conference soft delete" do
   let(:admin_resource_path) { decidim_admin_conferences.conferences_path }
   let(:trash_path) { decidim_admin_conferences.manage_trash_conferences_path }
   let(:title) { { en: "My space" } }
-  let!(:resource) { create(:conference, deleted_at:, title:, organization:) }
+  let!(:resource) { create(:conference, title:, organization:) }
 
   it_behaves_like "manage soft deletable component or space", "conference"
   it_behaves_like "manage trashed resource", "conference"

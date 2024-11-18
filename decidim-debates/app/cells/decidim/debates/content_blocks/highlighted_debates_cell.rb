@@ -11,7 +11,7 @@ module Decidim
         private
 
         def debates
-          @debates ||= Decidim::Debates::Debate.open.not_trashed.where(component: published_components).updated_at_desc
+          @debates ||= Decidim::Debates::Debate.open.where(component: published_components).updated_at_desc
         end
 
         def decidim_debates

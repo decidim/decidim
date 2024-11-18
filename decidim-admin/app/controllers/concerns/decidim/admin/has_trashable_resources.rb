@@ -124,24 +124,24 @@ module Decidim
       end
 
       def component_trashed?
-        respond_to?(:current_component) && current_component&.trashed?
+        respond_to?(:current_component) && current_component&.deleted?
       end
 
       def participatory_space_trashed?
-        current_participatory_space.respond_to?(:trashed?) && current_participatory_space&.trashed?
+        current_participatory_space.respond_to?(:deleted?) && current_participatory_space&.deleted?
       end
 
       def resource_trashed?
-        trashable_deleted_resource&.trashed?
+        trashable_deleted_resource&.deleted?
       end
 
       def parent_trashed?
-        parent_resource&.trashed?
+        parent_resource&.deleted?
       end
 
       def parent_id_trashed?
         parent_resource = find_parent_resource
-        parent_resource&.trashed? || false
+        parent_resource&.deleted? || false
       end
 
       def human_readable_resource_name

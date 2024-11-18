@@ -69,19 +69,19 @@ module Decidim
         end
 
         def debates
-          @debates ||= Debate.not_trashed.where(component: current_component).not_hidden
+          @debates ||= Debate.where(component: current_component).not_hidden
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection ||= Debate.where(component: current_component).trashed.deleted_at_desc
+          @trashable_deleted_collection ||= Debate.where(component: current_component).only_deleted.deleted_at_desc
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= Debate.find_by(component: current_component, id: params[:id])
+          @trashable_deleted_resource ||= Debate.with_deleted.find_by(component: current_component, id: params[:id])
         end
 
         def debate
-          @debate ||= Debate.not_trashed.find_by(component: current_component, id: params[:id])
+          @debate ||= Debate.find_by(component: current_component, id: params[:id])
         end
       end
     end

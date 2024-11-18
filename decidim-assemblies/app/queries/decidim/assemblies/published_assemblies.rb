@@ -5,7 +5,7 @@ module Decidim
     # This query filters published assemblies only.
     class PublishedAssemblies < Decidim::Query
       def query
-        Decidim::Assembly.published.not_trashed
+        Decidim::Assembly.published
       end
     end
   end

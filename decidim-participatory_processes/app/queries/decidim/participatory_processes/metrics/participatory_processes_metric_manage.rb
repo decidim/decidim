@@ -13,7 +13,7 @@ module Decidim
         def query
           return @query if @query
 
-          @query = Decidim::ParticipatoryProcess.not_trashed.where(organization: @organization)
+          @query = Decidim::ParticipatoryProcess.where(organization: @organization)
           @query = @query.where(decidim_participatory_processes: { published_at: ..end_time })
           @query
         end

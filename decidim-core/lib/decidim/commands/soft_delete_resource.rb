@@ -38,7 +38,7 @@ module Decidim
           resource,
           current_user
         ) do
-          resource.trash!
+          resource.destroy!
         end
       end
 

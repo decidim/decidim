@@ -11,7 +11,7 @@ module Decidim
         private
 
         def posts
-          @posts ||= Decidim::Blogs::Post.not_trashed.published.where(component: published_components).created_at_desc
+          @posts ||= Decidim::Blogs::Post.published.where(component: published_components).created_at_desc
         end
 
         def decidim_blogs

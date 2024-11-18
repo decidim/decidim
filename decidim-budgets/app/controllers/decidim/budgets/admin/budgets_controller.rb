@@ -60,19 +60,19 @@ module Decidim
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection ||= Budget.where(component: current_component).trashed.deleted_at_desc
+          @trashable_deleted_collection ||= Budget.where(component: current_component).only_deleted.deleted_at_desc
         end
 
         def budgets
-          @budgets ||= Budget.not_trashed.where(component: current_component).order(weight: :asc)
+          @budgets ||= Budget.where(component: current_component).order(weight: :asc)
         end
 
         def budget
-          @budget ||= Budget.not_trashed.where(component: current_component).find_by(id: params[:id])
+          @budget ||= Budget.where(component: current_component).find_by(id: params[:id])
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= Budget.find_by(component: current_component, id: params[:id])
+          @trashable_deleted_resource ||= Budget.with_deleted.find_by(component: current_component, id: params[:id])
         end
 
         def orders

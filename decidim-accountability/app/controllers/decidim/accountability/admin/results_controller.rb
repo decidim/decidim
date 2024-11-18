@@ -73,11 +73,11 @@ module Decidim
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= Result.where(component: current_component).find_by(id: params[:id])
+          @trashable_deleted_resource ||= Result.with_deleted.where(component: current_component).find_by(id: params[:id])
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection = filtered_collection.trashed.deleted_at_desc
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
         end
 
         def find_parent_resource
@@ -85,19 +85,19 @@ module Decidim
         end
 
         def results
-          @results ||= filtered_collection.not_trashed
+          @results ||= filtered_collection
         end
 
         def result
-          @result ||= Result.not_trashed.where(component: current_component).find(params[:id])
+          @result ||= Result.where(component: current_component).find(params[:id])
         end
 
         def parent_result
-          @parent_result ||= Result.not_trashed.find_by(component: current_component, id: params[:parent_id])
+          @parent_result ||= Result.find_by(component: current_component, id: params[:parent_id])
         end
 
         def parent_results
-          @parent_results ||= Result.not_trashed.where(component: current_component, parent_id: nil)
+          @parent_results ||= Result.where(component: current_component, parent_id: nil)
         end
 
         def statuses

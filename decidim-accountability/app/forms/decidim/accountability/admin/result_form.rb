@@ -82,7 +82,7 @@ module Decidim
         end
 
         def parent
-          @parent ||= Decidim::Accountability::Result.not_trashed.find_by(component: current_component, id: parent_id)
+          @parent ||= Decidim::Accountability::Result.find_by(component: current_component, id: parent_id)
         end
 
         def status

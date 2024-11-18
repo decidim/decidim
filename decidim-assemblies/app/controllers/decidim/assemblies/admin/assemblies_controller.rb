@@ -15,7 +15,7 @@ module Decidim
 
         def index
           enforce_permission_to :read, :assembly_list
-          @assemblies = filtered_collection.not_trashed
+          @assemblies = filtered_collection
         end
 
         def new
@@ -86,11 +86,11 @@ module Decidim
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection = filtered_collection.trashed.deleted_at_desc
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
         end
 
         def current_assembly
-          @current_assembly ||= collection.where(slug: params[:slug]).or(
+          @current_assembly ||= collection.with_deleted.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])
           ).first
         end

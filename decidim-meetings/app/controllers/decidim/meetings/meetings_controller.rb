@@ -125,7 +125,6 @@ module Decidim
       def search_collection
         Meeting
           .where(component: current_component)
-          .not_trashed
           .published
           .not_hidden
           .or(MeetingLink.find_meetings(component: current_component))

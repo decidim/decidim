@@ -5,7 +5,7 @@ module Decidim
     # This query filters published processes only.
     class PublishedParticipatoryProcesses < Decidim::Query
       def query
-        Decidim::ParticipatoryProcess.published.not_trashed
+        Decidim::ParticipatoryProcess.published
       end
     end
   end

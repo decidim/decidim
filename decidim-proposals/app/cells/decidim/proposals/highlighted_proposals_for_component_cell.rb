@@ -35,7 +35,7 @@ module Decidim
       end
 
       def base_relation
-        Decidim::Proposals::Proposal.published.not_trashed.not_hidden.not_withdrawn.where(component: model)
+        Decidim::Proposals::Proposal.published.not_hidden.not_withdrawn.where(component: model)
       end
 
       def decidim_proposals

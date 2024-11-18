@@ -36,7 +36,6 @@ module Decidim
             manifest.participatory_spaces.call(@organization).public_spaces
           end
           @query = Decidim::Accountability::Result.select(:decidim_component_id)
-                                                  .not_trashed
                                                   .where(component: visible_components_from_spaces(spaces))
                                                   .joins(:component)
                                                   .left_outer_joins(:category)

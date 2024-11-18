@@ -66,9 +66,9 @@ module Decidim
 
           if permission_action.action.in? [:manage_trash, :restore, :soft_delete]
             if permission_action.action == :soft_delete
-              toggle_allow(trashable_deleted_resource.respond_to?(:trashed?) && !trashable_deleted_resource.trashed?)
+              toggle_allow(trashable_deleted_resource.respond_to?(:deleted?) && !trashable_deleted_resource.deleted?)
             elsif permission_action.action == :restore
-              toggle_allow(trashable_deleted_resource&.trashed?)
+              toggle_allow(trashable_deleted_resource&.deleted?)
             else
               allow!
             end

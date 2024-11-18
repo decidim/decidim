@@ -14,7 +14,7 @@ Decidim.register_component(:blogs) do |component|
   end
 
   component.register_stat :posts_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, _start_at, _end_at|
-    Decidim::Blogs::Post.not_trashed.where(component: components).count
+    Decidim::Blogs::Post.where(component: components).count
   end
 
   component.actions = %w(create update destroy)

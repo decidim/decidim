@@ -11,7 +11,7 @@ module Decidim
       field :results, Decidim::Accountability::ResultType.connection_type, null: true, connection: true
 
       def results
-        Result.not_trashed.where(component: object).includes(:component)
+        Result.where(component: object).includes(:component)
       end
 
       field :result, Decidim::Accountability::ResultType, null: true do
@@ -19,7 +19,7 @@ module Decidim
       end
 
       def result(**args)
-        Result.not_trashed.where(component: object).find_by(id: args[:id])
+        Result.where(component: object).find_by(id: args[:id])
       end
     end
   end

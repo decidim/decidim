@@ -51,7 +51,7 @@ module Decidim
       private
 
       def search_collection
-        Assembly.where(organization: current_organization).published.not_trashed.visible_for(current_user)
+        Assembly.where(organization: current_organization).published.visible_for(current_user)
       end
 
       def default_filter_params

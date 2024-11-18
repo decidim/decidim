@@ -10,7 +10,7 @@ module Decidim
         helper_method :posts, :post
 
         def posts
-          @posts ||= Post.not_trashed.where(component: current_component).page(params[:page]).per(15)
+          @posts ||= Post.where(component: current_component).page(params[:page]).per(15)
         end
 
         def post

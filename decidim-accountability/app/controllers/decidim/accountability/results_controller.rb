@@ -36,7 +36,7 @@ module Decidim
       end
 
       def search_collection
-        Result.not_trashed.where(component: current_component)
+        Result.where(component: current_component)
       end
 
       def default_filter_params

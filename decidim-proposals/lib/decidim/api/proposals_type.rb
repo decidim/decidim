@@ -5,14 +5,14 @@ module Decidim
     class ProposalListHelper < Decidim::Core::ComponentListBase
       # only querying published posts
       def query_scope
-        super.published.not_trashed
+        super.published
       end
     end
 
     class ProposalFinderHelper < Decidim::Core::ComponentFinderBase
       # only querying published posts
       def query_scope
-        super.published.not_trashed
+        super.published
       end
     end
 

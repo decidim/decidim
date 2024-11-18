@@ -13,7 +13,7 @@ module Decidim
         def query
           return @query if @query
 
-          @query = Decidim::Assembly.not_trashed.where(organization: @organization)
+          @query = Decidim::Assembly.where(organization: @organization)
           @query = @query.where(decidim_assemblies: { published_at: ..end_time })
           @query
         end

@@ -34,16 +34,16 @@ Decidim.register_component(:debates) do |component|
   end
 
   component.register_stat :debates_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
-    Decidim::Debates::Debate.not_trashed.where(component: components).not_hidden.count
+    Decidim::Debates::Debate.where(component: components).not_hidden.count
   end
 
   component.register_stat :followers_count, tag: :followers, priority: Decidim::StatsRegistry::LOW_PRIORITY do |components, _start_at, _end_at|
-    debates_ids = Decidim::Debates::Debate.not_trashed.where(component: components).not_hidden.pluck(:id)
+    debates_ids = Decidim::Debates::Debate.where(component: components).not_hidden.pluck(:id)
     Decidim::Follow.where(decidim_followable_type: "Decidim::Debates::Debate", decidim_followable_id: debates_ids).count
   end
 
   component.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |components, _start_at, _end_at|
-    debates_ids = Decidim::Debates::Debate.not_trashed.where(component: components).not_hidden.pluck(:id)
+    debates_ids = Decidim::Debates::Debate.where(component: components).not_hidden.pluck(:id)
     Decidim::Endorsement.where(resource_id: debates_ids, resource_type: Decidim::Debates::Debate.name).count
   end
 
@@ -60,7 +60,6 @@ Decidim.register_component(:debates) do |component|
   component.exports :debates do |exports|
     exports.collection do |component_instance|
       Decidim::Debates::Debate
-        .not_trashed
         .not_hidden
         .where(component: component_instance)
         .includes(:taxonomies, component: { participatory_space: :organization })

@@ -23,7 +23,7 @@ module Decidim
 
         def index
           enforce_permission_to :read, :process_list
-          @participatory_processes = filtered_collection.not_trashed
+          @participatory_processes = filtered_collection
         end
 
         def new
@@ -89,7 +89,7 @@ module Decidim
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection = filtered_collection.trashed.deleted_at_desc
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
         end
 
         def process_group
@@ -101,8 +101,8 @@ module Decidim
         end
 
         def current_participatory_process
-          @current_participatory_process ||= collection.where(slug: params[:slug]).or(
-            collection.where(id: params[:slug])
+          @current_participatory_process ||= collection.with_deleted.where(slug: params[:slug]).or(
+            collection.with_deleted.where(id: params[:slug])
           ).first
         end
 

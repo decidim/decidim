@@ -6,15 +6,19 @@ module Decidim
   describe Commands::RestoreResource do
     subject { described_class.new(resource, user) }
 
-    let(:resource) { create(:dummy_resource, deleted_at: Time.current) }
+    let(:resource) { create(:dummy_resource) }
     let(:organization) { resource.component.organization }
     let(:user) { create(:user, organization:) }
+
+    before do
+      resource.destroy!
+    end
 
     context "when everything is ok" do
       it "restores the resource" do
         subject.call
 
-        expect(resource.reload.trashed?).to be(false)
+        expect(resource.reload).not_to be_deleted
       end
 
       it "traces the action", versioning: true do

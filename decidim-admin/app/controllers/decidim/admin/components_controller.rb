@@ -12,7 +12,7 @@ module Decidim
       def index
         enforce_permission_to :read, :component
         @manifests = Decidim.component_manifests
-        @components = current_participatory_space.components.not_trashed
+        @components = current_participatory_space.components
       end
 
       def new
@@ -162,11 +162,11 @@ module Decidim
       end
 
       def trashable_deleted_resource
-        @trashable_deleted_resource = query_scope.find_by(id: params[:id])
+        @trashable_deleted_resource = query_scope.with_deleted.find_by(id: params[:id])
       end
 
       def trashable_deleted_collection
-        @trashable_deleted_collection ||= current_participatory_space.components.trashed.deleted_at_desc
+        @trashable_deleted_collection ||= current_participatory_space.components.only_deleted.deleted_at_desc
       end
 
       # Processes the component params so the form object defined in the manifest (component_form_class_name)

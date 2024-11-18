@@ -97,19 +97,19 @@ module Decidim
         end
 
         def trashable_deleted_collection
-          @trashable_deleted_collection ||= filtered_collection.trashed.deleted_at_desc
+          @trashable_deleted_collection ||= filtered_collection.only_deleted.deleted_at_desc
         end
 
         def trashable_deleted_resource
-          @trashable_deleted_resource ||= Meeting.where(component: current_component).find_by(id: params[:id])
+          @trashable_deleted_resource ||= Meeting.with_deleted.where(component: current_component).find_by(id: params[:id])
         end
 
         def meetings
-          @meetings ||= filtered_collection.not_trashed
+          @meetings ||= filtered_collection
         end
 
         def meeting
-          @meeting ||= Meeting.not_trashed.where(component: current_component).find_by(id: params[:id])
+          @meeting ||= Meeting.where(component: current_component).find_by(id: params[:id])
         end
 
         def collection

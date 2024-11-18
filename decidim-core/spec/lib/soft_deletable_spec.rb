@@ -9,30 +9,30 @@ module Decidim
     describe "#trashed?" do
       context "when deleted_at is nil" do
         it "returns false" do
-          expect(resource.trashed?).to be false
+          expect(resource).not_to be_deleted
         end
       end
 
       context "when deleted_at is set" do
         before do
-          resource.update!(deleted_at: Time.current)
+          resource.destroy!
         end
 
         it "returns true" do
-          expect(resource.trashed?).to be true
+          expect(resource).to be_deleted
         end
       end
     end
 
     describe "#trash!" do
       it "sets deleted_at to current time" do
-        expect { resource.trash! }.to change(resource, :deleted_at).from(nil)
+        expect { resource.destroy! }.to change(resource, :deleted_at).from(nil)
       end
     end
 
     describe "#restore!" do
       before do
-        resource.update!(deleted_at: Time.current)
+        resource.destroy!
       end
 
       it "clears the deleted_at field" do
@@ -42,21 +42,29 @@ module Decidim
 
     describe ".not_trashed" do
       let!(:resource1) { create(:dummy_resource) }
-      let!(:resource2) { create(:dummy_resource, deleted_at: Time.current) }
+      let!(:resource2) { create(:dummy_resource) }
+
+      before do
+        resource2.destroy!
+      end
 
       it "returns only resources that are not deleted" do
-        expect(Decidim::Dev::DummyResource.not_trashed).to include(resource1)
-        expect(Decidim::Dev::DummyResource.not_trashed).not_to include(resource2)
+        expect(Decidim::Dev::DummyResource.all).to include(resource1)
+        expect(Decidim::Dev::DummyResource.all).not_to include(resource2)
       end
     end
 
     describe ".trashed" do
-      let!(:resource1) { create(:dummy_resource, deleted_at: Time.current) }
+      let!(:resource1) { create(:dummy_resource) }
       let!(:resource2) { create(:dummy_resource) }
 
+      before do
+        resource1.destroy!
+      end
+
       it "returns only trashed resources" do
-        expect(Decidim::Dev::DummyResource.trashed).to include(resource1)
-        expect(Decidim::Dev::DummyResource.trashed).not_to include(resource2)
+        expect(Decidim::Dev::DummyResource.only_deleted).to include(resource1)
+        expect(Decidim::Dev::DummyResource.only_deleted).not_to include(resource2)
       end
     end
   end

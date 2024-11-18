@@ -163,7 +163,7 @@ describe "Admin manages budgets" do
     let(:admin_resource_path) { current_path }
     let(:trash_path) { "#{admin_resource_path}/budgets/manage_trash" }
     let(:title) { { en: "My budget" } }
-    let!(:resource) { create(:budget, deleted_at:, title:, component: current_component) }
+    let!(:resource) { create(:budget, title:, component: current_component) }
 
     it_behaves_like "manage soft deletable resource", "budget"
     it_behaves_like "manage trashed resource", "budget"
