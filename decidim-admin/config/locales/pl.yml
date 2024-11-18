@@ -318,9 +318,6 @@ pl:
           error: Wystąpił błąd podczas tworzenia tego komponentu.
           success: Komponent został pomyślnie utworzony.
           success_landing_page: Komponent został pomyślnie utworzony. Możesz dodać blok zawartości dla tego komponentu w domu przestrzeni. Przejdź do <a href="%{landing_page_path}">strony startowej</a>, aby ją skonfigurować.
-        destroy:
-          error: Wystąpił błąd podczas usuwania tego komponentu.
-          success: Komponent został pomyślnie usunięty.
         edit:
           title: Edytuj komponent
           update: Aktualizuj
