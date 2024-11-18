@@ -118,8 +118,6 @@ cs:
           create:
             invalid: Při vytváření tohoto výsledku nastal problém.
             success: Výsledek byl úspěšně vytvořen.
-          destroy:
-            success: Výsledek byl úspěšně smazán.
           edit:
             title: Upravit výsledek
             update: Aktualizovat výsledek
