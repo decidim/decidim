@@ -148,7 +148,6 @@ tr:
         attachment_collections: Klasörler
         attachments: Ekler
         close: Kapat
-        confirm_destroy: Bu toplantıyı silmek istediğinizden emin misiniz?
         destroy: Sil
         edit: Düzenle
         invalid_destroy:
