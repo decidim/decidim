@@ -312,9 +312,6 @@ lt:
           error: Kuriant šį komponentą iškilo problema.
           success: Komponentas sukurtas.
           success_landing_page: Komponentas sėkmingai sukurtas. Šiam komponentui galite pridėti turinio bloką erdvės pradžioje. Eikite į <a href="%{landing_page_path}">Pradžios puslapį</a>, kad jį konfigūruotumėte.
-        destroy:
-          error: Naikinant šį komponentą iškilo problema.
-          success: Komponentas pašalintas.
         edit:
           title: Redaguoti komponentą
           update: Atnaujinti
