@@ -127,6 +127,7 @@ module Decidim
   autoload :ContentSecurityPolicy, "decidim/content_security_policy"
   autoload :IconRegistry, "decidim/icon_registry"
   autoload :HasConversations, "decidim/has_conversations"
+  autoload :SoftDeletable, "decidim/soft_deletable"
   autoload :PrivateDownloadHelper, "decidim/private_download_helper"
 
   module Commands
@@ -135,6 +136,8 @@ module Decidim
     autoload :DestroyResource, "decidim/commands/destroy_resource"
     autoload :ResourceHandler, "decidim/commands/resource_handler"
     autoload :HookError, "decidim/commands/hook_error"
+    autoload :SoftDeleteResource, "decidim/commands/soft_delete_resource"
+    autoload :RestoreResource, "decidim/commands/restore_resource"
   end
 
   include ActiveSupport::Configurable

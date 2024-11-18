@@ -14,6 +14,13 @@ module Decidim
       routes do
         resources :debates do
           resources :debate_closes, only: [:edit, :update]
+
+          member do
+            patch :soft_delete
+            patch :restore
+          end
+
+          get :manage_trash, on: :collection
         end
         root to: "debates#index"
       end

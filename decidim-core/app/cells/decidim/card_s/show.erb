@@ -1,10 +1,12 @@
-<%= link_to resource_path, class: "card__search", id: dom_id(resource) do %>
+<%= content_tag :div, id: dom_id(resource), class: "card__search" do %>
   <%= content_tag title_tag, class: "h4 card__search-title" do %>
-    <%= title %>
+    <%= link_to resource_path, class: "card__search" do %>
+      <%= title %>
+    <% end %>
   <% end %>
   <% if metadata_cell.present? %>
     <div class="card__search-metadata">
-      <%= cell metadata_cell, resource, links: false %>
+     <%= cell metadata_cell, resource, links: false %>
     </div>
   <% end %>
 <% end %>

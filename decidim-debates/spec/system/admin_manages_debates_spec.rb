@@ -17,4 +17,14 @@ describe "Admin manages debates" do
   it_behaves_like "manage announcements"
   it_behaves_like "export debates"
   it_behaves_like "manage moderations"
+
+  describe "soft delete debates" do
+    let(:admin_resource_path) { current_path }
+    let(:trash_path) { "#{admin_resource_path}/debates/manage_trash" }
+    let(:title) { { en: "My new result" } }
+    let!(:resource) { create(:debate, component:, title:) }
+
+    it_behaves_like "manage soft deletable resource", "debate"
+    it_behaves_like "manage trashed resource", "debate"
+  end
 end
