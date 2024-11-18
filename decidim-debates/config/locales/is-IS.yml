@@ -24,8 +24,6 @@ is-IS:
             comments_blocked: Læst fyrir athugasemdir
     debates:
       actions:
-        confirm_destroy: Ertu viss?
-        destroy: Eyða
         edit: Breyta
         title: Aðgerðir
       admin:
