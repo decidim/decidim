@@ -35,8 +35,6 @@ pl:
       actions:
         attachment_collections: Foldery
         attachments: Załączniki
-        confirm_destroy: Czy na pewno chcesz usunąć ten projekt?
-        destroy: Usuń
         edit: Edytuj
         edit_projects: Zarządzaj budżetem
         import: Importuj propozycje do projektów
@@ -50,9 +48,6 @@ pl:
           create:
             invalid: Podczas tworzenia tego budżetu wystąpił błąd.
             success: Budżet został utworzony.
-          destroy:
-            invalid: Wystąpił błąd podczas usuwania budżetu.
-            success: Budżet został usunięty.
           edit:
             title: Edytuj budżet
             update: Aktualizuj budżet
@@ -79,8 +74,6 @@ pl:
           create:
             invalid: Podczas tworzenia tego projektu wystąpił błąd.
             success: Projekt został utworzony.
-          destroy:
-            success: Projekt został usunięty.
           edit:
             title: Edytuj projekt
             update: Aktualizuj
