@@ -320,9 +320,6 @@ ca:
           error: S'ha produït un error en crear aquest component.
           success: El component s'ha creat correctament.
           success_landing_page: Component creat amb èxit. Pots afegir un bloc de contingut per aquest component a la pàgina d'inici de l'espai de participació. <a href="%{landing_page_path}">Vés a la pàgina d'inici</a> per a configurar-la.
-        destroy:
-          error: S'ha produït un error en eliminar aquest component.
-          success: El component s'ha eliminat correctament.
         edit:
           title: Edita el component
           update: Actualitzar
