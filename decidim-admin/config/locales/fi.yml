@@ -320,9 +320,6 @@ fi:
           error: Komponentin luonti epäonnistui.
           success: Komponentin luonti onnistui.
           success_landing_page: Komponentin luonti onnistui. Voit lisätä sisältölohkon tälle komponentille osallistumistilan etusivulle. Siirry <a href="%{landing_page_path}">Laskeutumissivu-osioon</a> lisätäksesi komponentin osallistumistilan etusivulle.
-        destroy:
-          error: Komponentin tuhoaminen epäonnistui.
-          success: Komponentin poisto onnistui.
         edit:
           title: Muokkaa komponenttia
           update: Päivitä
