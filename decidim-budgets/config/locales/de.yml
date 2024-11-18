@@ -42,8 +42,6 @@ de:
       actions:
         attachment_collections: Ordner
         attachments: Anhänge
-        confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
-        destroy: Löschen
         edit: Bearbeiten
         edit_projects: Projekte verwalten
         import: Vorschläge in Projekte importieren
@@ -57,9 +55,6 @@ de:
           create:
             invalid: Beim Erstellen dieses Budgets ist ein Problem aufgetreten.
             success: Budget erfolgreich erstellt.
-          destroy:
-            invalid: Es gab ein Problem beim Löschen dieses Budgets.
-            success: Budget erfolgreich gelöscht.
           edit:
             title: Budget bearbeiten
             update: Budget aktualisieren
@@ -86,8 +81,6 @@ de:
           create:
             invalid: Beim Erstellen dieses Projekts ist ein Problem aufgetreten.
             success: Projekt erfolgreich erstellt.
-          destroy:
-            success: Projekt erfolgreich gelöscht.
           edit:
             title: Projekt bearbeiten
             update: Aktualisieren
