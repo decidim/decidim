@@ -141,8 +141,6 @@ tr:
         attachment_collections: Klasörler
         attachments: Ekler
         close: Kapat
-        confirm_destroy: Bu toplantıyı silmek istediğinizden emin misiniz?
-        destroy: Sil
         edit: Düzenle
         invalid_destroy:
           proposals_count:
@@ -205,8 +203,6 @@ tr:
             close: Kapat
             title: Toplantıyı kapat
         meetings:
-          destroy:
-            success: Toplantı başarıyla silindi
           edit:
             title: Toplantıyı Düzenle
             update: Güncelle
