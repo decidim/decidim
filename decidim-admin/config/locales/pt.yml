@@ -255,9 +255,6 @@ pt:
         create:
           error: Ocorreu um problema ao criar este componente.
           success: Componente criado corretamente.
-        destroy:
-          error: Ocorreu um problema ao destruir este componente.
-          success: Componente eliminado corretamente.
         edit:
           title: Editar componente
           update: Atualizar
