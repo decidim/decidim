@@ -35,8 +35,6 @@ lt:
       actions:
         attachment_collections: Aplankai
         attachments: Priedai
-        confirm_destroy: Ar tikrai norite ištrinti šį projektą?
-        destroy: Ištrinti
         edit: Redaguoti
         edit_projects: Valdyti projektus
         import: Importuoti pasiūlymus į projektus
@@ -48,9 +46,6 @@ lt:
           create:
             invalid: Kuriant šį biudžetą iškilo problema.
             success: Biudžetas sukurtas sėkmingai.
-          destroy:
-            invalid: Ištrinant šį biudžetą iškilo problema.
-            success: Biudžetas sėkmingai ištrintas.
           edit:
             title: Koreguoti biudžetą
             update: Atnaujinti biudžetą
@@ -77,8 +72,6 @@ lt:
           create:
             invalid: Kuriant šį projektą iškilo problema.
             success: Projektas sukurtas sėkmingai.
-          destroy:
-            success: Projektas ištrintas sėkmingai.
           edit:
             title: Redaguoti projektą
             update: Atnaujinti
