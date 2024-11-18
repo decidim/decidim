@@ -473,6 +473,7 @@ de:
           promoted: Ob das Gremium hervorgehoben ist oder nicht
           published_at: Das Datum der Veröffentlichung des Raums
           purpose_of_action: Der Zweck des Gremiums
+          reference: Die eindeutige Referenz des Bereichs
           remote_banner_image_url: Die URL des Gremium-Bannerbildes
           remote_hero_image_url: Die URL des Gremium-Titelbildes
           scope: Die Themen des Gremiums
@@ -485,6 +486,8 @@ de:
           taxonomies: Die Klassifizierungen des Projekts
           title: Der Titel des Gremiums
           twitter_handler: Social Media Handler für X/Twitter
+          updated_at: Letztes Aktualisierungsdatum dieses Bereichs
+          url: Die URL des Bereichs
           youtube_handler: Social Media Handler für YouTube
     participatory_processes:
       show:
