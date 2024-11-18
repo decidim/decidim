@@ -44,7 +44,6 @@ pt-BR:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
-        confirm_destroy: Deseja mesmo excluir este projeto?
         destroy: Excluir
         edit: Editar
         edit_projects: Gerenciar projetos
