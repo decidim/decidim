@@ -112,8 +112,6 @@ es:
           create:
             invalid: Se ha producido un error al crear este resultado.
             success: Resultado creado correctamente.
-          destroy:
-            success: Resultado eliminado correctamente.
           edit:
             title: Editar resultado
             update: Actualizar resultado
