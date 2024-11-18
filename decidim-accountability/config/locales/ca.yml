@@ -112,8 +112,6 @@ ca:
           create:
             invalid: S'ha produït un error en crear aquest resultat.
             success: Resultat creat correctament.
-          destroy:
-            success: Resultat eliminat correctament.
           edit:
             title: Editar resultat
             update: Actualitzar resultat
