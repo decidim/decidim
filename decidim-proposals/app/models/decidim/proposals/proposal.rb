@@ -29,6 +29,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       def assign_state(token)
         proposal_state = Decidim::Proposals::ProposalState.where(component:, token:).first

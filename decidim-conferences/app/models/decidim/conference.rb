@@ -21,6 +21,7 @@ module Decidim
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
     include Decidim::FilterableResource
+    include Decidim::SoftDeletable
     include Decidim::ShareableWithToken
 
     translatable_fields :title, :slogan, :short_description, :description, :objectives, :registration_terms

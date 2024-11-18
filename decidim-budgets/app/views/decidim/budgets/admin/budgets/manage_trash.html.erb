@@ -1,0 +1,19 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+    </h1>
+  </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <%= render partial: "budgets-thead" %>
+      <tbody>
+        <%= render partial: "decidim/budgets/admin/budgets/budget-tr",
+                   collection: trashable_deleted_collection,
+                   as: :budget,
+                   locals: { view: :deleted } %>
+      </tbody>
+    </table>
+  </div>
+</div>

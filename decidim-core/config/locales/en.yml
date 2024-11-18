@@ -223,6 +223,8 @@ en:
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         export_component: "%{user_name} exported the %{resource_name} %{component_name} in %{space_name} as %{format_name}"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
+        restore: "%{user_name} restored the %{resource_name} component in the %{space_name} space"
+        soft_delete: "%{user_name} moved to trash the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
       contextual_help_section:
@@ -875,6 +877,9 @@ en:
         email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
         email_subject: "%{endorser_nickname} has performed a new endorsement"
         notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+      resources:
+        soft_deleted:
+          notification_title: An admin has deleted your "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
@@ -1137,6 +1142,8 @@ en:
           not_found: 'The scope type was not found on the database (ID: %{id})'
         taxonomy_presenter:
           not_found: 'The taxonomy was not found on the database (ID: %{id})'
+    machine_translations:
+      automatic: automatic translation in %{locale_name}
     managed_users:
       expired_session: The current administration session of a participant has expired.
     map:
