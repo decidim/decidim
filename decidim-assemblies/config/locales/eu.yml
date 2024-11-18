@@ -471,7 +471,9 @@ eu:
           participatory_scope: Batzarraren parte-hartze esparrua
           participatory_structure: Batzarraren egitura parte-hartzailea
           promoted: Batzarra sustatzen den edo ez
+          published_at: Zein egunetan argitaratu zen espazio hau
           purpose_of_action: Batzarraren ekintzaren helburua
+          reference: Espazioaren erreferentzia bakarra
           remote_banner_image_url: Batzarraren URLak irudia du
           remote_hero_image_url: Batzarraren protagonistaren irudiaren URLa
           scope: Batzarraren esparrua
@@ -484,6 +486,8 @@ eu:
           taxonomies: Proiektuaren taxonomiak
           title: Batzarraren izenburua
           twitter_handler: Sare sozialetako arduraduna Twitterrerako
+          updated_at: Zein egunetan eguneratu zen azken aldiz espazio hau
+          url: Espazioaren URLa
           youtube_handler: Sare sozialetako arduraduna You Tuberako
     participatory_processes:
       show:
