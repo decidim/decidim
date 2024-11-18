@@ -50,8 +50,6 @@ eu:
     debates:
       actions:
         close: Itxi
-        confirm_destroy: Ziur zaude?
-        destroy: Ezabatu
         edit: Editatu
         new: Beste eztabaida bat
         title: Ekintzak
@@ -64,8 +62,6 @@ eu:
           create:
             invalid: Arazo bat gertatu da eztabaida sortzean.
             success: Eztabaida zuzen sortu da.
-          destroy:
-            success: Eztabaida zuzen ezabatu da.
           edit:
             title: Editatu eztabaida
             update: Eguneratu eztabaida
