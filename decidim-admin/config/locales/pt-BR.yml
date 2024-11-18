@@ -319,9 +319,6 @@ pt-BR:
           error: Ocorreu um erro ao criar esse componente.
           success: Componente criado com sucesso.
           success_landing_page: Componente criado com sucesso. Você pode adicionar um bloco de conteúdo para este componente na página inicial do espaço. Acesse <a href="%{landing_page_path}">Página inicial</a> para configurá-la.
-        destroy:
-          error: Ocorreu um erro ao destruir esse componente.
-          success: Componente excluído com sucesso.
         edit:
           title: Editar componente
           update: Atualizar
