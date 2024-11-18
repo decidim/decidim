@@ -44,8 +44,6 @@ zh-TW:
     debates:
       actions:
         close: 關閉
-        confirm_destroy: 您確定嗎？
-        destroy: 刪除
         edit: 編輯
         title: 操作
       admin:
@@ -57,8 +55,6 @@ zh-TW:
           create:
             invalid: 建立辯論時出現問題。
             success: 辯論建立成功。
-          destroy:
-            success: 辯論已成功刪除。
           edit:
             title: 編輯辯論
             update: 更新辯論
