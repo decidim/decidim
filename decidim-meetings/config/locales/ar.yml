@@ -200,8 +200,6 @@ ar:
         attachment_collections: المجلدات
         attachments: مرفقات
         close: قريب
-        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا الاجتماع؟
-        destroy: حذف
         edit: تعديل
         invalid_destroy:
           proposals_count:
@@ -273,8 +271,6 @@ ar:
             unlink: إلغاء الربط
           create:
             success: تم إنشاء الاجتماع بنجاح. لاحظ أن هذا غير منشور حتى الآن، تحتاج إلى نشره بنفسك.
-          destroy:
-            success: تم حذف الاجتماع بنجاح
           edit:
             title: تعديل الاجتماعات
             update: تحديث
