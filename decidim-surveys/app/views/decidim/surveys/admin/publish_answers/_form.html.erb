@@ -1,0 +1,14 @@
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row column">
+        <%= form.label t(".select_questions_to_publish") %>
+        <%= form.collection_check_boxes :question_ids, @form.questions, :value, :name do |option| %>
+          <div>
+            <%= option.label { option.check_box(checked: @form.question_checked?(option.value)) + option.text } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

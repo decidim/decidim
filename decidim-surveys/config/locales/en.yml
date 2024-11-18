@@ -59,6 +59,14 @@ en:
             answers_alert: If you publish the component, all results will be removed.
         exports:
           survey_user_answers: Survey participant answers
+        publish_answers:
+          form:
+            select_questions_to_publish: Select questions to publish
+          new:
+            callout_html: Some of the responses can have personal data. Please <a href="%{link}">review them before publishing</a>.
+            description: By selecting the answers you want to publish, you will make them visible to the public. You can select the answers you want to publish by clicking on the checkbox next to each answer.
+            publish: Publish
+            title: Publish answers
         surveys:
           update:
             invalid: There was a problem saving the survey.

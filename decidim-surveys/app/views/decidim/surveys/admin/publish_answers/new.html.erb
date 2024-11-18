@@ -1,0 +1,31 @@
+
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <div class="w-full">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.back_responses", scope: "decidim.forms.admin.questionnaires"), index_survey_path, class: "button button__sm button__secondary new" %>
+    </h1>
+  </div>
+</div>
+
+<p class="mt-2 text-gray-600">
+  <%= t(".description") %>
+</p>
+
+<%= cell("decidim/announcement", t(".callout_html", link: index_survey_path), callout_class: "warning" ) %>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: publish_answers_path, method: :post, html: { class: "form form-defaults" }) do |f| %>
+
+      <%= render partial: "form", object: f %>
+
+      <div class="item__edit-sticky">
+        <div class="item__edit-sticky-container">
+          <%= f.submit t(".publish"), class: "button button__sm button__secondary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
