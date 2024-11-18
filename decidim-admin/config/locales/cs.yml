@@ -320,9 +320,6 @@ cs:
           error: Při vytváření této komponenty došlo k chybě.
           success: Komponenta byla úspěšně vytvořena.
           success_landing_page: Komponenta byla úspěšně vytvořena. Můžete přidat blok obsahu pro tuto komponentu domů tohoto prostoru. Chcete-li jej nastavit, přejděte na <a href="%{landing_page_path}">vstupní stránku</a>.
-        destroy:
-          error: Došlo k chybě při mazání této komponenty.
-          success: Komponenta byla úspěšně smazána.
         edit:
           title: Upravit komponentu
           update: Aktualizace
