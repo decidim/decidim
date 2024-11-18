@@ -30,8 +30,6 @@
       actions:
         attachment_collections: Mapper
         attachments: Vedlegg
-        confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
-        destroy: Slett
         edit: Editar
         edit_projects: Administrer prosjekter
         import: Importer forslag til prosjekter
