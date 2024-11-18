@@ -319,7 +319,7 @@ en:
           parent: The parent result (if any) of the result
           progress: The percentage of the execution of the result
           proposal_urls: The URLs of the proposals that are included in this result
-          reference: The unique reference of the space
+          reference: The unique reference of the result
           start_date: The date when the result starts execution
           status: The current status of this result
           taxonomies: The taxonomies of the result
