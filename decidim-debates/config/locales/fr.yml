@@ -45,8 +45,6 @@ fr:
     debates:
       actions:
         close: Fermer
-        confirm_destroy: Êtes-vous certain ?
-        destroy: Supprimer
         edit: Modifier
         new: Nouveau débat
         title: Actions
@@ -59,8 +57,6 @@ fr:
           create:
             invalid: Il y a eu un problème lors de la création du débat.
             success: Débat créé avec succès.
-          destroy:
-            success: Débat supprimé avec succès.
           edit:
             title: Modifier le débat
             update: Actualiser le débat
