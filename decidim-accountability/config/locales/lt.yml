@@ -101,8 +101,6 @@ lt:
           create:
             invalid: Kuriant šį rezultatą iškilo problema.
             success: Rezultatas sėkmingai sukurtas.
-          destroy:
-            success: Rezultatas sėkmingai ištrintas.
           edit:
             title: Keisti rezultatą
             update: Atnaujinti rezultatą
