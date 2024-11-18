@@ -22,8 +22,6 @@ pt:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
-        confirm_destroy: Tem certeza de que deseja eliminar este projeto?
-        destroy: Eliminar
         edit: Editar
         edit_projects: Gerir projectos
         import: Importar propostas para projetos
