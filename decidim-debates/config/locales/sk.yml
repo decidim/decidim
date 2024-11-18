@@ -34,8 +34,6 @@ sk:
             comments_blocked: Komentáre blokované
     debates:
       actions:
-        confirm_destroy: Ste si istí?
-        destroy: Odstrániť
         edit: Upraviť
         title: Akcie
       admin:
@@ -43,8 +41,6 @@ sk:
           create:
             invalid: Pri vytváraní debaty sa vyskytol problém.
             success: Debata úspešne vytvorená.
-          destroy:
-            success: Debata úspešne zmazaná.
           edit:
             title: Upraviť debatu
             update: Aktualizovať debatu
