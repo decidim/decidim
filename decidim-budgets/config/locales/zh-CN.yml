@@ -19,8 +19,6 @@ zh-CN:
       actions:
         attachment_collections: 文件夹
         attachments: 附件
-        confirm_destroy: 您确定要删除此项目吗？
-        destroy: 删除
         edit: 编辑
         edit_projects: 管理项目
         import: 导入提案到项目
