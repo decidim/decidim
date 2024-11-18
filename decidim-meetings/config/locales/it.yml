@@ -171,7 +171,6 @@ it:
         attachment_collections: Cartelle
         attachments: Allegati
         close: Chiuso
-        confirm_destroy: Sei certo di voler cancellare questo meeting?
         destroy: Cancella
         edit: Modifica
         invalid_destroy:
