@@ -103,8 +103,6 @@ sq:
           create:
             invalid: Ndodhi një gabim gjatë krijimit të këtij rezultati.
             success: Rezultati u krijua suksesshëm.
-          destroy:
-            success: Rezultati u fshi suksesshëm.
           edit:
             title: Ndrysho rezultatin
             update: Përditëso rezultatin
