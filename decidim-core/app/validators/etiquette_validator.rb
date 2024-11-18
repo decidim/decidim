@@ -6,7 +6,8 @@ class EtiquetteValidator < ActiveModel::EachValidator
   include ActionView::Helpers::SanitizeHelper
 
   def validate_each(record, attribute, value)
-    return if Decidim.disable_etiquette_validator || value.blank?
+    return unless Decidim.enable_etiquette_validator
+    return if value.blank?
 
     text_value = strip_tags(value)
 
@@ -19,7 +20,7 @@ class EtiquetteValidator < ActiveModel::EachValidator
 
   def validate_caps(record, attribute, value)
     number_of_caps = value.scan(/[A-Z]/).length
-    return if nr_of_caps.zero? || nr_of_caps < value.length / 2 # 50%
+    return if number_of_caps.zero? || number_of_caps < value.length / 2 # 50%
 
     record.errors.add(attribute, options[:message] || :too_much_caps)
   end

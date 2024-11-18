@@ -526,11 +526,11 @@ The etiquette validator is applied to the create and edit forms of Proposals, Me
 To disable the etiquette validator, set the following in your application's configuration file:
 [source,ruby]
 ....
-config.disable_etiquette_validator = true
+config.enable_etiquette_validator = false
 ....
 
 Alternatively, you can use an environment variable:
 [source,ruby]
 ....
-DECIDIM_DISABLE_ETIQUETTE_VALIDATOR
+DECIDIM_ENABLE_ETIQUETTE_VALIDATOR
 ....

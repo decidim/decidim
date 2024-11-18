@@ -405,7 +405,7 @@ Decidim.configure do |config|
   config.password_similarity_length = Rails.application.secrets.decidim[:password_similarity_length] if Rails.application.secrets.decidim[:password_similarity_length].present?
   config.denied_passwords = Rails.application.secrets.decidim[:denied_passwords] if Rails.application.secrets.decidim[:denied_passwords].present?
   config.allow_open_redirects = Rails.application.secrets.decidim[:allow_open_redirects] if Rails.application.secrets.decidim[:allow_open_redirects].present?
-  config.disable_etiquette_validator = Decidim::Env.new("DECIDIM_DISABLE_ETIQUETTE_VALIDATOR", false) if Decidim::Env.new("DECIDIM_DISABLE_ETIQUETTE_VALIDATOR").present?
+  config.enable_etiquette_validator =  Rails.application.secrets.decidim[:enable_etiquette_validator] if Rails.application.secrets.decidim[:enable_etiquette_validator].present?
 end
 
 if Decidim.module_installed? :api
