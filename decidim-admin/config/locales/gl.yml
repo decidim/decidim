@@ -255,9 +255,6 @@ gl:
         create:
           error: Produciuse un erro ao crear este compoñente.
           success: Compoñente creado con éxito.
-        destroy:
-          error: Produciuse un erro ao destruír este compoñente.
-          success: Componente eliminado con éxito.
         edit:
           title: Editar compoñente
           update: Actualización
