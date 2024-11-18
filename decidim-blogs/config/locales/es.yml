@@ -18,7 +18,6 @@ es:
     blogs:
       actions:
         author_id: Crear publicación como
-        confirm_destroy: '¿Seguro que quieres eliminar esta publicación?'
         destroy: Borrar
         edit: Editar
         new: Nueva publicación
