@@ -42,8 +42,6 @@ nl:
     debates:
       actions:
         close: Sluiten
-        confirm_destroy: Ben je zeker?
-        destroy: Verwijder
         edit: Bewerk
         title: acties
       admin:
@@ -51,8 +49,6 @@ nl:
           create:
             invalid: Er is een probleem opgetreden tijdens het maken van het debat.
             success: Debat succesvol aangemaakt.
-          destroy:
-            success: Debat succesvol verwijderd.
           edit:
             title: Bewerk debat
             update: Update debat
