@@ -306,6 +306,7 @@ FactoryBot.define do
     body { generate_localized_description(:proposal_body, skip_injection:) }
     component { create(:proposal_component, skip_injection:) }
     published_at { Time.current }
+    deleted_at { nil }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
     latitude { Faker::Address.latitude }
     longitude { Faker::Address.longitude }

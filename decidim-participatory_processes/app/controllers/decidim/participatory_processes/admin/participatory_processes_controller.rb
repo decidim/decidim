@@ -8,6 +8,7 @@ module Decidim
       class ParticipatoryProcessesController < Decidim::ParticipatoryProcesses::Admin::ApplicationController
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::ParticipatoryProcesses::Admin::Filterable
+        include Decidim::Admin::HasTrashableResources
 
         add_breadcrumb_item_from_menu :admin_participatory_process_menu, only: :show
 
@@ -79,6 +80,18 @@ module Decidim
 
         private
 
+        def trashable_deleted_resource_type
+          :participatory_process
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= current_participatory_process
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
+        end
+
         def process_group
           @process_group ||= ParticipatoryProcessGroup.find_by(id: ransack_params[:decidim_participatory_process_group_id_eq], organization: current_organization)
         end
@@ -88,8 +101,8 @@ module Decidim
         end
 
         def current_participatory_process
-          @current_participatory_process ||= collection.where(slug: params[:slug]).or(
-            collection.where(id: params[:slug])
+          @current_participatory_process ||= collection.with_deleted.where(slug: params[:slug]).or(
+            collection.with_deleted.where(id: params[:slug])
           ).first
         end
 
