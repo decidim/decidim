@@ -41,7 +41,6 @@ hu:
       actions:
         attachment_collections: Mappák
         attachments: Mellékletek
-        confirm_destroy: Biztosan törölni szeretnéd ezt a projektet?
         destroy: Törlés
         edit: Szerkesztés
         edit_projects: Projektek kezelése
