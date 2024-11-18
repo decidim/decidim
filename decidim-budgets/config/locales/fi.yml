@@ -42,8 +42,6 @@ fi:
       actions:
         attachment_collections: Kansiot
         attachments: Liitteet
-        confirm_destroy: Haluatko varmasti poistaa tämän projektin?
-        destroy: Poista
         edit: Muokkaa
         edit_projects: Hallinnoi projekteja
         import: Tuo ehdotuksia projekteiksi
@@ -57,9 +55,6 @@ fi:
           create:
             invalid: Budjetin luonti epäonnistui.
             success: Budjetin luonti onnistui.
-          destroy:
-            invalid: Budjetin poisto epäonnistui.
-            success: Budjetin poisto onnistui.
           edit:
             title: Muokkaa budjettia
             update: Päivitä budjetti
@@ -86,8 +81,6 @@ fi:
           create:
             invalid: Projektin luonti epäonnistui.
             success: Projektin luonti onnistui.
-          destroy:
-            success: Projektin poisto onnistui.
           edit:
             title: Muokkaa projektia
             update: Päivitä
