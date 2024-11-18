@@ -48,7 +48,6 @@ cs:
       actions:
         attachment_collections: Složky
         attachments: Přílohy
-        confirm_destroy: Opravdu chcete tento projekt smazat?
         destroy: Smazat
         edit: Upravit
         edit_projects: Spravovat projekty
