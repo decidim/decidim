@@ -170,7 +170,6 @@
         attachment_collections: Mapper
         attachments: Vedlegg
         close: Lukk
-        confirm_destroy: Er du sikker på at du vil slette dette møtet?
         destroy: Slett
         edit: Rediger
         invalid_destroy:
