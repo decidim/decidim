@@ -205,7 +205,6 @@ ar:
         attachment_collections: المجلدات
         attachments: مرفقات
         close: قريب
-        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا الاجتماع؟
         destroy: حذف
         edit: تعديل
         invalid_destroy:
