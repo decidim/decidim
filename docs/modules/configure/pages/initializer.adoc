@@ -510,11 +510,12 @@ Additional Reading:
 * xref:customize:content_security_policy.adoc[Customize Content Security Policy]
 
 == Disable Etiquette validator
+
 This configuration option is used to enable or disable the etiquette validator in your Ruby on Rails application. The etiquette validator is responsible for ensuring that user-generated content meets specific formatting guidelines.
 
 === Description
 
-The etiquette validator is applied to the create forms of Proposals, Meetings, and Debates for both regular and admin users. Admin users can use the admin panel to create these forms. The validator checks for the following conditions:
+The etiquette validator is applied to the create and edit forms of Proposals, Meetings, and Debates for both regular and admin users. Admin users can use the admin panel to use these forms. The validator checks for the following conditions:
 
 * `too_much_caps`: Ensures that the content does not contain an excessive amount of capital letters.
 * `too_many_marks`: Ensures that the content does not contain too many punctuation marks.

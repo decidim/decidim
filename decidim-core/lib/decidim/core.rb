@@ -881,10 +881,10 @@ module Decidim
   end
 
   # Disable Etiquette validator
-  # The etiquette validator is applied to the create forms of Proposals, Meetings,
+  # The etiquette validator is applied to the create and edit forms of Proposals, Meetings,
   # and Debates for both regular and admin users.
-  config_accessor :disable_etiquette_validator do
-    false
+  config_accessor :enable_etiquette_validator do
+    true
   end
 
   def self.machine_translation_service_klass
