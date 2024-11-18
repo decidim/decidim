@@ -42,7 +42,6 @@ ro:
       actions:
         attachment_collections: Dosare
         attachments: Atașamente
-        confirm_destroy: Sigur dorești să ştergi acest proiect?
         destroy: Ștergere
         edit: Editare
         edit_projects: Gestionați proiectele
