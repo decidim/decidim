@@ -44,7 +44,6 @@ sv:
       actions:
         attachment_collections: Mappar
         attachments: Bilagor
-        confirm_destroy: Vill du radera projektet?
         destroy: Radera
         edit: Redigera
         edit_projects: Hantera projekt
