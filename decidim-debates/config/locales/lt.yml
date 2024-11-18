@@ -47,8 +47,6 @@ lt:
     debates:
       actions:
         close: Uždaryti
-        confirm_destroy: Ar esate tikri?
-        destroy: Ištrinti
         edit: Redaguoti
         title: Veiksmai
       admin:
@@ -60,8 +58,6 @@ lt:
           create:
             invalid: Kuriant diskusiją iškilo problema.
             success: Diskusija sukurta.
-          destroy:
-            success: Diskusija pašalinta.
           edit:
             title: Redaguoti diskusiją
             update: Atnaujinti diskusiją
