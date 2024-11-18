@@ -130,7 +130,6 @@ id:
         attachment_collections: Folder
         attachments: Lampiran
         close: Dekat
-        confirm_destroy: Anda yakin ingin menghapus rapat ini?
         destroy: Menghapus
         edit: Edit
         preview: Preview
