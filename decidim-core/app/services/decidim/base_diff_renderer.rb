@@ -41,7 +41,7 @@ module Decidim
     end
 
     def parse_i18n_changeset(attribute, values, type, diff)
-      values.last.keys.each do |locale, _value|
+      (values.last.keys - ["machine_translations"]).each do |locale, _value|
         first_value = values.first.try(:[], locale)
         last_value = values.last.try(:[], locale)
         next if first_value == last_value
@@ -56,6 +56,27 @@ module Decidim
           }
         )
       end
+
+      return diff unless values.last.has_key?("machine_translations")
+
+      values.last.fetch("machine_translations").each_key do |locale, _value|
+        next unless I18n.available_locales.include?(locale.to_sym)
+
+        first_value = values.first.try(:[], "machine_translations").try(:[], locale)
+        last_value = values.last.try(:[], "machine_translations").try(:[], locale)
+
+        attribute_locale = :"#{attribute}_machine_translations_#{locale}"
+
+        diff.update(
+          attribute_locale => {
+            type:,
+            label: generate_i18n_label(attribute, locale, "decidim.machine_translations.automatic"),
+            old_value: first_value,
+            new_value: last_value
+          }
+        )
+      end
+
       diff
     end
 
@@ -108,13 +129,16 @@ module Decidim
     end
 
     # Returns a String.
-    def generate_i18n_label(attribute, locale)
+    # i18n-tasks-use t("decidim.machine_translations.automatic")
+    def generate_i18n_label(attribute, locale, postfix = "")
       label = I18n.t(attribute, scope: i18n_scope)
       locale_name = if I18n.available_locales.include?(locale.to_sym)
                       I18n.t("locale.name", locale:)
                     else
                       locale
                     end
+
+      locale_name = I18n.t(postfix, locale_name:, locale:) if postfix.present?
 
       "#{label} (#{locale_name})"
     end
