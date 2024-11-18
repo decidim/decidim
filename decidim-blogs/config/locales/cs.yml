@@ -19,8 +19,6 @@ cs:
     blogs:
       actions:
         author_id: Vytvořit příspěvek jako
-        confirm_destroy: Opravdu chcete tento příspěvek smazat?
-        destroy: Smazat
         edit: Upravit
         new: Nový příspěvek
         title: Akce
@@ -29,8 +27,6 @@ cs:
           create:
             invalid: Při vytváření tohoto příspěvku nastal problém.
             success: Příspěvek byl úspěšně vytvořen.
-          destroy:
-            success: Příspěvek byl úspěšně smazán.
           edit:
             save: Aktualizovat
             title: Upravit příspěvek
