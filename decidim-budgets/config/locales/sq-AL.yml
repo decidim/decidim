@@ -37,7 +37,6 @@ sq:
       actions:
         attachment_collections: Dosjet
         attachments: Bashkëngjitjet
-        confirm_destroy: A je i sigurt që do ta fshish këtë projekt?
         destroy: Fshi
         edit: Përpuno
         edit_projects: Menaxho projektet
