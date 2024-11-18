@@ -41,7 +41,6 @@ nl:
       actions:
         attachment_collections: Mappen
         attachments: Bijlagen
-        confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
         edit_projects: Beheer projecten
