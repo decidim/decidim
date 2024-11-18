@@ -198,8 +198,6 @@ is-IS:
       components:
         create:
           success: Hluti búin til með góðum árangri.
-        destroy:
-          success: Hluti eytt með góðum árangri.
         edit:
           title: Breyta hlutanum
           update: Uppfæra
