@@ -20,7 +20,6 @@ ga:
     debates:
       actions:
         close: Dún
-        destroy: Scrios
         edit: Eagar
         title: Gníomhartha
       admin:
