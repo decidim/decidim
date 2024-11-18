@@ -223,7 +223,6 @@ cs:
         attachment_collections: Složky
         attachments: Přílohy
         close: Zavřít
-        confirm_destroy: Opravdu chcete tuto schůzku smazat?
         destroy: Odstranit
         edit: Upravit
         invalid_destroy:
