@@ -319,9 +319,6 @@ sv:
           error: Det gick inte att skapa komponenten.
           success: Komponenten har skapats.
           success_landing_page: Komponenten har skapats. Du kan även lägga till ett innehållsblock för komponenten på processens startsida. Gå till <a href="%{landing_page_path}">Landningssidan</a> för att konfigurera den.
-        destroy:
-          error: Det gick inte att radera komponenten.
-          success: Komponenten har raderats.
         edit:
           title: Redigera komponent
           update: Uppdatera
