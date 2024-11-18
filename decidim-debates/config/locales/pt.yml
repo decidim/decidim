@@ -43,8 +43,6 @@ pt:
     debates:
       actions:
         close: Fechar
-        confirm_destroy: Tem a certeza?
-        destroy: Eliminar
         edit: Editar
         title: Ações
       admin:
@@ -56,8 +54,6 @@ pt:
           create:
             invalid: Ocorreu um problema ao criar o debate.
             success: Debate criado corretamente.
-          destroy:
-            success: Debate eliminado corretamente.
           edit:
             title: Editar debate
             update: Atualizar debate
