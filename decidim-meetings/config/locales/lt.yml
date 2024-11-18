@@ -216,8 +216,6 @@ lt:
         attachment_collections: Aplankai
         attachments: Priedai
         close: Uždaryti
-        confirm_destroy: Ar tikrai norite panaikinti šį susirinkimą?
-        destroy: Ištrinti
         edit: Redaguoti
         invalid_destroy:
           proposals_count:
@@ -296,14 +294,6 @@ lt:
           create:
             invalid: Kuriant šį susirinkimą iškilo problema.
             success: Susirinkimas sėkmingai sukurtas. Jis dar nepublikuotas, tai turite padaryti rankiniu būdu.
-          destroy:
-            invalid:
-              proposals_count:
-                one: Susirinkimo negalima panaikinti, nes su juo susietas %{count} pasiūlymas.
-                few: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
-                many: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
-                other: Posėdžio negalima panaikinti, nes su juo susieti %{count} pasiūlymai.
-            success: Susirinkimas sėkmingai pašalintas
           edit:
             title: Redaguoti susirinkimą
             update: Atnaujinti
