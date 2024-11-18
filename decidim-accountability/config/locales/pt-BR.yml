@@ -108,8 +108,6 @@ pt-BR:
           create:
             invalid: Houve um problema criando esse resultado.
             success: Resultado criado com sucesso.
-          destroy:
-            success: Resultado removido com sucesso.
           edit:
             title: Editar resultado
             update: Atualizar resultado
