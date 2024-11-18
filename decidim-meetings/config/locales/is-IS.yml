@@ -83,7 +83,6 @@ is:
       actions:
         attachments: Viðhengi
         close: Loka
-        confirm_destroy: Ertu viss um að þú viljir eyða þessum fundi?
         destroy: Eyða
         edit: Breyta
         preview: Preview
