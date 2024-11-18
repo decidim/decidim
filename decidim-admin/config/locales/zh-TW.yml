@@ -309,9 +309,6 @@ zh-TW:
         create:
           error: 這個元件創建時出了問題
           success: 新增元件成功。
-        destroy:
-          error: 刪除這個元件時發生錯誤
-          success: 成功刪除元件
         edit:
           title: 編輯組件
           update: 更新
