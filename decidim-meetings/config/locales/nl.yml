@@ -176,7 +176,6 @@ nl:
         attachment_collections: Mappen
         attachments: Bijlagen
         close: Sluit
-        confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
         invalid_destroy:
