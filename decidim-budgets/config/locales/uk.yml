@@ -17,8 +17,6 @@ uk:
       actions:
         attachment_collections: Теки
         attachments: Вкладені файли
-        confirm_destroy: Ви дійсно бажаєте видалити цей проект?
-        destroy: Видалити
         edit: Редагувати
         import: Внести до проектів запозичені пропозиції
         preview: Попередній перегляд
