@@ -52,13 +52,24 @@ module Decidim::Maintenance
       let(:root_taxonomy) { Decidim::Taxonomy.roots.first }
       let(:taxonomy) { root_taxonomy.children.first }
       let(:child_taxonomy) { taxonomy.children.first }
+      let(:filter) { Decidim::TaxonomyFilter.last }
 
-      it "the root taxonomy and its children" do
+      it "imports taxonomies and assign them to resources" do
         expect { subject.import! }.to change(Decidim::Taxonomy, :count).by(3)
         expect(dummy_resource.taxonomies.all).to eq([child_taxonomy])
         expect(root_taxonomy.name[organization.default_locale]).to eq("New root taxonomy")
         expect(taxonomy.name[organization.default_locale]).to eq("New taxonomy")
         expect(child_taxonomy.name[organization.default_locale]).to eq("New child taxonomy")
+        expect(dummy_resource.taxonomies.all).to eq([child_taxonomy])
+      end
+
+      it "imports the filters" do
+        expect { subject.import! }.to change(Decidim::TaxonomyFilter, :count).by(1)
+        expect(filter.space_filter).to be_truthy
+        expect(filter.space_manifest).to eq("participatory_processes")
+        expect(filter.filter_items.count).to eq(1)
+        expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)
+        expect(component.reload.settings["taxonomy_filters"]).to eq([filter.id.to_s])
       end
     end
   end

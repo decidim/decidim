@@ -63,6 +63,10 @@ module Decidim
         end
 
         # TODO: add filter to components settings
+        data["components"].each do |component_id|
+          component = GlobalID::Locator.locate(component_id)
+          component.update!(settings: { taxonomy_filters: [filter.id.to_s] })
+        end
       end
 
       def find_taxonomy(association, name)
