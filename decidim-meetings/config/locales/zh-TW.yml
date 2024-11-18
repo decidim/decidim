@@ -210,7 +210,6 @@ zh-TW:
         attachment_collections: 資料夾
         attachments: 附件
         close: 關閉
-        confirm_destroy: 你確定要刪除此會議？
         destroy: 刪除
         edit: 編輯
         invalid_destroy:
