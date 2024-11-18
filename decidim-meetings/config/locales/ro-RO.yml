@@ -206,7 +206,6 @@ ro:
         attachment_collections: Dosare
         attachments: Atașamente
         close: Închide
-        confirm_destroy: Sigur dorești să ştergi acestă întâlnire?
         destroy: Ștergere
         edit: Editare
         invalid_destroy:
