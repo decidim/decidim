@@ -42,8 +42,6 @@ tr:
     debates:
       actions:
         close: Kapat
-        confirm_destroy: Emin misiniz?
-        destroy: Sil
         edit: Düzenle
         new: Yeni Tartışma
         title: Eylemler
@@ -56,8 +54,6 @@ tr:
           create:
             invalid: Tartışmayı oluştururken bir sorun oluştu.
             success: Tartışma başarıyla oluşturuldu.
-          destroy:
-            success: Tartışma başarıyla silindi.
           edit:
             title: Tartışmayı düzenle
             update: Tartışmayı güncelle
