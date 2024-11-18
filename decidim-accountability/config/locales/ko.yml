@@ -98,8 +98,6 @@ ko:
           create:
             invalid: 결과를 가져오는 도중 문제가 생겼습니다.
             success: 결과가 성공적으로 생성되었습니다.
-          destroy:
-            success: 결과가 성공적으로 삭제되었습니다.
           edit:
             title: 결과 수정
             update: 결과 업데이트
