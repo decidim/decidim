@@ -65,6 +65,14 @@ namespace :decidim do
             puts "        - #{object_id}"
           end
         end
+        puts "    Failed resources: #{result[:failed_resources].count}"
+        result[:failed_resources].each do |object_id|
+          puts "      - #{object_id}"
+        end
+        puts "    Failed components: #{result[:failed_components].count}"
+        result[:failed_components].each do |component_id|
+          puts "      - #{component_id}"
+        end
       end
       puts "Taxonomies and filters imported successfully."
     end

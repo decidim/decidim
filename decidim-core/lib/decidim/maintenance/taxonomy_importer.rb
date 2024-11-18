@@ -7,7 +7,7 @@ module Decidim
         @organization = organization
         @model = model
         @roots = roots
-        @result = { taxonomies_created: [], taxonomies_assigned: {}, filters_created: {} }
+        @result = { taxonomies_created: [], taxonomies_assigned: {}, filters_created: {}, failed_resources: [], failed_components: [] }
       end
 
       attr_reader :organization, :model, :roots, :result
@@ -38,6 +38,8 @@ module Decidim
 
       def apply_taxonomy_to_resource(object_id, taxonomy)
         resource = GlobalID::Locator.locate(object_id)
+        return @result[:failed_resources] << object_id unless resource
+
         name = taxonomy.name[organization.default_locale]
         unless resource.taxonomies.include?(taxonomy)
           resource.taxonomies << taxonomy
@@ -62,10 +64,13 @@ module Decidim
           end
         end
 
-        # TODO: add filter to components settings
         data["components"].each do |component_id|
           component = GlobalID::Locator.locate(component_id)
-          component.update!(settings: { taxonomy_filters: [filter.id.to_s] })
+          if component
+            component.update!(settings: { taxonomy_filters: [filter.id.to_s] })
+          else
+            @result[:failed_components] << component_id
+          end
         end
       end
 

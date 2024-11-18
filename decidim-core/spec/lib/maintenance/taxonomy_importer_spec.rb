@@ -11,16 +11,18 @@ module Decidim::Maintenance
     let(:dummy_resource) { create(:dummy_resource, component:) }
     let(:component) { create(:dummy_component, participatory_space:) }
     let(:participatory_space) { create(:participatory_process, organization:) }
+    let(:resource_id) { dummy_resource.to_global_id.to_s }
+    let(:component_id) { component.to_global_id.to_s }
     let(:json_taxonomies) do
       {
         "New taxonomy" => {
-          "name" => { organization.default_locale => "root_taxonomy" },
+          "name" => { organization.default_locale => "New taxonomy" },
           "resources" => {},
           "children" => {
             "New child taxonomy" => {
               "children" => {},
               "resources" => {
-                dummy_resource.to_global_id.to_s => "Descriptive title"
+                resource_id => "Descriptive title"
               }
             }
           }
@@ -34,7 +36,7 @@ module Decidim::Maintenance
           "space_manifest" => "participatory_processes",
           "items" => [["New taxonomy", "New child taxonomy"]],
           "components" => [
-            component.to_global_id.to_s
+            component_id
           ]
         }
       }
@@ -49,9 +51,9 @@ module Decidim::Maintenance
     end
 
     describe "#import!" do
-      let(:root_taxonomy) { Decidim::Taxonomy.roots.first }
-      let(:taxonomy) { root_taxonomy.children.first }
-      let(:child_taxonomy) { taxonomy.children.first }
+      let(:root_taxonomy) { Decidim::Taxonomy.find_by("name->>? = ?", organization.default_locale, "New root taxonomy") }
+      let(:taxonomy) { root_taxonomy.children.find_by("name->>? = ?", organization.default_locale, "New taxonomy") }
+      let(:child_taxonomy) { taxonomy.children.find_by("name->>? = ?", organization.default_locale, "New child taxonomy") }
       let(:filter) { Decidim::TaxonomyFilter.last }
 
       it "imports taxonomies and assign them to resources" do
@@ -69,7 +71,107 @@ module Decidim::Maintenance
         expect(filter.space_manifest).to eq("participatory_processes")
         expect(filter.filter_items.count).to eq(1)
         expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)
-        expect(component.reload.settings["taxonomy_filters"]).to eq([filter.id.to_s])
+        expect(component.reload.settings[:taxonomy_filters]).to eq([filter.id.to_s])
+      end
+
+      it "sets the result with the changes performed" do
+        subject.import!
+        expect(subject.result[:taxonomies_created]).to eq(["New root taxonomy", "New taxonomy", "New child taxonomy"])
+        expect(subject.result[:taxonomies_assigned]["New child taxonomy"]).to eq([resource_id])
+        expect(subject.result[:filters_created]["New root taxonomy"]).to eq(["New taxonomy > New child taxonomy"])
+        expect(subject.result[:failed_resources]).to be_empty
+        expect(subject.result[:failed_components]).to be_empty
+      end
+
+      context "when the resource does not exists" do
+        let(:resource_id) { "gid://dummy_resource/999" }
+
+        it "does not assign the taxonomy to the resource" do
+          expect { subject.import! }.to change(Decidim::Taxonomy, :count).by(3)
+          expect(dummy_resource.taxonomies.all).to be_empty
+          expect(subject.result[:failed_resources]).to eq([resource_id])
+        end
+      end
+
+      context "when a component does not exists" do
+        let(:component_id) { "gid://dummy_component/999" }
+
+        it "does not assign the filter to the component" do
+          expect { subject.import! }.to change(Decidim::Taxonomy, :count).by(3)
+          expect(filter.filter_items.count).to eq(1)
+          expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)  
+          expect(component.reload.settings[:taxonomy_filters]).to be_empty
+          expect(subject.result[:failed_components]).to eq([component_id])
+        end
+      end
+
+      context "when the root taxonomy already exists" do
+        let!(:root_taxonomy) { create(:taxonomy, organization:, name: { organization.default_locale => "New root taxonomy" }) }
+
+        it "does not create the taxonomy" do
+          expect { subject.import! }.to change(Decidim::Taxonomy, :count).by(2)
+          expect(taxonomy.parent).to eq(root_taxonomy)
+          expect(dummy_resource.taxonomies.all).to eq([child_taxonomy])
+        end
+
+        context "when the taxonomy already exists" do
+          let!(:taxonomy) { create(:taxonomy, organization:, name: { organization.default_locale => "New taxonomy" }, parent: root_taxonomy) }
+
+          it "does not create the taxonomy" do
+            expect { subject.import! }.to change(Decidim::Taxonomy, :count).by(1)
+            expect(child_taxonomy.parent).to eq(taxonomy)
+            expect(dummy_resource.taxonomies.all).to eq([child_taxonomy])
+          end
+        end
+      end
+
+      context "when a taxonomy already exists with a different parent" do
+        let!(:another_taxonomy) { create(:taxonomy, :with_parent, organization:, name: { organization.default_locale => "New taxonomy" }) }
+
+        it "Creates new taxonomies" do
+          expect { subject.import! }.to change(Decidim::Taxonomy, :count).by(3)
+          expect(taxonomy.parent).to eq(root_taxonomy)
+          expect(child_taxonomy.parent).to eq(taxonomy)
+          expect(dummy_resource.taxonomies.all).to eq([child_taxonomy])
+          expect(Decidim::Taxonomy.count).to eq(5)
+        end
+      end
+
+      context "when a child taxonomy already exists with a different parent" do
+        let(:root_taxonomy) { create(:taxonomy, organization:, name: { organization.default_locale => "New root taxonomy" }) }
+        let!(:another_taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+        let!(:another_child_taxonomy) { create(:taxonomy, parent: another_taxonomy, organization:, name: { organization.default_locale => "New child taxonomy" }) }
+
+        it "Creates the necessary taxonomies" do
+          expect { subject.import! }.to change(Decidim::Taxonomy, :count).by(2)
+          expect(child_taxonomy.parent).to eq(taxonomy)
+          expect(dummy_resource.taxonomies.all).to eq([child_taxonomy])
+          expect(Decidim::Taxonomy.count).to eq(5)
+        end
+      end
+
+      context "when a filter already exists" do
+        let!(:root_taxonomy) { create(:taxonomy, organization:, name: { organization.default_locale => "New root taxonomy" }) }
+        let!(:filter) { create(:taxonomy_filter, root_taxonomy:, space_filter: true, space_manifest: "participatory_processes") }
+
+        it "does not create the filter but creates its items" do
+          expect { subject.import! }.not_to change(Decidim::TaxonomyFilter, :count)
+          expect(filter.filter_items.count).to eq(1)
+          expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)
+        end
+
+        context "when the filter items already exists" do
+          let(:root_taxonomy) { create(:taxonomy, organization:, name: { organization.default_locale => "New root taxonomy" }) }
+          let(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:, name: { organization.default_locale => "New taxonomy" }) }
+          let(:child_taxonomy) { create(:taxonomy, parent: taxonomy, organization:, name: { organization.default_locale => "New child taxonomy" }) }
+          let!(:filter_item) { create(:taxonomy_filter_item, taxonomy_item: child_taxonomy, taxonomy_filter: filter) }
+
+          it "does not create the items" do
+            expect { subject.import! }.not_to change(Decidim::TaxonomyFilterItem, :count)
+            expect(filter.filter_items.count).to eq(1)
+            expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)
+          end
+        end
       end
     end
   end
