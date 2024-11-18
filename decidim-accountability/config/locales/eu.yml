@@ -112,8 +112,6 @@ eu:
           create:
             invalid: Arazo bat egon da emaitza hau sortzean.
             success: Emaitza zuzen sortua.
-          destroy:
-            success: Emaitza zuzen ezabatua.
           edit:
             title: Editatu emaitza
             update: Eguneratu emaitza
