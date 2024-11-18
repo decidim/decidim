@@ -50,8 +50,6 @@ ca:
     debates:
       actions:
         close: Tanca
-        confirm_destroy: Segur?
-        destroy: Suprimeix
         edit: Edita
         new: Afegir debat
         title: Accions
@@ -64,8 +62,6 @@ ca:
           create:
             invalid: S'ha produït un error en crear el debat.
             success: Debat creat correctament.
-          destroy:
-            success: Debat eliminat correctament.
           edit:
             title: Editar debat
             update: Actualitzar debat
