@@ -4,7 +4,6 @@ module Decidim
   module Comments
     # A cell to render comments in two columns layout.
     class TwoColumnsCommentsCell < Decidim::Comments::CommentsCell
-
       def call
         initialize_comments
         @interleaved_comments = interleave_comments(@sorted_comments_in_favor, @sorted_comments_against)
