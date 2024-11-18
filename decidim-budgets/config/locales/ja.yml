@@ -40,8 +40,6 @@ ja:
       actions:
         attachment_collections: フォルダ
         attachments: 添付ファイル
-        confirm_destroy: このプロジェクトを削除してもよろしいですか？
-        destroy: 削除
         edit: 編集
         edit_projects: プロジェクトの管理...
         import: プロジェクトへの提案をインポート
@@ -55,9 +53,6 @@ ja:
           create:
             invalid: 予算の作成中に問題が発生しました。
             success: 予算が正常に作成されました。
-          destroy:
-            invalid: 予算の削除中に問題が発生しました。
-            success: 予算を削除しました。
           edit:
             title: 予算の編集
             update: 予算を更新
@@ -84,8 +79,6 @@ ja:
           create:
             invalid: プロジェクトの作成中に問題が発生しました。
             success: プロジェクトが正常に作成されました。
-          destroy:
-            success: プロジェクトを削除しました。
           edit:
             title: プロジェクトを編集
             update: 更新
