@@ -12,6 +12,7 @@
 const $ = window.$;
 
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
+import { initializeCommentsDropdown } from "./comments_dropdown";
 
 export default class CommentsComponent {
   constructor($element, config) {
@@ -132,6 +133,11 @@ export default class CommentsComponent {
         $submit.attr("disabled", "disabled");
         this._stopPolling();
       });
+
+      const $dropdown = $add.find("[data-comments-dropdown]");
+      if ($dropdown.length > 0) {
+        initializeCommentsDropdown($dropdown[0]);
+      }
 
       document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 

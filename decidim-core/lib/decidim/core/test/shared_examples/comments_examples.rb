@@ -638,6 +638,13 @@ shared_examples "comments" do
             expect(page).to have_content("1 answer")
             click_on "1 answer"
             expect(page).to have_content(new_reply_body)
+            click_on "Reply", match: :first
+            expect(page).to have_content("Publish reply")
+            find("textarea[name='comment[body]']").set("Test reply comments.")
+            click_on "Publish reply"
+            expect(page).to have_content("Show 2 replies")
+            click_on "Show 2 replies"
+            expect(page).to have_content("Test reply comments.")
           end
         end
 
