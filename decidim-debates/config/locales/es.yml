@@ -50,8 +50,6 @@ es:
     debates:
       actions:
         close: Cerrar
-        confirm_destroy: '¿Estás segura?'
-        destroy: Elimina
         edit: Editar
         new: Nuevo debate
         title: Acciones
@@ -64,8 +62,6 @@ es:
           create:
             invalid: Se ha producido un error al crear el debate.
             success: Debate creado correctamente.
-          destroy:
-            success: Debate eliminado correctamente.
           edit:
             title: Editar debate
             update: Actualizar debate
