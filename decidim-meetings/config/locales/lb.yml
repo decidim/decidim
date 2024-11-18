@@ -178,8 +178,6 @@ lb:
         meetings:
           create:
             success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
-          destroy:
-            success: Das Meeting wurde erfolgreich gelöscht
           edit:
             title: Meeting bearbeiten
             update: Aktualisieren
