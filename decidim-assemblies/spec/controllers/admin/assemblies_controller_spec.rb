@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module Assemblies
@@ -45,6 +46,11 @@ module Decidim
             expect(response).to redirect_to(edit_assembly_path(assembly.slug))
           end
         end
+
+        it_behaves_like "a soft-deletable space",
+                        space_name: :assembly,
+                        space_path: :assemblies_path,
+                        trash_path: :manage_trash_assemblies_path
       end
     end
   end

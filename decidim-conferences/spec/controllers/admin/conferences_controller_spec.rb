@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 module Decidim
   module Conferences
@@ -49,6 +50,11 @@ module Decidim
           expect(response).to redirect_to edit_conference_path(conference)
         end
       end
+
+      it_behaves_like "a soft-deletable space",
+                      space_name: :conference,
+                      space_path: :conferences_path,
+                      trash_path: :manage_trash_conferences_path
     end
   end
 end
