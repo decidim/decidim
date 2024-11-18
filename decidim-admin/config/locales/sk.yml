@@ -209,9 +209,6 @@ sk:
         create:
           error: Vyskytol sa problém s vytvorením tejto súčasti.
           success: Súčasť bola vytvorená úspešne.
-        destroy:
-          error: Vyskytol sa problém s vymazaním tejto súčasti.
-          success: Súčasť bola vymazaná úspešne.
         edit:
           title: Upraviť súčasť
           update: Aktualizovať
