@@ -43,7 +43,6 @@ pl:
       actions:
         attachment_collections: Foldery
         attachments: Załączniki
-        confirm_destroy: Czy na pewno chcesz usunąć ten projekt?
         destroy: Usuń
         edit: Edytuj
         edit_projects: Zarządzaj budżetem
