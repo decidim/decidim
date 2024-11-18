@@ -17,8 +17,6 @@ eu:
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
-        confirm_destroy: Ziur zaude post hau argitalpen ezabatu nahi duzula?
-        destroy: Ezabatu
         edit: Editatu
         new: Beste argitalpen bat
         title: Ekintzak
@@ -27,8 +25,6 @@ eu:
           create:
             invalid: Arazo bat egon da argitalpen hau sortzean.
             success: Argitalpena zuzen sortua.
-          destroy:
-            success: Argitalpena behar bezala ezabatua.
           edit:
             save: Eguneratu
             title: Editatu argitalpena
