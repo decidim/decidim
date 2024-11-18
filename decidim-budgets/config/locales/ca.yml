@@ -42,8 +42,6 @@ ca:
       actions:
         attachment_collections: Carpetes
         attachments: Adjunts
-        confirm_destroy: Segur que vols eliminar aquest projecte?
-        destroy: Esborrar
         edit: Editar
         edit_projects: Gestionar projectes
         import: Importa propostes a projectes
@@ -57,9 +55,6 @@ ca:
           create:
             invalid: S'ha produït un error en crear aquest pressupost.
             success: Pressupost creat correctament.
-          destroy:
-            invalid: S'ha produït un error en eliminar aquest pressupost.
-            success: Pressupost eliminat correctament.
           edit:
             title: Edita el pressupost
             update: Actualitza el pressupost
@@ -86,8 +81,6 @@ ca:
           create:
             invalid: S'ha produït un error en crear aquest projecte.
             success: Projecte creat correctament.
-          destroy:
-            success: Projecte eliminat correctament.
           edit:
             title: Editar projecte
             update: Actualitzar
