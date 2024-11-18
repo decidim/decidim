@@ -320,9 +320,6 @@ fi-pl:
           error: Tämän komponentin luomisessa tapahtui virhe.
           success: Komponentti luotu onnistuneesti.
           success_landing_page: Komponentin luonti onnistui. Voit lisätä sisältölohkon tälle komponentille osallistumistilan etusivulle. Siirry <a href="%{landing_page_path}">Laskeutumissivu-osioon</a> lisätäksesi komponentin osallistumistilan etusivulle.
-        destroy:
-          error: Tämän komponentin tuhoamisessa tapahtui virhe.
-          success: Komponentti poistettu onnistuneesti.
         edit:
           title: Muokkaa komponenttia
           update: Päivitä
