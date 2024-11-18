@@ -22,8 +22,6 @@ it:
       actions:
         attachment_collections: Cartelle
         attachments: Allegati
-        confirm_destroy: Sei certo di voler cancellare questo progetto?
-        destroy: Cancella
         edit: Modifica
         edit_projects: Gestisci progetti
         import: Importa proposte nei progetti
