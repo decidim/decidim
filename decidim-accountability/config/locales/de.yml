@@ -112,8 +112,6 @@ de:
           create:
             invalid: Beim Erstellen dieses Ergebnisses ist ein Problem aufgetreten.
             success: Ergebnis erfolgreich erstellt.
-          destroy:
-            success: Ergebnis erfolgreich gelöscht.
           edit:
             title: Ergebnis bearbeiten
             update: Ergebnis aktualisieren
