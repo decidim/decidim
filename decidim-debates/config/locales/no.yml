@@ -45,8 +45,6 @@
     debates:
       actions:
         close: Lukk
-        confirm_destroy: Er du sikker?
-        destroy: Slett
         edit: Rediger
         title: Handling
       admin:
@@ -58,8 +56,6 @@
           create:
             invalid: Det oppstod et problem med å opprette innspillstråden.
             success: Innspillstråden ble opprettet.
-          destroy:
-            success: Innspillstråden ble slettet.
           edit:
             title: Rediger innspillstråd
             update: Oppdater innspillstråd
