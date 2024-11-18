@@ -1136,6 +1136,8 @@ de:
           not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
         taxonomy_presenter:
           not_found: 'Die Klassifizierung wurde nicht in der Datenbank gefunden (ID: %{id})'
+    machine_translations:
+      automatic: automatische Übersetzung in %{locale_name}
     managed_users:
       expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
     map:
@@ -1351,6 +1353,23 @@ de:
           main: Kern
           spaces: Bereiche
           title: Open Data Dateien für %{organization} 
+        moderated_users:
+          about: Die Beschreibung des Kontos
+          block_reasons: Der Grund der Blockierung eines Kontos durch einen Admin
+          blocked_at: Datum und Uhrzeit der Kontoblockierung
+          blocking_user: Der Name des Kontos, der die Blockierung durchgeführt hat
+          details: Die Details der Berichte
+          reasons: Eine Liste der Gründe, warum das Profil gemeldet wurde
+          user_id: Die eindeutige ID des gemeldeten Kontos
+        moderations:
+          hidden_at: Datum und Uhrzeit des Entfernen des Inhalts
+          id: Die eindeutige Bezeichnung des Moderation
+          report_count: Anzahl der gemeldeten Fälle
+          reportable_id: Die eindeutige ID der Meldung
+          reportable_type: Typ der Meldung
+          reported_content: Der gemeldete Inhalt
+          reported_url: Die URL der gemeldeten Ressource
+          reports: Eine Liste der Gründe, weshalb das Profil gemeldet wurde
         user_groups:
           avatar_url: Der Avatar der Gruppe
           badge: Das Abzeichen der Gruppe
