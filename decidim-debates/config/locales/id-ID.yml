@@ -31,8 +31,6 @@ id:
             comments_blocked: Komentar diblokir
     debates:
       actions:
-        confirm_destroy: Apakah kamu yakin
-        destroy: Menghapus
         edit: Edit
         title: Tindakan
       admin:
@@ -40,8 +38,6 @@ id:
           create:
             invalid: Terjadi masalah saat membuat debat.
             success: Debat berhasil dibuat.
-          destroy:
-            success: Debat berhasil dihapus.
           edit:
             title: Edit debat
             update: Perbarui debat
