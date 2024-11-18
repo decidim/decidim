@@ -9,8 +9,6 @@ is-IS:
     budgets:
       actions:
         attachments: Viðhengi
-        confirm_destroy: Ertu viss um að þú viljir eyða þessu verkefni?
-        destroy: Eyða
         edit: Breyta
         preview: Preview
         title: Aðgerðir
