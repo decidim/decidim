@@ -3,8 +3,6 @@ is:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Ertu viss um að þú viljir eyða þessu færslu?
-        destroy: Eyða
         edit: Breyta
         title: Aðgerðir
       admin:
