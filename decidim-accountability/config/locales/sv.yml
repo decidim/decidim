@@ -104,8 +104,6 @@ sv:
           create:
             invalid: Det gick inte att skapa resultatet.
             success: Resultatet har skapats.
-          destroy:
-            success: Resultatet har raderats.
           edit:
             title: Redigera resultat
             update: Uppdatera resultat
