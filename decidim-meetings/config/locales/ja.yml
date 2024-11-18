@@ -232,7 +232,6 @@ ja:
         attachment_collections: フォルダ
         attachments: 添付ファイル
         close: 閉じる
-        confirm_destroy: このミーティングを削除してもよろしいですか？
         destroy: 削除
         edit: 編集
         invalid_destroy:
