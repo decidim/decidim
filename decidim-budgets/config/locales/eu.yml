@@ -42,8 +42,6 @@ eu:
       actions:
         attachment_collections: Karpetak
         attachments: Fitxategi erantsiak
-        confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
-        destroy: Ezabatu
         edit: Editatu
         edit_projects: Kudeatu proiektuak
         import: Inportatu proposamenak proiektuetarako
@@ -57,9 +55,6 @@ eu:
           create:
             invalid: Arazo bat egon da aurrekontu hau sortzean.
             success: Aurrekontua zuzen sortua.
-          destroy:
-            invalid: Arazo bat egon da aurrekontu hau ezabatzean.
-            success: Aurrekontua behar bezala ezabatua.
           edit:
             title: Editatu aurrekontua
             update: Eguneratu aurrekontua
@@ -86,8 +81,6 @@ eu:
           create:
             invalid: Arazo bat egon da proiektu hau sortzean.
             success: Proiektua zuzen sortua.
-          destroy:
-            success: Proiektua behar bezala ezabatua.
           edit:
             title: Editatu proiektua
             update: Eguneratu
