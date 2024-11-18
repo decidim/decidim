@@ -1137,6 +1137,8 @@ en:
           not_found: 'The scope type was not found on the database (ID: %{id})'
         taxonomy_presenter:
           not_found: 'The taxonomy was not found on the database (ID: %{id})'
+    machine_translations:
+      automatic: automatic translation in %{locale_name}
     managed_users:
       expired_session: The current administration session of a participant has expired.
     map:
