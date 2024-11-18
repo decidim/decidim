@@ -87,6 +87,10 @@ module Decidim::Budgets
         expect(serialized[:related_proposal_urls]).to include(Decidim::ResourceLocatorPresenter.new(proposals.second).url)
         expect(serialized[:related_proposal_urls]).to include(Decidim::ResourceLocatorPresenter.new(proposals.last).url)
       end
+
+      it "includes the updated date" do
+        expect(serialized).to include(updated_at: project.updated_at)
+      end
     end
 
     context "when subscribed to the serialize event" do
