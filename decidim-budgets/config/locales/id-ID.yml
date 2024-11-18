@@ -14,8 +14,6 @@ id:
       actions:
         attachment_collections: Folder
         attachments: Lampiran
-        confirm_destroy: Anda yakin ingin menghapus proyek ini?
-        destroy: Menghapus
         edit: Edit
         import: Impor proposal ke proyek
         preview: Pratinjau
