@@ -43,7 +43,6 @@ lt:
       actions:
         attachment_collections: Aplankai
         attachments: Priedai
-        confirm_destroy: Ar tikrai norite ištrinti šį projektą?
         destroy: Ištrinti
         edit: Redaguoti
         edit_projects: Valdyti projektus
