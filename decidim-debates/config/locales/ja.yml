@@ -49,8 +49,6 @@ ja:
     debates:
       actions:
         close: 閉じる
-        confirm_destroy: よろしいですか？
-        destroy: 削除
         edit: 編集
         new: 新しいディベート
         title: アクション
@@ -63,8 +61,6 @@ ja:
           create:
             invalid: ディベートの作成で不具合が発生しました。
             success: ディベートが正常に作成されました。
-          destroy:
-            success: ディベートを削除しました。
           edit:
             title: ディベートを編集
             update: ディベートを更新
