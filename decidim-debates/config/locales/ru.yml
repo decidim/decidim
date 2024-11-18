@@ -34,8 +34,6 @@ ru:
             comments_blocked: Комментарии отключены
     debates:
       actions:
-        confirm_destroy: Вы уверены?
-        destroy: Удалить
         edit: Редактировать
         title: Действия
       admin:
@@ -43,8 +41,6 @@ ru:
           create:
             invalid: При попытке создать это обсуждение произошла ошибка.
             success: Обсуждение успешно создано.
-          destroy:
-            success: Обсуждение успешно удалено.
           edit:
             title: Редактировать обсуждение
             update: Обновить обсуждение
