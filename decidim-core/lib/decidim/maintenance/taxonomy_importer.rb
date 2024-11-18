@@ -47,9 +47,7 @@ module Decidim
       end
 
       def import_filter(root, name, data)
-        filter = find_taxonomy_filter(root, name) || root.taxonomy_filters.create!(space_filter: filter["space_filter"], space_manifest: filter["space_manifest"]) do
-          @result[:filters_created][name] = 0
-        end
+        filter = find_taxonomy_filter(root, name) || root.taxonomy_filters.create!(space_filter: data["space_filter"], space_manifest: data["space_manifest"])
 
         taxonomy = root
         data["items"].each do |item_names|

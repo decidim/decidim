@@ -3,23 +3,24 @@
 module Decidim
   module Maintenance
     class TaxonomyPlan
-      def initialize(organization, models)
+      def initialize(organization, models, importer: TaxonomyImporter)
         @organization = organization
         @models = models
+        @importer = importer
       end
 
-      attr_reader :organization, :models
+      attr_reader :organization, :models, :importer
 
       def import(data, &)
         data["imported_taxonomies"].each do |model_name, taxonomies|
           model = models.find { |m| m.table_name == model_name }
           raise "Model not found for #{model_name}" unless model
 
-          importer = TaxonomyImporter.new(organization, model, taxonomies)
+          klass = importer.new(organization, model, taxonomies)
           if block_given?
-            yield importer
+            yield klass
           else
-            importer.import!
+            klass.import!
           end
         end
       end
