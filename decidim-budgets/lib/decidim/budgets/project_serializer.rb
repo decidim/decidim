@@ -35,6 +35,7 @@ module Decidim
           url: project.polymorphic_resource_url({}),
           address: project.address,
           updated_at: project.updated_at,
+          reference: project.reference,
           related_proposals:,
           related_proposal_titles:,
           related_proposal_urls:

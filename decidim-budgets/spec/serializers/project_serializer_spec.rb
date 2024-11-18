@@ -91,6 +91,10 @@ module Decidim::Budgets
       it "includes the updated date" do
         expect(serialized).to include(updated_at: project.updated_at)
       end
+
+      it "serializes the reference" do
+        expect(serialized).to include(reference: project.reference)
+      end
     end
 
     context "when subscribed to the serialize event" do
