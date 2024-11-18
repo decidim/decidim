@@ -316,9 +316,6 @@ ro:
         create:
           error: A apărut o eroare la crearea acestei componente.
           success: Componenta a fost creată cu succes.
-        destroy:
-          error: A apărut o problemă la eliminarea acestei componente.
-          success: Componenta a fost ștearsă cu succes.
         edit:
           title: Editează componenta
           update: Actualizează
