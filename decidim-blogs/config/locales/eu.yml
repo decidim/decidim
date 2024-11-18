@@ -18,7 +18,6 @@ eu:
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
-        confirm_destroy: Ziur zaude post hau argitalpen ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         new: Beste argitalpen bat
