@@ -42,8 +42,6 @@ es-PY:
       actions:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
-        confirm_destroy: '¿Estás seguro de que deseas eliminar este proyecto?'
-        destroy: Borrar
         edit: Editar
         edit_projects: Gestionar proyectos
         import: Importar propuestas a proyectos
@@ -57,9 +55,6 @@ es-PY:
           create:
             invalid: Se ha producido un error al crear este proyecto.
             success: Presupuesto creado correctamente.
-          destroy:
-            invalid: Hubo un problema al eliminar este presupuesto.
-            success: Presupuesto eliminado correctamente.
           edit:
             title: Editar presupuesto
             update: Actualizar presupuesto
@@ -86,8 +81,6 @@ es-PY:
           create:
             invalid: Se ha producido un error al crear este proyecto.
             success: Proyecto creado correctamente.
-          destroy:
-            success: Proyecto eliminado correctamente.
           edit:
             title: Editar proyecto
             update: Actualizar
