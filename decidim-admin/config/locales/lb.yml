@@ -255,9 +255,6 @@ lb:
         create:
           error: Beim Erstellen dieser Komponente ist ein Fehler aufgetreten.
           success: Komponente wurde erfolgreich erstellt.
-        destroy:
-          error: Beim Löschen dieser Komponente ist ein Fehler aufgetreten.
-          success: Komponente wurde erfolgreich gelöscht.
         edit:
           title: Komponente bearbeiten
           update: Aktualisieren
