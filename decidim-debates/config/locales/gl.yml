@@ -34,8 +34,6 @@ gl:
             creation_enabled: Os participantes poden crear debates
     debates:
       actions:
-        confirm_destroy: Estás seguro?
-        destroy: Eliminar
         edit: Editar
         title: Accións
       admin:
@@ -43,8 +41,6 @@ gl:
           create:
             invalid: Produciuse un problema ao crear o debate.
             success: Debate creouse con éxito.
-          destroy:
-            success: Debate eliminado con éxito.
           edit:
             title: Editar debate
             update: Actualizar debate
