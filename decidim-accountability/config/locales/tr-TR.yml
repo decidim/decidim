@@ -97,8 +97,6 @@ tr:
           create:
             invalid: Sonuçlar sorgulanırken bir sorun oluştu.
             success: Sonuçlar Başarıyla oluşturuldu.
-          destroy:
-            success: Sonuçlar Başarıyla Silindi.
           edit:
             title: Sonucu düzenle
             update: Sonuç güncelle
