@@ -245,8 +245,6 @@ fi-pl:
         attachment_collections: Kansiot
         attachments: Liitteet
         close: Sulje
-        confirm_destroy: Haluatko varmasti poistaa tämän tapahtuman?
-        destroy: Poista
         edit: Muokkaa
         invalid_destroy:
           proposals_count:
@@ -326,12 +324,6 @@ fi-pl:
           create:
             invalid: Tapaamisen luonti epäonnistui.
             success: Tapaamisen luonti onnistui. Huomaa, että tapaamista ei ole vielä julkaistu, sinun pitää julkaista se manuaalisesti.
-          destroy:
-            invalid:
-              proposals_count:
-                one: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotus.
-                other: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotusta.
-            success: Tapahtuma onnistuneesti luotu
           edit:
             title: Muokkaa tapaamista
             update: Päivitä
