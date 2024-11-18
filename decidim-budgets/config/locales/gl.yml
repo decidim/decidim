@@ -29,8 +29,6 @@ gl:
       actions:
         attachment_collections: Carpetas
         attachments: Anexos
-        confirm_destroy: Estás seguro de que queres eliminar este proxecto?
-        destroy: Eliminar
         edit: Editar
         edit_projects: Xestionar proxectos
         import: Importa propostas a proxectos
