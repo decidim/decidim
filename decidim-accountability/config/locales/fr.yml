@@ -107,8 +107,6 @@ fr:
           create:
             invalid: Un problème est survenu lors de la création de ce résultat.
             success: La réalisation a été créée avec succès.
-          destroy:
-            success: La réalisation a été supprimée avec succès.
           edit:
             title: Modifier la réalisation
             update: Mise à jour de la réalisation
