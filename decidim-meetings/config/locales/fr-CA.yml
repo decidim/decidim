@@ -679,6 +679,10 @@ fr-CA:
         description: Nombre de rencontres créées
         object: rencontres
         title: Rencontres
+    open_data:
+      help:
+        meetings:
+          author: Les données pour l'auteur de cette réunion
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées
