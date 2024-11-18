@@ -109,8 +109,6 @@ he:
           create:
             invalid: הייתה בעיה ביצירת תוצאה זו.
             success: התוצאה נוצרה בהצלחה.
-          destroy:
-            success: התוצאה נמחקה בהצלחה.
           edit:
             title: עריכת תוצאה
             update: עדכון תוצאה
