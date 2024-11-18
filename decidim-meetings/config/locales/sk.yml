@@ -139,7 +139,6 @@ sk:
         attachment_collections: Zložky
         attachments: Prílohy
         close: Zavrieť
-        confirm_destroy: Naozaj chcete túto schôdzku vymazať?
         destroy: Odstrániť
         edit: Upraviť
         preview: Náhľad
