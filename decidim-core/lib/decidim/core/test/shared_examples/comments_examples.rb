@@ -1154,6 +1154,43 @@ shared_examples "comments with two columns" do
 
       resize_window_to_desktop
     end
+
+    context "when commentable is closed" do
+      let!(:commentable) { closed_commentable }
+      let!(:highest_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago, up_votes_count: 15) }
+      let!(:high_voted_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 4.days.ago, up_votes_count: 10) }
+      let!(:older_comment_in_favor) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago, up_votes_count: 5) }
+
+      let!(:highest_voted_comment_against) { create(:comment, :against, commentable:, created_at: 2.days.ago, up_votes_count: 12) }
+      let!(:high_voted_comment_against) { create(:comment, :against, commentable:, created_at: 5.days.ago, up_votes_count: 8) }
+      let!(:older_comment_against) { create(:comment, :against, commentable:, created_at: 3.days.ago, up_votes_count: 4) }
+
+      it "shows comments with top comments at the beginning and interleaved order after" do
+        resize_window_to_mobile
+        visit resource_path
+
+        within(".comment-threads") do
+          interleaved_comments = [
+            highest_voted_comment_in_favor,
+            highest_voted_comment_against,
+            high_voted_comment_in_favor,
+            high_voted_comment_against,
+            older_comment_in_favor,
+            older_comment_against
+          ]
+
+          all_comments = all(".comment-thread")
+
+          interleaved_comments.each_with_index do |comment, index|
+            expect(all_comments[index]).to have_content(comment.body["en"])
+          end
+
+          expect(page).to have_css(".most-upvoted-label", text: "Most upvoted", count: 2)
+        end
+
+        resize_window_to_desktop
+      end
+    end
   end
 
   context "when viewing a single comment" do
