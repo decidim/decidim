@@ -50,8 +50,6 @@ de:
     debates:
       actions:
         close: Schließen
-        confirm_destroy: Sind Sie sich sicher?
-        destroy: Löschen
         edit: Bearbeiten
         new: Neue Debatte
         title: Aktionen
@@ -64,8 +62,6 @@ de:
           create:
             invalid: Es gab ein Problem beim Erstellen der Debatte.
             success: Diskussion erfolgreich erstellt
-          destroy:
-            success: Die Diskussion wurde erfolgreich gelöscht.
           edit:
             title: Debatte bearbeiten
             update: Debatte aktualisieren
