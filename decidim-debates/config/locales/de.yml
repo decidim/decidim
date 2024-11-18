@@ -236,7 +236,14 @@ de:
           author: Der Name des Teilnehmers, der diesen Kommentar erstellt hat
           body: Der Kommentar selbst
           commentable_id: Die eindeutige ID des kommentierten Objekts
+          commentable_type: Die Art des kommentierten Objekts (ob es ein Ergebnis, Vorschlag o.ä. war)
+          created_at: Das Erstellungsdatum des Kommentars
+          depth: Die Position dieses Kommentars im Thread (ob es sich um eine Antwort oder eine Antwort auf eine Antwort handelt)
+          id: Die ID dieses Kommentars
+          locale: Die eingestellte Plattformsprache der kommentierenden Person
+          root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
         debates:
           taxonomies: Die Klassifizierungen des Projekts
+          title: Der Titel der Debatte
     statistics:
       debates_count: Debatten
