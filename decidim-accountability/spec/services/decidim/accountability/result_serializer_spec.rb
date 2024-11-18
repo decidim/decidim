@@ -17,7 +17,6 @@ module Decidim
 
       let!(:proposal_component) { create(:proposal_component, participatory_space: participatory_process) }
       let(:proposals) { create_list(:proposal, 2, component: proposal_component) }
-      let(:external_id) { "external-id" }
 
       before do
         result.update!(taxonomies:)
