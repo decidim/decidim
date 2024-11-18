@@ -235,7 +235,6 @@ fr-CA:
         attachment_collections: Dossiers
         attachments: Documents liés
         close: Clore
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
         invalid_destroy:
