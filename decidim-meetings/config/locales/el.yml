@@ -211,7 +211,6 @@ el:
         attachment_collections: Φάκελοι
         attachments: Συνημμένα
         close: Κλείσιμο
-        confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν τη σύσκεψη;
         destroy: Διαγραφή
         edit: Επεξεργασία
         invalid_destroy:
