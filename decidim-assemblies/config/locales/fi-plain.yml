@@ -449,6 +449,7 @@ fi-pl:
           closing_date: Ryhmän sulkemispäivä
           closing_date_reason: Miksi tämä ryhmä suljettiin
           composition: Ryhmän kokoonpano
+          created_at: Tilan luontiaika
           created_by: Kuka tämän ryhmän on luonut
           created_by_other: Ryhmän muu luoja
           creation_date: Ryhmän luontipäivä
@@ -457,6 +458,7 @@ fi-pl:
           developer_group: Ryhmän kehittäjäryhmä
           duration: Ryhmän kesto
           facebook_handler: Sosiaalisen median tunniste Facebookissa
+          follows_count: Tilaa seuraavien käyttäjien määrä
           github_handler: Sosiaalisen median tunniste GitHubissa
           hashtag: Ryhmää vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
           id: Ryhmän yksilöllinen tunniste
@@ -469,7 +471,9 @@ fi-pl:
           participatory_scope: Ryhmän osallistumisen laajuus
           participatory_structure: Ryhmän osallistumisrakenne
           promoted: Onko ryhmä korostettu vai ei
+          published_at: Tilan julkaisuaika
           purpose_of_action: Ryhmän toiminnan tarkoitus
+          reference: Tilan yksilöllinen viite
           remote_banner_image_url: Ryhmän bannerikuvan URL-osoite
           remote_hero_image_url: Ryhmän hero-kuvan URL-osoite
           scope: Ryhmän teema
@@ -482,6 +486,8 @@ fi-pl:
           taxonomies: Projektin luokittelut
           title: Ryhmän otsikko
           twitter_handler: Sosiaalisen median tunniste Twitterissä
+          updated_at: Tilan viimeisen päivityksen aika
+          url: Tilan URL-osoite
           youtube_handler: Sosiaalisen median tunniste YouTubessa
     participatory_processes:
       show:
