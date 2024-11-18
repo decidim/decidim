@@ -18,7 +18,6 @@ hu:
     blogs:
       actions:
         author_id: Bejegyzés létrehozása
-        confirm_destroy: Biztos, hogy törlöd ezt a bejegyzést?
         destroy: Törlés
         edit: Szerkesztés
         new: Új bejegyzés
