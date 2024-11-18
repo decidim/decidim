@@ -242,7 +242,19 @@ de:
           id: Die ID dieses Kommentars
           locale: Die eingestellte Plattformsprache der kommentierenden Person
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
+          user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         debates:
+          author: Die Angaben über die verfassende Person dieser Debatte
+          closed_at: Das Datum, an dem diese Debatte geschlossen wurde
+          comments: Die Anzahl der Kommentare dieser Debatte
+          comments_enabled: Ob diese Debatte Kommentare aktiviert hat oder nicht
+          component: Die Komponente, zu der die Debatte gehört
+          conclusions: Die Erkenntnisse der Debatte, sollte sie geschlossen sein
+          created_at: Datum und Uhrzeit, an der die Debatte erstellt wurde
+          description: Die Beschreibung der Debatte
+          end_time: Wann die Debatte zu Ende geht, ob sie öffentlich oder zeitlich begrenzt ist
+          followers: Die Anzahl der Debatte-Follower
+          id: Die eindeutige Bezeichnung der Debatte
           taxonomies: Die Klassifizierungen des Projekts
           title: Der Titel der Debatte
     statistics:
