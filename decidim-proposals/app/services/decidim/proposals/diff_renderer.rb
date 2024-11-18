@@ -21,7 +21,9 @@ module Decidim
 
       # Parses the values before parsing the changeset.
       def parse_changeset(attribute, values, type, diff)
+        return parse_i18n_changeset(attribute, values, type, diff) if [:i18n, :i18n_html].include?(type)
         return parse_scope_changeset(attribute, values, type, diff) if type == :scope
+        return parse_user_group_changeset(attribute, values, type, diff) if type == :user_group
 
         values = parse_values(attribute, values)
         old_value = values[0]
