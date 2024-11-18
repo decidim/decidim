@@ -18,7 +18,6 @@ lv:
       actions:
         attachment_collections: Mapes
         attachments: Pielikumi
-        confirm_destroy: Vai tiešām vēlaties dzēst šo projektu?
         destroy: Dzēst
         edit: Labot
         import: Importēt priekšlikumus projektos
