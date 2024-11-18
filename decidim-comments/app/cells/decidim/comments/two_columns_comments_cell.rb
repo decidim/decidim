@@ -3,7 +3,7 @@
 module Decidim
   module Comments
     # A cell to render comments in two columns layout.
-    class TwoColumnsCommentsCell < Decidim::ViewModel
+    class TwoColumnsCommentsCell < Decidim::Comments::CommentsCell
 
       def call
         initialize_comments

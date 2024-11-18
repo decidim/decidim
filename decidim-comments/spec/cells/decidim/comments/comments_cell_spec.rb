@@ -216,49 +216,6 @@ module Decidim::Comments
           expect(subject).to have_css(".comment-threads")
         end
       end
-
-      context "when supports two_columns_layout and commentable is closed" do
-        before do
-          allow(commentable).to receive(:two_columns_layout?).and_return(true)
-          allow(commentable).to receive(:closed?).and_return(true)
-          allow(my_cell).to receive(:supports_two_columns_layout?).and_return(true)
-        end
-
-        it "renders the comments with top comments in two columns layout" do
-          expect(my_cell).to receive(:render_comments_in_two_columns)
-          my_cell.render_comments
-        end
-
-        it "renders the comments in two columns layout for a closed commentable" do
-          my_cell.render_comments
-          expect(subject).to have_css(".comments-two-columns")
-        end
-      end
-
-      context "when interleaving comments" do
-        let(:comments_in_favor) { create_list(:comment, favor_count, commentable:) }
-        let(:comments_against) { create_list(:comment, against_count, commentable:) }
-
-        context "when both sides have equal number of comments" do
-          let(:favor_count) { 2 }
-          let(:against_count) { 2 }
-
-          it "interleaves comments from both sides correctly" do
-            result = my_cell.interleave_comments(comments_in_favor, comments_against)
-            expect(result).to eq([comments_in_favor[0], comments_against[0], comments_in_favor[1], comments_against[1]])
-          end
-        end
-
-        context "when one side has more comments" do
-          let(:favor_count) { 3 }
-          let(:against_count) { 1 }
-
-          it "handles unequal number of comments" do
-            result = my_cell.interleave_comments(comments_in_favor, comments_against)
-            expect(result).to eq([comments_in_favor[0], comments_against[0], comments_in_favor[1], comments_in_favor[2]])
-          end
-        end
-      end
     end
   end
 end
