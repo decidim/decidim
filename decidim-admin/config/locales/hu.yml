@@ -317,9 +317,6 @@ hu:
         create:
           error: Hiba történt a komponens létrehozása során.
           success: Elem létrehozása sikeres.
-        destroy:
-          error: Hiba történt az elem eltávolítása során.
-          success: Elem eltávolítása sikeres.
         edit:
           title: Elem szerkesztése
           update: Frissítés
