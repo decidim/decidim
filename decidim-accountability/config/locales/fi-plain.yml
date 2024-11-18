@@ -112,8 +112,6 @@ fi-pl:
           create:
             invalid: Tuloksen luonti epäonnistui.
             success: Tuloksen luonti onnistui.
-          destroy:
-            success: Tuloksen poisto onnistui.
           edit:
             title: Muokkaa tulosta
             update: Päivitä tulos
