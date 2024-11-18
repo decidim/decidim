@@ -36,8 +36,6 @@ pt-BR:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
-        confirm_destroy: Deseja mesmo excluir este projeto?
-        destroy: Excluir
         edit: Editar
         edit_projects: Gerenciar projetos
         import: Importar propostas para os projetos
@@ -51,9 +49,6 @@ pt-BR:
           create:
             invalid: Ocorreu um erro ao criar este orçamento.
             success: Orçamento criado com sucesso.
-          destroy:
-            invalid: Ocorreu um erro ao deletar este orçamento.
-            success: Orçamento deletado com sucesso.
           edit:
             title: Editar orçamento
             update: Atualizar orçamento
@@ -80,8 +75,6 @@ pt-BR:
           create:
             invalid: Ocorreu um erro ao criar este projeto.
             success: Projeto criado com sucesso.
-          destroy:
-            success: Projeto deletado com sucesso.
           edit:
             title: Editar projeto
             update: Atualizar
