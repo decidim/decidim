@@ -251,8 +251,6 @@ cs:
         attachment_collections: Složky
         attachments: Přílohy
         close: Zavřít
-        confirm_destroy: Opravdu chcete tuto schůzku smazat?
-        destroy: Odstranit
         edit: Upravit
         invalid_destroy:
           proposals_count:
@@ -334,14 +332,6 @@ cs:
           create:
             invalid: Při vytváření této schůzky došlo k chybě.
             success: Schůze byla úspěšně vytvořena. Všimněte si, že není publikována, musíte ji publikovat ručně.
-          destroy:
-            invalid:
-              proposals_count:
-                one: Schůzku nelze zničit, protože je k ní přidružený %{count} návrh.
-                few: Schůzka nemůže být zničena, protože má k ní přidružený %{count} návrhy.
-                many: Schůzka nemůže být zničena, protože má k ní přidruženo %{count} návrhů.
-                other: Schůzka nemůže být zničena, protože má k ní přidruženo %{count} návrhů.
-            success: Setkání bylo úspěšně smazáno
           edit:
             title: Upravit schůzku
             update: Aktualizace
