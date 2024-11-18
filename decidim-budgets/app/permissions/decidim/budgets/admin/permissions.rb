@@ -14,14 +14,14 @@ module Decidim
               allow!
             when :update
               toggle_allow(budget)
-            when :delete, :publish, :unpublish
+            when :publish, :unpublish
               toggle_allow(budget && budget.projects.empty?)
             end
           when :project, :projects
             case permission_action.action
             when :create, :import_proposals, :project_taxonomy
               permission_action.allow!
-            when :update, :destroy
+            when :update
               permission_action.allow! if project.present?
             end
           when :order

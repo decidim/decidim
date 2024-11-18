@@ -185,6 +185,13 @@ en:
         browse: Browse
         category:
           new: New category
+        confirm_delete_component: |
+          Are you sure you want to delete this component?<br>
+          This component contains:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} resources</li>
+          </ul>
+          If you change your mind, you can restore it later.
         export: Export all
         export-selection: Export selection
         import: Import
@@ -196,12 +203,15 @@ en:
         per_page: Per page
         permissions: Permissions
         reject: Reject
+        restore: Restore
         send_me_a_test_email: Send me a test email
         share: Share
         share_tokens: Access links
+        soft_delete: Soft delete
         user:
           new: New admin
         verify: Verify
+        view_deleted_components: View deleted components
       admin_terms_of_service:
         accept:
           error: There was a problem while accepting the admin terms of service.
@@ -321,9 +331,6 @@ en:
           error: There was a problem creating this component.
           success: Component created successfully.
           success_landing_page: Component created successfully. You can add a content block for this component in the home of the space. Go to <a href="%{landing_page_path}">Landing page</a> to configure it.
-        destroy:
-          error: There was a problem destroying this component.
-          success: Component deleted successfully.
         edit:
           title: Edit component
           update: Update
@@ -340,6 +347,8 @@ en:
             name: Component name
             type: Component type
             visibility: Visibility
+        manage_trash:
+          title: Deleted components
         new:
           add: Add component
           title: 'Add component: %{name}'
@@ -573,6 +582,8 @@ en:
         logs_list:
           no_logs_yet: There are no logs yet.
           no_matching_logs: There are no logs with the provided search filters. Try to change them and retry.
+      manage_trash:
+        deleted_items_warning: You are currently viewing deleted items. To make any edits or changes, you must first restore them.
       managed_users:
         promotion:
           error: There was a problem promoting the managed participant.
@@ -1177,6 +1188,15 @@ en:
         taxonomy_filters: Taxonomy filters
         user_groups: Groups
         users: Administrators
+      tooltips:
+        deleted_component_info: This component can only be deleted if status is 'Unpublished'.
+      trash_management:
+        restore:
+          invalid: There was a problem restoring %{resource_name}.
+          success: "%{resource_name} successfully restored."
+        soft_delete:
+          invalid: There was a problem deleting %{resource_name}.
+          success: "%{resource_name} successfully deleted."
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.

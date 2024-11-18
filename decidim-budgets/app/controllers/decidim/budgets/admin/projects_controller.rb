@@ -6,6 +6,7 @@ module Decidim
       # This controller allows an admin to manage projects from a Participatory Process
       class ProjectsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
+        include Decidim::Admin::HasTrashableResources
         include Decidim::Admin::ComponentTaxonomiesHelper
         include Decidim::Budgets::Admin::Filterable
         helper Decidim::Budgets::Admin::ProjectBulkActionsHelper
@@ -172,6 +173,18 @@ module Decidim
 
         private
 
+        def trashable_deleted_resource_type
+          :project
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection ||= filtered_collection.only_deleted.deleted_at_desc
+        end
+
+        def find_parent_resource
+          @find_parent_resource ||= budget
+        end
+
         def projects
           @projects ||= filtered_collection
         end
@@ -205,7 +218,11 @@ module Decidim
         end
 
         def project
-          @project ||= projects.find(params[:id])
+          @project ||= filtered_collection.find_by(id: params[:id])
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= filtered_collection.with_deleted.find_by(id: params[:id])
         end
 
         def update_projects_bulk_response_successful(interpolations, subject, extra = {})

@@ -77,8 +77,8 @@ describe "Admin manages budgets" do
     end
   end
 
-  describe "deleting a budget" do
-    it "deletes a budget" do
+  describe "soft deleting a budget" do
+    it "moves to the trash a budget" do
       within "tr", text: translated(budget.title) do
         accept_confirm do
           page.find(".action-icon--remove").click
@@ -89,16 +89,6 @@ describe "Admin manages budgets" do
 
       within "table" do
         expect(page).to have_no_content(translated(budget.title))
-      end
-    end
-
-    context "when the budget has projects" do
-      let!(:budget) { create(:budget, :with_projects, component: current_component) }
-
-      it "cannot delete the budget" do
-        within "tr", text: translated(budget.title) do
-          expect(page).to have_no_css(".action-icon--remove")
-        end
       end
     end
   end
@@ -167,5 +157,15 @@ describe "Admin manages budgets" do
         end
       end
     end
+  end
+
+  describe "soft delete a budget" do
+    let(:admin_resource_path) { current_path }
+    let(:trash_path) { "#{admin_resource_path}/budgets/manage_trash" }
+    let(:title) { { en: "My budget" } }
+    let!(:resource) { create(:budget, title:, component: current_component) }
+
+    it_behaves_like "manage soft deletable resource", "budget"
+    it_behaves_like "manage trashed resource", "budget"
   end
 end

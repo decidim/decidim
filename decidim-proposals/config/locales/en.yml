@@ -491,7 +491,10 @@ en:
         title: Actions
       admin:
         actions:
+          confirm_delete_proposal: Are you sure you want to delete this proposal?
+          deleted_proposals_info: Deleted proposals can be restored from the trash.
           preview: Preview
+          view_deleted_proposals: View deleted proposals
         exports:
           proposal_comments: Comments
           proposals: Proposals
@@ -634,6 +637,8 @@ en:
             unassign_from_valuator: Unassign from valuator
             unassign_from_valuator_button: Unassign
             update: Update
+          manage_trash:
+            title: Deleted proposals
           new:
             create: Create
             title: Create proposal
@@ -694,6 +699,8 @@ en:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
           publish_answer: "%{user_name} published the answer to %{resource_name} proposal on the %{space_name} space"
+          restore: "%{user_name} restored the %{resource_name} proposal on the %{space_name} space"
+          soft_delete: "%{user_name} moved to trash the %{resource_name} proposal on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} official proposal on the %{space_name} space"
         proposal_note:
           create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
