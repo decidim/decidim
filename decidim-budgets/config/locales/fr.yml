@@ -36,8 +36,6 @@ fr:
       actions:
         attachment_collections: Dossiers
         attachments: Documents liés
-        confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
-        destroy: Supprimer
         edit: Modifier
         edit_projects: Gérer les projets
         import: Importer des propositions dans des projets
@@ -51,9 +49,6 @@ fr:
           create:
             invalid: Un problème est survenu lors de la création de ce budget.
             success: Budget créé avec succès.
-          destroy:
-            invalid: Un problème est survenu lors de la suppression de ce budget.
-            success: Budget supprimé avec succès.
           edit:
             title: Modifier le budget
             update: Mettre à jour le budget
@@ -80,8 +75,6 @@ fr:
           create:
             invalid: Il y a eu un problème lors de la création de ce projet.
             success: Projet créé avec succès.
-          destroy:
-            success: Projet supprimé avec succès.
           edit:
             title: Éditer un projet
             update: Mettre à jour
