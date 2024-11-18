@@ -18,9 +18,9 @@
     </td>
     <td class="table-list__actions">
       <% if lookup_context.find_all("decidim/#{component.manifest_name}/admin/component/_actions").any? %>
-        <%= render partial: "decidim/#{component.manifest_name}/admin/component/actions", locals: { component: } %>
+        <%= render partial: "decidim/#{component.manifest_name}/admin/component/actions", locals: { component:, view: } %>
       <% else %>
-        <%= render partial: "actions", locals: { component: } %>
+        <%= render partial: "actions", locals: { component:, view: } %>
       <% end %>
     </td>
   </tr>

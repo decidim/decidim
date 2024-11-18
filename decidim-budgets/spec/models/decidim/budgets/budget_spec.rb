@@ -6,6 +6,7 @@ describe Decidim::Budgets::Budget do
   subject(:budget) { build(:budget) }
 
   it { is_expected.to be_valid }
+  it { is_expected.to act_as_paranoid }
 
   include_examples "has component"
   include_examples "resourceable"

@@ -10,8 +10,8 @@ module Decidim
       let(:result) { build(:result) }
 
       it { is_expected.to be_valid }
-
       it { is_expected.to be_versioned }
+      it { is_expected.to act_as_paranoid }
 
       include_examples "has component"
       include_examples "has scope"
