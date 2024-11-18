@@ -235,7 +235,6 @@ bg:
         attachment_collections: Папки
         attachments: Прикачени файлове
         close: Затвори
-        confirm_destroy: Наистина ли искате да изтриете тази среща?
         destroy: Изтрий
         edit: Редактирай
         invalid_destroy:
