@@ -41,8 +41,6 @@ zh-CN:
     debates:
       actions:
         close: 关闭
-        confirm_destroy: 您确定吗？
-        destroy: 删除
         edit: 编辑
         title: 行动
       admin:
@@ -54,8 +52,6 @@ zh-CN:
           create:
             invalid: 有一个问题是如何建立辩论。
             success: 辩论成功创建。
-          destroy:
-            success: 辩论已成功删除。
           edit:
             title: 编辑辩论
             update: 更新辩论
