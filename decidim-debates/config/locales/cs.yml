@@ -52,8 +52,6 @@ cs:
     debates:
       actions:
         close: Zavřít
-        confirm_destroy: Jste si jisti?
-        destroy: Odstranit
         edit: Upravit
         new: Nová debata
         title: Akce
@@ -66,8 +64,6 @@ cs:
           create:
             invalid: Během debaty vznikl problém.
             success: Debata byla úspěšně vytvořena.
-          destroy:
-            success: Debata byla úspěšně smazána.
           edit:
             title: Upravit debatu
             update: Aktualizovat debatu
