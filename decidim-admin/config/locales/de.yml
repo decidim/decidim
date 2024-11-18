@@ -320,9 +320,6 @@ de:
           error: Beim Erstellen dieser Komponente ist ein Fehler aufgetreten.
           success: Komponente wurde erfolgreich erstellt.
           success_landing_page: Komponente erfolgreich erstellt. Sie können einen Inhaltsblock für diese Komponente auf der Startseite des Bereichs hinzufügen. Gehen Sie dazu zur <a href="%{landing_page_path}">Startseite</a>, um sie zu konfigurieren.
-        destroy:
-          error: Beim Löschen dieser Komponente ist ein Fehler aufgetreten.
-          success: Komponente wurde erfolgreich gelöscht.
         edit:
           title: Komponente bearbeiten
           update: Aktualisieren
