@@ -46,8 +46,6 @@ cs:
       actions:
         attachment_collections: Složky
         attachments: Přílohy
-        confirm_destroy: Opravdu chcete tento projekt smazat?
-        destroy: Smazat
         edit: Upravit
         edit_projects: Spravovat projekty
         import: Importovat návrhy do projektů
@@ -61,9 +59,6 @@ cs:
           create:
             invalid: Při vytváření tohoto rozpočtu došlo k chybě.
             success: Rozpočet byl úspěšně vytvořen.
-          destroy:
-            invalid: Při mazání tohoto rozpočtu došlo k chybě.
-            success: Rozpočet byl úspěšně odstraněn.
           edit:
             title: Upravit rozpočet
             update: Aktualizovat rozpočet
@@ -90,8 +85,6 @@ cs:
           create:
             invalid: Při vytváření tohoto projektu došlo k chybě.
             success: Projekt byl úspěšně vytvořen.
-          destroy:
-            success: Projekt byl úspěšně smazán.
           edit:
             title: Upravit projekt
             update: Aktualizace
