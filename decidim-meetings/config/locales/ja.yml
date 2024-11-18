@@ -238,8 +238,6 @@ ja:
         attachment_collections: フォルダ
         attachments: 添付ファイル
         close: 閉じる
-        confirm_destroy: このミーティングを削除してもよろしいですか？
-        destroy: 削除
         edit: 編集
         invalid_destroy:
           proposals_count:
@@ -318,11 +316,6 @@ ja:
           create:
             invalid: このミーティングの作成に問題がありました．
             success: ミーティングが正常に作成されました．これはまだ公開されていません．手動で公開する必要があります．
-          destroy:
-            invalid:
-              proposals_count:
-                other: '%{count} 件の提案が関連付けられているため、ミーティングを破壊できません。'
-            success: ミーティングを削除しました
           edit:
             title: ミーティングを編集
             update: 更新
