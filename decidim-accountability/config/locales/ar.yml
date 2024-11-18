@@ -116,8 +116,6 @@ ar:
           create:
             invalid: هناك مشكلة في إنشاء هذه النتيجة.
             success: تم إنشاء النتيجة بنجاح.
-          destroy:
-            success: تم حذف النتيجة بنجاح.
           edit:
             title: تحرير النتيجة
             update: تحديث النتيجة
