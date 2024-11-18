@@ -221,7 +221,6 @@ lt:
         attachment_collections: Aplankai
         attachments: Priedai
         close: Uždaryti
-        confirm_destroy: Ar tikrai norite panaikinti šį susirinkimą?
         destroy: Ištrinti
         edit: Redaguoti
         invalid_destroy:
