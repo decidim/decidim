@@ -201,8 +201,6 @@ ro:
         attachment_collections: Dosare
         attachments: Atașamente
         close: Închide
-        confirm_destroy: Sigur dorești să ştergi acestă întâlnire?
-        destroy: Ștergere
         edit: Editare
         invalid_destroy:
           proposals_count:
@@ -269,8 +267,6 @@ ro:
         meetings:
           create:
             success: Întâlnirea a fost creată. Țineți cont că publicarea nu este automată, trebuie să o publicați manual.
-          destroy:
-            success: Şedinţa a fost ştearsă
           edit:
             title: Editați ședința
             update: Actualizare
