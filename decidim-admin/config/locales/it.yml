@@ -255,9 +255,6 @@ it:
         create:
           error: Si è verificato un errore durante la creazione di questo componente.
           success: Componente creato con successo.
-        destroy:
-          error: C'è stato un errore nell'eliminare questo componente.
-          success: Componente cancellato con successo.
         edit:
           title: Modifica componente
           update: Aggiorna
