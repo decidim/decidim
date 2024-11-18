@@ -711,6 +711,7 @@ fi-pl:
           address: Tapaamisen osoite, mikäli tapaaminen on määritetty tiettyyn paikkaan
           attachments: Tapaamisen liitteiden lukumäärä
           attendees: Tapaamisen osallistuvien tai osallistuneiden ihmisten määrä
+          author: Tapaamisen laatijan tiedot
           comments: Tapaamisen kommenttien lukumäärä
           component: Tapaamisen komponentti
           contributions: Tapaamisen osallistujien tekemien kontribuutioiden lukumäärä
