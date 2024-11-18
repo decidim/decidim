@@ -138,7 +138,6 @@ zh-CN:
         attachment_collections: 文件夹
         attachments: 附件
         close: 关闭
-        confirm_destroy: 您确定要删除这个会议吗？
         destroy: 删除
         edit: 编辑
         invalid_destroy:
