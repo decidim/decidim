@@ -201,9 +201,6 @@ id:
         create:
           error: Terjadi kesalahan saat membuat komponen ini.
           success: Komponen berhasil dibuat.
-        destroy:
-          error: Terjadi kesalahan saat merusak komponen ini.
-          success: Komponen berhasil dihapus.
         edit:
           title: Edit komponen
           update: Memperbarui
