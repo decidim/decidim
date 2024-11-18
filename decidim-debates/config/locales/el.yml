@@ -45,8 +45,6 @@ el:
     debates:
       actions:
         close: Κλείσιμο
-        confirm_destroy: Είστε βέβαιοι;
-        destroy: Διαγραφή
         edit: Επεξεργασία
         title: Ενέργειες
       admin:
@@ -58,8 +56,6 @@ el:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία της συζήτησης.
             success: Η συζήτηση δημιουργήθηκε με επιτυχία.
-          destroy:
-            success: Η συζήτηση διαγράφηκε με επιτυχία.
           edit:
             title: Επεξεργασία συζήτησης
             update: Ενημέρωση συζήτησης
