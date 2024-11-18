@@ -46,8 +46,6 @@ ro:
     debates:
       actions:
         close: Închide
-        confirm_destroy: Sigur dorești asta?
-        destroy: Ștergere
         edit: Editare
         title: Acțiuni
       admin:
@@ -59,8 +57,6 @@ ro:
           create:
             invalid: A existat o problemă la crearea dezbaterii.
             success: Dezbatere creată cu succes.
-          destroy:
-            success: Dezbatere cu succes.
           edit:
             title: Editare dezbatere
             update: Actualizează dezbaterea
