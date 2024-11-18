@@ -50,8 +50,6 @@ fi-pl:
     debates:
       actions:
         close: Sulje
-        confirm_destroy: Oletko varma?
-        destroy: Poista
         edit: Muokkaa
         new: Uusi keskustelu
         title: Toiminnot
@@ -64,8 +62,6 @@ fi-pl:
           create:
             invalid: Keskustelua luotaessa tapahtui virhe.
             success: Keskustelu luotu onnistuneesti.
-          destroy:
-            success: Keskustelu poistettu onnistuneesti.
           edit:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
