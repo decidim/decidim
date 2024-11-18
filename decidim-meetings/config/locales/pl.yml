@@ -236,8 +236,6 @@ pl:
         attachment_collections: Folder
         attachments: Załączniki
         close: Zamknij
-        confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
-        destroy: Usuń
         edit: Edytuj
         invalid_destroy:
           proposals_count:
@@ -317,8 +315,6 @@ pl:
           create:
             invalid: Podczas tworzenia tego spotkania wystąpił błąd.
             success: Spotkanie zostało utworzone. Zauważ, że jest ono nieopublikowane, musisz je opublikować ręcznie.
-          destroy:
-            success: Spotkanie zostało pomyślnie usunięte
           edit:
             title: Edytuj spotkanie
             update: Aktualizuj
