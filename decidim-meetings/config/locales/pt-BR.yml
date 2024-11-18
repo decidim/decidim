@@ -234,7 +234,6 @@ pt-BR:
         attachment_collections: Pastas
         attachments: Anexos
         close: Fechar
-        confirm_destroy: Deseja mesmo excluir este encontro?
         destroy: Excluir
         edit: Editar
         invalid_destroy:
