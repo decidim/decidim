@@ -32,8 +32,6 @@ zh-TW:
       actions:
         attachment_collections: 資料夾
         attachments: 附件
-        confirm_destroy: 你確定要刪除這個專案嗎？
-        destroy: 刪除
         edit: 編輯
         edit_projects: 管理專案
         import: 將提案匯入專案
@@ -45,9 +43,6 @@ zh-TW:
           create:
             invalid: 建立預算時發生問題。
             success: 預算已成功建立
-          destroy:
-            invalid: 刪除此預算時出現問題
-            success: 預算已成功刪除
           edit:
             title: 編輯預算
             update: 更新預算
@@ -74,8 +69,6 @@ zh-TW:
           create:
             invalid: 這個專案創建時出了問題
             success: 專案建立成功
-          destroy:
-            success: 專案刪除成功
           edit:
             title: 編輯專案
             update: 更新
