@@ -207,9 +207,6 @@ lv:
         create:
           error: Šī komponenta izveides laikā radās problēma.
           success: Komponents ir veiksmīgi izveidots.
-        destroy:
-          error: Šī komponenta dzēšanas laikā radās problēma.
-          success: Komponents ir veiksmīgi izdzēsts.
         edit:
           title: Rediģēt komponentu
           update: Atjaunināt
