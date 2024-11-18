@@ -27,8 +27,8 @@
 
   <div class="comment__form-submit">
     <div class="<%= reply? ? "" : "publish-comment-button" %>">
-      <button type="submit" 
-              class="button button__sm button__secondary <%= reply? ? "w-full" : "h-9 close-comment-fullscreen" %>" 
+      <button type="submit"
+              class="button button__sm button__secondary <%= reply? ? "w-full" : "h-9 close-comment-fullscreen" %>"
               disabled="disabled">
         <span>
           <%= reply? ? t("decidim.components.add_comment_form.form.submit_reply") : t("decidim.components.add_comment_form.form.submit_root_comment") %>
