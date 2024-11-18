@@ -18,8 +18,7 @@ ca:
     blogs:
       actions:
         author_id: Crear publicació com
-        confirm_destroy: Segur que vols eliminar aquesta publicació?
-        destroy: Suprimeix
+        destroy: Esborrar
         edit: Edita
         new: Nova publicació
         title: Accions
