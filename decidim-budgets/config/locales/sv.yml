@@ -36,8 +36,6 @@ sv:
       actions:
         attachment_collections: Mappar
         attachments: Bilagor
-        confirm_destroy: Vill du radera projektet?
-        destroy: Radera
         edit: Redigera
         edit_projects: Hantera projekt
         import: Importera förslag till projekt
@@ -51,9 +49,6 @@ sv:
           create:
             invalid: Det gick inte att skapa budgeten.
             success: Budgeten har skapats.
-          destroy:
-            invalid: Det gick inte att radera budgeten.
-            success: Budgeten har raderats.
           edit:
             title: Redigera budget
             update: Uppdatera budget
@@ -80,8 +75,6 @@ sv:
           create:
             invalid: Det gick inte att skapa projektet.
             success: Projektet har skapats.
-          destroy:
-            success: Projektet har raderats.
           edit:
             title: Redigera projekt
             update: Uppdatera
