@@ -245,8 +245,6 @@ es-PY:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
         close: Cerrar
-        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
-        destroy: Borrar
         edit: Editar
         invalid_destroy:
           proposals_count:
@@ -326,12 +324,6 @@ es-PY:
           create:
             invalid: Se ha producido un error al crear este encuentro.
             success: Encuentro creado correctamente. Ten en cuenta que aún no se ha publicado, deberás publicarlo manualmente.
-          destroy:
-            invalid:
-              proposals_count:
-                one: No se puede eliminar el encuentro porque tiene %{count} propuesta relacionada.
-                other: No se puede eliminar el encuentro porque tiene %{count} propuestas relacionadas.
-            success: El encuentro se ha eliminado correctamente
           edit:
             title: Editar encuentro
             update: Actualizar
