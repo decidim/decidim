@@ -3,6 +3,7 @@ exclude_paths:
   - config/locales/((?!en).)*\.yml
   - decidim-dev/lib/decidim/dev/assets/participatory_text.md
   - decidim-core/lib/decidim/db/common-passwords.txt
+  - decidim-core/spec/lib/attributes/time_with_timezone_spec.rb
   - decidim-initiatives/spec/types/initiative_type_spec.rb
   - decidim-proposals/app/packs/documents/decidim/proposals/participatory_texts/participatory_text.md
   - decidim-ai/data/(.*).csv

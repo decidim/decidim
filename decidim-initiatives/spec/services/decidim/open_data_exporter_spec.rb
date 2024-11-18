@@ -12,7 +12,7 @@ describe Decidim::OpenDataExporter do
   let(:resource_title) { "## initiatives" }
   let(:help_lines) do
     [
-      "reference: The reference of the initiative. An unique identifier for this platform."
+      "reference: The unique reference of the space"
     ]
   end
   let(:unpublished_resource) { create(:initiative, :created, organization:) }

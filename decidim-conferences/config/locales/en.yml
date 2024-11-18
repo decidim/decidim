@@ -579,15 +579,18 @@ en:
     open_data:
       help:
         conferences:
+          created_at: The date this space was created
           decidim_scope_id: The scope of the conference
           description: A long description of the conference
           end_date: The date when this conference ends.
+          follows_count: The number of users following this space
           hashtag: The conference hashtag, used for Twitter/X
           id: The unique identifier of this conference
           location: The conference location. Where this conference will take place.
           objectives: The objectives for this conference. What is the goal.
           promoted: Wheter the conference is promoted or not
-          reference: The reference of the conference. An unique identifier for this platform.
+          published_at: The date this space was published
+          reference: The unique reference of the space
           remote_banner_image_url: The URL of the conference banner image
           remote_hero_image_url: The URL of the conference hero image
           scope: The scope of the conference
@@ -598,6 +601,8 @@ en:
           start_date: The date when this conference starts.
           taxonomies: The taxonomies of the conference
           title: The conference title
+          updated_at: The last date this space was updated
+          url: The URL of the space
     statistics:
       conferences_count: Conferences
   devise:
