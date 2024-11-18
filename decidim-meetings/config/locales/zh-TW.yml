@@ -205,8 +205,6 @@ zh-TW:
         attachment_collections: 資料夾
         attachments: 附件
         close: 關閉
-        confirm_destroy: 你確定要刪除此會議？
-        destroy: 刪除
         edit: 編輯
         invalid_destroy:
           proposals_count:
@@ -282,11 +280,6 @@ zh-TW:
           create:
             invalid: 建立會議時發生問題.
             success: 會議已成功建立。請注意這仍未發佈，您需要手動發佈。
-          destroy:
-            invalid:
-              proposals_count:
-                other: 該會議因有 %{count} 個相關提案而無法刪除.
-            success: 會議已成功刪除
           edit:
             title: 編輯會議
             update: 更新
