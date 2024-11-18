@@ -314,8 +314,8 @@ en:
           description: The description of the result
           end_date: The date when the result ends execution and it is finished
           id: The unique identifier of the result
-          latitude: The latitude of the project in case it has a physical location
-          longitude: The longitude of the project in case it has a physical location
+          latitude: The latitude of the result in case it has a physical location
+          longitude: The longitude of the result in case it has a physical location
           parent: The parent result (if any) of the result
           progress: The percentage of the execution of the result
           proposal_urls: The URLs of the proposals that are included in this result
