@@ -28,6 +28,7 @@ fi-pl:
     download_your_data:
       show:
         answers: Vastausten vienti
+        survey_user_answers: Käyttäjän luomat kyselyjen vastaukset
     forms:
       admin:
         models:
