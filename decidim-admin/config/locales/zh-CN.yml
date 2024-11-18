@@ -217,9 +217,6 @@ zh-CN:
         create:
           error: 创建此组件时出现问题。
           success: 组件创建成功。
-        destroy:
-          error: 销毁此组件时出现问题。
-          success: 组件删除成功。
         edit:
           title: 编辑组件
           update: 更新
