@@ -209,9 +209,6 @@ sr:
         create:
           error: Nastao je problem pri stvaranju ove komponente.
           success: Komponenta je uspešno stvorena.
-        destroy:
-          error: Nastao je problem pri uništavanju ove komponente.
-          success: Komponenta je uspešno obrisana.
         edit:
           title: Uređivanje komponente
           update: Ažuriraj
