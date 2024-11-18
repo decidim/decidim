@@ -84,8 +84,6 @@ ro:
           create:
             invalid: A apărut o problemă la crearea acestui rezultat.
             success: Rezultatul a fost creat.
-          destroy:
-            success: Rezultatul a fost șters.
           edit:
             title: Actualizare rezultat
             update: Actualizare rezultat
