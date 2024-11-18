@@ -45,8 +45,6 @@ bg:
     debates:
       actions:
         close: Затвори
-        confirm_destroy: Сигурни ли сте?
-        destroy: Изтрий
         edit: Редактирай
         new: Нов дебат
         title: Активности
@@ -59,8 +57,6 @@ bg:
           create:
             invalid: Възникна проблем при създаването на дебата.
             success: Дебатът беше създаден успешно.
-          destroy:
-            success: Дебатът беше изтрит успешно.
           edit:
             title: Редактиране на дебата
             update: Актуализиране на дебата
