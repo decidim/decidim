@@ -103,8 +103,6 @@ hu:
           create:
             invalid: Volt egy probléma az eredmény létrehozásával.
             success: Eredmény sikeresen létrehozva.
-          destroy:
-            success: Eredmény sikeresen törölve.
           edit:
             title: Eredmény szerkesztése
             update: Eredmény frissítése
