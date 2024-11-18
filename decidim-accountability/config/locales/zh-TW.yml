@@ -92,8 +92,6 @@ zh-TW:
           create:
             invalid: 建立結果時發生錯誤.
             success: 結果成功建立.
-          destroy:
-            success: 結果成功刪除.
           edit:
             title: 編輯結果
             update: 更新結果
