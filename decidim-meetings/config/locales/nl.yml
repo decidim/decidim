@@ -171,8 +171,6 @@ nl:
         attachment_collections: Mappen
         attachments: Bijlagen
         close: Sluit
-        confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
-        destroy: Verwijderen
         edit: Bewerk
         invalid_destroy:
           proposals_count:
@@ -238,8 +236,6 @@ nl:
         meetings:
           create:
             success: Vergadering met succes aangemaakt. Merk op dat deze nog niet gepubliceerd is, je moet deze nog handmatig publiceren.
-          destroy:
-            success: Vergadering succesvol verwijderd
           edit:
             title: Vergadering bewerken
             update: Bijwerken
