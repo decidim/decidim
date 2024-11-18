@@ -259,9 +259,6 @@
         create:
           error: Det oppstod et problem med å opprette denne komponenten.
           success: Komponent ble opprettet.
-        destroy:
-          error: Det oppstod et problem med å ødelegge denne komponenten.
-          success: Komponent ble slettet.
         edit:
           title: Rediger komponent
           update: Oppdater
