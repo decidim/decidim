@@ -235,7 +235,6 @@ eu:
         attachment_collections: Karpetak
         attachments: Eranskinak
         close: Itxi
-        confirm_destroy: Ziur zaude topaketa hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         invalid_destroy:
