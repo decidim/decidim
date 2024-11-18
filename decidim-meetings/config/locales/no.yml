@@ -165,8 +165,6 @@
         attachment_collections: Mapper
         attachments: Vedlegg
         close: Lukk
-        confirm_destroy: Er du sikker på at du vil slette dette møtet?
-        destroy: Slett
         edit: Rediger
         invalid_destroy:
           proposals_count:
@@ -232,8 +230,6 @@
         meetings:
           create:
             success: Møtet ble opprettet. Merk at dette ikke er publisert enda, du må publisere det manuelt.
-          destroy:
-            success: Møtet ble slettet
           edit:
             title: Rediger møte
             update: Oppdater
