@@ -29,8 +29,6 @@ ko:
         projects:
           create:
             success: 프로젝트가 성공적으로 생성되었습니다.
-          destroy:
-            success: 프로젝트가 성공적으로 삭제되었습니다.
           edit:
             title: 프로젝트 수정
             update: 업데이트
