@@ -217,7 +217,6 @@ es-PY:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
         close: Cerrar
-        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Borrar
         edit: Editar
         invalid_destroy:
