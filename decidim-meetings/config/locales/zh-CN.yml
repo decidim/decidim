@@ -131,8 +131,6 @@ zh-CN:
         attachment_collections: 文件夹
         attachments: 附件
         close: 关闭
-        confirm_destroy: 您确定要删除这个会议吗？
-        destroy: 删除
         edit: 编辑
         invalid_destroy:
           proposals_count:
@@ -192,8 +190,6 @@ zh-CN:
             close: 关闭
             title: 关闭会议
         meetings:
-          destroy:
-            success: 会议已成功删除
           edit:
             update: 更新
           form:
