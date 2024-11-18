@@ -320,9 +320,6 @@ eu:
           error: Arazo bat egon da osagai hau sortzean.
           success: Osagaia zuzen sortua.
           success_landing_page: Osagaia zuzuen osatua. Eduki bloke bat gehitu ahal duzu osagai honetarako parte hartzeko espazioaren hasiera-orrian. Zoaz hasiera-orrira konfiguratzeko. <a href="%{landing_page_path}">.
-        destroy:
-          error: Arazo bat egon da osagai hau suntsitzean.
-          success: Osagaia behar bezala ezabatua.
         edit:
           title: Editatu osagaia
           update: Eguneratu
