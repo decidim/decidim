@@ -19,7 +19,6 @@ sk:
       actions:
         attachment_collections: Priečinky
         attachments: Prílohy
-        confirm_destroy: Naozaj chcete odstrániť tento projekt?
         destroy: Odstrániť
         edit: Upraviť
         import: Importovať návrhy do projektov
