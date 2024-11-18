@@ -23,8 +23,6 @@ ar:
       actions:
         attachment_collections: المجلدات
         attachments: مرفقات
-        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا المشروع؟
-        destroy: حذف
         edit: تعديل
         edit_projects: إدارة المشاريع
         import: استيراد مقترحات للمشاريع
