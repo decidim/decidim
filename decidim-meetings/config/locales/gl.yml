@@ -142,8 +142,6 @@ gl:
         attachment_collections: Carpetas
         attachments: Anexos
         close: Pechar
-        confirm_destroy: Estás seguro de que queres eliminar esta reunión?
-        destroy: Eliminar
         edit: Editar
         preview: Vista previa
         registrations: Rexistros
@@ -201,8 +199,6 @@ gl:
             close: Pechar
             title: Pechar reunión
         meetings:
-          destroy:
-            success: Reunión eliminada correctamente
           edit:
             update: Actualización
           index:
