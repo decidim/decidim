@@ -1174,7 +1174,6 @@ shared_examples "comments with two columns" do
     end
   end
 
-
   context "when commentable is not closed" do
     let!(:oldest_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 3.days.ago) }
     let!(:older_in_favor_comment) { create(:comment, :in_favor, commentable:, created_at: 2.days.ago) }
