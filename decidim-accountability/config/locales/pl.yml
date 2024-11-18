@@ -105,8 +105,6 @@ pl:
           create:
             invalid: Podczas tworzenia tego wyniku wystąpił błąd.
             success: Wynik został pomyślnie utworzony.
-          destroy:
-            success: Wynik został pomyślnie usunięty.
           edit:
             title: Edytuj wynik
             update: Zaktualizuj wynik
