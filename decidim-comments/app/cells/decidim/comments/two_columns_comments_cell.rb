@@ -4,66 +4,79 @@ module Decidim
   module Comments
     # A cell to render comments in two columns layout.
     class TwoColumnsCommentsCell < Decidim::ViewModel
+
       def call
-        if model.closed?
-          assign_top_comments
-
-          @sorted_comments_in_favor = sorted_comments_without_top(@top_comment_in_favor, comments_in_favor)
-          @sorted_comments_against = sorted_comments_without_top(@top_comment_against, comments_against)
-        else
-          @sorted_comments_in_favor = comments_in_favor
-          @sorted_comments_against = comments_against
-        end
-
+        initialize_comments
         @interleaved_comments = interleave_comments(@sorted_comments_in_favor, @sorted_comments_against)
-
         render :show
       end
 
       def render_column(top_comment, comments, icon_name, title)
-        @top_comment = top_comment
-        @comments = comments
-        @icon_name = icon_name
-        @title = title
-
+        set_column_variables(top_comment, comments, icon_name, title)
         render :column
       end
 
       private
 
-      def assign_top_comments
-        @top_comment_in_favor = top_comment(comments_in_favor)
-        @top_comment_against = top_comment(comments_against)
+      def initialize_comments
+        if model.closed?
+          load_closed_comments
+        else
+          @sorted_comments_in_favor = comments_in_favor
+          @sorted_comments_against = comments_against
+        end
       end
 
-      def top_comment(comments)
-        comments.reorder(up_votes_count: :desc).where("up_votes_count > 0").first
+      def load_closed_comments
+        @top_comment_in_favor, @sorted_comments_in_favor = sorted_comments(comments_in_favor)
+        @top_comment_against, @sorted_comments_against = sorted_comments(comments_against)
       end
 
-      def sorted_comments_without_top(top_comment, comments)
-        return comments unless model.closed?
+      def sorted_comments(comments)
+        top_comment = find_top_comment(comments)
+        sorted_comments = comments.where.not(id: top_comment&.id).order(created_at: :asc)
+        [top_comment, sorted_comments]
+      end
 
-        comments.where.not(id: top_comment&.id).order(created_at: :asc)
+      def find_top_comment(comments)
+        comments.reorder(up_votes_count: :desc).find_by("up_votes_count > 0")
       end
 
       def interleave_comments(comments_in_favor, comments_against)
-        result = []
-        max_length = [comments_in_favor.size, comments_against.size].max.to_i
+        interleave_top_comments + interleave_remaining_comments(comments_in_favor, comments_against)
+      end
+
+      def interleave_top_comments
+        return [] unless model.closed?
+
+        Array(@top_comment_in_favor) + Array(@top_comment_against)
+      end
+
+      def interleave_remaining_comments(comments_in_favor, comments_against)
+        interleaved = []
+        max_length = [comments_in_favor.size, comments_against.size].max
 
         max_length.times do |i|
-          result << comments_in_favor[i] if comments_in_favor[i]
-          result << comments_against[i] if comments_against[i]
+          interleaved << comments_in_favor[i] if comments_in_favor[i]
+          interleaved << comments_against[i] if comments_against[i]
         end
 
-        result
+        interleaved
       end
 
       def comments_in_favor
-        @comments_in_favor ||= model.comments.positive.order(created_at: :asc)
+        @comments_in_favor ||= model.comments.positive.order(:created_at)
       end
 
       def comments_against
-        @comments_against ||= model.comments.negative.order(created_at: :asc)
+        @comments_against ||= model.comments.negative.order(:created_at)
+      end
+
+      def set_column_variables(top_comment, comments, icon_name, title)
+        @top_comment = top_comment
+        @comments = comments
+        @icon_name = icon_name
+        @title = title
       end
     end
   end

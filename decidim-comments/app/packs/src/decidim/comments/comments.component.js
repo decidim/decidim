@@ -13,6 +13,7 @@
 const $ = window.$;
 
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior";
+import { screens } from "tailwindcss/defaultTheme"
 
 export default class CommentsComponent {
   constructor($element, config) {
@@ -62,7 +63,11 @@ export default class CommentsComponent {
     const desktopContainer = document.getElementById("desktopContainer");
     const mobileContainer = document.getElementById("mobileContainer");
 
-    if (window.innerWidth >= 768) {
+    if (!desktopContainer || !mobileContainer) {
+      return;
+    }
+
+    if (window.matchMedia(`(min-width: ${screens.md})`).matches) {
       if (mobileContainer && mobileContainer.parentElement) {
         mobileContainer.remove();
       }
