@@ -259,9 +259,6 @@ nl:
         create:
           error: Er is een fout opgetreden bij het aanmaken van dit onderdeel.
           success: Onderdeel met succes gemaakt.
-        destroy:
-          error: Er is een fout opgetreden bij het vernietigen van dit onderdeel.
-          success: Onderdeel succesvol verwijderd.
         edit:
           title: Bewerk onderdeel
           update: Bijwerken
