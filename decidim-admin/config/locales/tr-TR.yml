@@ -229,9 +229,6 @@ tr:
         create:
           error: Bu bileşeni oluştururken bir hata oluştu.
           success: Bileşen başarıyla oluşturuldu.
-        destroy:
-          error: Bu bileşeni yok eden bir hata oluştu.
-          success: Bileşen başarıyla silindi.
         edit:
           title: Bileşeni düzenle
           update: Güncelleştirme
