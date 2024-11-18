@@ -230,8 +230,6 @@ sv:
         attachment_collections: Mappar
         attachments: Bifogade filer
         close: Stäng
-        confirm_destroy: Är du säker på att du vill radera mötet?
-        destroy: Radera
         edit: Redigera
         invalid_destroy:
           proposals_count:
@@ -309,12 +307,6 @@ sv:
           create:
             invalid: Det gick inte att skapa mötet.
             success: Mötet har skapats men är ännu inte publicerat, du måste publicera det manuellt.
-          destroy:
-            invalid:
-              proposals_count:
-                one: Mötet kan inte raderas eftersom det finns %{count} relaterat förslag.
-                other: Mötet kan inte raderas eftersom det finns %{count} relaterade förslag.
-            success: Mötet har tagits bort
           edit:
             title: Redigera möte
             update: Uppdatera
