@@ -45,8 +45,6 @@ sv:
     debates:
       actions:
         close: Stäng
-        confirm_destroy: Är du säker?
-        destroy: Radera
         edit: Redigera
         new: Ny debatt
         title: Åtgärder
@@ -59,8 +57,6 @@ sv:
           create:
             invalid: Det gick inte att skapa debatten.
             success: Debatten har skapats.
-          destroy:
-            success: Debatten har raderats.
           edit:
             title: Redigera debatt
             update: Uppdatera debatt
