@@ -17,8 +17,6 @@ fi:
     blogs:
       actions:
         author_id: Luo artikkeli käyttäjänä
-        confirm_destroy: Haluatko varmasti poistaa tämän artikkelin?
-        destroy: Poista
         edit: Muokkaa
         new: Uusi artikkeli
         title: Toiminnot
@@ -27,8 +25,6 @@ fi:
           create:
             invalid: Artikkelin luonti epäonnistui.
             success: Artikkelin luonti onnistui.
-          destroy:
-            success: Artikkelin poisto onnistui.
           edit:
             save: Päivitä
             title: Muokkaa artikkelia
