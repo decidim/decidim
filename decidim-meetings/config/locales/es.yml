@@ -217,7 +217,6 @@ es:
         attachment_collections: Carpetas
         attachments: Adjuntos
         close: Cerrar
-        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
         destroy: Elimina
         edit: Editar
         invalid_destroy:
