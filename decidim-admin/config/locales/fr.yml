@@ -320,9 +320,6 @@ fr:
           error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
           success_landing_page: Fonctionnalité créée avec succès. Vous pouvez ajouter un bloc de contenu pour cette fonctionnalité sur la page d'accueil de l'espace. Rendez-vous sur <a href="%{landing_page_path}">la page d'accueil de l'espace</a> pour la configurer.
-        destroy:
-          error: Une erreur s'est produite lors de la suppression de cette fonctionnalité.
-          success: La fonctionnalité a été supprimée avec succès.
         edit:
           title: Modifier la fonctionnalité
           update: Mettre à jour
