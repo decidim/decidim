@@ -32,13 +32,18 @@ module Decidim
       end
 
       def sorted_comments(comments)
+        # byebug
         top_comment = find_top_comment(comments)
         sorted_comments = comments.where.not(id: top_comment&.id).order(created_at: :asc)
         [top_comment, sorted_comments]
       end
 
       def find_top_comment(comments)
-        comments.reorder(up_votes_count: :desc).find_by("up_votes_count > 0")
+        comments
+          .select("*, (up_votes_count - down_votes_count) AS vote_balance, up_votes_count AS upvotes, down_votes_count AS downvotes")
+          .where("up_votes_count > 0")
+          .reorder("vote_balance DESC, upvotes DESC, downvotes ASC, created_at ASC")
+          .first
       end
 
       def interleave_comments(comments_in_favor, comments_against)
