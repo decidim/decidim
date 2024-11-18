@@ -18,7 +18,6 @@ sq:
     blogs:
       actions:
         author_id: Krijo postimin si
-        confirm_destroy: Je i sigurt që dëshiron ta fshish këtë postim?
         destroy: Fshij
         edit: Përpuno
         new: Postim i ri
