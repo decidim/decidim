@@ -16,6 +16,9 @@ module Decidim
       def serialize
         {
           id: project.id,
+          author: {
+            **author_fields
+          },
           taxonomies: {
             id: project.taxonomies.map(&:id),
             name: project.taxonomies.map(&:name)
