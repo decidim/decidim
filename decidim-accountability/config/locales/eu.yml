@@ -42,7 +42,9 @@ eu:
       actions:
         attachment_collections: Karpetak
         attachments: Erantsitako artxiboak
+        confirm_delete_result: Ziur zaude emaitza hau ezabatu nahi duzula?
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
+        deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
         destroy: Ezabatu
         edit: Editatu
         import: Inportatu proposamenak beste osagai batetik
@@ -53,6 +55,7 @@ eu:
         preview: Aurreikusi
         timeline_entries: Proiektuaren bilakaera
         title: Ekintzak
+        view_deleted_results: Ikusi ezabatutako emaitzak
       admin:
         exports:
           result_comments: Iruzkinak
@@ -117,6 +120,8 @@ eu:
             update: Eguneratu emaitza
           index:
             title: Emaitzak
+          manage_trash:
+            title: Ezabatutako emaitzak
           new:
             create: Sortu emaitza
             title: Beste emaitza bat
