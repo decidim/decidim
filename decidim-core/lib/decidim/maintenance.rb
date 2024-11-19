@@ -9,5 +9,6 @@ module Decidim
     autoload :TaxonomyPlan, "decidim/maintenance/taxonomy_plan"
     autoload :ParticipatoryProcessType, "decidim/maintenance/participatory_process_type"
     autoload :AssemblyType, "decidim/maintenance/assembly_type"
+    autoload :Scope, "decidim/maintenance/scope"
   end
 end
