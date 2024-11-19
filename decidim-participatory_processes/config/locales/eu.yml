@@ -377,6 +377,7 @@ eu:
           description: Prozesuaren deskribapen luzea
           developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.
           end_date: Prozesuaren amaiera-data
+          follows_count: Espazio hau zenbat erabiltzailek jarraitzen duten
           hashtag: Prozesuaren traola, Twitter/Xerako erabilia
           id: Prozesu honen identifikatzaile bakarra
           local_area: Prozesuaren tokiko eremua. Hau da prozesua garatzen ari den erakundearen arloa.
@@ -386,6 +387,8 @@ eu:
           participatory_scope: Prozesuaren parte-hartze esparrua
           participatory_structure: Prozesuaren egitura parte-hartzailea. Horrela erabakitzen da prozesua.
           promoted: Prozesua sustatu den ala ez
+          published_at: Zein egunetan argitaratu zen espazio hau
+          reference: Espazioaren erreferentzia bakarra
           remote_hero_image_url: Prozesuaren irudi nagusiaren URLa
           scope: Prozesuaren esparrua
           scopes_enabled: Esparruak gaituta dauden ala ez
@@ -395,6 +398,7 @@ eu:
           subtitle: Prosezuaren azpititulua
           target: Prozesuaren helburuak. Honi deitzen zaio prozesuan parte hartzeko.
           title: Prozesuaren izenburua
+          updated_at: Zein egunetan eguneratu zen azken aldiz espazio hau
           url: Espazioaren URLa
     participatory_process_groups:
       content_blocks:
