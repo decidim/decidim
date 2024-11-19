@@ -44,6 +44,7 @@ eu:
       actions:
         attachment_collections: Karpetak
         attachments: Fitxategi erantsiak
+        confirm_destroy: Ziur zaude proiektu hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         edit_projects: Kudeatu proiektuak
