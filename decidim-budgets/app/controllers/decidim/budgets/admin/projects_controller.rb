@@ -67,17 +67,6 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to(:destroy, :project, project:)
-
-          Decidim::Commands::DestroyResource.call(project, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("projects.destroy.success", scope: "decidim.budgets.admin")
-              redirect_to budget_projects_path(budget)
-            end
-          end
-        end
-
         def update_taxonomies
           enforce_permission_to :update, :project_taxonomy
 

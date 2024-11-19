@@ -131,7 +131,7 @@ en:
               selected: 'These projects were successfully selected for implementation: %{successful}.'
               unselected: 'These projects were successfully unselected from implementation: %{successful}.'
           update_taxonomies:
-            invalid: 'These projects already had the %{taxonomies} taxonomies: %{errored}.'
+            invalid: 'Taxonomies %{taxonomies} where already assigned on these projects: %{errored}.'
             select_a_project: Please select a project.
             select_a_taxonomy: Please select a taxonomy.
             success: 'Projects successfully updated to the %{taxonomies} taxonomies: %{successful}.'
