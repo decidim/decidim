@@ -384,7 +384,8 @@ describe "Decidim::Api::QueryType" do
 
         Decidim::AssemblyUserRole::ROLES.each do |role|
           context "when the user is space #{role}" do
-            let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+            let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+            let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role:) }
 
             it "is visible" do
               expect(response["assembly"]["components"].first[lookout_key]).to eq(query_result)
@@ -429,13 +430,22 @@ describe "Decidim::Api::QueryType" do
           end
         end
 
-        Decidim::ParticipatorySpaceUser::ROLES.each do |role|
+        %w(admin collaborator valuator).each do |role|
           context "when the user is space #{role}" do
-            let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+            let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+            let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role:) }
 
             it "is visible" do
               expect(response["assembly"]["components"].first[lookout_key]).to be_nil
             end
+          end
+        end
+        context "when the user is space moderator" do
+          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+          let!(:role) { create(:assembly_user_role, assembly: participatory_process, user: current_user, role: "moderator") }
+
+          it "is visible" do
+            expect(response["assembly"]["components"].first).to be_nil
           end
         end
 
