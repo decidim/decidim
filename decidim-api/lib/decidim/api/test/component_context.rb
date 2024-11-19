@@ -214,9 +214,8 @@ shared_examples "with resource visibility" do
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         it_behaves_like "graphQL hidden component"
-
       end
-      
+
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         let!(:participatory_space_private_user) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
@@ -236,7 +235,6 @@ shared_examples "with resource visibility" do
       it_behaves_like "graphQL resource visible for space roles"
 
       it_behaves_like "graphQL space hidden to visitor"
-
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
