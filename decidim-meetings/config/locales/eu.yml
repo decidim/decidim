@@ -245,6 +245,7 @@ eu:
         attachment_collections: Karpetak
         attachments: Eranskinak
         close: Itxi
+        deleted_meetings_info: Ezabatutako topaketak zaborretik berreskura daitezke.
         edit: Editatu
         invalid_destroy:
           proposals_count:
@@ -255,6 +256,7 @@ eu:
         preview: Aurreikusi
         registrations: Izen-emateak
         title: Ekintzak
+        view_deleted_meetings: Ikusi ezabatutako topaketak
       admin:
         agenda:
           agenda_item:
@@ -351,6 +353,8 @@ eu:
               actions: Ekintzak
               component: Loturiko espazioak
             title: Loturiko espazioak
+          manage_trash:
+            title: Ezabatutako topaketak
           new:
             create: Sortu
             title: Sortu topaketa
