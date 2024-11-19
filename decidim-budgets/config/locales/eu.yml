@@ -42,6 +42,9 @@ eu:
       actions:
         attachment_collections: Karpetak
         attachments: Fitxategi erantsiak
+        confirm_delete_budget: Ziur zaude aurrekontu hau ezabatu nahi duzula?
+        confirm_delete_project: Ziur zaude proiektu hau ezabatu nahi duzula?
+        deleted_budgets_info: Ezabatutako aurrekontuak berreskura daitezke zaborrontzitik.
         edit: Editatu
         edit_projects: Kudeatu proiektuak
         import: Inportatu proposamenak proiektuetarako
@@ -50,6 +53,8 @@ eu:
         preview: Aurreikusi
         send_voting_reminders: Bidali bozketa gogorarazteko
         title: Ekintzak
+        view_deleted_budgets: Ikusi ezabatutako aurrekontuak
+        view_deleted_projects: Ikusi ezabatutako proiektuak
       admin:
         budgets:
           create:
@@ -64,6 +69,8 @@ eu:
             title: Aurrekontuak
             users_with_finished_orders: Erabiltzaile hauek botoak emanda
             users_with_pending_orders: Erabiltzaile hauek botoak emateke
+          manage_trash:
+            title: Ezabatutako aurrekoantuak
           new:
             create: Sortu aurrekontua
             title: Beste aurrekontu bat
@@ -103,6 +110,8 @@ eu:
             update: Eguneratu
             update_budget_button: Eguneratu proiektuaren aurrekontua
             update_scope_button: Eguneratu esparrua
+          manage_trash:
+            title: Ezabatutako proiektuak
           new:
             create: Sortu
             title: Beste proiektu bat
@@ -154,10 +163,14 @@ eu:
         budget:
           create: "%{user_name} k sortu du %{resource_name} aurrekontua %{space_name} esparruan"
           delete: "%{user_name} k ezabatu du %{resource_name} aurrekontua %{space_name} esparruan"
+          restore: "%{user_name} k berreskuratu du %{resource_name} aurrekontua hemen: %{space_name}"
+          soft_delete: "%{user_name} k eraman du hemengo: %{space_name} %{resource_name} aurrekontua zaborrontzira"
           update: "%{user_name} k eguneratu du %{resource_name} aurrekontua %{space_name} esparruan"
         project:
           create: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan sortu zen"
           delete: "%{user_name} k %{resource_name} proiektua %{space_name} espazioan ezabatu da"
+          restore: "%{user_name} k berreskuratu du %{resource_name} proiektua hemen: %{space_name}"
+          soft_delete: "%{user_name} k eraman du hemengo: %{space_name} %{resource_name} proiektua zaborrontzira"
           update: "%{user_name} k %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
       budget_information_modal:
         back_to: Itzuli hona %{component_name}
