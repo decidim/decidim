@@ -389,6 +389,7 @@ eu:
           subtitle: Prosezuaren azpititulua
           target: Prozesuaren helburuak. Honi deitzen zaio prozesuan parte hartzeko.
           title: Prozesuaren izenburua
+          url: Espazioaren URLa
     participatory_process_groups:
       content_blocks:
         extra_data:
