@@ -629,7 +629,7 @@ Additional context: This has been revealed as an issue during a security audit o
 |No
 
 |*DECIDIM_ENABLE_ETIQUETTE_VALIDATOR*
-|Enable/Disable Etiquette validator. The etiquette validator is applied to the create forms of Proposals, Meetings, and Debates for both regular and admin users.
+|Enable/Disable Etiquette validator. The etiquette validator is applied to the create and edit forms of Proposals, Meetings, and Debates for both regular and admin users.
 |true
 |No
 

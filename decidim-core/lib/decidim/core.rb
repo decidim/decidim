@@ -883,7 +883,6 @@ module Decidim
     0.seconds
   end
 
-  # Disable Etiquette validator
   # The etiquette validator is applied to the create and edit forms of Proposals, Meetings,
   # and Debates for both regular and admin users.
   config_accessor :enable_etiquette_validator do
