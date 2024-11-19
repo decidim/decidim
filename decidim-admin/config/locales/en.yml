@@ -791,7 +791,7 @@ en:
           deliver: Deliver newsletter
           followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
           none: None
-          participants_help: Sends newsletter to all confirmed users who are private members of any selected participatory spaces.
+          participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
           private_members_help: Sends a newsletter to all confirmed users that have been added to the selected private participatory spaces.
           recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong> users.
           scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.

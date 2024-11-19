@@ -30,18 +30,13 @@ module Decidim
 
         return recipients if @form.send_to_all_users
 
-        followers = recipients.where(id: user_id_of_followers) if @form.send_to_followers
+        filters = [
+          (@form.send_to_followers ? user_id_of_followers : nil),
+          (@form.send_to_participants ? participant_ids : nil),
+          (@form.send_to_private_members ? private_member_ids : nil)
+        ].compact
 
-        participants = recipients.where(id: participant_ids) if @form.send_to_participants
-
-        private_members = recipients.where(id: private_member_ids) if @form.send_to_private_members
-
-        grouped_recipients = []
-        grouped_recipients += participants if @form.send_to_participants
-        grouped_recipients += followers if @form.send_to_followers
-        grouped_recipients += private_members if @form.send_to_private_members
-
-        grouped_recipients.uniq
+        recipients.where(id: filters.flatten.uniq)
       end
 
       private
