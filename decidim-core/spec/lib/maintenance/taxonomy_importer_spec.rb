@@ -16,10 +16,11 @@ module Decidim::Maintenance
     let(:json_taxonomies) do
       {
         "New taxonomy" => {
-          "name" => { organization.default_locale => "New taxonomy" },
+          "name" => { organization.default_locale => "New taxonomy", "ca" => "Nova taxonomia" },
           "resources" => {},
           "children" => {
             "New child taxonomy" => {
+              "name" => child_name,
               "children" => {},
               "resources" => {
                 resource_id => "Descriptive title"
@@ -32,8 +33,8 @@ module Decidim::Maintenance
     let(:json_filters) do
       {
         "New root taxonomy" => {
-          "space_filter" => true,
-          "space_manifest" => "participatory_processes",
+          "space_filter" => space_filter,
+          "space_manifest" => space_manifest,
           "items" => [["New taxonomy", "New child taxonomy"]],
           "components" => [
             component_id
@@ -41,6 +42,9 @@ module Decidim::Maintenance
         }
       }
     end
+    let(:space_filter) { true }
+    let(:space_manifest) { "participatory_processes" }
+    let(:child_name) { {} }
     let(:roots) do
       {
         "New root taxonomy" => {
@@ -61,7 +65,9 @@ module Decidim::Maintenance
         expect(dummy_resource.taxonomies.all).to eq([child_taxonomy])
         expect(root_taxonomy.name[organization.default_locale]).to eq("New root taxonomy")
         expect(taxonomy.name[organization.default_locale]).to eq("New taxonomy")
+        expect(taxonomy.name["ca"]).to eq("Nova taxonomia")
         expect(child_taxonomy.name[organization.default_locale]).to eq("New child taxonomy")
+        expect(child_taxonomy.name["ca"]).to be_nil
         expect(dummy_resource.taxonomies.all).to eq([child_taxonomy])
       end
 
@@ -72,6 +78,23 @@ module Decidim::Maintenance
         expect(filter.filter_items.count).to eq(1)
         expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)
         expect(component.reload.settings[:taxonomy_filters]).to eq([filter.id.to_s])
+      end
+
+      context "when different values are used" do
+        let(:space_filter) { false }
+        let(:space_manifest) { "assemblies" }
+        let(:child_name) { { organization.default_locale => "New child taxonomy", "ca" => "Nova taxonomia filla" } }
+
+        it "imports the filters" do
+          expect { subject.import! }.to change(Decidim::TaxonomyFilterItem, :count).by(1)
+          expect(child_taxonomy.name[organization.default_locale]).to eq("New child taxonomy")
+          expect(child_taxonomy.name["ca"]).to eq("Nova taxonomia filla")
+          expect(filter.space_filter).to be_falsey
+          expect(filter.space_manifest).to eq("assemblies")
+          expect(filter.filter_items.count).to eq(1)
+          expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)
+          expect(component.reload.settings[:taxonomy_filters]).to eq([filter.id.to_s])
+        end
       end
 
       it "sets the result with the changes performed" do
@@ -99,7 +122,7 @@ module Decidim::Maintenance
         it "does not assign the filter to the component" do
           expect { subject.import! }.to change(Decidim::Taxonomy, :count).by(3)
           expect(filter.filter_items.count).to eq(1)
-          expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)  
+          expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)
           expect(component.reload.settings[:taxonomy_filters]).to be_empty
           expect(subject.result[:failed_components]).to eq([component_id])
         end

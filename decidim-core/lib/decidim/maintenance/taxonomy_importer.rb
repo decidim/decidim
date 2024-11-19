@@ -28,6 +28,7 @@ module Decidim
 
       def import_taxonomy_item(parent, name, item)
         taxonomy = find_taxonomy!(parent.children, name)
+        taxonomy.update!(name: item["name"]) if item["name"].present?
         item["resources"].each do |object_id, _name|
           apply_taxonomy_to_resource(object_id, taxonomy)
         end
@@ -51,8 +52,8 @@ module Decidim
       def import_filter(root, name, data)
         filter = find_taxonomy_filter(root, name) || root.taxonomy_filters.create!(space_filter: data["space_filter"], space_manifest: data["space_manifest"])
 
-        taxonomy = root
         data["items"].each do |item_names|
+          taxonomy = root
           item_names.each do |item_name|
             taxonomy = find_taxonomy!(taxonomy.children, item_name)
           end

@@ -5,12 +5,12 @@ require "decidim/maintenance"
 namespace :decidim do
   namespace :taxonomies do
     desc "Creates a JSON file with the taxonomies structure imported from older models"
-    task :make_plan, [] => :environment do |_task, args|
+    task :make_plan, [] => :environment do |_task, _args|
       Decidim::Organization.find_each do |organization|
-        puts "Creating plan for organization #{organization.id} in #{plan_file_path(organization)}"
+        puts "Creating a plan for organization #{organization.id} in #{plan_file_path(organization)}"
         FileUtils.mkdir_p(Rails.root.join("tmp/taxonomies"))
         json = planner(organization).to_json do |model|
-          puts "...Importing taxonomies from #{model.table_name}"
+          puts "...Exporting taxonomies for #{model.table_name}"
         end
         File.write(plan_file_path(organization), json)
         puts "Plan created, you can review or edit if needed before importing."
@@ -28,6 +28,7 @@ namespace :decidim do
       data = JSON.parse(File.read(file))
       organization = Decidim::Organization.find_by(id: data.dig("organization", "id"))
       abort "Organization not found! [#{data["organization"]}]" unless organization
+      puts "Importing taxonomies and filters for organization #{organization.id}"
 
       planner(organization).import(data) do |importer|
         taxonomies = importer.roots
@@ -75,6 +76,14 @@ namespace :decidim do
         end
       end
       puts "Taxonomies and filters imported successfully."
+    end
+
+    desc "Imports taxonomies and filters structure from all JSON files inside tmp/taxonomies"
+    task :import_all_plans, [] => :environment do |_task, args|
+      Dir[Rails.root.join("tmp/taxonomies/*.json")].each do |file|
+        puts "Importing plan from #{file}"
+        Rake::Task["decidim:taxonomies:import_plan"].invoke(file)
+      end
     end
 
     def planner(organization)
