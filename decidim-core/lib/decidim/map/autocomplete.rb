@@ -67,10 +67,9 @@ module Decidim
         end
 
         def show_my_location_button?
-          return true if Decidim.show_my_location_button.include?(:all)
           return unless template.respond_to?(:current_component)
 
-          Decidim.show_my_location_button.include?(template.current_component.manifest_name.to_sym)
+          template.current_component.manifest_name.to_sym == :proposals
         end
       end
 

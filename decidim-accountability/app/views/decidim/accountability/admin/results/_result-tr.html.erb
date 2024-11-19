@@ -1,0 +1,29 @@
+<tr data-id="<%= result.id %>">
+  <td>
+    <%= result.id %><br>
+  </td>
+  <td class="!text-left">
+    <% if result.parent_id.nil? %>
+      <%= link_to translated_attribute(result.title), results_path(parent_id: result.id) %><br>
+    <% else %>
+      <%= translated_attribute(result.title) %>
+    <% end %>
+  </td>
+  <td>
+    <%= result.taxonomies.map { |taxonomy| decidim_sanitize_translated(taxonomy.name) }.join(", ") %>
+  </td>
+  <td>
+    <% if result.status %>
+      <%= translated_attribute result.status.name %>
+    <% end %>
+  </td>
+  <td>
+    <%= result.progress&.to_i %>
+  </td>
+  <td>
+    <%= l result.created_at, format: :decidim_short %>
+  </td>
+  <td class="table-list__actions">
+    <%= render partial: "decidim/accountability/admin/results/actions", locals: { result:, view: } %>
+  </td>
+</tr>

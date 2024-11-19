@@ -8,8 +8,9 @@ module Decidim
       class AssembliesController < Decidim::Assemblies::Admin::ApplicationController
         include Decidim::Assemblies::Admin::Filterable
         include Decidim::Admin::ParticipatorySpaceAdminContext
+        include Decidim::Admin::HasTrashableResources
+        helper_method :current_assembly, :parent_assembly, :current_participatory_space
 
-        helper_method :current_assembly, :parent_assembly
         layout "decidim/admin/assemblies"
 
         def index
@@ -76,8 +77,20 @@ module Decidim
           @collection ||= OrganizationAssemblies.new(current_user.organization).query
         end
 
+        def trashable_deleted_resource_type
+          :assembly
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= current_assembly
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
+        end
+
         def current_assembly
-          @current_assembly ||= collection.where(slug: params[:slug]).or(
+          @current_assembly ||= collection.with_deleted.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])
           ).first
         end
