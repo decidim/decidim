@@ -309,7 +309,9 @@ eu:
       conference:
         create: "%{user_name} k sortu du %{resource_name} hitzaldia"
         publish: "%{user_name} k argitaratu du %{resource_name} hitzaldia"
+        restore: "%{user_name} k %{resource_name} hitzaldia berreskuratu du"
         send_conference_diplomas: "%{user_name} k bertaratze-ziurtagiriak bidali dizkie %{resource_name} hitzaldira bertaratuei"
+        soft_delete: "%{user_name} k %{resource_name} hitzaldia zaborrontzira eraman du"
         unpublish: "%{user_name} k desargitaratu du %{resource_name} hitzaldia"
         update: "%{user_name} k eguneratu du %{resource_name} hitzaldia"
         update_diploma: "%{user_name} k bertaratze-agirien konfigurazioa eguneratu du %{resource_name} hitzaldirako"
@@ -585,14 +587,18 @@ eu:
     open_data:
       help:
         conferences:
+          created_at: Zein datatan sortu zen espazio hau
           decidim_scope_id: Hitzaldiaren esparrua
           description: Hitzaldiaren deskribapen luzea
           end_date: Zein datatan amaitu zen hitzaldi hau.
+          follows_count: Espazio hau zenbat erabiltzailek jarraitzen duten
           hashtag: Hitzaldiaren traola, Twitter/Xerako erabilia
           id: Hitzaldi honen identifikatzaile bakarra
           location: Hitzaldiaren kokalekua. Non egingo da hitzaldi hau?
           objectives: Hitzaldi honen helburuak. Zein da helburua?
           promoted: Hitzaldia sustatu edo ez
+          published_at: Zein egunetan argitaratu zen espazio hau
+          reference: Espazioaren erreferentzia bakarra
           remote_banner_image_url: Hitzaldiaren irudiaren URLa
           remote_hero_image_url: Batzarraren protagonistaren irudiaren URLa
           scope: Hitzaldiaren esparrua
@@ -603,6 +609,8 @@ eu:
           start_date: Zein datatan hasi zen hitzaldi hau.
           taxonomies: Hitzaldiaren taxonomiak
           title: Hitzaldiaren izenburua
+          updated_at: Zein egunetan eguneratu zen azken aldiz espazio hau
+          url: Espazioaren URLa
     statistics:
       conferences_count: Hitzaldiak
   devise:
