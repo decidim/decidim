@@ -331,6 +331,8 @@ export default class CommentsComponent {
       return;
     }
 
+    orderSelect.style.borderColor = "black";
+
     orderSelect.addEventListener("change", function(event) {
       const selectedOption = orderSelect.querySelector(`[value=${event.target.value}`);
       const orderUrl = selectedOption.dataset.orderCommentUrl;
