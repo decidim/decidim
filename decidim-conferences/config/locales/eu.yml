@@ -167,6 +167,8 @@ eu:
         index:
           published: Argitaratua
           unpublished: Despublikatua
+        manage_trash:
+          title: Ezabatutako hitzaldiak
         new:
           create: Sortu
           title: Hitzaldia
@@ -300,6 +302,9 @@ eu:
           success: Izen-emate mota arrakastaz eguneratu da konferentzia honetarako.
       titles:
         conferences: Hitzaldiak
+        conferences_deleted: Ezabatutako hitzaldiak
+      tooltips:
+        deleted_conferences_info: Hitzaldiak soilik ezabatu daitezke egoera "Argitaratugabea" bada.
     admin_log:
       conference:
         create: "%{user_name} k sortu du %{resource_name} hitzaldia"
