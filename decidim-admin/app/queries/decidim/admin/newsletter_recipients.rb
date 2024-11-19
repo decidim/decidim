@@ -28,15 +28,20 @@ module Decidim
 
         recipients = recipients.interested_in_scopes(@form.scope_ids) if @form.scope_ids.present?
 
+        return recipients if @form.send_to_all_users
+
         followers = recipients.where(id: user_id_of_followers) if @form.send_to_followers
 
         participants = recipients.where(id: participant_ids) if @form.send_to_participants
 
-        recipients = participants if @form.send_to_participants
-        recipients = followers if @form.send_to_followers
-        recipients = (followers + participants).uniq if @form.send_to_followers && @form.send_to_participants
+        private_members = recipients.where(id: private_member_ids) if @form.send_to_private_members
 
-        recipients
+        grouped_recipients = []
+        grouped_recipients += participants if @form.send_to_participants
+        grouped_recipients += followers if @form.send_to_followers
+        grouped_recipients += private_members if @form.send_to_private_members
+
+        grouped_recipients.uniq
       end
 
       private
@@ -90,6 +95,15 @@ module Decidim
         end
 
         participant_ids.flatten.compact.uniq
+      end
+
+      def private_member_ids
+        return [] if spaces.blank?
+
+        Decidim::ParticipatorySpacePrivateUser.where(
+          privatable_to_id: spaces.map(&:id),
+          privatable_to_type: spaces.first.class.name
+        ).pluck(:decidim_user_id)
       end
     end
   end

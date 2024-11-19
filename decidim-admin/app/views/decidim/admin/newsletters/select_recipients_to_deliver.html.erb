@@ -37,6 +37,10 @@
                 <div class="cell small-12 medium-6" id="send_newsletter_to_participants">
                   <%= f.check_box :send_to_followers, help_text: t(".followers_help") %>
                 </div>
+
+                <div class="cell small-12 medium-6" id="send_newsletter_to_private_members">
+                  <%= f.check_box :send_to_private_members, help_text: t(".private_members_help") %>
+                </div>
               </div>
             </div>
           </div>
