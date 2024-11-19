@@ -756,6 +756,8 @@ en:
           preview: 'Preview template: %{template_name}'
           use_template: Use this template
       newsletters:
+        confirm_recipients:
+          title: Confirm recipients
         create:
           error: There was a problem creating this newsletter.
           success: Newsletter created successfully. Please review it before sending.
@@ -788,6 +790,7 @@ en:
           all_spaces: All
           all_users_help: Sends newsletter to all confirmed users.
           confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
+          confirm_recipients: Confirm recipients
           deliver: Deliver newsletter
           followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
           none: None

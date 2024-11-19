@@ -12,8 +12,24 @@ $(() => {
     const checkSelectiveNewsletterParticipants = $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked");
     const checkSelectiveNewsletterPrivateMembers = $sendNewsletterToPrivateMembers.find("input[type='checkbox']").prop("checked");
 
-    console.log("$sendNewsletterToPrivateMembers", $sendNewsletterToPrivateMembers)
-    console.log("checkSelectiveNewsletterPrivateMembers", checkSelectiveNewsletterPrivateMembers)
+    const $deliverButton = $form.find("#deliver-button");
+    const $confirmRecipientsLink = $form.find("#confirm-recipients-link");
+
+    const updateButtonAndLink = () => {
+      const sendToFollowersChecked = $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked");
+      const sendToParticipantsChecked = $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked");
+      const sendToPrivateMembersChecked = $sendNewsletterToPrivateMembers.find("input[type='checkbox']").prop("checked");
+      const anyOtherChecked = sendToFollowersChecked || sendToParticipantsChecked || sendToPrivateMembersChecked;
+
+      if (anyOtherChecked) {
+        $deliverButton.addClass("hidden");
+        $confirmRecipientsLink.removeClass("hidden");
+      } else {
+        $deliverButton.removeClass("hidden");
+        $confirmRecipientsLink.addClass("hidden");
+      }
+    };
+
     $sendNewsletterToAllUsers.on("change", (event) => {
       const checked = event.target.checked;
       if (checked) {
@@ -27,6 +43,8 @@ $(() => {
         $sendNewsletterToPrivateMembers.find("input[type='checkbox']").prop("checked", !checked);
         $participatorySpacesForSelect.show();
       }
+
+      updateButtonAndLink();
     })
 
     $sendNewsletterToFollowers.on("change", (event) => {
@@ -41,6 +59,8 @@ $(() => {
         $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", true);
         $participatorySpacesForSelect.hide();
       }
+
+      updateButtonAndLink();
     });
 
     $sendNewsletterToParticipants.on("change", (event) => {
@@ -55,6 +75,8 @@ $(() => {
         $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", true);
         $participatorySpacesForSelect.hide();
       }
+
+      updateButtonAndLink();
     });
 
     $sendNewsletterToPrivateMembers.on("change", (event) => {
@@ -69,6 +91,8 @@ $(() => {
         $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked", true);
         $participatorySpacesForSelect.hide();
       }
+
+      updateButtonAndLink();
     });
 
     if (checkSelectiveNewsletterFollowers || checkSelectiveNewsletterParticipants || checkSelectiveNewsletterPrivateMembers) {

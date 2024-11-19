@@ -74,7 +74,8 @@
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
           <% unless @newsletter.sent? %>
-            <%= f.submit t(".deliver"), class: "button button__sm button__secondary", data: { confirm: t(".confirm_deliver") } %>
+            <%= f.submit t(".deliver"), id: "deliver-button", class: "button button__sm button__secondary", data: { confirm: t(".confirm_deliver") } %>
+            <%= link_to t(".confirm_recipients"), confirm_recipients_newsletter_path(@newsletter), id: "confirm-recipients-link", class: "button button__sm button__secondary hidden" %>
           <% end %>
         </div>
       </div>

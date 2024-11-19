@@ -136,6 +136,12 @@ module Decidim
         end
       end
 
+      def confirm_recipients
+        enforce_permission_to(:update, :newsletter, newsletter:)
+        @form = form(SelectiveNewsletterForm).from_model(newsletter)
+        @recipients = NewsletterRecipients.for(@form)
+      end
+
       private
 
       def collection
