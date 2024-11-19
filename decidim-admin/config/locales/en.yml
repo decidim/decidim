@@ -1275,7 +1275,11 @@ en:
             invalid: There was a problem unreporting the resource.
             success: Resource successfully unreported.
       index:
-        actions: Actions
+        actions:
+          actions_dropdown: Actions
+          hide: Hide
+          unhide: Unhide
+          unreport: Unreport
       models:
         moderation:
           fields:

@@ -4,7 +4,7 @@
     class="button button__sm button__secondary"
     type="button"
     data-toggle="js-global-moderations-bulk-actions-dropdown">
-    <%= t("decidim.moderations.index.actions") %>
+    <%= t("decidim.moderations.index.actions.actions_dropdown") %>
     <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
   </button>
 
@@ -17,8 +17,21 @@
     data-auto-focus="false"
     data-events="resize">
     <ul>
-        <li></li>
-        <li></li>
+        <li>
+          <button type="button" data-action="hide-global-moderations">
+            <%= t("decidim.moderations.index.actions.hide") %>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-action="unreport-global-moderations">
+            <%= t("decidim.moderations.index.actions.unreport") %>
+          </button>
+        </li>
+        <li>
+          <button type="button" data-action="unhide-global-moderations">
+            <%= t("decidim.moderations.index.actions.unhide") %>
+          </button>
+        </li>
     </ul>
   </div>
 </div>
