@@ -3,4 +3,39 @@
   <h1 class="item_show__header-title">
     <%= t ".title" %>
   </h1>
+  <div class="flex ml-auto items-center gap-x-4">
+    <%= link_to :back, class: "button button__sm button__secondary" do %>
+      <%= t("actions.edit", scope: "decidim.admin") %>
+    <% end %>
+  </div>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <div class="table-scroll">
+      <table class="stack table-list">
+        <thead>
+        <tr>
+          <th><%= t(".name") %></th>
+          <th><%= t(".email") %></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @recipients.each do |user| %>
+          <tr>
+            <td><%= user.name %><br></td>
+            <td><%= user.email %><br></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <!--TODO: Add a button to deliver the newsletter-->
+        <%# unless @newsletter.sent? %>
+          <%#= f.submit t(".deliver"), id: "deliver-button", class: "button button__sm button__secondary", data: { confirm: t(".confirm_deliver") } %>
+        <%# end %>
+      </div>
+    </div>
+  </div>
 </div>

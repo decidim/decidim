@@ -138,8 +138,11 @@ module Decidim
 
       def confirm_recipients
         enforce_permission_to(:update, :newsletter, newsletter:)
-        @form = form(SelectiveNewsletterForm).from_model(newsletter)
+        data = params.permit(newsletter: {}).to_h[:newsletter]
+        @form = form(SelectiveNewsletterForm).from_params(data)
         @recipients = NewsletterRecipients.for(@form)
+
+        render :confirm_recipients
       end
 
       private

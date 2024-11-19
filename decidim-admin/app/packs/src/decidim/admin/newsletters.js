@@ -15,6 +15,29 @@ $(() => {
     const $deliverButton = $form.find("#deliver-button");
     const $confirmRecipientsLink = $form.find("#confirm-recipients-link");
 
+    const updateHiddenField = ($checkbox) => {
+      const hiddenInput = $checkbox.siblings(`input[name="${$checkbox.attr("name")}"][type="hidden"]`);
+      hiddenInput.val($checkbox.prop("checked")
+        ? "1"
+        : "0");
+    };
+
+    const updateConfirmRecipientsLink = () => {
+      const params = new URLSearchParams();
+
+      $form.serializeArray().forEach(({ name, value }) => {
+        params.append(name, value);
+      });
+
+      const baseUrl = $confirmRecipientsLink.data("base-url");
+      if (baseUrl) {
+        const fullUrl = `${baseUrl}?${params.toString()}`;
+        $confirmRecipientsLink.attr("href", fullUrl);
+      } else {
+        console.error("Base URL for confirm recipients link is missing.");
+      }
+    };
+
     const updateButtonAndLink = () => {
       const sendToFollowersChecked = $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked");
       const sendToParticipantsChecked = $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked");
@@ -28,6 +51,7 @@ $(() => {
         $deliverButton.removeClass("hidden");
         $confirmRecipientsLink.addClass("hidden");
       }
+      updateConfirmRecipientsLink();
     };
 
     $sendNewsletterToAllUsers.on("change", (event) => {
@@ -44,6 +68,7 @@ $(() => {
         $participatorySpacesForSelect.show();
       }
 
+      updateHiddenField($sendNewsletterToFollowers.find("input[type='checkbox']"));
       updateButtonAndLink();
     })
 
@@ -60,6 +85,7 @@ $(() => {
         $participatorySpacesForSelect.hide();
       }
 
+      updateHiddenField($sendNewsletterToFollowers.find("input[type='checkbox']"));
       updateButtonAndLink();
     });
 
@@ -76,6 +102,7 @@ $(() => {
         $participatorySpacesForSelect.hide();
       }
 
+      updateHiddenField($sendNewsletterToParticipants.find("input[type='checkbox']"));
       updateButtonAndLink();
     });
 
@@ -92,6 +119,7 @@ $(() => {
         $participatorySpacesForSelect.hide();
       }
 
+      updateHiddenField($sendNewsletterToPrivateMembers.find("input[type='checkbox']"));
       updateButtonAndLink();
     });
 
@@ -133,6 +161,7 @@ $(() => {
       };
       // Send the form data
       xhr.send(formData);
+      updateConfirmRecipientsLink();
     })
   }
 });

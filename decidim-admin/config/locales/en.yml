@@ -757,6 +757,8 @@ en:
           use_template: Use this template
       newsletters:
         confirm_recipients:
+          email: Email
+          name: Name
           title: Confirm recipients
         create:
           error: There was a problem creating this newsletter.
