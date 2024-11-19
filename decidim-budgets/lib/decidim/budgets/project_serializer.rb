@@ -74,6 +74,40 @@ module Decidim
         Decidim::ResourceLocatorPresenter.new(project).url
       end
 
+      def author_fields
+        {
+          id: resource.author.id,
+          name: author_name(resource.author),
+          url: author_url(resource.author)
+        }
+      end
+
+      def author_name(author)
+        translated_attribute(author.name)
+      end
+
+      def author_url(author)
+        if author.respond_to?(:nickname)
+          profile_url(author) # is a Decidim::User or Decidim::UserGroup
+        else
+          root_url # is a Decidim::Organization
+        end
+      end
+
+      def profile_url(author)
+        return "" if author.respond_to?(:deleted?) && author.deleted?
+
+        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
+      end
+
+      def root_url
+        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
+      end
+
+      def host
+        resource.organization.host
+      end
+
       def empty_translatable(locales = Decidim.available_locales)
         locales.each_with_object({}) do |locale, result|
           result[locale.to_s] = ""
