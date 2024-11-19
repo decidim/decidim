@@ -45,7 +45,7 @@ module Decidim::Budgets
       end
 
       it "includes the budget id" do
-        expect(serialized[:budget]).to eq(id: project.budget.id)
+        expect(serialized[:decidim_budgets_budget_id]).to eq(id: project.budget.id)
       end
 
       it "includes the budget amount" do
@@ -95,6 +95,7 @@ module Decidim::Budgets
       it "serializes the reference" do
         expect(serialized).to include(reference: project.reference)
       end
+
     end
 
     context "when subscribed to the serialize event" do

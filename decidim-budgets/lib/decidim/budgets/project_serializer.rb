@@ -16,9 +16,6 @@ module Decidim
       def serialize
         {
           id: project.id,
-          author: {
-            **author_fields
-          },
           taxonomies: {
             id: project.taxonomies.map(&:id),
             name: project.taxonomies.map(&:name)
@@ -30,7 +27,7 @@ module Decidim
           component: { id: component.id },
           title: project.title,
           description: project.description,
-          budget: { id: project.budget.id },
+          decidim_budgets_budget_id: { id: project.budget.id },
           budget_amount: project.budget_amount,
           confirmed_votes: project.confirmed_orders_count,
           comments: project.comments_count,
@@ -72,32 +69,6 @@ module Decidim
 
       def url
         Decidim::ResourceLocatorPresenter.new(project).url
-      end
-
-      def author_fields
-        {
-          id: resource.author.id,
-          name: author_name(resource.author),
-          url: author_url(resource.author)
-        }
-      end
-
-      def author_name(author)
-        translated_attribute(author.name)
-      end
-
-      def author_url(author)
-        if author.respond_to?(:nickname)
-          profile_url(author) # is a Decidim::User or Decidim::UserGroup
-        else
-          root_url # is a Decidim::Organization
-        end
-      end
-
-      def profile_url(author)
-        return "" if author.respond_to?(:deleted?) && author.deleted?
-
-        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
       end
 
       def root_url
