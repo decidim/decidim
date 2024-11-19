@@ -136,12 +136,6 @@ module Decidim
         end
       end
 
-      def profile_url(author)
-        return "" if author.respond_to?(:deleted?) && author.deleted?
-
-        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
-      end
-
       def meeting_url(meeting)
         Decidim::EngineRouter.main_proxy(meeting.component).meeting_url(id: meeting.id, host:)
       end

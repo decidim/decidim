@@ -79,12 +79,6 @@ module Decidim
         end
       end
 
-      def profile_url(author)
-        return "" if author.respond_to?(:deleted?) && author.deleted?
-
-        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
-      end
-
       def root_url
         Decidim::Core::Engine.routes.url_helpers.root_url(host:)
       end

@@ -54,6 +54,12 @@ module Decidim
       def event_name
         ActiveSupport::Inflector.underscore(self.class.to_s).sub("/", ".serialize.").gsub("/", ".")
       end
+
+      def profile_url(user)
+        return "" if user.respond_to?(:deleted?) && user.deleted?
+
+        EngineRouter.new("decidim", { host: user.organization.host }).profile_url(user.nickname)
+      end
     end
   end
 end

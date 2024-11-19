@@ -53,7 +53,7 @@ module Decidim
         {
           "@type": "Organization",
           name: meeting.author.name,
-          url: EngineRouter.new("decidim", router_options).profile_url(meeting.user_group.nickname)
+          url: profile_url(meeting.user_group)
         }
       end
 
@@ -69,7 +69,7 @@ module Decidim
         {
           "@type": "Person",
           name: decidim_escape_translated(meeting.author.name),
-          url: EngineRouter.new("decidim", router_options).profile_url(meeting.author.nickname)
+          url: profile_url(meeting.author)
         }
       end
 
