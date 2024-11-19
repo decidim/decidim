@@ -169,6 +169,8 @@ eu:
         result:
           create: "%{user_name} k emaitza sortu du %{resource_name} %{space_name} espazioan"
           delete: "%{user_name} k %{resource_name} emaitza ezabatu du %{space_name} espazioan"
+          restore: "% {user_name} k % {baliabide_name}} emaitza berreskuratu du hemen:% {space_name}"
+          soft_delete: "% {user_name} k hemengo: %{space_name} {baliabide_name} emaitza zaborrontzira eraman zuen"
           update: "%{user_name} k %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
           create: "%{user_name} k %{resource_name} egoera sortu du"
@@ -307,18 +309,25 @@ eu:
           root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
           user_group: Iruzkin hau egin duen erabiltzaile taldearen izena (hala badagokio)
         results:
+          address: Emaitzaren helbidea (hala badagokio)
+          children_count: Emaitza txikien kopurua
+          comments_count: Emaitza horrek zenbat iruzkin dituen
           component: Emaitzaren osagaia honi dagokio
           created_at: Zein datatan sortu zen emaitza
           description: Emaitzaren deskribapena
           end_date: Zein datatan exekutatzen eta amaitzen den emaitza
           id: Emaitzaren identifikatzaile bakarra
+          latitude: Emaitzaren latitudea, kokapen fisikoa badu
+          longitude: Emaitzaren longitudea, kokapen fisikoa badu
           parent: Emaitzaren emaitza nagusia (baldin badago)
           progress: Emaitza gauzatzearen ehunekoa
           proposal_urls: Emaitza honetan jasotzen diren proposamenen URLak
+          reference: Emaitzaren erreferentzia bakarra
           start_date: Zein datatan hasi da emaitza gauzatzen
           status: Emaitza honen egungo egoera
           taxonomies: Emaitzaren taxonomiak
           title: Emaitzaren izenburua
+          updated_at: Zein egunetan eguneratu zen azken aldiz emaitza hau
           url: Emaitza hau aurkitu daitekeen URLa
     participatory_spaces:
       highlighted_results:
