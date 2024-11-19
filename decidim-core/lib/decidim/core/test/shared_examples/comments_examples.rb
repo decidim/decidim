@@ -751,6 +751,20 @@ shared_examples "comments" do
               expect(page).to have_content("Edited")
             end
           end
+
+          it "has only one edit modal" do
+            expect(page).to have_css("#editCommentModal#{comment.id}", visible: :hidden, count: 1)
+            3.times do |index|
+              sleep 2
+              within "#comment_#{comment.id}" do
+                page.find("[id^='dropdown-trigger']").click
+                click_on "Edit"
+              end
+              fill_in "edit_comment_#{comment.id}", with: " This comment has been edited #{1 + index} times"
+              click_on "Send"
+            end
+            expect(page).to have_css("#editCommentModal#{comment.id}", visible: :all, count: 1)
+          end
         end
       end
     end

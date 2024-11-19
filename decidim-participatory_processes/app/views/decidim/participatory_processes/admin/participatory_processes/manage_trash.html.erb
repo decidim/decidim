@@ -1,0 +1,20 @@
+<% add_decidim_page_title(t("participatory_processes_deleted", scope: "decidim.admin.titles")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t "participatory_processes.manage_trash.title", scope: "decidim.admin" %>
+  </h1>
+</div>
+<div class="card" id="processes">
+  <%= admin_filter_selector %>
+</div>
+<div class="table-scroll">
+  <table class="table-list">
+    <%= render partial: "processes_thead" %>
+    <tbody>
+    <%= render partial: "decidim/participatory_processes/admin/participatory_processes/process_row",
+               collection: trashable_deleted_collection,
+               as: :process,
+               locals: { view: :deleted } %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <div>
+        <%= link_to decidim_escape_translated(budget.title), budgets_path %> &gt;
+        <%= t(".title") %>
+        <span id="js-selected-resources-count" class="component-counter" title="<%= t("decidim.budgets.admin.projects.index.selected") %>"></span>
+      </div>
+      <%= render partial: "bulk-actions" %>
+    </h1>
+  </div>
+  <%= admin_filter_selector(:projects) %>
+  <div class="table-scroll">
+    <table class="table-list">
+      <%= render partial: "projects-thead" %>
+      <tbody>
+        <%= render partial: "decidim/budgets/admin/projects/project-tr",
+                   collection: trashable_deleted_collection,
+                   as: :project,
+                   locals: { view: :deleted } %>
+      </tbody>
+    </table>
+    <%= decidim_paginate projects %>
+  </div>
+</div>

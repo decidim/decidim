@@ -27,6 +27,7 @@ module Decidim
       include Decidim::Endorsable
       include Decidim::Randomable
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       belongs_to :last_comment_by, polymorphic: true, foreign_type: "last_comment_by_type", optional: true
       component_manifest_name "debates"

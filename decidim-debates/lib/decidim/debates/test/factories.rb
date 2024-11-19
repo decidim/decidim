@@ -19,6 +19,7 @@ FactoryBot.define do
     component { build(:debates_component, skip_injection:) }
     author { component.try(:organization) }
     comments_layout { "single_column" }
+    deleted_at { nil }
 
     trait :open_ama do
       start_time { 1.day.ago }
