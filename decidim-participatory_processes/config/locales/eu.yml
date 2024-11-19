@@ -108,6 +108,7 @@ eu:
         resend_invitation: Birbidali gonbita
         see_process: Ikusi prozesuak
         unpublish: Despublikatu
+        view_deleted_processes: Ikusi ezabatutako prozesuak
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prozesu-taldeen arabera
@@ -279,6 +280,8 @@ eu:
           public: Publiko
           published: Argitaratua
           unpublished: Argitaratu gabea
+        manage_trash:
+          title: Ezabatutako prozesu parte-hartzaileak
         new:
           create: Sortu
           title: Beste prozesu parte-hartzaile bat
@@ -297,6 +300,9 @@ eu:
         participatory_process_groups: Prozesu parte-hartzaileen taldeak
         participatory_process_types: Prozesu parte-hartzaile motak
         participatory_processes: Prozesu pare-hartzaileak
+        participatory_processes_deleted: Ezabatutako prozesu parte-hartzaileak
+      tooltips:
+        deleted_processes_info: Prozesu bat soilik ezabatu daiteke egoera "Argitaratugabea" bada.
       users:
         resend_invitation:
           error: Arazo bat egon da gonbidapena berriro bidaltzean.
