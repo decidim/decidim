@@ -498,7 +498,10 @@ eu:
         title: Ekintzak
       admin:
         actions:
+          confirm_delete_proposal: Ziur zaude proposamen hau ezabatu nahi duzula?
+          deleted_proposals_info: Ezabatutako proposamenak berreskura daitezke zaborrontzitik.
           preview: Aurreikusi
+          view_deleted_proposals: Ikusi ezabatutako proposamenak
         exports:
           proposal_comments: Iruzkinak
           proposals: Proposamenak
@@ -644,6 +647,8 @@ eu:
             unassign_from_valuator_button: Desesleitu
             update: Eguneratu
             update_scope_button: Eguneratu eremua
+          manage_trash:
+            title: Ezabatutako proposamenak
           new:
             create: Sortu
             title: Sortu proposamena
@@ -709,6 +714,8 @@ eu:
           answer: "%{user_name} erabiltzaileak %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
           create: "%{user_name} erabiltzaileak %{resource_name} proposamena sortu du %{space_name} espazioan proposamen ofizial gisa"
           publish_answer: "%{user_name} k argitaratu zuen %{resource_name} proposamenaren erantzuna %{space_name} espazioan"
+          restore: "%{user_name} k berreskuratu du %{resource_name} proposamena %{space_name} espazioan"
+          soft_delete: "%{user_name} k eraman du %{resource_name} proposamena %{space_name} espaziora"
           update: "%{user_name} erabiltzaileak %{resource_name} proposamena eguneratu du %{space_name} espazioan"
         proposal_note:
           create: "%{user_name} k %{resource_name} proposamenari buruzko ohar pribatu bat utzi du %{space_name} espazioan"
