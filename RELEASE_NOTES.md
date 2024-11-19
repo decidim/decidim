@@ -16,7 +16,7 @@ gem "decidim-dev", github: "decidim/decidim"
 ### 1.2. Run these commands
 
 ```console
-sudo apt install p7zip # or the alternative installation process for your operating system. See "2.1. 7zip dependency introduction"
+sudo apt install wkhtmltopdf # or the alternative installation process for your operating system. See "2.7. wkhtmltopdf binary change"
 bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
@@ -29,19 +29,7 @@ bin/rails decidim_proposals:upgrade:set_categories
 
 ## 2. General notes
 
-### 2.1. 7zip dependency introduction
-
-We had to migrate from an unmaintained dependency and do a wrapper for the 7zip command line. This means that you need to install 7zip in your system. You can do it by running:
-
-```bash
-sudo apt install p7zip
-```
-
-This works for Ubuntu Linux, other operating systems would need to do other command/package.
-
-You can read more about this change on PR [#13185](https://github.com/decidim/decidim/pull/13185).
-
-### 2.2. Cleanup invalid resources
+### 2.1. Cleanup invalid resources
 
 While upgrading various instances to latest Decidim version, we have noticed there are some records that may not be present anymore. As a result, the application would generate a lot of errors, in both frontend and Backend.
 
@@ -64,13 +52,13 @@ bin/rails decidim:upgrade:clean:action_logs
 
 You can read more about this change on PR [#13237](https://github.com/decidim/decidim/pull/13237).
 
-### 2.3. Refactor of `decidim:upgrade:fix_orphan_categorizations` task
+### 2.2. Refactor of `decidim:upgrade:fix_orphan_categorizations` task
 
 As of [#13380](https://github.com/decidim/decidim/pull/13380), the task named `decidim:upgrade:fix_orphan_categorizations` has been renamed to `decidim:upgrade:clean:categories` and has been included in the main `decidim:upgrade:clean:invalid_records` task.
 
 You can read more about this change on PR [#13380](https://github.com/decidim/decidim/pull/13380).
 
-### 2.4 Cells expiration time
+### 2.3 Cells expiration time
 
 Now the cache expiration time is configurable via initializers/ENV variables.
 
@@ -80,7 +68,7 @@ Also note, that now it comes with a default value of 24 hours (1440 minutes).
 
 You can read more about this change on PR [#13402](https://github.com/decidim/decidim/pull/13402).
 
-### 2.5. Ransack upgrade
+### 2.4. Ransack upgrade
 
 As part of Rails upgrade to version 7.1, we upgraded Ransack gem to version 4.2. Ransack has introduced a new security policy that requires mandatory allowlisting for the attributes and associations needed by search engine. If you have a regular Decidim installation, you can skip this step.
 
@@ -100,7 +88,7 @@ end
 
 You can read more about this change on PR [#13196](https://github.com/decidim/decidim/pull/13196).
 
-### 2.6. Amendments category fix
+### 2.5. Amendments category fix
 
 We have identified a bug in the filtering system, as the amendments created did not share the category with the proposal it amended. This fix aims to fix historic data. To fix it, you need to run:
 
@@ -109,6 +97,28 @@ bin/rails decidim_proposals:upgrade:set_categories
 ```
 
 You can read more about this change on PR [#13395](https://github.com/decidim/decidim/pull/13395).
+
+### 2.6. wkhtmltopdf binary change
+
+For improving the support with latest versions of Ubuntu, and keeping a low size in Heroku/Docker images, we removed the `wkhtmltopdf-binary` gem dependency. This means that your package manager should have the `wkhtmltopdf` binary installed.
+
+In the case of Ubuntu/Debian, this is done with the following command:
+
+```bash
+sudo apt install wkhtmltopdf
+```
+
+You can read more about this change on PR [#13616](https://github.com/decidim/decidim/pull/13616).
+
+### 2.7. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
+
+When a user deleted their account, we mistakenly retained some metadata, such as the personal_url and about fields. Going forward, these fields will be automatically cleared upon deletion. To fix this issue for previously deleted accounts, we've added a new rake task that should be run on your production database.
+
+```ruby
+bin/rails decidim:upgrade:clean:clean_deleted_users
+```
+
+You can read more about this change on PR [#13624](https://github.com/decidim/decidim/pull/13624).
 
 ## 3. One time actions
 
@@ -138,7 +148,19 @@ bin/rails decidim:upgrade:attachments_cleanup
 
 You can see more details about this change on PR [\#11851](https://github.com/decidim/decidim/pull/11851)
 
-### 3.3. [[TITLE OF THE ACTION]]
+### 3.3. Add Meetings' attendees metric
+
+We have added a new metric that indicates how many users have attended your meetings.
+
+If you want to calculate this metric you could run the following command, where 2019-01-01 is the Y-m-d format for the starting date since you want the metric to take effect.
+
+```bash
+./bin/rails decidim:metrics:rebuild[meetings,2019-01-01]
+```
+
+You can see more details about this change on PR [\#13442](https://github.com/decidim/decidim/pull/13442)
+
+### 3.4. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -168,21 +190,3 @@ query { decidim { version } }
 This no longer returns the running Decidim version by default and instead it will result to `null` being reported as the version number.
 
 If you would like to re-enable exposing the Decidim version number through the GraphQL API, you may do so by setting the `DECIDIM_API_DISCLOSE_SYSTEM_VERSION` environment variable to `true`. However, this is highly discouraged but may be required for some automation or integrations.
-
-### 5.2. [[TITLE OF THE CHANGE]]
-
-In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
-
-If you have used code as such:
-
-```ruby
-# Explain the usage of the API as it was in the previous version
-result = 1 + 1 if before
-```
-
-You need to change it to:
-
-```ruby
-# Explain the usage of the API as it is in the new version
-result = 1 + 1 if after
-        ```

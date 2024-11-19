@@ -3,12 +3,18 @@
 require "spec_helper"
 
 describe "Admin manages projects" do
+  include_context "when managing a component as an admin"
   let(:manifest_name) { "budgets" }
   let!(:budget) { create(:budget, component: current_component) }
   let!(:project) { create(:project, budget:) }
   let!(:destination_budget) { create(:budget, component: current_component) }
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
-  include_context "when managing a component as an admin"
+  let!(:component) { create(:component, manifest:, participatory_space:, settings: { taxonomy_filters: taxonomy_filter_ids }) }
 
   before do
     switch_to_host(organization.host)
@@ -41,9 +47,6 @@ describe "Admin manages projects" do
       click_on "Update"
 
       expect(page).to have_admin_callout "Projects successfully updated to the category"
-      within "tr[data-id='#{project.id}']" do
-        expect(page).to have_content(translated(category.name))
-      end
       expect(Decidim::Budgets::Project.find(project.id).category).to eq(category)
       expect(Decidim::Budgets::Project.find(project2.id).category).to be_nil
     end
@@ -56,9 +59,6 @@ describe "Admin manages projects" do
       click_on "Update"
 
       expect(page).to have_admin_callout "Projects successfully updated to the scope"
-      within "tr[data-id='#{project.id}']" do
-        expect(page).to have_content(translated(scope.name))
-      end
       expect(Decidim::Budgets::Project.find(project.id).scope).to eq(scope)
       expect(Decidim::Budgets::Project.find(project2.id).scope).to be_nil
     end
@@ -125,6 +125,17 @@ describe "Admin manages projects" do
         expect(project.reload.budget).to eq(destination_budget)
         expect(project2.reload.budget).to eq(destination_budget)
       end
+    end
+
+    describe "soft delete a projects" do
+      let(:admin_resource_path) { current_path }
+      let(:trash_path) { "#{admin_resource_path}/manage_trash" }
+      let(:title) { { en: "My projects" } }
+      let!(:budget) { create(:budget, component: current_component) }
+      let!(:resource) { create(:project, budget:, title:) }
+
+      it_behaves_like "manage soft deletable resource", "project"
+      it_behaves_like "manage trashed resource", "project"
     end
   end
 

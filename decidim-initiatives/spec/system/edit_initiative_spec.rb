@@ -21,7 +21,9 @@ describe "Edit initiative" do
     it "can be updated" do
       visit initiative_path
 
-      click_on("Edit")
+      within ".initiative__aside" do
+        click_on("Edit")
+      end
 
       expect(page).to have_content "Edit Initiative"
 

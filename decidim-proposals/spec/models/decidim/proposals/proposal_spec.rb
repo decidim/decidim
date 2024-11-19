@@ -15,6 +15,7 @@ module Decidim
       include_examples "coauthorable"
       include_examples "endorsable"
       include_examples "has component"
+      include_examples "has taxonomies"
       include_examples "has scope"
       include_examples "has category"
       include_examples "has reference"
@@ -23,6 +24,7 @@ module Decidim
 
       it { is_expected.to be_valid }
       it { is_expected.to be_versioned }
+      it { is_expected.to act_as_paranoid }
 
       describe "newsletter participants" do
         subject { Decidim::Proposals::Proposal.newsletter_participant_ids(proposal.component) }

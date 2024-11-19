@@ -92,7 +92,7 @@ module Decidim
       end
 
       def paginated_debates
-        @paginated_debates ||= paginate(debates).includes(:category)
+        @paginated_debates ||= paginate(debates).includes(:taxonomies)
       end
 
       def debates
@@ -116,8 +116,7 @@ module Decidim
           search_text_cont: "",
           with_any_origin: nil,
           activity: %w(all),
-          with_any_category: nil,
-          with_any_scope: nil,
+          with_any_taxonomies: nil,
           with_any_state: %w(open closed)
         }
       end

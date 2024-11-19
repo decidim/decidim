@@ -11,14 +11,20 @@ describe "Admin manages debates" do
   end
 
   include_context "when managing a component as an admin"
-  before do
-    switch_to_host(organization.host)
-    login_as user, scope: :user
-    visit_component_admin
-  end
 
   it_behaves_like "manage debates"
+  it_behaves_like "manage taxonomy filters in settings"
   it_behaves_like "manage announcements"
-  it_behaves_like "export debates comments"
+  it_behaves_like "export debates"
   it_behaves_like "manage moderations"
+
+  describe "soft delete debates" do
+    let(:admin_resource_path) { current_path }
+    let(:trash_path) { "#{admin_resource_path}/debates/manage_trash" }
+    let(:title) { { en: "My new result" } }
+    let!(:resource) { create(:debate, component:, title:) }
+
+    it_behaves_like "manage soft deletable resource", "debate"
+    it_behaves_like "manage trashed resource", "debate"
+  end
 end

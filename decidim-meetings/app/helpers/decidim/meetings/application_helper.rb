@@ -39,6 +39,41 @@ module Decidim
         flat_filter_values(:all, :upcoming, :past, scope: "decidim.meetings.meetings.filters.date_values")
       end
 
+      # rubocop:disable Metrics/ParameterLists
+      # rubocop:disable Metrics/CyclomaticComplexity
+      def filter_sections(date: false, type: false, origin: false, taxonomies: false, space_type: false, activity: false)
+        @filter_sections ||= begin
+          items = []
+          if date
+            items.append(method: :with_any_date, collection: filter_date_values, label: t("decidim.meetings.meetings.filters.date"), id: "date",
+                         type: :radio_buttons)
+          end
+          items.append(method: :with_any_type, collection: filter_type_values, label: t("decidim.meetings.meetings.filters.type"), id: "type") if type
+          if taxonomies
+            available_taxonomy_filters.each do |taxonomy_filter|
+              items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+                           collection: filter_taxonomy_values_for(taxonomy_filter),
+                           label: decidim_sanitize_translated(taxonomy_filter.name),
+                           id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
+            end
+          end
+          items.append(method: :with_any_origin, collection: filter_origin_values, label: t("decidim.meetings.meetings.filters.origin"), id: "origin") if origin
+          if space_type
+            items.append(method: :with_any_space, collection: directory_meeting_spaces_values, label: t("decidim.meetings.directory.meetings.index.space_type"),
+                         id: "space_type")
+          end
+          if activity
+            items.append(method: :activity, collection: activity_filter_values, label: t("decidim.meetings.meetings.filters.activity"), id: "activity",
+                         type: :radio_buttons)
+          end
+          items.reject { |item| item[:collection].blank? }
+        end
+      end
+      # rubocop:enable Metrics/ParameterLists
+      # rubocop:enable Metrics/CyclomaticComplexity
+
+      delegate :available_taxonomy_filters, to: :current_component
+
       # Options to filter meetings by activity.
       def activity_filter_values
         flat_filter_values(:all, :my_meetings, scope: "decidim.meetings.meetings.filters")

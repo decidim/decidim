@@ -10,9 +10,11 @@ module Decidim::Budgets
 
     include_examples "has reference"
     include_examples "resourceable"
+    include_examples "has taxonomies"
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
+    it { is_expected.to act_as_paranoid }
 
     context "without a budget" do
       let(:project) { build(:project, budget: nil) }

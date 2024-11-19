@@ -27,7 +27,7 @@ module Decidim
 
         def action_string
           case action
-          when "answer", "create", "update", "publish_answer"
+          when "answer", "create", "update", "publish_answer", "soft_delete", "restore"
             "decidim.proposals.admin_log.proposal.#{action}"
           else
             super

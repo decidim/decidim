@@ -185,6 +185,13 @@ en:
         browse: Browse
         category:
           new: New category
+        confirm_delete_component: |
+          Are you sure you want to delete this component?<br>
+          This component contains:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} resources</li>
+          </ul>
+          If you change your mind, you can restore it later.
         export: Export all
         export-selection: Export selection
         import: Import
@@ -196,12 +203,15 @@ en:
         per_page: Per page
         permissions: Permissions
         reject: Reject
+        restore: Restore
         send_me_a_test_email: Send me a test email
         share: Share
         share_tokens: Access links
+        soft_delete: Soft delete
         user:
           new: New admin
         verify: Verify
+        view_deleted_components: View deleted components
       admin_terms_of_service:
         accept:
           error: There was a problem while accepting the admin terms of service.
@@ -321,9 +331,6 @@ en:
           error: There was a problem creating this component.
           success: Component created successfully.
           success_landing_page: Component created successfully. You can add a content block for this component in the home of the space. Go to <a href="%{landing_page_path}">Landing page</a> to configure it.
-        destroy:
-          error: There was a problem destroying this component.
-          success: Component deleted successfully.
         edit:
           title: Edit component
           update: Update
@@ -340,11 +347,21 @@ en:
             name: Component name
             type: Component type
             visibility: Visibility
+        manage_trash:
+          title: Deleted components
         new:
           add: Add component
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
+        taxonomy_filters_badge:
+          remove: Remove
+        taxonomy_filters_drawer:
+          add_filter: Add filter
+          clear_all: Clear all
+          filters: Filters
+          save: Save
+          title: Filters
         title: Components
         unpublish:
           success: The component has been successfully unpublished.
@@ -411,8 +428,6 @@ en:
           JSON: JSON
         notice: Your export is currently in progress. You will receive an email when it is complete.
       filters:
-        category_id_eq:
-          label: Category
         filter_label: Filter
         invitation_accepted_at_present:
           label: Invite accepted
@@ -461,8 +476,6 @@ en:
             'false': Published
             'true': Unpublished
         remove_all: Remove all
-        scope_id_eq:
-          label: Scope
         search_label: Search
         search_placeholder:
           name_or_nickname_or_email_cont: Search %{collection} by email, name or nickname.
@@ -569,6 +582,8 @@ en:
         logs_list:
           no_logs_yet: There are no logs yet.
           no_matching_logs: There are no logs with the provided search filters. Try to change them and retry.
+      manage_trash:
+        deleted_items_warning: You are currently viewing deleted items. To make any edits or changes, you must first restore them.
       managed_users:
         promotion:
           error: There was a problem promoting the managed participant.
@@ -932,10 +947,6 @@ en:
           title: Edit permissions
         update:
           success: Permissions updated successfully.
-      resources:
-        index:
-          headers:
-            scope: Scope
       scope_types:
         create:
           error: There was a problem creating a new scope type.
@@ -1093,12 +1104,12 @@ en:
         new:
           create: Create taxonomy
           title: New taxonomy
-        no_taxonomies: There are currently no taxonomies. Create a list of taxonomies here and defined items in each of them to classify or filter resources.
+        no_taxonomies: There are currently no taxonomies. Create a list of taxonomies here and define items in each of them to classify or filter resources.
         table:
           to_next_page: Drag over for next page
           to_prev_page: Drag over for previous page
         taxonomy_actions:
-          confirm_destroy: Are you sure you want to delete %{name}? This will also delete all the children items.
+          confirm_destroy: 'Are you sure you want to delete %{name}? This will also delete all the children items. NOTE: Resources that are using this taxonomy will not be affected but they will lose the reference to this taxonomy.'
         update:
           invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.
@@ -1116,7 +1127,7 @@ en:
         edit:
           back: Back
           items: "%{count} items selected"
-          no_items: No items ara available for this taxonomies. You can create items in the taxonomy configuration settings.
+          no_items: No items are available for this taxonomy. You can create items in the taxonomy configuration settings.
           title: Edit taxonomy filter
           update: Update taxonomy filter
         form:
@@ -1131,7 +1142,8 @@ en:
           title: New taxonomy filter
         table:
           actions: Actions
-          confirm_destroy: Are you sure you want to delete the filter %{name}?
+          components_count: Components count
+          confirm_destroy: 'Are you sure you want to delete the filter %{name}? NOTE: Resources that are using this filter will not be affected but they will lose the reference to this filter.'
           count: Number of items
           destroy: Delete
           edit: Edit
@@ -1171,6 +1183,15 @@ en:
         taxonomy_filters: Taxonomy filters
         user_groups: Groups
         users: Administrators
+      tooltips:
+        deleted_component_info: This component can only be deleted if status is 'Unpublished'.
+      trash_management:
+        restore:
+          invalid: There was a problem restoring %{resource_name}.
+          success: "%{resource_name} successfully restored."
+        soft_delete:
+          invalid: There was a problem deleting %{resource_name}.
+          success: "%{resource_name} successfully deleted."
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.

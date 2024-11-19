@@ -7,6 +7,7 @@ module Decidim
     # debate.
     class Debate < Debates::ApplicationRecord
       include Decidim::HasComponent
+      include Decidim::Taxonomizable
       include Decidim::HasCategory
       include Decidim::Resourceable
       include Decidim::Followable
@@ -26,6 +27,7 @@ module Decidim
       include Decidim::Endorsable
       include Decidim::Randomable
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       belongs_to :last_comment_by, polymorphic: true, foreign_type: "last_comment_by_type", optional: true
       component_manifest_name "debates"
@@ -207,7 +209,7 @@ module Decidim
       ransacker_i18n_multi :search_text, [:title, :description]
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_state, :with_any_origin, :with_any_category, :with_any_scope]
+        [:with_any_state, :with_any_origin, :with_any_taxonomies]
       end
 
       def self.ransack(params = {}, options = {})
@@ -219,7 +221,7 @@ module Decidim
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(category scope)
+        %w(taxonomies)
       end
 
       private

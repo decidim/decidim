@@ -25,14 +25,6 @@ describe Decidim::Debates::Admin::Permissions do
   end
 
   context "when subject is not debate" do
-    context "when subject is comments and action is export" do
-      let(:action) do
-        { scope: :admin, action: :export, subject: :comments }
-      end
-
-      it { is_expected.to be true }
-    end
-
     context "when subject is anything else" do
       let(:action) do
         { scope: :admin, action: :bar, subject: :foo }
@@ -74,19 +66,11 @@ describe Decidim::Debates::Admin::Permissions do
     end
   end
 
-  describe "debate delete" do
+  describe "debates export" do
     let(:action) do
-      { scope: :admin, action: :delete, subject: :debate }
+      { scope: :admin, action: :export, subject: :debates }
     end
 
-    context "when the debate is official" do
-      it { is_expected.to be true }
-    end
-
-    context "when debate is not official" do
-      let(:debate) { create(:debate, author: user, component: debates_component) }
-
-      it { is_expected.to be false }
-    end
+    it { is_expected.to be true }
   end
 end

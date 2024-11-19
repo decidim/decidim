@@ -13,29 +13,25 @@
   <%= admin_filter_selector(:projects) %>
   <div class="table-scroll">
     <table class="table-list">
-      <thead>
-        <tr>
-          <th><%= check_box_tag "projects_bulk", "all", false, class: "js-check-all" %></th>
-          <th><%= sort_link(query, :id, t("models.project.fields.id", scope: "decidim.budgets"), default_order: :desc) %></th>
-          <th class="!text-left"><%= sort_link(query, :title, t("models.project.fields.title", scope: "decidim.budgets")) %></th>
-          <th><%= sort_link(query, :category_name, t("models.project.fields.category", scope: "decidim.budgets") ) %></th>
-          <% if current_component.has_subscopes? %>
-            <%= th_scope_sort_link %>
-          <% end %>
-          <th><%= sort_link(query, :confirmed_orders_count, t("index.confirmed_orders_count")) %></th>
-          <th><%= sort_link(query, :selected, t(".selected")) %></th>
-          <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
-            <th><%= t("models.project.fields.map", scope: "decidim.budgets") %></th>
-          <% end %>
-          <th><%= t("actions.title", scope: "decidim.budgets") %></th>
-        </tr>
-      </thead>
+      <%= render partial: "projects-thead" %>
       <tbody>
-        <% projects.each do |project| %>
-          <%= render partial: "project-tr", locals: { project: } %>
-        <% end %>
+        <%= render partial: "decidim/budgets/admin/projects/project-tr",
+                   collection: projects,
+                   as: :project,
+                   locals: { view: :index } %>
       </tbody>
     </table>
+    <% if allowed_to? :manage_trash, :project, participatory_space: current_participatory_space %>
+      <div class="card mt-4">
+        <%= link_to manage_trash_budget_projects_path(budget), class: "flex items-center underline text-secondary" do %>
+          <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+          <%= t("actions.view_deleted_projects", scope: "decidim.budgets") %>
+          <span class="ml-2">
+          <%= icon_with_tooltip("information-line", t("actions.deleted_budgets_info", scope: "decidim.budgets")) %>
+        </span>
+        <% end %>
+      </div>
+    <% end %>
     <%= decidim_paginate projects %>
   </div>
   <div class="card-divider">

@@ -24,26 +24,21 @@ shared_examples "a proposal form" do |options|
   let(:author) { create(:user, organization:) }
   let(:user_group) { create(:user_group, :verified, users: [author], organization:) }
   let(:user_group_id) { user_group.id }
-  let(:category) { create(:category, participatory_space:) }
-  let(:parent_scope) { create(:scope, organization:) }
-  let(:scope) { create(:subscope, parent: parent_scope) }
-  let(:category_id) { category.try(:id) }
-  let(:scope_id) { scope.try(:id) }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:address) { nil }
   let(:suggested_hashtags) { [] }
   let(:attachment_params) { nil }
   let(:meeting_as_author) { false }
+  let(:taxonomies) { [] }
 
   let(:params) do
     {
       title:,
       body:,
       body_template:,
+      taxonomies:,
       author:,
-      category_id:,
-      scope_id:,
       address:,
       meeting_as_author:,
       attachment: attachment_params,
@@ -59,10 +54,10 @@ shared_examples "a proposal form" do |options|
     )
   end
 
-  describe "scope" do
+  describe "taxonomies" do
     let(:current_component) { component }
 
-    it_behaves_like "a scopable resource"
+    it_behaves_like "a taxonomizable resource"
   end
 
   context "when everything is OK" do
@@ -155,24 +150,6 @@ shared_examples "a proposal form" do |options|
     end
   end
 
-  context "when no category_id" do
-    let(:category_id) { nil }
-
-    it { is_expected.to be_valid }
-  end
-
-  context "when no scope_id" do
-    let(:scope_id) { nil }
-
-    it { is_expected.to be_valid }
-  end
-
-  context "with invalid category_id" do
-    let(:category_id) { 987 }
-
-    it { is_expected.to be_invalid }
-  end
-
   context "when geocoding is enabled" do
     let(:component) { create(:proposal_component, :with_geocoding_enabled, participatory_space:) }
 
@@ -233,8 +210,7 @@ shared_examples "a proposal form" do |options|
             title:,
             body:,
             author: previous_proposal.authors.first,
-            category_id: previous_proposal.try(:category_id),
-            scope_id: previous_proposal.try(:scope_id),
+            taxonomies: previous_proposal.try(:taxonomies),
             address:,
             attachment: previous_proposal.try(:attachment_params),
             latitude:,
@@ -251,32 +227,6 @@ shared_examples "a proposal form" do |options|
     end
   end
 
-  describe "category" do
-    subject { form.category }
-
-    context "when the category exists" do
-      it { is_expected.to be_a(Decidim::Category) }
-    end
-
-    context "when the category does not exist" do
-      let(:category_id) { 7654 }
-
-      it { is_expected.to be_nil }
-    end
-
-    context "when the category is from another process" do
-      let(:category_id) { create(:category).id }
-
-      it { is_expected.to be_nil }
-    end
-  end
-
-  it "properly maps category id from model" do
-    proposal = create(:proposal, component:, category:)
-
-    expect(described_class.from_model(proposal).category_id).to eq(category_id)
-  end
-
   if options && options[:user_group_check]
     it "properly maps user group id from model" do
       proposal = create(:proposal, component:, users: [author], user_groups: [user_group])
@@ -291,8 +241,7 @@ shared_examples "a proposal form" do |options|
         :title => title,
         :body => body,
         :author => author,
-        :category_id => category_id,
-        :scope_id => scope_id,
+        :taxonomies => taxonomies,
         :address => address,
         :meeting_as_author => meeting_as_author,
         :suggested_hashtags => suggested_hashtags,

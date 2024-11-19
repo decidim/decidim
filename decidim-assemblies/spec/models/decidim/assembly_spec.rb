@@ -10,6 +10,7 @@ module Decidim
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
+    it { is_expected.to act_as_paranoid }
 
     include_examples "publicable"
     include_examples "resourceable"
@@ -107,6 +108,18 @@ module Decidim
         let!(:assembly) { create(:assembly, parent: create(:assembly, :with_parent)) }
 
         it { is_expected.to eq([assembly.parent.parent, assembly.parent]) }
+      end
+    end
+
+    describe ".visible?" do
+      let!(:private_assembly) { create(:assembly, :private, :opaque) }
+      let!(:private_transparent_assembly) { create(:assembly, :private, :transparent) }
+      let!(:public_assembly) { create(:assembly, :public) }
+
+      it "returns the right visibility" do
+        expect(private_assembly).not_to be_visible
+        expect(private_transparent_assembly).to be_visible
+        expect(public_assembly).to be_visible
       end
     end
 
