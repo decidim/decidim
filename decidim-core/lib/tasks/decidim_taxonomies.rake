@@ -40,11 +40,11 @@ namespace :decidim do
           puts "    Taxonomy items: #{taxonomy["taxonomies"].count}"
           puts "    Filters: #{taxonomy["filters"].count}"
           taxonomy["filters"].each do |filter_name, filter|
-            puts "     - Filter name: #{filter_name}"
-            puts "       Manifest: #{filter["space_manifest"]}"
-            puts "       Space filter: #{filter["space_filter"]}"
-            puts "       Items: #{filter["items"].count}"
-            puts "       Components: #{filter["components"].count}"
+            puts "      - Filter name: #{filter_name}"
+            puts "        Manifest: #{filter["space_manifest"]}"
+            puts "        Space filter: #{filter["space_filter"]}"
+            puts "        Items: #{filter["items"].count}"
+            puts "        Components: #{filter["components"].count}"
           end
         end
         importer.import!
@@ -79,7 +79,7 @@ namespace :decidim do
     end
 
     desc "Imports taxonomies and filters structure from all JSON files inside tmp/taxonomies"
-    task :import_all_plans, [] => :environment do |_task, args|
+    task :import_all_plans, [] => :environment do |_task, _args|
       Dir[Rails.root.join("tmp/taxonomies/*.json")].each do |file|
         puts "Importing plan from #{file}"
         Rake::Task["decidim:taxonomies:import_plan"].invoke(file)
@@ -87,7 +87,7 @@ namespace :decidim do
     end
 
     def planner(organization)
-      models = [Decidim::Maintenance::ParticipatoryProcessType]
+      models = [Decidim::Maintenance::ParticipatoryProcessType, Decidim::Maintenance::AssemblyType]
       Decidim::Maintenance::TaxonomyPlan.new(organization, models)
     end
 
