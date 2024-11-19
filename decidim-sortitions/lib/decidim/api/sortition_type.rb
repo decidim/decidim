@@ -28,7 +28,7 @@ module Decidim
       def self.authorized?(object, context)
         context[:sortition] = object
 
-        super && object.visible?
+        super
       end
     end
   end

@@ -181,18 +181,6 @@ module Decidim
             expect(response).to be_nil
           end
         end
-
-        context "when is sortition is not visible" do
-          let(:current_component) { create(:sortition_component, organization: current_organization) }
-          let(:model) { create(:sortition, component: current_component) }
-          let(:query) { "{ id }" }
-          let(:root_value) { model.reload }
-
-          it "returns nothing" do
-            allow(model).to receive(:visible?).and_return(false)
-            expect(response).to be_nil
-          end
-        end
       end
     end
   end

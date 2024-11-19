@@ -92,7 +92,6 @@ module Decidim
                                     context))
         end
 
-        chain.unshift(object.visible?)
         chain.unshift(!object.hidden?)
         chain.unshift(!object.deleted?)
 
