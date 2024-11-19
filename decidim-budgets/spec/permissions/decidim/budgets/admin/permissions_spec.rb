@@ -59,25 +59,6 @@ describe Decidim::Budgets::Admin::Permissions do
     it { is_expected.to be true }
   end
 
-  context "when deleting a budget" do
-    describe "with no projects" do
-      let(:action) do
-        { scope: :admin, action: :delete, subject: :budget }
-      end
-
-      it { is_expected.to be true }
-    end
-
-    describe "with projects" do
-      let(:budget) { create(:budget, :with_projects, component: budgets_component) }
-      let(:action) do
-        { scope: :admin, action: :delete, subject: :budget }
-      end
-
-      it { is_expected.to be false }
-    end
-  end
-
   context "when scope is not admin" do
     let(:action) do
       { scope: :foo, action: :vote, subject: :project }
@@ -97,20 +78,6 @@ describe Decidim::Budgets::Admin::Permissions do
   describe "project update" do
     let(:action) do
       { scope: :admin, action: :update, subject: :project }
-    end
-
-    it { is_expected.to be true }
-
-    context "when project is not present" do
-      let(:project) { nil }
-
-      it_behaves_like "permission is not set"
-    end
-  end
-
-  describe "project deletion" do
-    let(:action) do
-      { scope: :admin, action: :destroy, subject: :project }
     end
 
     it { is_expected.to be true }

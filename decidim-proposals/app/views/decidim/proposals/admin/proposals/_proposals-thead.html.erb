@@ -1,0 +1,45 @@
+<thead>
+<tr>
+  <th>
+    <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all" %>
+  </th>
+  <th class="!text-left">
+    <%= sort_link(query, :translated_title, t("models.proposal.fields.title", scope: "decidim.proposals") ) %>
+  </th>
+  <th>
+    <%= sort_link(query, :published_at, t("models.proposal.fields.published_at", scope: "decidim.proposals") ) %>
+  </th>
+
+  <% unless current_settings.publish_answers_immediately? %>
+    <th>
+      <%= sort_link(query, :state_published, t("models.proposal.fields.published_answer", scope: "decidim.proposals") ) %>
+    </th>
+  <% end %>
+
+  <% if current_settings.votes_enabled? %>
+    <th>
+      <%= sort_link(query, :proposal_votes_count, t("models.proposal.fields.votes", scope: "decidim.proposals") ) %>
+    </th>
+  <% end %>
+
+  <% if current_component.settings.comments_enabled? and !current_settings.comments_blocked? %>
+    <th>
+      <%= sort_link(query, :comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
+    </th>
+  <% end %>
+
+  <th>
+    <%= sort_link(query, :proposal_notes_count, t("models.proposal.fields.notes", scope: "decidim.proposals") ) %>
+  </th>
+
+  <th>
+    <%= sort_link(query, :valuation_assignments_count, t("models.proposal.fields.valuators", scope: "decidim.proposals") ) %>
+  </th>
+
+  <th>
+    <%= t("models.proposal.fields.state", scope: "decidim.proposals") %>
+  </th>
+
+  <th><%= t("actions.title", scope: "decidim.proposals") %></th>
+</tr>
+</thead>

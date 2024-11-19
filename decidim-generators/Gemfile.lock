@@ -86,6 +86,7 @@ PATH
       omniauth-rails_csrf_protection (~> 1.0)
       omniauth-twitter (~> 1.4)
       paper_trail (~> 15.1)
+      paranoia (~> 3.0.0)
       pg (~> 1.4.0, < 2)
       pg_search (~> 2.2)
       premailer-rails (~> 1.10)
@@ -553,6 +554,8 @@ GEM
     parallel (1.26.3)
     parallel_tests (4.5.1)
       parallel
+    paranoia (3.0.0)
+      activerecord (>= 6, < 8.1)
     parser (3.3.4.2)
       ast (~> 2.4.1)
       racc
