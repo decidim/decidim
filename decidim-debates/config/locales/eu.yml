@@ -50,9 +50,11 @@ eu:
     debates:
       actions:
         close: Itxi
+        deleted_debate_info: Ezabatutako eztabaida zaborretik berreskura daiteke.
         edit: Editatu
         new: Beste eztabaida bat
         title: Ekintzak
+        view_deleted_debates: Ikusi ezabatutako eztabaidak
       admin:
         debate_closes:
           edit:
@@ -71,6 +73,8 @@ eu:
             open: Zabalik (ez dago hasiera- edo amaiera-ordurik)
           index:
             title: eztabaidak
+          manage_trash:
+            title: Ezabatutako eztabaidak
           new:
             create: Sortu eztabaida
             title: Beste eztabaida bat
