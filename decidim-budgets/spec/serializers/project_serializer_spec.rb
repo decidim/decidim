@@ -104,6 +104,13 @@ module Decidim::Budgets
         expect(serialized).to include(reference: project.reference)
       end
 
+      it "serializes the latitude" do
+        expect(serialized).to include(latitude: project.latitude)
+      end
+
+      it "serializes the longitude" do
+        expect(serialized).to include(longitude: project.longitude)
+      end
     end
 
     context "when subscribed to the serialize event" do

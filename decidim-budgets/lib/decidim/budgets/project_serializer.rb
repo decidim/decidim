@@ -38,6 +38,8 @@ module Decidim
           selected_at: project.selected_at,
           reference: project.reference,
           follows_count: project.follows_count,
+          latitude: project.latitude,
+          longitude: project.longitude,
           related_proposals:,
           related_proposal_titles:,
           related_proposal_urls:
