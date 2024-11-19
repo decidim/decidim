@@ -92,6 +92,10 @@ module Decidim::Budgets
         expect(serialized).to include(updated_at: project.updated_at)
       end
 
+      it "includes the selected time" do
+        expect(serialized).to include(selected_at: project.selected_at)
+      end
+
       it "serializes the reference" do
         expect(serialized).to include(reference: project.reference)
       end
