@@ -37,6 +37,7 @@ module Decidim
           updated_at: project.updated_at,
           selected_at: project.selected_at,
           reference: project.reference,
+          follows_count: project.follows_count,
           related_proposals:,
           related_proposal_titles:,
           related_proposal_urls:
