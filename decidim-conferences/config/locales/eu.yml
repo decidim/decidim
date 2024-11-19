@@ -89,6 +89,7 @@ eu:
     admin:
       actions:
         confirm: Berretsi
+        confirm_delete_conference: Ziur zaude hitzaldi hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         new_conference: Beste hitzaldi bat
         new_conference_user_role: Hitzaldiaren beste administratzaile bat
         new_media_link: Hedabideen beste lotura bat
@@ -96,6 +97,7 @@ eu:
         new_registration_type: Beste erregistro mota bat
         new_speaker: Beste hizlari bat
         send_diplomas: Bidali bertaratze-ziurtagiriak
+        view_deleted_conferences: Ikusi ezabatutako hitzaldiak
       conference_copies:
         new:
           copy: Kopiatu
