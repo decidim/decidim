@@ -65,24 +65,39 @@ shared_examples "with resource visibility" do
     end
   end
 
+  shared_examples "graphQL resource visible for admin" do
+    context "when the user is admin" do
+      let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+
+      it_behaves_like "graphQL visible resource"
+    end
+  end
+
+  shared_examples "graphQL resource visible for space roles" do
+    Decidim::ParticipatorySpaceUser::ROLES.each do |role|
+      context "when the user is space #{role}" do
+        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+        it_behaves_like "graphQL visible resource"
+      end
+    end
+  end
+
+  shared_examples "graphQL space hidden to visitor" do
+    context "when user is visitor" do
+      let!(:current_user) { nil }
+      it_behaves_like "graphQL hidden space"
+    end
+  end
+
   context "when space is published" do
     let!(:participatory_process) { create(process_space_factory, :published, :with_steps, organization: current_organization) }
 
     context "when component is published" do
       let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
 
-      context "when the user is admin" do
-        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+      it_behaves_like "graphQL resource visible for admin"
 
-        it_behaves_like "graphQL visible resource"
-      end
-
-      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
-        context "when the user is space #{role}" do
-          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-          it_behaves_like "graphQL visible resource"
-        end
-      end
+      it_behaves_like "graphQL resource visible for space roles"
 
       context "when user is visitor" do
         let!(:current_user) { nil }
@@ -110,19 +125,9 @@ shared_examples "with resource visibility" do
     context "when component is not published" do
       let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
 
-      context "when the user is admin" do
-        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
+      it_behaves_like "graphQL resource visible for admin"
 
-        it_behaves_like "graphQL visible resource"
-      end
-
-      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
-        context "when the user is space #{role}" do
-          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-
-          it_behaves_like "graphQL visible resource"
-        end
-      end
+      it_behaves_like "graphQL resource visible for space roles"
 
       context "when user is visitor" do
         let!(:current_user) { nil }
@@ -168,10 +173,7 @@ shared_examples "with resource visibility" do
     context "when component is published" do
       let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
 
-      context "when the user is admin" do
-        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-        it_behaves_like "graphQL visible resource"
-      end
+      it_behaves_like "graphQL resource visible for admin"
 
       Decidim::AssemblyUserRole::ROLES.each do |role|
         context "when the user is space #{role}" do
@@ -200,31 +202,24 @@ shared_examples "with resource visibility" do
     context "when component is not published" do
       let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
 
-      context "when the user is admin" do
-        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-        it_behaves_like "graphQL visible resource"
-      end
+      it_behaves_like "graphQL resource visible for admin"
 
-      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
-        context "when the user is space #{role}" do
-          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-          it_behaves_like "graphQL visible resource"
-        end
-      end
+      it_behaves_like "graphQL resource visible for space roles"
 
       context "when user is visitor" do
         let!(:current_user) { nil }
         it_behaves_like "graphQL hidden component"
-
-        context "when user is member" do
-          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-          let!(:participatory_space_private_user) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
-          it_behaves_like "graphQL hidden component"
-        end
       end
 
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+        it_behaves_like "graphQL hidden component"
+
+      end
+      
+      context "when user is member" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+        let!(:participatory_space_private_user) { create(:assembly_private_user, user: current_user, privatable_to: participatory_process) }
         it_behaves_like "graphQL hidden component"
       end
     end
@@ -236,20 +231,15 @@ shared_examples "with resource visibility" do
     context "when component is published" do
       let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
 
-      context "when the user is admin" do
-        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-        it_behaves_like "graphQL visible resource"
-      end
+      it_behaves_like "graphQL resource visible for admin"
 
-      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
-        context "when the user is space #{role}" do
-          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-          it_behaves_like "graphQL visible resource"
-        end
-      end
+      it_behaves_like "graphQL resource visible for space roles"
 
-      context "when user is visitor" do
-        let!(:current_user) { nil }
+      it_behaves_like "graphQL space hidden to visitor"
+
+
+      context "when user is normal user" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         it_behaves_like "graphQL hidden space"
       end
 
@@ -258,39 +248,22 @@ shared_examples "with resource visibility" do
         let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
         it_behaves_like "graphQL visible resource"
       end
-
-      context "when user is normal user" do
-        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-        it_behaves_like "graphQL hidden space"
-      end
     end
 
     context "when component is not published" do
       let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
 
-      context "when the user is admin" do
-        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-        it_behaves_like "graphQL visible resource"
+      it_behaves_like "graphQL resource visible for admin"
+
+      it_behaves_like "graphQL resource visible for space roles"
+
+      it_behaves_like "graphQL space hidden to visitor"
+
+      context "when user is member" do
+        let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
+        let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
+        it_behaves_like "graphQL hidden component"
       end
-
-      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
-        context "when the user is space #{role}" do
-          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-          it_behaves_like "graphQL visible resource"
-        end
-      end
-
-      context "when user is visitor" do
-        let!(:current_user) { nil }
-        it_behaves_like "graphQL hidden space"
-
-        context "when user is member" do
-          let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
-          let!(:participatory_space_private_user) { create(:participatory_space_private_user, user: current_user, privatable_to: participatory_process) }
-          it_behaves_like "graphQL hidden component"
-        end
-      end
-
       context "when user is normal user" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
         it_behaves_like "graphQL hidden space"
@@ -304,22 +277,11 @@ shared_examples "with resource visibility" do
     context "when component is published" do
       let!(:current_component) { create(component_factory, :published, participatory_space: participatory_process) }
 
-      context "when the user is admin" do
-        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-        it_behaves_like "graphQL visible resource"
-      end
+      it_behaves_like "graphQL resource visible for admin"
 
-      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
-        context "when the user is space #{role}" do
-          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-          it_behaves_like "graphQL visible resource"
-        end
-      end
+      it_behaves_like "graphQL resource visible for space roles"
 
-      context "when user is visitor" do
-        let!(:current_user) { nil }
-        it_behaves_like "graphQL hidden space"
-      end
+      it_behaves_like "graphQL space hidden to visitor"
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
@@ -336,22 +298,11 @@ shared_examples "with resource visibility" do
     context "when component is not published" do
       let!(:current_component) { create(component_factory, :unpublished, participatory_space: participatory_process) }
 
-      context "when the user is admin" do
-        let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-        it_behaves_like "graphQL visible resource"
-      end
+      it_behaves_like "graphQL resource visible for admin"
 
-      Decidim::ParticipatorySpaceUser::ROLES.each do |role|
-        context "when the user is space #{role}" do
-          let!(:current_user) { create(:user, :admin, :confirmed, organization: current_organization) }
-          it_behaves_like "graphQL visible resource"
-        end
-      end
+      it_behaves_like "graphQL resource visible for space roles"
 
-      context "when user is visitor" do
-        let!(:current_user) { nil }
-        it_behaves_like "graphQL hidden space"
-      end
+      it_behaves_like "graphQL space hidden to visitor"
 
       context "when user is member" do
         let!(:current_user) { create(:user, :confirmed, organization: current_organization) }
