@@ -17,9 +17,12 @@ eu:
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
+        confirm_delete_post: Ziur zaude korreo hau ezabatu nahi duzula?
+        deleted_posts_info: Ezabatutako korreoak berreskura daitezke zaborrontzitik.
         edit: Editatu
         new: Beste argitalpen bat
         title: Ekintzak
+        view_deleted_posts: Ikusdi ezabatutako korreoak
       admin:
         posts:
           create:
@@ -31,6 +34,8 @@ eu:
           index:
             not_published_yet: Oraindik argitaratu gabe.
             title: Argitalpenak
+          manage_trash:
+            title: Ezabatutako korreoak
           new:
             create: Sortu
             title: Sortu argitalpena
@@ -41,6 +46,8 @@ eu:
         post:
           create: "%{user_name} k %{resource_name} blogeko argitalpena sortu du %{space_name} espazioan"
           delete: "%{user_name} k %{resource_name} blogeko argitalpena ezabatu du %{space_name} espazioan"
+          restore: "%{user_name} k berreskuratu du %{resource_name} korreoa hemen: %{space_name}"
+          soft_delete: "% {user_name} k hemengo: %{space_name} %{resource_name} korreoa zaborrontzira eraman du"
           update: "%{user_name} k %{resource_name} blogeko argitalpena eguneratu egin da %{space_name} espazioan"
       content_blocks:
         highlighted_posts:
