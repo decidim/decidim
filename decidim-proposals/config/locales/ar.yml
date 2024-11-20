@@ -262,12 +262,10 @@ ar:
           email_subject: تمت إضافة اقتراح جديد "%{resource_title}" إلى %{participatory_space_title}
         proposal_update_category:
           email_intro: 'قام المشرف بتحديث فئة اقتراحك "%{resource_title}" ، تحقق من ذلك في هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
           email_subject: تم تحديث فئة %{resource_title} اقتراح
           notification_title: تم تحديث فئة اقتراح <a href="%{resource_path}">%{resource_title}</a> بواسطة مسؤول.
         proposal_update_scope:
           email_intro: 'قام مدير بتحديث نطاق اقتراحك "%{resource_title}" ، يرجى التحقق منه على هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
           email_subject: تم تحديث نطاق الاقتراح %{resource_title}
           notification_title: نطاق الاقتراح <a href="%{resource_path}">%{resource_title}</a> تم تحديثه من قبل مدير.
         voting_enabled:
