@@ -44,6 +44,7 @@ es-MX:
       actions:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
+        confirm_destroy: '¿Seguro que deseas eliminar este proyecto?'
         destroy: Borrar
         edit: Editar
         edit_projects: Gestionar proyectos
