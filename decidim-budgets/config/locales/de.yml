@@ -88,8 +88,6 @@ de:
             actions: Aktionen
             cancel: Abbrechen
             change_budget: Budget ändern
-            change_category: Kategorie ändern
-            change_scope: Themenbereich ändern
             change_selected: Ausgewählten Status ändern
             deselect_implementation: Von umzusetzenden Projekten abwählen
             finished_orders: Abgeschlossene Stimmen
@@ -102,7 +100,6 @@ de:
             title: Projekte
             update: Aktualisieren
             update_budget_button: Projektbudget aktualisieren
-            update_scope_button: Themenbereich aktualisieren
           new:
             create: Erstellen
             title: Neues Projekt
@@ -110,28 +107,10 @@ de:
             invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten.
             success: Projekt erfolgreich aktualisiert.
           update_budget:
-            invalid: 'Diese Projekte befinden sich bereits im selben Budget oder ihr Budget liegt über dem maximal zulässigen Betrag: %{projects}.'
             select_a_project: Bitte wählen Sie ein Projekt.
-            success: 'Die folgenden Projekte wurden erfolgreich zum Budget %{subject_name} hinzugefügt: %{projects}.'
-          update_category:
-            invalid: 'Diese Projekte gehörten bereits zur Kategorie %{subject_name}: %{projects}.'
-            select_a_category: Bitte wählen Sie eine Kategorie aus.
-            select_a_project: Bitte wählen Sie ein Projekt.
-            success: 'Die folgenden Projekte wurden erfolgreich zur Kategorie %{subject_name} hinzugefügt: %{projects}.'
-          update_scope:
-            invalid: 'Diese Projekte gehörten bereits zum Themenbereich %{subject_name}: %{projects}.'
-            select_a_project: Bitte wählen Sie ein Projekt.
-            select_a_scope: Bitte wählen Sie einen Themenbereich.
-            success: 'Die folgenden Projekte wurden erfolgreich zum Themenbereich %{subject_name} hinzugefügt: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Diese Projekte wurden bereits für die Umsetzung ausgewählt: %{projects}.'
-              unselected: 'Diese Projekte wurden bereits von den umzusetzenden Projekten abgewählt: %{projects}.'
             select_a_project: Bitte wählen Sie ein Projekt.
             select_a_selection: Bitte wählen Sie einen Umsetzungsstatus.
-            success:
-              selected: 'Diese Projekte wurden erfolgreich für die Umsetzung ausgewählt: %{projects}.'
-              unselected: 'Diese Projekte wurden erfolgreich von den umzusetzenden Projekten abgewählt: %{projects}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge zu den Projekten ist ein Problem aufgetreten.
