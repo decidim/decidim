@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "decidim/maintenance/application_record"
 module Decidim
   # This class should not be imported automatically by the Decidim web app
   # It holds utilities for maintenance tasks (such as importing taxonomies)

@@ -31,12 +31,12 @@ module Decidim
 
       def self.to_a
         {
-          taxonomies: all.to_h { |type| [type.name[I18n.locale.to_s], type.taxonomies] },
+          taxonomies: all_in_org.to_h { |type| [type.name[I18n.locale.to_s], type.taxonomies] },
           filters: {
             I18n.t("decidim.admin.titles.participatory_process_types") => {
               space_filter: true,
               space_manifest: "participatory_processes",
-              items: all.map { |type| [type.name[I18n.locale.to_s]] },
+              items: all_in_org.map { |type| [type.name[I18n.locale.to_s]] },
               components: []
             }
           }

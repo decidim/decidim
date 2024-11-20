@@ -27,7 +27,7 @@ module Decidim
 
       def all_children
         @all_children ||= children.map do |child|
-          child.name[I18n.locale.to_s] = "#{name[I18n.locale.to_s]} > #{child.name[I18n.locale.to_s]}"
+          child.name[I18n.locale.to_s] = "#{name[I18n.locale.to_s]} > #{resource_name(child)}"
           [child] + child.all_children
         end.flatten
       end
@@ -53,13 +53,47 @@ module Decidim
         }
       end
 
-      # TODO: check what happens with components, scope defined in settings
       def resources
         RESOURCE_CLASSES.each_with_object({}) do |type, hash|
-          if klass = type.safe_constantize
-            hash.merge!(klass.where(scope: id).to_h { |resource| [resource.to_global_id.to_s, resource.title[I18n.locale.to_s]] })
+          if (klass = type.safe_constantize)
+            items = if type == "Decidim::InitiativesTypeScope"
+                      klass.where(decidim_scopes_id: id)
+                    else
+                      klass.where(decidim_scope_id: id)
+                    end
+            hash.merge!(items.to_h { |resource| [resource.to_global_id.to_s, resource_name(resource)] })
           else
             Rails.logger.error("Resource class not found while converting scopes to taxonomies: #{klass}")
+          end
+        end
+      end
+
+      def filters
+        Scope.participatory_spaces.each_with_object({}) do |space_class, hash|
+          # 1 filter per participatory space as space_filter=true
+          hash[I18n.t("decidim.scopes.scopes")] = {
+            space_filter: true,
+            space_manifest: space_class.to_s.underscore.pluralize,
+            items: all_children.map { |child| [child.name[I18n.locale.to_s]] },
+            components: []
+          }
+          # 1 filter per component as space_filter=false on those with scopes, suffix: "Component Name"
+          # Only for components with scopes
+          space_class.where(organization:).each do |space|
+            space.components.each do |component|
+              scopes_enabled = component.settings[:scopes_enabled]
+              next unless scopes_enabled
+
+              scope = find_by(id: component.settings[:scope_id]) || (space.scopes_enabled? && Scope.find_by(id: space.decidim_scope_id))
+              list = scope ? scope.all_children : Scope.all
+
+              hash["#{I18n.t("decidim.scopes.scopes")}: #{component.name[I18n.locale.to_s]}"] = {
+                space_filter: false,
+                space_manifest: space.to_s.underscore.pluralize,
+                items: list.map { |child| [child.name[I18n.locale.to_s]] },
+                components: [component.to_global_id.to_s]
+              }
+            end
           end
         end
       end
@@ -72,15 +106,8 @@ module Decidim
 
       def self.to_a
         {
-          taxonomies: all.to_h { |type| [type.name[I18n.locale.to_s], type.taxonomies] },
-          filters: {
-            I18n.t("decidim.scopes.scopes") => {
-              space_filter: true,
-              space_manifest: "assemblies",
-              items: all.map { |type| [type.name[I18n.locale.to_s]] },
-              components: []
-            }
-          }
+          taxonomies: all_in_org.to_h { |type| [type.name[I18n.locale.to_s], type.taxonomies] },
+          filters: all_in_org.to_h { |type| [type.name[I18n.locale.to_s], type.filters] }
         }
       end
     end

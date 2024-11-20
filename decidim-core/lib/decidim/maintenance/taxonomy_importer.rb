@@ -90,7 +90,7 @@ module Decidim
       end
 
       def find_taxonomy_filter(root_taxonomy, name)
-        root_taxonomy.taxonomy_filters.all.detect { |filter| filter.name[organization.default_locale] == name }
+        root_taxonomy.taxonomy_filters.all.detect { |filter| filter.internal_name[organization.default_locale] == name }
       end
 
       def root_taxonomies

@@ -15,6 +15,10 @@ module Decidim::Maintenance
     # avoid using factories for this test in case old models are removed
     let(:assembly_type) { Decidim::Maintenance::AssemblyType.create!(title: { "en" => "Assembly Type 1", "ca" => "Tipus d'assemblea 1" }, decidim_organization_id: organization.id) }
     let!(:assembly) { create(:assembly, taxonomies:, organization:, decidim_assemblies_type_id: assembly_type.id) }
+    let(:external_organization) { create(:organization) }
+    let(:external_taxonomy) { create(:taxonomy, :with_parent, organization: external_organization) }
+    let!(:external_assembly_type) { Decidim::Maintenance::AssemblyType.create!(title: { "en" => "External Assembly Type" }, decidim_organization_id: external_organization.id) }
+    let!(:external_assembly) { create(:assembly, organization: external_organization, decidim_assemblies_type_id: external_assembly_type.id) }
 
     describe "#name" do
       it "returns the title" do
@@ -40,19 +44,19 @@ module Decidim::Maintenance
 
     describe ".to_taxonomies" do
       it "returns the participatory assembly types" do
-        expect(described_class.to_taxonomies).to eq(
-          I18n.t("decidim.admin.titles.assembly_types") => described_class.to_a
+        expect(described_class.with(organization).to_taxonomies).to eq(
+          I18n.t("decidim.admin.titles.assemblies_types") => described_class.to_a
         )
       end
     end
 
     describe ".to_a" do
       it "returns the participatory assembly types as taxonomies" do
-        expect(described_class.to_a).to eq(
+        expect(described_class.with(organization).to_a).to eq(
           {
             taxonomies: { assembly_type.title[I18n.locale.to_s] => subject.taxonomies },
             filters: {
-              I18n.t("decidim.admin.titles.assembly_types") => {
+              I18n.t("decidim.admin.titles.assemblies_types") => {
                 space_filter: true,
                 space_manifest: "assemblies",
                 items: [[assembly_type.title[I18n.locale.to_s]]],

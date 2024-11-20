@@ -20,9 +20,13 @@ module Decidim::Maintenance
     let!(:assembly) { create(:assembly, taxonomies:, organization:, decidim_scope_id: sub2_scope.id) }
     let!(:participatory_process) { create(:participatory_process, organization:, decidim_scope_id: sub2_scope.id) }
 
+    let(:external_organization) { create(:organization) }
+    let(:external_scope) { Decidim::Maintenance::Scope.create!(name: { "en" => "External scope" }, code: "3", decidim_organization_id: external_organization.id) }
+    let!(:external_assembly) { create(:assembly, title: { "en" => "EXTERNAL" }, organization: external_organization, decidim_scope_id: external_scope.id) }
+
     describe "#name" do
       it "returns the name" do
-        expect(sub2_scope.name).to eq(scope.name)
+        expect(sub2_scope.name).to eq("en" => "Scope 1 second level")
       end
     end
 
@@ -68,7 +72,7 @@ module Decidim::Maintenance
 
     describe ".to_taxonomies" do
       it "returns the participatory Scopes" do
-        expect(described_class.to_taxonomies).to eq(
+        expect(described_class.with(organization).to_taxonomies).to eq(
           I18n.t("decidim.scopes.scopes") => described_class.to_a
         )
       end
@@ -76,14 +80,14 @@ module Decidim::Maintenance
 
     describe ".to_a" do
       it "returns the scopes as taxonomies and filters for each space" do
-        expect(described_class.to_a).to eq(
+        expect(described_class.with(organization).to_a).to eq(
           {
-            taxonomies: { scope.title[I18n.locale.to_s] => subject.taxonomies },
+            taxonomies: { scope.name[I18n.locale.to_s] => subject.taxonomies },
             filters: {
               I18n.t("decidim.scopes.scopes") => {
                 space_filter: true,
                 space_manifest: "assemblies",
-                items: [[scope.title[I18n.locale.to_s]]],
+                items: [[scope.name[I18n.locale.to_s]]],
                 components: []
               }
             }

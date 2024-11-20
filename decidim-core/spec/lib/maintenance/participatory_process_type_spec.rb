@@ -15,6 +15,10 @@ module Decidim::Maintenance
     # avoid using factories for this test in case old models are removed
     let(:participatory_process_type) { Decidim::Maintenance::ParticipatoryProcessType.create!(title: { "en" => "Participatory Process Type 1", "ca" => "Tipus de procés participatiu 1" }, decidim_organization_id: organization.id) }
     let!(:process) { create(:participatory_process, decidim_participatory_process_type_id: participatory_process_type.id, taxonomies:, organization:) }
+    let(:external_organization) { create(:organization) }
+    let(:external_taxonomy) { create(:taxonomy, :with_parent, organization: external_organization) }
+    let!(:external_participatory_process_type) { Decidim::Maintenance::ParticipatoryProcessType.create!(title: { "en" => "External Participatory Process Type" }, decidim_organization_id: external_organization.id) }
+    let!(:external_process) { create(:participatory_process, organization: external_organization, decidim_participatory_process_type_id: external_participatory_process_type.id) }
 
     describe "#name" do
       it "returns the title" do
@@ -40,7 +44,7 @@ module Decidim::Maintenance
 
     describe ".to_taxonomies" do
       it "returns the participatory process types" do
-        expect(described_class.to_taxonomies).to eq(
+        expect(described_class.with(organization).to_taxonomies).to eq(
           I18n.t("decidim.admin.titles.participatory_process_types") => described_class.to_a
         )
       end
@@ -48,7 +52,7 @@ module Decidim::Maintenance
 
     describe ".to_a" do
       it "returns the participatory process types as taxonomies" do
-        expect(described_class.to_a).to eq(
+        expect(described_class.with(organization).to_a).to eq(
           {
             taxonomies: { participatory_process_type.title[I18n.locale.to_s] => subject.taxonomies },
             filters: {

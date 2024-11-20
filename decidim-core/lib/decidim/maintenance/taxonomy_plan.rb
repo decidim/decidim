@@ -50,7 +50,7 @@ module Decidim
         @imported_taxonomies = {}
         models.map do |model|
           yield model if block_given?
-          @imported_taxonomies[model.table_name] = model.to_taxonomies
+          @imported_taxonomies[model.table_name] = model.with(organization).to_taxonomies
         end
         @imported_taxonomies
       end
