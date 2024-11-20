@@ -263,12 +263,10 @@ nl:
             notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
         proposal_update_category:
           email_intro: 'Een beheerder heeft de categorie van uw voorstel "%{resource_title} bijgewerkt, bekijk het op deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
           email_subject: De categorie van het %{resource_title} voorstel is bijgewerkt
           notification_title: De categorie van het <a href="%{resource_path}">%{resource_title}</a> voorstel is bijgewerkt door een beheerder.
         proposal_update_scope:
           email_intro: 'Een admin heeft de reikwijdte van je voorstel "%{resource_title}" geüpdatet, bekijk het op deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
           email_subject: Het toepassingsgebied van het %{resource_title} voorstel is bijgewerkt
           notification_title: Het bereik van <a href="%{resource_path}">%{resource_title}</a> voorstel is bijgewerkt door een admin.
         voting_enabled:
