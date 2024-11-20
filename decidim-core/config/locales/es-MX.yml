@@ -222,6 +222,8 @@ es-MX:
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         export_component: "%{user_name} ha exportado %{resource_name} %{component_name} en %{space_name} como %{format_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
+        restore: "%{user_name} restauró el componente %{resource_name} en el espacio %{space_name}"
+        soft_delete: "%{user_name} ha movido el componente %{resource_name} del espacio %{space_name} a la papelera"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
       contextual_help_section:
@@ -870,6 +872,9 @@ es-MX:
         email_outro: Has recibido esta notificación porque estás siguiendo a %{endorser_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
         email_subject: "%{endorser_nickname} se ha adherido a una propuesta"
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a la propuesta <a href="%{resource_path}">%{resource_title}</a>.
+      resources:
+        soft_deleted:
+          notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
@@ -1132,6 +1137,8 @@ es-MX:
           not_found: 'No se encontró el tipo de ámbito en la base de datos (ID: %{id})'
         taxonomy_presenter:
           not_found: 'No se ha encontrado la taxonomía en la base de datos (ID: %{id})'
+    machine_translations:
+      automatic: traducción automática a %{locale_name}
     managed_users:
       expired_session: La sesión de suplantación actual ha caducado.
     map:
@@ -1679,8 +1686,6 @@ es-MX:
       users_count: Participantes
     tags:
       filter_results_for_taxonomy: 'Resultados al filtrar por: %{resource}'
-    taxonomies:
-      prompt: Seleccionar de "%{name}"
     translation_bar:
       help_text: "<strong>Advertencia:</strong> El contenido puede ser traducido automáticamente y no ser 100% preciso."
       show_original: Mostrar el texto original
