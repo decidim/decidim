@@ -91,6 +91,7 @@ fi-pl:
       actions:
         activate: Aktivoi
         configure: Asetukset
+        confirm_delete_process: Haluatko varmasti poistaa tämän prosessin? Mikäli muutat mieltäsi, voit palauttaa prosessin myöhemmin.
         confirm_destroy: Vahvista poistaminen
         destroy: Poista
         duplicate: Kopioi
@@ -108,6 +109,7 @@ fi-pl:
         resend_invitation: Lähetä kutsu uudelleen
         see_process: Näytä prosessi
         unpublish: Lopeta julkaisu
+        view_deleted_processes: Näytä poistetut prosessit
       filters:
         decidim_participatory_process_group_id_eq:
           label: Prosessiryhmä
@@ -278,6 +280,8 @@ fi-pl:
           public: Julkinen
           published: Julkaistu
           unpublished: Julkaisematon
+        manage_trash:
+          title: Poistetut osallistumisprosessit
         new:
           create: Luo
           title: Uusi osallisuusprosessi
@@ -296,6 +300,9 @@ fi-pl:
         participatory_process_groups: Osallisuusprosessiryhmät
         participatory_process_types: Osallistumisprosessien tyypit
         participatory_processes: Osallisuusprosessit
+        participatory_processes_deleted: Poistetut osallistumisprosessit
+      tooltips:
+        deleted_processes_info: Prosessi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
       users:
         resend_invitation:
           error: Virhe lähettää kutsun.
@@ -307,6 +314,8 @@ fi-pl:
         export: "%{user_name} vei osallistumisprosessin %{resource_name}"
         import: "%{user_name} toi osallistumisprosessin %{resource_name}"
         publish: "%{user_name} julkaisi osallisuusprosessin %{resource_name}"
+        restore: "%{user_name} palautti osallistumisprosessin %{resource_name}"
+        soft_delete: "%{user_name} siirsi osallistumisprosessin %{resource_name} roskakoriin"
         unpublish: "%{user_name} muutti osallisuusprosessin %{resource_name} julkaisemattomaksi"
         update: "%{user_name} päivitti osallisuusprosessin %{resource_name}"
       participatory_process_group:
