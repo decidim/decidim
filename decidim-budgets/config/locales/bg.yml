@@ -82,8 +82,6 @@ bg:
             actions: Активности
             cancel: Отказ
             change_budget: Промяна на бюджета
-            change_category: Промяна на категория
-            change_scope: Промяна на обхвата
             change_selected: Промяна на избраното състояние
             deselect_implementation: Премахване на избора от внедряване
             finished_orders: Приключили гласувания
@@ -96,7 +94,6 @@ bg:
             title: Проекти
             update: Актуализация
             update_budget_button: Актуализирайте бюджета на проекта
-            update_scope_button: Актуализиране на обхвата
           new:
             create: Създаване
             title: Нов проект
@@ -104,28 +101,10 @@ bg:
             invalid: Възникна проблем при актуализирането на този проект.
             success: Проектът беше актуализиран успешно.
           update_budget:
-            invalid: 'Тези проекти вече са в същия бюджет или техните бюджети са повече от максимално допустимия: %{projects}.'
             select_a_project: Моля, изберете проект.
-            success: 'Проектите са актуализирани успешно до бюджета %{subject_name}: %{projects}.'
-          update_category:
-            invalid: 'Тези проекти вече имат категория %{subject_name}: %{projects}.'
-            select_a_category: Моля, изберете категория.
-            select_a_project: Моля, изберете проект.
-            success: 'Проектите са актуализирани успешно до категорията %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Тези проекти вече са имали %{subject_name} обхват: %{projects}.'
-            select_a_project: Моля, изберете проект.
-            select_a_scope: Моля, изберете обхват.
-            success: 'Проектите са актуализирани успешно до %{subject_name} обхват: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Тези проекти вече бяха селектирани за внедряване: %{projects}.'
-              unselected: 'Тези проекти вече бяха премахнати от селекцията за внедряване: %{projects}.'
             select_a_project: Моля, изберете проект.
             select_a_selection: Моля, изберете състояние на внедряване.
-            success:
-              selected: 'Тези проекти бяха успешно селектирани за внедряване: %{projects}.'
-              unselected: 'Тези проекти бяха успешно премахнати от селекцията за внедряване: %{projects}.'
         proposals_imports:
           create:
             invalid: Възникна проблем при импортирането на предложенията в проектите.
