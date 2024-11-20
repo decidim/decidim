@@ -44,6 +44,7 @@ fi:
       actions:
         attachment_collections: Kansiot
         attachments: Liitteet
+        confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
         edit: Muokkaa
         edit_projects: Hallinnoi projekteja
