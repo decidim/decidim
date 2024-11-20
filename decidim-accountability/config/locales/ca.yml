@@ -44,6 +44,7 @@ ca:
         attachments: Fitxers adjunts
         confirm_delete_result: Segur que voleu suprimir aquest resultat?
         confirm_destroy: Segur que vols suprimir aquest %{name}?
+        deleted_results_info: Els resultats eliminats es poden restaurar des de la paperera.
         destroy: Esborrar
         edit: Editar
         import: Importar projectes des d'un altre component
@@ -54,6 +55,7 @@ ca:
         preview: Previsualitzar
         timeline_entries: Evolució del projecte
         title: Accions
+        view_deleted_results: Veure els resultats eliminats
       admin:
         exports:
           result_comments: Comentaris
@@ -118,6 +120,8 @@ ca:
             update: Actualitzar resultat
           index:
             title: Resultats
+          manage_trash:
+            title: Resultats eliminats
           new:
             create: Crear resultat
             title: Nou resultat
@@ -165,6 +169,8 @@ ca:
         result:
           create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
           delete: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
+          restore: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
+          soft_delete: "%{user_name} ha mogut el resultat %{resource_name} des de %{space_name} a la paperera"
           update: "%{user_name} ha actualitzat el resultat %{resource_name} en %{space_name}"
         status:
           create: "%{user_name} ha creat l'estat %{resource_name}"
