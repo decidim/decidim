@@ -368,9 +368,11 @@ es:
         participatory_processes:
           announcement: La información del anuncio/aviso (llamada)
           area: El área a la que pertenece el proceso
+          created_at: La fecha en la que se creó este proceso participativo
           description: Una descripción larga del proceso
           developer_group: El grupo promotor del proceso. Quien está promoviendo el proceso.
           end_date: La fecha de finalización del proceso
+          follows_count: El número de usuarias que siguen este proceso participativo
           hashtag: La etiqueta que utiliza el proceso en Twitter/X
           id: El identificador único del proceso
           local_area: El área de organización del proceso. Esto es el área de organización de la que depende este proceso.
@@ -380,6 +382,8 @@ es:
           participatory_scope: El ámbito territorial de la participación del proceso
           participatory_structure: La estructura participativa del proceso. Esto es como se decide en el proceso.
           promoted: Si el proceso está destacado o no
+          published_at: La fecha en la que se publicó este proceso participativo
+          reference: La referencia única del proceso participativo
           remote_hero_image_url: La URL de la imagen principal del proceso
           scope: El ámbito territorial del proceso
           scopes_enabled: Si el ámbito territorial está habilitado o no
@@ -389,6 +393,8 @@ es:
           subtitle: El subtítulo del proceso
           target: Las destinatarias del proceso. Quien está llamado a participar en el proceso.
           title: El título del proceso
+          updated_at: La fecha de la última actualización de este proceso participativo
+          url: La URL del proceso participativo
     participatory_process_groups:
       content_blocks:
         extra_data:
