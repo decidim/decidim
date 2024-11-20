@@ -1725,8 +1725,6 @@ cs:
       users_count: Účastníci
     tags:
       filter_results_for_taxonomy: 'Filtrovat výsledky pro: %{resource}'
-    taxonomies:
-      prompt: Vybrat z "%{name}"
     translation_bar:
       help_text: "<strong>Upozornění:</strong> Obsah může být automaticky přeložen a nemusí být 100% přesný."
       show_original: Zobrazit původní text
