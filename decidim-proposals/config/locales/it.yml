@@ -4,7 +4,6 @@ it:
       collaborative_draft:
         address: Indirizzo
         body: Corpo
-        category_id: Categoria
         decidim_scope_id: Scopo
         has_address: Ha un indirizzo
         scope_id: Ambito
@@ -17,7 +16,6 @@ it:
         answered_at: Risposto a
         automatic_hashtags: Hashtag aggiunti automaticamente
         body: Corpo del testo
-        category_id: Categoria
         decidim_scope_id: Ambito
         has_address: Ha un indirizzo
         scope_id: Ambito
@@ -61,8 +59,6 @@ it:
             base:
               not_official: Non sono ufficiali
     models:
-      decidim/proposals/admin/update_proposal_category_event: Categoria della proposta modificata
-      decidim/proposals/admin/update_proposal_scope_event: Scopo della proposta modificato
       decidim/proposals/creation_enabled_event: Creazione della proposta abilitata
       decidim/proposals/endorsing_enabled_event: Approvazione della proposta abilitata
       decidim/proposals/proposal_mentioned_event: Proposta menzionata
@@ -212,16 +208,6 @@ it:
           email_intro: La proposta "%{resource_title}" è stata aggiunta a "%{participatory_space_title}" che stai seguendo.
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Nuova proposta "%{resource_title}" aggiunta a %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'Un amministratore ha aggiornato la categoria della tua proposta "%{resource_title}", dai un''occhiata:'
-          email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
-          email_subject: La categoria di proposta %{resource_title} è stata aggiornata
-          notification_title: La categoria <a href="%{resource_path}">%{resource_title}</a> proposta è stata aggiornata da un amministratore.
-        proposal_update_scope:
-          email_intro: 'Un amministratore ha aggiornato l''ambito della tua proposta%{resource_title}", dai un''occhiata a questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
-          email_subject: L'ambito della proposta %{resource_title} è stato aggiornato
-          notification_title: L'ambito della proposta <a href="%{resource_path}">%{resource_title}</a> è stato aggiornato da un amministratore.
         voting_enabled:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche facendo clich su pulsante Smetti di seguire nella pagina del processo o del contenuto che stai seguendo.
     gamification:
@@ -337,8 +323,6 @@ it:
             assign_to_valuator: Assegna al valutatore
             assign_to_valuator_button: Assegna
             cancel: Annulla
-            change_category: Cambia categoria
-            change_scope: Cambia ambito
             merge: Unisci a uno nuovo
             merge_button: fondersi
             publish: Pubblica
@@ -351,7 +335,6 @@ it:
             unassign_from_valuator: Annulla assegnazione al valutatore
             unassign_from_valuator_button: Disassegna
             update: Aggiornare
-            update_scope_button: Aggiorna Ambito
           new:
             create: Crea
             title: Crea una proposta
@@ -372,12 +355,6 @@ it:
             remove_assignment: Rimuovi assegnazione
             remove_assignment_confirmation: Sei sicuro di voler rimuovere il valutatore da questa proposta?
             valuators: Valutatori
-          update_category:
-            invalid: 'Queste proposte avevano già la categoria %{subject_name} %{proposals}.'
-            success: 'Proposte aggiornate con successo alla categoria %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Queste proposte avevano già il campo di applicazione %{subject_name} %{proposals}.'
-            success: 'Proposte aggiornate con successo all''ambito %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: Importa proposte
@@ -447,11 +424,9 @@ it:
         filters:
           all: Tutti
           amendment: Modifiche
-          category: Categoria
           open: Aperto
           published: Pubblicato
           related_to: Relativo a
-          scope: Scopo
           search: Ricerca
           state: Stato
           withdrawn: Ritirato
@@ -549,7 +524,6 @@ it:
           activity: La mia attività
           all: Tutti
           amendment_type: genere
-          category: Categoria
           my_proposals: Le mie proposte
           origin: Origine
           related_to: Associata a
