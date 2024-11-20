@@ -222,6 +222,8 @@ fi:
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         export_component: "%{user_name} vei komponentin %{component_name} %{resource_name} tilassa %{space_name} tiedostomuodossa %{format_name}"
         publish: "%{user_name} julkaisi komponentin %{resource_name} osallistumistilassa %{space_name}"
+        restore: "%{user_name} palautti komponentin %{resource_name} tilassa %{space_name}"
+        soft_delete: "%{user_name} siirsi komponentin %{resource_name} roskakoriin tilassa %{space_name}"
         unpublish: "%{user_name} lopetti komponentin %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update_permissions_with_space: "%{user_name} päivitti oikeuksia kohteessa %{resource_name} tilassa %{space_name}"
       contextual_help_section:
@@ -869,6 +871,9 @@ fi:
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
         email_subject: "%{endorser_nickname} on tehnyt uuden suosituksen"
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on suositellut kohdetta <a href="%{resource_path}">%{resource_title}</a> %{resource_type}.
+      resources:
+        soft_deleted:
+          notification_title: Ylläpitäjä poisti kohteen "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_url}">profiilisivua</a> on päivitetty.
@@ -1131,6 +1136,8 @@ fi:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
         taxonomy_presenter:
           not_found: 'Luokittelua ei löytynyt tietokannasta (ID: %{id})'
+    machine_translations:
+      automatic: automaattinen käännös kielelle %{locale_name}
     managed_users:
       expired_session: Käyttäjän hallintaistunto on vanhentunut.
     map:
