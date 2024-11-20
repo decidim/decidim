@@ -184,6 +184,13 @@ es-MX:
         browse: Explorar
         category:
           new: Nueva categoría
+        confirm_delete_component: |
+          ¿Seguro que quieres eliminar este componente?<br>
+          Este componente contiene:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} recursos</li>
+          </ul>
+          Si cambias de opinión, puedes restaurarlo más tarde.
         export: Exportar todo
         export-selection: Exportar selección
         import: Importar
@@ -195,12 +202,15 @@ es-MX:
         per_page: Por página
         permissions: Permisos
         reject: Rechazar
+        restore: Restaurar
         send_me_a_test_email: Envíame un correo electrónico de prueba
         share: Compartir
         share_tokens: Enlaces de acceso
+        soft_delete: Enviar a la papelera
         user:
           new: Nueva administradora
         verify: Verificar
+        view_deleted_components: Ver los componentes eliminados
       admin_terms_of_service:
         accept:
           error: Se ha producido un problema al aceptar los términos de servicio de administración.
@@ -336,6 +346,8 @@ es-MX:
             name: Nombre del componente
             type: Tipo de componente
             visibility: Visibilidad
+        manage_trash:
+          title: Componentes eliminados
         new:
           add: Agregar componente
           title: 'Agregar componente: %{name}'
@@ -569,6 +581,8 @@ es-MX:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad.
           no_matching_logs: No hay registros con los filtros de búsqueda seleccionados. Prueba con otros e inténtalo de nuevo.
+      manage_trash:
+        deleted_items_warning: Actualmente estás viendo elementos eliminados. Para realizar cualquier modificación o cambio, primero debes restaurarlos.
       managed_users:
         promotion:
           error: Se ha producido un error al promocionar el usuario gestionado.
@@ -1063,8 +1077,6 @@ es-MX:
           success: La página se ha actualizado correctamente.
       taxonomies:
         actions: Acciones
-        amount: Importe
-        count: Recuento
         create:
           invalid: Se ha producido un error al crear esta taxonomía.
           success: Taxonomía creada correctamente.
@@ -1101,8 +1113,6 @@ es-MX:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nuevo filtro de taxonomía
-        callout:
-          modify_taxonomy_html: Si necesitas modificar esta taxonomía o sus elementos, hazlo a través de la configuración en la sección <a href="%{url}">Taxonomías</a>.
         create:
           error: Se ha producido un error al crear esta taxonomía.
           success: Filtro de taxonomía creado correctamente.
@@ -1111,28 +1121,20 @@ es-MX:
           success: Filtro de taxonomía eliminado correctamente.
         edit:
           back: Atrás
-          items: "%{count} elementos seleccionados"
-          no_items: Aún no hay elementos disponibles para esta taxonomía. Puedes añadir elementos a través de los ajustes configuración de la taxonomía.
           title: Editar el filtro de taxonomía
           update: Actualizar el filtro de taxonomía
-        form:
-          select_taxonomy: Seleccionar una taxonomía
         index:
           description: Un filtro de taxonomía permite a las administradoras ordenar y filtrar espacios de participación basados en una taxonomía. Por ejemplo, añadir un filtro de taxonomías para ordenar procesos por ámbito territorial.
           empty: Actualmente no hay ningún filtro de taxonomía. Crea una lista de filtros de taxonomía aquí para ordenar y filtrar los espacios de participación basados en una taxonomía.
         new:
           back: Atrás
           create: Crear un filtro de taxonomía
-          items: "%{count} elementos disponibles"
           title: Nuevo filtro de taxonomía
         table:
           actions: Acciones
-          components_count: Número de componentes
           confirm_destroy: '¿Seguro que desea eliminar el filtro %{name}? NOTA: Los recursos que están usando este filtro no se verán afectados pero perderán la referencia a este filtro.'
-          count: Número d'elementos
           destroy: Borrar
           edit: Editar
-          name: Nombre
         update:
           error: Se ha producido un problema actualizando este filtro de taxonomía.
           success: Filtro de taxonomía actualizado correctamente.
@@ -1168,6 +1170,15 @@ es-MX:
         taxonomy_filters: Filtros de taxonomía
         user_groups: Grupos de usuarios
         users: Administradoras
+      tooltips:
+        deleted_component_info: Este componente solo se puede eliminar si el estado es 'Despublicado'.
+      trash_management:
+        restore:
+          invalid: Hubo un problema al restaurar %{resource_name}.
+          success: "%{resource_name} se ha importado correctamente."
+        soft_delete:
+          invalid: Hubo un problema al eliminar %{resource_name}.
+          success: "%{resource_name} se ha eliminado correctamente."
       user_group:
         csv_verify:
           invalid: Se produjo un error al leer el archivo CSV.
