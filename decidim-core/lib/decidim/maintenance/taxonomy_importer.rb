@@ -3,14 +3,13 @@
 module Decidim
   module Maintenance
     class TaxonomyImporter
-      def initialize(organization, model, roots)
+      def initialize(organization, roots)
         @organization = organization
-        @model = model
         @roots = roots
         @result = { taxonomies_created: [], taxonomies_assigned: {}, filters_created: {}, failed_resources: [], failed_components: [] }
       end
 
-      attr_reader :organization, :model, :roots, :result
+      attr_reader :organization, :roots, :result
 
       def import!
         roots.each do |name, element|
@@ -18,8 +17,8 @@ module Decidim
           element["taxonomies"].each do |item_name, taxonomy|
             import_taxonomy_item(root, item_name, taxonomy)
           end
-          element["filters"].each do |filter_name, filter|
-            import_filter(root, filter_name, filter)
+          element["filters"].each do |filter|
+            import_filter(root, filter)
           end
         end
       end
@@ -49,7 +48,8 @@ module Decidim
         end
       end
 
-      def import_filter(root, name, data)
+      def import_filter(root, data)
+        name = data["name"]
         filter = find_taxonomy_filter(root, name) || root.taxonomy_filters.create!(space_filter: data["space_filter"], space_manifest: data["space_manifest"])
 
         data["items"].each do |item_names|

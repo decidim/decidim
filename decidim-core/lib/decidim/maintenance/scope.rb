@@ -3,13 +3,6 @@
 module Decidim
   module Maintenance
     class Scope < ApplicationRecord
-      RESOURCE_CLASSES = %w(Decidim::Assembly Decidim::ParticipatoryProcess Decidim::Conference Decidim::InitiativesTypeScope
-                            Decidim::ActionLog Decidim::Dev::DummyResource
-                            Decidim::Accountability::Result
-                            Decidim::Budgets::Budget Decidim::Budgets::Project
-                            Decidim::Debates::Debate
-                            Decidim::Meetings::Meeting
-                            Decidim::Proposals::CollaborativeDraft Decidim::Proposals::Proposal).freeze
       self.table_name = "decidim_scopes"
       belongs_to :parent,
                  class_name: "Decidim::Maintenance::Scope",
@@ -21,13 +14,29 @@ module Decidim
                class_name: "Decidim::Maintenance::Scope",
                inverse_of: :parent
 
+      attr_writer :full_name
+
+      def full_name
+        @full_name ||= name.dup
+      end
+
       def parent_ids
         @parent_ids ||= parent_id ? parent.parent_ids + [parent_id] : []
       end
 
+      def all_names
+        names = parent_ids.map do |id|
+          Scope.find_by(id:).name[I18n.locale.to_s]
+        end + [name[I18n.locale.to_s]]
+
+        return names if names.count < 4
+
+        names[0..2] + [names[2..].join(" > ")]
+      end
+
       def all_children
         @all_children ||= children.map do |child|
-          child.name[I18n.locale.to_s] = "#{name[I18n.locale.to_s]} > #{resource_name(child)}"
+          child.full_name[I18n.locale.to_s] = "#{full_name[I18n.locale.to_s]} > #{resource_name(child)}"
           [child] + child.all_children
         end.flatten
       end
@@ -38,7 +47,7 @@ module Decidim
         # next level is going to be too deep, we transform the children into sibilings
         all_children.map do |child|
           {
-            name: child.name,
+            name: child.full_name,
             children: [],
             resources: child.resources
           }
@@ -54,60 +63,83 @@ module Decidim
       end
 
       def resources
-        RESOURCE_CLASSES.each_with_object({}) do |type, hash|
-          if (klass = type.safe_constantize)
-            items = if type == "Decidim::InitiativesTypeScope"
-                      klass.where(decidim_scopes_id: id)
-                    else
-                      klass.where(decidim_scope_id: id)
-                    end
-            hash.merge!(items.to_h { |resource| [resource.to_global_id.to_s, resource_name(resource)] })
-          else
-            Rails.logger.error("Resource class not found while converting scopes to taxonomies: #{klass}")
-          end
+        Scope.resource_classes.each_with_object({}) do |klass, hash|
+          items = if klass.to_s == "Decidim::InitiativesTypeScope"
+                    klass.where(decidim_scopes_id: id)
+                  else
+                    klass.where(decidim_scope_id: id)
+                  end
+          hash.merge!(items.to_h { |resource| [resource.to_global_id.to_s, resource_name(resource)] })
         end
       end
 
-      def filters
-        Scope.participatory_spaces.each_with_object({}) do |space_class, hash|
+      def self.filter_item_for_space_manifest(space_manifest)
+        items = []
+        all_in_org.where(parent_id: nil).find_each do |scope|
+          items << [scope.name[I18n.locale.to_s]]
+          scope.all_children.map(&:all_names).each do |names|
+            items << names
+          end
+        end
+
+        {
+          space_filter: true,
+          space_manifest:,
+          name: I18n.t("decidim.scopes.scopes"),
+          items:,
+          components: []
+        }
+      end
+
+      def self.filter_item_for_component(component, space, space_manifest)
+        scopes_enabled = component.settings[:scopes_enabled]
+        return unless scopes_enabled
+
+        scope = find_by(id: component.settings[:scope_id]) || (space.scopes_enabled? && find_by(id: space.decidim_scope_id))
+        list = scope ? scope.all_children : all
+
+        {
+          space_filter: false,
+          space_manifest:,
+          name: I18n.t("decidim.scopes.scopes"),
+          internal_name: "#{I18n.t("decidim.scopes.scopes")}: #{component.name[I18n.locale.to_s]}",
+          items: list.map(&:all_names),
+          components: [component.to_global_id.to_s]
+        }
+      end
+
+      def self.all_filters
+        Scope.participatory_space_classes.each_with_object([]) do |space_class, hash|
+          space_manifest = space_class.to_s.split("::").last.underscore.pluralize
           # 1 filter per participatory space as space_filter=true
-          hash[I18n.t("decidim.scopes.scopes")] = {
-            space_filter: true,
-            space_manifest: space_class.to_s.underscore.pluralize,
-            items: all_children.map { |child| [child.name[I18n.locale.to_s]] },
-            components: []
-          }
+          hash << filter_item_for_space_manifest(space_manifest)
           # 1 filter per component as space_filter=false on those with scopes, suffix: "Component Name"
           # Only for components with scopes
           space_class.where(organization:).each do |space|
             space.components.each do |component|
-              scopes_enabled = component.settings[:scopes_enabled]
-              next unless scopes_enabled
-
-              scope = find_by(id: component.settings[:scope_id]) || (space.scopes_enabled? && Scope.find_by(id: space.decidim_scope_id))
-              list = scope ? scope.all_children : Scope.all
-
-              hash["#{I18n.t("decidim.scopes.scopes")}: #{component.name[I18n.locale.to_s]}"] = {
-                space_filter: false,
-                space_manifest: space.to_s.underscore.pluralize,
-                items: list.map { |child| [child.name[I18n.locale.to_s]] },
-                components: [component.to_global_id.to_s]
-              }
+              component_filter = filter_item_for_component(component, space, space_manifest)
+              hash << component_filter if component_filter
             end
           end
         end
       end
 
       def self.to_taxonomies
+        return [] unless all_taxonomies.any?
+
         {
-          I18n.t("decidim.scopes.scopes") => to_a
+          I18n.t("decidim.scopes.scopes") => to_h
         }
       end
 
-      def self.to_a
+      def self.all_taxonomies
+        all_in_org.where(parent_id: nil).to_h { |scope| [scope.name[I18n.locale.to_s], scope.taxonomies] }
+      end
+
+      def self.to_h
         {
-          taxonomies: all_in_org.to_h { |type| [type.name[I18n.locale.to_s], type.taxonomies] },
-          filters: all_in_org.to_h { |type| [type.name[I18n.locale.to_s], type.filters] }
+          taxonomies: all_taxonomies,
+          filters: all_filters
         }
       end
     end

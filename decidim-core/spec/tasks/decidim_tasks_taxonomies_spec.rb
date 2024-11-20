@@ -45,11 +45,11 @@ describe "Executing Decidim Taxonomy importer tasks" do
       expect(taxonomies["Participatory Process Type 2"]["name"]).to eq({ "en" => "Participatory Process Type 2", "ca" => "Tipus de procés participatiu 2" })
 
       expect(process_type_roots["Participatory process types"]["filters"].count).to eq(1)
-      expect(process_type_roots["Participatory process types"]["filters"].keys.first).to eq("Participatory process types")
-      expect(process_type_roots["Participatory process types"]["filters"]["Participatory process types"]["space_filter"]).to be(true)
-      expect(process_type_roots["Participatory process types"]["filters"]["Participatory process types"]["space_manifest"]).to eq("participatory_processes")
-      expect(process_type_roots["Participatory process types"]["filters"]["Participatory process types"]["items"]).to contain_exactly(["Participatory Process Type 1"], ["Participatory Process Type 2"])
-      expect(process_type_roots["Participatory process types"]["filters"]["Participatory process types"]["components"]).to eq([])
+      expect(process_type_roots["Participatory process types"]["filters"].first["name"]).to eq("Participatory process types")
+      expect(process_type_roots["Participatory process types"]["filters"].first["space_filter"]).to be(true)
+      expect(process_type_roots["Participatory process types"]["filters"].first["space_manifest"]).to eq("participatory_processes")
+      expect(process_type_roots["Participatory process types"]["filters"].first["items"]).to contain_exactly(["Participatory Process Type 1"], ["Participatory Process Type 2"])
+      expect(process_type_roots["Participatory process types"]["filters"].first["components"]).to eq([])
 
       assembly_types_roots = json_content["imported_taxonomies"]["decidim_assemblies_types"]
       expect(assembly_types_roots.count).to eq(1)
@@ -63,11 +63,11 @@ describe "Executing Decidim Taxonomy importer tasks" do
       expect(taxonomies["Assembly Type 2"]["name"]).to eq({ "en" => "Assembly Type 2", "ca" => "Tipus d'assemblea 2" })
 
       expect(assembly_types_roots["Assemblies types"]["filters"].count).to eq(1)
-      expect(assembly_types_roots["Assemblies types"]["filters"].keys.first).to eq("Assemblies types")
-      expect(assembly_types_roots["Assemblies types"]["filters"]["Assemblies types"]["space_filter"]).to be(true)
-      expect(assembly_types_roots["Assemblies types"]["filters"]["Assemblies types"]["space_manifest"]).to eq("assemblies")
-      expect(assembly_types_roots["Assemblies types"]["filters"]["Assemblies types"]["items"]).to contain_exactly(["Assembly Type 1"], ["Assembly Type 2"])
-      expect(assembly_types_roots["Assemblies types"]["filters"]["Assemblies types"]["components"]).to eq([])
+      expect(assembly_types_roots["Assemblies types"]["filters"].first["name"]).to eq("Assemblies types")
+      expect(assembly_types_roots["Assemblies types"]["filters"].first["space_filter"]).to be(true)
+      expect(assembly_types_roots["Assemblies types"]["filters"].first["space_manifest"]).to eq("assemblies")
+      expect(assembly_types_roots["Assemblies types"]["filters"].first["items"]).to contain_exactly(["Assembly Type 1"], ["Assembly Type 2"])
+      expect(assembly_types_roots["Assemblies types"]["filters"].first["components"]).to eq([])
 
       check_message_printed("Creating a plan for organization #{decidim_organization_id}")
       check_message_printed("...Exporting taxonomies for decidim_participatory_process_types")
@@ -89,12 +89,14 @@ describe "Executing Decidim Taxonomy importer tasks" do
       expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(6)
 
       check_message_printed("Importing taxonomies and filters for organization #{decidim_organization_id}")
+
       check_message_printed(<<~MSG)
         ...Importing 1 taxonomies from decidim_participatory_process_types
           - Root taxonomy: Participatory process types
             Taxonomy items: 2
             Filters: 1
               - Filter name: Participatory process types
+                Internal name: -
                 Manifest: participatory_processes
                 Space filter: true
                 Items: 2
@@ -112,11 +114,15 @@ describe "Executing Decidim Taxonomy importer tasks" do
                 - #{participatory_process.to_global_id}
             Failed resources: 0
             Failed components: 0
+      MSG
+
+      check_message_printed(<<~MSG)
         ...Importing 1 taxonomies from decidim_assemblies_types
           - Root taxonomy: Assemblies types
             Taxonomy items: 2
             Filters: 1
               - Filter name: Assemblies types
+                Internal name: -
                 Manifest: assemblies
                 Space filter: true
                 Items: 2
@@ -132,6 +138,12 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Assigned resources: 1
               - Assembly Type 1:
                 - #{assembly.to_global_id}
+            Failed resources: 0
+            Failed components: 0
+        ...Importing 0 taxonomies from decidim_scopes
+            Created taxonomies: 0
+            Created filters: 0
+            Assigned resources: 0
             Failed resources: 0
             Failed components: 0
         Taxonomies and filters imported successfully.

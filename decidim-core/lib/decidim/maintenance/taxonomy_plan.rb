@@ -13,12 +13,9 @@ module Decidim
 
       def import(data, &)
         data["imported_taxonomies"].each do |model_name, taxonomies|
-          model = models.find { |m| m.table_name == model_name }
-          raise "Model not found for #{model_name}" unless model
-
-          klass = importer.new(organization, model, taxonomies)
+          klass = importer.new(organization, taxonomies)
           if block_given?
-            yield klass
+            yield klass, model_name
           else
             klass.import!
           end

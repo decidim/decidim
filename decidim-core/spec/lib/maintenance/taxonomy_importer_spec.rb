@@ -5,9 +5,8 @@ require "decidim/maintenance"
 
 module Decidim::Maintenance
   describe TaxonomyImporter do
-    subject { described_class.new(organization, model, roots) }
+    subject { described_class.new(organization, roots) }
     let(:organization) { create(:organization) }
-    let(:model) { Decidim::ParticipatoryProcess }
     let(:dummy_resource) { create(:dummy_resource, component:) }
     let(:component) { create(:dummy_component, participatory_space:) }
     let(:participatory_space) { create(:participatory_process, organization:) }
@@ -31,8 +30,9 @@ module Decidim::Maintenance
       }
     end
     let(:json_filters) do
-      {
-        "New root taxonomy" => {
+      [
+        {
+          "name" => "New root taxonomy",
           "space_filter" => space_filter,
           "space_manifest" => space_manifest,
           "items" => [["New taxonomy", "New child taxonomy"]],
@@ -40,7 +40,7 @@ module Decidim::Maintenance
             component_id
           ]
         }
-      }
+      ]
     end
     let(:space_filter) { true }
     let(:space_manifest) { "participatory_processes" }

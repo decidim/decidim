@@ -12,6 +12,10 @@ module Decidim::Maintenance
     let!(:taxonomy) { create(:taxonomy, :with_parent, :with_children, organization:) }
     let!(:another_taxonomy) { create(:taxonomy, :with_parent, organization:) }
 
+    before do
+      allow(dummy_model).to receive(:with).and_return(dummy_model)
+    end
+
     describe "#existing_taxonomies" do
       it "returns the existing taxonomies" do
         expect(subject.existing_taxonomies).to eq(

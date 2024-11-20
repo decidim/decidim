@@ -17,12 +17,30 @@ module Decidim::Maintenance
     let(:sub3_scope) { Decidim::Maintenance::Scope.create!(name: { "en" => "Scope 1 third level" }, code: "111", decidim_organization_id: organization.id, parent: sub2_scope) }
     let!(:sub4_scope) { Decidim::Maintenance::Scope.create!(name: { "en" => "Scope 1 fourth level" }, code: "1111", decidim_organization_id: organization.id, parent: sub3_scope) }
     let!(:sub5_scope) { Decidim::Maintenance::Scope.create!(name: { "en" => "Scope 1 fifth level" }, code: "11111", decidim_organization_id: organization.id, parent: sub4_scope) }
-    let!(:assembly) { create(:assembly, taxonomies:, organization:, decidim_scope_id: sub2_scope.id) }
-    let!(:participatory_process) { create(:participatory_process, organization:, decidim_scope_id: sub2_scope.id) }
+    let!(:assembly) { create(:assembly, taxonomies:, title: { "en" => "Assembly" }, organization:, decidim_scope_id: sub2_scope.id, scopes_enabled: space_scopes_enabled) }
+    let(:space_scopes_enabled) { true }
+    let!(:participatory_process) { create(:participatory_process, title: { "en" => "Participatory Process" }, organization:, decidim_scope_id: sub2_scope.id) }
+    let!(:dummy_component) { create(:dummy_component, name: { "en" => "Dummy Component" }, participatory_space: assembly) }
+    let(:component_scope_enabled) { true }
+    let!(:dummy_resource) { create(:dummy_resource, title: { "en" => "Dummy Resource" }, component: dummy_component, scope: nil, decidim_scope_id: sub4_scope.id) }
 
-    let(:external_organization) { create(:organization) }
-    let(:external_scope) { Decidim::Maintenance::Scope.create!(name: { "en" => "External scope" }, code: "3", decidim_organization_id: external_organization.id) }
-    let!(:external_assembly) { create(:assembly, title: { "en" => "EXTERNAL" }, organization: external_organization, decidim_scope_id: external_scope.id) }
+    let(:external_organization) { create(:organization, name: { "en" => "INVALID Organization" }) }
+    let(:external_scope) { Decidim::Maintenance::Scope.create!(name: { "en" => "INVALID scope" }, code: "3", decidim_organization_id: external_organization.id) }
+    let!(:external_assembly) { create(:assembly, title: { "en" => "INVALID Assembly" }, organization: external_organization, decidim_scope_id: external_scope.id) }
+
+    let(:settings) { { scopes_enabled: component_scope_enabled, scope_id: sub3_scope.id } }
+
+    before do
+      # update part_of for scopes
+      scope.update!(part_of: [scope.id])
+      another_scope.update!(part_of: [scope.id])
+      sub2_scope.update!(part_of: [scope.id, sub2_scope.id])
+      sub3_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id])
+      sub4_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id, sub4_scope.id])
+      sub5_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id, sub4_scope.id, sub5_scope.id])
+      dummy_component.update!(settings:)
+      ApplicationRecord.add_resource_class("Decidim::Dev::DummyResource")
+    end
 
     describe "#name" do
       it "returns the name" do
@@ -36,6 +54,8 @@ module Decidim::Maintenance
                                              assembly.to_global_id.to_s => assembly.title[I18n.locale.to_s],
                                              participatory_process.to_global_id.to_s => participatory_process.title[I18n.locale.to_s]
                                            })
+
+        expect(sub4_scope.resources).to eq({ dummy_resource.to_global_id.to_s => dummy_resource.title[I18n.locale.to_s] })
       end
     end
 
@@ -52,7 +72,7 @@ module Decidim::Maintenance
                   {
                     name: { "en" => "Scope 1 third level > Scope 1 fourth level" },
                     children: [],
-                    resources: {}
+                    resources: sub4_scope.resources
                   },
                   {
                     name: { "en" => "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level" },
@@ -73,24 +93,85 @@ module Decidim::Maintenance
     describe ".to_taxonomies" do
       it "returns the participatory Scopes" do
         expect(described_class.with(organization).to_taxonomies).to eq(
-          I18n.t("decidim.scopes.scopes") => described_class.to_a
+          I18n.t("decidim.scopes.scopes") => described_class.to_h
         )
       end
     end
 
-    describe ".to_a" do
-      it "returns the scopes as taxonomies and filters for each space" do
-        expect(described_class.with(organization).to_a).to eq(
-          {
-            taxonomies: { scope.name[I18n.locale.to_s] => subject.taxonomies },
-            filters: {
-              I18n.t("decidim.scopes.scopes") => {
-                space_filter: true,
-                space_manifest: "assemblies",
-                items: [[scope.name[I18n.locale.to_s]]],
-                components: []
-              }
+    describe ".to_h" do
+      let(:all_items) do
+        [
+          ["Scope 1"],
+          [
+            "Scope 1",
+            "Scope 1 second level"
+          ],
+          [
+            "Scope 1",
+            "Scope 1 second level",
+            "Scope 1 third level"
+          ],
+          [
+            "Scope 1",
+            "Scope 1 second level",
+            "Scope 1 third level",
+            "Scope 1 third level > Scope 1 fourth level"
+          ],
+          [
+            "Scope 1",
+            "Scope 1 second level",
+            "Scope 1 third level",
+            "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level"
+          ],
+          ["Scope 2"]
+        ]
+      end
+      let(:hash) { described_class.with(organization).to_h }
+
+      it "returns the scopes as taxonomies for each space" do
+        expect(hash[:taxonomies]).to eq(
+          scope.name[I18n.locale.to_s] => scope.taxonomies,
+          another_scope.name[I18n.locale.to_s] => another_scope.taxonomies
+        )
+        expect(hash[:filters].count).to eq(5)
+      end
+
+      it "returns the filters for each space" do
+        %w(assemblies participatory_processes conferences initiatives).each do |space_manifest|
+          expect(hash[:filters]).to include(
+            {
+              space_filter: true,
+              space_manifest:,
+              name: I18n.t("decidim.scopes.scopes"),
+              items: all_items,
+              components: []
             }
+          )
+        end
+      end
+
+      it "returns the filters for each component" do
+        expect(hash[:filters]).to include(
+          {
+            space_filter: false,
+            space_manifest: "assemblies",
+            name: I18n.t("decidim.scopes.scopes"),
+            internal_name: "#{I18n.t("decidim.scopes.scopes")}: Dummy Component",
+            items: [
+              [
+                "Scope 1",
+                "Scope 1 second level",
+                "Scope 1 third level",
+                "Scope 1 third level > Scope 1 fourth level"
+              ],
+              [
+                "Scope 1",
+                "Scope 1 second level",
+                "Scope 1 third level",
+                "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level"
+              ]
+            ],
+            components: [dummy_component.to_global_id.to_s]
           }
         )
       end

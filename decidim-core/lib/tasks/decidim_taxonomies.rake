@@ -30,17 +30,17 @@ namespace :decidim do
       abort "Organization not found! [#{data["organization"]}]" unless organization
       puts "Importing taxonomies and filters for organization #{organization.id}"
 
-      planner(organization).import(data) do |importer|
+      planner(organization).import(data) do |importer, model_name|
         taxonomies = importer.roots
-        model = importer.model
         result = importer.result
-        puts "...Importing #{taxonomies.count} taxonomies from #{model.table_name}"
+        puts "...Importing #{taxonomies.count} taxonomies from #{model_name}"
         taxonomies.each do |name, taxonomy|
           puts "  - Root taxonomy: #{name}"
           puts "    Taxonomy items: #{taxonomy["taxonomies"].count}"
           puts "    Filters: #{taxonomy["filters"].count}"
-          taxonomy["filters"].each do |filter_name, filter|
-            puts "      - Filter name: #{filter_name}"
+          taxonomy["filters"].each do |filter|
+            puts "      - Filter name: #{filter["name"]}"
+            puts "        Internal name: #{filter["internal_name"] || "-"}"
             puts "        Manifest: #{filter["space_manifest"]}"
             puts "        Space filter: #{filter["space_filter"]}"
             puts "        Items: #{filter["items"].count}"
@@ -87,7 +87,11 @@ namespace :decidim do
     end
 
     def planner(organization)
-      models = [Decidim::Maintenance::ParticipatoryProcessType, Decidim::Maintenance::AssemblyType]
+      models = [
+        Decidim::Maintenance::ParticipatoryProcessType,
+        Decidim::Maintenance::AssemblyType,
+        Decidim::Maintenance::Scope
+      ]
       Decidim::Maintenance::TaxonomyPlan.new(organization, models)
     end
 

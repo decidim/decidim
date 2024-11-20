@@ -45,24 +45,25 @@ module Decidim::Maintenance
     describe ".to_taxonomies" do
       it "returns the participatory assembly types" do
         expect(described_class.with(organization).to_taxonomies).to eq(
-          I18n.t("decidim.admin.titles.assemblies_types") => described_class.to_a
+          I18n.t("decidim.admin.titles.assemblies_types") => described_class.to_h
         )
       end
     end
 
-    describe ".to_a" do
+    describe ".to_h" do
       it "returns the participatory assembly types as taxonomies" do
-        expect(described_class.with(organization).to_a).to eq(
+        expect(described_class.with(organization).to_h).to eq(
           {
             taxonomies: { assembly_type.title[I18n.locale.to_s] => subject.taxonomies },
-            filters: {
-              I18n.t("decidim.admin.titles.assemblies_types") => {
+            filters: [
+              {
+                name: I18n.t("decidim.admin.titles.assemblies_types"),
                 space_filter: true,
                 space_manifest: "assemblies",
                 items: [[assembly_type.title[I18n.locale.to_s]]],
                 components: []
               }
-            }
+            ]
           }
         )
       end
