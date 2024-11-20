@@ -217,6 +217,7 @@ ca:
         attachment_collections: Carpetes
         attachments: Adjunts
         close: Tancar
+        confirm_destroy: Segur que vols suprimir aquesta trobada?
         destroy: Esborra
         edit: Edita
         invalid_destroy:
