@@ -1075,8 +1075,6 @@ cs:
           success: Stránka byla úspěšně aktualizována.
       taxonomies:
         actions: Akce
-        amount: Množství
-        count: Spočítat
         create:
           invalid: Při vytváření této taxonomie došlo k chybě.
           success: Taxonomie byla úspěšně vytvořena.
@@ -1113,8 +1111,6 @@ cs:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nový filtr taxonomie
-        callout:
-          modify_taxonomy_html: Pokud potřebujete změnit tuto taxonomii nebo její položky, proveďte to prostřednictvím nastavení konfigurace v sekci <a href="%{url}">Taxonomie</a>.
         create:
           error: Při vytváření tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně vytvořen.
@@ -1123,28 +1119,20 @@ cs:
           success: Filtr taxonomie úspěšně zničen.
         edit:
           back: Zpět
-          items: "%{count} položek vybráno"
-          no_items: Pro tuto taxonomii nejsou k dispozici žádné položky. Položky můžete vytvořit v nastavení taxonomie.
           title: Upravit filtr taxonomie
           update: Aktualizovat filtr taxonomie
-        form:
-          select_taxonomy: Vyberte taxonomii
         index:
           description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
           empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
         new:
           back: Zpět
           create: Vytvořit filtr taxonomie
-          items: "%{count} položek je k dispozici"
           title: Nový filtr taxonomie
         table:
           actions: Akce
-          components_count: Počet komponentů
           confirm_destroy: 'Jste si jisti, že chcete odstranit filtr %{name}? POZNÁMKA: Zdroje, které používají tento filtr, nebudou ovlivněny, ale ztratí odkaz na tento filtr.'
-          count: Počet položek
           destroy: Smazat
           edit: Upravit
-          name: Název
         update:
           error: Při aktualizaci tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně aktualizován.
