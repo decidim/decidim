@@ -16,35 +16,42 @@ export const initializeCommentsDropdown = function (elements) {
 
     if (dropdownMenu) {
       const firstLi = dropdownMenu.querySelector("li");
-      const firstAuthorInfo = firstLi?.querySelector(".comment__as-author-info");
+      const firstAuthorInfo = firstLi?.querySelector(
+        ".comment__as-author-info"
+      );
 
       if (firstAuthorInfo) {
         button.querySelector("span").innerHTML = firstAuthorInfo.innerHTML;
         firstLi.style.display = "none";
       }
 
-      dropdownMenu.querySelectorAll("input[type='radio']").forEach((input) => {
-        input.addEventListener("click", () => {
-          const authorInfo = input.closest(".comment__as-author-container").querySelector(".comment__as-author-info");
+      dropdownMenu.querySelectorAll("li").forEach((li) => {
+        li.addEventListener("click", () => {
+          const input = li.querySelector("input[type='radio']");
 
-          if (authorInfo) {
-            const authorContent = authorInfo.innerHTML;
+          if (input) {
+            input.checked = true;
+            input.dispatchEvent(new Event("click"));
 
-            setTimeout(() => {
-              button.querySelector("span").innerHTML = authorContent;
+            const authorInfo = li.querySelector(".comment__as-author-info");
 
-              const selectedLi = input.closest("li");
-              selectedLi.style.display = "none";
-              dropdownMenu.querySelectorAll("li").forEach((li) => {
-                if (li !== selectedLi) {
-                  li.style.display = "";
-                }
-              });
-            }, 500);
+            if (authorInfo) {
+              const authorContent = authorInfo.innerHTML;
+
+              setTimeout(() => {
+                button.querySelector("span").innerHTML = authorContent;
+
+                li.style.display = "none";
+                dropdownMenu.querySelectorAll("li").forEach((otherLi) => {
+                  if (otherLi !== li) {
+                    otherLi.style.display = "";
+                  }
+                });
+              }, 500);
+            }
           }
         });
       });
     }
   });
 };
-

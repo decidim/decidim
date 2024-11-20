@@ -6,7 +6,7 @@
   }
 
   .add-comment {
-    @apply mt-0 md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
+    @apply mt-12 md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
 
     .new_comment {
       @apply w-full;
@@ -20,6 +20,12 @@
       @apply pt-0;
     }
 
+    a {
+      @apply text-secondary underline font-semibold;
+    }
+  }
+
+  .account-message {
     a {
       @apply text-secondary underline font-semibold;
     }
@@ -413,5 +419,5 @@
 }
 
 .fullscreen {
-  @apply fixed md:relative inset-0 w-screen md:w-full h-screen bg-white z-50 p-0 overflow-auto md:overflow-hidden rounded-none;
+  @apply fixed md:relative inset-0 w-screen md:w-full h-screen bg-white z-50 p-0 overflow-auto md:overflow-hidden rounded-none !mt-0;
 }

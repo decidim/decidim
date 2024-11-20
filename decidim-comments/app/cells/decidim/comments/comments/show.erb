@@ -27,16 +27,6 @@
         <button class="button button__lg button__secondary flex md:hidden w-full h-9 text-sm add-comment-mobile">
           <%= t("add_comment", scope: "decidim.components.add_comment_form") %>
         </button>
-      <% else %>
-        <p>
-          <span>
-            <%== t(
-              "decidim.components.add_comment_form.account_message",
-              sign_in_url: decidim.new_user_session_path,
-              sign_up_url: decidim.new_user_registration_path
-            ) %>
-          </span>
-        </p>
       <% end %>
 
       <%= add_comment %>
