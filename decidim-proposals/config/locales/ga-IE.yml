@@ -4,7 +4,6 @@ ga:
       collaborative_draft:
         address: Seoladh
         body: Corp
-        category_id: Catagóir
         decidim_scope_id: Scóip
         scope_id: Scóip
         state: Staid
@@ -13,7 +12,6 @@ ga:
         address: Seoladh
         answer: Freagra
         body: Corp
-        category_id: Catagóir
         decidim_scope_id: Scóip
         scope_id: Scóip
         state: Staid
@@ -100,7 +98,6 @@ ga:
             actions: Gníomhartha
             assign_to_valuator_button: Ceap
             cancel: Cealaigh
-            change_category: Athraigh catagóir
             merge_button: Cumaisc
             publish: Foilsigh
             selected: roghnaithe
@@ -141,9 +138,7 @@ ga:
           send: Seol
         filters:
           all: Uile
-          category: Catagóir
           open: Oscail
-          scope: Scóip
           search: Cuardaigh
           state: Stádas
         filters_small_view:
@@ -185,7 +180,6 @@ ga:
         filters:
           all: Uile
           amendment_type: Cineál
-          category: Catagóir
           origin: Bunús
           scope: Scóip
           search: Cuardaigh
