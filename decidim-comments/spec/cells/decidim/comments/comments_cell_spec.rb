@@ -20,7 +20,7 @@ module Decidim::Comments
         expect(subject).to have_css(".comments-count", text: "1 comment")
         expect(subject).to have_css(".flash.primary.loading-comments", text: "Loading comments ...")
         expect(subject).to have_no_content(comment.body.values.first)
-        expect(subject).to have_css(".add-comment")
+        expect(subject).to have_no_css(".add-comment")
         expect(subject).to have_content("Log in or create an account to add your comment.")
 
         {
