@@ -18,6 +18,7 @@ fi:
     blogs:
       actions:
         author_id: Luo artikkeli käyttäjänä
+        confirm_destroy: Haluatko varmasti poistaa tämän artikkelin?
         destroy: Poista
         edit: Muokkaa
         new: Uusi artikkeli
