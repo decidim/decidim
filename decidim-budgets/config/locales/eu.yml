@@ -95,8 +95,6 @@ eu:
             actions: Ekintzak
             cancel: Ezeztatu
             change_budget: Aldatu aurrekontua
-            change_category: Aldatu kategoria
-            change_scope: Aldatu esparrua
             change_selected: Aldatu hautatutako egoera
             deselect_implementation: Kendu gauzatzekoetatik
             finished_orders: Amaitutako botoak
@@ -109,7 +107,6 @@ eu:
             title: Proiektuak
             update: Eguneratu
             update_budget_button: Eguneratu proiektuaren aurrekontua
-            update_scope_button: Eguneratu esparrua
           manage_trash:
             title: Ezabatutako proiektuak
           new:
@@ -119,28 +116,10 @@ eu:
             invalid: Arazo bat egon da proiektu hau eguneratzean.
             success: Proiektua zuzen eguneratua.
           update_budget:
-            invalid: 'Proiektu horiek aurrekontu berean daude jada, edo aurrekontu horiek baimendutako gehienekoa baino handiagoak dira: % {projects}.'
             select_a_project: Mesedez, hautatu proiektu bat.
-            success: 'Proiektuak zuzen eguneratuta %{subject_name} aurrekontuan: %{projects}.'
-          update_category:
-            invalid: 'Proiektu hauek bazuten %{subject_name}: %{projects} kategoria.'
-            select_a_category: Mesedez, hautatu kategoria bat.
-            select_a_project: Mesedez, hautatu proiektu bat.
-            success: 'Proiektuak zuzen eguneratuta %{subject_name}: %{projects} kategoriara.'
-          update_scope:
-            invalid: 'Proposamen hauek bazuten %{subject_name}: %{projects} esparrua.'
-            select_a_project: Mesedez, hautatu proiektu bat.
-            select_a_scope: Mesedez, hautatu esparru bat.
-            success: 'Proiektuak zuzen eguneratuta %{subject_name}: %{projects} esparruan.'
           update_selected:
-            invalid:
-              selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
-              unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
             select_a_project: Mesedez, hautatu proiektu bat.
             select_a_selection: Mesedez, hautatu ezarpen-egoera bat.
-            success:
-              selected: 'Honako proiektu hauek dagoeneko gauzatzeko hautatu dira: %{projects}.'
-              unselected: 'Honako proiektu hauek dagoeneko gauzatzekoetatik kendu dira: %{projects}.'
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak proiektuetara inportatzean.
