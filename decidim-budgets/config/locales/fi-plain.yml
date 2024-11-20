@@ -42,6 +42,9 @@ fi-pl:
       actions:
         attachment_collections: Kansiot
         attachments: Liitteet
+        confirm_delete_budget: Haluatko varmasti poistaa tämän budjetin?
+        confirm_delete_project: Haluatko varmasti poistaa tämän projektin?
+        deleted_budgets_info: Poistetut budjetit voidaan palauttaa roskakorista.
         edit: Muokkaa
         edit_projects: Hallinnoi projekteja
         import: Tuo ehdotuksia suunnitelmiin
@@ -50,6 +53,8 @@ fi-pl:
         preview: Esikatsele
         send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
+        view_deleted_budgets: Näytä poistetut budjetit
+        view_deleted_projects: Näytä poistetut projektit
       admin:
         budgets:
           create:
@@ -64,6 +69,8 @@ fi-pl:
             title: Budjetit
             users_with_finished_orders: Käyttäjien määrä, joilla on valmiita ääniä
             users_with_pending_orders: Käyttäjien määrä, joilla on odottavia ääniä
+          manage_trash:
+            title: Poistetut budjetit
           new:
             create: Luo budjetti
             title: Uusi budjetti
@@ -88,8 +95,6 @@ fi-pl:
             actions: Toiminnot
             cancel: Peruuta
             change_budget: Muuta budjettia
-            change_category: Vaihda aihepiiri
-            change_scope: Vaihda teema
             change_selected: Muuta tilaa
             deselect_implementation: Ei valittu toteutukseen
             finished_orders: Valmiit äänet
@@ -102,7 +107,8 @@ fi-pl:
             title: Suunnitelmat
             update: Päivitä
             update_budget_button: Päivitä projektin budjetti
-            update_scope_button: Muuta teema
+          manage_trash:
+            title: Poistetut projektit
           new:
             create: Luo
             title: Uusi suunnitelma
@@ -110,28 +116,10 @@ fi-pl:
             invalid: Hankkeen poisto epäonnistui.
             success: Hankkeen päivitys onnistui.
           update_budget:
-            invalid: 'Nämä projektit ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
             select_a_project: Valitse projekti.
-            success: 'Seuraavien projektien päivitys onnistui budjetissa %{subject_name}: %{projects}.'
-          update_category:
-            invalid: 'Näillä projekteilla oli jo aihepiiri %{subject_name}: %{projects}.'
-            select_a_category: Valitse aihepiiri.
-            select_a_project: Valitse hanke.
-            success: 'Seuraavien projektien aihepiirin päivitys onnistui %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Näillä projekteilla oli jo teema %{subject_name}: %{projects}.'
-            select_a_project: Valitse hanke.
-            select_a_scope: Valitse teema.
-            success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Nämä hankkeet oli jo valittu toteutukseen: %{projects}.'
-              unselected: 'Näitä hankkeita ei oltu valittu toteutukseen: %{projects}.'
             select_a_project: Valitse hanke.
             select_a_selection: Valitse toteutuksen tila.
-            success:
-              selected: 'Näiden hankkeiden valinta toteutukseen onnistui: %{projects}.'
-              unselected: 'Näiden hankkeiden toteutukseen valinnan poistaminen onnistui: %{projects}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuominen hankkeiksi epäonnistui.
@@ -154,10 +142,14 @@ fi-pl:
         budget:
           create: "%{user_name} loi budjetin %{resource_name} osallistumistilassa %{space_name}"
           delete: "%{user_name} poisti budjetin %{resource_name} osallistumistilassa %{space_name}"
+          restore: "%{user_name} palautti budjetin %{resource_name} kohteessa %{space_name}"
+          soft_delete: "%{user_name} siirsi budjetin %{resource_name} roskakoriin kohteessa %{space_name}"
           update: "%{user_name} päivitti budjettia %{resource_name} osallistumistilassa %{space_name}"
         project:
           create: "%{user_name} loi %{resource_name} -suunnitelman %{space_name} -tilassa"
           delete: "%{user_name} poisti %{resource_name} -suunnitelman %{space_name} -tilassa"
+          restore: "%{user_name} palautti projektin %{resource_name} kohteessa %{space_name}"
+          soft_delete: "%{user_name} siirsi projektin %{resource_name} roskakoriin kohteessa %{space_name}"
           update: "%{user_name} päivitti %{resource_name} -suunnitelman %{space_name} -tilassa"
       budget_information_modal:
         back_to: Takaisin %{component_name}
