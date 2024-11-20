@@ -42,6 +42,7 @@ es:
       actions:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
+        confirm_delete_result: '¿Seguro que quieres eliminar este resultado?'
         confirm_destroy: '¿Seguro que quieres eliminar este %{name}?'
         destroy: Borrar
         edit: Editar
@@ -320,6 +321,7 @@ es:
           status: El estado actual de este resultado
           taxonomies: Las taxonomías del resultado
           title: El título del resultado
+          updated_at: La fecha de la última actualización de este resultado
           url: La URL donde se puede encontrar este resultado
     participatory_spaces:
       highlighted_results:
