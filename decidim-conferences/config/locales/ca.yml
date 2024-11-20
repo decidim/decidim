@@ -89,6 +89,7 @@ ca:
     admin:
       actions:
         confirm: Confirmar
+        confirm_delete_conference: Segur que vols esborrar aquesta jornada? Si canvies d'opinió, la pots restaurar més endavant.
         new_conference: Afegir jornada
         new_conference_user_role: Afegir administradora
         new_media_link: Afegir enllaç multimèdia
@@ -96,6 +97,7 @@ ca:
         new_registration_type: Afegir tipus de registre
         new_speaker: Afegir ponent
         send_diplomas: Enviar certificats d'assistència
+        view_deleted_conferences: Veure les jornades eliminades
       conference_copies:
         new:
           copy: Copiar
@@ -165,6 +167,8 @@ ca:
         index:
           published: Publicat
           unpublished: Despublicada
+        manage_trash:
+          title: Jornades eliminades
         new:
           create: Crear
           title: Jornada
@@ -298,11 +302,16 @@ ca:
           success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta jornada.
       titles:
         conferences: Jornades
+        conferences_deleted: Jornades eliminades
+      tooltips:
+        deleted_conferences_info: Les jornades només es poden eliminar si el seu estat és 'Despublicada'.
     admin_log:
       conference:
         create: "%{user_name} ha creat la jornada %{resource_name}"
         publish: "%{user_name} ha publicat la jornada %{resource_name}"
+        restore: "%{user_name} ha restaurat la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} ha enviat certificats d'assistència a les assistents de la jornada %{resource_name}"
+        soft_delete: "%{user_name} ha mogut a la paperera la jornada %{resource_name}"
         unpublish: "%{user_name} no publicada la jornada %{resource_name}"
         update: "%{user_name} ha actualitzat la jornada %{resource_name}"
         update_diploma: "%{user_name} ha actualitzat la configuració dels certificats d'assistència per a la jornada %{resource_name}"
