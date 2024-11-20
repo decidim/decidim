@@ -76,11 +76,8 @@ is:
             email_intro: 'Tillagan "%{resource_title}" hefur verið hafnað. Þú getur lesið svarið á þessari síðu:'
             notification_title: <a href="%{resource_path}">%{resource_title}</a> tillöguna hefur verið hafnað.
         proposal_update_category:
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
           email_subject: '%{resource_title} tillöguflokkinn hefur verið uppfærður'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögu flokkurinn hefur verið uppfærður af admin.
-        proposal_update_scope:
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
         voting_enabled:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
     proposals:
