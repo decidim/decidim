@@ -498,7 +498,10 @@ fi:
         title: Toiminnot
       admin:
         actions:
+          confirm_delete_proposal: Haluatko varmasti poistaa tämän ehdotuksen?
+          deleted_proposals_info: Poistetut ehdotukset voidaan palauttaa roskakorista.
           preview: Esikatsele
+          view_deleted_proposals: Näytä poistetut ehdotukset
         exports:
           proposal_comments: Kommentit
           proposals: Ehdotukset
@@ -642,6 +645,8 @@ fi:
             unassign_from_valuator_button: Poista tehtävä
             update: Päivitä
             update_scope_button: Päivitä teema
+          manage_trash:
+            title: Poistetut ehdotukset
           new:
             create: Luo
             title: Luo ehdotus
@@ -707,6 +712,8 @@ fi:
           answer: "%{user_name} vastasi ehdotukseen %{resource_name} osallistumistilassa %{space_name}"
           create: "%{user_name} loi ehdotuksen %{resource_name} osallistumistilaan %{space_name} virallisena ehdotuksena"
           publish_answer: "%{user_name} julkaisi vastauksen ehdotukselle %{resource_name} osallistumistilassa %{space_name}"
+          restore: "%{user_name} palautti ehdotuksen %{resource_name} tilassa %{space_name}"
+          soft_delete: "%{user_name} siirsi ehdotuksen %{resource_name} roskakoriin tilassa %{space_name}"
           update: "%{user_name} päivitti virallisen ehdotuksen %{resource_name} osallistumistilassa %{space_name}"
         proposal_note:
           create: "%{user_name} jätti yksityisen viestin ehdotuksesta %{resource_name} osallistumistilaan %{space_name}"
