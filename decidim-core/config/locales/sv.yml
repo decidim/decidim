@@ -1542,8 +1542,6 @@ sv:
       pages_count: Sidor
       participants_count: Deltagare
       users_count: Deltagare
-    taxonomies:
-      prompt: Välj från "%{name}"
     translation_bar:
       help_text: "<strong>Obs:</strong> Innehåll kan ha översatts automatiskt och inte vara 100% korrekt."
       show_original: Visa originaltexten
