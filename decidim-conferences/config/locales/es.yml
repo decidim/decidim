@@ -578,14 +578,18 @@ es:
     open_data:
       help:
         conferences:
+          created_at: La fecha en la que se creó esta jornada
           decidim_scope_id: El ámbito territorial de la jornada
           description: Una descripción larga de la jornada
           end_date: La fecha en la que finalizó esta jornada.
+          follows_count: El número de usuarias que siguen esta jornada
           hashtag: La etiqueta que utiliza la jornada en Twitter/X
           id: El identificador único de la jornada
           location: El lugar de celebración de la jornada. Donde se llevó a cabo esta jornada.
           objectives: Los objetivos de esta jornada. Cuál fue la meta.
           promoted: Si la jornada está destacada o no
+          published_at: La fecha en la que se publicó esta jornada
+          reference: La referencia única de la jornada
           remote_banner_image_url: La URL de la imagen de la cabecera de la jornada
           remote_hero_image_url: La URL de la imagen principal de la jornada
           scope: El ámbito territorial de la jornada
@@ -596,6 +600,8 @@ es:
           start_date: La fecha en la que comenzó esta jornada.
           taxonomies: Las taxonomías de la jornada
           title: El título de la jornada
+          updated_at: La fecha de la última actualización de esta jornada
+          url: La URL de la jornada
     statistics:
       conferences_count: Jornadas
   devise:
