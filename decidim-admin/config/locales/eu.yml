@@ -1077,8 +1077,6 @@ eu:
           success: Orria zuzen eguneratua.
       taxonomies:
         actions: Ekintzak
-        amount: Kopurua
-        count: Zenbaketa
         create:
           invalid: Arazo bat egon da kategoria hau sortzean.
           success: Kategoria zuzen sortua.
@@ -1115,8 +1113,6 @@ eu:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Beste taxonomia-iragazki bat
-        callout:
-          modify_taxonomy_html: Taxonomia hau edo bere elementuak aldatu behar badituzu, egin ezazu Taxonomiak ataleko <a href="%{url}">Taxonomies</a> ezarpenen bidez.
         create:
           error: Arazo bai izan da taxonomia-iragazki hau sortzean.
           success: Taxonomia-iragazkia zuzen sortua.
@@ -1125,28 +1121,20 @@ eu:
           success: Taxonomia-iragazkia behar bezala suntsitua.
         edit:
           back: Atzera
-          items: "%{count} elementu hautatu dira"
-          no_items: Ez dago taxonomia honetarako elementurik. Taxonomia konfiguratzeko konfigurazioan sor ditzakezu elementuak.
           title: Editatu taxonomia-iragazkia
           update: Eguneratu taxonomia-iragazkia
-        form:
-          select_taxonomy: Hautatu taxonomia bat
         index:
           description: Taxonomia-iragazki batek aukera ematen die administratzaileei espazio parte-hartzaileak taxonomia batean oinarrituta ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera sailkatzeko.
           empty: Gaur egun ez dago taxonomia-iragazkirik. Sortutaxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
         new:
           back: Atzera
           create: Sortu taxonomia-iragazkia
-          items: "%{count} elementu eskuragarri"
           title: Beste taxonomia-iragazki bat
         table:
           actions: Ekintzak
-          components_count: Osagai kopurua
           confirm_destroy: 'Ziur zaude %{name} iragazkia ezabatu nahi duzula? OHARRA: Iragazki hau erabiltzen ari diren baliabideei ez zaie eragingo, baina iragazki horren erreferentzia galduko dute.'
-          count: Elementu kopurua
           destroy: Ezabatu
           edit: Editatu
-          name: Izena
         update:
           error: Arazo bai izan da taxonomia-iragazki hau eguneratzean.
           success: Taxonomia-iragazkia zuzen eguneratua.
