@@ -195,12 +195,14 @@ fr:
         per_page: Par page
         permissions: Autorisations
         reject: Rejeter
+        restore: Restaurer
         send_me_a_test_email: Envoyez-moi un e-mail de test
         share: Partager
         share_tokens: Liens d'accès
         user:
           new: Nouvel administrateur
         verify: Vérifier
+        view_deleted_components: Voir les composants supprimés
       admin_terms_of_service:
         accept:
           error: Une erreur s'est produite lors de l'acceptation des conditions d'utilisation relatives aux administrateurs.
@@ -336,6 +338,8 @@ fr:
             name: Nom de la fonctionnalité
             type: Type de fonctionnalité
             visibility: Visibilité
+        manage_trash:
+          title: Composants supprimés
         new:
           add: Ajouter une fonctionnalité
           title: 'Ajouter une fonctionnalité : %{name}'
@@ -1097,6 +1101,15 @@ fr:
         taxonomy_filters: Filtres de taxonomie
         user_groups: Groupes d'utilisateurs
         users: Administrateurs
+      tooltips:
+        deleted_component_info: Ce composant ne peut être supprimé que si son statut est 'non publié'.
+      trash_management:
+        restore:
+          invalid: Il y a eu un problème lors de la restauration de %{resource_name}.
+          success: "%{resource_name} restauré(e) avec succès."
+        soft_delete:
+          invalid: Il y a eu un problème lors de la suppression de %{resource_name}.
+          success: "%{resource_name} supprimé(e) avec succès."
       user_group:
         csv_verify:
           invalid: Une erreur s'est produite lors de la lecture du fichier CSV.
