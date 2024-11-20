@@ -302,18 +302,25 @@ ca:
           root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
           user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
         results:
+          address: La data del resultat (si n'hi ha)
+          children_count: El número de resultats fills (imbricats)
+          comments_count: El número de comentaris que té aquest resultat
           component: El component al qual pertany aquest resultat
           created_at: La data en què es va crear aquest resultat
           description: La descripció del resultat
           end_date: La data prevista per a la finalització de l'execució del resultat
           id: L'identificador únic del resultat
+          latitude: La latitud del resultat en cas que aquesta tingui una ubicació física
+          longitude: La latitud del resultat en cas que aquesta tingui una ubicació física
           parent: El resultat pare (si existeix) del resultat
           progress: El percentatge d'execució del resultat
           proposal_urls: Les URL de les propostes que estan incloses en aquest resultat
+          reference: La referència única del resultat
           start_date: La data en la qual estava previst l'inici de l'execució del resultat
           status: L'estat actual d'aquest resultat
           taxonomies: Les taxonomies del resultat
           title: El títol del resultat
+          updated_at: La data de la darrera actualització d'aquest resultat
           url: L'URL on es pot trobar aquest resultat
     participatory_spaces:
       highlighted_results:
