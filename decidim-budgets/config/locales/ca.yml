@@ -42,6 +42,9 @@ ca:
       actions:
         attachment_collections: Carpetes
         attachments: Adjunts
+        confirm_delete_budget: Segur que vols suprimir aquest pressupost?
+        confirm_delete_project: Segur que vols eliminar aquest projecte?
+        deleted_budgets_info: Els pressupostos eliminats es poden restaurar des de la paperera.
         edit: Editar
         edit_projects: Gestionar projectes
         import: Importa propostes a projectes
@@ -50,6 +53,8 @@ ca:
         preview: Previsualitzar
         send_voting_reminders: Enviar recordatoris de votació
         title: Accions
+        view_deleted_budgets: Veure els pressupostos eliminats
+        view_deleted_projects: Veure els projectes eliminats
       admin:
         budgets:
           create:
@@ -64,6 +69,8 @@ ca:
             title: Pressupostos
             users_with_finished_orders: Usuàries amb vots finalitzats
             users_with_pending_orders: Usuàries amb vots pendents
+          manage_trash:
+            title: Pressupostos eliminats
           new:
             create: Crea pressupost
             title: Nou pressupost
@@ -103,6 +110,8 @@ ca:
             update: Actualitzar
             update_budget_button: Actualitzar el pressupost del projecte
             update_scope_button: Actualitzar àmbit
+          manage_trash:
+            title: Projectes eliminats
           new:
             create: Crear
             title: Nou projecte
@@ -154,10 +163,14 @@ ca:
         budget:
           create: "%{user_name} ha creat el pressupost %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat el pressupost %{resource_name} de l'espai %{space_name}"
+          restore: "%{user_name} ha restaurat el pressupost %{resource_name} a %{space_name}"
+          soft_delete: "%{user_name} ha mogut el pressupost %{resource_name} de %{space_name} a la paperera"
           update: "%{user_name} ha actualitzat el pressupost %{resource_name} de l'espai %{space_name}"
         project:
           create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat el projecte %{resource_name} de l'espai %{space_name}"
+          restore: "%{user_name} ha restaurat el projecte %{resource_name} a %{space_name}"
+          soft_delete: "%{user_name} ha mogut el projecte %{resource_name} de %{space_name} a la paperera"
           update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai %{space_name}"
       budget_information_modal:
         back_to: Tornar a %{component_name}
