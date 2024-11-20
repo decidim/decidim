@@ -27,7 +27,7 @@ module Decidim
           component: { id: component.id },
           title: project.title,
           description: project.description,
-          decidim_budgets_budget_id: { id: project.budget.id },
+          budget: { id: project.budget.id },
           budget_amount: project.budget_amount,
           confirmed_votes: project.confirmed_orders_count,
           comments: project.comments_count,
