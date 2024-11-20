@@ -1686,8 +1686,6 @@ eu:
       users_count: Parte-hartzaileak
     tags:
       filter_results_for_taxonomy: 'Iragazkien emaitzak honetarako: %{resource}'
-    taxonomies:
-      prompt: 'Hautatu hemendik: "%{name}"'
     translation_bar:
       help_text: "<strong>Oharra:</strong> Edukia automatikoki itzul daiteke eta ez izan zuzena %100ean."
       show_original: Erakutsi jatorrizko testua
