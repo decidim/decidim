@@ -222,11 +222,8 @@
           email_subject: Nytt forslag "%{resource_title}" lagt til %{participatory_space_title}
         proposal_update_category:
           email_intro: 'En admin har oppdatert kategorien for forslaget ditt "%{resource_title}", sjekk det ut på denne siden:'
-          email_outro: Du har mottatt denne varslingen fordi du er forfatteren av forslaget.
           email_subject: Forslags kategorien %{resource_title} ble oppdatert
           notification_title: <a href="%{resource_path}">%{resource_title}</a> forslags kategorien er blitt oppdatert av en administrator.
-        proposal_update_scope:
-          email_outro: Du har mottatt denne varslingen fordi du er forfatteren av forslaget.
         voting_enabled:
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
     gamification:
