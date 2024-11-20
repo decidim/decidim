@@ -89,6 +89,7 @@ es:
     admin:
       actions:
         confirm: Confirmar
+        confirm_delete_conference: '¿Seguro que quieres eliminar esta jornada? Si cambias de opinión, puedes restaurarla más tarde.'
         new_conference: Nueva conferencia
         new_conference_user_role: Añadir administradora
         new_media_link: Añadir enlace multimedia
@@ -96,6 +97,7 @@ es:
         new_registration_type: Añadir tipo de inscripción
         new_speaker: Añadir ponente
         send_diplomas: Enviar certificados de asistencia
+        view_deleted_conferences: Ver las jornadas eliminadas
       conference_copies:
         new:
           copy: Copiar
@@ -165,6 +167,8 @@ es:
         index:
           published: Publicado
           unpublished: Despublicada
+        manage_trash:
+          title: Jornadas eliminadas
         new:
           create: Crear
           title: Conferencia
@@ -298,11 +302,16 @@ es:
           success: Tipo de inscripción actualizado correctamente para esta jornada.
       titles:
         conferences: Jornadas
+        conferences_deleted: Jornadas eliminadas
+      tooltips:
+        deleted_conferences_info: Las jornadas solo se pueden eliminar si su estado es 'Despublicada'.
     admin_log:
       conference:
         create: "%{user_name} creó la conferencia %{resource_name}"
         publish: "%{user_name} ha publicado la conferencia %{resource_name}"
+        restore: "%{user_name} restauró la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} ha enviado certificados de asistencia a las asistentes a la jornada %{resource_name}"
+        soft_delete: "%{user_name} ha movido a la papelera la jornada %{resource_name}"
         unpublish: "%{user_name} ha despublicado la jornada %{resource_name}"
         update: "%{user_name} ha actualizado la jornada %{resource_name}"
         update_diploma: "%{user_name} ha actualizado la configuración de los certificados de asistencia para la jornada %{resource_name}"
