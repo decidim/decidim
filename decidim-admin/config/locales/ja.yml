@@ -1056,8 +1056,6 @@ ja:
           success: ページが更新されました。
       taxonomies:
         actions: アクション
-        amount: 合計
-        count: カウント
         create:
           invalid: タクソノミーの作成中に問題が発生しました。
           success: タクソノミーを作成しました。
@@ -1094,8 +1092,6 @@ ja:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: 新規タクソノミフィルター
-        callout:
-          modify_taxonomy_html: このタクソノミーまたはそのアイテムを変更する必要がある場合は、 <a href="%{url}">タクソノミー</a> セクションの設定を通して行います。
         create:
           error: タクソノミーフィルタの作成中に問題が発生しました。
           success: タクソノミーフィルターを作成しました。
@@ -1104,28 +1100,20 @@ ja:
           success: タクソノミーフィルタを削除しました。
         edit:
           back: 戻る
-          items: "{count} 個のアイテムを選択中です"
-          no_items: このタクソノミーで使えるアイテムはありません。タクソノミー設定でアイテムを作成できます。
           title: タクソノミーフィルタを編集
           update: タクソノミーフィルタを更新
-        form:
-          select_taxonomy: タクソノミーを選択
         index:
           description: タクソノミーフィルターは、管理者がタクソノミーに基づいて参加型スペースを分類したりフィルタリングしたりできるようにするものです。例えば、地理的範囲でプロセスをソートするためにタクソノミーフィルターを追加することができます。
           empty: 現在、タクソノミーフィルターはありません。タクソノミーフィルターのリストを作成し、タクソノミーに基づいて参加型スペースをソートおよびフィルタリングしてください。
         new:
           back: 戻る
           create: タクソノミーフィルタを作成
-          items: "%{count} 個のアイテムがあります"
           title: 新規タクソノミーフィルター
         table:
           actions: アクション
-          components_count: コンポーネント数
           confirm_destroy: 'フィルター %{name} を削除してもよろしいですか？ 注意: このフィルタを使用しているリソース自体は影響を受けませんが、このフィルタへの参照は失われます。'
-          count: アイテム数
           destroy: 削除
           edit: 編集
-          name: 名前
         update:
           error: タクソノミーフィルタの更新に問題がありました。
           success: タクソノミーフィルターを更新しました。
