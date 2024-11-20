@@ -21,6 +21,13 @@ $(() => {
     }
   };
 
+  const hideBulkActionsButton = (force = false) => {
+    if (selectedModerationsCount() === 0 || force === true) {
+      $("#js-bulk-actions-button").addClass("hide");
+      $("#js-bulk-actions-dropdown").removeClass("is-open");
+    }
+  }
+
   const showOtherActionsButtons = function () {
     $("#js-other-actions-wrapper").removeClass("hide");
   };
@@ -29,11 +36,17 @@ $(() => {
     $("#js-other-actions-wrapper").addClass("hide");
   };
 
+  const hideBulkActionForms = function() {
+    $(".js-bulk-action-form").addClass("hide");
+  }
+
   // Expose functions to make them available in .js.erb templates
   window.selectedModerationsCountUpdate = selectedModerationsCountUpdate;
   window.showBulkActionsButton = showBulkActionsButton;
+  window.hideBulkActionsButton = hideBulkActionsButton;
   window.showOtherActionsButtons = showOtherActionsButtons;
   window.hideOtherActionsButtons = hideOtherActionsButtons;
+  window.hideBulkActionForms = hideBulkActionForms;
 
   if ($(".js-bulk-action-form").length) {
     hideBulkActionForms();
@@ -70,7 +83,7 @@ $(() => {
     });
 
     // moderation checkbox change
-    $(".table-list").on("change", ".js-check-all-moderations", function (e) {
+    $(".table-list").on("change", ".js-check-all-moderations", function () {
       let moderationId = $(this).val();
       let checked = $(this).prop("checked");
 
@@ -99,13 +112,11 @@ $(() => {
         hideBulkActionsButton();
       }
 
-      $(".js-bulk-action-form")
-        .find(`.js-moderation-id-${moderationId}`)
-        .prop("checked", checked);
+      $(".js-bulk-action-form").find(`.js-moderation-id-${moderationId}`).prop("checked", checked);
       selectedModerationsCountUpdate();
     });
 
-    $(".js-cancel-bulk-action").on("click", function (e) {
+    $(".js-cancel-bulk-action").on("click", function () {
       hideBulkActionForms();
       showBulkActionsButton();
       showOtherActionsButtons();

@@ -725,7 +725,15 @@ en:
           unblocked: Not Blocked
       moderations:
         index:
+          actions:
+            actions_dropdown: Actions
+            hide: Hide
+            unhide: Unhide
+            unreport: Unreport
+          cancel: Cancel
+          selected: selected
           title: Reported content
+          update_moderation_button: Update moderation
         report:
           reasons:
             does_not_belong: Does not belong
@@ -1264,13 +1272,6 @@ en:
         unhide: Unhide
         unreport: Unreport
       admin:
-        index:
-          actions:
-            actions_dropdown: Actions
-            hide: Hide
-            unhide: Unhide
-            unreport: Unreport
-          selected: selected
         reportable:
           hide:
             invalid: There was a problem hiding the resource.
