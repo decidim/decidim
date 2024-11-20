@@ -1063,8 +1063,6 @@ de:
           success: Seite wurde erfolgreich aktualisiert.
       taxonomies:
         actions: Aktionen
-        amount: Anzahl
-        count: Anzahl
         create:
           invalid: Beim Erstellen dieser Klassifizierung ist ein Fehler aufgetreten.
           success: Klassifizierung wurde erfolgreich erstellt.
@@ -1101,8 +1099,6 @@ de:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Neuer Klassifizierung-Filter
-        callout:
-          modify_taxonomy_html: Wenn Sie diese Klassifizierung oder ihre Elemente ändern möchten, finden Sie die Konfigurationseinstellungen unter <a href="%{url}">Klassifizierungen</a>.
         create:
           error: Beim Erstellen dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
           success: Klassifizierungsfilter wurde erfolgreich erstellt.
@@ -1111,28 +1107,20 @@ de:
           success: Klassifizeriungsfilter erfolgreich gelöscht.
         edit:
           back: Zurück
-          items: "%{count} ausgewählte Elemente"
-          no_items: Keine Elemente für diese Klassifizierungen verfügbar. Sie können Elemente in den Klassifizierungseinstellungen erstellen.
           title: Klassifizierungsfilter bearbeiten
           update: Klassifizierungsfilter aktualisieren
-        form:
-          select_taxonomy: Klassifizierung auswählen
         index:
           description: Ein Klassifizierungsfilter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
           empty: Derzeit gibt es keine Klassifizierungsfilter. Erstellen Sie hier eine Liste von Klassifizierungsfilter, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
         new:
           back: Zurück
           create: Klassifizierungsfilter erstellen
-          items: "%{count} Elemente verfügbar"
           title: Neuer Klassifizierungsfilter
         table:
           actions: Aktionen
-          components_count: Anzahl der Komponenten
           confirm_destroy: 'Sind Sie sicher, dass Sie den Filter %{name} löschen möchten? HINWEIS: Ressourcen, die diesen Filter verwenden, sind nicht betroffen, aber sie verlieren den Verweis auf diesen Filter.'
-          count: Anzahl Elemente
           destroy: Löschen
           edit: Bearbeiten
-          name: Name
         update:
           error: Beim Aktualisieren dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
           success: Klassifizierungsfilter wurde erfolgreich aktualisiert.
