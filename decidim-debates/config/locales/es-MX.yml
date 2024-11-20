@@ -50,9 +50,12 @@ es-MX:
     debates:
       actions:
         close: Cerrar
+        confirm_delete_debate: '¿Seguro que quieres borrar este debate?'
+        deleted_debate_info: Los debates eliminados se pueden restaurar desde papelera.
         edit: Editar
         new: Nuevo debate
         title: Acciones
+        view_deleted_debates: Ver los debates eliminados
       admin:
         debate_closes:
           edit:
@@ -71,6 +74,8 @@ es-MX:
             open: Abierto (no hay hora de inicio o final)
           index:
             title: Debates
+          manage_trash:
+            title: Debates eliminados
           new:
             create: Crear debate
             title: Nuevo debate
@@ -84,6 +89,8 @@ es-MX:
         debate:
           close: "La participante %{user_name} ha creado el debate %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó el debate %{resource_name} en el espacio %{space_name}"
+          restore: "%{user_name} restauró el debate %{resource_name} en el espacio %{space_name}"
+          soft_delete: "%{user_name} ha movido el debate %{resource_name} desde %{space_name} a la papelera"
           update: "%{user_name} actualizó el debate %{resource_name} en el espacio %{space_name}"
       content_blocks:
         highlighted_debates:
