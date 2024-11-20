@@ -1325,6 +1325,7 @@ en:
         assigned_to_proposal: I want to receive an email when someone assigns me a proposal to evaluate
         direct_messages: Receive direct messages from anyone
         email_on_moderations: I want to receive an email every time something or someone is reported for moderation.
+        evaluators: Evaluators
         everything_followed: Everything I follow
         newsletter_notifications: I want to receive newsletters
         newsletters: Newsletters
@@ -1341,7 +1342,6 @@ en:
         push_notifications_reminder: To get notifications from the platform, you will need to allow them in your browser settings first.
         receive_notifications_about: I want to get notifications about
         update_notifications_settings: Save changes
-        valuators: Evaluators
       update:
         error: There was a problem updating your notifications settings.
         success: Your notifications settings were successfully updated.

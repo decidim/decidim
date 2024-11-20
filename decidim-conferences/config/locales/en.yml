@@ -238,8 +238,8 @@ en:
           roles:
             admin: Administrator
             collaborator: Collaborator
-            moderator: Moderator
             evaluator: Evaluator
+            moderator: Moderator
         media_link:
           fields:
             date: Date

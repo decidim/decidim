@@ -166,8 +166,8 @@ en:
           roles:
             admin: Administrator
             collaborator: Collaborator
-            moderator: Moderator
             evaluator: Evaluator
+            moderator: Moderator
         user:
           fields:
             invitation_accepted_at: Invitation accepted at
