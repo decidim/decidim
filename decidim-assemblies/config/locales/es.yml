@@ -449,6 +449,7 @@ es:
           closing_date: La fecha de cierre de la asamblea
           closing_date_reason: Por qué se cerró la asamblea
           composition: La composición de la asamblea
+          created_at: La fecha en la que se creó esta asamblea
           created_by: Quién creó esta asamblea
           created_by_other: El área a la que corresponde la asamblea
           creation_date: La fecha de creación de esta asamblea
@@ -457,6 +458,7 @@ es:
           developer_group: El grupo de promotor de la asamblea
           duration: La duración de la asamblea
           facebook_handler: Controlador de redes sociales para Facebook
+          follows_count: El número de usuarias que siguen esta asamblea
           github_handler: Controlador de redes sociales para GitHub
           hashtag: La etiqueta que utiliza la asamblea en Twitter/X
           id: El identificador único del resultado
@@ -469,7 +471,9 @@ es:
           participatory_scope: El ámbito territorial de la participación de la asamblea
           participatory_structure: La estructura participativa de la asamblea
           promoted: Si la asamblea está destacada o no
+          published_at: La fecha en la que se publicó esta asamblea
           purpose_of_action: El propósito de la acción de la asamblea
+          reference: La referencia única de la asamblea
           remote_banner_image_url: La URL de la imagen de la cabecera (imagen principal) de la asamblea
           remote_hero_image_url: La URL de la imagen principal de la asamblea
           scope: El ámbito territorial de asamblea
@@ -482,6 +486,8 @@ es:
           taxonomies: Las taxonomías del proyecto
           title: El título de la asamblea
           twitter_handler: Controlador de redes sociales para Twitter/X
+          updated_at: La fecha de la última actualización de esta asamblea
+          url: La URL de la asamblea
           youtube_handler: Controlador de redes sociales para YouTube
     participatory_processes:
       show:
