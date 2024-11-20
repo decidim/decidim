@@ -78,8 +78,6 @@ lt:
           index:
             actions: Veiksmai
             cancel: Atšaukti
-            change_category: Keisti kategoriją
-            change_scope: Keisti sritį
             change_selected: Keisti pasirinktą būseną
             deselect_implementation: Nebepasirinkti įgyvendinimui
             finished_orders: Baigti balsavimai
@@ -88,32 +86,15 @@ lt:
             selected: Pasirinkta
             title: Projektai
             update: Atnaujinimas
-            update_scope_button: Atnaujinti sritį
           new:
             create: Sukurti
             title: Naujas projektas
           update:
             invalid: Atnaujinant šį projektą iškilo problema.
             success: Projektas atnaujintas.
-          update_category:
-            invalid: 'Šie projektai turi %{subject_name} kategoriją: %{projects}.'
-            select_a_category: Pasirinkite kategoriją.
-            select_a_project: Pasirinkite projektą.
-            success: 'Projektai sėkmingai atnaujinti %{subject_name} kategorijoje: %{projects}.'
-          update_scope:
-            invalid: 'Šie projektai jau turi %{subject_name} sritį: %{projects}.'
-            select_a_project: Pasirinkite projektą.
-            select_a_scope: Pasirinkite apimtį.
-            success: 'Projektai sėkmingai atnaujinti %{subject_name} srityje: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
-              unselected: 'Šie projektai jau nebėra pasirinkti įgyvendinimui: %{projects}.'
             select_a_project: Pasirinkite projektą.
             select_a_selection: Prašau pasirinkite įgyvendinimo būseną.
-            success:
-              selected: 'Šie projektai jau pasirinkti įgyvendinimui: %{projects}.'
-              unselected: 'Šių projektų įgyvendinimo atsisakyta: %{projects}.'
         proposals_imports:
           create:
             invalid: Importuojant pasiūlymus į projektus kilo problema.
