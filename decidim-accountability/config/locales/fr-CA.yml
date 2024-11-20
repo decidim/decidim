@@ -37,7 +37,9 @@ fr-CA:
       actions:
         attachment_collections: Dossiers
         attachments: Pièces jointes
+        confirm_delete_result: Êtes-vous sûr(e) de vouloir supprimer ce résultat?
         confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
+        deleted_results_info: Les résultats supprimés peuvent être restaurés à partir de la corbeille.
         destroy: Supprimer
         edit: Modifier
         import: Importer des projets depuis une autre fonctionnalité
@@ -48,6 +50,7 @@ fr-CA:
         preview: Aperçu
         timeline_entries: Évolution de la réalisation
         title: Actions
+        view_deleted_results: Voir les résultats supprimés
       admin:
         exports:
           result_comments: Commentaires
@@ -112,6 +115,8 @@ fr-CA:
             update: Mise à jour de la réalisation
           index:
             title: Réalisations
+          manage_trash:
+            title: Résultats supprimés
           new:
             create: Créer une réalisation
             title: Nouvelle réalisation
