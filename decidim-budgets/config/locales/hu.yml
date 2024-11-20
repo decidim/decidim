@@ -79,8 +79,6 @@ hu:
             actions: Műveletek
             cancel: Mégsem
             change_budget: Költségvetés megváltoztatása
-            change_category: Kategória módosítása
-            change_scope: Hatáskör megváltoztatása
             change_selected: Kijelölés módosítása
             deselect_implementation: A kiválasztpott törlése a megvalósításra várók közül
             finished_orders: Befejezett szavazások
@@ -92,7 +90,6 @@ hu:
             title: Projektek
             update: Frissítés
             update_budget_button: A projekt költségvetésének frissítése
-            update_scope_button: Hatáskör frissítése
           new:
             create: Létrehozás
             title: Új projekt
@@ -101,24 +98,9 @@ hu:
             success: Projekt frissítése sikeres.
           update_budget:
             select_a_project: Kérem, válasszon projektet.
-            success: 'A projektek sikeresen frissültek a(z) %{subject_name} költségvetésre: %{projects}.'
-          update_category:
-            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{projects}.'
-            select_a_category: Kérlek, válassz kategóriát.
-            select_a_project: Kérlek, válassz projektet.
-            success: 'A projektek sikeresen frissültek a(z) %{subject_name} kategóriában: %{projects}.'
-          update_scope:
-            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{projects}.'
-            select_a_project: Kérlek, válassz projektet.
-            select_a_scope: Kérlek válassz hatókört.
-            success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Ezeket a projekteket már kiválasztásra kerültek a megvalósításra: %{projektek}.'
             select_a_project: Kérlek, válassz projektet.
             select_a_selection: Kérjük, válasszon egy végrehajtási állapotot.
-            success:
-              selected: 'Ezeket a projektek sikseresen kiválasztásra kerültek a megvalósításra: %{projektek}.'
         proposals_imports:
           create:
             invalid: Probléma merült fel a javaslatok projektekbe történő importálásakor.
