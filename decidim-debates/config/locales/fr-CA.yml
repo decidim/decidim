@@ -45,9 +45,12 @@ fr-CA:
     debates:
       actions:
         close: Fermer
+        confirm_delete_debate: Êtes-vous sûr(e) de vouloir supprimer ce débat?
+        deleted_debate_info: Un débat supprimé peut être restauré à partir de la corbeille.
         edit: Modifier
         new: Nouveau débat
         title: Actions
+        view_deleted_debates: Voir les débats supprimés
       admin:
         debate_closes:
           edit:
@@ -66,6 +69,8 @@ fr-CA:
             open: Ouvert (pas de date de début et de fin)
           index:
             title: Débats
+          manage_trash:
+            title: Débats supprimés
           new:
             create: Créer un débat
             title: Nouveau débat
