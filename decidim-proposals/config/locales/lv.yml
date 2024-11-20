@@ -181,12 +181,10 @@ lv:
           email_subject: Jauns priekšlikums "%{resource_title}" tika pievienots %{participatory_space_title}
         proposal_update_category:
           email_intro: 'Administrators ir atjauninājis jūsu priekšlikuma kategoriju "%{resource_title}", aplūkojiet to šajā lapā:'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo esat priekšlikuma autors.
           email_subject: '%{resource_title} priekšlikuma kategorija ir atjaunināta'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> administrators ir atjauninājis priekšlikuma kategoriju.
         proposal_update_scope:
           email_intro: 'Administrators ir atjauninājis jūsu priekšlikuma tvērumu "%{resource_title}", aplūkojiet to šajā lapā:'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo esat priekšlikuma autors.
           email_subject: '%{resource_title} priekšlikuma tvērums tika atjaunināts'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> administrators ir atjauninājis priekšlikuma tvērumu.
         voting_enabled:
