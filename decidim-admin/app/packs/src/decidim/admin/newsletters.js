@@ -62,9 +62,6 @@ $(() => {
         $sendNewsletterToPrivateMembers.find("input[type='checkbox']").prop("checked", !checked);
         $participatorySpacesForSelect.hide();
       } else {
-        $sendNewsletterToFollowers.find("input[type='checkbox']").prop("checked", !checked);
-        $sendNewsletterToParticipants.find("input[type='checkbox']").prop("checked", !checked);
-        $sendNewsletterToPrivateMembers.find("input[type='checkbox']").prop("checked", !checked);
         $participatorySpacesForSelect.show();
       }
 
@@ -161,6 +158,7 @@ $(() => {
       };
       // Send the form data
       xhr.send(formData);
+
       updateConfirmRecipientsLink();
     })
   }

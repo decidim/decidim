@@ -31,10 +31,25 @@
     </div>
     <div class="item__edit-sticky">
       <div class="item__edit-sticky-container">
-        <!--TODO: Add a button to deliver the newsletter-->
-        <%# unless @newsletter.sent? %>
-          <%#= f.submit t(".deliver"), id: "deliver-button", class: "button button__sm button__secondary", data: { confirm: t(".confirm_deliver") } %>
-        <%# end %>
+        <% unless @newsletter.sent? %>
+          <%= form_with url: deliver_newsletter_path(@newsletter), method: :post, html: { class: "form form-defaults newsletter_deliver" } do |f| %>
+            <%= hidden_field_tag "newsletter[send_to_all_users]", params.dig(:newsletter, :send_to_all_users) %>
+            <%= hidden_field_tag "newsletter[send_to_participants]", params.dig(:newsletter, :send_to_participants) %>
+            <%= hidden_field_tag "newsletter[send_to_followers]", params.dig(:newsletter, :send_to_followers) %>
+            <%= hidden_field_tag "newsletter[send_to_private_members]", params.dig(:newsletter, :send_to_private_members) %>
+
+            <% @form.participatory_space_types.each do |space_type| %>
+              <%= f.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff| %>
+                <%= ff.hidden_field :manifest_name, value: space_type.manifest_name %>
+                <%= ff.hidden_field :ids, value: space_type.ids %>
+              <% end %>
+            <% end %>
+
+            <%= submit_tag t("select_recipients_to_deliver.deliver", scope: "decidim.admin.newsletters"),
+                           id: "deliver-button", class: "button button__sm button__secondary",
+                           data: { confirm: t("select_recipients_to_deliver.confirm_deliver", scope: "decidim.admin.newsletters") } %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

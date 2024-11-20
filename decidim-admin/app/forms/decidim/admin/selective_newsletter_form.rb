@@ -7,7 +7,6 @@ module Decidim
       mimic :newsletter
 
       attribute :participatory_space_types, Array[SelectiveNewsletterParticipatorySpaceTypeForm]
-      attribute :scope_ids, Array
       attribute :send_to_all_users, Boolean
       attribute :send_to_participants, Boolean
       attribute :send_to_followers, Boolean
@@ -24,12 +23,6 @@ module Decidim
         self.participatory_space_types = Decidim.participatory_space_manifests.map do |manifest|
           SelectiveNewsletterParticipatorySpaceTypeForm.from_model(manifest:)
         end
-      end
-
-      # Make sure the empty scope is not passed because then some logic could
-      # assume erroneously that some scope is selected.
-      def scope_ids
-        super.select(&:presence)
       end
 
       private

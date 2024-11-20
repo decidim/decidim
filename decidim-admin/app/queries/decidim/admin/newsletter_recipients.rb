@@ -26,8 +26,6 @@ module Decidim
                                   .where.not(confirmed_at: nil)
                                   .not_deleted
 
-        recipients = recipients.interested_in_scopes(@form.scope_ids) if @form.scope_ids.present?
-
         return recipients if @form.send_to_all_users
 
         filters = [

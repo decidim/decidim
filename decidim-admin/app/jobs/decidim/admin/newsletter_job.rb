@@ -35,8 +35,8 @@ module Decidim
           send_to_all_users: @form["send_to_all_users"],
           send_to_followers: @form["send_to_followers"],
           send_to_participants: @form["send_to_participants"],
-          participatory_space_types: @form["participatory_space_types"],
-          scope_ids: @form["scope_ids"]
+          send_to_private_members: @form["send_to_private_members"],
+          participatory_space_types: @form["participatory_space_types"]
         }
       end
 
