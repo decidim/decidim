@@ -28,6 +28,7 @@ eu:
     download_your_data:
       show:
         answers: Esportatu erantzunak
+        survey_user_answers: Inkesta erabiltzaile erantzunak
     forms:
       admin:
         models:
