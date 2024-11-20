@@ -498,7 +498,10 @@ es:
         title: Acciones
       admin:
         actions:
+          confirm_delete_proposal: '¿Seguro que quiere eliminar esta propuesta?'
+          deleted_proposals_info: Las propuestas eliminadas se pueden restaurar desde papelera.
           preview: Previsualizar
+          view_deleted_proposals: Ver las propuestas eliminadas
         exports:
           proposal_comments: Comentarios
           proposals: Propuestas
@@ -643,6 +646,8 @@ es:
             unassign_from_valuator_button: Desasignar
             update: Actualizar
             update_scope_button: Actualizar ámbito
+          manage_trash:
+            title: Propuestas eliminadas
           new:
             create: Crear
             title: Crear propuesta
@@ -708,6 +713,8 @@ es:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
           publish_answer: "%{user_name} publicó la respuesta a la propuesta %{resource_name} en el espacio %{space_name}"
+          restore: "%{user_name} restauró la propuesta %{resource_name} en el espacio %{space_name}"
+          soft_delete: "%{user_name} ha movido a la papelera la propuesta %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha actualizado la propuesta oficial %{resource_name} en el espacio %{space_name}"
         proposal_note:
           create: "%{user_name} dejó una nota privada en la propuesta %{resource_name} en el espacio %{space_name}"
