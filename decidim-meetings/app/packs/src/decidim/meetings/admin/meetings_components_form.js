@@ -34,7 +34,9 @@ const handleAddButton = () => {
 
   title.textContent = componentTitle;
   id.value = componentId;
-  handleRemoveButton(button);
+  if (button) {
+    handleRemoveButton(button);
+  }
 
   body.appendChild(clone);
 
@@ -57,12 +59,19 @@ const setupTomSelect = () => {
     plugins: ["dropdown_input"]
   };
 
-  return new TomSelect(componentsSelect, config);
+  if (componentsSelect) {
+    return new TomSelect(componentsSelect, config);
+  }
+  return null;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".js-remove-component").forEach(handleRemoveButton);
-  document.querySelector(".js-add-component").addEventListener("click", handleAddButton);
+  const addButton = document.querySelector(".js-add-component")
+
+  if (addButton) {
+    addButton.addEventListener("click", handleAddButton);
+  }
 
   setupTomSelect();
 });

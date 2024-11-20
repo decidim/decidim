@@ -20,13 +20,13 @@ shared_examples "manage taxonomy filters in settings" do
     it "can be added to settings" do
       click_on "Add filter"
       within "#taxonomy_filters-dialog-content" do
-        select "A root taxonomy", from: "available-taxonomy_filters"
-        expect(page).to have_css("span.label", text: "A root taxonomy")
+        select "Internal taxonomy filter name", from: "available-taxonomy_filters"
+        expect(page).to have_css("span.label", text: "Internal taxonomy filter name")
         click_on "Save"
       end
 
       expect(page).to have_no_css("#taxonomy_filters-dialog-content")
-      expect(page).to have_css("span.label", text: "A root taxonomy")
+      expect(page).to have_css("span.label", text: "Internal taxonomy filter name")
       click_on "Update"
       expect(page).to have_content("The component was updated successfully.")
       expect(component.reload.settings.taxonomy_filters).to eq([taxonomy_filter.id.to_s])
@@ -55,21 +55,21 @@ shared_examples "manage taxonomy filters in settings" do
     it "can be removed from settings" do
       expect(page).to have_link("Clear all")
       within "#taxonomy_filters-filters_container" do
-        expect(page).to have_css("span.label", text: "A root taxonomy (1)")
+        expect(page).to have_css("span.label", text: "Internal taxonomy filter name (1)")
         click_on "Remove"
       end
-      expect(page).to have_no_content("A root taxonomy (1)")
+      expect(page).to have_no_content("Internal taxonomy filter name (1)")
       expect(page).to have_no_link("Clear all")
 
       click_on "Add filter"
       within "#taxonomy_filters-dialog-content" do
-        select "A root taxonomy (1)", from: "available-taxonomy_filters"
-        expect(page).to have_css("span.label", text: "A root taxonomy (1)")
+        select "Internal taxonomy filter name (1)", from: "available-taxonomy_filters"
+        expect(page).to have_css("span.label", text: "Internal taxonomy filter name (1)")
         click_on "Save"
       end
 
       within "#taxonomy_filters-filters_container" do
-        expect(page).to have_css("span.label", text: "A root taxonomy (1)")
+        expect(page).to have_css("span.label", text: "Internal taxonomy filter name (1)")
       end
       click_on "Clear all"
 

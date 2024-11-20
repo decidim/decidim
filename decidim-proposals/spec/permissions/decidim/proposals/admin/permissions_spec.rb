@@ -163,9 +163,9 @@ describe Decidim::Proposals::Admin::Permissions do
     end
   end
 
-  describe "update proposal category" do
+  describe "update proposal taxonomy" do
     let(:action) do
-      { scope: :admin, action: :update, subject: :proposal_category }
+      { scope: :admin, action: :update, subject: :proposal_taxonomy }
     end
 
     it { is_expected.to be true }

@@ -26,6 +26,7 @@ $(() => {
       $("#js-selected-proposals-count").text("")
       $("#js-assign-proposals-to-valuator-actions").addClass("hide");
       $("#js-unassign-proposals-from-valuator-actions").addClass("hide");
+      $("#js-taxonomy-change-proposals-actions").addClass("hide");
     } else {
       $("#js-selected-proposals-count").text(selectedProposals);
     }
@@ -104,7 +105,8 @@ $(() => {
       let action = $(e.target).data("action");
       const panelActions = [
         "assign-proposals-to-valuator",
-        "unassign-proposals-from-valuator"
+        "unassign-proposals-from-valuator",
+        "taxonomy-change-proposals"
       ];
 
       if (!action) {
