@@ -236,12 +236,10 @@ ro:
           email_subject: O nouă propunere "%{resource_title}" a fost adăugată la %{participatory_space_title}
         proposal_update_category:
           email_intro: 'Un administrator a actualizat categoria propunerii tale „%{resource_title}", verifică modificarea în această pagină:'
-          email_outro: Ai primit această notificare deoarece ești autorul acestei propuneri.
           email_subject: Categoria propunerii %{resource_title} a fost actualizată
           notification_title: Categoria propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizată de către un administrator.
         proposal_update_scope:
           email_intro: 'Un administrator a actualizat domeniul de interes al propunerii tale „%{resource_title}”, verifică modificarea în această pagină:'
-          email_outro: Ai primit această notificare deoarece ești autorul acestei propuneri.
           email_subject: Domeniul de interes al propunerii %{resource_title} a fost actualizat
           notification_title: Domeniul de interes al propunerii <a href="%{resource_path}">%{resource_title}</a> a fost actualizat de către un administrator.
         voting_enabled:
