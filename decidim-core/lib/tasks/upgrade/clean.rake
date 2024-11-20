@@ -126,6 +126,17 @@ namespace :decidim do
         logger.info("===== Deleted #{invalid} invalid resources")
       end
 
+      desc "Update all blocked users notifications_sending_frequency setting"
+      task fix_blocked_user_notification: :environment do
+        logger.info("=== Updating all blocked users notifications_sending_frequency ...")
+        blocked_users = 0
+        Decidim::UserBlock.find_each do |blocked_user|
+          blocked_user.user.update(notifications_sending_frequency: "none")
+          blocked_users += 1
+        end
+        logger.info("===== Updated #{blocked_users} blocked users")
+      end
+
       def logger
         @logger ||= Logger.new($stdout)
       end
