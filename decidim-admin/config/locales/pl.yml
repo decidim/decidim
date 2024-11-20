@@ -994,8 +994,6 @@ pl:
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana.
-      taxonomies:
-        count: Liczba
       titles:
         admin_log: Logi administratora
         area_types: Typy kategorii
