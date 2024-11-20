@@ -82,8 +82,6 @@ sv:
             actions: Åtgärder
             cancel: Avbryt
             change_budget: Ändra budget
-            change_category: Ändra kategori
-            change_scope: Ändra indelning
             change_selected: Ändra status
             deselect_implementation: Välj bort från genomförande
             finished_orders: Avslutade omröstningar
@@ -96,7 +94,6 @@ sv:
             title: Projekt
             update: Uppdatera
             update_budget_button: Uppdatera projektets budget
-            update_scope_button: Uppdatera indelning
           new:
             create: Skapa
             title: Nytt projekt
@@ -104,28 +101,10 @@ sv:
             invalid: Det gick inte att uppdatera projektet.
             success: Projektet har uppdaterats.
           update_budget:
-            invalid: 'Projekten ingår redan i samma budget eller överstiger det maximala beloppet: %{projects}.'
             select_a_project: Välj ett projekt.
-            success: 'Projekten till budgeten %{subject_name} har uppdaterats: %{projects}.'
-          update_category:
-            invalid: 'De här projekten tillhörde redan kategorin %{subject_name}: %{projects}.'
-            select_a_category: Välj en kategori.
-            select_a_project: Välj ett projekt.
-            success: 'Projekt som tilldelats kategorin %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'De här projekten tillhörde redan indelningen %{subject_name}: %{projects}.'
-            select_a_project: Välj ett projekt.
-            select_a_scope: Välj en indelning.
-            success: 'Projekten uppdaterades till %{subject_name}: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'De här projekten har redan valts för genomförande: %{projects}.'
-              unselected: 'Projekten har redan valts bort för genomförande: %{projects}.'
             select_a_project: Välj ett projekt.
             select_a_selection: Välj status för genomförandet.
-            success:
-              selected: 'Projekten har valts för genomförande: %{projects}.'
-              unselected: 'Projekten har valts bort från genomförande: %{projects}.'
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen till projekten.
