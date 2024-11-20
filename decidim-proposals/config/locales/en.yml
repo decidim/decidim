@@ -663,6 +663,7 @@ en:
             documents: Documents
             endorsements_count: Endorsements count
             endorsers: Endorsers
+            evaluators: Evaluators
             link: See proposal
             n_more_endorsers:
               one: and 1 more
@@ -672,7 +673,6 @@ en:
             related_meetings: Related meetings
             remove_assignment: Remove assignment
             remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
-            evaluators: Evaluators
             votes_count: Votes count
           update_category:
             invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
@@ -880,6 +880,8 @@ en:
         proposal:
           fields:
             comments: Comments
+            evaluator: Evaluator
+            evaluators: Evaluators
             id: ID
             notes: Notes
             official_proposal: Official proposal
@@ -888,8 +890,6 @@ en:
             state: Status
             taxonomies: Taxonomies
             title: Title
-            evaluator: Evaluator
-            evaluators: Evaluators
             votes: Votes
         proposal_state:
           css_class: CSS class
