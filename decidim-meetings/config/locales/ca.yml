@@ -703,6 +703,7 @@ ca:
           address: L'adreça de la trobada en cas que aquesta sigui presencial i tingui una ubicació física
           attachments: El nombre de fitxers adjunts en aquesta reunió
           attendees: El número de persones que van assistir a la trobada
+          author: Les dades d'autoria d'aquesta trobada
           comments: El número de comentaris en aquesta trobada
           component: El component al qual pertany aquesta trobada
           contributions: El número de contribucions realitzades en aquesta trobada per les assistents
