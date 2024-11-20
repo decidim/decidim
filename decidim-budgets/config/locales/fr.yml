@@ -44,6 +44,7 @@ fr:
       actions:
         attachment_collections: Dossiers
         attachments: Documents liés
+        confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer ce projet ?
         destroy: Supprimer
         edit: Modifier
         edit_projects: Gérer les projets
