@@ -687,6 +687,58 @@ en:
     download_your_data:
       export:
         ready: Ready
+      help:
+        core:
+          title: Download your data files from %{organization}
+          description: These are the files with the personal data, contributions and activity from the user %{user_name}
+        follows:
+          created_at: The date and time when the follow was created
+          followable: The resource or space that is being followed
+          id: The unique identifier of this follow
+          updated_at: The date and time when the follow was last updated
+        notifications:
+          id: The unique identifier of this notification
+          resource_type: The type of the resource that the notification is related to
+          event_name: The name of the event that triggered the notification
+          event_class: The class of the event that triggered the notification
+          created_at: The date and time when the notification was created
+          updated_at: The date and time when the notification was last updated
+          extra: Extra information of this notification
+        users:
+          about: The biography of this user
+          admin: Whether this user is an administrator
+          confirmation_sent_at: The date and time when the confirmation was sent
+          confirmed_at: The date and time when this user was confirmed
+          created_at: The date and time when this user was created
+          current_sign_in_at: The date and time of the current login
+          current_sign_in_ip: The IP address of the current login
+          delete_reason: The reason given for deleting this user
+          deleted_at: The date and time when this user was deleted
+          email: The email address of this user
+          id: The unique identifier of this user
+          invitation_accepted_at: The date and time when the invitation was accepted
+          invitation_created_at: The date and time when this user was invited
+          invitation_sent_at: The date and time when the invitation was sent
+          invitations_count: The number of invitations sent to this user
+          invited_by: The user who invited this user
+          last_sign_in_at: The date and time of the last login
+          last_sign_in_ip: The IP address of the last login
+          locale: The locale (language) that this user has selected
+          managed: Whether this user is managed by another user
+          name: The name of this user
+          newsletter_notifications_at: The date and time when this user last received a newsletter
+          nickname: The nickname of this user
+          notification_settings: The notification settings that this user has selected
+          notifications_sending_frequency: The frequency of the notifications that this user receives
+          officialized_as: The name of the officialization (Counsellor, Mayor, etc)
+          officialized_at: The date and time when this user was officialized
+          organization: The organization that this user belongs to
+          personal_url: The personal URL of this user
+          remember_created_at: The date and time when the user was selected to be remembered
+          reset_password_sent_at: The date and time when the password reset was sent
+          sign_in_count: The number of times this user has logged in
+          unconfirmed_email: The email address that this user has not yet confirmed
+          updated_at: The date and time when this user was last updated
       show:
         action: Action
         download: Download

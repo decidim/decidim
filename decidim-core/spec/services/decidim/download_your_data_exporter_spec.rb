@@ -65,5 +65,61 @@ module Decidim
         end
       end
     end
+
+    describe "#readme" do
+      context "when the user has a follow" do
+        let!(:follow) { create(:follow, user:) }
+        let(:data) { subject.send(:readme) }
+
+        before do
+          subject.send(:data_and_attachments_for_user) # to create the data and get the help definitions
+        end
+
+        it "does not have any missing translation" do
+          expect(data).not_to include("Translation missing")
+        end
+
+        it "has the correct help definition" do
+          expect(data).to include("The resource or space that is being followed")
+        end
+      end
+
+      context "when the user has a notification" do
+        let!(:notification) { create(:notification, user:) }
+        let(:data) { subject.send(:readme) }
+
+        before do
+          subject.send(:data_and_attachments_for_user) # to create the data and get the help definitions
+        end
+
+        it "does not have any missing translation" do
+          expect(data).not_to include("Translation missing")
+        end
+
+        it "has the correct help definition" do
+          expect(data).to include("The type of the resource that the notification is related to")
+        end
+      end
+
+      context "when the user has a comment" do
+        let(:participatory_space) { create(:participatory_process, organization:) }
+        let(:component) { create(:component, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, component:) }
+        let!(:comment) { create(:comment, commentable:, author: user) }
+        let(:data) { subject.send(:readme) }
+
+        before do
+          subject.send(:data_and_attachments_for_user) # to create the data and get the help definitions
+        end
+
+        it "does not have any missing translation" do
+          expect(data).not_to include("Translation missing")
+        end
+
+        it "has the correct help definition" do
+          expect(data).to include("If this comment was a favour, against or neutral")
+        end
+      end
+    end
   end
 end

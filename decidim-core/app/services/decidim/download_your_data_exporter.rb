@@ -8,6 +8,8 @@ module Decidim
     DEFAULT_EXPORT_FORMAT = "CSV"
     ZIP_FILE_NAME = "download-your-data.zip"
 
+    include Decidim::TranslatableAttributes
+
     # Public: Initializes the class.
     #
     # user          - The user to export the data from.
@@ -17,6 +19,7 @@ module Decidim
       @user = user
       @export_format = export_format
       @name = name
+      @help_definition = {}
     end
 
     def export
@@ -31,13 +34,14 @@ module Decidim
 
     private
 
-    attr_reader :user, :export_format, :name
+    attr_reader :user, :export_format, :name, :help_definition
 
     def data
       user_data, user_attachments = data_and_attachments_for_user
       buffer = Zip::OutputStream.write_buffer do |out|
         save_user_data(out, user_data)
         save_user_attachments(out, user_attachments)
+        save_readme(out)
       end
 
       buffer.rewind
@@ -50,7 +54,9 @@ module Decidim
 
       download_your_data_entities.each do |object|
         klass = Object.const_get(object)
-        export_data << [klass.model_name.name.parameterize.pluralize, Exporters.find_exporter(export_format).new(klass.user_collection(user), klass.export_serializer).export]
+        exporter = Exporters.find_exporter(export_format).new(klass.user_collection(user), klass.export_serializer)
+        get_help_definition(klass.model_name.route_key, exporter.headers_without_locales)
+        export_data << [klass.model_name.name.parameterize.pluralize, exporter.export]
         attachments = klass.download_your_data_images(user)
         export_attachments << [klass.model_name.name.parameterize.pluralize, attachments.flatten] unless attachments.nil?
       end
@@ -84,6 +90,34 @@ module Decidim
             end
           end
         end
+      end
+    end
+
+    def save_readme(output)
+      output.put_next_entry("README.md")
+      output.write readme
+    end
+
+    def readme
+      readme_file = "# #{I18n.t("decidim.download_your_data.help.core.title", organization: translated_attribute(user.organization.name))}\n\n"
+      readme_file << "#{I18n.t("decidim.download_your_data.help.core.description", user_name: "#{user.name} (#{user.nickname})")}\n\n"
+
+      help_definition.each do |entity, headers|
+        readme_file << "## #{entity}\n\n"
+
+        headers.each do |header, help_value|
+          readme_file << "* #{header}: #{help_value}\n"
+        end
+      end
+
+      readme_file
+    end
+
+    def get_help_definition(entity, headers)
+      help_definition[entity] = {}
+
+      headers.each do |header|
+        help_definition[entity][header] = I18n.t("decidim.open_data.help.#{entity}.#{header}", default: I18n.t("decidim.download_your_data.help.#{entity}.#{header}"))
       end
     end
   end
