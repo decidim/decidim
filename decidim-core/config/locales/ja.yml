@@ -1625,8 +1625,6 @@ ja:
       users_count: 参加者
     tags:
       filter_results_for_taxonomy: '%{resource} の検索結果'
-    taxonomies:
-      prompt: '"%{name}"から選択'
     translation_bar:
       help_text: "<strong>警告:</strong>内容は自動的に翻訳されている場合があり、100%正確ではありません。"
       show_original: 元テキストを表示する
