@@ -1007,8 +1007,6 @@ sv:
           success: Sidan har uppdaterats.
       taxonomies:
         actions: Åtgärder
-        amount: Antal
-        count: Antal
         create:
           invalid: Det gick inte att skapa kategorin.
           success: Kategorin har skapats.
@@ -1042,8 +1040,6 @@ sv:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nytt filter från kategori
-        callout:
-          modify_taxonomy_html: Om du behöver ändra kategorin eller underkategorierna kan du göra det via inställningarna under <a href="%{url}">Kategorier</a>.
         create:
           error: Det gick inte att skapa filtret för kategorin.
           success: Filtret för kategorin har skapats.
@@ -1052,25 +1048,19 @@ sv:
           success: Filtret för kategorin har tagits bort.
         edit:
           back: Tillbaka
-          items: "%{count} objekt valda"
           title: Redigera filter för kategori
           update: Uppdatera filter för kategori
-        form:
-          select_taxonomy: Välj en kategori
         index:
           description: Ett kategorifilter gör det möjligt för administratörer att sortera och filtrera deltagarutrymmen baserat på en kategorisering. Använd till exempel filter för att sortera processer efter geografisk omfattning.
           empty: Det finns för närvarande inga kategorifilter. Skapa en lista över filter här för att sortera och filtrera deltagarutrymmen baserat på kategorier.
         new:
           back: Tillbaka
           create: Skapa filter för kategori
-          items: "%{count} objekt tillgängliga"
           title: Nytt filter för kategori
         table:
           actions: Åtgärder
-          count: Antal objekt
           destroy: Radera
           edit: Redigera
-          name: Namn
         update:
           error: Det gick inte att uppdatera filtret för kategorin.
           success: Filtret för kategorin har uppdaterats.
