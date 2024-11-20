@@ -95,8 +95,6 @@ fi:
             actions: Toiminnot
             cancel: Peruuta
             change_budget: Muuta budjettia
-            change_category: Vaihda aihepiiri
-            change_scope: Vaihda teema
             change_selected: Muuta tilaa
             deselect_implementation: Ei valittu toteutukseen
             finished_orders: Valmiit äänet
@@ -109,7 +107,6 @@ fi:
             title: Hankkeet
             update: Päivitä
             update_budget_button: Päivitä projektin budjetti
-            update_scope_button: Muuta teema
           manage_trash:
             title: Poistetut projektit
           new:
@@ -119,28 +116,10 @@ fi:
             invalid: Projektin poisto epäonnistui.
             success: Projektin päivitys onnistui.
           update_budget:
-            invalid: 'Nämä projektit ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
             select_a_project: Valitse projekti.
-            success: 'Seuraavien projektien päivitys onnistui budjetissa %{subject_name}: %{projects}.'
-          update_category:
-            invalid: 'Näillä projekteilla oli jo aihepiiri %{subject_name}: %{projects}.'
-            select_a_category: Valitse aihepiiri.
-            select_a_project: Valitse projekti.
-            success: 'Seuraavien projektien aihepiirin päivitys onnistui %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Näillä projekteilla oli jo teema %{subject_name}: %{projects}.'
-            select_a_project: Valitse projekti.
-            select_a_scope: Valitse teema.
-            success: 'Seuraavien projektien teeman päivitys onnistui %{subject_name}: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Nämä projektit oli jo valittu toteutukseen: %{projects}.'
-              unselected: 'Näitä projekteja ei oltu valittu toteutukseen: %{projects}.'
             select_a_project: Valitse projekti.
             select_a_selection: Valitse toteutuksen tila.
-            success:
-              selected: 'Näiden projektien valinta toteutukseen onnistui: %{projects}.'
-              unselected: 'Näiden projektien toteutukseen valinnan poistaminen onnistui: %{projects}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuominen projekteiksi epäonnistui.
