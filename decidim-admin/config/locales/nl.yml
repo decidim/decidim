@@ -821,8 +821,6 @@ nl:
           without_topic: Pagina's zonder onderwerp
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
-      taxonomies:
-        count: Aantal
       titles:
         admin_log: log van de beheerder
         area_types: Thema's
