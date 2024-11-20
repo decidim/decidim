@@ -4,7 +4,6 @@ ar:
       collaborative_draft:
         address: عنوان
         body: الجسم
-        category_id: الفئة
         decidim_scope_id: نطاق
         has_address: لديه عنوان
         scope_id: نطاق
@@ -17,7 +16,6 @@ ar:
         answered_at: أجاب في
         automatic_hashtags: علامات التصنيف المضافة تلقائيًا
         body: الجسم
-        category_id: الفئة
         decidim_scope_id: النطاق
         has_address: لديه عنوان
         scope_id: نطاق
@@ -65,8 +63,6 @@ ar:
             base:
               not_official: غير رسمية
     models:
-      decidim/proposals/admin/update_proposal_category_event: تم تغيير فئة الاقتراح
-      decidim/proposals/admin/update_proposal_scope_event: تم تغيير نطاق الاقتراح
       decidim/proposals/creation_enabled_event: تمكين إنشاء الاقتراح
       decidim/proposals/endorsing_enabled_event: تمكين اقتراح الاقتراح
       decidim/proposals/proposal_mentioned_event: الاقتراح المذكور
@@ -253,16 +249,6 @@ ar:
           email_intro: تمت إضافة الاقتراح "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تمت إضافة اقتراح جديد "%{resource_title}" إلى %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'قام المشرف بتحديث فئة اقتراحك "%{resource_title}" ، تحقق من ذلك في هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
-          email_subject: تم تحديث فئة %{resource_title} اقتراح
-          notification_title: تم تحديث فئة اقتراح <a href="%{resource_path}">%{resource_title}</a> بواسطة مسؤول.
-        proposal_update_scope:
-          email_intro: 'قام مدير بتحديث نطاق اقتراحك "%{resource_title}" ، يرجى التحقق منه على هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
-          email_subject: تم تحديث نطاق الاقتراح %{resource_title}
-          notification_title: نطاق الاقتراح <a href="%{resource_path}">%{resource_title}</a> تم تحديثه من قبل مدير.
         voting_enabled:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
     gamification:
@@ -415,8 +401,6 @@ ar:
             assign_to_valuator: أسنِده إلى مُقيِّم
             assign_to_valuator_button: تعيين
             cancel: إلغاء
-            change_category: تغيير الفئة
-            change_scope: تغيير النطاق
             merge: دمج في واحدة جديدة
             merge_button: دمج
             publish: نشر
@@ -429,7 +413,6 @@ ar:
             unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
             unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
-            update_scope_button: تحديث النطاق
           new:
             create: إنشاء
             title: إنشاء اقتراح
@@ -454,12 +437,6 @@ ar:
             remove_assignment: إزالة التعيين
             remove_assignment_confirmation: هل أنت متأكد من أنك تريد إزالة المُقيِّم من هذا الاقتراح؟
             valuators: المُقيِّمون
-          update_category:
-            invalid: 'هذه الاقتراحات تحتوي بالفعل على فئة %{subject_name}: %{proposals}.'
-            success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'تحتوي الاقتراحات مسبقاً على نطاق %{subject_name}: %{proposals}.'
-            success: 'تم تحديث الاقتراحات بنجاح إلى نطاق %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: مقترحات الاستيراد
@@ -530,11 +507,9 @@ ar:
         filters:
           all: الكل
           amendment: تعديلات
-          category: الفئة
           open: افتح
           published: نشرت
           related_to: متعلق ب
-          scope: نطاق
           search: بحث
           state: الحالة
           withdrawn: سحب
@@ -647,7 +622,6 @@ ar:
           activity: نشاطي
           all: الكل
           amendment_type: نوع
-          category: الفئة
           my_proposals: اقتراحاتي
           origin: الأصل
           related_to: متعلق ب
