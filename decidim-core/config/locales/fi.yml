@@ -1685,8 +1685,6 @@ fi:
       users_count: Osallistujaa
     tags:
       filter_results_for_taxonomy: 'Rajaa tulokset kohteelle: %{resource}'
-    taxonomies:
-      prompt: Valitse kohteesta "%{name}"
     translation_bar:
       help_text: "<strong>Varoitus:</strong> Sisältö saatetaan kääntää automaattisesti eikä koneelliset käännökset ole 100% tarkkoja."
       show_original: Näytä alkuperäinen teksti
