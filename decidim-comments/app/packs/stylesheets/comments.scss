@@ -419,5 +419,11 @@
 }
 
 .fullscreen {
-  @apply fixed md:relative inset-0 w-screen md:w-full h-screen bg-white z-50 p-0 overflow-auto md:overflow-hidden rounded-none !mt-0;
+  @apply fixed md:relative inset-0 w-screen md:w-full h-screen bg-white z-50 p-0 overflow-auto md:overflow-hidden rounded-none;
+}
+
+.comments {
+  .fullscreen.add-comment {
+    @apply mt-0;
+  }
 }
