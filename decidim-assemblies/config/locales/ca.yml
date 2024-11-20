@@ -449,6 +449,7 @@ ca:
           closing_date: La data de tancament de l'assemblea
           closing_date_reason: Perquè es va tancar l'assemblea
           composition: La composició de l'assemblea
+          created_at: La data en què es va crear aquesta assemblea
           created_by: Qui va crear l'assemblea
           created_by_other: L'àrea a la qual correspon l'assemblea
           creation_date: La data de creació d'aquesta assemblea
@@ -457,6 +458,7 @@ ca:
           developer_group: El grup promotor de l'assemblea
           duration: La durada de l'assemblea
           facebook_handler: Controlador de xarxes socials per a Facebook
+          follows_count: El número d'usuàries que segueixen aquesta assemblea
           github_handler: Controlador de xarxes socials per a GitHub
           hashtag: L'etiqueta que fa servir l'assemblea a Twitter/X
           id: L'identificador únic del resultat
@@ -469,7 +471,9 @@ ca:
           participatory_scope: L'àmbit territorial de la participació de l'assemblea
           participatory_structure: L'estructura participativa de l'assemblea
           promoted: Si l'assemblea està destacada o no
+          published_at: La data en què es va publicar aquesta assemblea
           purpose_of_action: El propòsit de l'acció de l'assemblea
+          reference: La referència única de l'assemblea
           remote_banner_image_url: L'URL de la imatge de capçalera (imatge principal) de l'assemblea
           remote_hero_image_url: L'URL de la imatge principal de l'assemblea
           scope: L'àmbit territorial de l'assemblea
@@ -482,6 +486,8 @@ ca:
           taxonomies: Les taxonomies del projecte
           title: El títol de l'assemblea
           twitter_handler: Controlador de xarxes socials per a Twitter/X
+          updated_at: La data de la darrera actualització d'aquesta assemblea
+          url: L'URL de l'assemblea
           youtube_handler: Controlador de xarxes socials per a YouTube
     participatory_processes:
       show:
