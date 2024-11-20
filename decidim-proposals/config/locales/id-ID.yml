@@ -4,7 +4,6 @@ id:
       collaborative_draft:
         address: Alamat
         body: Tubuh
-        category_id: Kategori
         decidim_scope_id: Cakupan
         has_address: Memiliki alamat
         state: Negara
@@ -16,7 +15,6 @@ id:
         answered_at: Dijawab di
         automatic_hashtags: Hashtag secara otomatis ditambahkan
         body: Tubuh
-        category_id: Kategori
         has_address: Memiliki alamat
         state: Negara
         suggested_hashtags: Tagar yang disarankan
@@ -42,7 +40,6 @@ id:
             title:
               identical: DAN tubuh tidak bisa identik
     models:
-      decidim/proposals/admin/update_proposal_category_event: Kategori proposal berubah
       decidim/proposals/creation_enabled_event: Pembuatan proposal diaktifkan
       decidim/proposals/endorsing_enabled_event: Proposal dukungan diaktifkan
       decidim/proposals/proposal_mentioned_event: Proposal disebutkan
@@ -129,13 +126,6 @@ id:
           email_intro: Proposal "%{resource_title}" telah ditambahkan ke "%{participatory_space_title}" yang Anda ikuti.
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti "%{participatory_space_title}". Anda dapat berhenti mengikutinya dari tautan sebelumnya.
           email_subject: Proposal baru "%{resource_title}" ditambahkan ke %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'Admin telah memperbarui kategori proposal Anda "%{resource_title}", periksa ini:'
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
-          email_subject: Kategori proposal %{resource_title} telah diperbarui
-          notification_title: Kategori proposal <a href="%{resource_path}">%{resource_title}</a> telah diperbarui oleh admin.
-        proposal_update_scope:
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
         voting_enabled:
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.
     gamification:
@@ -243,7 +233,6 @@ id:
           index:
             actions: Tindakan
             cancel: Membatalkan
-            change_category: Ubah kategori
             merge: Bergabunglah dengan yang baru
             merge_button: Menggabungkan
             publish: Menerbitkan
@@ -322,11 +311,9 @@ id:
         filters:
           all: Semua
           amendment: Amandemen
-          category: Kategori
           open: Buka
           published: Diterbitkan
           related_to: Berhubungan dengan
-          scope: Cakupan
           search: Pencarian
           state: Negara
           withdrawn: Ditarik
@@ -412,7 +399,6 @@ id:
           send: Preview
         filters:
           amendment_type: Mengetik
-          category: Kategori
           origin: Asal
           related_to: Berhubungan dengan
           scope: Cakupan
