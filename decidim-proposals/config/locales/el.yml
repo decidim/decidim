@@ -263,12 +263,10 @@ el:
           notification_title_official: Η επίσημη πρόταση <a href="%{resource_path}">%{resource_title}</a> έχει προστεθεί στο %{participatory_space_title}.
         proposal_update_category:
           email_intro: 'Ένας διαχειριστής ενημέρωσε την κατηγορία της πρότασής σας «%{resource_title}», δείτε την σε αυτήν τη σελίδα:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε ο συντάκτης της πρότασης.
           email_subject: Η κατηγορία της πρότασης %{resource_title} ενημερώθηκε
           notification_title: Η κατηγορία της πρότασης <a href="%{resource_path}">%{resource_title}</a> ενημερώθηκε από έναν διαχειριστή.
         proposal_update_scope:
           email_intro: 'Ένας διαχειριστής ενημέρωσε το πεδίο εφαρμογής της πρότασής σας «%{resource_title}», δείτε την σε αυτήν τη σελίδα:'
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή είστε ο συντάκτης της πρότασης.
           email_subject: Το πεδίο εφαρμογής της πρότασης %{resource_title} ενημερώθηκε
           notification_title: Το πεδίο εφαρμογής της πρότασης <a href="%{resource_path}">%{resource_title}</a> ενημερώθηκε από έναν διαχειριστή.
         voting_enabled:
@@ -468,11 +466,11 @@ el:
           update_category:
             invalid: 'Αυτές οι προτάσεις είχαν ήδη την κατηγορία %{subject_name}: %{proposals}.'
             select_a_category: Παρακαλώ επιλέξτε μια κατηγορία.
-            select_a_proposal: Επιλέξτε μια πρόταση.
+            select_a_proposal: Παρακαλώ επιλέξτε μια πρόταση.
             success: 'Οι προτάσεις ενημερώθηκαν με επιτυχία στην κατηγορία %{subject_name}: %{proposals}.'
           update_scope:
             invalid: 'Αυτές οι προτάσεις είχαν ήδη το πεδίο εφαρμογής %{subject_name}: %{proposals}.'
-            select_a_proposal: Επιλέξτε μια πρόταση.
+            select_a_proposal: Παρακαλώ επιλέξτε μια πρόταση.
             select_a_scope: Παρακαλώ επιλέξτε ένα πεδίο εφαρμογής.
             success: 'Οι προτάσεις ενημερώθηκαν με επιτυχία στο πεδίο εφαρμογής %{subject_name}: %{proposals}.'
         proposals_imports:
