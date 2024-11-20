@@ -800,8 +800,6 @@ gl:
           without_topic: Páxinas sen tema
         update:
           error: Produciuse un erro ao actualizar esta páxina.
-      taxonomies:
-        count: Conde
       titles:
         admin_log: Rexistro de administrador
         area_types: Tipos de área
