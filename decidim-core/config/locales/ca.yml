@@ -1683,8 +1683,6 @@ ca:
       users_count: Participants
     tags:
       filter_results_for_taxonomy: 'Resultats en filtrar per: %{resource}'
-    taxonomies:
-      prompt: Seleccionar de "%{name}"
     translation_bar:
       help_text: "<strong>Advertència:</strong> Pot ser que el contingut sigui traduït automàticament i no sigui 100% acurat."
       show_original: Mostra el text original
