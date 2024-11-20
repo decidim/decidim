@@ -4,7 +4,6 @@ zh-CN:
       collaborative_draft:
         address: 地址
         body: 正文内容
-        category_id: 类别
         decidim_scope_id: 范围
         has_address: 有地址
         scope_id: 范围
@@ -17,7 +16,6 @@ zh-CN:
         answered_at: 回答于
         automatic_hashtags: 自动添加标签
         body: 正文内容
-        category_id: 类别
         decidim_scope_id: 范围
         has_address: 有地址
         scope_id: 范围
@@ -49,8 +47,6 @@ zh-CN:
             title:
               identical: 和正文不能相同
     models:
-      decidim/proposals/admin/update_proposal_category_event: 建议类别已更改
-      decidim/proposals/admin/update_proposal_scope_event: 建议范围已更改
       decidim/proposals/creation_enabled_event: 建议创建已启用
       decidim/proposals/endorsing_enabled_event: 提案已启用
       decidim/proposals/proposal_mentioned_event: 提及的建议
@@ -181,16 +177,6 @@ zh-CN:
           email_intro: 提议 "%{resource_title}" 已被添加到"%{participatory_space_title}"，您正在关注它。
           email_outro: 您收到此通知是因为您正在关注 "%{participatory_space_title}"。您可以停止收到跟随上一个链接的通知。
           email_subject: 新提议 "%{resource_title}" 已添加到 %{participatory_space_title}
-        proposal_update_category:
-          email_intro: '管理员更新了您的提议 "%{resource_title}"的类别，在此页面查看：'
-          email_outro: 您收到此通知是因为您是提案的作者。
-          email_subject: '%{resource_title} 建议类别已更新'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议类别已被管理员更新。
-        proposal_update_scope:
-          email_intro: '管理员更新了您的提议 "%{resource_title}"的范围，在此页面查看：'
-          email_outro: 您收到此通知是因为您是提案的作者。
-          email_subject: '%{resource_title} 建议范围已更新'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提议范围已被管理员更新。
         voting_enabled:
           email_outro: 您收到此通知是因为您正在关注 %{participatory_space_title}。您可以停止收到跟随上一个链接的通知。
     gamification:
@@ -302,8 +288,6 @@ zh-CN:
             assign_to_valuator: 分配给值器
             assign_to_valuator_button: 分配
             cancel: 取消
-            change_category: 更改类别
-            change_scope: 更改范围
             merge: 合并为一个新的
             merge_button: 合并
             publish: 发布
@@ -316,7 +300,6 @@ zh-CN:
             unassign_from_valuator: 取消分配给值
             unassign_from_valuator_button: 取消分配
             update: 更新
-            update_scope_button: 更新范围
           new:
             create: 创建
             title: 创建提案
@@ -336,12 +319,6 @@ zh-CN:
             remove_assignment: 移除作业
             remove_assignment_confirmation: 您确定要从此建议中删除值吗？
             valuators: 估价器
-          update_category:
-            invalid: '这些建议已经有 %{subject_name} 分类: %{proposals}。'
-            success: '建议已成功更新到 %{subject_name} 类别： %{proposals}。'
-          update_scope:
-            invalid: '这些建议已经有 %{subject_name} 范围： %{proposals}。'
-            success: '建议已成功更新到 %{subject_name} 范围： %{proposals}。'
         proposals_imports:
           new:
             create: 导入提议
@@ -410,11 +387,9 @@ zh-CN:
         filters:
           all: 所有的
           amendment: 修 正 案
-          category: 类别
           open: 打开
           published: 已发布
           related_to: 关联到
-          scope: 范围
           search: 搜索
           state: 状态
           withdrawn: 取出
@@ -507,7 +482,6 @@ zh-CN:
           activity: 我的活动
           all: 所有的
           amendment_type: 类型
-          category: 类别
           my_proposals: 我的提议
           origin: 始发地
           related_to: 关联到
