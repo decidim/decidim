@@ -4,7 +4,6 @@ de:
       collaborative_draft:
         address: Adresse
         body: Haupttext
-        category_id: Kategorie
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
         scope_id: Bereich
@@ -17,7 +16,6 @@ de:
         answered_at: Beantwortet bei
         automatic_hashtags: Hashtags werden automatisch hinzugefügt
         body: Haupttext
-        category_id: Kategorie
         decidim_proposals_proposal_state_id: Status
         decidim_scope_id: Umfang
         has_address: Hat eine Adresse
@@ -82,8 +80,6 @@ de:
               not_official: Sind nicht offiziell
               voted: Haben Stimmen oder Unterstützung erhalten
     models:
-      decidim/proposals/admin/update_proposal_category_event: Vorschlagskategorie geändert
-      decidim/proposals/admin/update_proposal_scope_event: Vorschlagsumfang geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
       decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
@@ -347,16 +343,6 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Der Status eines Vorschlags, dem Sie folgen, hat sich geändert (%{state})
             notification_title: Der Status des Vorschlags <a href="%{resource_path}">%{resource_title}</a> hat sich zu "%{state}" geändert.
-        proposal_update_category:
-          email_intro: 'Ein Administrator hat die Kategorie Ihres Vorschlags "%{resource_title}" aktualisiert, sehen Sie es sich an:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
-          email_subject: Die Vorschlagskategorie %{resource_title} wurde aktualisiert
-          notification_title: Die Vorschlagskategorie <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
-        proposal_update_scope:
-          email_intro: 'Ein Administrator hat den Bereich Ihres Vorschlags „%{resource_title}“ aktualisiert, sehen Sie es sich das auf dieser Seite an:'
-          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie der Autor des Vorschlags sind.
-          email_subject: Der Bereich des Vorschlags %{resource_title} wurde aktualisiert
-          notification_title: Der Bereich des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Administrator aktualisiert.
         rejected_coauthorship:
           notification_title: Sie haben die Einladung von <a href="%{author_path}">%{author_name}</a> abgelehnt, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
         voting_enabled:
@@ -566,8 +552,6 @@ de:
             assign_to_valuator: Zuweisen zur Bewertung
             assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
-            change_category: Kategorie ändern
-            change_scope: Umfang ändern
             merge: Zu einem neuen zusammenführen
             merge_button: Zusammenführen
             no_templates_available: Keine Vorlagen verfügbar
@@ -583,7 +567,6 @@ de:
             unassign_from_valuator: Zuweisung zur Bewertung zurückziehen
             unassign_from_valuator_button: Zuweisung aufheben
             update: Aktualisieren
-            update_scope_button: Umfang aktualisieren
           new:
             create: Erstellen
             title: Vorschlag erstellen
@@ -609,16 +592,6 @@ de:
             remove_assignment_confirmation: Sind Sie sicher, dass Sie den BewerterIn dieses Vorschlags entfernen möchten?
             valuators: Bewertende
             votes_count: Anzahl Stimmen
-          update_category:
-            invalid: 'Diese Vorschläge gehörten bereits zur Kategorie %{subject_name}: %{proposals}.'
-            select_a_category: Bitte wählen Sie eine Kategorie aus.
-            select_a_proposal: Bitte wählen Sie einen Vorschlag.
-            success: 'Die Vorschlag wurde erfolgreich zur Kategorie %{subject_name} aktualisiert: %{proposals}.'
-          update_scope:
-            invalid: 'Diese Vorschläge gehörten bereits um Umfang %{subject_name}: %{proposals}.'
-            select_a_proposal: Bitte wählen Sie einen Vorschlag.
-            select_a_scope: Bitte wählen Sie einen Themenbereich.
-            success: 'Die Vorschläge wurden erfolgreich zum Umfang %{subject_name} aktualisiert: %{proposals}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten.
@@ -706,11 +679,9 @@ de:
         filters:
           all: Alle
           amendment: Änderungsanträge
-          category: Kategorie
           open: Offen
           published: Veröffentlicht
           related_to: In Zusammenhang mit
-          scope: Umfang
           search: Suchen
           state: Status
           withdrawn: Zurückgezogen
@@ -849,7 +820,6 @@ de:
           activity: Meine Aktivität
           all: Alle
           amendment_type: Art
-          category: Kategorie
           my_proposals: Meine Vorschläge
           origin: Ursprung
           related_to: Bezüglich
