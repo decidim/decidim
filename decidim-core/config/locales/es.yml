@@ -222,6 +222,8 @@ es:
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         export_component: "%{user_name} ha exportado %{resource_name} %{component_name} en %{space_name} como %{format_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
+        restore: "%{user_name} restauró el componente %{resource_name} en el espacio %{space_name}"
+        soft_delete: "%{user_name} ha movido el componente %{resource_name} del espacio %{space_name} a la papelera"
         unpublish: "%{user_name} ha despublicado el componente %{resource_name} del espacio %{space_name}"
         update_permissions_with_space: "%{user_name} ha actualizado los permisos de %{resource_name} en %{space_name}"
       contextual_help_section:
@@ -867,6 +869,9 @@ es:
         email_outro: Has recibido esta notificación porque estás siguiendo a "%{endorser_nickname}". Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
         email_subject: "%{endorser_nickname} se ha adherido a una propuesta"
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> se ha adherido a la propuesta <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
+      resources:
+        soft_deleted:
+          notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
