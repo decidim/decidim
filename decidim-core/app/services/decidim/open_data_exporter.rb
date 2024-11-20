@@ -39,12 +39,16 @@ module Decidim
 
     def data_for_all_resources
       buffer = Zip::OutputStream.write_buffer do |out|
+        core_data_manifests.each do |manifest|
+          add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_core(manifest).read)
+        end
         open_data_component_manifests.each do |manifest|
           add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_component(manifest).read)
         end
         open_data_participatory_space_manifests.each do |manifest|
           add_file_to_output(out, format(FILE_NAME_PATTERN, { host: organization.host, entity: manifest.name }), data_for_participatory_space(manifest).read)
         end
+
         add_file_to_output(out, "README.md", readme)
         add_file_to_output(out, "LICENSE.md", license)
       end
@@ -52,8 +56,17 @@ module Decidim
       buffer.string
     end
 
+    def data_for_core(export_manifest)
+      collection = export_manifest.collection.call(organization)
+      exporter = Decidim::Exporters::CSV.new(collection, export_manifest.serializer)
+
+      get_help_definition(:core, exporter, export_manifest) unless collection.empty?
+
+      exporter.export
+    end
+
     def data_for_resource(resource)
-      export_manifest = (open_data_component_manifests + open_data_participatory_space_manifests)
+      export_manifest = (core_data_manifests + open_data_component_manifests + open_data_participatory_space_manifests)
                         .select { |manifest| manifest.name == resource.to_sym }.first
 
       case export_manifest.manifest
@@ -61,6 +74,8 @@ module Decidim
         data_for_component(export_manifest).read
       when Decidim::ParticipatorySpaceManifest
         data_for_participatory_space(export_manifest).read
+      else
+        data_for_core(export_manifest).read
       end
     end
 
@@ -120,9 +135,34 @@ module Decidim
     end
 
     def readme
-      readme_file = "# #{I18n.t("decidim.open_data.help.core.title", organization: translated_attribute(organization.name))}\n\n"
-      readme_file << "#{I18n.t("decidim.open_data.help.core.description")}\n\n"
-      readme_file << "## #{I18n.t("decidim.open_data.help.core.spaces")}\n\n" if help_definition.fetch(:spaces, false)
+      "# #{I18n.t("decidim.open_data.help.core.title", organization: translated_attribute(organization.name))}\n\n
+#{I18n.t("decidim.open_data.help.core.description")}\n\n
+#{core_readme}
+#{space_readme}
+#{component_readme}
+"
+    end
+
+    def core_readme
+      return unless help_definition.fetch(:core, false)
+
+      readme_file = "## #{I18n.t("decidim.open_data.help.core.main")}\n\n"
+      help_definition.fetch(:core, []).each do |element, headers|
+        readme_file << "### #{element}\n\n"
+
+        headers.each do |header, help_value|
+          readme_file << "* #{header}: #{help_value}\n"
+        end
+
+        readme_file << "\n\n"
+      end
+      readme_file
+    end
+
+    def space_readme
+      return unless help_definition.fetch(:spaces, false)
+
+      readme_file = "## #{I18n.t("decidim.open_data.help.core.spaces")}\n\n"
 
       help_definition.fetch(:spaces, []).each do |space, headers|
         readme_file << "### #{space}\n\n"
@@ -133,8 +173,13 @@ module Decidim
 
         readme_file << "\n\n"
       end
+      readme_file
+    end
 
-      readme_file << "## #{I18n.t("decidim.open_data.help.core.components")}\n\n" if help_definition.fetch(:components, false)
+    def component_readme
+      return unless help_definition.fetch(:components, false)
+
+      readme_file = "## #{I18n.t("decidim.open_data.help.core.components")}\n\n"
 
       help_definition.fetch(:components, []).each do |component, headers|
         readme_file << "### #{component}\n\n"
@@ -163,6 +208,10 @@ module Decidim
     def add_file_to_output(output, file_name, string)
       output.put_next_entry(file_name)
       output.write string
+    end
+
+    def core_data_manifests
+      @core_data_manifests ||= Decidim.open_data_manifests.select(&:include_in_open_data)
     end
 
     def open_data_component_manifests

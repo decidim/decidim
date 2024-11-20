@@ -34,6 +34,35 @@ describe Decidim::OpenDataExporter do
     it_behaves_like "open data exporter"
   end
 
+  describe "debates by deleted user" do
+    let(:resource_file_name) { "debates" }
+    let(:component) do
+      create(:debates_component, organization:, published_at: Time.current)
+    end
+
+    let!(:deleted_user) { create(:user, :confirmed, :deleted, organization:) }
+    let!(:resource) { create(:debate, component:, author: deleted_user) }
+
+    let(:second_component) do
+      create(:debates_component, organization:, published_at: Time.current)
+    end
+    let!(:second_resource) { create(:debate, :closed, component: second_component, author: deleted_user) }
+
+    let(:resource_title) { "## debates" }
+    let(:help_lines) do
+      [
+        "* id: The unique identifier of the debate",
+        "* conclusions: The conclusions of the debate if it was closed"
+      ]
+    end
+    let(:unpublished_component) do
+      create(:debates_component, organization:, published_at: nil)
+    end
+    let(:unpublished_resource) { create(:debate, component: unpublished_component) }
+
+    it_behaves_like "open data exporter"
+  end
+
   describe "debate_comments" do
     let(:resource_file_name) { "debate_comments" }
     let(:component) do

@@ -31,9 +31,39 @@ describe "Download Open Data files", download: true do
     expect(page).to have_content("Here, you will find data files that are regularly generated from various deliberative and governance processes within")
     expect(page).to have_content("Download results in CSV format")
 
+    click_on("What are these files?")
+    expect(page).to have_content("These files are in CSV (Comma-Separated Values) format, which is a widely-used file format")
+
+    click_on("How to open and work with these files")
+    expect(page).to have_content("1. Download the files")
+
     click_on("Detailed explanation of each file")
     expect(page).to have_content("Below is a description of each dataset, including its schema (structure) and the type of information it contains")
     expect(page).to have_content("The component that the result belongs to")
+
+    expect(page).to have_content("Components")
+
+    %w(results result_comments projects debates debate_comments meetings meeting_comments proposals proposal_comments).each do |section|
+      expect(page).to have_content(section)
+    end
+
+    expect(page).to have_content("Participatory spaces")
+    %w(participatory_processes assemblies conferences initiatives).each do |section|
+      expect(page).to have_content(section)
+    end
+
+    expect(page).to have_content("Core")
+    %w(moderated_users moderations users user_groups).each do |section|
+      expect(page).to have_content(section)
+    end
+
+    I18n.t("decidim.open_data.help").each do |section|
+      next if %w(core).include?(section.first.to_s)
+
+      section.last.each do |dict|
+        expect(page).to have_content(I18n.t("decidim.open_data.help.#{section.first}.#{dict.first}"))
+      end
+    end
 
     click_on("License")
     expect(page).to have_content("Open Database License")
