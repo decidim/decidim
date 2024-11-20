@@ -4,7 +4,6 @@ fr-CA:
       collaborative_draft:
         address: Adresse
         body: Corps
-        category_id: Catégorie
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
         scope_id: Périmètre d'application
@@ -17,7 +16,6 @@ fr-CA:
         answered_at: Répondu à
         automatic_hashtags: Hashtags ajoutés automatiquement
         body: Corps du texte
-        category_id: Catégorie
         decidim_proposals_proposal_state_id: État
         decidim_scope_id: Portée
         has_address: Renseigner une adresse
@@ -82,8 +80,6 @@ fr-CA:
               not_official: Non officiels
               voted: A reçu des votes ou des soutiens
     models:
-      decidim/proposals/admin/update_proposal_category_event: Catégorie de proposition modifiée
-      decidim/proposals/admin/update_proposal_scope_event: La portée de la proposition a été modifiée
       decidim/proposals/creation_enabled_event: Autoriser la création de nouvelles propositions
       decidim/proposals/endorsing_enabled_event: Activer le module de soutiens
       decidim/proposals/proposal_mentioned_event: Proposition mentionnée
@@ -338,16 +334,6 @@ fr-CA:
             email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez annuler ce suivi en allant sur le lien précédent.
             email_subject: Une proposition que vous suivez a changé d'état (%{state})
             notification_title: L'état de la proposition <a href="%{resource_path}">%{resource_title}</a> est passé à "%{state}".
-        proposal_update_category:
-          email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
-          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
-          email_subject: La catégorie de la proposition %{resource_title} a été mise à jour
-          notification_title: La catégorie de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
-        proposal_update_scope:
-          email_intro: 'Un administrateur a mis à jour la portée de votre proposition "%{resource_title}", regardez-la dans cette page :'
-          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
-          email_subject: La portée de la proposition %{resource_title} a été mise à jour
-          notification_title: La portée de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         rejected_coauthorship:
           notification_title: Vous avez refusé l'invitation de <a href="%{author_path}">%{author_name}</a> à devenir co-auteur de la proposition <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
@@ -430,7 +416,10 @@ fr-CA:
         title: Actions
       admin:
         actions:
+          confirm_delete_proposal: Êtes-vous sûr(e) de vouloir supprimer cette proposition ?
+          deleted_proposals_info: Les propositions supprimées peuvent être restaurées à partir de la corbeille.
           preview: Aperçu
+          view_deleted_proposals: Voir les propositions supprimées
         exports:
           proposal_comments: Commentaires
           proposals: Propositions
@@ -554,8 +543,6 @@ fr-CA:
             assign_to_valuator: Assigner à un évaluateur
             assign_to_valuator_button: Assigner
             cancel: Annuler
-            change_category: Changer de catégorie
-            change_scope: Changer le périmètre
             merge: Fusionner dans un nouveau
             merge_button: Fusionner
             publish: Publier
@@ -570,7 +557,8 @@ fr-CA:
             unassign_from_valuator: Retirer de l'évaluateur
             unassign_from_valuator_button: Ne plus assigner
             update: Mettre à jour
-            update_scope_button: Mise à jour du périmètre
+          manage_trash:
+            title: Propositions supprimées
           new:
             create: Créer
             title: Créer une proposition
@@ -596,16 +584,6 @@ fr-CA:
             remove_assignment_confirmation: Êtes-vous sûr de vouloir supprimer l'évaluateur de cette proposition ?
             valuators: Évaluateurs
             votes_count: Nombre de votes
-          update_category:
-            invalid: 'Ces propositions avaient déjà la catégorie %{subject_name} : %{proposals}.'
-            select_a_category: Veuillez sélectionner une catégorie.
-            select_a_proposal: Veuillez sélectionner une proposition.
-            success: 'Les propositions ont été mises à jour avec succès vers la catégorie %{subject_name} : %{proposals}.'
-          update_scope:
-            invalid: 'Ces propositions avaient déjà la portée de %{subject_name} : %{proposals}.'
-            select_a_proposal: Veuillez sélectionner une proposition.
-            select_a_scope: Veuillez sélectionner un secteur.
-            success: 'Les propositions ont été mises à jour avec succès vers le périmètre %{subject_name} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'import des propositions.
@@ -693,11 +671,9 @@ fr-CA:
         filters:
           all: Tout
           amendment: Amendements
-          category: Catégorie
           open: Ouvrir
           published: Publié
           related_to: Lié à
-          scope: Portée
           search: Chercher
           state: État
           withdrawn: Retiré
@@ -840,7 +816,6 @@ fr-CA:
           activity: Mon activité
           all: Tout
           amendment_type: Type
-          category: Catégorie
           my_proposals: Mes propositions
           origin: Auteurs
           related_to: Liées à
