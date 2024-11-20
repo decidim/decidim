@@ -245,6 +245,7 @@ eu:
         attachment_collections: Karpetak
         attachments: Eranskinak
         close: Itxi
+        confirm_delete_meeting: Ziur zaude topaketa hau ezabatu nahi duzula?
         deleted_meetings_info: Ezabatutako topaketak zaborretik berreskura daitezke.
         edit: Editatu
         invalid_destroy:
@@ -423,6 +424,8 @@ eu:
           create: "%{user_name}-k %{resource_name} topaketa sortu du %{space_name} espazioan"
           delete: "%{user_name}-k %{resource_name} topaketa ezabatu du %{space_name} espazioan"
           export_registrations: "%{user_name} -k %{resource_name} topaketarako erregistroak esportatu ditu %{space_name} espazioan"
+          restore: "%{user_name} k berreskuratu du %{resource_name} topaketa %{space_name} espazioan"
+          soft_delete: "%{user_name} k eraman du %{space_name} espazioko %{resource_name} topaketa zaborrontzira"
           update: "%{user_name} k %{resource_name} topaketa %{space_name} espazioan eguneratu du"
           value_types:
             organizer_presenter:
@@ -707,6 +710,7 @@ eu:
           address: Topaketaren helbidea, baldin eta aurrez aurre badago eta kokapen fisikoa badu
           attachments: Bilera honetako atxikipen kopurua
           attendees: Zenbat jende bildu da topaketa honetan?
+          author: Topaketa honen egilearen data
           comments: Zenbat iruzkin egin dira topaketa honetan?
           component: Topaketari dagokion osagaia
           contributions: Zenbat ekarpen egin dituzte nerabeek topaketa honetan?
