@@ -35,11 +35,8 @@ ko:
           index:
             actions: 작업
             cancel: 취소
-            change_category: 카테고리 변경
-            change_scope: 범위 변경
             title: 프로젝트
             update: 업데이트
-            update_scope_button: 범위 업데이트
           new:
             create: 생성하기
             title: 새 프로젝트
