@@ -4,7 +4,6 @@ ca:
       collaborative_draft:
         address: Adreça
         body: Cos
-        category_id: Categoria
         decidim_scope_id: Àmbit
         has_address: Té adreça
         scope_id: Àmbit
@@ -17,7 +16,6 @@ ca:
         answered_at: Respost el
         automatic_hashtags: Hashtags afegits automàticament
         body: Cos
-        category_id: Categoria
         decidim_proposals_proposal_state_id: Estat
         decidim_scope_id: Àmbit
         has_address: Té adreça
@@ -82,8 +80,6 @@ ca:
               not_official: No son oficials
               voted: Han rebut suports o adhesions
     models:
-      decidim/proposals/admin/update_proposal_category_event: S'ha canviat la categoria de la proposta
-      decidim/proposals/admin/update_proposal_scope_event: Àmbit de la proposta modificat
       decidim/proposals/creation_enabled_event: S'ha activat la creació de propostes
       decidim/proposals/endorsing_enabled_event: S'ha habilitat les adhesions a les propostes
       decidim/proposals/proposal_mentioned_event: Proposta esmentada
@@ -364,16 +360,6 @@ ca:
             email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-ho des de l'enllaç anterior.
             email_subject: Una proposta que segueixes ha canviat el seu estat (%{state})
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
-        proposal_update_category:
-          email_intro: 'Una administradora ha actualitzat la categoria de la teva proposta "%{resource_title}", fes-hi una ullada:'
-          email_outro: Has rebut aquesta notificació perquè vas presentar aquesta proposta.
-          email_subject: S'ha actualitzat la categoria de la proposta %{resource_title}
-          notification_title: La categoria de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada per una administradora.
-        proposal_update_scope:
-          email_intro: 'Una administradora ha actualitzat l''àmbit de la teva proposta "%{resource_title}", fes-hi una ullada:'
-          email_outro: Has rebut aquesta notificació perquè vas presentar aquesta proposta.
-          email_subject: S'ha actualitzat l'àmbit de la proposta %{resource_title}
-          notification_title: L'àmbit de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzat per una administradora.
         rejected_coauthorship:
           notification_title: Heu rebutjat la invitació de <a href="%{author_path}">%{author_name}</a> per convertir-vos en coautora de la proposta "<a href="%{resource_path}">%{resource_title}</a >".
         voting_enabled:
@@ -628,8 +614,6 @@ ca:
             assign_to_valuator: Assignar a avaluadora
             assign_to_valuator_button: Assignar
             cancel: Cancel·lar
-            change_category: Canvia la categoria
-            change_scope: Canviar àmbit
             merge: Fusionar a una nova
             merge_button: Fusionar
             no_templates_available: No hi ha plantilles disponibles
@@ -645,7 +629,6 @@ ca:
             unassign_from_valuator: Desfer assignació a avaluadora
             unassign_from_valuator_button: Desfer assignació
             update: Actualitza
-            update_scope_button: Actualitzar àmbit
           manage_trash:
             title: Propostes eliminades
           new:
@@ -673,16 +656,6 @@ ca:
             remove_assignment_confirmation: Segur que vols desfer l'assignació a l'avaluadora d'aquesta proposta?
             valuators: Avaluadores
             votes_count: Nombre de suports
-          update_category:
-            invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{proposals}.'
-            select_a_category: Si us plau, selecciona una categoria.
-            select_a_proposal: Si us plau, selecciona una proposta.
-            success: 'Les propostes s''han actualitzat correctament a la categoria %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Aquestes propostes ja tenien l''àmbit %{subject_name}: %{proposals}.'
-            select_a_proposal: Si us plau, selecciona una proposta.
-            select_a_scope: Si us plau, selecciona un àmbit.
-            success: 'Les propostes s''han actualitzat correctament a l''àmbit %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes.
@@ -772,11 +745,9 @@ ca:
         filters:
           all: Tots
           amendment: Esmenes
-          category: Categoria
           open: Obert
           published: Publicat
           related_to: Relacionat amb
-          scope: Àmbit
           search: Cerca
           state: Estat
           withdrawn: Retirat
@@ -925,7 +896,6 @@ ca:
           activity: La meva activitat
           all: Totes
           amendment_type: Tipus
-          category: Categoria
           my_proposals: Les meves propostes
           origin: Origen
           related_to: Relacionat amb
