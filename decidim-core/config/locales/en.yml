@@ -711,6 +711,12 @@ en:
           created_at: The date and time when the notification was created
           updated_at: The date and time when the notification was last updated
           extra: Extra information of this notification
+        user_groups:
+          id: The unique identifier of this user group
+          name: The name of this user group
+          document_number: The document number of this user group
+          phone: The phone number of this user group
+          verified_at: The date and time when this user group was verified
         users:
           about: The biography of this user
           admin: Whether this user is an administrator
