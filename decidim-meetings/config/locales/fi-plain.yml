@@ -235,6 +235,7 @@ fi-pl:
         attachment_collections: Kansiot
         attachments: Liitteet
         close: Sulje
+        confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
         destroy: Poista
         edit: Muokkaa
         invalid_destroy:
