@@ -611,9 +611,16 @@ es:
           answered_at: La fecha de la respuesta (si existe)
           area: El área de esta iniciativa
           authors: Las autoras de esta iniciativa
+          comments_count: El número de comentarios que tiene esta iniciativa
+          created_at: La fecha en la que se creó esta iniciativa
           description: La descripción de la iniciativa
           first_progress_notification_at: La fecha en la que se envió la primera notificación de progreso
+          follows_count: El número de usuarias que siguen esta iniciativa
           hashtag: La etiqueta que utiliza la iniciativa en Twitter/X
+          offline_votes: El número de firmas que esta iniciativa recogió presencialmente (en papel)
+          online_votes: El número de firmas digitales que recogió esta iniciativa (directamente a través de la plataforma)
+          published_at: La fecha en la que se publicó esta iniciativa
+          reference: La referencia única de la iniciativa
           scope: El ámbito territorial de la iniciativa
           second_progress_notification_at: La fecha en la que se envió la segunda notificación de progreso
           signature_end_date: La fecha en la que terminó el período de recogida de firmas
@@ -623,6 +630,8 @@ es:
           state: El estado en que se encuentra esta iniciativa en este momento
           title: El título de la iniciativa
           type: El tipo de iniciativa
+          updated_at: La fecha de la última actualización de esta iniciativa
+          url: La URL de la iniciativa
     resources:
       initiative:
         actions:
