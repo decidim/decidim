@@ -4,7 +4,6 @@ cs:
       collaborative_draft:
         address: Adresa
         body: Tělo
-        category_id: Kategorie
         decidim_scope_id: Rozsah
         has_address: Má adresu
         scope_id: Oblast působnosti
@@ -17,7 +16,6 @@ cs:
         answered_at: Odpovězeno na
         automatic_hashtags: Hashtagy automaticky přidány
         body: Tělo
-        category_id: Kategorie
         decidim_proposals_proposal_state_id: Stav
         decidim_scope_id: Rozsah
         has_address: Má adresu
@@ -82,8 +80,6 @@ cs:
               not_official: Nejsou oficiální
               voted: Obdrželi hlasy nebo potvrzení
     models:
-      decidim/proposals/admin/update_proposal_category_event: Kategorie nabídky se změnila
-      decidim/proposals/admin/update_proposal_scope_event: Rozsah návrhu se změnil
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
       decidim/proposals/endorsing_enabled_event: Schválení návrhu je povoleno
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
@@ -372,16 +368,6 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože sledujete "%{resource_title}". Můžete sledování odhlásit na předchozím odkazu.
             email_subject: Návrh, který sledujete, změnil stav (%{state})
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> změnil svůj stav na "%{state}".
-        proposal_update_category:
-          email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
-          email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
-          email_subject: Kategorie návrhů %{resource_title} byla aktualizována
-          notification_title: Kategorie návrhu <a href="%{resource_path}">%{resource_title}</a> byla aktualizována administrátorem.
-        proposal_update_scope:
-          email_intro: 'Administrátor aktualizoval rozsah vašeho návrhu "%{resource_title}", podívejte se na tuto stránku:'
-          email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
-          email_subject: Rámec návrhu %{resource_title} byl aktualizován
-          notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> byl aktualizován správcem.
         rejected_coauthorship:
           notification_title: Odmítli jste pozvání od <a href="%{author_path}">%{author_name}</a>, abyste se stali spoluautorem návrhu <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
@@ -637,8 +623,6 @@ cs:
             assign_to_valuator: Přiřadit hodnotiteli
             assign_to_valuator_button: Přiřadit
             cancel: Zrušit
-            change_category: Změnit kategorii
-            change_scope: Změnit rozsah
             merge: Sloučit do nového
             merge_button: Spojit
             no_templates_available: Žádné šablony nejsou k dispozici
@@ -654,7 +638,6 @@ cs:
             unassign_from_valuator: Odebrat přiřazení od hodnotitele
             unassign_from_valuator_button: Zrušit přiřazení
             update: Aktualizace
-            update_scope_button: Aktualizovat rozsah
           new:
             create: Vytvořit
             title: Vytvořte návrh
@@ -682,16 +665,6 @@ cs:
             remove_assignment_confirmation: Jste si jisti, že chcete odstranit hodnotitele z tohoto návrhu?
             valuators: Hodnotitelé
             votes_count: Počet hlasů
-          update_category:
-            invalid: 'Tyto návrhy se již jmenují %{subject_name} v kategorii: %{proposals}.'
-            select_a_category: Vyberte kategorii.
-            select_a_proposal: Vyberte návrh.
-            success: 'Návrhy úspěšně aktualizovány do kategorie %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Tyto návrhy již měly rozsah %{subject_name}: %{proposals}.'
-            select_a_proposal: Vyberte návrh.
-            select_a_scope: Vyberte prosím rozsah.
-            success: 'Návrhy byly úspěšně aktualizovány v rozsahu %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k chybě.
@@ -779,11 +752,9 @@ cs:
         filters:
           all: Vše
           amendment: Změny
-          category: Kategorie
           open: Otevřeno
           published: Publikováno
           related_to: Související s
-          scope: Rozsah
           search: Vyhledávání
           state: Stav
           withdrawn: Staženo
@@ -936,7 +907,6 @@ cs:
           activity: Moje aktivita
           all: Vše
           amendment_type: Typ
-          category: Kategorie
           my_proposals: Moje návrhy
           origin: Původ
           related_to: Související s
