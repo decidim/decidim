@@ -1270,8 +1270,6 @@ ro:
       pages_count: Pagini
       participants_count: Participanți
       users_count: Participanți
-    taxonomies:
-      prompt: Selectați din "%{name}"
     translation_bar:
       help_text: "<strong>Avertisment:</strong> Conținutul poate fi tradus automat și nu este 100% exact."
       show_original: Afișați textul original
