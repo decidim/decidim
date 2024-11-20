@@ -4,7 +4,6 @@ tr:
       collaborative_draft:
         address: Adres
         body: Vücut
-        category_id: Kategori
         decidim_scope_id: kapsam
         has_address: Adresi var
         scope_id: Kapsam
@@ -17,7 +16,6 @@ tr:
         answered_at: Yanıtladı
         automatic_hashtags: Hashtag'ler otomatik olarak eklendi
         body: Vücut
-        category_id: Kategori
         decidim_scope_id: Kapsam
         has_address: Adresi var
         scope_id: Kapsam
@@ -65,8 +63,6 @@ tr:
             title:
               identical: VE gövde aynı olamaz
     models:
-      decidim/proposals/admin/update_proposal_category_event: Teklif kategorisi değişti
-      decidim/proposals/admin/update_proposal_scope_event: Teklif kapsamı değişti
       decidim/proposals/creation_enabled_event: Teklif oluşturma etkin
       decidim/proposals/endorsing_enabled_event: Teklif onayı etkin
       decidim/proposals/proposal_mentioned_event: Bahsi geçen teklif
@@ -218,16 +214,6 @@ tr:
             email_outro: Bu bildirimi "%{resource_title}" adresini takip ettiğiniz için aldınız. Önceki bağlantıdan takibi bırakabilirsiniz.
             email_subject: Takip ettiğiniz bir teklifin durumu (%{state}) olarak değiştirilmiştir.
             notification_title: Takip ettiğiniz bir teklifin durumu (%{state}) olarak değiştirimiştir.
-        proposal_update_category:
-          email_intro: 'Bir yönetici "%{resource_title}" teklifinizin kategorisini güncelledi, bu sayfada kontrol edin:'
-          email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
-          email_subject: '%{resource_title} teklif kategorisi güncellendi'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kategorisi bir yönetici tarafından güncellendi.
-        proposal_update_scope:
-          email_intro: 'Bir yönetici, "%{resource_title}" teklifinizin kapsamını güncelledi, bu sayfada göz atın:'
-          email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
-          email_subject: '%{resource_title} teklif kapsamı güncellendi'
-          notification_title: <a href="%{resource_path}">%{resource_title} </a> teklif kapsamı bir yönetici tarafından güncellendi.
         voting_enabled:
           email_outro: Bu bildirimi, %{participatory_space_title} izlediğiniz için aldınız. Önceki bağlantıyı takip ederek bildirimleri almayı durdurabilirsiniz.
     gamification:
@@ -366,8 +352,6 @@ tr:
             assign_to_valuator: Bilirkişiye ata
             assign_to_valuator_button: Ata
             cancel: İptal Et
-            change_category: Kategoriyi değiştir
-            change_scope: Kapsamı değiştir
             merge: Yeni biriyle birleştir
             merge_button: Birleştir
             publish: Yayınla
@@ -381,7 +365,6 @@ tr:
             unassign_from_valuator: Bilirkişinin atamasını kaldır
             unassign_from_valuator_button: Atamayı kaldır
             update: Güncelle
-            update_scope_button: Kapsamı Güncelle
           new:
             create: Oluştur
             title: Teklif oluştur
@@ -402,12 +385,6 @@ tr:
             remove_assignment: Atamayı kaldır
             remove_assignment_confirmation: Bilirkişiyi, bu tekliften çıkarmak istediğinizden emin misiniz?
             valuators: Bilirkişiler
-          update_category:
-            invalid: 'Bu teklifler zaten %{subject_name} kategorisine sahipti: %{proposals}.'
-            success: 'Teklifler, %{subject_name} kategorisine başarıyla güncellendi: %{proposals}.'
-          update_scope:
-            invalid: 'Bu teklifler zaten %{subject_name} kapsamına sahipti: %{proposals}.'
-            success: 'Teklifler, %{subject_name} kapsamına başarıyla güncellendi: %{proposals}.'
         proposals_imports:
           new:
             create: Teklifleri içe aktar
@@ -476,11 +453,9 @@ tr:
         filters:
           all: Tümü
           amendment: Değişiklikler
-          category: Kategori
           open: Aç
           published: Yayınlandı
           related_to: İle ilgili
-          scope: Kapsam
           search: Arama
           state: Statü
           withdrawn: Geri çekildi
@@ -580,7 +555,6 @@ tr:
           activity: Aktivitelerim
           all: Tümü
           amendment_type: Tür
-          category: Kategori
           my_proposals: Tekliflerim
           origin: Orijin
           related_to: İle ilgili
