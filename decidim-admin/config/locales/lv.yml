@@ -593,8 +593,6 @@ lv:
           without_topic: Lapas bez tēmas
         update:
           error: Šīs lapas atjaunināšanas laikā radās problēma.
-      taxonomies:
-        count: Skaits
       titles:
         admin_log: Administratora žurnāls
         area_types: Jomu veidi
