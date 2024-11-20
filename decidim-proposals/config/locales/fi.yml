@@ -4,7 +4,6 @@ fi:
       collaborative_draft:
         address: Osoite
         body: Ehdotuksen kuvaus
-        category_id: Aihepiiri
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
         scope_id: Teema
@@ -17,7 +16,6 @@ fi:
         answered_at: Vastattu osoitteessa
         automatic_hashtags: Aihetunnisteet (hashtag), jotka lisätään automaattisesti
         body: Ehdotuksen kuvaus
-        category_id: Aihepiiri
         decidim_proposals_proposal_state_id: Tila
         decidim_scope_id: Teema
         has_address: Ehdotuksella on sijainti
@@ -82,8 +80,6 @@ fi:
               not_official: Ehdotukset eivät ole virallisia ehdotuksia
               voted: On vastaanottanut ääniä tai suosituksia
     models:
-      decidim/proposals/admin/update_proposal_category_event: Ehdotuksen aihepiiri muutettu
-      decidim/proposals/admin/update_proposal_scope_event: Ehdotuksen teema muutettu
       decidim/proposals/creation_enabled_event: Ehdotuksen luominen käytössä
       decidim/proposals/endorsing_enabled_event: Ehdotuksen suosittelu käytössä
       decidim/proposals/proposal_mentioned_event: Ehdotus mainittiin
@@ -364,16 +360,6 @@ fi:
             email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{resource_title}". Voit lopettaa sen seuraamisen edellä esitetyn linkin kautta.
             email_subject: Seuraamasi ehdotuksen tila on muuttunut (%{state})
             notification_title: Ehdotuksen <a href="%{resource_path}">%{resource_title}</a> tilaksi on muutettu "%{state}".
-        proposal_update_category:
-          email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi aihepiiriin "%{resource_title}", tarkista se tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
-          email_subject: Ehdotuksen %{resource_title} aihepiiri on päivitetty
-          notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> aihepiirin.
-        proposal_update_scope:
-          email_intro: 'Hallintakäyttäjä on päivittänyt ehdotuksesi "%{resource_title}" teeman, tarkista se tältä sivulta:'
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet ehdotuksen tekijä.
-          email_subject: Ehdotuksen %{resource_title} teema on päivitetty
-          notification_title: Hallintakäyttäjä on päivittänyt ehdotuksen <a href="%{resource_path}">%{resource_title}</a> teeman.
         rejected_coauthorship:
           notification_title: Olet hylännyt osallistujan <a href="%{author_path}">%{author_name}</a> lähettämän laatijakutsun ehdotukselle <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
@@ -627,8 +613,6 @@ fi:
             assign_to_valuator: Anna tehtäväksi arvioijalle
             assign_to_valuator_button: Anna tehtäväksi
             cancel: Peruuta
-            change_category: Vaihda aihepiiri
-            change_scope: Vaihda teema
             merge: Yhdistä uuteen
             merge_button: Yhdistä
             no_templates_available: Mallipohjia ei ole käytettävissä
@@ -644,7 +628,6 @@ fi:
             unassign_from_valuator: Poista tehtävä arvioijalta
             unassign_from_valuator_button: Poista tehtävä
             update: Päivitä
-            update_scope_button: Päivitä teema
           manage_trash:
             title: Poistetut ehdotukset
           new:
@@ -672,16 +655,6 @@ fi:
             remove_assignment_confirmation: Haluatko varmasti poistaa arvioijan tältä ehdotukselta?
             valuators: Arvioijat
             votes_count: Äänten määrä
-          update_category:
-            invalid: 'Näillä ehdotuksilla oli jo aihepiiri %{subject_name}: %{proposals}.'
-            select_a_category: Valitse aihepiiri.
-            select_a_proposal: Valitse ehdotus.
-            success: 'Seuraavien ehdotusten aihepiirin päivitys onnistui %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Näillä ehdotuksilla oli jo teema %{subject_name}: %{proposals}.'
-            select_a_proposal: Valitse ehdotus.
-            select_a_scope: Valitse teema.
-            success: 'Seuraavien ehdotusten teeman päivitys onnistui %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuonti epäonnistui.
@@ -771,11 +744,9 @@ fi:
         filters:
           all: Kaikki
           amendment: Muutokset
-          category: Aihepiiri
           open: Avaa
           published: Julkaistu
           related_to: Liittyy
-          scope: Teema
           search: Hae
           state: Tila
           withdrawn: Peruttu
@@ -924,7 +895,6 @@ fi:
           activity: Oma toiminta
           all: Kaikki
           amendment_type: Tyyppi
-          category: Aihepiiri
           my_proposals: Omat ehdotukset
           origin: Alkuperä
           related_to: Liittyy aiheeseen
