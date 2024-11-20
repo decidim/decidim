@@ -4,7 +4,6 @@ ja:
       collaborative_draft:
         address: 住所
         body: 本文
-        category_id: カテゴリ
         decidim_scope_id: スコープ
         has_address: 住所有り
         scope_id: 対象範囲
@@ -17,7 +16,6 @@ ja:
         answered_at: 回答日時
         automatic_hashtags: ハッシュタグが自動的に追加されました
         body: 本文
-        category_id: カテゴリ
         decidim_proposals_proposal_state_id: 状態
         decidim_scope_id: スコープ
         has_address: 住所有り
@@ -82,8 +80,6 @@ ja:
               not_official: 公式ではありません
               voted: 投票またはオススメを受けました
     models:
-      decidim/proposals/admin/update_proposal_category_event: 提案カテゴリが変更されました
-      decidim/proposals/admin/update_proposal_scope_event: 提案範囲が変更されました
       decidim/proposals/creation_enabled_event: 提案の作成を有効にする
       decidim/proposals/endorsing_enabled_event: 提案の推奨が有効になりました
       decidim/proposals/proposal_mentioned_event: 提案について述べました
@@ -353,16 +349,6 @@ ja:
             email_outro: '"%{resource_title}" をフォローしているため、この通知を受け取りました。前述のリンクからフォローを解除できます。'
             email_subject: あなたがフォローしている提案のステータスが変更されました (%{state})
             notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> のステータスを「%{state} 」に変更しました。
-        proposal_update_category:
-          email_intro: '管理者があなたの提案 "%{resource_title}" のカテゴリを更新しました。このページでチェックしてください：'
-          email_outro: あなたが提案の著者であるため、この通知を受け取りました。
-          email_subject: '%{resource_title} 提案カテゴリが更新されました'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案カテゴリは管理者によって更新されました。
-        proposal_update_scope:
-          email_intro: '管理者があなたの提案 "%{resource_title}" のスコープを更新しました。このページで確認してください：'
-          email_outro: あなたが提案の著者であるため、この通知を受け取りました。
-          email_subject: '%{resource_title} の提案範囲が更新されました'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案スコープが管理者によって更新されました。
         rejected_coauthorship:
           notification_title: <a href="%{author_path}">%{author_name}</a> からの提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を拒否しました。
         voting_enabled:
@@ -612,8 +598,6 @@ ja:
             assign_to_valuator: 評価者に割り当てる
             assign_to_valuator_button: 割り当て
             cancel: キャンセル
-            change_category: カテゴリの変更
-            change_scope: スコープの変更
             merge: 新しいものにマージ
             merge_button: 結合
             no_templates_available: 利用可能なテンプレートはありません
@@ -629,7 +613,6 @@ ja:
             unassign_from_valuator: 評価者からの割り当てを解除
             unassign_from_valuator_button: 割り当ての解除
             update: 更新
-            update_scope_button: スコープの更新
           new:
             create: 作成
             title: 提案を作成
@@ -654,16 +637,6 @@ ja:
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
             valuators: 評価者
             votes_count: 投票数
-          update_category:
-            invalid: 'これらの提案は既に %{subject_name} カテゴリ: %{proposals} を持っています。'
-            select_a_category: カテゴリを選択してください。
-            select_a_proposal: 提案を選択してください。
-            success: '%{subject_name} カテゴリ: %{proposals} に提案を更新しました。'
-          update_scope:
-            invalid: 'これらの提案は既に %{subject_name} スコープを持っています: %{proposals}。'
-            select_a_proposal: 提案を選択してください。
-            select_a_scope: スコープを選択してください。
-            success: '提案が %{subject_name} スコープ: %{proposals} に更新されました。'
         proposals_imports:
           create:
             invalid: 提案のインポート中に問題が発生しました。
@@ -751,11 +724,9 @@ ja:
         filters:
           all: すべて
           amendment: 修正
-          category: カテゴリ
           open: 開く
           published: 公開済み
           related_to: 関連
-          scope: スコープ
           search: 検索
           state: ステータス
           withdrawn: 撤回
@@ -899,7 +870,6 @@ ja:
           activity: 参加したもの
           all: すべて
           amendment_type: タイプ
-          category: カテゴリ
           my_proposals: 私の提案
           origin: 起案者：
           related_to: 関連
