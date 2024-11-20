@@ -92,8 +92,6 @@ cs:
             actions: Akce
             cancel: Zrušit
             change_budget: Změnit rozpočet
-            change_category: Změnit kategorii
-            change_scope: Změnit rozsah
             change_selected: Změnit vybraný stav
             deselect_implementation: Zrušit výběr z implementace
             finished_orders: Dokončené hlasy
@@ -106,7 +104,6 @@ cs:
             title: Projekty
             update: Aktualizovat
             update_budget_button: Aktualizovat rozpočet projektu
-            update_scope_button: Aktualizovat rozsah
           new:
             create: Vytvořit
             title: Nový projekt
@@ -114,28 +111,10 @@ cs:
             invalid: Při aktualizaci tohoto projektu došlo k chybě.
             success: Projekt byl úspěšně aktualizován.
           update_budget:
-            invalid: 'Tyto projekty jsou již ve stejném rozpočtu nebo jejich rozpočty jsou vyšší než povolené maximum: %{projects}.'
             select_a_project: Vyberte projekt.
-            success: 'Projekty byly úspěšně aktualizovány do %{subject_name} rozpočtu: %{projects}.'
-          update_category:
-            invalid: 'Tyto projekty již mají kategorii %{subject_name}: %{projects}.'
-            select_a_category: Vyberte prosím kategorii.
-            select_a_project: Vyberte projekt.
-            success: 'Projekty byly úspěšně aktualizovány do kategorie %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Tyto projekty již mají rozsah %{subject_name}: %{projects}.'
-            select_a_project: Vyberte projekt.
-            select_a_scope: Vyberte prosím rozsah.
-            success: 'Projekty byly úspěšně aktualizovány na rozsah %{subject_name}: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Tyto projekty již byly vybrány pro implementaci: %{projects}.'
-              unselected: 'Tyto projekty již byly odebrány z implementace: %{projects}.'
             select_a_project: Vyberte projekt.
             select_a_selection: Vyberte prosím stav implementace.
-            success:
-              selected: 'Tyto projekty byly úspěšně vybrány pro implementaci: %{projects}.'
-              unselected: 'Tyto projekty byly úspěšně odebrány z implementace: %{projects}.'
         proposals_imports:
           create:
             invalid: Při importu návrhů do projektů došlo k chybě.
