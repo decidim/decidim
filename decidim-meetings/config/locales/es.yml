@@ -245,6 +245,8 @@ es:
         attachment_collections: Carpetas
         attachments: Adjuntos
         close: Cerrar
+        confirm_delete_meeting: '¿Seguro que quiere eliminar este encuentro?'
+        deleted_meetings_info: Los encuentros eliminados se pueden restaurar desde papelera.
         edit: Editar
         invalid_destroy:
           proposals_count:
@@ -255,6 +257,7 @@ es:
         preview: Previsualizar
         registrations: Inscripciones
         title: Acciones
+        view_deleted_meetings: Ver los encuentros eliminados
       admin:
         agenda:
           agenda_item:
@@ -351,6 +354,8 @@ es:
               actions: Acciones
               component: Espacios vinculados
             title: Espacios vinculados
+          manage_trash:
+            title: Encuentros eliminados
           new:
             create: Crear
             title: Crear encuentro
@@ -419,6 +424,8 @@ es:
           create: "%{user_name} ha creado el encuentro %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} ha eliminado el encuentro %{resource_name} en el espacio %{space_name}"
           export_registrations: "%{user_name} ha exportado los registros del encuentro %{resource_name} en el espacio %{space_name}"
+          restore: "%{user_name} restauró el encuentro %{resource_name} en el espacio %{space_name}"
+          soft_delete: "%{user_name} ha movido el encuentro %{resource_name} desde %{space_name} a la papelera"
           update: "%{user_name} ha actualizado el encuentro %{resource_name} en el espacio %{space_name}"
           value_types:
             organizer_presenter:
