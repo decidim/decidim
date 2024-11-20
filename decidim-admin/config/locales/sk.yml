@@ -596,8 +596,6 @@ sk:
           without_topic: Stránky bez témy
         update:
           error: Pri aktualizácii stránky nastala chyba.
-      taxonomies:
-        count: Počet
       titles:
         admin_log: Záznam činnosti admina
         area_types: Typy oblastí
