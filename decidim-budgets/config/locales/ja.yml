@@ -86,8 +86,6 @@ ja:
             actions: アクション
             cancel: キャンセル
             change_budget:
-            change_category: カテゴリの変更
-            change_scope: スコープの変更
             change_selected: 選択した状態を変更
             deselect_implementation: 実装から選択解除
             finished_orders: 完了した投票
@@ -100,7 +98,6 @@ ja:
             title: プロジェクト
             update: 更新
             update_budget_button: プロジェクトの予算を更新
-            update_scope_button: スコープを更新
           new:
             create: 作成
             title: 新規プロジェクト
@@ -108,28 +105,10 @@ ja:
             invalid: プロジェクトの更新中に問題が発生しました。
             success: プロジェクトを更新しました。
           update_budget:
-            invalid: 'これらのプロジェクトは既に同じ予算に含まれているか、予算が最大許容額を超えています: %{projects}。'
             select_a_project: プロジェクトを選択してください。
-            success: 'プロジェクトが %{subject_name} 予算に更新されました: %{projects}。'
-          update_category:
-            invalid: 'これらのプロジェクトは既に %{subject_name} カテゴリを持っています: %{projects}'
-            select_a_category: カテゴリを選択してください。
-            select_a_project: プロジェクトを選択してください。
-            success: 'プロジェクトは %{subject_name} カテゴリに更新されました: %{projects}'
-          update_scope:
-            invalid: 'これらのプロジェクトは既に %{subject_name} スコープを持っています: %{projects}'
-            select_a_project: プロジェクトを選択してください。
-            select_a_scope: スコープを選択してください。
-            success: 'プロジェクトは %{subject_name} スコープに正常に更新されました: %{projects}'
           update_selected:
-            invalid:
-              selected: 'これらのプロジェクトはすでに実装のために選択されています: %{projects}。'
-              unselected: 'これらのプロジェクトは既に実装から選択解除されています: %{projects}。'
             select_a_project: プロジェクトを選択してください。
             select_a_selection: 実装状態を選択してください。
-            success:
-              selected: 'これらのプロジェクトは、実装のために正常に選択されました: %{projects}。'
-              unselected: 'これらのプロジェクトは、実装から正常に選択解除されました: %{projects}。'
         proposals_imports:
           create:
             invalid: 提案をプロジェクトにインポートする際に問題が発生しました。
