@@ -68,8 +68,6 @@ ro:
           index:
             actions: Acțiuni
             cancel: Anulează
-            change_category: Schimbă categoria
-            change_scope: Schimbă domeniul
             change_selected: Schimbă starea selectată
             finished_orders: Voturi terminate
             pending_orders: Voturi în așteptare
@@ -77,7 +75,6 @@ ro:
             selected: Selectate
             title: Proiecte
             update: Actualizare
-            update_scope_button: Actualizează domeniu
           new:
             create: Creează
             title: Proiect nou
