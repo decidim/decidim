@@ -75,8 +75,6 @@ zh-TW:
           index:
             actions: 操作
             cancel: 撤銷
-            change_category: 變更類別
-            change_scope: 變更範圍
             change_selected: 更改所選狀態
             deselect_implementation: 從實施中取消選擇
             finished_orders: 已完成投票
@@ -85,32 +83,15 @@ zh-TW:
             selected: 已選取
             title: 專案
             update: 更新
-            update_scope_button: 更新範圍
           new:
             create: 建立
             title: 新專案
           update:
             invalid: 更新此專案時出現問題
             success: 專案更新成功。
-          update_category:
-            invalid: '這些專案已經擁有了 %{subject_name} 類別: %{projects}'
-            select_a_category: 請選擇一個類別。
-            select_a_project: 請選擇一個專案
-            success: '已成功將以下專案更新至 %{subject_name} 類別: %{projects}。'
-          update_scope:
-            invalid: '這些專案已經有了 %{subject_name} 的範圍: %{projects}。'
-            select_a_project: 請選擇一個專案
-            select_a_scope: 請選擇一個範圍。
-            success: '已成功將以下專案更新至 %{subject_name} 範圍: %{projects}。'
           update_selected:
-            invalid:
-              selected: '這些專案已被選擇以實施：％{projects}。'
-              unselected: '這些專案已從實施中取消選擇: ％{projects}。'
             select_a_project: 請選擇一個專案
             select_a_selection: 請選擇實施狀態。
-            success:
-              selected: '這些專案已成功選擇實施：%{projects}。'
-              unselected: '這些專案已經成功從實施中取消選擇: %{projects}。'
         proposals_imports:
           create:
             invalid: 將提案匯入專案時出現問題。
