@@ -825,8 +825,6 @@
           without_topic: Sider uten emne
         update:
           error: Det oppstod et problem med å oppdatere denne siden.
-      taxonomies:
-        count: Antall
       titles:
         admin_log: Admin logg
         area_types: Områdetyper
