@@ -309,12 +309,10 @@ bg:
             notification_title: Вашето предложение <a href="%{resource_path}">%{resource_title}</a> промени състоянието си на „%{state}“.
         proposal_update_category:
           email_intro: 'Администратор актуализира категорията на Вашето предложение „%{resource_title}“. Вижте повече на тази страница:'
-          email_outro: Получавате това известие, защото сте авторът на предложението.
           email_subject: Категорията на предложението %{resource_title} беше актуализирана
           notification_title: Категорията на предложението <a href="%{resource_path}">%{resource_title}</a> беше актуализирана от администратор.
         proposal_update_scope:
           email_intro: 'Администратор актуализира обхвата на Вашето предложение „%{resource_title}“. Вижте повече на тази страница:'
-          email_outro: Получавате това известие, защото сте авторът на предложението.
           email_subject: Обхватът на предложението %{resource_title} беше актуализиран
           notification_title: Обхватът на предложението <a href="%{resource_path}">%{resource_title}</a> беше актуализиран от администратор.
         voting_enabled:
@@ -660,7 +658,7 @@ bg:
           open: Отворен
           published: Публикувано
           related_to: Свързано с
-          scope: Обхват
+          scope: Сфера
           search: Търсене
           state: Статус
           withdrawn: Оттеглено
