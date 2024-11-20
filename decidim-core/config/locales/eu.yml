@@ -222,6 +222,8 @@ eu:
         delete: "%{user_name} k %{resource_name} osagaia %{space_name} espaziotik kendu du"
         export_component: "%{user_name} k esportatu du %{resource_name} %{component_name} %{space_name} espazioan %{format_name} gisa"
         publish: "%{user_name} k %{resource_name} osagaia %{space_name} espazioan argitaratu du"
+        restore: "%{user_name} k berreskuratu du %{resource_name} osagaia %{space_name} espazioan"
+        soft_delete: "%{user_name} k eraman du %{resource_name} osagaia %{space_name} espaziora"
         unpublish: "%{user_name} k %{resource_name} osagaia %{space_name} espaziotik despublikatu du"
         update_permissions_with_space: "%{user_name} k %{resource_name} ren baimenak eguneratu ditu %{space_name} espazioan"
       contextual_help_section:
@@ -870,6 +872,9 @@ eu:
         email_outro: Jakinarazpen hau jaso duzu % “ endorser_nickname”ri jarraitzen diozulako. Jakinarazpenak jasotzeari utzi ahal diozu, esteka hau jarraituz %{endorser_nickname}.
         email_subject: "%{endorser_nickname} proposamen bati atxiki zaio"
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> atxiki zaio honako proposamen honi <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
+      resources:
+        soft_deleted:
+          notification_title: Administratzaile batek ezabatu du zure "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: </a> de %{name} (%{nickname}) profilaren <a href="%{resource_url}"> orria, jarraitzen ari zarena, eguneratu egin da.
@@ -1132,6 +1137,8 @@ eu:
           not_found: 'Esparru mota ez da aurkitu (ID: %{id}) datu-basean'
         taxonomy_presenter:
           not_found: 'Taxonomia ez da aurkitu (ID: %{id}) datu-basean'
+    machine_translations:
+      automatic: 'itzulpen automatikoa hemen: %{locale_name}'
     managed_users:
       expired_session: Parte-hartzaile baten egungo administrazio-saioa iraungi egin da.
     map:
