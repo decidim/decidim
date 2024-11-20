@@ -909,8 +909,6 @@ zh-TW:
         update:
           error: 更新此頁面時出現問題。
           success: 頁面已更新成功.
-      taxonomies:
-        count: 計數
       titles:
         admin_log: 管理日誌
         area_types: 區域類型
