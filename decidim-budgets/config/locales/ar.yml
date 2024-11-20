@@ -47,7 +47,6 @@ ar:
           index:
             actions: الإجراءات
             cancel: إلغاء
-            change_category: تغيير الفئة
             finished_orders: الانتهاء من الأصوات
             pending_orders: في انتظار الأصوات
             selected_options:
