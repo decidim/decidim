@@ -50,6 +50,7 @@ eu:
     debates:
       actions:
         close: Itxi
+        confirm_delete_debate: Ziur zaude eztabaida hau ezabatu nahi duzula?
         deleted_debate_info: Ezabatutako eztabaida zaborretik berreskura daiteke.
         edit: Editatu
         new: Beste eztabaida bat
@@ -88,6 +89,8 @@ eu:
         debate:
           close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
           create: "%{user_name} k %{resource_name} eztabaida sortu du %{space_name} espazioan"
+          restore: "%{user_name} k berreskuratu du %{resource_name} eztabaida %{space_name} espazioan"
+          soft_delete: "%{user_name} k eraman du %{space_name} espazioko %{resource_name} eztabaida zaborrontzira"
           update: "%{user_name} k %{resource_name} eztabaida eguneratu du %{space_name} espazioan"
       content_blocks:
         highlighted_debates:
