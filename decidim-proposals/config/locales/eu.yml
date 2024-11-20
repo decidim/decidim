@@ -4,7 +4,6 @@ eu:
       collaborative_draft:
         address: Helbidea
         body: Testua
-        category_id: Kategoria
         decidim_scope_id: Esparrua
         has_address: Helbidea du
         scope_id: Esparrua
@@ -17,7 +16,6 @@ eu:
         answered_at: '-k erantzuna'
         automatic_hashtags: Traola automatikoki gehitu da
         body: Gorputza
-        category_id: Kategoria
         decidim_proposals_proposal_state_id: Egoera
         decidim_scope_id: Esparrua
         has_address: Helbidea du
@@ -82,8 +80,6 @@ eu:
               not_official: Ez dira ofizialak
               voted: Botoak edo atxikimenduak jaso izana
     models:
-      decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
-      decidim/proposals/admin/update_proposal_scope_event: Proposamen-eremua aldatuta
       decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
       decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
       decidim/proposals/proposal_mentioned_event: Proposamena aipatua
@@ -364,16 +360,6 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
             email_subject: Jarraitzen ari zaren proposamen batek (%{state}) egoera aldatu du
             notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
-        proposal_update_category:
-          email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, ikus ezazu orri honetan:'
-          email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
-          email_subject: '%{resource_title} proposamenaren kategoria eguneratu egin da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren kategoria administratzaile batek eguneratu du.
-        proposal_update_scope:
-          email_intro: 'Administratzaile batek %{resource_title} zure proposamenaren eremua eguneratu du, orri honetan egiazta dezakezu:'
-          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
-          email_subject: '%{resource_title} proposamenaren esparrua eguneratu egin da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eremua administratzaile batek eguneratu du.
         rejected_coauthorship:
           notification_title: Baztertu duzu <a href="%{author_path}">%{author_name}</a> ren gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         voting_enabled:
@@ -629,8 +615,6 @@ eu:
             assign_to_valuator: Esleitu ebaluatzaileari
             assign_to_valuator_button: Esleitu
             cancel: Utzi
-            change_category: Aldatu kategoria
-            change_scope: Aldatu esparrua
             merge: Beste batean fusionatu
             merge_button: Batu
             no_templates_available: Ez dago txantiloirik eskuragarri
@@ -646,7 +630,6 @@ eu:
             unassign_from_valuator: Desesleitu ebaluatzaileari
             unassign_from_valuator_button: Desesleitu
             update: Eguneratu
-            update_scope_button: Eguneratu eremua
           manage_trash:
             title: Ezabatutako proposamenak
           new:
@@ -674,16 +657,6 @@ eu:
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
             valuators: Ebaluatzaileak
             votes_count: Boto kopurua
-          update_category:
-            invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} kategoria.'
-            select_a_category: Mesedez, hautatu kategoria bat.
-            select_a_proposal: Mesedez, hautatu proposamen bat.
-            success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} kategoriara.'
-          update_scope:
-            invalid: 'Proposamen hauek bazuten %{subject_name}: %{proposals} eremua.'
-            select_a_proposal: Mesedez, hautatu proposamen bat.
-            select_a_scope: Mesedez, hautatu esparru bat.
-            success: 'Proposamenak zuzen eguneratuta %{subject_name}: %{proposals} eremuan.'
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak inportatzean.
@@ -773,11 +746,9 @@ eu:
         filters:
           all: Guztiak
           amendment: Zuzenketak
-          category: Kategoria
           open: Zabaldu
           published: Argitaratuta
           related_to: Lotutako gaiak
-          scope: Esparrua
           search: Bilatu
           state: Egoera
           withdrawn: Baztertu
@@ -926,7 +897,6 @@ eu:
           activity: Nire jarduera
           all: Guztiak
           amendment_type: Mota
-          category: Kategoria
           my_proposals: Nire proposamenak
           origin: Jatorria
           related_to: Honekin lotuta
