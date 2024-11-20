@@ -4,7 +4,6 @@ es:
       collaborative_draft:
         address: Dirección
         body: Cuerpo
-        category_id: Categoría
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
         scope_id: Ámbito
@@ -17,7 +16,6 @@ es:
         answered_at: Respondido en
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
-        category_id: Categoría
         decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
@@ -82,8 +80,6 @@ es:
               not_official: No son oficiales
               voted: Han recibido apoyos o adhesiones
     models:
-      decidim/proposals/admin/update_proposal_category_event: Categoría de la propuesta cambiada
-      decidim/proposals/admin/update_proposal_scope_event: Ámbito de propuesta cambiado
       decidim/proposals/creation_enabled_event: Creación de propuestas habilitada
       decidim/proposals/endorsing_enabled_event: Adhesión a propuesta habilitada
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
@@ -364,16 +360,6 @@ es:
             email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
-        proposal_update_category:
-          email_intro: 'Una administradora ha actualizado la categoría de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
-          email_outro: Recibiste esta notificación porque eres autora de la propuesta.
-          email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
-          notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por una administradora.
-        proposal_update_scope:
-          email_intro: 'Una administradora ha actualizado el ámbito de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
-          email_outro: Recibiste esta notificación porque eres autora de la propuesta.
-          email_subject: El ámbito de la propuesta %{resource_title} ha sido actualizado
-          notification_title: El ámbito de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado por una administradora.
         rejected_coauthorship:
           notification_title: Has rechazado la invitación de <a href="%{author_path}">%{author_name}</a> para convertirte en coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         voting_enabled:
@@ -628,8 +614,6 @@ es:
             assign_to_valuator: Asignar a evaluadora
             assign_to_valuator_button: Asignar
             cancel: Cancelar
-            change_category: Cambiar categoría
-            change_scope: Cambiar ámbito
             merge: Fusionar en una nueva
             merge_button: Fusionar
             no_templates_available: No hay pantillas disponibles
@@ -645,7 +629,6 @@ es:
             unassign_from_valuator: Desasignar de evaluadora
             unassign_from_valuator_button: Desasignar
             update: Actualizar
-            update_scope_button: Actualizar ámbito
           manage_trash:
             title: Propuestas eliminadas
           new:
@@ -673,16 +656,6 @@ es:
             remove_assignment_confirmation: '¿Seguro que quieres desasignar a la evaluadora de esta propuesta?'
             valuators: Evaluadoras
             votes_count: Número de apoyos
-          update_category:
-            invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{proposals}.'
-            select_a_category: Por favor, selecciona una categoría.
-            select_a_proposal: Por favor, selecciona una propuesta.
-            success: 'Propuestas actualizadas correctamente a la categoría %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Estas propuestas ya tenían el ámbito %{subject_name}: %{proposals}.'
-            select_a_proposal: Por favor, selecciona una propuesta.
-            select_a_scope: Por favor, selecciona un ámbito.
-            success: 'Propuestas actualizadas correctamente al ámbito %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas.
@@ -772,11 +745,9 @@ es:
         filters:
           all: Todas
           amendment: Enmiendas
-          category: Categoría
           open: Abierto
           published: Publicado
           related_to: Relacionado con
-          scope: Ámbito
           search: Buscar
           state: Estado
           withdrawn: Retirado
@@ -925,7 +896,6 @@ es:
           activity: Mi actividad
           all: Todo
           amendment_type: Tipo
-          category: Categoría
           my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionadas con
