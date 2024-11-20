@@ -243,12 +243,10 @@ pt-BR:
           notification_title_official: A proposta oficial <a href="%{resource_path}">%{resource_title}</a> foi adicionada à %{participatory_space_title}.
         proposal_update_category:
           email_intro: 'Um administrador atualizou a categoria de sua proposta "%{resource_title}", confira:'
-          email_outro: Você recebeu esta notificação porque você é o autor da proposta.
           email_subject: A categoria de proposta %{resource_title} foi atualizada
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> categoria de proposta foi atualizada por um administrador.
         proposal_update_scope:
           email_intro: 'Um administrador atualizou o escopo de sua proposta "%{resource_title}", confira nesta página:'
-          email_outro: Você recebeu esta notificação porque você é o autor da proposta.
           email_subject: O escopo da proposta %{resource_title} foi atualizado
           notification_title: O escopo da proposta <a href="%{resource_path}">%{resource_title}</a> foi atualizado por um administrador.
         voting_enabled:
