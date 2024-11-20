@@ -91,6 +91,7 @@ eu:
       actions:
         activate: Aktibatu
         configure: Konfiguratu
+        confirm_delete_process: Ziur zaude prozesu hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         confirm_destroy: Berretsi ezabatu
         destroy: ezabatu
         duplicate: Bikoiztu
@@ -314,6 +315,8 @@ eu:
         export: "%{user_name} k esportatu du %{resource_name} prozesu parte-hartzailea"
         import: "%{user_name} k inportatu du %{resource_name} prozesu parte-hartzailea"
         publish: "%{user_name} argitaratu du %{resource_name} prozesu parte-hartzailea"
+        restore: "%{user_name} k berreskuratu du %{resource_name} prozesu parte-hartzailea"
+        soft_delete: "%{user_name} zaborrontzira eraman du %{resource_name} prozesu parte-hartzailea"
         unpublish: "%{user_name} k despublikatu du %{resource_name} prozesu parte-hartzailea"
         update: "%{user_name} k %{resource_name} partehartze prozesua eguneratu du"
       participatory_process_group:
@@ -374,6 +377,7 @@ eu:
         participatory_processes:
           announcement: Informazioa iragarpenaz (deia)
           area: Prozesua zein eremutan gertatzen ari da?
+          created_at: Zein datatan sortu zen espazio hau
           description: Prozesuaren deskribapen luzea
           developer_group: Prozesuaren talde garatzailea. Hau da prozesua sustatzen duen erakundea.
           end_date: Prozesuaren amaiera-data
