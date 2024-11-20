@@ -1445,8 +1445,6 @@ pt-BR:
       pages_count: Páginas
       participants_count: Participantes
       users_count: Participantes
-    taxonomies:
-      prompt: Selecionar do "%{name}"
     translation_bar:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não está 100% correto."
       show_original: Exibir texto original
