@@ -1052,29 +1052,22 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
           success: Page mise à jour avec succès.
-      taxonomies:
-        count: Compteur
       taxonomy_filters:
         edit:
           back: Revenir en arrière
           title: Modifier le filtre de taxonomie
           update: Mettre à jour le filtre de taxonomie
-        form:
-          select_taxonomy: Sélectionner une taxonomie
         index:
           description: Un filtre de taxonomie permet aux administrateurs de trier et de filtrer les espaces participatifs selon une taxonomie. Par exemple, ajoutez un filtre de taxonomie pour trier les processus par étendue géographique.
           empty: Il n'y a actuellement aucun filtre de taxonomie. Créez une liste de filtres de taxonomie ici pour trier et filtrer les espaces participatifs basés sur une taxonomie.
         new:
           back: Revenir en arrière
           create: Créer un filtre de taxonomie
-          items: "%{count} éléments disponibles"
           title: Nouveau filtre de taxonomie
         table:
           actions: Actions
-          count: Nombre d'éléments
           destroy: Supprimer
           edit: Modifier
-          name: Nom
         update:
           error: Il y a eu un problème lors de la mise à jour de ce filtre de taxonomie.
           success: Filtre de taxonomie mis à jour avec succès.
