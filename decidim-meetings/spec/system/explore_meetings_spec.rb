@@ -573,6 +573,23 @@ describe "Explore meetings", :slow do
       end
     end
 
+    context "when the meeting is closed and has audio and video urls" do
+      let(:video_url) { "https://decidim.org" }
+      let(:audio_url) { "https://example.com" }
+
+      let!(:meeting) { create(:meeting, :published, :closed, contributions_count: 0, component:, video_url:, audio_url:) }
+
+      it_behaves_like "a closing report page" do
+        it "shows the video url" do
+          expect(page).to have_content(video_url)
+        end
+
+        it "shows the audio url" do
+          expect(page).to have_content(audio_url)
+        end
+      end
+    end
+
     context "when the meeting is closed and had no contributions" do
       let!(:meeting) { create(:meeting, :published, :closed, contributions_count: 0, component:) }
 
