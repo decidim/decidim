@@ -50,9 +50,12 @@ fi-pl:
     debates:
       actions:
         close: Sulje
+        confirm_delete_debate: Haluatko varmasti poistaa tämän keskustelun?
+        deleted_debate_info: Poistetut keskustelut voidaan palauttaa roskakorista.
         edit: Muokkaa
         new: Uusi keskustelu
         title: Toiminnot
+        view_deleted_debates: Näytä poistetut keskustelut
       admin:
         debate_closes:
           edit:
@@ -71,6 +74,8 @@ fi-pl:
             open: Avoin (keskustelulla ei ole alku- ja loppuaikaa)
           index:
             title: Keskustelut
+          manage_trash:
+            title: Poistetut keskustelut
           new:
             create: Luo keskustelu
             title: Uusi keskustelu
@@ -84,6 +89,8 @@ fi-pl:
         debate:
           close: "%{user_name} sulki keskustelun %{resource_name} osallistumistilassa %{space_name}"
           create: "%{user_name} loi keskustelun %{resource_name} tilaan %{space_name}"
+          restore: "%{user_name} palautti keskustelun %{resource_name} tilassa %{space_name}"
+          soft_delete: "%{user_name} siirsi keskustelun %{resource_name} roskakoriin tilassa %{space_name}"
           update: "%{user_name} päivitti keskustelun %{resource_name} tilassa %{space_name}"
       content_blocks:
         highlighted_debates:
