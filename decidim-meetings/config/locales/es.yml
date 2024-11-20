@@ -703,6 +703,7 @@ es:
           address: La dirección del encuentro en caso de que este sea presencial y tenga una ubicación física
           attachments: El número de archivos adjuntos en este encuentro
           attendees: El número de personas que asistieron a este encuentro
+          author: Los datos de autoría de este encuentro
           comments: El número de comentarios en este encuentro
           component: El componente al que pertenece este encuentro
           contributions: El número de contribuciones realizadas en este encuentro por las asistentes
