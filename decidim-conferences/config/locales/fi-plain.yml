@@ -89,6 +89,7 @@ fi-pl:
     admin:
       actions:
         confirm: Vahvista
+        confirm_delete_conference: Haluatko varmasti poistaa tämän konferenssin? Mikäli muutat mieltäsi, voit palauttaa konferenssin myöhemmin.
         new_conference: Uusi konferenssi
         new_conference_user_role: Uusi konferenssin hallintakäyttäjä
         new_media_link: Uusi medialinkki
@@ -96,6 +97,7 @@ fi-pl:
         new_registration_type: Uusi ilmoittautumistyyppi
         new_speaker: Uusi puhuja
         send_diplomas: Lähetä läsnäolotodistukset
+        view_deleted_conferences: Näytä poistetut konferenssit
       conference_copies:
         new:
           copy: Kopio
@@ -165,6 +167,8 @@ fi-pl:
         index:
           published: Julkaistu
           unpublished: Julkaisematon
+        manage_trash:
+          title: Poistetut konferenssit
         new:
           create: Luo
           title: Konferenssi
@@ -298,11 +302,16 @@ fi-pl:
           success: Konferenssin ilmoittautumistyyppi päivitettiin onnistuneesti.
       titles:
         conferences: Konferenssit
+        conferences_deleted: Poistetut konferenssit
+      tooltips:
+        deleted_conferences_info: Konferenssi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
     admin_log:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
+        restore: "%{user_name} palautti konferenssin %{resource_name}"
         send_conference_diplomas: "%{user_name} lähetti konferenssin %{resource_name} läsnäolotodistukset osallistujille"
+        soft_delete: "%{user_name} siirsi konferenssin %{resource_name} roskakoriin"
         unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
         update: "%{user_name} päivitti konferenssia %{resource_name}"
         update_diploma: "%{user_name} päivitti läsnäolotodistusten asetuksia konferenssille %{resource_name}"
