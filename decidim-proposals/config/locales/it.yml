@@ -260,12 +260,10 @@ it:
             notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
         proposal_update_category:
           email_intro: 'Un amministratore ha aggiornato la categoria della tua proposta "%{resource_title}", dai un''occhiata:'
-          email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
           email_subject: La categoria di proposta %{resource_title} è stata aggiornata
           notification_title: La categoria <a href="%{resource_path}">%{resource_title}</a> proposta è stata aggiornata da un amministratore.
         proposal_update_scope:
           email_intro: 'Un amministratore ha aggiornato l''ambito della tua proposta%{resource_title}", dai un''occhiata a questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
           email_subject: L'ambito della proposta %{resource_title} è stato aggiornato
           notification_title: L'ambito della proposta <a href="%{resource_path}">%{resource_title}</a> è stato aggiornato da un amministratore.
         voting_enabled:
