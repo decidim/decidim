@@ -28,6 +28,7 @@ ca:
     download_your_data:
       show:
         answers: Exportar les respostes
+        survey_user_answers: Respostes de les usuàries a l'enquesta
     forms:
       admin:
         models:
