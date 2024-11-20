@@ -4,7 +4,6 @@
       collaborative_draft:
         address: Adresse
         body: Body
-        category_id: Kategori
         decidim_scope_id: Tema
         has_address: Har adresse
         scope_id: Tema
@@ -17,7 +16,6 @@
         answered_at: Besvart på
         automatic_hashtags: Hashtagger ble automatisk lagt til
         body: Tekst
-        category_id: Kategori
         decidim_scope_id: Tema
         has_address: Har adresse
         scope_id: Tema
@@ -58,8 +56,6 @@
             base:
               not_official: Er ikke offisiell
     models:
-      decidim/proposals/admin/update_proposal_category_event: Forslags kategorien ble endret
-      decidim/proposals/admin/update_proposal_scope_event: Forslagstema er endret
       decidim/proposals/creation_enabled_event: Opprettelse av forslag aktivert
       decidim/proposals/endorsing_enabled_event: Forslags påtegning aktivert
       decidim/proposals/proposal_mentioned_event: Forslag nevnt
@@ -213,13 +209,6 @@
           email_intro: Forslaget "%{resource_title}" er blitt lagt til "%{participatory_space_title}" som du følger.
           email_outro: Du har mottatt denne varslingen fordi du følger "%{participatory_space_title}". Du kan slutte å motta varsler hvis du følger den forrige lenken.
           email_subject: Nytt forslag "%{resource_title}" lagt til %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'En admin har oppdatert kategorien for forslaget ditt "%{resource_title}", sjekk det ut på denne siden:'
-          email_outro: Du har mottatt denne varslingen fordi du er forfatteren av forslaget.
-          email_subject: Forslags kategorien %{resource_title} ble oppdatert
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> forslags kategorien er blitt oppdatert av en administrator.
-        proposal_update_scope:
-          email_outro: Du har mottatt denne varslingen fordi du er forfatteren av forslaget.
         voting_enabled:
           email_outro: Du har mottatt denne varslingen fordi du følger %{participatory_space_title}. Du kan slutte å motta varsler hvis du følger den forrige lenken.
     gamification:
@@ -345,8 +334,6 @@
             actions: Handlinger
             assign_to_valuator_button: Tildel
             cancel: Avbryt
-            change_category: Endre kategori
-            change_scope: Endre tema
             merge: Slå sammen til en ny
             merge_button: Slå sammen
             publish: Publiser
@@ -358,7 +345,6 @@
             title: Forslag
             unassign_from_valuator_button: Fjern tilegning
             update: Oppdater
-            update_scope_button: Oppdater tema
           new:
             create: Opprett
             title: Opprett forslag
@@ -439,11 +425,9 @@
         filters:
           all: Alle
           amendment: Endringer
-          category: Kategori
           open: Åpen
           published: Publisert
           related_to: Relatert til
-          scope: Tema
           search: Søk
           state: Status
           withdrawn: Trukket tilbake
@@ -533,7 +517,6 @@
           activity: Min aktivitet
           all: Alle
           amendment_type: Type
-          category: Kategori
           my_proposals: Mine forslag
           origin: Opprinnelse
           related_to: Relatert til
