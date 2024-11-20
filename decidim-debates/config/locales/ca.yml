@@ -50,9 +50,12 @@ ca:
     debates:
       actions:
         close: Tanca
+        confirm_delete_debate: Segur que vols esborrar aquest debat?
+        deleted_debate_info: Els debats eliminats es poden restaurar des de la paperera.
         edit: Edita
         new: Afegir debat
         title: Accions
+        view_deleted_debates: Veure els debats eliminats
       admin:
         debate_closes:
           edit:
@@ -71,6 +74,8 @@ ca:
             open: Obert (sense moments d'inici ni de fi)
           index:
             title: Debats
+          manage_trash:
+            title: Debats eliminats
           new:
             create: Crea un debat
             title: Nou debat
@@ -84,6 +89,8 @@ ca:
         debate:
           close: "La participant %{user_name} ha tancat el debat %{resource_name} a l'espai %{space_name}"
           create: "La participant %{user_name} ha creat el debat %{resource_name} a l'espai %{space_name}"
+          restore: "%{user_name} ha restaurat el debat %{resource_name} a l'espai %{space_name}"
+          soft_delete: "%{user_name} ha mogut el debate %{resource_name} des de %{space_name} a la paperera"
           update: "La participant %{user_name} ha actualitzat el debat %{resource_name} a l'espai %{space_name}"
       content_blocks:
         highlighted_debates:
