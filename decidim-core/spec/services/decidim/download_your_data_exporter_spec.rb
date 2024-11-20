@@ -68,6 +68,12 @@ module Decidim
     end
 
     describe "#readme" do
+      describe "the user" do
+        let(:help_definition_string) { "The username of the user" }
+
+        it_behaves_like "a download your data entity"
+      end
+
       context "when the user has a user group" do
         let!(:user_group) { create(:user_group, users: [user]) }
         let(:help_definition_string) { "The username of the user" }
