@@ -42,7 +42,9 @@ fi:
       actions:
         attachment_collections: Kansiot
         attachments: Liitteet
+        confirm_delete_result: Haluatko varmasti poistaa tämän tuloksen?
         confirm_destroy: Oletko varma, että haluat poistaa tämän kohteen nimeltä "%{name}"?
+        deleted_results_info: Poistetut tulokset voidaan palauttaa roskakorista.
         destroy: Poista
         edit: Muokkaa
         import: Tuo hankkeita toisesta komponentista
@@ -53,6 +55,7 @@ fi:
         preview: Esikatsele
         timeline_entries: Hankkeen edistyminen
         title: Toiminnot
+        view_deleted_results: Näytä poistetut tulokset
       admin:
         exports:
           result_comments: Kommentit
@@ -117,6 +120,8 @@ fi:
             update: Päivitä tulos
           index:
             title: Tulokset
+          manage_trash:
+            title: Poistetut tulokset
           new:
             create: Luo tulos
             title: Uusi tulos
@@ -164,6 +169,8 @@ fi:
         result:
           create: "%{user_name} loi tuloksen %{resource_name} osallistumistilassa %{space_name}"
           delete: "%{user_name} poisti tuloksen %{resource_name} osallistumistilassa %{space_name}"
+          restore: "%{user_name} palautti tuloksen %{resource_name} kohteessa %{space_name}"
+          soft_delete: "%{user_name} siirsi tuloksen %{resource_name} roskakoriin kohteessa %{space_name}"
           update: "%{user_name} päivitti tuloksen %{resource_name} osallistumistilassa %{space_name}"
         status:
           create: "%{user_name} loi tilan %{resource_name}"
@@ -302,18 +309,25 @@ fi:
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
         results:
+          address: Tuloksen osoite (jos määritetty)
+          children_count: Alatulosten määrä
+          comments_count: Tuloksen saamien kommenttien määrä
           component: Tuloksen komponentti
           created_at: Tuloksen laatimisaika
           description: Tuloksen kuvaus
           end_date: Päivämäärä, jolloin tuloksen toteutus päättyy ja tulos valmistuu
           id: Tuloksen yksilöllinen tunniste
+          latitude: Tuloksen sijainnin leveysaste, mikäli tulos on määritetty tiettyyn paikkaan
+          longitude: Tuloksen sijainnin pituusaste, mikäli tulos on määritetty tiettyyn paikkaan
           parent: Tuloksen isäntä, jos tulos on alitulos
           progress: Tuloksen toimeenpanon valmistumisprosentti
           proposal_urls: Tähän tulokseen sisällytettyjen ehdotusten URL-osoitteet
+          reference: Tuloksen yksilöllinen viite
           start_date: Päivämäärä, jolloin tuloksen toteutus alkaa
           status: Tuloksen tämänhetkinen tila
           taxonomies: Tuloksen luokittelut
           title: Tuloksen otsikko
+          updated_at: Tuloksen viimeisen päivityksen aika
           url: URL-osoite tulokseen
     participatory_spaces:
       highlighted_results:
