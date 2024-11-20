@@ -18,6 +18,7 @@ fr-CA:
     blogs:
       actions:
         author_id: Créer un article comme
+        confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cet article ?
         destroy: Supprimer
         edit: Modifier
         new: Nouvel article
