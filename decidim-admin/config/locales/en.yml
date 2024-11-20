@@ -1130,7 +1130,9 @@ en:
           update: Update taxonomy filter
         form:
           all: All
-          items: "%{count} items selected"
+          items:
+            one: "%{count} item selected"
+            other: "%{count} items selected"
           name_help: The title of the filter to be displayed in the frontend.
           no_items: No items are available for this taxonomy. You can create items in the taxonomy configuration settings.
           space_filter: Available as filter for all %{manifest_name}
