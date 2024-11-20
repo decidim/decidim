@@ -367,9 +367,11 @@ ca:
         participatory_processes:
           announcement: La informació de l'anunci/avís (crida)
           area: L'àrea a què pertany aquest procés
+          created_at: La data en què es va crear aquest procés participatiu
           description: Una descripció llarga del procés
           developer_group: El grup promotor del procés. Qui està promovent el procés.
           end_date: La data de finalització del procés
+          follows_count: El número d'usuàries que segueixen aquest procés participatiu
           hashtag: L'etiqueta que fa servir el procés a Twitter/X
           id: L'identificador únic del procés
           local_area: L'àrea d'organització del procés. Això és l'àrea d'organització de la qual depèn d'aquest procés.
@@ -379,6 +381,8 @@ ca:
           participatory_scope: L'àmbit territorial de la participació del procés
           participatory_structure: L'estructura participativa del procés. Això és com es decideix al procés.
           promoted: Si el procés està destacat o no
+          published_at: La data en què es va publicar aquest procés participatiu
+          reference: La referència única del procés participatiu
           remote_hero_image_url: L'URL de la imatge principal del procés
           scope: L'àmbit territorial del procés
           scopes_enabled: Si l'àmbit territorial està habilitat o no
@@ -388,6 +392,8 @@ ca:
           subtitle: El subtítol del procés
           target: Les destinatàries del procés. Qui està cridat a participar en el procés.
           title: El títol del procés
+          updated_at: La data de la darrera actualització d'aquest procés participatiu
+          url: L'URL del procés participatiu
     participatory_process_groups:
       content_blocks:
         extra_data:
