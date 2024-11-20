@@ -758,8 +758,6 @@ lb:
           without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
-      taxonomies:
-        count: Anzahl
       titles:
         admin_log: Adminprotokoll
         area_types: Bereichstypen
