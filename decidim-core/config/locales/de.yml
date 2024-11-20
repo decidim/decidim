@@ -1685,8 +1685,6 @@ de:
       users_count: Benutzer
     tags:
       filter_results_for_taxonomy: 'Ergebnisse filtern nach: %{resource}'
-    taxonomies:
-      prompt: Wählen Sie aus "%{name}"
     translation_bar:
       help_text: "<strong>Warnung:</strong> Inhalt könnte automatisch übersetzt werden und nicht 100% korrekt sein."
       show_original: Originaltext anzeigen
