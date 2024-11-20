@@ -245,6 +245,8 @@ es-PY:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
         close: Cerrar
+        confirm_delete_meeting: '¿Seguro que quiere eliminar este encuentro?'
+        deleted_meetings_info: Los encuentros eliminados se pueden restaurar desde papelera.
         edit: Editar
         invalid_destroy:
           proposals_count:
@@ -255,6 +257,7 @@ es-PY:
         preview: Previsualizar
         registrations: Inscripciones
         title: Acciones
+        view_deleted_meetings: Ver los encuentros eliminados
       admin:
         agenda:
           agenda_item:
@@ -351,6 +354,8 @@ es-PY:
               actions: Acciones
               component: Espacios vinculados
             title: Espacios vinculados
+          manage_trash:
+            title: Encuentros eliminados
           new:
             create: Crear
             title: Crear encuentro
@@ -419,6 +424,8 @@ es-PY:
           create: "%{user_name} creó el encuentro %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} eliminó el encuentro %{resource_name} en el espacio %{space_name}"
           export_registrations: "%{user_name} exportó los registros del encuentro %{resource_name} en el espacio %{space_name}"
+          restore: "%{user_name} restauró el encuentro %{resource_name} en el espacio %{space_name}"
+          soft_delete: "%{user_name} ha movido el encuentro %{resource_name} desde %{space_name} a la papelera"
           update: "%{user_name} actualizó el encuentro %{resource_name} en el espacio %{space_name}"
           value_types:
             organizer_presenter:
@@ -703,6 +710,7 @@ es-PY:
           address: La dirección del encuentro en caso de que este sea presencial y tenga una ubicación física
           attachments: El número de archivos adjuntos en este encuentro
           attendees: El número de personas que asistieron a este encuentro
+          author: Los datos de autoría de este encuentro
           comments: El número de comentarios en este encuentro
           component: El componente al que pertenece este encuentro
           contributions: El número de contribuciones realizadas en este encuentro por las asistentes
