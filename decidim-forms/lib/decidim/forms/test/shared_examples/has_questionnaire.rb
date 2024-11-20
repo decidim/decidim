@@ -78,6 +78,7 @@ shared_examples_for "has questionnaire" do
       end
 
       it "it renders the asterisk as a separated element" do
+        click_on translated_attribute(questionnaire.title)
         within "label.answer-questionnaire__question-label" do
           expect(page).to have_content(translated_attribute(question.body).to_s)
           within "span.label-required.has-tip" do
