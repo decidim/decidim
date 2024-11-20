@@ -4,7 +4,6 @@ hu:
       collaborative_draft:
         address: Cím
         body: Szöveg
-        category_id: Kategória
         decidim_scope_id: Hatáskör
         has_address: Van lakcíme
         state: Állapot
@@ -16,7 +15,6 @@ hu:
         answered_at: 'Megválaszolva:'
         automatic_hashtags: Hashtagek automatikusan hozzáadva
         body: Szöveg
-        category_id: Kategória
         decidim_scope_id: Hatáskör
         has_address: Van lakcíme
         scope_id: Hatáskör
@@ -49,8 +47,6 @@ hu:
             title:
               identical: A szövegtörzs nem lehet azonos
     models:
-      decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott
-      decidim/proposals/admin/update_proposal_scope_event: Javaslat hatáskör megváltozott
       decidim/proposals/creation_enabled_event: Javaslat létrehozása engedélyezve
       decidim/proposals/endorsing_enabled_event: Javaslat jóváhagyás engedélyezve
       decidim/proposals/proposal_mentioned_event: Javaslat megemlítve
@@ -216,16 +212,6 @@ hu:
           email_subject: Új javaslat "%{resource_title}" hozzáadva az %{participatory_space_title}
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat hozzáadva ehhez: %{participatory_space_title}.'
           notification_title_official: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című hivatalos javaslat hozzáadva ehhez: %{participatory_space_title}.'
-        proposal_update_category:
-          email_intro: 'Az admin frissítette a(z) "%{resource_title}" című javaslatod kategóriáját, ellenőrizd:'
-          email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
-          email_subject: A(z) %{resource_title} című javaslat frissítve
-          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat kategóriát az admin frissítette.
-        proposal_update_scope:
-          email_intro: 'Egy adminisztrátor frissítette a "%{resource_title}" javaslatának hatáskörét, ellenőrizze ezen az oldalon:'
-          email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
-          email_subject: A(z) %{resource_title} javaslat hatásköre frissült
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> javaslat hatáskörét egy adminisztrátor frissítette.
         voting_enabled:
           email_intro: 'Szavazhatsz a javaslatokról itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
@@ -377,8 +363,6 @@ hu:
             assign_to_valuator: Értékelőhöz rendel
             assign_to_valuator_button: Hozzárendel
             cancel: Mégse
-            change_category: Kategória módosítása
-            change_scope: Hatáskör megváltoztatása
             merge: Összeolvasztás egy újba
             merge_button: Összeolvasztás
             publish: Közzétesz
@@ -391,7 +375,6 @@ hu:
             unassign_from_valuator: Visszarendelés értékelőtől
             unassign_from_valuator_button: Visszarendelés
             update: Frissítés
-            update_scope_button: Hatáskör frissítése
           new:
             create: Létrehozás
             title: Javaslat létrehozása
@@ -414,14 +397,6 @@ hu:
             remove_assignment: Hozzárendelés eltávolítsa
             remove_assignment_confirmation: Biztosan eltávolítja az értékelőt ebből a javaslatból?
             valuators: Értékelők
-          update_category:
-            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{proposals}.'
-            select_a_proposal: Kérjük, válasszon egy javaslatot.
-            success: 'A javaslatokat sikeresen frissítették a(z) %{subject_name} kategóriához: %{proposals}.'
-          update_scope:
-            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{proposals}.'
-            select_a_proposal: Kérjük, válasszon egy javaslatot.
-            success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{proposals}.'
         proposals_imports:
           new:
             create: Javaslatok importálása
@@ -491,11 +466,9 @@ hu:
         filters:
           all: Összes
           amendment: Módosítások
-          category: Kategória
           open: Megnyitás
           published: Közzétéve
           related_to: Kapcsolódó
-          scope: Hatáskör
           search: Keresés
           state: Állapot
           withdrawn: Visszavonva
@@ -595,7 +568,6 @@ hu:
           activity: Tevékenységeim
           all: Összes
           amendment_type: Típus
-          category: Kategória
           my_proposals: Javaslataim
           origin: Kiindulópont
           related_to: Kapcsolódó
