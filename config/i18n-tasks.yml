@@ -133,6 +133,7 @@ ignore_unused:
   - booleans.*
   - '{date,time.formats}.*'
   - datetime.distance_in_words.*
+  - decidim.admin.actions.share
   - decidim.admin.participatory_process_steps.default_title
   - decidim.authorization_handlers.{direct,multistep}
   - decidim.admin.models.assembly_member.positions.*
