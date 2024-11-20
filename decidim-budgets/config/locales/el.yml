@@ -76,8 +76,6 @@ el:
           index:
             actions: Ενέργειες
             cancel: Ακύρωση
-            change_category: Αλλαγή κατηγορίας
-            change_scope: Αλλαγή πεδίου εφαρμογής
             change_selected: Αλλαγή επιλεγμένης κατάστασης
             deselect_implementation: Αποεπιλογή για υλοποίηση
             finished_orders: Ολοκληρωμένες ψηφοφορίες
@@ -86,32 +84,15 @@ el:
             selected: Επιλεγμένο
             title: Έργα
             update: Ενημέρωση
-            update_scope_button: Ενημέρωση πεδίου εφαρμογής
           new:
             create: Δημιουργία
             title: Νέο έργο
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτού του έργου.
             success: Το έργο ενημερώθηκε με επιτυχία.
-          update_category:
-            invalid: 'Αυτά τα έργα είχαν ήδη την %{subject_name} κατηγορία: %{projects}.'
-            select_a_category: Παρακαλώ επιλέξτε κατηγορία.
-            select_a_project: Παρακαλώ επιλέξτε ένα έργο.
-            success: 'Τα έργα ενημερώθηκαν επιτυχώς στην %{subject_name} κατηγορία: %{projects}.'
-          update_scope:
-            invalid: 'Αυτά τα έργα είχαν ήδη %{subject_name} εμβέλεια: %{projects}.'
-            select_a_project: Παρακαλώ επιλέξτε ένα έργο.
-            select_a_scope: Παρακαλώ επιλέξτε ένα πεδίο εφαρμογής.
-            success: 'Τα έργα ενημερώθηκαν με επιτυχία στο %{subject_name} πεδίο εφαρμογής: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Αυτά τα έργα έχουν ήδη επιλεχθεί για υλοποίηση: %{projects}.'
-              unselected: 'Αυτά τα έργα έχουν ήδη αποεπιλεχθεί για υλοποίηση: %{projects}.'
             select_a_project: Παρακαλώ επιλέξτε ένα έργο.
             select_a_selection: Παρακαλώ επιλέξτε μια κατάσταση υλοποίησης.
-            success:
-              selected: 'Αυτά τα έργα επιλέχθηκαν επιτυχώς για υλοποίηση: %{projects}.'
-              unselected: 'Αυτά τα έργα αποεπιλέχθηκαν επιτυχώς για υλοποίηση: %{projects}.'
         proposals_imports:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά την εισαγωγή των προτάσεων στα έργα.
