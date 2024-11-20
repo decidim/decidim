@@ -970,8 +970,6 @@ hu:
         update:
           error: Hiba történt az oldal frissítése során.
           success: Az oldal módosítása sikeres.
-      taxonomies:
-        count: Számol
       titles:
         admin_log: Admin napló
         area_types: Terület típusok
