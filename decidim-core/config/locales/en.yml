@@ -696,6 +696,13 @@ en:
           followable: The resource or space that is being followed
           id: The unique identifier of this follow
           updated_at: The date and time when the follow was last updated
+        identities:
+          id: The unique identifier of this identity
+          provider: The provider of this identity
+          uid: The unique identifier of this identity
+          user: The user that this identity belongs to
+          created_at: The date and time when the identity was created
+          updated_at: The date and time when the identity was last updated
         notifications:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to

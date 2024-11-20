@@ -92,9 +92,9 @@ module Decidim
         it_behaves_like "a download your data entity"
       end
 
-      context "when the user has an identtiy" do
+      context "when the user has an identity" do
         let!(:identity) { create(:identity, user:) }
-        let(:help_definition_string) { "If this comment was a favour, against or neutral" }
+        let(:help_definition_string) { "The user that this identity belongs to" }
 
         it_behaves_like "a download your data entity"
       end
