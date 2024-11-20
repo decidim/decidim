@@ -14,6 +14,7 @@ module Decidim::Budgets
 
     it { is_expected.to be_valid }
     it { is_expected.to be_versioned }
+    it { is_expected.to act_as_paranoid }
 
     context "without a budget" do
       let(:project) { build(:project, budget: nil) }

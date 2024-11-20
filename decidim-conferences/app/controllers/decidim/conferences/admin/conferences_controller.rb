@@ -6,10 +6,11 @@ module Decidim
       # Controller that allows managing conferences.
       #
       class ConferencesController < Decidim::Conferences::Admin::ApplicationController
+        include Decidim::Admin::HasTrashableResources
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::Conferences::Admin::Filterable
 
-        helper_method :current_conference
+        helper_method :current_conference, :current_participatory_space
         layout "decidim/admin/conferences"
 
         def index
@@ -71,9 +72,21 @@ module Decidim
 
         private
 
+        def trashable_deleted_resource_type
+          :conference
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= current_conference
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
+        end
+
         def current_conference
-          @current_conference ||= collection.where(slug: params[:slug]).or(
-            collection.where(id: params[:slug])
+          @current_conference ||= collection.with_deleted.where(slug: params[:slug]).or(
+            collection.with_deleted.where(id: params[:slug])
           ).first
         end
 

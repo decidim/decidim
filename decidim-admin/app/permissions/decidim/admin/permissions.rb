@@ -64,6 +64,16 @@ module Decidim
             permission_action.action == :destroy ? allow_destroy_taxonomy? : allow!
           end
 
+          if permission_action.action.in? [:manage_trash, :restore, :soft_delete]
+            if permission_action.action == :soft_delete
+              toggle_allow(trashable_deleted_resource.respond_to?(:deleted?) && !trashable_deleted_resource.deleted?)
+            elsif permission_action.action == :restore
+              toggle_allow(trashable_deleted_resource&.deleted?)
+            else
+              allow!
+            end
+          end
+
           allow! if permission_action.subject == :taxonomy_item
         end
 
@@ -71,6 +81,10 @@ module Decidim
       end
 
       private
+
+      def trashable_deleted_resource
+        context.fetch(:trashable_deleted_resource, nil)
+      end
 
       def user_manager?
         user && !user.admin? && user.role?("user_manager")
@@ -266,6 +280,10 @@ module Decidim
         taxonomy = context.fetch(:taxonomy, nil)
 
         toggle_allow(taxonomy&.removable?)
+      end
+
+      def component
+        context.fetch(:component, nil)
       end
     end
   end

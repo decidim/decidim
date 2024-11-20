@@ -50,6 +50,8 @@ module Decidim
       end
 
       initializer "decidim_meetings.register_icons" do
+        Decidim.icons.register(name: "headphone-line", icon: "headphone-line", category: "system", description: "", engine: :meetings)
+        Decidim.icons.register(name: "video-line", icon: "video-line", category: "system", description: "", engine: :meetings)
         Decidim.icons.register(name: "Decidim::Meetings::Meeting", icon: "map-pin-line", description: "Meeting", category: "activity", engine: :meetings)
         Decidim.icons.register(name: "in_person", icon: "community-line", description: "In person", category: "meetings", engine: :meetings)
         Decidim.icons.register(name: "online", icon: "webcam-line", description: "Online", category: "meetings", engine: :meetings)

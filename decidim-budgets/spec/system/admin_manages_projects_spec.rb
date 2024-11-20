@@ -117,6 +117,17 @@ describe "Admin manages projects" do
         expect(project2.reload.budget).to eq(destination_budget)
       end
     end
+
+    describe "soft delete a projects" do
+      let(:admin_resource_path) { current_path }
+      let(:trash_path) { "#{admin_resource_path}/manage_trash" }
+      let(:title) { { en: "My projects" } }
+      let!(:budget) { create(:budget, component: current_component) }
+      let!(:resource) { create(:project, budget:, title:) }
+
+      it_behaves_like "manage soft deletable resource", "project"
+      it_behaves_like "manage trashed resource", "project"
+    end
   end
 
   private

@@ -61,16 +61,6 @@
   </td>
 
   <td class="table-list__actions">
-    <% if allowed_to? :edit, :proposal, proposal: proposal %>
-      <%= icon_link_to "pencil-line", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
-    <% else %>
-      <span class="action-space icon"></span>
-    <% end %>
-
-    <%= icon_with_link_to_proposal(proposal) %>
-
-    <%= icon_link_to "eye-line", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
-
-    <%= resource_permissions_link(proposal) %>
+    <%= render partial: "decidim/proposals/admin/proposals/actions", locals: { proposal:, view: } %>
   </td>
 </tr>
