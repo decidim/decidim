@@ -49,17 +49,24 @@ module Decidim
         content_tag :div do
           concat sent_to_users newsletter
           concat sent_to_spaces newsletter
-          concat sent_to_scopes newsletter
         end
       end
 
       def sent_to_users(newsletter)
         content_tag :p, style: "margin-bottom:0;" do
           concat content_tag(:strong, t("index.has_been_sent_to", scope: "decidim.admin.newsletters"), class: "text-success")
-          concat content_tag(:strong, t("index.all_users", scope: "decidim.admin.newsletters")) if newsletter.sended_to_all_users?
-          concat content_tag(:strong, t("index.followers", scope: "decidim.admin.newsletters")) if newsletter.sended_to_followers?
-          concat t("index.and", scope: "decidim.admin.newsletters") if newsletter.sended_to_followers? && newsletter.sended_to_participants?
-          concat content_tag(:strong, t("index.participants", scope: "decidim.admin.newsletters")) if newsletter.sended_to_participants?
+
+          recipients = []
+
+          recipients << content_tag(:strong, t("index.all_users", scope: "decidim.admin.newsletters")) if newsletter.sended_to_all_users?
+          recipients << content_tag(:strong, t("index.followers", scope: "decidim.admin.newsletters")) if newsletter.sended_to_followers?
+          recipients << content_tag(:strong, t("index.participants", scope: "decidim.admin.newsletters")) if newsletter.sended_to_participants?
+          recipients << content_tag(:strong, t("index.private_members", scope: "decidim.admin.newsletters")) if newsletter.sended_to_private_members?
+
+          recipients.each_with_index do |recipient, index|
+            concat recipient
+            concat t("index.and", scope: "decidim.admin.newsletters") if index < recipients.size - 1
+          end
         end
       end
 

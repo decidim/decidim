@@ -50,6 +50,10 @@ module Decidim
       extended_data["participatory_space_types"]
     end
 
+    def sended_to_private_members?
+      extended_data["send_to_private_members"]
+    end
+
     def template
       @template ||= Decidim::ContentBlock
                     .for_scope(:newsletter_template, organization:)

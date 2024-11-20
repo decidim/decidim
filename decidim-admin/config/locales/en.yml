@@ -782,6 +782,7 @@ en:
           no_scopes: No scopes
           not_sent: Not sent
           participants: 'participants '
+          private_members: 'private members '
           segmented_to: 'Segmented to %{subject}: '
           subscribed_count: 'Subscribed:'
           title: Newsletters
