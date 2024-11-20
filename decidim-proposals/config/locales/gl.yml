@@ -202,11 +202,8 @@ gl:
           email_subject: Nova proposta "%{resource_title}" engadida a %{participatory_space_title}
         proposal_update_category:
           email_intro: 'Un administrador actualizou a categoría da túa proposta "%{resource_title}", comproba isto:'
-          email_outro: Recibiches esta notificación porque es o autor da proposta.
           email_subject: A categoría de proposta %{resource_title} foi actualizada
           notification_title: A categoría de proposta <a href="%{resource_path}">%{resource_title}</a> foi actualizada por un administrador.
-        proposal_update_scope:
-          email_outro: Recibiches esta notificación porque es o autor da proposta.
         voting_enabled:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
     gamification:
