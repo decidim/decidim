@@ -984,7 +984,6 @@ pt-BR:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso.
       taxonomies:
-        count: Contagem
         edit:
           back: Retornar
           new_item: Novo item
@@ -1001,14 +1000,11 @@ pt-BR:
         new:
           back: Voltar
           create: Criar filtro de taxonomia
-          items: "%{count} itens disponíveis"
           title: Novo filtro de taxonomia
         table:
           actions: Ações
-          count: Número de itens
           destroy: Deletar
           edit: Editar
-          name: Nome
       taxonomy_items:
         edit:
           title: Editar item em %{taxonomy}
