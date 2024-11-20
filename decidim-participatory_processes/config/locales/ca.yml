@@ -91,6 +91,7 @@ ca:
       actions:
         activate: Activar
         configure: Configurar
+        confirm_delete_process: Segur que vols esborrar aquest procés? Si canvies d'opinió, el pots restaurar més endavant.
         confirm_destroy: Confirma l'eliminació
         destroy: Suprimeix
         duplicate: Duplicar
@@ -108,6 +109,7 @@ ca:
         resend_invitation: Reenviar la invitació
         see_process: Veure el procés
         unpublish: Despublicar
+        view_deleted_processes: Veure els processos eliminats
       filters:
         decidim_participatory_process_group_id_eq:
           label: Per grup de processos
@@ -278,6 +280,8 @@ ca:
           public: Públic
           published: Publicat
           unpublished: Despublicat
+        manage_trash:
+          title: Processos participatius eliminats
         new:
           create: Crea
           title: Nou procés participatiu
@@ -296,6 +300,9 @@ ca:
         participatory_process_groups: Grups de processos participatius
         participatory_process_types: Tipus de processos participatius
         participatory_processes: Processos participatius
+        participatory_processes_deleted: Processos participatius eliminats
+      tooltips:
+        deleted_processes_info: Un procés només es poden eliminar si el seu estat és 'Despublicat'.
       users:
         resend_invitation:
           error: S'ha produït un error en reenviar la invitació.
@@ -307,6 +314,8 @@ ca:
         export: "%{user_name} ha exportat el procés participatiu %{resource_name}"
         import: "%{user_name} ha importat el procés participatiu %{resource_name}"
         publish: "%{user_name} ha publicat el procés participatiu %{resource_name}"
+        restore: "%{user_name} ha restaurat el procés participatiu \"%{resource_name}\""
+        soft_delete: "%{user_name} ha enviat a la paperera el procés participatiu \"%{resource_name}\""
         unpublish: "%{user_name} ha despublicat el procés participatiu %{resource_name}"
         update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
       participatory_process_group:
