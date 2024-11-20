@@ -91,6 +91,7 @@ es:
       actions:
         activate: Activar
         configure: Configurar
+        confirm_delete_process: '¿Seguro que quieres eliminar este proceso? Si cambias de opinión, puedes restaurarlo más tarde.'
         confirm_destroy: Confirmar eliminación
         destroy: Borrar
         duplicate: Duplicar
@@ -108,6 +109,7 @@ es:
         resend_invitation: Reenviar invitación
         see_process: Ver el proceso
         unpublish: Despublicar
+        view_deleted_processes: Ver los procesos eliminados
       filters:
         decidim_participatory_process_group_id_eq:
           label: Por grupo de procesos
@@ -279,6 +281,8 @@ es:
           public: Público
           published: Publicada
           unpublished: Despublicado
+        manage_trash:
+          title: Procesos participativos eliminados
         new:
           create: Crear
           title: Nuevo proceso participativo
@@ -297,6 +301,9 @@ es:
         participatory_process_groups: Grupos de procesos participativos
         participatory_process_types: Tipos de procesos participativos
         participatory_processes: Procesos participativos
+        participatory_processes_deleted: Procesos participativos eliminados
+      tooltips:
+        deleted_processes_info: Un proceso solo se pueden eliminar si su estado es 'Despublicado'.
       users:
         resend_invitation:
           error: Se ha producido un error al reenviar la invitación.
@@ -308,6 +315,8 @@ es:
         export: "%{user_name} ha exportado el proceso participativo %{resource_name}"
         import: "%{user_name} ha importado el proceso participativo %{resource_name}"
         publish: "%{user_name} publicó el proceso participativo %{resource_name}"
+        restore: "%{user_name} restauró el proceso participativo \"%{resource_name}\""
+        soft_delete: "%{user_name} ha enviado a la papelera el proceso participativo \"%{resource_name}\""
         unpublish: "%{user_name} despublicó el proceso participativo %{resource_name}"
         update: "%{user_name} actualizó el proceso participativo %{resource_name}"
       participatory_process_group:
