@@ -31,9 +31,9 @@ namespace :decidim do
           end
         end
 
-        budget = Decidim::Budgets::Budget.find_by(id: args[:budget_id])
+        budget = Decidim::Budgets::Budget.find_by(id: args.budget_id)
         unless budget
-          puts "Invalid budget ID: #{args[:budget_id]}"
+          puts "Invalid budget ID: #{args.budget_id}"
           next
         end
 
