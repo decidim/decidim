@@ -93,11 +93,13 @@ fr:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Êtes-vous sûr(e) de vouloir supprimer cette assemblée ? Si vous changez d'avis, vous pourrez la restaurer plus tard.
         import_assembly: Importer
         new_assembly: Nouvelle assemblée
         new_assembly_member: Nouveau membre de l'assemblée
         new_assembly_type: Nouveau type d'assemblée
         new_assembly_user_role: Nouvel administrateur de l'assemblée
+        view_deleted_assemblies: Voir les assemblées supprimées
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
@@ -109,6 +111,8 @@ fr:
           public: Publique
           published: Publiée
           unpublished: Non publié
+        manage_trash:
+          title: Assemblées supprimées
         new:
           create: Créer
           title: Nouvelle assemblée
@@ -250,7 +254,10 @@ fr:
             valuator: Évaluateur
       titles:
         assemblies: Assemblées
+        assemblies_deleted: Assemblées supprimées
         assemblies_types: Types d'assemblée
+      tooltips:
+        deleted_assemblies_info: Une assemblée ne peut être supprimée que si son statut est "non publiée".
     admin_log:
       assembly:
         create: "%{user_name} a créé l'assemblée %{resource_name}"
@@ -258,6 +265,7 @@ fr:
         export: "%{user_name} a exporté l'assemblée %{resource_name}"
         import: "%{user_name} a importé l'assemblée %{resource_name}"
         publish: "%{user_name} a publié l'assemblée %{resource_name}"
+        restore: "%{user_name} a restauré l'assemblée %{resource_name}"
         unpublish: "%{user_name} a dépublié l'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour l'assemblée %{resource_name}"
       assembly_member:
