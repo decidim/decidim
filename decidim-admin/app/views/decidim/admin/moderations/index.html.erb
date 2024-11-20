@@ -1,7 +1,10 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="item_show__header">
   <h1 class="item_show__header-title">
-    <%= t(".title") %>
+    <div>
+      <%= t(".title") %>
+      <span id="js-selected-moderations-count" class="component-counter " title="<%= t("decidim.moderations.admin.index.selected") %>"></span>
+    </div>
 
     <div class="flex items-center gap-x-4">
       <%= render partial: "bulk-actions" %>
@@ -18,7 +21,7 @@
   <table class="table-list">
     <thead>
       <tr>
-        <th><%= check_box_tag "global_moderations_bulk", "all", false, class: "js-check-all" %></th>
+        <th><%= check_box_tag "moderations_bulk", "all", false, class: "js-check-all" %></th>
         <th><%= t("models.moderation.fields.reportable_id", scope: "decidim.moderations") %></th>
         <th><%= t("models.moderation.fields.reportable_type", scope: "decidim.moderations") %></th>
         <% if !respond_to?(:current_participatory_space) %>
@@ -38,7 +41,7 @@
       <% moderations.each do |moderation| %>
         <% next unless moderation.reportable %>
         <tr data-id="<%= moderation.id %>">
-          <td><%= check_box_tag "moderation_ids_s[]", moderation.id, false, class: "js-check-all-moderation js-moderation-list-check  js-moderation-id-#{moderation.id}" %><br></td>
+          <td><%= check_box_tag "moderation_ids_s[]", moderation.id, false, class: "js-check-all-moderations js-moderation-list-check  js-moderation-id-#{moderation.id}" %><br></td>
           <td><%= moderation.reportable.id %></td>
           <td>
             <%= moderation.reportable.class.model_name.human %>

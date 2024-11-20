@@ -1,15 +1,15 @@
-<div id="js-global-moderations-bulk-actions-wrapper">
+<div id="js-bulk-actions-wrapper">
   <button
-    id="js-global-moderations-bulk-actions-button"
+    id="js-bulk-actions-button"
     class="button button__sm button__secondary"
     type="button"
-    data-toggle="js-global-moderations-bulk-actions-dropdown">
-    <%= t("decidim.moderations.index.actions.actions_dropdown") %>
+    data-toggle="js-bulk-actions-dropdown">
+    <%= t("decidim.moderations.admin.index.actions.actions_dropdown") %>
     <%= icon "arrow-down-s-line", class: "dropdown-filter-icon" %>
   </button>
 
   <div
-    id="js-global-moderations-bulk-actions-dropdown"
+    id="js-bulk-actions-dropdown"
     class="dropdown-pane"
     data-position="bottom"
     data-alignment="right"
@@ -19,17 +19,17 @@
     <ul>
         <li>
           <button type="button" data-action="hide-global-moderations">
-            <%= t("decidim.moderations.index.actions.hide") %>
+            <%= t("decidim.moderations.admin.index.actions.hide") %>
           </button>
         </li>
         <li>
           <button type="button" data-action="unreport-global-moderations">
-            <%= t("decidim.moderations.index.actions.unreport") %>
+            <%= t("decidim.moderations.admin.index.actions.unreport") %>
           </button>
         </li>
         <li>
           <button type="button" data-action="unhide-global-moderations">
-            <%= t("decidim.moderations.index.actions.unhide") %>
+            <%= t("decidim.moderations.admin.index.actions.unhide") %>
           </button>
         </li>
     </ul>

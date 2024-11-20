@@ -1264,6 +1264,13 @@ en:
         unhide: Unhide
         unreport: Unreport
       admin:
+        index:
+          actions:
+            actions_dropdown: Actions
+            hide: Hide
+            unhide: Unhide
+            unreport: Unreport
+          selected: selected
         reportable:
           hide:
             invalid: There was a problem hiding the resource.
@@ -1274,12 +1281,6 @@ en:
           unreport:
             invalid: There was a problem unreporting the resource.
             success: Resource successfully unreported.
-      index:
-        actions:
-          actions_dropdown: Actions
-          hide: Hide
-          unhide: Unhide
-          unreport: Unreport
       models:
         moderation:
           fields:
