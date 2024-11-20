@@ -498,7 +498,10 @@ ca:
         title: Accions
       admin:
         actions:
+          confirm_delete_proposal: Segur que vols eliminar aquesta proposta?
+          deleted_proposals_info: Les propostes eliminades es poden restaurar des de la paperera.
           preview: Previsualitzar
+          view_deleted_proposals: Veure les propostes eliminades
         exports:
           proposal_comments: Comentaris
           proposals: Propostes
@@ -643,6 +646,8 @@ ca:
             unassign_from_valuator_button: Desfer assignació
             update: Actualitza
             update_scope_button: Actualitzar àmbit
+          manage_trash:
+            title: Propostes eliminades
           new:
             create: Crea
             title: Crea proposta
@@ -708,6 +713,8 @@ ca:
           answer: "%{user_name} ha respost a la proposta %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la proposta %{resource_name} sobre l'espai %{space_name} com a proposta oficial"
           publish_answer: "%{user_name} ha publicat una resposta a la proposta %{resource_name} a l'espai %{space_name}"
+          restore: "%{user_name} ha restaurat la proposta %{resource_name} a l'espai %{space_name}"
+          soft_delete: "%{user_name} ha mogut a la paperera la proposta %{resource_name} a l'espai \"%{space_name}\""
           update: "%{user_name} ha actualitzat la proposta oficial %{resource_name} sobre l'espai %{space_name}"
         proposal_note:
           create: "%{user_name} ha deixat una nota privada a la proposta %{resource_name} dins l'espai %{space_name}"
