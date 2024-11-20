@@ -42,6 +42,7 @@ ca:
       actions:
         attachment_collections: Carpetes
         attachments: Fitxers adjunts
+        confirm_delete_result: Segur que voleu suprimir aquest resultat?
         confirm_destroy: Segur que vols suprimir aquest %{name}?
         destroy: Esborrar
         edit: Editar
