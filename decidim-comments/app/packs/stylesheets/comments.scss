@@ -61,7 +61,7 @@
       }
 
       [data-target*="dropdown-menu-add-comment"] {
-        @apply w-full flex items-center justify-between gap-2 px-0 py-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+        @apply w-full flex items-center justify-between gap-2 px-0 pt-2 pb-0 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
         > svg {
           @apply w-6 h-6 flex-none text-secondary fill-current;
@@ -382,7 +382,7 @@
 }
 
 [data-target*="dropdown-menu-add-comment"] {
-  @apply w-full flex items-center justify-between gap-2 px-0 py-2 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+  @apply w-full flex items-center justify-between mb-4 gap-2 px-0 pt-2 pb-0 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
 
   & > span {
     @apply hidden font-semibold text-secondary;
