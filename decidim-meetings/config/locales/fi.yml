@@ -245,6 +245,8 @@ fi:
         attachment_collections: Kansiot
         attachments: Liitteet
         close: Sulje
+        confirm_delete_meeting: Haluatko varmasti poistaa tämän tapaamisen?
+        deleted_meetings_info: Poistetut tapaamiset voidaan palauttaa roskakorista.
         edit: Muokkaa
         invalid_destroy:
           proposals_count:
@@ -255,6 +257,7 @@ fi:
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot
+        view_deleted_meetings: Näytä poistetut tapaamiset
       admin:
         agenda:
           agenda_item:
@@ -351,6 +354,8 @@ fi:
               actions: Toiminnot
               component: Liitetyt osallistumistilat
             title: Liitetyt osallistumistilat
+          manage_trash:
+            title: Poistetut tapaamiset
           new:
             create: Luo
             title: Luo tapaaminen
@@ -419,6 +424,8 @@ fi:
           create: "%{user_name} loi tapaamisen %{resource_name} osallistumistilassa %{space_name}"
           delete: "%{user_name} poisti tapaamisen %{resource_name} osallistumistilassa %{space_name}"
           export_registrations: "%{user_name} vei tapaamisen %{resource_name} ilmoittautumiset osallistumistilaan %{space_name}"
+          restore: "%{user_name} palautti tapaamisen %{resource_name} tilassa %{space_name}"
+          soft_delete: "%{user_name} siirsi tapaamisen %{resource_name} roskakoriin tilassa %{space_name}"
           update: "%{user_name} päivitti tapaamisen %{resource_name} osallistumistilassa %{space_name}"
           value_types:
             organizer_presenter:
