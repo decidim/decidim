@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/download_your_data_shared_examples"
 
 module Decidim
   describe DownloadYourDataExporter do
@@ -69,36 +70,16 @@ module Decidim
     describe "#readme" do
       context "when the user has a follow" do
         let!(:follow) { create(:follow, user:) }
-        let(:data) { subject.send(:readme) }
+        let(:help_definition_string) { "The resource or space that is being followed" }
 
-        before do
-          subject.send(:data_and_attachments_for_user) # to create the data and get the help definitions
-        end
-
-        it "does not have any missing translation" do
-          expect(data).not_to include("Translation missing")
-        end
-
-        it "has the correct help definition" do
-          expect(data).to include("The resource or space that is being followed")
-        end
+        it_behaves_like "a download your data entity"
       end
 
       context "when the user has a notification" do
         let!(:notification) { create(:notification, user:) }
-        let(:data) { subject.send(:readme) }
+        let(:help_definition_string) { "The type of the resource that the notification is related to" }
 
-        before do
-          subject.send(:data_and_attachments_for_user) # to create the data and get the help definitions
-        end
-
-        it "does not have any missing translation" do
-          expect(data).not_to include("Translation missing")
-        end
-
-        it "has the correct help definition" do
-          expect(data).to include("The type of the resource that the notification is related to")
-        end
+        it_behaves_like "a download your data entity"
       end
 
       context "when the user has a comment" do
@@ -106,19 +87,16 @@ module Decidim
         let(:component) { create(:component, participatory_space:) }
         let(:commentable) { create(:dummy_resource, component:) }
         let!(:comment) { create(:comment, commentable:, author: user) }
-        let(:data) { subject.send(:readme) }
+        let(:help_definition_string) { "If this comment was a favour, against or neutral" }
 
-        before do
-          subject.send(:data_and_attachments_for_user) # to create the data and get the help definitions
-        end
+        it_behaves_like "a download your data entity"
+      end
 
-        it "does not have any missing translation" do
-          expect(data).not_to include("Translation missing")
-        end
+      context "when the user has an identtiy" do
+        let!(:identity) { create(:identity, user:) }
+        let(:help_definition_string) { "If this comment was a favour, against or neutral" }
 
-        it "has the correct help definition" do
-          expect(data).to include("If this comment was a favour, against or neutral")
-        end
+        it_behaves_like "a download your data entity"
       end
     end
   end

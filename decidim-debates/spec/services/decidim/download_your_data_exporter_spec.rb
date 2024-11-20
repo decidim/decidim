@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/core/test/shared_examples/download_your_data_shared_examples"
 
 module Decidim
   describe DownloadYourDataExporter do
@@ -10,18 +11,13 @@ module Decidim
     let(:organization) { create(:organization) }
 
     describe "#readme" do
-      context "when the user has activity" do
+      context "when the user has a debate" do
         let(:participatory_space) { create(:participatory_process, organization:) }
         let(:debates_component) { create(:debates_component, participatory_space:) }
-
         let!(:debate) { create(:debate, component: debates_component, author: user) }
+        let(:help_definition_string) { "The debate title" }
 
-        it "does not have any missing translation" do
-          subject.send(:data_and_attachments_for_user) # to create the data and get the help definitions
-          data = subject.send(:readme)
-
-          expect(data).not_to include("Translation missing")
-        end
+        it_behaves_like "a download your data entity"
       end
     end
   end
