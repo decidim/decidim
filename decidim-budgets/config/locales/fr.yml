@@ -36,6 +36,9 @@ fr:
       actions:
         attachment_collections: Dossiers
         attachments: Documents liés
+        confirm_delete_budget: Etes-vous sûr(e) de vouloir supprimer ce budget ?
+        confirm_delete_project: Êtes-vous sûr(e) de vouloir supprimer ce projet ?
+        deleted_budgets_info: Les budgets supprimés peuvent être restaurés à partir de la corbeille.
         edit: Modifier
         edit_projects: Gérer les projets
         import: Importer des propositions dans des projets
@@ -44,6 +47,8 @@ fr:
         preview: Aperçu
         send_voting_reminders: Envoyer des rappels de vote
         title: Actions
+        view_deleted_budgets: Voir les budgets supprimés
+        view_deleted_projects: Voir les projets supprimés
       admin:
         budgets:
           create:
@@ -58,6 +63,8 @@ fr:
             title: Budgets
             users_with_finished_orders: Utilisateurs ayant fini leur vote
             users_with_pending_orders: Utilisateurs ayant des votes en attente
+          manage_trash:
+            title: Budgets supprimés
           new:
             create: Créer un budget
             title: Nouveau budget
@@ -97,6 +104,8 @@ fr:
             update: Mettre à jour
             update_budget_button: Mettre à jour le budget du projet
             update_scope_button: Mettre à jour le secteur
+          manage_trash:
+            title: Projets supprimés
           new:
             create: Créer
             title: Nouveau projet
