@@ -320,12 +320,10 @@ lt:
             notification_title: Pasiūlymas <a href="%{resource_path}">%{resource_title}</a> buvo atmestas.
         proposal_update_category:
           email_intro: 'Administratorius atnaujino jūsų pasiūlymo „%{resource_title}“ kategoriją, patikrinkite tai šiame puslapyje:'
-          email_outro: Šį pranešimą gavote dėl to, kad esate pasiūlymo autorius.
           email_subject: '%{resource_title} pasiūlymo kategorija buvo atnaujinta'
           notification_title: Administratorius atnaujino <a href="%{resource_path}">%{resource_title}</a> pasiūlymo kategoriją.
         proposal_update_scope:
           email_intro: 'Administratorius atnaujino jūsų pasiūlymo „%{resource_title}“ apimtį, patikrinkite tai šiame puslapyje:'
-          email_outro: Šį pranešimą gavote dėl to, kad esate pasiūlymo autorius.
           email_subject: '%{resource_title} pasiūlymo apimtis buvo atnaujinta'
           notification_title: Administratorius atnaujino <a href="%{resource_path}">%{resource_title}</a> pasiūlymo apimtį.
         voting_enabled:
