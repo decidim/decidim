@@ -91,6 +91,7 @@ fr-CA:
       actions:
         activate: Activer
         configure: Configurer
+        confirm_delete_process: Êtes-vous sûr(e) de vouloir supprimer ce processus ? Si vous changez d'avis, vous pourrez le restaurer plus tard.
         confirm_destroy: Confirmez la suppression
         destroy: Supprimer
         duplicate: Dupliquer
@@ -108,6 +109,7 @@ fr-CA:
         resend_invitation: Renvoyer l'invitation
         see_process: Voir la concertation
         unpublish: Dépublier
+        view_deleted_processes: Voir les processus supprimés
       filters:
         decidim_participatory_process_group_id_eq:
           label: Par groupe de concertations
@@ -278,6 +280,8 @@ fr-CA:
           public: Publique
           published: Publiée
           unpublished: Non publié
+        manage_trash:
+          title: Processus participatifs supprimés
         new:
           create: Créer
           title: Nouvelle concertation
@@ -296,6 +300,9 @@ fr-CA:
         participatory_process_groups: Groupes de concertations
         participatory_process_types: Types de concertation
         participatory_processes: Concertations
+        participatory_processes_deleted: Processus participatifs supprimés
+      tooltips:
+        deleted_processes_info: Un processus ne peut être supprimé que si son statut est "non publié".
       users:
         resend_invitation:
           error: Une erreur s'est produite lors de l'envoi de l’invitation.
