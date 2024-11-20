@@ -1077,8 +1077,6 @@ fi:
           success: Sivun päivitys onnistui.
       taxonomies:
         actions: Toiminnot
-        amount: Määrä
-        count: Määrä
         create:
           invalid: Luokittelun luominen epäonnistui.
           success: Luokittelun luominen onnistui.
@@ -1115,8 +1113,6 @@ fi:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Uusi luokitteluiden suodatin
-        callout:
-          modify_taxonomy_html: Jos haluat muokata tätä luokittelua tai sen kohteita, voit tehdä sen <a href="%{url}">Luokittelut-osion</a> asetusten kautta.
         create:
           error: Luokittelun suodattimen luonti epäonnistui.
           success: Luokittelun suodattimen luonti onnistui.
@@ -1125,28 +1121,20 @@ fi:
           success: Luokittelun suodattimen poisto onnistui.
         edit:
           back: Takaisin
-          items: "%{count} kohdetta valittu"
-          no_items: Tälle luokittelulle ei ole vielä luotu yhtään kohdetta. Voit luoda kohteita luokittelun asetusten kautta.
           title: Muokkaa luokittelun suodatinta
           update: Päivitä luokittelun suodatin
-        form:
-          select_taxonomy: Valitse luokittelu
         index:
           description: Luokittelun suodatin mahdollistaa hallintakäyttäjille osallistumistilojen järjestämisen ja suodatuksen luokittelun perusteella. Voit esimerkiksi lisätä maantieteellisen luokittelun asioille.
           empty: Yhtään luokitteluiden suodatinta ei ole luotu. Lisää uusia luokitteluiden suodattimia järjestääksesi tai suodattaaksesi osallistumistiloja kyseisen luokittelun mukaan.
         new:
           back: Takaisin
           create: Luo luokitteluiden suodatin
-          items: "Yhteensä %{count} kohdetta"
           title: Uusi luokitteluiden suodatin
         table:
           actions: Toiminnot
-          components_count: Komponenttien määrä
           confirm_destroy: 'Oletko varma, että haluat poistaa suodattimen %{name}? HUOMIOI: Tätä suodatinta hyödyntäviin resursseihin ei tehdä muutoksia, mutta ne menettävät liitoksen tähän suodattimeen.'
-          count: Kohteiden määrä
           destroy: Poista
           edit: Muokkaa
-          name: Nimi
         update:
           error: Luokittelun suodattimen päivittäminen epäonnistui.
           success: Luokittelun suodattimen päivittäminen onnistui.
