@@ -1129,6 +1129,8 @@ ca:
           not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
         taxonomy_presenter:
           not_found: 'No s''ha trobat la taxonomia a la base de dades (ID: %{id})'
+    machine_translations:
+      automatic: traducció automàtica a %{locale_name} 
     managed_users:
       expired_session: La sessió actual d'administració d'una participant ha caducat.
     map:
