@@ -54,7 +54,7 @@ en:
         keep_authors: Keep original authors
       valuation_assignment:
         admin_log:
-          valuator_role_id: Valuator name
+          valuator_role_id: Evaluator name
     errors:
       models:
         participatory_text:
@@ -637,7 +637,7 @@ en:
             publish: Publish
             publish_answers: Publish answers
             select_component: Select a component
-            select_valuators: Select one or more valuators
+            select_valuators: Select one or more evaluators
             selected: selected
             split: Split proposals
             split_button: Split
@@ -657,7 +657,7 @@ en:
             select_a_proposal: Please select a proposal.
           show:
             amendments_count: Amendments count
-            assigned_valuators: Assigned valuators
+            assigned_valuators: Assigned evaluators
             body: Body
             comments_count: Comments count
             documents: Documents
@@ -672,7 +672,7 @@ en:
             related_meetings: Related meetings
             remove_assignment: Remove assignment
             remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
-            valuators: Valuators
+            evaluators: Evaluators
             votes_count: Votes count
           update_category:
             invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
@@ -708,7 +708,7 @@ en:
             success: Proposals assigned to a valuator successfully.
           delete:
             invalid: There was a problem unassigning proposals from a valuator.
-            success: Valuator unassigned from proposals successfully.
+            success: evaluator unassigned from proposals successfully.
       admin_log:
         proposal:
           answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
@@ -888,8 +888,8 @@ en:
             state: Status
             taxonomies: Taxonomies
             title: Title
-            valuator: Valuator
-            valuators: Valuators
+            evaluator: Evaluator
+            evaluators: Evaluators
             votes: Votes
         proposal_state:
           css_class: CSS class

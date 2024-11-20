@@ -167,7 +167,7 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
-            valuator: Valuator
+            evaluator: Evaluator
         user:
           fields:
             invitation_accepted_at: Invitation accepted at

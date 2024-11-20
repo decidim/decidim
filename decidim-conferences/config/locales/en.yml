@@ -239,7 +239,7 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
-            valuator: Valuator
+            evaluator: Evaluator
         media_link:
           fields:
             date: Date

@@ -252,7 +252,7 @@ en:
             admin: Administrator
             collaborator: Collaborator
             moderator: Moderator
-            valuator: Valuator
+            evaluator: Evaluator
       titles:
         assemblies: Assemblies
         assemblies_deleted: Deleted assemblies
