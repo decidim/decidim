@@ -312,12 +312,10 @@ pl:
             notification_title: Wniosek <a href="%{resource_path}">%{resource_title}</a> zmienił stan na "%{state}".
         proposal_update_category:
           email_intro: 'Administrator zaktualizował kategorię Twojej propozycji "%{resource_title}", sprawdź to:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem propozycji.
           email_subject: Kategoria %{resource_title} propozycji została zaktualizowana
           notification_title: Kategoria propozycji <a href="%{resource_path}">%{resource_title}</a> została zaktualizowana przez administratora.
         proposal_update_scope:
           email_intro: 'Administrator zaktualizował zakres Twojej propozycji „%{resource_title}”, sprawdź to na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem propozycji.
           email_subject: Zaktualizowano zakres propozycji %{resource_title}
           notification_title: Administrator zaktualizował zakres propozycji <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
