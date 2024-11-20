@@ -81,8 +81,6 @@ pl:
             actions: Działania
             cancel: Anuluj
             change_budget: Zmień budżet
-            change_category: Zmień kategorię
-            change_scope: Zmień zakres
             change_selected: Zmień wybrany status
             deselect_implementation: Odznacz ze wdrożenia
             finished_orders: Ukończone głosowania
@@ -95,7 +93,6 @@ pl:
             title: Projekty
             update: Aktualizuj
             update_budget_button: Aktualizuj budżet projektu
-            update_scope_button: Aktualizuj zakres
           new:
             create: Utwórz
             title: Nowy projekt
@@ -103,28 +100,10 @@ pl:
             invalid: Podczas aktualizacji tego projektu wystąpił błąd.
             success: Zaktualizowano projekt.
           update_budget:
-            invalid: 'Te projekty są już w tym samym budżecie lub ich budżety są większe niż maksymalny dozwolony: %{projects}.'
             select_a_project: Proszę wybrać projekt.
-            success: 'Projekty zaktualizowane do budżetu o nazwie %{subject_name}: %{projects}.'
-          update_category:
-            invalid: 'Te projekty już miały kategorię %{subject_name}: %{projects}.'
-            select_a_category: Proszę wybrać kategorię.
-            select_a_project: Proszę wybrać projekt.
-            success: 'Projekty zostały zaktualizowane do kategorii %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Te projekty już miały zakres %{subject_name}: %{projects}.'
-            select_a_project: Proszę wybrać projekt.
-            select_a_scope: Proszę wybrać zakres.
-            success: 'Projekty zostały zaktualizowane do zakresu o nazwie %{subject_name}: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Te projekty zostały już wybrane do wdrożenia: %{projects}.'
-              unselected: 'Te projekty zostały już odznaczone od wdrożenia: %{projects}.'
             select_a_project: Proszę wybrać projekt.
             select_a_selection: Proszę wybrać stan wdrożenia.
-            success:
-              selected: 'Te projekty zostały pomyślnie wybrane do wdrożenia: %{projects}.'
-              unselected: 'Te projekty zostały pomyślnie odznaczone od wdrożenia: %{projects}.'
         proposals_imports:
           create:
             invalid: Wystąpił błąd podczas importowania propozycji do projektów.
