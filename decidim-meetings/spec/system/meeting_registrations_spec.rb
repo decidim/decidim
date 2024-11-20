@@ -477,4 +477,6 @@ describe "Meeting registrations" do
       end
     end
   end
+
+  def see_questionnaire_questions; end
 end
