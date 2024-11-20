@@ -95,8 +95,6 @@ ca:
             actions: Accions
             cancel: Cancel·lar
             change_budget: Canviar pressupost
-            change_category: Canviar categoria
-            change_scope: Canviar àmbit
             change_selected: Canviar l'estat seleccionat
             deselect_implementation: No s'ha seleccionat per implementar
             finished_orders: Vots finalitzats
@@ -109,7 +107,6 @@ ca:
             title: Projectes
             update: Actualitzar
             update_budget_button: Actualitzar el pressupost del projecte
-            update_scope_button: Actualitzar àmbit
           manage_trash:
             title: Projectes eliminats
           new:
@@ -119,28 +116,10 @@ ca:
             invalid: S'ha produït un error en actualitzar aquest projecte.
             success: Projecte actualitzat correctament.
           update_budget:
-            invalid: 'Aquests projectes ja estan al mateix pressupost o els seus pressupostos són superiors al màxim permès: %{projects}.'
             select_a_project: Si us plau, selecciona un projecte.
-            success: 'Projectes actualitzats correctament pel pressupost de %{subject_name}: %{projects}.'
-          update_category:
-            invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{projects}.'
-            select_a_category: Si us plau, selecciona una categoria.
-            select_a_project: Si us plau, selecciona un projecte.
-            success: 'Els projectes s''han actualitzat correctament a la categoria %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Aquests projectes ja estaven assignats a l''àmbit %{subject_name}: %{projects}.'
-            select_a_project: Si us plau, selecciona un projecte.
-            select_a_scope: Si us plau, selecciona un àmbit.
-            success: 'Els projectes s''han actualitzat correctament a l''àmbit %{subject_name}: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Aquests projectes ja han estat seleccionats per a ser implementats: %{projects}.'
-              unselected: 'Aquests projectes han estat deseleccionats de ser implementats: %{projects}.'
             select_a_project: Si us plau, selecciona un projecte.
             select_a_selection: Si us plau, selecciona un estat d'implementació.
-            success:
-              selected: 'Aquests projectes s''han seleccionat correctament per a ser implementats: %{projects}.'
-              unselected: 'Aquests projectes s''han deseleccionat correctament per a ser implementats: %{projects}.'
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes a projectes.
