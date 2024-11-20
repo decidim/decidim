@@ -760,8 +760,6 @@ pt:
           without_topic: Páginas sem tópico
         update:
           error: Ocorreu um problema ao atualizar esta página.
-      taxonomies:
-        count: Contagem
       titles:
         admin_log: Registo de administrador
         area_types: Tipos de área
