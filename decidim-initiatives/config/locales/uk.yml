@@ -207,6 +207,7 @@ uk:
           recent: Найновіші
         print:
           city: Місто
+          print: Друк
         result:
           initiative_rejected_reason: Цей почин був відхилений через недостатню підтримку.
         signatures_count:
