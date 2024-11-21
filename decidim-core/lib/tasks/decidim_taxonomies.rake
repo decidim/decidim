@@ -36,7 +36,7 @@ namespace :decidim do
         puts "...Importing #{taxonomies.count} root taxonomies from #{model_name}"
         taxonomies.each do |name, taxonomy|
           puts "  - Root taxonomy: #{name}"
-          puts "    Taxonomy items: #{taxonomy["taxonomies"].count}"
+          puts "    1st level taxonomies: #{taxonomy["taxonomies"].count}"
           puts "    Filters: #{taxonomy["filters"].count}"
           taxonomy["filters"].each do |filter|
             puts "      - Filter name: #{filter["name"]}"
@@ -87,7 +87,8 @@ namespace :decidim do
       models = [
         Decidim::Maintenance::ImportModels::ParticipatoryProcessType,
         Decidim::Maintenance::ImportModels::AssemblyType,
-        Decidim::Maintenance::ImportModels::Scope
+        Decidim::Maintenance::ImportModels::Scope,
+        Decidim::Maintenance::ImportModels::Area
       ]
       Decidim::Maintenance::TaxonomyPlan.new(organization, models)
     end

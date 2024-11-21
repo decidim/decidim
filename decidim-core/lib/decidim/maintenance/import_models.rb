@@ -10,6 +10,8 @@ module Decidim
       autoload :ParticipatoryProcessType, "decidim/maintenance/import_models/participatory_process_type"
       autoload :AssemblyType, "decidim/maintenance/import_models/assembly_type"
       autoload :Scope, "decidim/maintenance/import_models/scope"
+      autoload :Area, "decidim/maintenance/import_models/area"
+      autoload :AreaType, "decidim/maintenance/import_models/area_type"
     end
   end
 end

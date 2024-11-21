@@ -31,7 +31,7 @@ module Decidim::Maintenance::ImportModels
     let!(:external_assembly) { create(:assembly, title: { "en" => "INVALID Assembly" }, organization: external_organization, decidim_scope_id: external_scope.id) }
 
     let(:settings) { { scopes_enabled: component_scope_enabled, scope_id: sub3_scope.id } }
-    let(:root_taxonomy_name) { "~ #{I18n.t("decidim.scopes.scopes")}" }
+    let(:root_taxonomy_name) { "~ #{I18n.t("decidim.admin.titles.scopes")}" }
 
     before do
       # update part_of for scopes

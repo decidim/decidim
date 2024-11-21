@@ -4,9 +4,20 @@ module Decidim
   module Maintenance
     module ImportModels
       class Scope < ApplicationRecord
+        resource_models [
+          "Decidim::Assembly", "Decidim::ParticipatoryProcess", "Decidim::Conference", "Decidim::InitiativesTypeScope",
+          "Decidim::ActionLog",
+          "Decidim::Accountability::Result",
+          "Decidim::Budgets::Budget", "Decidim::Budgets::Project",
+          "Decidim::Debates::Debate",
+          "Decidim::Meetings::Meeting",
+          "Decidim::Proposals::CollaborativeDraft", "Decidim::Proposals::Proposal"
+        ]
+        participatory_space_models ["Decidim::Assembly", "Decidim::ParticipatoryProcess", "Decidim::Conference", "Decidim::Initiative"]
+
         self.table_name = "decidim_scopes"
 
-        def self.root_taxonomy_name = "~ #{I18n.t("decidim.scopes.scopes")}"
+        def self.root_taxonomy_name = "~ #{I18n.t("decidim.admin.titles.scopes")}"
 
         belongs_to :parent,
                    class_name: "Decidim::Maintenance::ImportModels::Scope",
@@ -131,23 +142,8 @@ module Decidim
           end
         end
 
-        def self.to_taxonomies
-          return [] unless all_taxonomies.any?
-
-          {
-            root_taxonomy_name => to_h
-          }
-        end
-
         def self.all_taxonomies
           all_in_org.where(parent_id: nil).to_h { |scope| [scope.name[I18n.locale.to_s], scope.taxonomies] }
-        end
-
-        def self.to_h
-          {
-            taxonomies: all_taxonomies,
-            filters: all_filters
-          }
         end
       end
     end

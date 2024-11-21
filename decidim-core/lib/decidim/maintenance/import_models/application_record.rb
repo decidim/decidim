@@ -5,53 +5,42 @@ module Decidim
     module ImportModels
       class ApplicationRecord < ActiveRecord::Base
         self.abstract_class = true
-        # rubocop:disable Style/ClassVars
-        @@resource_classes = [
-          "Decidim::Assembly", "Decidim::ParticipatoryProcess", "Decidim::Conference", "Decidim::InitiativesTypeScope",
-          "Decidim::ActionLog",
-          "Decidim::Accountability::Result",
-          "Decidim::Budgets::Budget", "Decidim::Budgets::Project",
-          "Decidim::Debates::Debate",
-          "Decidim::Meetings::Meeting",
-          "Decidim::Proposals::CollaborativeDraft", "Decidim::Proposals::Proposal"
-        ]
-        @@participatory_space_classes = ["Decidim::Assembly", "Decidim::ParticipatoryProcess", "Decidim::Conference", "Decidim::Initiative"]
+        @resource_classes = []
+        @participatory_space_classes = []
 
         def self.with(organization)
-          @@organization = organization
+          @organization = organization
           self
         end
 
-        def self.organization
-          @@organization
+        class << self
+          attr_reader :organization
         end
 
-        def organization
-          @@organization
-        end
+        attr_reader :organization
 
         def self.all_in_org
-          where(decidim_organization_id: @@organization.id)
+          where(decidim_organization_id: @organization.id)
         end
 
         def self.participatory_space_classes
-          @@participatory_space_classes.map(&:safe_constantize).compact_blank
+          @participatory_space_classes.map(&:safe_constantize).compact_blank
         end
 
-        def self.participatory_space_classes=(classes)
-          @@participatory_space_classes = classes
+        def self.participatory_space_models(classes)
+          @participatory_space_classes = classes
         end
 
         def self.resource_classes
-          @@resource_classes.map(&:safe_constantize).compact_blank
+          @resource_classes.map(&:safe_constantize).compact_blank
         end
 
-        def self.resource_classes=(classes)
-          @@resource_classes = classes
+        def self.resource_models(classes)
+          @resource_classes = classes
         end
 
         def self.add_resource_class(klass)
-          @@resource_classes << klass
+          @resource_classes << klass
         end
 
         def resource_title(resource)
@@ -74,7 +63,29 @@ module Decidim
             title
           end
         end
-        # rubocop:enable Style/ClassVars
+
+        def self.all_taxonomies
+          raise NotImplementedError
+        end
+
+        def self.all_filters
+          raise NotImplementedError
+        end
+
+        def self.to_taxonomies
+          return [] unless all_taxonomies.any?
+
+          {
+            root_taxonomy_name => to_h
+          }
+        end
+
+        def self.to_h
+          {
+            taxonomies: all_taxonomies,
+            filters: all_filters
+          }
+        end
       end
     end
   end

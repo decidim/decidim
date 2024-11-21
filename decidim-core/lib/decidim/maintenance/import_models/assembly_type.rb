@@ -17,7 +17,7 @@ module Decidim
         def taxonomies
           {
             name:,
-            children: [],
+            children: {},
             resources:
           }
         end
@@ -28,25 +28,20 @@ module Decidim
           end
         end
 
-        def self.to_taxonomies
-          {
-            root_taxonomy_name => to_h
-          }
+        def self.all_taxonomies
+          all_in_org.to_h { |type| [type.name[I18n.locale.to_s], type.taxonomies] }
         end
 
-        def self.to_h
-          {
-            taxonomies: all_in_org.to_h { |type| [type.name[I18n.locale.to_s], type.taxonomies] },
-            filters: [
-              {
-                name: root_taxonomy_name,
-                space_filter: true,
-                space_manifest:,
-                items: all_in_org.map { |type| [type.name[I18n.locale.to_s]] },
-                components: []
-              }
-            ]
-          }
+        def self.all_filters
+          [
+            {
+              name: root_taxonomy_name,
+              space_filter: true,
+              space_manifest:,
+              items: all_in_org.map { |type| [type.name[I18n.locale.to_s]] },
+              components: []
+            }
+          ]
         end
       end
     end

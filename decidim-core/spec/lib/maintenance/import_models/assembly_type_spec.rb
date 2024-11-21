@@ -31,7 +31,7 @@ module Decidim::Maintenance::ImportModels
       it "returns the taxonomies" do
         expect(subject.taxonomies).to eq(
           name: assembly_type.title,
-          children: [],
+          children: {},
           resources: subject.resources
         )
       end
