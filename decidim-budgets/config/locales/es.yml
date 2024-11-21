@@ -96,6 +96,7 @@ es:
             cancel: Cancelar
             change_budget: Cambiar presupuesto
             change_selected: Cambiar estado seleccionado
+            change_taxonomies: Cambiar taxonomías
             deselect_implementation: No seleccionado para implementar
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
@@ -120,6 +121,8 @@ es:
           update_selected:
             select_a_project: Por favor, selecciona un proyecto.
             select_a_selection: Por favor, selecciona un estado de implementación.
+          update_taxonomies:
+            select_a_project: Por favor, selecciona un proyecto.
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas a proyectos.
