@@ -150,6 +150,7 @@ is:
           recent: Síðast
         print:
           city: Borg
+          print: Prenta
         vote_cabin:
           vote: Skráðu þig
         votes_count:
