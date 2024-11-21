@@ -21,6 +21,11 @@ ca:
         details: Comentaris addicionals
       taxonomy:
         name: Nom de la taxonomia
+      taxonomy_filter:
+        internal_name: Nom intern del filtre
+        name: Títol públic del filtre
+        root_taxonomy_id: Des de la taxonomia
+        space_filter: Disponible com a filtre pels espais de participació
       user:
         about: Quant a
         email: El teu correu electrònic
@@ -1683,6 +1688,8 @@ ca:
       users_count: Participants
     tags:
       filter_results_for_taxonomy: 'Resultats en filtrar per: %{resource}'
+    taxonomies:
+      prompt: Si us plau, selecciona una opció
     translation_bar:
       help_text: "<strong>Advertència:</strong> Pot ser que el contingut sigui traduït automàticament i no sigui 100% acurat."
       show_original: Mostra el text original
