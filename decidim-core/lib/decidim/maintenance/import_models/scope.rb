@@ -46,15 +46,18 @@ module Decidim
         end
 
         def children_taxonomies
-          return children.map(&:taxonomies) if parent_ids.count < 2
+          return children.to_h { |child| [child.full_name[I18n.locale.to_s], child.taxonomies] } if parent_ids.count < 2
 
           # next level is going to be too deep, we transform the children into sibilings
-          all_children.map do |child|
-            {
-              name: child.full_name,
-              children: [],
-              resources: child.resources
-            }
+          all_children.to_h do |child|
+            [
+              child.full_name[I18n.locale.to_s],
+              {
+                name: child.full_name,
+                children: {},
+                resources: child.resources
+              }
+            ]
           end
         end
 
@@ -100,7 +103,7 @@ module Decidim
           return unless scopes_enabled
 
           scope = find_by(id: component.settings[:scope_id]) || (space.scopes_enabled? && find_by(id: space.decidim_scope_id))
-          list = scope ? scope.all_children : all
+          list = scope ? [scope] + scope.all_children : all
 
           {
             space_filter: false,

@@ -33,7 +33,7 @@ namespace :decidim do
       planner(organization).import(data) do |importer, model_name|
         taxonomies = importer.roots
         result = importer.result
-        puts "...Importing #{taxonomies.count} taxonomies from #{model_name}"
+        puts "...Importing #{taxonomies.count} root taxonomies from #{model_name}"
         taxonomies.each do |name, taxonomy|
           puts "  - Root taxonomy: #{name}"
           puts "    Taxonomy items: #{taxonomy["taxonomies"].count}"
@@ -54,10 +54,7 @@ namespace :decidim do
         end
         puts "    Created filters: #{result[:filters_created].count}"
         result[:filters_created].each do |name, items|
-          puts "      - #{name}:"
-          items.each do |item|
-            puts "        - #{item}"
-          end
+          puts "      - #{name}: #{items.count} items"
         end
         puts "    Assigned resources: #{result[:taxonomies_assigned].count}"
         result[:taxonomies_assigned].each do |name, resources|

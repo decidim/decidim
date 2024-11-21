@@ -101,7 +101,7 @@ module Decidim::Maintenance
         subject.import!
         expect(subject.result[:taxonomies_created]).to eq(["New root taxonomy", "New taxonomy", "New child taxonomy"])
         expect(subject.result[:taxonomies_assigned]["New child taxonomy"]).to eq([resource_id])
-        expect(subject.result[:filters_created]["New root taxonomy"]).to eq(["New taxonomy > New child taxonomy"])
+        expect(subject.result[:filters_created]["participatory_processes: New root taxonomy"]).to eq(["New taxonomy > New child taxonomy"])
         expect(subject.result[:failed_resources]).to be_empty
         expect(subject.result[:failed_components]).to be_empty
       end

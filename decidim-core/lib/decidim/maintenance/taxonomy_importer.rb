@@ -49,8 +49,7 @@ module Decidim
       end
 
       def import_filter(root, data)
-        name = data["name"]
-        filter = find_taxonomy_filter(root, name) || root.taxonomy_filters.create!(space_filter: data["space_filter"], space_manifest: data["space_manifest"])
+        filter = find_taxonomy_filter!(root, data)
 
         data["items"].each do |item_names|
           taxonomy = root
@@ -60,8 +59,8 @@ module Decidim
           next if filter.filter_items.exists?(taxonomy_item: taxonomy)
 
           filter.filter_items.create!(taxonomy_item: taxonomy) do
-            @result[:filters_created][name] ||= []
-            @result[:filters_created][name] << item_names.join(" > ")
+            @result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] ||= []
+            @result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] << item_names.join(" > ")
           end
         end
 
@@ -89,8 +88,21 @@ module Decidim
         end
       end
 
-      def find_taxonomy_filter(root_taxonomy, name)
-        root_taxonomy.taxonomy_filters.all.detect { |filter| filter.internal_name[organization.default_locale] == name }
+      def find_taxonomy_filter!(root_taxonomy, data)
+        name = data["internal_name"] || data["name"]
+        attributes = {
+          space_filter: data["space_filter"],
+          space_manifest: data["space_manifest"]
+        }
+        attributes["internal_name"] = { I18n.locale.to_s => data["internal_name"] } if data["internal_name"]
+        attributes["name"] = { I18n.locale.to_s => data["public_name"] } if data["public_name"]
+        find_taxonomy_filter(root_taxonomy, name:, space_filter: data["space_filter"], space_manifest: data["space_manifest"]) || root_taxonomy.taxonomy_filters.create!(attributes)
+      end
+
+      def find_taxonomy_filter(root_taxonomy, name:, space_filter:, space_manifest:)
+        root_taxonomy.taxonomy_filters.all.detect do |filter|
+          filter.internal_name[organization.default_locale] == name && filter.space_filter == space_filter && filter.space_manifest == space_manifest
+        end
       end
 
       def root_taxonomies

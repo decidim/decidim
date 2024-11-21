@@ -66,28 +66,30 @@ module Decidim::Maintenance::ImportModels
       it "returns the taxonomies" do
         expect(scope.taxonomies).to eq(
           name: { "en" => "Scope 1", "ca" => "Àmbit 1" },
-          children: [
-            {
+          children: {
+            "Scope 1 second level" => {
               name: { "en" => "Scope 1 second level" },
-              children: [{
-                name: { "en" => "Scope 1 third level" },
-                children: [
-                  {
-                    name: { "en" => "Scope 1 third level > Scope 1 fourth level" },
-                    children: [],
-                    resources: sub4_scope.resources
+              children: {
+                "Scope 1 third level" => {
+                  name: { "en" => "Scope 1 third level" },
+                  children: {
+                    "Scope 1 third level > Scope 1 fourth level" => {
+                      name: { "en" => "Scope 1 third level > Scope 1 fourth level" },
+                      children: {},
+                      resources: sub4_scope.resources
+                    },
+                    "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level" => {
+                      name: { "en" => "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level" },
+                      children: {},
+                      resources: {}
+                    }
                   },
-                  {
-                    name: { "en" => "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level" },
-                    children: [],
-                    resources: {}
-                  }
-                ],
-                resources: {}
-              }],
+                  resources: {}
+                }
+              },
               resources: sub2_scope.resources
             }
-          ],
+          },
           resources: {}
         )
       end
@@ -161,6 +163,11 @@ module Decidim::Maintenance::ImportModels
             name: root_taxonomy_name,
             internal_name: "#{root_taxonomy_name}: Dummy Component",
             items: [
+              [
+                "Scope 1",
+                "Scope 1 second level",
+                "Scope 1 third level"
+              ],
               [
                 "Scope 1",
                 "Scope 1 second level",
