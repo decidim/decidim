@@ -117,13 +117,23 @@ ca:
             invalid: S'ha produït un error en actualitzar aquest projecte.
             success: Projecte actualitzat correctament.
           update_budget:
+            invalid: 'Aquests projectes ja estan al mateix pressupost o els seus pressupostos són superiors al màxim permès: %{errored}.'
             select_a_project: Si us plau, selecciona un projecte.
+            success: 'Projectes actualitzats correctament pel pressupost de %{subject_name}: %{successful}.'
           update_selected:
+            invalid:
+              selected: 'Aquests projectes ja han estat seleccionats per a ser implementats: %{errored}.'
+              unselected: 'Aquests projectes que apareixien per ser implementats ja s''han desseleccionat: %{errored}.'
             select_a_project: Si us plau, selecciona un projecte.
             select_a_selection: Si us plau, selecciona un estat d'implementació.
+            success:
+              selected: 'Aquests projectes han estat de seleccionats de ser implementats: %{errored}.'
+              unselected: 'Aquests projectes que apareixien per ser implementats s''han desseleccionat amb èxit: %{successful}.'
           update_taxonomies:
+            invalid: 'Les taxonomies %{taxonomies} ja estaven assignades a aquests projectes: %{errored}.'
             select_a_project: Si us plau, selecciona un projecte.
             select_a_taxonomy: Si us plau, selecciona una taxonomia.
+            success: 'Els projectes s''han actualitzat correctament a les taxonomies "%{taxonomies}": %{successful}.'
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes a projectes.
