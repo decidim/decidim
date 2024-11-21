@@ -12,7 +12,11 @@ module Decidim
       attribute :send_to_followers, Boolean
       attribute :send_to_private_members, Boolean
 
-      validates :send_to_all_users, presence: true, unless: ->(form) { form.send_to_participants.present? || form.send_to_followers.present? || form.send_to_private_members.present? }
+      validates :send_to_all_users, presence: true, unless: lambda { |form|
+        form.send_to_participants.present? ||
+          form.send_to_followers.present? ||
+          form.send_to_private_members.present?
+      }
       validates :send_to_followers, presence: true, if: ->(form) { form.send_to_all_users.blank? && form.send_to_participants.blank? && form.send_to_private_members.blank? }
       validates :send_to_participants, presence: true, if: ->(form) { form.send_to_all_users.blank? && form.send_to_followers.blank? && form.send_to_private_members.blank? }
       validates :send_to_private_members, presence: true, if: ->(form) { form.send_to_all_users.blank? && form.send_to_followers.blank? && form.send_to_participants.blank? }

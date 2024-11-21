@@ -800,8 +800,6 @@ en:
           participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
           private_members_help: Sends a newsletter to all confirmed users that have been added to the selected private participatory spaces.
           recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong> users.
-          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
-          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
           select_spaces: Select spaces to segment the newsletter
           select_users: Select which users you want to send the newsletter
           title: Select recipients to deliver
