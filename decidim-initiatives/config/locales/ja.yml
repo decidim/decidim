@@ -523,9 +523,7 @@ ja:
           phone_number: 電話番号
           place_date: 場所、日付
           postal_code: 郵便番号
-          print: 印刷
           province: 都道府県/州
-          section: '組織から要求された場合、印刷した紙に必要事項を記入して、指定の場所に送信してください:'
           signature: 署名
         result:
           answer_title: このイニシアチブに回答がありました。
