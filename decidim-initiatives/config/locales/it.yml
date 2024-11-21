@@ -422,7 +422,7 @@ it:
           phone_number: Numero di telefono
           place_date: Luogo, data
           postal_code: Codice postale/CAP
-          print: Stampa
+          print: Stampare
           province: Provincia/Stato
           section: 'Se richiesto dall''organizzazione, si prega di stampare e compilare il presente modulo per inviare dove indicato:'
           signature: Firma
