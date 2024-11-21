@@ -130,9 +130,11 @@ namespace :decidim do
       task fix_blocked_user_notification: :environment do
         logger.info("=== Updating all blocked users notifications_sending_frequency ...")
         blocked_users = 0
-        Decidim::UserBlock.find_each do |blocked_user|
-          blocked_user.user.update(notifications_sending_frequency: "none")
-          blocked_users += 1
+        Decidim::User.blocked.where.not("notifications_sending_frequency = ?", "none").find_each do |blocked_user|
+          unless blocked_user.notifications_sending_frequency == "none"
+            blocked_user.update(notifications_sending_frequency: "none")
+            blocked_users += 1
+          end
         end
         logger.info("===== Updated #{blocked_users} blocked users")
       end
