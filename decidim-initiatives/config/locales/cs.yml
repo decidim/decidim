@@ -544,9 +544,7 @@ cs:
           phone_number: Telefonní číslo
           place_date: Místo, datum
           postal_code: PSČ/ZIP
-          print: Tisk
           province: Kraj / Stát
-          section: 'Pokud o to organizace požádá, vytiskněte a vyplňte tento formulář pro odeslání, pokud je uvedeno:'
           signature: Podpis
         result:
           answer_title: Tato iniciativa byla zodpovězena.
