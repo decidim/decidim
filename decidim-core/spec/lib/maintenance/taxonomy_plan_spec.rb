@@ -98,7 +98,7 @@ module Decidim::Maintenance
 
       context "when a block is given" do
         it "yields the importer" do
-          expect { |b| subject.import(data, &b) }.to yield_with_args(subject.importer)
+          expect { |b| subject.import(data, &b) }.to yield_with_args(subject.importer, dummy_model.table_name)
         end
       end
     end

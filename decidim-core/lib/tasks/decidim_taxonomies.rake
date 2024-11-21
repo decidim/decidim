@@ -88,9 +88,9 @@ namespace :decidim do
 
     def planner(organization)
       models = [
-        Decidim::Maintenance::ParticipatoryProcessType,
-        Decidim::Maintenance::AssemblyType,
-        Decidim::Maintenance::Scope
+        Decidim::Maintenance::ImportModels::ParticipatoryProcessType,
+        Decidim::Maintenance::ImportModels::AssemblyType,
+        Decidim::Maintenance::ImportModels::Scope
       ]
       Decidim::Maintenance::TaxonomyPlan.new(organization, models)
     end

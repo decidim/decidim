@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/maintenance"
+require "decidim/maintenance/import_models"
 
-module Decidim::Maintenance
+module Decidim::Maintenance::ImportModels
   describe ParticipatoryProcessType do
     subject { participatory_process_type }
 
@@ -13,12 +13,13 @@ module Decidim::Maintenance
     let!(:another_taxonomy) { create(:taxonomy, :with_parent, organization:) }
     let(:taxonomies) { [sub_taxonomy, another_taxonomy] }
     # avoid using factories for this test in case old models are removed
-    let(:participatory_process_type) { Decidim::Maintenance::ParticipatoryProcessType.create!(title: { "en" => "Participatory Process Type 1", "ca" => "Tipus de procés participatiu 1" }, decidim_organization_id: organization.id) }
+    let(:participatory_process_type) { described_class.create!(title: { "en" => "Participatory Process Type 1", "ca" => "Tipus de procés participatiu 1" }, decidim_organization_id: organization.id) }
     let!(:process) { create(:participatory_process, decidim_participatory_process_type_id: participatory_process_type.id, taxonomies:, organization:) }
     let(:external_organization) { create(:organization) }
     let(:external_taxonomy) { create(:taxonomy, :with_parent, organization: external_organization) }
-    let!(:external_participatory_process_type) { Decidim::Maintenance::ParticipatoryProcessType.create!(title: { "en" => "External Participatory Process Type" }, decidim_organization_id: external_organization.id) }
+    let!(:external_participatory_process_type) { described_class.create!(title: { "en" => "External Participatory Process Type" }, decidim_organization_id: external_organization.id) }
     let!(:external_process) { create(:participatory_process, organization: external_organization, decidim_participatory_process_type_id: external_participatory_process_type.id) }
+    let(:root_taxonomy_name) { "~ #{I18n.t("decidim.admin.titles.participatory_process_types")}" }
 
     describe "#name" do
       it "returns the title" do
@@ -45,7 +46,7 @@ module Decidim::Maintenance
     describe ".to_taxonomies" do
       it "returns the participatory process types" do
         expect(described_class.with(organization).to_taxonomies).to eq(
-          I18n.t("decidim.admin.titles.participatory_process_types") => described_class.to_h
+          root_taxonomy_name => described_class.to_h
         )
       end
     end
@@ -57,7 +58,7 @@ module Decidim::Maintenance
             taxonomies: { participatory_process_type.title[I18n.locale.to_s] => subject.taxonomies },
             filters: [
               {
-                name: I18n.t("decidim.admin.titles.participatory_process_types"),
+                name: root_taxonomy_name,
                 space_filter: true,
                 space_manifest: "participatory_processes",
                 items: [[participatory_process_type.title[I18n.locale.to_s]]],

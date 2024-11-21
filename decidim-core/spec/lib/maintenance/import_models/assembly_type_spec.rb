@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/maintenance"
+require "decidim/maintenance/import_models"
 
-module Decidim::Maintenance
+module Decidim::Maintenance::ImportModels
   describe AssemblyType do
     subject { assembly_type }
 
@@ -13,12 +13,13 @@ module Decidim::Maintenance
     let!(:another_taxonomy) { create(:taxonomy, :with_parent, organization:) }
     let(:taxonomies) { [sub_taxonomy, another_taxonomy] }
     # avoid using factories for this test in case old models are removed
-    let(:assembly_type) { Decidim::Maintenance::AssemblyType.create!(title: { "en" => "Assembly Type 1", "ca" => "Tipus d'assemblea 1" }, decidim_organization_id: organization.id) }
+    let(:assembly_type) { described_class.create!(title: { "en" => "Assembly Type 1", "ca" => "Tipus d'assemblea 1" }, decidim_organization_id: organization.id) }
     let!(:assembly) { create(:assembly, taxonomies:, organization:, decidim_assemblies_type_id: assembly_type.id) }
     let(:external_organization) { create(:organization) }
     let(:external_taxonomy) { create(:taxonomy, :with_parent, organization: external_organization) }
-    let!(:external_assembly_type) { Decidim::Maintenance::AssemblyType.create!(title: { "en" => "External Assembly Type" }, decidim_organization_id: external_organization.id) }
+    let!(:external_assembly_type) { described_class.create!(title: { "en" => "External Assembly Type" }, decidim_organization_id: external_organization.id) }
     let!(:external_assembly) { create(:assembly, organization: external_organization, decidim_assemblies_type_id: external_assembly_type.id) }
+    let(:root_taxonomy_name) { "~ #{I18n.t("decidim.admin.titles.assemblies_types")}" }
 
     describe "#name" do
       it "returns the title" do
@@ -45,7 +46,7 @@ module Decidim::Maintenance
     describe ".to_taxonomies" do
       it "returns the participatory assembly types" do
         expect(described_class.with(organization).to_taxonomies).to eq(
-          I18n.t("decidim.admin.titles.assemblies_types") => described_class.to_h
+          root_taxonomy_name => described_class.to_h
         )
       end
     end
@@ -57,7 +58,7 @@ module Decidim::Maintenance
             taxonomies: { assembly_type.title[I18n.locale.to_s] => subject.taxonomies },
             filters: [
               {
-                name: I18n.t("decidim.admin.titles.assemblies_types"),
+                name: root_taxonomy_name,
                 space_filter: true,
                 space_manifest: "assemblies",
                 items: [[assembly_type.title[I18n.locale.to_s]]],

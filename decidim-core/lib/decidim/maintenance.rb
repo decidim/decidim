@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "decidim/maintenance/application_record"
+require "decidim/maintenance/import_models"
 module Decidim
   # This class should not be imported automatically by the Decidim web app
   # It holds utilities for maintenance tasks (such as importing taxonomies)
@@ -8,8 +8,5 @@ module Decidim
   module Maintenance
     autoload :TaxonomyImporter, "decidim/maintenance/taxonomy_importer"
     autoload :TaxonomyPlan, "decidim/maintenance/taxonomy_plan"
-    autoload :ParticipatoryProcessType, "decidim/maintenance/participatory_process_type"
-    autoload :AssemblyType, "decidim/maintenance/assembly_type"
-    autoload :Scope, "decidim/maintenance/scope"
   end
 end

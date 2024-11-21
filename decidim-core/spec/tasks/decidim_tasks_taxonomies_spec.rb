@@ -9,11 +9,11 @@ describe "Executing Decidim Taxonomy importer tasks" do
   let(:decidim_organization_id) { organization.id }
 
   # avoid using factories for this test in case old models are removed
-  let!(:process_type1) { Decidim::Maintenance::ParticipatoryProcessType.create!(title: { "en" => "Participatory Process Type 1", "ca" => "Tipus de procés participatiu 1" }, decidim_organization_id: organization.id) }
-  let!(:process_type2) { Decidim::Maintenance::ParticipatoryProcessType.create!(title: { "en" => "Participatory Process Type 2", "ca" => "Tipus de procés participatiu 2" }, decidim_organization_id: organization.id) }
+  let!(:process_type1) { Decidim::Maintenance::ImportModels::ParticipatoryProcessType.create!(title: { "en" => "Participatory Process Type 1", "ca" => "Tipus de procés participatiu 1" }, decidim_organization_id: organization.id) }
+  let!(:process_type2) { Decidim::Maintenance::ImportModels::ParticipatoryProcessType.create!(title: { "en" => "Participatory Process Type 2", "ca" => "Tipus de procés participatiu 2" }, decidim_organization_id: organization.id) }
   let!(:participatory_process) { create(:participatory_process, organization:, decidim_participatory_process_type_id: process_type1.id) }
-  let!(:assembly_type1) { Decidim::Maintenance::AssemblyType.create!(title: { "en" => "Assembly Type 1", "ca" => "Tipus d'assemblea 1" }, decidim_organization_id: organization.id) }
-  let!(:assembly_type2) { Decidim::Maintenance::AssemblyType.create!(title: { "en" => "Assembly Type 2", "ca" => "Tipus d'assemblea 2" }, decidim_organization_id: organization.id) }
+  let!(:assembly_type1) { Decidim::Maintenance::ImportModels::AssemblyType.create!(title: { "en" => "Assembly Type 1", "ca" => "Tipus d'assemblea 1" }, decidim_organization_id: organization.id) }
+  let!(:assembly_type2) { Decidim::Maintenance::ImportModels::AssemblyType.create!(title: { "en" => "Assembly Type 2", "ca" => "Tipus d'assemblea 2" }, decidim_organization_id: organization.id) }
   let!(:assembly) { create(:assembly, organization:, decidim_assemblies_type_id: assembly_type1.id) }
 
   describe "rake decidim:taxonomies:make_plan", type: :task do
@@ -33,8 +33,8 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
       process_type_roots = json_content["imported_taxonomies"]["decidim_participatory_process_types"]
       expect(process_type_roots.count).to eq(1)
-      expect(process_type_roots.keys.first).to eq("Participatory process types")
-      taxonomies = process_type_roots["Participatory process types"]["taxonomies"]
+      expect(process_type_roots.keys.first).to eq("~ Participatory process types")
+      taxonomies = process_type_roots["~ Participatory process types"]["taxonomies"]
       expect(taxonomies.count).to eq(2)
       expect(taxonomies.keys).to contain_exactly("Participatory Process Type 1", "Participatory Process Type 2")
       expect(taxonomies["Participatory Process Type 1"]["name"]).to eq({ "en" => "Participatory Process Type 1", "ca" => "Tipus de procés participatiu 1" })
@@ -44,17 +44,17 @@ describe "Executing Decidim Taxonomy importer tasks" do
       expect(taxonomies["Participatory Process Type 2"]["resources"]).to eq({})
       expect(taxonomies["Participatory Process Type 2"]["name"]).to eq({ "en" => "Participatory Process Type 2", "ca" => "Tipus de procés participatiu 2" })
 
-      expect(process_type_roots["Participatory process types"]["filters"].count).to eq(1)
-      expect(process_type_roots["Participatory process types"]["filters"].first["name"]).to eq("Participatory process types")
-      expect(process_type_roots["Participatory process types"]["filters"].first["space_filter"]).to be(true)
-      expect(process_type_roots["Participatory process types"]["filters"].first["space_manifest"]).to eq("participatory_processes")
-      expect(process_type_roots["Participatory process types"]["filters"].first["items"]).to contain_exactly(["Participatory Process Type 1"], ["Participatory Process Type 2"])
-      expect(process_type_roots["Participatory process types"]["filters"].first["components"]).to eq([])
+      expect(process_type_roots["~ Participatory process types"]["filters"].count).to eq(1)
+      expect(process_type_roots["~ Participatory process types"]["filters"].first["name"]).to eq("~ Participatory process types")
+      expect(process_type_roots["~ Participatory process types"]["filters"].first["space_filter"]).to be(true)
+      expect(process_type_roots["~ Participatory process types"]["filters"].first["space_manifest"]).to eq("participatory_processes")
+      expect(process_type_roots["~ Participatory process types"]["filters"].first["items"]).to contain_exactly(["Participatory Process Type 1"], ["Participatory Process Type 2"])
+      expect(process_type_roots["~ Participatory process types"]["filters"].first["components"]).to eq([])
 
       assembly_types_roots = json_content["imported_taxonomies"]["decidim_assemblies_types"]
       expect(assembly_types_roots.count).to eq(1)
-      expect(assembly_types_roots.keys.first).to eq("Assemblies types")
-      taxonomies = assembly_types_roots["Assemblies types"]["taxonomies"]
+      expect(assembly_types_roots.keys.first).to eq("~ Assemblies types")
+      taxonomies = assembly_types_roots["~ Assemblies types"]["taxonomies"]
       expect(taxonomies.count).to eq(2)
       expect(taxonomies.keys).to contain_exactly("Assembly Type 1", "Assembly Type 2")
       expect(taxonomies["Assembly Type 1"]["name"]).to eq({ "en" => "Assembly Type 1", "ca" => "Tipus d'assemblea 1" })
@@ -62,12 +62,12 @@ describe "Executing Decidim Taxonomy importer tasks" do
       expect(taxonomies["Assembly Type 2"]["resources"]).to eq({})
       expect(taxonomies["Assembly Type 2"]["name"]).to eq({ "en" => "Assembly Type 2", "ca" => "Tipus d'assemblea 2" })
 
-      expect(assembly_types_roots["Assemblies types"]["filters"].count).to eq(1)
-      expect(assembly_types_roots["Assemblies types"]["filters"].first["name"]).to eq("Assemblies types")
-      expect(assembly_types_roots["Assemblies types"]["filters"].first["space_filter"]).to be(true)
-      expect(assembly_types_roots["Assemblies types"]["filters"].first["space_manifest"]).to eq("assemblies")
-      expect(assembly_types_roots["Assemblies types"]["filters"].first["items"]).to contain_exactly(["Assembly Type 1"], ["Assembly Type 2"])
-      expect(assembly_types_roots["Assemblies types"]["filters"].first["components"]).to eq([])
+      expect(assembly_types_roots["~ Assemblies types"]["filters"].count).to eq(1)
+      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["name"]).to eq("~ Assemblies types")
+      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["space_filter"]).to be(true)
+      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["space_manifest"]).to eq("assemblies")
+      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["items"]).to contain_exactly(["Assembly Type 1"], ["Assembly Type 2"])
+      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["components"]).to eq([])
 
       check_message_printed("Creating a plan for organization #{decidim_organization_id}")
       check_message_printed("...Exporting taxonomies for decidim_participatory_process_types")
@@ -92,21 +92,21 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
       check_message_printed(<<~MSG)
         ...Importing 1 taxonomies from decidim_participatory_process_types
-          - Root taxonomy: Participatory process types
+          - Root taxonomy: ~ Participatory process types
             Taxonomy items: 2
             Filters: 1
-              - Filter name: Participatory process types
+              - Filter name: ~ Participatory process types
                 Internal name: -
                 Manifest: participatory_processes
                 Space filter: true
                 Items: 2
                 Components: 0
             Created taxonomies: 3
-              - Participatory process types
+              - ~ Participatory process types
               - Participatory Process Type 1
               - Participatory Process Type 2
             Created filters: 1
-              - Participatory process types:
+              - ~ Participatory process types:
                 - Participatory Process Type 1
                 - Participatory Process Type 2
             Assigned resources: 1
@@ -118,21 +118,21 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
       check_message_printed(<<~MSG)
         ...Importing 1 taxonomies from decidim_assemblies_types
-          - Root taxonomy: Assemblies types
+          - Root taxonomy: ~ Assemblies types
             Taxonomy items: 2
             Filters: 1
-              - Filter name: Assemblies types
+              - Filter name: ~ Assemblies types
                 Internal name: -
                 Manifest: assemblies
                 Space filter: true
                 Items: 2
                 Components: 0
             Created taxonomies: 3
-              - Assemblies types
+              - ~ Assemblies types
               - Assembly Type 1
               - Assembly Type 2
             Created filters: 1
-              - Assemblies types:
+              - ~ Assemblies types:
                 - Assembly Type 1
                 - Assembly Type 2
             Assigned resources: 1
