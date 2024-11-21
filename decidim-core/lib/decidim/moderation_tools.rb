@@ -85,41 +85,17 @@ module Decidim
         @reportable.try(:touch)
       end
 
-      hide_comments!
-      hide_replies! if reportable.is_a?(Decidim::Comments::Comment)
+      @reportable.comments.each do |comment|
+        Decidim::HideChildResourcesJob.perform_later(comment)
+      end
+
+      if @reportable.is_a?(Decidim::Comments::Comment)
+        @reportable.comment_threads.each do |comment|
+          Decidim::HideChildResourcesJob.perform_later(comment)
+        end
+      end
 
       send_notification_to_author if send_notification
-    end
-
-    def hide_comments!
-      return unless reportable.is_a?(Decidim::Comments::Commentable)
-
-      reportable.comments.each do |comment|
-        tool = Decidim::ModerationTools.new(comment, @current_user)
-        unless Decidim::Report.exists?("decidim_moderation_id" => tool.moderation.id, "decidim_user_id" => @current_user.id)
-          tool.create_report!({
-                                reason: "parent_hidden",
-                                details: I18n.t("report_details", scope: "decidim.reports.parent_hidden")
-                              })
-        end
-
-        tool.hide!
-      end
-    end
-
-    def hide_replies!
-      replies = Decidim::Comments::Comment.where("decidim_commentable_id" => reportable.id)
-      replies.each do |reply|
-        tool = Decidim::ModerationTools.new(reply, @current_user)
-        unless Decidim::Report.exists?("decidim_moderation_id" => tool.moderation.id, "decidim_user_id" => @current_user.id)
-          tool.create_report!({
-                                reason: "parent_hidden",
-                                details: I18n.t("report_details", scope: "decidim.reports.parent_hidden")
-                              })
-        end
-
-        tool.hide!
-      end
     end
 
     private

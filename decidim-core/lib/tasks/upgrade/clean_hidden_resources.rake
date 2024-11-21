@@ -8,7 +8,7 @@ namespace :decidim do
         logger.info("Removing child resources for hidden parents...")
         Decidim::Moderation.hidden.find_each do |moderation_for_hidden_resource|
           reportable = moderation_for_hidden_resource.reportable
-          current_user = reportable.organization.admins.find_by!(email: Decidim::Ai::SpamDetection.reporting_user_email)
+          current_user = reportable.organization.users.find_by!(email: Decidim::Ai::SpamDetection.reporting_user_email)
           tool = Decidim::ModerationTools.new(reportable, current_user)
           tool.hide!
         rescue NameError => e
