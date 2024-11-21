@@ -13,6 +13,8 @@ module Decidim
 
   # Base module for the initiatives engine.
   module Initiatives
+    autoload :ApplicationFormPDF, "decidim/initiatives/application_form_pdf"
+
     include ActiveSupport::Configurable
 
     # Public setting that defines whether creation is allowed to any validated
