@@ -532,9 +532,7 @@ fi-pl:
           phone_number: Puhelinnumero
           place_date: Paikka, Päivämäärä
           postal_code: Postinumero
-          print: Tulosta
           province: Lääni tai maakunta
-          section: 'Pyydettäessä tulostakaa ja täyttäkää tämä lomake lähettääksenne sen osoitettuun paikkaan:'
           signature: Allekirjoitus
         result:
           answer_title: Tähän aloitteeseen on vastattu.
