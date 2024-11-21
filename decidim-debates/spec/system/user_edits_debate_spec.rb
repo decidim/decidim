@@ -55,7 +55,8 @@ describe "User edits a debate" do
         visit_component
 
         click_on debate.title.values.first
-        click_on "Edit debate"
+        find("#dropdown-trigger-resource-#{debate.id}").click
+        click_on "Edit"
 
         expect(page).to have_no_css("#debate_documents_button")
       end
@@ -72,7 +73,8 @@ describe "User edits a debate" do
         visit_component
 
         click_on debate.title.values.first
-        click_on "Edit debate"
+        find("#dropdown-trigger-resource-#{debate.id}").click
+        click_on "Edit"
 
         within ".edit_debate" do
           fill_in :debate_title, with: "Should every organization use Decidim?"
