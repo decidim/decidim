@@ -41,39 +41,46 @@ module Decidim
       end
 
       def add_initiative_data
-        cells = [[
+        data_header = [
           layout.text(I18n.t("models.initiatives_votes.fields.initiative_id", scope: "decidim.admin"), style: :initiative_th),
           layout.text(I18n.t("models.initiatives_votes.fields.initiative_title", scope: "decidim.admin"), style: :initiative_th),
           layout.text(I18n.t("models.initiatives_votes.fields.initiative_start_date", scope: "decidim.admin"), style: :initiative_th),
           layout.text(I18n.t("models.initiatives_votes.fields.initiative_end_date", scope: "decidim.admin"), style: :initiative_th),
           layout.text(I18n.t("models.initiatives_votes.fields.initiative_signatures_count", scope: "decidim.admin"), style: :initiative_th)
-        ], [
+        ]
+
+        data_row = [
           layout.text(initiative.reference, style: :initiative_td),
           layout.text(translated_attribute(initiative.title), style: :initiative_td),
           layout.text(I18n.l(initiative.signature_start_date, format: :short), style: :initiative_td),
           layout.text(I18n.l(initiative.signature_end_date, format: :short), style: :initiative_td),
           layout.text(collection.count.to_s, style: :initiative_td)
-        ]]
+        ]
 
-        composer.table(cells, column_widths: [-1, -1.75, -0.55, -0.55, -1], cell_style:)
+        cells = [
+          [layout.table([data_header], column_widths: [-1, -1.75, -0.55, -0.55, -1], cell_style: row_style)],
+          [layout.table([data_row], column_widths: [-1, -1.75, -0.55, -0.55, -1], cell_style: row_style)]
+        ]
+        composer.table(cells, cell_style:)
       end
 
       def add_signature_data
-        cells = []
-        cells.push(header)
-
-        collection.each do |vote|
-          cells.push(vote_row(vote))
+        data_rows = collection.map do |vote|
+          vote_row(vote)
         end
 
-        composer.table(cells, column_widths: signature_column_widths, margin: [20, 0, 0, 0], cell_style:)
+        cells = [
+          [layout.table([header], column_widths: signature_column_widths, cell_style: row_style)],
+          [layout.table(data_rows, column_widths: signature_column_widths, cell_style: row_style)]
+        ]
+        composer.table(cells, margin: [20, 0, 0, 0], cell_style:)
       end
 
       def signature_column_widths
         if collect_user_extra_fields
           [-1, -1, -1, -0.75, -0.5, -0.5, -0.75, -0.75, -1, -0.75]
         else
-          [-1.25, -1.25, -1, -0.5, -1.25, -1]
+          [-1, -1.25, -1, -0.5, -1.25, -1]
         end
       end
 
@@ -138,6 +145,8 @@ module Decidim
 
       def cell_style
         lambda do |cell|
+          cell.style.margin = 0
+          cell.style.padding = 0
           cell.style.border(width: 1)
           cell.style.background_color = "cccccc" if cell.row.zero?
         end
@@ -145,6 +154,10 @@ module Decidim
 
       def encryptor
         @encryptor ||= Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata")
+      end
+
+      def row_style
+        { margin: 0, padding: [10, 0, 10, 5], border: { width: 0 } }
       end
     end
   end
