@@ -260,38 +260,6 @@ RSpec.shared_examples "manage debates" do
     end
   end
 
-  describe "deleting a debate" do
-    let!(:debate2) { create(:debate, component: current_component) }
-
-    before do
-      visit current_path
-    end
-
-    it "deletes a debate" do
-      within "tr", text: translated(debate2.title) do
-        accept_confirm do
-          page.find(".action-icon--remove").click
-        end
-      end
-
-      expect(page).to have_admin_callout "Debate successfully deleted"
-
-      within "table" do
-        expect(page).to have_no_content(translated(debate2.title))
-      end
-    end
-
-    context "when the debate has an author" do
-      let!(:debate2) { create(:debate, :participant_author, component: current_component) }
-
-      it "cannot delete the debate" do
-        within "tr", text: translated(debate2.title) do
-          expect(page).to have_no_selector(".action-icon--remove")
-        end
-      end
-    end
-  end
-
   describe "closing a debate", versioning: true do
     it "closes a debate" do
       within "tr", text: translated(debate.title) do
