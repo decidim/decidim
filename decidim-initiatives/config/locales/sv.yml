@@ -519,9 +519,7 @@ sv:
           phone_number: Telefonnummer
           place_date: Plats, datum
           postal_code: Postnummer
-          print: Skriv ut
           province: Region/Land
-          section: 'Om det begärs av organisationen, skriv ut och fyll i detta formulär för att skicka där det anges:'
           signature: Underskrift
         result:
           answer_title: Initiativet har besvarats.
