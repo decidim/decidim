@@ -320,10 +320,12 @@ es:
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
         proposal_update_category:
           email_intro: 'Una administradora ha actualizado la categoría de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
+          email_outro: Recibiste esta notificación porque eres la autora de la propuesta.
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
           notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por una administradora.
         proposal_update_scope:
           email_intro: 'Una administradora ha actualizado el ámbito de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
+          email_outro: Recibiste esta notificación porque eres la autora de la propuesta.
           email_subject: El ámbito de la propuesta %{resource_title} ha sido actualizado
           notification_title: El ámbito de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado por una administradora.
         voting_enabled:
