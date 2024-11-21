@@ -12,7 +12,10 @@ module Decidim::Admin
     let(:form) do
       TaxonomyFilterForm.from_params(
         root_taxonomy_id:,
-        taxonomy_items:
+        taxonomy_items:,
+        name:,
+        internal_name:,
+        space_filter:
       ).with_context(
         current_user: user,
         current_organization: organization,
@@ -24,6 +27,9 @@ module Decidim::Admin
     let(:taxonomies) { [create(:taxonomy, parent: root_taxonomy, organization:)] }
     let(:taxonomy_items) { taxonomies.map(&:id) }
     let(:participatory_space_manifest) { :participatory_processes }
+    let(:name) { { "en" => "Name" } }
+    let(:internal_name) { { "en" => "Internal name" } }
+    let(:space_filter) { true }
 
     context "when the form is not valid" do
       before do
@@ -43,6 +49,12 @@ module Decidim::Admin
 
       it "updates the filter items" do
         expect(taxonomy_filter.filter_items.map(&:taxonomy_item_id)).to eq(taxonomy_items)
+      end
+
+      it "updates the names" do
+        expect(taxonomy_filter.name).to eq(name)
+        expect(taxonomy_filter.internal_name).to eq(internal_name)
+        expect(taxonomy_filter.space_filter).to eq(space_filter)
       end
 
       it "traces the action", versioning: true do

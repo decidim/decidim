@@ -19,9 +19,8 @@ module Decidim
             patch :restore
           end
           collection do
-            post :update_category
+            post :update_taxonomies
             post :publish_answers
-            post :update_scope
             post :update_multiple_answers, controller: "proposal_answers"
             get :manage_trash, controller: "proposals"
             resource :proposals_import, only: [:new, :create]

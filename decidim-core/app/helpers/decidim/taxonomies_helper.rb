@@ -6,9 +6,10 @@ module Decidim
     include DecidimFormHelper
     include TranslatableAttributes
 
-    def filter_taxonomy_items_select_field(form, name, filter, options: {})
-      options = options.merge(include_blank: I18n.t("decidim.taxonomies.prompt", name: decidim_sanitize_translated(filter.name))) unless options.has_key?(:include_blank)
-      options = options.merge(label: decidim_sanitize_translated(filter.name)) unless options.has_key?(:label)
+    def filter_taxonomy_items_select_field(form, name, filter, options = {})
+      label = decidim_sanitize_translated(options.delete(:internal) ? filter.internal_name : filter.name)
+      options = options.merge(include_blank: I18n.t("decidim.taxonomies.prompt")) unless options.has_key?(:include_blank)
+      options = options.merge(label:) unless options.has_key?(:label)
       form.select(
         name,
         taxonomy_items_options_for_filter(filter),

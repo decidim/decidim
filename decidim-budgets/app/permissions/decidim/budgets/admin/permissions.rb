@@ -19,7 +19,7 @@ module Decidim
             end
           when :project, :projects
             case permission_action.action
-            when :create, :import_proposals, :project_category
+            when :create, :import_proposals, :project_taxonomy
               permission_action.allow!
             when :update
               permission_action.allow! if project.present?
@@ -29,7 +29,7 @@ module Decidim
             when :remind
               permission_action.allow!
             end
-          when :project_category, :project_scope, :project_selected
+          when :project_taxonomy, :project_selected
             permission_action.allow!
           end
 
