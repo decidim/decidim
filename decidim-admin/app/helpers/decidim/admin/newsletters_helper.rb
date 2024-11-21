@@ -75,12 +75,14 @@ module Decidim
         newsletter.sent_to_participatory_spaces.try(:each) do |type|
           next if type["ids"].blank?
 
+          ids = parse_ids(type["ids"])
+
           html += t("index.segmented_to", scope: "decidim.admin.newsletters", subject: t("activerecord.models.decidim/#{type["manifest_name"].singularize}.other"))
-          if type["ids"].include?("all")
+          if ids.include?("all")
             html += "<strong> #{t("index.all", scope: "decidim.admin.newsletters")} </strong>"
           else
             Decidim.find_participatory_space_manifest(type["manifest_name"].to_sym)
-                   .participatory_spaces.call(current_organization).where(id: type["ids"]).each do |space|
+                   .participatory_spaces.call(current_organization).where(id: ids).each do |space|
               html += "<strong>#{decidim_escape_translated(space.title)}</strong>"
             end
           end
@@ -150,6 +152,10 @@ module Decidim
         {
           body:
         }
+      end
+
+      def parse_ids(ids)
+        ids.size == 1 && ids.first.is_a?(String) ? ids.first.split.map(&:strip) : ids
       end
     end
   end
