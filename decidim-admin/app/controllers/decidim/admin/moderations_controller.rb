@@ -67,6 +67,20 @@ module Decidim
         end
       end
 
+      def bulk_action
+        Admin::BulkAction.call(action, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("reportable.bulk_action.success", scope: "decidim.moderations.admin")
+            redirect_to moderations_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("reportable.bulk_action.invalid", scope: "decidim.moderations.admin")
+            redirect_to moderations_path
+          end
+        end
+      end
+
       private
 
       def ransack_params

@@ -1280,6 +1280,9 @@ en:
         unreport: Unreport
       admin:
         reportable:
+          bulk_action:
+            invalid: There was a problem to %{action} the resource.
+            success: Resource successfully %{action}.
           hide:
             invalid: There was a problem hiding the resource.
             success: Resource successfully hidden.
