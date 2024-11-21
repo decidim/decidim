@@ -1153,6 +1153,7 @@ es:
           internal_name: Nombre interno del filtro
           name: Título púlbico del filtro
           space_filter: Utilizado para filtrar %{manifest_name}
+          taxonomy: Desde la taxonomía
         update:
           error: Se ha producido un problema actualizando este filtro de taxonomía.
           success: Filtro de taxonomía actualizado correctamente.
