@@ -49,13 +49,11 @@ module Decidim
         @spaces ||= @form.participatory_space_types.map do |type|
           next if type.ids.blank?
 
+          ids = parse_ids(type.ids)
+
           object_class = Decidim.participatory_space_registry.find(type.manifest_name).model_class_name.constantize
 
-          if type.ids.include?("all")
-            object_class.where(organization: @organization)
-          else
-            object_class.where(id: type.ids.compact_blank)
-          end
+          ids.include?("all") ? object_class.where(organization: @form.organization) : object_class.where(id: ids.compact_blank)
         end.flatten.compact
       end
 
@@ -97,6 +95,10 @@ module Decidim
           privatable_to_id: spaces.map(&:id),
           privatable_to_type: spaces.first.class.name
         ).pluck(:decidim_user_id)
+      end
+
+      def parse_ids(ids)
+        ids.size == 1 && ids.first.is_a?(String) ? ids.first.split.map(&:strip) : ids
       end
     end
   end
