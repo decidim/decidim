@@ -1077,6 +1077,8 @@ eu:
           success: Orria zuzen eguneratua.
       taxonomies:
         actions: Ekintzak
+        amount: Item kopurua
+        count: Lotutako baliabideak
         create:
           invalid: Arazo bat egon da kategoria hau sortzean.
           success: Kategoria zuzen sortua.
@@ -1113,6 +1115,8 @@ eu:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Beste taxonomia-iragazki bat
+        callout:
+          modify_taxonomy_html: 'Taxonomia hau edo bere elementuak aldatu behar badituzu, mesesdez, egin ezazu konfigurazio ezarpenen bidez atal honetan: <a href="%{url}">Taxonomies</a>.'
         create:
           error: Arazo bai izan da taxonomia-iragazki hau sortzean.
           success: Taxonomia-iragazkia zuzen sortua.
@@ -1123,6 +1127,11 @@ eu:
           back: Atzera
           title: Editatu taxonomia-iragazkia
           update: Eguneratu taxonomia-iragazkia
+        form:
+          all: Guztiak
+          items:
+            one: "%{count} item hautatuta"
+            other: "%{count} item hautatuta"
         index:
           description: Taxonomia-iragazki batek aukera ematen die administratzaileei espazio parte-hartzaileak taxonomia batean oinarrituta ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera sailkatzeko.
           empty: Gaur egun ez dago taxonomia-iragazkirik. Sortutaxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
