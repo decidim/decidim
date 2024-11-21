@@ -96,6 +96,7 @@ ca:
             cancel: Cancel·lar
             change_budget: Canviar pressupost
             change_selected: Canviar l'estat seleccionat
+            change_taxonomies: Canviar taxonomies
             deselect_implementation: No s'ha seleccionat per implementar
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
@@ -120,6 +121,9 @@ ca:
           update_selected:
             select_a_project: Si us plau, selecciona un projecte.
             select_a_selection: Si us plau, selecciona un estat d'implementació.
+          update_taxonomies:
+            select_a_project: Si us plau, selecciona un projecte.
+            select_a_taxonomy: Si us plau, selecciona una taxonomia.
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes a projectes.
