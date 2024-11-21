@@ -5,25 +5,8 @@ module Decidim
     queue_as :default
 
     def perform(user, export_format = ::Decidim::DownloadYourDataExporter::DEFAULT_EXPORT_FORMAT)
-      filename = "#{SecureRandom.urlsafe_base64}.zip"
-      path = Rails.root.join("tmp/#{filename}")
-      password = SecureRandom.urlsafe_base64
-
-      generate_zip_file(user, path, password, export_format)
-      save_or_upload_file(user, path)
-      # Deletes temporary file
-      File.delete(path)
-      ExportMailer.download_your_data_export(user, filename, password).deliver_later
-    end
-
-    private
-
-    def generate_zip_file(user, path, password, export_format)
-      DownloadYourDataExporter.new(user, path, password, export_format).export
-    end
-
-    def save_or_upload_file(user, path)
-      user.download_your_data_file.attach(io: File.open(path, "rb"), filename: File.basename(path))
+      @export = DownloadYourDataExporter.new(user, "download_your_data", export_format).export
+      ExportMailer.download_your_data_export(user, @export).deliver_later
     end
   end
 end

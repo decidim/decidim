@@ -37,6 +37,7 @@ module Decidim
     include Decidim::TranslatableResource
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::SoftDeletable
     include Decidim::ShareableWithToken
 
     CREATED_BY = %w(city_council public others).freeze
@@ -122,6 +123,11 @@ module Decidim
 
     def self.log_presenter_class_for(_log)
       Decidim::Assemblies::AdminLog::AssemblyPresenter
+    end
+
+    # This is a overwrite for Decidim::ParticipatorySpaceResourceable.visible?
+    def visible?
+      published? && (!private_space? || (private_space? && is_transparent?))
     end
 
     def hashtag
