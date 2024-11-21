@@ -1153,6 +1153,7 @@ ca:
           internal_name: Nom intern del filtre
           name: Títol públic del filtre
           space_filter: Emprat per filtrar %{manifest_name}
+          taxonomy: Des de la taxonomia
         update:
           error: Hi ha hagut un problema actualitzant aquest filtre de taxonomia.
           success: Filtre de taxonomia actualitzat correctament.
