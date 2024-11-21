@@ -419,9 +419,7 @@ it:
           phone_number: Numero di telefono
           place_date: Luogo, data
           postal_code: Codice postale/CAP
-          print: Stampa
           province: Provincia/Stato
-          section: 'Se richiesto dall''organizzazione, si prega di stampare e compilare il presente modulo per inviare dove indicato:'
           signature: Firma
         result:
           initiative_rejected_reason: Questa iniziativa è stata respinta a causa della mancanza di firme.
