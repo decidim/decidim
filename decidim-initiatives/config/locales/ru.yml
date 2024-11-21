@@ -207,6 +207,7 @@ ru:
           recent: Самые последние
         print:
           city: Город
+          print: Распечатать
         result:
           initiative_rejected_reason: Этот почин был отвергнут из-за недостатка поддержки.
         signatures_count:
