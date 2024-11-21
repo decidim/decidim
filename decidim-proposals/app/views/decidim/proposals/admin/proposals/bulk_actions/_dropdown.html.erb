@@ -17,16 +17,13 @@
     data-auto-focus="false"
     data-events="resize">
     <ul>
-      <li>
-        <button type="button" data-action="recategorize-proposals">
-          <%= t("decidim.proposals.admin.proposals.index.change_category") %>
-        </button>
-      </li>
-      <li>
-        <button type="button" data-action="scope-change-proposals">
-          <%= t("decidim.proposals.admin.proposals.index.change_scope") %>
-        </button>
-      </li>
+      <% if current_component_taxonomy_filters&.any? %>
+        <li>
+          <button type="button" data-action="taxonomy-change-proposals">
+            <%= t("decidim.proposals.admin.proposals.index.change_taxonomies") %>
+          </button>
+        </li>
+      <% end %>
       <li>
         <button type="button" data-action="merge-proposals">
           <%= t("decidim.proposals.admin.proposals.index.merge") %>

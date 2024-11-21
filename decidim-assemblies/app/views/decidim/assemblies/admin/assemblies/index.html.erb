@@ -18,30 +18,26 @@
 
   <div class="table-scroll">
     <table class="table-list">
-      <thead>
-        <tr>
-          <th>
-            <%= sort_link(query, :title, t("models.assembly.fields.title", scope: "decidim.admin")) %>
-          </th>
-          <th>
-            <%= sort_link(query, :created_at, t("models.assembly.fields.created_at", scope: "decidim.admin"), default_order: :desc) %>
-          </th>
-          <th>
-            <%= sort_link(query, :private_space, t("models.assembly.fields.private", scope: "decidim.admin")) %>
-          </th>
-          <th class="table-list__actions">
-            <%= sort_link(query, :published_at, t("models.assembly.fields.published", scope: "decidim.admin")) %>
-          </th>
-          <th>
-            <%= t("models.assembly.fields.actions", scope: "decidim.admin") %>
-          </th>
-        </tr>
-      </thead>
+      <%= render partial: "assemblies_thead" %>
       <tbody>
-        <%= render partial: "assemblies_tr" %>
+        <%= render partial: "decidim/assemblies/admin/assemblies/assembly_row",
+                   collection: @assemblies,
+                   as: :assembly,
+                   locals: { view: :index } %>
       </tbody>
     </table>
   </div>
+
+  <div class="mt-4">
+    <%= link_to manage_trash_assemblies_path, class: "flex items-center underline text-secondary" do %>
+      <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+      <%= t("actions.view_deleted_assemblies", scope: "decidim.admin") %>
+      <span class="ml-2">
+      <%= icon_with_tooltip("information-line", t("tooltips.deleted_assemblies_info", scope: "decidim.admin")) %>
+    </span>
+    <% end %>
+  </div>
+
   <%= decidim_paginate @assemblies %>
 </div>
 

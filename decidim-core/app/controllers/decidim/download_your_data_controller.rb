@@ -21,6 +21,7 @@ module Decidim
     # i18n-tasks-use t('decidim.download_your_data.show.proposals')
     # i18n-tasks-use t('decidim.download_your_data.show.result_comments')
     # i18n-tasks-use t('decidim.download_your_data.show.results')
+    # i18n-tasks-use t('decidim.download_your_data.show.survey_user_answers')
     def show
       enforce_permission_to(:show, :user, current_user:)
 

@@ -1,0 +1,23 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+    </h1>
+  </div>
+
+  <%= admin_filter_selector(:meetings) %>
+  <div class="table-scroll">
+    <table class="table-list">
+      <%= render partial: "meetings-thead" %>
+      <tbody>
+        <%= render partial: "decidim/meetings/admin/meetings/meeting-tr",
+                   collection: trashable_deleted_collection,
+                   as: :meeting,
+                   locals: { view: :deleted } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= decidim_paginate trashable_deleted_collection %>
