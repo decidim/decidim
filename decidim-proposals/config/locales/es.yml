@@ -80,6 +80,7 @@ es:
               not_official: No son oficiales
               voted: Han recibido apoyos o adhesiones
     models:
+      decidim/proposals/admin/update_proposal_taxonomies_event: Las taxonomías de la propuesta han cambiado
       decidim/proposals/creation_enabled_event: Creación de propuestas habilitada
       decidim/proposals/endorsing_enabled_event: Adhesión a propuesta habilitada
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
@@ -360,6 +361,11 @@ es:
             email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
+        proposal_update_taxonomies:
+          email_intro: 'Una administradora ha actualizado las taxonomías de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
+          email_outro: Recibiste esta notificación porque eres la autora de la propuesta.
+          email_subject: Se han actualizado las taxonomías de la propuesta %{resource_title}
+          notification_title: Una administradora ha actualitzado las taxonomias de la propouesta "<a href="%{resource_path}">%{resource_title}".
         rejected_coauthorship:
           notification_title: Has rechazado la invitación de <a href="%{author_path}">%{author_name}</a> para convertirte en coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         voting_enabled:
@@ -614,6 +620,7 @@ es:
             assign_to_valuator: Asignar a evaluadora
             assign_to_valuator_button: Asignar
             cancel: Cancelar
+            change_taxonomies: Cambiar taxonomías
             merge: Fusionar en una nueva
             merge_button: Fusionar
             no_templates_available: No hay pantillas disponibles
@@ -656,6 +663,11 @@ es:
             remove_assignment_confirmation: '¿Seguro que quieres desasignar a la evaluadora de esta propuesta?'
             valuators: Evaluadoras
             votes_count: Número de apoyos
+          update_taxonomies:
+            invalid: 'Estas propuestas ya tenían las taxonomias %{taxonomies}: %{proposals}.'
+            select_a_proposal: Por favor, selecciona una propuesta.
+            select_a_taxonomy: Por favor, selecciona una taxonomía.
+            success: 'Propuestas actualizadas correctamente a las taxonomias %{taxonomies}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas.
