@@ -704,8 +704,6 @@ en:
             state: State
             users_count: Participants count
       moderated_users:
-        bulk_actions:
-          dropdown: Actions
         index:
           actions:
             block: Block User

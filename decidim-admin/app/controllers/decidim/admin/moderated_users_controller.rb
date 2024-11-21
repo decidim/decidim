@@ -5,6 +5,8 @@ module Decidim
     class ModeratedUsersController < Decidim::Admin::ApplicationController
       include Decidim::ModeratedUsers::Admin::Filterable
 
+      helper_method :moderated_users
+
       layout "decidim/admin/global_moderations"
 
       before_action :set_moderation_breadcrumb_item
@@ -32,6 +34,10 @@ module Decidim
       end
 
       private
+
+      def moderated_users
+        @moderated_users ||= filtered_collection
+      end
 
       def reportable
         @reportable ||= base_query_finder.find(params[:id]).user
