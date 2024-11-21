@@ -19,7 +19,7 @@ module Decidim::Maintenance::ImportModels
     let(:external_taxonomy) { create(:taxonomy, :with_parent, organization: external_organization) }
     let!(:external_assembly_type) { described_class.create!(title: { "en" => "External Assembly Type" }, decidim_organization_id: external_organization.id) }
     let!(:external_assembly) { create(:assembly, organization: external_organization, decidim_assemblies_type_id: external_assembly_type.id) }
-    let(:root_taxonomy_name) { "~ #{I18n.t("decidim.admin.titles.assemblies_types")}" }
+    let(:root_taxonomy_name) { "~ Assemblies types" }
 
     describe "#name" do
       it "returns the title" do

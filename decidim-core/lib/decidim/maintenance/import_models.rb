@@ -12,6 +12,8 @@ module Decidim
       autoload :Scope, "decidim/maintenance/import_models/scope"
       autoload :Area, "decidim/maintenance/import_models/area"
       autoload :AreaType, "decidim/maintenance/import_models/area_type"
+      autoload :Category, "decidim/maintenance/import_models/category"
+      autoload :Categorization, "decidim/maintenance/import_models/categorization"
     end
   end
 end

@@ -19,7 +19,7 @@ module Decidim::Maintenance::ImportModels
     let(:external_taxonomy) { create(:taxonomy, :with_parent, organization: external_organization) }
     let!(:external_participatory_process_type) { described_class.create!(title: { "en" => "External Participatory Process Type" }, decidim_organization_id: external_organization.id) }
     let!(:external_process) { create(:participatory_process, organization: external_organization, decidim_participatory_process_type_id: external_participatory_process_type.id) }
-    let(:root_taxonomy_name) { "~ #{I18n.t("decidim.admin.titles.participatory_process_types")}" }
+    let(:root_taxonomy_name) { "~ Participatory process types" }
 
     describe "#name" do
       it "returns the title" do
