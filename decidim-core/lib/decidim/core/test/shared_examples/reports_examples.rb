@@ -65,6 +65,7 @@ shared_examples "higher user role hides resource with comments" do
 
     before do
       login_as user, scope: :user
+      Decidim::Ai::SpamDetection.create_reporting_user!
     end
     around do |example|
       previous = Capybara.raise_server_errors
@@ -92,6 +93,8 @@ shared_examples "higher user role hides resource with comments" do
         find(:css, "input[name='report[hide]']").set(true)
         click_on "Hide"
       end
+
+      perform_enqueued_jobs
 
       expect(reportable.reload).to be_hidden
       expect(comment.reload).to be_hidden
