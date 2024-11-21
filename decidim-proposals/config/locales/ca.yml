@@ -310,10 +310,12 @@ ca:
             notification_title: La teva proposta <a href="%{resource_path}">%{resource_title}</a>ha canviat el seu estat a "%{state}".
         proposal_update_category:
           email_intro: 'Una administradora ha actualitzat la categoria de la teva proposta "%{resource_title}", fes-hi una ullada:'
+          email_outro: Has rebut aquesta notificació perquè ets l'autora de la proposta.
           email_subject: S'ha actualitzat la categoria de la proposta %{resource_title}
           notification_title: La categoria de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada per una administradora.
         proposal_update_scope:
           email_intro: 'Una administradora ha actualitzat l''àmbit de la teva proposta "%{resource_title}", fes-hi una ullada:'
+          email_outro: Has rebut aquesta notificació perquè ets l'autora de la proposta.
           email_subject: S'ha actualitzat l'àmbit de la proposta %{resource_title}
           notification_title: L'àmbit de la proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzat per una administradora.
         voting_enabled:
