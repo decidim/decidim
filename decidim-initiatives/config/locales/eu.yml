@@ -532,9 +532,7 @@ eu:
           phone_number: Telefono zenbakia
           place_date: Lekua, data
           postal_code: Posta-kodea/ZIP
-          print: Inprimatu
           province: Probintzia/Estatua
-          section: 'Antolakuntzak eskatzen badu, mesedez, inprimatu eta bete formulario hau, adierazten den tokira bidaltzeko:'
           signature: Sinadura
         result:
           answer_title: Ekimen hau erantzun egin da.
