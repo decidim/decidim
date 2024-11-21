@@ -803,6 +803,7 @@ en:
           select_spaces: Select spaces to segment the newsletter
           select_users: Select which users you want to send the newsletter
           title: Select recipients to deliver
+          verified_users_help: Sends a newsletter to all confirmed and verified users via any selected verification method.
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
           no_recipients: No recipients for this selection.

@@ -38,6 +38,10 @@ module Decidim
       extended_data["send_to_all_users"]
     end
 
+    def sended_to_verified_users?
+      extended_data["send_to_verified_users"]
+    end
+
     def sended_to_followers?
       extended_data["send_to_followers"]
     end

@@ -4,6 +4,18 @@ module Decidim
   module Admin
     # This module includes helpers to manage newsletters in admin layout
     module NewslettersHelper
+      def verification_types_for_select(form_object)
+        content_tag :div, class: "verification-types-block cell small-12 medium-6" do
+          form_object.fields_for :verification_types do |ff|
+            ff.select :ids, options_for_select(verification_methods_for_select),
+                      { prompt: t("select_recipients_to_deliver.none", scope: "decidim.admin.newsletters"),
+                        label: false,
+                        include_hidden: false },
+                      multiple: true, size: [verification_methods_for_select.size, 10].min, class: "chosen-select"
+          end
+        end
+      end
+
       def participatory_spaces_for_select(form_object)
         content_tag :div do
           @form.participatory_space_types.each do |space_type|
@@ -108,10 +120,10 @@ module Decidim
       def organization_participatory_space(manifest_name)
         @organization_participatory_spaces ||= {}
         @organization_participatory_spaces[manifest_name] ||= Decidim
-                                                              .find_participatory_space_manifest(manifest_name)
-                                                              .participatory_spaces.call(current_organization)
-                                                              .published
-                                                              .sort_by { |space| [space.try(:closed?) ? 1 : 0, space.title[current_locale]] }
+                                                                .find_participatory_space_manifest(manifest_name)
+                                                                .participatory_spaces.call(current_organization)
+                                                                .published
+                                                                .sort_by { |space| [space.try(:closed?) ? 1 : 0, space.title[current_locale]] }
       end
 
       def spaces_user_can_admin
@@ -156,6 +168,12 @@ module Decidim
 
       def parse_ids(ids)
         ids.size == 1 && ids.first.is_a?(String) ? ids.first.split.map(&:strip) : ids
+      end
+
+      def verification_methods_for_select
+        current_organization.available_authorizations.map do |type|
+          I18n.t("decidim.authorization_handlers.#{type}.name")
+        end
       end
     end
   end

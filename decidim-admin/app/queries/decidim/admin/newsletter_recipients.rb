@@ -27,6 +27,7 @@ module Decidim
                                   .not_deleted
 
         return recipients if @form.send_to_all_users
+        return verified_users if @form.send_to_verified_users
 
         filters = [
           (@form.send_to_followers ? user_id_of_followers : nil),
@@ -55,6 +56,18 @@ module Decidim
 
           ids.include?("all") ? object_class.where(organization: @form.organization) : object_class.where(id: ids.compact_blank)
         end.flatten.compact
+      end
+
+      def verified_users
+        users = @form.organization.users.not_deleted.not_blocked.confirmed
+
+        verified_users = Decidim::Authorization.select(:decidim_user_id)
+                                               .where(decidim_user_id: users.select(:id))
+                                               .where.not(granted_at: nil)
+                                               .where(name: @form.verification_types)
+                                               .group(:decidim_user_id)
+                                               .having("COUNT(distinct name) = ?", @form.verification_types.count)
+        users.where(id: verified_users)
       end
 
       # Return the ids of Users that are following
