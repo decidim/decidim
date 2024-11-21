@@ -13,64 +13,33 @@
       </div>
     </h1>
 
+    <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/taxonomy_change" %>
     <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/assign_to_valuator" %>
     <%= render partial: "decidim/proposals/admin/proposals/bulk_actions/unassign_from_valuator" %>
   </div>
   <%= admin_filter_selector(filter_prefix_key) %>
   <div class="table-scroll mt-8">
     <table class="table-list">
-      <thead>
-        <tr>
-          <th>
-            <%= check_box_tag "proposals_bulk", "all", false, class: "js-check-all" %>
-          </th>
-          <th class="!text-left">
-            <%= sort_link(query, :title, t("models.proposal.fields.title", scope: "decidim.proposals") ) %>
-          </th>
-          <th>
-            <%= sort_link(query, :published_at, t("models.proposal.fields.published_at", scope: "decidim.proposals") ) %>
-          </th>
-
-          <% unless current_settings.publish_answers_immediately? %>
-            <th>
-              <%= sort_link(query, :state_published, t("models.proposal.fields.published_answer", scope: "decidim.proposals") ) %>
-            </th>
-          <% end %>
-
-          <% if current_settings.votes_enabled? %>
-            <th>
-              <%= sort_link(query, :proposal_votes_count, t("models.proposal.fields.votes", scope: "decidim.proposals") ) %>
-            </th>
-          <% end %>
-
-          <% if current_component.settings.comments_enabled? and !current_settings.comments_blocked? %>
-            <th>
-              <%= sort_link(query, :comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
-            </th>
-          <% end %>
-
-          <th>
-            <%= sort_link(query, :proposal_notes_count, t("models.proposal.fields.notes", scope: "decidim.proposals") ) %>
-          </th>
-
-          <th>
-            <%= sort_link(query, :valuation_assignments_count, t("models.proposal.fields.valuators", scope: "decidim.proposals") ) %>
-          </th>
-
-          <th>
-            <%= sort_link(query, :state, [:state, :is_emendation], t("models.proposal.fields.state", scope: "decidim.proposals") ) %>
-          </th>
-
-          <th><%= t("actions.title", scope: "decidim.proposals") %></th>
-        </tr>
-      </thead>
+      <%= render partial: "proposals-thead" %>
       <tbody>
-        <% proposals.each do |proposal| %>
-          <%= render partial: "proposal-tr", locals: { proposal: } %>
-        <% end %>
+        <%= render partial: "decidim/proposals/admin/proposals/proposal-tr",
+                   collection: proposals,
+                   as: :proposal,
+                   locals: { view: :index } %>
       </tbody>
     </table>
   </div>
+  <% if allowed_to? :manage_trash, :proposal, participatory_space: current_participatory_space %>
+    <div class="card mt-4">
+      <%= link_to manage_trash_proposals_path, class: "flex items-center underline text-secondary" do %>
+        <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+        <%= t("actions.view_deleted_proposals", scope: "decidim.proposals.admin") %>
+        <span class="ml-2">
+          <%= icon_with_tooltip("information-line", t("actions.deleted_proposals_info", scope: "decidim.proposals.admin")) %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <%= decidim_paginate proposals %>

@@ -79,7 +79,7 @@ shared_examples "manage posts" do |audit_check: true|
 
     it "deletes a post" do
       within "tr", text: translated(post1.title) do
-        accept_confirm { click_on "Delete" }
+        accept_confirm { click_on "Soft delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

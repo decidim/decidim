@@ -43,7 +43,9 @@ en:
       actions:
         attachment_collections: Folders
         attachments: Attachments
+        confirm_delete_result: Are you sure you want to delete this result?
         confirm_destroy: Are you sure you want to delete this %{name}?
+        deleted_results_info: Deleted results can be restored from the trash.
         destroy: Delete
         edit: Edit
         import: Import projects from another component
@@ -54,6 +56,7 @@ en:
         preview: Preview
         timeline_entries: Project evolution
         title: Actions
+        view_deleted_results: View deleted results
       admin:
         exports:
           result_comments: Comments
@@ -114,13 +117,13 @@ en:
           create:
             invalid: There was a problem creating this result.
             success: Result successfully created.
-          destroy:
-            success: Result successfully deleted.
           edit:
             title: Edit result
             update: Update result
           index:
             title: Results
+          manage_trash:
+            title: Deleted results
           new:
             create: Create result
             title: New result
@@ -168,6 +171,8 @@ en:
         result:
           create: "%{user_name} created result %{resource_name} in %{space_name}"
           delete: "%{user_name} deleted the %{resource_name} result in %{space_name}"
+          restore: "%{user_name} restored the %{resource_name} result in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} result in %{space_name} to the trash"
           update: "%{user_name} updated result %{resource_name} in %{space_name}"
         status:
           create: "%{user_name} created the %{resource_name} status"
@@ -270,6 +275,10 @@ en:
             taxonomy_filters_add: Add filter
           step:
             comments_blocked: Comments blocked
+    download_your_data:
+      show:
+        result_comments: Result comments export
+        results: Results export
     events:
       accountability:
         proposal_linked:
@@ -302,18 +311,25 @@ en:
           root_commentable_url: The URL of the resource that ties to this comment
           user_group: The name of the user group that made this comment (if any)
         results:
+          address: The address of the result (if any)
+          children_count: The number of child results
+          comments_count: The number of comments that this result has
           component: The component that the result belongs to
           created_at: The date when the result was created
           description: The description of the result
           end_date: The date when the result ends execution and it is finished
           id: The unique identifier of the result
+          latitude: The latitude of the result in case it has a physical location
+          longitude: The longitude of the result in case it has a physical location
           parent: The parent result (if any) of the result
           progress: The percentage of the execution of the result
           proposal_urls: The URLs of the proposals that are included in this result
+          reference: The unique reference of the result
           start_date: The date when the result starts execution
           status: The current status of this result
           taxonomies: The taxonomies of the result
           title: The title of the result
+          updated_at: The last date this result was updated
           url: The URL where this result can be found
     participatory_spaces:
       highlighted_results:

@@ -7,7 +7,7 @@ describe "Admin filters meetings" do
   let(:manifest_name) { "meetings" }
   let(:model_name) { Decidim::Meetings::Meeting.model_name }
   let(:resource_controller) { Decidim::Meetings::Admin::MeetingsController }
-  let!(:meeting) { create(:meeting, scope:, component: current_component) }
+  let!(:meeting) { create(:meeting, scope:, component:) }
 
   include_context "when managing a component as an admin"
 

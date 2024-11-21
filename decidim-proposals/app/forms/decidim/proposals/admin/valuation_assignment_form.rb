@@ -16,7 +16,10 @@ module Decidim
         end
 
         def valuator_roles
-          @valuator_roles ||= current_component.participatory_space.user_roles(:valuator).where(id: valuator_role_ids)
+          @valuator_roles ||= current_component.participatory_space
+                                               .user_roles(:valuator)
+                                               .order_by_name
+                                               .where(id: valuator_role_ids)
         end
 
         def same_participatory_space

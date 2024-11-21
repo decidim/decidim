@@ -1,0 +1,18 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header item_show__header--with-action-options">
+    <h1 class="item_show__header-title"><%= t(".title") %></h1>
+  </div>
+  <%= admin_filter_selector(filter_prefix_key) %>
+    <div class="table-scroll mt-8">
+      <table class="table-list">
+        <%= render partial: "proposals-thead" %>
+        <tbody>
+          <%= render partial: "decidim/proposals/admin/proposals/proposal-tr",
+                     collection: trashable_deleted_collection,
+                     as: :proposal,
+                     locals: { view: :deleted } %>
+        </tbody>
+      </table>
+    </div>
+</div>
