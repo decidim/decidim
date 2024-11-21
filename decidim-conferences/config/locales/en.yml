@@ -238,7 +238,7 @@ en:
           roles:
             admin: Administrator
             collaborator: Collaborator
-            valuator: Evaluator
+            evaluator: Evaluator
             moderator: Moderator
         media_link:
           fields:

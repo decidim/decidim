@@ -251,7 +251,7 @@ en:
           roles:
             admin: Administrator
             collaborator: Collaborator
-            valuator: Evaluator
+            evaluator: Evaluator
             moderator: Moderator
       titles:
         assemblies: Assemblies
