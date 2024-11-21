@@ -245,7 +245,7 @@ FactoryBot.define do
       create(:participatory_process_user_role,
              user:,
              participatory_process: evaluator.participatory_process,
-             role: :valuator, skip_injection: evaluator.skip_injection)
+             role: :evaluator, skip_injection: evaluator.skip_injection)
     end
   end
 

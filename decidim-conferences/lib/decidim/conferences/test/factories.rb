@@ -128,7 +128,7 @@ FactoryBot.define do
       create(:conference_user_role,
              user:,
              conference: evaluator.conference,
-             role: :valuator,
+             role: :evaluator,
              skip_injection: evaluator.skip_injection)
     end
   end

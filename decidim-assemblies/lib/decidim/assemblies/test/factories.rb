@@ -191,7 +191,7 @@ FactoryBot.define do
       create(:assembly_user_role,
              user:,
              assembly: evaluator.assembly,
-             role: :valuator,
+             role: :evaluator,
              skip_injection: evaluator.skip_injection)
     end
   end
