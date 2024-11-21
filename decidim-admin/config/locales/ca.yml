@@ -1077,6 +1077,8 @@ ca:
           success: La pàgina s'ha actualitzat correctament.
       taxonomies:
         actions: Accions
+        amount: Número d'elements
+        count: Recursos associats
         create:
           invalid: S'ha produït un error en crear aquesta taxonomia.
           success: Taxonomia creada correctament.
@@ -1113,6 +1115,8 @@ ca:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nou filtre de taxonomia
+        callout:
+          modify_taxonomy_html: Si et cal modificar aquesta taxonomia o els seus elements, si us plau, fes-ho a través de la configuració a la secció <a href="%{url}">Taxonomies</a>.
         create:
           error: S'ha produït un error en crear aquesta taxonomia.
           success: Filtre de taxonomia creat correctament.
@@ -1123,18 +1127,32 @@ ca:
           back: Enrere
           title: Editar el filtre de taxonomia
           update: Actualitzar el filtre de taxonomia
+        form:
+          all: Totes
+          items:
+            one: "%{count} element seleccionat"
+            other: "%{count} elements seleccionats"
+          name_help: El títol del filtre que es mostrarà a la part pública.
+          no_items: Encara no hi ha elements disponibles a aquesta taxonomia. Pots afegir-hi elements a través de les opcions de configuració de la taxonomia.
+          space_filter: Disponible com a filtre per a tots els %{manifest_name}
         index:
           description: Un filtre de taxonomia permet a les administradores ordenar i filtrar espais de participació basats en una taxonomia. Per exemple, afegir un filtre de taxonomies per ordenar processos per àmbit territorial.
           empty: Actualment no hi ha cap filtre de taxonomia. Creeu una llista de filtres de taxonomia aquí per ordenar i filtrar els espais de participació basats en una taxonomia.
         new:
           back: Enrere
           create: Crear un filtre de taxonomia
+          select_taxonomy: Seleccionar una taxonomia
           title: Nou filtre de taxonomia
         table:
           actions: Accions
+          components_count: Components associats
           confirm_destroy: 'Segur que voleu suprimir el filtre %{name}? NOTA: Els recursos que utilitzen aquest filtre no es veuran afectats però perdran la referència a aquest filtre.'
+          count: Número d'elements emprats
           destroy: Esborrar
           edit: Editar
+          internal_name: Nom intern del filtre
+          name: Títol públic del filtre
+          space_filter: Emprat per filtrar %{manifest_name}
         update:
           error: Hi ha hagut un problema actualitzant aquest filtre de taxonomia.
           success: Filtre de taxonomia actualitzat correctament.
