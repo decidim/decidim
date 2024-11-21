@@ -532,9 +532,7 @@ ca:
           phone_number: Número de telèfon
           place_date: Lloc, data
           postal_code: Codi postal
-          print: Imprimir
           province: Província
-          section: 'Si l''organització ho demana, imprimeix i omple aquest formulari per presentar-lo quan s''indiqui:'
           signature: Signatura
         result:
           answer_title: S'ha respost aquesta iniciativa.
