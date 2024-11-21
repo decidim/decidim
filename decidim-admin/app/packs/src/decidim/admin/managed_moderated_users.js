@@ -1,4 +1,6 @@
 /* eslint-disable no-invalid-this */
+/* eslint no-unused-vars: 0 */
+/* eslint id-length: ["error", { "exceptions": ["e"] }] */
 
 $(() => {
   const selectedModeratedUsersCount = () => {
@@ -9,9 +11,9 @@ $(() => {
     const selectedModeratedUsers = selectedModeratedUsersCount();
 
     if (selectedModeratedUsers === 0) {
-      $("#js-selected-moderations-count-count").text("");
+      $("#js-selected-moderated_users-count-count").text("");
     } else {
-      $("#js-selected-moderations-count-count").text(selectedModeratedUsers);
+      $("#js-selected-moderated_users-count-count").text(selectedModeratedUsers);
     }
   };
 

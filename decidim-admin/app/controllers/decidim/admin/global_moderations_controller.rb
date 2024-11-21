@@ -27,6 +27,10 @@ module Decidim
       def reportable
         @reportable ||= moderations_for_user.find(params[:id]).reportable
       end
+
+      def reportables
+        @reportables ||= moderations_for_user.where(id: params[:moderation_ids]).map(&:reportable)
+      end
     end
   end
 end

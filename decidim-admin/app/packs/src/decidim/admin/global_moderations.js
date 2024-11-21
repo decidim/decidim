@@ -52,12 +52,29 @@ $(() => {
     hideBulkActionForms();
     $("#js-bulk-actions-button").addClass("hide");
 
-    $("#js-bulk-actions-dropdown ul li button").on("click", (event) => {
-      event.preventDefault();
-      let action = $(event.target).data("action");
+    $("#js-bulk-actions-dropdown ul li button").click(function (e) {
+      $("#js-bulk-actions-dropdown").removeClass("is-open");
+      hideBulkActionForms();
 
-      if (action) {
-        $(`#js-form-${action}`).on("submit", () => {
+      let action = $(e.target).data("action");
+      const panelActions = [
+        "hide-global-moderations",
+        "unreport-global-moderations",
+        "unhide-global-moderations"
+      ];
+
+      if (!action) {
+        return;
+      }
+
+      if (panelActions.includes(action)) {
+        $(`#js-form-${action}`).submit(function () {
+          $(".layout-content > div[data-callout-wrapper]").html("");
+        });
+
+        $(`#js-${action}-actions`).removeClass("hide");
+      } else {
+        $(`#js-form-${action}`).submit(function () {
           $(".layout-content > div[data-callout-wrapper]").html("");
         });
 

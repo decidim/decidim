@@ -68,17 +68,17 @@ module Decidim
       end
 
       def bulk_action
-        Admin::BulkAction.call(action, current_user) do
-          on(:ok) do
-            flash[:notice] = I18n.t("reportable.bulk_action.success", scope: "decidim.moderations.admin")
-            redirect_to moderations_path
+        Admin::BulkAction.call(current_user, params[:bulk_action], reportables) do
+          on(:ok) do |ok, ko|
+            flash[:notice] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.success", scope: "decidim.moderations.admin", count_ok: ok.count) if ok.count.positive?
+            flash[:alert] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.failed", scope: "decidim.moderations.admin", errored: ko.join(", ")) if ko.count.positive?
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("reportable.bulk_action.invalid", scope: "decidim.moderations.admin")
-            redirect_to moderations_path
+            flash.now[:alert] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.invalid", scope: "decidim.moderations.admin")
           end
         end
+        redirect_to moderations_path
       end
 
       private
@@ -106,6 +106,10 @@ module Decidim
 
       def reportable
         @reportable ||= participatory_space_moderations.find(params[:id]).reportable
+      end
+
+      def reportables
+        @reportables ||= participatory_space_moderations.where(id: params[:moderation_ids]).map(&:reportable)
       end
 
       def participatory_space_moderations

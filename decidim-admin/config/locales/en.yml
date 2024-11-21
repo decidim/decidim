@@ -1289,8 +1289,18 @@ en:
       admin:
         reportable:
           bulk_action:
-            invalid: There was a problem to %{action} the resource.
-            success: Resource successfully %{action}.
+            hide:
+              failed: 'There was a problem hiding some resources: %{errored}'
+              invalid: No moderations selected.
+              success: "%{count_ok} resources successfully hidden."
+            unhide:
+              failed: 'There was a problem unhiding some resources: %{errored}'
+              invalid: No moderations selected.
+              success: "%{count_ok} resources successfully unhidden."
+            unreport:
+              failed: 'There was a problem unreporting some resources: %{errored}'
+              invalid: No moderations selected.
+              success: "%{count_ok} resources successfully unreported."
           hide:
             invalid: There was a problem hiding the resource.
             success: Resource successfully hidden.
