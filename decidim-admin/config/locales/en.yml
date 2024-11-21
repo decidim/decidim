@@ -704,17 +704,27 @@ en:
             state: State
             users_count: Participants count
       moderated_users:
+        bulk_actions:
+          dropdown: Actions
         index:
           actions:
             block: Block User
+            bulk_actions:
+              actions_dropdown: Actions
+              block: Block
+              unblock: Unblock
+              unreport: Unreport
             title: Actions
             unblock: Unblock User
             unreport: Unreport
+          cancel: Cancel
           name: Name
           nickname: Nickname
           reason: Reason
           reports: Reports count
+          selected: Selected
           title: Reported participants
+          update_moderated_user_button: Updated moderated users
         report:
           reasons:
             does_not_belong: Does not belong
