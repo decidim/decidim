@@ -523,9 +523,7 @@ pl:
           phone_number: Numer telefonu
           place_date: Miejsce, data
           postal_code: Kod pocztowy
-          print: Drukuj
           province: Województwo
-          section: 'Na wniosek organizacji proszę wydrukować i wypełnić niniejszy formularz w celu przesłania, jeśli jest to wskazane:'
           signature: Podpis
         result:
           answer_title: Odpowiedziano na tę inicjatywę.
