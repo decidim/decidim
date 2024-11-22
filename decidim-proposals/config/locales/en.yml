@@ -5,7 +5,6 @@ en:
       collaborative_draft:
         address: Address
         body: Body
-        category_id: Category
         decidim_scope_id: Scope
         has_address: Has address
         scope_id: Scope
@@ -18,7 +17,6 @@ en:
         answered_at: Answered at
         automatic_hashtags: Hashtags automatically added
         body: Body
-        category_id: Category
         decidim_proposals_proposal_state_id: State
         decidim_scope_id: Scope
         has_address: Has address
@@ -83,8 +81,7 @@ en:
               not_official: Are not official
               voted: Have received votes or endorsements
     models:
-      decidim/proposals/admin/update_proposal_category_event: Proposal category changed
-      decidim/proposals/admin/update_proposal_scope_event: Proposal scope changed
+      decidim/proposals/admin/update_proposal_taxonomies_event: Proposal taxonomies changed
       decidim/proposals/creation_enabled_event: Proposal creation enabled
       decidim/proposals/endorsing_enabled_event: Proposal endorsing enabled
       decidim/proposals/proposal_mentioned_event: Proposal mentioned
@@ -365,16 +362,11 @@ en:
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: A proposal you are following has changed its state (%{state})
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has changed its state to "%{state}".
-        proposal_update_category:
-          email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out in this page:'
+        proposal_update_taxonomies:
+          email_intro: 'An admin has updated the taxonomies of your proposal "%{resource_title}", check it out in this page:'
           email_outro: You have received this notification because you are the author of the proposal.
-          email_subject: The %{resource_title} proposal category has been updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal category has been updated by an admin.
-        proposal_update_scope:
-          email_intro: 'An admin has updated the scope of your proposal "%{resource_title}", check it out in this page:'
-          email_outro: You have received this notification because you are the author of the proposal.
-          email_subject: The %{resource_title} proposal scope has been updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal scope has been updated by an admin.
+          email_subject: The %{resource_title} proposal taxonomies have been updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal taxonomies have been updated by an admin.
         rejected_coauthorship:
           notification_title: You have declined the invitation from <a href="%{author_path}">%{author_name}</a> to become a co-author of the proposal <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
@@ -629,8 +621,7 @@ en:
             assign_to_valuator: Assign to valuator
             assign_to_valuator_button: Assign
             cancel: Cancel
-            change_category: Change category
-            change_scope: Change scope
+            change_taxonomies: Change taxonomies
             merge: Merge into a new one
             merge_button: Merge
             no_templates_available: No templates available
@@ -646,7 +637,6 @@ en:
             unassign_from_valuator: Unassign from valuator
             unassign_from_valuator_button: Unassign
             update: Update
-            update_scope_button: Update Scope
           manage_trash:
             title: Deleted proposals
           new:
@@ -674,16 +664,11 @@ en:
             remove_assignment: Remove assignment
             remove_assignment_confirmation: Are you sure you want to remove the valuator from this proposal?
             votes_count: Votes count
-          update_category:
-            invalid: 'These proposals already had the %{subject_name} category: %{proposals}.'
-            select_a_category: Please select a category.
+          update_taxonomies:
+            invalid: 'These proposals already had the %{taxonomies} taxonomies: %{proposals}.'
             select_a_proposal: Please select a proposal.
-            success: 'Proposals successfully updated to the %{subject_name} category: %{proposals}.'
-          update_scope:
-            invalid: 'These proposals already had the %{subject_name} scope: %{proposals}.'
-            select_a_proposal: Please select a proposal.
-            select_a_scope: Please select a scope.
-            success: 'Proposals successfully updated to the %{subject_name} scope: %{proposals}.'
+            select_a_taxonomy: Please select a taxonomy.
+            success: 'Proposals successfully updated to the %{taxonomies} taxonomies: %{proposals}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals.
@@ -773,11 +758,9 @@ en:
         filters:
           all: All
           amendment: Amendments
-          category: Category
           open: Open
           published: Published
           related_to: Related to
-          scope: Scope
           search: Search
           state: Status
           withdrawn: Withdrawn
@@ -926,7 +909,6 @@ en:
           activity: My activity
           all: All
           amendment_type: Type
-          category: Category
           my_proposals: My proposals
           origin: Origin
           related_to: Related to
