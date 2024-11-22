@@ -779,15 +779,14 @@ en:
           confirm_delete: Are you sure you want to delete this newsletter?
           followers: 'followers '
           has_been_sent_to: 'Has been sent to: '
-          no_scopes: No scopes
           not_sent: Not sent
           participants: 'participants '
           private_members: 'private members '
           segmented_to: 'Segmented to %{subject}: '
           subscribed_count: 'Subscribed:'
           title: Newsletters
-          verified_users: Verified users
           verification_types: 'Verification types: %{types}'
+          verified_users: Verified users
         new:
           save: Save
           title: New newsletter
