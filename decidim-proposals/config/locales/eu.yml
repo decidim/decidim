@@ -80,6 +80,7 @@ eu:
               not_official: Ez dira ofizialak
               voted: Botoak edo atxikimenduak jaso izana
     models:
+      decidim/proposals/admin/update_proposal_taxonomies_event: Proposamen taxonomiak aldatuta
       decidim/proposals/creation_enabled_event: Proposamenaren sorrera gaituta
       decidim/proposals/endorsing_enabled_event: Onartutako proposamena gaituta
       decidim/proposals/proposal_mentioned_event: Proposamena aipatua
@@ -360,6 +361,11 @@ eu:
             email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" jarraitzen ari zarelako. Jarraitzeari utzi ahal diozu aurreko estekan.
             email_subject: Jarraitzen ari zaren proposamen batek (%{state}) egoera aldatu du
             notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
+        proposal_update_taxonomies:
+          email_intro: 'Admintratzaile batek eguneratu ditu zure %{resource_title}" proposamenaren taxonomiak, ikus ezazu orri honetan:'
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
+          email_subject: '%{resource_title} proposatutako taxonomiak eguneratu egin dira'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren taxonomiak administratzaile batek eguneratu ditu.
         rejected_coauthorship:
           notification_title: Baztertu duzu <a href="%{author_path}">%{author_name}</a> ren gonbidapena <a href="%{resource_path}">%{resource_title}</a> proposamenaren egilekidea izateko.
         voting_enabled:
@@ -615,6 +621,7 @@ eu:
             assign_to_valuator: Esleitu ebaluatzaileari
             assign_to_valuator_button: Esleitu
             cancel: Utzi
+            change_taxonomies: Aldatu taxonomiak
             merge: Beste batean fusionatu
             merge_button: Batu
             no_templates_available: Ez dago txantiloirik eskuragarri
@@ -657,6 +664,11 @@ eu:
             remove_assignment_confirmation: Ziur zaude proposamen honen ebaluatzailea desesleitu nahi duzula?
             valuators: Ebaluatzaileak
             votes_count: Boto kopurua
+          update_taxonomies:
+            invalid: 'Proposamen hauek bazuten %{taxonomia} taxonomia: %{proposals}.'
+            select_a_proposal: Mesedez, hautatu proposamen bat.
+            select_a_taxonomy: Mesedez, hautatu taxonomia bat.
+            success: 'Proposamenak zuzen eguneratuta %{taxonomies} taxonomietan: %{proposals}.'
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak inportatzean.
