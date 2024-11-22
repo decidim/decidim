@@ -40,6 +40,7 @@ module Decidim
         end
 
         def self.add_resource_class(klass)
+          @resource_classes ||= []
           @resource_classes << klass
         end
 

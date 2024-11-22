@@ -2,72 +2,31 @@
 
 require "spec_helper"
 require "decidim/maintenance/import_models"
+require_relative "shared_examples"
 
 module Decidim::Maintenance::ImportModels
   describe AssemblyType do
     subject { assembly_type }
 
-    let(:organization) { create(:organization) }
-    let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
-    let!(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
-    let!(:another_taxonomy) { create(:taxonomy, :with_parent, organization:) }
-    let(:taxonomies) { [sub_taxonomy, another_taxonomy] }
+    include_context "with taxonomy importer model context"
     # avoid using factories for this test in case old models are removed
     let(:assembly_type) { described_class.create!(title: { "en" => "Assembly Type 1", "ca" => "Tipus d'assemblea 1" }, decidim_organization_id: organization.id) }
-    let!(:assembly) { create(:assembly, taxonomies:, organization:, decidim_assemblies_type_id: assembly_type.id) }
-    let(:external_organization) { create(:organization) }
-    let(:external_taxonomy) { create(:taxonomy, :with_parent, organization: external_organization) }
-    let!(:external_assembly_type) { described_class.create!(title: { "en" => "External Assembly Type" }, decidim_organization_id: external_organization.id) }
-    let!(:external_assembly) { create(:assembly, organization: external_organization, decidim_assemblies_type_id: external_assembly_type.id) }
+    let!(:external_assembly_type) { described_class.create!(title: { "en" => "INVALID Assembly Type" }, decidim_organization_id: external_organization.id) }
     let(:root_taxonomy_name) { "~ Assemblies types" }
+    let(:resource) { assembly }
+    let(:space_manifest) { "assemblies" }
 
-    describe "#name" do
-      it "returns the title" do
-        expect(subject.name).to eq(assembly_type.title)
-      end
+    before do
+      described_class.add_resource_class("Decidim::Dev::DummyResource")
+      assembly.update!(decidim_assemblies_type_id: assembly_type.id)
+      external_assembly.update!(decidim_assemblies_type_id: external_assembly_type.id)
     end
 
-    describe "#taxonomies" do
-      it "returns the taxonomies" do
-        expect(subject.taxonomies).to eq(
-          name: assembly_type.title,
-          children: {},
-          resources: subject.resources
-        )
-      end
-    end
-
-    describe "#resources" do
-      it "returns the resources" do
-        expect(subject.resources).to eq({ assembly.to_global_id.to_s => assembly.title[I18n.locale.to_s] })
-      end
-    end
-
-    describe ".to_taxonomies" do
-      it "returns the participatory assembly types" do
-        expect(described_class.with(organization).to_taxonomies).to eq(
-          root_taxonomy_name => described_class.to_h
-        )
-      end
-    end
-
-    describe ".to_h" do
-      it "returns the participatory assembly types as taxonomies" do
-        expect(described_class.with(organization).to_h).to eq(
-          {
-            taxonomies: { assembly_type.title[I18n.locale.to_s] => subject.taxonomies },
-            filters: [
-              {
-                name: root_taxonomy_name,
-                space_filter: true,
-                space_manifest: "assemblies",
-                items: [[assembly_type.title[I18n.locale.to_s]]],
-                components: []
-              }
-            ]
-          }
-        )
-      end
-    end
+    it_behaves_like "a resource with title"
+    it_behaves_like "a resource with taxonomies with no children"
+    it_behaves_like "has resources"
+    it_behaves_like "a single root taxonomy"
+    it_behaves_like "can be converted to taxonomies"
+    it_behaves_like "a single root taxonomy with no children"
   end
 end

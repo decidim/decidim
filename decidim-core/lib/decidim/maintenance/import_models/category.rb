@@ -15,12 +15,21 @@ module Decidim
 
         def self.root_taxonomy_name = "~ #{I18n.t("decidim.admin.categories.index.categories_title")}"
 
-        def resources
-          normal_resources = categorizations.to_h do |categorization|
-            [categorization.categorizable.to_global_id.to_s, resource_name(categorization.categorizable)]
-          end
+        def invalid_categorization?(categorization)
+          return true if categorization.categorizable.nil?
 
-          metrics = Decidim::Metric.where(decidim_category_id: id).to_h do |metric|
+          return categorization.categorizable.participatory_space != participatory_space if categorization.categorizable.respond_to?(:participatory_space)
+          return categorization.categorizable.component.participatory_space != participatory_space if categorization.categorizable.respond_to?(:component)
+        end
+
+        def resources
+          normal_resources = categorizations.filter_map do |categorization|
+            next if invalid_categorization?(categorization)
+
+            [categorization.categorizable.to_global_id.to_s, resource_name(categorization.categorizable)]
+          end.to_h
+
+          metrics = Decidim::Metric.where(participatory_space:, decidim_category_id: id).to_h do |metric|
             [metric.to_global_id.to_s, metric.to_s]
           end
 
@@ -40,10 +49,24 @@ module Decidim
           }
         end
 
+        def self.children_taxonomies(participatory_space)
+          Category.where(participatory_space:, parent_id: nil).to_h do |category|
+            [
+              category.name[I18n.locale.to_s],
+              category.taxonomies
+            ]
+          end
+        end
+
         def self.all_taxonomies
           participatory_space_classes.each_with_object({}) do |klass, hash|
             klass.where(organization:).each do |participatory_space|
-              hash.merge!(Category.where(participatory_space:).to_h { |category| [category.name[I18n.locale.to_s], category.taxonomies] })
+              name = "#{klass.model_name.human}: #{participatory_space.title[I18n.locale.to_s]}"
+              hash.merge!(name => {
+                            name: { I18n.locale.to_s => name },
+                            resources: {},
+                            children: children_taxonomies(participatory_space)
+                          })
             end
           end
         end

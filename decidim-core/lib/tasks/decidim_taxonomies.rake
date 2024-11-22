@@ -88,7 +88,8 @@ namespace :decidim do
         Decidim::Maintenance::ImportModels::ParticipatoryProcessType,
         Decidim::Maintenance::ImportModels::AssemblyType,
         Decidim::Maintenance::ImportModels::Scope,
-        Decidim::Maintenance::ImportModels::Area
+        Decidim::Maintenance::ImportModels::Area,
+        Decidim::Maintenance::ImportModels::Category
       ]
       Decidim::Maintenance::TaxonomyPlan.new(organization, models)
     end

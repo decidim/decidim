@@ -55,8 +55,12 @@ module Decidim
         def self.areas_with_type
           AreaType.with(organization).all_in_org.to_h do |type|
             [
-              type.name[I18n.locale.to_s],
-              type.areas.to_h { |area| [area.name[I18n.locale.to_s], area.taxonomies] }
+              type.plural[I18n.locale.to_s],
+              {
+                name: type.plural,
+                children: type.areas.to_h { |area| [area.name[I18n.locale.to_s], area.taxonomies] },
+                resources: {}
+              }
             ]
           end
         end

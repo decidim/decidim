@@ -32,7 +32,11 @@ module Decidim
         attr_writer :full_name
 
         def full_name
+          return @full_name if defined?(@full_name)
+
           @full_name ||= name.dup
+          @full_name[I18n.locale.to_s] = "#{parent.full_name[I18n.locale.to_s]} > #{@full_name[I18n.locale.to_s]}" if parent_ids.count > 2
+          @full_name
         end
 
         def parent_ids
@@ -46,20 +50,23 @@ module Decidim
 
           return names if names.count < 4
 
-          names[0..2] + [names[2..].join(" > ")]
+          names[0..1] + [names[2..].join(" > ")]
         end
 
         def all_children
           @all_children ||= children.map do |child|
-            child.full_name[I18n.locale.to_s] = "#{full_name[I18n.locale.to_s]} > #{resource_name(child)}"
             [child] + child.all_children
           end.flatten
         end
 
         def children_taxonomies
-          return children.to_h { |child| [child.full_name[I18n.locale.to_s], child.taxonomies] } if parent_ids.count < 2
+          # next level is going to be too deep, we transform the children into siblings
+          return sibling_taxonomies if parent_ids.count > 0
 
-          # next level is going to be too deep, we transform the children into sibilings
+          children.to_h { |child| [child.full_name[I18n.locale.to_s], child.taxonomies] }
+        end
+
+        def sibling_taxonomies
           all_children.to_h do |child|
             [
               child.full_name[I18n.locale.to_s],

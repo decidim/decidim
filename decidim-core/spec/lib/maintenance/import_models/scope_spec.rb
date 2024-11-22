@@ -2,16 +2,13 @@
 
 require "spec_helper"
 require "decidim/maintenance/import_models"
+require_relative "shared_examples"
 
 module Decidim::Maintenance::ImportModels
   describe Scope do
     subject { scope }
 
-    let(:organization) { create(:organization) }
-    let(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
-    let!(:sub_taxonomy) { create(:taxonomy, parent: taxonomy, organization:) }
-    let!(:another_taxonomy) { create(:taxonomy, :with_parent, organization:) }
-    let(:taxonomies) { [sub_taxonomy, another_taxonomy] }
+    include_context "with taxonomy importer model context"
     # avoid using factories for this test in case old models are removed
     let(:scope) { described_class.create!(name: { "en" => "Scope 1", "ca" => "Àmbit 1" }, code: "1", decidim_organization_id: organization.id) }
     let(:another_scope) { described_class.create!(name: { "en" => "Scope 2", "ca" => "Àmbit 2" }, code: "2", decidim_organization_id: organization.id) }
@@ -19,21 +16,14 @@ module Decidim::Maintenance::ImportModels
     let(:sub3_scope) { described_class.create!(name: { "en" => "Scope 1 third level" }, code: "111", decidim_organization_id: organization.id, parent: sub2_scope) }
     let!(:sub4_scope) { described_class.create!(name: { "en" => "Scope 1 fourth level" }, code: "1111", decidim_organization_id: organization.id, parent: sub3_scope) }
     let!(:sub5_scope) { described_class.create!(name: { "en" => "Scope 1 fifth level" }, code: "11111", decidim_organization_id: organization.id, parent: sub4_scope) }
-    let!(:assembly) { create(:assembly, taxonomies:, title: { "en" => "Assembly" }, organization:, decidim_scope_id: sub2_scope.id, scopes_enabled: space_scopes_enabled) }
-    let(:space_scopes_enabled) { true }
-    let!(:participatory_process) { create(:participatory_process, title: { "en" => "Participatory Process" }, organization:, decidim_scope_id: sub2_scope.id) }
-    let!(:dummy_component) { create(:dummy_component, name: { "en" => "Dummy Component" }, participatory_space: assembly) }
-    let(:component_scope_enabled) { true }
-    let!(:dummy_resource) { create(:dummy_resource, title: { "en" => "Dummy Resource" }, component: dummy_component, scope: nil, decidim_scope_id: sub4_scope.id) }
-
-    let(:external_organization) { create(:organization, name: { "en" => "INVALID Organization" }) }
     let(:external_scope) { described_class.create!(name: { "en" => "INVALID scope" }, code: "3", decidim_organization_id: external_organization.id) }
-    let!(:external_assembly) { create(:assembly, title: { "en" => "INVALID Assembly" }, organization: external_organization, decidim_scope_id: external_scope.id) }
-
     let(:settings) { { scopes_enabled: component_scope_enabled, scope_id: sub3_scope.id } }
+    let(:space_scopes_enabled) { true }
+    let(:component_scope_enabled) { true }
     let(:root_taxonomy_name) { "~ Scopes" }
 
     before do
+      described_class.add_resource_class("Decidim::Dev::DummyResource")
       # update part_of for scopes
       scope.update!(part_of: [scope.id])
       another_scope.update!(part_of: [scope.id])
@@ -41,13 +31,36 @@ module Decidim::Maintenance::ImportModels
       sub3_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id])
       sub4_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id, sub4_scope.id])
       sub5_scope.update!(part_of: [scope.id, sub2_scope.id, sub3_scope.id, sub4_scope.id, sub5_scope.id])
+      assembly.update!(decidim_scope_id: sub2_scope.id, scopes_enabled: space_scopes_enabled)
+      participatory_process.update!(decidim_scope_id: sub2_scope.id)
       dummy_component.update!(settings:)
-      described_class.add_resource_class("Decidim::Dev::DummyResource")
+      dummy_resource.update!(decidim_scope_id: sub4_scope.id)
+      external_assembly.update!(decidim_scope_id: external_scope.id, scopes_enabled: true)
     end
 
     describe "#name" do
       it "returns the name" do
+        expect(scope.name).to eq("en" => "Scope 1", "ca" => "Àmbit 1")
         expect(sub2_scope.name).to eq("en" => "Scope 1 second level")
+        expect(sub3_scope.name).to eq("en" => "Scope 1 third level")
+        expect(sub4_scope.name).to eq("en" => "Scope 1 fourth level")
+        expect(sub5_scope.name).to eq("en" => "Scope 1 fifth level")
+      end
+
+      it "returns the full name" do
+        expect(scope.full_name).to eq("en" => "Scope 1", "ca" => "Àmbit 1")
+        expect(sub2_scope.full_name).to eq("en" => "Scope 1 second level")
+        expect(sub3_scope.full_name).to eq("en" => "Scope 1 third level")
+        expect(sub4_scope.full_name).to eq("en" => "Scope 1 third level > Scope 1 fourth level")
+        expect(sub5_scope.full_name).to eq("en" => "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level")
+      end
+
+      it "returns all names hierarchy" do
+        expect(scope.all_names).to eq(["Scope 1"])
+        expect(sub2_scope.all_names).to eq(["Scope 1", "Scope 1 second level"])
+        expect(sub3_scope.all_names).to eq(["Scope 1", "Scope 1 second level", "Scope 1 third level"])
+        expect(sub4_scope.all_names).to eq(["Scope 1", "Scope 1 second level", "Scope 1 third level > Scope 1 fourth level"])
+        expect(sub5_scope.all_names).to eq(["Scope 1", "Scope 1 second level", "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level"])
       end
     end
 
@@ -72,18 +85,17 @@ module Decidim::Maintenance::ImportModels
               children: {
                 "Scope 1 third level" => {
                   name: { "en" => "Scope 1 third level" },
-                  children: {
-                    "Scope 1 third level > Scope 1 fourth level" => {
-                      name: { "en" => "Scope 1 third level > Scope 1 fourth level" },
-                      children: {},
-                      resources: sub4_scope.resources
-                    },
-                    "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level" => {
-                      name: { "en" => "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level" },
-                      children: {},
-                      resources: {}
-                    }
-                  },
+                  children: {},
+                  resources: {}
+                },
+                "Scope 1 third level > Scope 1 fourth level" => {
+                  name: { "en" => "Scope 1 third level > Scope 1 fourth level" },
+                  children: {},
+                  resources: sub4_scope.resources
+                },
+                "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level" => {
+                  name: { "en" => "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level" },
+                  children: {},
                   resources: {}
                 }
               },
@@ -96,11 +108,8 @@ module Decidim::Maintenance::ImportModels
     end
 
     describe ".to_taxonomies" do
-      it "returns the participatory Scopes" do
-        expect(described_class.with(organization).to_taxonomies).to eq(
-          root_taxonomy_name => described_class.to_h
-        )
-      end
+      it_behaves_like "a single root taxonomy"
+      it_behaves_like "can be converted to taxonomies"
     end
 
     describe ".to_h" do
@@ -119,13 +128,11 @@ module Decidim::Maintenance::ImportModels
           [
             "Scope 1",
             "Scope 1 second level",
-            "Scope 1 third level",
             "Scope 1 third level > Scope 1 fourth level"
           ],
           [
             "Scope 1",
             "Scope 1 second level",
-            "Scope 1 third level",
             "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level"
           ],
           ["Scope 2"]
@@ -171,13 +178,11 @@ module Decidim::Maintenance::ImportModels
               [
                 "Scope 1",
                 "Scope 1 second level",
-                "Scope 1 third level",
                 "Scope 1 third level > Scope 1 fourth level"
               ],
               [
                 "Scope 1",
                 "Scope 1 second level",
-                "Scope 1 third level",
                 "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level"
               ]
             ],
