@@ -190,6 +190,8 @@ module Decidim::Maintenance::ImportModels
           }
         )
       end
+
+      # TODO: check when components do not respond to taxonomy_filters
     end
   end
 end

@@ -2,6 +2,7 @@
 
 require "spec_helper"
 require "decidim/maintenance/import_models"
+require "decidim/blogs/test/factories"
 require_relative "shared_examples"
 
 module Decidim::Maintenance::ImportModels
@@ -15,9 +16,9 @@ module Decidim::Maintenance::ImportModels
     let!(:another_category) { described_class.create!(name: { "en" => "Another Category 2", "ca" => "Una Altra Categoria 2" }, participatory_space: participatory_process) }
 
     let!(:categorizable) { Categorization.create!(categorizable: dummy_resource, category:) }
-    let!(:metric) { create(:metric, participatory_space: assembly, decidim_category_id: subcategory.id) }
+    let!(:metric) { create(:metric, participatory_space: assembly, related_object: nil, decidim_category_id: subcategory.id) }
     # a wrongly categorized metric
-    let!(:another_metric) { create(:metric, participatory_space: participatory_process, decidim_category_id: subcategory.id) }
+    let!(:another_metric) { create(:metric, participatory_space: participatory_process, related_object: nil, decidim_category_id: subcategory.id) }
     # a wrongly categorized resource
     let(:another_component) { create(:dummy_component, name: { "en" => "Another Dummy Component" }, participatory_space: participatory_process) }
     let!(:another_resource) { create(:dummy_resource, title: { "en" => "Another Dummy Resource" }, component: another_component, scope: nil) }
@@ -45,7 +46,7 @@ module Decidim::Maintenance::ImportModels
       it_behaves_like "has resources"
 
       it "has subcategory resources" do
-        expect(subcategory.resources).to eq({ metric.to_global_id.to_s => "Metric 1" })
+        expect(subcategory.resources).to eq({ metric.to_global_id.to_s => "Metric" })
       end
     end
 
@@ -101,20 +102,104 @@ module Decidim::Maintenance::ImportModels
                                                                 resources: {}
 
                                                               })
+        expect(hash[:taxonomies]["Participatory process: Participatory Process"]).to eq({
+                                                                                          name: { I18n.locale.to_s => "Participatory process: Participatory Process" },
+                                                                                          children: {
+                                                                                            "Another Category 2" => {
+                                                                                              name: another_category.name,
+                                                                                              children: {},
+                                                                                              resources: {}
+                                                                                            }
+                                                                                          },
+                                                                                          resources: {}
+                                                                                        })
 
-        expect(hash[:filters].count).to eq(0) # TODO
+        expect(hash[:filters].count).to eq(2)
       end
 
       it "returns the filters for each space" do
-        %w(assemblies participatory_processes initiatives).each do |space_manifest|
+        expect(hash[:filters]).to include(
+          space_filter: false,
+          space_manifest: "assemblies",
+          name: root_taxonomy_name,
+          internal_name: "Assembly: Assembly",
+          items: [
+            ["Assembly: Assembly", "Category 1"],
+            ["Assembly: Assembly", "Category 1", "Sub Category 1"]
+          ],
+          components: [
+            dummy_component.to_global_id.to_s
+          ]
+        )
+
+        expect(hash[:filters]).to include(
+          space_filter: false,
+          space_manifest: "participatory_processes",
+          name: root_taxonomy_name,
+          internal_name: "Participatory process: Participatory Process",
+          items: [
+            ["Participatory process: Participatory Process", "Another Category 2"]
+          ],
+          components: [
+            another_component.to_global_id.to_s
+          ]
+        )
+      end
+
+      context "and a space have no categories" do
+        let!(:another_category) { described_class.create!(name: { "en" => "Another Category 2", "ca" => "Una Altra Categoria 2" }, participatory_space: assembly) }
+
+        it "Skips the space" do
+          expect(hash[:taxonomies].count).to eq(1)
+          expect(hash[:taxonomies]["Assembly: Assembly"]).to eq({
+                                                                  name: { I18n.locale.to_s => "Assembly: Assembly" },
+                                                                  children: {
+                                                                    "Category 1" => {
+                                                                      name: category.name,
+                                                                      children: {
+                                                                        "Sub Category 1" => {
+                                                                          name: subcategory.name,
+                                                                          children: {},
+                                                                          resources: {
+                                                                            metric.to_global_id.to_s => "Metric"
+                                                                          }
+                                                                        }
+                                                                      },
+                                                                      resources: {
+                                                                        dummy_resource.to_global_id.to_s => dummy_resource.title[I18n.locale.to_s]
+                                                                      }
+                                                                    },
+                                                                    "Another Category 2" => {
+                                                                      name: another_category.name,
+                                                                      children: {},
+                                                                      resources: {}
+                                                                    }
+                                                                  },
+                                                                  resources: {}
+                                                                })
+        end
+      end
+
+      context "and a component has no taxonomy filters" do
+        let!(:dummy_component) { create(:post_component, name: { "en" => "Another Dummy Component" }, participatory_space: assembly) }
+        let(:dummy_resource) { nil }
+        let(:categorizable) { nil }
+
+        it "Skips the component" do
+          expect(hash[:taxonomies].count).to eq(2)
+
+          expect(hash[:filters].count).to eq(1)
           expect(hash[:filters]).to include(
-            {
-              space_filter: true,
-              space_manifest:,
-              name: root_taxonomy_name,
-              items: all_items,
-              components: []
-            }
+            space_filter: false,
+            space_manifest: "participatory_processes",
+            name: root_taxonomy_name,
+            internal_name: "Participatory process: Participatory Process",
+            items: [
+              ["Participatory process: Participatory Process", "Another Category 2"]
+            ],
+            components: [
+              another_component.to_global_id.to_s
+            ]
           )
         end
       end

@@ -58,9 +58,20 @@ module Decidim
           end
         end
 
+        def self.children_components(participatory_space)
+          participatory_space.components.filter_map do |component|
+            # skip components without taxonomies in settings
+            next unless component.settings.respond_to?(:taxonomy_filters)
+
+            component.to_global_id.to_s
+          end
+        end
+
         def self.all_taxonomies
           participatory_space_classes.each_with_object({}) do |klass, hash|
             klass.where(organization:).each do |participatory_space|
+              next unless Category.where(participatory_space:, parent_id: nil).any?
+
               name = "#{klass.model_name.human}: #{participatory_space.title[I18n.locale.to_s]}"
               hash.merge!(name => {
                             name: { I18n.locale.to_s => name },
@@ -72,7 +83,28 @@ module Decidim
         end
 
         def self.all_filters
-          []
+          participatory_space_classes.each_with_object([]) do |klass, list|
+            klass.where(organization:).each do |participatory_space|
+              name = "#{klass.model_name.human}: #{participatory_space.title[I18n.locale.to_s]}"
+              space_manifest = klass.to_s.split("::").last.underscore.pluralize
+              components = children_components(participatory_space)
+              next unless components.any?
+
+              list << {
+                space_filter: false,
+                space_manifest:,
+                name: root_taxonomy_name,
+                internal_name: name,
+                items: Category.where(participatory_space:).map do |category|
+                  names = [name]
+                  names << category.parent.name[I18n.locale.to_s] if category.parent
+                  names << category.name[I18n.locale.to_s]
+                  names
+                end,
+                components:
+              }
+            end
+          end
         end
       end
     end
