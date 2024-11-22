@@ -52,11 +52,11 @@ $(() => {
     hideBulkActionForms();
     $("#js-bulk-actions-button").addClass("hide");
 
-    $("#js-bulk-actions-dropdown ul li button").click(function (e) {
+    $("#js-bulk-actions-dropdown ul li button").click(function (event) {
       $("#js-bulk-actions-dropdown").removeClass("is-open");
       hideBulkActionForms();
 
-      let action = $(e.target).data("action");
+      let action = $(event.target).data("action");
       const panelActions = [
         "hide-global-moderations",
         "unreport-global-moderations",

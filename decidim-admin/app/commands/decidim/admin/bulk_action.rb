@@ -35,7 +35,7 @@ module Decidim
           next unless reportable
 
           if reportable.respond_to?(:organization) && reportable.organization != user.organization
-            result[:ok] << reportable
+            result[:ko] << reportable
             next
           end
 
@@ -44,7 +44,7 @@ module Decidim
               result[:ok] << reportable
             end
             on(:invalid) do
-              result[:ok] << reportable
+              result[:ko] << reportable
             end
           end
         end
@@ -54,7 +54,7 @@ module Decidim
         case action
         when "hide"
           Admin::HideResource
-        when "unreported"
+        when "unreport"
           Admin::UnreportResource
         when "unhide"
           Admin::UnhideResource
