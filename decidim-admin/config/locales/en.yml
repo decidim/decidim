@@ -786,6 +786,8 @@ en:
           segmented_to: 'Segmented to %{subject}: '
           subscribed_count: 'Subscribed:'
           title: Newsletters
+          verified_users: Verified users
+          verification_types: 'Verification types: %{types}'
         new:
           save: Save
           title: New newsletter

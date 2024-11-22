@@ -14,8 +14,8 @@ module Decidim
       attribute :send_to_followers, Boolean
       attribute :send_to_private_members, Boolean
 
-      validates :send_to_all_users, presence: true, unless: :any_other_recipient_group_selected?
-      validates :send_to_verified_users, presence: true, unless: :any_other_recipient_group_selected?
+      validates :send_to_all_users, presence: true, unless: :other_groups_selected_for_all_users?
+      validates :send_to_verified_users, presence: true, unless: :other_groups_selected_for_verified_users?
       validates :send_to_followers, presence: true, if: :only_followers_selected?
       validates :send_to_participants, presence: true, if: :only_participants_selected?
       validates :send_to_private_members, presence: true, if: :only_private_members_selected?
@@ -45,12 +45,15 @@ module Decidim
         end.compact
       end
 
-      def verification_types_selected
-        verification_types.select! { |type| valid_types.include?(type) }
+      def other_groups_selected_for_all_users?
+        send_to_verified_users.present? ||
+          send_to_participants.present? ||
+          send_to_followers.present? ||
+          send_to_private_members.present?
       end
 
-      def any_other_recipient_group_selected?
-        send_to_verified_users.present? ||
+      def other_groups_selected_for_verified_users?
+        send_to_all_users.present? ||
           send_to_participants.present? ||
           send_to_followers.present? ||
           send_to_private_members.present?

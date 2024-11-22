@@ -6,13 +6,13 @@ module Decidim
     module NewslettersHelper
       def verification_types_for_select(form_object)
         content_tag :div, class: "verification-types-block cell small-12 medium-6" do
-          form_object.fields_for :verification_types do |ff|
-            ff.select :ids, options_for_select(verification_methods_for_select),
-                      { prompt: t("select_recipients_to_deliver.none", scope: "decidim.admin.newsletters"),
-                        label: false,
-                        include_hidden: false },
-                      multiple: true, size: [verification_methods_for_select.size, 10].min, class: "chosen-select"
-          end
+          select_tag(
+            "newsletter[verification_types][]",
+            options_for_select(verification_methods_for_select, form_object.object.verification_types),
+            multiple: true,
+            size: [verification_methods_for_select.size, 10].min,
+            class: "chosen-select"
+          )
         end
       end
 
@@ -57,6 +57,7 @@ module Decidim
       def selective_newsletter_to(newsletter)
         return content_tag(:strong, t("index.not_sent", scope: "decidim.admin.newsletters"), class: "text-warning") unless newsletter.sent?
         return content_tag(:strong, t("index.all_users", scope: "decidim.admin.newsletters"), class: "text-success") if newsletter.sent? && newsletter.extended_data.blank?
+        return sent_to_verified_users(newsletter) if newsletter.sent_to_verified_users?
 
         content_tag :div do
           concat sent_to_users newsletter
@@ -70,15 +71,24 @@ module Decidim
 
           recipients = []
 
-          recipients << content_tag(:strong, t("index.all_users", scope: "decidim.admin.newsletters")) if newsletter.sended_to_all_users?
-          recipients << content_tag(:strong, t("index.followers", scope: "decidim.admin.newsletters")) if newsletter.sended_to_followers?
-          recipients << content_tag(:strong, t("index.participants", scope: "decidim.admin.newsletters")) if newsletter.sended_to_participants?
-          recipients << content_tag(:strong, t("index.private_members", scope: "decidim.admin.newsletters")) if newsletter.sended_to_private_members?
+          recipients << content_tag(:strong, t("index.all_users", scope: "decidim.admin.newsletters")) if newsletter.sent_to_all_users?
+          recipients << content_tag(:strong, t("index.verified_users", scope: "decidim.admin.newsletters")) if newsletter.sent_to_verified_users?
+          recipients << content_tag(:strong, t("index.followers", scope: "decidim.admin.newsletters")) if newsletter.sent_to_followers?
+          recipients << content_tag(:strong, t("index.participants", scope: "decidim.admin.newsletters")) if newsletter.sent_to_participants?
+          recipients << content_tag(:strong, t("index.private_members", scope: "decidim.admin.newsletters")) if newsletter.sent_to_private_members?
 
           recipients.each_with_index do |recipient, index|
             concat recipient
             concat t("index.and", scope: "decidim.admin.newsletters") if index < recipients.size - 1
           end
+        end
+      end
+
+      def sent_to_verified_users(newsletter)
+        content_tag :p, style: "margin-bottom:0;" do
+          concat content_tag(:strong, t("index.has_been_sent_to", scope: "decidim.admin.newsletters"), class: "text-success")
+          concat content_tag(:strong, t("index.verified_users", scope: "decidim.admin.newsletters"))
+          concat content_tag(:p, t("index.verification_types", scope: "decidim.admin.newsletters", types: selected_verification_types(newsletter)))
         end
       end
 
@@ -102,19 +112,6 @@ module Decidim
         end
         html += "</p>"
         html.html_safe
-      end
-
-      def sent_to_scopes(newsletter)
-        content_tag :p, style: "margin-bottom:0;" do
-          concat t("index.segmented_to", scope: "decidim.admin.newsletters", subject: nil)
-          if newsletter.sent_scopes.any?
-            newsletter.sent_scopes.each do |scope|
-              concat content_tag(:strong, decidim_escape_translated(scope.name).to_s)
-            end
-          else
-            concat content_tag(:strong, t("index.no_scopes", scope: "decidim.admin.newsletters"))
-          end
-        end
       end
 
       def organization_participatory_space(manifest_name)
@@ -172,8 +169,14 @@ module Decidim
 
       def verification_methods_for_select
         current_organization.available_authorizations.map do |type|
-          I18n.t("decidim.authorization_handlers.#{type}.name")
+          [I18n.t("decidim.authorization_handlers.#{type}.name"), type]
         end
+      end
+
+      def selected_verification_types(newsletter)
+        newsletter.sent_to_users_with_verification_types&.map do |type|
+          I18n.t("decidim.authorization_handlers.#{type}.name")
+        end&.join(", ")
       end
     end
   end

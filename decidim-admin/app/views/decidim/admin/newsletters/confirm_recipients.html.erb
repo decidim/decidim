@@ -34,6 +34,7 @@
         <% unless @newsletter.sent? %>
           <%= form_with url: deliver_newsletter_path(@newsletter), method: :post, html: { class: "form form-defaults newsletter_deliver" } do |f| %>
             <%= hidden_field_tag "newsletter[send_to_all_users]", params.dig(:newsletter, :send_to_all_users) %>
+            <%= hidden_field_tag "newsletter[send_to_verified_users]", params.dig(:newsletter, :send_to_verified_users) %>
             <%= hidden_field_tag "newsletter[send_to_participants]", params.dig(:newsletter, :send_to_participants) %>
             <%= hidden_field_tag "newsletter[send_to_followers]", params.dig(:newsletter, :send_to_followers) %>
             <%= hidden_field_tag "newsletter[send_to_private_members]", params.dig(:newsletter, :send_to_private_members) %>
@@ -43,6 +44,10 @@
                 <%= ff.hidden_field :manifest_name, value: space_type.manifest_name %>
                 <%= ff.hidden_field :ids, value: space_type.ids %>
               <% end %>
+            <% end %>
+
+            <% @form.verification_types.each do |verification_type| %>
+              <%= hidden_field_tag "newsletter[verification_types][]", verification_type %>
             <% end %>
 
             <%= submit_tag t("select_recipients_to_deliver.deliver", scope: "decidim.admin.newsletters"),
