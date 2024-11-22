@@ -35,16 +35,15 @@ module Decidim
           next unless reportable
 
           if reportable.respond_to?(:organization) && reportable.organization != user.organization
-            result[:ko] << reportable
+            result[:ok] << reportable
             next
           end
-
           command.call(reportable, user) do
             on(:ok) do
               result[:ok] << reportable
             end
             on(:invalid) do
-              result[:ko] << reportable
+              result[:ok] << reportable
             end
           end
         end
