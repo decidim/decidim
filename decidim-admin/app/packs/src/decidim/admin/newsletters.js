@@ -13,6 +13,9 @@ $(() => {
     const $deliverButton = $form.find("#deliver-button");
     const $confirmRecipientsLink = $form.find("#confirm-recipients-link");
 
+    const groupSpecificCheckboxes = [$sendNewsletterToFollowers, $sendNewsletterToParticipants, $sendNewsletterToPrivateMembers];
+    const globalCheckboxes = [$sendNewsletterToAllUsers, $sendNewsletterToVerifiedUsers];
+
     // Update hidden field for the checkbox
     const updateHiddenField = ($checkbox) => {
       const hiddenInput = $checkbox.siblings(`input[name="${$checkbox.attr("name")}"][type="hidden"]`);
@@ -21,138 +24,112 @@ $(() => {
         : "0");
     };
 
-    // Reset selective checkboxes (Followers, Participants, Private Members)
-    const resetSelectiveCheckboxes = () => {
-      [$sendNewsletterToFollowers, $sendNewsletterToParticipants, $sendNewsletterToPrivateMembers].forEach(
-        ($checkbox) => {
-          $checkbox.find("input[type='checkbox']").prop("checked", false);
-          updateHiddenField($checkbox.find("input[type='checkbox']"));
-        }
-      );
+    const setCheckboxState = ($checkbox, state) => {
+      $checkbox.find("input[type='checkbox']").prop("checked", state);
+      updateHiddenField($checkbox.find("input[type='checkbox']"));
     };
 
-    // Reset "All Users" and "Verified Users" checkboxes if selective checkboxes are selected
-    const resetExclusiveCheckboxes = (except) => {
-      [$sendNewsletterToAllUsers, $sendNewsletterToVerifiedUsers].
-        filter(($checkbox) => $checkbox !== except).
-        forEach(($checkbox) => {
-          $checkbox.find("input[type='checkbox']").prop("checked", false);
-          updateHiddenField($checkbox.find("input[type='checkbox']"));
-        });
+    // Toggle checkboxes in a group
+    const toggleCheckboxGroup = (checkboxes, state) => {
+      checkboxes.forEach(($checkbox) => setCheckboxState($checkbox, state));
     };
 
     // Update the confirm recipients link
     const updateConfirmRecipientsLink = () => {
       const params = new URLSearchParams();
 
-      $form.serializeArray().forEach(({ name, value }) => {
-        params.append(name, value);
-      });
+      $form.serializeArray().forEach(({ name, value }) => params.append(name, value));
 
       const baseUrl = $confirmRecipientsLink.data("base-url");
       if (baseUrl) {
-        const fullUrl = `${baseUrl}?${params.toString()}`;
-        $confirmRecipientsLink.attr("href", fullUrl);
+        $confirmRecipientsLink.attr("href", `${baseUrl}?${params.toString()}`);
       } else {
         console.error("Base URL for confirm recipients link is missing.");
       }
     };
 
-    // Update the visibility of the submit button and confirm link
     const updateButtonAndLink = () => {
-      const isAnyChecked = [
-        $sendNewsletterToAllUsers,
-        $sendNewsletterToVerifiedUsers,
-        $sendNewsletterToFollowers,
-        $sendNewsletterToParticipants,
-        $sendNewsletterToPrivateMembers,
-      ].some(($checkbox) => $checkbox.find("input[type='checkbox']").prop("checked"));
+      const isAllUsersChecked = $sendNewsletterToAllUsers.find("input[type='checkbox']").prop("checked");
+      const isAnyChecked = [...globalCheckboxes, ...groupSpecificCheckboxes].some(($checkbox) =>
+        $checkbox.find("input[type='checkbox']").prop("checked")
+      );
 
-      if (isAnyChecked) {
-        $deliverButton.addClass("hidden");
-        $confirmRecipientsLink.removeClass("hidden");
-      } else {
-        $deliverButton.removeClass("hidden");
-        $confirmRecipientsLink.addClass("hidden");
-      }
+      $deliverButton.toggleClass("hidden", !isAllUsersChecked);
+      $confirmRecipientsLink.toggleClass("hidden", isAllUsersChecked || !isAnyChecked);
 
       updateConfirmRecipientsLink();
     };
 
-    // Update the visibility of the participatory spaces block
-    const updateSpacesVisibility = () => {
-      const isAnySelectiveChecked = [
-        $sendNewsletterToFollowers,
-        $sendNewsletterToParticipants,
-        $sendNewsletterToPrivateMembers,
-      ].some(($checkbox) => $checkbox.find("input[type='checkbox']").prop("checked"));
+    const ensureAtLeastOneCheckboxSelected = () => {
+      const isAnyChecked = [...globalCheckboxes, ...groupSpecificCheckboxes].some(($checkbox) =>
+        $checkbox.find("input[type='checkbox']").prop("checked")
+      );
 
-      $participatorySpacesForSelect.toggle(isAnySelectiveChecked);
+      if (!isAnyChecked) {
+        setCheckboxState($sendNewsletterToAllUsers, true);
+      }
     };
 
-    // Update the visibility of the verification types block
+    const updateSpacesVisibility = () => {
+      const isAnySelectiveChecked = groupSpecificCheckboxes.some(($checkbox) =>
+        $checkbox.find("input[type='checkbox']").prop("checked")
+      );
+
+      const isVerifiedChecked = $sendNewsletterToVerifiedUsers.find("input[type='checkbox']").prop("checked");
+
+      $participatorySpacesForSelect.toggle(isAnySelectiveChecked && !isVerifiedChecked);
+    };
+
     const updateVerificationTypesVisibility = () => {
       const isVerifiedChecked = $sendNewsletterToVerifiedUsers.find("input[type='checkbox']").prop("checked");
       $verificationTypesForSelect.toggle(isVerifiedChecked);
     };
 
-    // Update hidden fields and trigger button/link update
-    const updateAll = ($checkbox) => {
-      const hiddenInput = $checkbox.find("input[type='hidden']");
-      hiddenInput.val(
-        $checkbox.find("input[type='checkbox']").prop("checked")
-          ? "1"
-          : "0"
-      );
-      updateButtonAndLink();
-    };
-
-    const initVisibility = () => {
+    const updateVisibility = () => {
       updateSpacesVisibility();
       updateVerificationTypesVisibility();
     };
 
+    const updateAll = ($checkbox) => {
+      updateHiddenField($checkbox);
+      ensureAtLeastOneCheckboxSelected();
+      updateButtonAndLink();
+      updateVisibility();
+    };
+
+    const selectDefaultCheckboxes = () => {
+      toggleCheckboxGroup(groupSpecificCheckboxes, true);
+    };
+
     // Event listeners for checkboxes
-    $sendNewsletterToAllUsers.on("change", (event) => {
-      const checked = event.target.checked;
+    globalCheckboxes.forEach(($checkbox) => {
+      $checkbox.on("change", (event) => {
+        const checked = event.target.checked;
 
-      if (checked) {
-        resetExclusiveCheckboxes($sendNewsletterToAllUsers);
-        resetSelectiveCheckboxes();
-      }
+        if (checked) {
+          toggleCheckboxGroup(globalCheckboxes.filter((el) => el !== $checkbox), false);
+          toggleCheckboxGroup(groupSpecificCheckboxes, false);
+        } else if ($checkbox.is($sendNewsletterToAllUsers)) {
+          selectDefaultCheckboxes();
+        }
 
-      initVisibility();
-      updateAll($sendNewsletterToAllUsers);
+        updateAll($checkbox);
+      });
     });
 
-    $sendNewsletterToVerifiedUsers.on("change", (event) => {
-      const checked = event.target.checked;
+    groupSpecificCheckboxes.forEach(($checkbox) => {
+      $checkbox.on("change", () => {
+        if ($checkbox.find("input[type='checkbox']").prop("checked")) {
+          toggleCheckboxGroup(globalCheckboxes, false);
+        }
 
-      if (checked) {
-        resetExclusiveCheckboxes($sendNewsletterToVerifiedUsers);
-        resetSelectiveCheckboxes();
-      }
-      updateVerificationTypesVisibility();
-      updateAll($sendNewsletterToVerifiedUsers);
+        updateAll($checkbox);
+      });
     });
 
-    // Allow simultaneous selection for Followers, Participants, and Private Members
-    [$sendNewsletterToFollowers, $sendNewsletterToParticipants, $sendNewsletterToPrivateMembers].forEach(
-      ($checkbox) => {
-        $checkbox.on("change", () => {
-          // Reset "All Users" and "Verified Users" if selective checkboxes are selected
-          if ($checkbox.find("input[type='checkbox']").prop("checked")) {
-            resetExclusiveCheckboxes();
-          }
-
-          initVisibility();
-          updateAll($checkbox);
-        });
-      }
-    );
-
-    // Initialize visibility
-    initVisibility();
+    // Initialize visibility and ensure at least one checkbox is selected
+    updateVisibility();
+    ensureAtLeastOneCheckboxSelected();
 
     // Event listener for changes in participatory spaces select
     $(".form .spaces-block-tag").each((_i, blockTag) => {
@@ -187,9 +164,7 @@ $(() => {
         $modal.addClass("hide");
       };
 
-      // Send the form data
       xhr.send(formData);
-
       updateConfirmRecipientsLink();
     });
   }
