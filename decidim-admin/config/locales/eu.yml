@@ -1132,18 +1132,28 @@ eu:
           items:
             one: "%{count} item hautatuta"
             other: "%{count} item hautatuta"
+          name_help: Aurrealdean erakutsiko den iragazkiaren izenburua.
+          no_items: Taxonomia honetarako ez dago elementurik. Artikuluak sor ditzakezu taxonomia konfiguratzeko ezarpenetan.
+          space_filter: Eskuragarri iragazki gisa %{manifest_name} guztientzat
         index:
           description: Taxonomia-iragazki batek aukera ematen die administratzaileei espazio parte-hartzaileak taxonomia batean oinarrituta ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera sailkatzeko.
           empty: Gaur egun ez dago taxonomia-iragazkirik. Sortutaxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
         new:
           back: Atzera
           create: Sortu taxonomia-iragazkia
+          select_taxonomy: Hautatu taxonomia bat
           title: Beste taxonomia-iragazki bat
         table:
           actions: Ekintzak
+          components_count: Osagai elkartuak
           confirm_destroy: 'Ziur zaude %{name} iragazkia ezabatu nahi duzula? OHARRA: Iragazki hau erabiltzen ari diren baliabideei ez zaie eragingo, baina iragazki horren erreferentzia galduko dute.'
+          count: Erabilitako artikuluen kopurua
           destroy: Ezabatu
           edit: Editatu
+          internal_name: Barne iragazkiaren izena
+          name: Iragazki publikoaren titulua
+          space_filter: Iragazteko erabilia %{manifest_name}
+          taxonomy: Taxonomiatik
         update:
           error: Arazo bai izan da taxonomia-iragazki hau eguneratzean.
           success: Taxonomia-iragazkia zuzen eguneratua.
