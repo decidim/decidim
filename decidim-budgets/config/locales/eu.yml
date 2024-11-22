@@ -126,6 +126,14 @@ eu:
               unselected: 'Proiektu horiek dagoeneko ez ziren aukeratu inplementaziotik: %{errored}.'
             select_a_project: Mesedez, hautatu proiektu bat.
             select_a_selection: Mesedez, hautatu ezarpen-egoera bat.
+            success:
+              selected: "Proiektu hauek arrakastaz\nProiektu hauek zuzen aukeratu dira inplementatzeko: %{successful}."
+              unselected: 'Proiektu hauek zuzen kendu dira inplementaziotik: %{successful}.'
+          update_taxonomies:
+            invalid: 'Taxonomiak %{taxonomies}, proiektu hauetan dagoeneko esleituak: %{errored}.'
+            select_a_project: Mesedez, hautatu proiektu bat.
+            select_a_taxonomy: Mesedez, hautatu taxonomia bat.
+            success: 'Proiektuak zuzen eguneratuta %{taxonomies} taxonomietan: %{successful}.'
         proposals_imports:
           create:
             invalid: Arazo bat egon da proposamenak proiektuetara inportatzean.
