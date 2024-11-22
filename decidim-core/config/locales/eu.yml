@@ -21,6 +21,11 @@ eu:
         details: Iruzkin gehigarriak
       taxonomy:
         name: Taxonomiaren izena
+      taxonomy_filter:
+        internal_name: Barne iragazkiaren izena
+        name: Iragazki publikoaren titulua
+        root_taxonomy_id: Taxonomiatik
+        space_filter: Parte hartzeko espazioetarako iragazki bezala eskuragarri
       user:
         about: Honi buruz
         email: Zure helbide elektronikoa
@@ -1686,6 +1691,8 @@ eu:
       users_count: Parte-hartzaileak
     tags:
       filter_results_for_taxonomy: 'Iragazkien emaitzak honetarako: %{resource}'
+    taxonomies:
+      prompt: Mesedez, hautatu aukera bat
     translation_bar:
       help_text: "<strong>Oharra:</strong> Edukia automatikoki itzul daiteke eta ez izan zuzena %100ean."
       show_original: Erakutsi jatorrizko testua
