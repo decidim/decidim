@@ -61,7 +61,7 @@ module Decidim
 
         def children_taxonomies
           # next level is going to be too deep, we transform the children into siblings
-          return sibling_taxonomies if parent_ids.count > 0
+          return sibling_taxonomies if parent_ids.count.positive?
 
           children.to_h { |child| [child.full_name[I18n.locale.to_s], child.taxonomies] }
         end
