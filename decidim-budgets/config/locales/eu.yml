@@ -96,6 +96,7 @@ eu:
             cancel: Ezeztatu
             change_budget: Aldatu aurrekontua
             change_selected: Aldatu hautatutako egoera
+            change_taxonomies: Aldatu taxonomiak
             deselect_implementation: Kendu gauzatzekoetatik
             finished_orders: Amaitutako botoak
             pending_orders: Zain dauden botoak
@@ -116,8 +117,13 @@ eu:
             invalid: Arazo bat egon da proiektu hau eguneratzean.
             success: Proiektua zuzen eguneratua.
           update_budget:
+            invalid: 'Proiektu hauek dagoeneko aurrekontu berean daude edo euren aurrekontuak onartutakoak baino gehiago dira: %{errored}.'
             select_a_project: Mesedez, hautatu proiektu bat.
+            success: 'Proiektuak zuzen eguneratu dira %{subject_name} aurrekontura: %{arrakastatsua}.'
           update_selected:
+            invalid:
+              selected: 'Proiektu hauek jada hautatuak izan ziren martxan jartzeko: %{errored}.'
+              unselected: 'Proiektu horiek dagoeneko ez ziren aukeratu inplementaziotik: %{errored}.'
             select_a_project: Mesedez, hautatu proiektu bat.
             select_a_selection: Mesedez, hautatu ezarpen-egoera bat.
         proposals_imports:
