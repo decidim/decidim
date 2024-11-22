@@ -34,7 +34,7 @@ module Decidim::Maintenance::ImportModels
       assembly.update!(decidim_scope_id: sub2_scope.id, scopes_enabled: space_scopes_enabled)
       participatory_process.update!(decidim_scope_id: sub2_scope.id)
       dummy_component.update!(settings:)
-      dummy_resource.update!(decidim_scope_id: sub4_scope.id)
+      dummy_resource.update!(decidim_scope_id: sub4_scope.id) if dummy_resource
       external_assembly.update!(decidim_scope_id: external_scope.id, scopes_enabled: true)
     end
 
@@ -191,7 +191,19 @@ module Decidim::Maintenance::ImportModels
         )
       end
 
-      # TODO: check when components do not respond to taxonomy_filters
+      context "and a component has no taxonomy filters" do
+        let!(:dummy_component) { create(:post_component, name: { "en" => "Another Dummy Component" }, participatory_space: assembly) }
+        let(:dummy_resource) { nil }
+
+        it "Skips the component" do
+          expect(hash[:filters].count).to eq(4)
+
+          hash[:filters].each do |filter|
+            expect(filter[:space_filter]).to be_truthy
+            expect(filter[:components]).to be_empty
+          end
+        end
+      end
     end
   end
 end

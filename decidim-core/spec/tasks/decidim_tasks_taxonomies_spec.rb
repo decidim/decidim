@@ -21,11 +21,16 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
   let!(:area) { Decidim::Maintenance::ImportModels::Area.create!(name: { "en" => "Area 1", "ca" => "Àrea 1" }, decidim_organization_id: organization.id) }
 
+  let!(:category) { Decidim::Maintenance::ImportModels::Category.create!(name: { "en" => "Category 1", "ca" => "Categoria 1" }, participatory_space: assembly) }
+  let!(:subcategory) { Decidim::Maintenance::ImportModels::Category.create!(name: { "en" => "Sub Category 1", "ca" => "Subcategoria 1" }, parent: category, participatory_space: assembly) }
+  let!(:another_category) { Decidim::Maintenance::ImportModels::Category.create!(name: { "en" => "Another Category 2", "ca" => "Una Altra Categoria 2" }, participatory_space: participatory_process) }
+
   let!(:participatory_process) { create(:participatory_process, title: { "en" => "Process" }, organization:, decidim_participatory_process_type_id: process_type1.id, decidim_scope_id: another_scope.id) }
   let!(:assembly) { create(:assembly, title: { "en" => "Assembly" }, organization:, decidim_assemblies_type_id: assembly_type1.id, decidim_scope_id: scope.id, decidim_area_id: area.id) }
 
   let!(:dummy_component) { create(:dummy_component, name: { "en" => "Dummy component" }, participatory_space: assembly) }
   let!(:dummy_resource) { create(:dummy_resource, title: { "en" => "Dummy resource" }, component: dummy_component, scope: nil, decidim_scope_id: sub_scope.id) }
+  let!(:categorization) { Decidim::Maintenance::ImportModels::Categorization.create!(category:, categorizable: dummy_resource) }
   let(:settings) { { scopes_enabled: true, scope_id: sub_scope.id } }
 
   before do
@@ -143,7 +148,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
         "name" => "~ Areas",
         "items" => [["Area 1"]],
         "components" => []
-        )
+      )
       expect(areas_roots["~ Areas"]["filters"]).to include(
         "space_filter" => true,
         "space_manifest" => "participatory_processes",
@@ -159,11 +164,38 @@ describe "Executing Decidim Taxonomy importer tasks" do
         "components" => []
       )
 
+      categories_roots = json_content["imported_taxonomies"]["decidim_categories"]
+      expect(categories_roots.count).to eq(1)
+      expect(categories_roots.keys.first).to eq("~ Categories")
+      cat_taxonomies = categories_roots["~ Categories"]["taxonomies"]
+      expect(cat_taxonomies.keys).to contain_exactly("Assembly: Assembly", "Participatory process: Process")
+      expect(cat_taxonomies["Assembly: Assembly"]["name"]).to eq("en" => "Assembly: Assembly")
+      expect(cat_taxonomies["Assembly: Assembly"]["children"]["Category 1"]["name"]).to eq("en" => "Category 1", "ca" => "Categoria 1")
+      expect(cat_taxonomies["Assembly: Assembly"]["children"]["Category 1"]["resources"]).to eq({
+                                                                                                  dummy_resource.to_global_id.to_s => "Dummy resource"
+                                                                                                })
+      expect(cat_taxonomies["Assembly: Assembly"]["children"]["Category 1"]["children"]["Sub Category 1"]["name"]).to eq("en" => "Sub Category 1", "ca" => "Subcategoria 1")
+      expect(cat_taxonomies["Participatory process: Process"]["name"]).to eq("en" => "Participatory process: Process")
+      expect(cat_taxonomies["Participatory process: Process"]["children"]["Another Category 2"]["name"]).to eq("en" => "Another Category 2", "ca" => "Una Altra Categoria 2")
+      expect(categories_roots["~ Categories"]["filters"].count).to eq(1)
+      expect(categories_roots["~ Categories"]["filters"]).to include(
+        "space_filter" => false,
+        "space_manifest" => "assemblies",
+        "internal_name" => "Assembly: Assembly",
+        "name" => "~ Categories",
+        "items" => [["Assembly: Assembly", "Category 1"],
+                    ["Assembly: Assembly", "Category 1", "Sub Category 1"]],
+        "components" => [
+          dummy_component.to_global_id.to_s
+        ]
+      )
+
       check_message_printed("Creating a plan for organization #{decidim_organization_id}")
       check_message_printed("...Exporting taxonomies for decidim_participatory_process_types")
       check_message_printed("...Exporting taxonomies for decidim_assemblies_types")
       check_message_printed("...Exporting taxonomies for decidim_scopes")
       check_message_printed("...Exporting taxonomies for decidim_areas")
+      check_message_printed("...Exporting taxonomies for decidim_categories")
       check_message_printed("Plan created")
     end
   end
@@ -178,7 +210,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
     end
 
     it "imports the plan for all organizations" do # rubocop:disable RSpec/ExampleLength
-      expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(12)
+      expect { task.invoke }.to change(Decidim::Taxonomy, :count).by(18)
 
       check_message_printed("Importing taxonomies and filters for organization #{decidim_organization_id}")
 
@@ -320,6 +352,33 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Assigned resources: 1
               - Area 1:
                 - #{assembly.to_global_id}
+            Failed resources: 0
+            Failed components: 0
+      MSG
+
+      check_message_printed(<<~MSG)
+        ...Importing 1 root taxonomies from decidim_categories
+          - Root taxonomy: ~ Categories
+            1st level taxonomies: 2
+            Filters: 1
+              - Filter name: ~ Categories
+                Internal name: Assembly: Assembly
+                Manifest: assemblies
+                Space filter: false
+                Items: 2
+                Components: 1
+            Created taxonomies: 6
+              - ~ Categories
+              - Assembly: Assembly
+              - Category 1
+              - Sub Category 1
+              - Participatory process: Process
+              - Another Category 2
+            Created filters: 1
+              - assemblies: Assembly: Assembly: 2 items
+            Assigned resources: 1
+              - Category 1:
+                - #{dummy_resource.to_global_id}
             Failed resources: 0
             Failed components: 0
       MSG

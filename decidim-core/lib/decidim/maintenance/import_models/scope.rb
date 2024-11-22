@@ -117,6 +117,8 @@ module Decidim
         end
 
         def self.filter_item_for_component(component, space, space_manifest)
+          return unless component.settings.respond_to?(:taxonomy_filters)
+
           scopes_enabled = component.settings[:scopes_enabled]
           return unless scopes_enabled
 
