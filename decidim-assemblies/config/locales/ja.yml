@@ -90,11 +90,13 @@ ja:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: このアセンブリを削除してもよろしいですか？気が変わった場合は、後で復元できます。
         import_assembly: インポート
         new_assembly: 新しい参加スペース
         new_assembly_member: 新しい参加スペースメンバー
         new_assembly_type: 新しい参加スペース種別
         new_assembly_user_role: 新しい参加スペース管理者
+        view_deleted_assemblies: 削除されたアセンブリを表示
       assemblies:
         create:
           error: 新しい参加スペースの作成中に問題が発生しました。
@@ -106,6 +108,8 @@ ja:
           public: 公開
           published: 公開済み
           unpublished: 未公開
+        manage_trash:
+          title: 削除されたアセンブリ
         new:
           create: 作成
           title: 新しい参加スペース
@@ -247,7 +251,10 @@ ja:
             valuator: 評価者
       titles:
         assemblies: 参加スペース
+        assemblies_deleted: 削除されたアセンブリ
         assemblies_types: 参加スペース種別
+      tooltips:
+        deleted_assemblies_info: アセンブリは、ステータスが "未公開" の場合にのみ削除できます。
     admin_log:
       assembly:
         create: "%{user_name} が %{resource_name} 参加スペースを作成しました"
@@ -255,6 +262,8 @@ ja:
         export: "%{user_name} は %{resource_name} 参加スペースをエクスポートしました"
         import: "%{user_name} が %{resource_name} 参加スペースをインポートしました"
         publish: "%{user_name} が %{resource_name} 参加スペースを公開しました"
+        restore: "%{user_name} が %{resource_name} 参加スペースを復元しました"
+        soft_delete: "%{user_name} が %{resource_name} 参加スペースをゴミ箱に移動しました"
         unpublish: "%{user_name} が %{resource_name} 参加スペースを非公開にしました"
         update: "%{user_name} が %{resource_name} 参加スペースを更新しました"
       assembly_member:
@@ -402,6 +411,9 @@ ja:
         designated_on: 指定日時：
       index:
         title: メンバー
+    download_your_data:
+      show:
+        assemblies: 参加スペースのエクスポート
     events:
       assemblies:
         create_assembly_member:
@@ -443,6 +455,7 @@ ja:
           closing_date: 参加スペースの終了日
           closing_date_reason: 参加スペースが終了した理由
           composition: 参加スペースの構成
+          created_at: このスペースの作成日時
           created_by: この参加スペースの作成者
           created_by_other: 参加スペースの他の作成者
           creation_date: 参加スペースの作成日
@@ -451,6 +464,7 @@ ja:
           developer_group: 参加スペースの開発者グループ
           duration: 参加スペースの期間
           facebook_handler: Facebook 用のソーシャルメディアハンドラー
+          follows_count: このスペースをフォローしているユーザー数
           github_handler: GitHub 用のソーシャルメディアハンドラ
           hashtag: Twitter/Xで使用される参加スペースのハッシュタグ
           id: このアセンブリの固有ID
@@ -463,7 +477,9 @@ ja:
           participatory_scope: 参加スペースの参加スコープ
           participatory_structure: 参加スペースの参加構造
           promoted: 参加スペースがプロモートされるかどうか
+          published_at: このスペースが公開された日時
           purpose_of_action: 参加スペースのアクションの目的
+          reference: スペースのユニークな参照
           remote_banner_image_url: 参加スペースのバナー画像のURL
           remote_hero_image_url: 参加スペースのヒーロー画像の URL
           scope: 参加スペースのスコープ
@@ -476,6 +492,8 @@ ja:
           taxonomies: このプロジェクトのタクソノミー
           title: 参加スペースのタイトル
           twitter_handler: Twitter 用のソーシャルメディアハンドラー
+          updated_at: このスペースの最終更新日時
+          url: スペースのURL
           youtube_handler: YouTube用のソーシャルメディアハンドラー
     participatory_processes:
       show:
