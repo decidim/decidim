@@ -195,12 +195,15 @@ cs:
         per_page: Na stránku
         permissions: Oprávnění
         reject: Odmítnout
+        restore: Obnovit
         send_me_a_test_email: Pošlete mi testovací e-mail
         share: Sdílet
         share_tokens: Přístupové odkazy
+        soft_delete: Skrýt
         user:
           new: Nový administrátor
         verify: Ověřit
+        view_deleted_components: Zobrazit odstraněné komponenty
       admin_terms_of_service:
         accept:
           error: Při přijímání podmínek služby administrátora došlo k chybě.
@@ -336,6 +339,8 @@ cs:
             name: Název komponenty
             type: Typ komponenty
             visibility: Viditelnost
+        manage_trash:
+          title: Smazané komponenty
         new:
           add: Přidat komponentu
           title: 'Přidat komponentu: %{name}'
@@ -579,6 +584,8 @@ cs:
         logs_list:
           no_logs_yet: Zatím nejsou žádné logy.
           no_matching_logs: Nebyly nalezeny žádné záznamy s poskytnutými vyhledávacími filtry. Zkuste je změnit a zkuste to znovu.
+      manage_trash:
+        deleted_items_warning: Momentálně zobrazujete odstraněné položky. Chcete-li provést úpravy nebo změny, musíte je nejprve obnovit.
       managed_users:
         promotion:
           error: Při propagaci spravovaného účastníka se vyskytl problém.
@@ -1075,6 +1082,8 @@ cs:
           success: Stránka byla úspěšně aktualizována.
       taxonomies:
         actions: Akce
+        amount: Počet položek
+        count: Související zdroje
         create:
           invalid: Při vytváření této taxonomie došlo k chybě.
           success: Taxonomie byla úspěšně vytvořena.
@@ -1111,6 +1120,8 @@ cs:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Nový filtr taxonomie
+        callout:
+          modify_taxonomy_html: Pokud potřebujete upravit tuto taxonomii nebo její položky, proveďte to v nastavení konfigurace v sekci <a href="%{url}">Taxonomie</a>.
         create:
           error: Při vytváření tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně vytvořen.
@@ -1121,18 +1132,27 @@ cs:
           back: Zpět
           title: Upravit filtr taxonomie
           update: Aktualizovat filtr taxonomie
+        form:
+          all: Vše
         index:
           description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
           empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
         new:
           back: Zpět
           create: Vytvořit filtr taxonomie
+          select_taxonomy: Vyberte taxonomii
           title: Nový filtr taxonomie
         table:
           actions: Akce
+          components_count: Související komponenty
           confirm_destroy: 'Jste si jisti, že chcete odstranit filtr %{name}? POZNÁMKA: Zdroje, které používají tento filtr, nebudou ovlivněny, ale ztratí odkaz na tento filtr.'
+          count: Počet použitých položek
           destroy: Smazat
           edit: Upravit
+          internal_name: Interní název filtru
+          name: Veřejný název filtru
+          space_filter: Používá se k filtrování %{manifest_name}
+          taxonomy: Z taxonomie
         update:
           error: Při aktualizaci tohoto filtru taxonomie došlo k chybě.
           success: Filtr taxonomie byl úspěšně aktualizován.
@@ -1168,6 +1188,13 @@ cs:
         taxonomy_filters: Filtry taxonomie
         user_groups: Skupiny
         users: Administrátoři
+      tooltips:
+        deleted_component_info: Tato komponenta může být odstraněna pouze v případě, že je stav 'Nezveřejněno'.
+      trash_management:
+        restore:
+          invalid: Při obnovování %{resource_name} došlo k chybě.
+        soft_delete:
+          invalid: Při odstraňování %{resource_name} došlo k chybě.
       user_group:
         csv_verify:
           invalid: Při čtení souboru CSV došlo k chybě.
