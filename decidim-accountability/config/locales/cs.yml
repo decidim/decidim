@@ -44,7 +44,9 @@ cs:
       actions:
         attachment_collections: Složky
         attachments: Přílohy
+        confirm_delete_result: Opravdu chcete odstranit tento výsledek?
         confirm_destroy: Opravdu chcete smazat tento %{name}?
+        deleted_results_info: Odstraněné výsledky mohou být obnoveny z koše.
         destroy: Odstranit
         edit: Upravit
         import: Importovat projekty z jiné komponenty
@@ -55,6 +57,7 @@ cs:
         preview: Náhled
         timeline_entries: Vývoj projektu
         title: Akce
+        view_deleted_results: Zobrazit odstraněné výsledky
       admin:
         exports:
           result_comments: Komentáře
@@ -123,6 +126,8 @@ cs:
             update: Aktualizovat výsledek
           index:
             title: Výsledky
+          manage_trash:
+            title: Odstraněné výsledky
           new:
             create: Vytvořit výsledek
             title: Nový výsledek
