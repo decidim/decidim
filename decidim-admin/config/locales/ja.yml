@@ -184,6 +184,13 @@ ja:
         browse: 検索
         category:
           new: 新しいカテゴリ
+        confirm_delete_component: |
+          このコンポーネントを削除しますか?<br>
+          このコンポーネントが含むもの:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} リソース</li>
+          </ul>
+          気が変わった場合は、後で元に戻せます。
         export: 全てエクスポート
         export-selection: 選択したものをエクスポート
         import: インポート
@@ -195,12 +202,15 @@ ja:
         per_page: ページごと
         permissions: アクセス許可
         reject: 拒否
+        restore: 復元
         send_me_a_test_email: テストメールを自分宛てに送信
         share: 共有
         share_tokens: アクセスリンク
+        soft_delete: 論理削除
         user:
           new: 新しい管理者
         verify: 確認する
+        view_deleted_components: 削除されたコンポーネントを表示
       admin_terms_of_service:
         accept:
           error: 管理者の利用規約に同意中に問題が発生しました。
@@ -336,6 +346,8 @@ ja:
             name: コンポーネント名
             type: コンポーネントタイプ
             visibility: 可視性
+        manage_trash:
+          title: 削除されたコンポーネント
         new:
           add: コンポーネントを追加
           title: 'コンポーネントを追加: %{name}'
@@ -564,6 +576,8 @@ ja:
         logs_list:
           no_logs_yet: ログはまだありません。
           no_matching_logs: 指定された検索フィルターにはログがありません。変更して再試行してください。
+      manage_trash:
+        deleted_items_warning: 削除されたアイテムを表示しています。編集や変更を行うには、最初にそれらを復元する必要があります。
       managed_users:
         promotion:
           error: 管理対象参加者の昇格に問題が発生しました。
@@ -1056,6 +1070,8 @@ ja:
           success: ページが更新されました。
       taxonomies:
         actions: アクション
+        amount: アイテムの数
+        count: 関連するリソース
         create:
           invalid: タクソノミーの作成中に問題が発生しました。
           success: タクソノミーを作成しました。
@@ -1092,6 +1108,8 @@ ja:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: 新規タクソノミフィルター
+        callout:
+          modify_taxonomy_html: このタクソノミーまたはそのアイテムを変更する必要がある場合は、 <a href="%{url}">タクソノミー</a> セクションの設定から行ってください。
         create:
           error: タクソノミーフィルタの作成中に問題が発生しました。
           success: タクソノミーフィルターを作成しました。
@@ -1102,18 +1120,32 @@ ja:
           back: 戻る
           title: タクソノミーフィルタを編集
           update: タクソノミーフィルタを更新
+        form:
+          all: すべて
+          items:
+            other: "%{count} 個のアイテムを選択しました"
+          name_help: フロントエンドに表示するフィルタのタイトル。
+          no_items: このタクソノミーで使えるアイテムはありません。タクソノミー設定でアイテムを作成できます。
+          space_filter: すべての %{manifest_name} のフィルターとして利用できます
         index:
           description: タクソノミーフィルターは、管理者がタクソノミーに基づいて参加型スペースを分類したりフィルタリングしたりできるようにするものです。例えば、地理的範囲でプロセスをソートするためにタクソノミーフィルターを追加することができます。
           empty: 現在、タクソノミーフィルターはありません。タクソノミーフィルターのリストを作成し、タクソノミーに基づいて参加型スペースをソートおよびフィルタリングしてください。
         new:
           back: 戻る
           create: タクソノミーフィルタを作成
+          select_taxonomy: タクソノミーを選択
           title: 新規タクソノミーフィルター
         table:
           actions: アクション
+          components_count: 関連するコンポーネント
           confirm_destroy: 'フィルター %{name} を削除してもよろしいですか？ 注意: このフィルタを使用しているリソース自体は影響を受けませんが、このフィルタへの参照は失われます。'
+          count: 使用しているアイテムの数
           destroy: 削除
           edit: 編集
+          internal_name: 内部フィルター名
+          name: 公開フィルタータイトル
+          space_filter: '%{manifest_name} へのフィルターに使用'
+          taxonomy: タクソノミーから
         update:
           error: タクソノミーフィルタの更新に問題がありました。
           success: タクソノミーフィルターを更新しました。
@@ -1149,6 +1181,15 @@ ja:
         taxonomy_filters: タクソノミーフィルター
         user_groups: グループ
         users: 管理者
+      tooltips:
+        deleted_component_info: このコンポーネントは、ステータスが '未公開' の場合にのみ削除できます。
+      trash_management:
+        restore:
+          invalid: '%{resource_name} の復元に問題が発生しました。'
+          success: "%{resource_name} は正常に復元されました。"
+        soft_delete:
+          invalid: '%{resource_name} の削除中に問題が発生しました。'
+          success: "%{resource_name} を削除しました。"
       user_group:
         csv_verify:
           invalid: CSVファイルの読み込みに問題が発生しました。
