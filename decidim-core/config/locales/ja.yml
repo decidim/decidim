@@ -21,6 +21,11 @@ ja:
         details: 追加コメント
       taxonomy:
         name: タクソノミー名
+      taxonomy_filter:
+        internal_name: 内部フィルター名
+        name: 公開フィルタータイトル
+        root_taxonomy_id: タクソノミーから
+        space_filter: 参加型スペースのフィルターとして利用できます
       user:
         about: 私について
         email: あなたのメールアドレス
@@ -153,6 +158,7 @@ ja:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
       download_your_data_export:
+        export_expired: エクスポートの有効期限が切れています。新しいエクスポートを生成してください。
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了した際にはメールでお知らせします。
       email_change:
@@ -207,6 +213,7 @@ ja:
         delete: "%{user_name} が %{resource_name} スペースから %{space_name} コンポーネントを削除しました"
         export_component: "%{user_name} は%{space_name} の %{resource_name} %{component_name} を %{format_name} としてエクスポートしました"
         publish: "%{user_name} が %{resource_name} スペースで %{space_name} コンポーネントを公開しました"
+        restore: "%{user_name} がコンポーネント %{resource_name} をスコープ %{space_name} に復元しました。"
         unpublish: "%{user_name} は %{resource_name} スペースから %{space_name} コンポーネントを非公開にしました"
         update_permissions_with_space: "%{user_name} が %{resource_name} の %{space_name} の権限を更新しました"
       contextual_help_section:
