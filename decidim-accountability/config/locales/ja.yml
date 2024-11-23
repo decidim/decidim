@@ -41,7 +41,9 @@ ja:
       actions:
         attachment_collections: フォルダー
         attachments: 添付ファイル
+        confirm_delete_result: この結果を削除してもよろしいですか？
         confirm_destroy: この %{name} を削除してもよろしいですか？
+        deleted_results_info: 削除された結果はゴミ箱から復元できます。
         destroy: 削除
         edit: 編集
         import: 別のコンポーネントからプロジェクトをインポート
@@ -52,6 +54,7 @@ ja:
         preview: プレビュー
         timeline_entries: プロジェクトの進化
         title: アクション
+        view_deleted_results: 削除された結果を表示
       admin:
         exports:
           result_comments: コメント
@@ -114,6 +117,8 @@ ja:
             update: 結果を更新
           index:
             title: 結果
+          manage_trash:
+            title: 削除された結果
           new:
             create: 結果を作成
             title: 新しい結果
