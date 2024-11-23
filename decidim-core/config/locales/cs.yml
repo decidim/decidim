@@ -21,6 +21,11 @@ cs:
         details: Další komentáře
       taxonomy:
         name: Název taxonomie
+      taxonomy_filter:
+        internal_name: Interní název filtru
+        name: Veřejný název filtru
+        root_taxonomy_id: Z taxonomie
+        space_filter: K dispozici jako filtr pro participační prostory
       user:
         about: O nás
         email: Váš email
