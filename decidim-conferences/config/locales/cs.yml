@@ -606,6 +606,7 @@ cs:
           start_date: Datum, kdy tato konference začne.
           taxonomies: Taxonomie konference
           title: Název konference
+          url: URL prostoru
     statistics:
       conferences_count: Konference
   devise:
