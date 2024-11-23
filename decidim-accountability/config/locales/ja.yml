@@ -166,6 +166,8 @@ ja:
         result:
           create: "%{user_name} が結果 %{resource_name} を %{space_name} に作成しました"
           delete: "%{user_name} が %{resource_name} の結果 %{space_name} を削除しました"
+          restore: "%{user_name} は %{space_name} の結果 %{resource_name} を復元しました"
+          soft_delete: "%{user_name} は %{space_name} の結果 %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} の結果 %{resource_name} を %{space_name} に更新しました"
         status:
           create: "%{user_name} が %{resource_name} ステータスを作成しました"
@@ -266,6 +268,10 @@ ja:
             taxonomy_filters_add: フィルターを追加
           step:
             comments_blocked: コメントをブロック
+    download_your_data:
+      show:
+        result_comments: 結果コメントのエクスポート
+        results: 結果のエクスポート
     events:
       accountability:
         proposal_linked:
@@ -298,18 +304,25 @@ ja:
           root_commentable_url: このコメントに関連するリソースの URL
           user_group: コメントを作成したユーザーグループの名前 (もしあれば)
         results:
+          address: 結果のアドレス (もしあれば)
+          children_count: 子の結果の数
+          comments_count: この結果のコメント数
           component: 結果が属するコンポーネント
           created_at: 結果の作成日時
           description: 結果の説明
           end_date: 結果の実行が終わり、完了した日付
           id: 結果の固有ID
+          latitude: 結果に物理的な場所がある場合の結果の緯度
+          longitude: 結果に物理的な場所がある場合の結果の経度
           parent: 結果の親の結果 (もしあれば)
           progress: 結果の実行の割合
           proposal_urls: この結果に含まれる提案のURL
+          reference: 結果のユニークな参照
           start_date: 結果の実行を開始した日時
           status: この結果の現在の状態
           taxonomies: 結果のタクソノミー
           title: 結果のタイトル
+          updated_at: この結果が更新された日時
           url: この結果が見つかるURL
     participatory_spaces:
       highlighted_results:
