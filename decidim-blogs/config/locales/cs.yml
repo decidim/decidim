@@ -20,6 +20,7 @@ cs:
     blogs:
       actions:
         author_id: Vytvořit příspěvek jako
+        confirm_destroy: Opravdu chcete odstranit tento příspěvek?
         destroy: Smazat
         edit: Upravit
         new: Nový příspěvek
