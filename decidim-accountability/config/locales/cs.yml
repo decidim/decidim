@@ -317,18 +317,25 @@ cs:
           root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
           user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
         results:
+          address: Adresa výsledku (pokud existuje)
+          children_count: Počet výsledků
+          comments_count: Počet komentářů, které tento výsledek má
           component: Komponenta, do které náleží výsledek
           created_at: Datum, kdy byl výsledek vytvořen
           description: Popis výsledku
           end_date: Datum, kdy je výsledek ukončen a dokončen
           id: Jedinečný identifikátor výsledku
+          latitude: Zeměpisná šířka výsledku v případě, že má fyzickou polohu
+          longitude: Zeměpisná délka výsledku v případě, že má fyzickou polohu
           parent: Nadřazený výsledek (pokud existuje) výsledku
           progress: Procento provedení výsledku
           proposal_urls: URL návrhů, které jsou součástí tohoto výsledku
+          reference: Jedinečný odkaz na výsledek
           start_date: Datum, kdy se výsledek spustí
           status: Aktuální stav tohoto výsledku
           taxonomies: Taxonomie výsledku
           title: Název výsledku
+          updated_at: Poslední datum, kdy byl výsledek aktualizován
           url: URL, kde lze tento výsledek nalézt
     participatory_spaces:
       highlighted_results:
