@@ -19,9 +19,11 @@ cs:
     blogs:
       actions:
         author_id: Vytvořit příspěvek jako
+        confirm_delete_post: Opravdu chcete odstranit tento příspěvek?
         edit: Upravit
         new: Nový příspěvek
         title: Akce
+        view_deleted_posts: Zobrazit odstraněné příspěvky
       admin:
         posts:
           create:
