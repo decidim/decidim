@@ -665,6 +665,9 @@ cs:
             remove_assignment_confirmation: Jste si jisti, že chcete odstranit hodnotitele z tohoto návrhu?
             valuators: Hodnotitelé
             votes_count: Počet hlasů
+          update_taxonomies:
+            select_a_proposal: Vyberte návrh.
+            select_a_taxonomy: Vyberte taxonomii.
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k chybě.
