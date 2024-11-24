@@ -10,7 +10,7 @@ module Decidim
         attribute :question_ids, Array[Integer]
         attribute :questionnaire, Decidim::Forms::Questionnaire
 
-        IGNORED_QUESTION_TYPES = %w(separator files).freeze
+        IGNORED_QUESTION_TYPES = %w(short_answer long_answer separator files).freeze
 
         def map_model(model)
           self.question_ids = model.questionnaire.questions.map(&:id)
