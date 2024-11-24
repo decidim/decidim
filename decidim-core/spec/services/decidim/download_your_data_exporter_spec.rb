@@ -105,6 +105,17 @@ module Decidim
         it_behaves_like "a download your data entity"
       end
 
+      context "when the user has a comment vote" do
+        let(:participatory_space) { create(:participatory_process, organization:) }
+        let(:component) { create(:component, participatory_space:) }
+        let(:commentable) { create(:dummy_resource, component:) }
+        let!(:comment) { create(:comment, commentable:) }
+        let!(:comment_vote) { create(:comment_vote, comment:, author: user) }
+        let(:help_definition_string) { "The weight of the vote (1 for upvote, -1 for downvote)" }
+
+        it_behaves_like "a download your data entity"
+      end
+
       context "when the user has an identity" do
         let!(:identity) { create(:identity, user:) }
         let(:help_definition_string) { "The user that this identity belongs to" }
