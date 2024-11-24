@@ -176,6 +176,12 @@ en:
             creation_enabled_for_participants: Meeting creation by participants enabled
             creation_enabled_for_user_groups: Meeting creation by user groups enabled
     download_your_data:
+      help:
+        registrations:
+          id: The unique identifier of the registration
+          code: The registration code
+          user: The user that made the registration
+          meeting: The meeting that the user registered to
       show:
         meeting_comments: Meeting comments export
         meetings: Meetings export
