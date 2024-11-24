@@ -17,6 +17,13 @@ module Decidim
 
         it_behaves_like "a download your data entity"
       end
+
+      context "when the user has a conference registration" do
+        let!(:conference_registration) { create(:conference_registration, user:) }
+        let(:help_definition_string) { "The type of registration that this belongs to" }
+
+        it_behaves_like "a download your data entity"
+      end
     end
   end
 end

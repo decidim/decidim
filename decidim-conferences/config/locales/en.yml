@@ -532,13 +532,18 @@ en:
     download_your_data:
       help:
         conference_invites:
-          id: The unique identifier of the conference invite
+          id: The unique identifier of the conference invitation
           sent_at: The date when this conference invitation was sent
           accepted_at: The date when the conference invitation was accepted
           rejected_at: The date when the conference invitation was rejected
-          user: The user id of the user that the invitation was sent
+          user: The unique identifier of the user that the invitation was sent
           registration_type: The type of the registration for this conference that was sent
           conference: The conference where this invitation was sent
+        conference_registrations:
+          id: The unique identifier of the conference regisrations
+          user: The unique identifier of the user for this registration
+          registration_type: The type of registration that this belongs to
+          conference: The conference that this belongs to
     events:
       conferences:
         conference_registration_confirmed:
