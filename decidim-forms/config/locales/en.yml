@@ -27,6 +27,13 @@ en:
           request_invalid: There was a problem handling the request. Please try again.
   decidim:
     download_your_data:
+      help:
+        answers:
+          id: The unique identifier of the answer
+          user: The user who answered the questionnaire
+          questionnaire: The questionnaire that was answered
+          question: The question that was answered
+          answer: The answer to the question
       show:
         answers: Answers export
         survey_user_answers: Survey user answers
