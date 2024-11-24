@@ -6,7 +6,9 @@
         <%= form.collection_check_boxes :question_ids, @form.questions, :value, :name do |option| %>
           <div>
             <%= option.label { option.check_box(checked: @form.question_checked?(option.value)) + option.text } %>
+            <%= chart_for_question(option.value) %>
           </div>
+          <hr>
         <% end %>
       </div>
     </div>
