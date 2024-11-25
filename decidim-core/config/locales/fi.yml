@@ -21,6 +21,11 @@ fi:
         details: Lisätiedot
       taxonomy:
         name: Luokittelun nimi
+      taxonomy_filter:
+        internal_name: Sisäinen suodattimen nimi
+        name: Julkinen suodattimen otsikko
+        root_taxonomy_id: Luokittelusta
+        space_filter: Määritettävissä osallistumistilojen suodattimeksi
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
@@ -1685,6 +1690,8 @@ fi:
       users_count: Osallistujaa
     tags:
       filter_results_for_taxonomy: 'Rajaa tulokset kohteelle: %{resource}'
+    taxonomies:
+      prompt: Valitse vaihtoehto
     translation_bar:
       help_text: "<strong>Varoitus:</strong> Sisältö saatetaan kääntää automaattisesti eikä koneelliset käännökset ole 100% tarkkoja."
       show_original: Näytä alkuperäinen teksti
