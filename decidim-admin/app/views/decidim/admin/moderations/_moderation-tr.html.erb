@@ -36,16 +36,9 @@
     </td>
   <% end %>
   <td>
-    <%= icon_link_to "fullscreen-line",
-                    moderation_reports_path(moderation_id: moderation),
-                    t("actions.expand", scope: "decidim.moderations"),
-                    class: "action-icon--expand" %>
+    <%= icon_link_to "fullscreen-line", moderation_reports_path(moderation_id: moderation), t("actions.expand", scope: "decidim.moderations"), class: "action-icon--expand" %>
     <% if !moderation.reportable.hidden? && allowed_to?(:unreport, authorization_scope) %>
-      <%= icon_link_to "arrow-go-back-line",
-                    unreport_moderation_path(id: moderation),
-                    t("actions.unreport", scope: "decidim.moderations"),
-                    class: "action-icon--unreport",
-                    method: :put %>
+      <%= icon_link_to "arrow-go-back-line", unreport_moderation_path(id: moderation), t("actions.unreport", scope: "decidim.moderations"), class: "action-icon--unreport", method: :put %>
     <% end %>
     <% if !moderation.reportable.hidden? && allowed_to?(:hide, authorization_scope) %>
       <%= icon_link_to "eye-line", hide_moderation_path(id: moderation), t("actions.hide", scope: "decidim.moderations"), class: "action-icon--hide", method: :put %>

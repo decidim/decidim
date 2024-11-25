@@ -14,7 +14,6 @@
   <% moderation_ids.each do |id| %>
     $(".table-list [data-id='<%= id %>']")
       .replaceWith("<%= escape_javascript(render partial: %q(moderation-tr), locals: { moderation: Decidim::Moderation.find(id), view: :index }) %>");
-      console.log("Hola")
   <% end %>
 
   $("<%= form_selector %> <%= attribute_selector %>").removeClass("is-invalid-input")
