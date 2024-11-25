@@ -30,7 +30,19 @@
                     <%= f.check_box :send_to_verified_users, help_text: t(".verified_users_help"), multiple: false %>
                   </div>
                   <div id="verification_types_for_select" class="my-4 hidden">
-                    <%= verification_types_for_select f %>
+                    <%= cell(
+                          "decidim/admin/multi_select_picker",
+                          nil,
+                          context: {
+                            view_context: self,
+                            current_user: current_user,
+                            select_id: "verification-types-select",
+                            field_name: "newsletter[verification_types][]",
+                            options_for_select: find_verification_types_for_select(current_organization),
+                            placeholder: t(".select_verification_types"),
+                            class: "mt-2 js-verification-multiselect"
+                          }
+                        ) %>
                   </div>
                 </div>
                 <hr>

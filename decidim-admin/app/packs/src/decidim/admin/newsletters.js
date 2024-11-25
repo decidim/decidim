@@ -1,3 +1,5 @@
+import TomSelect from "tom-select/dist/cjs/tom-select.popular";
+
 $(() => {
   const $form = $(".form.newsletter_deliver");
 
@@ -168,4 +170,17 @@ $(() => {
       updateConfirmRecipientsLink();
     });
   }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const selectElement = document.querySelectorAll("[data-multiselect='true']");
+
+  selectElement.forEach((container) => {
+    const config = {
+      plugins: ["remove_button", "dropdown_input"],
+      allowEmptyOption: true
+    };
+
+    return new TomSelect(container, config);
+  });
 });

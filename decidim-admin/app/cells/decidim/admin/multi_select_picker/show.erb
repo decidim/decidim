@@ -1,0 +1,12 @@
+<%# byebug %>
+<select
+  id="<%= select_id %>"
+  name="<%= field_name %>"
+  placeholder="<%= placeholder %>"
+  data-multiselect="true"
+  class="<%= css_classes %>"
+  multiple>
+  <% options_for_select.each do |option| %>
+    <option value="<%= option[1] %>"><%= option[0] %></option>
+  <% end %>
+</select>

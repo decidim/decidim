@@ -4,15 +4,10 @@ module Decidim
   module Admin
     # This module includes helpers to manage newsletters in admin layout
     module NewslettersHelper
-      def verification_types_for_select(form_object)
-        content_tag :div, class: "verification-types-block cell small-12 medium-6" do
-          select_tag(
-            "newsletter[verification_types][]",
-            options_for_select(verification_methods_for_select, form_object.object.verification_types),
-            multiple: true,
-            size: [verification_methods_for_select.size, 10].min,
-            class: "chosen-select"
-          )
+      def find_verification_types_for_select(organization)
+        available_verifications = organization.available_authorizations
+        available_verifications.map do |verification_type|
+          [t("decidim.authorization_handlers.#{verification_type}.name"), verification_type]
         end
       end
 
@@ -29,22 +24,31 @@ module Decidim
 
         html = ""
         form_object.fields_for "participatory_space_types[#{space_type.manifest_name}]", space_type do |ff|
+          html += participatory_space_title(space_type)
           html += ff.hidden_field :manifest_name, value: space_type.manifest_name
           html += select_tag_participatory_spaces(space_type.manifest_name, spaces_for_select(space_type.manifest_name.to_sym), ff)
         end
         html.html_safe
       end
 
+      def participatory_space_title(space_type)
+        return unless space_type
+
+        content_tag :h4 do
+          t("activerecord.models.decidim/#{space_type.manifest_name.singularize}.other")
+        end
+      end
+
       def select_tag_participatory_spaces(manifest_name, spaces, child_form)
         return unless spaces
 
-        content_tag :div, class: "#{manifest_name}-block spaces-block-tag cell small-12 medium-6" do
-          child_form.select :ids, options_for_select(spaces),
-                            { prompt: t("select_recipients_to_deliver.none", scope: "decidim.admin.newsletters"),
-                              label: t("activerecord.models.decidim/#{manifest_name.singularize}.other"),
-                              include_hidden: false },
-                            multiple: true, size: [spaces.size, 10].min, class: "chosen-select"
-        end
+        raw(cell("decidim/admin/multi_select_picker", nil, context: {
+                   select_id: "#{manifest_name}-spaces-select",
+                   field_name: "#{child_form.object_name}[ids]",
+                   options_for_select: spaces,
+                   placeholder: t("select_recipients_to_deliver.select_#{manifest_name}", scope: "decidim.admin.newsletters"),
+                   class: "mb-2"
+                 }))
       end
 
       def spaces_for_select(manifest_name)
@@ -165,12 +169,6 @@ module Decidim
 
       def parse_ids(ids)
         ids.size == 1 && ids.first.is_a?(String) ? ids.first.split.map(&:strip) : ids
-      end
-
-      def verification_methods_for_select
-        current_organization.available_authorizations.map do |type|
-          [I18n.t("decidim.authorization_handlers.#{type}.name"), type]
-        end
       end
 
       def selected_verification_types(newsletter)

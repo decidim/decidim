@@ -801,8 +801,13 @@ en:
           participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
           private_members_help: Sends a newsletter to all confirmed users that have been added to the selected private participatory spaces.
           recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong> users.
+          select_assemblies: Choose assemblies
+          select_conferences: Choose conferences
+          select_initiatives: Choose initiatives
+          select_participatory_processes: Choose participatory processes
           select_spaces: Select spaces to segment the newsletter
           select_users: Select which users you want to send the newsletter
+          select_verification_types: Choose verification methods
           title: Select recipients to deliver
           verified_users_help: Sends a newsletter to all confirmed and verified users via any selected verification method.
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
