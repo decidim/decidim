@@ -1077,6 +1077,8 @@ fi:
           success: Sivun päivitys onnistui.
       taxonomies:
         actions: Toiminnot
+        amount: Kohteiden määrä
+        count: Liitetyt asiat
         create:
           invalid: Luokittelun luominen epäonnistui.
           success: Luokittelun luominen onnistui.
@@ -1113,6 +1115,8 @@ fi:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Uusi luokitteluiden suodatin
+        callout:
+          modify_taxonomy_html: Jos haluat muokata tätä luokittelua tai sen kohteita, voit tehdä muutoksia <a href="%{url}">Luokittelut-osion</a> asetusten kautta.
         create:
           error: Luokittelun suodattimen luonti epäonnistui.
           success: Luokittelun suodattimen luonti onnistui.
@@ -1123,18 +1127,33 @@ fi:
           back: Takaisin
           title: Muokkaa luokittelun suodatinta
           update: Päivitä luokittelun suodatin
+        form:
+          all: Kaikki
+          items:
+            one: "%{count} kohde valittu"
+            other: "%{count} kohdetta valittu"
+          name_help: Sivustolla näytettävä suodattimen otsikko.
+          no_items: Tälle luokittelulle ei ole vielä luotu yhtään kohdetta. Voit luoda kohteita luokittelun asetusten kautta.
+          space_filter: Saatavilla suodattimena kaikille %{manifest_name} -kohteille
         index:
           description: Luokittelun suodatin mahdollistaa hallintakäyttäjille osallistumistilojen järjestämisen ja suodatuksen luokittelun perusteella. Voit esimerkiksi lisätä maantieteellisen luokittelun asioille.
           empty: Yhtään luokitteluiden suodatinta ei ole luotu. Lisää uusia luokitteluiden suodattimia järjestääksesi tai suodattaaksesi osallistumistiloja kyseisen luokittelun mukaan.
         new:
           back: Takaisin
           create: Luo luokitteluiden suodatin
+          select_taxonomy: Valitse luokittelu
           title: Uusi luokitteluiden suodatin
         table:
           actions: Toiminnot
+          components_count: Liitetyt komponentit
           confirm_destroy: 'Oletko varma, että haluat poistaa suodattimen %{name}? HUOMIOI: Tätä suodatinta hyödyntäviin resursseihin ei tehdä muutoksia, mutta ne menettävät liitoksen tähän suodattimeen.'
+          count: Käytettyjen kohteiden määrä
           destroy: Poista
           edit: Muokkaa
+          internal_name: Sisäinen suodattimen nimi
+          name: Julkinen suodattimen otsikko
+          space_filter: Käytetään suodattamaan %{manifest_name} -kohteita
+          taxonomy: Luokittelusta
         update:
           error: Luokittelun suodattimen päivittäminen epäonnistui.
           success: Luokittelun suodattimen päivittäminen onnistui.
