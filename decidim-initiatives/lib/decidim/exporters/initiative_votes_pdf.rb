@@ -70,7 +70,7 @@ module Decidim
         end
 
         cells = [
-          [layout.table([header], column_widths: signature_column_widths, cell_style: row_style)],
+          [layout.table([header], column_widths: signature_column_widths, cell_style: row_style)]
         ]
 
         cells.push([layout.table(data_rows, column_widths: signature_column_widths, cell_style: row_style)]) if data_rows.any?
