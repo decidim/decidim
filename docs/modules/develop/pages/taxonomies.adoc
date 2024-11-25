@@ -262,7 +262,7 @@ Simply all existing scopes will be recreated as child taxonomies. However, as sc
 
 | Areas
 | **"~ Areas"**
-Will behave exactly as scopes but for areas. However, it won't be more than three levels deep in this case as areas are not expected to be that deep.
+Will behave exactly as scopes but for areas. However, it will not be more than three levels deep in this case as areas are not expected to be that deep.
 | A unique filter for use in components or spaces in each type of participatory space will be created. This filter will be associated with the root taxonomy "~ Areas" and will have all the areas as items.
 
 | Participatory process types
@@ -380,7 +380,7 @@ Each section will contain the following structure:
 }
 ----
 
-- `taxonomies`: A JSON object with the tree structure of the taxonomies to be created. The keys are the names of the taxonomies (using the default locale for the organization) and the values are JSON objects with the properties along with the the possible children taxonomies. The properties are:
+- `taxonomies`: A JSON object with the tree structure of the taxonomies to be created. The keys are the names of the taxonomies (using the default locale for the organization) and the values are JSON objects with the properties along with the possible children taxonomies. The properties are:
   - `name`: A JSON object with the translations of the name of the taxonomy
   - `children`: A JSON object with the children taxonomies (repeating the same structure). If empty it must be an empty object.
   - `resources`: A JSON object with the resources that will be assigned to the taxonomy. The keys are the GIDs of the resources and the values are the descriptions of the resources. The values are not used in the import process but are useful for reference (depending on the resource, it can be the name or the title).
