@@ -10,6 +10,9 @@ $(() => {
 
     if (selectedModerations === 0) {
       $("#js-selected-moderations-count").text("");
+      $("#js-hide-global-moderations-actions").addClass("hide");
+      $("#js-unhide-global-moderations-actions").addClass("hide");
+      $("#js-unreport-global-moderations-actions").addClass("hide");
     } else {
       $("#js-selected-moderations-count").text(selectedModerations);
     }
