@@ -160,7 +160,31 @@ If you want to calculate this metric you could run the following command, where 
 
 You can see more details about this change on PR [\#13442](https://github.com/decidim/decidim/pull/13442)
 
-### 3.4. [[TITLE OF THE ACTION]]
+### 3.4. Convert old categorization models (Categories, Scopes, Areas, Participatory Process and Assembly types) into taxonomies:
+
+All those models have been deprecated, now a unique entity called "Taxonomies" is used for classifying all the content in Decidim (see https://docs.decidim.org/en/develop/develop/taxonomies.html for reference).
+
+A rake task is available for converting the old classification to the new system composed of taxonomies and taxonomy filters.
+
+In a nutshell, you can run this two-step process with the commands:
+
+First, create the plan for the import:
+
+```bash
+bin/rails decidim:taxonomies:make_plan
+```
+
+Second, review the created files under the folder `tmp/taxonomies/*.json` (optional).
+
+Finally, import the taxonomies with:
+
+```bash
+bin/rails decidim:taxonomies:import_all_plans
+```
+
+For more information about this process, please refer to the documentation at https://docs.decidim.org/en/develop/develop/taxonomies.html#_importing_taxonomies_from_old_models_categories_scopes_etc
+
+### 3.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 

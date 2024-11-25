@@ -148,15 +148,15 @@ Provides with attribute definitions for adding multiple taxonomies in a `Decidim
 A related file is `decidim-core/app/helpers/decidim/taxonomies_helper.rb` which defines the method `taxonomy_items_options_for_filter` that is used in the form views as:
 
 [source,erb]
-....
-    <% if @form.taxonomy_filters&.any? %>
-      <% @form.taxonomy_filters.each do |filter| %>
-        <div class="row column">
-          <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
-        </div>
-      <% end %>
+----
+  <% if @form.taxonomy_filters&.any? %>
+    <% @form.taxonomy_filters.each do |filter| %>
+      <div class="row column">
+        <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+      </div>
     <% end %>
-....
+  <% end %>
+----
 
 === The concern Filterable
 
