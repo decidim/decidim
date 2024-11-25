@@ -71,8 +71,10 @@ module Decidim
 
         cells = [
           [layout.table([header], column_widths: signature_column_widths, cell_style: row_style)],
-          [layout.table(data_rows, column_widths: signature_column_widths, cell_style: row_style)]
         ]
+
+        cells.push([layout.table(data_rows, column_widths: signature_column_widths, cell_style: row_style)]) if data_rows.any?
+
         composer.table(cells, margin: [20, 0, 0, 0], cell_style:)
       end
 
