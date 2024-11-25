@@ -703,6 +703,11 @@ en:
           user: The user that this identity belongs to
           created_at: The date and time when the identity was created
           updated_at: The date and time when the identity was last updated
+        messaging_conversations:
+          id: The unique identifier for this conversation
+          messages: The messages of this conversation
+          created_at: The date when this conversation was created
+          updated_at: The date when this converstaion was last updated
         notifications:
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to

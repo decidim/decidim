@@ -95,6 +95,14 @@ module Decidim
         it_behaves_like "a download your data entity"
       end
 
+      context "when the user has a conversation" do
+        let!(:conversation) { create(:conversation, originator: user) }
+        let!(:message) { create(:message, conversation:) }
+        let(:help_definition_string) { "The messages of this conversation" }
+
+        it_behaves_like "a download your data entity"
+      end
+
       context "when the user has a comment" do
         let(:participatory_space) { create(:participatory_process, organization:) }
         let(:component) { create(:component, participatory_space:) }
