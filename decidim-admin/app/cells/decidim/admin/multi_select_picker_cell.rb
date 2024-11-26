@@ -23,11 +23,11 @@ module Decidim
       end
 
       def placeholder
-        context[:placeholder]
+        context[:placeholder] || ""
       end
 
       def css_classes
-        context[:class]
+        context[:class] || ""
       end
     end
   end
