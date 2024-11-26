@@ -101,11 +101,57 @@ describe "Vote Proposal", slow: true do
         end
       end
 
+      context "when the proposal is not voted yet from proposal listing page" do
+        before do
+          visit_component
+        end
+
+        it "is able to vote the proposal" do
+          within "#proposal-#{proposal.id}-vote-button" do
+            click_on "Vote"
+            expect(page).to have_button("Already voted")
+          end
+
+          within "#proposal-#{proposal.id}-votes-count" do
+            expect(page).to have_content("1\nVote")
+          end
+        end
+      end
+
       context "when the proposal is already voted" do
         before do
           create(:proposal_vote, proposal:, author: user)
           visit_component
           click_on proposal_title
+        end
+
+        it "is not able to vote it again" do
+          within "#proposal-#{proposal.id}-vote-button" do
+            expect(page).to have_button("Already voted")
+            expect(page).to have_no_button("Vote")
+          end
+
+          within "#proposal-#{proposal.id}-votes-count" do
+            expect(page).to have_content("1\nVote")
+          end
+        end
+
+        it "is able to undo the vote" do
+          within "#proposal-#{proposal.id}-vote-button" do
+            click_on "Already voted"
+            expect(page).to have_button("Vote")
+          end
+
+          within "#proposal-#{proposal.id}-votes-count" do
+            expect(page).to have_content("0\nVotes")
+          end
+        end
+      end
+
+      context "when the proposal is already voted from proposal listing" do
+        before do
+          create(:proposal_vote, proposal:, author: user)
+          visit_component
         end
 
         it "is not able to vote it again" do
@@ -191,6 +237,14 @@ describe "Vote Proposal", slow: true do
               expect(page).to have_css("#voting-rules")
               expect(page).to have_css("#remaining-votes-count")
             end
+
+            it "displays the vote counter on proposal listing" do
+              visit_component
+
+              expect(page).to have_css("#voting-rules")
+              expect(page).to have_css("#remaining-votes-count")
+              expect(page).to have_css("#proposal-#{proposal.id}-votes-count")
+            end
           end
 
           context "when votes are disabled" do
@@ -214,6 +268,14 @@ describe "Vote Proposal", slow: true do
               expect(page).to have_no_css("#voting-rules")
               expect(page).to have_no_css("#remaining-votes-count")
             end
+
+            it "does not show the remaining votes counter on proposal listing" do
+              visit_component
+
+              expect(page).to have_no_css("#voting-rules")
+              expect(page).to have_no_css("#remaining-votes-count")
+              expect(page).to have_no_css("#proposal-#{proposal.id}-votes-count")
+            end
           end
         end
 
@@ -225,6 +287,21 @@ describe "Vote Proposal", slow: true do
 
           it "updates the remaining votes counter" do
             within ".proposal__aside-vote" do
+              click_on "Vote"
+              expect(page).to have_button("Already voted")
+            end
+
+            expect(page).to have_content("Remaining 9 votes")
+          end
+        end
+
+        context "when the proposal is not voted yet" do
+          before do
+            visit_component
+          end
+
+          it "updates the remaining votes counter" do
+            within ".proposal__vote-list" do
               click_on "Vote"
               expect(page).to have_button("Already voted")
             end
