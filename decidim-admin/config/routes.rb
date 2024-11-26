@@ -62,6 +62,7 @@ Decidim::Admin::Engine.routes.draw do
           resource :user_block, only: [:new, :create, :destroy], controller: :block_user
         end
       end
+      patch :bulk_action, on: :collection
     end
 
     resources :impersonatable_users, only: [:index] do

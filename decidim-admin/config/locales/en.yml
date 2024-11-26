@@ -709,9 +709,16 @@ en:
             block: Block User
             bulk_actions:
               actions_dropdown: Actions
-              block: Block
-              unblock: Unblock
-              unreport: Unreport
+              block:
+                title: Block
+                update_moderated_user_button: Block users
+              unblock:
+                title: Unblock
+                update_moderated_user_button: Unblock users
+              unreport: 
+                title: Unreport
+            ignore:
+              update_moderated_user_button: Unreport users
             title: Actions
             unblock: Unblock User
             unreport: Unreport
@@ -722,7 +729,6 @@ en:
           reports: Reports count
           selected: Selected
           title: Reported participants
-          update_moderated_user_button: Updated moderated users
         report:
           reasons:
             does_not_belong: Does not belong
@@ -735,13 +741,13 @@ en:
         index:
           actions:
             actions_dropdown: Actions
-            hide: 
+            hide:
               title: Hide
               update_moderation_button: Hide selected moderations
-            unhide: 
+            unhide:
               title: Unhide
               update_moderation_button: Unhide selected moderations
-            unreport: 
+            unreport:
               title: Unreport
               update_moderation_button: Unreport selected moderations
           cancel: Cancel
@@ -1298,6 +1304,10 @@ en:
               failed: 'There was a problem hiding some resources: %{errored}'
               invalid: No moderations selected.
               success: Resources successfully hidden.
+            ignore:
+              failed: 'There was a problem unreporting some users: %{errored}'
+              invalid: No users moderations selected.
+              success: Users successfully unreported.
             unhide:
               failed: 'There was a problem unhiding some resources: %{errored}'
               invalid: No moderations selected.

@@ -57,6 +57,8 @@ module Decidim
           Admin::UnreportResource
         when "unhide"
           Admin::UnhideResource
+        when "ignore"
+          Admin::UnreportUser
         end
       end
     end

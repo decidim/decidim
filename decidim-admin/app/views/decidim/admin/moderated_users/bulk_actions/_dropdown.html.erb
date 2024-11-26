@@ -17,19 +17,21 @@
     data-auto-focus="false"
     data-events="resize">
     <ul>
+      <% if allowed_to?(:block, :moderate_users) %>
         <li>
           <button type="button" data-action="block-moderated_users">
-            <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.block") %>
+            <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.block.title") %>
           </button>
         </li>
         <li>
           <button type="button" data-action="unreport-moderated_users">
-            <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unreport") %>
+            <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unreport.title") %>
           </button>
         </li>
+      <% end %>
         <li>
           <button type="button" data-action="unblock-moderated_users">
-            <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unblock") %>
+            <%= t("decidim.admin.moderated_users.index.actions.bulk_actions.unblock.title") %>
           </button>
         </li>
     </ul>

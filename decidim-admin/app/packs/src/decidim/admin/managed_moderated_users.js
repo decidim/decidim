@@ -12,6 +12,9 @@ $(() => {
 
     if (selectedModeratedUsers === 0) {
       $("#js-selected-moderated_users-count-count").text("");
+      $("#js-block-moderated_users-actions").addClass("hide");
+      $("#js-unblock-moderated_users-actions").addClass("hide");
+      $("#js-unreport-moderated_users-actions").addClass("hide");
     } else {
       $("#js-selected-moderated_users-count-count").text(selectedModeratedUsers);
     }
@@ -54,12 +57,29 @@ $(() => {
     hideBulkActionForms();
     $("#js-bulk-actions-button").addClass("hide");
 
-    $("#js-bulk-actions-dropdown ul li button").on("click", (event) => {
-      event.preventDefault();
-      let action = $(event.target).data("action");
+    $("#js-bulk-actions-dropdown ul li button").click(function (event) {
+      $("#js-bulk-actions-dropdown").removeClass("is-open");
+      hideBulkActionForms();
 
-      if (action) {
-        $(`#js-form-${action}`).on("submit", () => {
+      let action = $(event.target).data("action");
+      const panelActions = [
+        "block-moderated_users",
+        "unreport-moderated_users",
+        "unblock-moderated_users"
+      ];
+
+      if (!action) {
+        return;
+      }
+
+      if (panelActions.includes(action)) {
+        $(`#js-form-${action}`).submit(function () {
+          $(".layout-content > div[data-callout-wrapper]").html("");
+        });
+
+        $(`#js-${action}-actions`).removeClass("hide");
+      } else {
+        $(`#js-form-${action}`).submit(function () {
           $(".layout-content > div[data-callout-wrapper]").html("");
         });
 
