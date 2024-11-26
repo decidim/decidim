@@ -36,9 +36,7 @@ module Decidim
           options << [name, assembly.id]
 
           # Skip the current assembly to avoid selecting a child as parent
-          if assembly == current_assembly
-            return
-          end
+          return if assembly == current_assembly
 
           assembly.children.each do |child|
             build_assembly_options(child, options, level + 1)
