@@ -735,13 +735,18 @@ en:
         index:
           actions:
             actions_dropdown: Actions
-            hide: Hide
-            unhide: Unhide
-            unreport: Unreport
+            hide: 
+              title: Hide
+              update_moderation_button: Hide selected moderations
+            unhide: 
+              title: Unhide
+              update_moderation_button: Unhide selected moderations
+            unreport: 
+              title: Unreport
+              update_moderation_button: Unreport selected moderations
           cancel: Cancel
           selected: selected
           title: Reported content
-          update_moderation_button: Update moderation
         report:
           reasons:
             does_not_belong: Does not belong
@@ -1292,15 +1297,15 @@ en:
             hide:
               failed: 'There was a problem hiding some resources: %{errored}'
               invalid: No moderations selected.
-              success: "%{count_ok} resources successfully hidden."
+              success: Resources successfully hidden.
             unhide:
               failed: 'There was a problem unhiding some resources: %{errored}'
               invalid: No moderations selected.
-              success: "%{count_ok} resources successfully unhidden."
+              success: Resources successfully unhidden.
             unreport:
               failed: 'There was a problem unreporting some resources: %{errored}'
               invalid: No moderations selected.
-              success: "%{count_ok} resources successfully unreported."
+              success: Resources successfully unreported.
           hide:
             invalid: There was a problem hiding the resource.
             success: Resource successfully hidden.
