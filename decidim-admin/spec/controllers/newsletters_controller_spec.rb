@@ -76,7 +76,7 @@ module Decidim
       end
 
       describe "GET confirm_recipients" do
-        let(:recipients) { Decidim::User.where(organization: organization) }
+        let(:recipients) { Decidim::User.where(organization:) }
 
         before do
           allow(Decidim::Admin::NewsletterRecipients).to receive(:for).and_return(recipients)
@@ -95,7 +95,7 @@ module Decidim
         let(:params) { { id: newsletter.id } }
 
         it "assigns the form and sets send_to_all_users based on admin status" do
-          get :select_recipients_to_deliver, params: params
+          get :select_recipients_to_deliver, params:
 
           assigned_form = assigns(:form)
           expect(assigned_form).to be_a(Decidim::Admin::SelectiveNewsletterForm)

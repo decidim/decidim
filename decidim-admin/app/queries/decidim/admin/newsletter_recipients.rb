@@ -25,7 +25,7 @@ module Decidim
                                   .where.not(email: nil)
                                   .where.not(confirmed_at: nil)
                                   .not_deleted
-        # byebug
+
         return recipients if @form.send_to_all_users
         return verified_users if @form.send_to_verified_users
 
