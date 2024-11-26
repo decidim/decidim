@@ -24,7 +24,7 @@ module Decidim
       end
 
       def proposal_vote_cell
-       "decidim/proposals/proposal_vote"
+        "decidim/proposals/proposal_vote"
       end
 
       def cache_hash

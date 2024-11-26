@@ -11,7 +11,7 @@
     <%= render :extra_data if render_extra_data? %>
   <% end %>
 <% end %>
-<% if has_actions? && current_settings.votes_enabled? %>
+<% if has_actions? %>
   <div class="card__proposals-votes">
     <%= cell proposal_vote_cell, resource, **options %>
   </div>

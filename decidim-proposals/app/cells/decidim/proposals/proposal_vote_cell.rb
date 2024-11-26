@@ -30,12 +30,12 @@ module Decidim
       end
 
       def votes_count_item
-        return unless resource.respond_to?(:proposal_votes_count )
+        return unless resource.respond_to?(:proposal_votes_count)
 
         {
-            text: resource.proposal_votes_count,
-            icon: resource_type_icon_key(:like),
-            data_attributes: { votes_count: "" }
+          text: resource.proposal_votes_count,
+          icon: resource_type_icon_key(:like),
+          data_attributes: { votes_count: "" }
         }
       end
     end
