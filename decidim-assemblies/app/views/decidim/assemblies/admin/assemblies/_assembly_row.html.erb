@@ -1,4 +1,4 @@
-<tr data-assembly-id="<%= assembly.id %>" data-parent-id="<%= assembly.parent_id %>">
+<tr data-assembly-id="<%= assembly.id %>" data-parent-id="<%= assembly.parent_id %>" data-level="<%= assembly.ancestors.count %>">
   <td class="whitespace-nowrap">
     <% if parent_assembly_id %>
       <% [assembly.ancestors.count - 1, 0].max.times do |index| %>
