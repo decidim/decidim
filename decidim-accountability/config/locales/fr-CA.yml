@@ -83,7 +83,7 @@ fr-CA:
             name: Réalisation
           status:
             name: Progression
-        projects_import:
+        import_components:
           create:
             invalid: Il y a eu un problème lors de l'importation des projets, veuillez suivre attentivement les instructions et assurez-vous que vous avez bien sélectionné les projets à mettre en œuvre.
           new:

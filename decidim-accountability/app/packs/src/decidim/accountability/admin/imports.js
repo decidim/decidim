@@ -1,15 +1,33 @@
-const toggleInfo = (val) => {
-  document.querySelectorAll(".help-text").forEach((toBeHidden) => {
-    if (val === toBeHidden.id && toBeHidden.classList.value.includes("hide")) {
-      toBeHidden.classList.remove("hide")
-    } else {
-      toBeHidden.classList.add("hide")
-    }
-  });
-};
-export default () => {
-  const item = document.querySelector("#result_import_projects_origin_component_id");
-  item.addEventListener(("change"), (event) => {
-    toggleInfo(`component_${event.target.value}`);
-  });
-};
+class AdminAccountabilityImportsComponent {
+  run() {
+    this.bindEvents();
+  }
+
+  bindEvents() {
+    const $form = this.getForm();
+    const $selects = $form.find("select");
+
+    $selects.each((_i, select) => {
+      $(select).on("change", this.onSelectChange.bind(this));
+    });
+  }
+
+  onSelectChange() {
+    const $form = this.getForm();
+    const formUrl = $form.data("form-url");
+
+    $form.find("input[name='authenticity_token']").remove();
+    $form.attr("action", formUrl);
+    $form.attr("method", "get");
+    $form.submit();
+  }
+
+  getForm() {
+    return $("#new_import_component");
+  }
+}
+
+window.Decidim.AdminAccountabilityImportsComponent = AdminAccountabilityImportsComponent;
+const component = new AdminAccountabilityImportsComponent();
+
+component.run();

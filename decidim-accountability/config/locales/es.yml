@@ -92,7 +92,7 @@ es:
             name: Resultado
           status:
             name: Estado
-        projects_import:
+        import_components:
           create:
             invalid: Hubo un problema al importar los proyectos como resultados, por favor, sigue las instrucciones cuidadosamente y asegúrate que has marcado los proyectos seleccionados para su implementación.
           new:

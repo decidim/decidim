@@ -21,11 +21,11 @@ describe "Admin imports projects to accountability" do
   context "when there are no budgets components to import" do
     before do
       find("span", text: "Import").click
-      click_on "Import projects from another component"
+      click_on "Import results from another component"
     end
 
     it "shows no component to select" do
-      expect(page).to have_content t("projects_import.new.no_components", scope: "decidim.accountability.admin")
+      expect(page).to have_content t("import_components.new.no_components", scope: "decidim.accountability.admin")
     end
   end
 
@@ -38,7 +38,7 @@ describe "Admin imports projects to accountability" do
     end
 
     it "link exists only in main list" do
-      expect(page).to have_content("Import projects from another component")
+      expect(page).to have_content("Import results from another component")
       page.find(".table-list tr:nth-child(1) td:nth-child(2)").click
       expect(page).to have_no_content(t("decidim.accountability.actions.import"))
     end
@@ -50,9 +50,10 @@ describe "Admin imports projects to accountability" do
 
     before do
       find("span", text: "Import").click
-      click_on "Import projects from another component"
+      click_on "Import results from another component"
     end
 
+    # Fixme?
     context "when there are no projects" do
       before do
         visit current_path
@@ -67,6 +68,7 @@ describe "Admin imports projects to accountability" do
       end
     end
 
+    # Fixme?
     context "when there are some projects" do
       let!(:selected_set) { create_list(:project, 3, budget:, selected_at: Time.current) }
 
