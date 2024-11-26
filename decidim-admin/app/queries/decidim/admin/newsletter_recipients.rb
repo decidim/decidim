@@ -65,8 +65,7 @@ module Decidim
                                                .where(decidim_user_id: users.select(:id))
                                                .where.not(granted_at: nil)
                                                .where(name: @form.verification_types)
-                                               .group(:decidim_user_id)
-                                               .having("COUNT(distinct name) = ?", @form.verification_types.count)
+                                               .distinct
         users.where(id: verified_users)
       end
 
