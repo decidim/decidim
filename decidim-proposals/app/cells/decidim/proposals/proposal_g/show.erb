@@ -21,7 +21,7 @@
     <% end %>
 
     <% if has_actions? %>
-        <div class="<%=classes[:votes] %>">
+        <div class="<%= classes[:votes] %>">
             <%= cell proposal_vote_cell, resource, **options %>
         </div>
     <% end %>

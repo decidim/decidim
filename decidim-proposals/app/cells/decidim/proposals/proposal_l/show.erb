@@ -2,6 +2,11 @@
   <%= link_to resource_path, class: item_list_class, id: resource_id, **html_options do %>
     <%= render :content %>
     <%= render :extra_data if render_extra_data? %>
+    <% if has_actions? %>
+      <div class="card__proposals-votes">
+        <%= cell proposal_vote_cell, resource, **options %>
+      </div>
+    <% end %>
   <% end %>
 <% else %>
   <%= content_tag :div, class: wrapper_class, id: resource_id do %>
@@ -9,10 +14,10 @@
       <%= render :content %>
     <% end %>
     <%= render :extra_data if render_extra_data? %>
+    <% if has_actions? %>
+      <div class="card__proposals-votes">
+        <%= cell proposal_vote_cell, resource, **options %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
-<% if has_actions? %>
-  <div class="card__proposals-votes">
-    <%= cell proposal_vote_cell, resource, **options %>
-  </div>
 <% end %>
