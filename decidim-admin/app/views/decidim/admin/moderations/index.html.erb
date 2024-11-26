@@ -21,7 +21,7 @@
   <table class="table-list">
     <%= render partial: "moderations-thead" %>
     <tbody>
-      <%= render partial: "decidim/admin/moderations/moderation-tr", collection: moderations.select { |moderation| moderation.reportable }, as: :moderation, locals: { view: :index } %>
+      <%= render partial: "decidim/admin/moderations/moderation-tr", collection: moderations.select(&:reportable), as: :moderation, locals: { view: :index } %>
     </tbody>
   </table>
 </div>
