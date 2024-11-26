@@ -19,7 +19,7 @@ tr:
       timeline_entry:
         description: Açıklama
         entry_date: tarih
-        title: Başlik / Unvani 
+        title: Başlik / Unvani
     models:
       decidim/accountability/proposal_linked_event: Teklif bir sonuca dahil edildi
       decidim/accountability/result_progress_updated_event: Sonuç ilerlemesi güncellendi
@@ -31,8 +31,8 @@ tr:
   decidim:
     accountability:
       actions:
-        attachment_collections: Klasörler 
-        attachments: Ekler 
+        attachment_collections: Klasörler
+        attachments: Ekler
         confirm_destroy: Bu %{name}silmek istediğinize emin misiniz?
         destroy: silmek
         edit: Düzenle
@@ -83,7 +83,7 @@ tr:
             name: Sonuç
           status:
             name: durum
-        projects_import:
+        import_components:
           create:
             invalid: Projelerin sonuçlara aktarılmasında bir sorun oluştu. Lütfen talimatları dikkatlice takip edin ve projeleri seçtiğinizden emin olun.
           new:

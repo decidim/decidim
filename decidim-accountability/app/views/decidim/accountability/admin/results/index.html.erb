@@ -15,7 +15,7 @@
         <%= export_dropdowns(query) %>
         <%= import_dropdown do %>
           <% if allowed_to?(:create, :result) && parent_result.nil? %>
-            <%= link_to new_projects_import_path do %>
+            <%= link_to new_import_component_path do %>
               <li class="imports--component imports--results">
                 <%= t("actions.import", scope: "decidim.accountability", name: t("models.result.name", scope: "decidim.accountability.admin")) %>
               </li>

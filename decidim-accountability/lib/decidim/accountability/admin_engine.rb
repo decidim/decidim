@@ -32,7 +32,9 @@ module Decidim
           resources :attachments, except: [:show]
           resources :timeline_entries, except: [:show]
         end
-        resources :projects_import, only: [:new, :create]
+        resources :import_components, only: [:new, :create] do
+          get :preview, on: :collection
+        end
         get :import_results, to: "import_results#new"
         post :import_results, to: "import_results#create"
         root to: "results#index"

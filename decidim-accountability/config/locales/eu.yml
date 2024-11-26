@@ -95,7 +95,7 @@ eu:
             name: Emaitza
           status:
             name: Egoera
-        projects_import:
+        import_components:
           create:
             invalid: Arazo bat egon da proiektuak emaitzetara inportatzean, mesedez, jarraitu arretaz argibideak eta ziurtatu proiektuak inplementatzeko aukeratu dituzula.
           new:

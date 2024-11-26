@@ -95,7 +95,7 @@ fi-pl:
             name: Tulos
           status:
             name: Tila
-        projects_import:
+        import_components:
           create:
             invalid: Hankkeiden tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut hankkeita toteutukseen.
           new:

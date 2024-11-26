@@ -1,0 +1,14 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+  </h1>
+</div>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= render "form" %>
+  </div>
+</div>
+
+<%= append_javascript_pack_tag "decidim_accountability_admin_imports" %>
