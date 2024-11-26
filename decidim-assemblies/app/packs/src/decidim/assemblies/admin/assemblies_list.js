@@ -35,19 +35,18 @@ class AdminAssembliesListComponent {
 
     const $target = $(event.currentTarget);
     const $assembly = $target.closest("[data-assembly-id]");
-    const parentId = $assembly.data("parent-id");
+    const parentLevel = $assembly.data("level");
 
     $target.toggleClass("hidden");
     $assembly.find("[data-arrow-down]").toggleClass("hidden");
 
     // iterate over all tr elements after the current tr element
     $assembly.nextAll("tr").each((index, element) => {
-      if ($(element).data("parent-id") === parentId) {
-        return false;
-      }
+      const currentLevel = $(element).data("level");
 
-      $(element).remove();
-      return true;
+      if (currentLevel > parentLevel) {
+        $(element).remove();
+      }
     });
   }
 }
