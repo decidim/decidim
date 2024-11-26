@@ -103,7 +103,6 @@ module Decidim
 
       def select_recipients_to_deliver
         enforce_permission_to(:update, :newsletter, newsletter:)
-
         @form = form(SelectiveNewsletterForm).from_model(newsletter)
         @form.send_to_all_users = current_user.admin?
       end
@@ -141,7 +140,8 @@ module Decidim
         enforce_permission_to(:update, :newsletter, newsletter:)
         data = params.permit(newsletter: {}).to_h[:newsletter]
         @form = form(SelectiveNewsletterForm).from_params(data)
-        @recipients = NewsletterRecipients.for(@form)
+        @recipients = NewsletterRecipients.for(@form).order(:email)
+        @recipients = paginate(@recipients)
 
         render :confirm_recipients
       end
