@@ -438,9 +438,7 @@ describe "Vote Proposal", slow: true do
       it "does not count votes unless the minimum is achieved" do
         visit_component
 
-        proposal_ids = proposals.map do |proposal|
-          proposal.id
-        end
+        proposal_ids = proposals.map(&:id)
 
         find(".card__list#proposals__proposal_#{proposal_ids[0]}").click
 
