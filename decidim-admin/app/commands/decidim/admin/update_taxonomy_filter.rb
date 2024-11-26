@@ -5,7 +5,7 @@ module Decidim
     # A command with all the business logic to create a new taxonomy filter in the
     # system.
     class UpdateTaxonomyFilter < Decidim::Commands::UpdateResource
-      fetch_form_attributes :filter_items
+      fetch_form_attributes :filter_items, :internal_name, :name, :space_filter
 
       protected
 
