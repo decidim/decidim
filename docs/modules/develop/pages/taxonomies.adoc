@@ -198,7 +198,7 @@ The importing script works in two stages:
 
 This step will create a JSON file with the plan of the import. This file will contain the old taxonomies (for reference only) and the new taxonomies that will be created along with all the associated resources for each of them. It will also contain the filters and filter items that will be created for each type of participatory space.
 
-This file is created in the `tmp` directory of the running Decidim instance. One file per organization is created inside a subfolder called "taxonomies". 
+This file is created in the `tmp` directory of the running Decidim instance. One file per organization is created inside a subfolder called "taxonomies".
 
 Example. If you have an organization with a host called "example.com", the file will be created in `tmp/taxonomies/example.com_plan.json`.
 
