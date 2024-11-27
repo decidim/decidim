@@ -22,7 +22,7 @@ module Decidim
         end
 
         def origin_components
-          @origin_components ||= current_participatory_space.components.where(manifest_name: ["budgets", "proposals"])
+          @origin_components ||= current_participatory_space.components.where(manifest_name: %w(budgets proposals))
         end
 
         def origin_components_collection
@@ -38,9 +38,7 @@ module Decidim
             end
         end
 
-        def filtered_items_count
-          filtered_items.count
-        end
+        delegate :count, to: :filtered_items, prefix: true
 
         def filtered_items
           if origin_component.manifest_name == "budgets"
