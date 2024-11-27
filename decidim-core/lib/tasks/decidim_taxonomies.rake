@@ -74,7 +74,7 @@ namespace :decidim do
         result[:failed_components].each do |component_id|
           puts "      - #{component_id}"
         end
-        Rails.root.join("tmp/taxonomies", "#{organization.host}_result.json").write(result.to_json)
+        Rails.root.join("tmp/taxonomies", "#{organization.host}_result.json").write(JSON.pretty_generate(result))
         puts "Result saved in tmp/taxonomies/#{organization.host}_result.json"
       end
       puts "Taxonomies and filters imported successfully."
