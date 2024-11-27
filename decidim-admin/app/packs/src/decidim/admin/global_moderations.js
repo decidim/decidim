@@ -1,4 +1,6 @@
 /* eslint-disable no-invalid-this */
+/* eslint no-unused-vars: 0 */
+/* eslint id-length: ["error", { "exceptions": ["e"] }] */
 
 $(() => {
   const selectedModerationsCount = () => {

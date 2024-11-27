@@ -715,7 +715,7 @@ en:
               unblock:
                 title: Unblock
                 update_moderated_user_button: Unblock users
-              unreport: 
+              unreport:
                 title: Unreport
             ignore:
               update_moderated_user_button: Unreport users
