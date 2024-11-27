@@ -80,6 +80,7 @@ cs:
               not_official: Nejsou oficiální
               voted: Obdrželi hlasy nebo potvrzení
     models:
+      decidim/proposals/admin/update_proposal_taxonomies_event: Návrhy taxonomií se změnily
       decidim/proposals/creation_enabled_event: Vytváření návrhu je povoleno
       decidim/proposals/endorsing_enabled_event: Schválení návrhu je povoleno
       decidim/proposals/proposal_mentioned_event: Návrh byl zmíněn
@@ -368,6 +369,11 @@ cs:
             email_outro: Toto oznámení jste obdrželi, protože sledujete "%{resource_title}". Můžete sledování odhlásit na předchozím odkazu.
             email_subject: Návrh, který sledujete, změnil stav (%{state})
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> změnil svůj stav na "%{state}".
+        proposal_update_taxonomies:
+          email_intro: 'Administrátor aktualizoval taxonomie vašeho návrhu "%{resource_title}", podívejte se na tuto stránku:'
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem návrhu.
+          email_subject: Taxonomie návrhu %{resource_title} byla aktualizována
+          notification_title: Taxonomie návrhů <a href="%{resource_path}">%{resource_title}</a> byla aktualizována správcem.
         rejected_coauthorship:
           notification_title: Odmítli jste pozvání od <a href="%{author_path}">%{author_name}</a>, abyste se stali spoluautorem návrhu <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
@@ -492,7 +498,10 @@ cs:
         title: Akce
       admin:
         actions:
+          confirm_delete_proposal: Opravdu chcete odstranit tento návrh?
+          deleted_proposals_info: Smazané návrhy mohou být obnoveny z koše.
           preview: Náhled
+          view_deleted_proposals: Zobrazit smazané návrhy
         exports:
           proposal_comments: Komentáře
           proposals: Návrhy
@@ -623,6 +632,7 @@ cs:
             assign_to_valuator: Přiřadit hodnotiteli
             assign_to_valuator_button: Přiřadit
             cancel: Zrušit
+            change_taxonomies: Změnit taxonomie
             merge: Sloučit do nového
             merge_button: Spojit
             no_templates_available: Žádné šablony nejsou k dispozici
@@ -638,6 +648,8 @@ cs:
             unassign_from_valuator: Odebrat přiřazení od hodnotitele
             unassign_from_valuator_button: Zrušit přiřazení
             update: Aktualizace
+          manage_trash:
+            title: Smazané návrhy
           new:
             create: Vytvořit
             title: Vytvořte návrh
@@ -666,8 +678,10 @@ cs:
             valuators: Hodnotitelé
             votes_count: Počet hlasů
           update_taxonomies:
+            invalid: 'Tyto návrhy již mají taxonomie %{taxonomies}: %{proposals}.'
             select_a_proposal: Vyberte návrh.
             select_a_taxonomy: Vyberte taxonomii.
+            success: 'Návrhy byly úspěšně aktualizovány na taxonomie %{taxonomies}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Při importu návrhů došlo k chybě.
@@ -698,6 +712,8 @@ cs:
           answer: "%{user_name} odpovídalo %{resource_name} návrh na %{space_name} prostoru"
           create: "%{user_name} vytvořil %{resource_name} návrh na %{space_name} prostoru jako oficiální návrh"
           publish_answer: "%{user_name} zveřejnil odpověď na návrh %{resource_name} ve skupině %{space_name}"
+          restore: "%{user_name} obnovil návrh %{resource_name} na prostoru %{space_name}"
+          soft_delete: "%{user_name} přesunul do koše návrh %{resource_name} v prostoru %{space_name}"
           update: "%{user_name} aktualizoval %{resource_name} oficiální návrh na %{space_name} místa"
         proposal_note:
           create: "%{user_name} zanechal soukromou poznámku k návrhu %{resource_name} na %{space_name} prostoru"
