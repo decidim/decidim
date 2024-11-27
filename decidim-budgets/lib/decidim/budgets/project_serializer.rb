@@ -28,6 +28,7 @@ module Decidim
           title: project.title,
           description: project.description,
           budget: { id: project.budget.id },
+          budget_title: project.budget.title,
           budget_amount: project.budget_amount,
           confirmed_votes: project.confirmed_orders_count,
           comments: project.comments_count,

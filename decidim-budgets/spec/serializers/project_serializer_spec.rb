@@ -45,7 +45,11 @@ module Decidim::Budgets
       end
 
       it "includes the budget id" do
-        expect(serialized[:decidim_budgets_budget_id]).to eq(id: project.budget.id)
+        expect(serialized[:budget]).to eq(id: project.budget.id)
+      end
+
+      it "includes the budget name" do
+        expect(serialized[:budget_title]).to include(project.budget.title)
       end
 
       it "includes the budget amount" do
