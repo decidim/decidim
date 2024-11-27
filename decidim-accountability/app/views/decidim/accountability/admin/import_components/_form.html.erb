@@ -10,7 +10,7 @@
           </div>
 
           <% if @form.origin_component %>
-            <%= render partial: "filters", locals: { f: f, form: @form, component: @form.origin_component } %>
+            <%= render partial: "filters", locals: { f:, form: @form, component: @form.origin_component } %>
           <% end %>
         </div>
       </div>
