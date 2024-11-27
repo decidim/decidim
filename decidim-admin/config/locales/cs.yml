@@ -184,6 +184,13 @@ cs:
         browse: Procházet
         category:
           new: Nová kategorie
+        confirm_delete_component: |
+          Opravdu chcete odstranit tuto komponentu?<br>
+          Tato komponenta obsahuje:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} zdroje</li>
+          </ul>
+          Pokud změníte názor, můžete ji obnovit později.
         export: Exportovat vše
         export-selection: Exportovat výběr
         import: Importovat
@@ -1134,6 +1141,9 @@ cs:
           update: Aktualizovat filtr taxonomie
         form:
           all: Vše
+          name_help: Název filtru, který má být zobrazen ve frontendu.
+          no_items: Pro tuto taxonomii nejsou k dispozici žádné položky. Položky můžete vytvořit v nastavení taxonomie.
+          space_filter: K dispozici jako filtr pro všechny %{manifest_name}
         index:
           description: Filtr taxonomie umožňuje správcům seřadit a filtrovat participační prostory na základě taxonomie. Přidejte například taxonomický filtr pro řazení procesů podle geografického rozsahu.
           empty: V současné době nejsou žádné filtry taxonomie. Vytvořte seznam taxonomických filtrů pro řazení a filtrování participačních prostor na základě taxonomie.
@@ -1193,8 +1203,10 @@ cs:
       trash_management:
         restore:
           invalid: Při obnovování %{resource_name} došlo k chybě.
+          success: "%{resource_name} byl úspěšně obnoven."
         soft_delete:
           invalid: Při odstraňování %{resource_name} došlo k chybě.
+          success: "%{resource_name} byl úspěšně smazán."
       user_group:
         csv_verify:
           invalid: Při čtení souboru CSV došlo k chybě.
