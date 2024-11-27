@@ -32,7 +32,7 @@ module Decidim
 
         # Recursively build the options for the assembly tree
         def build_assembly_options(assembly, options, level = 0)
-          name = " #{"&nbsp;" * 4 * level} #{assembly.translated_title}".html_safe
+          name = sanitize("#{"&nbsp;" * 4 * level} #{assembly.translated_title}")
           options << [name, assembly.id]
 
           # Skip the current assembly to avoid selecting a child as parent
