@@ -95,6 +95,7 @@ cs:
     admin:
       actions:
         confirm: Potvrdit
+        confirm_delete_conference: Opravdu chcete odstranit tuto konferenci? Pokud změníte názor, můžete ji obnovit později.
         new_conference: Nová konference
         new_conference_user_role: Nový administrátor konference
         new_media_link: Nový odkaz na média
@@ -102,6 +103,7 @@ cs:
         new_registration_type: Nový typ registrace
         new_speaker: Nový mluvčí
         send_diplomas: Odeslání certifikátů o účasti
+        view_deleted_conferences: Zobrazit odstraněné konference
       conference_copies:
         new:
           copy: Kopírovat
@@ -171,6 +173,8 @@ cs:
         index:
           published: Publikováno
           unpublished: Nezveřejněno
+        manage_trash:
+          title: Smazané konference
         new:
           create: Vytvořit
           title: Konference
