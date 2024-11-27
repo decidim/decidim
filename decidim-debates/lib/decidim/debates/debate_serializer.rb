@@ -42,7 +42,9 @@ module Decidim
           last_comment_at: debate.last_comment_at,
           comments_enabled: debate.comments_enabled,
           conclusions: debate.conclusions,
-          closed_at: debate.closed_at
+          closed_at: debate.closed_at,
+          created_at: debate.created_at,
+          updated_at: debate.updated_at
         }
       end
 

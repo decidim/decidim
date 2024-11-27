@@ -137,6 +137,14 @@ module Decidim
           expect(serialized).to include(comments_enabled: debate.comments_enabled)
         end
 
+        it "includes the created at" do
+          expect(serialized).to include(created_at: debate.created_at)
+        end
+
+        it "includes the updated at" do
+          expect(serialized).to include(updated_at: debate.created_at)
+        end
+
         describe "conclusions and closed at" do
           it "does not serializes the conclusion" do
             expect(serialized[:conclusions]).to be_nil
