@@ -1,3 +1,4 @@
+<div class="card__proposals-item">
 <%= link_to resource_path, class: classes[:default], id: resource_id do %>
   <div class="<%= classes[:img] %>">
     <% if has_image? %>
@@ -19,11 +20,11 @@
         <%= cell metadata_cell, resource, links: false, skip_state: true, **options %>
       </div>
     <% end %>
-
-    <% if has_actions? %>
-        <div class="<%= classes[:votes] %>">
-            <%= cell proposal_vote_cell, resource, **options %>
-        </div>
-    <% end %>
   </div>
 <% end %>
+  <% if has_actions? %>
+    <div class="<%= classes[:votes] %>">
+      <%= cell proposal_vote_cell, resource, **options %>
+    </div>
+  <% end %>
+</div>

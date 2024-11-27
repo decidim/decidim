@@ -457,7 +457,9 @@ describe "Proposals" do
       it "lists the proposals ordered by votes by default" do
         expect(page).to have_css("a", text: "Most voted")
         expect(page).to have_css("[id^='proposals__proposal']:first-child", text: most_voted_proposal_title)
-        expect(page).to have_css("[id^='proposals__proposal']:last-child", text: less_voted_proposal_title)
+        within all("[id^='proposals__proposal']").last do
+          expect(page).to have_content(less_voted_proposal_title)
+        end
       end
     end
 
@@ -515,7 +517,11 @@ describe "Proposals" do
 
       it "lists the proposals ordered by selected option" do
         expect(page).to have_css("[id^='proposals__proposal']:first-child", text: first_proposal_title)
-        expect(page).to have_css("[id^='proposals__proposal']:last-child", text: last_proposal_title)
+        within all("[id^='proposals__proposal']").last do
+          within ".card__list-title" do
+            expect(page).to have_content(last_proposal_title)
+          end
+        end
       end
     end
 
