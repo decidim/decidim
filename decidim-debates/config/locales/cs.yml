@@ -52,9 +52,11 @@ cs:
     debates:
       actions:
         close: Zavřít
+        deleted_debate_info: Smazaná debata může být obnovena z koše.
         edit: Upravit
         new: Nová debata
         title: Akce
+        view_deleted_debates: Zobrazit odstraněné debaty
       admin:
         debate_closes:
           edit:
@@ -73,6 +75,8 @@ cs:
             open: Otevřený (žádné počáteční nebo koncové období)
           index:
             title: Debaty
+          manage_trash:
+            title: Smazané debaty
           new:
             create: Vytvořit debatu
             title: Nová debata
