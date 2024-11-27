@@ -298,6 +298,12 @@ en:
         no_results: No results found
         search_prompt: Type at least three characters to search.
       block_user:
+        bulk_new:
+          action: Block accounts and send justification
+          already_reported_html: Continuing with this action you will also hide all the participants contents.
+          description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
+          justification: Justification
+          title: Block Users
         new:
           action: Block account and send justification
           already_reported_html: Continuing with this action you will also hide all the participants contents.
@@ -844,9 +850,11 @@ en:
           success: Participant successfully blocked.
         bulk_action:
           block:
+            failed: 'There was a problem blocking the participants: %{errored}'
             invalid: There was a problem blocking the participants.
             success: Participants successfully blocked.
           unblock:
+            failed: 'There was a problem unblocking the participants: %{errored}'
             invalid: There was a problem unblocking the participants.
             success: Participants successfully unblocked.
         create:
@@ -1314,7 +1322,7 @@ en:
             ignore:
               failed: 'There was a problem unreporting some users: %{errored}'
               invalid: No users moderations selected.
-              success: Participant successfully unreported.
+              success: Participants successfully unreported.
             unhide:
               failed: 'There was a problem unhiding some resources: %{errored}'
               invalid: No moderations selected.

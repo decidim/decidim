@@ -5,9 +5,9 @@ module Decidim
     class BulkBlockUser < Decidim::Command
       # Public: Initializes the command.
 
-      def initialize(user, moderated_user_ids)
-        @user = user
-        @moderated_user_ids = moderated_user_ids
+      def initialize(form)
+        @form = form
+        @result = { ok: [], ko: [] }
       end
 
       # Executes the command. Broadcasts these events:
@@ -17,18 +17,24 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if moderated_user_ids.blank?
+        return broadcast(:invalid) unless form.valid?
 
-        bulk_action!
-
-        broadcast(:ok)
+        form.forms.each do |sub_form|
+          BlockUser.call(form) do
+            on(:ok) do
+              result[:ok] << sub_form
+            end
+            on(:invalid) do
+              result[:ok] << sub_form
+            end
+          end
+        end
+        broadcast(:ok, **result)
       end
 
       private
 
-      attr_reader :user, :moderated_user_ids
-
-      def bulk_action!; end
+      attr_reader :form
     end
   end
 end

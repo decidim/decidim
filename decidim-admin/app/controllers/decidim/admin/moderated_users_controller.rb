@@ -33,7 +33,7 @@ module Decidim
         end
       end
 
-      def bulk_action
+      def bulk_unreport
         Admin::BulkAction.call(current_user, params[:bulk_action], reportables) do
           on(:ok) do |ok, ko|
             flash[:notice] = I18n.t("reportable.bulk_action.ignore.success", scope: "decidim.moderations.admin", count_ok: ok.count) if ok.count.positive?
@@ -58,7 +58,7 @@ module Decidim
       end
 
       def reportables
-        @reportables ||= base_query_finder.where(id: params[:moderated_user_ids]).includes(:user).map(&:user)
+        @reportables ||= base_query_finder.where(id: params[:user_ids]).includes(:user).map(&:user)
       end
 
       def base_query_finder

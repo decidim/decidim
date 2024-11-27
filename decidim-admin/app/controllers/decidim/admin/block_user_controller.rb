@@ -48,21 +48,31 @@ module Decidim
         redirect_to moderated_users_path, notice:
       end
 
-      def bulk_block_user
-        Admin::BulkBlockUser.call(current_user, form, moderated_user_ids) do
-          on(:ok) do
-            flash[:notice] = I18n.t("officializations.bulk_action.block.success", scope: "decidim.admin")
+      def bulk_new
+        enforce_permission_to :block, :admin_user
+
+        @form = form(BlockUsersForm).from_params(params)
+      end
+
+      def bulk_create
+        @form = form(BlockUsersForm).from_params(params)
+
+        Admin::BulkBlockUser.call(@form) do
+          on(:ok) do |ok, ko|
+            flash[:notice] = I18n.t("officializations.bulk_action.block.success", scope: "decidim.admin", count_ok: ok.count) if ok.count.positive?
+            flash[:alert] = I18n.t("officializations.bulk_action.block.failed", scope: "decidim.admin", errored: ko.join(", ")) if ko.present? && ko.any?
+            redirect_to moderated_users_path
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("officializations.bulk_action.block.invalid", scope: "decidim.admin")
+            render :bulk_new
           end
         end
-        redirect_to moderated_users_path
       end
 
-      def bulk_unblock_user
-        Admin::BulkUnblockUser.call(current_user, moderated_user_ids) do
+      def bulk_destroy
+        Admin::BulkUnblockUser.call(current_user, users_selected) do
           on(:ok) do
             flash[:notice] = I18n.t("officializations.bulk_action.unblock.success", scope: "decidim.admin")
           end
