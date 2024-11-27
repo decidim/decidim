@@ -175,6 +175,8 @@ cs:
         result:
           create: "%{user_name} vytvořen výsledek %{resource_name} v %{space_name}"
           delete: "%{user_name} odstranil %{resource_name} výsledek v %{space_name}"
+          restore: "%{user_name} obnovil výsledek %{resource_name} v %{space_name}"
+          soft_delete: "%{user_name} přesunul výsledek %{resource_name} v %{space_name} do koše"
           update: "%{user_name} aktualizovaný výsledek %{resource_name} v %{space_name}"
         status:
           create: "%{user_name} vytvořil/a stav %{resource_name}"
