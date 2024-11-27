@@ -24,6 +24,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::ShareableWithToken
       include Decidim::TranslatableResource
+      include Decidim::SoftDeletable
 
       translatable_fields :title
       searchable_fields(

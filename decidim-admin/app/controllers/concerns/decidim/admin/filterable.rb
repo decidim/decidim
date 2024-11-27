@@ -211,7 +211,7 @@ module Decidim
 
         # A tree of Taxonomy IDs. Leaves are `nil`.
         def taxonomy_ids_hash(taxonomies)
-          filtered_taxonomies = taxonomies.where(parent_id: nil).or(taxonomies.where(id: available_taxonomy_ids))
+          filtered_taxonomies = taxonomies.roots.or(taxonomies.where(id: available_taxonomy_ids))
           return nil if filtered_taxonomies.blank?
 
           filtered_taxonomies.each_with_object({}) do |taxonomy, hash|
