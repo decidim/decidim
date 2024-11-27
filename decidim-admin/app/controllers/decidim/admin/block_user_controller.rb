@@ -48,6 +48,32 @@ module Decidim
         redirect_to moderated_users_path, notice:
       end
 
+      def bulk_block_user
+        Admin::BulkBlockUser.call(current_user, form, moderated_user_ids) do
+          on(:ok) do
+            flash[:notice] = I18n.t("officializations.bulk_action.block.success", scope: "decidim.admin")
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("officializations.bulk_action.block.invalid", scope: "decidim.admin")
+          end
+        end
+        redirect_to moderated_users_path
+      end
+
+      def bulk_unblock_user
+        Admin::BulkUnblockUser.call(current_user, moderated_user_ids) do
+          on(:ok) do
+            flash[:notice] = I18n.t("officializations.bulk_action.unblock.success", scope: "decidim.admin")
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("officializations.bulk_action.unblock.invalid", scope: "decidim.admin")
+          end
+        end
+        redirect_to moderated_users_path
+      end
+
       private
 
       def user

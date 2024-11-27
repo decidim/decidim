@@ -176,5 +176,30 @@ describe "Admin manages moderated users" do
 
       it_behaves_like "a paginated collection", url: true
     end
+
+    context "when performing bulk actions" do
+      let!(:first_user) { create(:user, :confirmed, organization:) }
+      let!(:second_user) { create(:user, :confirmed, organization:) }
+      let!(:third_user) { create(:user, :confirmed, organization:) }
+
+      before do
+        visit decidim_admin.moderated_users_path
+      end
+
+      it "unreports reported participants" do
+        expect(page).to have_content("Reported participants")
+        find_by_id("moderated_users_bulk").set(true)
+        expect(page).to have_content("Reported participants 3")
+        click_on "Actions"
+        within "#js-bulk-actions-dropdown" do
+          click_on "Unreport"
+        end
+        expect(page).to have_content("Unreport users")
+        within "#js-unreport-moderated_users-actions" do
+          click_on "Unreport users"
+        end
+        expect(page).to have_content("Participant successfully unreported")
+      end
+    end
   end
 end

@@ -1,5 +1,5 @@
 <div id="js-block-moderated_users-actions" class="hide js-bulk-action-form">
-  <%= form_tag(method: :patch, id: "js-form-block-moderated_users", class: "form form-defaults flex items-center gap-x-2") do %>
+  <%= form_tag(bulk_block_moderated_users_path, method: :post, id: "js-form-block-moderated_users", class: "form form-defaults flex items-center gap-x-2") do %>
 
     <div class="hide">
       <% moderated_users.each do |moderation| %>

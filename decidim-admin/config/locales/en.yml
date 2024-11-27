@@ -842,6 +842,13 @@ en:
         block:
           error: There was a problem blocking the participant.
           success: Participant successfully blocked.
+        bulk_action:
+          block:
+            invalid: There was a problem blocking the participants.
+            success: Participants successfully blocked.
+          unblock:
+            invalid: There was a problem unblocking the participants.
+            success: Participants successfully unblocked.
         create:
           success: Participant successfully officialized.
         destroy:
@@ -1307,7 +1314,7 @@ en:
             ignore:
               failed: 'There was a problem unreporting some users: %{errored}'
               invalid: No users moderations selected.
-              success: Users successfully unreported.
+              success: Participant successfully unreported.
             unhide:
               failed: 'There was a problem unhiding some resources: %{errored}'
               invalid: No moderations selected.

@@ -58,7 +58,7 @@ module Decidim
       end
 
       def reportables
-        @reportables ||= base_query_finder.where(id: params[:user_id])
+        @reportables ||= base_query_finder.where(id: params[:moderated_user_ids]).includes(:user).map(&:user)
       end
 
       def base_query_finder

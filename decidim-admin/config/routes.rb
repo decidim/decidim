@@ -61,8 +61,10 @@ Decidim::Admin::Engine.routes.draw do
         scope "/:user_id" do
           resource :user_block, only: [:new, :create, :destroy], controller: :block_user
         end
+        post :bulk_block
+        delete :bulk_unblock
+        patch :bulk_action
       end
-      patch :bulk_action, on: :collection
     end
 
     resources :impersonatable_users, only: [:index] do

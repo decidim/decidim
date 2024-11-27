@@ -11,12 +11,12 @@ $(() => {
     const selectedModeratedUsers = selectedModeratedUsersCount();
 
     if (selectedModeratedUsers === 0) {
-      $("#js-selected-moderated_users-count-count").text("");
+      $("#js-selected-moderated_users-count").text("");
       $("#js-block-moderated_users-actions").addClass("hide");
       $("#js-unblock-moderated_users-actions").addClass("hide");
       $("#js-unreport-moderated_users-actions").addClass("hide");
     } else {
-      $("#js-selected-moderated_users-count-count").text(selectedModeratedUsers);
+      $("#js-selected-moderated_users-count").text(selectedModeratedUsers);
     }
   };
 
@@ -104,7 +104,7 @@ $(() => {
       selectedModeratedUsersCountUpdate();
     });
 
-    // moderation checkbox change
+    // moderated users checkbox change
     $(".table-list").on("change", ".js-check-all-moderated_users", function () {
       let moderationId = $(this).val();
       let checked = $(this).prop("checked");
@@ -134,7 +134,7 @@ $(() => {
         hideBulkActionsButton();
       }
 
-      $(".js-bulk-action-form").find(`.js-moderation-id-${moderationId}`).prop("checked", checked);
+      $(".js-bulk-action-form").find(`.js-moderated_user-id-${moderationId}`).prop("checked", checked);
       selectedModeratedUsersCountUpdate();
     });
 
