@@ -145,10 +145,6 @@ module Decidim
           expect(serialized).to include(updated_at: debate.created_at)
         end
 
-        it "includes the the amount of followers" do
-          expect(serialized).to include(followers_count: debate.followers.count)
-        end
-
         describe "conclusions and closed at" do
           it "does not serializes the conclusion" do
             expect(serialized[:conclusions]).to be_nil

@@ -44,8 +44,7 @@ module Decidim
           conclusions: debate.conclusions,
           closed_at: debate.closed_at,
           created_at: debate.created_at,
-          updated_at: debate.updated_at,
-          followers_count: debate.followers.count
+          updated_at: debate.updated_at
         }
       end
 
