@@ -99,6 +99,7 @@ cs:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Opravdu chcete odstranit toto shromáždění? Pokud změníte názor, můžete ho obnovit později.
         import_assembly: Importovat
         new_assembly: Nové shromáždění
         new_assembly_member: Nový člen shromáždění
@@ -270,6 +271,7 @@ cs:
         export: "%{user_name} exportoval shromáždění %{resource_name}"
         import: "%{user_name} importoval shromáždění %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} shromáždění"
+        restore: "%{user_name} obnovil shromáždění %{resource_name}"
         unpublish: "%{user_name} odebral %{resource_name} shromáždění"
         update: "%{user_name} aktualizoval shromáždění %{resource_name}"
       assembly_member:
