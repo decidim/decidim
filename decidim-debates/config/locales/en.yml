@@ -250,8 +250,6 @@ en:
         debates:
           author: The data for the author of this debate
           closed_at: The date when this debate was closed
-          updated_at: The date of when the debate was last updated
-          followers_count: Counts the amount of followers on the debate
           comments: The number of comments this debate has
           comments_enabled: Wether this debate has comments enabled or not
           component: The component that the debate belongs to
@@ -260,6 +258,7 @@ en:
           description: The debate description
           end_time: When this debate ends, if it is an open debate and has a limited time
           followers: The number of followers this debate has
+          followers_count: Counts the amount of followers on the debate
           id: The unique identifier of the debate
           information_updates: The updates that the author has made to the debate
           instructions: Which are the instructions to comment in this debate
@@ -269,6 +268,7 @@ en:
           start_time: When this debate starts, if it is an open debate and has a limited time
           taxonomies: The taxonomies of the project
           title: The debate title
+          updated_at: The date of when the debate was last updated
           url: The URL where this debate can be found
     statistics:
       debates_count: Debates
