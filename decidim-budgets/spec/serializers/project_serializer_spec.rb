@@ -64,6 +64,10 @@ module Decidim::Budgets
         expect(serialized[:comments]).to eq(project.comments.count)
       end
 
+      it "includes the url of the budget" do
+        expect(serialized[:budget_url]).to eq(root_url)
+      end
+
       it "includes the created at" do
         expect(serialized).to include(created_at: project.created_at)
       end
@@ -147,7 +151,7 @@ module Decidim::Budgets
     end
 
     def host
-      debate.organization.host
+      budget.organization.host
     end
   end
 end

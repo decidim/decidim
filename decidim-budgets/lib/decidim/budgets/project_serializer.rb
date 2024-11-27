@@ -30,6 +30,7 @@ module Decidim
           budget: { id: project.budget.id },
           budget_title: project.budget.title,
           budget_amount: project.budget_amount,
+          budget_url: root_url,
           confirmed_votes: project.confirmed_orders_count,
           comments: project.comments_count,
           created_at: project.created_at,
