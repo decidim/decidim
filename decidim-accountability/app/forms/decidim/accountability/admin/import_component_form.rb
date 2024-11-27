@@ -10,9 +10,7 @@ module Decidim
         include Decidim::HasTaxonomyFormAttributes
 
         attribute :origin_component_id, Integer
-
         attribute :proposal_state_id, Integer
-        attribute :import_all_selected_projects, Boolean
 
         validates :origin_component_id, presence: true
         validates :filtered_items_count, numericality: { greater_than: 0 }, if: ->(form) { form.origin_component_id }
@@ -32,10 +30,9 @@ module Decidim
         end
 
         def proposal_states_collection
-          [["Select state", nil]] +
-            Decidim::Proposals::ProposalState.where(component: origin_component).map do |state|
-              [translated_attribute(state.title), state.id]
-            end
+          Decidim::Proposals::ProposalState.where(component: origin_component).map do |state|
+            [translated_attribute(state.title), state.id]
+          end
         end
 
         delegate :count, to: :filtered_items, prefix: true
@@ -54,21 +51,36 @@ module Decidim
 
         def filtered_budget_projects
           scope = Decidim::Budgets::Project.joins(:budget).selected.where(budget: { component: origin_component })
-          scope = scope.with_taxonomies(*taxonomy_ids) if taxonomy_ids.any?
-          # scope = scope.reject { |project| project_already_copied?(project) }
+          scope = filter_taxonomies(scope)
+          scope = scope.reject { |project| project_already_copied?(project) }
           scope
         end
 
         def filtered_proposals
-          scope = Decidim::Proposals::Proposal.where(component: origin_component)
+          scope = Decidim::Proposals::Proposal.where(component: origin_component).not_hidden
           scope = scope.where(decidim_proposals_proposal_state_id: proposal_state_id) if proposal_state_id
-          scope = scope.with_taxonomies(*taxonomy_ids) if taxonomy_ids.any?
-          # scope = scope.reject { |proposal| proposal_already_copied?(proposal) }
+          scope = filter_taxonomies(scope)
+          scope = scope.reject { |proposal| proposal_already_copied?(proposal) }
           scope
         end
 
-        def taxonomy_ids
-          taxonomies.compact
+        def filter_taxonomies(scope)
+          if taxonomy_sets.any?
+            scope.with_any_taxonomies(*taxonomy_sets)
+          else
+            scope
+          end
+        end
+
+        def taxonomy_sets
+          @taxonomy_sets ||= taxonomies.compact.map do |taxonomy_id|
+            taxonomy = Decidim::Taxonomy.find(taxonomy_id)
+            root_taxonomy_id = taxonomy.root_taxonomy.id
+
+            return nil if !root_taxonomy_id || !taxonomy_id
+
+            [root_taxonomy_id, [taxonomy_id]]
+          end.compact
         end
 
         def project_already_copied?(original_project)

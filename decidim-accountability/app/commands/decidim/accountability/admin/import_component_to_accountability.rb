@@ -25,7 +25,7 @@ module Decidim
         private
 
         def selected_items
-          form.selected_items
+          form.filtered_items
         end
 
         def manifest_name

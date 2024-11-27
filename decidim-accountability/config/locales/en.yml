@@ -63,9 +63,8 @@ en:
           results: Results
         import_components:
           create:
-            invalid: There was a problem importing the projects into results, please follow the instructions carefully and make sure you have selected projects for implementation.
+            invalid: There was a problem importing the results, please follow the instructions carefully and make sure you have selected projects for implementation.
           filters:
-            import_all_selected_projects: Import all projects selected for implementation
             new_items_projects:
               one: 1 selected project will be imported
               other: "%{count} selected projects will be imported"
@@ -78,13 +77,13 @@ en:
             select_state: Select state
           form:
             create: Import
-            no_components: There are no budgets components in this participatory space to import the projects into results.
+            no_components: There are no components in this participatory space to import.
             origin_component_id: Origin component
             select_component: Select a component
           new:
             success:
-              one: 1 project queued to be imported. You will be notified by email, once completed.
-              other: "%{count} projects queued to be imported. You will be notified by email, once completed."
+              one: 1 result queued to be imported. You will be notified by email, once completed.
+              other: "%{count} results queued to be imported. You will be notified by email, once completed."
             title: Import results from another component
         import_results:
           new:

@@ -1,3 +1,12 @@
+<% if component.manifest_name == "proposals" %>
+  <div class="row column">
+    <%= f.select :proposal_state_id,
+                 form.proposal_states_collection,
+                 include_blank: t(".select_state"),
+                 label: t(".proposal_state") %>
+  </div>
+<% end %>
+
 <% if component.has_taxonomy_settings? %>
   <% component.available_taxonomy_filters.each do |filter| %>
     <div class="row column">
@@ -6,30 +15,12 @@
   <% end %>
 <% end %>
 
-<% if component.manifest_name == "proposals" %>
-  <div class="row column">
-    <%= f.select :proposal_state_id,
-                 form.proposal_states_collection,
-                 prompt: t(".select_state"),
-                 label: t(".proposal_state") %>
-  </div>
-
-  <div class="row column">
-    <small class="help-text">
+<div class="row column">
+  <small class="help-text">
+    <% if component.manifest_name == "proposals" %>
       <%= t(".new_items_proposals", count: form.filtered_items_count) %>
-    </small>
-  </div>
-
-<% elsif component.manifest_name == "budgets" %>
-  <!--
-  <div class="row column">
-    <%= f.check_box :import_all_selected_projects, label: t(".import_all_selected_projects") %>
-  </div>
-  -->
-
-  <div class="row column">
-    <small class="help-text">
+    <% elsif component.manifest_name == "budgets" %>
       <%= t(".new_items_projects", count: form.filtered_items_count) %>
-    </small>
-  </div>
-<% end %>
+    <% end %>
+  </small>
+</div>
