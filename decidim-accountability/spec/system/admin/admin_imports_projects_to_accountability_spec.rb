@@ -21,11 +21,11 @@ describe "Admin imports projects to accountability" do
   context "when there are no budgets components to import" do
     before do
       find("span", text: "Import").click
-      click_on "Import projects from another component"
+      click_on "Import results from another component"
     end
 
     it "shows no component to select" do
-      expect(page).to have_content t("projects_import.new.no_components", scope: "decidim.accountability.admin")
+      expect(page).to have_content t("import_components.form.no_components", scope: "decidim.accountability.admin")
     end
   end
 
@@ -38,7 +38,7 @@ describe "Admin imports projects to accountability" do
     end
 
     it "link exists only in main list" do
-      expect(page).to have_content("Import projects from another component")
+      expect(page).to have_content("Import results from another component")
       page.find(".table-list tr:nth-child(1) td:nth-child(2)").click
       expect(page).to have_no_content(t("decidim.accountability.actions.import"))
     end
@@ -50,20 +50,19 @@ describe "Admin imports projects to accountability" do
 
     before do
       find("span", text: "Import").click
-      click_on "Import projects from another component"
+      click_on "Import results from another component"
     end
 
     context "when there are no projects" do
       before do
         visit current_path
-        find_by_id("result_import_projects_origin_component_id").find("option[value='#{budget_component.id}']").select_option
-        find_by_id("result_import_projects_import_all_selected_projects").set(true)
+        find_by_id("import_component_origin_component_id").find("option[value='#{budget_component.id}']").select_option
       end
 
       it "shows error message" do
         expect(page).to have_content "There are no selected projects in this origin component"
         click_on "Import"
-        expect(page).to have_content "There was a problem importing the projects into results, please follow the instructions carefully and make sure you have selected projects for implementation."
+        expect(page).to have_content t("import_components.create.invalid", scope: "decidim.accountability.admin")
       end
     end
 
@@ -72,14 +71,13 @@ describe "Admin imports projects to accountability" do
 
       before do
         visit current_path
-        find_by_id("result_import_projects_origin_component_id").find("option[value='#{budget_component.id}']").select_option
-        find_by_id("result_import_projects_import_all_selected_projects").set(true)
+        find_by_id("import_component_origin_component_id").find("option[value='#{budget_component.id}']").select_option
       end
 
       it "imports the projects into results" do
         expect(page).to have_content("3 selected projects will be imported")
         click_on "Import"
-        expect(page).to have_content "3 projects queued to be imported. You will be notified by email, once completed"
+        expect(page).to have_content "3 results queued to be imported. You will be notified by email, once completed"
       end
     end
   end

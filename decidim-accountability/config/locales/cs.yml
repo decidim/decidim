@@ -94,7 +94,7 @@ cs:
             name: Výsledek
           status:
             name: Stav
-        projects_import:
+        import_components:
           create:
             invalid: Došlo k potížím při importu projektů do výsledků, postupujte prosím pečlivě podle pokynů a ujistěte se, že jste vybrali projekty pro realizaci.
           new:

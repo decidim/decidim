@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Accountability
-  describe Admin::ResultImportProjectsForm do
+  describe Admin::ImportComponentForm do
     subject(:form) { described_class.from_params(attributes).with_context(context) }
 
     let(:organization) { create(:organization) }
