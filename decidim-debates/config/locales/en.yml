@@ -250,6 +250,8 @@ en:
         debates:
           author: The data for the author of this debate
           closed_at: The date when this debate was closed
+          updated_at: The date of when the debate was last updated
+          followers_count: Counts the amount of followers on the debate
           comments: The number of comments this debate has
           comments_enabled: Wether this debate has comments enabled or not
           component: The component that the debate belongs to
