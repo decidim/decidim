@@ -103,7 +103,7 @@ cs:
         new_registration_type: Nový typ registrace
         new_speaker: Nový mluvčí
         send_diplomas: Odeslání certifikátů o účasti
-        view_deleted_conferences: Zobrazit odstraněné konference
+        view_deleted_conferences: Zobrazit smazané konference
       conference_copies:
         new:
           copy: Kopírovat
@@ -308,11 +308,16 @@ cs:
           success: Typ registrace byl úspěšně aktualizován pro tuto konferenci.
       titles:
         conferences: Konference
+        conferences_deleted: Smazané konference
+      tooltips:
+        deleted_conferences_info: Konference mohou být smazané pouze v případě, že je stav "Nezveřejněný".
     admin_log:
       conference:
         create: "%{user_name} vytvořil konferenci %{resource_name}"
         publish: "%{user_name} zveřejnila %{resource_name} konferenci"
+        restore: "%{user_name} obnovil konferenci %{resource_name}"
         send_conference_diplomas: "%{user_name} zaslal certifikaci o účasti na konferenci %{resource_name}"
+        soft_delete: "%{user_name} přesunul do koše konferenci %{resource_name}"
         unpublish: "%{user_name} nepublikováno %{resource_name} konferenci"
         update: "%{user_name} aktualizoval konferenci %{resource_name}"
         update_diploma: "%{user_name} aktualizovala certifikáty pro účast na %{resource_name} konferenci"
@@ -592,14 +597,18 @@ cs:
     open_data:
       help:
         conferences:
+          created_at: Datum, kdy byl tento prostor vytvořen
           decidim_scope_id: Rozsah konference
           description: Dlouhý popis konference
           end_date: Datum, kdy tato konference skončí.
+          follows_count: Počet uživatelů sledujících tento prostor
           hashtag: Hashtag Konference, používaná pro Twitter/X
           id: Jedinečný identifikátor této konference
           location: Místo konference, kde se bude konat.
           objectives: Cíle této konference. Co je cílem.
           promoted: Zda je konference propagována, nebo ne
+          published_at: Datum, kdy byl tento prostor publikován
+          reference: Jedinečný odkaz na prostor
           remote_banner_image_url: URL obrázku banneru konference
           remote_hero_image_url: URL obrázku přední osobnosti konference
           scope: Rozsah konference
@@ -610,6 +619,7 @@ cs:
           start_date: Datum, kdy tato konference začne.
           taxonomies: Taxonomie konference
           title: Název konference
+          updated_at: Poslední datum, kdy byl tento prostor aktualizován
           url: URL prostoru
     statistics:
       conferences_count: Konference
