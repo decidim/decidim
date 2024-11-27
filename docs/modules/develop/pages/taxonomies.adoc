@@ -239,8 +239,19 @@ This command will look for all the plan files in the `tmp/taxonomies` directory
 2. The import script is idempotent, meaning that you can run it multiple times without any side effects. If a taxonomy already exists, it will not be created again.
 3. If you are not happy with the results of the import, rolling back is as simple as removing the root taxonomies created by the import script from the admin interface, everything related will be removed automatically.
 4. The process of importing the taxonomies is complex and can take a long time depending on the number of resources to be assigned. It is also provided in good faith and without any warranty. It is recommended to test it in a staging environment with a copy of the production database before running it in production.
+5. You can specify which models to import by setting the `IMPORTS` environment variable. For instance, to import only the participatory process types and assemblies types, you can run the following command: `IMPORTS="ParticipatoryProcessTypes AssembliesTypes" bin/rails decidim:taxonomies:import_all_plans` (valid models are `ParticipatoryProcessTypes`, `AssembliesTypes`, `Categories`, `Scopes`, `Areas`).
 ----
 
+=== Other utilities
+
+Another rake task is provided to reset the counters for the tables related to taxonomies. It might be handy if you suspect that some of the counters are not correct (for instance, if you have deleted some taxonomies manually).
+
+To reset the counters, run the following command:
+
+[source,bash]
+----
+bin/rails decidim:taxonomies:reset_counters
+----
 
 === Imported equivalences
 

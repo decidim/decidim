@@ -198,6 +198,25 @@ describe "Executing Decidim Taxonomy importer tasks" do
       check_message_printed("...Exporting taxonomies for decidim_categories")
       check_message_printed("Plan created")
     end
+
+    context "when the IMPORT env var is set" do
+      before do
+        allow(ENV).to receive(:fetch).with("IMPORTS", "ParticipatoryProcessType AssemblyType Scope Area Category").and_return("Scope Area")
+      end
+
+      it "creates a plan and imports it" do
+        task.reenable
+        task.invoke
+
+        check_message_printed("Creating a plan for organization #{decidim_organization_id}")
+        expect($stdout.string).not_to include("...Exporting taxonomies for decidim_participatory_process_types")
+        expect($stdout.string).not_to include("...Exporting taxonomies for decidim_assemblies_types")
+        check_message_printed("...Exporting taxonomies for decidim_scopes")
+        check_message_printed("...Exporting taxonomies for decidim_areas")
+        expect($stdout.string).not_to include("...Exporting taxonomies for decidim_categories")
+        check_message_printed("Plan created")
+      end
+    end
   end
 
   describe "rake decidim:taxonomies:import_all_plans", type: :task do
@@ -225,6 +244,9 @@ describe "Executing Decidim Taxonomy importer tasks" do
                 Space filter: true
                 Items: 2
                 Components: 0
+            !Taxonomy imported: Participatory Process Type 1
+            !Taxonomy imported: Participatory Process Type 2
+            !Filter imported: ~ Participatory process types
             Created taxonomies: 3
               - ~ Participatory process types
               - Participatory Process Type 1
@@ -232,8 +254,8 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Created filters: 1
               - participatory_processes: ~ Participatory process types: 2 items
             Assigned resources: 1
-              - Participatory Process Type 1:
-                - #{participatory_process.to_global_id}
+              - Participatory Process Type 1: 1 resources
+            Assigned components: 0
             Failed resources: 0
             Failed components: 0
       MSG
@@ -249,6 +271,9 @@ describe "Executing Decidim Taxonomy importer tasks" do
                 Space filter: true
                 Items: 2
                 Components: 0
+            !Taxonomy imported: Assembly Type 1
+            !Taxonomy imported: Assembly Type 2
+            !Filter imported: ~ Assemblies types
             Created taxonomies: 3
               - ~ Assemblies types
               - Assembly Type 1
@@ -256,8 +281,8 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Created filters: 1
               - assemblies: ~ Assemblies types: 2 items
             Assigned resources: 1
-              - Assembly Type 1:
-                - #{assembly.to_global_id}
+              - Assembly Type 1: 1 resources
+            Assigned components: 0
             Failed resources: 0
             Failed components: 0
       MSG
@@ -297,6 +322,13 @@ describe "Executing Decidim Taxonomy importer tasks" do
                 Space filter: true
                 Items: 3
                 Components: 0
+            !Taxonomy imported: Scope 1
+            !Taxonomy imported: Scope 2
+            !Filter imported: ~ Scopes
+            !Filter imported: ~ Scopes
+            !Filter imported: ~ Scopes
+            !Filter imported: ~ Scopes
+            !Filter imported: ~ Scopes
             Created taxonomies: 4
               - ~ Scopes
               - Scope 1
@@ -309,12 +341,11 @@ describe "Executing Decidim Taxonomy importer tasks" do
               - conferences: ~ Scopes: 3 items
               - initiatives: ~ Scopes: 3 items
             Assigned resources: 3
-              - Scope 1:
-                - #{assembly.to_global_id}
-              - Scope 1 second level:
-                - #{dummy_resource.to_global_id}
-              - Scope 2:
-                - #{participatory_process.to_global_id}
+              - Scope 1: 1 resources
+              - Scope 1 second level: 1 resources
+              - Scope 2: 1 resources
+            Assigned components: 1
+              - assemblies: ~ Scopes: Dummy component: 1 components
             Failed resources: 0
             Failed components: 0
       MSG
@@ -342,6 +373,10 @@ describe "Executing Decidim Taxonomy importer tasks" do
                 Space filter: true
                 Items: 1
                 Components: 0
+            !Taxonomy imported: Area 1
+            !Filter imported: ~ Areas
+            !Filter imported: ~ Areas
+            !Filter imported: ~ Areas
             Created taxonomies: 2
               - ~ Areas
               - Area 1
@@ -350,8 +385,8 @@ describe "Executing Decidim Taxonomy importer tasks" do
               - participatory_processes: ~ Areas: 1 items
               - initiatives: ~ Areas: 1 items
             Assigned resources: 1
-              - Area 1:
-                - #{assembly.to_global_id}
+              - Area 1: 1 resources
+            Assigned components: 0
             Failed resources: 0
             Failed components: 0
       MSG
@@ -367,6 +402,9 @@ describe "Executing Decidim Taxonomy importer tasks" do
                 Space filter: false
                 Items: 2
                 Components: 1
+            !Taxonomy imported: Assembly: Assembly
+            !Taxonomy imported: Participatory process: Process
+            !Filter imported: ~ Categories
             Created taxonomies: 6
               - ~ Categories
               - Assembly: Assembly
@@ -377,8 +415,9 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Created filters: 1
               - assemblies: Assembly: Assembly: 2 items
             Assigned resources: 1
-              - Category 1:
-                - #{dummy_resource.to_global_id}
+              - Category 1: 1 resources
+            Assigned components: 1
+              - assemblies: Assembly: Assembly: 1 components
             Failed resources: 0
             Failed components: 0
       MSG

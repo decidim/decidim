@@ -62,7 +62,6 @@ module Decidim::Maintenance
 
       it "imports taxonomies and assign them to resources" do
         expect { subject.import! }.to change(Decidim::Taxonomy, :count).by(3)
-        expect(dummy_resource.taxonomies.all).to eq([child_taxonomy])
         expect(root_taxonomy.name[organization.default_locale]).to eq("New root taxonomy")
         expect(taxonomy.name[organization.default_locale]).to eq("New taxonomy")
         expect(taxonomy.name["ca"]).to eq("Nova taxonomia")

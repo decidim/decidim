@@ -78,6 +78,15 @@ module Decidim
       @filter_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
     end
 
+    def update_component_count
+      update(components_count: components.count)
+    end
+
+    def reset_all_counters
+      Decidim::TaxonomyFilter.reset_counters(id, :filter_items_count)
+      update_component_count
+    end
+
     private
 
     def root_taxonomy_is_root

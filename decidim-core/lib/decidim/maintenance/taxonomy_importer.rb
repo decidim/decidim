@@ -6,19 +6,21 @@ module Decidim
       def initialize(organization, roots)
         @organization = organization
         @roots = roots
-        @result = { taxonomies_created: [], taxonomies_assigned: {}, filters_created: {}, failed_resources: [], failed_components: [] }
+        @result = { taxonomies_created: [], taxonomies_assigned: {}, filters_created: {}, components_assigned: {}, failed_resources: [], failed_components: [] }
       end
 
       attr_reader :organization, :roots, :result
 
-      def import!
+      def import!(&)
         roots.each do |name, element|
           root = find_taxonomy!(root_taxonomies, name)
           element["taxonomies"].each do |item_name, taxonomy|
             import_taxonomy_item(root, item_name, taxonomy)
+            yield "Taxonomy imported", item_name if block_given?
           end
           element["filters"].each do |filter|
             import_filter(root, filter)
+            yield "Filter imported", filter["name"] if block_given?
           end
         end
       end
@@ -41,10 +43,19 @@ module Decidim
         return @result[:failed_resources] << object_id unless resource
 
         name = taxonomy.name[organization.default_locale]
-        unless resource.taxonomies.include?(taxonomy)
-          resource.taxonomies << taxonomy
+
+        begin
+          if resource.respond_to? :taxonomy
+            resource.update(decidim_taxonomy_id: taxonomy.id)
+          else
+            return if resource.taxonomies.include?(taxonomy)
+
+            resource.taxonomies << taxonomy
+          end
           @result[:taxonomies_assigned][name] ||= []
           @result[:taxonomies_assigned][name] << object_id unless @result[:taxonomies_assigned][name].include?(object_id)
+        rescue ActiveRecord::RecordInvalid
+          @result[:failed_resources] << object_id
         end
       end
 
@@ -67,7 +78,13 @@ module Decidim
         data["components"].each do |component_id|
           component = GlobalID::Locator.locate(component_id)
           if component
-            component.update!(settings: { taxonomy_filters: [filter.id.to_s] })
+            begin
+              component.update!(settings: { taxonomy_filters: [filter.id.to_s] })
+              @result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] ||= []
+              @result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] << component_id
+            rescue ActiveRecord::RecordInvalid
+              @result[:failed_components] << component_id
+            end
           else
             @result[:failed_components] << component_id
           end

@@ -47,7 +47,9 @@ namespace :decidim do
             puts "        Components: #{filter["components"].count}"
           end
         end
-        importer.import!
+        importer.import! do |type, detail|
+          puts "    !#{type}: #{detail}"
+        end
         puts "    Created taxonomies: #{result[:taxonomies_created].count}"
         result[:taxonomies_created].each do |name|
           puts "      - #{name}"
@@ -57,11 +59,12 @@ namespace :decidim do
           puts "      - #{name}: #{items.count} items"
         end
         puts "    Assigned resources: #{result[:taxonomies_assigned].count}"
-        result[:taxonomies_assigned].each do |name, resources|
-          puts "      - #{name}:"
-          resources.each do |object_id|
-            puts "        - #{object_id}"
-          end
+        result[:taxonomies_assigned].each do |name, items|
+          puts "      - #{name}: #{items.count} resources"
+        end
+        puts "    Assigned components: #{result[:components_assigned].count}"
+        result[:components_assigned].each do |name, items|
+          puts "      - #{name}: #{items.count} components"
         end
         puts "    Failed resources: #{result[:failed_resources].count}"
         result[:failed_resources].each do |object_id|
@@ -71,6 +74,8 @@ namespace :decidim do
         result[:failed_components].each do |component_id|
           puts "      - #{component_id}"
         end
+        Rails.root.join("tmp/taxonomies", "#{organization.host}_result.json").write(result.to_json)
+        puts "Result saved in tmp/taxonomies/#{organization.host}_result.json"
       end
       puts "Taxonomies and filters imported successfully."
     end
@@ -83,14 +88,28 @@ namespace :decidim do
       end
     end
 
+    desc "Reset counters for taxonomies and taxonomy filters"
+    task :reset_counters, [] => :environment do |_task, _args|
+      Decidim::Taxonomy.find_each do |taxonomy|
+        taxonomy.reset_all_counters
+        puts "Counters reset for taxonomy #{taxonomy.id}:"
+        puts "  Children: #{taxonomy.children_count}"
+        puts "  Taxonomizations: #{taxonomy.taxonomizations_count}"
+        puts "  Filters: #{taxonomy.filters_count}"
+        puts "  Filter items: #{taxonomy.filter_items_count}"
+      end
+      Decidim::TaxonomyFilter.find_each do |filter|
+        filter.reset_all_counters
+        puts "Counters reset for taxonomy filter #{filter.id}:"
+        puts "  Filter items: #{filter.filter_items_count}"
+        puts "  Components: #{filter.components_count}"
+      end
+    end
+
     def planner(organization)
-      models = [
-        Decidim::Maintenance::ImportModels::ParticipatoryProcessType,
-        Decidim::Maintenance::ImportModels::AssemblyType,
-        Decidim::Maintenance::ImportModels::Scope,
-        Decidim::Maintenance::ImportModels::Area,
-        Decidim::Maintenance::ImportModels::Category
-      ]
+      models = ENV.fetch("IMPORTS", "ParticipatoryProcessType AssemblyType Scope Area Category").split.map do |model_name|
+        "Decidim::Maintenance::ImportModels::#{model_name}".constantize
+      end
       Decidim::Maintenance::TaxonomyPlan.new(organization, models)
     end
 
