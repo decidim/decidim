@@ -55,12 +55,7 @@ describe "Assembly admin accesses admin sections" do
     let!(:child_assembly) { create(:assembly, parent: assembly, organization:, hashtag: "child") }
 
     before do
-      visit decidim_admin_assemblies.assemblies_path
-      within "tr", text: translated(assembly.title) do
-        click_on "Assemblies"
-      end
-
-      click_on "Configure"
+      visit decidim_admin_assemblies.edit_assembly_path(child_assembly)
     end
 
     context "when is a public assembly" do
