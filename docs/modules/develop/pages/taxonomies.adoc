@@ -416,48 +416,47 @@ For instance, the `decidim_participatory_process_types` section could look like 
 ----
 "decidim_participatory_process_types": {
   "~ Participatory process types": {
-      "taxonomies": {
-        "omnis": {
-          "name": {
-            "ca": "explicabo",
-            "en": "omnis",
-            "machine_translations": {
-              "es": "quia"
-            }
-          },
-          "children": {},
-          "resources": {
-            "gid://decidim-development-app/Decidim::ParticipatoryProcess/2": "Architecto vitae dolor minima iure."
+    "taxonomies": {
+      "omnis": {
+        "name": {
+          "ca": "explicabo",
+          "en": "omnis",
+          "machine_translations": {
+            "es": "quia"
           }
         },
-        "debitis": {
-          "name": {
-            "ca": "qui",
-            "en": "debitis",
-            "machine_translations": {
-              "es": "et"
-            }
-          },
-          "children": {
-          },
-          "resources": {
-            "gid://decidim-development-app/Decidim::ParticipatoryProcess/1": "Process with no scopes"
-          }
+        "children": {},
+        "resources": {
+          "gid://decidim-development-app/Decidim::ParticipatoryProcess/2": "Architecto vitae dolor minima iure."
         }
       },
-      "filters": [
-        {
-          "name": "~ Participatory process types",
-          "space_filter": true,
-          "space_manifest": "participatory_processes",
-          "items": [
-            ["omnis"],
-            ["debitis"]
-          ],
-          "components": []
+      "debitis": {
+        "name": {
+          "ca": "qui",
+          "en": "debitis",
+          "machine_translations": {
+            "es": "et"
+          }
+        },
+        "children": {
+        },
+        "resources": {
+          "gid://decidim-development-app/Decidim::ParticipatoryProcess/1": "Process with no scopes"
         }
-      ]
-    }
+      }
+    },
+    "filters": [
+      {
+        "name": "~ Participatory process types",
+        "space_filter": true,
+        "space_manifest": "participatory_processes",
+        "items": [
+          ["omnis"],
+          ["debitis"]
+        ],
+        "components": []
+      }
+    ]
   }
 }
 ----
