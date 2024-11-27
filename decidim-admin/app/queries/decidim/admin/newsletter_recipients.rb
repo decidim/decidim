@@ -35,6 +35,8 @@ module Decidim
           (@form.send_to_private_members ? private_member_ids : nil)
         ].compact
 
+        return recipients if filters.empty?
+
         recipients.where(id: filters.flatten.uniq)
       end
 
