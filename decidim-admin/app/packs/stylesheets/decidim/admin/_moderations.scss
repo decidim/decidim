@@ -30,12 +30,12 @@
     margin: 0;
 
     li a {
-        @apply flex items-center;
+      @apply flex items-center;
 
-        svg {
-          @apply mx-1;
-        }
+      svg {
+        @apply mx-1;
       }
+    }
 
 
     .icon {
