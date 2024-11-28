@@ -58,7 +58,9 @@ module Decidim
             url: original_proposal_url
           },
           withdrawn: proposal.withdrawn?,
-          withdrawn_at: proposal.withdrawn_at
+          withdrawn_at: proposal.withdrawn_at,
+          created_at: proposal.created_at,
+          updated_at: proposal.updated_at
         }
       end
 

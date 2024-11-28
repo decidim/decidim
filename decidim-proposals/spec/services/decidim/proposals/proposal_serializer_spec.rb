@@ -228,6 +228,14 @@ module Decidim
           expect(serialized[:original_proposal][:url]).to be_nil || include("http", proposal.id.to_s)
         end
 
+        it "serialize the created at date" do
+          expect(serialized).to include(created_at: proposal.created_at)
+        end
+
+        it "serialize the updated at date" do
+          expect(serialized).to include(updated_at: proposal.updated_at)
+        end
+
         context "with proposal having an answer" do
           let!(:proposal) { create(:proposal, :with_answer) }
 
