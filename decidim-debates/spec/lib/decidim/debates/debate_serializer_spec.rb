@@ -13,14 +13,9 @@ module Decidim
       let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
       let(:component) { debate.component }
-      let!(:comment) { create(:comment, commentable: debate) }
 
       before do
         debate.update!(taxonomies:)
-      end
-
-      before do
-        debate.update_comments_count
       end
 
       describe "#serialize" do
@@ -139,11 +134,11 @@ module Decidim
         end
 
         it "serializes the last comment by id" do
-          expect(serialized).to include(last_comment_by_id: comment.decidim_author_id)
+          expect(serialized).to include(last_comment_by_id: debate.last_comment_by_id)
         end
 
         it "serializes the last comment type" do
-          expect(serialized).to include(last_comment_by_type: comment.decidim_author_type)
+          expect(serialized).to include(last_comment_by_type: debate.last_comment_by_type)
         end
 
         it "serializes the comments enabled" do
