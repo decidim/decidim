@@ -55,7 +55,7 @@
     }
 
     &__lg {
-      @apply w-[100%] md:w-fit justify-center [&>*]:px-2 min-w-24 h-[8.5rem];
+      @apply w-full md:flex-col md:justify-start md:h-full md:w-fit justify-center [&>*]:px-2 min-w-24 h-[8.5rem];
     }
 
     &__lg &-month {
