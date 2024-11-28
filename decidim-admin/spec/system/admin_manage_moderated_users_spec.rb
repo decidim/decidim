@@ -198,7 +198,7 @@ describe "Admin manages moderated users" do
         within "#js-unreport-moderated_users-actions" do
           click_on "Unreport users"
         end
-        expect(page).to have_content("Participant successfully unreported")
+        expect(page).to have_content("Participants successfully unreported")
       end
     end
   end

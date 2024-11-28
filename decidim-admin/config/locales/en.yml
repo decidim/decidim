@@ -854,7 +854,6 @@ en:
             invalid: There was a problem blocking the participants.
             success: Participants successfully blocked.
           unblock:
-            failed: 'There was a problem unblocking the participants: %{errored}'
             invalid: There was a problem unblocking the participants.
             success: Participants successfully unblocked.
         create:
