@@ -6,7 +6,7 @@ module Decidim
       def initialize(organization, roots)
         @organization = organization
         @roots = roots
-        @result = { taxonomies_created: [], taxonomies_assigned: {}, filters_created: {}, components_assigned: {}, failed_resources: [], failed_components: [] }
+        @result = { taxonomy_map: {}, taxonomies_created: [], taxonomies_assigned: {}, filters_created: {}, components_assigned: {}, failed_resources: [], failed_components: [] }
       end
 
       attr_reader :organization, :roots, :result
@@ -30,6 +30,8 @@ module Decidim
       def import_taxonomy_item(parent, name, item)
         taxonomy = find_taxonomy!(parent.children, name)
         taxonomy.update!(name: item["name"]) if item["name"].present?
+        result[:taxonomy_map][taxonomy.id] = item["origin"]
+
         item["resources"].each do |object_id, _name|
           apply_taxonomy_to_resource(object_id, taxonomy)
         end
@@ -40,7 +42,7 @@ module Decidim
 
       def apply_taxonomy_to_resource(object_id, taxonomy)
         resource = GlobalID::Locator.locate(object_id)
-        return @result[:failed_resources] << object_id unless resource
+        return result[:failed_resources] << object_id unless resource
 
         name = taxonomy.name[organization.default_locale]
 
@@ -52,10 +54,10 @@ module Decidim
 
             resource.taxonomies << taxonomy
           end
-          @result[:taxonomies_assigned][name] ||= []
-          @result[:taxonomies_assigned][name] << object_id unless @result[:taxonomies_assigned][name].include?(object_id)
+          result[:taxonomies_assigned][name] ||= []
+          result[:taxonomies_assigned][name] << object_id unless result[:taxonomies_assigned][name].include?(object_id)
         rescue ActiveRecord::RecordInvalid
-          @result[:failed_resources] << object_id
+          result[:failed_resources] << object_id
         end
       end
 
@@ -70,8 +72,8 @@ module Decidim
           next if filter.filter_items.exists?(taxonomy_item: taxonomy)
 
           filter.filter_items.create!(taxonomy_item: taxonomy) do
-            @result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] ||= []
-            @result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] << item_names.join(" > ")
+            result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] ||= []
+            result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] << item_names.join(" > ")
           end
         end
 
@@ -80,13 +82,13 @@ module Decidim
           if component
             begin
               component.update!(settings: { taxonomy_filters: [filter.id.to_s] })
-              @result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] ||= []
-              @result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] << component_id
+              result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] ||= []
+              result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] << component_id
             rescue ActiveRecord::RecordInvalid
-              @result[:failed_components] << component_id
+              result[:failed_components] << component_id
             end
           else
-            @result[:failed_components] << component_id
+            result[:failed_components] << component_id
           end
         end
       end
@@ -101,7 +103,7 @@ module Decidim
 
       def create_taxonomy!(association, name)
         association.create!(name: { organization.default_locale => name }, organization:) do
-          @result[:taxonomies_created] << name
+          result[:taxonomies_created] << name
         end
       end
 

@@ -22,6 +22,7 @@ module Decidim
         def taxonomies
           {
             name:,
+            origin: to_global_id.to_s,
             children: {},
             resources:
           }
@@ -58,6 +59,7 @@ module Decidim
               type.plural[I18n.locale.to_s],
               {
                 name: type.plural,
+                origin: type.to_global_id.to_s,
                 children: type.areas.to_h { |area| [area.name[I18n.locale.to_s], area.taxonomies] },
                 resources: {}
               }

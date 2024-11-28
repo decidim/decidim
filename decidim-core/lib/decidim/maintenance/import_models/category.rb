@@ -23,22 +23,17 @@ module Decidim
         end
 
         def resources
-          normal_resources = categorizations.filter_map do |categorization|
+          categorizations.filter_map do |categorization|
             next if invalid_categorization?(categorization)
 
             [categorization.categorizable.to_global_id.to_s, resource_name(categorization.categorizable)]
           end.to_h
-
-          metrics = Decidim::Metric.where(participatory_space:, decidim_category_id: id).to_h do |metric|
-            [metric.to_global_id.to_s, metric.to_s]
-          end
-
-          normal_resources.merge(metrics)
         end
 
         def taxonomies
           {
             name:,
+            origin: to_global_id.to_s,
             children: subcategories.to_h do |subcategory|
               [
                 subcategory.name[I18n.locale.to_s],
@@ -75,6 +70,7 @@ module Decidim
               name = "#{klass.model_name.human}: #{participatory_space.title[I18n.locale.to_s]}"
               hash.merge!(name => {
                             name: { I18n.locale.to_s => name },
+                            origin: participatory_space.to_global_id.to_s,
                             resources: {},
                             children: children_taxonomies(participatory_space)
                           })

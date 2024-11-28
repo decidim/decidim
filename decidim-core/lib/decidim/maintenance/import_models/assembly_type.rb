@@ -17,6 +17,7 @@ module Decidim
         def taxonomies
           {
             name:,
+            origin: to_global_id.to_s,
             children: {},
             resources:
           }

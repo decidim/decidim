@@ -72,6 +72,7 @@ module Decidim
               child.full_name[I18n.locale.to_s],
               {
                 name: child.full_name,
+                origin: child.to_global_id.to_s,
                 children: {},
                 resources: child.resources
               }
@@ -82,6 +83,7 @@ module Decidim
         def taxonomies
           {
             name:,
+            origin: to_global_id.to_s,
             children: children_taxonomies,
             resources:
           }

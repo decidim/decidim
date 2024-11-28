@@ -82,9 +82,39 @@ namespace :decidim do
 
     desc "Imports taxonomies and filters structure from all JSON files inside tmp/taxonomies"
     task :import_all_plans, [] => :environment do |_task, _args|
-      Dir[Rails.root.join("tmp/taxonomies/*.json")].each do |file|
+      Dir[Rails.root.join("tmp/taxonomies/*_plan.json")].each do |file|
         puts "Importing plan from #{file}"
         Rake::Task["decidim:taxonomies:import_plan"].invoke(file)
+      end
+    end
+
+    desc "Adds taxonomies to metrics from old categories"
+    task :update_metrics, [:file] => :environment do |_task, args|
+      file = args[:file].to_s
+      abort "File not found! [#{file}]" unless File.exist?(file)
+
+      data = JSON.parse(File.read(file))
+      taxonomies = data["taxonomy_map"]
+      abort "No taxonomies found in the file" unless taxonomies && taxonomies&.any?
+
+      total = taxonomies.count
+      taxonomies.each_with_index do |(id, object_id), index|
+        next unless object_id.include?("ImportModels::Category")
+
+        category_id = object_id.split("/").last
+        percent = ((index + 1) * 100 / total).to_i
+
+        count = Decidim::Metric.where(decidim_category_id: category_id).count
+        puts "...#{percent}% Updating #{count} metrics for category #{category_id} to taxonomy #{id}"
+        Decidim::Metric.where(decidim_category_id: category_id).update_all(decidim_taxonomy_id: id) # rubocop:disable Rails/SkipsModelValidations
+      end
+    end
+
+    desc "Processes all metrics for result files in tmp/taxonomies"
+    task :update_all_metrics, [] => :environment do |_task, _args|
+      Dir[Rails.root.join("tmp/taxonomies/*_result.json")].each do |file|
+        puts "Processing metrics from #{file}"
+        Rake::Task["decidim:update_metrics"].invoke(file)
       end
     end
 
