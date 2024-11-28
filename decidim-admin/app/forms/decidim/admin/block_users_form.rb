@@ -10,10 +10,11 @@ module Decidim
 
       validates :justification, presence: true, length: { minimum: UserBlock::MINIMUM_JUSTIFICATION_LENGTH }
 
-      def forms
-        @forms ||= user_ids.map do |user_id|
-          BlockUserForm.from_params(user_id:, justification:, hide:).with_context(current_organization:, current_user:)
-        end
+      def users
+        @users ||= Decidim::UserBaseEntity.where(
+          id: user_ids,
+          organization: current_organization
+        )
       end
     end
   end
