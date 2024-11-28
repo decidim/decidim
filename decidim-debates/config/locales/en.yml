@@ -257,6 +257,7 @@ en:
           created_at: The date and time when the debate was created
           description: The debate description
           end_time: When this debate ends, if it is an open debate and has a limited time
+          endorsements_count: The number of endorsements the debate has
           followers: The number of followers this debate has
           id: The unique identifier of the debate
           information_updates: The updates that the author has made to the debate
