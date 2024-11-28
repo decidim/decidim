@@ -182,6 +182,12 @@ Finally, import the taxonomies with:
 bin/rails decidim:taxonomies:import_all_plans
 ```
 
+Once the import has finished, update the metrics:
+
+```bash
+bin/rails decidim:taxonomies:update_all_metrics
+```
+
 For more information about this process, please refer to the documentation at https://docs.decidim.org/en/develop/develop/taxonomies.html#_importing_taxonomies_from_old_models_categories_scopes_etc
 
 ### 3.5. [[TITLE OF THE ACTION]]

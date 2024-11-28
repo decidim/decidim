@@ -114,7 +114,7 @@ namespace :decidim do
     task :update_all_metrics, [] => :environment do |_task, _args|
       Dir[Rails.root.join("tmp/taxonomies/*_result.json")].each do |file|
         puts "Processing metrics from #{file}"
-        Rake::Task["decidim:update_metrics"].invoke(file)
+        Rake::Task["decidim:taxonomies:update_metrics"].invoke(file)
       end
     end
 
