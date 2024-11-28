@@ -236,6 +236,10 @@ module Decidim
           expect(serialized).to include(updated_at: proposal.updated_at)
         end
 
+        it "serializes whether the proposal was created in a meeting" do
+          expect(serialized).to include(created_in_meeting: proposal.created_in_meeting)
+        end
+
         context "with proposal having an answer" do
           let!(:proposal) { create(:proposal, :with_answer) }
 

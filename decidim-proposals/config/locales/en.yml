@@ -468,6 +468,9 @@ en:
           votes: The number of votes this proposal has
           withdrawn: Wheter this proposal has been withdrawn
           withdrawn_at: When this proposal was withdrawn
+          updated_at: The date the proposal was last updated
+          created_at: The date the proposal was created
+          created_in_meeting: Whether the proposal was created in a meeting
     participatory_spaces:
       highlighted_proposals:
         last: Last proposals
