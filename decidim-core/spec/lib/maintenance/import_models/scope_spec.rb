@@ -79,22 +79,27 @@ module Decidim::Maintenance::ImportModels
       it "returns the taxonomies" do
         expect(scope.taxonomies).to eq(
           name: { "en" => "Scope 1", "ca" => "Àmbit 1" },
+          origin: scope.to_global_id.to_s,
           children: {
             "Scope 1 second level" => {
               name: { "en" => "Scope 1 second level" },
+              origin: sub2_scope.to_global_id.to_s,
               children: {
                 "Scope 1 third level" => {
                   name: { "en" => "Scope 1 third level" },
+                  origin: sub3_scope.to_global_id.to_s,
                   children: {},
                   resources: {}
                 },
                 "Scope 1 third level > Scope 1 fourth level" => {
                   name: { "en" => "Scope 1 third level > Scope 1 fourth level" },
+                  origin: sub4_scope.to_global_id.to_s,
                   children: {},
                   resources: sub4_scope.resources
                 },
                 "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level" => {
                   name: { "en" => "Scope 1 third level > Scope 1 fourth level > Scope 1 fifth level" },
+                  origin: sub5_scope.to_global_id.to_s,
                   children: {},
                   resources: {}
                 }

@@ -44,10 +44,6 @@ module Decidim::Maintenance::ImportModels
       let(:resource) { dummy_resource }
 
       it_behaves_like "has resources"
-
-      it "has subcategory resources" do
-        expect(subcategory.resources).to eq({ metric.to_global_id.to_s => "Metric" })
-      end
     end
 
     it_behaves_like "can be converted to taxonomies"
@@ -57,9 +53,11 @@ module Decidim::Maintenance::ImportModels
       it "returns the taxonomies" do
         expect(subject.taxonomies).to eq(
           name: category.name,
+          origin: category.to_global_id.to_s,
           children: {
             "Sub Category 1" => {
               name: subcategory.name,
+              origin: subcategory.to_global_id.to_s,
               children: {},
               resources: subcategory.resources
             }
@@ -82,16 +80,17 @@ module Decidim::Maintenance::ImportModels
         expect(hash[:taxonomies].count).to eq(2)
         expect(hash[:taxonomies]["Assembly: Assembly"]).to eq({
                                                                 name: { I18n.locale.to_s => "Assembly: Assembly" },
+                                                                origin: assembly.to_global_id.to_s,
                                                                 children: {
                                                                   "Category 1" => {
                                                                     name: category.name,
+                                                                    origin: category.to_global_id.to_s,
                                                                     children: {
                                                                       "Sub Category 1" => {
                                                                         name: subcategory.name,
+                                                                        origin: subcategory.to_global_id.to_s,
                                                                         children: {},
-                                                                        resources: {
-                                                                          metric.to_global_id.to_s => "Metric"
-                                                                        }
+                                                                        resources: {}
                                                                       }
                                                                     },
                                                                     resources: {
@@ -104,9 +103,11 @@ module Decidim::Maintenance::ImportModels
                                                               })
         expect(hash[:taxonomies]["Participatory process: Participatory Process"]).to eq({
                                                                                           name: { I18n.locale.to_s => "Participatory process: Participatory Process" },
+                                                                                          origin: participatory_process.to_global_id.to_s,
                                                                                           children: {
                                                                                             "Another Category 2" => {
                                                                                               name: another_category.name,
+                                                                                              origin: another_category.to_global_id.to_s,
                                                                                               children: {},
                                                                                               resources: {}
                                                                                             }
@@ -153,16 +154,17 @@ module Decidim::Maintenance::ImportModels
           expect(hash[:taxonomies].count).to eq(1)
           expect(hash[:taxonomies]["Assembly: Assembly"]).to eq({
                                                                   name: { I18n.locale.to_s => "Assembly: Assembly" },
+                                                                  origin: assembly.to_global_id.to_s,
                                                                   children: {
                                                                     "Category 1" => {
                                                                       name: category.name,
+                                                                      origin: category.to_global_id.to_s,
                                                                       children: {
                                                                         "Sub Category 1" => {
                                                                           name: subcategory.name,
+                                                                          origin: subcategory.to_global_id.to_s,
                                                                           children: {},
-                                                                          resources: {
-                                                                            metric.to_global_id.to_s => "Metric"
-                                                                          }
+                                                                          resources: {}
                                                                         }
                                                                       },
                                                                       resources: {
@@ -171,6 +173,7 @@ module Decidim::Maintenance::ImportModels
                                                                     },
                                                                     "Another Category 2" => {
                                                                       name: another_category.name,
+                                                                      origin: another_category.to_global_id.to_s,
                                                                       children: {},
                                                                       resources: {}
                                                                     }

@@ -31,7 +31,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
   let!(:dummy_component) { create(:dummy_component, name: { "en" => "Dummy component" }, participatory_space: assembly) }
   let!(:dummy_resource) { create(:dummy_resource, title: { "en" => "Dummy resource" }, component: dummy_component, scope: nil, decidim_scope_id: sub_scope.id) }
   let!(:categorization) { Decidim::Maintenance::ImportModels::Categorization.create!(category:, categorizable: dummy_resource) }
-  let!(:metric) { create :metric, organization:, decidim_category_id: subcategory.id, participatory_space: assembly, related_object: dummy_resource }
+  let!(:metric) { create(:metric, organization:, decidim_category_id: subcategory.id, participatory_space: assembly, related_object: dummy_resource) }
   let(:settings) { { scopes_enabled: true, scope_id: sub_scope.id } }
 
   before do

@@ -29,6 +29,7 @@ shared_examples "a resource with taxonomies with no children" do
   it "#taxonomies returns the taxonomies" do
     expect(subject.taxonomies).to eq(
       name: subject.respond_to?(:title) ? subject.title : subject.name,
+      origin: subject.to_global_id.to_s,
       children: {},
       resources: subject.resources
     )

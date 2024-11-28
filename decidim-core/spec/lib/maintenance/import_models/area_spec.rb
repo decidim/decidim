@@ -48,6 +48,7 @@ module Decidim::Maintenance::ImportModels
           "Area 2" => another_area.taxonomies,
           "Area Types" => {
             name: area_type.plural,
+            origin: area_type.to_global_id.to_s,
             children: {
               "Area 1" => area.taxonomies
             },
