@@ -58,9 +58,8 @@ module Decidim
         @form = form(BlockUsersForm).from_params(params)
 
         Admin::BulkBlockUser.call(@form) do
-          on(:ok) do |ok, ko|
-            flash[:notice] = I18n.t("officializations.bulk_action.block.success", scope: "decidim.admin", count_ok: ok.count) if ok.count.positive?
-            flash[:alert] = I18n.t("officializations.bulk_action.block.failed", scope: "decidim.admin", errored: ko.join(", ")) if ko.present? && ko.any?
+          on(:ok) do
+            flash[:notice] = I18n.t("officializations.bulk_action.block.success", scope: "decidim.admin")
             redirect_to moderated_users_path
           end
 

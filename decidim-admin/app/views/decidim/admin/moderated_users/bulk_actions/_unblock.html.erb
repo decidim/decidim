@@ -3,7 +3,7 @@
 
     <div class="hide">
       <% moderated_users.each do |moderation| %>
-        <%= check_box_tag "user_ids[]", moderation.id, false, class: "js-check-all-moderated_users js-moderated_user-id-#{moderation.id}" %>
+        <%= check_box_tag "user_ids[]", moderation.user.id, false, class: "js-check-all-moderated_users js-moderated_user-id-#{moderation.user.id}" %>
       <% end %>
     </div>
 

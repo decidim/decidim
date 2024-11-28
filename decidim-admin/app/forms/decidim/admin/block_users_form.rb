@@ -12,7 +12,7 @@ module Decidim
 
       def forms
         @forms ||= user_ids.map do |user_id|
-          BlockUserForm.from_params(user_id:, justification:, hide:)
+          BlockUserForm.from_params(user_id:, justification:, hide:).with_context(current_organization:, current_user:)
         end
       end
     end

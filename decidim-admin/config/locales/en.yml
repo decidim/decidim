@@ -850,7 +850,6 @@ en:
           success: Participant successfully blocked.
         bulk_action:
           block:
-            failed: 'There was a problem blocking the participants: %{errored}'
             invalid: There was a problem blocking the participants.
             success: Participants successfully blocked.
           unblock:

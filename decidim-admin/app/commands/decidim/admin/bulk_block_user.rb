@@ -20,12 +20,12 @@ module Decidim
         return broadcast(:invalid) unless form.valid?
 
         form.forms.each do |sub_form|
-          BlockUser.call(form) do
+          BlockUser.call(sub_form) do
             on(:ok) do
-              result[:ok] << sub_form
+              result[:ok] << sub_form.user_id
             end
             on(:invalid) do
-              result[:ok] << sub_form
+              result[:ko] << sub_form.user_id
             end
           end
         end
@@ -34,7 +34,7 @@ module Decidim
 
       private
 
-      attr_reader :form
+      attr_reader :form, :result
     end
   end
 end
