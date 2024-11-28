@@ -153,6 +153,10 @@ module Decidim
           expect(serialized).to include(updated_at: debate.updated_at)
         end
 
+        it "serializes the endorsements" do
+          expect(serialized).to include(endorsements_count: debate.endorsements_count)
+        end
+
         describe "conclusions and closed at" do
           it "does not serializes the conclusion" do
             expect(serialized[:conclusions]).to be_nil
