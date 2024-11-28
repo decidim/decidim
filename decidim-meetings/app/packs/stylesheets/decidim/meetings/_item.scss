@@ -6,14 +6,14 @@
   }
 
   &__calendar {
-    @apply w-14 flex flex-col justify-start rounded bg-background text-center;
+    @apply order-first flex flex-col justify-start rounded bg-background text-center md:w-14;
 
     &:only-child &-month {
       @apply rounded-t;
     }
 
     &-container {
-      @apply grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_1fr] items-center gap-0 md:gap-x-5 border-4 border-background rounded overflow-hidden;
+      @apply flex-col md:grid md:grid-cols-[auto_1fr_1fr] items-center md:gap-0 border-4 border-background rounded overflow-hidden;
 
       > *:nth-child(2) {
         @apply p-4 md:p-0;
@@ -55,7 +55,7 @@
     }
 
     &__lg {
-      @apply w-fit justify-center [&>*]:px-2 min-w-24 h-[8.5rem];
+      @apply w-[100%] md:w-fit justify-center [&>*]:px-2 min-w-24 h-[8.5rem];
     }
 
     &__lg &-month {
