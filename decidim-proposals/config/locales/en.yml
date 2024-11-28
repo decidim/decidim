@@ -449,6 +449,8 @@ en:
           body: The proposal body
           comments: The number of comments this proposal has
           component: The component that the proposal belongs to
+          created_at: The date the proposal was created
+          created_in_meeting: Whether the proposal was created in a meeting
           endorsements: The number of endorsements ("likes") this proposal has
           followers: The number of followers this proposal has
           id: The unique identifier for the proposal
@@ -464,13 +466,11 @@ en:
           state: The status of this proposal (e.g. "Accepted")
           taxonomies: The taxonomies that this proposal belongs to
           title: The proposal title
+          updated_at: The date the proposal was last updated
           url: The URL where this proposal can be found
           votes: The number of votes this proposal has
           withdrawn: Wheter this proposal has been withdrawn
           withdrawn_at: When this proposal was withdrawn
-          updated_at: The date the proposal was last updated
-          created_at: The date the proposal was created
-          created_in_meeting: Whether the proposal was created in a meeting
     participatory_spaces:
       highlighted_proposals:
         last: Last proposals
