@@ -128,7 +128,7 @@
         }
 
         &__proposals-votes {
-          @apply flex md:flex-col lg:flex-row bg-[#F5F5F5EE] justify-around md:flex-[0.6] items-center p-3;
+          @apply flex md:flex-col lg:flex-row bg-[#F5F5F5EE] justify-around md:flex-[0.6] items-center md:items-stretch lg:items-center p-3;
 
           button {
             @apply bg-[var(--secondary)];
@@ -138,16 +138,36 @@
             }
           }
 
-          .progress-bar {
-            &__container {
-              @apply flex flex-row flex-1 lg:flex-1 justify-center md:flex-none;
+          .with_votes_limit {
+            @apply flex flex-col flex-1 lg:flex-1 justify-center md:flex-none;
+
+            .proposals__aside-progress {
+              @apply flex flex-col-reverse w-[80%] items-center;
             }
 
+            .progress-bar__number {
+              span {
+                @apply text-sm;
+              }
+            }
+          }
+
+          .without_votes_limit {
+            @apply flex flex-row flex-1 lg:flex-1 justify-center md:flex-none;
+
+            .progress-bar__number {
+              span {
+                @apply text-xl;
+              }
+            }
+          }
+
+          .progress-bar {
             &__number {
               @apply flex justify-center items-center mx-1;
 
               span {
-                @apply text-xl leading-6 font-semibold;
+                @apply leading-6 font-semibold #{!important};
               }
             }
 
@@ -215,16 +235,36 @@
             }
           }
 
-          .progress-bar {
-            &__container {
-              @apply flex flex-row flex-1 lg:flex-1 md:flex-none md:mr-4 lg:mr-0;
+          .with_votes_limit {
+            @apply flex flex-col lg:items-start flex-1 lg:flex-1 md:flex-none md:mr-4 lg:mr-0;
+
+            .proposals__aside-progress {
+              @apply flex flex-col-reverse w-[80%] items-center;
             }
 
+            .progress-bar__number {
+              span {
+                @apply text-sm;
+              }
+            }
+          }
+
+          .without_votes_limit {
+            @apply flex flex-row items-start flex-1 lg:flex-1 md:flex-none md:mr-4 lg:mr-0;
+
+            .progress-bar__number {
+              span {
+                @apply text-xl;
+              }
+            }
+          }
+
+          .progress-bar {
             &__number {
               @apply flex justify-center items-center mx-1;
 
               span {
-                @apply text-xl leading-6 font-semibold;
+                @apply leading-6 font-semibold #{!important};
               }
             }
 
