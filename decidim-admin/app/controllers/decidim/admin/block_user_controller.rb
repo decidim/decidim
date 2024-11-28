@@ -71,7 +71,7 @@ module Decidim
       end
 
       def bulk_destroy
-        Admin::BulkUnblockUser.call(current_user, users_selected) do
+        Admin::BulkUnblockUser.call(blocked_users, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("officializations.bulk_action.unblock.success", scope: "decidim.admin")
           end
@@ -88,6 +88,13 @@ module Decidim
       def user
         @user ||= Decidim::UserBaseEntity.find_by(
           id: params[:user_id],
+          organization: current_organization
+        )
+      end
+
+      def blocked_users
+        @blocked_users ||= Decidim::UserBaseEntity.where(
+          id: params[:user_ids],
           organization: current_organization
         )
       end

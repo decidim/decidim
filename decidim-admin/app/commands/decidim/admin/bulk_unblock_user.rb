@@ -5,8 +5,10 @@ module Decidim
     class BulkUnblockUser < Decidim::Command
       # Public: Initializes the command.
 
-      def initialize(user)
-        @user = user
+      def initialize(blocked_users, current_user)
+        @blocked_users = blocked_users
+        @current_user = current_user
+        @result = { ok: [], ko: [] }
       end
 
       # Executes the command. Broadcasts these events:
@@ -15,11 +17,25 @@ module Decidim
       # - :invalid if the resource is not reported
       #
       # Returns nothing.
-      def call; end
+      def call
+        return broadcast(:invalid) if blocked_users.blank?
+
+        blocked_users.each do |blocked_user|
+          UnblockUser.call(blocked_user, current_user) do
+            on(:ok) do
+              result[:ok] << blocked_user
+            end
+            on(:invalid) do
+              result[:ko] << blocked_user
+            end
+          end
+        end
+        broadcast(:ok, **result)
+      end
 
       private
 
-      attr_reader :user, :user_ids
+      attr_reader :current_user, :blocked_users, :result
     end
   end
 end

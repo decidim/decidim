@@ -3,9 +3,7 @@
 /* eslint id-length: ["error", { "exceptions": ["e"] }] */
 
 $(() => {
-  const selectedModerationsCount = () => {
-    return $(".table-list .js-check-all-moderations:checked").length;
-  };
+  const selectedModerationsCount = () => $(".table-list .js-check-all-moderations:checked").length;
 
   const selectedModerationsCountUpdate = function () {
     const selectedModerations = selectedModerationsCount();
