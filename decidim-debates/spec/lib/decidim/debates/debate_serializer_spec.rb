@@ -165,6 +165,18 @@ module Decidim
               expect(serialized).to include(closed_at: debate.closed_at)
             end
           end
+
+          context "when the debate is not closed" do
+            let!(:debate) { create(:debate, closed_at: nil) }
+
+            it "does not serialize the conclusion" do
+              expect(serialized[:conclusions]).to be_nil
+            end
+
+            it "does not serialize the closed at" do
+              expect(serialized[:closed_at]).to be_nil
+            end
+          end
         end
       end
 
