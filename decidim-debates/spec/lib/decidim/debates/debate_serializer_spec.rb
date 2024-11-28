@@ -155,7 +155,7 @@ module Decidim
         end
 
         it "includes the updated at" do
-          expect(serialized).to include(updated_at: debate.created_at)
+          expect(serialized).to include(updated_at: debate.updated_at)
         end
 
         describe "conclusions and closed at" do
