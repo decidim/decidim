@@ -40,6 +40,8 @@ module Decidim
           followers: debate.follows.size,
           url:,
           last_comment_at: debate.last_comment_at,
+          last_comment_by_id: debate.last_comment_by_id,
+          last_comment_by_type: debate.last_comment_by_type,
           comments_enabled: debate.comments_enabled,
           conclusions: debate.conclusions,
           closed_at: debate.closed_at,
