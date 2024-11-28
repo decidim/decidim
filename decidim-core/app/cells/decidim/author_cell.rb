@@ -56,10 +56,11 @@ module Decidim
     def data
       @data ||= begin
         internal_data = { author: true }
-        if has_tooltip?
+        if has_tooltip? && !options.has_key?(:demo)
           internal_data["remote_tooltip"] = true
           internal_data["tooltip-url"] = decidim.profile_tooltip_path(raw_model.nickname)
         end
+
         internal_data
       end
     end
@@ -179,7 +180,7 @@ module Decidim
     def has_tooltip?
       return false if model.deleted?
       return false if model.respond_to?(:blocked?) && model.blocked?
-      return options[:tooltip] if options.has_key?(:tooltip)
+      return true if options.has_key?(:tooltip)
 
       model.has_tooltip?
     end
