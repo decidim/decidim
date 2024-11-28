@@ -215,6 +215,8 @@ it:
       update_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
         success: Bozza emendamento aggiornata correttamente.
+      withdraw:
+        error: Si è verificato un errore durante il ritiro dell'emendamento.
       wizard_step_form:
         steps:
           '1': Crea il tuo emendamento
@@ -426,13 +428,19 @@ it:
         ready: Pronto
       show:
         download_data: Scarica i dati
+        download_data_description_html: |-
+          Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>. Questa email conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS). Se si utilizza Linux, la maggior parte delle volte il software predefinito è sufficiente. In caso contrario, è possibile utilizzare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Richiedi dati
     editor_images:
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
+    endorsement_buttons_cell:
+      already_endorsed: Non mi piace
     endorsements:
       identities:
         done: Fatto
         select_identity: Seleziona identità
+    endorsers_list:
+      endorsed_by: Piace a…
     errors:
       internal_server_error:
         title: C'era un problema con il nostro server
@@ -1013,6 +1021,7 @@ it:
         help: Aiuto
       participatory_space_filters:
         filters:
+          area: Area
           areas: Ambiti territoriali
           scope: Ambito
           select_an_area: Seleziona un'area
