@@ -5,7 +5,7 @@ import createTooltip from "src/decidim/tooltips"
  * <span data-remote-tooltip="true" tooltip-url="some url" data-author="true">
  *   <span></span>
  * </span>
- * 
+ *
  * This function will check if the HTMLElement where is attached to has a child, and will add a data tooltip attribute
  * to the respective child in order to attach the fetched HTML content fetched under a json key as the content of the
  * HTML tooltip. The DOM structure is expected to be like follows:
