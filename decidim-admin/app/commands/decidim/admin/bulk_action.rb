@@ -22,6 +22,7 @@ module Decidim
         return broadcast(:invalid) if reportables.blank?
 
         bulk_action!
+        create_action_log
 
         broadcast(:ok, **result)
       end
@@ -29,6 +30,29 @@ module Decidim
       private
 
       attr_reader :action, :reportables, :user, :result
+
+      def create_action_log
+        action_log_type = case action
+                          when "hide"
+                            "bulk_hide_content"
+                          when "unreport"
+                            "bulk_unreport_users"
+                          when "unhide"
+                            "bulk_unhide_content"
+                          end
+
+        Decidim::ActionLogger.log(
+          action_log_type,
+          user,
+          user,
+          nil,
+          reported_content: extra_log_info
+        )
+      end
+
+      def extra_log_info
+        @extra_log_info ||= result[:ok].to_h { |reportable| [reportable.id, reportable.class.name] }
+      end
 
       def bulk_action!
         reportables.each do |reportable|
@@ -54,9 +78,9 @@ module Decidim
         when "hide"
           Admin::HideResource
         when "unreport"
-          Admin::UnreportResource
+          Admin::BulkUnreportContent
         when "unhide"
-          Admin::UnhideResource
+          Admin::BulkUnhideContent
         end
       end
     end
