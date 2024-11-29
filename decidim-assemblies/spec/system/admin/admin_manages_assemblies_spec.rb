@@ -191,6 +191,33 @@ describe "Admin manages assemblies" do
     end
   end
 
-  # context "when navigating child assemblies" do
-  # end
+  context "when navigating child assemblies" do
+    let!(:parent_assembly) { create(:assembly, organization:) }
+    let!(:child_assembly) { create(:assembly, :with_content_blocks, organization:, parent: parent_assembly, blocks_manifests: [:announcement]) }
+    let(:assembly) { child_assembly }
+
+    before do
+      switch_to_host(organization.host)
+      login_as user, scope: :user
+      visit decidim_admin_assemblies.assemblies_path
+    end
+
+    describe "listing child assemblies" do
+      it "expands the parent assembly" do
+        expect(page).to have_no_content(translated(child_assembly.title))
+
+        within "tr", text: translated(parent_assembly.title) do
+          find("a[data-arrow-down]").click
+        end
+
+        expect(page).to have_content(translated(child_assembly.title))
+
+        within "tr", text: translated(parent_assembly.title) do
+          find("a[data-arrow-up]").click
+        end
+
+        expect(page).to have_no_content(translated(child_assembly.title))
+      end
+    end
+  end
 end
