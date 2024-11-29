@@ -1,9 +1,9 @@
 <div id="js-unreport-moderated_users-actions" class="hide js-bulk-action-form">
-  <%= form_tag(bulk_unreport_moderated_users_path(bulk_action: :ignore), method: :patch, id: "js-form-unreport-moderated_users", class: "form form-defaults flex items-center gap-x-2") do %>
+  <%= form_tag(bulk_unreport_moderated_users_path, method: :patch, id: "js-form-unreport-moderated_users", class: "form form-defaults flex items-center gap-x-2") do %>
 
     <div class="hide">
       <% moderated_users.each do |moderation| %>
-        <%= check_box_tag "user_ids[]", moderation.id, false, class: "js-check-all-moderated_users js-moderated_user-id-#{moderation.id}" %>
+        <%= check_box_tag "user_ids[]", moderation.user.id, false, class: "js-check-all-moderated_users js-moderated_user-id-#{moderation.user.id}" %>
       <% end %>
     </div>
 

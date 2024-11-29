@@ -64,7 +64,7 @@ Decidim::Admin::Engine.routes.draw do
         post :bulk_new, controller: :block_user
         post :bulk_create, controller: :block_user
         delete :bulk_destroy, controller: :block_user
-        patch :bulk_unreport
+        patch :bulk_unreport, controller: :moderated_users
       end
     end
 

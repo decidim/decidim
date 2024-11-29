@@ -34,10 +34,9 @@ module Decidim
       end
 
       def bulk_unreport
-        Admin::BulkAction.call(current_user, params[:bulk_action], reportables) do
-          on(:ok) do |ok, ko|
-            flash[:notice] = I18n.t("reportable.bulk_action.ignore.success", scope: "decidim.moderations.admin", count_ok: ok.count) if ok.count.positive?
-            flash[:alert] = I18n.t("reportable.bulk_action.ignore.failed", scope: "decidim.moderations.admin", errored: ko.join(", ")) if ko.present? && ko.any?
+        Admin::BulkUnreportUser.call(current_user, reportables) do
+          on(:ok) do
+            flash[:notice] = I18n.t("reportable.bulk_action.ignore.success", scope: "decidim.moderations.admin")
           end
 
           on(:invalid) do
@@ -58,7 +57,10 @@ module Decidim
       end
 
       def reportables
-        @reportables ||= base_query_finder.where(id: params[:user_ids]).includes(:user).map(&:user)
+        @reportables ||= Decidim::UserBaseEntity.where(
+          id: params[:user_ids],
+          organization: current_organization
+        )
       end
 
       def base_query_finder

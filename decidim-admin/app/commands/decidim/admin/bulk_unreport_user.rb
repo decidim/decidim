@@ -2,12 +2,11 @@
 
 module Decidim
   module Admin
-    class BulkAction < Decidim::Command
+    class BulkUnreportUser < Decidim::Command
       # Public: Initializes the command.
 
-      def initialize(user, action, reportables)
+      def initialize(user, reportables)
         @user = user
-        @action = action
         @reportables = reportables
         @result = { ok: [], ko: [] }
       end
@@ -21,16 +20,31 @@ module Decidim
       def call
         return broadcast(:invalid) if reportables.blank?
 
-        bulk_action!
+        bulk_unreport_users!
+        create_action_log
 
         broadcast(:ok, **result)
       end
 
       private
 
-      attr_reader :action, :reportables, :user, :result
+      attr_reader :reportables, :user, :result
 
-      def bulk_action!
+      def create_action_log
+        Decidim::ActionLogger.log(
+          "bulk_unreport_user",
+          user,
+          user,
+          nil,
+          unreport: extra_log_info
+        )
+      end
+
+      def extra_log_info
+        @extra_log_info ||= result[:ok].to_h { |reportable| [reportable.id, reportable.name] }
+      end
+
+      def bulk_unreport_users!
         reportables.each do |reportable|
           next unless reportable
 
@@ -38,27 +52,10 @@ module Decidim
             result[:ok] << reportable
             next
           end
-          command.call(reportable, user) do
-            on(:ok) do
-              result[:ok] << reportable
-            end
-            on(:invalid) do
-              result[:ok] << reportable
-            end
-          end
-        end
-      end
-
-      def command
-        case action
-        when "hide"
-          Admin::HideResource
-        when "unreport"
-          unreport_content
-          Admin::UnreportResource
-        when "unhide"
-          unhide_content
-          Admin::UnhideResource
+          reportable.user_moderation.destroy!
+          result[:ok] << reportable
+        rescue ActiveRecord::RecordInvalid
+          result[:ko] << reportable
         end
       end
     end
