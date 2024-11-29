@@ -54,7 +54,7 @@ module Decidim
     private
 
     # If the options hash has the demo key it means we are in the decidim-design engine,
-    # so it is not a real-world scenario with actual users 
+    # so it is not a real-world scenario with actual users
     def data
       @data ||= begin
         internal_data = { author: true }
