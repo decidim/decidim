@@ -20,26 +20,30 @@ module Decidim
         return broadcast(:invalid) unless form.valid?
 
         block_all_users!
-        create_action_log
+        create_action_log if first_blocked
 
         broadcast(:ok, **result)
       end
 
       private
 
-      attr_reader :form, :result
+      attr_reader :form, :result, :first_blocked
 
       def create_action_log
         Decidim::ActionLogger.log(
-          "bulk_block_user",
+          "bulk_block",
           form.current_user,
-          form.current_user,
+          first_blocked,
           nil,
-          blocked: extra_log_info
+          extra: {
+            blocked:,
+            reportable_type: first_blocked.class.name,
+            current_justification: form.justification
+          }
         )
       end
 
-      def extra_log_info
+      def blocked
         @extra_log_info ||= result[:ok].to_h { |user| [user.id, user.extended_data["user_name"]] }
       end
 
@@ -62,6 +66,7 @@ module Decidim
             user.save!
           end
           result[:ok] << user
+          @first_blocked ||= user
         rescue ActiveRecord::RecordInvalid
           result[:ko] << user
         end

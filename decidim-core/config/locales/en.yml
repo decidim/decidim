@@ -298,6 +298,7 @@ en:
         update_with_filter_items_count: "%{user_name} updated a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
       user:
         block: "%{user_name} blocked user %{resource_name}"
+        bulk_block: "%{user_name} blocked %{blocked_count} users"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
         officialize: "%{user_name} officialized the participant %{resource_name}"
         promote: "%{user_name} has promoted %{resource_name}"

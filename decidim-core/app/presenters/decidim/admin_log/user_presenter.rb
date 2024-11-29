@@ -16,7 +16,7 @@ module Decidim
 
       def action_string
         case action
-        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize", "block", "unblock", "promote", "transfer"
+        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize", "block", "unblock", "bulk_block", "promote", "transfer"
           "decidim.admin_log.user.#{action}"
         else
           super
@@ -25,8 +25,13 @@ module Decidim
 
       def i18n_params
         super.merge(
-          role: I18n.t("models.user.fields.roles.#{user_role}", scope: "decidim.admin")
+          role: I18n.t("models.user.fields.roles.#{user_role}", scope: "decidim.admin"),
+          blocked_count: blocked_users.count
         )
+      end
+
+      def blocked_users
+        action_log.extra.dig("extra", "blocked")&.values || []
       end
 
       def user_role
@@ -53,15 +58,24 @@ module Decidim
       def changeset
         original = { badge: [previous_user_badge, user_badge] }
         fields = { badge: :i18n }
-        if action.to_s == "block"
+        case action.to_s
+        when "block"
           original = { justification: [previous_justification, current_justification] }
+          fields = { justification: :string }
+        when "bulk_block"
+          original = { justification: [blocked_users.join(", "), current_justification] }
           fields = { justification: :string }
         end
         Decidim::Log::DiffChangesetCalculator.new(original, fields, i18n_labels_scope).changeset
       end
 
+      # override this as it not depend on the old version
+      def has_diff?
+        diff_actions.include?(action.to_s)
+      end
+
       def diff_actions
-        %w(officialize unofficialize block)
+        %w(officialize unofficialize block bulk_block)
       end
     end
   end
