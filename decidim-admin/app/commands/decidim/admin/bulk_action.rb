@@ -54,10 +54,8 @@ module Decidim
         when "hide"
           Admin::HideResource
         when "unreport"
-          unreport_content
           Admin::UnreportResource
         when "unhide"
-          unhide_content
           Admin::UnhideResource
         end
       end
