@@ -22,7 +22,7 @@ module Decidim
         return broadcast(:invalid) if reportables.blank?
 
         bulk_action!
-        create_action_log
+        create_action_log if user
 
         broadcast(:ok, **result)
       end
@@ -34,11 +34,11 @@ module Decidim
       def create_action_log
         action_log_type = case action
                           when "hide"
-                            "bulk_hide_content"
+                            "bulk_hide"
                           when "unreport"
-                            "bulk_unreport_users"
+                            "bulk_unreport"
                           when "unhide"
-                            "bulk_unhide_content"
+                            "bulk_unhide"
                           end
 
         Decidim::ActionLogger.log(
@@ -46,12 +46,15 @@ module Decidim
           user,
           user,
           nil,
-          reported_content: extra_log_info
+          extra: {
+            reported_content:,
+            reportable_type: user.class.name
+          }
         )
       end
 
-      def extra_log_info
-        @extra_log_info ||= result[:ok].to_h { |reportable| [reportable.id, reportable.class.name] }
+      def reported_content
+        @reported_content ||= result[:ok].to_h { |reportable| [reportable.id, reportable.class.name] }
       end
 
       def bulk_action!

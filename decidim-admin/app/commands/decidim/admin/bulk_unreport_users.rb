@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class BulkUnreportUser < Decidim::Command
+    class BulkUnreportUsers < Decidim::Command
       # Public: Initializes the command.
 
       def initialize(user, reportables)
@@ -21,27 +21,30 @@ module Decidim
         return broadcast(:invalid) if reportables.blank?
 
         bulk_unreport_users!
-        create_action_log
+        create_action_log if first_unreported
 
         broadcast(:ok, **result)
       end
 
       private
 
-      attr_reader :reportables, :user, :result
+      attr_reader :reportables, :user, :result, :first_unreported
 
       def create_action_log
         Decidim::ActionLogger.log(
-          "bulk_unreport_user",
+          "bulk_ignore",
           user,
-          user,
+          first_unreported,
           nil,
-          unreport: extra_log_info
+          extra: {
+            unreported:,
+            reportable_type: first_unreported.class.name
+          }
         )
       end
 
-      def extra_log_info
-        @extra_log_info ||= result[:ok].to_h { |reportable| [reportable.id, reportable.name] }
+      def unreported
+        @unreported ||= result[:ok].to_h { |reportable| [reportable.id, reportable.name] }
       end
 
       def bulk_unreport_users!
@@ -54,6 +57,7 @@ module Decidim
           end
           reportable.user_moderation.destroy!
           result[:ok] << reportable
+          @first_unreported ||= reportable
         rescue ActiveRecord::RecordInvalid
           result[:ko] << reportable
         end

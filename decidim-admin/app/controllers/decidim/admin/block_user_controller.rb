@@ -57,7 +57,7 @@ module Decidim
       def bulk_create
         @form = form(BlockUsersForm).from_params(params)
 
-        Admin::BulkBlockUser.call(@form) do
+        Admin::BulkBlockUsers.call(@form) do
           on(:ok) do
             flash[:notice] = I18n.t("officializations.bulk_action.block.success", scope: "decidim.admin")
             redirect_to moderated_users_path
@@ -71,7 +71,7 @@ module Decidim
       end
 
       def bulk_destroy
-        Admin::BulkUnblockUser.call(blocked_users, current_user) do
+        Admin::BulkUnblockUsers.call(blocked_users, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("officializations.bulk_action.unblock.success", scope: "decidim.admin")
           end

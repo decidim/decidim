@@ -299,6 +299,11 @@ en:
       user:
         block: "%{user_name} blocked user %{resource_name}"
         bulk_block: "%{user_name} blocked %{blocked_count} users"
+        bulk_hide: "%{user_name} hide %{hidden_count} reported content"
+        bulk_ignore: "%{user_name} unreport %{unreported_users_count} users"
+        bulk_unblock: "%{user_name} unblocked %{unblocked_count} users"
+        bulk_unhide: "%{user_name} unhide %{unhidden_count} reported content"
+        bulk_unreport: "%{user_name} unreport %{unreported_count} reported content"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
         officialize: "%{user_name} officialized the participant %{resource_name}"
         promote: "%{user_name} has promoted %{resource_name}"

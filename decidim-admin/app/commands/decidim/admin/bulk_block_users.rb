@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class BulkBlockUser < Decidim::Command
+    class BulkBlockUsers < Decidim::Command
       # Public: Initializes the command.
 
       def initialize(form)
@@ -44,7 +44,7 @@ module Decidim
       end
 
       def blocked
-        @extra_log_info ||= result[:ok].to_h { |user| [user.id, user.extended_data["user_name"]] }
+        @blocked ||= result[:ok].to_h { |user| [user.id, user.extended_data["user_name"]] }
       end
 
       def block_all_users!

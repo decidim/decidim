@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    class BulkUnblockUser < Decidim::Command
+    class BulkUnblockUsers < Decidim::Command
       # Public: Initializes the command.
 
       def initialize(blocked_users, current_user)
@@ -21,27 +21,30 @@ module Decidim
         return broadcast(:invalid) if blocked_users.blank?
 
         unblock_users!
-        create_action_log
+        create_action_log if first_unblocked
 
         broadcast(:ok, **result)
       end
 
       private
 
-      attr_reader :current_user, :blocked_users, :result
+      attr_reader :current_user, :blocked_users, :result, :first_unblocked
 
       def create_action_log
         Decidim::ActionLogger.log(
-          "bulk_unblock_user",
+          "bulk_unblock",
           current_user,
-          current_user,
+          first_unblocked,
           nil,
-          unblocked: extra_log_info
+          extra: {
+            unblocked:,
+            reportable_type: first_unblocked.class.name
+          }
         )
       end
 
-      def extra_log_info
-        @extra_log_info ||= result[:ok].to_h { |blocked_user| [blocked_user.id, blocked_user.extended_data["user_name"]] }
+      def unblocked
+        @unblocked ||= result[:ok].to_h { |blocked_user| [blocked_user.id, blocked_user.extended_data["user_name"]] }
       end
 
       def unblock_users!
@@ -54,6 +57,7 @@ module Decidim
             blocked_user.save!
           end
           result[:ok] << blocked_user
+          @first_unblocked ||= blocked_user
         rescue ActiveRecord::RecordInvalid
           result[:ko] << blocked_user
         end
