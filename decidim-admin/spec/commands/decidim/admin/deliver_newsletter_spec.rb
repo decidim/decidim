@@ -110,57 +110,55 @@ module Decidim::Admin
           it "is not valid" do
             expect { command.call }.to broadcast(:no_recipients)
           end
+        end
 
-          context "with a single verification type is selected" do
-            context "when verification types selected" do
-            let(:verification_types) { ["id_documents"] }
+        context "with a single verification type is selected" do
+          let(:verification_types) { ["id_documents"] }
 
-            let!(:deliverable_users) do
-              create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
-            end
-
-            let!(:undeliverable_users) do
-              create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
-            end
-
-            let!(:unconfirmed_users) do
-              create_list(:user, rand(2..9), organization:, newsletter_notifications_at: Time.current)
-            end
-
-            before do
-              deliverable_users.each do |user|
-                create(:authorization, user:, name: "id_documents", granted_at: Time.current)
-              end
-            end
-
-            it_behaves_like "selective newsletter"
-          end
+          let!(:deliverable_users) do
+            create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
           end
 
-          context "with multiple verification types selected" do
-            let(:verification_types) { %w(id_documents postal_letter) }
-            let!(:deliverable_users) { users_with_id_documents + users_with_postal_letter }
-
-            let!(:users_with_id_documents) do
-              create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
-            end
-
-            let!(:users_with_postal_letter) do
-              create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
-            end
-
-            before do
-              users_with_id_documents.each do |user|
-                create(:authorization, user:, name: "id_documents", granted_at: Time.current)
-              end
-
-              users_with_postal_letter.each do |user|
-                create(:authorization, user:, name: "postal_letter", granted_at: Time.current)
-              end
-            end
-
-            it_behaves_like "selective newsletter"
+          let!(:undeliverable_users) do
+            create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
           end
+
+          let!(:unconfirmed_users) do
+            create_list(:user, rand(2..9), organization:, newsletter_notifications_at: Time.current)
+          end
+
+          before do
+            deliverable_users.each do |user|
+              create(:authorization, user:, name: "id_documents", granted_at: Time.current)
+            end
+          end
+
+          it_behaves_like "selective newsletter"
+        end
+
+        context "with multiple verification types selected" do
+          let(:verification_types) { %w(id_documents postal_letter) }
+          let!(:deliverable_users) { users_with_id_documents + users_with_postal_letter }
+
+          let!(:users_with_id_documents) do
+            create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
+          end
+
+          let!(:users_with_postal_letter) do
+            create_list(:user, rand(2..9), :confirmed, organization:, newsletter_notifications_at: Time.current)
+          end
+
+          before do
+            users_with_id_documents.each do |user|
+              create(:authorization, user:, name: "id_documents", granted_at: Time.current)
+            end
+
+            users_with_postal_letter.each do |user|
+              create(:authorization, user:, name: "postal_letter", granted_at: Time.current)
+            end
+          end
+
+          it_behaves_like "selective newsletter"
         end
       end
 
