@@ -92,10 +92,8 @@ module Decidim
       end
 
       describe "GET select_recipients_to_deliver" do
-        let(:params) { { id: newsletter.id } }
-
         it "assigns the form and sets send_to_all_users based on admin status" do
-          get :select_recipients_to_deliver, params:
+          get :select_recipients_to_deliver, params: { id: newsletter.id }
 
           assigned_form = assigns(:form)
           expect(assigned_form).to be_a(Decidim::Admin::SelectiveNewsletterForm)
