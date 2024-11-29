@@ -20,22 +20,44 @@ module Decidim
       def call
         return broadcast(:invalid) if blocked_users.blank?
 
-        blocked_users.each do |blocked_user|
-          UnblockUser.call(blocked_user, current_user) do
-            on(:ok) do
-              result[:ok] << blocked_user
-            end
-            on(:invalid) do
-              result[:ko] << blocked_user
-            end
-          end
-        end
+        unblock_users!
+        create_action_log
+
         broadcast(:ok, **result)
       end
 
       private
 
       attr_reader :current_user, :blocked_users, :result
+
+      def create_action_log
+        Decidim::ActionLogger.log(
+          "bulk_unblock_user",
+          current_user,
+          current_user,
+          nil,
+          unblocked: extra_log_info
+        )
+      end
+
+      def extra_log_info
+        @extra_log_info ||= result[:ok].to_h { |blocked_user| [blocked_user.id, blocked_user.extended_data["user_name"]] }
+      end
+
+      def unblock_users!
+        blocked_users.each do |blocked_user|
+          transaction do
+            blocked_user.blocked = false
+            blocked_user.blocked_at = nil
+            blocked_user.block_id = nil
+            blocked_user.name = blocked_user.extended_data["user_name"]
+            blocked_user.save!
+          end
+          result[:ok] << blocked_user
+        rescue ActiveRecord::RecordInvalid
+          result[:ko] << blocked_user
+        end
+      end
     end
   end
 end
