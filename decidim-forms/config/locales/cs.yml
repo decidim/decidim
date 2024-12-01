@@ -28,6 +28,7 @@ cs:
     download_your_data:
       show:
         answers: Export odpovědí
+        survey_user_answers: Odpovědi uživatele na dotazník
     forms:
       admin:
         models:
