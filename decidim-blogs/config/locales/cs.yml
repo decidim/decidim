@@ -20,6 +20,7 @@ cs:
       actions:
         author_id: Vytvořit příspěvek jako
         confirm_delete_post: Opravdu chcete odstranit tento příspěvek?
+        deleted_posts_info: Smazané příspěvky mohou být obnoveny z koše.
         edit: Upravit
         new: Nový příspěvek
         title: Akce
