@@ -52,6 +52,7 @@ cs:
     debates:
       actions:
         close: Zavřít
+        confirm_delete_debate: Opravdu chcete odstranit tuto debatu?
         deleted_debate_info: Smazaná debata může být obnovena z koše.
         edit: Upravit
         new: Nová debata
@@ -90,6 +91,8 @@ cs:
         debate:
           close: "%{user_name} ukončil debatu %{resource_name} ve skupině %{space_name}"
           create: "%{user_name} vytvořil debatu %{resource_name} o skupině %{space_name}"
+          restore: "%{user_name} obnovil debatu %{resource_name} v prostoru %{space_name}"
+          soft_delete: "%{user_name} přesunul debatu o %{resource_name} v prostoru %{space_name} do koše"
           update: "%{user_name} aktualizovala %{resource_name} diskusi o %{space_name} prostoru"
       content_blocks:
         highlighted_debates:
