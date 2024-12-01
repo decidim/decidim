@@ -251,6 +251,8 @@ cs:
         attachment_collections: Složky
         attachments: Přílohy
         close: Zavřít
+        confirm_delete_meeting: Opravdu chcete smazat tuto schůzi?
+        deleted_meetings_info: Smazané schůzky mohou být obnoveny z koše.
         edit: Upravit
         invalid_destroy:
           proposals_count:
@@ -263,6 +265,7 @@ cs:
         preview: Náhled
         registrations: Registrace
         title: Akce
+        view_deleted_meetings: Zobrazit odstraněné schůzky
       admin:
         agenda:
           agenda_item:
@@ -359,6 +362,8 @@ cs:
               actions: Akce
               component: Propojené prostory
             title: Propojené prostory
+          manage_trash:
+            title: Smazané schůzky
           new:
             create: Vytvořit
             title: Vytvořte schůzku
