@@ -434,6 +434,8 @@ cs:
           create: "%{user_name} vytvořila %{resource_name} schůzku v prostoru %{space_name}"
           delete: "%{user_name} smazala %{resource_name} schůzku v prostoru %{space_name}"
           export_registrations: "%{user_name} exportoval registraci %{resource_name} schůzky na %{space_name} prostoru"
+          restore: "%{user_name} obnovil schůzku %{resource_name} ve skupině %{space_name}"
+          soft_delete: "%{user_name} přesunul schůzku %{resource_name} ve skupině %{space_name} do koše"
           update: "%{user_name} aktualizovalo %{resource_name} schůzku v prostoru %{space_name}"
           value_types:
             organizer_presenter:
@@ -724,6 +726,7 @@ cs:
           address: Adresa schůzky v případě, že se koná osobně a má fyzické umístění
           attachments: Počet příloh v této schůzce
           attendees: Počet lidí účastnících se této schůzky
+          author: Data autora této schůzky
           comments: Počet komentářů k této schůzce
           component: Komponenta, ke které schůzka patří,
           contributions: Počet příspěvků na této schůzce zúčastněných stran
