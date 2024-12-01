@@ -628,6 +628,9 @@ cs:
           description: Popis iniciativy
           first_progress_notification_at: Datum, kdy bylo odesláno první oznámení o pokroku
           hashtag: Hashtag Iniciativy, používaný pro Twitter/X
+          online_votes: Počet podpisů, které tato iniciativa obdržela on-line (přímo prostřednictvím platformy)
+          published_at: Datum, kdy byl tento prostor publikován
+          reference: Jedinečný odkaz na prostor
           scope: Rozsah iniciativy
           second_progress_notification_at: Datum, kdy bylo odesláno druhé oznámení o pokroku
           signature_end_date: Datum, kdy končí doba sběru podpisů
@@ -637,6 +640,8 @@ cs:
           state: Stav, který tato iniciativa v tuto chvíli má
           title: Název iniciativy
           type: Typ iniciativy
+          updated_at: Poslední datum, kdy byl tento prostor aktualizován
+          url: URL prostoru
     resources:
       initiative:
         actions:
