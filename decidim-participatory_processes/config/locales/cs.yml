@@ -97,6 +97,7 @@ cs:
       actions:
         activate: Aktivovat
         configure: Konfigurovat
+        confirm_delete_process: Opravdu chcete odstranit tento proces? Pokud změníte názor, můžete jej obnovit později.
         confirm_destroy: Potvrďte smazání
         destroy: Odstranit
         duplicate: Duplikát
@@ -320,6 +321,8 @@ cs:
         export: "%{user_name} exportoval participační proces %{resource_name}"
         import: "%{user_name} importoval participační proces %{resource_name}"
         publish: "%{user_name} publikoval %{resource_name} participační proces"
+        restore: "%{user_name} obnovil participační proces %{resource_name}"
+        soft_delete: "%{user_name} přemístil paarticipační proces %{resource_name} do koše"
         unpublish: "%{user_name} neuveřejnil %{resource_name} participační proces"
         update: "%{user_name} aktualizoval %{resource_name} participační proces"
       participatory_process_group:
