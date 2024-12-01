@@ -255,6 +255,8 @@ cs:
         delete: "%{user_name} odstranila %{resource_name} komponentu z %{space_name} místa"
         export_component: "%{user_name} exportoval %{resource_name} %{component_name} v %{space_name} jako %{format_name}"
         publish: "%{user_name} publikoval %{resource_name} komponentu ve %{space_name} prostoru"
+        restore: "%{user_name} obnovil komponentu %{resource_name} v prostoru %{space_name}"
+        soft_delete: "%{user_name} přesunul do koše komponenty %{resource_name} v prostoru %{space_name}"
         unpublish: "%{user_name} nepublikoval %{resource_name} komponentu z %{space_name} místa"
         update_permissions_with_space: "%{user_name} aktualizoval oprávnění %{resource_name} v %{space_name}"
       contextual_help_section:
