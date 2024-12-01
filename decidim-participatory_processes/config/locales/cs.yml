@@ -114,6 +114,7 @@ cs:
         resend_invitation: Znovu poslat pozvánku
         see_process: Zobrazit proces
         unpublish: Zrušit publikování
+        view_deleted_processes: Zobrazit odstraněné procesy
       filters:
         decidim_participatory_process_group_id_eq:
           label: Podle skupiny procesů
@@ -285,6 +286,8 @@ cs:
           public: Veřejné
           published: Publikováno
           unpublished: Nezveřejněno
+        manage_trash:
+          title: Odstraněné participační procesy
         new:
           create: Vytvořit
           title: Nový participační proces
@@ -303,6 +306,9 @@ cs:
         participatory_process_groups: Skupiny účastnických procesů
         participatory_process_types: Typy participačních procesů
         participatory_processes: Participativní procesy
+        participatory_processes_deleted: Odstraněné participační procesy
+      tooltips:
+        deleted_processes_info: Proces může být odstraněn pouze v případě, že je stav "Nezveřejněný".
       users:
         resend_invitation:
           error: Při odeslání pozvánky došlo k chybě.
@@ -374,9 +380,11 @@ cs:
         participatory_processes:
           announcement: Oznámení (vyhlášení) informací
           area: Oblast, ve které probíhá proces
+          created_at: Datum, kdy byl tento prostor vytvořen
           description: Dlouhý popis procesu
           developer_group: Skupina tvůrců procesu. Jedná se o organizaci, která proces prosazuje.
           end_date: Datum ukončení procesu
+          follows_count: Počet uživatelů sledujících tento prostor
           hashtag: Hashtag Procesu, používaný pro Twitter/X
           id: Jedinečný identifikátor tohoto procesu
           local_area: Místní oblast procesu. Tohle je oblast organizace, kde probíhá proces.
@@ -386,6 +394,8 @@ cs:
           participatory_scope: Participační rozsah procesu
           participatory_structure: Participativní struktura procesu. Takto se o procesu rozhoduje.
           promoted: Zda je proces propagován, nebo ne
+          published_at: Datum, kdy byl tento prostor publikován
+          reference: Jedinečný odkaz na prostor
           remote_hero_image_url: URL obrázku předáka procesu
           scope: Rozsah procesu
           scopes_enabled: Zda jsou rozsahy povoleny nebo ne
@@ -395,6 +405,8 @@ cs:
           subtitle: Podtitulek procesu
           target: Cíl procesu je ten, kdo je vyzván, aby se tohoto procesu zúčastnil.
           title: Název procesu
+          updated_at: Poslední datum, kdy byl tento prostor aktualizován
+          url: URL prostoru
     participatory_process_groups:
       content_blocks:
         extra_data:
