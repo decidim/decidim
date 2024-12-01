@@ -1141,6 +1141,11 @@ cs:
           update: Aktualizovat filtr taxonomie
         form:
           all: Vše
+          items:
+            one: "%{count} položka vybrána"
+            few: "%{count} položky vybrány"
+            many: "%{count} položek vybráno"
+            other: "%{count} položek vybráno"
           name_help: Název filtru, který má být zobrazen ve frontendu.
           no_items: Pro tuto taxonomii nejsou k dispozici žádné položky. Položky můžete vytvořit v nastavení taxonomie.
           space_filter: K dispozici jako filtr pro všechny %{manifest_name}
