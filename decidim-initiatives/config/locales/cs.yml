@@ -625,9 +625,13 @@ cs:
           answered_at: Datum odpovědi (pokud existuje)
           area: Oblast této iniciativy
           authors: Autoři této iniciativy
+          comments_count: Počet komentářů, které tato iniciativa má
+          created_at: Datum, kdy byl tento prostor vytvořen
           description: Popis iniciativy
           first_progress_notification_at: Datum, kdy bylo odesláno první oznámení o pokroku
+          follows_count: Počet uživatelů sledujících tento prostor
           hashtag: Hashtag Iniciativy, používaný pro Twitter/X
+          offline_votes: Počet podpisů, které byly použity mimo tuto platformu
           online_votes: Počet podpisů, které tato iniciativa obdržela on-line (přímo prostřednictvím platformy)
           published_at: Datum, kdy byl tento prostor publikován
           reference: Jedinečný odkaz na prostor
