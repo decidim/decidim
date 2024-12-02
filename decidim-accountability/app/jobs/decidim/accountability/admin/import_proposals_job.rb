@@ -11,7 +11,7 @@ module Decidim
             original_proposal = Decidim::Proposals::Proposal.find_by(id:)
 
             new_result = create_result_from_proposal!(original_proposal, statuses(component).first, component, user)
-            new_result.link_resources([original_proposal], "included_proposals_from_import")
+            new_result.link_resources([original_proposal], "included_proposals")
 
             copy_attachments(original_proposal, new_result)
           end.compact
