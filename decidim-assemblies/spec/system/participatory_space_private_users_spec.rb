@@ -17,7 +17,7 @@ describe "Assembly private users" do
 
   context "when there are no assembly members and directly accessing from URL" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_assemblies.assembly_assembly_members_path(assembly) }
+      let(:target_path) { decidim_assemblies.assembly_participatory_space_private_users_path(assembly) }
     end
   end
 
@@ -43,7 +43,7 @@ describe "Assembly private users" do
 
   context "when the assembly does not exist" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_assemblies.assembly_assembly_members_path(assembly_slug: 999_999_999) }
+      let(:target_path) { decidim_assemblies.assembly_participatory_space_private_users_path(assembly_slug: 999_999_999) }
     end
   end
 
@@ -54,7 +54,7 @@ describe "Assembly private users" do
 
     context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_assemblies.assembly_assembly_members_path(assembly) }
+        let(:target_path) { decidim_assemblies.assembly_participatory_space_private_users_path(assembly) }
       end
     end
 
@@ -84,7 +84,7 @@ describe "Assembly private users" do
     let!(:ceased_private_user) { create(:participatory_space_private_user, user: ceased_user, privatable_to:, published: false) }
 
     before do
-      visit decidim_assemblies.assembly_assembly_members_path(assembly)
+      visit decidim_assemblies.assembly_participatory_space_private_users_path(assembly)
     end
 
     context "and accessing from the assembly homepage" do
@@ -107,7 +107,7 @@ describe "Assembly private users" do
             click_on "Members"
           end
 
-          expect(page).to have_current_path decidim_assemblies.assembly_assembly_members_path(assembly)
+          expect(page).to have_current_path decidim_assemblies.assembly_participatory_space_private_users_path(assembly)
         end
       end
 
