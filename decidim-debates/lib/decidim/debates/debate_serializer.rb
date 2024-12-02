@@ -26,13 +26,9 @@ module Decidim
           start_time: debate.start_time,
           end_time: debate.end_time,
           information_updates: debate.information_updates,
-          category: {
-            id: debate.category.try(:id),
-            name: debate.category.try(:name)
-          },
-          scope: {
-            id: debate.scope.try(:id),
-            name: debate.scope.try(:name)
+          taxonomies: {
+            id: debate.taxonomies.map(&:id),
+            name: debate.taxonomies.map(&:name)
           },
           participatory_space: {
             id: debate.participatory_space.id,
@@ -77,14 +73,16 @@ module Decidim
 
       def author_url(author)
         if author.respond_to?(:nickname)
-          profile_url(author.nickname) # is a Decidim::User or Decidim::UserGroup
+          profile_url(author) # is a Decidim::User or Decidim::UserGroup
         else
           root_url # is a Decidim::Organization
         end
       end
 
-      def profile_url(nickname)
-        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+      def profile_url(author)
+        return "" if author.respond_to?(:deleted?) && author.deleted?
+
+        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
       end
 
       def root_url

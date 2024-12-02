@@ -94,10 +94,12 @@ en:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Are you sure you want to delete this assembly?  If you change your mind, you can restore it later.
         import_assembly: Import
         new_assembly: New assembly
         new_assembly_type: New assembly type
         new_assembly_user_role: New assembly admin
+        view_deleted_assemblies: View deleted assemblies
       assemblies:
         create:
           error: There was a problem creating a new assembly.
@@ -109,6 +111,8 @@ en:
           public: Public
           published: Published
           unpublished: Unpublished
+        manage_trash:
+          title: Deleted assemblies
         new:
           create: Create
           title: New assembly
@@ -227,7 +231,10 @@ en:
             valuator: Valuator
       titles:
         assemblies: Assemblies
+        assemblies_deleted: Deleted assemblies
         assemblies_types: Assemblies types
+      tooltips:
+        deleted_assemblies_info: An assembly can only be deleted if status is "Unpublished".
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"
@@ -235,6 +242,8 @@ en:
         export: "%{user_name} exported the %{resource_name} assembly"
         import: "%{user_name} imported the %{resource_name} assembly"
         publish: "%{user_name} published the %{resource_name} assembly"
+        restore: "%{user_name} restored the %{resource_name} assembly"
+        soft_delete: "%{user_name} moved to trash the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
       assembly_member:
@@ -258,12 +267,14 @@ en:
         assemblies:
           form:
             announcement_help: The text you enter here will be shown to the user right below the assembly information.
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             duration: Duration
             duration_help: If the duration of this assembly is limited, select the end date. Otherwise, it will appear as indefinite.
             filters: Filters
             images: Images
             included_at_help: Select the date when this assembly was added to the platform. It does not necessarily have to be the same as the creation date.
             metadata: Metadata
+            no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
             private_notice: You will be able to manage private participants after setting it as private
             select_a_created_by: Select a created by
@@ -374,6 +385,9 @@ en:
     assembly_members:
       index:
         title: Members
+    download_your_data:
+      show:
+        assemblies: Assemblies export
     events:
       assemblies:
         create_assembly_member:
@@ -415,6 +429,7 @@ en:
           closing_date: The closing date of the assembly
           closing_date_reason: Why the assembly was closed
           composition: The composition of the assembly
+          created_at: The date this space was created
           created_by: Who has created this assembly
           created_by_other: Other creator of the assembly
           creation_date: The date of creation of this assembly
@@ -423,6 +438,7 @@ en:
           developer_group: The developer group of the assembly
           duration: The duration of the assembly
           facebook_handler: Social media handler for Facebook
+          follows_count: The number of users following this space
           github_handler: Social media handler for GitHub
           hashtag: The assembly hashtag, used for Twitter/X
           id: The unique identifier of this assembly
@@ -435,8 +451,9 @@ en:
           participatory_scope: The participatory scope of the assembly
           participatory_structure: The participatory structure of the assembly
           promoted: Wheter the assembly is promoted or not
+          published_at: The date this space was published
           purpose_of_action: The purpose of action of the assembly
-          reference: The reference of the assembly. An unique identifier for this platform.
+          reference: The unique reference of the space
           remote_banner_image_url: The URL of the assembly banner image
           remote_hero_image_url: The URL of the assembly hero image
           scope: The scope of the assembly
@@ -446,8 +463,11 @@ en:
           special_features: Which special features this assembly has
           subtitle: The subtitle of the assembly
           target: The target of the assembly
+          taxonomies: The taxonomies of the project
           title: The assembly title
           twitter_handler: Social media handler for Twitter
+          updated_at: The last date this space was updated
+          url: The URL of the space
           youtube_handler: Social media handler for YouTube
     participatory_processes:
       show:

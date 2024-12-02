@@ -35,7 +35,13 @@ module Decidim
 
           resource :export, controller: "assembly_exports", only: :create
 
+          member do
+            patch :soft_delete
+            patch :restore
+          end
+
           collection do
+            get :manage_trash, to: "assemblies#manage_trash"
             resources :imports, controller: "assembly_imports", only: [:new, :create]
           end
 
@@ -56,6 +62,11 @@ module Decidim
               put :publish
               put :unpublish
               get :share
+              patch :soft_delete
+              patch :restore
+            end
+            collection do
+              get :manage_trash, to: "components#manage_trash"
               put :hide
             end
             resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"

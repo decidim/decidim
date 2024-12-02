@@ -22,13 +22,9 @@ module Decidim
           author: {
             **author_fields
           },
-          category: {
-            id: proposal.category.try(:id),
-            name: proposal.category.try(:name) || empty_translatable
-          },
-          scope: {
-            id: proposal.scope.try(:id),
-            name: proposal.scope.try(:name) || empty_translatable
+          taxonomies: {
+            id: proposal.taxonomies.map(&:id),
+            name: proposal.taxonomies.map(&:name)
           },
           participatory_space: {
             id: proposal.participatory_space.id,
@@ -132,7 +128,7 @@ module Decidim
 
       def author_url(author)
         if author.respond_to?(:nickname)
-          profile_url(author.nickname) # is a Decidim::User or Decidim::UserGroup
+          profile_url(author) # is a Decidim::User or Decidim::UserGroup
         elsif author.respond_to?(:title)
           meeting_url(author) # is a Decidim::Meetings::Meeting
         else
@@ -140,8 +136,10 @@ module Decidim
         end
       end
 
-      def profile_url(nickname)
-        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+      def profile_url(author)
+        return "" if author.respond_to?(:deleted?) && author.deleted?
+
+        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
       end
 
       def meeting_url(meeting)

@@ -6,11 +6,13 @@ module Decidim
   # component that spans over several steps.
   class Component < ApplicationRecord
     include HasSettings
+    include HasTaxonomySettings
     include Publicable
     include Traceable
     include Loggable
     include Decidim::ShareableWithToken
     include ScopableComponent
+    include Decidim::SoftDeletable
     include TranslatableAttributes
 
     belongs_to :participatory_space, polymorphic: true
@@ -102,6 +104,7 @@ module Decidim
     end
 
     def private_non_transparent_space?
+      return false unless participatory_space.respond_to?(:private_space?)
       return false unless participatory_space.private_space?
 
       if participatory_space.respond_to?(:is_transparent?)

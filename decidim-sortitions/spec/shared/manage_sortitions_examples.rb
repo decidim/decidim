@@ -2,11 +2,15 @@
 
 shared_examples "manage sortitions" do
   describe "creation" do
+    let(:taxonomy) { create(:taxonomy, :with_parent, organization: current_component.organization) }
+    let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent, space_manifest: current_component.participatory_space.manifest.name) }
+    let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
     let!(:proposal_component) do
       create(:proposal_component, :published, participatory_space: current_component.participatory_space)
     end
 
     before do
+      current_component.update!(settings: { taxonomy_filters: [taxonomy_filter.id] })
       click_on "New sortition"
     end
 
@@ -16,9 +20,9 @@ shared_examples "manage sortitions" do
       end
     end
 
-    it "can be related to a category" do
+    it "can be related to taxonomies" do
       within "form" do
-        expect(page).to have_content(/Categories of the set of proposals in which you want to apply the draw/i)
+        expect(page).to have_content(/Taxonomies of the set of proposals in which you want to apply the draw/i)
       end
     end
 
@@ -82,8 +86,8 @@ shared_examples "manage sortitions" do
           expect(page).to have_content(/Draw time/i)
           expect(page).to have_content(/Dice/i)
           expect(page).to have_content(/Items to select/i)
-          expect(page).to have_content(/Category/i)
-          expect(page).to have_content(/All categories/i)
+          expect(page).to have_content(/Taxonomies/i)
+          expect(page).to have_content(/All taxonomies/i)
           expect(page).to have_content(/Proposals component/i)
           expect(page).to have_content(translated(proposal_component.name))
           expect(page).to have_content(/Seed/i)

@@ -9,7 +9,7 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Budgets" }
   let!(:current_component) { create(:budgets_component, participatory_space: participatory_process) }
   let!(:budget) { create(:budget, component: current_component) }
-  let!(:projects) { create_list(:project, 2, budget:, category:) }
+  let!(:projects) { create_list(:project, 2, budget:, taxonomies:) }
 
   let(:budget_single_result) do
     {
@@ -21,7 +21,7 @@ describe "Decidim::Api::QueryType" do
           "acceptsNewComments" => project.accepts_new_comments?,
           "attachments" => [],
           "budget_amount" => project.budget_amount,
-          "category" => { "id" => project.category.id.to_s },
+          "taxonomies" => [{ "id" => project.taxonomies.first.id.to_s }],
           "comments" => [],
           "commentsHaveAlignment" => project.comments_have_alignment?,
           "commentsHaveVotes" => project.comments_have_votes?,
@@ -30,7 +30,6 @@ describe "Decidim::Api::QueryType" do
           "hasComments" => project.comment_threads.size.positive?,
           "id" => project.id.to_s,
           "reference" => project.reference,
-          "scope" => nil,
           "selected" => project.selected?,
           "title" => { "translation" => project.title[locale] },
           "totalCommentsCount" => project.comments_count,
@@ -39,7 +38,6 @@ describe "Decidim::Api::QueryType" do
           "userAllowedToComment" => project.user_allowed_to_comment?(current_user)
         }
       end,
-      "scope" => nil,
       "title" => { "translation" => budget.title[locale] },
       "total_budget" => budget.total_budget,
       "updatedAt" => budget.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
@@ -71,7 +69,6 @@ describe "Decidim::Api::QueryType" do
         "description" => { "translation" => budget.description[locale] },
         "id" => budget.id.to_s,
         "projects" => budget.projects.map { |project| { "id" => project.id.to_s } },
-        "scope" => nil,
         "title" => { "translation" => budget.title[locale] },
         "total_budget" => budget.total_budget,
         "updatedAt" => budget.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
@@ -93,12 +90,6 @@ describe "Decidim::Api::QueryType" do
               id
               projects {
                 id
-              }
-              scope {
-                id
-                name{
-                  translation(locale:"#{locale}")
-                }
               }
               title {
                 translation(locale:"#{locale}")
@@ -141,7 +132,6 @@ describe "Decidim::Api::QueryType" do
               type
             }
             budget_amount
-            category{ id }
             comments{ id }
             commentsHaveAlignment
             commentsHaveVotes
@@ -150,19 +140,13 @@ describe "Decidim::Api::QueryType" do
             hasComments
             id
             reference
-            scope{ id }
+            taxonomies{ id }
             selected
             title{ translation(locale: "#{locale}")}
             totalCommentsCount
             type
             updatedAt
             userAllowedToComment
-          }
-          scope {
-            id
-            name{
-              translation(locale:"#{locale}")
-            }
           }
           title {
             translation(locale:"#{locale}")

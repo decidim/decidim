@@ -7,6 +7,7 @@ describe "Admin manages assemblies" do
   include_context "with taxonomy filters context"
 
   let(:space_manifest) { "assemblies" }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:, space_filter: true) }
   let(:resource_controller) { Decidim::Assemblies::Admin::AssembliesController }
   let(:model_name) { assembly.class.model_name }
 
@@ -59,6 +60,7 @@ describe "Admin manages assemblies" do
     end
 
     it_behaves_like "having a rich text editor for field", "#closing_date_reason_div", "content"
+    it_behaves_like "having no taxonomy filters defined"
 
     it "creates a new assembly", versioning: true do
       within ".new_assembly" do
@@ -127,7 +129,7 @@ describe "Admin manages assemblies" do
 
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
-      expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Select from \"#{decidim_sanitize_translated(another_root_taxonomy.name)}\"")
+      expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(assembly3.reload.taxonomies).to contain_exactly(taxonomy)
 
       hero_blob = assembly3.hero_image.blob

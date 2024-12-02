@@ -9,6 +9,12 @@ module Decidim
         subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         let(:organization) { create(:organization) }
+        let(:root_taxonomy) { create(:taxonomy, organization:) }
+        let!(:taxonomies) { create_list(:taxonomy, 3, parent: root_taxonomy, organization:) }
+        let!(:taxonomy_filter1) { create(:taxonomy_filter, space_manifest: "conferences", root_taxonomy:, space_filter: true) }
+        let!(:taxonomy_filter2) { create(:taxonomy_filter, space_manifest: "conferences", root_taxonomy:, space_filter: true) }
+        let!(:taxonomy_filter3) { create(:taxonomy_filter, space_manifest: "assemblies", root_taxonomy:, space_filter: true) }
+        let!(:taxonomy_filter4) { create(:taxonomy_filter, space_manifest: "conferences", root_taxonomy:, space_filter: false) }
         let(:title) do
           {
             en: "Title",
@@ -72,6 +78,7 @@ module Decidim
               "banner_image" => attachment,
               "weight" => weight,
               "slug" => slug,
+              "taxonomies" => [taxonomies.first.id, taxonomies.second.id],
               "show_statistics" => show_statistics,
               "objectives_en" => objectives[:en],
               "objectives_es" => objectives[:es],
@@ -87,6 +94,18 @@ module Decidim
 
         context "when everything is OK" do
           it { is_expected.to be_valid }
+        end
+
+        it "returns taxonomizations and taxonomies" do
+          expect(subject.taxonomizations.map(&:taxonomy_id)).to eq([taxonomies.first.id, taxonomies.second.id])
+          expect(subject.root_taxonomies).to eq([root_taxonomy])
+          expect(subject.taxonomy_filters).to contain_exactly(taxonomy_filter1, taxonomy_filter2)
+        end
+
+        context "when taxonomies belong to another organization" do
+          let!(:taxonomies) { create_list(:taxonomy, 3) }
+
+          it { is_expected.not_to be_valid }
         end
 
         context "when attachment (hero_image or banner_image) is too big" do

@@ -10,6 +10,7 @@ module Decidim
       include Authorable
       include HasCategory
       include ScopableResource
+      include Taxonomizable
       include Decidim::Comments::Commentable
       include Followable
       include Traceable
@@ -23,6 +24,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::ShareableWithToken
       include Decidim::TranslatableResource
+      include Decidim::SoftDeletable
 
       translatable_fields :title
       searchable_fields(

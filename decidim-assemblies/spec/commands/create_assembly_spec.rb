@@ -23,10 +23,7 @@ module Decidim::Assemblies
     let(:hero_image) { nil }
     let(:banner_image) { nil }
     let(:taxonomizations) do
-      [
-        build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil),
-        build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil)
-      ]
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
     end
 
     let(:form) do

@@ -191,10 +191,19 @@
       </button>
     </div>
     <div id="panel-taxonomies" class="card-section">
-      <% @form.taxonomy_filters.each do |filter| %>
+      <% if @form.taxonomy_filters.blank? %>
         <div class="row column">
-          <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
-        </div>
+          <p class="text-gray mr-2 mt-4">
+            <%= t("no_taxonomy_filters_found", scope: "decidim.assemblies.admin.assemblies.form") %>
+            <%= link_to(t("define_taxonomy_filters", scope: "decidim.assemblies.admin.assemblies.form"), participatory_space_taxonomy_filters_path, class: "button button__text-secondary") %>
+          </p>
+      </div>
+      <% else %>
+        <% @form.taxonomy_filters.each do |filter| %>
+          <div class="row column">
+            <%= filter_taxonomy_items_select_field form, :taxonomies, filter, internal: true %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

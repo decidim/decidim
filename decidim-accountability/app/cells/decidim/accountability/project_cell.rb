@@ -58,10 +58,6 @@ module Decidim
       def description
         decidim_sanitize_admin translated_attribute(result.description)
       end
-
-      def scope
-        current_scope.presence
-      end
     end
   end
 end

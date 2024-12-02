@@ -84,12 +84,21 @@ module Decidim
       end
 
       def filter_sections
-        [
-          { method: :with_date, collection: filter_dates_values, label_scope: "decidim.participatory_processes.participatory_processes.filters", id: "date" },
-          { method: :with_any_scope, collection: filter_global_scopes_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "scope" },
-          { method: :with_any_area, collection: filter_areas_values, label_scope: "decidim.shared.participatory_space_filters.filters", id: "area" },
-          { method: :with_any_type, collection: filter_types_values, label_scope: "decidim.participatory_processes.participatory_processes.filters", id: "type" }
-        ].reject { |item| item[:collection].blank? }
+        items = [
+          { method: :with_date, collection: filter_dates_values, label: t("decidim.participatory_processes.participatory_processes.filters.date"), id: "date" },
+          { method: :with_any_type, collection: filter_types_values, label: t("decidim.participatory_processes.participatory_processes.filters.type"), id: "type" }
+        ]
+        available_taxonomy_filters.find_each do |taxonomy_filter|
+          items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+                       collection: filter_taxonomy_values_for(taxonomy_filter),
+                       label: decidim_sanitize_translated(taxonomy_filter.name),
+                       id: "taxonomy")
+        end
+        items.reject { |item| item[:collection].blank? }
+      end
+
+      def available_taxonomy_filters
+        Decidim::TaxonomyFilter.for(:participatory_processes)
       end
 
       def process_types

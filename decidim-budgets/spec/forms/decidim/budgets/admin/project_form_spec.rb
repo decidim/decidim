@@ -23,31 +23,31 @@ module Decidim::Budgets
     let(:description) do
       Decidim::Faker::Localized.sentence(word_count: 3)
     end
+    let(:taxonomies) { [] }
     let(:budget_amount) { Faker::Number.number(digits: 8) }
-    let(:parent_scope) { create(:scope, organization:) }
-    let(:scope) { create(:subscope, parent: parent_scope) }
-    let(:scope_id) { scope.id }
-    let(:category) { create(:category, participatory_space: participatory_process) }
-    let(:category_id) { category.id }
     let(:selected) { nil }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
     let(:address) { nil }
     let(:attributes) do
       {
-        decidim_scope_id: scope_id,
-        decidim_category_id: category_id,
         title_en: title[:en],
         description_en: description[:en],
+        taxonomies:,
         budget_amount:,
         selected:,
         address:
       }
     end
 
-    it_behaves_like "a scopable resource"
-
     it { is_expected.to be_valid }
+
+    describe "taxonomies" do
+      let(:component) { current_component }
+      let(:participatory_space) { participatory_process }
+
+      it_behaves_like "a taxonomizable resource"
+    end
 
     context "when geocoding is enabled" do
       let(:current_component) { create(:budgets_component, :with_geocoding_enabled, participatory_space: participatory_process) }
@@ -100,24 +100,6 @@ module Decidim::Budgets
       it { is_expected.not_to be_valid }
     end
 
-    describe "when the scope does not exist" do
-      let(:scope_id) { scope.id + 10 }
-
-      it { is_expected.not_to be_valid }
-    end
-
-    describe "when the category does not exist" do
-      let(:category_id) { category.id + 10 }
-
-      it { is_expected.not_to be_valid }
-    end
-
-    it "properly maps category id from model" do
-      project = create(:project, component: current_component, category:)
-
-      expect(described_class.from_model(project).decidim_category_id).to eq(category_id)
-    end
-
     context "with proposals" do
       subject { described_class.from_model(project).with_context(context) }
 
@@ -127,9 +109,7 @@ module Decidim::Budgets
       let(:project) do
         create(
           :project,
-          budget:,
-          scope:,
-          category:
+          budget:
         )
       end
 
@@ -178,46 +158,6 @@ module Decidim::Budgets
         let(:selected) { true }
 
         it { is_expected.to be_valid }
-      end
-    end
-
-    describe "scope" do
-      subject { form.scope }
-
-      context "when the scope exists" do
-        it { is_expected.to be_a(Decidim::Scope) }
-      end
-
-      context "when the scope does not exist" do
-        let(:scope_id) { 3456 }
-
-        it { is_expected.to be_nil }
-      end
-
-      context "when the scope is from another organization" do
-        let(:scope_id) { create(:scope).id }
-
-        it { is_expected.to be_nil }
-      end
-
-      context "when the participatory space has a scope" do
-        let(:parent_scope) { create(:scope, organization:) }
-        let(:participatory_process) { create(:participatory_process, :with_steps, organization:, scope: parent_scope) }
-        let(:scope) { create(:scope, organization:, parent: parent_scope) }
-
-        context "when the scope is descendant from participatory space scope" do
-          it { is_expected.to eq(scope) }
-        end
-
-        context "when the scope is not descendant from participatory space scope" do
-          let(:scope) { create(:scope, organization:) }
-
-          it { is_expected.to be_valid }
-
-          it "makes the form invalid" do
-            expect(form).to be_invalid
-          end
-        end
       end
     end
   end

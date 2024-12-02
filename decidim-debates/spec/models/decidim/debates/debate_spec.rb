@@ -10,10 +10,11 @@ describe Decidim::Debates::Debate do
 
   it { is_expected.to be_valid }
   it { is_expected.to be_versioned }
+  it { is_expected.to act_as_paranoid }
 
   include_examples "endorsable"
   include_examples "has component"
-  include_examples "has category"
+  include_examples "has taxonomies"
   include_examples "resourceable"
   include_examples "has comments availability attributes"
 
