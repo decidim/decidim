@@ -80,39 +80,53 @@ module Decidim
         action_log.extra.dig("extra", "current_justification") || Hash.new("")
       end
 
-      # Overwrite the changeset for officialization and block actions.
+      # Overwrite the changeset for officialization, block and bulck actions.
       def changeset
-        original = { badge: [previous_user_badge, user_badge] }
-        fields = { badge: :i18n }
-        case action.to_s
-        when "block"
-          original = { justification: [previous_justification, current_justification] }
-          fields = { justification: :string }
-        when "bulk_block"
-          original = { justification: [blocked_users.join(", "), current_justification] }
-          fields = { justification: :string }
-        when "bulk_unblock"
-          original = { unblocked_users: ["", unblocked_users.join(", ")] }
-          fields = { unblocked_users: :string }
-        when "bulk_ignore"
-          original = { unreported_users: ["", unreported_users.join(", ")] }
-          fields = { unreported_users: :string }
-        when "bulk_hide"
-          original = { hidden_content: ["", hidden_content.join(", ")] }
-          fields = { hidden_content: :string }
-        when "bulk_unreport"
-          original = { unreported_content: ["", unreported_content.join(", ")] }
-          fields = { unreported_content: :string }
-        when "bulk_unhide"
-          original = { unhidden_content: ["", unhidden_content.join(", ")] }
-          fields = { unhidden_content: :string }
-        end
-        Decidim::Log::DiffChangesetCalculator.new(original, fields, i18n_labels_scope).changeset
+        config = changeset_config[action.to_s]
+        return {} unless config
+
+        original = config[:original].call
+        return {} if original.values.flatten.all?(&:empty?)
+
+        Decidim::Log::DiffChangesetCalculator.new(original, config[:fields], i18n_labels_scope).changeset
+      end
+
+      def changeset_config
+        {
+          "block" => {
+            original: -> { { justification: [previous_justification, current_justification] } },
+            fields: { justification: :string }
+          },
+          "bulk_block" => {
+            original: -> { { justification: [blocked_users.join(", "), current_justification] } },
+            fields: { justification: :string }
+          },
+          "bulk_unblock" => {
+            original: -> { { unblocked_users: ["", unblocked_users.join(", ")] } },
+            fields: { unblocked_users: :string }
+          },
+          "bulk_ignore" => {
+            original: -> { { unreported_users: ["", unreported_users.join(", ")] } },
+            fields: { unreported_users: :string }
+          },
+          "bulk_hide" => {
+            original: -> { { hidden_content: ["", hidden_content.join(", ")] } },
+            fields: { hidden_content: :string }
+          },
+          "bulk_unreport" => {
+            original: -> { { unreported_content: ["", unreported_content.join(", ")] } },
+            fields: { unreported_content: :string }
+          },
+          "bulk_unhide" => {
+            original: -> { { unhidden_content: ["", unhidden_content.join(", ")] } },
+            fields: { unhidden_content: :string }
+          }
+        }
       end
 
       # override this as it not depend on the old version
       def has_diff?
-        diff_actions.include?(action.to_s)
+        diff_actions.include?(action.to_s) && changeset.any?
       end
 
       def diff_actions

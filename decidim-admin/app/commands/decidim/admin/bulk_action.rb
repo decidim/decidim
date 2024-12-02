@@ -48,13 +48,13 @@ module Decidim
           nil,
           extra: {
             reported_content:,
-            reportable_type: user.class.name
+            reportable_type: reported_content.values
           }
         )
       end
 
       def reported_content
-        @reported_content ||= result[:ok].to_h { |reportable| [reportable.id, reportable.class.name] }
+        @reported_content ||= result[:ok].to_h { |reportable| [reportable.id, reportable.class.name.split("::").last] }
       end
 
       def bulk_action!
