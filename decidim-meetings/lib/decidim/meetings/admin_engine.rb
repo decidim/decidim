@@ -18,6 +18,8 @@ module Decidim
           member do
             put :publish
             put :unpublish
+            patch :soft_delete
+            patch :restore
           end
           resources :meeting_closes, only: [:edit, :update] do
             get :proposals_picker, on: :collection
@@ -35,6 +37,7 @@ module Decidim
           resources :attachments, except: [:show]
           resources :copies, controller: "meeting_copies", only: [:new, :create]
           resource :poll, only: [:edit, :update], controller: "meetings_poll"
+          get :manage_trash, on: :collection
         end
         root to: "meetings#index"
       end
