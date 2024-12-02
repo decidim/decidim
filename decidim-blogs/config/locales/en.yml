@@ -18,24 +18,25 @@ en:
     blogs:
       actions:
         author_id: Create post as
-        confirm_destroy: Are you sure you want to delete this post?
-        destroy: Delete
+        confirm_delete_post: Are you sure you want to delete this post?
+        deleted_posts_info: Deleted posts can be restored from the trash.
         edit: Edit
         new: New post
         title: Actions
+        view_deleted_posts: View deleted posts
       admin:
         posts:
           create:
             invalid: There was a problem creating this post.
             success: Post successfully created.
-          destroy:
-            success: Post successfully deleted.
           edit:
             save: Update
             title: Edit post
           index:
             not_published_yet: Not published yet.
             title: Posts
+          manage_trash:
+            title: Deleted posts
           new:
             create: Create
             title: Create post
@@ -46,6 +47,8 @@ en:
         post:
           create: "%{user_name} created the %{resource_name} blog post in %{space_name}"
           delete: "%{user_name} deleted the %{resource_name} blog post from %{space_name}"
+          restore: "%{user_name} restored the %{resource_name} blog post in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} blog post in %{space_name} to the trash"
           update: "%{user_name} updated the %{resource_name} blog post in %{space_name}"
       content_blocks:
         highlighted_posts:

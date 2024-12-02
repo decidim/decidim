@@ -5,6 +5,7 @@ module Decidim
     module Admin
       # This controller allows an admin to manage debates from a Participatory Space
       class DebatesController < Decidim::Debates::Admin::ApplicationController
+        include Decidim::Admin::HasTrashableResources
         helper Decidim::ApplicationHelper
 
         helper_method :debates
@@ -61,24 +62,26 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to(:delete, :debate, debate:)
-
-          debate.destroy!
-
-          flash[:notice] = I18n.t("debates.destroy.success", scope: "decidim.debates.admin")
-
-          redirect_to debates_path
-        end
-
         private
+
+        def trashable_deleted_resource_type
+          :debate
+        end
 
         def debates
           @debates ||= Debate.where(component: current_component).not_hidden
         end
 
+        def trashable_deleted_collection
+          @trashable_deleted_collection ||= Debate.where(component: current_component).only_deleted.deleted_at_desc
+        end
+
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= Debate.with_deleted.find_by(component: current_component, id: params[:id])
+        end
+
         def debate
-          @debate ||= debates.find(params[:id])
+          @debate ||= Debate.find_by(component: current_component, id: params[:id])
         end
       end
     end

@@ -1,0 +1,8 @@
+<thead>
+<tr>
+  <th><%= t("models.conference.fields.title", scope: "decidim.admin") %></th>
+  <th><%= sort_link(query, :created_at, t("models.conference.fields.created_at", scope: "decidim.admin"), default_order: :desc) %></th>
+  <th class="table-list__actions"><%= t("models.conference.fields.published", scope: "decidim.admin") %></th>
+  <th></th>
+</tr>
+</thead>

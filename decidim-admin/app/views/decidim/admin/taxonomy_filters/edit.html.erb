@@ -10,42 +10,21 @@
 </div>
 
 <div class="card">
-  <div class="card-section p-4">
-    <div class="item__edit-form">
-      <div class="form-defaults">
-        <%= text_field_tag :root_taxonomy_id, translated_attribute(current_taxonomy_filter.name), disabled: true, class: "w-full" %>
+  <%= decidim_form_for(@form, url: url_for(controller: params[:controller], action: :update, id: current_taxonomy_filter.id), html: { class: "form-defaults form new_taxonomy_filter_" }) do |f| %>
+    <div class="card-section p-4">
+      <div class="item__edit-form">
+        <div class="form-defaults">
+          <%= f.text_field :root_taxonomy_id, value: translated_attribute(current_taxonomy_filter.name), disabled: true, class: "w-full" %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="card-section my-4 p-4">
-    <div class="card-divider">
-      <h2>
-        <% if current_taxonomy_filter.filter_items_count.positive? %>
-          <%= t(".items", count: current_taxonomy_filter.filter_items_count) %>
-        <% else %>
-          <%= t(".no_items") %>
-        <% end %>
-      </h2>
+    <%= render partial: "decidim/admin/taxonomy_filters/form", object: f %>
+
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
+      </div>
     </div>
-
-    <div class="table-scroll">
-      <%= decidim_form_for(@form, url: url_for(controller: params[:controller], action: :update, id: current_taxonomy_filter.id), html: { class: "form-defaults form new_taxonomy_filter_" }) do |f| %>
-        <%= f.hidden_field :root_taxonomy_id %>
-        <div class="form__wrapper">
-          <div class="pt-4">
-            <%= render "decidim/admin/taxonomy_filters/check_boxes", form: f, collection: @form.items_collection %>
-          </div>
-        </div>
-
-        <div class="item__edit-sticky">
-          <div class="item__edit-sticky-container">
-            <%= f.submit t(".update"), class: "button button__sm button__secondary" %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <%= render "decidim/admin/taxonomy_filters/callout" %>
+  <% end %>
 </div>

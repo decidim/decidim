@@ -108,6 +108,8 @@ module Decidim
 
       def print
         enforce_permission_to :print, :initiative, initiative: current_initiative
+        output = Decidim::Initiatives::ApplicationFormPDF.new(current_initiative).render
+        send_data(output, filename: "initiative_submit_#{current_initiative.id}.pdf", type: "application/pdf")
       end
 
       private
