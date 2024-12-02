@@ -55,6 +55,7 @@ namespace :decidim do
       migration_file_base = migration_file.gsub!(/^\d+_/, "").gsub!(/\.rb$/, "")
 
       target_file = Dir[Rails.root.join("db/migrate/**_#{migration_file_base}.*.rb")].first
+      return if target_file.blank?
 
       scope = target_file.split(".")[-2]
 

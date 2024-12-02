@@ -5,8 +5,8 @@ namespace :decidim do
   task upgrade: [
     :choose_target_plugins,
     :"decidim:upgrade_app",
-    :"decidim:upgrade:migrations",
     :"railties:install:migrations",
+    :"decidim:upgrade:migrations",
     :"decidim:upgrade:webpacker",
     :"decidim_api:generate_docs"
   ]
