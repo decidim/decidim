@@ -5,7 +5,7 @@ require "decidim/core/test/shared_examples/participatory_space_members_page_exam
 
 module Decidim
   module Assemblies
-    describe AssemblyMembersController do
+    describe ParticipatorySpacePrivateUsersController do
       routes { Decidim::Assemblies::Engine.routes }
 
       let(:organization) { create(:organization) }

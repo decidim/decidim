@@ -2,7 +2,7 @@
 
 module Decidim
   module Assemblies
-    class AssemblyMembersController < Decidim::Assemblies::ApplicationController
+    class ParticipatorySpacePrivateUsersController < Decidim::Assemblies::ApplicationController
       include ParticipatorySpaceContext
       include Decidim::HasMembersPage
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly members" do
+describe "Assembly private users" do
   let(:organization) { create(:organization) }
   let(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests:, private_space: true) }
   let(:privatable_to) { assembly }

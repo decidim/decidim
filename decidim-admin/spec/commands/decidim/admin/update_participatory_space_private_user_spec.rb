@@ -35,7 +35,7 @@ module Decidim::Admin
       it "updates the role" do
         subject.call
 
-        expect(private_user.reload.role["en"]).to eq(role)
+        expect(translated(private_user.reload.role)).to eq(role)
       end
 
       it "updates the published status" do
