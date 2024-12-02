@@ -32,16 +32,24 @@
           @apply border-b border-[#D3D5D9] border-t-0 pb-4 pt-6;
         }
 
-        &__collection-trigger {
-          @apply bg-transparent max-w-full mt-0 border-b border-[#D3D5D9] pb-4 pt-6 px-0 rounded-none;
+        &__dropdown-container {
+          @apply border-b border-[#D3D5D9];
+        }
 
-          span {
-            @apply text-lg leading-6 text-[var(--secondary)] font-semibold;
+        &__collection-trigger {
+          @apply bg-transparent max-w-full mt-0 pb-4 pt-6 px-0 rounded-none;
+
+          .documents-details {
+            @apply flex flex-col gap-2.5;
+
+            span {
+              @apply flex items-center text-lg leading-6 text-[var(--secondary)] font-semibold gap-1.5;
+            }
           }
         }
 
         &__collection-content {
-          @apply w-auto ml-6 mt-4 pl-4 lg:pl-8 border-l border-[#D3D5D9];
+          @apply w-auto ml-6 my-4 pl-4 lg:pl-8 border-l border-[#D3D5D9];
 
           p {
             @apply pt-4;
