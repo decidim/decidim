@@ -21,6 +21,20 @@
 
       <%= render partial: "decidim/open_data/how_to_open_accordion_section" %>
 
+      <%= render layout: "decidim/application/accordion_section", locals: { panel_id: "detailed", title: t("title", scope: "decidim.open_data.index.detailed") } do %>
+        <p> <%= t("body_1", scope: "decidim.open_data.index.detailed") %> </p>
+        <% help_definitions.each do |export_manifest_name, export_manifest_definitions| %>
+          <div class="mt-8">
+            <h4><%= export_manifest_name %></h4>
+            <ul>
+              <% export_manifest_definitions.each do |i18n_key, i18n_value| %>
+                <li> <b><%= i18n_key %></b>: <%= i18n_value %> </li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+
       <table class="w-full mt-12">
         <thead class="uppercase">
           <th class="text-left"><%= t("type", scope:"decidim.download_your_data.show") %></th>

@@ -19,7 +19,6 @@ module Decidim
       @user = user
       @export_format = export_format
       @name = name
-      @help_definition = {}
     end
 
     def export
@@ -34,7 +33,7 @@ module Decidim
 
     private
 
-    attr_reader :user, :export_format, :name, :help_definition
+    attr_reader :user, :export_format, :name
 
     def data
       user_data, user_attachments = data_and_attachments_for_user
@@ -55,7 +54,6 @@ module Decidim
       download_your_data_entities.each do |object|
         klass = Object.const_get(object)
         exporter = Exporters.find_exporter(export_format).new(klass.user_collection(user), klass.export_serializer)
-        get_help_definition(klass.model_name.route_key, exporter.headers_without_locales)
         export_data << [klass.model_name.name.parameterize.pluralize, exporter.export]
         attachments = klass.download_your_data_images(user)
         export_attachments << [klass.model_name.name.parameterize.pluralize, attachments.flatten] unless attachments.nil?
@@ -101,6 +99,7 @@ module Decidim
     def readme
       readme_file = "# #{I18n.t("decidim.download_your_data.help.core.title", organization: translated_attribute(user.organization.name))}\n\n"
       readme_file << "#{I18n.t("decidim.download_your_data.help.core.description", user_name: "#{user.name} (#{user.nickname})")}\n\n"
+      help_definition = DownloadYourDataSerializers.help_definitions_for(user)
 
       help_definition.each do |entity, headers|
         readme_file << "## #{entity}\n\n"
@@ -111,14 +110,6 @@ module Decidim
       end
 
       readme_file
-    end
-
-    def get_help_definition(entity, headers)
-      help_definition[entity] = {}
-
-      headers.each do |header|
-        help_definition[entity][header] = I18n.t("decidim.open_data.help.#{entity}.#{header}", default: I18n.t("decidim.download_your_data.help.#{entity}.#{header}"))
-      end
     end
   end
 end
