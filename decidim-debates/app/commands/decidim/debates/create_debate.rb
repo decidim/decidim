@@ -101,7 +101,7 @@ module Decidim
       end
 
       def first_attachment_weight
-        resource.documents.count.zero? ? 1 : resource.documents.count + 1
+        resource.documents.count + 1
       end
     end
   end
