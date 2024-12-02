@@ -107,8 +107,8 @@ describe "Datepicker" do
         find(".datepicker__select-clock").click
 
         expect(page).to have_field("example_input_time", with: "01:59")
-        expect(page).to have_field("example_input_date", with: "20/#{formatted_month}/1994")
-        expect(page).to have_field("example_input", with: "1994-#{formatted_month}-20T01:59", visible: :all)
+        expect(page).to have_field("example_input_date", with: "20/#{formatted_month}/1995")
+        expect(page).to have_field("example_input", with: "1995-#{formatted_month}-20T01:59", visible: :all)
       end
     end
 
@@ -512,9 +512,9 @@ describe "Datepicker" do
         find(".datepicker__hour-up").click
         find(".datepicker__minute-down").click
         find(".datepicker__select-clock").click
-        expect(page).to have_field("example_input_date", with: "#{formatted_month}/20/1994")
+        expect(page).to have_field("example_input_date", with: "#{formatted_month}/20/1995")
         expect(page).to have_field("example_input_time", with: "02:59")
-        expect(page).to have_field("example_input", with: "1994-#{formatted_month}-20T02:59", visible: :all)
+        expect(page).to have_field("example_input", with: "1995-#{formatted_month}-20T02:59", visible: :all)
       end
 
       context "when time is set to AM" do
@@ -768,9 +768,9 @@ describe "Datepicker" do
         find(".datepicker__minute-down").click
         find(".datepicker__select-clock").click
 
-        expect(page).to have_field("example_input_date", with: "1994/#{formatted_month}/20")
+        expect(page).to have_field("example_input_date", with: "1995/#{formatted_month}/20")
         expect(page).to have_field("example_input_time", with: "01:59")
-        expect(page).to have_field("example_input", with: "1994-#{formatted_month}-20T01:59", visible: :all)
+        expect(page).to have_field("example_input", with: "1995-#{formatted_month}-20T01:59", visible: :all)
       end
     end
 

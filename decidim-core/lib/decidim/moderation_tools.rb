@@ -86,6 +86,12 @@ module Decidim
       end
     end
 
+    # Public: hides the resources
+    def bulk_hide!
+      @reportable.moderation.update!(hidden_at: Time.current)
+      @reportable.try(:touch)
+    end
+
     private
 
     def report_reasons

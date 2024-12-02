@@ -79,7 +79,7 @@ module Decidim
       def command
         case action
         when "hide"
-          Admin::HideResource
+          Admin::BulkHideContent
         when "unreport"
           Admin::BulkUnreportContent
         when "unhide"
