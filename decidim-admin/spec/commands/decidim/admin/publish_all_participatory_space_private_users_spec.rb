@@ -8,7 +8,7 @@ module Decidim::Admin
 
     let!(:privatable_to) { create(:participatory_process) }
     let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
-    let!(:private_user) { create(:participatory_space_private_user, user:, privatable_to:, role: { en: "Member" }, published: false) }
+    let!(:private_user) { create(:participatory_space_private_user, :unpublished, user:, privatable_to:, role: { en: "Member" }) }
 
     it "updates the published attribute" do
       subject.call

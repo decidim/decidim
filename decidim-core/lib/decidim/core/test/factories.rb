@@ -270,6 +270,14 @@ FactoryBot.define do
     end
     user
     privatable_to { create(:participatory_process, organization: user.organization, skip_injection:) }
+
+    trait :unpublished do
+      published { false }
+    end
+
+    trait :published do
+      published { true }
+    end
   end
 
   factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
