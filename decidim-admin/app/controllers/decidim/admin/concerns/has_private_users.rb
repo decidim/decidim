@@ -17,7 +17,9 @@ module Decidim
           helper PaginateHelper
           helper_method :privatable_to, :participatory_space_private_users
 
+          # rubocop:disable Rails/LexicallyScopedActionFilter
           before_action :set_private_user, only: [:edit, :update, :destroy, :resend_invitation]
+          # rubocop:enable Rails/LexicallyScopedActionFilter
 
           def index
             enforce_permission_to :read, :space_private_user
