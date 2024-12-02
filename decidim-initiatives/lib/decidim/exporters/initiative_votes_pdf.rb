@@ -65,15 +65,11 @@ module Decidim
       end
 
       def add_signature_data
-        data_rows = collection.map do |vote|
-          vote_row(vote)
+        cells = [[layout.table([header], column_widths: signature_column_widths, cell_style: row_style)]]
+
+        collection.map do |vote|
+          cells.push([layout.table(vote_row(vote), column_widths: signature_column_widths, cell_style: row_style)])
         end
-
-        cells = [
-          [layout.table([header], column_widths: signature_column_widths, cell_style: row_style)]
-        ]
-
-        cells.push([layout.table(data_rows, column_widths: signature_column_widths, cell_style: row_style)]) if data_rows.any?
 
         composer.table(cells, margin: [20, 0, 0, 0], cell_style:)
       end
@@ -109,7 +105,7 @@ module Decidim
           layout.text(model.hash_id, style: :vote_td),
           layout.text(scope(model), style: :vote_td)
         ]
-        cell
+        [cell]
       end
 
       def scope(model)
