@@ -37,6 +37,7 @@ module Decidim
           latitude: proposal.latitude,
           longitude: proposal.longitude,
           state: proposal.state.to_s,
+          state_published_at: proposal.state_published_at,
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),
           answered_at: proposal.answered_at,
