@@ -217,6 +217,10 @@ module Decidim
           expect(serialized).to include(coauthorships_count: proposal.coauthorships_count)
         end
 
+        it "serializes the number of followers the proposal has" do
+          expect(serialized).to include(followers_count: proposal.follows.size)
+        end
+
         it "serializes the endorsements" do
           expect(serialized[:endorsements]).to include(total_count: proposal.endorsements.count)
           expect(serialized[:endorsements]).to include(user_endorsements: proposal.endorsements.for_listing.map { |identity| identity.normalized_author&.name })
