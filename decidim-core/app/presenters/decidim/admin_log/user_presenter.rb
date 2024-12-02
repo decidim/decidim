@@ -80,7 +80,7 @@ module Decidim
         action_log.extra.dig("extra", "current_justification") || Hash.new("")
       end
 
-      # Overwrite the changeset for officialization, block and bulck actions.
+      # Overwrite the changeset for officialization,block and more actions.
       def changeset
         config = changeset_config[action.to_s]
         return {} unless config
