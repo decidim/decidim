@@ -62,7 +62,8 @@ module Decidim
           withdrawn_at: proposal.withdrawn_at,
           created_at: proposal.created_at,
           updated_at: proposal.updated_at,
-          created_in_meeting: proposal.created_in_meeting
+          created_in_meeting: proposal.created_in_meeting,
+          coauthorships_count: proposal.coauthorships_count
         }
       end
 
