@@ -11,7 +11,7 @@
       </span>
 
       <div class="card__list-metadata">
-        <div><%= icon "file-text-line" %><%= "#{documents.count}  documents"%></div>
+        <div><%= icon "file-text-line" %><%= t(".documents", count: documents.count) %></div>
         <% sum = 0
           documents.each { |document| sum += document.file_size.to_i } %>
         <div><%= icon "scales-2-line" %><%= number_to_human_size(sum) %></div>
