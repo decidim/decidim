@@ -265,12 +265,21 @@ module Decidim
           expect(serialized).to include(execution_period: proposal.execution_period)
         end
 
+        context "when voting is disabled" do
+          let!(:proposal) { create(:proposal) }
+          let(:votes) { proposal.proposal_votes_count }
+
+          it "does not include total count of votes" do
+            expect(serialized[:votes]).to be_nil
+          end
+        end
+
         context "when proposals have execution periods that are not published" do
           let!(:proposal) { create(:proposal) }
           let(:execution_period) { proposal.execution_period }
 
           before do
-            proposal.update!(state_published_at: nil)
+            proposal.update!(execution_period:, state_published_at: nil)
           end
 
           it "includes the execution period on a proposal not published" do
@@ -286,7 +295,7 @@ module Decidim
           let(:cost_report) { proposal.cost_report }
 
           before do
-            proposal.update!(state_published_at: nil)
+            proposal.update!(cost_report:, state_published_at: nil)
           end
 
           it "includes the cost report with a proposal not published" do
@@ -302,7 +311,7 @@ module Decidim
           let(:cost) { proposal.cost }
 
           before do
-            proposal.update!(state_published_at: nil)
+            proposal.update!(cost:, state_published_at: nil)
           end
 
           it "includes costs with a proposal not published" do
@@ -326,7 +335,7 @@ module Decidim
           let(:answer) { proposal.answer }
 
           before do
-            proposal.update!(state_published_at: nil)
+            proposal.update!(answer:, state_published_at: nil)
           end
 
           it "includes answers with a proposal not published" do
