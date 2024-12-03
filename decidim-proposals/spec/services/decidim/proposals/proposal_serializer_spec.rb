@@ -8,7 +8,7 @@ module Decidim
       subject do
         described_class.new(proposal)
       end
-
+      let!(:body) { "This is a simple proposal body example." }
       let!(:proposal) { create(:proposal, :accepted, body:) }
       let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
