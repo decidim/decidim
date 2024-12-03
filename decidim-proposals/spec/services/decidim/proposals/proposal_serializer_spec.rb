@@ -265,10 +265,17 @@ module Decidim
           expect(serialized).to include(execution_period: proposal.execution_period)
         end
 
-        # This is an internal field for admins which isn't published
+        # This is an internal field for admins which shouldn't be published
         context "when proposal notes count are hidden" do
           it "does not publish them" do
             expect(serialized).not_to include(proposal_notes_count: proposal.proposal_notes_count)
+          end
+        end
+
+        # This is an internal field for admins which shouldn't be published
+        context "when valuation assignments are hidden" do
+          it "does not publish them" do
+            expect(serialized).not_to include(valuation_assignments_count: proposal.valuation_assignments_count)
           end
         end
 
