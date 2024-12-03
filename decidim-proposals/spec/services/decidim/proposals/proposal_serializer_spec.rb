@@ -253,7 +253,7 @@ module Decidim
           expect(serialized).to include(created_in_meeting: proposal.created_in_meeting)
         end
 
-        it "serializes the cost of the propsoal" do
+        it "serializes the cost of the proposal" do
           expect(serialized).to include(cost: proposal.cost)
         end
 
