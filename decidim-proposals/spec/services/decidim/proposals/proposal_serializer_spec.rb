@@ -218,7 +218,7 @@ module Decidim
           expect(serialized).to include(coauthorships_count: proposal.coauthorships_count)
         end
 
-        it "serializes the number of followers the proposal has" do
+        it "serializes the number of followers of the proposal" do
           expect(serialized).to include(follows_count: proposal.follows_count)
         end
 
