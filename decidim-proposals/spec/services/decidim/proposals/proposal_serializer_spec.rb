@@ -265,6 +265,13 @@ module Decidim
           expect(serialized).to include(execution_period: proposal.execution_period)
         end
 
+        # This is an internal field for admins which isn't published
+        context "when proposal notes count are hidden" do
+          it "does not publish them" do
+            expect(serialized).not_to include(proposal_notes_count: proposal.proposal_notes_count)
+          end
+        end
+
         context "when proposals have execution periods that are not published" do
           let!(:proposal) { create(:proposal) }
           let(:execution_period) { proposal.execution_period }
