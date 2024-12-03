@@ -19,7 +19,8 @@ module Decidim
 
       let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
-      let(:body) { Decidim::Faker::Localized.localized { ::Faker::Lorem.sentences(number: 3).join("\n") } }
+
+      let(:serialized) { described_class.new(proposal).serialize }
 
       let(:expected_answer) do
         answer = proposal.answer
@@ -257,6 +258,37 @@ module Decidim
 
           it "serializes the answer" do
             expect(serialized).to include(answer: expected_answer)
+          end
+        end
+
+        context "when the proposal is answered but not published" do
+          before do
+            proposal.update!(answered_at:, state_published_at: nil)
+          end
+
+          let(:answered_at) { Time.current }
+
+          it "includes the answered_at timestamp and leaves state_published_at nil" do
+            expect(serialized).to include(
+              answered_at:,
+              state_published_at: nil
+            )
+          end
+        end
+
+        context "when the proposal is answered and published" do
+          before do
+            proposal.update!(answered_at:, state_published_at:)
+          end
+
+          let(:answered_at) { Time.current }
+          let(:state_published_at) { answered_at + 1.day }
+
+          it "includes both answered_at and state_published_at timestamps" do
+            expect(serialized).to include(
+              answered_at:,
+              state_published_at:
+            )
           end
         end
 
