@@ -261,6 +261,22 @@ module Decidim
           end
         end
 
+        context "with proposals having answers but not published" do
+          let!(:proposal) { create(:proposal, :with_answer) }
+          let(:answer) { proposal.answer }
+
+          before do
+            proposal.update!(state_published_at: nil)
+          end
+
+          it "includes answers with a proposal not published" do
+            expect(serialized).to include(
+              answer: expected_answer,
+              state_published_at: nil
+            )
+          end
+        end
+
         context "when the proposal is answered but not published" do
           before do
             proposal.update!(answered_at:, state_published_at: nil)
