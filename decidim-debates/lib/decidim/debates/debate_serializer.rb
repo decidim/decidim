@@ -37,7 +37,7 @@ module Decidim
           component: { id: component.id },
           reference: debate.reference,
           comments: debate.comments_count,
-          followers_count: debate.followers.size,
+          follows_count: debate.follows_count,
           url:,
           last_comment_at: debate.last_comment_at,
           last_comment_by_id: debate.last_comment_by_id,
