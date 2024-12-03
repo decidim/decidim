@@ -449,10 +449,12 @@ en:
           body: The proposal body
           comments: The number of comments this proposal has
           component: The component that the proposal belongs to
+          cost: The total cost of the proposal in question
+          coauthorships_count: The number of co-authorships the proposal represents
           created_at: The date the proposal was created
           created_in_meeting: Whether the proposal was created in a meeting
           endorsements: The number of endorsements ("likes") this proposal has
-          followers: The number of followers this proposal has
+          follows_count: The number of followers this proposal has
           id: The unique identifier for the proposal
           is_amend: Wheter this proposal is ammedning another proposal
           latitude: The latitude of the proposal in case it has a physical location
