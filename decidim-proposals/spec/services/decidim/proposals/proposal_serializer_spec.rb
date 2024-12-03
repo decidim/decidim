@@ -257,6 +257,22 @@ module Decidim
           expect(serialized).to include(cost: proposal.cost)
         end
 
+        context "when proposals with costs that are not published" do
+          let!(:proposal) { create(:proposal) }
+          let(:cost) { proposal.cost }
+
+          before do
+            proposal.update!(state_published_at: nil)
+          end
+
+          it "includes costs with a proposal not published" do
+            expect(serialized).to include(
+              cost:,
+              state_published_at: nil
+            )
+          end
+        end
+
         context "with proposal having an answer" do
           let!(:proposal) { create(:proposal, :with_answer) }
 
