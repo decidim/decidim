@@ -24,7 +24,7 @@ module Decidim
                    type: :button,
                    data: { dialog_close: opts[:id] || "", dialog_closable: "" },
                    "aria-label": t("close_modal", scope: "decidim.shared.confirm_modal"),
-                   "aria-describedby": opts[:id] || "",
+                   "aria-describedby": opts[:id] || ""
                  )
                end
 
