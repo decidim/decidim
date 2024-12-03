@@ -210,11 +210,11 @@ module Decidim
           expect(serialized).to include(attachments: proposal.attachments.count)
         end
 
-        it "serializes the the state at which the proposal was published at" do
+        it "serializes the state at which the proposal was published at" do
           expect(serialized).to include(state_published_at: proposal.state_published_at)
         end
 
-        it "serializes the the how many co-authorships exist" do
+        it "serializes the how many co-authorships exist" do
           expect(serialized).to include(coauthorships_count: proposal.coauthorships_count)
         end
 
