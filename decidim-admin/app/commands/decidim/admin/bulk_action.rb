@@ -22,7 +22,7 @@ module Decidim
         return broadcast(:invalid) if reportables.blank?
 
         process_reportables
-        create_action_log if user
+        create_action_log if moderations.first.reportable
 
         broadcast(:ok, **result)
       end
@@ -50,7 +50,7 @@ module Decidim
         @reported_content ||= result[:ok].to_h { |moderation| [moderation.reportable.id, moderation.title] }
       end
 
-      def bulk_action!
+      def process_reportables
         reportables.each do |reportable|
           next unless reportable
 
