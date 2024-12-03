@@ -75,11 +75,6 @@ en:
             base:
               not_official: Are not official
               voted: Have received votes or endorsements
-        proposals_split:
-          attributes:
-            base:
-              not_official: Are not official
-              voted: Have received votes or endorsements
     models:
       decidim/proposals/admin/update_proposal_taxonomies_event: Proposal taxonomies changed
       decidim/proposals/creation_enabled_event: Proposal creation enabled
@@ -97,8 +92,6 @@ en:
             import_to_proposal_text: This proposal %{link} was created
             merge_from_proposal_text: 'It became this proposal: %{link}'
             merge_to_proposal_text: 'This proposal was created: %{link}'
-            split_from_proposal_text: 'It became this proposal: %{link}'
-            split_to_proposal_text: 'This proposal was created: %{link}'
       decidim/proposals/collaborative_draft:
         one: Collaborative draft
         other: Collaborative drafts
@@ -630,8 +623,6 @@ en:
             select_component: Select a component
             select_valuators: Select one or more valuators
             selected: selected
-            split: Split proposals
-            split_button: Split
             statuses: Statuses
             title: Proposals
             unassign_from_valuator: Unassign from valuator
@@ -683,10 +674,6 @@ en:
           create:
             invalid: 'There was a problem merging the selected proposals because some of them:'
             success: Successfully merged the proposals into a new one.
-        proposals_splits:
-          create:
-            invalid: 'There was a problem splitting the selected proposals because some of them:'
-            success: Successfully splitted the proposals into new ones.
         valuation_assignments:
           create:
             invalid: There was a problem assigning proposals to a valuator.
@@ -833,7 +820,6 @@ en:
       creation:
         imported_text: It became this proposal
         merged_text: They became this proposal
-        splitted_text: It became this proposal
         text: This proposal was created
       destroy_draft:
         error: There was a problem deleting the collaborative draft.

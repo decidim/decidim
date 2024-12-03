@@ -25,7 +25,6 @@ module Decidim
             get :manage_trash, controller: "proposals"
             resource :proposals_import, only: [:new, :create]
             resource :proposals_merge, only: [:create]
-            resource :proposals_split, only: [:create]
             resource :valuation_assignment, only: [:create, :destroy]
           end
           resources :proposal_answers, only: [:edit, :update]

@@ -28,12 +28,6 @@ module Decidim
             icon_key: "Decidim::Proposals::Proposal"
           },
           {
-            resources: @model.linked_resources_from(:proposals, "splitted_from_component"),
-            link_name: "splitted_from_component",
-            text_key: "decidim.proposals.proposal.split_from_proposal_text",
-            icon_key: "Decidim::Proposals::Proposal"
-          },
-          {
             resources: @model.linked_resources_from(:proposals, "merged_from_component"),
             link_name: "merged_from_component",
             text_key: "decidim.proposals.proposal.merge_from_proposal_text",
@@ -67,12 +61,6 @@ module Decidim
             icon_key: "Decidim::Proposals::Proposal"
           },
           {
-            resources: @model.linked_resources_to(:proposals, "splitted_from_component"),
-            link_name: "splitted_to_component",
-            text_key: "decidim.proposals.proposal.split_to_proposal_text",
-            icon_key: "Decidim::Proposals::Proposal"
-          },
-          {
             resources: @model.linked_resources_to(:proposals, "merged_from_component"),
             link_name: "merged_to_component",
             text_key: "decidim.proposals.proposal.merge_to_proposal_text",
@@ -84,8 +72,6 @@ module Decidim
       def creation_item
         creation_text = if history_items_contains?(:merged_to_component)
                           t("decidim.proposals.creation.merged_text")
-                        elsif history_items_contains?(:splitted_to_component)
-                          t("decidim.proposals.creation.splitted_text")
                         elsif history_items_contains?(:copied_to_component)
                           t("decidim.proposals.creation.imported_text")
                         else
