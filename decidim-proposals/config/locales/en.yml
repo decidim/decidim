@@ -447,10 +447,10 @@ en:
           attachments: The number of attachments this proposal has
           author: The data for the author of this proposal
           body: The proposal body
+          coauthorships_count: The number of co-authorships the proposal represents
           comments: The number of comments this proposal has
           component: The component that the proposal belongs to
           cost: The total cost of the proposal in question
-          coauthorships_count: The number of co-authorships the proposal represents
           created_at: The date the proposal was created
           created_in_meeting: Whether the proposal was created in a meeting
           endorsements: The number of endorsements ("likes") this proposal has
