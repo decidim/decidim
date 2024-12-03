@@ -3,7 +3,7 @@
 // This creates a responsive, interactive comment interface with mobile-friendly design and dynamic user group selection.
 
 import { screens } from "tailwindcss/defaultTheme"
-import { initializeCommentsDropdown } from "./comments_dropdown";
+import { initializeCommentsDropdown } from "src/decidim/comments/comments_dropdown";
 
 // Add comment card for mobile
 const addCommentMobile = function (addCommentCard) {
