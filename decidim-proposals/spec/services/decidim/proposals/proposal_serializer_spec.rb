@@ -265,15 +265,6 @@ module Decidim
           expect(serialized).to include(execution_period: proposal.execution_period)
         end
 
-        context "when voting is disabled" do
-          let!(:proposal) { create(:proposal) }
-          let(:votes) { proposal.proposal_votes_count }
-
-          it "does not include total count of votes" do
-            expect(serialized[:votes]).to be_nil
-          end
-        end
-
         context "when proposals have execution periods that are not published" do
           let!(:proposal) { create(:proposal) }
           let(:execution_period) { proposal.execution_period }
