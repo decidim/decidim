@@ -261,6 +261,10 @@ module Decidim
           expect(serialized).to include(cost_report: proposal.cost_report)
         end
 
+        it "serializes the execution period of the proposal" do
+          expect(serialized).to include(execution_period: proposal.execution_period)
+        end
+
         context "when proposals have cost reports that are not published" do
           let!(:proposal) { create(:proposal) }
           let(:cost_report) { proposal.cost_report }
