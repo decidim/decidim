@@ -451,6 +451,7 @@ en:
           comments: The number of comments this proposal has
           component: The component that the proposal belongs to
           cost: The total cost of the proposal in question
+          cost_report: A report of costs for the proposal
           created_at: The date the proposal was created
           created_in_meeting: Whether the proposal was created in a meeting
           endorsements: The number of endorsements ("likes") this proposal has
@@ -467,6 +468,7 @@ en:
           reference: The unique identifier of the resource in this platform
           related_proposals: The proposals related to this proposal
           state: The status of this proposal (e.g. "Accepted")
+          state_published_at: A time stamp of the state of the proposal when published
           taxonomies: The taxonomies that this proposal belongs to
           title: The proposal title
           updated_at: The date the proposal was last updated
