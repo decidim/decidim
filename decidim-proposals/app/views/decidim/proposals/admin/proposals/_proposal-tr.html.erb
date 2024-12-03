@@ -8,24 +8,16 @@
     <% if allowed_to? :edit, :proposal, proposal: proposal %>
       <%= link_to present(proposal).title(html_escape: true), proposal_path(proposal) %><br>
     <% else %>
-      <%= present(proposal).title(html_escape: true) %><br>
+      <span class="text-md">
+        <%= present(proposal).title(html_escape: true) %><br>
+      </span>
     <% end %>
-    <div class="flex items-center gap-x-1 mt-2">
-      <% if proposal.category %>
-        <%= icon "price-tag-3-line", class: "fill-gray w-4 h-4" %>
-        <%= translated_attribute proposal.category.name %>
-      <% end %>
-      <div class="flex items-center gap-x-1">
-        <%= icon "scan-line", class: "fill-gray w-4 h-4" %>
-        <span>
-          <% if proposal.scope %>
-             <%= translated_attribute proposal.scope.name %>
-          <% else %>
-             <%= t("decidim.scopes.global") %>
-          <% end %>
-        </span>
+    <% proposal.taxonomies.each do |taxonomy| %>
+      <div class="flex items-center gap-x-1 mt-1 text-xs">
+        <%= icon "price-tag-3-line", class: "fill-gray w-3 h-3" %>
+        <%= translated_attribute taxonomy.name %>
       </div>
-    </div>
+    <% end %>
   </td>
   <td class="table-list__date">
     <%= l proposal.published_at, format: :decidim_short %>
@@ -69,16 +61,6 @@
   </td>
 
   <td class="table-list__actions">
-    <% if allowed_to? :edit, :proposal, proposal: proposal %>
-      <%= icon_link_to "pencil-line", edit_proposal_path(proposal), t("actions.edit_proposal", scope: "decidim.proposals"), class: "action-icon--edit-proposal" %>
-    <% else %>
-      <span class="action-space icon"></span>
-    <% end %>
-
-    <%= icon_with_link_to_proposal(proposal) %>
-
-    <%= icon_link_to "eye-line", resource_locator(proposal).path, t("actions.preview", scope: "decidim.proposals.admin"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
-
-    <%= resource_permissions_link(proposal) %>
+    <%= render partial: "decidim/proposals/admin/proposals/actions", locals: { proposal:, view: } %>
   </td>
 </tr>

@@ -12,6 +12,7 @@ module Decidim
     include Loggable
     include Decidim::ShareableWithToken
     include ScopableComponent
+    include Decidim::SoftDeletable
     include TranslatableAttributes
 
     belongs_to :participatory_space, polymorphic: true

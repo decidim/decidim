@@ -41,6 +41,7 @@ FactoryBot.define do
     body { generate_localized_description(:blog_body, skip_injection:) }
     component { build(:post_component, skip_injection:) }
     author { build(:user, :confirmed, skip_injection:, organization: component.organization) }
+    deleted_at { nil }
 
     trait :with_endorsements do
       after :create do |post, evaluator|

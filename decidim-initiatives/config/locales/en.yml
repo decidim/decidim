@@ -533,9 +533,7 @@ en:
           phone_number: Phone Number
           place_date: Place, Date
           postal_code: Postal Code/ZIP
-          print: Print
           province: Province/State
-          section: 'If requested by the organization, please print and fill out this form to submit where indicated:'
           signature: Signature
         result:
           answer_title: This initiative has been answered.

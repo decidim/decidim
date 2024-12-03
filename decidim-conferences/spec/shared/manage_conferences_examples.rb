@@ -84,7 +84,7 @@ shared_examples "manage conferences" do
 
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
-      expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Select from \"#{decidim_sanitize_translated(another_root_taxonomy.name)}\"")
+      expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(conference.reload.taxonomies).to contain_exactly(taxonomy)
 
       within "[data-content]" do
