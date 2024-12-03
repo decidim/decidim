@@ -10,6 +10,9 @@ module Decidim
     # the desired template, layout and orientation.
     #
     class PDF < Exporter
+      include Decidim::TranslatableAttributes
+      include Decidim::SanitizeHelper
+
       # Public: Exports a PDF version of the collection by rendering
       # the template into html and then converting it to PDF.
       #
@@ -42,6 +45,10 @@ module Decidim
       def composer
         @composer ||= ::HexaPDF::Composer.new
       end
+
+      def page_size = :A4
+
+      def page_orientation = :portrait
 
       def add_data!
         raise NotImplementedError
