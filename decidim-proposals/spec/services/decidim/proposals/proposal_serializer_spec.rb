@@ -219,7 +219,7 @@ module Decidim
         end
 
         it "serializes the number of followers the proposal has" do
-          expect(serialized).to include(followers_count: proposal.follows.size)
+          expect(serialized).to include(follows_count: proposal.follows_count)
         end
 
         it "serializes the endorsements" do
