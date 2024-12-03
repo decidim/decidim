@@ -454,6 +454,7 @@ en:
           created_at: The date the proposal was created
           created_in_meeting: Whether the proposal was created in a meeting
           endorsements: The number of endorsements ("likes") this proposal has
+          execution_period: The period at which the proposal ran from beginning to end
           follows_count: The number of followers this proposal has
           id: The unique identifier for the proposal
           is_amend: Wheter this proposal is ammedning another proposal
