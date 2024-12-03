@@ -273,7 +273,7 @@ module Decidim
             proposal.update!(state_published_at: nil)
           end
 
-          it "includes the execution_period with a proposal not published" do
+          it "includes the execution period on a proposal not published" do
             expect(serialized).to include(
               execution_period:,
               state_published_at: nil
