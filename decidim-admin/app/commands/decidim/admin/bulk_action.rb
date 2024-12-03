@@ -21,7 +21,7 @@ module Decidim
       def call
         return broadcast(:invalid) if reportables.blank?
 
-        bulk_action!
+        process_reportables
         create_action_log if user
 
         broadcast(:ok, **result)
