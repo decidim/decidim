@@ -72,7 +72,7 @@ module Decidim
     end
 
     # Public: hides the resource
-    def hide!
+    def hide_with_traceability!
       Decidim.traceability.perform_action!(
         "hide",
         moderation,
@@ -87,7 +87,7 @@ module Decidim
     end
 
     # Public: hides the resources
-    def bulk_hide!
+    def hide!
       @reportable.moderation.update!(hidden_at: Time.current)
       @reportable.try(:touch)
     end

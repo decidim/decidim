@@ -8,9 +8,10 @@ module Decidim
       #
       # reportable - A Decidim::Reportable
       # current_user - the user that performs the action
-      def initialize(reportable, current_user)
+      def initialize(reportable, current_user, with_traceability: true)
         @reportable = reportable
         @current_user = current_user
+        @with_traceability = with_traceability
       end
 
       # Executes the command. Broadcasts these events:
@@ -22,7 +23,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless unhideable?
 
-        unhide!
+        with_traceability ? unhide_with_traceability! : unhide!
         broadcast(:ok, @reportable)
       end
 
@@ -32,7 +33,7 @@ module Decidim
         @reportable.hidden? && @reportable.reported?
       end
 
-      def unhide!
+      def unhide_with_traceability!
         Decidim.traceability.perform_action!(
           "unhide",
           @reportable.moderation,
@@ -43,6 +44,10 @@ module Decidim
         ) do
           @reportable.moderation.update!(hidden_at: nil)
         end
+      end
+
+      def unhide!
+        @reportable.moderation.update!(hidden_at: nil)
       end
     end
   end

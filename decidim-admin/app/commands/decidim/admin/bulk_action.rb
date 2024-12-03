@@ -5,10 +5,10 @@ module Decidim
     class BulkAction < Decidim::Command
       # Public: Initializes the command.
 
-      def initialize(user, action, reportables)
+      def initialize(user, action, moderations)
         @user = user
         @action = action
-        @reportables = reportables
+        @moderations = moderations
         @result = { ok: [], ko: [] }
       end
 
@@ -32,19 +32,12 @@ module Decidim
       attr_reader :action, :reportables, :user, :result
 
       def create_action_log
-        action_log_type = case action
-                          when "hide"
-                            "bulk_hide"
-                          when "unreport"
-                            "bulk_unreport"
-                          when "unhide"
-                            "bulk_unhide"
-                          end
+        action_log_type = "bulk_#{action}"
 
         Decidim::ActionLogger.log(
           action_log_type,
           user,
-          user,
+          moderations.first.reportable,
           nil,
           extra: {
             reported_content:,
@@ -54,7 +47,7 @@ module Decidim
       end
 
       def reported_content
-        @reported_content ||= result[:ok].to_h { |reportable| [reportable.id, reportable.class.name.split("::").last] }
+        @reported_content ||= result[:ok].to_h { |moderation| [moderation.reportable.id, moderation.title] }
       end
 
       def bulk_action!
@@ -62,7 +55,7 @@ module Decidim
           next unless reportable
 
           if reportable.respond_to?(:organization) && reportable.organization != user.organization
-            result[:ok] << reportable
+            result[:ko] << reportable
             next
           end
           command.call(reportable, user) do
@@ -70,7 +63,7 @@ module Decidim
               result[:ok] << reportable
             end
             on(:invalid) do
-              result[:ok] << reportable
+              result[:ko] << reportable
             end
           end
         end
@@ -79,11 +72,11 @@ module Decidim
       def command
         case action
         when "hide"
-          Admin::BulkHideContent
+          Admin::HideResource
         when "unreport"
-          Admin::BulkUnreportContent
+          Admin::UnreportResource
         when "unhide"
-          Admin::BulkUnhideContent
+          Admin::UnhideResource
         end
       end
     end

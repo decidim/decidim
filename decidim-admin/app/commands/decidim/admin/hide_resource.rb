@@ -8,9 +8,10 @@ module Decidim
       #
       # reportable - A Decidim::Reportable
       # current_user - the user that performs the action
-      def initialize(reportable, current_user)
+      def initialize(reportable, current_user, with_traceability: true)
         @reportable = reportable
         @current_user = current_user
+        @with_traceability = with_traceability
       end
 
       # Executes the command. Broadcasts these events:
@@ -24,7 +25,7 @@ module Decidim
 
         with_events do
           tool = Decidim::ModerationTools.new(@reportable, @current_user)
-          tool.hide!
+          with_traceability ? tool.hide_with_traceability! : tool.hide!
           tool.send_notification_to_author
         end
 

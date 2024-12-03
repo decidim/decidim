@@ -17,7 +17,7 @@ module Decidim
       def action_string
         case action
         when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin",
-              "show_email", "unofficialize", "block", "unblock", "bulk_block", "bulk_unblock", "promote", "transfer", "bulk_ignore", "bulk_hide", "bulk_unreport", "bulk_unhide"
+              "show_email", "unofficialize", "block", "unblock", "bulk_block", "bulk_unblock", "promote", "transfer", "bulk_ignore"
           "decidim.admin_log.user.#{action}"
         else
           super
@@ -30,9 +30,7 @@ module Decidim
           blocked_count: blocked_users.count,
           unblocked_count: unblocked_users.count,
           unreported_users_count: unreported_users.count,
-          hidden_count: hidden_content.count,
-          unhidden_count: unhidden_content.count,
-          unreported_count: unreported_content.count
+          reported_content_count: reported_content.count
         )
       end
 
@@ -48,15 +46,7 @@ module Decidim
         action_log.extra.dig("extra", "unreported")&.values || []
       end
 
-      def hidden_content
-        action_log.extra.dig("extra", "reported_content")&.values || []
-      end
-
-      def unhidden_content
-        action_log.extra.dig("extra", "reported_content")&.values || []
-      end
-
-      def unreported_content
+      def reported_content
         action_log.extra.dig("extra", "reported_content")&.values || []
       end
 
@@ -108,18 +98,6 @@ module Decidim
           "bulk_ignore" => {
             original: -> { { unreported_users: ["", unreported_users.join(", ")] } },
             fields: { unreported_users: :string }
-          },
-          "bulk_hide" => {
-            original: -> { { hidden_content: ["", hidden_content.join(", ")] } },
-            fields: { hidden_content: :string }
-          },
-          "bulk_unreport" => {
-            original: -> { { unreported_content: ["", unreported_content.join(", ")] } },
-            fields: { unreported_content: :string }
-          },
-          "bulk_unhide" => {
-            original: -> { { unhidden_content: ["", unhidden_content.join(", ")] } },
-            fields: { unhidden_content: :string }
           }
         }
       end
@@ -130,7 +108,7 @@ module Decidim
       end
 
       def diff_actions
-        %w(officialize unofficialize block bulk_block bulk_unblock bulk_ignore bulk_hide bulk_unreport bulk_unhide)
+        %w(officialize unofficialize block bulk_block bulk_unblock bulk_ignore)
       end
     end
   end
