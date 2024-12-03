@@ -122,7 +122,7 @@ module Decidim
         end
 
         it "serializes the number of followers" do
-          expect(serialized).to include(followers_count: debate.followers.size)
+          expect(serialized).to include(follows_count: debate.follows_count)
         end
 
         it "serializes the url" do
