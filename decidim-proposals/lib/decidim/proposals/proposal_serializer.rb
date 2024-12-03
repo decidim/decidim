@@ -64,7 +64,8 @@ module Decidim
           updated_at: proposal.updated_at,
           created_in_meeting: proposal.created_in_meeting,
           coauthorships_count: proposal.coauthorships_count,
-          cost: proposal.cost
+          cost: proposal.cost,
+          cost_report: proposal.cost_report
         }
       end
 
