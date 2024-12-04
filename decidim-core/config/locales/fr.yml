@@ -1320,6 +1320,10 @@ fr:
       pending_authorization_active_title: Nous devons vérifier votre identité.
     open_data:
       help:
+        metrics:
+          day: Le jour de la création de cette métrique
+          metric_type: Le type de métrique
+          quantity: Le nombre de métriques pour ce jour
         moderated_users:
           about: Le champ "A propos" de l'utilisateur
           block_reasons: La raison pour laquelle l'administrateur a bloqué l'utilisateur
