@@ -102,7 +102,6 @@ pt:
         actions:
           amend: Modificar
           comment: Comentar
-          create: Criar
           endorse: Endossar
           vote_comment: Cometário ao voto
           withdraw: Retirar
