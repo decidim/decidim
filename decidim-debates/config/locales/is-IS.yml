@@ -12,8 +12,6 @@ is-IS:
   decidim:
     components:
       debates:
-        actions:
-          create: Búa til
         name: Umræður
         settings:
           global:
