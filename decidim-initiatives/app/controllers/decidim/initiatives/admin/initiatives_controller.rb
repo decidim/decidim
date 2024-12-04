@@ -172,19 +172,14 @@ module Decidim
 
           @votes = current_initiative.votes
 
-          output = render_to_string(
-            pdf: "votes_#{current_initiative.id}",
-            layout: "decidim/admin/initiatives_votes",
-            template: "decidim/initiatives/admin/initiatives/export_pdf_signatures",
-            format: [:pdf]
-          )
-          output = pdf_signature_service.new(pdf: output).signed_pdf if pdf_signature_service
+          serializer = Decidim::Forms::UserAnswersSerializer
+          output = Decidim::Exporters::InitiativeVotesPDF.new(@votes, current_initiative, serializer).export
+          output = pdf_signature_service.new(pdf: output.read).signed_pdf if pdf_signature_service
 
           respond_to do |format|
             format.pdf do
               send_data(output, filename: "votes_#{current_initiative.id}.pdf", type: "application/pdf")
             end
-            format.html
           end
         end
 
