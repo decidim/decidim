@@ -568,7 +568,6 @@ cs:
           other: " podpisy"
         vote_cabin:
           already_voted: Již jste podepsal
-          verification_required: Ověřte svůj účet, abyste podepsali iniciativu
           vote: Podepsat
           votes_blocked: Podpis zakázán
         votes_count:
@@ -652,7 +651,6 @@ cs:
           comment: Komentář
       initiatives_type:
         actions:
-          create: Vytvořit
           title: Akce
           vote: Podepsat
   layouts:
