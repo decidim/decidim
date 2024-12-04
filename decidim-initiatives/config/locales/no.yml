@@ -440,7 +440,6 @@
           other: " underskrifter"
         vote_cabin:
           already_voted: Allerede signert
-          verification_required: Verifiser kontoen din for å signere initiativet
           vote: Signer
           votes_blocked: Underskriving deaktivert
         votes_count:
