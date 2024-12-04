@@ -79,7 +79,7 @@ javascript:
       - any-glob-to-any-file: decidim-pages/**/*
 "module: participatory processes":
   - changed-files:
-      - any-glob-to-any-file: : decidim-participatory_processes/**/*
+      - any-glob-to-any-file: decidim-participatory_processes/**/*
 "module: proposals":
   - changed-files:
       - any-glob-to-any-file: decidim-proposals/**/*
