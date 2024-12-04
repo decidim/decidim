@@ -28,7 +28,6 @@ cs:
       debates:
         actions:
           comment: Komentář
-          create: Vytvořit
           endorse: Schválit
         name: Debaty
         settings:
