@@ -310,6 +310,7 @@ id:
     resources:
       initiatives_type:
         actions:
+          create: Membuat
           title: Tindakan
           vote: Memilih
   layouts:
