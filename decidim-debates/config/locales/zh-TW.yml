@@ -25,7 +25,6 @@ zh-TW:
       debates:
         actions:
           comment: 留言
-          create: 建立
           endorse: 連署
         name: 辯論
         settings:
