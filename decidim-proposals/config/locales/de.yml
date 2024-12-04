@@ -141,7 +141,6 @@ de:
         actions:
           amend: Änderungsvorschlag
           comment: Kommentieren
-          create: Erstellen
           endorse: Unterstützung
           vote: Abstimmen
           vote_comment: Kommentar bewerten
