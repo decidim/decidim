@@ -364,7 +364,6 @@ nl:
           other: " handtekeningen"
         vote_cabin:
           already_voted: Al getekend
-          verification_required: Verifieer uw account om het initiatief te ondertekenen
           vote: Teken
           votes_blocked: Ondertekenen uitgeschakeld
         votes_count:
