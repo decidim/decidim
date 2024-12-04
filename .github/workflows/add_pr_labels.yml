@@ -1,5 +1,9 @@
 name: "Pull Request Labeler"
 on:
+  pull_request:
+    branches-ignore:
+      - "chore/l10n*"
+    types: [ opened, edited, synchronize, reopened, labeled, unlabeled ]
   pull_request_target:
     branches-ignore:
       - "chore/l10n*"
