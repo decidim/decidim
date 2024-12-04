@@ -142,7 +142,6 @@ ja:
         actions:
           amend: 修正
           comment: コメント
-          create: 作成
           endorse: オススメする
           vote: 投票
           vote_comment: コメントに投票
