@@ -39,7 +39,7 @@ module Decidim
       def i18n_params
         super.merge(
           resource_type: action_log.extra.dig("extra", "reportable_type").try(:demodulize),
-          reported_count: reported_content.count
+          reported_count: action_log.extra.dig("extra", "reported_count") || "?"
         )
       end
 
@@ -49,25 +49,17 @@ module Decidim
 
       # Overwrite the changeset.
       def changeset
-        original = changeset_config[:original].call
-
-        Decidim::Log::DiffChangesetCalculator.new(original, changeset_config[:fields], i18n_labels_scope).changeset
+        types = changeset_config.keys.index_with { |_key| :string }
+        Decidim::Log::DiffChangesetCalculator.new(changeset_config, types, "decidim.admin.admin_log.changeset").changeset
       end
 
       def changeset_config
-        {
-          original: lambda {
-            reported_content.to_h do |key, items|
-              [
-                I18n.t(key, scope: "decidim.admin.admin_log.changeset", default: key),
-                items.values.map { |title| translated_attribute(title) }
-              ]
-            end
-          },
-          # rubocop:disable Style/MapToHash
-          fields: reported_content.keys.map { |key| [I18n.t(key, scope: "decidim.admin.admin_log.changeset", default: key).to_sym, :string] }.to_h
-          # rubocop:enable Style/MapToHash
-        }
+        reported_content.to_h do |key, items|
+          [
+            key.to_sym,
+            ["", items.values.map { |title| translated_attribute(title) }.join(", ")]
+          ]
+        end
       end
 
       # override this as it not depend on the old version

@@ -40,7 +40,8 @@ module Decidim
           selected_moderations.first,
           nil,
           extra: {
-            reported_content:
+            reported_content:,
+            reported_count: result[:ok].count
           }
         )
       end
