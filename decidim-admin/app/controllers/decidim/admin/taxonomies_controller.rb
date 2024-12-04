@@ -8,27 +8,27 @@ module Decidim
       layout "decidim/admin/settings"
 
       before_action :set_taxonomies_breadcrumb_item
-
-      helper_method :collection, :parent_options, :taxonomy
-
       before_action only: :edit do
         redirect_to edit_taxonomy_path(taxonomy.parent) unless taxonomy && taxonomy.root?
       end
 
+      helper_method :collection, :parent_options, :taxonomy
+
       def index
+        enforce_permission_to :index, :taxonomy
         @taxonomies = filtered_collection
       end
 
       def new
         enforce_permission_to :create, :taxonomy
-        add_breadcrump_item :new, decidim_admin.new_taxonomy_path
+        add_breadcrumb_item :new, decidim_admin.new_taxonomy_path
 
         @form = form(Decidim::Admin::TaxonomyForm).instance
       end
 
       def create
         enforce_permission_to :create, :taxonomy
-        add_breadcrump_item :new, decidim_admin.new_taxonomy_path
+        add_breadcrumb_item :new, decidim_admin.new_taxonomy_path
 
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
         CreateTaxonomy.call(@form) do
@@ -46,7 +46,7 @@ module Decidim
 
       def edit
         enforce_permission_to(:update, :taxonomy, taxonomy:)
-        add_breadcrump_item :edit, decidim_admin.edit_taxonomy_path(taxonomy)
+        add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_path(taxonomy)
 
         @form = form(Decidim::Admin::TaxonomyForm).from_model(taxonomy)
         @taxonomies = filtered_collection
@@ -54,7 +54,7 @@ module Decidim
 
       def update
         enforce_permission_to(:update, :taxonomy, taxonomy:)
-        add_breadcrump_item :edit, decidim_admin.edit_taxonomy_path(taxonomy)
+        add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_path(taxonomy)
 
         @form = form(Decidim::Admin::TaxonomyForm).from_params(params)
 
@@ -115,10 +115,10 @@ module Decidim
       end
 
       def set_taxonomies_breadcrumb_item
-        add_breadcrump_item I18n.t("menu.taxonomies", scope: "decidim.admin"), decidim_admin.taxonomies_path
+        add_breadcrumb_item I18n.t("menu.taxonomies", scope: "decidim.admin"), decidim_admin.taxonomies_path
       end
 
-      def add_breadcrump_item(key, url)
+      def add_breadcrumb_item(key, url)
         controller_breadcrumb_items << {
           label: I18n.t(key, scope: "decidim.admin.taxonomies.breadcrumb", default: key),
           url:

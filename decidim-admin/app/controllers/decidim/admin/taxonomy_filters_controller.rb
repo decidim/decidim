@@ -1,0 +1,74 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Admin
+    class TaxonomyFiltersController < Decidim::Admin::ApplicationController
+      include Decidim::Admin::Taxonomies::Filterable
+
+      layout "decidim/admin/settings"
+
+      before_action :set_taxonomies_breadcrumb_item
+      before_action only: :edit do
+        redirect_to taxonomy_filters_path(root_taxonomy) unless taxonomy_filter && root_taxonomy == taxonomy_filter.root_taxonomy
+      end
+
+      helper_method :collection, :root_taxonomy, :taxonomy_filter
+
+      def index
+        enforce_permission_to :index, :taxonomy_filters
+        @taxonomies = filtered_collection
+      end
+
+      def new
+        enforce_permission_to :create, :taxonomy_filters
+        add_breadcrumb_item :new, decidim_admin.new_taxonomy_filter_path
+        @form = form(Decidim::Admin::TaxonomyFilterForm).from_params(root_taxonomy_id: params[:taxonomy_id])
+      end
+
+      def create
+        enforce_permission_to :create, :taxonomy_filters
+        add_breadcrumb_item :new, decidim_admin.new_taxonomy_filter_path
+        # ...
+      end
+
+      def edit
+        enforce_permission_to(:update, :taxonomy_filters, taxonomy_filter:)
+        add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_filter_path(taxonomy_filter)
+        @form = form(Decidim::Admin::TaxonomyFilterForm).from_model(taxonomy_filter)
+      end
+
+      def update
+        enforce_permission_to(:update, :taxonomy_filters, taxonomy_filter:)
+        add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_filter_path(taxonomy_filter)
+        # ...
+      end
+
+      private
+
+      def collection
+        @collection ||= root_taxonomy.taxonomy_filters
+      end
+
+      def root_taxonomy
+        @root_taxonomy ||= Taxonomy.roots.find(params[:taxonomy_id])
+      end
+
+      def taxonomy_filter
+        @taxonomy_filter ||= TaxonomyFilter.find_by(id: params[:id])
+      end
+
+      def set_taxonomies_breadcrumb_item
+        add_breadcrumb_item I18n.t("menu.taxonomies", scope: "decidim.admin"), decidim_admin.taxonomies_path
+        add_breadcrumb_item root_taxonomy.name, decidim_admin.taxonomy_filters_path(root_taxonomy)
+        add_breadcrumb_item :filters, decidim_admin.taxonomy_filters_path(root_taxonomy)
+      end
+
+      def add_breadcrumb_item(key, url)
+        controller_breadcrumb_items << {
+          label: I18n.t(key, scope: "decidim.admin.taxonomy_filters.breadcrumb", default: key),
+          url:
+        }
+      end
+    end
+  end
+end

@@ -150,6 +150,9 @@ en:
             scope: Scope
             time_and_date: Time and date
             timestamp: Timestamp
+      taxonomy_filters:
+        space_filter_for:
+          initiatives: All initiatives
       titles:
         initiatives: Initiatives
         initiatives_types: Initiative types

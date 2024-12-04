@@ -10,7 +10,7 @@ module Decidim
       attribute :root_taxonomy_id, Integer
       translatable_attribute :name, String
       translatable_attribute :internal_name, String
-      attribute :space_filter, Boolean, default: false
+      attribute :space_filter, Array, default: false
       attribute :taxonomy_items, Array
 
       mimic :taxonomy_filter
@@ -27,10 +27,6 @@ module Decidim
 
       def taxonomy_items
         super.compact_blank
-      end
-
-      def space_manifest
-        context[:participatory_space_manifest]
       end
 
       def all_taxonomy_items
@@ -53,6 +49,15 @@ module Decidim
 
       def root_taxonomy
         @root_taxonomy ||= current_organization.taxonomies.find_by(id: root_taxonomy_id)
+      end
+
+      def participatory_space_manifests
+        @participatory_space_manifests ||= Decidim.participatory_space_manifests.map do |manifest|
+          OpenStruct.new(
+            id: manifest.name.to_s,
+            name: I18n.t("decidim.admin.taxonomy_filters.space_filter_for.#{manifest.name}")
+          )
+        end
       end
 
       private

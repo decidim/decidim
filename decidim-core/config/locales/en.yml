@@ -23,10 +23,10 @@ en:
       taxonomy:
         name: Taxonomy name
       taxonomy_filter:
-        internal_name: Internal filter name
-        name: Public filter title
+        internal_name: Internal label
+        name: Label
         root_taxonomy_id: From taxonomy
-        space_filter: Available as filter for participatory spaces
+        space_filter: Available as filter for
       user:
         about: About
         email: Your email
