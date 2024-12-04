@@ -28,7 +28,7 @@ tr:
     components:
       debates:
         actions:
-          create: yaratmak
+          create: Oluştur
           endorse: Onayla
         name: Tartışmalar
         settings:
