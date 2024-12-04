@@ -323,6 +323,7 @@ gl:
     resources:
       initiatives_type:
         actions:
+          create: Crear
           title: Accións
           vote: Vota
   layouts:
