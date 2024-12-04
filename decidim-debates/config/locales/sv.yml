@@ -26,7 +26,6 @@ sv:
       debates:
         actions:
           comment: Kommentera
-          create: Skapa
           endorse: Gilla
         name: Debatter
         settings:
