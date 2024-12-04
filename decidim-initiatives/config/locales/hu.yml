@@ -488,7 +488,6 @@ hu:
           other: " aláírások"
         vote_cabin:
           already_voted: Már aláírtad
-          verification_required: Ellenőrizze fiókját, hogy aláírja a kezdeményezést
           vote: Aláírás
           votes_blocked: Aláírás letiltva
         votes_count:
@@ -530,7 +529,6 @@ hu:
           comment: Megjegyzés
       initiatives_type:
         actions:
-          create: Létrehozás
           title: Hozzászólások
           vote: Szavazás
   layouts:
