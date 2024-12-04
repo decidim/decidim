@@ -25,7 +25,6 @@ ja:
       debates:
         actions:
           comment: コメント
-          create: 作成
           endorse: オススメ
         name: ディベート
         settings:
