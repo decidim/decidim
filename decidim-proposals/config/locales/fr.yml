@@ -137,7 +137,7 @@ fr:
         actions:
           amend: Amender
           comment: Commenter
-          create: Créer
+          create: Créer une proposition
           endorse: Soutenir
           vote: Voter
           vote_comment: Vote sur le commentaire
