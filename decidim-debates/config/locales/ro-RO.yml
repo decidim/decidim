@@ -27,7 +27,6 @@ ro:
       debates:
         actions:
           comment: Comentează
-          create: Creează
           endorse: Susține
         name: Dezbateri
         settings:
