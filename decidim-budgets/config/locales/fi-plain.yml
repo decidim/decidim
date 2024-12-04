@@ -96,6 +96,7 @@ fi-pl:
             cancel: Peruuta
             change_budget: Muuta budjettia
             change_selected: Muuta tilaa
+            change_taxonomies: Muuta luokitteluja
             deselect_implementation: Ei valittu toteutukseen
             finished_orders: Valmiit äänet
             pending_orders: Odottavat äänet
@@ -116,10 +117,23 @@ fi-pl:
             invalid: Hankkeen poisto epäonnistui.
             success: Hankkeen päivitys onnistui.
           update_budget:
+            invalid: 'Seuraavat projektit ovat jo samassa budjetissa tai niiden budjetit ylittävät määritellyn budjetin enimmäismäärän: %{errored}.'
             select_a_project: Valitse projekti.
+            success: 'Seuraavien projektien siirtäminen budjettiin %{subject_name} onnistui: %{successful}.'
           update_selected:
+            invalid:
+              selected: 'Seuraavat projektit on jo valittu toteutukseen: %{errored}.'
+              unselected: 'Seuraavia projekteja ei oltu valittu toteutukseen: %{errored}.'
             select_a_project: Valitse hanke.
             select_a_selection: Valitse toteutuksen tila.
+            success:
+              selected: 'Seuraavien projektien valinta toteutukseen onnistui: %{successful}.'
+              unselected: 'Seuraavien projektien poistaminen toteutuksesta onnistui: %{successful}.'
+          update_taxonomies:
+            invalid: 'Luokittelut %{taxonomies} on jo määritelty seuraaville projekteille: %{errored}.'
+            select_a_project: Valitse projekti.
+            select_a_taxonomy: Valitse luokittelu.
+            success: 'Seuraavien projektien määrittely luokitteluihin %{taxonomies} onnistui: %{successful}.'
         proposals_imports:
           create:
             invalid: Ehdotusten tuominen hankkeiksi epäonnistui.
