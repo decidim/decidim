@@ -146,13 +146,5 @@ module Decidim::Budgets
         expect(serialized[:test_field]).to eq("Resource class: Decidim::Budgets::Project")
       end
     end
-
-    def root_url
-      Decidim::Core::Engine.routes.url_helpers.root_url(host:)
-    end
-
-    def host
-      budget.organization.host
-    end
   end
 end
