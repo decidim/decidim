@@ -96,6 +96,7 @@ es-PY:
             cancel: Cancelar
             change_budget: Cambiar presupuesto
             change_selected: Cambiar estado seleccionado
+            change_taxonomies: Cambiar taxonomías
             deselect_implementation: No seleccionado para implementar
             finished_orders: Votos terminados
             pending_orders: Votos pendientes
@@ -116,10 +117,23 @@ es-PY:
             invalid: Se ha producido un error al actualizar este proyecto.
             success: Proyecto actualizado correctamente.
           update_budget:
+            invalid: 'Estos proyectos ya están en el mismo presupuesto o sus presupuestos son superiores al máximo permitido: %{errored}.'
             select_a_project: Por favor, selecciona un proyecto.
+            success: 'Proyectos actualizados correctamente para el presupuesto %{subject_name}: %{successful}.'
           update_selected:
+            invalid:
+              selected: 'Estos proyectos ya han sido seleccionados para ser implementados: %{errored}.'
+              unselected: 'Estos proyectos que aparecían para ser implementados ya han sido deseleccionados: %{errored}.'
             select_a_project: Por favor, selecciona un proyecto.
             select_a_selection: Por favor, seleccione un estado de implementación.
+            success:
+              selected: 'Estos proyectos fueron seleccionados con éxito para ser implementados: %{successful}.'
+              unselected: 'Estos proyectos que aparecían para implementar fueron deseleccionados con éxito: %{successful}.'
+          update_taxonomies:
+            invalid: 'Las taxonomías %{taxonomies} ya estaban asignadas a estos proyectos: %{errored}.'
+            select_a_project: Por favor, selecciona un proyecto.
+            select_a_taxonomy: Por favor, selecciona una taxonomía.
+            success: 'Los proyectos se han actualizado correctamente a las taxonomias "%{taxonomies}": %{successful}.'
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas a proyectos.
