@@ -13,6 +13,7 @@ module Decidim
       let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
       let(:component) { debate.component }
+      let(:new_debate) { described_class.new(debate) }
 
       before do
         debate.update!(taxonomies:)
@@ -133,14 +134,6 @@ module Decidim
           expect(serialized).to include(last_comment_at: debate.last_comment_at)
         end
 
-        it "serializes the last comment by id" do
-          expect(serialized).to include(last_comment_by_id: debate.last_comment_by_id)
-        end
-
-        it "serializes the last comment type" do
-          expect(serialized).to include(last_comment_by_type: debate.last_comment_by_type)
-        end
-
         it "serializes the comments enabled" do
           expect(serialized).to include(comments_enabled: debate.comments_enabled)
         end
@@ -188,6 +181,27 @@ module Decidim
             it "does not serialize the closed at" do
               expect(serialized[:closed_at]).to be_nil
             end
+          end
+        end
+
+        context "when there is a last comment" do
+          let(:last_comment_by) { create(:user, name: "User") }
+          let(:debate) { create(:debate, last_comment_by:) }
+
+          it "serializes the last comment by fields" do
+            expect(serialized[:last_comment_by]).to eq(
+              id: last_comment_by.id,
+              name: "User",
+              url: new_debate.send(:author_url, last_comment_by)
+            )
+          end
+        end
+
+        context "when there is no last comment" do
+          let(:debate) { create(:debate, last_comment_by: nil) }
+
+          it "returns no values" do
+            expect(serialized[:last_comment_by]).to eq({})
           end
         end
       end
