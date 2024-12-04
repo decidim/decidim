@@ -102,7 +102,6 @@ it:
         actions:
           amend: Modificare
           comment: Commento
-          create: Crea
           endorse: Sostieni
           vote_comment: Vota per il commento
           withdraw: Ritirare
