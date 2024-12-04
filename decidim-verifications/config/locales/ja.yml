@@ -124,17 +124,6 @@ ja:
         destroy:
           error: 承認の削除中に問題が発生しました。
           success: 承認を削除しました。
-        first_login:
-          actions:
-            another_dummy_authorization_handler: 認証ハンドラーの別の例に対して検証する
-            csv_census: 組織のセンサスに照らして確認
-            dummy_authorization_handler: 認証ハンドラーの例に対して確認する
-            dummy_authorization_workflow: 認証ワークフローの例に対して確認する
-            id_documents: 本人確認書類をアップロードして認証を取得する
-            postal_letter: 郵便物で確認コードを受信して認証する
-            sms: SMS確認コードを受信して認証を取得する
-          title: 本人確認を行う
-          verify_with_these_options: '本人確認には以下のオプションがあります。'
         index:
           expired_verification: 認証の有効期限が切れました
           granted_verification: 許可された検証
