@@ -26,7 +26,7 @@ ru:
     components:
       debates:
         actions:
-          create: Добавить
+          create: Создать
         name: Обсуждения
         settings:
           global:
