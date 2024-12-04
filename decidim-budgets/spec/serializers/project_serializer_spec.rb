@@ -11,6 +11,7 @@ module Decidim::Budgets
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
     let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: budget.component.organization) }
     let(:project) { create(:project, budget:, taxonomies:) }
+    let(:router) { Decidim::EngineRouter.main_proxy(budget.component) }
 
     subject { described_class.new(project) }
 
@@ -64,16 +65,16 @@ module Decidim::Budgets
         expect(serialized[:comments]).to eq(project.comments.count)
       end
 
-      it "includes the url of the budget" do
-        expect(serialized[:budget_url]).to eq(root_url)
-      end
-
       it "includes the created at" do
         expect(serialized).to include(created_at: project.created_at)
       end
 
       it "includes the url" do
         expect(serialized[:url]).to eq(project.polymorphic_resource_url({}))
+      end
+
+      it "includes the budget URL of the project" do
+        expect(serialized[:budget_url]).to eq(router.budget_url(project.budget))
       end
 
       it "serializes the address" do
