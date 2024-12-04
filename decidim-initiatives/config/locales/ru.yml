@@ -242,6 +242,10 @@ ru:
         expired: Истекшие
     menu:
       initiatives: Почины
+    resources:
+      initiatives_type:
+        actions:
+          create: Создать
   layouts:
     decidim:
       initiative_creation_header:
