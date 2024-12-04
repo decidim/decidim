@@ -314,6 +314,7 @@ sk:
     resources:
       initiatives_type:
         actions:
+          create: Vytvoriť
           title: Akcia
           vote: Hlasovanie
   layouts:
