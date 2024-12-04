@@ -124,17 +124,6 @@ es:
         destroy:
           error: Se ha producido un error al borrar la autorización.
           success: Has borrado la autorización correctamente.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verificar contra otro ejemplo de controlador de autorización
-            csv_census: Verifícate contra el censo de la organización
-            dummy_authorization_handler: Verifícate contra el gestor de autorización de ejemplo
-            dummy_authorization_workflow: Verifícate contra el flujo de autorización de ejemplo
-            id_documents: Verifícate subiendo tu documento de identidad
-            postal_letter: Verifícate recibiendo un código de verificación a través de correo postal
-            sms: Verifícate a través de un código enviado por SMS
-          title: Verifica tu identidad
-          verify_with_these_options: 'Estas son las opciones disponibles para verificar tu identidad:'
         index:
           expired_verification: La verificación ha caducado
           granted_verification: Autorización concedida
