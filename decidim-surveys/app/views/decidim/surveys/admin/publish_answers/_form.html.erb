@@ -8,7 +8,7 @@
             <%= option.label { option.check_box(checked: @form.question_checked?(option.value)) + option.text } %>
             <%= chart_for_question(option.value) %>
           </div>
-          <hr>
+          <hr class="border-gray-3 my-4">
         <% end %>
       </div>
     </div>
