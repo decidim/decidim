@@ -390,6 +390,7 @@ zh-CN:
     resources:
       initiatives_type:
         actions:
+          create: 创建
           title: 行动
           vote: 签名
   layouts:
