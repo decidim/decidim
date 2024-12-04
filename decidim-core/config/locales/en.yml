@@ -22,6 +22,11 @@ en:
         details: Additional comments
       taxonomy:
         name: Taxonomy name
+      taxonomy_filter:
+        internal_name: Internal filter name
+        name: Public filter title
+        root_taxonomy_id: From taxonomy
+        space_filter: Available as filter for participatory spaces
       user:
         about: About
         email: Your email
@@ -429,6 +434,7 @@ en:
           scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
+        explanation: Dummy authorization workflow
         name: Dummy authorization workflow
       errors:
         duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
@@ -1351,6 +1357,14 @@ en:
         message_1: It looks like you are currently offline.
         message_2: Please, try again later.
         retry: Retry
+    onboarding_action_message:
+      click_link: Click here
+      cta_html: <a href="%{path}">%{link_text}</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Your authorization has expired.
+      finish_authorization_process: You can finish the authorization process
+      incomplete_authorization_active_title: Your verification has not been completed with all the necessary information.
+      pending_authorization_active_message: Please complete the form to proceed with this action.
+      pending_authorization_active_title: We need to verify your identity.
     open_data:
       help:
         core:
@@ -1359,6 +1373,11 @@ en:
           main: Core
           spaces: Spaces
           title: Open Data files for %{organization}
+        metrics:
+          cumulative: The total number of the metric at this day
+          day: The day this metric was created
+          metric_type: The type of the metric
+          quantity: The number of the metrics for this day
         moderated_users:
           about: The about field of the user
           block_reasons: The reason why the admin user blocked the user
@@ -1692,7 +1711,7 @@ en:
     tags:
       filter_results_for_taxonomy: 'Filter results for: %{resource}'
     taxonomies:
-      prompt: Select from "%{name}"
+      prompt: Please select an option
     translation_bar:
       help_text: "<strong>Warning:</strong> Content might be automatically translated and not be 100% accurate."
       show_original: Show original text
