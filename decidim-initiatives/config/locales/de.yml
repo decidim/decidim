@@ -551,7 +551,6 @@ de:
           other: " Signaturen"
         vote_cabin:
           already_voted: Schon unterschrieben
-          verification_required: Bestätigen Sie Ihr Konto, um die Initiative zu unterzeichnen
           vote: Signieren
           votes_blocked: Die Anmeldung ist deaktiviert
         votes_count:
@@ -604,7 +603,6 @@ de:
           comment: Kommentar
       initiatives_type:
         actions:
-          create: Erstellen
           title: Aktionen
           vote: Abstimmung
   layouts:
