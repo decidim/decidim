@@ -88,7 +88,6 @@ nl:
         actions:
           amend: Pas aan
           comment: Reactie
-          create: creëren
           endorse: Aanbevelen
           vote: Stem
           vote_comment: Stem op de reactie
