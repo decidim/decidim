@@ -7,7 +7,7 @@
     <div class="card-section p-4">
       <div class="card-divider">
         <% if @form.root_taxonomy.children.any? %>
-          <h2><%= t(".items", count: "<strong class=\"js-filter-children-count\">#{@form.root_taxonomy.all_children.flatten.count}</strong>").html_safe %></h2>
+          <h2><%= t(".items", count: "<strong class=\"js-filter-children-count\">#{@form.root_taxonomy.all_children.count}</strong>").html_safe %></h2>
         <% else %>
           <h2><%= t(".no_items") %></h2>
         <% end %>

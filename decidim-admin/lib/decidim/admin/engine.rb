@@ -51,6 +51,7 @@ module Decidim
         Decidim.icons.register(name: "folder-line", icon: "folder-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "attachment-line", icon: "attachment-line", category: "system", description: "", engine: :admin)
         Decidim.icons.register(name: "delete-bin-2-line", icon: "delete-bin-2-line", category: "system", description: "", engine: :admin)
+        Decidim.icons.register(name: "filter-line", icon: "filter-line", category: "system", description: "", engine: :admin)
       end
 
       initializer "decidim_admin.mime_types" do |_app|

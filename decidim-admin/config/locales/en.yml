@@ -1077,7 +1077,14 @@ en:
           error: There was a problem updating this page.
           success: Page updated successfully.
       taxonomies:
-        actions: Actions
+        actions:
+          actions: Actions
+          destroy: Delete taxonomy & items
+          edit: Edit taxonomy & items
+          filters: Manage filters
+        breadcrumb:
+          edit: Edit taxonomy
+          new: New taxonomy
         count: Associated resources
         create:
           invalid: There was a problem creating this taxonomy.
@@ -1096,7 +1103,7 @@ en:
         filters:
           search_placeholder: Search
         index:
-          description: A taxonomy allows admins categorizing and organizing content. For example, add a taxonomy to classify processes by geographical scope.
+          description: Taxonomies and filters allow administrators to sort and organize content. For example, add a taxonomy with the city's districts and neighborhoods and then create filters only with the districts or for a specific neighborhood.
           new_taxonomy: New taxonomy
           no_items_found: No taxonomies found matching the search criteria.
         name: Name

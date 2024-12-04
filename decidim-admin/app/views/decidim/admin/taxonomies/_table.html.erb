@@ -6,9 +6,13 @@
       <th scope="col" role="columnheader">
         <ul class="taxonomy">
           <li><%= t("decidim.admin.taxonomies.name") %></li>
-          <li><%= taxonomy.blank? ? t("decidim.admin.taxonomies.total_items") : t("decidim.admin.taxonomies.count") %></li>
-          <li><%= t("decidim.admin.taxonomies.total_filters") %></li>
-          <li><%= t("decidim.admin.taxonomies.actions") %></li>
+          <% if taxonomy.blank? %>
+            <li><%= t("decidim.admin.taxonomies.total_items") %></li>
+            <li><%= t("decidim.admin.taxonomies.total_filters") %></li>
+          <% else %>
+            <li><%= t("decidim.admin.taxonomies.count") %></li>
+          <% end %>
+          <li><%= t("decidim.admin.taxonomies.actions.actions") %></li>
         </ul>
       </th>
     </tr>
