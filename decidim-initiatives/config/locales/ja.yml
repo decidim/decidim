@@ -544,7 +544,6 @@ ja:
           other: " 署名"
         vote_cabin:
           already_voted: 既に署名されています
-          verification_required: イニシアチブに署名するにはアカウントを確認してください
           vote: サイン
           votes_blocked: ログインが無効になっています
         votes_count:
@@ -616,7 +615,6 @@ ja:
           comment: コメント
       initiatives_type:
         actions:
-          create: 作成
           title: アクション
           vote: サイン
   layouts:
