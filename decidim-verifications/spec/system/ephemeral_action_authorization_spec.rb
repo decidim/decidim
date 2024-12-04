@@ -150,7 +150,24 @@ describe "ephemeral action authorization" do
               expect(page).to have_link "Log in"
             end
 
-            it "the action is forbidden and the ephemeral session closed verifying with the same verification unique id" do
+            it "the action is forbidden and the ephemeral session closed verifying with the same verification unique id and the same invalid metadata" do
+              visit main_component_path(component)
+
+              click_on "New proposal"
+
+              fill_in :authorization_handler_document_number, with: document_number
+              fill_in :authorization_handler_postal_code, with: postal_code
+              fill_in_datepicker :authorization_handler_birthday_date, with: birthdate
+              select "Scope", from: :authorization_handler_scope_id
+              check :authorization_handler_tos_agreement
+              click_on "Send"
+
+              expect(page).to have_content "You are not authorized to perform this action."
+              expect(page).to have_content "Your guest session has finished"
+              expect(page).to have_link "Log in"
+            end
+
+            it "the action is allowed and the ephemeral session recovered verifying with the same verification unique id and metadata matching the authorization criteria" do
               visit main_component_path(component)
 
               click_on "New proposal"
@@ -161,10 +178,10 @@ describe "ephemeral action authorization" do
               select "Scope", from: :authorization_handler_scope_id
               check :authorization_handler_tos_agreement
               click_on "Send"
+              expect(page).to have_content "You have been successfully authorized"
+              expect(page).to have_content "You have started a guest session, you can now participate"
 
-              expect(page).to have_content "You are not authorized to perform this action."
-              expect(page).to have_content "Your guest session has finished"
-              expect(page).to have_link "Log in"
+              expect(page).to have_css "h1", text: "Create your proposal"
             end
           end
         end
