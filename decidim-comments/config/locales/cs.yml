@@ -42,7 +42,6 @@ cs:
           error: Při hlasování o komentáři došlo k chybě.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Přihlaste se</a> nebo <a href="%{sign_up_url}">vytvořit účet</a> a přidejte svůj komentář.
         form:
           body:
             label: Komentář
