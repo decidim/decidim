@@ -26,7 +26,7 @@ fr-CA:
       debates:
         actions:
           comment: Commenter
-          create: Créer
+          create: Créer un débat
           endorse: Soutenir
         name: Débats
         settings:
