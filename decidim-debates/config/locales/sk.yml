@@ -22,8 +22,6 @@ sk:
   decidim:
     components:
       debates:
-        actions:
-          create: Vytvoriť
         name: Debaty
         settings:
           global:
