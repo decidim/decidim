@@ -554,7 +554,6 @@ ca:
           other: " signatures"
         vote_cabin:
           already_voted: Ja has signat
-          verification_required: Verifica el teu compte per a signar la iniciativa
           vote: Signar
           votes_blocked: S'ha desactivat la signatura
         votes_count:
@@ -636,7 +635,6 @@ ca:
           comment: Comentar
       initiatives_type:
         actions:
-          create: Crear
           title: Accions
           vote: Signar
   layouts:
