@@ -133,7 +133,6 @@ sv:
         actions:
           amend: Ändra
           comment: Kommentera
-          create: Skapa
           endorse: Gilla
           vote: Rösta
           vote_comment: Rösta på en kommentar
