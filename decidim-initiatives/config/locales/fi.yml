@@ -554,7 +554,6 @@ fi:
           other: " allekirjoitusta"
         vote_cabin:
           already_voted: Allekirjoitettu aikaisemmin
-          verification_required: Vahvista tilisi allekirjoittaaksesi aloitteen
           vote: Allekirjoita
           votes_blocked: Allekirjoitus poistettu käytöstä
         votes_count:
@@ -636,7 +635,6 @@ fi:
           comment: Kommentoi
       initiatives_type:
         actions:
-          create: Luo
           title: Toimet
           vote: Allekirjoita
   layouts:
