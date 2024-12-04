@@ -104,7 +104,6 @@ zh-TW:
         actions:
           amend: 修訂
           comment: 評論
-          create: 建立
           endorse: 連署
           vote_comment: 投票評論
           withdraw: 撤回
