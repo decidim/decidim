@@ -529,7 +529,6 @@ lt:
           other: " parašai"
         vote_cabin:
           already_voted: Jau pasirašyta
-          verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
           vote: Pasirašyti
           votes_blocked: Pasirašymas išjungtas
         votes_count:
@@ -582,7 +581,6 @@ lt:
           comment: Komentaras
       initiatives_type:
         actions:
-          create: Sukurti
           title: Veiksmai
           vote: Pasirašyti
   layouts:
