@@ -412,6 +412,7 @@ fr-CA:
           scope_id: Périmètre d'application
         name: Exemple d'autorisation
       dummy_authorization_workflow:
+        explanation: Procédure d'autorisation factice
         name: Procédure d'autorisation factice
       errors:
         duplicate_authorization: Un participant est déjà autorisé avec ces mêmes données. Un administrateur vous contactera pour vérifier vos informations.
@@ -1312,8 +1313,17 @@ fr-CA:
         message_1: On dirait que vous êtes actuellement hors ligne.
         message_2: Veuillez réessayer plus tard.
         retry: Réessayer
+    onboarding_action_message:
+      click_link: Cliquez ici
+      cta_html: <a href="%{path}">%{link_text}</a> pour %{action} dans %{resource_name} <strong>%{resource_title}</strong>
+      pending_authorization_active_message: Veuillez remplir le formulaire pour procéder à cette action.
+      pending_authorization_active_title: Nous devons vérifier votre identité.
     open_data:
       help:
+        metrics:
+          day: Le jour de la création de cette métrique
+          metric_type: Le type de métrique
+          quantity: Le nombre de métriques pour ce jour
         moderated_users:
           about: Le champ "A propos" de l'utilisateur
           block_reasons: La raison pour laquelle l'administrateur a bloqué l'utilisateur
