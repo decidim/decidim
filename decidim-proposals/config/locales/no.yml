@@ -97,7 +97,6 @@
         actions:
           amend: Endre
           comment: Kommentar
-          create: Opprett
           endorse: Påtegne
           vote_comment: Stem på kommentar
           withdraw: Trekk tilbake
