@@ -58,7 +58,7 @@
           & > .documents__container {
             @apply border-t-0 pt-0 mt-0;
 
-             & > :last-child {
+            & > :last-child {
               @apply border-b-0;
             }
           }
