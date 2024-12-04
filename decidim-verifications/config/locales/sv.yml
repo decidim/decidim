@@ -124,17 +124,6 @@ sv:
         destroy:
           error: Det gick inte att ta bort auktoriseringen.
           success: Du har tagit bort auktoriseringen.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verifiera med hjälp av ett annat auktoriseringsverktyg
-            csv_census: Verifiera mot organisationens medlemslista
-            dummy_authorization_handler: Verifiera via exempelbehörighetshanteraren
-            dummy_authorization_workflow: Verifiera med exemplet på arbetsflöde för auktorisering
-            id_documents: Verifiera dig genom att skicka in din identitetshandling
-            postal_letter: Verifiera dig genom att ta emot en verifieringskod via fysiskt brev
-            sms: Bli verifierad genom att få en verifieringskod med SMS
-          title: Verifiera din identitet
-          verify_with_these_options: 'Det här är de tillgängliga alternativen för att verifiera din identitet:'
         index:
           expired_verification: Verifieringen har gått ut
           granted_verification: Beviljad verifiering
