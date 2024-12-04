@@ -38,7 +38,7 @@ fr:
           error: Une erreur s'est produite lors du vote sur le commentaire.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Connectez-vous</a> ou <a href="%{sign_up_url}">créez un compte</a> pour ajouter votre commentaire.
+        account_message: Connectez-vous ou créez un compte pour ajouter votre commentaire.
         form:
           body:
             label: Commentaire
