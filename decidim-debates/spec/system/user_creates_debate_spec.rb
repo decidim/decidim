@@ -87,6 +87,15 @@ describe "User creates debate" do
             end
             expect(page).to have_content("Validation error!")
           end
+
+          context "when attaching an invalid file format" do
+            it "shows an error message" do
+              dynamically_attach_file(:debate_documents, Decidim::Dev.asset("participatory_text.odt"), keep_modal_open: true) do
+                expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
+              end
+              expect(page).to have_content("Validation error! Check that the file has an allowed extension or size.")
+            end
+          end
         end
 
         context "and rich_editor_public_view component setting is enabled" do

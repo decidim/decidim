@@ -29,7 +29,8 @@ describe Decidim::Debates::Admin::UpdateDebate do
       comments_enabled: true,
       attachment: attachment_params,
       add_documents: uploaded_files,
-      documents: current_files
+      documents: current_files,
+      errors: ActiveModel::Errors.new(self)
     )
   end
   let(:invalid) { false }
@@ -69,7 +70,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
     end
   end
 
-  context "when everything is ok with attachments" do
+  context "when debate with attachments" do
     let(:uploaded_files) do
       [
         { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
@@ -85,6 +86,21 @@ describe Decidim::Debates::Admin::UpdateDebate do
 
       debate_attachments = debate.attachments
       expect(debate_attachments.count).to eq(2)
+    end
+
+    context "when attachments are invalid" do
+      let(:uploaded_files) do
+        [
+          { file: upload_test_file(Decidim::Dev.test_file("participatory_text.odt", "application/vnd.oasis.opendocument.text")) }
+        ]
+      end
+
+      it "broadcasts invalid" do
+        expect do
+          subject.call
+          debate.reload
+        end.not_to change(debate.attachments, :count)
+      end
     end
   end
 end

@@ -30,7 +30,8 @@ describe Decidim::Debates::Admin::CreateDebate do
       finite:,
       comments_enabled: true,
       add_documents: attachments,
-      documents: []
+      documents: [],
+      errors: ActiveModel::Errors.new(self)
     )
   end
   let(:finite) { true }
@@ -124,7 +125,7 @@ describe Decidim::Debates::Admin::CreateDebate do
     end
   end
 
-  context "when everything is ok with attachments" do
+  context "when debate with attachments" do
     let(:debate) { Decidim::Debates::Debate.last }
     let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates", settings: { "attachments_allowed" => true }) }
     let(:attachments) do
@@ -140,6 +141,20 @@ describe Decidim::Debates::Admin::CreateDebate do
 
       debate_attachments = debate.attachments
       expect(debate_attachments.count).to eq(2)
+    end
+
+    context "when attachments are invalid" do
+      let(:attachments) do
+        [
+          { file: upload_test_file(Decidim::Dev.test_file("participatory_text.odt", "application/vnd.oasis.opendocument.text")) }
+        ]
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+        expect { subject.call }.not_to change(Decidim::Debates::Debate, :count)
+        expect { subject.call }.not_to change(Decidim::Attachment, :count)
+      end
     end
   end
 end

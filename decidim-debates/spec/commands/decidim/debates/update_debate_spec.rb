@@ -114,7 +114,7 @@ describe Decidim::Debates::UpdateDebate do
     end
   end
 
-  context "when everything is ok with attachments" do
+  context "when debate with attachments" do
     let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates", settings: { "attachments_allowed" => true }) }
     let(:uploaded_files) do
       [
@@ -131,6 +131,21 @@ describe Decidim::Debates::UpdateDebate do
 
       debate_attachments = debate.attachments
       expect(debate_attachments.count).to eq(2)
+    end
+
+    context "when attachments are invalid" do
+      let(:uploaded_files) do
+        [
+          { file: upload_test_file(Decidim::Dev.test_file("participatory_text.odt", "application/vnd.oasis.opendocument.text")) }
+        ]
+      end
+
+      it "broadcasts invalid" do
+        expect do
+          subject.call
+          debate.reload
+        end.not_to change(debate.attachments, :count)
+      end
     end
   end
 end

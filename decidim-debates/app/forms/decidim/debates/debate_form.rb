@@ -19,7 +19,6 @@ module Decidim
       validates :title, presence: true
       validates :description, presence: true
       validate :editable_by_user
-      validate :notify_missing_attachment_if_errored
 
       def map_model(debate)
         super
@@ -46,14 +45,6 @@ module Decidim
         return unless debate.respond_to?(:editable_by?)
 
         errors.add(:debate, :invalid) unless debate.editable_by?(current_user)
-      end
-
-      # This method will add an error to the `add_documents` field only if there is
-      # any error in any other field. This is needed because when the form has
-      # an error, the attachment is lost, so we need a way to inform the user of
-      # this problem.
-      def notify_missing_attachment_if_errored
-        errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
       end
     end
   end

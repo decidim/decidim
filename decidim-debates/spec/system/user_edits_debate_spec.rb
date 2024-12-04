@@ -69,13 +69,14 @@ describe "User edits a debate" do
       let(:document_filename) { "Exampledocument.pdf" }
       let(:document_path) { Decidim::Dev.asset(document_filename) }
 
-      it "allows editing my debate", :slow do
+      before do
         visit_component
-
         click_on debate.title.values.first
         find("#dropdown-trigger-resource-#{debate.id}").click
         click_on "Edit"
+      end
 
+      it "allows editing my debate", :slow do
         within ".edit_debate" do
           fill_in :debate_title, with: "Should every organization use Decidim?"
           fill_in :debate_description, with: "Add your comments on whether Decidim is useful for every organization."
@@ -96,6 +97,15 @@ describe "User edits a debate" do
 
         expect(page).to have_css("a[href*='#{document_filename}']")
         expect(page).to have_content("Download file", count: 1)
+      end
+
+      context "when attaching an invalid file format" do
+        it "shows an error message" do
+          dynamically_attach_file(:debate_documents, Decidim::Dev.asset("participatory_text.odt"), keep_modal_open: true) do
+            expect(page).to have_content("Accepted formats: #{Decidim::OrganizationSettings.for(organization).upload_allowed_file_extensions.join(", ")}")
+          end
+          expect(page).to have_content("Validation error! Check that the file has an allowed extension or size.")
+        end
       end
     end
 

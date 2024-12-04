@@ -24,7 +24,8 @@ describe Decidim::Debates::CreateDebate do
       current_component:,
       current_organization: organization,
       add_documents: attachments,
-      documents: []
+      documents: [],
+      errors: ActiveModel::Errors.new(self)
     )
   end
   let(:invalid) { false }
@@ -125,6 +126,20 @@ describe Decidim::Debates::CreateDebate do
       debate_attachments = debate.attachments
       expect(debate_attachments.count).to eq(2)
       expect(debate_attachments.map(&:file).map(&:filename).map(&:to_s)).to contain_exactly("city.jpeg", "Exampledocument.pdf")
+    end
+  end
+
+  context "when attachments are invalid" do
+    let(:attachments) do
+      [
+        { file: upload_test_file(Decidim::Dev.test_file("participatory_text.odt", "application/vnd.oasis.opendocument.text")) }
+      ]
+    end
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+      expect { subject.call }.not_to change(Decidim::Debates::Debate, :count)
+      expect { subject.call }.not_to change(Decidim::Attachment, :count)
     end
   end
 

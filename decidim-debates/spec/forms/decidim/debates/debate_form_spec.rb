@@ -81,18 +81,6 @@ describe Decidim::Debates::DebateForm do
       expect(form).to be_valid
       expect(form.add_documents.count).to eq(2)
     end
-
-    context "when an attachment is invalid" do
-      let(:uploaded_files) do
-        [
-          { file: upload_test_file(Decidim::Dev.asset("invalid_extension.log"), content_type: "text/plain") }
-        ]
-      end
-
-      it "does not add the invalid file to the form" do
-        expect(form.documents).to be_empty
-      end
-    end
   end
 
   describe "map_model" do
