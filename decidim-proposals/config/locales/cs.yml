@@ -158,7 +158,6 @@ cs:
         actions:
           amend: Pozměnit
           comment: Komentář
-          create: Vytvořit
           endorse: Schválit
           vote: Hlasovat
           vote_comment: Komentář hlasování
