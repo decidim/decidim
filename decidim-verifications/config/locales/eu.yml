@@ -124,17 +124,6 @@ eu:
         destroy:
           error: Arazo bat egon da baimena ezabatzean.
           success: Baimena zuzen ezabatu duzu.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Egiaztatu baimenen kudeatzailearen beste adibide baten aurka
-            csv_census: Egiaztatu erakundearen zentsuaren aurka
-            dummy_authorization_handler: Egiaztatu adibide-baimenaren kudeatzailearen aurka
-            dummy_authorization_workflow: Egiaztatu baimenen laneko fluxuaren aurka
-            id_documents: Egiaztatu zure identifikazio dokumentua kargatzen
-            postal_letter: Egiaztatu egiaztapen-kodea posta-posta bidez egiaztatuz
-            sms: Identifikatu zaitez SMS bidez bidalitako kode baten bitartez
-          title: Egiaztatu zure identitatea
-          verify_with_these_options: 'Hauek dira zure identitatea egiaztatzeko erabilgarri dauden aukerak:'
         index:
           expired_verification: Egiaztapena iraungi egin da
           granted_verification: Egiaztapen emana
