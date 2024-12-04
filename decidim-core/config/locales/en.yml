@@ -1373,6 +1373,11 @@ en:
           main: Core
           spaces: Spaces
           title: Open Data files for %{organization}
+        metrics:
+          cumulative: The total number of the metric at this day
+          day: The day this metric was created
+          metric_type: The type of the metric
+          quantity: The number of the metrics for this day
         moderated_users:
           about: The about field of the user
           block_reasons: The reason why the admin user blocked the user
