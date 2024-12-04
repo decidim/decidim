@@ -45,7 +45,6 @@ ga:
         actions:
           amend: Leasaigh
           comment: Tabhair Trácht
-          create: Cruthaigh
           endorse: Formhuinigh
         name: Moltaí
         settings:
