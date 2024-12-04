@@ -538,6 +538,7 @@ pt-BR:
     resources:
       initiatives_type:
         actions:
+          create: Criar
           title: Ações
           vote: Voto
   layouts:
