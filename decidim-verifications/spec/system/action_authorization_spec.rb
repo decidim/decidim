@@ -10,6 +10,7 @@ describe "Action Authorization" do
   let!(:organization) do
     create(:organization, available_authorizations:)
   end
+  let(:available_authorizations) { [] }
 
   let!(:proposal) { create(:proposal, component:) }
 
