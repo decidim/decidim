@@ -333,7 +333,6 @@ lv:
           other: "paraksti"
         vote_cabin:
           already_voted: Jau parakstīta
-          verification_required: Lai parakstītu iniciatīvu, verificējiet savu kontu
           vote: Parakstīt
           votes_blocked: Parakstīšana ir atspējota
       initiatives_mailer:
