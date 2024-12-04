@@ -150,7 +150,6 @@ eu:
         actions:
           amend: Zuzendu
           comment: Iruzkina
-          create: Sortu
           endorse: Atxikitu
           vote: Eman botoa
           vote_comment: Bozkatu iruzkina
