@@ -5,6 +5,8 @@ module Decidim
     module Admin
       # This controller allows the user to update a Page.
       class PublishAnswersController < Admin::ApplicationController
+        include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersUrlHelper
+
         def new
           # FIXME: update to correct permisison
           enforce_permission_to :show, :questionnaire_answers
@@ -21,7 +23,6 @@ module Decidim
 
           @survey ||= survey
           @form = form(Decidim::Forms::Admin::PublishAnswersForm).from_params(params).with_context(current_user:)
-
           Decidim::Surveys::PublishAnswers.call(@form, survey) do
             on(:ok) do
               flash[:notice] = I18n.t("publish_answers.success", scope: "decidim.surveys.admin")
@@ -33,6 +34,10 @@ module Decidim
               render template: :new
             end
           end
+        end
+
+        def questionnaire
+          @questionnaire ||= Decidim::Forms::Questionnaire.find_by(questionnaire_for:)
         end
 
         def questionnaire_for
