@@ -15,8 +15,6 @@ lv:
   decidim:
     components:
       debates:
-        actions:
-          create: Izveidot
         settings:
           global:
             announcement: Paziņojums
