@@ -25,7 +25,6 @@ pt:
       debates:
         actions:
           comment: Comentários
-          create: Criar
           endorse: Apoiar
         name: Debates
         settings:
