@@ -106,8 +106,7 @@ module Decidim
         return [] if spaces.blank?
 
         Decidim::ParticipatorySpacePrivateUser.where(
-          privatable_to_id: spaces.map(&:id),
-          privatable_to_type: spaces.first.class.name
+          privatable_to: spaces,
         ).pluck(:decidim_user_id)
       end
 
