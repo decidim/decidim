@@ -480,6 +480,7 @@ it:
           comment: Commenta
       initiatives_type:
         actions:
+          create: Creare
           title: Azioni
           vote: Firma
   layouts:
