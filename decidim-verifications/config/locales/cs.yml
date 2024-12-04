@@ -124,17 +124,6 @@ cs:
         destroy:
           error: Při odstraňování autorizace došlo k chybě.
           success: Autorizace byla úspěšně odstraněna.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Ověřte proti jinému příkladu pověření pro autorizaci
-            csv_census: Ověřte prostřednictvím členství v organizaci
-            dummy_authorization_handler: Ověřte proti příkladu pověření autorizace
-            dummy_authorization_workflow: Ověřte proti pracovnímu postupu autorizace
-            id_documents: Získejte ověření odesláním dokladu totožnosti
-            postal_letter: Ověřte si, zda obdržíte ověřovací kód poštou
-            sms: Ověřit obdržením SMS ověřovacího kódu
-          title: Potvrďte vaši identitu
-          verify_with_these_options: 'Jsou to dostupné možnosti k ověření totožnosti:'
         index:
           expired_verification: Ověření vypršelo
           granted_verification: Udělené ověření
