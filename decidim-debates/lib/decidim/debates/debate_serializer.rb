@@ -62,8 +62,8 @@ module Decidim
 
         {
           id: debate.last_comment_by.id,
-          name: author_name(debate.last_comment_by),
-          url: author_url(debate.last_comment_by)
+          name: user_name(debate.last_comment_by),
+          url: user_url(debate.last_comment_by)
         }
       end
 
@@ -78,16 +78,16 @@ module Decidim
       def author_fields
         {
           id: resource.author.id,
-          name: author_name(resource.author),
-          url: author_url(resource.author)
+          name: user_name(resource.author),
+          url: user_url(resource.author)
         }
       end
 
-      def author_name(author)
+      def user_name(author)
         translated_attribute(author.name)
       end
 
-      def author_url(author)
+      def user_url(author)
         if author.respond_to?(:nickname)
           profile_url(author) # is a Decidim::User or Decidim::UserGroup
         else
