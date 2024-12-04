@@ -26,7 +26,6 @@
       debates:
         actions:
           comment: Kommenter
-          create: Opprett
           endorse: Påtegne
         name: Innspillstråder
         settings:
