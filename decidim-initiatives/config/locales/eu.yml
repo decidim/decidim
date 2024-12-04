@@ -554,7 +554,6 @@ eu:
           other: " sinadurak"
         vote_cabin:
           already_voted: Dagoeneko sinatuta
-          verification_required: Egiaztatu kontua ekimena sinatzeko
           vote: Saioa
           votes_blocked: Sinadura desgaituta dago
         votes_count:
@@ -636,7 +635,6 @@ eu:
           comment: Egin iruzkina
       initiatives_type:
         actions:
-          create: Sortu
           title: Ekintzak
           vote: Bozkatu
   layouts:
