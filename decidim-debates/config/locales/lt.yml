@@ -28,7 +28,6 @@ lt:
       debates:
         actions:
           comment: Komentaras
-          create: Sukurti
           endorse: Pritarti
         name: Diskusijos
         settings:
