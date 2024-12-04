@@ -32,7 +32,7 @@ pl:
       debates:
         actions:
           comment: Skomentuj
-          create: Tworzenie
+          create: Utwórz
           endorse: Rekomendacje
         name: Debaty
         settings:
