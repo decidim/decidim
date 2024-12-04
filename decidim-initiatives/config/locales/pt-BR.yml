@@ -475,7 +475,6 @@ pt-BR:
           other: " assinaturas"
         vote_cabin:
           already_voted: Já assinadas
-          verification_required: Confirme sua conta para assinar a iniciativa
           vote: Placa
           votes_blocked: Assinatura desativada
         votes_count:
