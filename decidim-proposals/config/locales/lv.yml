@@ -76,7 +76,6 @@ lv:
       proposals:
         actions:
           amend: Grozīt
-          create: Izveidot
           endorse: Atbalstīt
           withdraw: Atsaukt
         name: Priekšlikumi
