@@ -1,5 +1,8 @@
 name: "Pull Request Labeler"
 on:
+  push:
+    branches:
+      - "fix/autolabeler"
   pull_request_target:
     branches-ignore:
       - "chore/l10n*"
