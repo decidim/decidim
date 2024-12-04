@@ -98,7 +98,6 @@ gl:
       proposals:
         actions:
           comment: Comentario
-          create: Crear
           endorse: Endosar
           vote_comment: Votar comentario
           withdraw: Retirar
