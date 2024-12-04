@@ -82,7 +82,6 @@ sk:
       proposals:
         actions:
           amend: Upraviť
-          create: Vytvoriť
           endorse: Schváliť
           withdraw: Vrátiť späť
         name: Návrhy
