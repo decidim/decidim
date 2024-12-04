@@ -80,17 +80,18 @@ module Decidim
     end
 
     def parent_ids
-      @parent_ids ||= parent_id ? parent.parent_ids + [parent_id] : []
+      @parent_ids ||= part_of.excluding(id)
     end
 
     def root? = parent_id.nil?
 
+    # this might change in the future if we want to prevent the deletion of taxonomies with associated resources
     def removable?
       true
     end
 
     def all_children
-      @all_children ||= children.flat_map { |child| [child] + child.all_children }
+      @all_children ||= Decidim::Taxonomy.non_roots.part_of(id)
     end
 
     private

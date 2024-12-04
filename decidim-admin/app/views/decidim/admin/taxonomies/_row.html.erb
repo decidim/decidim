@@ -3,7 +3,8 @@
   <td role="cell">
     <ul class="taxonomy">
       <li><%= link_to translated_attribute(taxonomy.name), taxonomy.root? ? edit_taxonomy_path(taxonomy) : edit_taxonomy_item_path(taxonomy_id: taxonomy.root_taxonomy.id, id: taxonomy.id), class: "js-drawer-editor" %></li>
-      <li><%= taxonomy.root? ? taxonomy.children_count : taxonomy.taxonomizations_count %></li>
+      <li><%= taxonomy.root? ? taxonomy.all_children.count : taxonomy.taxonomizations_count %></li>
+      <li><%= taxonomy.filters_count %></li>
       <li class="taxonomy-list__actions"><%= render "taxonomy_actions", taxonomy: %></li>
     </ul>
     <% if with_children && taxonomy.children.any? %>

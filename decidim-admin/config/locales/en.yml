@@ -1078,7 +1078,6 @@ en:
           success: Page updated successfully.
       taxonomies:
         actions: Actions
-        amount: Number of items
         count: Associated resources
         create:
           invalid: There was a problem creating this taxonomy.
@@ -1110,6 +1109,8 @@ en:
           to_prev_page: Drag over for previous page
         taxonomy_actions:
           confirm_destroy: 'Are you sure you want to delete %{name}? This will also delete all the children items. NOTE: Resources that are using this taxonomy will not be affected but they will lose the reference to this taxonomy.'
+        total_filters: Filters
+        total_items: Items in the taxonomy
         update:
           invalid: There was a problem updating this taxonomy.
           success: Taxonomy updated successfully.
