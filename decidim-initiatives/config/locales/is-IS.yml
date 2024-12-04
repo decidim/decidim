@@ -167,6 +167,10 @@ is:
         expired: Útrunnið
     menu:
       initiatives: Frumkvæði
+    resources:
+      initiatives_type:
+        actions:
+          create: Búa til
   layouts:
     decidim:
       initiative_creation_header:
