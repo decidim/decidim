@@ -49,7 +49,6 @@ uk:
     components:
       proposals:
         actions:
-          create: Додати
           endorse: Підтримати
           vote: Голосувати
           withdraw: Відкликати голос
