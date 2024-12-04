@@ -452,6 +452,7 @@ tr:
     resources:
       initiatives_type:
         actions:
+          create: Oluştur
           title: Eylemler
           vote: İmza
   layouts:
