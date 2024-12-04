@@ -23,7 +23,6 @@ zh-CN:
     components:
       debates:
         actions:
-          create: 创建
           endorse: 批准
         name: 辩论
         settings:
