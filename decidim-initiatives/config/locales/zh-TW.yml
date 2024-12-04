@@ -495,7 +495,6 @@ zh-TW:
           other: " 簽名"
         vote_cabin:
           already_voted: 已簽署
-          verification_required: 驗證您的帳戶以簽署該倡議
           vote: 簽署
           votes_blocked: 簽署已禁用
         votes_count:
@@ -540,7 +539,6 @@ zh-TW:
           comment: 評論
       initiatives_type:
         actions:
-          create: 建立
           title: 操作
           vote: 簽署
   layouts:
