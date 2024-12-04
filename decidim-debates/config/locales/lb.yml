@@ -25,7 +25,6 @@ lb:
       debates:
         actions:
           comment: Kommentar
-          create: Erstellen
           endorse: Bestätigen
         name: Debatten
         settings:
