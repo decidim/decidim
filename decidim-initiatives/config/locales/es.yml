@@ -554,7 +554,6 @@ es:
           other: " firmas"
         vote_cabin:
           already_voted: Ya has firmado
-          verification_required: Verifica tu cuenta para firmar la iniciativa
           vote: Firmar
           votes_blocked: Se ha desactivado la firma
         votes_count:
@@ -636,7 +635,6 @@ es:
           comment: Comentar
       initiatives_type:
         actions:
-          create: Crear
           title: Acciones
           vote: Firmar
   layouts:
