@@ -86,7 +86,6 @@ zh-CN:
       proposals:
         actions:
           amend: 修改：
-          create: 创建
           endorse: 批准
           withdraw: 取款
         name: 建议
