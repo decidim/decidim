@@ -105,7 +105,7 @@ nl:
         actions:
           amend: Pas aan
           comment: Reactie
-          create: creëren
+          create: Creëren
           endorse: Aanbevelen
           vote: Stem
           vote_comment: Stem op de reactie
