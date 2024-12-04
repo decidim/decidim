@@ -40,8 +40,9 @@ module Decidim
           follows_count: debate.follows_count,
           url:,
           last_comment_at: debate.last_comment_at,
-          last_comment_by_id: debate.last_comment_by_id,
-          last_comment_by_type: debate.last_comment_by_type,
+          last_comment_by: {
+            **last_comment_by_fields
+          },
           comments_enabled: debate.comments_enabled,
           conclusions: debate.conclusions,
           closed_at: debate.closed_at,
@@ -55,6 +56,16 @@ module Decidim
 
       attr_reader :debate
       alias resource debate
+
+      def last_comment_by_fields
+        return {} unless debate.last_comment_by
+
+        {
+          id: debate.last_comment_by.id,
+          name: author_name(debate.last_comment_by),
+          url: author_url(debate.last_comment_by)
+        }
+      end
 
       def component
         debate.component
