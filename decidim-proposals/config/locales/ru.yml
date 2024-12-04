@@ -49,7 +49,6 @@ ru:
     components:
       proposals:
         actions:
-          create: Внести
           endorse: Поддержать
           vote: Голосовать
           withdraw: Отозвать
