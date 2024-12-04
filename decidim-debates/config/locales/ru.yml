@@ -22,8 +22,6 @@ ru:
   decidim:
     components:
       debates:
-        actions:
-          create: Добавить
         name: Обсуждения
         settings:
           global:
