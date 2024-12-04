@@ -38,7 +38,6 @@ ca:
           error: S'ha produït un error en votar el comentari.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Inicia sessió</a> o <a href="%{sign_up_url}">crea un compte</a> per afegir el teu comentari.
         form:
           body:
             label: Comentari
