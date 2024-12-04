@@ -19,8 +19,6 @@ id:
   decidim:
     components:
       debates:
-        actions:
-          create: Membuat
         name: Debat
         settings:
           global:
