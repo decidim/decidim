@@ -1,3 +1,15 @@
+"target: developer-experience":
+  - head-branch: ["^refactor"]
+
+"type: feature":
+  - head-branch: ["^feature"]
+
+"type: fix":
+  - head-branch: ["^fix"]
+
+"type: internal":
+  - head-branch: ["^deps", "^chore"]
+
 configuration:
   - changed-files:
       - any-glob-to-any-file:
@@ -6,6 +18,7 @@ configuration:
         - /*.json
         - /*.yml
         - /*.yaml
+
 dependencies:
   - changed-files:
       - any-glob-to-any-file:
@@ -14,6 +27,7 @@ dependencies:
         - Gemfile.lock
         - package.json
         - package-lock.json
+
 javascript:
   - changed-files:
       - any-glob-to-any-file: "*.js"
