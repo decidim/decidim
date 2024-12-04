@@ -368,6 +368,7 @@ el:
     resources:
       initiatives_type:
         actions:
+          create: Δημιουργία
           title: Ενέργειες
           vote: Υπογραφή
   layouts:
