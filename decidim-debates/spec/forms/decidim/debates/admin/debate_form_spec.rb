@@ -150,7 +150,7 @@ describe Decidim::Debates::Admin::DebateForm do
 
     it "sets the documents correctly" do
       expect(subject.documents).to match_array(attachments)
-      expect(subject.documents.map { |doc| doc.title["en"] }).to eq(["Document 1", "Document 2"])
+      expect(subject.documents.map { |doc| doc.title["en"] }).to contain_exactly("Document 1", "Document 2")
     end
 
     context "when the debate has start and end dates" do

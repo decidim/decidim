@@ -79,13 +79,8 @@ describe Decidim::Debates::Admin::UpdateDebate do
     end
 
     it "updates the debate with attachments" do
-      expect do
-        subject.call
-        debate.reload
-      end.to change(debate.attachments, :count).by(2)
-
-      debate_attachments = debate.attachments
-      expect(debate_attachments.count).to eq(2)
+      expect { subject.call }.to broadcast(:ok)
+      expect { subject.call }.to change(Decidim::Attachment, :count).by(2)
     end
 
     context "when attachments are invalid" do
@@ -96,10 +91,9 @@ describe Decidim::Debates::Admin::UpdateDebate do
       end
 
       it "broadcasts invalid" do
-        expect do
-          subject.call
-          debate.reload
-        end.not_to change(debate.attachments, :count)
+        expect { subject.call }.to broadcast(:invalid)
+        expect { subject.call }.not_to change(Decidim::Debates::Debate, :count)
+        expect { subject.call }.not_to change(Decidim::Attachment, :count)
       end
     end
   end

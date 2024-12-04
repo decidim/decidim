@@ -141,10 +141,9 @@ describe Decidim::Debates::UpdateDebate do
       end
 
       it "broadcasts invalid" do
-        expect do
-          subject.call
-          debate.reload
-        end.not_to change(debate.attachments, :count)
+        expect { subject.call }.to broadcast(:invalid)
+        expect { subject.call }.not_to change(Decidim::Debates::Debate, :count)
+        expect { subject.call }.not_to change(Decidim::Attachment, :count)
       end
     end
   end
