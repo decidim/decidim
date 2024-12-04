@@ -187,6 +187,7 @@ module Decidim
     def component
       return permissions_holder if permissions_holder.is_a?(Decidim::Component)
       return if model.blank?
+      return unless model.respond_to?(:component)
 
       model.component
     end
