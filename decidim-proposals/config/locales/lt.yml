@@ -119,7 +119,6 @@ lt:
         actions:
           amend: Pakeisti
           comment: Komentuoti
-          create: Sukurti
           endorse: Palaikyti
           vote_comment: Balsuoti už komentarą
           withdraw: Atsiimti
