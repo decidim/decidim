@@ -21,6 +21,11 @@ es-PY:
         details: Comentarios adicionales
       taxonomy:
         name: Nombre de la taxonomía
+      taxonomy_filter:
+        internal_name: Nombre interno del filtro
+        name: Título púlbico del filtro
+        root_taxonomy_id: Desde la taxonomía
+        space_filter: Disponible como filtro para espacios de participación
       user:
         about: Acerca de
         email: Tu correo electrónico
@@ -1686,6 +1691,8 @@ es-PY:
       users_count: Participantes
     tags:
       filter_results_for_taxonomy: 'Resultados al filtrar por: %{resource}'
+    taxonomies:
+      prompt: Por favor, selecciona una opción
     translation_bar:
       help_text: "<strong>Advertencia:</strong> El contenido puede ser traducido automáticamente y no ser 100% preciso."
       show_original: Mostrar el texto original
