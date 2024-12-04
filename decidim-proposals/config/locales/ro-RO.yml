@@ -105,7 +105,6 @@ ro:
         actions:
           amend: Trimite un amendament
           comment: Comentează
-          create: Creează
           endorse: Susține
           vote_comment: Votează comentariul
           withdraw: Retrage
