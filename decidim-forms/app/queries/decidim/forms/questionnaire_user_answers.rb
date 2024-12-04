@@ -25,9 +25,7 @@ module Decidim
                         .joins(:question)
                         .where(questionnaire: @questionnaire)
 
-        answers = answers.select { |answer| answer.question&.position.present? }
-
-        answers.sort_by { |answer| answer.question.position }.group_by { |a| a.user || a.session_token }.values
+        answers.sort_by { |answer| answer.question.position.to_i }.group_by { |a| a.user || a.session_token }.values
       end
     end
   end
