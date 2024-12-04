@@ -406,7 +406,6 @@ tr:
           other: " imzalar"
         vote_cabin:
           already_voted: Zaten imzalanmış
-          verification_required: Girişimi imzalamak için hesabınızı doğrulayın
           vote: İmza
           votes_blocked: İmzalama devre dışı
         votes_count:
