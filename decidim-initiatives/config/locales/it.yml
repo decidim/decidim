@@ -432,7 +432,6 @@ it:
           other: " firme"
         vote_cabin:
           already_voted: Già firmata
-          verification_required: Verifica il tuo account per firmare l'iniziativa
           vote: Firma
           votes_blocked: Firma disabilitata
         votes_count:
