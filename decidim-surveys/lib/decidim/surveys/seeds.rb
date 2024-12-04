@@ -18,7 +18,7 @@ module Decidim
 
         create_questions!(questionnaire:)
 
-        rand(20).times { create_answers!(questionnaire:) }
+        rand(200).times { create_answers!(questionnaire:) }
       end
 
       def create_component!
@@ -127,7 +127,7 @@ module Decidim
       end
 
       def create_answers!(questionnaire:, user: nil)
-        user = find_or_initialize_user_by(email: "survey-#{questionnaire.id}-#{rand(10_000)}@example.org") if user.nil?
+        user = find_or_initialize_user_by(email: "survey-#{questionnaire.id}-#{rand(100_0000)}@example.org") if user.nil?
 
         answer_options = {
           user:,
@@ -146,6 +146,8 @@ module Decidim
             create_answer_for_matrix_question_type(answer_options.merge({ question: }))
           end
         end
+      rescue ActiveRecord::RecordInvalid
+        # Silently ignore the error as we do not care if the user already exists
       end
 
       def create_answer_for_text_question_type!(options)
