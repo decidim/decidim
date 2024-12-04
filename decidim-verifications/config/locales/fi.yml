@@ -124,17 +124,6 @@ fi:
         destroy:
           error: Vahvistuksen poisto epäonnistui.
           success: Vahvistuksen poisto onnistui.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Vahvista toisella esimerkkivahvistustavalla
-            csv_census: Vahvista organisaation rekisteritietojen avulla
-            dummy_authorization_handler: Vahvista tili esimerkkivahvistustavalla
-            dummy_authorization_workflow: Vahvista esimerkkivahvistustavan työnkulkuprosessin avulla
-            id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
-            postal_letter: Vahvista tilisi paperipostissa lähetettävän vahvistuskoodin avulla
-            sms: Vahvista tilisi tekstiviestillä lähetettävällä vahvistuskoodilla
-          title: Vahvista henkilöllisyytesi
-          verify_with_these_options: 'Käytettävissä olevat tavat vahvistaa identiteettisi:'
         index:
           expired_verification: Vahvistus on erääntynyt
           granted_verification: Hyväksytyt tunnistautumiset
