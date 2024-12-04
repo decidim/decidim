@@ -26,7 +26,6 @@ ca:
       debates:
         actions:
           comment: Comentar
-          create: Crear
           endorse: Adherir-se
         name: Debats
         settings:
