@@ -489,6 +489,7 @@
           comment: Kommenter
       initiatives_type:
         actions:
+          create: Opprett
           title: Handlinger
           vote: Signer
   layouts:
