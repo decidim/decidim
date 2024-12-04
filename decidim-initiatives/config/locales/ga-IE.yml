@@ -159,6 +159,7 @@ ga:
           comment: Tabhair Trácht
       initiatives_type:
         actions:
+          create: Cruthaigh
           title: Gníomhartha
           vote: Sínigh
   layouts:
