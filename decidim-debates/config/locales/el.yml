@@ -26,7 +26,6 @@ el:
       debates:
         actions:
           comment: Σχόλιο
-          create: Δημιουργία
           endorse: Επιδοκιμασία
         name: Συζητήσεις
         settings:
