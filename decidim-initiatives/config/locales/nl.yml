@@ -411,6 +411,7 @@ nl:
           comment: Reactie
       initiatives_type:
         actions:
+          create: creëren
           title: acties
           vote: Onderteken
   layouts:
