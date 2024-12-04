@@ -30,7 +30,7 @@ module Decidim
           budget: { id: project.budget.id },
           budget_title: project.budget.title,
           budget_amount: project.budget_amount,
-          budget_url: root_url,
+          budget_url:,
           confirmed_votes: project.confirmed_orders_count,
           comments: project.comments_count,
           created_at: project.created_at,
@@ -75,6 +75,10 @@ module Decidim
 
       def url
         Decidim::ResourceLocatorPresenter.new(project).url
+      end
+
+      def budget_url
+        Decidim::EngineRouter.main_proxy(component).budget_url(project.budget)
       end
 
       def root_url
