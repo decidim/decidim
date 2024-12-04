@@ -94,6 +94,9 @@ en:
         other: Registrations
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Meetings
       filters:
         accepted_at_not_null:
           label: Accepted

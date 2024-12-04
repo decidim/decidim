@@ -40,15 +40,17 @@ module Decidim
           selected_moderations.first,
           nil,
           extra: {
-            reported_content:,
-            reportable_type: reported_content.values
+            reported_content:
           }
         )
       end
 
       def reported_content
-        @reported_content ||= result[:ok].group_by(&:decidim_reportable_type).transform_values do |moderations|
-          moderations.to_h { |moderation| [moderation.reportable.id, moderation.title] }
+        @reported_content ||= result[:ok].group_by(&:decidim_reportable_type).to_h do |klass, moderations|
+          [
+            klass.split("::").last.downcase.pluralize,
+            moderations.to_h { |moderation| [moderation.reportable.id, moderation.title] }
+          ]
         end
       end
 

@@ -12,6 +12,8 @@ module Decidim
     #    view_helpers # => this comes from the views
     #    ModerationPresenter.new(action_log, view_helpers).present
     class ModerationPresenter < Decidim::Log::BasePresenter
+      include Decidim::TranslatableAttributes
+
       private
 
       def diff_fields_mapping
@@ -23,7 +25,7 @@ module Decidim
 
       def action_string
         case action
-        when "hide", "unreport"
+        when "hide", "unreport", "bulk_hide", "bulk_unhide", "bulk_unreport"
           "decidim.admin_log.moderation.#{action}"
         else
           super
@@ -36,12 +38,45 @@ module Decidim
 
       def i18n_params
         super.merge(
-          resource_type: action_log.extra.dig("extra", "reportable_type").try(:demodulize)
+          resource_type: action_log.extra.dig("extra", "reportable_type").try(:demodulize),
+          reported_count: reported_content.count
         )
       end
 
+      def reported_content
+        action_log.extra.dig("extra", "reported_content") || {}
+      end
+
+      # Overwrite the changeset.
+      def changeset
+        original = changeset_config[:original].call
+
+        Decidim::Log::DiffChangesetCalculator.new(original, changeset_config[:fields], i18n_labels_scope).changeset
+      end
+
+      def changeset_config
+        {
+          original: lambda {
+            reported_content.to_h do |key, items|
+              [
+                I18n.t(key, scope: "decidim.admin.admin_log.changeset", default: key),
+                items.values.map { |title| translated_attribute(title) }
+              ]
+            end
+          },
+          # rubocop:disable Style/MapToHash
+          fields: reported_content.keys.map { |key| [I18n.t(key, scope: "decidim.admin.admin_log.changeset", default: key).to_sym, :string] }.to_h
+          # rubocop:enable Style/MapToHash
+        }
+      end
+
+      # override this as it not depend on the old version
+      def has_diff?
+        diff_actions.include?(action.to_s) && changeset.any?
+      end
+
       def diff_actions
-        super + %w(unreport)
+        super + %w(unreport bulk_hide bulk_unhide bulk_unreport)
       end
     end
   end
