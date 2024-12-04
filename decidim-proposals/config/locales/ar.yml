@@ -118,7 +118,6 @@ ar:
         actions:
           amend: تعديل
           comment: تعليق
-          create: إنشاء
           endorse: تأييد
           vote: تصويت
           vote_comment: التصويت على التعليق
