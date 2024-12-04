@@ -130,7 +130,7 @@ bg:
         actions:
           amend: Промяна
           comment: Коментар
-          create: Създай
+          create: Създаване
           endorse: Одобри
           vote: Поддръжка
           vote_comment: Оцени коментара
