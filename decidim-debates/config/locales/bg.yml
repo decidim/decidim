@@ -26,7 +26,6 @@ bg:
       debates:
         actions:
           comment: Коментар
-          create: Създаване
           endorse: Одобрявам
         name: Дебати
         settings:
