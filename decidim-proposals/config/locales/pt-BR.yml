@@ -105,7 +105,6 @@ pt-BR:
         actions:
           amend: Alterar
           comment: Comentar
-          create: Criar
           endorse: Endossar
           vote: Voto
           vote_comment: Votar no documento
