@@ -30,7 +30,7 @@ it:
       debates:
         actions:
           comment: Commenta
-          create: Creare
+          create: Crea
           endorse: Sottoscrivi
         name: Dibattiti
         settings:
