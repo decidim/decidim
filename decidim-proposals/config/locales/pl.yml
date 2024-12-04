@@ -136,7 +136,6 @@ pl:
         actions:
           amend: Popraw
           comment: Skomentuj
-          create: Tworzenie
           endorse: Rekomendacje
           vote: Głosuj
           vote_comment: Poprzyj komentarz
