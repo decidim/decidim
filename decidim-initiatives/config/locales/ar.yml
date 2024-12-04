@@ -362,6 +362,7 @@ ar:
     resources:
       initiatives_type:
         actions:
+          create: إنشاء
           title: أفعال
           vote: إشارة
   layouts:
