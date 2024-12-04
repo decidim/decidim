@@ -241,6 +241,10 @@ uk:
         expired: Строк дії яких закінчився
     menu:
       initiatives: Почини
+    resources:
+      initiatives_type:
+        actions:
+          create: Створити
   layouts:
     decidim:
       initiative_creation_header:
