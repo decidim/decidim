@@ -263,8 +263,6 @@ en:
           information_updates: The updates that the author has made to the debate
           instructions: Which are the instructions to comment in this debate
           last_comment_at: The date when this debate was commented by the last time
-          last_comment_by_id: The last comment by its author id
-          last_comment_by_type: The last comment by its type
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this debate belongs to
           reference: The unique identifier of the resource in this platform
           start_time: When this debate starts, if it is an open debate and has a limited time
