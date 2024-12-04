@@ -21,8 +21,6 @@ gl:
   decidim:
     components:
       debates:
-        actions:
-          create: Crear
         name: Debates
         settings:
           global:
