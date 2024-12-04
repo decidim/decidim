@@ -367,6 +367,7 @@ lv:
     resources:
       initiatives_type:
         actions:
+          create: Izveidot
           title: Darbības
           vote: Parakstīt
   layouts:
