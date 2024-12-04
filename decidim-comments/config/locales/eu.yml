@@ -38,7 +38,6 @@ eu:
           error: Arazo bat egon da iruzkina bozkatzean.
     components:
       add_comment_form:
-        account_message: Sortu kontu bat <a href="%{sign_in_url}">Log in</a> edo <a href="%{sign_up_url}"> </a> zure iruzkina gehitzeko.
         form:
           body:
             label: Iruzkina
