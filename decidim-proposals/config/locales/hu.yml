@@ -98,7 +98,6 @@ hu:
       proposals:
         actions:
           amend: Módosítás
-          create: Létrehozás
           endorse: Támogatás
           vote: Szavazás
           withdraw: Visszalépés
