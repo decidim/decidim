@@ -4,8 +4,6 @@ namespace :decidim do
   namespace :upgrade do
     desc "Replace legacy migration content"
     task migrations: :environment do
-      logger.warn("Replacing migration contents")
-
       available_modules = {
         "accountability" => "Accountability",
         "admin" => "Admin",
@@ -81,7 +79,7 @@ namespace :decidim do
 
       return if old_source == new_source
 
-      logger.warn("Replacing content of #{File.basename(target_file)}")
+      logger.warn("[Patch migration] Replacing content of #{File.basename(target_file)}")
 
       File.binwrite(target_file, new_source)
     end
