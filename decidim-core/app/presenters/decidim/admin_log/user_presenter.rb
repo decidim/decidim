@@ -29,8 +29,7 @@ module Decidim
           role: I18n.t("models.user.fields.roles.#{user_role}", scope: "decidim.admin"),
           blocked_count: blocked_users.count,
           unblocked_count: unblocked_users.count,
-          unreported_users_count: unreported_users.count,
-          reported_content_count: reported_content.count
+          unreported_users_count: unreported_users.count
         )
       end
 
@@ -44,10 +43,6 @@ module Decidim
 
       def unreported_users
         action_log.extra.dig("extra", "unreported")&.values || []
-      end
-
-      def reported_content
-        action_log.extra.dig("extra", "reported_content")&.values || []
       end
 
       def user_role

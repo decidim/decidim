@@ -68,7 +68,7 @@ module Decidim
       end
 
       def bulk_action
-        Admin::BulkAction.call(current_user, params[:bulk_action], moderations) do
+        Admin::BulkAction.call(current_user, params[:bulk_action], selected_moderations) do
           on(:ok) do |ok, ko|
             flash[:notice] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.success", scope: "decidim.moderations.admin", count_ok: ok.count) if ok.count.positive?
             flash[:alert] = I18n.t("reportable.bulk_action.#{params[:bulk_action]}.failed", scope: "decidim.moderations.admin", errored: ko.join(", ")) if ko.present? && ko.any?
@@ -100,16 +100,16 @@ module Decidim
       # Private: Returns a collection of `Moderation` filtered and/or sorted by
       #          some criteria. The `filtered_collection` is provided by the
       #          `Filterable` concern.
-      # def moderations
-      #   @moderations ||= filtered_collection
-      # end
+      def moderations
+        @moderations ||= filtered_collection
+      end
 
       def reportable
         @reportable ||= participatory_space_moderations.find(params[:id]).reportable
       end
 
-      def moderations
-        @moderations ||= participatory_space_moderations.where(id: params[:moderation_ids])
+      def selected_moderations
+        @selected_moderations ||= participatory_space_moderations.where(id: params[:moderation_ids])
       end
 
       def participatory_space_moderations

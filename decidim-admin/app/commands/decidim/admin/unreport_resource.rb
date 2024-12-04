@@ -23,7 +23,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless @reportable.reported?
 
-        with_traceability ? unreport_with_traceability! : unreport!
+        @with_traceability ? unreport_with_traceability! : unreport!
         broadcast(:ok, @reportable)
       end
 
@@ -38,7 +38,7 @@ module Decidim
             reportable_type: @reportable.class.name
           }
         ) do
-          @reportable.moderation.destroy!
+          unreport!
         end
       end
 

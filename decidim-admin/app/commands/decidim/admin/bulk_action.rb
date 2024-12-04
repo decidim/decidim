@@ -5,10 +5,10 @@ module Decidim
     class BulkAction < Decidim::Command
       # Public: Initializes the command.
 
-      def initialize(user, action, moderations)
+      def initialize(user, action, selected_moderations)
         @user = user
         @action = action
-        @moderations = moderations
+        @selected_moderations = selected_moderations
         @result = { ok: [], ko: [] }
       end
 
@@ -19,17 +19,17 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if reportables.blank?
+        return broadcast(:invalid) if selected_moderations.blank?
 
         process_reportables
-        create_action_log if moderations.first.reportable
+        create_action_log if selected_moderations.first.reportable
 
         broadcast(:ok, **result)
       end
 
       private
 
-      attr_reader :action, :reportables, :user, :result
+      attr_reader :action, :selected_moderations, :user, :result, :with_traceability
 
       def create_action_log
         action_log_type = "bulk_#{action}"
@@ -37,7 +37,7 @@ module Decidim
         Decidim::ActionLogger.log(
           action_log_type,
           user,
-          moderations.first.reportable,
+          selected_moderations.first,
           nil,
           extra: {
             reported_content:,
@@ -47,23 +47,25 @@ module Decidim
       end
 
       def reported_content
-        @reported_content ||= result[:ok].to_h { |moderation| [moderation.reportable.id, moderation.title] }
+        @reported_content ||= result[:ok].group_by(&:decidim_reportable_type).transform_values do |moderations|
+          moderations.to_h { |moderation| [moderation.reportable.id, moderation.title] }
+        end
       end
 
       def process_reportables
-        reportables.each do |reportable|
-          next unless reportable
+        selected_moderations.each do |moderation|
+          next unless moderation
 
-          if reportable.respond_to?(:organization) && reportable.organization != user.organization
-            result[:ko] << reportable
+          if moderation.respond_to?(:organization) && moderation.organization != user.organization
+            result[:ko] << moderation
             next
           end
-          command.call(reportable, user) do
+          command.call(moderation.reportable, user, with_traceability: false) do
             on(:ok) do
-              result[:ok] << reportable
+              result[:ok] << moderation
             end
             on(:invalid) do
-              result[:ko] << reportable
+              result[:ko] << moderation
             end
           end
         end

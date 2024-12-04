@@ -23,7 +23,7 @@ module Decidim
       def call
         return broadcast(:invalid) unless unhideable?
 
-        with_traceability ? unhide_with_traceability! : unhide!
+        @with_traceability ? unhide_with_traceability! : unhide!
         broadcast(:ok, @reportable)
       end
 
@@ -42,7 +42,7 @@ module Decidim
             reportable_type: @reportable.class.name
           }
         ) do
-          @reportable.moderation.update!(hidden_at: nil)
+          unhide!
         end
       end
 
