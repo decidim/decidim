@@ -677,6 +677,7 @@ en:
           show_password: Show password
           shown_password: Your password is shown
         placeholder_email: hi@example.org
+    documents: "%{count} documents"
     doorkeeper:
       authorizations:
         new:
@@ -1783,7 +1784,6 @@ en:
       wizard_header:
         see_steps: see steps
         step_of: Step %{current_step} of %{total_steps}
-    documents: "%{count} documents"
   devise:
     confirmations:
       confirmed: Your email address has been successfully confirmed.
