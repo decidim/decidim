@@ -529,7 +529,6 @@ fr:
           other: " signatures"
         vote_cabin:
           already_voted: Déjà signée
-          verification_required: Vérifiez votre compte pour signer la pétition
           vote: Signer
           votes_blocked: Signatures désactivées
         votes_count:
@@ -581,7 +580,6 @@ fr:
           comment: Commenter
       initiatives_type:
         actions:
-          create: Créer
           title: Actions
           vote: Vote
   layouts:
