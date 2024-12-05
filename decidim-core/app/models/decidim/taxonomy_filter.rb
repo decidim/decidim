@@ -38,59 +38,62 @@ module Decidim
 
       super
     end
-
+    
     # Internal name for this filter, defaults to the root taxonomy name.
     def internal_name
       return root_taxonomy.name if super&.compact_blank.blank?
-
+      
       super
-    end
-
+    end  
+    
     # Components that have this taxonomy filter enabled.
     def components
       @components ||= Decidim::Component.where("(settings->'global'->'taxonomy_filters') @> ?", "\"#{id}\"")
-    end
+    end  
 
+    def filter_taxonomy_ids
+      @filter_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
+    end
+    
     # A memoized taxonomy tree hash filtered according to the filter_items
+
     # that respects the order given by the taxonomies table.
     # The returned hash structure is:
     # {
     #  _object_id_ => {
-    #    taxonomy: _object_,
-    #    children: [
-    #      {
+    #    taxonomy: _object_,  
+    #    children: {
     #        _sub_object_id_: {
-    #          taxonomy: _sub_object_,
-    #          children: [
-    #    ...
+    #          taxonomy: _sub_object_,  
+    #          children: {
+    #    ...  
     # }
     # @returns [Hash] a hash with the taxonomy tree structure.
     def taxonomies
       @taxonomies ||= root_taxonomy
                         .all_children
                         .where(id: filter_taxonomy_ids)
-                        .order(Arel.sql("array_length(part_of, 1) ASC"))
                         .each_with_object({}) do |taxonomy, tree|
                           insert_child(taxonomy, tree)
-                        end
-    end
+                        end  
+    end                    
 
+    private
+    
     def insert_child(taxonomy, tree)
       return if tree[taxonomy.id]
 
-      if tree[taxonomy.parent_id]
-        tree[taxonomy.parent_id][:children] ||= {}
-        insert_child(taxonomy, tree[taxonomy.parent_id][:children])
+      if parent = find_parent(taxonomy, tree)
+        insert_child(taxonomy, parent[:children])
       else
         tree[taxonomy.id] = { taxonomy:, children: {} }
-      end
-    end
+      end  
+    end  
 
-    def filter_taxonomy_ids
-      @filter_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
+    def find_parent(taxonomy, tree)
+      tree[taxonomy.parent_id].presence ||
+        tree.values.detect { |v| find_parent(taxonomy, v[:children]) }
     end
-
-    private
 
     def root_taxonomy_is_root
       return if root_taxonomy&.root?

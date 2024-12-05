@@ -101,12 +101,12 @@ module Decidim
       subject(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
       let(:organization) { root_taxonomy.organization }
 
-      let!(:first_taxonomy) { create(:taxonomy, weight: 1, parent: root_taxonomy, organization:) }
       let!(:second_taxonomy) { create(:taxonomy, weight: 2, parent: root_taxonomy, organization:) }
+      let!(:first_taxonomy) { create(:taxonomy, weight: 1, parent: root_taxonomy, organization:) }
       let!(:third_taxonomy) { create(:taxonomy, weight: 3, parent: root_taxonomy, organization:) }
       let!(:sub_taxonomy) { create(:taxonomy, parent: second_taxonomy, organization:) }
-      let!(:sub_sub_taxonomy) { create(:taxonomy, parent: sub_taxonomy, organization:) }
       let!(:second_sub_taxonomy) { create(:taxonomy, parent: second_taxonomy, organization:) }
+      let!(:sub_sub_taxonomy) { create(:taxonomy, parent: sub_taxonomy, organization:) }
 
       let!(:filter_items) do
         [

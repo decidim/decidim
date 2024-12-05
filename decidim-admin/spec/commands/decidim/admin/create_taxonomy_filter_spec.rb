@@ -72,8 +72,7 @@ module Decidim::Admin
           .with(
             Decidim::TaxonomyFilter,
             form.current_user,
-            hash_including(:root_taxonomy_id, :filter_items, :participatory_space_manifests),
-            hash_including(extra: hash_including(:filter_items_count))
+            hash_including(:root_taxonomy_id, :filter_items, :participatory_space_manifests)
           )
           .and_call_original
 

@@ -51,8 +51,8 @@ module Decidim::Admin
         )
       end
 
-      it "returns all parent filter items" do
-        expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_child.id, taxonomy_grandchild.id, taxonomy_item.id)
+      it "returns the filter items" do
+        expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_item.id)
       end
 
       context "when grandchild is selected" do
@@ -60,8 +60,8 @@ module Decidim::Admin
 
         it { is_expected.to be_valid }
 
-        it "returns all parent filter items" do
-          expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_child.id, taxonomy_grandchild.id)
+        it "returns the filter items" do
+          expect(subject.filter_items.map(&:taxonomy_item_id)).to contain_exactly(taxonomy_grandchild.id)
         end
       end
     end

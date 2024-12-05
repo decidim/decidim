@@ -61,8 +61,7 @@ module Decidim::Admin
           .with(
             taxonomy_filter,
             form.current_user,
-            hash_including(:filter_items),
-            hash_including(extra: hash_including(:filter_items_count))
+            hash_including(:filter_items)
           )
           .and_call_original
 

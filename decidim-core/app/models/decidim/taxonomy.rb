@@ -10,7 +10,7 @@ module Decidim
     include Decidim::Traceable
 
     before_create :set_default_weight
-    before_validation :update_part_of, on: :update
+    before_validation :update_part_of, on: [:update, :create]
     after_create_commit :create_part_of
 
     translatable_fields :name
@@ -92,7 +92,7 @@ module Decidim
     end
 
     def all_children
-      @all_children ||= Decidim::Taxonomy.non_roots.part_of(id)
+      @all_children ||= Decidim::Taxonomy.non_roots.part_of(id).reorder(Arel.sql("array_length(part_of, 1) ASC"), "parent_id ASC", "weight ASC")
     end
 
     private
