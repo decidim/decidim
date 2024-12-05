@@ -101,7 +101,6 @@ hu:
       assemblies:
         create:
           error: Hiba történt az új gyűlés létrehozása során.
-          success: Gyűlés létrehozása sikeres.
         edit:
           update: Frissítés
         index:
