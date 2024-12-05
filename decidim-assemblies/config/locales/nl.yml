@@ -84,7 +84,6 @@ nl:
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep.
-          success: Bijeenkomst is succesvol gecreëerd.
         edit:
           update: Bijwerken
         index:
