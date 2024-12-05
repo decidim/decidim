@@ -28,7 +28,18 @@ module Decidim
       def create
         enforce_permission_to :create, :taxonomy_filters
         add_breadcrumb_item :new, decidim_admin.new_taxonomy_filter_path
-        # ...
+        @form = form(Decidim::Admin::TaxonomyFilterForm).from_params(params)
+        CreateTaxonomyFilter.call(@form) do
+          on(:ok) do
+            flash[:notice] = I18n.t("create.success", scope: "decidim.admin.taxonomy_filters")
+            redirect_to decidim_admin.taxonomy_filters_path(root_taxonomy)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("create.error", scope: "decidim.admin.taxonomy_filters")
+            render :new
+          end
+        end
       end
 
       def edit
@@ -40,7 +51,30 @@ module Decidim
       def update
         enforce_permission_to(:update, :taxonomy_filters, taxonomy_filter:)
         add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_filter_path(taxonomy_filter)
-        # ...
+        @form = form(Decidim::Admin::TaxonomyFilterForm).from_params(params)
+        UpdateTaxonomyFilter.call(@form, taxonomy_filter) do
+          on(:ok) do
+            flash[:notice] = I18n.t("update.success", scope: "decidim.admin.taxonomy_filters")
+            redirect_to decidim_admin.taxonomy_filters_path(root_taxonomy)
+          end
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("update.error", scope: "decidim.admin.taxonomy_filters")
+            render :edit
+          end
+        end
+      end
+
+      def destroy
+        enforce_permission_to(:destroy, :taxonomy_filter, taxonomy_filter:)
+        DestroyTaxonomyFilter.call(taxonomy_filter, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("destroy.success", scope: "decidim.admin.taxonomy_filters")
+          end
+          on(:invalid) do
+            flash[:alert] = I18n.t("destroy.error", scope: "decidim.admin.taxonomy_filters")
+          end
+        end
+        redirect_back(fallback_location: decidim_admin.taxonomy_filters_path(root_taxonomy))
       end
 
       private

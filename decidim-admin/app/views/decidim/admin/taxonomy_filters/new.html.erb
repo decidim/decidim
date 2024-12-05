@@ -10,7 +10,7 @@
 </div>
 
 <div class="item__edit-form">
-  <%= decidim_form_for(@form, html: { class: "form form-defaults new_taxonomy_filter_" }) do |f| %>
+  <%= decidim_form_for(@form, url: taxonomy_filters_path(root_taxonomy), html: { class: "form form-defaults new_taxonomy_filter_" }) do |f| %>
     <%= render partial: "decidim/admin/taxonomy_filters/form", object: f %>
 
     <div class="item__edit-sticky">
@@ -23,13 +23,10 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    var form = document.querySelector(".new_taxonomy_filter_");
-    var checkBoxes = document.querySelectorAll(".new_taxonomy_filter_ [type='checkbox']");
+    var selectAll = document.querySelector("[name='selectAll']");
 
     // check all checkboxes on load
-    checkBoxes.forEach(function(checkbox) {
-      checkbox.checked = true;
-      checkbox.dispatchEvent(new Event("change"));
-    });
+    selectAll.checked = true;
+    selectAll.dispatchEvent(new Event("change"));
   });
 </script>

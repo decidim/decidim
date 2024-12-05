@@ -87,9 +87,10 @@ module Decidim
     end
 
     def space_manifest_is_registered
-      return if Decidim.participatory_space_manifests.find { |manifest| manifest.name == space_manifest&.to_sym }
+      available_manifests = Decidim.participatory_space_manifests.map(&:name)
+      return if (participatory_space_manifests.map(&:to_sym) - available_manifests).empty?
 
-      errors.add(:space_manifest, :invalid)
+      errors.add(:participatory_space_manifests, :invalid)
     end
   end
 end

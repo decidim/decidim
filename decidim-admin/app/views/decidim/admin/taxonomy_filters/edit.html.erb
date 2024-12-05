@@ -10,7 +10,7 @@
 </div>
 
 <div class="item__edit-form">
-  <%= decidim_form_for(@form, html: { class: "form form-defaults new_taxonomy_filter_" }) do |f| %>
+  <%= decidim_form_for(@form, url: taxonomy_filter_path(root_taxonomy, id: taxonomy_filter), html: { class: "form form-defaults new_taxonomy_filter_" }) do |f| %>
     <%= render partial: "decidim/admin/taxonomy_filters/form", object: f %>
 
     <div class="item__edit-sticky">

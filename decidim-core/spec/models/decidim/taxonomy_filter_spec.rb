@@ -51,10 +51,10 @@ module Decidim
       it { is_expected.not_to be_valid }
     end
 
-    context "when space manifest is missing" do
-      before { taxonomy_filter.space_manifest = nil }
+    context "when participatory space manifests are missing" do
+      before { taxonomy_filter.participatory_space_manifests = [] }
 
-      it { is_expected.not_to be_valid }
+      it { is_expected.to be_valid }
     end
 
     context "when has associations" do
@@ -70,8 +70,8 @@ module Decidim
       let(:participatory_space) { create(:participatory_process, organization: root_taxonomy.organization) }
       let!(:component1) { create(:component, settings: { taxonomy_filters: ids1 }) }
       let!(:component2) { create(:component, participatory_space:, settings: { taxonomy_filters: ids2 }) }
-      let(:taxonomy_filter1) { create(:taxonomy_filter, root_taxonomy:, space_manifest: participatory_space.manifest.name) }
-      let(:taxonomy_filter2) { create(:taxonomy_filter, root_taxonomy:, space_manifest: participatory_space.manifest.name) }
+      let(:taxonomy_filter1) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
+      let(:taxonomy_filter2) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [participatory_space.manifest.name]) }
       let(:ids1) { [taxonomy_filter1.id.to_s] }
       let(:ids2) { [taxonomy_filter1.id.to_s, taxonomy_filter2.id.to_s] }
 
@@ -92,7 +92,7 @@ module Decidim
     end
 
     context "when space manifest is not registered" do
-      subject(:taxonomy_filter) { build(:taxonomy_filter, space_manifest: "dummy_manifest") }
+      subject(:taxonomy_filter) { build(:taxonomy_filter, participatory_space_manifests: ["dummy_manifest"]) }
 
       it { is_expected.not_to be_valid }
     end

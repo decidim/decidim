@@ -2,7 +2,7 @@
   <div class="card pt-4">
     <div class="card-section">
       <div class="row column">
-        <%= form.text_field :root_taxonomy_id, value: translated_attribute(taxonomy_filter.name), disabled: true, class: "w-full" %>
+        <%= form.text_field :root_taxonomy_id, value: translated_attribute(root_taxonomy.name), disabled: true, class: "w-full" %>
         <%= form.hidden_field :root_taxonomy_id %>
       </div>
     </div>
@@ -41,7 +41,7 @@
         <h2><%= t(".space_filter") %></h2>
       </div>
       <div class="row column">
-        <%= form.collection_check_boxes :space_filter, @form.participatory_space_manifests, :id, :name do |b| %>
+        <%= form.collection_check_boxes :participatory_space_manifests, @form.available_participatory_space_manifests, :id, :name do |b| %>
           <div>
             <%= b.label { b.check_box + b.text } %>
           </div>
@@ -65,6 +65,14 @@
       count.innerHTML = checked.length;
     };
 
+    var toggleChildrenSelect = function(checkbox) {
+      var children = document.querySelectorAll(".js-taxonomy-children[data-parent='" + checkbox.value + "'] [type='checkbox'][name='taxonomy_filter[taxonomy_items][]']");
+      children.forEach(function(child) {
+        child.checked = checkbox.checked;
+        toggleChildrenSelect(child);
+      });
+    }
+
     selectAll.checked = notChecked.length === 0;
     selectAll.addEventListener("change", function() {
       checkBoxes.forEach(function(checkbox) {
@@ -76,6 +84,7 @@
     checkBoxes.forEach(function(checkbox) {
       checkbox.addEventListener("change", function() {
         updateCounter();
+        toggleChildrenSelect(checkbox);
       });
     });
 

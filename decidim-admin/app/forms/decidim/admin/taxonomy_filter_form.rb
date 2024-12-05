@@ -6,11 +6,12 @@ module Decidim
     class TaxonomyFilterForm < Form
       include TranslatableAttributes
       Item = Struct.new(:name, :value, :children)
+      Manifest = Struct.new(:id, :name)
 
       attribute :root_taxonomy_id, Integer
       translatable_attribute :name, String
       translatable_attribute :internal_name, String
-      attribute :space_filter, Array, default: false
+      attribute :participatory_space_manifests, Array, default: []
       attribute :taxonomy_items, Array
 
       mimic :taxonomy_filter
@@ -26,6 +27,10 @@ module Decidim
       end
 
       def taxonomy_items
+        super.compact_blank
+      end
+
+      def participatory_space_manifests
         super.compact_blank
       end
 
@@ -51,9 +56,9 @@ module Decidim
         @root_taxonomy ||= current_organization.taxonomies.find_by(id: root_taxonomy_id)
       end
 
-      def participatory_space_manifests
+      def available_participatory_space_manifests
         @participatory_space_manifests ||= Decidim.participatory_space_manifests.map do |manifest|
-          OpenStruct.new(
+          Manifest.new(
             id: manifest.name.to_s,
             name: I18n.t("decidim.admin.taxonomy_filters.space_filter_for.#{manifest.name}")
           )
