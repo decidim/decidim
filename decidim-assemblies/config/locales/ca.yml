@@ -103,7 +103,6 @@ ca:
       assemblies:
         create:
           error: S'ha produït un error en crear una nova assemblea.
-          success: Assemblea creada correctament.
         edit:
           update: Actualitzar
         index:
