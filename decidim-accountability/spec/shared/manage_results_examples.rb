@@ -112,7 +112,7 @@ shared_examples "manage results" do
 
     it "deletes a result" do
       within "tr", text: translated(result2.title) do
-        accept_confirm { click_on "Delete" }
+        accept_confirm { click_on "Soft delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

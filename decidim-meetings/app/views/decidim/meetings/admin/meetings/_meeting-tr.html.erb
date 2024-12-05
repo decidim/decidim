@@ -1,0 +1,42 @@
+<% is_linked = meeting.decidim_component_id != current_component.id %>
+
+<tr data-id="<%= meeting.id %>">
+  <td>
+    <%= meeting.id %><br>
+  </td>
+  <td class="!text-left">
+    <% if allowed_to? :update, :meeting, meeting: meeting %>
+      <%= link_to present(meeting).title(html_escape: true), edit_meeting_path(meeting) %>
+    <% else %>
+      <%= present(meeting).title(html_escape: true) %><br>
+    <% end %>
+  </td>
+  <td>
+    <% if meeting.start_time %>
+      <%= l meeting.start_time, format: :long %>
+    <% end %>
+  </td>
+  <td>
+    <% if meeting.end_time %>
+      <%= l meeting.end_time, format: :long %>
+    <% end %>
+  </td>
+  <td>
+    <%= humanize_boolean meeting.closed? %>
+  </td>
+  <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
+    <td>
+      <%= static_map_link(meeting, {}, { class: "static-map__admin" }) unless meeting.online? %>
+    </td>
+  <% end %>
+  <td>
+    <%= present(meeting).taxonomy_names.join(", ") %>
+  </td>
+  <td class="table-list__actions">
+    <% if is_linked %>
+      <%= t("index.linked_meeting_warning_html", href: edit_meeting_path(meeting), name: present(meeting).space_title, scope: "decidim.meetings.admin.meetings") %>
+    <% else %>
+      <%= render partial: "decidim/meetings/admin/meetings/meeting_actions", locals: { meeting:, view: } %>
+    <% end %>
+  </td>
+</tr>

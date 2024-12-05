@@ -92,6 +92,7 @@ en:
       actions:
         activate: Activate
         configure: Configure
+        confirm_delete_process: Are you sure you want to delete this process? If you change your mind, you can restore it later.
         confirm_destroy: Confirm delete
         destroy: Delete
         duplicate: Duplicate
@@ -109,6 +110,7 @@ en:
         resend_invitation: Resend invitation
         see_process: See process
         unpublish: Unpublish
+        view_deleted_processes: View deleted processes
       filters:
         decidim_participatory_process_group_id_eq:
           label: By process group
@@ -280,6 +282,8 @@ en:
           public: Public
           published: Published
           unpublished: Unpublished
+        manage_trash:
+          title: Deleted participatory processes
         new:
           create: Create
           title: New participatory process
@@ -298,6 +302,9 @@ en:
         participatory_process_groups: Participatory process groups
         participatory_process_types: Participatory process types
         participatory_processes: Participatory processes
+        participatory_processes_deleted: Deleted participatory processes
+      tooltips:
+        deleted_processes_info: A process can only be deleted if status is "Unpublished".
       users:
         resend_invitation:
           error: There was a problem resending the invitation.
@@ -309,6 +316,8 @@ en:
         export: "%{user_name} exported the %{resource_name} participatory process"
         import: "%{user_name} imported the %{resource_name} participatory process"
         publish: "%{user_name} published the %{resource_name} participatory process"
+        restore: "%{user_name} restored the %{resource_name} participatory process"
+        soft_delete: "%{user_name} trashed the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_group:
@@ -369,9 +378,11 @@ en:
         participatory_processes:
           announcement: The announcement (callout) information
           area: The area where the process is taking place
+          created_at: The date this space was created
           description: A long description of the process
           developer_group: The developer group of the process. This is the organization that is promoting the process.
           end_date: The end date of the process
+          follows_count: The number of users following this space
           hashtag: The process hashtag, used for Twitter/X
           id: The unique identifier of this process
           local_area: The local area of the process. This is the organization area where the process is taking place.
@@ -381,6 +392,8 @@ en:
           participatory_scope: The participatory scope of the process
           participatory_structure: The participatory structure of the process. This is how the process is decided.
           promoted: Wheter the process is promoted or not
+          published_at: The date this space was published
+          reference: The unique reference of the space
           remote_hero_image_url: The URL of the process hero image
           scope: The scope of the process
           scopes_enabled: Whether the scopes are enabled or not
@@ -390,6 +403,8 @@ en:
           subtitle: The subtitle of the process
           target: The target of the process. This is who is called to participate in the process.
           title: The process title
+          updated_at: The last date this space was updated
+          url: The URL of the space
     participatory_process_groups:
       content_blocks:
         extra_data:

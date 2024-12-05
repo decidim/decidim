@@ -35,9 +35,16 @@ module Decidim
           },
           progress: result.progress,
           created_at: result.created_at,
+          updated_at: result.updated_at,
           url:,
           component: { id: component.id },
-          proposal_urls: proposals
+          proposal_urls: proposals,
+          reference: result.reference,
+          children_count: result.children_count,
+          comments_count: result.comments_count,
+          address: result.address,
+          latitude: result.latitude,
+          longitude: result.longitude
         }
       end
 
