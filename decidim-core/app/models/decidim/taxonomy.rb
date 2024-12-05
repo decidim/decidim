@@ -42,6 +42,7 @@ module Decidim
     validate :forbid_cycles
 
     default_scope { order(:weight) }
+    scope :for, ->(organization) { where(organization:) }
     scope :roots, -> { where(parent_id: nil) }
     scope :non_roots, -> { where.not(parent_id: nil) }
 

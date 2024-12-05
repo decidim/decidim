@@ -16,8 +16,12 @@ module Decidim
     validate :root_taxonomy_is_root
     validate :space_manifest_is_registered
 
-    scope :for, ->(space_manifest) { where(space_manifest:) }
-    scope :space_filters, -> { where(space_filter: true) }
+    scope :for_manifest, ->(space_manifest) { where("? = ANY(participatory_space_manifests)", space_manifest) }
+    scope :space_filters, -> { where.not(participatory_space_manifests: []) }
+    # filters for the organization
+    scope :for, ->(organization) { joins(:root_taxonomy).where(decidim_taxonomies: { decidim_organization_id: organization.id }) }
+
+    delegate :organization, to: :root_taxonomy
 
     # Returns the presenter class for this log.
     #
@@ -62,15 +66,23 @@ module Decidim
     # }
     # @returns [Hash] a hash with the taxonomy tree structure.
     def taxonomies
-      @taxonomies ||= taxonomy_children(root_taxonomy)
+      @taxonomies ||= root_taxonomy
+                        .all_children
+                        .where(id: filter_taxonomy_ids)
+                        .order(Arel.sql("array_length(part_of, 1) ASC"))
+                        .each_with_object({}) do |taxonomy, tree|
+                          insert_child(taxonomy, tree)
+                        end
     end
 
-    def taxonomy_children(taxonomy)
-      taxonomy.children.where(id: filter_taxonomy_ids).each_with_object({}) do |child, children|
-        children[child.id] = {
-          taxonomy: child,
-          children: taxonomy_children(child)
-        }
+    def insert_child(taxonomy, tree)
+      return if tree[taxonomy.id]
+
+      if tree[taxonomy.parent_id]
+        tree[taxonomy.parent_id][:children] ||= {}
+        insert_child(taxonomy, tree[taxonomy.parent_id][:children])
+      else
+        tree[taxonomy.id] = { taxonomy:, children: {} }
       end
     end
 

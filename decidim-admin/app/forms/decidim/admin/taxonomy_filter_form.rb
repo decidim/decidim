@@ -34,14 +34,8 @@ module Decidim
         super.compact_blank
       end
 
-      def all_taxonomy_items
-        @all_taxonomy_items ||= taxonomy_items.map do |item|
-          find_item_in_tree(item)
-        end.flatten.uniq
-      end
-
       def filter_items
-        all_taxonomy_items.map do |item|
+        taxonomy_items.map do |item|
           Decidim::TaxonomyFilterItem.new(taxonomy_item_id: item)
         end
       end
@@ -66,19 +60,6 @@ module Decidim
       end
 
       private
-
-      def find_item_in_tree(item, collection = items_collection)
-        el = collection.find { |i| i.value == item.to_i }
-        return [el.value] if el
-
-        collection.each do |i|
-          values = find_item_in_tree(item, i.children)
-
-          return [i.value] + values if values.present?
-        end
-
-        []
-      end
 
       def map_items_collection(taxonomy)
         taxonomy.children.map do |item|

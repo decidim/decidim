@@ -78,7 +78,7 @@ module Decidim
             label_tag(name, t(name, scope: i18n_scope)) +
               content_tag(:p) do
                 content_tag(:span, t("no_taxonomy_filters_found", scope: i18n_scope), class: "text-gray mr-2") +
-                  link_to(t("define_taxonomy_filters", scope: i18n_scope), participatory_space_taxonomy_filters_path, class: "button button__text-secondary")
+                  link_to(t("define_taxonomy_filters", scope: i18n_scope), decidim_admin.taxonomies_path, class: "button button__text-secondary")
               end.html_safe
           else
             taxonomy_filters(form, name, i18n_scope)
@@ -249,7 +249,7 @@ module Decidim
       end
 
       def current_taxonomy_filters
-        @current_taxonomy_filters ||= TaxonomyFilter.for(current_manifest.name).map do |filter|
+        @current_taxonomy_filters ||= TaxonomyFilter.for(current_organization).map do |filter|
           ["#{decidim_sanitize_translated(filter.internal_name)} (#{filter.filter_items_count})", filter.id]
         end
       end
