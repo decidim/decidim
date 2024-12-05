@@ -101,7 +101,6 @@ sv:
       assemblies:
         create:
           error: Det gick inte att skapa ett nytt samråd.
-          success: Samrådet har skapats.
         edit:
           update: Uppdatera
         index:
