@@ -76,7 +76,6 @@ id:
       assemblies:
         create:
           error: Ada kesalahan saat membuat perakitan baru.
-          success: Majelis berhasil dibuat.
         edit:
           update: Memperbarui
         index:
