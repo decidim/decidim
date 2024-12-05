@@ -103,7 +103,6 @@ fi-pl:
       assemblies:
         create:
           error: Virhe luotaessa uutta ryhmää.
-          success: Ryhmän luonti onnistui.
         edit:
           update: Päivitä
         index:
