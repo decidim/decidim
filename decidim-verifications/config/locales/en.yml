@@ -125,17 +125,6 @@ en:
         destroy:
           error: There was a problem deleting the authorization.
           success: You have successfully deleted the authorization.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verify against another example of authorization handler
-            csv_census: Verify against the organization's census
-            dummy_authorization_handler: Verify against the example authorization handler
-            dummy_authorization_workflow: Verify against the example authorization workflow
-            id_documents: Get verified by uploading your identity document
-            postal_letter: Get verified by receiving a verification code through postal mail
-            sms: Get verified by receiving a SMS verification code
-          title: Verify your identity
-          verify_with_these_options: 'These are the available options to verify your identity:'
         index:
           expired_verification: Verification expired
           granted_verification: Granted verification
@@ -147,6 +136,13 @@ en:
         new:
           authorize: Send
           authorize_with: Verify with %{authorizer}
+        onboarding_pending:
+          completed_verifications: You have been successfully authorized, now you can %{action} in the %{resource_name}
+          granted_verifications: Granted verifications
+          onboarding_message_html: You are almost ready to %{action} on the <strong>%{resource_title}</strong> %{resource_name}. Please verify your account by completing the following authorizations.
+          pending_admin_approval_verifications: Pending admin approval verifications
+          pending_verifications: Pending verifications
+          unauthorized: You are not authorized to %{action} in this resource
         renew_modal:
           cancel: Cancel
           continue: Continue
