@@ -104,7 +104,6 @@ lt:
       assemblies:
         create:
           error: Kuriant naują asamblėją iškilo problema.
-          success: Asamblėja sukurta.
         edit:
           update: Atnaujinti
         index:
