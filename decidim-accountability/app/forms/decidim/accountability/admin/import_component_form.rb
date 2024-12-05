@@ -47,21 +47,31 @@ module Decidim
           end
         end
 
+        def project_already_copied?(original_project)
+          original_project.linked_resources(:results, "included_projects").any? do |result|
+            result.component == current_component
+          end
+        end
+
+        def proposal_already_copied?(original_proposal)
+          original_proposal.linked_resources(:results, "included_proposals").any? do |result|
+            result.component == current_component
+          end
+        end
+
         private
 
         def filtered_budget_projects
           scope = Decidim::Budgets::Project.joins(:budget).selected.where(budget: { component: origin_component })
           scope = filter_taxonomies(scope)
-          scope = scope.reject { |project| project_already_copied?(project) }
-          scope
+          scope.reject { |project| project_already_copied?(project) }
         end
 
         def filtered_proposals
           scope = Decidim::Proposals::Proposal.where(component: origin_component).not_hidden
           scope = scope.where(decidim_proposals_proposal_state_id: proposal_state_id) if proposal_state_id
           scope = filter_taxonomies(scope)
-          scope = scope.reject { |proposal| proposal_already_copied?(proposal) }
-          scope
+          scope.reject { |proposal| proposal_already_copied?(proposal) }
         end
 
         def filter_taxonomies(scope)
@@ -81,18 +91,6 @@ module Decidim
 
             [root_taxonomy_id, [taxonomy_id]]
           end.compact
-        end
-
-        def project_already_copied?(original_project)
-          original_project.linked_resources(:results, "included_projects").any? do |result|
-            result.component == current_component
-          end
-        end
-
-        def proposal_already_copied?(original_proposal)
-          original_proposal.linked_resources(:results, "included_proposals_from_import").any? do |result|
-            result.component == current_component
-          end
         end
       end
     end
