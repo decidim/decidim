@@ -84,7 +84,6 @@ pt:
       assemblies:
         create:
           error: Ocorreu um problema ao criar uma nova reunião.
-          success: Assembléia criada com sucesso.
         edit:
           update: Atualizar
         index:
