@@ -94,7 +94,6 @@ tr:
       assemblies:
         create:
           error: Yeni bir kurul oluştururken bir hata oluştu.
-          success: Kurul başarıyla oluşturuldu.
         edit:
           update: Güncelle
         index:
