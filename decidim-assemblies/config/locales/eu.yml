@@ -103,7 +103,6 @@ eu:
       assemblies:
         create:
           error: Arazo bat egon da beste batzar bat sortzean.
-          success: Batzarra zuzen sortu da.
         edit:
           update: Eguneratu
         index:
