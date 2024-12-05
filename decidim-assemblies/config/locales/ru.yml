@@ -84,7 +84,6 @@ ru:
       assemblies:
         create:
           error: При попытке добавить новое собрание произошла ошибка.
-          success: Собрание успешно добавлено.
         edit:
           update: Обновить
         index:
