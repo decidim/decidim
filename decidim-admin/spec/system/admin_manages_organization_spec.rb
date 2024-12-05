@@ -453,7 +453,7 @@ describe "Admin manages organization", type: :system do
       context "when the admin terms of use content has only a video" do
         let(:organization) { create(:organization, admin_terms_of_use_body: {}) }
 
-        it "saves the content correctly with the video" do
+        before do
           within ".editor" do
             within ".editor .ql-toolbar" do
               find("button.ql-video").click
@@ -463,8 +463,28 @@ describe "Admin manages organization", type: :system do
               find("a.ql-action").click
             end
           end
+        end
+
+        it "saves the content correctly with the video" do
+          click_button "Update"
+
+          organization.reload
+          expect(translated(organization.admin_terms_of_use_body)).to eq(
+            %(<iframe class="ql-video" frameborder="0" allowfullscreen="true" src="https://www.youtube.com/embed/f6JMgJAQ2tc?showinfo=0"></iframe>)
+          )
+        end
+
+        it "does not remove the video" do
+          click_button "Update"
+          expect(page).to have_content("Organization updated successfully")
+
+          # Close the callout for the new update to initiate the callout again
+          within ".callout-wrapper .callout.success" do
+            click_button "×"
+          end
 
           click_button "Update"
+          expect(page).to have_content("Organization updated successfully")
 
           organization.reload
           expect(translated(organization.admin_terms_of_use_body)).to eq(
