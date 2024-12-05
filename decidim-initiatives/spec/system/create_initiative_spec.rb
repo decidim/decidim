@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Initiative" do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
   let(:do_not_require_authorization) { true }
-  let(:authorizations) { %w(dummy_authorization_handler) }
+  let(:authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
   let!(:authorized_user) { create(:user, :confirmed, organization:) }
   let!(:authorization) { create(:authorization, user: authorized_user) }
   let(:login) { true }
@@ -181,15 +181,13 @@ describe "Initiative" do
 
           it "they need to verify" do
             click_on "New initiative"
-            expect(page).to have_content("Authorization required")
+            expect(page).to have_content("We need to verify your identity")
           end
 
           it "they are authorized to create after verifying" do
             click_on "New initiative"
-            click_on 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
             click_on "Send"
-            click_on "New initiative"
             expect(page).to have_content("Review the content of your initiative. ")
           end
         end
@@ -266,7 +264,7 @@ describe "Initiative" do
 
           let(:authorization) { nil }
 
-          it "they are shown an error" do
+          it "they are redirected to authorization form page" do
             click_on "New initiative"
             within "#loginModal" do
               fill_in "Email", with: authorized_user.email
@@ -274,7 +272,38 @@ describe "Initiative" do
               click_on "Log in"
             end
 
-            expect(page).to have_content("You are not authorized to perform this action")
+            expect(page).to have_content("We need to verify your identity")
+            expect(page).to have_content("Verify with Example authorization")
+          end
+        end
+
+        context "and more than one authorization handlers has been activated" do
+          before do
+            initiative_type.create_resource_permission(
+              permissions: {
+                "create" => {
+                  "authorization_handlers" => {
+                    "dummy_authorization_handler" => { "options" => {} },
+                    "another_dummy_authorization_handler" => { "options" => {} }
+                  }
+                }
+              }
+            )
+            visit decidim_initiatives.initiatives_path
+          end
+
+          let(:authorization) { nil }
+
+          it "they are redirected to pending onboarding authorizations page" do
+            click_on "New initiative"
+            within "#loginModal" do
+              fill_in "Email", with: authorized_user.email
+              fill_in "Password", with: "decidim123456789"
+              click_on "Log in"
+            end
+
+            expect(page).to have_content("You are almost ready to create an initiative")
+            expect(page).to have_css("a[data-verification]", count: 2)
           end
         end
       end
@@ -306,7 +335,7 @@ describe "Initiative" do
 
             it "they need to verify" do
               click_on "New initiative"
-              expect(page).to have_css("button[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
+              expect(page).to have_css("a[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
             end
 
             it "they are redirected to the initiative form after verifying" do
@@ -340,16 +369,14 @@ describe "Initiative" do
           it "they need to verify" do
             click_on "New initiative"
             click_on "Verify your account to promote this initiative", match: :first
-            expect(page).to have_content("Authorization required")
+            expect(page).to have_content("We need to verify your identity")
           end
 
           it "they are authorized to create after verifying" do
             click_on "New initiative"
             click_on "Verify your account to promote this initiative", match: :first
-            click_on 'Authorize with "Example authorization"'
             fill_in "Document number", with: "123456789X"
             click_on "Send"
-            click_on(class: "card__highlight", text: translated(initiative_type.title))
             expect(page).to have_content("Review the content of your initiative.")
           end
         end
@@ -405,7 +432,7 @@ describe "Initiative" do
                 click_on "Log in"
               end
 
-              expect(page).to have_css("button[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
+              expect(page).to have_css("a[data-dialog-open=not-authorized-modal]", visible: :all, count: 2)
             end
           end
         end
@@ -436,7 +463,7 @@ describe "Initiative" do
 
             expect(page).to have_content("Create a new initiative")
             click_on "Verify your account to promote this initiative", match: :first
-            expect(page).to have_content("Authorization required")
+            expect(page).to have_content("We need to verify your identity")
           end
         end
       end
