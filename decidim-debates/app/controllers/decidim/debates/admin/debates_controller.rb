@@ -16,7 +16,6 @@ module Decidim
 
         def new
           enforce_permission_to :create, :debate
-
           @form = form(Decidim::Debates::Admin::DebateForm).from_params(
             attachment: form(AttachmentForm).from_params({})
           )
@@ -42,7 +41,6 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :debate, debate:)
-
           @form = form(Decidim::Debates::Admin::DebateForm).from_model(debate)
         end
 

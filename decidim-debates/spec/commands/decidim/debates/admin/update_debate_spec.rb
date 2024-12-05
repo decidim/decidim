@@ -70,7 +70,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
     end
   end
 
-  context "when debate with attachments" do
+  describe "when debate with attachments" do
     let!(:attachment1) { create(:attachment, attached_to: debate, weight: 1, file: file1) }
     let!(:attachment2) { create(:attachment, attached_to: debate, weight: 2, file: file2) }
     let(:file1) { upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }
@@ -107,6 +107,34 @@ describe Decidim::Debates::Admin::UpdateDebate do
         expect { subject.call }.to broadcast(:invalid)
         expect { subject.call }.not_to change(Decidim::Debates::Debate, :count)
         expect { subject.call }.not_to change(Decidim::Attachment, :count)
+      end
+    end
+
+    context "when ActiveRecord::RecordInvalid is raised" do
+      before do
+        allow(debate).to receive(:update!).and_raise(ActiveRecord::RecordInvalid.new(debate))
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+
+      it "does not update the debate" do
+        expect(debate.title.except("machine_translations").values.uniq).not_to eq ["title"]
+      end
+    end
+
+    context "when Decidim::Commands::HookError is raised" do
+      subject { command_instance }
+
+      let(:command_instance) { described_class.new(form, debate) }
+
+      before do
+        allow(command_instance).to receive(:perform!).and_raise(Decidim::Commands::HookError)
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
       end
     end
   end

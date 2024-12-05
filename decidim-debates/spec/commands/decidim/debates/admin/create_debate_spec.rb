@@ -125,7 +125,7 @@ describe Decidim::Debates::Admin::CreateDebate do
     end
   end
 
-  context "when debate with attachments" do
+  describe "when debate with attachments" do
     let(:debate) { Decidim::Debates::Debate.last }
     let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates", settings: { "attachments_allowed" => true }) }
     let(:attachments) do
@@ -154,6 +154,42 @@ describe Decidim::Debates::Admin::CreateDebate do
         expect { subject.call }.to broadcast(:invalid)
         expect { subject.call }.not_to change(Decidim::Debates::Debate, :count)
         expect { subject.call }.not_to change(Decidim::Attachment, :count)
+      end
+    end
+
+    context "when ActiveRecord::RecordInvalid is raised" do
+      before do
+        allow(Decidim::Debates::Debate).to receive(:create!).and_raise(ActiveRecord::RecordInvalid.new(Decidim::Debates::Debate.new))
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+
+      it "does not create a debate" do
+        expect do
+          subject.call
+        end.not_to change(Decidim::Debates::Debate, :count)
+      end
+    end
+
+    context "when Decidim::Commands::HookError is raised" do
+      subject { command_instance }
+
+      let(:command_instance) { described_class.new(form) }
+
+      before do
+        allow(command_instance).to receive(:perform!).and_raise(Decidim::Commands::HookError)
+      end
+
+      it "broadcasts invalid" do
+        expect { subject.call }.to broadcast(:invalid)
+      end
+
+      it "does not create a debate" do
+        expect do
+          subject.call
+        end.not_to change(Decidim::Debates::Debate, :count)
       end
     end
   end
