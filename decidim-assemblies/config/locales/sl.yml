@@ -83,7 +83,6 @@ sl:
       assemblies:
         create:
           error: Pojavila se je težava pri kreiranju združbe.
-          success: Združba uspešno ustvarjena.
         edit:
           update: Posodobi
         index:
