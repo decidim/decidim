@@ -21,7 +21,7 @@ module Decidim
           it "renders the import result form" do
             get :new
             expect(response).to have_http_status(:ok)
-            expect(response).to render_template("decidim/accountability/admin/import_component/new")
+            expect(response).to render_template("decidim/accountability/admin/import_components/new")
           end
         end
       end
