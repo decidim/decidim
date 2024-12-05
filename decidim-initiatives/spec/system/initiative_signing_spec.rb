@@ -90,8 +90,8 @@ describe "Initiative signing" do
 
           within ".initiative__aside" do
             expect(page).to have_content("Sign")
+            click_on "Sign"
           end
-          click_on "Sign"
 
           expect(page).to have_content("You are almost ready to sign on the #{translated_attribute(initiative.title)} initiative")
           expect(page).to have_css("a[data-verification]", count: 2)

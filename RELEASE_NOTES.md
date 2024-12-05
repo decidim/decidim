@@ -120,6 +120,14 @@ bin/rails decidim:upgrade:clean:clean_deleted_users
 
 You can read more about this change on PR [#13624](https://github.com/decidim/decidim/pull/13624).
 
+### 2.8. Fixes on migration files
+
+Since we have introduced the "Soft delete for spaces and components" [#13297](https://github.com/decidim/decidim/pull/13297), we have noticed there are some migrations that are failing as a result of defaults scopes we added.
+To address the issue, we created a script that will update the migration files in your project so that we can fix any migrations that are potentially broken by the code evolution.
+We added as part of the upgrade script, so you do not need to do anything about it.
+
+You can read more about this change on PR [#13690](https://github.com/decidim/decidim/pull/13624).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
