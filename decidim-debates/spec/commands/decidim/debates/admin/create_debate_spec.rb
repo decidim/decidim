@@ -136,8 +136,8 @@ describe Decidim::Debates::Admin::CreateDebate do
     end
 
     it "creates the debate with attachments" do
-      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1)
-      expect { subject.call }.to change(Decidim::Attachment, :count).by(2)
+      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1) & change(Decidim::Attachment, :count).by(2)
+      expect(debate.attachments.map(&:weight)).to eq([1, 2])
 
       debate_attachments = debate.attachments
       expect(debate_attachments.count).to eq(2)

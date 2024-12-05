@@ -71,16 +71,29 @@ describe Decidim::Debates::Admin::UpdateDebate do
   end
 
   context "when debate with attachments" do
+    let!(:attachment1) { create(:attachment, attached_to: debate, weight: 1, file: file1) }
+    let!(:attachment2) { create(:attachment, attached_to: debate, weight: 2, file: file2) }
+    let(:file1) { upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }
+    let(:file2) { upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+    let(:file3) { upload_test_file(Decidim::Dev.asset("city2.jpeg"), content_type: "image/jpeg") }
+
     let(:uploaded_files) do
       [
-        { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
-        { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+        { file: file3 }
       ]
     end
 
     it "updates the debate with attachments" do
-      expect { subject.call }.to broadcast(:ok)
-      expect { subject.call }.to change(Decidim::Attachment, :count).by(2)
+      expect(debate.attachments.count).to eq(2)
+      expect(debate.attachments.map(&:weight)).to eq([1, 2])
+
+      expect do
+        subject.call
+        debate.reload
+      end.to change(debate.attachments, :count).by(1)
+
+      expect(debate.attachments.count).to eq(3)
+      expect(debate.attachments.map(&:weight)).to eq([1, 2, 3])
     end
 
     context "when attachments are invalid" do

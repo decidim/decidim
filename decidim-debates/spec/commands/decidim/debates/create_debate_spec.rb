@@ -120,8 +120,8 @@ describe Decidim::Debates::CreateDebate do
     let(:debate) { Decidim::Debates::Debate.last }
 
     it "creates the debate with attachments" do
-      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1)
-      expect { subject.call }.to change(Decidim::Attachment, :count).by(2)
+      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1) & change(Decidim::Attachment, :count).by(2)
+      expect(debate.attachments.map(&:weight)).to eq([1, 2])
 
       debate_attachments = debate.attachments
       expect(debate_attachments.count).to eq(2)
@@ -140,6 +140,42 @@ describe Decidim::Debates::CreateDebate do
       expect { subject.call }.to broadcast(:invalid)
       expect { subject.call }.not_to change(Decidim::Debates::Debate, :count)
       expect { subject.call }.not_to change(Decidim::Attachment, :count)
+    end
+  end
+
+  describe "when ActiveRecord::RecordInvalid is raised" do
+    before do
+      allow(Decidim::Debates::Debate).to receive(:create!).and_raise(ActiveRecord::RecordInvalid.new(Decidim::Debates::Debate.new))
+    end
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+
+    it "does not create a debate" do
+      expect do
+        subject.call
+      end.not_to change(Decidim::Debates::Debate, :count)
+    end
+  end
+
+  describe "when Decidim::Commands::HookError is raised" do
+    subject { command_instance }
+
+    let(:command_instance) { described_class.new(form) }
+
+    before do
+      allow(command_instance).to receive(:perform!).and_raise(Decidim::Commands::HookError)
+    end
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+
+    it "does not create a debate" do
+      expect do
+        subject.call
+      end.not_to change(Decidim::Debates::Debate, :count)
     end
   end
 

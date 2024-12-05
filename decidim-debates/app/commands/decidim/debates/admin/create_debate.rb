@@ -47,7 +47,7 @@ module Decidim
 
         def run_after_hooks
           @attached_to = resource
-          create_attachments(first_weight: first_attachment_weight) if process_attachments?
+          create_attachments(first_weight: 1) if process_attachments?
 
           Decidim::EventsManager.publish(
             event: "decidim.events.debates.debate_created",
@@ -58,12 +58,6 @@ module Decidim
               type: "participatory_space"
             }
           )
-        end
-
-        private
-
-        def first_attachment_weight
-          resource.documents.count + 1
         end
       end
     end

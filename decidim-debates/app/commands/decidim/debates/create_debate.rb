@@ -40,7 +40,7 @@ module Decidim
 
       def run_after_hooks
         @attached_to = resource
-        create_attachments(first_weight: first_attachment_weight) if process_attachments?
+        create_attachments(first_weight: 1) if process_attachments?
         send_notification_to_author_followers
         send_notification_to_space_followers
         follow_debate
@@ -98,10 +98,6 @@ module Decidim
                       .from_params(followable_gid: resource.to_signed_global_id.to_s)
                       .with_context(current_user: resource.author)
         Decidim::CreateFollow.call(follow_form)
-      end
-
-      def first_attachment_weight
-        resource.documents.count + 1
       end
     end
   end

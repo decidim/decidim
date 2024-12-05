@@ -11,15 +11,13 @@ describe Decidim::Debates::UpdateDebate do
   let(:user) { create(:user, organization:) }
   let(:author) { user }
   let!(:debate) { create(:debate, author:, component: current_component) }
-  let(:attachment_params) { nil }
-  let(:current_files) { [] }
+  let(:current_files) { debate.attachments }
   let(:uploaded_files) { [] }
   let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
       title: "title",
       description: "description",
-      attachment: attachment_params,
       documents: current_files,
       add_documents: uploaded_files,
       taxonomies:,
@@ -152,31 +150,26 @@ describe Decidim::Debates::UpdateDebate do
     let!(:attachment1) { create(:attachment, attached_to: debate, weight: 1, file: file1) }
     let!(:attachment2) { create(:attachment, attached_to: debate, weight: 2, file: file2) }
     let(:file1) { upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }
-    let(:file2) { upload_test_file(Decidim::Dev.asset("city2.jpeg"), content_type: "image/jpeg") }
-    let(:file3) { upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+    let(:file2) { upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+    let(:file3) { upload_test_file(Decidim::Dev.asset("city2.jpeg"), content_type: "image/jpeg") }
 
     let(:uploaded_files) do
       [
-        { file: file1 },
-        { file: file2 },
         { file: file3 }
       ]
     end
 
     it "adds new attachments and calculates correct weights" do
       expect(debate.attachments.count).to eq(2)
-      expect(debate.attachments.first.weight).to eq(1)
+      expect(debate.attachments.map(&:weight)).to eq([1, 2])
 
       expect do
         subject.call
-        expect(subject.send(:first_attachment_weight)).to eq(1)
         debate.reload
       end.to change(debate.attachments, :count).by(1)
 
       expect(debate.attachments.count).to eq(3)
-
-      weights = debate.attachments.map(&:weight)
-      expect(weights).to eq([1, 2, 3])
+      expect(debate.attachments.map(&:weight)).to eq([1, 2, 3])
     end
   end
 

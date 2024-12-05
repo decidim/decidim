@@ -40,12 +40,11 @@ module Decidim
         end
 
         def first_attachment_weight
-          resource.documents.count + 1
+          resource.attachments.count + 1
         end
 
         def run_after_hooks
           @attached_to = resource
-          document_cleanup!(include_all_attachments: true)
           create_attachments(first_weight: first_attachment_weight) if process_attachments?
         end
       end
