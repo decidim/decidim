@@ -35,7 +35,7 @@ module Decidim
           (@form.send_to_private_members ? private_member_ids : nil)
         ].compact
 
-        return recipients if filters.empty?
+        return [] if filters.empty?
 
         recipients.where(id: filters.flatten.uniq)
       end
@@ -47,7 +47,7 @@ module Decidim
       # This will be used to take followers and
       # participants of each ParticipatorySpace
       def spaces
-        return if @form.participatory_space_types.blank?
+        return [] if @form.participatory_space_types.blank?
 
         @spaces ||= @form.participatory_space_types.map do |type|
           next if type.ids.blank?
@@ -106,7 +106,7 @@ module Decidim
         return [] if spaces.blank?
 
         Decidim::ParticipatorySpacePrivateUser.where(
-          privatable_to: spaces,
+          privatable_to: spaces
         ).pluck(:decidim_user_id)
       end
 

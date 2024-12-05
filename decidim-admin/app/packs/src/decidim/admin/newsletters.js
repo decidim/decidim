@@ -20,8 +20,15 @@ $(() => {
 
     // Update hidden field for the checkbox
     const updateHiddenField = ($checkbox) => {
-      const hiddenInput = $checkbox.siblings(`input[name="${$checkbox.attr("name")}"][type="hidden"]`);
-      hiddenInput.val($checkbox.prop("checked")
+      const hiddenInput = $checkbox.closest("label").find(`input[name="${$checkbox.attr("name")}"][type="hidden"]`);
+
+      if (!hiddenInput.length) {
+        return;
+      }
+
+      const isChecked = $checkbox.prop("checked");
+
+      hiddenInput.val(isChecked
         ? "1"
         : "0");
     };
@@ -94,6 +101,11 @@ $(() => {
 
     const updateAll = ($checkbox) => {
       updateHiddenField($checkbox);
+
+      [...globalCheckboxes, ...groupSpecificCheckboxes].forEach(($cb) => {
+        updateHiddenField($cb.find("input[type='checkbox']"));
+      });
+
       ensureAtLeastOneCheckboxSelected();
       updateButtonAndLink();
       updateVisibility();
