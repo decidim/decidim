@@ -160,7 +160,28 @@ If you want to calculate this metric you could run the following command, where 
 
 You can see more details about this change on PR [\#13442](https://github.com/decidim/decidim/pull/13442)
 
-### 3.4. [[TITLE OF THE ACTION]]
+### 3.4. Social login changes
+
+We have changed the icons for the social logins so they align better with the social networks guidelines (Twitter/X, Facebook, and Google). If you do not use any of these social logins you can skip this step.
+
+If on the other hand you have set up this social logins, you can change it by replacing your `config/secrets.yml`:
+
+Where it says:
+
+```yaml
+      icon: google-fill
+```
+
+Now it needs to say
+
+```yaml
+      icon_path: "media/images/google.svg"
+```
+
+You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
+
+
+### 3.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
