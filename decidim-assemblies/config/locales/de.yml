@@ -101,7 +101,6 @@ de:
       assemblies:
         create:
           error: Beim Erstellen eines neuen Gremiums ist ein Fehler aufgetreten.
-          success: Das Gremium wurde erfolgreich erstellt.
         edit:
           update: Aktualisieren
         index:
