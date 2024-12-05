@@ -154,7 +154,7 @@ en:
         actions:
           amend: Amend
           comment: Comment
-          create: Create
+          create: Create a proposal
           endorse: Endorse
           vote: Vote
           vote_comment: Vote comment
