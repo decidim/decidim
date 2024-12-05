@@ -78,7 +78,6 @@ zh-CN:
       assemblies:
         create:
           error: 创建新议会时出现问题。
-          success: 程序集创建成功。
         edit:
           update: 更新
         index:
