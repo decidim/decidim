@@ -45,12 +45,12 @@ module Decidim::Budgets
         expect(serialized[:description]).to include(project.description)
       end
 
-      it "includes the budget id" do
-        expect(serialized[:budget]).to eq(id: project.budget.id)
-      end
-
-      it "includes the budget name" do
-        expect(serialized[:budget_title]).to include(project.budget.title)
+      it "includes the budget" do
+        expect(serialized[:budget]).to eq(
+          id: project.budget.id,
+          title: project.budget.title,
+          url: router.budget_url(project.budget)
+        )
       end
 
       it "includes the budget amount" do
@@ -71,10 +71,6 @@ module Decidim::Budgets
 
       it "includes the url" do
         expect(serialized[:url]).to eq(project.polymorphic_resource_url({}))
-      end
-
-      it "includes the budget URL of the project" do
-        expect(serialized[:budget_url]).to eq(router.budget_url(project.budget))
       end
 
       it "serializes the address" do
