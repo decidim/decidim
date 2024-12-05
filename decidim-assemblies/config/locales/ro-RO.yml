@@ -101,7 +101,6 @@ ro:
       assemblies:
         create:
           error: A apărut o problemă la crearea unui nou tip de grup de lucru.
-          success: Grupul de lucru a fost creat cu succes.
         edit:
           update: Actualizează
         index:
