@@ -100,7 +100,6 @@ ja:
       assemblies:
         create:
           error: 新しい参加スペースの作成中に問題が発生しました。
-          success: 参加スペースが作成されました。
         edit:
           update: 更新
         index:
