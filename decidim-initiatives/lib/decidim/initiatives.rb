@@ -5,6 +5,7 @@ require "decidim/initiatives/api"
 require "decidim/initiatives/engine"
 require "decidim/initiatives/admin_engine"
 require "decidim/initiatives/participatory_space"
+require "decidim/initiatives/signatures"
 
 module Decidim
   module Exporters
