@@ -84,7 +84,6 @@ uk:
       assemblies:
         create:
           error: При спробі додати нові збори сталася помилка.
-          success: Збори успішно додано.
         edit:
           update: Оновити
         index:
