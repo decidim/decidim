@@ -105,7 +105,6 @@ ar:
       assemblies:
         create:
           error: حدثت مشكلة أثناء إنشاء جمعية جديدة.
-          success: تم إنشاء الجمعية بنجاح.
         edit:
           update: تحديث
         index:
