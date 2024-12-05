@@ -72,8 +72,6 @@ is-IS:
         new_assembly: Nýtt þing
         new_assembly_type: Ný þing tegund
       assemblies:
-        create:
-          success: Samkoma búin til með góðum árangri.
         edit:
           update: Uppfæra
         index:
