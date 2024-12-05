@@ -380,9 +380,8 @@ en:
       help:
         projects:
           address: The address of the project (if any)
+          budget: Data regarding the budget of the project
           budget_amount: The total amount of the budget for this project
-          budget_title: The title of the budget
-          budget_url: The URL of the budget
           comments: The number of comments this project has received
           component: The component that the project belongs to
           confirmed_votes: The number of confirmed votes this project has received
