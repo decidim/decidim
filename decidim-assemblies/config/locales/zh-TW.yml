@@ -95,7 +95,6 @@ zh-TW:
       assemblies:
         create:
           error: 建立新大會時發生問題
-          success: 大會創建成功
         edit:
           update: 更新
         index:
