@@ -101,7 +101,6 @@ pt-BR:
       assemblies:
         create:
           error: Ocorreu um erro ao criar uma nova assembleia.
-          success: Assembleia criada com sucesso.
         edit:
           update: Atualizar
         index:
