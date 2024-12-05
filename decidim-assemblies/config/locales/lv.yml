@@ -79,7 +79,6 @@ lv:
       assemblies:
         create:
           error: Jaunas asamblejas izveides laikā radās problēma.
-          success: Asambleja ir veiksmīgi izveidota.
         edit:
           update: Atjaunināt
         index:
