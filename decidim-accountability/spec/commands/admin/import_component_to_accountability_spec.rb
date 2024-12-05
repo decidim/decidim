@@ -3,13 +3,14 @@
 require "spec_helper"
 
 module Decidim::Accountability
-  describe Admin::ImportProjectsToAccountability do
+  describe Admin::ImportComponentToAccountability do
     describe "#call" do
       subject { command.call }
       let(:user) { create(:user, organization:) }
       let(:organization) { create(:organization) }
       let(:participatory_space) { create(:participatory_process, organization:) }
       let(:budget_component) { create(:component, manifest_name: "budgets", participatory_space:) }
+      let(:project) { create(:project, component: budget_component) }
       let(:current_component) { create(:component, manifest_name: "accountability", participatory_space:, published_at: accountability_component_published_at) }
       let(:accountability_component_published_at) { nil }
       let(:command) { described_class.new(form) }
@@ -19,7 +20,7 @@ module Decidim::Accountability
           current_component:,
           origin_component: budget_component,
           origin_component_id: budget_component.id,
-          import_all_selected_projects: true,
+          filtered_items: [project],
           current_user: user
         )
       end
