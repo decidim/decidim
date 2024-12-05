@@ -84,7 +84,6 @@ gl:
       assemblies:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
-          success: Asemblea creada con éxito.
         edit:
           update: Actualización
         index:
