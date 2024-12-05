@@ -58,6 +58,8 @@ module Decidim
 
     # Public: Broadcasts a notification to the author of the resource that has been hidden
     def send_notification_to_author
+      return if affected_users.blank?
+
       data = {
         event: "decidim.events.reports.resource_hidden",
         event_class: Decidim::ResourceHiddenEvent,
@@ -65,7 +67,7 @@ module Decidim
         extra: {
           report_reasons:
         },
-        affected_users: @reportable.try(:authors) || [@reportable.try(:normalized_author)]
+        affected_users:
       }
 
       Decidim::EventsManager.publish(**data)
@@ -85,13 +87,9 @@ module Decidim
         @reportable.try(:touch)
       end
 
-      @reportable.comments.each do |comment|
-        Decidim::HideChildResourcesJob.perform_later(comment)
-      end
-
-      if @reportable.is_a?(Decidim::Comments::Comment)
+      if @reportable.is_a?(Decidim::Comments::Commentable)
         @reportable.comment_threads.each do |comment|
-          Decidim::HideChildResourcesJob.perform_later(comment)
+          Decidim::HideChildResourcesJob.perform_later(comment, @current_user.id)
         end
       end
 
@@ -99,6 +97,10 @@ module Decidim
     end
 
     private
+
+    def affected_users
+      @affected_users ||= (@reportable.try(:authors) || [@reportable.try(:normalized_author)]).select { |author| author.is_a?(Decidim::User) }
+    end
 
     def report_reasons
       @reportable.moderation.reports.pluck(:reason).uniq

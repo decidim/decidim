@@ -731,6 +731,7 @@ en:
             does_not_belong: Does not belong
             hidden_during_block: Hidden while blocking user
             offensive: Offensive
+            parent_hidden: Parent content has been hidden
             spam: Spam
         reports:
           index:

@@ -4,8 +4,9 @@ module Decidim
   class HideChildResourcesJob < ApplicationJob
     queue_as :user_report
 
-    def perform(resource)
+    def perform(resource, user_id)
       spam_user = resource.organization.users.find_or_initialize_by(email: Decidim::Ai::SpamDetection.reporting_user_email)
+      spam_user = resource.organization.users.find(user_id) if spam_user.nil?
 
       tool = Decidim::ModerationTools.new(resource, spam_user)
 
