@@ -11,43 +11,58 @@ class AdminAssembliesListComponent {
   }
 
   bindArrows() {
-    $("[data-arrow-up]").on("click", this._onClickUpArrow);
-    $("[data-arrow-down]").on("click", this._onClickDownArrow);
+    document.querySelectorAll("[data-arrow-up]").forEach((element) => {
+      element.addEventListener("click", this._onClickUpArrow);
+    });
+    document.querySelectorAll("[data-arrow-down]").forEach((element) => {
+      element.addEventListener("click", this._onClickDownArrow);
+    });
   }
 
   unbindArrows() {
-    $("[data-arrow-up]").off("click", this._onClickUpArrow);
-    $("[data-arrow-down]").off("click", this._onClickDownArrow);
+    document.querySelectorAll("[data-arrow-up]").forEach((element) => {
+      element.removeEventListener("click", this._onClickUpArrow);
+    });
+    document.querySelectorAll("[data-arrow-down]").forEach((element) => {
+      element.removeEventListener("click", this._onClickDownArrow);
+    });
   }
 
   _onClickDownArrow(event) {
     event.preventDefault();
 
-    const $target = $(event.currentTarget);
-    const $assembly = $target.closest("[data-assembly-id]");
+    const target = event.currentTarget;
+    const assembly = target.closest("[data-assembly-id]");
+    const upArrow = assembly.querySelector("[data-arrow-up]");
 
-    $target.toggleClass("hidden");
-    $assembly.find("[data-arrow-up]").toggleClass("hidden");
+    target.classList.toggle("hidden");
+    upArrow.classList.toggle("hidden");
   }
 
   _onClickUpArrow(event) {
     event.preventDefault();
 
-    const $target = $(event.currentTarget);
-    const $assembly = $target.closest("[data-assembly-id]");
-    const parentLevel = $assembly.data("level");
+    const target = event.currentTarget;
+    const assembly = target.closest("[data-assembly-id]");
+    const parentLevel = assembly.dataset.level;
+    const downArrow = assembly.querySelector("[data-arrow-down]");
 
-    $target.toggleClass("hidden");
-    $assembly.find("[data-arrow-down]").toggleClass("hidden");
+    target.classList.toggle("hidden");
+    downArrow.classList.toggle("hidden");
 
-    // iterate over all tr elements after the current tr element
-    $assembly.nextAll("tr").each((index, element) => {
-      const currentLevel = $(element).data("level");
+    // Get all following tr elements
+    let nextElement = assembly.nextElementSibling;
+    while (nextElement) {
+      const currentLevel = nextElement.dataset.level;
+      const nextSibling = nextElement.nextElementSibling;
 
       if (currentLevel > parentLevel) {
-        $(element).remove();
+        nextElement.remove();
+      } else {
+        break;
       }
-    });
+      nextElement = nextSibling;
+    }
   }
 }
 
