@@ -109,7 +109,6 @@ cs:
       assemblies:
         create:
           error: Při vytváření nového shromáždění došlo k chybě.
-          success: Shromáždění bylo úspěšně vytvořeno.
         edit:
           update: Aktualizace
         index:
