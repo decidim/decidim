@@ -84,7 +84,6 @@ it:
       assemblies:
         create:
           error: Si è verificato un errore durante la creazione di una nuova assemblea.
-          success: L'assemblea è stata creata con successo.
         edit:
           update: Aggiorna
         index:
