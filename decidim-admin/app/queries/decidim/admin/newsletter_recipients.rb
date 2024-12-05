@@ -20,27 +20,44 @@ module Decidim
       end
 
       def query
-        recipients = Decidim::User.where(organization: @form.current_organization)
-                                  .where.not(newsletter_notifications_at: nil)
-                                  .where.not(email: nil)
-                                  .where.not(confirmed_at: nil)
-                                  .not_deleted
+        recipients = base_recipients
 
         return recipients if @form.send_to_all_users
         return verified_users if @form.send_to_verified_users
 
+        if filters_present?
+          filtered_recipients = apply_filters(recipients)
+          return recipients.none if filtered_recipients.empty?
+
+          return filtered_recipients
+        end
+
+        recipients
+      end
+
+      private
+
+      def base_recipients
+        Decidim::User.where(organization: @form.current_organization)
+                     .where.not(newsletter_notifications_at: nil)
+                     .where.not(email: nil)
+                     .where.not(confirmed_at: nil)
+                     .not_deleted
+      end
+
+      def filters_present?
+        @form.send_to_followers || @form.send_to_participants || @form.send_to_private_members
+      end
+
+      def apply_filters(recipients)
         filters = [
           (@form.send_to_followers ? user_id_of_followers : nil),
           (@form.send_to_participants ? participant_ids : nil),
           (@form.send_to_private_members ? private_member_ids : nil)
         ].compact
 
-        return [] if filters.empty?
-
         recipients.where(id: filters.flatten.uniq)
       end
-
-      private
 
       # Return the ids of the ParticipatorySpace selected
       # in form, grouped by type
