@@ -107,7 +107,6 @@ pl:
       assemblies:
         create:
           error: Podczas tworzenia nowego zespołu wystąpił błąd.
-          success: Zespół został utworzony.
         edit:
           update: Aktualizuj
         index:
