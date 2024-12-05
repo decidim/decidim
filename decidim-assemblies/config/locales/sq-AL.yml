@@ -89,7 +89,6 @@ sq:
       assemblies:
         create:
           error: Ndodhi një gabim gjatë krijimit të asamblesë.
-          success: Asambleja u krijua me sukses.
         edit:
           update: Përditëso
         index:
