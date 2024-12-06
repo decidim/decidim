@@ -181,11 +181,11 @@ module Decidim::Comments
         end
       end
 
-      context "when supports_two_columns_layout? is true" do
+      context "when two_columns_layout? is true" do
         before do
           allow(commentable).to receive(:two_columns_layout?).and_return(true)
           allow(commentable).to receive(:closed?).and_return(false)
-          allow(my_cell).to receive(:supports_two_columns_layout?).and_return(true)
+          allow(my_cell).to receive(:two_columns_layout?).and_return(true)
         end
 
         it "calls render_comments_in_two_columns" do
@@ -202,7 +202,7 @@ module Decidim::Comments
       context "when supports_two_columns_layout? is false" do
         before do
           allow(commentable).to receive(:two_columns_layout?).and_return(false)
-          allow(my_cell).to receive(:supports_two_columns_layout?).and_return(false)
+          allow(my_cell).to receive(:two_columns_layout?).and_return(false)
         end
 
         it "does not call render_comments_in_two_columns" do

@@ -32,7 +32,6 @@ module Decidim
       end
 
       def sorted_comments(comments)
-        # byebug
         top_comment = find_top_comment(comments)
         sorted_comments = comments.where.not(id: top_comment&.id).order(created_at: :asc)
         [top_comment, sorted_comments]

@@ -13,7 +13,6 @@
 const $ = window.$;
 
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior";
-import { screens } from "tailwindcss/defaultTheme"
 
 export default class CommentsComponent {
   constructor($element, config) {

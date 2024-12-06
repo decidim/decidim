@@ -12,7 +12,7 @@
             </span>
           <% end %>
         </h2>
-        <%= render :order_control unless supports_two_columns_layout? %>
+        <%= render :order_control unless two_columns_layout? %>
       </div>
       <%= single_comment_warning %>
       <%= blocked_comments_warning %>

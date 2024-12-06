@@ -71,14 +71,14 @@ en:
             title: Edit debate
             update: Update debate
           form:
+            add_documents: Add documents
+            attachment_legend: "(Optional) Add an attachment"
             comments_visualization: Comments visualization
             comments_warning: Once the first comment is posted, the selected display option cannot be changed.
             debate_type: Debate type
+            edit_documents: Edit documents
             errors:
               comments_layout_locked: You cannot change the comment layout once comments have been posted.
-            add_documents: Add documents
-            attachment_legend: "(Optional) Add an attachment"
-            edit_documents: Edit documents
             finite: Finite (With start and end times)
             open: Open (No start or end times)
             single_column: 'Single column: Comments are displayed in chronological order and can have replies.'

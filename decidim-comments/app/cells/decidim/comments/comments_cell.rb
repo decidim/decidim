@@ -10,7 +10,7 @@ module Decidim
       def render_comments
         return render_single_comment if single_comment?
 
-        supports_two_columns_layout? ? render_comments_in_two_columns : render(:comments_in_single_column)
+        two_columns_layout? ? render_comments_in_two_columns : render(:comments_in_single_column)
       end
 
       def add_comment
@@ -45,8 +45,8 @@ module Decidim
 
       private
 
-      def supports_two_columns_layout?
-        model.respond_to?(:comments_layout) && model.two_columns_layout?
+      def two_columns_layout?
+        model.two_columns_layout?
       end
 
       def render_single_comment
