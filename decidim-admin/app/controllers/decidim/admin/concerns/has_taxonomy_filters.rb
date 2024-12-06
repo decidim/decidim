@@ -8,7 +8,7 @@ module Decidim
 
         included do
           before_action :set_controller_breadcrumb
-          helper_method :collection, :current_taxonomy_filter, :breadcrumb_manage_partial, :root_taxonomies
+          helper_method :collection, :current_taxonomy_filter, :breadcrumb_manage_partial, :root_taxonomies, :participatory_space_manifest
           layout "decidim/admin/taxonomy_filters"
 
           # GET /admin/taxonomy_filters

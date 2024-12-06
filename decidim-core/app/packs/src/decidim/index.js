@@ -78,6 +78,7 @@ import {
   Dialogs
 } from "src/decidim/a11y"
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
+import setOnboardingAction from "src/decidim/onboarding_pending_action"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referenced through a single Decidim.I18n object
@@ -199,6 +200,8 @@ const initializer = (element = document) => {
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
+
+  element.querySelectorAll("[data-onboarding-action]").forEach((elem) => setOnboardingAction(elem))
 
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }
