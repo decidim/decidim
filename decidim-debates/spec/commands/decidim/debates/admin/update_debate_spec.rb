@@ -76,12 +76,8 @@ describe Decidim::Debates::Admin::UpdateDebate do
     let(:file1) { upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") }
     let(:file2) { upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
     let(:file3) { upload_test_file(Decidim::Dev.asset("city2.jpeg"), content_type: "image/jpeg") }
-
-    let(:uploaded_files) do
-      [
-        { file: file3 }
-      ]
-    end
+    let(:current_files) { [attachment1, attachment2] }
+    let(:uploaded_files) { [{ file: file3 }] }
 
     it "updates the debate with attachments" do
       expect(debate.attachments.count).to eq(2)
