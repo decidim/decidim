@@ -49,38 +49,6 @@ export default class CommentsComponent {
         });
       }
       this._initializeSortDropdown();
-      this._handleResize();
-      window.addEventListener("resize", this._handleResize.bind(this));
-    }
-  }
-
-  /**
-   * Handles the logic for mounting the component and managing responsive display.
-   * @public
-   * @returns {void} - Does not return a value
-   */
-  _handleResize() {
-    const desktopContainer = document.getElementById("desktopContainer");
-    const mobileContainer = document.getElementById("mobileContainer");
-
-    if (!desktopContainer || !mobileContainer) {
-      return;
-    }
-
-    if (window.matchMedia(`(min-width: ${screens.md})`).matches) {
-      if (mobileContainer && mobileContainer.parentElement) {
-        mobileContainer.remove();
-      }
-      if (desktopContainer && !desktopContainer.parentElement) {
-        document.body.appendChild(desktopContainer);
-      }
-    } else {
-      if (desktopContainer && desktopContainer.parentElement) {
-        desktopContainer.remove();
-      }
-      if (mobileContainer && !mobileContainer.parentElement) {
-        document.body.appendChild(mobileContainer);
-      }
     }
   }
 
@@ -272,6 +240,11 @@ export default class CommentsComponent {
     this.pollTimeout = setTimeout(() => {
       this._fetchComments();
     }, this.pollingInterval);
+  }
+
+  reloadAllComments() {
+    this._setLoading();
+    this._fetchComments();
   }
 
   /**
