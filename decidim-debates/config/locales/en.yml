@@ -33,6 +33,7 @@ en:
         settings:
           global:
             announcement: Announcement
+            attachments_allowed: Allow attachments
             clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
@@ -70,7 +71,10 @@ en:
             title: Edit debate
             update: Update debate
           form:
+            add_documents: Add documents
+            attachment_legend: "(Optional) Add an attachment"
             debate_type: Debate type
+            edit_documents: Edit documents
             finite: Finite (With start and end times)
             open: Open (No start or end times)
           index:
