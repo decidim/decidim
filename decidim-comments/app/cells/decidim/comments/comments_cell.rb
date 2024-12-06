@@ -46,7 +46,7 @@ module Decidim
       private
 
       def two_columns_layout?
-        model.two_columns_layout?
+        model.try(:two_columns_layout?)
       end
 
       def render_single_comment
