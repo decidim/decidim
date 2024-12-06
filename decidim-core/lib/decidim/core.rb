@@ -620,6 +620,12 @@ module Decidim
         collection: ->(organization) { Decidim::UserGroup.where(organization:).confirmed.not_blocked.includes(avatar_attachment: :blob) },
         serializer: Decidim::Exporters::OpenDataUserGroupSerializer,
         include_in_open_data: true
+      ),
+      CoreDataManifest.new(
+        name: :metrics,
+        collection: ->(organization) { Decidim::Metric.where(organization:) },
+        serializer: Decidim::Exporters::OpenDataMetricSerializer,
+        include_in_open_data: true
       )
     ]
   end
