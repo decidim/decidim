@@ -6,7 +6,26 @@ module Decidim
       # This command is executed when the user creates a Debate from the admin
       # panel.
       class CreateDebate < Decidim::Commands::CreateResource
+        include ::Decidim::MultipleAttachmentsMethods
+
         fetch_form_attributes :taxonomizations, :component, :information_updates, :instructions, :start_time, :end_time, :comments_enabled
+
+        def call
+          return broadcast(:invalid) if invalid?
+
+          if process_attachments?
+            build_attachments
+            return broadcast(:invalid) if attachments_invalid?
+          end
+
+          perform!
+          broadcast(:ok, resource)
+        rescue ActiveRecord::RecordInvalid
+          add_file_attribute_errors!
+          broadcast(:invalid)
+        rescue Decidim::Commands::HookError
+          broadcast(:invalid)
+        end
 
         protected
 
@@ -28,6 +47,9 @@ module Decidim
         end
 
         def run_after_hooks
+          @attached_to = resource
+          create_attachments(first_weight: 1) if process_attachments?
+
           Decidim::EventsManager.publish(
             event: "decidim.events.debates.debate_created",
             event_class: Decidim::Debates::CreateDebateEvent,

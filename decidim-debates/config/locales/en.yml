@@ -33,6 +33,7 @@ en:
         settings:
           global:
             announcement: Announcement
+            attachments_allowed: Allow attachments
             clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
@@ -75,6 +76,9 @@ en:
             debate_type: Debate type
             errors:
               comments_layout_locked: You cannot change the comment layout once comments have been posted.
+            add_documents: Add documents
+            attachment_legend: "(Optional) Add an attachment"
+            edit_documents: Edit documents
             finite: Finite (With start and end times)
             open: Open (No start or end times)
             single_column: 'Single column: Comments are displayed in chronological order and can have replies.'
