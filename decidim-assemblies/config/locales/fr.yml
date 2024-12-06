@@ -103,6 +103,7 @@ fr:
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
+          success: Assemblée créée avec succès. Vous pouvez maintenant ajouter des composants et la configurer.
         edit:
           update: Mettre à jour
         index:
