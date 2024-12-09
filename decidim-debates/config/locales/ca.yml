@@ -255,7 +255,6 @@ ca:
           created_at: La data i l'hora en què es va tancar aquest debat
           description: La descripció del debat
           end_time: Quan acabava aquest debat, si era un debat obert o si tenia un temps limitat per a participar.
-          followers: El número de participants que van seguir aquest debat
           id: L'identificador únic del debat
           information_updates: Les actualitzacions de contingut del debat que va fer l'autora
           instructions: Quines van ser les instruccions per comentar/participar en aquest debat
