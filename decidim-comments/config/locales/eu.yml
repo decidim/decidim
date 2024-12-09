@@ -38,6 +38,7 @@ eu:
           error: Arazo bat egon da iruzkina bozkatzean.
     components:
       add_comment_form:
+        account_message: Sartu edo sortu kontu bat zure iruzkina gehitzeko.
         form:
           body:
             label: Iruzkina
