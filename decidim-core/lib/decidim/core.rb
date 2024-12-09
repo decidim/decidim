@@ -680,6 +680,7 @@ module Decidim
       )
     ]
   end
+
   # Public: Registers a global engine. This method is intended to be used
   # by component engines that also offer unscoped functionality
   #
