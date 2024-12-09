@@ -635,6 +635,7 @@ eu:
           comment: Egin iruzkina
       initiatives_type:
         actions:
+          create: Sortu ekimen bat
           title: Ekintzak
           vote: Bozkatu
   layouts:
