@@ -16,7 +16,7 @@
       @apply flex-col md:grid md:grid-cols-[auto_1fr_1fr] items-center md:gap-0 border-4 border-background rounded overflow-hidden;
 
       > *:nth-child(2) {
-        @apply p-4 md:p-0;
+        @apply p-4;
 
         &:not(:last-child) {
           @apply col-span-2 md:col-auto order-2 md:order-1;
