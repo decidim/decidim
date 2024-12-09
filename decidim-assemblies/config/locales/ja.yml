@@ -100,6 +100,7 @@ ja:
       assemblies:
         create:
           error: 新しい参加スペースの作成中に問題が発生しました。
+          success: 参加スペースが正常に作成されました。これでコンポーネントを追加して設定できます。
         edit:
           update: 更新
         index:
