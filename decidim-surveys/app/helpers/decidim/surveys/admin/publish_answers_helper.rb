@@ -9,7 +9,7 @@ module Decidim
         #
         # @param question_id [Integer] the question id for Decidim:
         def chart_for_question(question_id)
-          question = Decidim::Forms::Question.find(question_id)
+          question = Decidim::Forms::Question.includes(answers: { choices: [ :answer_option, :matrix_row ] }).find(question_id)
 
           case question.question_type
           when "single_option"
