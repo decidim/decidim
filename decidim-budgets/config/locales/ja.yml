@@ -40,6 +40,9 @@ ja:
       actions:
         attachment_collections: フォルダ
         attachments: 添付ファイル
+        confirm_delete_budget: この予算を削除してもよろしいですか？
+        confirm_delete_project: このプロジェクトを削除してもよろしいですか？
+        deleted_budgets_info: 削除された予算はゴミ箱から復元できます。
         edit: 編集
         edit_projects: プロジェクトの管理...
         import: プロジェクトへの提案をインポート
@@ -48,6 +51,8 @@ ja:
         preview: プレビュー
         send_voting_reminders: 投票リマインダーを送信
         title: アクション
+        view_deleted_budgets: 削除された予算を表示
+        view_deleted_projects: 削除されたプロジェクトを表示
       admin:
         budgets:
           create:
@@ -62,6 +67,8 @@ ja:
             title: 予算
             users_with_finished_orders: 投票済みのユーザー
             users_with_pending_orders: 投票保留中のユーザー
+          manage_trash:
+            title: 削除された予算
           new:
             create: 予算を作成する
             title: 新しい予算
@@ -87,6 +94,7 @@ ja:
             cancel: キャンセル
             change_budget:
             change_selected: 選択した状態を変更
+            change_taxonomies: タクソノミーを変更
             deselect_implementation: 実装から選択解除
             finished_orders: 完了した投票
             pending_orders: 保留中の投票
@@ -98,6 +106,8 @@ ja:
             title: プロジェクト
             update: 更新
             update_budget_button: プロジェクトの予算を更新
+          manage_trash:
+            title: 削除されたプロジェクト
           new:
             create: 作成
             title: 新規プロジェクト
@@ -105,10 +115,23 @@ ja:
             invalid: プロジェクトの更新中に問題が発生しました。
             success: プロジェクトを更新しました。
           update_budget:
+            invalid: 'これらのプロジェクトは既に同じ予算に含まれているか、予算が最大許容額を超えています: %{errored}。'
             select_a_project: プロジェクトを選択してください。
+            success: 'プロジェクトの予算 %{subject_name} を更新しました: %{successful}。'
           update_selected:
+            invalid:
+              selected: 'これらのプロジェクトはすでに実装のために選択されています: %{errored}。'
+              unselected: 'これらのプロジェクトはすでに実装から選択解除されています: %{errored}。'
             select_a_project: プロジェクトを選択してください。
             select_a_selection: 実装状態を選択してください。
+            success:
+              selected: 'これらのプロジェクトは、実装に選択されました: %{successful}。'
+              unselected: 'これらのプロジェクトは、実装から選択解除されました: %{successful}。'
+          update_taxonomies:
+            invalid: 'タクソノミー %{taxonomies} はこれらのプロジェクトにすでに割り当てられています: %{errored}.'
+            select_a_project: プロジェクトを選択してください。
+            select_a_taxonomy: タクソノミーを選択してください。
+            success: 'プロジェクトのタクソノミー %{taxonomies} を更新しました: %{successful}。'
         proposals_imports:
           create:
             invalid: 提案をプロジェクトにインポートする際に問題が発生しました。
@@ -130,10 +153,14 @@ ja:
         budget:
           create: "%{user_name} が予算 %{resource_name} を %{space_name} に作成しました。"
           delete: "%{user_name} が予算 %{resource_name} をスコープ %{space_name} から削除しました。"
+          restore: "%{user_name} が %{space_name} の予算 %{resource_name} を復元しました"
+          soft_delete: "%{user_name} が %{space_name} の予算 %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} がスコープ %{space_name} の予算 %{resource_name} を更新しました。"
         project:
           create: "%{user_name} が %{resource_name} スペースで %{space_name} プロジェクトを作成しました"
           delete: "%{user_name} が %{resource_name} スペースの %{space_name} プロジェクトを削除しました"
+          restore: "%{user_name} が %{space_name} のプロジェクト %{resource_name} を復元しました"
+          soft_delete: "%{user_name} は %{space_name} のプロジェクト %{resource_name} をゴミ箱に移動しました"
           update: "%{user_name} が %{resource_name} スペースの %{space_name} プロジェクトを更新しました"
       budget_information_modal:
         back_to: '%{component_name} に戻る'
@@ -331,6 +358,9 @@ ja:
               disabled: 投票は無効です
               enabled: 投票は有効になっています
               finished: 投票完了
+    download_your_data:
+      show:
+        projects: プロジェクトのエクスポート
     events:
       budgets:
         budget_published:
