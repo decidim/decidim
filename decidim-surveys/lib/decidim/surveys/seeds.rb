@@ -96,8 +96,12 @@ module Decidim
             question.answer_options.create!(body: Decidim::Faker::Localized.sentence)
           end
 
+          # Files type questions do not support being conditionals for another questions
+          files_question = questionnaire.questions.where(question_type: "files")
+          possible_condition_questions = questionnaire.questions.excluding(files_question)
+
           question.display_conditions.create!(
-            condition_question: questionnaire.questions.find_by(position: question.position - 2),
+            condition_question: possible_condition_questions.sample,
             question:,
             condition_type: :answered,
             mandatory: true
