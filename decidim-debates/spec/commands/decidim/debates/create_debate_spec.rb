@@ -9,6 +9,7 @@ describe Decidim::Debates::CreateDebate do
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
   let(:user) { create(:user, organization:) }
+  let(:attachments) { [] }
   let(:taxonomizations) do
     2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
   end
@@ -21,7 +22,10 @@ describe Decidim::Debates::CreateDebate do
       taxonomizations:,
       current_user: user,
       current_component:,
-      current_organization: organization
+      current_organization: organization,
+      add_documents: attachments,
+      documents: [],
+      errors: ActiveModel::Errors.new(self)
     )
   end
   let(:invalid) { false }
@@ -102,6 +106,76 @@ describe Decidim::Debates::CreateDebate do
     it "makes the author follow the debate" do
       subject.call
       expect(Decidim::Follow.where(user:, followable: debate).count).to eq(1)
+    end
+  end
+
+  context "when everything is ok with attachments" do
+    let(:attachments) do
+      [
+        { file: upload_test_file(Decidim::Dev.test_file("city.jpeg", "image/jpeg")) },
+        { file: upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf")) }
+      ]
+    end
+
+    let(:debate) { Decidim::Debates::Debate.last }
+
+    it "creates the debate with attachments" do
+      expect { subject.call }.to change(Decidim::Debates::Debate, :count).by(1) & change(Decidim::Attachment, :count).by(2)
+      expect(debate.attachments.map(&:weight)).to eq([1, 2])
+
+      debate_attachments = debate.attachments
+      expect(debate_attachments.count).to eq(2)
+      expect(debate_attachments.map(&:file).map(&:filename).map(&:to_s)).to contain_exactly("city.jpeg", "Exampledocument.pdf")
+    end
+  end
+
+  context "when attachments are invalid" do
+    let(:attachments) do
+      [
+        { file: upload_test_file(Decidim::Dev.test_file("participatory_text.odt", "application/vnd.oasis.opendocument.text")) }
+      ]
+    end
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+      expect { subject.call }.not_to change(Decidim::Debates::Debate, :count)
+      expect { subject.call }.not_to change(Decidim::Attachment, :count)
+    end
+  end
+
+  describe "when ActiveRecord::RecordInvalid is raised" do
+    before do
+      allow(Decidim::Debates::Debate).to receive(:create!).and_raise(ActiveRecord::RecordInvalid.new(Decidim::Debates::Debate.new))
+    end
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+
+    it "does not create a debate" do
+      expect do
+        subject.call
+      end.not_to change(Decidim::Debates::Debate, :count)
+    end
+  end
+
+  describe "when Decidim::Commands::HookError is raised" do
+    subject { command_instance }
+
+    let(:command_instance) { described_class.new(form) }
+
+    before do
+      allow(command_instance).to receive(:perform!).and_raise(Decidim::Commands::HookError)
+    end
+
+    it "broadcasts invalid" do
+      expect { subject.call }.to broadcast(:invalid)
+    end
+
+    it "does not create a debate" do
+      expect do
+        subject.call
+      end.not_to change(Decidim::Debates::Debate, :count)
     end
   end
 

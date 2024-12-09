@@ -32,35 +32,28 @@ describe "Admin manages projects" do
 
   describe "bulk actions" do
     let!(:project2) { create(:project, budget:) }
-    let!(:category) { create(:category, participatory_space: current_component.participatory_space) }
-    let!(:scope) { create(:scope, organization: current_component.organization) }
+    let!(:another_taxonomy) { create(:taxonomy, :with_parent, organization:) }
+    let(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_taxonomy.parent) }
+    let!(:another_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter: another_taxonomy_filter, taxonomy_item: another_taxonomy) }
+    let(:taxonomy_filter_ids) { [taxonomy_filter.id, another_taxonomy_filter.id] }
 
     before do
       visit current_path
     end
 
-    it "changes projects category" do
+    it "changes projects taxonomies" do
       find(".js-resource-id-#{project.id}").set(true)
       find_by_id("js-bulk-actions-button").click
-      click_on "Change category"
-      select translated(category.name), from: "category_id"
-      click_on "Update"
+      click_on "Change taxonomies"
+      select decidim_sanitize_translated(taxonomy.name), from: "taxonomies_for_filter_#{taxonomy_filter.id}"
+      select decidim_sanitize_translated(another_taxonomy.name), from: "taxonomies_for_filter_#{another_taxonomy_filter.id}"
+      click_on "Change taxonomies"
 
-      expect(page).to have_admin_callout "Projects successfully updated to the category"
-      expect(Decidim::Budgets::Project.find(project.id).category).to eq(category)
-      expect(Decidim::Budgets::Project.find(project2.id).category).to be_nil
-    end
-
-    it "changes projects scope" do
-      find(".js-resource-id-#{project.id}").set(true)
-      find_by_id("js-bulk-actions-button").click
-      click_on "Change scope"
-      select translated(scope.name), from: :scope_id
-      click_on "Update"
-
-      expect(page).to have_admin_callout "Projects successfully updated to the scope"
-      expect(Decidim::Budgets::Project.find(project.id).scope).to eq(scope)
-      expect(Decidim::Budgets::Project.find(project2.id).scope).to be_nil
+      expect(page).to have_admin_callout "Projects successfully updated"
+      expect(page).to have_admin_callout translated(taxonomy.name)
+      expect(page).to have_admin_callout translated(another_taxonomy.name)
+      expect(Decidim::Budgets::Project.find(project.id).taxonomies.first).to eq(taxonomy)
+      expect(Decidim::Budgets::Project.find(project2.id).taxonomies.first).to be_nil
     end
 
     it "selects projects to implementation" do
