@@ -36,6 +36,7 @@ ja:
           error: コメントに投票中に問題がありました。
     components:
       add_comment_form:
+        account_message: コメントを追加するにはログインするかアカウントを作成してください
         form:
           body:
             label: コメント
