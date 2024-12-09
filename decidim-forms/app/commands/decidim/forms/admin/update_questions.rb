@@ -10,10 +10,10 @@ module Decidim
         #
         # form - The form from which to get the data.
         # questionnaire - The current instance of the questionnaire questions to be updated.
-        def initialize(form, questionnaire, user)
+        def initialize(form, questionnaire)
           @form = form
           @questionnaire = questionnaire
-          @user = user
+          @user = form.current_user
         end
 
         # Updates the questionnaire if valid.

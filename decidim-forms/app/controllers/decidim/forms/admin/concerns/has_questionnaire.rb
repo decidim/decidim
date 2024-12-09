@@ -38,7 +38,7 @@ module Decidim
 
               @form = form(Admin::QuestionnaireForm).from_model(questionnaire)
 
-              render template: "decidim/forms/admin/questionnaires/edit"
+              render template: edit_template
             end
 
             def update
@@ -56,7 +56,7 @@ module Decidim
                 on(:invalid) do
                   # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
                   flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
-                  render template: "decidim/forms/admin/questionnaires/edit"
+                  render template: edit_template
                 end
               end
             end
@@ -137,6 +137,10 @@ module Decidim
             end
 
             private
+
+            def edit_template
+              "decidim/forms/admin/questionnaires/edit"
+            end
 
             def i18n_flashes_scope
               "decidim.forms.admin.questionnaires"
