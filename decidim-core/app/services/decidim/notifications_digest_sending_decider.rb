@@ -4,7 +4,10 @@ module Decidim
   class NotificationsDigestSendingDecider
     class << self
       def must_notify?(user, time = Time.now.utc)
-        return true if user.digest_sent_at.blank?
+        frequency = user.notifications_sending_frequency.to_sym
+        notification_ids = user.notifications.try(frequency, time).pluck(:id)
+
+        return true if notification_ids && user.digest_sent_at.blank?
 
         # Note that we are checking whether the notifications were sent at any
         # time during the assumed sending day moment to prevent potential issues
