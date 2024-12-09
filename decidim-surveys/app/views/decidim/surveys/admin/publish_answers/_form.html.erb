@@ -5,7 +5,9 @@
         <%= form.label t(".select_questions_to_publish") %>
         <%= form.collection_check_boxes :question_ids, @form.questions, :value, :name do |option| %>
           <div>
-            <%= option.label { option.check_box(checked: @form.question_checked?(option.value)) + option.text } %>
+            <% question_published = @form.question_checked?(option.value) %>
+            <%= option.label { option.check_box(checked: question_published) + option.text } %>
+            <%= published_label(question_published) %>
             <%= chart_for_question(option.value) %>
           </div>
           <hr class="border-gray-3 my-4">

@@ -61,6 +61,8 @@ en:
           survey_user_answers: Survey participant answers
         publish_answers:
           form:
+            not_published: Not published
+            published: Published
             select_questions_to_publish: Select questions to publish
           new:
             callout_html: Some of the responses can have personal data. Please <a href="%{link}">review them before publishing</a>.

@@ -4,6 +4,17 @@ module Decidim
   module Surveys
     module Admin
       module PublishAnswersHelper
+        # Renders the colored label with the published or unpublished string
+        #
+        # @param question_published [Boolean] true if the question is already published, false if not
+        def published_label(question_published)
+          if question_published
+            content_tag(:span, class: "label success") { t(".published") }
+          else
+            content_tag(:span, class: "label alert") { t(".not_published") }
+          end
+        end
+
         # Renders the chart for the given question.
         # Uses chartkick to render the chart.
         #
