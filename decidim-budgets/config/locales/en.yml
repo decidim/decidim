@@ -386,7 +386,6 @@ en:
           component: The component that the project belongs to
           confirmed_votes: The number of confirmed votes this project has received
           created_at: The date and time when the project was created
-          decidim_budgets_budget_id: To which group of projects (e.g. "2021 Budget") this project belongs to
           description: The description of the project
           follows_count: The number of follows the project has
           id: The unique identifier of the project
