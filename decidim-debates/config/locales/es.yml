@@ -255,7 +255,6 @@ es:
           created_at: La fecha y hora en que se creó este debate
           description: La descripción del debate
           end_time: Cuando terminaba este debate, si era un debate abierto o tenía un tiempo limitado para participar.
-          followers: El número de participantes que siguieron este debate
           id: El identificador único del debate
           information_updates: Las actualizaciones de contenido del debate que hizo la autora
           instructions: Cuáles fueron las instrucciones para comentar/participar en este debate
