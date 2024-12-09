@@ -248,7 +248,6 @@ de:
           created_at: Datum und Uhrzeit, an der die Debatte erstellt wurde
           description: Die Beschreibung der Debatte
           end_time: Wann die Debatte zu Ende geht, ob sie öffentlich oder zeitlich begrenzt ist
-          followers: Die Anzahl der Debatte-Follower
           id: Die eindeutige Bezeichnung der Debatte
           taxonomies: Die Klassifizierungen des Projekts
           title: Der Titel der Debatte
