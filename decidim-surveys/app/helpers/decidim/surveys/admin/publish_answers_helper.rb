@@ -23,20 +23,41 @@ module Decidim
           question = Decidim::Forms::Question.includes(answers: { choices: [ :answer_option, :matrix_row ] }).find(question_id)
 
           case question.question_type
-          when "single_option"
+          when "single_option", "multiple_option"
             column_chart_wrapper(question)
-          when "multiple_option"
-            column_chart_wrapper(question)
-          when "matrix_single"
+          when "matrix_single", "matrix_multiple"
             stack_chart_wrapper(question)
-          when "matrix_multiple"
-            stack_chart_wrapper(question)
+          when "sorting"
+            sorting_stack_chart_wrapper(question)
           else
             "Unknown question type"
           end
         end
 
         private
+
+        def sorting_stack_chart_wrapper(question)
+          tally = []
+          counts = Hash.new { |hash, key| hash[key] = Hash.new(0) }
+
+          question.answers.each do |answer|
+            answer.choices.each do |choice|
+              name = translated_attribute(choice.answer_option.body)
+              row = choice.position
+
+              counts[name][row] += 1
+            end
+          end
+
+          tally = counts.map do |name, row_data|
+            {
+              name: name,
+              data: row_data.map { |row, count| [row, count] }
+            }
+          end
+
+          column_chart tally, stacked: true, colors: colors_list
+        end
 
         def stack_chart_wrapper(question)
           tally = []
