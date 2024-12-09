@@ -82,8 +82,7 @@ module Decidim
           recipients << content_tag(:strong, t("index.private_members", scope: "decidim.admin.newsletters")) if newsletter.sent_to_private_members?
 
           recipients.each_with_index do |recipient, index|
-            concat recipient
-            concat t("index.and", scope: "decidim.admin.newsletters") if index < recipients.size - 1
+            recipients.join(t("index.and", scope: "decidim.admin.newsletters"))
           end
         end
       end

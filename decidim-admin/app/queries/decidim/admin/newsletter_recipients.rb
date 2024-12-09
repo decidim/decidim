@@ -120,10 +120,16 @@ module Decidim
         participant_ids.flatten.compact.uniq
       end
 
-      def private_member_ids
+      def private_spaces
         return [] if spaces.blank?
 
-        Decidim::ParticipatorySpacePrivateUser.where(privatable_to: spaces)
+        spaces.select { |space| space.try(:private_space?) }
+      end
+
+      def private_member_ids
+        return [] if private_spaces.blank?
+
+        Decidim::ParticipatorySpacePrivateUser.private_user_ids_for_participatory_spaces(private_spaces)
       end
 
       def parse_ids(ids)

@@ -103,7 +103,12 @@ module Decidim
 
       def select_recipients_to_deliver
         enforce_permission_to(:update, :newsletter, newsletter:)
-        @form = form(SelectiveNewsletterForm).from_model(newsletter)
+        @form = if params[:newsletter].present?
+                  form(SelectiveNewsletterForm).from_params(params[:newsletter])
+                else
+                  form(SelectiveNewsletterForm).from_model(newsletter)
+                end
+
         @form.send_to_all_users = current_user.admin?
       end
 
