@@ -271,6 +271,8 @@ FactoryBot.define do
     user
     privatable_to { create(:participatory_process, organization: user.organization, skip_injection:) }
 
+    role { generate_localized_title(:role, skip_injection:) }
+
     trait :unpublished do
       published { false }
     end
