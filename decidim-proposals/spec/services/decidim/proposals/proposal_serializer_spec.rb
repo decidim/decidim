@@ -20,7 +20,7 @@ module Decidim
       let!(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: participatory_process) }
       let(:other_proposals) { create_list(:proposal, 2, component: proposals_component) }
 
-      let(:serialized) { described_class.new(proposal).serialize }
+      let(:serialized) { subject.serialize }
 
       let(:expected_answer) do
         answer = proposal.answer
