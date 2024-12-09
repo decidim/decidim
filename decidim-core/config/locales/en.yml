@@ -677,7 +677,9 @@ en:
           show_password: Show password
           shown_password: Your password is shown
         placeholder_email: hi@example.org
-    documents: "%{count} documents"
+    documents:
+      one: "%{count} document"
+      other: "%{count} documents"
     doorkeeper:
       authorizations:
         new:
