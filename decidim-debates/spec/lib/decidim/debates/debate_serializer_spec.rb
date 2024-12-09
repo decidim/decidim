@@ -13,6 +13,7 @@ module Decidim
       let!(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: component.organization) }
       let(:participatory_process) { component.participatory_space }
       let(:component) { debate.component }
+      let(:new_debate) { described_class.new(debate) }
 
       before do
         debate.update!(taxonomies:)
@@ -121,8 +122,8 @@ module Decidim
           expect(serialized).to include(comments: debate.comments_count)
         end
 
-        it "serializes the followers" do
-          expect(serialized).to include(followers: debate.follows.size)
+        it "serializes the number of followers" do
+          expect(serialized).to include(follows_count: debate.follows_count)
         end
 
         it "serializes the url" do
@@ -135,6 +136,18 @@ module Decidim
 
         it "serializes the comments enabled" do
           expect(serialized).to include(comments_enabled: debate.comments_enabled)
+        end
+
+        it "includes the created at" do
+          expect(serialized).to include(created_at: debate.created_at)
+        end
+
+        it "includes the updated at" do
+          expect(serialized).to include(updated_at: debate.updated_at)
+        end
+
+        it "serializes the endorsements" do
+          expect(serialized).to include(endorsements_count: debate.endorsements_count)
         end
 
         describe "conclusions and closed at" do
@@ -156,6 +169,39 @@ module Decidim
             it "serializes the closed at" do
               expect(serialized).to include(closed_at: debate.closed_at)
             end
+          end
+
+          context "when the debate is not closed" do
+            let!(:debate) { create(:debate, closed_at: nil) }
+
+            it "does not serialize the conclusion" do
+              expect(serialized[:conclusions]).to be_nil
+            end
+
+            it "does not serialize the closed at" do
+              expect(serialized[:closed_at]).to be_nil
+            end
+          end
+        end
+
+        context "when there is a last comment" do
+          let(:last_comment_by) { create(:user, name: "User") }
+          let(:debate) { create(:debate, last_comment_by:) }
+
+          it "serializes the last comment by fields" do
+            expect(serialized[:last_comment_by]).to eq(
+              id: last_comment_by.id,
+              name: "User",
+              url: new_debate.send(:user_url, last_comment_by)
+            )
+          end
+        end
+
+        context "when there is no last comment" do
+          let(:debate) { create(:debate, last_comment_by: nil) }
+
+          it "returns no values" do
+            expect(serialized[:last_comment_by]).to eq({})
           end
         end
       end
