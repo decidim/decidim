@@ -42,6 +42,7 @@ ja:
       actions:
         attachment_collections: フォルダ
         attachments: 添付ファイル
+        confirm_destroy: このプロジェクトを削除してもよろしいですか？
         destroy: 削除
         edit: 編集
         edit_projects: プロジェクトの管理...
