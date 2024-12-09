@@ -143,7 +143,7 @@ module Decidim::Admin
         let(:send_to_all_users) { false }
         let(:send_to_private_members) { true }
         let!(:recipients) { create_list(:user, 3, :confirmed, newsletter_notifications_at: Time.current, organization:) }
-        let(:participatory_process) { create(:participatory_process, organization:) }
+        let(:participatory_process) { create(:participatory_process, organization:, private_space: true) }
         let(:participatory_space_types) do
           [
             { "id" => nil,
