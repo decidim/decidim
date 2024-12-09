@@ -242,7 +242,6 @@ ja:
           created_at: ディベートの作成日時
           description: ディベートの説明
           end_time: ディベートの終了予定日時（公開討論で時間が限られている場合）
-          followers: ディベートのフォロワー数
           id: ディベートの固有ID
           information_updates: 作者がディベートに加えた更新
           instructions: ディベートにコメントするための指示
