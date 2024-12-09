@@ -250,7 +250,7 @@ module Decidim
 
       def current_taxonomy_filters
         @current_taxonomy_filters ||= TaxonomyFilter.for(current_manifest.name).map do |filter|
-          ["#{decidim_sanitize_translated(filter.name)} (#{filter.filter_items_count})", filter.id]
+          ["#{decidim_sanitize_translated(filter.internal_name)} (#{filter.filter_items_count})", filter.id]
         end
       end
 

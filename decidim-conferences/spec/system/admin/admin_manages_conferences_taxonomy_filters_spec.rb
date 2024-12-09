@@ -4,6 +4,7 @@ require "spec_helper"
 
 describe "Admin manages conferences taxonomy filters" do
   let(:space_manifest) { "conferences" }
+  let(:participatory_space_collection_name) { "conferences" }
 
   include_context "with taxonomy filters context"
 

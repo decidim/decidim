@@ -40,7 +40,8 @@ describe "User edit meeting" do
       visit_component
 
       click_on translated(meeting.title)
-      click_on "Edit meeting"
+      find("#dropdown-trigger-resource-#{meeting.id}").click
+      click_on "Edit"
 
       expect(page).to have_content "Edit Your Meeting"
 
@@ -73,7 +74,8 @@ describe "User edit meeting" do
           visit_component
 
           click_on translated(meeting.title)
-          click_on "Edit meeting"
+          find("#dropdown-trigger-resource-#{meeting.id}").click
+          click_on "Edit"
 
           expect(page).to have_content "Edit Your Meeting"
         end
@@ -85,7 +87,8 @@ describe "User edit meeting" do
         visit_component
 
         click_on translated(meeting.title)
-        click_on "Edit meeting"
+        find("#dropdown-trigger-resource-#{meeting.id}").click
+        click_on "Edit"
 
         expect(page).to have_content "Edit Your Meeting"
 
@@ -105,7 +108,8 @@ describe "User edit meeting" do
         visit_component
 
         click_on translated(meeting.title)
-        click_on "Edit meeting"
+        find("#dropdown-trigger-resource-#{meeting.id}").click
+        click_on "Edit"
 
         expect(page).to have_content "Edit Your Meeting"
 

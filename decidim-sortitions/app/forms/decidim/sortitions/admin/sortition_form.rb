@@ -13,8 +13,8 @@ module Decidim
         attribute :decidim_proposals_component_id, Integer
         attribute :dice, Integer
         attribute :target_items, Integer
-        translatable_attribute :witnesses, String
-        translatable_attribute :additional_info, String
+        translatable_attribute :witnesses, Decidim::Attributes::RichText
+        translatable_attribute :additional_info, Decidim::Attributes::RichText
 
         validates :title, translatable_presence: true
         validates :decidim_proposals_component_id, presence: true
