@@ -105,7 +105,7 @@ module Decidim
           end
 
           def publish_all
-            PublishAllParticipatorySpacePrivateUsers.call(current_participatory_space) do
+            PublishAllParticipatorySpacePrivateUsers.call(current_participatory_space, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("participatory_space_private_users.publish_all.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -119,7 +119,7 @@ module Decidim
           end
 
           def unpublish_all
-            UnpublishAllParticipatorySpacePrivateUsers.call(current_participatory_space) do
+            UnpublishAllParticipatorySpacePrivateUsers.call(current_participatory_space, current_user) do
               on(:ok) do
                 flash[:notice] = I18n.t("participatory_space_private_users.unpublish_all.success", scope: "decidim.admin")
                 redirect_to action: :index
