@@ -24,9 +24,9 @@ module Decidim
 
           case question.question_type
           when "single_option", "multiple_option"
-            column_chart_wrapper(question)
+            options_column_chart_wrapper(question)
           when "matrix_single", "matrix_multiple"
-            stack_chart_wrapper(question)
+            matrix_stack_chart_wrapper(question)
           when "sorting"
             sorting_stack_chart_wrapper(question)
           else
@@ -59,7 +59,7 @@ module Decidim
           column_chart tally, stacked: true, colors: colors_list
         end
 
-        def stack_chart_wrapper(question)
+        def matrix_stack_chart_wrapper(question)
           tally = []
           counts = Hash.new { |hash, key| hash[key] = Hash.new(0) }
 
@@ -82,7 +82,7 @@ module Decidim
           column_chart tally, stacked: true, colors: colors_list
         end
 
-        def column_chart_wrapper(question)
+        def options_column_chart_wrapper(question)
           tally = question.answers.map { |answer| answer.choices.map { |choice| translated_attribute(choice.answer_option.body) } }.tally
 
 
