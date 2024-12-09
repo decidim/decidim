@@ -255,7 +255,6 @@ fi:
           created_at: Keskustelun luontiaika
           description: Keskustelun kuvaus
           end_time: Keskustelun päättymisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
-          followers: Keskustelun seuraajien lukumäärä
           id: Keskustelun yksilöllinen tunniste
           information_updates: Muutokset, joita keskustelun laatija on tehnyt keskusteluun
           instructions: Keskustelun osallistumisohjeet
