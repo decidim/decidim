@@ -41,8 +41,9 @@ module Decidim
         Decidim::User.where(organization: @form.current_organization)
                      .where.not(newsletter_notifications_at: nil)
                      .where.not(email: nil)
-                     .where.not(confirmed_at: nil)
+                     .confirmed
                      .not_deleted
+                     .not_blocked
       end
 
       def filters_present?
@@ -78,7 +79,7 @@ module Decidim
       end
 
       def verified_users
-        users = @form.organization.users.not_deleted.not_blocked.confirmed
+        users = base_recipients
 
         verified_users = Decidim::Authorization.select(:decidim_user_id)
                                                .where(decidim_user_id: users.select(:id))
@@ -122,9 +123,7 @@ module Decidim
       def private_member_ids
         return [] if spaces.blank?
 
-        Decidim::ParticipatorySpacePrivateUser.where(
-          privatable_to: spaces
-        ).pluck(:decidim_user_id)
+        Decidim::ParticipatorySpacePrivateUser.where(privatable_to: spaces)
       end
 
       def parse_ids(ids)

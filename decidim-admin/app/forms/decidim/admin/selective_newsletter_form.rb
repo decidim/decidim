@@ -60,15 +60,24 @@ module Decidim
       end
 
       def only_followers_selected?
-        send_to_all_users.blank? && send_to_participants.blank? && send_to_private_members.blank? && send_to_verified_users.blank?
+        send_to_all_users.blank? &&
+          send_to_participants.blank? &&
+          send_to_private_members.blank? &&
+          send_to_verified_users.blank?
       end
 
       def only_participants_selected?
-        send_to_all_users.blank? && send_to_followers.blank? && send_to_private_members.blank? && send_to_verified_users.blank?
+        send_to_all_users.blank? &&
+          send_to_followers.blank? &&
+          send_to_private_members.blank? &&
+          send_to_verified_users.blank?
       end
 
       def only_private_members_selected?
-        send_to_all_users.blank? && send_to_followers.blank? && send_to_participants.blank? && send_to_verified_users.blank?
+        send_to_all_users.blank? &&
+          send_to_followers.blank? &&
+          send_to_participants.blank? &&
+          send_to_verified_users.blank?
       end
     end
   end
