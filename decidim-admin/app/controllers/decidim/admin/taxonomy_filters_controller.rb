@@ -16,7 +16,6 @@ module Decidim
 
       def index
         enforce_permission_to :index, :taxonomy_filters
-        @taxonomies = filtered_collection
       end
 
       def new
@@ -44,13 +43,13 @@ module Decidim
 
       def edit
         enforce_permission_to(:update, :taxonomy_filters, taxonomy_filter:)
-        add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_filter_path(taxonomy_filter)
+        add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_filter_path
         @form = form(Decidim::Admin::TaxonomyFilterForm).from_model(taxonomy_filter)
       end
 
       def update
         enforce_permission_to(:update, :taxonomy_filters, taxonomy_filter:)
-        add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_filter_path(taxonomy_filter)
+        add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_filter_path
         @form = form(Decidim::Admin::TaxonomyFilterForm).from_params(params)
         UpdateTaxonomyFilter.call(@form, taxonomy_filter) do
           on(:ok) do

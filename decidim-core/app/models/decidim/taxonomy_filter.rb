@@ -38,57 +38,57 @@ module Decidim
 
       super
     end
-    
+
     # Internal name for this filter, defaults to the root taxonomy name.
     def internal_name
       return root_taxonomy.name if super&.compact_blank.blank?
-      
+
       super
-    end  
-    
+    end
+
     # Components that have this taxonomy filter enabled.
     def components
       @components ||= Decidim::Component.where("(settings->'global'->'taxonomy_filters') @> ?", "\"#{id}\"")
-    end  
+    end
 
     def filter_taxonomy_ids
       @filter_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
     end
-    
+
     # A memoized taxonomy tree hash filtered according to the filter_items
 
     # that respects the order given by the taxonomies table.
     # The returned hash structure is:
     # {
     #  _object_id_ => {
-    #    taxonomy: _object_,  
+    #    taxonomy: _object_,
     #    children: {
     #        _sub_object_id_: {
-    #          taxonomy: _sub_object_,  
+    #          taxonomy: _sub_object_,
     #          children: {
-    #    ...  
+    #    ...
     # }
     # @returns [Hash] a hash with the taxonomy tree structure.
     def taxonomies
       @taxonomies ||= root_taxonomy
-                        .all_children
-                        .where(id: filter_taxonomy_ids)
-                        .each_with_object({}) do |taxonomy, tree|
-                          insert_child(taxonomy, tree)
-                        end  
-    end                    
+                      .all_children
+                      .where(id: filter_taxonomy_ids)
+                      .each_with_object({}) do |taxonomy, tree|
+        insert_child(taxonomy, tree)
+      end
+    end
 
     private
-    
+
     def insert_child(taxonomy, tree)
       return if tree[taxonomy.id]
 
-      if parent = find_parent(taxonomy, tree)
+      if (parent = find_parent(taxonomy, tree))
         insert_child(taxonomy, parent[:children])
       else
         tree[taxonomy.id] = { taxonomy:, children: {} }
-      end  
-    end  
+      end
+    end
 
     def find_parent(taxonomy, tree)
       tree[taxonomy.parent_id].presence ||
