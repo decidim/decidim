@@ -135,6 +135,13 @@ eu:
         new:
           authorize: Bidali
           authorize_with: Egiaztatu %{authorizer} rekin
+        onboarding_pending:
+          completed_verifications: 'Bainema zuzen lortu duzu, orain zuk ahal duzu %{action} hemen: %{resource_name}'
+          granted_verifications: Emandako egiaztapenak
+          onboarding_message_html: 'Ia prest zaude %{action} ekintzarako hemen: <strong>%{resource_title}</strong> %{resource_name}. Mesedez, egiaztatu zure kontua baimen hauek betez.'
+          pending_admin_approval_verifications: Admin. onespenaren egiaztapenen zain
+          pending_verifications: Egiaztatzeke
+          unauthorized: Ez duzu baimenik %{ekintza} ekintzarako baliabide honetan
         renew_modal:
           cancel: Ezeztatu
           continue: Jarraitu
