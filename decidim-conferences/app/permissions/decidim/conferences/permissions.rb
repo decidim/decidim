@@ -45,7 +45,6 @@ module Decidim
 
         # org admins and space admins can do everything in the admin section
         org_admin_action?
-        conference_filters_action?
 
         return permission_action unless conference
 
@@ -106,12 +105,6 @@ module Decidim
         return unless user
 
         conferences_with_role_privileges(role).include? conference
-      end
-
-      def conference_filters_action?
-        return unless permission_action.subject == :taxonomy_filter
-
-        toggle_allow(user.admin?)
       end
 
       # Returns a collection of conferences where the given user has the

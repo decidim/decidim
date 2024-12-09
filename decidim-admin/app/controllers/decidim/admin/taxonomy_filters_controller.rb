@@ -15,17 +15,17 @@ module Decidim
       helper_method :collection, :root_taxonomy, :taxonomy_filter
 
       def index
-        enforce_permission_to :index, :taxonomy_filters
+        enforce_permission_to :index, :taxonomy_filter
       end
 
       def new
-        enforce_permission_to :create, :taxonomy_filters
+        enforce_permission_to :create, :taxonomy_filter
         add_breadcrumb_item :new, decidim_admin.new_taxonomy_filter_path
         @form = form(Decidim::Admin::TaxonomyFilterForm).from_params(root_taxonomy_id: params[:taxonomy_id])
       end
 
       def create
-        enforce_permission_to :create, :taxonomy_filters
+        enforce_permission_to :create, :taxonomy_filter
         add_breadcrumb_item :new, decidim_admin.new_taxonomy_filter_path
         @form = form(Decidim::Admin::TaxonomyFilterForm).from_params(params)
         CreateTaxonomyFilter.call(@form) do
@@ -42,13 +42,13 @@ module Decidim
       end
 
       def edit
-        enforce_permission_to(:update, :taxonomy_filters, taxonomy_filter:)
+        enforce_permission_to(:update, :taxonomy_filter, taxonomy_filter:)
         add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_filter_path
         @form = form(Decidim::Admin::TaxonomyFilterForm).from_model(taxonomy_filter)
       end
 
       def update
-        enforce_permission_to(:update, :taxonomy_filters, taxonomy_filter:)
+        enforce_permission_to(:update, :taxonomy_filter, taxonomy_filter:)
         add_breadcrumb_item :edit, decidim_admin.edit_taxonomy_filter_path
         @form = form(Decidim::Admin::TaxonomyFilterForm).from_params(params)
         UpdateTaxonomyFilter.call(@form, taxonomy_filter) do
@@ -64,7 +64,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to(:destroy, :taxonomy_filters, taxonomy_filter:)
+        enforce_permission_to(:destroy, :taxonomy_filter, taxonomy_filter:)
         DestroyTaxonomyFilter.call(taxonomy_filter, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("destroy.success", scope: "decidim.admin.taxonomy_filters")

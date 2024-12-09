@@ -297,20 +297,6 @@ describe Decidim::Initiatives::Admin::Permissions do
 
     it_behaves_like "initiative committee action"
 
-    context "when taxonomy filters" do
-      let(:action) do
-        { scope: :admin, action: :something, subject: :taxonomy_filter }
-      end
-
-      it { is_expected.to be true }
-
-      context "when user is not an admin" do
-        let(:user) { create(:user, organization:) }
-
-        it { is_expected.to be false }
-      end
-    end
-
     context "when managing attachments" do
       let(:action_subject) { :attachment }
       let(:action_name) { :foo }
