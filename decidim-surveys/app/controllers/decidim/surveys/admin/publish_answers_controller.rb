@@ -25,12 +25,12 @@ module Decidim
           @form = form(Decidim::Forms::Admin::PublishAnswersForm).from_params(params).with_context(current_user:)
           Decidim::Surveys::PublishAnswers.call(@form, survey) do
             on(:ok) do
-              flash[:notice] = I18n.t("publish_answers.success", scope: "decidim.surveys.admin")
-              redirect_to index_survey_path
+              flash[:notice] = I18n.t("success", scope: "decidim.surveys.admin.publish_answers.callout")
+              redirect_to questionnaire_url
             end
 
             on(:invalid) do
-              flash.keep[:alert] = I18n.t("publish_answers.invalid", scope: "decidim.surveys.admin")
+              flash[:notice] = I18n.t("invalid", scope: "decidim.surveys.admin.publish_answers.callout")
               render template: :new
             end
           end

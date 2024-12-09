@@ -60,6 +60,9 @@ en:
         exports:
           survey_user_answers: Survey participant answers
         publish_answers:
+          callout:
+            invalid: There was a problem publishing the answers.
+            success: The answers have been published successfully.
           form:
             not_published: Not published
             published: Published
