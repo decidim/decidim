@@ -10,6 +10,15 @@ module Decidim
       protected
 
       def resource_class = Decidim::TaxonomyFilter
+
+      def extra_params
+        {
+          extra: {
+            taxonomy_name: form.root_taxonomy.name,
+            filter_items_count: form.filter_items.count
+          }
+        }
+      end
     end
   end
 end

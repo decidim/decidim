@@ -64,7 +64,7 @@ module Decidim
       end
 
       def destroy
-        enforce_permission_to(:destroy, :taxonomy_filter, taxonomy_filter:)
+        enforce_permission_to(:destroy, :taxonomy_filters, taxonomy_filter:)
         DestroyTaxonomyFilter.call(taxonomy_filter, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("destroy.success", scope: "decidim.admin.taxonomy_filters")

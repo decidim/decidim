@@ -14,6 +14,15 @@ module Decidim
       def run_before_hooks
         resource.filter_items.destroy_all
       end
+
+      def extra_params
+        {
+          extra: {
+            taxonomy_name: resource.root_taxonomy.name,
+            filter_items_count: form.filter_items.count
+          }
+        }
+      end
     end
   end
 end

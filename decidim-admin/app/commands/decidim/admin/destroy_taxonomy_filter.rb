@@ -10,7 +10,7 @@ module Decidim
       def extra_params
         {
           extra: {
-            space_manifest: resource.try(:space_manifest),
+            taxonomy_name: resource.root_taxonomy.name,
             filter_items_count: resource.try(:filter_items_count)
           }
         }

@@ -290,12 +290,12 @@ en:
         update: "%{user_name} updated the %{resource_name} taxonomy"
         update_with_parent: "%{user_name} updated the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
       taxonomy_filter:
-        create: "%{user_name} created a filter based on the taxonomy %{resource_name}"
-        create_with_filter_items_count: "%{user_name} created a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
-        delete: "%{user_name} deleted a filter based on the taxonomy %{resource_name}"
-        delete_with_filter_items_count: "%{user_name} deleted a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
-        update: "%{user_name} updated a filter based on the taxonomy %{resource_name}"
-        update_with_filter_items_count: "%{user_name} updated a filter based on the taxonomy %{resource_name} with %{filter_items_count} filters for %{space_manifest_name}"
+        create: "%{user_name} created the filter %{resource_name}"
+        create_with_filter_items_count: '%{user_name} created the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
+        delete: "%{user_name} deleted the filter %{resource_name}"
+        delete_with_filter_items_count: '%{user_name} deleted the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
+        update: "%{user_name} updated the filter %{resource_name}"
+        update_with_filter_items_count: '%{user_name} updated the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
       user:
         block: "%{user_name} blocked user %{resource_name}"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage taxonomy filters in settings" do
-  let(:space_manifest) { participatory_space.manifest.name }
+  let(:participatory_space_manifests) { [participatory_space.manifest.name] }
   let!(:root_taxonomy) { create(:taxonomy, organization:, name: { en: "A root taxonomy" }) }
   let!(:taxonomy_item) { create(:taxonomy, organization:, parent: root_taxonomy) }
   let(:filters_path) { decidim_admin_participatory_processes.participatory_process_filters_path }

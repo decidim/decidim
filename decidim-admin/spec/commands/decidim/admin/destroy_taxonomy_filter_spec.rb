@@ -29,7 +29,7 @@ module Decidim::Admin
           :delete,
           taxonomy_filter,
           user,
-          extra: hash_including(:filter_items_count, :space_manifest)
+          hash_including(extra: hash_including(:filter_items_count, :taxonomy_name))
         )
         .and_call_original
 

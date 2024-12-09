@@ -14,11 +14,10 @@ shared_context "with taxonomy filters context" do
   let!(:unselected_taxonomy_child) { create(:taxonomy, organization:, parent: unselected_taxonomy) }
   let!(:another_unselected_taxonomy_child) { create(:taxonomy, organization:, parent: unselected_taxonomy) }
   let!(:unselected_taxonomy_grandchild) { create(:taxonomy, organization:, parent: unselected_taxonomy_child) }
-  let!(:taxonomy_filter) { create(:taxonomy_filter, name:, internal_name:, space_filter:, root_taxonomy:, space_manifest:) }
+  let!(:taxonomy_filter) { create(:taxonomy_filter, name:, internal_name:, root_taxonomy:, participatory_space_manifests:) }
   let(:name) { { "en" => "The name for regular users" } }
   let(:internal_name) { { "en" => "The name for admins only" } }
-  let(:space_filter) { true }
-  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:) }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, participatory_space_manifests:) }
   let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
   let!(:another_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: another_taxonomy) }
 end

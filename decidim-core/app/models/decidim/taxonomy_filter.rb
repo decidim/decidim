@@ -3,6 +3,11 @@
 module Decidim
   # Represents the association between a taxonomy and a filterable entity within the system.
   class TaxonomyFilter < ApplicationRecord
+    include Decidim::TranslatableResource
+    include Decidim::Traceable
+
+    translatable_fields :name, :internal_name
+
     belongs_to :root_taxonomy,
                class_name: "Decidim::Taxonomy",
                counter_cache: :filters_count,
