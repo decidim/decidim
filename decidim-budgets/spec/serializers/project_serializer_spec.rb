@@ -101,7 +101,7 @@ module Decidim::Budgets
         expect(serialized).to include(follows_count: project.follows_count)
       end
 
-      it "includes the selected time" do
+      it "includes the selected date" do
         expect(serialized).to include(selected_at: project.selected_at)
       end
 
