@@ -259,7 +259,6 @@ cs:
           created_at: Datum a čas, kdy byla debata zahájena
           description: Popis debaty
           end_time: Když tato debata skončí, pokud se jedná o otevřenou debatu a má omezenou dobu
-          followers: Počet sledujících, které má tato debata
           id: Jedinečný identifikátor debaty
           information_updates: Aktualizace, které autor provedl v debatě
           instructions: Jaké jsou pokyny k připomínkám v této debatě
