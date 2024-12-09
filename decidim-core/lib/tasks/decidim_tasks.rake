@@ -6,6 +6,7 @@ namespace :decidim do
     :choose_target_plugins,
     :"decidim:upgrade_app",
     :"railties:install:migrations",
+    :"decidim:upgrade:migrations",
     :"decidim:upgrade:webpacker",
     :"decidim_api:generate_docs"
   ]
