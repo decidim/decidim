@@ -26,11 +26,13 @@ eu:
       debates:
         actions:
           comment: Iruzkina
+          create: Sortu eztabaida bat
           endorse: Atxiki
         name: Eztabaidak
         settings:
           global:
             announcement: Iragarpena
+            attachments_allowed: Baimendu eranskinak
             clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
@@ -68,7 +70,10 @@ eu:
             title: Editatu eztabaida
             update: Eguneratu eztabaida
           form:
+            add_documents: Gehitu dokumentuak
+            attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
             debate_type: Eztabaida mota
+            edit_documents: Editatu dokumentuak
             finite: Amaiera (hasiera- eta amaiera-ordua)
             open: Zabalik (ez dago hasiera- edo amaiera-ordurik)
           index:
@@ -255,7 +260,6 @@ eu:
           created_at: Zein datatan eta zein ordutan sortu zen eztabaida
           description: Eztabaidaren deskribapena
           end_time: Eztabaida hau amaitzen denean, eztabaida irekia bada eta denbora mugatua badu
-          followers: Eztabaida honek duen jarraitzaile kopurua
           id: Eztabaidaren identifikatzaile bakarra
           information_updates: Egileak eztabaidari egin dizkion eguneraketak
           instructions: Jarraibideak eztabaida honetan iruzkina egiteko
