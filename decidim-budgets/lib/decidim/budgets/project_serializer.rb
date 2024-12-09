@@ -81,14 +81,6 @@ module Decidim
         Decidim::EngineRouter.main_proxy(component).budget_url(project.budget)
       end
 
-      def root_url
-        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
-      end
-
-      def host
-        resource.organization.host
-      end
-
       def empty_translatable(locales = Decidim.available_locales)
         locales.each_with_object({}) do |locale, result|
           result[locale.to_s] = ""
