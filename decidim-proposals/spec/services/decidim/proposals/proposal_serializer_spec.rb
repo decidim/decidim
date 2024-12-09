@@ -330,7 +330,10 @@ module Decidim
 
           it "includes costs with a proposal not published" do
             expect(serialized).to include(
-              cost:,
+              cost: nil,
+              cost_report: nil,
+              execution_period: nil,
+              answer: nil,
               state_published_at: nil
             )
           end
