@@ -144,8 +144,10 @@ module Decidim
           case question.question_type
           when "short_answer", "long_answer"
             create_answer_for_text_question_type!(answer_options.merge({ question: }))
-          when "single_option", "multiple_option", "sorting"
+          when "single_option", "multiple_option"
             create_answer_for_multiple_choice_question_type(answer_options.merge({ question: }))
+          when "sorting"
+            create_answer_for_sorting_question_type(answer_options.merge({ question: }))
           when "matrix_single", "matrix_multiple"
             create_answer_for_matrix_question_type(answer_options.merge({ question: }))
           end
@@ -158,6 +160,24 @@ module Decidim
         Decidim::Forms::Answer.create!(
           **options.merge({ body: ::Faker::Lorem.paragraph(sentence_count: 1) })
         )
+      end
+
+      def create_answer_for_sorting_question_type(options)
+        answer = Decidim::Forms::Answer.create!(**options)
+        answer_options = options[:question].answer_options
+        available_positions = (0..(answer_options.count - 1)).to_a
+
+        answer_options.each do |answer_option|
+          position = available_positions.sample
+          body = answer_option["en"]
+
+          Decidim::Forms::AnswerChoice.create!(
+            answer:,
+            answer_option:,
+            body:,
+            position:
+          )
+        end
       end
 
       def create_answer_for_multiple_choice_question_type(options)
