@@ -433,6 +433,7 @@ eu:
           scope_id: Esparrua
         name: Baimen-adibidea
       dummy_authorization_workflow:
+        explanation: Balizko baimenaren lan-fluxua
         name: Balizko baimenaren lan-fluxua
       errors:
         duplicate_authorization: Badago datu berak dituen parte-hartzaile baimendu bat. Administratzaile bat zurekin harremanetan jarriko da zure datuak egiaztatzeko.
@@ -1351,6 +1352,14 @@ eu:
         message_1: Badirudi ez duzula Interneterako konexiorik.
         message_2: Mesedez, saiatu berriro geroago.
         retry: Saiatu berriro
+    onboarding_action_message:
+      click_link: Klikatu hemen
+      cta_html: <a href="%{path}">%{link_text}</a> horretarako %{action} hemen %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Zure baimena iraungi egin da.
+      finish_authorization_process: Baimen-prozesua bukatu ahal duzu
+      incomplete_authorization_active_title: Zure egiaztapena ez da osatu behar den informazio guztiarekin.
+      pending_authorization_active_message: Mesedez, bete formularioa ekintza honekin aurrera egiteko.
+      pending_authorization_active_title: Zure nortasuna egiaztatu behar dugu.
     open_data:
       help:
         core:
@@ -1359,6 +1368,11 @@ eu:
           main: Mamia
           spaces: Espazioak
           title: Open Data fitxategiak %{organization} erakunderako
+        metrics:
+          cumulative: Metrikaren kopuru osoa gaur egun
+          day: Metrika hau sortu zen eguna
+          metric_type: Metrika mota
+          quantity: Metriken kopurua egun honetarako
         moderated_users:
           about: Erabiltzailearen eremua
           block_reasons: Administratzaileak zergatik blokeatu zuen erabiltzailea
