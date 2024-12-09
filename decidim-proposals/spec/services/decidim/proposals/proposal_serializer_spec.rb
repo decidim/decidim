@@ -257,10 +257,6 @@ module Decidim
           expect(serialized).to include(cost: proposal.cost)
         end
 
-        it "serializes the cost report of the proposal" do
-          expect(serialized).to include(cost_report: proposal.cost_report)
-        end
-
         it "serializes the execution period of the proposal" do
           expect(serialized).to include(execution_period: proposal.execution_period)
         end
@@ -288,44 +284,15 @@ module Decidim
           end
         end
 
-        context "when proposals have execution periods that are not published" do
-          let!(:proposal) { create(:proposal) }
-          let(:execution_period) { proposal.execution_period }
-
-          before do
-            proposal.update!(execution_period:, state_published_at: nil)
-          end
-
-          it "includes the execution period on a proposal not published" do
-            expect(serialized).to include(
-              execution_period:,
-              state_published_at: nil
-            )
-          end
-        end
-
-        context "when proposals have cost reports that are not published" do
-          let!(:proposal) { create(:proposal) }
-          let(:cost_report) { proposal.cost_report }
-
-          before do
-            proposal.update!(cost_report:, state_published_at: nil)
-          end
-
-          it "includes the cost report with a proposal not published" do
-            expect(serialized).to include(
-              cost_report:,
-              state_published_at: nil
-            )
-          end
-        end
-
         context "when proposals with costs that are not published" do
-          let!(:proposal) { create(:proposal) }
+          let!(:proposal) { create(:proposal, :with_answer) }
           let(:cost) { proposal.cost }
+          let(:cost_report) { proposal.cost_report }
+          let(:execution_period) { proposal.execution_period }
+          let(:answer) { proposal.answer }
 
           before do
-            proposal.update!(cost:, state_published_at: nil)
+            proposal.update!(cost: nil, cost_report: nil, execution_period: nil, answer: nil, state_published_at: nil)
           end
 
           it "includes costs with a proposal not published" do
@@ -333,7 +300,7 @@ module Decidim
               cost: nil,
               cost_report: nil,
               execution_period: nil,
-              answer: nil,
+              answer: expected_answer,
               state_published_at: nil
             )
           end
