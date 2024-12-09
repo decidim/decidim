@@ -15,12 +15,12 @@
           <td><%= translated_attribute(taxonomy_filter.name) %></td>
           <td><%= taxonomy_filter.components_count %></td>
           <td>
-            <% if allowed_to? :update, :taxonomy_filters, taxonomy_filter: %>
+            <% if allowed_to? :update, :taxonomy_filter, taxonomy_filter: %>
               <%= icon_link_to "pencil-line", edit_taxonomy_filter_path(root_taxonomy, taxonomy_filter), t(".edit"), class: "action-icon--edit" %>
             <% else %>
               <span class="action-space icon"></span>
             <% end %>
-            <% if allowed_to? :destroy, :taxonomy_filters, taxonomy_filter: %>
+            <% if allowed_to? :destroy, :taxonomy_filter, taxonomy_filter: %>
               <%= icon_link_to "delete-bin-line", taxonomy_filter_path(root_taxonomy, taxonomy_filter), t(".destroy"), class: "action-icon--remove", method: :delete, data: { confirm: t(".confirm_destroy", name: strip_tags(translated_attribute(taxonomy_filter.name))) } %>
             <% else %>
               <span class="action-space icon"></span>
