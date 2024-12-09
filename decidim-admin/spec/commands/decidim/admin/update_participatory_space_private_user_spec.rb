@@ -7,7 +7,7 @@ module Decidim::Admin
     subject { described_class.new(form, private_user) }
 
     let!(:privatable_to) { create(:participatory_process) }
-    let!(:private_user) { create(:participatory_space_private_user, user:, role: { en: "Member" }, published: false) }
+    let!(:private_user) { create(:participatory_space_private_user, :unpublished, user:, role:) }
     let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
     let!(:current_user) { create(:user, email: "some_email@example.org", organization: privatable_to.organization) }
 
@@ -15,12 +15,12 @@ module Decidim::Admin
       double(
         invalid?: invalid,
         current_user:,
-        role: { en: role },
+        role:,
         published:
       )
     end
     let(:invalid) { false }
-    let(:role) { "President" }
+    let(:role) { generate_localized_title(:role) }
     let(:published) { true }
 
     context "when the form is not valid" do
@@ -35,7 +35,7 @@ module Decidim::Admin
       it "updates the role" do
         subject.call
 
-        expect(private_user.reload.role["en"]).to eq(role)
+        expect(translated(private_user.reload.role)).to eq(role)
       end
 
       it "updates the published status" do

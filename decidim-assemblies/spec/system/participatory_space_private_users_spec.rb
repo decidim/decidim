@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly members" do
+describe "Assembly private users" do
   let(:organization) { create(:organization) }
   let(:assembly) { create(:assembly, :with_content_blocks, organization:, blocks_manifests:, private_space: true) }
   let(:privatable_to) { assembly }
@@ -17,7 +17,7 @@ describe "Assembly members" do
 
   context "when there are no assembly members and directly accessing from URL" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_assemblies.assembly_assembly_members_path(assembly) }
+      let(:target_path) { decidim_assemblies.assembly_participatory_space_private_users_path(assembly) }
     end
   end
 
@@ -43,7 +43,7 @@ describe "Assembly members" do
 
   context "when the assembly does not exist" do
     it_behaves_like "a 404 page" do
-      let(:target_path) { decidim_assemblies.assembly_assembly_members_path(assembly_slug: 999_999_999) }
+      let(:target_path) { decidim_assemblies.assembly_participatory_space_private_users_path(assembly_slug: 999_999_999) }
     end
   end
 
@@ -54,7 +54,7 @@ describe "Assembly members" do
 
     context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_assemblies.assembly_assembly_members_path(assembly) }
+        let(:target_path) { decidim_assemblies.assembly_participatory_space_private_users_path(assembly) }
       end
     end
 
@@ -84,7 +84,7 @@ describe "Assembly members" do
     let!(:ceased_private_user) { create(:participatory_space_private_user, user: ceased_user, privatable_to:, published: false) }
 
     before do
-      visit decidim_assemblies.assembly_assembly_members_path(assembly)
+      visit decidim_assemblies.assembly_participatory_space_private_users_path(assembly)
     end
 
     context "and accessing from the assembly homepage" do
@@ -107,7 +107,7 @@ describe "Assembly members" do
             click_on "Members"
           end
 
-          expect(page).to have_current_path decidim_assemblies.assembly_assembly_members_path(assembly)
+          expect(page).to have_current_path decidim_assemblies.assembly_participatory_space_private_users_path(assembly)
         end
       end
 

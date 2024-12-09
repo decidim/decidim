@@ -6,8 +6,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # participatory_space - the participatory space
-      def initialize(participatory_space)
+      # current_user - the current user
+      def initialize(participatory_space, current_user)
         @participatory_space = participatory_space
+        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -18,6 +20,7 @@ module Decidim
       # Returns nothing.
       def call
         unpublish_all
+        create_action_log
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid
         broadcast(:invalid)
@@ -25,12 +28,22 @@ module Decidim
 
       private
 
-      attr_reader :participatory_space
+      attr_reader :participatory_space, :current_user
 
       def unpublish_all
-        participatory_space.participatory_space_private_users.each do |private_user|
-          private_user.update(published: false)
-        end
+        # rubocop:disable Rails/SkipsModelValidations
+        # Using update_all for performance reasons
+        participatory_space.participatory_space_private_users.update_all(published: false)
+        # rubocop:enable Rails/SkipsModelValidations
+      end
+
+      def create_action_log
+        Decidim.traceability.perform_action!(
+          "unpublish_all_members",
+          participatory_space,
+          current_user,
+          private_users_ids: participatory_space.participatory_space_private_users.pluck(:id)
+        )
       end
     end
   end

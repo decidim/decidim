@@ -26,7 +26,7 @@ module Decidim
         }, constraints: { assembly_id: /[0-9]+/ }
 
         resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
-          resources :assembly_members, only: :index, path: "members"
+          resources :participatory_space_private_users, only: :index, path: "members"
         end
 
         scope "/assemblies/:assembly_slug/f/:component_id" do
