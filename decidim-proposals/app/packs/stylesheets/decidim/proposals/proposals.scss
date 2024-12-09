@@ -133,3 +133,7 @@
     }
   }
 }
+
+.select-wrapper select {
+  @apply w-full;
+}

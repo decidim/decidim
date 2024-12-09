@@ -623,7 +623,7 @@ en:
             cancel: Cancel
             change_taxonomies: Change taxonomies
             merge: Merge into a new one
-            merge_button: Merge
+            merge_button: Create
             no_templates_available: No templates available
             publish: Publish
             publish_answers: Publish answers
