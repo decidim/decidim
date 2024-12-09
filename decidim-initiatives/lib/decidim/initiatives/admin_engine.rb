@@ -15,8 +15,6 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :initiative_filters, except: [:show]
-
         resources :initiatives_types, except: :show do
           resource :permissions, controller: "initiatives_types_permissions"
           resources :initiatives_type_scopes, except: [:index, :show]

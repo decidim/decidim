@@ -254,11 +254,6 @@ module Decidim
         end
       end
 
-      def participatory_space_taxonomy_filters_path
-        model = current_participatory_space || current_manifest.model_class_name.constantize.new
-        Decidim::EngineRouter.new(model.mounted_admin_engine, {}).send("#{current_manifest.route_name}_filters_path")
-      end
-
       def current_manifest
         defined?(current_participatory_space_manifest) ? current_participatory_space_manifest : current_participatory_space.manifest
       end

@@ -15,8 +15,6 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        resources :conference_filters, except: [:show]
-
         resources :conferences, param: :slug, except: [:show, :destroy] do
           resource :publish, controller: "conference_publications", only: [:create, :destroy]
           resources :copies, controller: "conference_copies", only: [:new, :create]
@@ -122,7 +120,7 @@ module Decidim
         Decidim::Conferences::Menu.register_conferences_admin_registrations_menu!
         Decidim::Conferences::Menu.register_conferences_admin_attachments_menu!
         Decidim::Conferences::Menu.register_conference_admin_menu!
-        Decidim::Conferences::Menu.register_conferences_admin_menu!
+        # Decidim::Conferences::Menu.register_conferences_admin_menu!
         Decidim::Conferences::Menu.register_admin_menu_modules!
       end
     end
