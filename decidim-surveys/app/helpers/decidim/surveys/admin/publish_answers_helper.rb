@@ -43,9 +43,9 @@ module Decidim
           question.answers.each do |answer|
             answer.choices.each do |choice|
               name = translated_attribute(choice.answer_option.body)
-              row = choice.position
+              row = choice.position + 1
 
-              counts[name][row] += 1
+              counts[row][name] += 1
             end
           end
 
@@ -56,7 +56,7 @@ module Decidim
             }
           end
 
-          column_chart tally, stacked: true, colors: colors_list
+          bar_chart tally.sort_by { |data| data[:name] }, stacked: true, colors: colors_list
         end
 
         def matrix_stack_chart_wrapper(question)
