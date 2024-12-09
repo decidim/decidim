@@ -380,7 +380,7 @@ en:
       help:
         projects:
           address: The address of the project (if any)
-          budget: Data regarding the budget of the project
+          budget: Data regarding the budget (e.g. "2021 Budget") of the project
           budget_amount: The total amount of the budget for this project
           comments: The number of comments this project has received
           component: The component that the project belongs to
