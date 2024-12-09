@@ -9,6 +9,7 @@ module Decidim
 
     context "when everything is ok" do
       it { is_expected.to be_valid }
+      it { is_expected.to be_versioned }
       it { is_expected.to respond_to(:root_taxonomy) }
       it { is_expected.to respond_to(:filter_items) }
 

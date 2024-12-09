@@ -31,6 +31,7 @@ module Decidim
 
     it { is_expected.to be_valid }
     it { is_expected.not_to be_root }
+    it { is_expected.to be_versioned }
 
     it "returns the parent ids" do
       expect(taxonomy.root_taxonomy).to eq(root_taxonomy)
