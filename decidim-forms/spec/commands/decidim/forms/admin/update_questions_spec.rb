@@ -189,7 +189,7 @@ module Decidim
             current_user: user
           )
         end
-        let(:command) { described_class.new(form, questionnaire, user) }
+        let(:command) { described_class.new(form, questionnaire) }
 
         describe "when the form is invalid" do
           before do

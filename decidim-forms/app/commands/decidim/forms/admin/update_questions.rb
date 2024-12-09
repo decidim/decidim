@@ -13,7 +13,6 @@ module Decidim
         def initialize(form, questionnaire)
           @form = form
           @questionnaire = questionnaire
-          @user = form.current_user
         end
 
         # Updates the questionnaire if valid.
@@ -24,7 +23,7 @@ module Decidim
 
           Decidim.traceability.perform_action!("update",
                                                @questionnaire,
-                                               @user) do
+                                               @form.current_user) do
             Decidim::Forms::Questionnaire.transaction do
               update_questionnaire_questions if @questionnaire.questions_editable?
             end

@@ -69,7 +69,7 @@ module Decidim
 
             def update_questions
               @form = form(Admin::QuestionsForm).from_params(params)
-              Admin::UpdateQuestions.call(@form, questionnaire, current_user) do
+              Admin::UpdateQuestions.call(@form, questionnaire) do
                 on(:ok) do
                   # i18n-tasks-use t("decidim.forms.admin.questionnaires.questions_form.update.success")
                   flash[:notice] = I18n.t("update.success", scope: i18n_questions_flashes_scope)
