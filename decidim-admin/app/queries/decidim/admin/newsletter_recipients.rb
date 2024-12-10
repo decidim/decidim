@@ -42,8 +42,7 @@ module Decidim
                      .where(organization: @form.current_organization)
                      .where.not(newsletter_notifications_at: nil)
                      .where.not(email: nil)
-                     .where.not(confirmed_at: nil)
-                     .not_deleted
+                     .confirmed
       end
 
       # Return the ids of the ParticipatorySpace selected
