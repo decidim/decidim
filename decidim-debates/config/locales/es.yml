@@ -26,6 +26,7 @@ es:
       debates:
         actions:
           comment: Comentar
+          create: Crear un debate
           endorse: Adherirse
         name: Debates
         settings:
