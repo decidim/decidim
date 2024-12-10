@@ -11,7 +11,6 @@ describe "Admin edits proposals" do
   let(:image_filename) { "city.jpeg" }
   let(:image_path) { Decidim::Dev.asset(image_filename) }
 
-
   include_context "when managing a component as an admin"
 
   before do
@@ -113,7 +112,7 @@ describe "Admin edits proposals" do
         click_on("Update")
         find("a.action-icon--edit-proposal").click
 
-        expect(page).not_to have_content("city.jpeg")
+        expect(page).to have_no_content("city.jpeg")
       end
     end
   end
