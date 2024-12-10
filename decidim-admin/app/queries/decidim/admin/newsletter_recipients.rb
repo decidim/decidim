@@ -52,12 +52,12 @@ module Decidim
 
       def apply_filters(recipients)
         filters = [
-          (@form.send_to_followers ? user_id_of_followers : nil),
-          (@form.send_to_participants ? participant_ids : nil),
-          (@form.send_to_private_members ? private_member_ids : nil)
-        ].compact
+          user_id_of_followers,
+          participant_ids,
+          private_member_ids
+        ].compact.flatten.uniq
 
-        recipients.where(id: filters.flatten.uniq)
+        filters.empty? ? recipients.none : recipients.where(id: filters)
       end
 
       # Return the ids of the ParticipatorySpace selected
@@ -127,6 +127,7 @@ module Decidim
       end
 
       def private_member_ids
+        return unless @form.send_to_private_members
         return [] if private_spaces.blank?
 
         Decidim::ParticipatorySpacePrivateUser.private_user_ids_for_participatory_spaces(private_spaces)
