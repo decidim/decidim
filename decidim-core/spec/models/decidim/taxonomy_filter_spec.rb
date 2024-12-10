@@ -17,6 +17,23 @@ module Decidim
         expect(taxonomy_filter.name).to eq(root_taxonomy.name)
         expect(taxonomy_filter.internal_name).to eq(root_taxonomy.name)
       end
+
+      describe "scopes" do
+        let!(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: [:assemblies, :participatory_processes]) }
+        let!(:external_taxonomy_filter) { create(:taxonomy_filter, participatory_space_manifests: [:assemblies]) }
+
+        it "returns only the organization taxonomy filters" do
+          expect(Decidim::TaxonomyFilter.for(root_taxonomy.organization).count).to eq(1)
+          expect(Decidim::TaxonomyFilter.for(root_taxonomy.organization).first).to eq(taxonomy_filter)
+        end
+
+        it "returns the filters for space manifests" do
+          expect(Decidim::TaxonomyFilter.for_manifest("assemblies").count).to eq(2)
+          expect(Decidim::TaxonomyFilter.for_manifest("assemblies").all).to include(taxonomy_filter, external_taxonomy_filter)
+          expect(Decidim::TaxonomyFilter.for(root_taxonomy.organization).for_manifest("assemblies").count).to eq(1)
+          expect(Decidim::TaxonomyFilter.for(root_taxonomy.organization).for_manifest("assemblies").first).to eq(taxonomy_filter)
+        end
+      end
     end
 
     context "when the filter taxonomy has a custom name" do

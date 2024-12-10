@@ -17,7 +17,7 @@ module Decidim
       def available_taxonomy_filters
         return Decidim::TaxonomyFilter.none unless has_taxonomy_settings?
 
-        @available_taxonomy_filters ||= Decidim::TaxonomyFilter.where(id: settings.taxonomy_filters)
+        @available_taxonomy_filters ||= Decidim::TaxonomyFilter.for(organization).where(id: settings.taxonomy_filters)
       end
 
       def available_root_taxonomies

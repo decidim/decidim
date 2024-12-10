@@ -114,9 +114,15 @@ describe "Filter Participatory Processes" do
   end
 
   context "when filtering parent participatory processes by taxonomies" do
-    let!(:taxonomy) { create(:taxonomy, :with_parent, organization:) }
+    let!(:taxonomy) { create(:taxonomy, :with_parent, organization:, name: { en: "A great taxonomy" }) }
+    let!(:another_taxonomy) { create(:taxonomy, parent: taxonomy.parent, organization:, name: { en: "Another taxonomy" }) }
     let!(:process_with_taxonomy) { create(:participatory_process, taxonomies: [taxonomy], organization:) }
     let!(:process_without_taxonomy) { create(:participatory_process, organization:) }
+    let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent, participatory_space_manifests:) }
+    let(:external_taxonomy_filter) { create(:taxonomy_filter, :with_items, participatory_space_manifests:) }
+    let(:participatory_space_manifests) { ["participatory_processes"] }
+    let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+    let!(:another_taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: another_taxonomy) }
 
     context "and choosing a taxonomy" do
       before do
@@ -127,6 +133,26 @@ describe "Filter Participatory Processes" do
         within "#processes-grid" do
           expect(page).to have_content(translated(process_with_taxonomy.title))
           expect(page).to have_no_content(translated(process_without_taxonomy.title))
+        end
+
+        within "#panel-dropdown-menu-taxonomy" do
+          click_filter_item "Another taxonomy"
+          sleep 2
+        end
+
+        within "#processes-grid" do
+          expect(page).to have_no_content(translated(process_with_taxonomy.title))
+          expect(page).to have_no_content(translated(process_without_taxonomy.title))
+        end
+
+        within "#panel-dropdown-menu-taxonomy" do
+          click_filter_item "Another taxonomy"
+          sleep 2
+        end
+
+        within "#processes-grid" do
+          expect(page).to have_content(translated(process_with_taxonomy.title))
+          expect(page).to have_content(translated(process_without_taxonomy.title))
         end
       end
     end

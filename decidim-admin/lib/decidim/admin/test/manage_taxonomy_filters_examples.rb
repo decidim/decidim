@@ -4,7 +4,7 @@ shared_examples "manage taxonomy filters in settings" do
   let(:participatory_space_manifests) { [participatory_space.manifest.name] }
   let!(:root_taxonomy) { create(:taxonomy, organization:, name: { en: "A root taxonomy" }) }
   let!(:taxonomy_item) { create(:taxonomy, organization:, parent: root_taxonomy) }
-  let(:filters_path) { decidim_admin_participatory_processes.participatory_process_filters_path }
+  let(:filters_path) { decidim_admin.taxonomies_path }
 
   before do
     within "#admin-sidebar-menu-settings" do

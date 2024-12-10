@@ -32,7 +32,7 @@ module Decidim
             participatory_spaces = current_organization.public_participatory_spaces
             components = Decidim::Component.where(manifest_name: "meetings", participatory_space: participatory_spaces)
             filter_ids = components.map(&:settings).pluck(:taxonomy_filters).flatten.compact
-            Decidim::TaxonomyFilter.where(id: filter_ids)
+            Decidim::TaxonomyFilter.for(current_organization).where(id: filter_ids)
           end
         end
 
