@@ -111,7 +111,7 @@ module Decidim
         let!(:taxonomy_filter1) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
         let!(:taxonomy_filter2) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
         let!(:taxonomy_filter3) { create(:taxonomy_filter, participatory_space_manifests: ["participatory_processes"], root_taxonomy:) }
-        let!(:taxonomy_filter4) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"], root_taxonomy:) }
+        let!(:taxonomy_filter4) { create(:taxonomy_filter, participatory_space_manifests: ["assemblies"]) }
         let(:attributes) do
           {
             "assembly" => {
