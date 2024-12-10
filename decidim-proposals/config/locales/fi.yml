@@ -150,6 +150,7 @@ fi:
         actions:
           amend: Muokkaa
           comment: Kommentoi
+          create: Luo ehdotus
           endorse: Suosittele
           vote: Äänestä
           vote_comment: Äänestä kommenttia
