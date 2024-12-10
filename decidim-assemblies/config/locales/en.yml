@@ -103,7 +103,7 @@ en:
       assemblies:
         create:
           error: There was a problem creating a new assembly.
-          success: Assembly created successfully.
+          success: Assembly created successfully. You can now add components and configure it.
         edit:
           update: Update
         index:

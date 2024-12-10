@@ -69,6 +69,7 @@ import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
 import selectActiveIdentity from "src/decidim/identity_selector_dialog"
 import createTooltip from "src/decidim/tooltips"
+import fetchRemoteTooltip from "src/decidim/remote_tooltips"
 import createToggle from "src/decidim/toggle"
 import {
   createAccordion,
@@ -78,6 +79,7 @@ import {
   Dialogs
 } from "src/decidim/a11y"
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
+import setOnboardingAction from "src/decidim/onboarding_pending_action"
 
 // bad practice: window namespace should avoid be populated as much as possible
 // rails-translations could be referenced through a single Decidim.I18n object
@@ -198,7 +200,11 @@ const initializer = (element = document) => {
   // Initialize data-toggles
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
 
+  element.querySelectorAll("[data-remote-tooltip]").forEach((elem) => fetchRemoteTooltip(elem))
+
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
+
+  element.querySelectorAll("[data-onboarding-action]").forEach((elem) => setOnboardingAction(elem))
 
   document.dispatchEvent(new CustomEvent("decidim:loaded", { detail: { element } }));
 }

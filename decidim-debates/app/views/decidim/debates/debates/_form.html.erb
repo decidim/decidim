@@ -13,4 +13,17 @@
   <% if @form.id.blank? && Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.any? %>
     <%= form.select :user_group_id, Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] }, prompt: current_user.name %>
   <% end %>
+
+  <% if component_settings.attachments_allowed? %>
+    <div class="row column">
+      <%= form.attachment :documents,
+                          multiple: true,
+                          label: t("decidim.debates.admin.debates.form.add_documents"),
+                          button_label: t("decidim.debates.admin.debates.form.add_documents"),
+                          button_edit_label: t("decidim.debates.admin.debates.form.edit_documents"),
+                          button_class: "button button__lg button__transparent-secondary w-full",
+                          help_i18n_scope: "decidim.forms.file_help.file",
+                          help_text: t("decidim.debates.admin.debates.form.attachment_legend") %>
+    </div>
+  <% end %>
 </div>
