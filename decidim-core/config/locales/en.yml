@@ -675,7 +675,7 @@ en:
           hide_password: Hide password
           show_password: Show password
           shown_password: Your password is shown
-        placeholder_email: hi@example.org
+        placeholder_email: hello@example.org
         placeholder_password: "**********"
     doorkeeper:
       authorizations:
