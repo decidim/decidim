@@ -430,6 +430,7 @@ es:
           scope_id: Ámbito
         name: Autorización de ejemplo
       dummy_authorization_workflow:
+        explanation: Ejemplo de flujo de verificación
         name: Flujo de trabajo de autorización de ejemplo
       errors:
         duplicate_authorization: Ya hay una participante autorizada con los mismos datos. Una administradora se pondrá en contacto contigo para verificar tus datos.
@@ -1348,6 +1349,14 @@ es:
         message_1: Parece que no tienes conexión a Internet.
         message_2: Por favor, inténtalo de nuevo más tarde.
         retry: Reintentar
+    onboarding_action_message:
+      click_link: Haz clic aquí
+      cta_html: <a href="%{path}">%{link_text}</a> para %{action} en %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Tu autorización ha expirado.
+      finish_authorization_process: Puedes terminar el proceso de verificación
+      incomplete_authorization_active_title: Tu verificación no se ha completado con toda la información necesaria.
+      pending_authorization_active_message: Por favor, complete el formulario para continuar con esta acción.
+      pending_authorization_active_title: Necesitamos verificar tu identidad.
     open_data:
       help:
         core:
@@ -1356,6 +1365,11 @@ es:
           main: Núcleo
           spaces: Espacios
           title: Archivos de datos abiertos de %{organization}
+        metrics:
+          cumulative: El número total de métricas en este día
+          day: La fecha en la que se creó esta métrica
+          metric_type: El tipo de métrica
+          quantity: El número de métricas en este día
         moderated_users:
           about: El texto "Acerca de" incluido en el perfil de usuaria
           block_reasons: La razón por la que administradora bloqueó a la usuaria
