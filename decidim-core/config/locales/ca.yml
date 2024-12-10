@@ -430,6 +430,7 @@ ca:
           scope_id: Àmbit
         name: Autorització d'exemple
       dummy_authorization_workflow:
+        explanation: Exemple de flux de verificació
         name: Flux de treball d'autorització d'exemple
       errors:
         duplicate_authorization: Ja hi ha una participant autoritzada amb les mateixes dades. Una administradora es posarà en contacte amb tu per verificar les teves dades.
@@ -1348,6 +1349,14 @@ ca:
         message_1: Sembla que no tens connexió a Internet.
         message_2: Si us plau, torneu-ho a provar més tard.
         retry: Torna-ho a provar
+    onboarding_action_message:
+      click_link: Fes clic aquí
+      cta_html: <a href="%{path}">%{link_text}</a> per %{action} a %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: La teva autorització ha caducat.
+      finish_authorization_process: Pots finalitzar el procés de verificació
+      incomplete_authorization_active_title: La teva verificació no s'ha completat amb tota la informació necessària.
+      pending_authorization_active_message: Si us plau, completa el formulari per a continuar amb aquesta acció.
+      pending_authorization_active_title: Necessitem verificar la teva identitat.
     open_data:
       help:
         core:
@@ -1356,6 +1365,11 @@ ca:
           main: Nucli
           spaces: Espais
           title: Fitxers de dades obertes de %{organization}
+        metrics:
+          cumulative: El número total de mètriques en aquest dia
+          day: La data en què es va crear aquesta mètrica
+          metric_type: El tipus de mètrica
+          quantity: El número de mètriques en aquest dia
         moderated_users:
           about: El text "Quant a" inclòs al perfil d'usuària
           block_reasons: El motiu pel qual l'administradora va bloquejar a la usuària
