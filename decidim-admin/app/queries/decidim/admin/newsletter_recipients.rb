@@ -20,11 +20,7 @@ module Decidim
       end
 
       def query
-        recipients = Decidim::User.where(organization: @form.current_organization)
-                                  .where.not(newsletter_notifications_at: nil)
-                                  .where.not(email: nil)
-                                  .where.not(confirmed_at: nil)
-                                  .not_deleted
+        recipients = recipients_base_query
 
         recipients = recipients.interested_in_scopes(@form.scope_ids) if @form.scope_ids.present?
 
@@ -40,6 +36,15 @@ module Decidim
       end
 
       private
+
+      def recipients_base_query
+        Decidim::User.available
+                     .where(organization: @form.current_organization)
+                     .where.not(newsletter_notifications_at: nil)
+                     .where.not(email: nil)
+                     .where.not(confirmed_at: nil)
+                     .not_deleted
+      end
 
       # Return the ids of the ParticipatorySpace selected
       # in form, grouped by type
