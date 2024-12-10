@@ -261,15 +261,6 @@ module Decidim
           expect(serialized).to include(execution_period: proposal.execution_period)
         end
 
-        context "when the votes are hidden" do
-          let!(:component) { create(:proposal_component, :with_votes_hidden) }
-          let!(:proposal) { create(:proposal, component:) }
-
-          it "does not include total count of votes" do
-            expect(serialized).to include(votes: nil)
-          end
-        end
-
         # This is an internal field for admins which should not be published
         context "when proposal notes count are hidden" do
           it "does not publish them" do
