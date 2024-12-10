@@ -103,6 +103,7 @@ es:
       assemblies:
         create:
           error: Se ha producido un error al crear una nueva asamblea.
+          success: Asamblea creada con éxito. Ahora puedes añadir componentes y configurarlos.
         edit:
           update: Actualizar
         index:
