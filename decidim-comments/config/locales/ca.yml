@@ -38,6 +38,7 @@ ca:
           error: S'ha produït un error en votar el comentari.
     components:
       add_comment_form:
+        account_message: Inicia sessió o crea un compte per afegir el teu comentari.
         form:
           body:
             label: Comentari
