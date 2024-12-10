@@ -175,14 +175,14 @@ header {
       }
 
       &__login {
-        @apply w-auto h-full flex flex-row items-center relative text-secondary gap-1;
+        @apply w-auto h-full flex flex-row items-center relative text-secondary gap-1 pl-2 pr-2;
 
         svg {
           @apply w-8 h-6 fill-current;
         }
 
         svg + span {
-          @apply text-sm first-letter:uppercase pr-4 w-auto;
+          @apply text-sm first-letter:uppercase w-auto;
           flex-shrink: 0;
         }
       }
