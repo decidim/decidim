@@ -6,7 +6,7 @@ describe "Admin manages conferences" do
   include_context "when admin administrating a conference"
   include_context "with taxonomy filters context"
   let(:participatory_space_manifest) { ["conferences"] }
-  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, partcipatory_space_manifests:) }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, participatory_space_manifests:) }
 
   before do
     switch_to_host(organization.host)
