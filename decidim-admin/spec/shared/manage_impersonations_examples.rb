@@ -23,16 +23,27 @@ shared_examples "manage impersonations examples" do
   end
 
   shared_examples_for "creating a managed user" do
+    let(:name) { "Rigoberto" }
+
     before do
       navigate_to_impersonations_page
 
       click_on "Manage new participant"
 
-      fill_in_the_impersonation_form(document_number, name: "Rigoberto")
+      fill_in_the_impersonation_form(document_number, name:)
     end
 
     it "shows a success message" do
       expect(page).to have_content("successfully")
+    end
+
+    context "when no name is provided" do
+      let(:name) { "" }
+
+      it "shows a validation error message" do
+        expect(page).to have_no_content("successfully")
+        expect(page).to have_content("There are errors on the form")
+      end
     end
 
     context "when authorization data is invalid" do
