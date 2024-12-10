@@ -150,6 +150,7 @@ ca:
         actions:
           amend: Esmena
           comment: Comentar
+          create: Crear una proposta
           endorse: Adherir-se
           vote: Donar suport
           vote_comment: Votar el comentari
