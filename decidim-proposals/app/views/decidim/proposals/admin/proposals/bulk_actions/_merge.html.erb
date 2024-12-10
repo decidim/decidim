@@ -1,10 +1,10 @@
 <%= decidim_drawer id: "merge-proposals_drawer" do %>
   <div id="js-merge-proposals-actions" class="js-bulk-action-form">
-    <%= form_tag(proposals_merge_path, method: :post, id: "js-form-merge-proposals", class: "form form-defaults") do %>
+    <%= decidim_form_for(proposals_merge_path, method: :post, id: "js-form-merge-proposals", class: "form form-defaults") do |f| %>
       <div class="item_show__header--with-action-options">
         <h1 class="item_show__header-title">
           <div>
-            <%= t("decidim.proposals.admin.proposals.index.merge") %>
+            <%= t(".title") %>
           </div>
           <div class="flex items-center gap-x-4">
             <%= submit_tag(t("decidim.proposals.admin.proposals.index.merge_button"), id: "js-submit-merge-proposals", class: "button button__sm button__secondary small button--simple float-left") %>
@@ -15,6 +15,8 @@
       <div class="row column select-wrapper">
         <%= bulk_components_select((current_component.siblings + [current_component])) %>
       </div>
+
+      <%= render partial: "form", object: f, locals: { title: t(".title") } %>
 
       <div class="hide">
         <% proposals.each do |proposal| %>
