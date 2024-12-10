@@ -12,17 +12,7 @@ module Decidim
     autoload :WorkflowRegistry, "decidim/workflow_registry"
 
     class_methods do
-      def method_missing(method_name, ...)
-        if registry.respond_to?(method_name, true)
-          registry.send(method_name, ...)
-        else
-          super
-        end
-      end
-
-      def respond_to_missing?(method_name, include_private = false)
-        registry.respond_to?(method_name, include_private)
-      end
+      delegate :workflow_collection, :register_workflow, :unregister_workflow, :reset_workflows, :find_workflow_manifest, to: :registry
 
       #
       # Collection of registered workflows
