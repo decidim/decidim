@@ -135,6 +135,13 @@ fi-pl:
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
+        onboarding_pending:
+          completed_verifications: Käyttäjätilisi vahvistaminen onnistui, voit nyt suorittaa toiminnon %{action} kohteessa %{resource_name}
+          granted_verifications: Myönnetyt vahvistukset
+          onboarding_message_html: Melkein valmista suorittaaksesi toiminnon %{action} kohteessa <strong>%{resource_title}</strong> %{resource_name}. Vahvista tilisi suorittamalla seuraavat tilin vahvistustoimet.
+          pending_admin_approval_verifications: Hallintakäyttäjän tarkastusta odottavat vahvistukset
+          pending_verifications: Odottavat vahvistukset
+          unauthorized: Sinulla ei ole oikeutta suorittaa toimintoa %{action} tässä kohteessa
         renew_modal:
           cancel: Peruuta
           continue: Jatka
