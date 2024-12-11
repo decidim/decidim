@@ -8,6 +8,6 @@
     "directory": "packages/browserslist-config"
   },
   "author": "Decidim Contributors",
-  "license": "AGPL-3.0",
+  "license": "AGPL-3.0-or-later",
   "main": "index.js"
 }
