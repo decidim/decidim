@@ -8,7 +8,7 @@
     "directory": "packages/dev"
   },
   "author": "Decidim Contributors",
-  "license": "AGPL-3.0",
+  "license": "AGPL-3.0-or-later",
   "dependencies": {
     "@linthtml/linthtml": "^0.9.6",
     "axe-core": "^4.7.2",
