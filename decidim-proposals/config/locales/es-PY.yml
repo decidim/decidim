@@ -150,6 +150,7 @@ es-PY:
         actions:
           amend: Enmendar
           comment: Comentar
+          create: Crear una propuesta
           endorse: Adherirse
           vote: Apoyar
           vote_comment: Votar comentario
