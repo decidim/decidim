@@ -38,6 +38,7 @@ fi-pl:
           error: Äänestettäessä kommenttia tapahtui virhe.
     components:
       add_comment_form:
+        account_message: Kirjaudu sisään tai luo tili kommentoidaksesi.
         form:
           body:
             label: Kommentti
