@@ -17,52 +17,26 @@
   </div>
   <div class="table-scroll">
     <table class="table-list">
-      <thead>
-        <tr>
-          <th><%= t("models.budget.fields.name", scope: "decidim.budgets") %></th>
-          <th><%= t("models.budget.fields.total_budget", scope: "decidim.budgets") %></th>
-          <th><%= t("models.budget.fields.projects_count", scope: "decidim.budgets") %></th>
-          <th><%= t("actions.title", scope: "decidim.budgets") %></th>
-        </tr>
-      </thead>
+      <%= render partial: "budgets-thead" %>
       <tbody>
-        <% budgets.each do |budget| %>
-          <tr data-id="<%= budget.id %>">
-            <td>
-              <% if allowed_to? :update, :budget, budget: budget %>
-                <%= link_to translated_attribute(budget.title), budget_projects_path(budget) %><br>
-              <% else %>
-                <%= translated_attribute(budget.title) %>
-              <% end %>
-            </td>
-            <td>
-              <%= number_to_currency budget.total_budget, unit: Decidim.currency_unit, precision: 0 %>
-            </td>
-            <td>
-              <%= link_to budget.projects.count, budget_projects_path(budget) %>
-            </td>
-            <td class="table-list__actions">
-              <% if allowed_to? :update, :budget, budget: budget %>
-                <%= icon_link_to "pencil-line", edit_budget_path(budget), t("actions.edit", scope: "decidim.budgets"), class: "action-icon--edit" %>
-              <% else %>
-                <%= icon "pencil-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.edit", scope: "decidim.budgets") %>
-              <% end %>
-
-              <%= icon_link_to "list-check", budget_projects_path(budget), t("actions.edit_projects", scope: "decidim.budgets"), class: "action-icon--edit-projects" %>
-
-              <%= icon_link_to "eye-line", resource_locator(budget).path, t("actions.preview", scope: "decidim.budgets"), class: "action-icon--preview", target: :blank, data: { "external-link": false } %>
-
-              <% if allowed_to? :delete, :budget, budget: budget %>
-                <%= icon_link_to "delete-bin-line", budget_path(budget), t("actions.destroy", scope: "decidim.budgets"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.budgets") } %>
-              <% else %>
-                <%= icon "delete-bin-line", class: "action-icon action-icon--disabled", role: "img", aria_label: t("actions.destroy", scope: "decidim.budgets") %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+        <%= render partial: "decidim/budgets/admin/budgets/budget-tr",
+                   collection: budgets,
+                   as: :budget,
+                   locals: { view: :index } %>
       </tbody>
     </table>
   </div>
+  <% if allowed_to? :manage_trash, :budget, participatory_space: current_participatory_space %>
+    <div class="card-divider mt-4">
+      <%= link_to manage_trash_budgets_path, class: "flex items-center underline text-secondary" do %>
+        <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+        <%= t("actions.view_deleted_budgets", scope: "decidim.budgets") %>
+        <span class="ml-2">
+          <%= icon_with_tooltip("information-line", t("actions.deleted_budgets_info", scope: "decidim.budgets")) %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
   <div class="card-divider">
     <strong><%= t ".finished_orders" %>:&nbsp;</strong><span><%= finished_orders.count %></span>
     <span>&nbsp;|&nbsp;</span>

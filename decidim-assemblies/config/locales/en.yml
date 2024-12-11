@@ -94,15 +94,17 @@ en:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Are you sure you want to delete this assembly?  If you change your mind, you can restore it later.
         import_assembly: Import
         new_assembly: New assembly
         new_assembly_member: New assembly member
         new_assembly_type: New assembly type
         new_assembly_user_role: New assembly admin
+        view_deleted_assemblies: View deleted assemblies
       assemblies:
         create:
           error: There was a problem creating a new assembly.
-          success: Assembly created successfully.
+          success: Assembly created successfully. You can now add components and configure it.
         edit:
           update: Update
         index:
@@ -110,6 +112,8 @@ en:
           public: Public
           published: Published
           unpublished: Unpublished
+        manage_trash:
+          title: Deleted assemblies
         new:
           create: Create
           title: New assembly
@@ -251,7 +255,10 @@ en:
             valuator: Valuator
       titles:
         assemblies: Assemblies
+        assemblies_deleted: Deleted assemblies
         assemblies_types: Assemblies types
+      tooltips:
+        deleted_assemblies_info: An assembly can only be deleted if status is "Unpublished".
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"
@@ -259,6 +266,8 @@ en:
         export: "%{user_name} exported the %{resource_name} assembly"
         import: "%{user_name} imported the %{resource_name} assembly"
         publish: "%{user_name} published the %{resource_name} assembly"
+        restore: "%{user_name} restored the %{resource_name} assembly"
+        soft_delete: "%{user_name} moved to trash the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
       assembly_member:

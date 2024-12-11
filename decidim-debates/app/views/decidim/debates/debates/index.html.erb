@@ -8,7 +8,7 @@
   <h1 class="title-decorator"><%= component_name %></h1>
 
   <% if current_settings.creation_enabled? && current_component.participatory_space.can_participate?(current_user) %>
-    <%= action_authorized_link_to :create, new_debate_path, class: "button button__xl button__secondary w-full", data: { "redirect_url" => new_debate_path } do %>
+    <%= action_authorized_link_to :create, new_debate_path, permissions_holder: current_component, class: "button button__xl button__secondary w-full", data: { "redirect_url" => new_debate_path } do %>
       <span><%= t(".new_debate") %></span>
       <%= icon "add-fill" %>
     <% end %>

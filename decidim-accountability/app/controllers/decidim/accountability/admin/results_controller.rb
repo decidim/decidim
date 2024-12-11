@@ -8,6 +8,7 @@ module Decidim
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
         include Decidim::Accountability::Admin::Filterable
+        include Decidim::Admin::HasTrashableResources
 
         helper_method :results, :parent_result, :parent_results, :statuses, :present
 
@@ -65,19 +66,23 @@ module Decidim
           end
         end
 
-        def destroy
-          enforce_permission_to(:destroy, :result, result:)
+        private
 
-          Decidim::Commands::DestroyResource.call(result, current_user) do
-            on(:ok) do
-              flash[:notice] = I18n.t("results.destroy.success", scope: "decidim.accountability.admin")
-
-              redirect_to results_path(parent_id: result.parent_id)
-            end
-          end
+        def trashable_deleted_resource_type
+          :result
         end
 
-        private
+        def trashable_deleted_resource
+          @trashable_deleted_resource ||= Result.with_deleted.where(component: current_component).find_by(id: params[:id])
+        end
+
+        def trashable_deleted_collection
+          @trashable_deleted_collection = filtered_collection.only_deleted.deleted_at_desc
+        end
+
+        def find_parent_resource
+          parent_result
+        end
 
         def results
           @results ||= filtered_collection

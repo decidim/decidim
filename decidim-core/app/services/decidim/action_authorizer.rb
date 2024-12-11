@@ -126,6 +126,16 @@ module Decidim
       def codes
         @codes ||= statuses.map(&:code)
       end
+
+      def pending_authorizations_count
+        return 0 if @statuses.blank?
+
+        @statuses.count
+      end
+
+      def single_authorization_required?
+        pending_authorizations_count == 1 && [:ok, :unauthorized].exclude?(global_code)
+      end
     end
 
     class AuthorizationError < StandardError; end

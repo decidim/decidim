@@ -5,7 +5,9 @@ module Decidim
     # This controller allows users to create and destroy their authorizations. It
     # should not be necessary to expand it to add new authorization schemes.
     class AuthorizationsController < Verifications::ApplicationController
-      helper_method :handler, :unauthorized_methods, :authorization_method, :authorization
+      helper_method :handler, :unauthorized_methods, :authorization_method, :authorization,
+                    :granted_authorizations, :pending_authorizations, :active_authorization_methods
+
       before_action :valid_handler, only: [:new, :create]
 
       include Decidim::UserProfile
@@ -16,23 +18,38 @@ module Decidim
       helper Decidim::AuthorizationFormHelper
       helper Decidim::TranslationsHelper
 
-      layout "layouts/decidim/authorizations", except: :index
+      layout "layouts/decidim/authorizations", except: [:index, :onboarding_pending]
 
       def new; end
 
-      def index
-        @granted_authorizations = granted_authorizations
-        @pending_authorizations = pending_authorizations
-      end
+      def index; end
 
-      def first_login
-        if unauthorized_methods.length == 1
-          redirect_to(
-            action: :new,
-            handler: unauthorized_methods.first.name,
-            redirect_url: decidim.account_path
+      def onboarding_pending
+        return redirect_back(fallback_location: authorizations_path) unless onboarding_manager.valid?
+
+        authorizations = action_authorized_to(onboarding_manager.action, **onboarding_manager.action_authorized_resources)
+
+        authorization_status = authorizations.global_code
+        if authorizations.single_authorization_required?
+          flash.keep
+          return redirect_to(authorizations.statuses.first.current_path(redirect_url: decidim_verifications.onboarding_pending_authorizations_path))
+        end
+        return unless onboarding_manager.finished_verifications?(active_authorization_methods) || authorization_status == :unauthorized
+
+        if authorization_status == :unauthorized
+          flash[:alert] = t("authorizations.onboarding_pending.unauthorized", scope: "decidim.verifications", action: onboarding_manager.action_text.downcase)
+        else
+          flash[:notice] = t(
+            "authorizations.onboarding_pending.completed_verifications",
+            scope: "decidim.verifications",
+            action: onboarding_manager.action_text.downcase,
+            resource_name: onboarding_manager.model_name.human.downcase
           )
         end
+
+        redirect_to onboarding_manager.finished_redirect_path
+
+        clear_onboarding_data!(current_user)
       end
 
       def create
@@ -62,6 +79,16 @@ module Decidim
             render action: :new
           end
         end
+      end
+
+      def renew_onboarding_data
+        store_onboarding_cookie_data!(current_user)
+
+        redirect_to onboarding_pending_authorizations_path
+      end
+
+      def clear_onboarding_data
+        clear_onboarding_data!(current_user)
       end
 
       protected
@@ -110,15 +137,15 @@ module Decidim
       end
 
       def active_authorization_methods
-        Authorizations.new(organization: current_organization, user: current_user).pluck(:name)
+        @active_authorization_methods ||= Authorizations.new(organization: current_organization, user: current_user).pluck(:name)
       end
 
       def granted_authorizations
-        Authorizations.new(organization: current_organization, user: current_user, granted: true)
+        @granted_authorizations ||= Authorizations.new(organization: current_organization, user: current_user, granted: true)
       end
 
       def pending_authorizations
-        Authorizations.new(organization: current_organization, user: current_user, granted: false)
+        @pending_authorizations ||= Authorizations.new(organization: current_organization, user: current_user, granted: false)
       end
 
       def store_current_location

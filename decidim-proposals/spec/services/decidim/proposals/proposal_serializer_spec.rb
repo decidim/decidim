@@ -236,6 +236,15 @@ module Decidim
           end
         end
 
+        context "when the votes are hidden" do
+          let!(:component) { create(:proposal_component, :with_votes_hidden) }
+          let!(:proposal) { create(:proposal, component:) }
+
+          it "does not include total count of votes" do
+            expect(serialized).to include(votes: nil)
+          end
+        end
+
         context "with rich text proposal body" do
           let(:image) { "<img src=\"logo.png\" #{alt_attribute} width=\"407\">" }
           let(:alt_attribute) { "alt=\"Logo alt attribute\"" }
