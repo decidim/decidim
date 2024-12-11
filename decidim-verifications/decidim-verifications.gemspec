@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
 
   s.summary = "Decidim verifications module"
   s.description = "Several verification methods for your decidim instance"
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
 
   s.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").select do |f|

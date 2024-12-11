@@ -6,6 +6,7 @@ class EtiquetteValidator < ActiveModel::EachValidator
   include ActionView::Helpers::SanitizeHelper
 
   def validate_each(record, attribute, value)
+    return unless Decidim.enable_etiquette_validator
     # remove HTML tags, from WYSIWYG editor
     value = clean_value(value)
 
@@ -21,9 +22,8 @@ class EtiquetteValidator < ActiveModel::EachValidator
   private
 
   def validate_caps(record, attribute, value)
-    # to prevent :too_much_caps error when there are no caps and 1-3 char string
-    caps = value.scan(/[A-Z]/).length
-    return if caps.zero? || value.scan(/[A-Z]/).length < value.length / 4
+    number_of_caps = value.scan(/[A-Z]/).length
+    return if number_of_caps.zero? || number_of_caps < value.length / 2 # 50%
 
     record.errors.add(attribute, options[:message] || :too_much_caps)
   end
