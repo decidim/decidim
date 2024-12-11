@@ -305,7 +305,6 @@ module Decidim
           end
         end
 
-
         context "when the proposal is answered but not published" do
           before do
             proposal.update!(answered_at:, state_published_at: nil)
@@ -334,6 +333,8 @@ module Decidim
               answered_at:,
               state_published_at:
             )
+          end
+        end
 
         context "when the votes are hidden" do
           let!(:component) { create(:proposal_component, :with_votes_hidden) }
