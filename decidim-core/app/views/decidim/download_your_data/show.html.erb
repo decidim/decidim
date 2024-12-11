@@ -3,38 +3,43 @@
   <% content_for(:subtitle) { t("my_data", scope: "layouts.decidim.user_profile") } %>
 
   <div class="download-your-data">
-    <span class="uppercase font-semibold text-gray-2 mb-4 block">
+    <h2 class="h4 font-bold pb-4">
       <%= t("download_data", scope:"decidim.download_your_data.show") %>
-    </span>
+    </h2>
 
-    <p class="help-text pb-8">
+    <p class="pb-4 editor-content">
       <%= t("download_data_description_1", scope:"decidim.download_your_data.show") %>
     </p>
-    <p class="help-text pb-8">
+    <p class="pb-4 editor-content">
       <%= t("download_data_description_2", scope:"decidim.download_your_data.show") %>
     </p>
+
+    <%= render layout: "decidim/application/accordion_section", locals: { open_accordion: true, panel_id: "explanation", title: t("title", scope: "decidim.download_your_data.show.explanation") } do %>
+      <p> <%= t("body_1", scope: "decidim.download_your_data.show.explanation", organization_name: current_organization_name) %> </p>
+      <p> <%= t("body_2", scope: "decidim.download_your_data.show.explanation") %> </p>
+    <% end %>
+
+    <%= render partial: "decidim/open_data/how_to_open_accordion_section" %>
+
+    <%= render layout: "decidim/application/accordion_section", locals: { panel_id: "detailed", title: t("title", scope: "decidim.open_data.index.detailed") } do %>
+      <p> <%= t("body_1", scope: "decidim.open_data.index.detailed") %> </p>
+      <% help_definitions.each do |export_manifest_name, export_manifest_definitions| %>
+        <div class="mt-8">
+          <h4><%= export_manifest_name %></h4>
+          <ul>
+            <% export_manifest_definitions.each do |i18n_key, i18n_value| %>
+              <li> <b><%= i18n_key %></b>: <%= i18n_value %> </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+
     <div class="form__wrapper-block">
       <%= button_to t("request_data", scope:"decidim.download_your_data.show"), export_download_your_data_path, class: "button button__sm md:button__lg button__secondary mr-auto !ml-0", data: { disable: true } %>
     </div>
 
     <% unless @exports.size.zero? %>
-
-      <%= render partial: "decidim/open_data/how_to_open_accordion_section" %>
-
-      <%= render layout: "decidim/application/accordion_section", locals: { panel_id: "detailed", title: t("title", scope: "decidim.open_data.index.detailed") } do %>
-        <p> <%= t("body_1", scope: "decidim.open_data.index.detailed") %> </p>
-        <% help_definitions.each do |export_manifest_name, export_manifest_definitions| %>
-          <div class="mt-8">
-            <h4><%= export_manifest_name %></h4>
-            <ul>
-              <% export_manifest_definitions.each do |i18n_key, i18n_value| %>
-                <li> <b><%= i18n_key %></b>: <%= i18n_value %> </li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-      <% end %>
-
       <table class="w-full mt-12">
         <thead class="uppercase">
           <th class="text-left"><%= t("type", scope:"decidim.download_your_data.show") %></th>
