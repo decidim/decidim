@@ -5,7 +5,102 @@ require "decidim/api/test/component_context"
 require "decidim/proposals/test/factories"
 
 describe "Decidim::Api::QueryType" do
-  include_context "with a graphql decidim component"
+  include_context "with a graphql decidim component" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Proposals {
+        proposal(id: #{proposal.id}) {
+          acceptsNewComments
+          address
+          amendments {
+            id
+            state
+            amender { id }
+            amendable { id }
+            emendation { id }
+            emendationType
+            amendableType
+          }
+          answer {
+            translation(locale:"#{locale}")
+          }
+          answeredAt
+          attachments {
+            thumbnail
+          }
+          author {
+            id
+          }
+          authors {
+            id
+          }
+          authorsCount
+          body {
+            translation(locale:"#{locale}")
+          }
+          category {
+            id
+          }
+          comments {
+            id
+          }
+          commentsHaveAlignment
+          commentsHaveVotes
+          coordinates{
+            latitude
+            longitude
+          }
+          createdAt
+          createdInMeeting
+          endorsements {
+            id
+            deleted
+             name
+            nickname
+            organizationName
+            profilePath
+          }
+          endorsementsCount
+          fingerprint{
+            source
+            value
+          }
+          hasComments
+          id
+          meeting {
+            id
+          }
+          official
+          participatoryTextLevel
+          position
+          publishedAt
+          reference
+          scope {
+            id
+          }
+          state
+          title {
+            translation(locale:"#{locale}")
+          }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
+          versions {
+            id
+            changeset
+            createdAt
+            editor{
+              id
+            }
+          }
+          versionsCount
+          voteCount
+        }
+      }
+    )
+    end
+  end
   let(:component_type) { "Proposals" }
   let!(:current_component) { create(:proposal_component, participatory_space: participatory_process) }
   let!(:proposal) { create(:proposal, :with_votes, :with_endorsements, :participant_author, component: current_component, category:) }
@@ -86,6 +181,25 @@ describe "Decidim::Api::QueryType" do
       },
       "weight" => 0
     }
+  end
+
+  describe "commentable" do
+    let(:component_fragment) { nil }
+    let(:participatory_process_query) do
+      %(
+        commentable(id: "#{proposal.id}", type: "Decidim::Proposals::Proposal", locale: "en", toggleTranslations: false) {
+          __typename
+        }
+      )
+    end
+
+    it "executes successfully" do
+      expect { response }.not_to raise_error
+    end
+
+    it do
+      expect(response).to eq({ "commentable" => { "__typename" => "Proposal" } })
+    end
   end
 
   describe "valid connection query" do
@@ -194,107 +308,18 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Proposals {
-        proposal(id: #{proposal.id}) {
-          acceptsNewComments
-          address
-          amendments {
-            id
-            state
-            amender { id }
-            amendable { id }
-            emendation { id }
-            emendationType
-            amendableType
-          }
-          answer {
-            translation(locale:"#{locale}")
-          }
-          answeredAt
-          attachments {
-            thumbnail
-          }
-          author {
-            id
-          }
-          authors {
-            id
-          }
-          authorsCount
-          body {
-            translation(locale:"#{locale}")
-          }
-          category {
-            id
-          }
-          comments {
-            id
-          }
-          commentsHaveAlignment
-          commentsHaveVotes
-          coordinates{
-            latitude
-            longitude
-          }
-          createdAt
-          createdInMeeting
-          endorsements {
-            id
-            deleted
-             name
-            nickname
-            organizationName
-            profilePath
-          }
-          endorsementsCount
-          fingerprint{
-            source
-            value
-          }
-          hasComments
-          id
-          meeting {
-            id
-          }
-          official
-          participatoryTextLevel
-          position
-          publishedAt
-          reference
-          scope {
-            id
-          }
-          state
-          title {
-            translation(locale:"#{locale}")
-          }
-          totalCommentsCount
-          type
-          updatedAt
-          userAllowedToComment
-          versions {
-            id
-            changeset
-            createdAt
-            editor{
-              id
-            }
-          }
-          versionsCount
-          voteCount
-        }
-      }
-    )
-    end
-
-    it "executes sucessfully" do
+    it "executes successfully" do
       expect { response }.not_to raise_error
     end
 
     it do
       expect(response["participatoryProcess"]["components"].first["proposal"]).to eq(proposal_single_result)
     end
+  end
+
+  include_examples "with resource visibility" do
+    let(:component_factory) { :proposal_component }
+    let(:lookout_key) { "proposal" }
+    let(:query_result) { proposal_single_result }
   end
 end

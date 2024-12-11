@@ -32,8 +32,11 @@ describe "Decidim::Api::QueryType" do
       expect(response["organization"]["name"]).to eq(current_organization.name)
     end
 
+    it "displays the admin in the stats" do
+      expect(response["organization"]["stats"].select { |hash| hash["name"] == "users_count" }).to eq(["name" => "users_count", "value" => 1])
+    end
+
     %w(
-      users_count
       processes_count
       comments_count
       assemblies_count
