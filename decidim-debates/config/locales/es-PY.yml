@@ -26,11 +26,13 @@ es-PY:
       debates:
         actions:
           comment: Comentar
+          create: Crear un debate
           endorse: Adherirse
         name: Debates
         settings:
           global:
             announcement: Anuncio
+            attachments_allowed: Permitir archivos adjuntos
             clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
@@ -68,7 +70,10 @@ es-PY:
             title: Editar debate
             update: Actualizar debate
           form:
+            add_documents: Añadir documentos
+            attachment_legend: "(Opcional) Añadir un archivo adjunto"
             debate_type: Tipo de debate
+            edit_documents: Editar documentos
             finite: Finito (con hora de inicio y final)
             open: Abierto (no hay hora de inicio o final)
           index:
@@ -251,15 +256,19 @@ es-PY:
           created_at: La fecha y hora en que se creó este debate
           description: La descripción del debate
           end_time: Cuando terminaba este debate, si era un debate abierto o tenía un tiempo limitado para participar.
+          endorsements_count: El número de adhesiones que tiene este debate
+          follows_count: El número de seguidoras que tiene este debate
           id: El identificador único del debate
           information_updates: Las actualizaciones de contenido del debate que hizo la autora
           instructions: Cuáles fueron las instrucciones para comentar/participar en este debate
           last_comment_at: La fecha del último comentario en este debate
+          last_comment_by: La fecha del último comentario realizado en este debate
           participatory_space: A qué espacio pertenece este debate (proceso participativo, asamblea, etc.)
           reference: El identificador único del recurso en esta plataforma
           start_time: Cuando empezó este debate, si era un debate abierto o tenía un tiempo limitado para participar.
           taxonomies: Las taxonomías del proyecto
           title: El título del debate
+          updated_at: La fecha de la última actualización del debate
           url: La URL donde se puede encontrar este debate
     statistics:
       debates_count: Debates
