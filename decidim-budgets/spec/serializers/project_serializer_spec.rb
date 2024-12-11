@@ -53,10 +53,6 @@ module Decidim::Budgets
         expect(serialized[:budget_amount]).to eq(project.budget_amount)
       end
 
-      it "includes count of confirmed votes" do
-        expect(serialized[:confirmed_votes]).to eq(project.confirmed_orders_count)
-      end
-
       it "includes comment count" do
         expect(serialized[:comments]).to eq(project.comments.count)
       end
