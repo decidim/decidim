@@ -1,6 +1,6 @@
 class ActionSelector {
   init() {
-    this.dropdownElement = document.querySelector("[data-action-button]");
+    this.dropdownElement = document.querySelector("#js-bulk-actions-dropdown");
     const buttons = this.dropdownElement.querySelectorAll("button");
 
     buttons.forEach((button) => {
