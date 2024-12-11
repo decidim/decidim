@@ -97,6 +97,24 @@ module Decidim
           accepted_tos_version: Time.current
         ).presenter
       end
+
+      class AuthoredItem
+        ATTRS = [:published_at].freeze
+
+        attr_reader(*ATTRS)
+
+        def initialize(args = {})
+          args.slice(*ATTRS).each do |var, val|
+            instance_variable_set(:"@#{var}", val)
+          end
+        end
+      end
+
+      def authored_item
+        AuthoredItem.new(
+          published_at: 1.day.ago
+        )
+      end
     end
   end
 end
