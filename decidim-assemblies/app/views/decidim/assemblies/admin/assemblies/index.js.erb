@@ -1,0 +1,10 @@
+$('[data-assembly-id="<%= parent_assembly_id %>"]').after(
+  '<%= j(render partial: "decidim/assemblies/admin/assemblies/assembly_row",
+                collection: @assemblies,
+                as: :assembly,
+                locals: { view: :index }).strip.html_safe %>'
+);
+
+var component = new window.Decidim.AdminAssembliesListComponent();
+
+component.run();
