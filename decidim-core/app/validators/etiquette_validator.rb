@@ -7,6 +7,7 @@ class EtiquetteValidator < ActiveModel::EachValidator
 
   def validate_each(record, attribute, value)
     return unless Decidim.enable_etiquette_validator
+
     # remove HTML tags, from WYSIWYG editor
     value = clean_value(value)
 
