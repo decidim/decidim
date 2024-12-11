@@ -5,9 +5,9 @@
 
       <div class="row column">
         <%= f.select :decidim_accountability_status_id,
-                    options_for_select(statuses.map { |status| [translated_attribute(status.name), status.id] }),
-                    { include_blank: true, label: t(".status") },
-                    { class: "w-full mt-2" } %>
+                     options_for_select(statuses.map { |status| [translated_attribute(status.name), status.id] }),
+                     { include_blank: true, label: t(".status") },
+                     { class: "w-full mt-2" } %>
       </div>
 
       <%= render partial: "decidim/accountability/admin/results/bulk_actions/submit_buttons", locals: { submit_text: t(".change_status") } %>

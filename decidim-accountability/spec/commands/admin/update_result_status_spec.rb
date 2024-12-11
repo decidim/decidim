@@ -41,7 +41,7 @@ module Decidim::Accountability::Admin
         let!(:result_with_status) { create(:result, component: current_component, status:) }
         let(:result_ids) { results.map(&:id) + [result_with_status.id] }
 
-        it "doesn't trace the action for that result" do
+        it "does not trace the action for that result" do
           expect(Decidim.traceability)
             .to receive(:perform_action!)
             .with("update", kind_of(Decidim::Accountability::Result), user)

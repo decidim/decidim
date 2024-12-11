@@ -6,9 +6,9 @@
       <% current_component_taxonomy_filters.each do |filter| %>
         <div class="row column mb-6">
           <%= f.select :taxonomies,
-                      options_for_select(taxonomy_items_options_for_filter(filter)),
-                      { include_blank: I18n.t("decidim.taxonomies.prompt"), label: decidim_sanitize_translated(filter.name) },
-                      { class: "w-full mt-2", id: "taxonomies_for_filter_#{filter.id}", name: "result_bulk_actions[taxonomies][]" } %>
+                       options_for_select(taxonomy_items_options_for_filter(filter)),
+                       { include_blank: I18n.t("decidim.taxonomies.prompt"), label: decidim_sanitize_translated(filter.name) },
+                       { class: "w-full mt-2", id: "taxonomies_for_filter_#{filter.id}", name: "result_bulk_actions[taxonomies][]" } %>
         </div>
       <% end %>
 
