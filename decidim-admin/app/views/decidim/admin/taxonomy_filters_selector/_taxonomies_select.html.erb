@@ -1,0 +1,13 @@
+<div class="form__wrapper">
+	<div class="item__edit-form js-drawer-taxonomy-select">
+		<%= label_tag("available-taxonomies-filter", t(".taxonomies")) %>
+		<%= select_tag "available-taxonomies", options_from_collection_for_select(current_organization.taxonomies.roots, "id", "translated_name", root_taxonomy&.id), include_blank: t(".select_taxonomy") %>
+	</div>
+
+	<% if root_taxonomy %>
+		<div class="item__edit-form js-drawer-filter-select">
+			<%= label_tag("available-filters-filter", t(".filters")) %>
+			<%= select_tag "available-filters", options_from_collection_for_select(root_taxonomy.taxonomy_filters, "id", "translated_internal_name", taxonomy_filter&.id), include_blank: t(".add_filter") %>
+		</div>
+	<% end %>
+</div>

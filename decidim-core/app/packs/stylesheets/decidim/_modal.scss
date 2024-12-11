@@ -79,5 +79,9 @@
         }
       }
     }
+
+    .card {
+      @apply p-4 my-4 bg-background-2;
+    }
   }
 }

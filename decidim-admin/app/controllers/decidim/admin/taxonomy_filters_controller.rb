@@ -14,6 +14,11 @@ module Decidim
 
       helper_method :collection, :root_taxonomy, :taxonomy_filter
 
+      # Returns non-layout views of for use in selecting filters for components or other places using a drawer.
+      def show
+        enforce_permission_to :show, :taxonomy_filter
+      end
+
       def index
         enforce_permission_to :index, :taxonomy_filter
       end

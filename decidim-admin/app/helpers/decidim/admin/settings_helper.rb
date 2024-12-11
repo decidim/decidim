@@ -242,7 +242,7 @@ module Decidim
         end
 
         drawer = decidim_drawer id: "#{name}-dialog" do
-          render partial: "decidim/admin/components/taxonomy_filters_drawer", locals: { form:, available_filters: current_taxonomy_filters, name: }
+          render partial: "decidim/admin/components/taxonomy_filters_drawer", locals: { form:, name: }
         end
 
         label_tag(name, t(name, scope: i18n_scope)) + current_items + button + drawer

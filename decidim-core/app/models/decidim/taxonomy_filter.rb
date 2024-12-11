@@ -5,6 +5,7 @@ module Decidim
   class TaxonomyFilter < ApplicationRecord
     include Decidim::TranslatableResource
     include Decidim::Traceable
+    include Decidim::SanitizeHelper
 
     translatable_fields :name, :internal_name
 
@@ -49,6 +50,14 @@ module Decidim
       return root_taxonomy&.name if super&.compact_blank.blank?
 
       super
+    end
+
+    def translated_name
+      decidim_sanitize_translated(name)
+    end
+
+    def translated_internal_name
+      decidim_sanitize_translated(internal_name)
     end
 
     # Components that have this taxonomy filter enabled.

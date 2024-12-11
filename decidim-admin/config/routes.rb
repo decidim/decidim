@@ -125,6 +125,7 @@ Decidim::Admin::Engine.routes.draw do
       resources :items, only: [:new, :create, :edit, :update], controller: "taxonomy_items"
       resources :filters, except: [:show], controller: "taxonomy_filters"
     end
+    resources :taxonomy_filters_selector, only: [:index, :show]
 
     root to: "dashboard#show"
   end
