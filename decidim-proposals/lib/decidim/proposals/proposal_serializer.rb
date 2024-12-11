@@ -41,7 +41,8 @@ module Decidim
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),
           answered_at: proposal.answered_at,
-          votes: proposal.proposal_votes_count,
+          votes: (proposal.proposal_votes_count unless
+          proposal.component.current_settings.votes_hidden?),
           endorsements: {
             total_count: proposal.endorsements.size,
             user_endorsements:
