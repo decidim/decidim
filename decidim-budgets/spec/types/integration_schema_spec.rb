@@ -37,12 +37,6 @@ describe "Decidim::Api::QueryType" do
             updatedAt
             userAllowedToComment
           }
-          scope {
-            id
-            name{
-              translation(locale:"#{locale}")
-            }
-          }
           title {
             translation(locale:"#{locale}")
           }
@@ -90,7 +84,6 @@ describe "Decidim::Api::QueryType" do
           "userAllowedToComment" => project.user_allowed_to_comment?(current_user)
         }
       end,
-      "scope" => nil,
       "title" => { "translation" => budget.title[locale] },
       "total_budget" => budget.total_budget,
       "updatedAt" => budget.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
@@ -142,7 +135,6 @@ describe "Decidim::Api::QueryType" do
         "description" => { "translation" => budget.description[locale] },
         "id" => budget.id.to_s,
         "projects" => budget.projects.map { |project| { "id" => project.id.to_s } },
-        "scope" => nil,
         "title" => { "translation" => budget.title[locale] },
         "total_budget" => budget.total_budget,
         "updatedAt" => budget.updated_at.iso8601.to_s.gsub("Z", "+00:00"),
@@ -164,12 +156,6 @@ describe "Decidim::Api::QueryType" do
               id
               projects {
                 id
-              }
-              scope {
-                id
-                name{
-                  translation(locale:"#{locale}")
-                }
               }
               title {
                 translation(locale:"#{locale}")
@@ -219,7 +205,7 @@ describe "Decidim::Api::QueryType" do
             "acceptsNewComments" => project.accepts_new_comments?,
             "attachments" => [],
             "budget_amount" => project.budget_amount,
-            "taxonomies" => [{ "id" => project.taxonomies.first.id.to_s }],
+            "category" => { "id" => project.category.id.to_s },
             "comments" => [],
             "commentsHaveAlignment" => project.comments_have_alignment?,
             "commentsHaveVotes" => project.comments_have_votes?,
@@ -228,6 +214,7 @@ describe "Decidim::Api::QueryType" do
             "hasComments" => project.comment_threads.size.positive?,
             "id" => project.id.to_s,
             "reference" => project.reference,
+            "scope" => nil,
             "selected" => project.selected?,
             "title" => { "translation" => project.title[locale] },
             "totalCommentsCount" => project.comments_count,

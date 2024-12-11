@@ -8,40 +8,36 @@ describe "Decidim::Api::QueryType" do
   include_context "with a graphql decidim component" do
     let(:component_fragment) do
       %(
-        fragment fooComponent on Sortitions {
-          sortitions {
-            edges{
-              node{
-                acceptsNewComments
-                additionalInfo {  translation(locale: "#{locale}") }
-                author { id }
-                cancelReason { translation(locale: "#{locale}") }
-                cancelledByUser { id }
-                cancelledOn
-                candidateProposals
-                category { id }
-                comments { id }
-                commentsHaveAlignment
-                commentsHaveVotes
-                createdAt
-                dice
-                hasComments
-                id
-                reference
-                requestTimestamp
-                selectedProposals
-                targetItems
-                title { translation(locale: "#{locale}") }
-                totalCommentsCount
-                type
-                updatedAt
-                userAllowedToComment
-                witnesses { translation(locale: "#{locale}") }
-              }
-            }
-          }
+      fragment fooComponent on Sortitions {
+        sortition(id: #{sortition.id}){
+          acceptsNewComments
+          additionalInfo {  translation(locale: "#{locale}") }
+          author { id }
+          cancelReason { translation(locale: "#{locale}") }
+          cancelledByUser { id }
+          cancelledOn
+          candidateProposals
+          category { id }
+          comments { id }
+          commentsHaveAlignment
+          commentsHaveVotes
+          createdAt
+          dice
+          hasComments
+          id
+          reference
+          requestTimestamp
+          selectedProposals
+          targetItems
+          title { translation(locale: "#{locale}") }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
+          witnesses { translation(locale: "#{locale}") }
         }
-      )
+      }
+    )
     end
   end
   let(:component_type) { "Sortitions" }

@@ -8,46 +8,42 @@ describe "Decidim::Api::QueryType" do
     let(:component_fragment) do
       %(
       fragment fooComponent on Debates {
-        debates{
-          edges{
-            node{
-              acceptsNewComments
-              author {
-                id
-              }
-              category {
-                id
-              }
-              comments {
-                id
-              }
-              commentsHaveAlignment
-              commentsHaveVotes
-              createdAt
-              description {
-                translation(locale: "#{locale}")
-              }
-              endTime
-              hasComments
-              id
-              image
-              informationUpdates {
-                translation(locale: "#{locale}")
-              }
-              instructions {
-                translation(locale: "#{locale}")
-              }
-              reference
-              startTime
-              title {
-                translation(locale: "#{locale}")
-              }
-              totalCommentsCount
-              type
-              updatedAt
-              userAllowedToComment
-            }
+        debate(id: #{debate.id}){
+          acceptsNewComments
+          author {
+            id
           }
+          category {
+            id
+          }
+          comments {
+            id
+          }
+          commentsHaveAlignment
+          commentsHaveVotes
+          createdAt
+          description {
+            translation(locale: "#{locale}")
+          }
+          endTime
+          hasComments
+          id
+          image
+          informationUpdates {
+            translation(locale: "#{locale}")
+          }
+          instructions {
+            translation(locale: "#{locale}")
+          }
+          reference
+          startTime
+          title {
+            translation(locale: "#{locale}")
+          }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
         }
       }
 )
@@ -56,7 +52,7 @@ describe "Decidim::Api::QueryType" do
   let(:component_type) { "Debates" }
 
   let!(:current_component) { create(:debates_component, participatory_space: participatory_process) }
-  let!(:debate) { create(:debate, :participant_author, component: current_component, category:) }
+  let!(:debate) { create(:debate, :participant_author, author:, component: current_component, category:) }
   let(:author) { build(:user, :confirmed, organization: current_component.organization) }
 
   let(:debate_single_result) do
@@ -122,6 +118,54 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid connection query" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Debates {
+        debates{
+          edges{
+            node{
+              acceptsNewComments
+              author {
+                id
+              }
+              category {
+                id
+              }
+              comments {
+                id
+              }
+              commentsHaveAlignment
+              commentsHaveVotes
+              createdAt
+              description {
+                translation(locale: "#{locale}")
+              }
+              endTime
+              hasComments
+              id
+              image
+              informationUpdates {
+                translation(locale: "#{locale}")
+              }
+              instructions {
+                translation(locale: "#{locale}")
+              }
+              reference
+              startTime
+              title {
+                translation(locale: "#{locale}")
+              }
+              totalCommentsCount
+              type
+              updatedAt
+              userAllowedToComment
+            }
+          }
+        }
+      }
+)
+    end
+
     it "executes successfully" do
       expect { response }.not_to raise_error
     end

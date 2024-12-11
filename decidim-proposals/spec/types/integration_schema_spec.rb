@@ -9,99 +9,95 @@ describe "Decidim::Api::QueryType" do
     let(:component_fragment) do
       %(
       fragment fooComponent on Proposals {
-        proposals {
-          edges{
-            node{
-              acceptsNewComments
-              address
-              amendments {
-                id
-                state
-                amender { id }
-                amendable { id }
-                emendation { id }
-                emendationType
-                amendableType
-              }
-              answer {
-                translation(locale:"#{locale}")
-              }
-              answeredAt
-              attachments {
-                thumbnail
-              }
-              author {
-                id
-              }
-              authors {
-                id
-              }
-              authorsCount
-              body {
-                translation(locale:"#{locale}")
-              }
-              category {
-                id
-              }
-              comments {
-                id
-              }
-              commentsHaveAlignment
-              commentsHaveVotes
-              coordinates{
-                latitude
-                longitude
-              }
-              createdAt
-              createdInMeeting
-              endorsements {
-                id
-                deleted
-                 name
-                nickname
-                organizationName { translation(locale: "en") }
-                profilePath
-              }
-              endorsementsCount
-              fingerprint{
-                source
-                value
-              }
-              hasComments
+        proposal(id: #{proposal.id}) {
+          acceptsNewComments
+          address
+          amendments {
+            id
+            state
+            amender { id }
+            amendable { id }
+            emendation { id }
+            emendationType
+            amendableType
+          }
+          answer {
+            translation(locale:"#{locale}")
+          }
+          answeredAt
+          attachments {
+            thumbnail
+          }
+          author {
+            id
+          }
+          authors {
+            id
+          }
+          authorsCount
+          body {
+            translation(locale:"#{locale}")
+          }
+          category {
+            id
+          }
+          comments {
+            id
+          }
+          commentsHaveAlignment
+          commentsHaveVotes
+          coordinates{
+            latitude
+            longitude
+          }
+          createdAt
+          createdInMeeting
+          endorsements {
+            id
+            deleted
+             name
+            nickname
+            organizationName { translation(locale: "en") }
+            profilePath
+          }
+          endorsementsCount
+          fingerprint{
+            source
+            value
+          }
+          hasComments
+          id
+          meeting {
+            id
+          }
+          official
+          participatoryTextLevel
+          position
+          publishedAt
+          reference
+          scope {
+            id
+          }
+          state
+          title {
+            translation(locale:"#{locale}")
+          }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
+          versions {
+            id
+            changeset
+            createdAt
+            editor{
               id
-              meeting {
-                id
-              }
-              official
-              participatoryTextLevel
-              position
-              publishedAt
-              reference
-              scope {
-                id
-              }
-              state
-              title {
-                translation(locale:"#{locale}")
-              }
-              totalCommentsCount
-              type
-              updatedAt
-              userAllowedToComment
-              versions {
-                id
-                changeset
-                createdAt
-                editor{
-                  id
-                }
-              }
-              versionsCount
-              voteCount
-              withdrawn
-              withdrawnAt
             }
           }
+          versionsCount
+          voteCount
+          withdrawn
+          withdrawnAt
         }
       }
     )

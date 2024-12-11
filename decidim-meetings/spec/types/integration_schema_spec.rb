@@ -8,88 +8,84 @@ describe "Decidim::Api::QueryType" do
     let(:component_fragment) do
       %(
       fragment fooComponent on Meetings {
-        meetings{
-          edges{
-            node{
-              acceptsNewComments
-              address
-              agenda {
-                id
-              }
-              attachments {
-                thumbnail
-              }
-              attendeeCount
-              attendingOrganizations
-              category {
-                id
-              }
-              closed
-              closingReport {
-                translation(locale: "#{locale}")
-              }
-              isWithdrawn
-              videoUrl
-              audioUrl
-              comments {
-                id
-              }
-              commentsHaveAlignment
-              commentsHaveVotes
-              contributionCount
-              coordinates {
-                latitude
-                longitude
-              }
-              createdAt
-              description {
-                translation(locale: "#{locale}")
-              }
-              endTime
-              hasComments
-              id
-              location {
-                translation(locale: "#{locale}")
-              }
-              locationHints {
-                translation(locale: "#{locale}")
-              }
-              privateMeeting
-              proposalsFromMeeting {
-                id
-              }
-              reference
-              registrationForm {
-                id
-              }
-              registrationsEnabled
-              registrationTerms {
-                translation(locale: "#{locale}")
-              }
-              registrationsEnabled
-              remainingSlots
-              scope {
-                id
-              }
-              services{
-                description {
-                  translation(locale: "#{locale}")
-                }
-                title {
-                  translation(locale: "#{locale}")
-                }
-              }
-              startTime
-              title {
-                translation(locale: "#{locale}")
-              }
-              totalCommentsCount
-              transparent
-              type
-              updatedAt
-              userAllowedToComment
+        meeting(id: #{meeting.id}){
+          acceptsNewComments
+          address
+          agenda {
+            id
+          }
+          attachments {
+            thumbnail
+          }
+          attendeeCount
+          attendingOrganizations
+          category {
+            id
+          }
+          closed
+          closingReport {
+            translation(locale: "#{locale}")
+          }
+          isWithdrawn
+          videoUrl
+          audioUrl
+          comments {
+            id
+          }
+          commentsHaveAlignment
+          commentsHaveVotes
+          contributionCount
+          coordinates {
+            latitude
+            longitude
+          }
+          createdAt
+          description {
+            translation(locale: "#{locale}")
+          }
+          endTime
+          hasComments
+          id
+          location {
+            translation(locale: "#{locale}")
+          }
+          locationHints {
+            translation(locale: "#{locale}")
+          }
+          privateMeeting
+          proposalsFromMeeting {
+            id
+          }
+          reference
+          registrationForm {
+            id
+          }
+          registrationsEnabled
+          registrationTerms {
+            translation(locale: "#{locale}")
+          }
+          registrationsEnabled
+          remainingSlots
+          scope {
+            id
+          }
+          services{
+            description {
+              translation(locale: "#{locale}")
+            }
+            title {
+              translation(locale: "#{locale}")
             }
           }
+          startTime
+          title {
+            translation(locale: "#{locale}")
+          }
+          totalCommentsCount
+          transparent
+          type
+          updatedAt
+          userAllowedToComment
         }
       }
 )
