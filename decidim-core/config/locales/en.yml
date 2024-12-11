@@ -766,7 +766,7 @@ en:
           updated_at: The date and time when this user was last updated
       show:
         action: Action
-        download: Download
+        download: Download file
         download_data: Data download
         download_data_description_1: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
         download_data_description_2: You can request a .zip file with your submissions and personal data.
@@ -777,6 +777,7 @@ en:
           title: What are these files?
           body_1: These files are datasets exported from your activity in this platform, such as proposals, or comments. They provide raw, structured data that can be used for analysis, research, or integration with other tools
           body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
+        files_to_download: Files to download
         request_data: Request
         type: Download type
     editor_images:

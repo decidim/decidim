@@ -35,16 +35,20 @@
       <% end %>
     <% end %>
 
-    <div class="form__wrapper-block">
+    <div class="py-10 flex flex-col gap-4 only:[&_*]:ml-auto">
       <%= button_to t("request_data", scope:"decidim.download_your_data.show"), export_download_your_data_path, class: "button button__sm md:button__lg button__secondary mr-auto !ml-0", data: { disable: true } %>
     </div>
 
     <% unless @exports.size.zero? %>
-      <table class="w-full mt-12">
-        <thead class="uppercase">
-          <th class="text-left"><%= t("type", scope:"decidim.download_your_data.show") %></th>
-          <th class="w-[20%]"><%= t("expiration", scope:"decidim.download_your_data.show") %></th>
-          <th class="w-[15%] text-left"><%= t("action", scope:"decidim.download_your_data.show") %></th>
+      <h2 class="h4 font-bold pb-4">
+        <%= t("files_to_download", scope:"decidim.download_your_data.show") %>
+      </h2>
+
+      <table class="w-full">
+        <thead class="bg-gray-5">
+          <th class="font-semibold p-4 text-left"><%= t("type", scope:"decidim.download_your_data.show") %></th>
+          <th class="w-[20%] sm:w-[25%] font-semibold py-4"><%= t("expiration", scope:"decidim.download_your_data.show") %></th>
+          <th class="w-[20%] sm:w-[25%] font-semibold py-4 text-center"><%= t("action", scope:"decidim.download_your_data.show") %></th>
         </thead>
         <tbody>
           <%= render partial: "decidim/download_your_data/export", collection: @exports %>
