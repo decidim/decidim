@@ -2,9 +2,7 @@
 
 module Decidim
   module Pages
-    class PagesType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class PagesType < Decidim::Core::ComponentType
       graphql_name "Pages"
       description "A pages component of a participatory space."
 
