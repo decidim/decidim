@@ -178,10 +178,10 @@ en:
     download_your_data:
       help:
         registrations:
-          id: The unique identifier of the registration
           code: The registration code
-          user: The user that made the registration
+          id: The unique identifier of the registration
           meeting: The meeting that the user registered to
+          user: The user that made the registration
       show:
         meeting_comments: Meeting comments export
         meetings: Meetings export

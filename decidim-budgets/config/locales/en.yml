@@ -369,12 +369,12 @@ en:
     download_your_data:
       help:
         orders:
-          id: The unique identifier of the order
           budget: The budget that the order is related to
-          component: The component that the order is related to
           checked_out_at: The date and time when the order was checked out
-          projects: The projects that the order has voted on
+          component: The component that the order is related to
           created_at: The date and time when the order was created
+          id: The unique identifier of the order
+          projects: The projects that the order has voted on
           updated_at: The date and time when the order was updated
       show:
         projects: Projects export

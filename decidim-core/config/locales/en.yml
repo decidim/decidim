@@ -696,37 +696,37 @@ en:
         ready: Ready
       help:
         core:
-          title: Download your data files from %{organization}
           description: These are the files with the personal data, contributions and activity from the user %{user_name}
+          title: Download your data files from %{organization}
         follows:
           created_at: The date and time when the follow was created
           followable: The resource or space that is being followed
           id: The unique identifier of this follow
           updated_at: The date and time when the follow was last updated
         identities:
+          created_at: The date and time when the identity was created
           id: The unique identifier of this identity
           provider: The provider of this identity
           uid: The unique identifier of this identity
-          user: The user that this identity belongs to
-          created_at: The date and time when the identity was created
           updated_at: The date and time when the identity was last updated
+          user: The user that this identity belongs to
         messaging_conversations:
+          created_at: The date when this conversation was created
           id: The unique identifier for this conversation
           messages: The messages of this conversation
-          created_at: The date when this conversation was created
           updated_at: The date when this converstaion was last updated
         notifications:
+          created_at: The date and time when the notification was created
+          event_class: The class of the event that triggered the notification
+          event_name: The name of the event that triggered the notification
+          extra: Extra information of this notification
           id: The unique identifier of this notification
           resource_type: The type of the resource that the notification is related to
-          event_name: The name of the event that triggered the notification
-          event_class: The class of the event that triggered the notification
-          created_at: The date and time when the notification was created
           updated_at: The date and time when the notification was last updated
-          extra: Extra information of this notification
         user_groups:
+          document_number: The document number of this user group
           id: The unique identifier of this user group
           name: The name of this user group
-          document_number: The document number of this user group
           phone: The phone number of this user group
           verified_at: The date and time when this user group was verified
         users:
@@ -774,9 +774,9 @@ en:
         expiration: Expiration
         expired: Already expired
         explanation:
-          title: What are these files?
           body_1: These files are datasets exported from your activity in this platform, such as proposals, or comments. They provide raw, structured data that can be used for analysis, research, or integration with other tools
           body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
+          title: What are these files?
         files_to_download: Files to download
         request_data: Request
         type: Download type

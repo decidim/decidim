@@ -130,6 +130,12 @@ en:
         text: I agree with this comment
     download_your_data:
       help:
+        comment_votes:
+          comment: The id of the comment that was voted
+          created_at: The date when this vote was created
+          id: The id of the vote
+          updated_at: The date when this vote was last updated
+          weight: The weight of the vote (1 for upvote, -1 for downvote)
         comments:
           alignment: If this comment was a favour, against or neutral
           author: The name of the participant that made this comment
@@ -142,12 +148,6 @@ en:
           locale: The locale (language) that the participant had when leaving this comment
           root_commentable_url: The URL of the resource that ties to this comment
           user_group: The name of the user group that made this comment (if any)
-        comment_votes:
-          id: The id of the vote
-          weight: The weight of the vote (1 for upvote, -1 for downvote)
-          comment: The id of the comment that was voted
-          created_at: The date when this vote was created
-          updated_at: The date when this vote was last updated
     events:
       comments:
         comment_by_followed_user:
