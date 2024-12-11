@@ -8,7 +8,7 @@
     "directory": "packages/core"
   },
   "author": "Decidim Contributors",
-  "license": "AGPL-3.0",
+  "license": "AGPL-3.0-or-later",
   "dependencies": {
     "@picmo/popup-picker": "^5.8.4",
     "@rails/activestorage": "^6.0.4",

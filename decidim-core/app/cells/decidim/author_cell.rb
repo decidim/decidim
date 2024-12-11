@@ -49,7 +49,25 @@ module Decidim
       @context_actions_options ||= options[:context_actions].map(&:to_sym)
     end
 
+    def profile_minicard
+      render
+    end
+
     private
+
+    # If the options hash has the demo key it means we are in the decidim-design engine,
+    # so it is not a real-world scenario with actual users
+    def data
+      @data ||= begin
+        internal_data = { author: true }
+        if has_tooltip? && !options.has_key?(:demo)
+          internal_data["remote_tooltip"] = true
+          internal_data["tooltip-url"] = decidim.profile_tooltip_path(raw_model.nickname)
+        end
+
+        internal_data
+      end
+    end
 
     def layout
       @layout ||= LAYOUTS.include?(options[:layout]) ? options[:layout] : :default
@@ -161,6 +179,14 @@ module Decidim
 
     def resource_name
       @resource_name ||= from_context.class.name.demodulize.underscore
+    end
+
+    def has_tooltip?
+      return false if model.deleted?
+      return false if model.respond_to?(:blocked?) && model.blocked?
+      return true if options.has_key?(:tooltip)
+
+      model.has_tooltip?
     end
   end
 end
