@@ -212,7 +212,7 @@ describe "Decidim::Api::QueryType" do
             "acceptsNewComments" => project.accepts_new_comments?,
             "attachments" => [],
             "budget_amount" => project.budget_amount,
-            "category"=>{"id"=> project.category.id.to_s},
+            "category" => { "id" => project.category.id.to_s },
             "comments" => [],
             "commentsHaveAlignment" => project.comments_have_alignment?,
             "commentsHaveVotes" => project.comments_have_votes?,
