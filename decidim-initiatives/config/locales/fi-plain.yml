@@ -635,6 +635,7 @@ fi-pl:
           comment: Kommentoi
       initiatives_type:
         actions:
+          create: Luo aloite
           title: Toimet
           vote: Äänestä
   layouts:
