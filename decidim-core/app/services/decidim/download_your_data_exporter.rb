@@ -102,7 +102,9 @@ module Decidim
       help_definition = DownloadYourDataSerializers.help_definitions_for(user)
 
       help_definition.each do |entity, headers|
-        readme_file << "## #{entity}\n\n"
+        next if headers.empty?
+
+        readme_file << "\n\n## #{entity}\n\n"
 
         headers.each do |header, help_value|
           readme_file << "* #{header}: #{help_value}\n"
