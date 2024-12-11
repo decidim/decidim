@@ -433,6 +433,7 @@ fi-pl:
           scope_id: Teema
         name: Esimerkkivarmennus
       dummy_authorization_workflow:
+        explanation: Esimerkkivahvistuksen työnkulku
         name: Dummy-varmennuksen työnkulku
       errors:
         duplicate_authorization: Osallistuja on jo tunnistettu vastaavilla tiedoilla. Hallintakäyttäjä ottaa sinuun yhteyttä tarkastakseen tietosi.
@@ -1350,6 +1351,14 @@ fi-pl:
         message_1: Verkkoyhteytesi näyttää olevan poissa käytöstä tällä hetkellä.
         message_2: Yritä myöhemmin uudestaan.
         retry: Yritä uudestaan
+    onboarding_action_message:
+      click_link: Paina tästä
+      cta_html: <a href="%{path}">%{link_text}</a> suorittaaksesi toiminnon %{action} kohteelle %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Vahvistus on vanhentunut.
+      finish_authorization_process: Voit suorittaa vahvistuksen loppuun
+      incomplete_authorization_active_title: Vahvistustasi ei ole suoritettu loppuun kaikkine tarvittavine tietoineen.
+      pending_authorization_active_message: Täytä esitetty lomake suorittaaksesi tämän toiminnon loppuun.
+      pending_authorization_active_title: Meidän on vahvistettava henkilöllisyytesi.
     open_data:
       help:
         core:
@@ -1358,6 +1367,11 @@ fi-pl:
           main: Ydin
           spaces: Tilat
           title: Avoimet datan tiedostot palvelulle %{organization}
+        metrics:
+          cumulative: Kyseisen päivän tilastomittarien kokonaismäärä
+          day: Tilastomittarin luontipäivä
+          metric_type: Tilastomittarin tyyppi
+          quantity: Tilastomittarien määrä tälle päivälle
         moderated_users:
           about: Käyttäjän henkilökohtainen kuvaus
           block_reasons: Syy, miksi käyttäjä estettiin
