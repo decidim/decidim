@@ -69,6 +69,7 @@ import handleNotificationActions from "src/decidim/notifications_actions"
 import RemoteModal from "src/decidim/remote_modal"
 import selectActiveIdentity from "src/decidim/identity_selector_dialog"
 import createTooltip from "src/decidim/tooltips"
+import fetchRemoteTooltip from "src/decidim/remote_tooltips"
 import createToggle from "src/decidim/toggle"
 import {
   createAccordion,
@@ -194,6 +195,8 @@ const initializer = (element = document) => {
 
   // Initialize data-toggles
   element.querySelectorAll("[data-toggle]").forEach((elem) => createToggle(elem))
+
+  element.querySelectorAll("[data-remote-tooltip]").forEach((elem) => fetchRemoteTooltip(elem))
 
   element.querySelectorAll(".new_report").forEach((elem) => changeReportFormBehavior(elem))
 }
