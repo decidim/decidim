@@ -20,7 +20,6 @@ describe "User location button" do
 
   before do
     stub_geocoding(address, [latitude, longitude])
-    allow(Decidim).to receive(:show_my_location_button).and_return(manifest)
     switch_to_host(organization.host)
     login_as user, scope: :user
   end

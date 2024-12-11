@@ -1,0 +1,18 @@
+<tr data-id="<%= budget.id %>">
+  <td>
+    <% if allowed_to? :update, :budget, budget: budget %>
+      <%= link_to translated_attribute(budget.title), budget_projects_path(budget) %><br>
+    <% else %>
+      <%= translated_attribute(budget.title) %>
+    <% end %>
+  </td>
+  <td>
+    <%= number_to_currency budget.total_budget, unit: Decidim.currency_unit, precision: 0 %>
+  </td>
+  <td>
+    <%= link_to budget.projects.count, budget_projects_path(budget) %>
+  </td>
+  <td class="table-list__actions">
+    <%= render partial: "decidim/budgets/admin/budgets/actions", locals: { budget:, view: } %>
+  </td>
+</tr>
