@@ -4,26 +4,31 @@ class AdminAccountabilityImportsComponent {
   }
 
   bindEvents() {
-    const $form = this.getForm();
-    const $selects = $form.find("select");
+    const form = this.getForm();
+    const selects = form.querySelectorAll("select");
 
-    $selects.each((_i, select) => {
-      $(select).on("change", this.onSelectChange.bind(this));
+    selects.forEach((select) => {
+      select.addEventListener("change", this.onSelectChange.bind(this));
     });
   }
 
   onSelectChange() {
-    const $form = this.getForm();
-    const formUrl = $form.data("form-url");
+    const form = this.getForm();
+    const formUrl = form.dataset.formUrl;
 
-    $form.find("input[name='authenticity_token']").remove();
-    $form.attr("action", formUrl);
-    $form.attr("method", "get");
-    $form.submit();
+    // Remove authenticity token input if it exists
+    const tokenInput = form.querySelector("input[name='authenticity_token']");
+    if (tokenInput) {
+      tokenInput.remove();
+    }
+
+    form.setAttribute("action", formUrl);
+    form.setAttribute("method", "get");
+    form.submit();
   }
 
   getForm() {
-    return $("#new_import_component");
+    return document.getElementById("new_import_component");
   }
 }
 
