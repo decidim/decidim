@@ -106,10 +106,7 @@ module Decidim
       hash << id_prefix
       hash << I18n.locale.to_s
       hash << model.class.name.underscore
-      hash << model.cache_key_with_version
-      if (author_cell = author)
-        hash.push(Digest::MD5.hexdigest(author_cell.send(:cache_hash)))
-      end
+      hash << model.cache_key_with_version if model.respond_to?(:cache_key_with_version)
 
       hash.join(Decidim.cache_key_separator)
     end

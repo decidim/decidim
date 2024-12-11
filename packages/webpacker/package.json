@@ -8,7 +8,7 @@
     "directory": "packages/webpacker"
   },
   "author": "Decidim Contributors",
-  "license": "AGPL-3.0",
+  "license": "AGPL-3.0-or-later",
   "main": "index.js",
   "dependencies": {
     "@babel/core": "^7.22.9",
