@@ -10,7 +10,7 @@ module Decidim
       end
 
       let!(:post) { create(:post, component:) }
-      let(:organization) { create(:organization )}
+      let(:organization) { create(:organization) }
       let(:participatory_space) { create(:participatory_process, organization:) }
       let(:component) { create(:post_component, participatory_space:) }
 
