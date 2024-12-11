@@ -29,8 +29,7 @@ module Decidim
                 values: section_subtitle(title: "Default")
               },
               {
-                type: :partial,
-                template: "decidim/design/components/author/static-default"
+                values: cell("decidim/author", user_item, demo: true)
               },
               {
                 type: :text,
@@ -40,8 +39,7 @@ module Decidim
                 values: section_subtitle(title: "Compact")
               },
               {
-                type: :partial,
-                template: "decidim/design/components/author/static-compact"
+                values: cell("decidim/author", user_item, from: authored_item, context_actions: [:date], layout: :compact, demo: true)
               },
               {
                 type: :text,
@@ -51,8 +49,7 @@ module Decidim
                 values: section_subtitle(title: "Avatar")
               },
               {
-                type: :partial,
-                template: "decidim/design/components/author/static-avatar"
+                values: cell("decidim/author", user_item, layout: :avatar, demo: true)
               },
               {
                 type: :text,
@@ -85,6 +82,38 @@ module Decidim
           row << link_to(table_cell[:usage].split("/").last, table_cell[:usage], target: "_blank", class: "text-secondary underline", rel: "noopener")
           row
         end
+      end
+
+      def user_item
+        Decidim::User.new(
+          organization: current_organization,
+          id: 2000,
+          email: "alan_smith@example.org",
+          confirmed_at: Time.current,
+          name: "Alan Smith",
+          nickname: "alan_smith",
+          personal_url: "https://alan.example.org",
+          about: "Hi, I am Alan",
+          accepted_tos_version: Time.current
+        ).presenter
+      end
+
+      class AuthoredItem
+        ATTRS = [:published_at].freeze
+
+        attr_reader(*ATTRS)
+
+        def initialize(args = {})
+          args.slice(*ATTRS).each do |var, val|
+            instance_variable_set(:"@#{var}", val)
+          end
+        end
+      end
+
+      def authored_item
+        AuthoredItem.new(
+          published_at: 1.day.ago
+        )
       end
     end
   end

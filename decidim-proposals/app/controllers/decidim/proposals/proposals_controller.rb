@@ -43,13 +43,13 @@ module Decidim
                        .order(position: :asc)
           render "decidim/proposals/proposals/participatory_texts/participatory_text"
         else
-          @base_query = search
-                        .result
-                        .published
-                        .not_hidden
+          @proposals = search.result
 
-          @proposals = @base_query.includes(:component, :coauthorships, :attachments)
-          @all_geocoded_proposals = @base_query.geocoded
+          @all_geocoded_proposals = @proposals.geocoded if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled?
+
+          @proposals = reorder(@proposals)
+          @proposals = paginate(@proposals)
+          @proposals = @proposals.includes(:component, :coauthorships, :attachments)
 
           @voted_proposals = if current_user
                                ProposalVote.where(
@@ -59,8 +59,6 @@ module Decidim
                              else
                                []
                              end
-          @proposals = reorder(@proposals)
-          @proposals = paginate(@proposals)
         end
       end
 
