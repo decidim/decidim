@@ -26,11 +26,13 @@ fi-pl:
       debates:
         actions:
           comment: Kommentoi
+          create: Luo keskustelu
           endorse: Suosittele
         name: Keskustelut
         settings:
           global:
             announcement: Ilmoitus
+            attachments_allowed: Salli liitteet
             clear_all: Tyhjennä kaikki
             comments_enabled: Kommentointi käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
@@ -68,7 +70,10 @@ fi-pl:
             title: Muokkaa keskustelua
             update: Päivitä keskustelu
           form:
+            add_documents: Lisää asiakirjoja
+            attachment_legend: "(Valinnainen) Lisää liitetiedosto"
             debate_type: Keskustelun tyyppi
+            edit_documents: Muokkaa asiakirjoja
             finite: Määräaikainen (keskustelulla on alku- ja loppuaika)
             open: Avoin (keskustelulla ei ole alku- ja loppuaikaa)
           index:
@@ -255,15 +260,19 @@ fi-pl:
           created_at: Keskustelun luontiaika
           description: Keskustelun kuvaus
           end_time: Keskustelun päättymisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
+          endorsements_count: Keskustelun suositusten ("tykkäykset") lukumäärä
+          follows_count: Keskustelun seuraajien lukumäärä
           id: Keskustelun yksilöllinen tunniste
           information_updates: Muutokset, joita keskustelun laatija on tehnyt keskusteluun
           instructions: Keskustelun osallistumisohjeet
           last_comment_at: Keskustelun viimeisimmän kommentin ajankohta
+          last_comment_by: Keskustelun viimeisimmän kommentin laatimisaika
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä keskustelu kuuluu
           reference: Keskustelun yksilöllinen tunniste tällä alustalla
           start_time: Keskustelun alkamisaika, mikäli kyseessä on aikamääreeltään rajattu keskustelu
           taxonomies: Projektin luokittelut
           title: Keskustelun otsikko
+          updated_at: Keskustelun viimeisin päivitysaika
           url: URL-osoite keskusteluun
     statistics:
       debates_count: Keskustelua
