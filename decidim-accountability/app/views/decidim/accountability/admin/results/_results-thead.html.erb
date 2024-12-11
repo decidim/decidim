@@ -1,6 +1,9 @@
 <thead>
 <tr>
   <th>
+    <%= check_box_tag "results_bulk", "all", false, class: "js-check-all" %>
+  </th>
+  <th>
     <%= sort_link(query, :id, t("models.result.fields.id", scope: "decidim.accountability"), default_order: :desc ) %>
   </th>
   <th class="!text-left">

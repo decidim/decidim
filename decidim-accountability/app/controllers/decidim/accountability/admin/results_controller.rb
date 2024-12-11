@@ -7,10 +7,11 @@ module Decidim
       class ResultsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
         include Decidim::SanitizeHelper
+        include Decidim::Admin::ComponentTaxonomiesHelper
         include Decidim::Accountability::Admin::Filterable
         include Decidim::Admin::HasTrashableResources
 
-        helper_method :results, :parent_result, :parent_results, :statuses, :present
+        helper_method :results, :parent_result, :parent_results, :statuses, :present, :bulk_actions_form
 
         def collection
           parent_id = params[:parent_id].presence
@@ -102,6 +103,10 @@ module Decidim
 
         def statuses
           @statuses ||= Status.where(component: current_component)
+        end
+
+        def bulk_actions_form
+          @bulk_actions_form ||= ResultBulkActionsForm.new(result_ids: [])
         end
       end
     end

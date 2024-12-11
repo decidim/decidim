@@ -1,9 +1,16 @@
+import Counter from "src/decidim/accountability/admin/index/counter";
+import ActionButton from "src/decidim/accountability/admin/index/action_button";
+import ActionForm from "src/decidim/accountability/admin/index/action_form";
+import ActionSelector from "src/decidim/accountability/admin/index/action_selector";
+
 $(() => {
-  $("#result_decidim_accountability_status_id").change(function () {
-    /* eslint-disable no-invalid-this */
-    const progress = $(this).find(":selected").data("progress")
-    if (progress || progress === 0) {
-      $("#result_progress").val(progress);
-    }
-  });
+  const counter = new Counter();
+  const actionButton = new ActionButton(counter);
+  const actionForm = new ActionForm(counter);
+  const actionSelector = new ActionSelector();
+
+  counter.init();
+  actionButton.init();
+  actionForm.init();
+  actionSelector.init();
 })
