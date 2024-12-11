@@ -6,29 +6,17 @@
   }
 
   &__calendar {
-    @apply order-first flex flex-col justify-start rounded bg-background text-center md:w-14;
+    @apply order-first flex flex-col min-w-48 rounded bg-background text-center md:w-14;
 
     &:only-child &-month {
       @apply rounded-t;
     }
 
     &-container {
-      @apply grid grid-cols-1 md:grid-cols-[auto_1fr_1fr] items-center md:gap-0 border-4 border-background rounded overflow-hidden;
-
-      > *:nth-child(2) {
-        @apply p-4;
-
-        &:not(:last-child) {
-          @apply col-span-1 md:col-span-2 md:col-start-1 md:row-start-1;
-        }
-
-        &:last-child {
-          @apply col-span-1 md:col-span-2 md:col-start-2 pr-4;
-        }
-      }
-
-      > *:nth-child(3) {
-        @apply md:row-start-1 md:col-start-3 h-[135px];
+      @apply flex flex-wrap flex-col md:flex-row gap-2 border-4 border-background rounded;
+      
+      ul {
+        @apply flex-1 p-2;
       }
     }
 
@@ -55,7 +43,7 @@
     }
 
     &__lg {
-      @apply w-full md:flex-col md:justify-start md:h-full md:w-fit justify-center [&>*]:px-2 min-w-24 h-[8.5rem];
+      @apply flex min-w-48;
     }
 
     &__lg &-month {
