@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Accountability
-  describe Admin::ResultsBulkActionsController, type: :controller do
+  describe Admin::ResultsBulkActionsController do
     routes { Decidim::Accountability::AdminEngine.routes }
 
     let(:organization) { create(:organization) }

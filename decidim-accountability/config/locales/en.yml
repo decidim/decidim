@@ -134,8 +134,6 @@ en:
           create:
             invalid: There was a problem creating this result.
             success: Result successfully created.
-          dates_form:
-            update_dates: Update dates
           edit:
             title: Edit result
             update: Update result
