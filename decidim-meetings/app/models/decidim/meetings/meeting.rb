@@ -12,6 +12,7 @@ module Decidim
       include Decidim::HasReference
       include Decidim::ScopableResource
       include Decidim::HasCategory
+      include Decidim::Taxonomizable
       include Decidim::Followable
       include Decidim::Comments::CommentableWithComponent
       include Decidim::Comments::HasAvailabilityAttributes
@@ -26,6 +27,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::Publicable
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       TYPE_OF_MEETING = { in_person: 0, online: 10, hybrid: 20 }.freeze
       REGISTRATION_TYPES = { registration_disabled: 0, on_this_platform: 10, on_different_platform: 20 }.freeze
@@ -59,6 +61,7 @@ module Decidim
 
       geocoded_by :address
 
+      scope :closed, -> { where.not(closed_at: nil) }
       scope :published, -> { where.not(published_at: nil) }
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:end_time].gteq(Time.current)) }
@@ -372,7 +375,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_any_type, :with_any_date, :with_any_space, :with_any_origin, :with_any_scope, :with_any_category, :with_any_global_category]
+        [:with_any_type, :with_any_date, :with_any_space, :with_any_origin, :with_any_taxonomies, :with_any_global_category]
       end
 
       def self.ransackable_attributes(auth_object = nil)
@@ -384,7 +387,7 @@ module Decidim
       end
 
       def self.ransackable_associations(_auth_object = nil)
-        %w(category scope)
+        %w(taxonomies)
       end
 
       def self.ransack(params = {}, options = {})

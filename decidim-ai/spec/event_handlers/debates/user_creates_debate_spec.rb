@@ -3,14 +3,16 @@
 require "spec_helper"
 
 describe "User creates debate", type: :system do
+  let(:attachments) { [] }
   let(:form) do
     double(
       invalid?: false,
       title:,
       description:,
       user_group_id: nil,
-      scope:,
-      category:,
+      taxonomizations:,
+      add_documents: attachments,
+      documents: [],
       current_user: author,
       current_component: component,
       current_organization: organization

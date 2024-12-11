@@ -14,6 +14,8 @@ shared_context "with frontend map builder" do
 
   let(:template_class) do
     Class.new(ActionView::Base) do
+      include Decidim::LayoutHelper
+
       def protect_against_forgery?
         false
       end

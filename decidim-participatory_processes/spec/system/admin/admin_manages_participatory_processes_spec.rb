@@ -7,6 +7,7 @@ describe "Admin manages participatory processes", versioning: true do
   include_context "with taxonomy filters context"
 
   let(:space_manifest) { "participatory_processes" }
+  let!(:another_taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: another_root_taxonomy, space_manifest:, space_filter: true) }
   let!(:participatory_process_groups) do
     create_list(:participatory_process_group, 3, organization:)
   end
@@ -67,6 +68,7 @@ describe "Admin manages participatory processes", versioning: true do
     %w(short_description description announcement).each do |field|
       it_behaves_like "having a rich text editor for field", ".tabs-content[data-tabs-content='participatory_process-#{field}-tabs']", "full"
     end
+    it_behaves_like "having no taxonomy filters defined"
 
     it "creates a new participatory process" do
       within ".new_participatory_process" do
@@ -135,7 +137,7 @@ describe "Admin manages participatory processes", versioning: true do
 
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_select("taxonomies-#{taxonomy_filter.id}", selected: decidim_sanitize_translated(taxonomy.name))
-      expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Select from \"#{decidim_sanitize_translated(another_root_taxonomy.name)}\"")
+      expect(page).to have_select("taxonomies-#{another_taxonomy_filter.id}", selected: "Please select an option")
       expect(participatory_process3.reload.taxonomies).to contain_exactly(taxonomy)
 
       hero_blob = participatory_process3.hero_image.blob

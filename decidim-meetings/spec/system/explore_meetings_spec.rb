@@ -12,13 +12,16 @@ describe "Explore meetings", :slow do
   let!(:meetings) do
     create_list(:meeting, meetings_count, :not_official, :published, component:)
   end
+  let(:taxonomy) { create(:taxonomy, :with_parent, skip_injection: true, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy: taxonomy.parent) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   before do
     # Required for the link to be pointing to the correct URL with the server
     # port since the server port is not defined for the test environment.
     allow(ActionMailer::Base).to receive(:default_url_options).and_return(port: Capybara.server_port)
-    component_scope = create(:scope, parent: participatory_process.scope)
-    component_settings = component["settings"]["global"].merge!(scopes_enabled: true, scope_id: component_scope.id)
+    component_settings = component["settings"]["global"].merge!(taxonomy_filters: taxonomy_filter_ids)
     component.update!(settings: component_settings)
   end
 
@@ -356,16 +359,15 @@ describe "Explore meetings", :slow do
         expect(current_params).to eq(filter_params)
       end
 
-      it "allows filtering by scope" do
-        scope = create(:scope, organization:)
+      it "allows filtering by taxonomies" do
         meeting = meetings.first
-        meeting.scope = scope
+        meeting.taxonomies << taxonomy
         meeting.save
 
         visit_component
 
-        within "#panel-dropdown-menu-scope" do
-          click_filter_item translated(scope.name)
+        within "#panel-dropdown-menu-taxonomy-#{taxonomy.parent.id}" do
+          click_filter_item decidim_escape_translated(taxonomy.name)
         end
 
         expect(page).to have_css(meetings_selector, count: 1)
@@ -470,49 +472,33 @@ describe "Explore meetings", :slow do
       end
     end
 
-    context "without category or scope" do
+    context "without taxonomies" do
       it "does not show any tag" do
         expect(page).to have_no_selector("[data-tags]")
       end
     end
 
-    context "with a category" do
+    context "with a taxonomy" do
       let(:meeting) do
         meeting = meetings.first
-        meeting.category = create(:category, participatory_space: participatory_process)
+        meeting.taxonomies << taxonomy
         meeting.save
         meeting
       end
 
-      it "shows tags for category" do
+      it "shows tags for taxonomy" do
         expect(page).to have_css("[data-tags]")
         within "[data-tags]" do
-          expect(page).to have_content(translated(meeting.category.name))
+          expect(page).to have_content(decidim_escape_translated(taxonomy.name))
         end
       end
 
-      it "links to the filter for this category" do
+      it "links to the filter for this taxonomy" do
         within "[data-tags]" do
-          click_on translated(meeting.category.name)
+          click_on decidim_escape_translated(taxonomy.name)
         end
 
-        expect(page).to have_checked_field(decidim_escape_translated(meeting.category.name))
-      end
-    end
-
-    context "with a scope" do
-      let(:meeting) do
-        meeting = meetings.first
-        meeting.scope = create(:scope, organization:)
-        meeting.save
-        meeting
-      end
-
-      it "shows tags for scope" do
-        expect(page).to have_css("[data-tags]")
-        within "[data-tags]" do
-          expect(page).to have_content(translated(meeting.scope.name))
-        end
+        expect(page).to have_checked_field(decidim_escape_translated(taxonomy.name))
       end
     end
 
@@ -569,6 +555,23 @@ describe "Explore meetings", :slow do
         within "[data-content]" do
           expect(page).to have_css(".meeting__aside-block", text: "Attendees count\n#{meeting.attendees_count}")
           expect(page).to have_css(".meeting__aside-block", text: "Attending organizations\n#{meeting.attending_organizations}")
+        end
+      end
+    end
+
+    context "when the meeting is closed and has audio and video urls" do
+      let(:video_url) { "https://decidim.org" }
+      let(:audio_url) { "https://example.com" }
+
+      let!(:meeting) { create(:meeting, :published, :closed, contributions_count: 0, component:, video_url:, audio_url:) }
+
+      it_behaves_like "a closing report page" do
+        it "shows the video url" do
+          expect(page).to have_content(video_url)
+        end
+
+        it "shows the audio url" do
+          expect(page).to have_content(audio_url)
         end
       end
     end

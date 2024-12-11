@@ -39,7 +39,7 @@ en:
           error: There was a problem voting the comment.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Log in</a> or <a href="%{sign_up_url}">create an account</a> to add your comment.
+        account_message: Log in or create an account to add your comment.
         form:
           body:
             label: Comment
@@ -64,6 +64,9 @@ en:
         alignment:
           against: Against
           in_favor: In favor
+        answers:
+          one: "%{count} answer"
+          other: "%{count} answers"
         cancel_reply: Cancel reply
         comment_label: Comment %{comment_id}
         comment_label_reply: Comment %{comment_id} (reply to comment %{parent_comment_id})
@@ -94,6 +97,7 @@ en:
           one: Show reply
           other: Show %{count} replies
         single_comment_link_title: Get link
+        sort_by: 'Sort by: '
       comment_order_selector:
         order:
           best_rated: Best rated

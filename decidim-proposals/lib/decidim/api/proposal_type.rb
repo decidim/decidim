@@ -7,8 +7,7 @@ module Decidim
 
       implements Decidim::Comments::CommentableInterface
       implements Decidim::Core::CoauthorableInterface
-      implements Decidim::Core::CategorizableInterface
-      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Core::FingerprintInterface
       implements Decidim::Core::AmendableInterface
@@ -54,6 +53,19 @@ module Decidim
       def vote_count
         current_component = object.component
         object.proposal_votes_count unless current_component.current_settings.votes_hidden?
+      end
+
+      def self.authorized?(object, context)
+        context[:proposal] = object
+
+        chain = [
+          allowed_to?(:read, :proposal, object, context),
+          object.published?
+        ].all?
+
+        super && chain
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        false
       end
     end
   end

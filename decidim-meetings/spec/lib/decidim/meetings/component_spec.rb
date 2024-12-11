@@ -7,32 +7,6 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
   let(:organization) { component.organization }
   let!(:current_user) { create(:user, :admin, organization:) }
 
-  describe "on destroy" do
-    context "when there are no meetings for the component" do
-      it "destroys the component" do
-        expect do
-          Decidim::Admin::DestroyComponent.call(component, current_user)
-        end.to change(Decidim::Component, :count).by(-1)
-
-        expect(component).to be_destroyed
-      end
-    end
-
-    context "when there are meetings for the component" do
-      before do
-        create(:meeting, component:)
-      end
-
-      it "raises an error" do
-        expect do
-          Decidim::Admin::DestroyComponent.call(component, current_user)
-        end.to broadcast(:invalid)
-
-        expect(component).not_to be_destroyed
-      end
-    end
-  end
-
   describe "statistics" do
     subject { current_stat[2] }
 
@@ -98,9 +72,22 @@ describe "Meetings component" do # rubocop:disable RSpec/DescribeClass
         create_list(:comment, 5, commentable: hidden_meeting)
       end
 
-      it "counts the comments from visible proposals" do
+      it "counts the comments from visible meetings" do
         expect(Decidim::Comments::Comment.count).to eq 8
         expect(subject).to eq 3
+      end
+    end
+
+    describe "attendees_count" do
+      let(:stats_name) { :attendees_count }
+      let!(:a_closed_meeting) { create(:meeting, :published, :closed, attendees_count: 5, component:) }
+      let!(:another_closed_meeting) { create(:meeting, :published, :closed, attendees_count: 15, component:) }
+      let!(:hidden_meeting) { create(:meeting, :published, :closed, attendees_count: 25, component:) }
+      let!(:closing_hidden) { create(:meeting, :published, :closed, closing_visible: false, attendees_count: 25, component:) }
+
+      it "counts the attendees count from visible meetings" do
+        expect(Decidim::Meetings::Meeting.sum(:attendees_count)).to eq 70
+        expect(subject).to eq 20
       end
     end
   end

@@ -9,9 +9,8 @@ module Decidim::Budgets
     let(:attachment) { create(:attachment, attached_to: project) }
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: project.participatory_space) }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
-    let(:category) { create(:category, participatory_space: budget.component.participatory_space) }
-    let(:scope) { create(:scope, organization: category.participatory_space.organization) }
-    let(:project) { create(:project, budget:, category:, scope:) }
+    let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: budget.component.organization) }
+    let(:project) { create(:project, budget:, taxonomies:) }
 
     subject { described_class.new(project) }
 
@@ -22,14 +21,10 @@ module Decidim::Budgets
         expect(serialized).to include(id: project.id)
       end
 
-      it "includes the category" do
-        expect(serialized[:category]).to include(id: category.id)
-        expect(serialized[:category]).to include(name: category.name)
-      end
-
-      it "includes the scope" do
-        expect(serialized[:scope]).to include(id: project.scope.id)
-        expect(serialized[:scope]).to include(name: project.scope.name)
+      it "includes the taxonomies" do
+        expect(serialized[:taxonomies].length).to eq(2)
+        expect(serialized[:taxonomies][:id]).to match_array(taxonomies.map(&:id))
+        expect(serialized[:taxonomies][:name]).to match_array(taxonomies.map(&:name))
       end
 
       it "includes the participatory space" do
@@ -95,6 +90,21 @@ module Decidim::Budgets
     end
 
     context "when subscribed to the serialize event" do
+      before do
+        I18n.backend.store_translations(
+          :en,
+          decidim: {
+            open_data: {
+              help: {
+                projects: {
+                  test_field: "Test field for projects serializer subscription"
+                }
+              }
+            }
+          }
+        )
+      end
+
       ActiveSupport::Notifications.subscribe("decidim.serialize.budgets.project_serializer") do |_event_name, data|
         data[:serialized_data][:test_field] = "Resource class: #{data[:resource].class}"
       end

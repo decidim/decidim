@@ -3,10 +3,9 @@
 module Decidim
   module Budgets
     class ProjectType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ScopableInterface
+      implements Decidim::Core::TaxonomizableInterface
       implements Decidim::Core::AttachableInterface
       implements Decidim::Comments::CommentableInterface
-      implements Decidim::Core::CategorizableInterface
 
       description "A project"
 
@@ -18,6 +17,19 @@ module Decidim
       field :created_at, Decidim::Core::DateTimeType, "When this project was created", null: true
       field :updated_at, Decidim::Core::DateTimeType, "When this project was updated", null: true
       field :reference, GraphQL::Types::String, "The reference for this project", null: true
+
+      def self.authorized?(object, context)
+        context[:project] = object
+
+        chain = [
+          allowed_to?(:read, :project, object, context),
+          object.visible?
+        ].all?
+
+        super && chain
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        false
+      end
     end
   end
 end

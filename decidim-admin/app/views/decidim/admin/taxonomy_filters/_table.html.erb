@@ -2,16 +2,24 @@
   <table class="table-list">
     <thead>
       <tr role="row">
+        <th><%= t(".internal_name") %></th>
         <th><%= t(".name") %></th>
+        <th><%= t(".taxonomy") %></th>
         <th><%= t(".count") %></th>
+        <th><%= t(".space_filter", manifest_name: t("decidim.admin.titles.#{participatory_space_manifest}", default: participatory_space_manifest).downcase) %></th>
+        <th><%= t(".components_count") %></th>
         <th><%= t(".actions") %></th>
       </tr>
     </thead>
     <tbody role="rowgroup">
       <% collection.each do |taxonomy_filter| %>
         <tr>
+          <td><%= translated_attribute(taxonomy_filter.internal_name) %></td>
           <td><%= translated_attribute(taxonomy_filter.name) %></td>
+          <td><%= translated_attribute(taxonomy_filter.root_taxonomy.name) %></td>
           <td><%= taxonomy_filter.filter_items_count %></td>
+          <td><%= t("booleans.#{taxonomy_filter.space_filter}") %></td>
+          <td><%= taxonomy_filter.components_count %></td>
           <td>
             <% if allowed_to? :update, :taxonomy_filter, taxonomy_filter: %>
               <%= icon_link_to "pencil-line", url_for(controller: params[:controller], action: :edit, id: taxonomy_filter.id), t(".edit"), class: "action-icon--edit" %>

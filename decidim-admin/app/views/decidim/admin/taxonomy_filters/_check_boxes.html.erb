@@ -1,6 +1,6 @@
 <%= form.collection_check_boxes :taxonomy_items, collection, :value, :name do |item| %>
   <div>
-    <%= item.label { item.check_box + item.text } %>
+    <%= item.label { item.check_box(autocomplete: false) + item.text } %>
   </div>
   <% if item.object.children.any? %>
     <div class="ml-4">

@@ -17,13 +17,9 @@ module Decidim
       def serialize
         {
           id: result.id,
-          category: {
-            id: result.category.try(:id),
-            name: result.category.try(:name) || empty_translatable
-          },
-          scope: {
-            id: result.scope.try(:id),
-            name: result.scope.try(:name) || empty_translatable
+          taxonomies: {
+            id: result.taxonomies.map(&:id),
+            name: result.taxonomies.map(&:name)
           },
           parent: {
             id: result.parent.try(:id)
@@ -39,9 +35,16 @@ module Decidim
           },
           progress: result.progress,
           created_at: result.created_at,
+          updated_at: result.updated_at,
           url:,
           component: { id: component.id },
-          proposal_urls: proposals
+          proposal_urls: proposals,
+          reference: result.reference,
+          children_count: result.children_count,
+          comments_count: result.comments_count,
+          address: result.address,
+          latitude: result.latitude,
+          longitude: result.longitude
         }
       end
 

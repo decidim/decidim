@@ -3,7 +3,6 @@
 module Decidim
   module Budgets
     class BudgetType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ScopableInterface
       implements Decidim::Core::TraceableInterface
 
       description "A budget"
@@ -16,6 +15,12 @@ module Decidim
       field :updated_at, Decidim::Core::DateTimeType, "When this budget was updated", null: true
 
       field :projects, [Decidim::Budgets::ProjectType, { null: true }], "The projects for this budget", null: false
+
+      def self.authorized?(object, context)
+        super && object.visible?
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        false
+      end
     end
   end
 end

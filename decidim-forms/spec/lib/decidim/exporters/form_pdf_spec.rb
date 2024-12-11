@@ -14,7 +14,7 @@ module Decidim
     describe "#export" do
       it "exports the collection to a pdf" do
         export_data = subject.export
-        expect(export_data.read).to match("%PDF-1.4")
+        expect(export_data.read).to match("%PDF-1.5")
       end
     end
   end

@@ -37,6 +37,7 @@ module Decidim
     include Decidim::TranslatableResource
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::SoftDeletable
     include Decidim::ShareableWithToken
 
     CREATED_BY = %w(city_council public others).freeze
@@ -124,6 +125,11 @@ module Decidim
       Decidim::Assemblies::AdminLog::AssemblyPresenter
     end
 
+    # This is a overwrite for Decidim::ParticipatorySpaceResourceable.visible?
+    def visible?
+      published? && (!private_space? || (private_space? && is_transparent?))
+    end
+
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end
@@ -162,7 +168,7 @@ module Decidim
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_any_area, :with_any_scope, :with_any_type]
+      [:with_any_taxonomies, :with_any_type]
     end
 
     def shareable_url(share_token)

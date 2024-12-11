@@ -6,9 +6,11 @@ describe "User creates meeting" do
   include_context "with a component"
   let(:manifest_name) { "meetings" }
 
-  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler)) }
+  let(:organization) { create(:organization, available_authorizations: %w(dummy_authorization_handler another_dummy_authorization_handler)) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization:) }
-  let(:current_component) { create(:meeting_component, participatory_space: participatory_process) }
+  let(:current_component) do
+    create(:meeting_component, participatory_space: participatory_process, settings: { taxonomy_filters: taxonomy_filter_ids })
+  end
   let(:start_time) { 1.day.from_now }
   let(:meetings_count) { 5 }
   let!(:meetings) do
@@ -21,6 +23,11 @@ describe "User creates meeting" do
       end_time: start_time + 4.hours
     )
   end
+  let(:root_taxonomy) { create(:taxonomy, organization:) }
+  let!(:taxonomy) { create(:taxonomy, parent: root_taxonomy, organization:) }
+  let(:taxonomy_filter) { create(:taxonomy_filter, root_taxonomy:) }
+  let!(:taxonomy_filter_item) { create(:taxonomy_filter_item, taxonomy_filter:, taxonomy_item: taxonomy) }
+  let(:taxonomy_filter_ids) { [taxonomy_filter.id] }
 
   before do
     switch_to_host(organization.host)
@@ -28,7 +35,6 @@ describe "User creates meeting" do
 
   context "when creating a new meeting", :serves_geocoding_autocomplete do
     let(:user) { create(:user, :confirmed, organization:) }
-    let!(:category) { create(:category, participatory_space:) }
 
     context "when the user is not logged in" do
       it "redirects the user to the sign in page" do
@@ -68,10 +74,9 @@ describe "User creates meeting" do
         let(:meeting_available_slots) { 30 }
         let(:meeting_registration_terms) { "These are the registration terms for this meeting" }
         let(:online_meeting_url) { "http://decidim.org" }
-        let!(:meeting_scope) { create(:scope, organization:) }
 
         before do
-          component.update!(settings: { scopes_enabled: true, scope_id: participatory_process.scope&.id, creation_enabled_for_participants: true })
+          component.update!(settings: { creation_enabled_for_participants: true, taxonomy_filters: taxonomy_filter_ids })
         end
 
         context "and rich_editor_public_view component setting is enabled" do
@@ -103,8 +108,7 @@ describe "User creates meeting" do
             fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
             fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
             select "Registration disabled", from: :meeting_registration_type
-            select translated(category.name), from: :meeting_decidim_category_id
-            select translated(meeting_scope.name), from: :meeting_decidim_scope_id
+            select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
 
             find("*[type=submit]").click
           end
@@ -112,8 +116,7 @@ describe "User creates meeting" do
           expect(page).to have_content("successfully")
           expect(page).to have_content(meeting_title)
           expect(page).to have_content(meeting_description)
-          expect(page).to have_content(translated(category.name))
-          expect(page).to have_content(translated(meeting_scope.name))
+          expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
           expect(page).to have_content(meeting_address)
           expect(page).to have_content("#{start_month.upcase}\n-\n#{end_month.upcase}")
           expect(page).to have_content(start_day)
@@ -185,8 +188,7 @@ describe "User creates meeting" do
               fill_in_datepicker :meeting_end_time_date, with: meeting_end_date
               fill_in_timepicker :meeting_end_time_time, with: meeting_end_time
               select "Registration disabled", from: :meeting_registration_type
-              select translated(category.name), from: :meeting_decidim_category_id
-              select translated(meeting_scope.name), from: :meeting_decidim_scope_id
+              select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
               select user_group.name, from: :meeting_user_group_id
 
               find("*[type=submit]").click
@@ -195,8 +197,7 @@ describe "User creates meeting" do
             expect(page).to have_content("successfully")
             expect(page).to have_content(meeting_title)
             expect(page).to have_content(meeting_description)
-            expect(page).to have_content(translated(category.name))
-            expect(page).to have_content(translated(meeting_scope.name))
+            expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
             expect(page).to have_content(meeting_address)
             expect(page).to have_content(meeting_start_time)
             expect(page).to have_content(meeting_end_time)
@@ -226,8 +227,7 @@ describe "User creates meeting" do
               select "On this platform", from: :meeting_registration_type
               fill_in :meeting_available_slots, with: meeting_available_slots
               fill_in :meeting_registration_terms, with: meeting_registration_terms
-              select translated(category.name), from: :meeting_decidim_category_id
-              select translated(meeting_scope.name), from: :meeting_decidim_scope_id
+              select decidim_sanitize_translated(taxonomy.name), from: "taxonomies-#{taxonomy_filter.id}"
               select user_group.name, from: :meeting_user_group_id
 
               find("*[type=submit]").click
@@ -236,8 +236,7 @@ describe "User creates meeting" do
             expect(page).to have_content("successfully")
             expect(page).to have_content(meeting_title)
             expect(page).to have_content(meeting_description)
-            expect(page).to have_content(translated(category.name))
-            expect(page).to have_content(translated(meeting_scope.name))
+            expect(page).to have_content(decidim_sanitize_translated(taxonomy.name))
             expect(page).to have_content(meeting_address)
             expect(page).to have_content(meeting_start_time)
             expect(page).to have_content(meeting_end_time)
@@ -247,23 +246,49 @@ describe "User creates meeting" do
         end
 
         context "when the user is not authorized" do
-          before do
-            permissions = {
-              create: {
-                authorization_handlers: {
-                  "dummy_authorization_handler" => { "options" => {} }
+          context "when there is only an authorization required" do
+            before do
+              permissions = {
+                create: {
+                  authorization_handlers: {
+                    "dummy_authorization_handler" => { "options" => {} }
+                  }
                 }
               }
-            }
 
-            component.update!(permissions:)
+              component.update!(permissions:)
+            end
+
+            it "redirects to the authorization form" do
+              visit_component
+              click_on "New meeting"
+
+              expect(page).to have_content("We need to verify your identity")
+              expect(page).to have_content("Verify with Example authorization")
+            end
           end
 
-          it "shows a modal dialog" do
-            visit_component
-            click_on "New meeting"
-            expect(page).to have_css("#authorizationModal")
-            expect(page).to have_content("Authorization required")
+          context "when there are more than one authorization required" do
+            before do
+              permissions = {
+                create: {
+                  authorization_handlers: {
+                    "dummy_authorization_handler" => { "options" => {} },
+                    "another_dummy_authorization_handler" => { "options" => {} }
+                  }
+                }
+              }
+
+              component.update!(permissions:)
+            end
+
+            it "redirects to pending onboarding authorizations page" do
+              visit_component
+              click_on "New meeting"
+
+              expect(page).to have_content("You are almost ready to create")
+              expect(page).to have_css("a[data-verification]", count: 2)
+            end
           end
         end
 

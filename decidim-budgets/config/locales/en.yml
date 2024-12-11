@@ -3,15 +3,12 @@ en:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Scope
         description: Description
         title: Title
         total_budget: Total budget
         weight: Order position
       project:
         budget_amount: Budget amount
-        decidim_category_id: Category
-        decidim_scope_id: Scope
         description: Description
         proposal_ids: Related proposals
         proposals: Proposals
@@ -35,21 +32,20 @@ en:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Category
-          scope_id_eq:
-            label: Scope
           selected_at_null:
             label: Selected
             values:
               'false': Selected for implementation
               'true': Not selected for implementation
+          taxonomies_part_of_contains:
+            label: Taxonomy
     budgets:
       actions:
         attachment_collections: Folders
         attachments: Attachments
-        confirm_destroy: Are you sure you want to delete this project?
-        destroy: Delete
+        confirm_delete_budget: Are you sure you want to delete this budget?
+        confirm_delete_project: Are you sure you want to delete this project?
+        deleted_budgets_info: Deleted budgets can be restored from the trash.
         edit: Edit
         edit_projects: Manage projects
         import: Import proposals to projects
@@ -58,14 +54,13 @@ en:
         preview: Preview
         send_voting_reminders: Send voting reminders
         title: Actions
+        view_deleted_budgets: View deleted budgets
+        view_deleted_projects: View deleted projects
       admin:
         budgets:
           create:
             invalid: There was a problem creating this budget.
             success: Budget successfully created.
-          destroy:
-            invalid: There was a problem deleting this budget.
-            success: Budget successfully deleted.
           edit:
             title: Edit budget
             update: Update budget
@@ -75,6 +70,8 @@ en:
             title: Budgets
             users_with_finished_orders: Users with finished votes
             users_with_pending_orders: Users with pending votes
+          manage_trash:
+            title: Deleted budgets
           new:
             create: Create budget
             title: New budget
@@ -92,8 +89,6 @@ en:
           create:
             invalid: There was a problem creating this project.
             success: Project successfully created.
-          destroy:
-            success: Project successfully deleted.
           edit:
             title: Edit project
             update: Update
@@ -101,9 +96,8 @@ en:
             actions: Actions
             cancel: Cancel
             change_budget: Change budget
-            change_category: Change category
-            change_scope: Change scope
             change_selected: Change selected state
+            change_taxonomies: Change taxonomies
             deselect_implementation: Unselect from implementation
             finished_orders: Finished votes
             pending_orders: Pending votes
@@ -115,7 +109,8 @@ en:
             title: Projects
             update: Update
             update_budget_button: Update project's budget
-            update_scope_button: Update scope
+          manage_trash:
+            title: Deleted projects
           new:
             create: Create
             title: New project
@@ -123,28 +118,23 @@ en:
             invalid: There was a problem updating this project.
             success: Project successfully updated.
           update_budget:
-            invalid: 'These projects already are in the same budget or their budgets are more than the maximum allowed: %{projects}.'
+            invalid: 'These projects already are in the same budget or their budgets are more than the maximum allowed: %{errored}.'
             select_a_project: Please select a project.
-            success: 'Projects successfully updated to the %{subject_name} budget: %{projects}.'
-          update_category:
-            invalid: 'These projects already had the %{subject_name} category: %{projects}.'
-            select_a_category: Please select a category.
-            select_a_project: Please select a project.
-            success: 'Projects successfully updated to the %{subject_name} category: %{projects}.'
-          update_scope:
-            invalid: 'These projects already had the %{subject_name} scope: %{projects}.'
-            select_a_project: Please select a project.
-            select_a_scope: Please select a scope.
-            success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
+            success: 'Projects successfully updated to the %{subject_name} budget: %{successful}.'
           update_selected:
             invalid:
-              selected: 'These projects were already selected for implementation: %{projects}.'
-              unselected: 'These projects were already unselected from implementation: %{projects}.'
+              selected: 'These projects were already selected for implementation: %{errored}.'
+              unselected: 'These projects were already unselected from implementation: %{errored}.'
             select_a_project: Please select a project.
             select_a_selection: Please select an implementation state.
             success:
-              selected: 'These projects were successfully selected for implementation: %{projects}.'
-              unselected: 'These projects were successfully unselected from implementation: %{projects}.'
+              selected: 'These projects were successfully selected for implementation: %{successful}.'
+              unselected: 'These projects were successfully unselected from implementation: %{successful}.'
+          update_taxonomies:
+            invalid: 'Taxonomies %{taxonomies} where already assigned on these projects: %{errored}.'
+            select_a_project: Please select a project.
+            select_a_taxonomy: Please select a taxonomy.
+            success: 'Projects successfully updated to the %{taxonomies} taxonomies: %{successful}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into projects.
@@ -167,10 +157,14 @@ en:
         budget:
           create: "%{user_name} created the %{resource_name} budget in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} budget in the %{space_name} space"
+          restore: "%{user_name} restored the %{resource_name} budget in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} budget in %{space_name} to the trash"
           update: "%{user_name} updated the %{resource_name} budget in the %{space_name} space"
         project:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
+          restore: "%{user_name} restored the %{resource_name} project in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} project in %{space_name} to the trash"
           update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
       budget_information_modal:
         back_to: Back to %{component_name}
@@ -215,9 +209,9 @@ en:
             total_budget: Total budget
         project:
           fields:
-            category: Category
             id: ID
             map: Map
+            taxonomies: Taxonomies
             title: Title
       order_summary_mailer:
         order_summary:
@@ -259,8 +253,6 @@ en:
           message: Your vote has not been registered because you have not yet completed the voting process. Are you sure you want to exit voting?
           title: You have not yet voted
         filters:
-          category: Category
-          scope: Scope
           search: Search
           status: Status
           status_values:
@@ -329,8 +321,10 @@ en:
         settings:
           global:
             announcement: Announcement
+            clear_all: Clear all
             comments_enabled: Comments enabled
             comments_max_length: Comments max length (Leave 0 for default value)
+            define_taxonomy_filters: Please define some filters for this participatory space before using this setting.
             form:
               errors:
                 budget_voting_rule_only_one: Only one voting rule must be enabled.
@@ -338,10 +332,13 @@ en:
             geocoding_enabled: Maps enabled
             landing_page_content: Budgets landing page
             more_information_modal: More information modal
+            no_taxonomy_filters_found: No taxonomy filters found.
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each project
             scope_id: Scope
             scopes_enabled: Scopes enabled
+            taxonomy_filters: Select filters for the component
+            taxonomy_filters_add: Add filter
             title: Title
             total_budget: Total budget
             vote_minimum_budget_projects_number: Minimum number of projects to vote
@@ -369,6 +366,9 @@ en:
               disabled: Voting disabled
               enabled: Voting enabled
               finished: Voting finished
+    download_your_data:
+      show:
+        projects: Projects export
     events:
       budgets:
         budget_published:
@@ -382,7 +382,6 @@ en:
           address: The address of the project (if any)
           budget: To which group of projects (e.g. "2021 Budget") this project belongs to
           budget_amount: The total amount of the budget for this project
-          category: The category of the project (e.g. "Culture")
           comments: The number of comments this project has received
           component: The component that the project belongs to
           confirmed_votes: The number of confirmed votes this project has received
@@ -393,7 +392,7 @@ en:
           related_proposal_titles: The titles of the related proposals
           related_proposal_urls: The URLs of the related proposals
           related_proposals: The related proposals to this project
-          scope: The scope of the project (e.g. "City")
+          taxonomies: The taxonomies of the project
           title: The title of the project
           url: The URL of the project
     orders:
