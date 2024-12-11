@@ -240,7 +240,11 @@ fr-CA:
           conclusions: Les conclusions du débat s'il est clos
           created_at: La date et l'heure de création du débat
           description: La description du débat
+          endorsements_count: Le nombre de soutiens au débat
+          follows_count: Le nombre de personnes qui suivent ce débat
           id: L'identifiant unique du débat
+          last_comment_by: Les données du dernier commentaire du débat
           title: Le titre du débat
+          updated_at: La date de la dernière mise à jour du débat
     statistics:
       debates_count: Débats
