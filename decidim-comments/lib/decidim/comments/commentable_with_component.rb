@@ -9,6 +9,7 @@ module Decidim
     module CommentableWithComponent
       extend ActiveSupport::Concern
       include Decidim::Comments::Commentable
+      include Decidim::UserRoleChecker
 
       included do
         # Public: Overrides the `commentable?` Commentable concern method.

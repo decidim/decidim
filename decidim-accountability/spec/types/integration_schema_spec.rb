@@ -8,98 +8,94 @@ describe "Decidim::Api::QueryType" do
     let(:component_fragment) do
       %(
       fragment fooComponent on Accountability {
-        results {
-          edges{
-            node{
-              acceptsNewComments
-              category {
-                id
-                name {
-                  translation(locale: "#{locale}")
-                }
-                parent {
-                  id
-                }
-                subcategories {
-                  id
-                }
-              }
-              children {
-                id
-              }
-              childrenCount
-              comments {
-                id
-              }
-              commentsHaveAlignment
-              commentsHaveVotes
-              createdAt
-              description {
-                translation(locale:"#{locale}")
-              }
-              endDate
-              externalId
-              hasComments
+        result(id: #{result.id}) {
+          acceptsNewComments
+          category {
+            id
+            name {
+              translation(locale: "#{locale}")
+            }
+            parent {
               id
-              parent {
-                id
-              }
-              progress
-              reference
-              scope {
-                id
-                children {
-                  id
-                }
-                name {
-                  translation(locale:"#{locale}")
-                }
-                parent {
-                  id
-                }
-              }
-              startDate
-              status {
-                id
-                createdAt
-                description {
-                  translation(locale:"#{locale}")
-                }
-                key
-                name {
-                  translation(locale:"#{locale}")
-                }
-                progress
-                results {
-                  id
-                }
-                updatedAt
-              }
-              timelineEntries {
-                id
-                createdAt
-                title {
-                  translation(locale:"#{locale}")
-                }
-                description {
-                  translation(locale:"#{locale}")
-                }
-                entryDate
-                result {
-                  id
-                }
-                updatedAt
-              }
-              title {
-                translation(locale:"#{locale}")
-              }
-              totalCommentsCount
-              type
-              updatedAt
-              userAllowedToComment
-              weight
+            }
+            subcategories {
+              id
             }
           }
+          children {
+            id
+          }
+          childrenCount
+          comments {
+            id
+          }
+          commentsHaveAlignment
+          commentsHaveVotes
+          createdAt
+          description {
+            translation(locale:"#{locale}")
+          }
+          endDate
+          externalId
+          hasComments
+          id
+          parent {
+            id
+          }
+          progress
+          reference
+          scope {
+            id
+            children {
+              id
+            }
+            name {
+              translation(locale:"#{locale}")
+            }
+            parent {
+              id
+            }
+          }
+          startDate
+          status {
+            id
+            createdAt
+            description {
+              translation(locale:"#{locale}")
+            }
+            key
+            name {
+              translation(locale:"#{locale}")
+            }
+            progress
+            results {
+              id
+            }
+            updatedAt
+          }
+          timelineEntries {
+            id
+            createdAt
+            title {
+              translation(locale:"#{locale}")
+            }
+            description {
+              translation(locale:"#{locale}")
+            }
+            entryDate
+            result {
+              id
+            }
+            updatedAt
+          }
+          title {
+            translation(locale:"#{locale}")
+          }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
+          weight
         }
       }
     )
