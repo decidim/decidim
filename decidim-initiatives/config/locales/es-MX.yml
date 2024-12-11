@@ -635,6 +635,7 @@ es-MX:
           comment: Comentar
       initiatives_type:
         actions:
+          create: Crear una iniciativa
           title: Comportamiento
           vote: Votar
   layouts:
