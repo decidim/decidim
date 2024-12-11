@@ -613,7 +613,7 @@ shared_examples "comments" do
     end
 
     context "when the user has verified organizations" do
-      let(:user_group) { create(:user_group, :verified) }
+      let(:user_group) { create(:user_group, :verified, organization:) }
       let(:content) { "This is a new comment" }
 
       before do
@@ -1039,7 +1039,6 @@ shared_examples "comments blocked" do
   end
 
   context "when authenticated" do
-    let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization:) }
     let!(:comments) { create_list(:comment, 3, commentable:) }
 
