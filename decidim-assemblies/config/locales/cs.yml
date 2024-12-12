@@ -198,6 +198,7 @@ cs:
           info: O tomto shromáždění
           landing_page: Úvodní stránka
           moderations: Moderování
+          private_users: Členové
           see_assembly: Zobrazit shromáždění
         assemblies_types: Typy shromáždění
       models:
