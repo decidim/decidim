@@ -21,6 +21,7 @@ module Decidim
         hash.push(model.cache_key)
         hash.push(order)
         hash.push(current_user.try(:id))
+        hash.push(options)
         hash.join(Decidim.cache_key_separator)
       end
 
@@ -74,8 +75,8 @@ module Decidim
       end
 
       def comment_as_options
-        [[current_user.name, ""]] + verified_user_groups.map do |group|
-          [group.name, group.id]
+        [[UserPresenter.new(current_user), ""]] + verified_user_groups.map do |group|
+          [UserGroupPresenter.new(group), group.id]
         end
       end
 
