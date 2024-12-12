@@ -102,7 +102,6 @@ cs:
         confirm_delete_assembly: Opravdu chcete odstranit toto shromáždění? Pokud změníte názor, můžete ho obnovit později.
         import_assembly: Importovat
         new_assembly: Nové shromáždění
-        new_assembly_member: Nový člen shromáždění
         new_assembly_type: Nový typ shromáždění
         new_assembly_user_role: Nový administrátor shromáždění
         view_deleted_assemblies: Zobrazit odstraněné shromáždění
@@ -153,23 +152,6 @@ cs:
           import: Importovat
           select: Vyberte data, která chcete importovat
           title: Importovat shromáždění
-      assembly_members:
-        create:
-          error: Při přidávání člena tohoto shromáždění došlo k chybě.
-          success: Člen úspěšně vytvořen pro toto shromáždění.
-        destroy:
-          success: Člen byl úspěšně smazán pro toto shromáždění.
-        edit:
-          title: Aktualizovat člena shromáždění
-          update: Aktualizace
-        index:
-          assembly_members_title: Členové shromáždění
-        new:
-          create: Vytvořit
-          title: Nový člen shromáždění
-        update:
-          error: Při aktualizaci člena tohoto shromáždění došlo k chybě.
-          success: Člen byl úspěšně aktualizován pro toto shromáždění.
       assembly_publications:
         create:
           error: Při publikování tohoto shromáždění došlo k chybě.
@@ -208,7 +190,6 @@ cs:
         assemblies: Shromáždění
         assemblies_submenu:
           assembly_admins: Administrátoři shromáždění
-          assembly_members: Členové
           attachment_collections: Složky
           attachment_files: Soubory
           attachments: Přílohy
@@ -217,7 +198,6 @@ cs:
           info: O tomto shromáždění
           landing_page: Úvodní stránka
           moderations: Moderování
-          private_users: Soukromí účastníci
           see_assembly: Zobrazit shromáždění
         assemblies_types: Typy shromáždění
       models:
@@ -235,11 +215,6 @@ cs:
             title: Název
           name: Shromáždění
         assembly_member:
-          fields:
-            ceased_date: Datum ukončení
-            designation_date: Datum označení
-            full_name: Název
-            position: Pozice
           name: Člen
           positions:
             other: Ostatní
@@ -324,14 +299,9 @@ cs:
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na toto shromáždění. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
         assembly_members:
           form:
-            existing_user: Existující účastník
             explanation: 'Pokyny pro obrázek:'
             image_guide: Je vhodnější obrázek na výšku, který nemá žádný text.
-            non_user: Není účastník
             non_user_avatar_help: Měli byste získat souhlas osob před jejich zveřejněním jako člena.
-            select_a_position: Vyberte pozici
-            select_user: Vybrat účastníka
-            user_type: Typ účastníka
         content_blocks:
           highlighted_assemblies:
             max_results: Maximální množství prvků, které chcete zobrazit
@@ -415,8 +385,6 @@ cs:
         private_space: Toto je soukromé shromáždění
         social_networks_title: Navštivte shromáždění na
     assembly_members:
-      assembly_member:
-        designated_on: Určen pro
       index:
         title: Členové
     download_your_data:
