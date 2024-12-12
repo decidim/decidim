@@ -235,7 +235,7 @@ pl:
         assembly_member:
           fields:
             ceased_date: Data zakończenia
-            designation_date: Data wyznaczenia
+            designation_date: Data wyboru
             full_name: Imię
             position: Pozycja
           name: Członek
