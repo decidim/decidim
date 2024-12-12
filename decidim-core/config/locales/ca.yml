@@ -669,6 +669,9 @@ ca:
           show_password: Mostrar contrasenya
           shown_password: La contrasenya és visible
         placeholder_email: hi@example.org
+    documents:
+      one: "%{count} document"
+      other: "%{count} documents"
     doorkeeper:
       authorizations:
         new:
