@@ -135,6 +135,7 @@ cs:
           info: O tomto procesu
           landing_page: Úvodní stránka
           moderations: Moderování
+          private_users: Členové
           process_admins: Administrátoři procesu
           steps: Kroky
       models:
@@ -176,6 +177,7 @@ cs:
           fields:
             invitation_accepted_at: Pozvánka byla přijata na
             invitation_sent_at: Pozvánka odeslána na
+            published: Publikováno
       participatory_process_copies:
         new:
           copy: Kopírovat
@@ -560,6 +562,9 @@ cs:
           type: Typ
         show:
           title: O tomto procesu
+      participatory_space_private_users:
+        index:
+          title: Členové
       show:
         belongs_to_group: Tento proces patří do
         private_space: Jedná se o soukromý proces
@@ -573,6 +578,8 @@ cs:
           browse: Procházet
           browse_resource: Procházet skupinu procesů %{resource_name}
           processes_count: 'Procesy:'
+      participatory_process_navigation:
+        member_menu_item: Členové
       participatory_processes:
         index:
           promoted_processes: Zvýrazněné procesy
