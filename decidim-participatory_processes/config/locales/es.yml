@@ -129,7 +129,6 @@ es:
           info: Acerca de este proceso
           landing_page: Página de inicio
           moderations: Moderaciones
-          private_users: Participantes privadas
           process_admins: Administradoras del proceso
           steps: Fases del proceso
       models:
