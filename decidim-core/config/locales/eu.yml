@@ -672,6 +672,9 @@ eu:
           show_password: Erakutsi pasahitza
           shown_password: Zure pasahitza ikusgarri dago
         placeholder_email: kaixo@adibide.org
+    documents:
+      one: "%{count} dokumtu"
+      other: "%{count} dokumentu"
     doorkeeper:
       authorizations:
         new:
