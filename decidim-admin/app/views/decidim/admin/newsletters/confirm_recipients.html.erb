@@ -4,9 +4,9 @@
     <%= t ".title" %>
   </h1>
   <div class="flex ml-auto items-center gap-x-4">
-    <%= link_to :back, class: "button button__sm button__secondary" do %>
-      <%= t("actions.edit", scope: "decidim.admin") %>
-    <% end %>
+    <%= link_to t("actions.edit", scope: "decidim.admin"),
+                select_recipients_to_deliver_newsletter_path(@newsletter, request.query_parameters),
+                class: "button button__sm button__secondary" %>
   </div>
 </div>
 <div class="item__edit item__edit-1col">

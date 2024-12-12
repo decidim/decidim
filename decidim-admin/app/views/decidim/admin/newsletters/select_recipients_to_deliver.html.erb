@@ -16,13 +16,13 @@
       <%= cell("decidim/announcement", newsletter_recipients_count_callout_announcement, callout_class: "warning") %>
       <div class="form__wrapper">
         <div class="card mb-2">
-          <div class="card-divider">
-            <h2 class="card-title"><%= t ".select_users" %></h2>
-          </div>
           <div class="card-section">
             <div class="row column">
               <% if current_user.admin? %>
-                <div class="grid-x">
+                <div class="mt-4">
+                  <h2 class="card-title"><%= t ".select_users_general" %></h2>
+                </div>
+                <div class="grid-x mb-4">
                   <div class="cell small-12" id="send_newsletter_to_all_users">
                     <%= hidden_field_tag :send_to_all_users, "0" %>
                     <%= label_tag "newsletter_send_to_all_users" do %>
@@ -57,6 +57,9 @@
                 </div>
                 <hr>
               <% end %>
+              <div class="mt-4">
+                <h2 class="card-title"><%= t ".select_users_for_participatory_space" %></h2>
+              </div>
               <div class="grid-x">
                 <div class="cell small-12 medium-6" id="send_newsletter_to_followers">
                   <%= f.check_box :send_to_participants, help_text: t(".participants_help") %>

@@ -70,7 +70,7 @@ module Decidim
         @spaces ||= @form.participatory_space_types.map do |type|
           next if type.ids.blank?
 
-          ids = parse_ids(type.ids)
+          ids = type.ids
 
           object_class = Decidim.participatory_space_registry.find(type.manifest_name).model_class_name.constantize
 
@@ -98,7 +98,7 @@ module Decidim
         Decidim::Follow.user_follower_ids_for_participatory_spaces(spaces)
       end
 
-      # Return the ids of Users that have participate
+      # Return the ids of Users that have participated in
       # the spaces selected in form
       def participant_ids
         return if spaces.blank?
@@ -131,10 +131,6 @@ module Decidim
         return [] if private_spaces.blank?
 
         Decidim::ParticipatorySpacePrivateUser.private_user_ids_for_participatory_spaces(private_spaces)
-      end
-
-      def parse_ids(ids)
-        ids.size == 1 && ids.first.is_a?(String) ? ids.first.split.map(&:strip) : ids
       end
     end
   end

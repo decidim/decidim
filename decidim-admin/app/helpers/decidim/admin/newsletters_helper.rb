@@ -44,7 +44,7 @@ module Decidim
 
         raw(cell("decidim/admin/multi_select_picker", nil, context: {
                    select_id: "#{manifest_name}-spaces-select",
-                   field_name: "#{child_form.object_name}[ids]",
+                   field_name: "#{child_form.object_name}[ids][]",
                    options_for_select: spaces,
                    placeholder: t("select_recipients_to_deliver.select_#{manifest_name}", scope: "decidim.admin.newsletters"),
                    class: "mb-2"
