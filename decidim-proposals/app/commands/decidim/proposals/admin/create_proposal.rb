@@ -51,7 +51,6 @@ module Decidim
             action_user: form.current_user
           )
           @attached_to = @proposal
-          @proposal.documents = form.documents if form.documents.present?
           Decidim.traceability.perform_action!(:publish, @proposal, form.current_user, visibility: "all") do
             @proposal.update!(published_at: Time.current)
           end
