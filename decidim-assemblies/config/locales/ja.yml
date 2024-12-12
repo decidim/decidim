@@ -93,7 +93,6 @@ ja:
         confirm_delete_assembly: このアセンブリを削除してもよろしいですか？気が変わった場合は、後で復元できます。
         import_assembly: インポート
         new_assembly: 新しい参加スペース
-        new_assembly_member: 新しい参加スペースメンバー
         new_assembly_type: 新しい参加スペース種別
         new_assembly_user_role: 新しい参加スペース管理者
         view_deleted_assemblies: 削除されたアセンブリを表示
@@ -145,23 +144,6 @@ ja:
           import: インポート
           select: インポートしたいデータを選択
           title: 参加スペースをインポート
-      assembly_members:
-        create:
-          error: この参加スペースにメンバーを追加する際に問題が発生しました。
-          success: メンバーは正常にこの参加スペース用に作成されました。
-        destroy:
-          success: メンバーはこの参加スペースの削除に成功しました。
-        edit:
-          title: 参加スペースメンバーを更新
-          update: 更新
-        index:
-          assembly_members_title: 参加スペースメンバー
-        new:
-          create: 作成
-          title: 新しい参加スペースメンバー
-        update:
-          error: この参加スペースのメンバーの更新に問題がありました。
-          success: メンバーがこの参加スペースの更新に成功しました。
       assembly_publications:
         create:
           error: この参加スペースの公開中に問題がありました。
@@ -200,7 +182,6 @@ ja:
         assemblies: 参加スペース
         assemblies_submenu:
           assembly_admins: 参加スペース管理者
-          assembly_members: メンバー
           attachment_collections: フォルダ
           attachment_files: ファイル
           attachments: 添付ファイル
@@ -209,7 +190,6 @@ ja:
           info: この参加スペースについて
           landing_page: ランディングページ
           moderations: モデレーション
-          private_users: プライベート参加者
           see_assembly: 参加スペースを見る
         assemblies_types: 参加スペース種別
       models:
@@ -227,11 +207,6 @@ ja:
             title: タイトル
           name: 参加スペース
         assembly_member:
-          fields:
-            ceased_date: 終了日
-            designation_date: 指定日
-            full_name: 名前
-            position: ポジション
           name: メンバー
           positions:
             other: その他
@@ -316,14 +291,9 @@ ja:
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_members:
           form:
-            existing_user: 既存の参加者
             explanation: '画像のガイダンス:'
             image_guide: テキストを含まない縦長の画像をお勧めします。
-            non_user: 参加者がいません
             non_user_avatar_help: メンバーとして公開する前に同意を得る必要があります。
-            select_a_position: ポジションを選択
-            select_user: 参加者を選択
-            user_type: 参加者の種類
         content_blocks:
           highlighted_assemblies:
             max_results: 表示する要素の最大量
@@ -407,8 +377,6 @@ ja:
         private_space: これは私的参加スペースです
         social_networks_title: 参加スペースを訪問
     assembly_members:
-      assembly_member:
-        designated_on: 指定日時：
       index:
         title: メンバー
     download_your_data:
