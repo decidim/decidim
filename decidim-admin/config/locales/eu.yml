@@ -906,12 +906,26 @@ eu:
         destroy:
           error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean parte hartzeko espazio honetarako.
           success: Behar bezala ezabatua parte-hartzailearen sarbidea parte hartzeko espazio pribaturako.
+        edit:
+          title: Editatu Espazio Parte-hartzailea parte-hartzaile pribatua.
+          update: Eguneratu
         index:
           import_via_csv: Inportatu CSV bidetik
+          publish_all: Argitaratu guztiak
           title: Parte hartzeko espazio pribatuko parte-hartzailea 
+          unpublish_all: Desargitaratu guztiak
         new:
           create: Sortu
           title: Parte hartzeko espazio pribatuko parte-hartzaile berria.
+        publish_all:
+          error: Arazo bat egon da parte-hartzaile pribatu guztiak argitaratzean parte hartzeko espazio honetarako.
+          success: Parte-hartzaile pribatu guztiak zuzen argitaratu dira parte hartzeko gune honetarako
+        unpublish_all:
+          error: Arazo bat egon da parte-hartzaile pribatu guztiak desargiratzean espazio parte-hartzaile honetarako.
+          success: Parte-hartzaile pribatu guztiak zuzen desargitaratu dira parte hartzeko espazio honetarako
+        update:
+          error: Arazo bat egon da parte hartzaile pribatua espazio parte-hartzaile horretarako eguneratzean.
+          success: Parte hartzeko espazioko parte-hartzaile pribatua zuzen eguneratu da
       participatory_space_private_users_csv_imports:
         create:
           invalid: Arazo bat egon da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
