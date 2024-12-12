@@ -89,7 +89,6 @@ ru:
           categories: Категории
           components: Составляющие
           moderations: Действия по модерации
-          private_users: Частные участники
           process_admins: Участники движения
           steps: Шаги
       models:
