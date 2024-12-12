@@ -136,8 +136,12 @@ cs:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
         onboarding_pending:
+          completed_verifications: Byli jste úspěšně autorizováni, nyní můžete %{action} v %{resource_name}
+          granted_verifications: Udělená ověření
+          onboarding_message_html: Jste téměř připraveni %{action} na <strong>%{resource_title}</strong> %{resource_name}. Ověřte prosím svůj účet dokončením následujících autorizací.
           pending_admin_approval_verifications: Čeká na ověření schválení administrátora
           pending_verifications: Nevyřízená ověření
+          unauthorized: Nemáte oprávnění k %{action} v tomto zdroji
         renew_modal:
           cancel: Zrušit
           continue: Pokračovat
