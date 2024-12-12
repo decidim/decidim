@@ -96,7 +96,6 @@ fi:
         confirm_delete_assembly: Haluatko varmasti poistaa tämän ryhmän? Mikäli muutat mieltäsi, voit palauttaa ryhmän myöhemmin.
         import_assembly: Tuo
         new_assembly: Uusi ryhmä
-        new_assembly_member: Uusi ryhmän jäsen
         new_assembly_type: Uusi ryhmätyyppi
         new_assembly_user_role: Uusi ryhmän hallintakäyttäjä
         view_deleted_assemblies: Näytä poistetut ryhmät
@@ -148,23 +147,6 @@ fi:
           import: Tuo
           select: Valitse, mitkä tiedot haluat tuoda
           title: Tuo ryhmä
-      assembly_members:
-        create:
-          error: Jäsenen lisääminen ryhmään epäonnistui.
-          success: Jäsenen lisääminen ryhmään onnistui.
-        destroy:
-          success: Jäsenen poistaminen ryhmästä onnistui.
-        edit:
-          title: Päivitä ryhmän jäsenen tietoja
-          update: Päivittää
-        index:
-          assembly_members_title: Ryhmän jäsenet
-        new:
-          create: Luoda
-          title: Uusi ryhmän jäsen
-        update:
-          error: Ryhmän jäsenen päivitys epäonnistui.
-          success: Ryhmän jäsenen tietojen päivitys onnistui.
       assembly_publications:
         create:
           error: Ryhmän julkaiseminen epäonnistui.
@@ -203,7 +185,6 @@ fi:
         assemblies: Ryhmät
         assemblies_submenu:
           assembly_admins: Ryhmän hallintakäyttäjät
-          assembly_members: Jäsenet
           attachment_collections: Kansiot
           attachment_files: Tiedostot
           attachments: Liitteet
@@ -212,7 +193,6 @@ fi:
           info: Tietoa tästä ryhmästä
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
-          private_users: Yksityiset osallistujat
           see_assembly: Näytä ryhmä
         assemblies_types: Ryhmien tyypit
       models:
@@ -230,11 +210,6 @@ fi:
             title: Otsikko
           name: Ryhmä
         assembly_member:
-          fields:
-            ceased_date: Päättymispäivä
-            designation_date: Nimityspäivä
-            full_name: Nimi
-            position: Asema
           name: Jäsen
           positions:
             other: muut
@@ -319,14 +294,9 @@ fi:
             slug_help_html: 'URL-tunnisteita käytetään tähän ryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_members:
           form:
-            existing_user: Olemassa oleva käyttäjä
             explanation: 'Kuvan ohjeistus:'
             image_guide: Käytä mieluiten vaakasuuntaista kuvaa, jossa ei ole tekstiä.
-            non_user: Ei käyttäjä
             non_user_avatar_help: Sinun pitäisi hankkia henkilöiden suostumus ennen kuin julkaiset heidän jäsenyytensä.
-            select_a_position: Valitse asema
-            select_user: Valitse käyttäjä
-            user_type: Käyttäjätyyppi
         content_blocks:
           highlighted_assemblies:
             max_results: Näytettävien elementtien enimmäismäärä
@@ -410,8 +380,6 @@ fi:
         private_space: Tämä on yksityinen ryhmä
         social_networks_title: Vieraile ryhmän sivulla palvelussa
     assembly_members:
-      assembly_member:
-        designated_on: Nimetty
       index:
         title: Jäsenet
     download_your_data:
