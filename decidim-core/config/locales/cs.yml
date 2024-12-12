@@ -467,6 +467,7 @@ cs:
           scope_id: Oblast působnosti
         name: Příklad autorizace
       dummy_authorization_workflow:
+        explanation: Ukázkový pracovní postup autorizace
         name: Pracovní postup autorizace
       errors:
         duplicate_authorization: Uživatel má již oprávnění se stejnými daty. Administrátor vás bude kontaktovat k ověření vašich údajů.
@@ -1404,8 +1405,10 @@ cs:
         retry: Zkusit znovu
     onboarding_action_message:
       click_link: Klikněte zde
+      cta_html: <a href="%{path}">%{link_text}</a> pro %{action} v %{resource_name} <strong>%{resource_title}</strong>
       expired_authorization_active_title: Vaše autorizace vypršela.
       finish_authorization_process: Můžete dokončit proces autorizace
+      incomplete_authorization_active_title: Vaše ověření nebylo dokončeno všemi nezbytnými informacemi.
       pending_authorization_active_title: Potřebujeme ověřit Vaši totožnost.
     open_data:
       help:
