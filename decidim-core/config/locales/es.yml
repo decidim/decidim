@@ -1076,6 +1076,8 @@ es:
           not_found: 'El ámbito no se encontró en la base de datos (ID: %{id})'
         scope_type_presenter:
           not_found: 'El tipo de ámbito no se encontró en la base de datos (ID: %{id})'
+    machine_translations:
+      automatic: traducción automática a %{locale_name}
     managed_users:
       expired_session: La sesión actual de administración de una participante ha caducado.
     map:
