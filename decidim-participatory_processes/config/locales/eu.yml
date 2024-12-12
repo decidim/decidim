@@ -129,7 +129,6 @@ eu:
           info: Prozesu honi buruz
           landing_page: Hasierako orria
           moderations: Moderazioak
-          private_users: Parte-hartzaile pribatuak
           process_admins: Prozesuaren erabiltzaileak
           steps: Prozesuaren faseak
       models:
