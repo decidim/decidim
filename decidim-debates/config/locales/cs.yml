@@ -19,10 +19,10 @@ cs:
   activerecord:
     models:
       decidim/debates/debate:
-        one: Rozprava
+        one: Debata
         few: Debaty
-        many: Debaty
-        other: Debaty
+        many: Debat
+        other: Debat
   decidim:
     components:
       debates:
@@ -134,7 +134,7 @@ cs:
           category: Kategorie
           category_prompt: Vyberte kategorii
           commented: Okomentováno
-          my_debates: Moje rozpravy
+          my_debates: Moje debaty
           official: Oficiální
           origin: Původ
           participants: Účastníci
@@ -152,7 +152,7 @@ cs:
           title: Nová debata
         orders:
           commented: Nejvíce komentované
-          label: Řazení rozprav podle
+          label: Řazení debat podle
           random: Náhodné pořadí
           recent: Nejnovější
           updated: Naposledy aktualizované
@@ -166,7 +166,7 @@ cs:
           open: Otevřená diskuse
           participants_count: Účastníci
         update:
-          invalid: Při aktualizaci rozpravy došlo k chybě.
+          invalid: Při aktualizaci debaty došlo k chybě.
           success: Debata byla úspěšně aktualizována.
       last_activity:
         debate_updated: 'Debata aktualizována:'
@@ -258,21 +258,25 @@ cs:
           author: Data pro autora této debaty
           closed_at: Datum, kdy byla tato debata uzavřena
           comments: Počet komentářů, které má tato debata
-          comments_enabled: Zda tato rozprava byla povolena nebo ne
+          comments_enabled: Zda tato debata byla povolena nebo ne
           component: Komponenta, do které debata patří
           conclusions: Závěry debaty, pokud byla uzavřena
           created_at: Datum a čas, kdy byla debata zahájena
           description: Popis debaty
           end_time: Když tato debata skončí, pokud se jedná o otevřenou debatu a má omezenou dobu
+          endorsements_count: Počet potvrzení, která debata získala
+          follows_count: Počet sledujících tuto debatu
           id: Jedinečný identifikátor debaty
           information_updates: Aktualizace, které autor provedl v debatě
           instructions: Jaké jsou pokyny k připomínkám v této debatě
           last_comment_at: Datum, kdy byla tato debata naposledy komentována
+          last_comment_by: Data posledního komentáře v rámci debaty
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tato debata
           reference: Jedinečný identifikátor zdroje na této platformě
           start_time: Když tato debata začne, pokud se jedná o otevřenou debatu a má omezenou dobu
           taxonomies: Taxonomie projektu
           title: Název debaty
+          updated_at: Datum poslední aktualizace debaty
           url: URL, kde lze tuto debatu nalézt
     statistics:
       debates_count: Debaty
