@@ -150,7 +150,7 @@ zh-TW:
         index:
           assembly_members_title: 大會成員
         new:
-          create: 建立
+          create: 創建
         update:
           error: 更新此大會的成員時出現問題。
           success: 此大會的成員已成功更新。
