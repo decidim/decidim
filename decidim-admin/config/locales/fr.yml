@@ -884,6 +884,7 @@ fr:
           error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
         edit:
+          title: Modifier le participant privé de l'espace participatif.
           update: Mettre à jour
         index:
           import_via_csv: Importer via csv
@@ -893,6 +894,8 @@ fr:
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
+        update:
+          success: Participant privé de l'espace participatif mis à jour avec succès
       participatory_space_private_users_csv_imports:
         create:
           invalid: Un problème est survenu lors de la lecture du fichier CSV. Veuillez vous assurer que vous avez suivi les instructions.
