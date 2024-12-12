@@ -129,7 +129,6 @@ ca:
           info: Quant a aquest procés
           landing_page: Pàgina d'inici
           moderations: Moderacions
-          private_users: Participants privades
           process_admins: Administradores del procés
           steps: Fases del procés
       models:
