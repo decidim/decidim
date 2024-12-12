@@ -113,12 +113,23 @@ sk:
         update:
           error: Pri tvorbe nového typu zhromaždenia nastala chyba.
           success: Typ zhromaždenia úspešne aktualizovaný.
+      assembly_members:
+        edit:
+          update: Aktualizovať
+        new:
+          create: Vytvoriť
       menu:
         assemblies_types: Typy zhromaždení
       models:
         assemblies_types:
           fields:
             title: Názov
+        assembly_member:
+          fields:
+            ceased_date: Dátum ukončenia
+            designation_date: Dátum konania
+            full_name: Meno
+            position: Pozícia
         assembly_user_role:
           roles:
             valuator: Hodnotiteľ
