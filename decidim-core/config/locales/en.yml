@@ -242,9 +242,9 @@ en:
       impersonation_log:
         manage: "%{user_name} has managed %{resource_name} because %{reason}"
       moderation:
-        bulk_hide: "%{user_name} hide %{reported_count} reported content"
-        bulk_unhide: "%{user_name} unhide %{reported_count} reported content"
-        bulk_unreport: "%{user_name} unreport %{reported_count} reported content"
+        bulk_hide: "%{user_name} hid %{reported_count} resources"
+        bulk_unhide: "%{user_name} unhid %{reported_count} resources"
+        bulk_unreport: "%{user_name} unreported %{reported_count} resources"
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
       newsletter:
@@ -302,7 +302,7 @@ en:
       user:
         block: "%{user_name} blocked user %{resource_name}"
         bulk_block: "%{user_name} blocked %{blocked_count} users"
-        bulk_ignore: "%{user_name} unreport %{unreported_users_count} users"
+        bulk_ignore: "%{user_name} unreported %{unreported_users_count} users"
         bulk_unblock: "%{user_name} unblocked %{unblocked_count} users"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
         officialize: "%{user_name} officialized the participant %{resource_name}"

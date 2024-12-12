@@ -140,8 +140,8 @@ describe "Admin manages global moderations" do
       within "#js-bulk-actions-dropdown" do
         click_on "Hide"
       end
-      expect(page).to have_content("Hide selected moderations")
-      click_on "Hide selected moderations"
+      expect(page).to have_content("Hide selected resources")
+      click_on "Hide selected resources"
       expect(page).to have_content("Resources successfully hidden")
     end
 
@@ -153,8 +153,8 @@ describe "Admin manages global moderations" do
       within "#js-bulk-actions-dropdown" do
         click_on "Unreport"
       end
-      expect(page).to have_content("Unreport selected moderations")
-      click_on "Unreport selected moderations"
+      expect(page).to have_content("Unreport selected resources")
+      click_on "Unreport selected resources"
       expect(page).to have_content("Resources successfully unreported")
     end
 
@@ -167,8 +167,8 @@ describe "Admin manages global moderations" do
       within "#js-bulk-actions-dropdown" do
         click_on "Unhide"
       end
-      expect(page).to have_content("Unhide selected moderations")
-      click_on "Unhide selected moderations"
+      expect(page).to have_content("Unhide selected resources")
+      click_on "Unhide selected resources"
       expect(page).to have_content("Resources successfully unhidden")
     end
   end

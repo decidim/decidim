@@ -749,13 +749,13 @@ en:
             actions_dropdown: Actions
             hide:
               title: Hide
-              update_moderation_button: Hide selected moderations
+              update_moderation_button: Hide selected resources
             unhide:
               title: Unhide
-              update_moderation_button: Unhide selected moderations
+              update_moderation_button: Unhide selected resources
             unreport:
               title: Unreport
-              update_moderation_button: Unreport selected moderations
+              update_moderation_button: Unreport selected resources
           cancel: Cancel
           selected: selected
           title: Reported content
