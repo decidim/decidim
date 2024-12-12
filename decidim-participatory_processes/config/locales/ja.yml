@@ -124,7 +124,6 @@ ja:
           info: このプロセスについて
           landing_page: ランディングページ
           moderations: モデレーション
-          private_users: プライベート参加者
           process_admins: 参加型プロセス管理者
           steps: フェーズ
       models:
