@@ -75,11 +75,9 @@ he:
           success: חבר.ה נמחק.ה בהצלחה מאסיפה זו.
         edit:
           title: עדכון חבר.ה אסיפה
-          update: עדכון
         index:
           assembly_members_title: חברי.ות אסיפה
         new:
-          create: יצירה
           title: חבר.ה אסיפה חדש.ה
         update:
           error: הייתה בעיה בעדכון חבר.ה עבור אסיפה זו.
