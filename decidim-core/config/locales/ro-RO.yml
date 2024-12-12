@@ -385,7 +385,7 @@ ro:
       dummy_authorization_workflow:
         name: Flux de lucru test pentru autorizare
       errors:
-        duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator te va contacta pentru a verifica detaliile.
+        duplicate_authorization: Un participant este deja autorizat cu aceleași date. Un administrator vă va contacta pentru a verifica detaliile.
       expired_at: A expirat la %{timestamp}
       expires_at: Expiră la %{timestamp}
       foo_authorization:
@@ -408,7 +408,7 @@ ro:
           cancel: Anulați
           invalid_field: "%{field}"
           reauthorize: Reautorizează
-          title: Te rugăm să reautorizezi
+          title: Vă rugăm să reautorizați
         missing:
           authorize: Autorizează cu "%{authorization}"
           explanation: Pentru a efectua această acțiune, trebuie să fii autorizat cu "%{authorization}".
