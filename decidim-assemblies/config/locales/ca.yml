@@ -96,7 +96,6 @@ ca:
         confirm_delete_assembly: Segur que vols esborrar aquesta assemblea? Si canvies d'opinió, la pots restaurar més endavant.
         import_assembly: Importar
         new_assembly: Nova assemblea
-        new_assembly_member: Afegir membre
         new_assembly_type: Nou tipus d'assemblea
         new_assembly_user_role: Afegir administradora
         view_deleted_assemblies: Veure les assemblees eliminades
@@ -148,23 +147,6 @@ ca:
           import: Importar
           select: Selecciona quines dades vols importar
           title: Importar assemblea
-      assembly_members:
-        create:
-          error: S'ha produït un error en afegir un membre per a aquesta assemblea.
-          success: El membre d'aquesta assemblea s'ha creat correctament.
-        destroy:
-          success: El membre per a aquesta assemblea s'ha eliminat correctament.
-        edit:
-          title: Actualitzar membre de l'assemblea
-          update: Actualitza
-        index:
-          assembly_members_title: Membres de l'assemblea
-        new:
-          create: Crea
-          title: Afegir membre
-        update:
-          error: S'ha produït un error en actualitzar el membre d'aquesta assemblea.
-          success: Membre actualitzat correctament per a aquesta assemblea.
       assembly_publications:
         create:
           error: S'ha produït un error en publicar aquesta assemblea.
@@ -203,7 +185,6 @@ ca:
         assemblies: Assemblees
         assemblies_submenu:
           assembly_admins: Administradores de l'assemblea
-          assembly_members: Membres
           attachment_collections: Carpetes
           attachment_files: Fitxers
           attachments: Adjunts
@@ -212,7 +193,6 @@ ca:
           info: Quant a aquesta assemblea
           landing_page: Pàgina d'inici
           moderations: Moderacions
-          private_users: Participants privades
           see_assembly: Veure l'assemblea
         assemblies_types: Tipus d'assemblees
       models:
@@ -230,11 +210,6 @@ ca:
             title: Títol
           name: Assemblea
         assembly_member:
-          fields:
-            ceased_date: Data de cessament
-            designation_date: Data de designació
-            full_name: Nom
-            position: Posició
           name: Membre
           positions:
             other: Altre
@@ -319,14 +294,9 @@ ca:
             slug_help_html: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_members:
           form:
-            existing_user: Participant existent
             explanation: 'Instruccions per a la imatge:'
             image_guide: Preferiblement una imatge apaïsada que no tingui cap text.
-            non_user: No participant
             non_user_avatar_help: Cal tenir el consentiment de la persona abans publicar-la com a membre.
-            select_a_position: Selecciona una posició
-            select_user: Selecciona una participant
-            user_type: Tipus de participant
         content_blocks:
           highlighted_assemblies:
             max_results: Quantitat màxima d'elements que es mostraran
@@ -410,8 +380,6 @@ ca:
         private_space: Aquesta és una assemblea privada
         social_networks_title: Visita l'assemblea a
     assembly_members:
-      assembly_member:
-        designated_on: 'Data de designació:'
       index:
         title: Membres
     download_your_data:
