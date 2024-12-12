@@ -49,6 +49,15 @@ module Decidim::Admin
             expect(recipients.count).to eq 5
           end
         end
+
+        context "with blocked accounts" do
+          let!(:blocked_recipients) { create_list(:user, 5, :confirmed, :blocked, newsletter_notifications_at: Time.current, organization:) }
+
+          it "returns all not blocked users" do
+            expect(subject.query).to match_array recipients
+            expect(recipients.count).to eq 5
+          end
+        end
       end
 
       context "when sending to followers" do
