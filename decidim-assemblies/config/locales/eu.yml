@@ -96,7 +96,6 @@ eu:
         confirm_delete_assembly: Ziur zaude batzar hau ezabatu nahi duzula? Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         import_assembly: Inportatu
         new_assembly: Beste batzar bat
-        new_assembly_member: Beste batzarkide bat
         new_assembly_type: Beste batzar mota bat
         new_assembly_user_role: Batzarraren beste administratzaile bat
         view_deleted_assemblies: Ikusi ezabatutako batzarrak
@@ -148,23 +147,6 @@ eu:
           import: Inportatu
           select: Hautatu zein datu inportatu nahi dituzun
           title: Inportatu batzarra
-      assembly_members:
-        create:
-          error: Arazo bat egon da kide bat gehitzean batzar honetarako.
-          success: Batzar honetarako kidea zuzen sortua.
-        destroy:
-          success: Batzar honetarako kidea zuzen ezabatua. 
-        edit:
-          title: Eguneratu batzarkidea
-          update: Eguneratu
-        index:
-          assembly_members_title: Batzarkideak
-        new:
-          create: Sortu
-          title: Beste batzarkide bat
-        update:
-          error: Arazo bat egon da kidea eguneratzean batzar honetarako.
-          success: Batzar honetarako kidea zuzen eguneratua.
       assembly_publications:
         create:
           error: Arazo bat egon da batzar hau argitaratzean.
@@ -203,7 +185,6 @@ eu:
         assemblies: Batzarrak
         assemblies_submenu:
           assembly_admins: Batzarraren administratzaileak
-          assembly_members: Kideak
           attachment_collections: Karpetak
           attachment_files: Fitxategiak
           attachments: Eranskinak
@@ -212,7 +193,6 @@ eu:
           info: Batzar honi buruz
           landing_page: Hasierako orria
           moderations: Moderazioak
-          private_users: Parte-hartzaile pribatuak
           see_assembly: Ikusi batzarra
         assemblies_types: Batzar motak
       models:
@@ -230,11 +210,6 @@ eu:
             title: Izenburua
           name: Batzarra
         assembly_member:
-          fields:
-            ceased_date: Sortze-data
-            designation_date: Izendapen-data
-            full_name: Izena
-            position: Kargua
           name: kidea
           positions:
             other: Beste bat
@@ -319,14 +294,9 @@ eu:
             slug_help_html: 'URL-ren testu laburrak batzar honetara daramaten URL-ak sortzeko erabiltzen dira. Letrak, zenbakiak eta gidoiak soilik onartzen ditu, eta letra batez hasi behar du. Adibidea: % {url}'
         assembly_members:
           form:
-            existing_user: Parte-hartzailea existitzen da
             explanation: 'Jarraibideak irudirako:'
             image_guide: Ahal dela, testurik gabeko irudi bertikal bat.
-            non_user: Erabiltzailea ez
             non_user_avatar_help: Pertsonen baimena lortu beharko zenuke, kide gisa argitaratu baino lehen.
-            select_a_position: Hautatu posizio bat
-            select_user: Hautatu parte-hartzaile bat
-            user_type: Erabiltzaile mota
         content_blocks:
           highlighted_assemblies:
             max_results: Erakusteko elementu gehienen kopurua
@@ -410,8 +380,6 @@ eu:
         private_space: Hau batzar pribatua da
         social_networks_title: 'Bisitatu batzarra:'
     assembly_members:
-      assembly_member:
-        designated_on: 'Izendatuta:'
       index:
         title: Kideak
     download_your_data:
