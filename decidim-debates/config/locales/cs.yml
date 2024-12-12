@@ -28,11 +28,13 @@ cs:
       debates:
         actions:
           comment: Komentář
+          create: Vytvořit debatu
           endorse: Schválit
         name: Debaty
         settings:
           global:
             announcement: Oznámení
+            attachments_allowed: Povolit přílohy
             clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
@@ -70,7 +72,10 @@ cs:
             title: Upravit debatu
             update: Aktualizovat debatu
           form:
+            add_documents: Přidat dokumenty
+            attachment_legend: "(Volitelné) Přidat přílohu"
             debate_type: Typ debaty
+            edit_documents: Upravit dokumenty
             finite: Konečný (s počátečním a koncovým obdobím)
             open: Otevřený (žádné počáteční nebo koncové období)
           index:
