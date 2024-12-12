@@ -135,6 +135,12 @@ ja:
         new:
           authorize: 送信
           authorize_with: '%{authorizer} で認証'
+        onboarding_pending:
+          completed_verifications: あなたは正常に承認されました。今、 %{resource_name} で %{action} ができます。
+          granted_verifications: 許可された検証
+          pending_admin_approval_verifications: 管理者承認の検証を保留中
+          pending_verifications: 保留中の検証
+          unauthorized: このリソースを %{action} する権限がありません。
         renew_modal:
           cancel: キャンセル
           continue: 続ける
