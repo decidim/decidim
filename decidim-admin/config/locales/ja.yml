@@ -901,12 +901,26 @@ ja:
         destroy:
           error: この参加型スペースのプライベート参加者を削除する際に問題が発生しました。
           success: 参加型スペースのプライベート参加者アクセスが正常に破棄されました。
+        edit:
+          title: 参加スペースの非公開参加者を編集します。
+          update: 更新
         index:
           import_via_csv: CSV形式でインポート
+          publish_all: すべて公開
           title: 参加型スペースプライベート参加者
+          unpublish_all: すべて非公開
         new:
           create: 作成
           title: 新しい参加型スペースのプライベート参加者。
+        publish_all:
+          error: この参加型スペースのすべてのプライベート参加者を公開する際に問題が発生しました。
+          success: この参加型スペースのすべてのプライベート参加者を公開しました
+        unpublish_all:
+          error: この参加型スペースのすべてのプライベート参加者を非公開にする際に問題が発生しました。
+          success: この参加型スペースのすべてのプライベート参加者を非公開にしました
+        update:
+          error: この参加型スペースのプライベート参加者の更新中に問題が発生しました。
+          success: 参加型スペースのプライベート参加者を更新しました
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
