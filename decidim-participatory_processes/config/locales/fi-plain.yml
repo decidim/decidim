@@ -129,7 +129,6 @@ fi-pl:
           info: Tietoa tästä prosessista
           landing_page: Laskeutumissivu
           moderations: Moderoinnit
-          private_users: Yksityiset käyttäjät
           process_admins: Prosessin käyttäjät
           steps: Vaiheet
       models:
