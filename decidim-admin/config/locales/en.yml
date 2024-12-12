@@ -354,10 +354,6 @@ en:
           title: 'Add component: %{name}'
         publish:
           success: The component has been successfully published.
-        taxonomy_filters_badge:
-          remove: Remove
-        taxonomy_filters_drawer:
-          add_filter: Add filter
         title: Components
         unpublish:
           success: The component has been successfully unpublished.
@@ -368,21 +364,6 @@ en:
           menu_hidden: Menu hidden
           published: Published
           unpublished: Unpublished
-      taxonomy_filters_selector:
-        show:
-          items_count: "%{count} items"
-          remove: Remove
-        new:
-          save: Save
-          items_count: "%{count} items"
-          add_new_items_html: If you need to set a new filter or item, do it through the configuration settings or by clicking <a href="%{url}">here</a>.
-        taxonomies_select:
-          add_filter: Add filter
-          filters: Filters
-          add_filter: Add filter
-          taxonomies: Taxonomies
-          select_taxonomy: Select a taxonomy
-          select_filter: Select a filter
       conflicts:
         attempts: Attempts
         'false': 'No'
@@ -1176,6 +1157,19 @@ en:
         update:
           error: There was a problem updating this taxonomy filter.
           success: Taxonomy filter updated successfully.
+      taxonomy_filters_selector:
+        new:
+          add_new_items_html: If you need to set a new filter or item, do it through the configuration settings or by clicking <a href="%{url}">here</a>.
+          items_count: "%{count} items"
+          save: Save
+        show:
+          items_count: "%{count} items"
+          remove: Remove
+        taxonomies_select:
+          filters: Filters
+          select_filter: Select a filter
+          select_taxonomy: Select a taxonomy
+          taxonomies: Taxonomies
       taxonomy_items:
         edit:
           title: Edit item in %{taxonomy}
@@ -1323,7 +1317,7 @@ en:
   layouts:
     decidim:
       admin:
-        taxonomy_filters_selector:
-          title: Filters
         global_moderations:
           title: Global moderations
+        taxonomy_filters_selector:
+          title: Filters
