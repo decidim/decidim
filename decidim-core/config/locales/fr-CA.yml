@@ -649,6 +649,9 @@ fr-CA:
           show_password: Montrer le mot de passe
           shown_password: Votre mot de passe est affiché
         placeholder_email: salut@exemple.org
+    documents:
+      one: "%{count} document"
+      other: "%{count} documents"
     doorkeeper:
       authorizations:
         new:
