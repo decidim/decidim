@@ -95,7 +95,6 @@ de:
       actions:
         import_assembly: Importieren
         new_assembly: Neues Gremium
-        new_assembly_member: Neues Gremienmitglied
         new_assembly_type: Neuer Gremiumtyp
         new_assembly_user_role: Neuer Gremium-Admin
       assemblies:
@@ -143,23 +142,6 @@ de:
           import: Importieren
           select: Wählen Sie aus, welche Daten Sie importieren möchten
           title: Gremium importieren
-      assembly_members:
-        create:
-          error: Beim Hinzufügen eines Mitglieds zu diesem Gremium ist ein Fehler aufgetreten.
-          success: Mitglied wurde diesem Gremium erfolgreich hinzugefügt.
-        destroy:
-          success: Mitglied wurde erfolgreich aus diesem Gremium entfernt.
-        edit:
-          title: Versammlungsmitglieder aktualisieren
-          update: Aktualisieren
-        index:
-          assembly_members_title: Gremienmitglieder
-        new:
-          create: Erstellen
-          title: Neues Gremienmitglied
-        update:
-          error: Beim Aktualisieren des Mitglieds dieses Gremiums ist ein Fehler aufgetreten.
-          success: Mitglied dieses Gremiums erfolgreich aktualisiert.
       assembly_publications:
         create:
           error: Beim Veröffentlichen dieses Gremiums ist ein Fehler aufgetreten.
@@ -198,7 +180,6 @@ de:
         assemblies: Gremien
         assemblies_submenu:
           assembly_admins: Assembly Benutzer
-          assembly_members: Mitglieder
           attachment_collections: Ordner
           attachment_files: Dateien
           attachments: Anhänge
@@ -207,7 +188,6 @@ de:
           info: Über dieses Gremium
           landing_page: Startseite
           moderations: Moderationen
-          private_users: Private Teilnehmende
           see_assembly: Gremium ansehen
         assemblies_types: Versammlungstypen
       models:
@@ -225,11 +205,6 @@ de:
             title: Titel
           name: Gremium
         assembly_member:
-          fields:
-            ceased_date: Aufgegebenes Datum
-            designation_date: Datum der Benennung
-            full_name: Name
-            position: Position
           name: Mitglied
           positions:
             other: Andere
@@ -309,14 +284,9 @@ de:
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
         assembly_members:
           form:
-            existing_user: Existierender Benutzer
             explanation: 'Hinweise für das Bild:'
             image_guide: Vorzugsweise ein Portraitbild, das keinen Text enthält.
-            non_user: Nichtbenutzer
             non_user_avatar_help: Sie sollten die Zustimmung der Personen einholen, bevor Sie sie als Mitglied veröffentlichen.
-            select_a_position: Wählen Sie eine Position
-            select_user: Wählen Sie einen Benutzer aus
-            user_type: Benutzertyp
         content_blocks:
           highlighted_assemblies:
             max_results: Maximale Anzahl der Elemente, die angezeigt werden sollen
@@ -400,8 +370,6 @@ de:
         private_space: Dies ist eine private Versammlung
         social_networks_title: Gremium besuchen unter
     assembly_members:
-      assembly_member:
-        designated_on: Bezeichnet am
       index:
         title: Mitglieder
     download_your_data:
