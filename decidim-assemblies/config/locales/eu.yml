@@ -193,6 +193,7 @@ eu:
           info: Batzar honi buruz
           landing_page: Hasierako orria
           moderations: Moderazioak
+          private_users: Kideak
           see_assembly: Ikusi batzarra
         assemblies_types: Batzar motak
       models:
@@ -274,6 +275,7 @@ eu:
             metadata: Metadata
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             other: Beste bat
+            private_notice: Parte hartzaile pribatuak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             select_a_created_by: Hautatu egilea
             select_an_area: Hautatu Arlo bat
             select_an_assembly_type: Hautatu batzar mota bat
