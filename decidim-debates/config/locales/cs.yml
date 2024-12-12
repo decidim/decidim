@@ -23,10 +23,10 @@ cs:
   activerecord:
     models:
       decidim/debates/debate:
-        one: Rozprava
+        one: Debata
         few: Debaty
-        many: Debaty
-        other: Debaty
+        many: Debat
+        other: Debat
   decidim:
     components:
       debates:
@@ -121,7 +121,7 @@ cs:
           category: Kategorie
           category_prompt: Vyberte kategorii
           commented: Okomentováno
-          my_debates: Moje rozpravy
+          my_debates: Moje debaty
           official: Oficiální
           origin: Původ
           participants: Účastníci
@@ -141,7 +141,7 @@ cs:
           title: Nová debata
         orders:
           commented: Nejvíce komentované
-          label: Řazení rozprav podle
+          label: Řazení debat podle
           random: Náhodné pořadí
           recent: Nejnovější
           updated: Naposledy aktualizované
@@ -155,7 +155,7 @@ cs:
           open: Otevřená diskuse
           participants_count: Účastníci
         update:
-          invalid: Při aktualizaci rozpravy došlo k chybě.
+          invalid: Při aktualizaci debaty došlo k chybě.
           success: Debata byla úspěšně aktualizována.
       last_activity:
         debate_updated: 'Debata aktualizována:'
