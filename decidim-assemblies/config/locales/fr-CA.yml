@@ -231,7 +231,7 @@ fr-CA:
           fields:
             ceased_date: Date de radiation
             designation_date: Date de désignation
-            full_name: Nom et prénom
+            full_name: "Nom\n"
             position: Statut
           name: Membre
           positions:
