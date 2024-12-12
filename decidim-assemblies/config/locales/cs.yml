@@ -108,6 +108,7 @@ cs:
       assemblies:
         create:
           error: Při vytváření nového shromáždění došlo k chybě.
+          success: Shromáždění bylo úspěšně vytvořeno. Nyní můžete přidat komponenty a nakonfigurovat je.
         edit:
           update: Aktualizace
         index:
@@ -280,6 +281,7 @@ cs:
             metadata: Metadata
             no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             other: Ostatní
+            private_notice: Budete moci spravovat soukromé účastníky po nastavení jako soukromé
             select_a_created_by: Vybrat vytvořeno od
             select_an_area: Vyberte oblast
             select_an_assembly_type: Vyberte typ shromáždění
