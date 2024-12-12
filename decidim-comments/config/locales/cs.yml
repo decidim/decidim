@@ -42,6 +42,7 @@ cs:
           error: Při hlasování o komentáři došlo k chybě.
     components:
       add_comment_form:
+        account_message: Přihlaste se nebo vytvořte účet pro přidání komentáře.
         form:
           body:
             label: Komentář
