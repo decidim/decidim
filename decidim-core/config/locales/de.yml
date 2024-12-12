@@ -1081,6 +1081,8 @@ de:
           not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
         scope_type_presenter:
           not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
+    machine_translations:
+      automatic: automatische Übersetzung in %{locale_name}
     managed_users:
       expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
     map:
