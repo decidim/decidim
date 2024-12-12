@@ -190,6 +190,7 @@ ja:
           info: この参加スペースについて
           landing_page: ランディングページ
           moderations: モデレーション
+          private_users: メンバー
           see_assembly: 参加スペースを見る
         assemblies_types: 参加スペース種別
       models:
@@ -271,6 +272,7 @@ ja:
             metadata: メタデータ
             no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             other: その他
+            private_notice: プライベートとして設定した後、プライベート参加者を管理することができます
             select_a_created_by: 作成者を選択してください
             select_an_area: エリアを選択
             select_an_assembly_type: 参加スペース種別を選択
