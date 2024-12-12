@@ -78,20 +78,20 @@ describe "Explore versions", versioning: true do
     it "shows the changed attributes" do
       expect(page).to have_content("Changes at")
 
-      within "#diff-for-title" do
-        expect(page).to have_content("Title")
+      within "#diff-for-title-english" do
+        expect(page).to have_content("Title (English)")
 
         within ".diff > ul > .del" do
-          expect(page).to have_content(translated(proposal.title).dump)
+          expect(page).to have_content(translated(proposal.title))
         end
 
         within ".diff > ul > .ins" do
-          expect(page).to have_content(translated(emendation.title).dump)
+          expect(page).to have_content(translated(emendation.title))
         end
       end
 
-      within "#diff-for-body" do
-        expect(page).to have_content("Body")
+      within "#diff-for-body-english" do
+        expect(page).to have_content("Body (English)")
 
         within ".diff > ul > .del" do
           expect(page).to have_content(translated(proposal.body))

@@ -30,11 +30,11 @@ describe "Amendment Diff", versioning: true do
       it "shows the changed attributes compared to the last version of the amended proposal" do
         expect(page).to have_content('Amendment to "Updated long enough title"')
 
-        within "#diff-for-title" do
+        within "#diff-for-title-english" do
           expect(page).to have_content("Title")
 
           within ".diff > ul > .del" do
-            expect(page).to have_content("Updated long enough title")
+            expect(page).to have_content("Original long enough title")
           end
 
           within ".diff > ul > .ins" do
@@ -42,11 +42,11 @@ describe "Amendment Diff", versioning: true do
           end
         end
 
-        within "#diff-for-body" do
+        within "#diff-for-body-english" do
           expect(page).to have_content("Body")
 
           within ".diff > ul > .del" do
-            expect(page).to have_content("Updated one liner body")
+            expect(page).to have_content("Original one liner body")
           end
 
           within ".diff > ul > .ins" do
@@ -68,7 +68,7 @@ describe "Amendment Diff", versioning: true do
       it "shows the changed attributes compared to the version of the amended proposal at the moment of making the amendment" do
         expect(page).to have_content('Amendment to "Updated long enough title"')
 
-        within "#diff-for-title" do
+        within "#diff-for-title-english" do
           expect(page).to have_content("Title")
 
           within ".diff > ul > .del" do
@@ -80,7 +80,7 @@ describe "Amendment Diff", versioning: true do
           end
         end
 
-        within "#diff-for-body" do
+        within "#diff-for-body-english" do
           expect(page).to have_content("Body")
 
           within ".diff > ul > .del" do
@@ -105,14 +105,14 @@ describe "Amendment Diff", versioning: true do
       it "shows NO changes in the body" do
         expect(page).to have_content('Amendment to "Original long enough title"')
 
-        within "#diff-for-body" do
+        within "#diff-for-body-english" do
           expect(page).to have_content("Body")
 
-          within all(".diff > ul > .unchanged").first do
+          within all(".diff > ul > .ins").first do
             expect(page).to have_content("One liner body")
           end
 
-          within all(".diff > ul > .unchanged").last do
+          within all(".diff > ul > .ins").last do
             expect(page).to have_content("Amended")
           end
         end
@@ -143,12 +143,12 @@ describe "Amendment Diff", versioning: true do
         visit decidim.review_amend_path(amendment)
       end
 
-      it "shows the changed attributes compared to the last version of the amended proposal" do
-        within "#diff-for-title" do
+      it "shows the changed attributes compared to the last version of the amended proposal", versioning: true do
+        within "#diff-for-title-english" do
           expect(page).to have_content("Title")
 
           within ".diff > ul > .del" do
-            expect(page).to have_content("Updated long enough title")
+            expect(page).to have_content("Original long enough title")
           end
 
           within ".diff > ul > .ins" do
@@ -156,11 +156,11 @@ describe "Amendment Diff", versioning: true do
           end
         end
 
-        within "#diff-for-body" do
+        within "#diff-for-body-english" do
           expect(page).to have_content("Body")
 
           within ".diff > ul > .del" do
-            expect(page).to have_content("Updated one liner body")
+            expect(page).to have_content("Original one liner body")
           end
 
           within ".diff > ul > .ins" do
