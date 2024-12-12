@@ -24,10 +24,20 @@
               <% if current_user.admin? %>
                 <div class="grid-x">
                   <div class="cell small-12" id="send_newsletter_to_all_users">
-                    <%= f.check_box :send_to_all_users, help_text: t(".all_users_help"), multiple: false %>
+                    <%= hidden_field_tag :send_to_all_users, "0" %>
+                    <%= label_tag "newsletter_send_to_all_users" do %>
+                      <%= radio_button_tag "newsletter[send_to_all_users]", "1", @form.send_to_all_users == true, id: "newsletter_send_to_all_users" %>
+                      <%= t(".send_to_all_users", default: "Send to all users") %>
+                    <% end %>
+                    <span class="help-text"><%= t(".all_users_help", default: "Sends a newsletter to all users.") %></span>
                   </div>
                   <div class="cell small-12" id="send_newsletter_to_verified_users">
-                    <%= f.check_box :send_to_verified_users, help_text: t(".verified_users_help"), multiple: false %>
+                    <%= hidden_field_tag :send_to_verified_users, "0" %>
+                    <%= label_tag "newsletter_send_to_verified_users" do %>
+                      <%= radio_button_tag "newsletter[send_to_verified_users]", "1", @form.send_to_verified_users == true, id: "newsletter_send_to_verified_users" %>
+                      <%= t(".send_to_verified_users", default: "Send to verified users") %>
+                    <% end %>
+                    <span class="help-text"><%= t(".verified_users_help", default: "Sends a newsletter to all confirmed and verified users via any selected verification method.") %></span>
                   </div>
                   <div id="verification_types_for_select" class="my-4 hidden">
                     <%= cell(

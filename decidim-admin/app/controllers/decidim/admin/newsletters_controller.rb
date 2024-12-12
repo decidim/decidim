@@ -108,8 +108,6 @@ module Decidim
                 else
                   form(SelectiveNewsletterForm).from_model(newsletter)
                 end
-
-        @form.send_to_all_users = current_user.admin?
       end
 
       def recipients_count
