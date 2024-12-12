@@ -135,7 +135,6 @@ cs:
           info: O tomto procesu
           landing_page: Úvodní stránka
           moderations: Moderování
-          private_users: Soukromí uživatelé
           process_admins: Administrátoři procesu
           steps: Kroky
       models:
