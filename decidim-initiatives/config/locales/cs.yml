@@ -651,6 +651,7 @@ cs:
           comment: Komentář
       initiatives_type:
         actions:
+          create: Vytvořit iniciativu
           title: Akce
           vote: Podepsat
   layouts:
