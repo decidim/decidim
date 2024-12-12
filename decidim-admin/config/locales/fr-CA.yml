@@ -883,9 +883,13 @@ fr-CA:
         destroy:
           error: Une erreur s'est produite lors de la suppression d'un utilisateur privé pour cet espace participatif.
           success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
+        edit:
+          update: Mettre à jour
         index:
           import_via_csv: Importer via csv
+          publish_all: Tout publier
           title: Utilisateur privé de l'espace participatif
+          unpublish_all: Tout dépublier
         new:
           create: Créer
           title: Nouvel utilisateur privé de l'espace participatif.
