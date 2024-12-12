@@ -12,20 +12,20 @@
 </div>
 
 <div class="flex items-start justify-between">
-  <div class="grow space-y-6">
-    <span class="content-block__span">
-      <%= t("decidim.participatory_spaces.highlighted_proposals.last") %>
-    </span>
-
-    <% proposals_to_render.each do |p| %>
-      <%= card_for p, link_whole_card: true, title_tag: :h3, **options.slice(:show_space) %>
-    <% end %>
-  </div>
-
+  <span class="content-block__span">
+    <%= t("decidim.participatory_spaces.highlighted_proposals.last") %>
+  </span>
   <% if single_component? %>
     <%= link_to decidim_proposals.new_proposal_path, class: "button button__sm md:button__lg button__secondary" do %>
       <span><%= t("decidim.proposals.actions.new") %></span>
       <%= icon "add-line" %>
     <% end %>
   <% end %>
+</div>
+<div class="flex items-start justify-between">
+  <div class="grow space-y-6">
+    <% proposals_to_render.each do |p| %>
+      <%= card_for p, link_whole_card: true, title_tag: :h3, **options.slice(:show_space) %>
+    <% end %>
+  </div>
 </div>
