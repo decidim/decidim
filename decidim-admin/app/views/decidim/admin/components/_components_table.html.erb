@@ -1,0 +1,17 @@
+<div class="table-scroll">
+  <table class="table-list">
+    <thead>
+    <tr>
+      <th><%= t("index.headers.name", scope: "decidim.admin.components") %></th>
+      <th><%= t("index.headers.type", scope: "decidim.admin.components") %></th>
+      <th><%= t("index.headers.visibility", scope: "decidim.admin.components") %></th>
+      <th><%= t("index.headers.actions", scope: "decidim.admin.components") %></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% components.each do |component| %>
+      <%= render partial: "component_row", locals: { component:, view: } %>
+    <% end %>
+    </tbody>
+  </table>
+</div>

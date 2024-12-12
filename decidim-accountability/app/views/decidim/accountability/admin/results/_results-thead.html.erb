@@ -1,0 +1,23 @@
+<thead>
+<tr>
+  <th>
+    <%= sort_link(query, :id, t("models.result.fields.id", scope: "decidim.accountability"), default_order: :desc ) %>
+  </th>
+  <th class="!text-left">
+    <%= sort_link(query, :title, t("models.result.fields.title", scope: "decidim.accountability")) %>
+  </th>
+  <th>
+    <%= sort_link(query, :taxonomies_name, t("models.result.fields.taxonomies", scope: "decidim.accountability") ) %>
+  </th>
+  <th>
+    <%= sort_link(query, :status_name, t("models.result.fields.status", scope: "decidim.accountability") ) %>
+  </th>
+  <th>
+    <%= sort_link(query, :progress, t("models.result.fields.progress", scope: "decidim.accountability") ) %>
+  </th>
+  <th>
+    <%= sort_link(query, :created_at, t("models.result.fields.created_at", scope: "decidim.accountability") ) %>
+  </th>
+  <th><%= t("actions.title", scope: "decidim.accountability") %></th>
+</tr>
+</thead>

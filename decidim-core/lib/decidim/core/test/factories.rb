@@ -219,8 +219,15 @@ FactoryBot.define do
     end
 
     trait :deleted do
+      name { "" }
+      nickname { "" }
       email { "" }
+      delete_reason { "I want to delete my account" }
+      admin { false }
       deleted_at { Time.current }
+      avatar { nil }
+      personal_url { "" }
+      about { "" }
     end
 
     trait :admin_terms_accepted do
@@ -263,6 +270,16 @@ FactoryBot.define do
     end
     user
     privatable_to { create(:participatory_process, organization: user.organization, skip_injection:) }
+
+    role { generate_localized_title(:role, skip_injection:) }
+
+    trait :unpublished do
+      published { false }
+    end
+
+    trait :published do
+      published { true }
+    end
   end
 
   factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
@@ -495,6 +512,7 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, organization:, skip_injection:) }
     manifest_name { "dummy" }
     published_at { Time.current }
+    deleted_at { nil }
     settings do
       {
         dummy_global_translatable_text: generate_localized_title(:dummy_global_translatable_text, skip_injection:),
@@ -523,6 +541,10 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :trashed do
+      deleted_at { Time.current }
     end
 
     trait :with_amendments_enabled do
@@ -970,6 +992,22 @@ FactoryBot.define do
     end
   end
 
+  factory :user_block, class: "Decidim::UserBlock" do
+    transient do
+      organization { create(:organization) }
+      blocked_at { Time.current }
+    end
+    justification { generate(:title) }
+    blocking_user { create(:user, :admin, :confirmed, organization:) }
+    user { create(:user, :blocked, :confirmed, organization:) }
+
+    after(:create) do |object, evaluator|
+      object.user.block_id = object.id
+      object.user.blocked_at = evaluator.blocked_at
+      object.user.save!
+    end
+  end
+
   factory :user_report, class: "Decidim::UserReport" do
     transient do
       skip_injection { false }
@@ -983,7 +1021,7 @@ FactoryBot.define do
     transient do
       skip_injection { false }
     end
-    user { build(:user) }
+    user { create(:user, :confirmed) }
   end
 
   factory :endorsement, class: "Decidim::Endorsement" do

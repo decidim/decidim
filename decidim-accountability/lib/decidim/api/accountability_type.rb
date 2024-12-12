@@ -2,9 +2,7 @@
 
 module Decidim
   module Accountability
-    class AccountabilityType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class AccountabilityType < Decidim::Core::ComponentType
       graphql_name "Accountability"
       description "An accountability component of a participatory space."
 

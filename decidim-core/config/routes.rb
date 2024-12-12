@@ -96,7 +96,7 @@ Decidim::Core::Engine.routes.draw do
     resource :download_your_data, only: [:show], controller: "download_your_data" do
       member do
         post :export
-        get :download_file
+        get "/:uuid", to: "download_your_data#download_file", as: :download
       end
     end
 
@@ -139,6 +139,7 @@ Decidim::Core::Engine.routes.draw do
     get "group_members", to: "profiles#group_members", as: "profile_group_members"
     get "group_admins", to: "profiles#group_admins", as: "profile_group_admins"
     get "activity", to: "user_activities#index", as: "profile_activity"
+    get "tooltip", to: "profiles#tooltip", as: "profile_tooltip"
     resources :conversations, except: [:destroy], controller: "user_conversations", as: "profile_conversations"
   end
 
@@ -163,6 +164,7 @@ Decidim::Core::Engine.routes.draw do
 
   get "/open-data", to: "open_data#index", as: :open_data
   get "/open-data/download", to: "open_data#download", as: :open_data_download
+  get "/open-data/download/:resource", to: "open_data#download", as: :open_data_download_resource
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
