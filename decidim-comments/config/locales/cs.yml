@@ -43,6 +43,7 @@ cs:
     components:
       add_comment_form:
         account_message: Přihlaste se nebo vytvořte účet pro přidání komentáře.
+        add_comment: Přidat komentář
         form:
           body:
             label: Komentář
@@ -52,6 +53,7 @@ cs:
           submit_root_comment: Publikovat komentář
           user_group_id:
             label: Komentovat jako
+            your_profile: Váš profil
         opinion:
           label: Váš názor na toto téma
           negative: Negativní
