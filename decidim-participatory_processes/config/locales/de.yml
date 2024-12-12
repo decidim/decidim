@@ -127,7 +127,6 @@ de:
           info: Über diesen Prozess
           landing_page: Startseite
           moderations: Moderationen
-          private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
           steps: Schritte
       models:
