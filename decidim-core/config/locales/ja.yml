@@ -214,6 +214,7 @@ ja:
         export_component: "%{user_name} は%{space_name} の %{resource_name} %{component_name} を %{format_name} としてエクスポートしました"
         publish: "%{user_name} が %{resource_name} スペースで %{space_name} コンポーネントを公開しました"
         restore: "%{user_name} がコンポーネント %{resource_name} をスコープ %{space_name} に復元しました。"
+        soft_delete: "%{user_name} が %{space_name} スペースの %{resource_name} コンポーネントをゴミ箱に移動しました"
         unpublish: "%{user_name} は %{resource_name} スペースから %{space_name} コンポーネントを非公開にしました"
         update_permissions_with_space: "%{user_name} が %{resource_name} の %{space_name} の権限を更新しました"
       contextual_help_section:
@@ -415,6 +416,7 @@ ja:
           scope_id: スコープ
         name: 許可の例：
       dummy_authorization_workflow:
+        explanation: ダミー認証ワークフロー
         name: ダミー認証ワークフロー
       errors:
         duplicate_authorization: 同じデータを持つ参加者はすでに承認されています。管理者があなたの詳細を確認するために連絡します。
@@ -652,6 +654,8 @@ ja:
           show_password: パスワードを表示
           shown_password: パスワードは表示されています
         placeholder_email: hi@example.org
+    documents:
+      other: "%{count} ドキュメント"
     doorkeeper:
       authorizations:
         new:
@@ -670,6 +674,17 @@ ja:
     download_your_data:
       export:
         ready: 準備完了
+      show:
+        action: アクション
+        download: ダウンロード
+        download_data: ダウンロードエリア
+        download_data_description_1: あなたのアカウントで利用可能なすべてのダウンロードを見つけることができます。これらの.zipファイルは削除される2週間前に利用可能になります。
+        download_data_description_2: 提出物と個人データを含む .zip ファイルをリクエストできます。
+        download_your_data: 個人データ
+        expiration: 有効期限
+        expired: 有効期限が切れています
+        request_data: リクエスト
+        type: ダウンロードの種類
     editor_images:
       create:
         error: 画像のアップロードに失敗しました。
