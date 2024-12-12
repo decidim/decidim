@@ -711,6 +711,11 @@ cs:
           show_password: Zobrazit heslo
           shown_password: Vaše heslo je zobrazeno
         placeholder_email: hi@example.org
+    documents:
+      one: "%{count} dokument"
+      few: "%{count} dokumenty"
+      many: "%{count} dokumentů"
+      other: "%{count} dokumentů"
     doorkeeper:
       authorizations:
         new:
@@ -1397,6 +1402,11 @@ cs:
         message_1: Vypadá to, že jste v režimu offline.
         message_2: Prosím, zkuste to znovu později.
         retry: Zkusit znovu
+    onboarding_action_message:
+      click_link: Klikněte zde
+      expired_authorization_active_title: Vaše autorizace vypršela.
+      finish_authorization_process: Můžete dokončit proces autorizace
+      pending_authorization_active_title: Potřebujeme ověřit Vaši totožnost.
     open_data:
       help:
         core:
@@ -1405,6 +1415,11 @@ cs:
           main: Jádro
           spaces: Prostory
           title: Soubory otevřených dat pro %{organization}
+        metrics:
+          cumulative: Celkový počet metrik v tento den
+          day: Den, kdy byla tato metrika vytvořena
+          metric_type: Typ metriky
+          quantity: Počet metrik za tento den
         moderated_users:
           about: Informační pole uživatele
           block_reasons: Důvod, proč administrátor zablokoval uživatele
