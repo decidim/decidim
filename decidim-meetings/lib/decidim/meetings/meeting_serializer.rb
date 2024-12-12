@@ -25,6 +25,9 @@ module Decidim
             id: meeting.scope.try(:id),
             name: meeting.scope.try(:name)
           },
+          author: {
+            **author_fields
+          },
           participatory_space: {
             id: meeting.participatory_space.id,
             url: Decidim::ResourceLocatorPresenter.new(meeting.participatory_space).url
@@ -54,6 +57,40 @@ module Decidim
 
       attr_reader :meeting
       alias resource meeting
+
+      def author_fields
+        {
+          id: meeting.author.id,
+          name: author_name(meeting.author),
+          url: author_url(meeting.author)
+        }
+      end
+
+      def author_name(author)
+        translated_attribute(author.name)
+      end
+
+      def author_url(author)
+        if author.respond_to?(:nickname)
+          profile_url(author) # is a Decidim::User or Decidim::UserGroup
+        else
+          root_url # is a Decidim::Organization
+        end
+      end
+
+      def profile_url(author)
+        return "" if author.respond_to?(:deleted?) && author.deleted?
+
+        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
+      end
+
+      def root_url
+        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
+      end
+
+      def host
+        resource.organization.host
+      end
 
       def component
         meeting.component
