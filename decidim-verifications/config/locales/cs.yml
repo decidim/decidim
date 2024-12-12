@@ -135,6 +135,9 @@ cs:
         new:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
+        onboarding_pending:
+          pending_admin_approval_verifications: Čeká na ověření schválení administrátora
+          pending_verifications: Nevyřízená ověření
         renew_modal:
           cancel: Zrušit
           continue: Pokračovat
