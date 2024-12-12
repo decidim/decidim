@@ -1084,6 +1084,8 @@ fi:
           not_found: 'Teemaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
+    machine_translations:
+      automatic: automaattinen käännös kielelle %{locale_name}
     managed_users:
       expired_session: Käyttäjän hallintaistunto on vanhentunut.
     map:
