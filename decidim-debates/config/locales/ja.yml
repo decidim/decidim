@@ -25,11 +25,13 @@ ja:
       debates:
         actions:
           comment: コメント
+          create: ディベートを作成
           endorse: オススメ
         name: ディベート
         settings:
           global:
             announcement: お知らせ
+            attachments_allowed: 添付ファイルを許可
             clear_all: すべてクリア
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
