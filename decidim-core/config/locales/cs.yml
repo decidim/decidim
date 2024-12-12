@@ -1409,6 +1409,7 @@ cs:
       expired_authorization_active_title: Vaše autorizace vypršela.
       finish_authorization_process: Můžete dokončit proces autorizace
       incomplete_authorization_active_title: Vaše ověření nebylo dokončeno všemi nezbytnými informacemi.
+      pending_authorization_active_message: Pro pokračování této akce vyplňte formulář.
       pending_authorization_active_title: Potřebujeme ověřit Vaši totožnost.
     open_data:
       help:
