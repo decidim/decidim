@@ -370,6 +370,9 @@ en:
           unpublished: Unpublished
       taxonomy_filters_selector:
         show:
+          items_count: "%{count} items"
+          remove: Remove
+        new:
           save: Save
           items_count: "%{count} items"
           add_new_items_html: If you need to set a new filter or item, do it through the configuration settings or by clicking <a href="%{url}">here</a>.

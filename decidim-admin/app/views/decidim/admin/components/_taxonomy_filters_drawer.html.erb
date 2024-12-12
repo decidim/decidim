@@ -1,5 +1,2 @@
-<div id="filter-container-<%= name %>" 
-     class="js-taxonomy-filters-container min-h-screen" 
-     data-name="<%= name %>" 
-     data-index-url="<%= decidim_admin.taxonomy_filters_selector_index_path(name:) %>" 
-     data-show-url="<%= decidim_admin.taxonomy_filters_selector_path(name:, id: '_ID_', filter_id: '_FILTER_ID_') %>"></div>
+<div class="js-taxonomy-filters-drawer-container min-h-screen"
+     data-index-url="<%= decidim_admin.taxonomy_filters_selector_index_path(component_id: @component.id) %>"></div>

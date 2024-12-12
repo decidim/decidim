@@ -29,7 +29,7 @@ module Decidim
         case action
         when "create", "delete", "update"
           if filter_items_count.present? && taxonomy_name.present?
-            "decidim.admin_log.taxonomy_filter.#{action}_with_filter_items_count"
+            "decidim.admin_log.taxonomy_filter.#{action}_with_filter_info"
           else
             "decidim.admin_log.taxonomy_filter.#{action}"
           end

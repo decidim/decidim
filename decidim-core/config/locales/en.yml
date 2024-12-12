@@ -291,11 +291,11 @@ en:
         update_with_parent: "%{user_name} updated the %{resource_name} taxonomy inside the %{parent_taxonomy} taxonomy"
       taxonomy_filter:
         create: "%{user_name} created the filter %{resource_name}"
-        create_with_filter_items_count: '%{user_name} created the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
+        create_with_filter_info: '%{user_name} created the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
         delete: "%{user_name} deleted the filter %{resource_name}"
-        delete_with_filter_items_count: '%{user_name} deleted the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
+        delete_with_filter_info: '%{user_name} deleted the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
         update: "%{user_name} updated the filter %{resource_name}"
-        update_with_filter_items_count: '%{user_name} updated the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
+        update_with_filter_info: '%{user_name} updated the filter %{resource_name} based on the taxonomy "%{taxonomy_name}" with %{filter_items_count} items'
       user:
         block: "%{user_name} blocked user %{resource_name}"
         invite: "%{user_name} invited the participant %{resource_name} with role: %{role}"
