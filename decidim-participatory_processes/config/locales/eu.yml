@@ -129,6 +129,7 @@ eu:
           info: Prozesu honi buruz
           landing_page: Hasierako orria
           moderations: Moderazioak
+          private_users: Kideak
           process_admins: Prozesuaren erabiltzaileak
           steps: Prozesuaren faseak
       models:
@@ -170,6 +171,7 @@ eu:
           fields:
             invitation_accepted_at: Gonbidapena egun honetan onartu zen
             invitation_sent_at: Gonbidapena egun honetan bidali zen
+            published: Argitaratua
       participatory_process_copies:
         new:
           copy: Kopiatu
@@ -473,6 +475,7 @@ eu:
             metadata: Metadatuak
             no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             other: Beste
+            private_notice: Kiak kudeatu ahal izango dituzu pribatu gisa ezarri ondoren
             related_processes: Elkarrekin lotutako prozesuak
             scope_type_max_depth_help: Murriztu esparru-iragazkiaren sakonera; iragazkia esparru orokorretik hautatutakora erakutsiko da.
             select_an_area: Hautatu eremu bat
@@ -544,6 +547,9 @@ eu:
           type: Mota
         show:
           title: Prozesu honi buruz
+      participatory_space_private_users:
+        index:
+          title: Kideak
       show:
         belongs_to_group: Prozesu hau honi dagokio
         private_space: Prozesu pribatua da
@@ -557,6 +563,8 @@ eu:
           browse: Arakatu
           browse_resource: Aztertu %{resource_name} prozesuen multzoa
           processes_count: 'Prozesuak:'
+      participatory_process_navigation:
+        member_menu_item: Kideak
       participatory_processes:
         index:
           promoted_processes: Prozesu nabarmenduak
