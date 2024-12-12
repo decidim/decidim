@@ -1087,6 +1087,8 @@ eu:
           not_found: 'Esparrua ez da aurkitu (ID: %{id}) datu-basean'
         scope_type_presenter:
           not_found: 'Esparru mota ez da aurkitu (ID: %{id}) datu-basean'
+    machine_translations:
+      automatic: 'itzulpen automatikoa hemen: %{locale_name}'
     managed_users:
       expired_session: Parte-hartzaile baten egungo administrazio-saioa iraungi egin da.
     map:
