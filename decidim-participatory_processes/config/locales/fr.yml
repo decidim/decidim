@@ -129,7 +129,7 @@ fr:
           info: A propos de cette concertation
           landing_page: Page d'accueil
           moderations: Modérations
-          private_users: Utilisateurs privés
+          private_users: Membres
           process_admins: Administrateurs de la concertation
           steps: Étapes
       models:
@@ -171,6 +171,7 @@ fr:
           fields:
             invitation_accepted_at: Invitation acceptée à
             invitation_sent_at: Invitation envoyée à
+            published: Publié
       participatory_process_copies:
         new:
           copy: Copier
@@ -508,6 +509,9 @@ fr:
           type: Type
         show:
           title: A propos de cette concertation
+      participatory_space_private_users:
+        index:
+          title: Membres
       show:
         belongs_to_group: Cette concertation appartient à
         private_space: Ceci est une concertation privée
@@ -521,6 +525,8 @@ fr:
           browse: Parcourir
           browse_resource: Parcourir le groupe de concertation %{resource_name}
           processes_count: 'Concertations :'
+      participatory_process_navigation:
+        member_menu_item: Membres
       participatory_processes:
         index:
           promoted_processes: Concertations mises en avant
