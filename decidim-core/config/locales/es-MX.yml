@@ -672,6 +672,9 @@ es-MX:
           show_password: Mostrar contraseña
           shown_password: La contraseña es visible
         placeholder_email: hi@example.org
+    documents:
+      one: "%{count} documento"
+      other: "%{count} documentos"
     doorkeeper:
       authorizations:
         new:
