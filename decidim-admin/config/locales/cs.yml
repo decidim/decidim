@@ -927,6 +927,15 @@ cs:
         new:
           create: Vytvořit
           title: Nový participační prostor soukromého účastníka.
+        publish_all:
+          error: U tohoto participativního prostoru byl problém se zveřejněním všech soukromých účastníků.
+          success: Úspěšné zveřejnění všech soukromých účastníků tohoto participativního prostoru
+        unpublish_all:
+          error: U tohoto participativního prostoru byl problém se zrušením zveřejnění všech soukromých účastníků.
+          success: Úspěšně zneveřejněni všichni soukromí účastníci tohoto participativního prostoru
+        update:
+          error: U tohoto participativního prostoru se vyskytl problém s aktualizací soukromého účastníka.
+          success: Soukromý účastník participativního prostoru úspěšně aktualizován
       participatory_space_private_users_csv_imports:
         create:
           invalid: Při čtení souboru CSV se vyskytl problém. Ujistěte se, že jste dodrželi pokyny.
