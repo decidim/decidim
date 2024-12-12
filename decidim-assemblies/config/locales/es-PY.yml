@@ -96,7 +96,6 @@ es-PY:
         confirm_delete_assembly: '¿Seguro que quieres eliminar esta asamblea? Si cambias de opinión, puedes restaurarla más tarde.'
         import_assembly: Importar
         new_assembly: Nueva asamblea
-        new_assembly_member: Añadir miembro
         new_assembly_type: Nuevo tipo de asamblea
         new_assembly_user_role: Añadir administradora
         view_deleted_assemblies: Ver las asambleas eliminadas
@@ -148,23 +147,6 @@ es-PY:
           import: Importar
           select: Selecciona qué datos quieres importar
           title: Importar asamblea
-      assembly_members:
-        create:
-          error: Se produjo un error al agregar un miembro para esta asamblea.
-          success: Miembro creado con éxito para esta asamblea.
-        destroy:
-          success: Miembro eliminado con éxito en esta asamblea.
-        edit:
-          title: Actualizar miembro de la asamblea
-          update: Actualizar
-        index:
-          assembly_members_title: Miembros de la asamblea
-        new:
-          create: Crear
-          title: Nuevo miembro de la asamblea
-        update:
-          error: Se produjo un error al actualizar el miembro para esta asamblea.
-          success: Miembro actualizado con éxito para esta asamblea.
       assembly_publications:
         create:
           error: Se produjo un error al publicar esta asamblea.
@@ -203,7 +185,6 @@ es-PY:
         assemblies: Asambleas
         assemblies_submenu:
           assembly_admins: Usuarios de la asamblea
-          assembly_members: Miembros
           attachment_collections: Carpetas
           attachment_files: Archivos
           attachments: Archivos adjuntos
@@ -212,7 +193,6 @@ es-PY:
           info: Acerca de esta asamblea
           landing_page: Página de inicio
           moderations: Moderaciones
-          private_users: Participantes privadas
           see_assembly: Ver la asamblea
         assemblies_types: Tipos de asamblea
       models:
@@ -230,11 +210,6 @@ es-PY:
             title: Título
           name: Asamblea
         assembly_member:
-          fields:
-            ceased_date: Fecha de vencimiento
-            designation_date: Fecha de designación
-            full_name: Nombre
-            position: Posición
           name: Miembro
           positions:
             other: Otro
@@ -319,14 +294,9 @@ es-PY:
             slug_help_html: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta asamblea. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         assembly_members:
           form:
-            existing_user: Usuario existente
             explanation: 'Instrucciones para la imagen:'
             image_guide: Preferiblemente una imagen apaisada que no tenga ningún texto.
-            non_user: No usuario
             non_user_avatar_help: Debes obtener el consentimiento de las personas antes de publicarlas como miembros.
-            select_a_position: Selecciona una posición
-            select_user: Selecciona un usuario
-            user_type: Tipo de usuario
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidad máxima de elementos para mostrar
@@ -410,8 +380,6 @@ es-PY:
         private_space: Esta es una asamblea privada
         social_networks_title: Visita la asamblea en
     assembly_members:
-      assembly_member:
-        designated_on: Designado en
       index:
         title: Miembros
     download_your_data:
