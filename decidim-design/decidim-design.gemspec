@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Design.version
   s.authors = ["Decidim Team"]
   s.email = ["hola@decidim.org"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
