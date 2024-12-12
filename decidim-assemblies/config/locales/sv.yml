@@ -231,7 +231,7 @@ sv:
             ceased_date: Slutade datum
             designation_date: Utnämningsdatum
             full_name: Namn
-            position: Position
+            position: Befattning
           name: Medlem
           positions:
             other: Andra
