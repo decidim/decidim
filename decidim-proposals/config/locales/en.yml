@@ -605,7 +605,7 @@ en:
             invalid: There was a problem answering this proposal.
             success: Proposal successfully answered.
           bulk_actions:
-            merge: 
+            merge:
               title: Merge into a new one
           create:
             invalid: There was a problem creating this proposal.
