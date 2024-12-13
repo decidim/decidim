@@ -51,7 +51,6 @@ module Decidim
         end
       end
 
-
       initializer "decidim_templates_admin.mount_routes" do
         Decidim::Core::Engine.routes do
           mount Decidim::Templates::AdminEngine, at: "/admin/templates", as: "decidim_admin_templates"
