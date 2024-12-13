@@ -20,6 +20,8 @@ module Decidim
 
           return categorization.categorizable.participatory_space != participatory_space if categorization.categorizable.respond_to?(:participatory_space)
           return categorization.categorizable.component.participatory_space != participatory_space if categorization.categorizable.respond_to?(:component)
+          
+          false
         end
 
         def resources

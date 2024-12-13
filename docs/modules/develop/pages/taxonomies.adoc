@@ -137,13 +137,13 @@ component.settings(:global) do |settings|
 
 See `decidim-core/lib/decidim/has_taxonomy_settings.rb`.
 
-Provides methods to extract available taxonomies and filters according to the components settings' configuration. These are intended to be used in places where the user has to assign taxonomies to a resource. It is included in the `Component`` model.
+Provides methods to extract available taxonomies and filters according to the components settings' configuration. These are intended to be used in places where the user has to assign taxonomies to a resource. It is included in the `Component` model.
 
 === The concern HasTaxonomyFormAttributes
 
 See `decidim-admin/app/forms/concerns/decidim/has_taxonomy_form_attributes.rb`
 
-Provides with attribute definitions for adding multiple taxonomies in a `Decidim::Form`` object. It only requires for the implementing class to return the manifest of the participatory space (which is used to obtain the list of filters available). Used in every resource form that needs to include taxonomies (ie: `AssemblyForm`, `ProposalForm`, etc...).
+Provides with attribute definitions for adding multiple taxonomies in a `Decidim::Form` object. It only requires for the implementing class to return the manifest of the participatory space (which is used to obtain the list of filters available). Used in every resource form that needs to include taxonomies (ie: `AssemblyForm`, `ProposalForm`, etc...).
 
 A related file is `decidim-core/app/helpers/decidim/taxonomies_helper.rb` which defines the method `taxonomy_items_options_for_filter` that is used in the form views as:
 
