@@ -193,6 +193,7 @@ es:
           info: Acerca de esta asamblea
           landing_page: Página de inicio
           moderations: Moderaciones
+          private_users: Miembros
           see_assembly: Ver la asamblea
         assemblies_types: Tipos de asamblea
       models:
@@ -274,6 +275,7 @@ es:
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
+            private_notice: Podrás administrar las participantes privadas después de configurar el espacio como privado
             select_a_created_by: Selecciona una creadora
             select_an_area: Selecciona un área
             select_an_assembly_type: Selecciona un tipo de asamblea
