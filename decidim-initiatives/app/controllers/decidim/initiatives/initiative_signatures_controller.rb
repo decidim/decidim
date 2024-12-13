@@ -11,6 +11,7 @@ module Decidim
       layout "layouts/decidim/initiative_signature_creation"
       include Decidim::Initiatives::NeedsInitiative
       include Decidim::FormFactory
+      include Decidim::Initiatives::HasSignatureWorkflow
 
       prepend_before_action :set_wizard_steps
       before_action :authenticate_user!
@@ -36,11 +37,10 @@ module Decidim
       def create
         enforce_permission_to :vote, :initiative, initiative: current_initiative
 
-        @form = form(Decidim::Initiatives::VoteForm)
-                .from_params(
-                  initiative: current_initiative,
-                  signer: current_user
-                )
+        @form = form(signature_form_class).from_params(
+          initiative: current_initiative,
+          user: current_user
+        )
 
         VoteInitiative.call(@form) do
           on(:ok) do
@@ -57,11 +57,10 @@ module Decidim
       def fill_personal_data
         redirect_to(sms_phone_number_path) && return unless fill_personal_data_step?
 
-        @form = form(Decidim::Initiatives::VoteForm)
-                .from_params(
-                  initiative: current_initiative,
-                  signer: current_user
-                )
+        @form = form(signature_form_class).from_params(
+          initiative: current_initiative,
+          user: current_user
+        )
       end
 
       def store_personal_data
@@ -70,6 +69,7 @@ module Decidim
         build_vote_form(params)
 
         if @vote_form.invalid?
+          # TODO - Use other method for invalid_authorization handler
           flash[:alert] = I18n.t("personal_data.invalid", scope: "decidim.initiatives.initiative_votes")
           @form = @vote_form
 
@@ -169,13 +169,13 @@ module Decidim
       end
 
       def build_vote_form(parameters)
-        @vote_form = form(Decidim::Initiatives::VoteForm).from_params(parameters).tap do |form|
+        @vote_form = form(signature_form_class).from_params(parameters).tap do |form|
           form.initiative = current_initiative
-          form.signer = current_user
+          form.user = current_user
         end
 
         session[:initiative_vote_form] ||= {}
-        session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values.except(:initiative, :signer))
+        session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values.except(:initiative, :user))
       end
 
       def initiative_type
@@ -205,9 +205,9 @@ module Decidim
       end
 
       def session_vote_form
-        attributes = session[:initiative_vote_form].merge(initiative: current_initiative, signer: current_user)
+        attributes = session[:initiative_vote_form].merge(initiative: current_initiative, user: current_user)
 
-        @vote_form = form(Decidim::Initiatives::VoteForm).from_params(attributes)
+        @vote_form = form(signature_form_class).from_params(attributes)
       end
 
       def check_session_personal_data
