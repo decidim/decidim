@@ -193,6 +193,7 @@ ca:
           info: Quant a aquesta assemblea
           landing_page: Pàgina d'inici
           moderations: Moderacions
+          private_users: Membres
           see_assembly: Veure l'assemblea
         assemblies_types: Tipus d'assemblees
       models:
@@ -274,6 +275,7 @@ ca:
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altre
+            private_notice: Podràs administrar les participants privades un cop haguis configurar l'espai com a privat
             select_a_created_by: Selecciona una creadora
             select_an_area: Selecciona una Àrea
             select_an_assembly_type: Selecciona un tipus d'assemblea
