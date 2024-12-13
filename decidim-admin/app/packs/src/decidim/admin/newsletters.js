@@ -118,25 +118,20 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const initializeTomSelect = () => {
-    document.querySelectorAll("[data-multiselect='true']").forEach((container) =>
-      new TomSelect(container, {
+    document.querySelectorAll("[data-multiselect='true']").forEach((select) => {
+      const tomSelect = new TomSelect(select, {
         plugins: ["remove_button", "dropdown_input"],
         allowEmptyOption: true
-      })
-    );
+      });
 
-    document.
-      querySelectorAll("#participatory_spaces_for_select select[data-multiselect='true']").
-      forEach((selectTag) =>
-        selectTag.addEventListener("change", () => {
-          const selectedOptions = Array.from(selectTag.selectedOptions).map((option) => option.value);
-          if (selectedOptions.includes("all")) {
-            selectTag.querySelectorAll("option").forEach((option) => {
-              option.selected = option.value !== "all";
-            });
-          }
-        })
-      );
+      tomSelect.on("change", () => {
+        const selectedOptions = tomSelect.getValue();
+
+        if (selectedOptions.includes("all") && selectedOptions.length > 1) {
+          tomSelect.setValue(["all"]);
+        }
+      });
+    });
   };
 
   updateFormState();

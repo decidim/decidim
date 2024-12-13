@@ -78,7 +78,7 @@ module Decidim
       end
 
       def verified_users
-        users = base_recipients
+        users = recipients_base_query
 
         verified_users = Decidim::Authorization.select(:decidim_user_id)
                                                .where(decidim_user_id: users.select(:id))
