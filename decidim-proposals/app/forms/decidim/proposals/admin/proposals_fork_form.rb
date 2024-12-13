@@ -28,10 +28,6 @@ module Decidim
           target_component == current_component
         end
 
-        def component_automatic_hashtags
-          @component_automatic_hashtags ||= ordered_hashtag_list(current_component.current_settings.automatic_hashtags)
-        end
-
         private
 
         def errors_set
@@ -60,10 +56,6 @@ module Decidim
         # We receive this as ["id"] since it is from a select in a form.
         def clean_target_component_id
           target_component_id.first
-        end
-
-        def ordered_hashtag_list(string)
-          string.to_s.split.compact_blank.uniq.sort_by(&:parameterize)
         end
       end
     end
