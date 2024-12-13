@@ -57,7 +57,7 @@ module Decidim
       end
 
       def taxonomy_filter
-        @taxonomy_filter ||= TaxonomyFilter.find_by(id: params[:taxonomy_filter_id].presence || params[:id])
+        @taxonomy_filter ||= root_taxonomy.taxonomy_filters.find_by(id: params[:taxonomy_filter_id].presence || params[:id])
       end
     end
   end
