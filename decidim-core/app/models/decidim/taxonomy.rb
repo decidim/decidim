@@ -95,6 +95,10 @@ module Decidim
       @all_children ||= Decidim::Taxonomy.non_roots.part_of(id).reorder(Arel.sql("array_length(part_of, 1) ASC"), "parent_id ASC", "weight ASC")
     end
 
+    def reset_all_counters
+      Taxonomy.reset_counters(id, :children_count, :taxonomizations_count, :taxonomy_filters_count, :taxonomy_filter_items_count)
+    end
+
     private
 
     def set_default_weight

@@ -109,6 +109,17 @@ module Decidim
         tree.values.detect { |v| find_parent(taxonomy, v[:children]) }
     end
 
+    def update_component_count
+      update(components_count: components.count)
+    end
+
+    def reset_all_counters
+      Decidim::TaxonomyFilter.reset_counters(id, :filter_items_count)
+      update_component_count
+    end
+
+    private
+
     def root_taxonomy_is_root
       return if root_taxonomy&.root?
 
