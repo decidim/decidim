@@ -1,0 +1,226 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Initiatives
+    # This is the base class for signature handlers, all implementations
+    # should inherit from it.
+    # Each SignatureHandler is a form that will be used to check if the
+    # signature is valid or not. When it is valid the initiatives votes
+    # defined by the initiative type will be created for the user.
+    #
+    # Feel free to use validations to assert fields against a remote API,
+    # local database, or whatever.
+    #
+    # It also sets two default attributes, `user`, `initiative` and
+    # `handler_name`.
+    class SignatureHandler < Form
+      include ValidatableAuthorizations
+
+      mimic :initiatives_vote
+
+      # The user that is trying to sign, it is initialized with the
+      # `current_user` from the controller.
+      attribute :user, Decidim::User
+
+      # The initiative to be signed
+      attribute :initiative, Decidim::Initiative
+
+      # The String name of the handler, should not be modified since it is used to
+      # infer the class name of the authorization handler.
+      attribute :handler_name, String
+
+      validates :initiative, :user, presence: true
+      validates :authorized_scopes, presence: true
+      validate :uniqueness
+      validate :valid_metadata
+
+      delegate :promote_authorization_validation_errors, :authorization_handler_form, to: :workflow_manifest
+      delegate :scope, to: :initiative
+
+      alias signer user
+
+      # A unique ID to be implemented by the signature handler that ensures
+      # no duplicates are created.
+      def unique_id
+        nil
+      end
+
+      def encrypted_metadata
+        return if metadata.blank?
+
+        @encrypted_metadata ||= encryptor.encrypt(metadata)
+      end
+
+      # Public: Builds the list of scopes where the user is authorized to vote in. This is used when
+      # the initiative allows also voting on child scopes, not only the main scope.
+      #
+      # Instead of just listing the children of the main scope, we just want to select the ones that
+      # have been added to the InitiativeType with its voting settings.
+      #
+      def authorized_scopes
+        initiative.votable_initiative_type_scopes.select do |initiative_type_scope|
+          initiative_type_scope.global_scope? ||
+            initiative_type_scope.scope == user_signature_scope ||
+            initiative_type_scope.scope.ancestor_of?(user_signature_scope)
+        end.flat_map(&:scope)
+      end
+
+      # Public: Finds the scope the user has an authorization for, this way the user can vote
+      # on that scope and its parents.
+      #
+      # This is can be used to allow users that are authorized with a children
+      # scope to sign an initiative with a parent scope.
+      #
+      # As an example: A city (global scope) has many districts (scopes with
+      # parent nil), and each district has different neighbourhoods (with its
+      # parent as a district). If we setup the authorization handler to match
+      # a neighbourhood, the same authorization can be used to participate
+      # in district, neighbourhoods or city initiatives.
+      #
+      # Returns a Decidim::Scope.
+      def user_signature_scope
+        return if signature_scope_id.blank?
+
+        @user_signature_scope ||= signature_scope_candidates.find do |scope_candidate|
+          scope_candidate&.id == signature_scope_id
+        end
+      end
+
+      # Public: Builds a list of Decidim::Scopes where the user could have a
+      # valid authorization.
+      #
+      # If the initiative is set with a global scope (meaning the scope is nil),
+      # all the scopes in the organization are valid.
+      #
+      # Returns an array of Decidim::Scopes.
+      def signature_scope_candidates
+        signature_scope_candidates = [initiative.scope]
+        signature_scope_candidates += if initiative.scope.present?
+                                        initiative.scope.descendants
+                                      else
+                                        initiative.organization.scopes
+                                      end
+        signature_scope_candidates.uniq
+      end
+
+      # Any data that the developer would like to inject to the `metadata` field
+      # of a vote when it is created. Can be useful if some of the params the
+      # user sent with the signature form want to be persisted for future use.
+      #
+      # Returns a Hash.
+      def metadata
+        {}
+      end
+
+      # Params to be sent to the authorization handler. By default consists on
+      # the metadata hash including the signer user
+      def authorization_handler_params
+        metadata.merge(user:)
+      end
+
+      # The signature_scope_id can be defined in the signature workflow to be
+      # used by the author scope feature
+      def signature_scope_id
+        nil
+      end
+
+      def authorization_handler
+        return if authorization_handler_form_class.blank?
+
+        @authorization_handler ||= authorization_handler_form_class.from_params(authorization_handler_params)
+      end
+
+      # A serialized version of the handler's name.
+      #
+      # Returns a String.
+      def self.handler_name
+        name.demodulize.underscore
+      end
+
+      # Same as the class method but accessible from the instance.
+      #
+      # Returns a String.
+      def handler_name
+        self.class.handler_name
+      end
+
+      def authorization_handler_form_class
+        authorization_handler_form&.safe_constantize
+      end
+
+      def hash_id
+        return unless initiative && (unique_id || user)
+
+        @hash_id ||= Digest::MD5.hexdigest(
+          [
+            initiative.id,
+            unique_id || user.id,
+            Rails.application.secret_key_base
+          ].compact.join("-")
+        )
+      end
+
+      # The attributes of the handler that should be exposed as form input when
+      # rendering the handler in a form.
+      #
+      # Returns an Array of Strings.
+      def form_attributes
+        attributes.except("id", "user", "initiative").keys
+      end
+
+      # The String partial path so Rails can render the handler as a form. This
+      # is useful if you want to have a custom view to render the form instead of
+      # the default view.
+      #
+      # Example:
+      #
+      #   A handler named Decidim::CensusHandler would look for its partial in:
+      #   decidim/census/form
+      #
+      # Returns a String.
+      def to_partial_path
+        "decidim/initiatives/initiative_signatures/#{handler_name.sub!(/_handler$/, "")}/form"
+      end
+
+      private
+
+      # To be defined. It is expected to validate that no other user has voted
+      # with the same unique_id. The unique_id should always be the document
+      # number or it can be a different attrib
+      def uniqueness
+        Decidim::InitiativesVote.where(scope:, hash_id:, author: user).none?
+      end
+
+      def valid_metadata
+        return if metadata.blank?
+        return if authorization_handler.blank?
+        return if authorization_handler.valid?
+
+        # Promote errors
+        if promote_authorization_validation_errors
+          keys = attributes.keys.map(&:to_sym)
+
+          authorization_handler.errors.each do |error|
+            next unless keys.include?(error.attribute.to_sym)
+
+            errors.add(error.attribute, error.type) unless document_number.to_s.end_with?("X")
+          end
+        else
+          errors.add(:base, :invalid)
+        end
+      end
+
+      def encryptor
+        @encryptor ||= DataEncryptor.new(secret: encryption_secret)
+      end
+
+      def encryption_secret
+        "personal user metadata"
+      end
+
+      def workflow_manifest
+        @workflow_manifest ||= Decidim::Initiatives::Signatures.find_workflow_manifest(handler_name) || Decidim::Initiatives::SignatureWorkflowManifest.new
+      end
+    end
+  end
+end
