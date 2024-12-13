@@ -63,7 +63,7 @@ module Decidim
             result[:ko] << moderation
             next
           end
-          command.call(moderation.reportable, user, with_traceability: false) do
+          command.call(moderation.reportable, user, with_admin_log: false) do
             on(:ok) do
               result[:ok] << moderation
             end
