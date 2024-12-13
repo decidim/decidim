@@ -42,6 +42,8 @@ describe "Locales" do
         click_on "Català"
       end
 
+      # Prevent flaky spec, where sometimes the language is not changed before the visit
+      sleep 2
       visit decidim_admin.root_path
 
       expect(page).to have_content("Cal iniciar sessió o crear un compte abans de continuar.")
