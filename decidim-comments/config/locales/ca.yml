@@ -39,6 +39,7 @@ ca:
     components:
       add_comment_form:
         account_message: Inicia sessió o crea un compte per afegir el teu comentari.
+        add_comment: Afegir un comentari
         form:
           body:
             label: Comentari
@@ -48,6 +49,7 @@ ca:
           submit_root_comment: Publicar comentari
           user_group_id:
             label: Comentar com a
+            your_profile: El teu perfil
         opinion:
           label: La teva opinió sobre aquest tema
           negative: Negativa
