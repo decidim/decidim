@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
   s.add_dependency "graphql-docs", "~> 4.0"
   s.add_dependency "rack-cors", "~> 1.0"
 
+  s.add_development_dependency "decidim-assemblies", Decidim::Api.version
   s.add_development_dependency "decidim-comments", Decidim::Api.version
   s.add_development_dependency "decidim-dev", Decidim::Api.version
   s.add_development_dependency "decidim-participatory_processes", Decidim::Api.version

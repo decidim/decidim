@@ -24,10 +24,11 @@ module Decidim
 
       describe "stats" do
         let(:query) { %({ stats { name value } }) }
-        let!(:confirmed_users) { create_list(:user, 5, :confirmed, organization: model) }
+        let!(:confirmed_users) { create_list(:user, 4, :confirmed, organization: model) }
         let!(:unconfirmed_users) { create_list(:user, 2, organization: model) }
 
         it "show all the stats for this organization" do
+          # shows 5 as user_count, as we have the 4 confirmed_users + the admin
           expect(response["stats"]).to include("name" => "users_count", "value" => 5)
         end
       end
