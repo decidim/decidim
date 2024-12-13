@@ -120,8 +120,6 @@ module Decidim::Maintenance::ImportModels
 
       it "returns the filters for each space" do
         expect(hash[:filters]).to include(
-          space_filter: false,
-          space_manifest: "assemblies",
           name: root_taxonomy_name,
           internal_name: "Assembly: Assembly",
           items: [
@@ -134,8 +132,6 @@ module Decidim::Maintenance::ImportModels
         )
 
         expect(hash[:filters]).to include(
-          space_filter: false,
-          space_manifest: "participatory_processes",
           name: root_taxonomy_name,
           internal_name: "Participatory process: Participatory Process",
           items: [
@@ -193,8 +189,6 @@ module Decidim::Maintenance::ImportModels
 
           expect(hash[:filters].count).to eq(1)
           expect(hash[:filters]).to include(
-            space_filter: false,
-            space_manifest: "participatory_processes",
             name: root_taxonomy_name,
             internal_name: "Participatory process: Participatory Process",
             items: [

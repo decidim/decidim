@@ -33,8 +33,7 @@ module Decidim::Maintenance
       [
         {
           "name" => "New root taxonomy",
-          "space_filter" => space_filter,
-          "space_manifest" => space_manifest,
+          "participatory_space_manifests" => participatory_space_manifests,
           "items" => [["New taxonomy", "New child taxonomy"]],
           "components" => [
             component_id
@@ -42,8 +41,7 @@ module Decidim::Maintenance
         }
       ]
     end
-    let(:space_filter) { true }
-    let(:space_manifest) { "participatory_processes" }
+    let(:participatory_space_manifests) { ["participatory_processes"] }
     let(:child_name) { {} }
     let(:roots) do
       {
@@ -72,24 +70,21 @@ module Decidim::Maintenance
 
       it "imports the filters" do
         expect { subject.import! }.to change(Decidim::TaxonomyFilter, :count).by(1)
-        expect(filter.space_filter).to be_truthy
-        expect(filter.space_manifest).to eq("participatory_processes")
+        expect(filter.participatory_space_manifests).to eq(["participatory_processes"])
         expect(filter.filter_items.count).to eq(1)
         expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)
         expect(component.reload.settings[:taxonomy_filters]).to eq([filter.id.to_s])
       end
 
       context "when different values are used" do
-        let(:space_filter) { false }
-        let(:space_manifest) { "assemblies" }
+        let(:participatory_space_manifests) { ["assemblies"] }
         let(:child_name) { { organization.default_locale => "New child taxonomy", "ca" => "Nova taxonomia filla" } }
 
         it "imports the filters" do
           expect { subject.import! }.to change(Decidim::TaxonomyFilterItem, :count).by(1)
           expect(child_taxonomy.name[organization.default_locale]).to eq("New child taxonomy")
           expect(child_taxonomy.name["ca"]).to eq("Nova taxonomia filla")
-          expect(filter.space_filter).to be_falsey
-          expect(filter.space_manifest).to eq("assemblies")
+          expect(filter.participatory_space_manifests).to eq(["assemblies"])
           expect(filter.filter_items.count).to eq(1)
           expect(filter.filter_items.first.taxonomy_item).to eq(child_taxonomy)
           expect(component.reload.settings[:taxonomy_filters]).to eq([filter.id.to_s])
@@ -174,7 +169,7 @@ module Decidim::Maintenance
 
       context "when a filter already exists" do
         let!(:root_taxonomy) { create(:taxonomy, organization:, name: { organization.default_locale => "New root taxonomy" }) }
-        let!(:filter) { create(:taxonomy_filter, root_taxonomy:, space_filter: true, space_manifest: "participatory_processes") }
+        let!(:filter) { create(:taxonomy_filter, root_taxonomy:, participatory_space_manifests: ["participatory_processes"]) }
 
         it "does not create the filter but creates its items" do
           expect { subject.import! }.not_to change(Decidim::TaxonomyFilter, :count)

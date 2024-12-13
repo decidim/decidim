@@ -61,6 +61,8 @@ module Decidim
         end
       end
 
+      # rubocop:disable Metrics/CyclomaticComplexity
+      # rubocop:disable Metrics/PerceivedComplexity
       def import_filter(root, data)
         filter = find_taxonomy_filter!(root, data)
 
@@ -72,8 +74,10 @@ module Decidim
           next if filter.filter_items.exists?(taxonomy_item: taxonomy)
 
           filter.filter_items.create!(taxonomy_item: taxonomy) do
-            result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[organization.default_locale]}"] ||= []
-            result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[organization.default_locale]}"] << item_names.join(" > ")
+            filter.participatory_space_manifests.each do |space_manifest|
+              result[:filters_created]["#{space_manifest}: #{filter.internal_name[organization.default_locale]}"] ||= []
+              result[:filters_created]["#{space_manifest}: #{filter.internal_name[organization.default_locale]}"] << item_names.join(" > ")
+            end
           end
         end
 
@@ -82,8 +86,10 @@ module Decidim
           if component
             begin
               component.update!(settings: { taxonomy_filters: [filter.id.to_s] })
-              result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[organization.default_locale]}"] ||= []
-              result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[organization.default_locale]}"] << component_id
+              filter.participatory_space_manifests.each do |space_manifest|
+                result[:components_assigned]["#{space_manifest}: #{filter.internal_name[organization.default_locale]}"] ||= []
+                result[:components_assigned]["#{space_manifest}: #{filter.internal_name[organization.default_locale]}"] << component_id
+              end
             rescue ActiveRecord::RecordInvalid
               result[:failed_components] << component_id
             end
@@ -92,6 +98,8 @@ module Decidim
           end
         end
       end
+      # rubocop:enable Metrics/CyclomaticComplexity
+      # rubocop:enable Metrics/PerceivedComplexity
 
       def find_taxonomy(association, name)
         association.find_by("name->>? = ?", organization.default_locale, name)
@@ -110,17 +118,16 @@ module Decidim
       def find_taxonomy_filter!(root_taxonomy, data)
         name = data["internal_name"] || data["name"]
         attributes = {
-          space_filter: data["space_filter"],
-          space_manifest: data["space_manifest"]
+          participatory_space_manifests: data["participatory_space_manifests"]
         }
         attributes["internal_name"] = { organization.default_locale => data["internal_name"] } if data["internal_name"]
         attributes["name"] = { organization.default_locale => data["public_name"] } if data["public_name"]
-        find_taxonomy_filter(root_taxonomy, name:, space_filter: data["space_filter"], space_manifest: data["space_manifest"]) || root_taxonomy.taxonomy_filters.create!(attributes)
+        find_taxonomy_filter(root_taxonomy, name:, participatory_space_manifests: data["participatory_space_manifests"]) || root_taxonomy.taxonomy_filters.create!(attributes)
       end
 
-      def find_taxonomy_filter(root_taxonomy, name:, space_filter:, space_manifest:)
+      def find_taxonomy_filter(root_taxonomy, name:, participatory_space_manifests:)
         root_taxonomy.taxonomy_filters.all.detect do |filter|
-          filter.internal_name[organization.default_locale] == name && filter.space_filter == space_filter && filter.space_manifest == space_manifest
+          filter.internal_name[organization.default_locale] == name && filter.participatory_space_manifests == participatory_space_manifests
         end
       end
 

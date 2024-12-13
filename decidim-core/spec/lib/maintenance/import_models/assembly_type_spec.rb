@@ -14,7 +14,7 @@ module Decidim::Maintenance::ImportModels
     let!(:external_assembly_type) { described_class.create!(title: { "en" => "INVALID Assembly Type" }, decidim_organization_id: external_organization.id) }
     let(:root_taxonomy_name) { "~ Assemblies types" }
     let(:resource) { assembly }
-    let(:space_manifest) { "assemblies" }
+    let(:participatory_space_manifests) { ["assemblies"] }
 
     before do
       described_class.add_resource_class("Decidim::Dev::DummyResource")

@@ -28,7 +28,7 @@ module Decidim
           }
         end
 
-        def self.filter_item_for_space_manifest(space_manifest)
+        def self.filter_item_for_space_manifest(participatory_space_manifests)
           items = all_in_org.map do |area|
             if area.area_type
               [
@@ -41,8 +41,7 @@ module Decidim
           end
 
           {
-            space_filter: true,
-            space_manifest:,
+            participatory_space_manifests:,
             name: root_taxonomy_name,
             items:,
             components: []
@@ -72,11 +71,10 @@ module Decidim
         end
 
         def self.all_filters
-          Area.participatory_space_classes.each_with_object([]) do |space_class, hash|
-            space_manifest = space_class.to_s.split("::").last.underscore.pluralize
-            # 1 filter per participatory space as space_filter=true
-            hash << filter_item_for_space_manifest(space_manifest)
+          manifests = Area.participatory_space_classes.map do |space_class|
+            space_class.to_s.split("::").last.underscore.pluralize
           end
+          [filter_item_for_space_manifest(manifests)]
         end
       end
     end
