@@ -234,26 +234,55 @@ describe "Vote Proposal", slow: true do
         end
 
         context "when the proposal is not voted yet but the user is not authorized" do
-          before do
-            permissions = {
-              vote: {
-                authorization_handlers: {
-                  "dummy_authorization_handler" => { "options" => {} }
+          context "when there is only an authorization required" do
+            before do
+              permissions = {
+                vote: {
+                  authorization_handlers: {
+                    "dummy_authorization_handler" => { "options" => {} }
+                  }
                 }
               }
-            }
 
             component.update!(permissions:)
             visit_component
             find(".card__list#proposals__proposal_#{proposal.id}").click
           end
 
-          it "shows a modal dialog" do
-            within "#proposal-#{proposal.id}-vote-button" do
-              click_on "Vote"
+            it "redirects to the authorization form" do
+              within "#proposal-#{proposal.id}-vote-button" do
+                click_on "Vote"
+              end
+
+              expect(page).to have_content("We need to verify your identity")
+              expect(page).to have_content("Verify with Example authorization")
+            end
+          end
+
+          context "when there are more than one authorization required" do
+            before do
+              permissions = {
+                vote: {
+                  authorization_handlers: {
+                    "dummy_authorization_handler" => { "options" => {} },
+                    "another_dummy_authorization_handler" => { "options" => {} }
+                  }
+                }
+              }
+
+              component.update!(permissions:)
+              visit_component
+              click_on proposal_title
             end
 
-            expect(page).to have_content("Authorization required")
+            it "redirects to pending onboarding authorizations page" do
+              within "#proposal-#{proposal.id}-vote-button" do
+                click_on "Vote"
+              end
+
+              expect(page).to have_content("You are almost ready to vote")
+              expect(page).to have_css("a[data-verification]", count: 2)
+            end
           end
         end
 

@@ -2,9 +2,7 @@
 
 module Decidim
   module Sortitions
-    class SortitionsType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class SortitionsType < Decidim::Core::ComponentType
       graphql_name "Sortitions"
       description "A sortition component of a participatory space."
 
