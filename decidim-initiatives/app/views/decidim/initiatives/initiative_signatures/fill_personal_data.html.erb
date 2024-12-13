@@ -1,29 +1,20 @@
 <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.fill_personal_data.help"), callout_class: "secondary") %>
 
-<%= decidim_form_for(@form, url: fill_personal_data_initiative_signatures_path, method: :put) do |f| %>
+<%= decidim_form_for(@form, url: fill_personal_data_initiative_signatures_path, method: :put, builder: Decidim::AuthorizationFormBuilder) do |f| %>
   <%= form_required_explanation %>
+
+  <% if lookup_context.exists?(@form.to_partial_path, [], true) %>
+    <%= render partial: @form.to_partial_path, locals: { handler: @form, form: f } %>
+  <% else %>
+    <div class="form__wrapper">
+      <%= f.all_fields %>
+    </div>
+  <% end %>
+
   <div>
-    <div class="form__wrapper">
-      <%= f.text_field :name_and_surname, autofocus: true, required: true %>
-    </div>
-
-    <div class="form__wrapper">
-      <%= f.text_field :document_number, required: true %>
-    </div>
-
-    <div class="form__wrapper">
-      <%= f.date_field :date_of_birth, min: 120.years.ago.to_date, max: 16.years.ago.to_date, value: 35.years.ago.to_date %>
-    </div>
-
-    <div class="form__wrapper">
-      <%= f.text_field :postal_code, required: true %>
-    </div>
-
-    <div>
-      <small>
-        <%= strip_tags(translated_attribute(extra_data_legal_information)) %>
-      </small>
-    </div>
+    <small>
+      <%= strip_tags(translated_attribute(extra_data_legal_information)) %>
+    </small>
   </div>
 
   <div class="form__wrapper-block">
