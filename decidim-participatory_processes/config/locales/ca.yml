@@ -129,6 +129,7 @@ ca:
           info: Quant a aquest procés
           landing_page: Pàgina d'inici
           moderations: Moderacions
+          private_users: Membres
           process_admins: Administradores del procés
           steps: Fases del procés
       models:
@@ -170,6 +171,7 @@ ca:
           fields:
             invitation_accepted_at: Invitació acceptada el
             invitation_sent_at: Invitació enviada el
+            published: Publicats
       participatory_process_copies:
         new:
           copy: Còpia
@@ -472,6 +474,7 @@ ca:
             metadata: Metadades
             no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             other: Altres
+            private_notice: Podràs administrar les membres un cop haguis configurar l'espai com a privat
             related_processes: Processos relacionats
             scope_type_max_depth_help: Restringeix la profunditat del filtre d'àmbit. Es mostrarà des del filtre general fins al filtre seleccionat.
             select_an_area: Selecciona una àrea
@@ -543,6 +546,9 @@ ca:
           type: Tipus
         show:
           title: Quant a aquest procés
+      participatory_space_private_users:
+        index:
+          title: Membres
       show:
         belongs_to_group: Aquest procés pertany a
         private_space: Aquest és un procés privat
@@ -556,6 +562,8 @@ ca:
           browse: Explorar
           browse_resource: Explorar el grup de processos %{resource_name}
           processes_count: 'Processos:'
+      participatory_process_navigation:
+        member_menu_item: Membres
       participatory_processes:
         index:
           promoted_processes: Processos destacats
