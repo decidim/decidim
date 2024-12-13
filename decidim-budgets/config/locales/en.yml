@@ -43,8 +43,9 @@ en:
       actions:
         attachment_collections: Folders
         attachments: Attachments
-        confirm_destroy: Are you sure you want to delete this project?
-        destroy: Delete
+        confirm_delete_budget: Are you sure you want to delete this budget?
+        confirm_delete_project: Are you sure you want to delete this project?
+        deleted_budgets_info: Deleted budgets can be restored from the trash.
         edit: Edit
         edit_projects: Manage projects
         import: Import proposals to projects
@@ -53,14 +54,13 @@ en:
         preview: Preview
         send_voting_reminders: Send voting reminders
         title: Actions
+        view_deleted_budgets: View deleted budgets
+        view_deleted_projects: View deleted projects
       admin:
         budgets:
           create:
             invalid: There was a problem creating this budget.
             success: Budget successfully created.
-          destroy:
-            invalid: There was a problem deleting this budget.
-            success: Budget successfully deleted.
           edit:
             title: Edit budget
             update: Update budget
@@ -70,6 +70,8 @@ en:
             title: Budgets
             users_with_finished_orders: Users with finished votes
             users_with_pending_orders: Users with pending votes
+          manage_trash:
+            title: Deleted budgets
           new:
             create: Create budget
             title: New budget
@@ -87,8 +89,6 @@ en:
           create:
             invalid: There was a problem creating this project.
             success: Project successfully created.
-          destroy:
-            success: Project successfully deleted.
           edit:
             title: Edit project
             update: Update
@@ -96,9 +96,8 @@ en:
             actions: Actions
             cancel: Cancel
             change_budget: Change budget
-            change_category: Change category
-            change_scope: Change scope
             change_selected: Change selected state
+            change_taxonomies: Change taxonomies
             deselect_implementation: Unselect from implementation
             finished_orders: Finished votes
             pending_orders: Pending votes
@@ -110,7 +109,8 @@ en:
             title: Projects
             update: Update
             update_budget_button: Update project's budget
-            update_scope_button: Update scope
+          manage_trash:
+            title: Deleted projects
           new:
             create: Create
             title: New project
@@ -118,28 +118,23 @@ en:
             invalid: There was a problem updating this project.
             success: Project successfully updated.
           update_budget:
-            invalid: 'These projects already are in the same budget or their budgets are more than the maximum allowed: %{projects}.'
+            invalid: 'These projects already are in the same budget or their budgets are more than the maximum allowed: %{errored}.'
             select_a_project: Please select a project.
-            success: 'Projects successfully updated to the %{subject_name} budget: %{projects}.'
-          update_category:
-            invalid: 'These projects already had the %{subject_name} category: %{projects}.'
-            select_a_category: Please select a category.
-            select_a_project: Please select a project.
-            success: 'Projects successfully updated to the %{subject_name} category: %{projects}.'
-          update_scope:
-            invalid: 'These projects already had the %{subject_name} scope: %{projects}.'
-            select_a_project: Please select a project.
-            select_a_scope: Please select a scope.
-            success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
+            success: 'Projects successfully updated to the %{subject_name} budget: %{successful}.'
           update_selected:
             invalid:
-              selected: 'These projects were already selected for implementation: %{projects}.'
-              unselected: 'These projects were already unselected from implementation: %{projects}.'
+              selected: 'These projects were already selected for implementation: %{errored}.'
+              unselected: 'These projects were already unselected from implementation: %{errored}.'
             select_a_project: Please select a project.
             select_a_selection: Please select an implementation state.
             success:
-              selected: 'These projects were successfully selected for implementation: %{projects}.'
-              unselected: 'These projects were successfully unselected from implementation: %{projects}.'
+              selected: 'These projects were successfully selected for implementation: %{successful}.'
+              unselected: 'These projects were successfully unselected from implementation: %{successful}.'
+          update_taxonomies:
+            invalid: 'Taxonomies %{taxonomies} where already assigned on these projects: %{errored}.'
+            select_a_project: Please select a project.
+            select_a_taxonomy: Please select a taxonomy.
+            success: 'Projects successfully updated to the %{taxonomies} taxonomies: %{successful}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into projects.
@@ -162,10 +157,14 @@ en:
         budget:
           create: "%{user_name} created the %{resource_name} budget in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} budget in the %{space_name} space"
+          restore: "%{user_name} restored the %{resource_name} budget in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} budget in %{space_name} to the trash"
           update: "%{user_name} updated the %{resource_name} budget in the %{space_name} space"
         project:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} project in the %{space_name} space"
+          restore: "%{user_name} restored the %{resource_name} project in %{space_name}"
+          soft_delete: "%{user_name} moved the %{resource_name} project in %{space_name} to the trash"
           update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
       budget_information_modal:
         back_to: Back to %{component_name}

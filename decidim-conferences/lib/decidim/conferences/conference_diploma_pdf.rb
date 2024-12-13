@@ -31,7 +31,6 @@ module Decidim
       attr_reader :conference
 
       delegate :document, to: :composer
-      def font_family = "Times"
 
       def page_orientation = :landscape
 
@@ -53,10 +52,10 @@ module Decidim
 
       def styles
         {
-          h1: { font: composer.document.fonts.add(font_family, variant: :bold), text_align: :center, font_size: 18, margin: [0, 0, 10, 0] },
-          h2: { font: composer.document.fonts.add(font_family, variant: :bold), text_align: :center, font_size: 15, margin: [0, 0, 10, 0] },
-          text: { font: composer.document.fonts.add(font_family), text_align: :center, font_size: 12, margin: [0, 0, 10, 0] },
-          bold: { font: composer.document.fonts.add(font_family, variant: :bold), text_align: :center, font_size: 12, margin: [0, 0, 10, 0] }
+          h1: { font: bold_font, text_align: :center, font_size: 18, margin: [0, 0, 10, 0] },
+          h2: { font: bold_font, text_align: :center, font_size: 15, margin: [0, 0, 10, 0] },
+          text: { font:, text_align: :center, font_size: 12, margin: [0, 0, 10, 0] },
+          bold: { font: bold_font, text_align: :center, font_size: 12, margin: [0, 0, 10, 0] }
         }
       end
 
@@ -153,6 +152,19 @@ module Decidim
 
         composer.text("06/11/2024, LUPU AL", style: :text, position: [0, frame.height - attendence.height - (2 * (image.height + max_height))])
       end
+
+      def font
+        @font ||= load_font("source-sans-pro-v21-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-regular.ttf")
+      end
+
+      def bold_font
+        @bold_font ||= load_font("source-sans-pro-v21-cyrillic_cyrillic-ext_greek_greek-ext_latin_latin-ext_vietnamese-700.ttf")
+      end
+
+      def load_font(path)
+        document.fonts.add(Decidim::Core::Engine.root.join("app/packs/fonts/decidim/").join(path))
+      end
+
     end
   end
 end

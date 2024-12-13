@@ -18,6 +18,7 @@ FactoryBot.define do
     instructions { generate_localized_description(:debate_instructions, skip_injection:) }
     component { build(:debates_component, skip_injection:) }
     author { component.try(:organization) }
+    deleted_at { nil }
 
     trait :open_ama do
       start_time { 1.day.ago }
@@ -43,6 +44,12 @@ FactoryBot.define do
 
       user_group do
         create(:user_group, :verified, organization: component.organization, users: [author], skip_injection:) if component
+      end
+    end
+
+    trait :hidden do
+      after :create do |debate, evaluator|
+        create(:moderation, hidden_at: Time.current, reportable: debate, skip_injection: evaluator.skip_injection)
       end
     end
 
