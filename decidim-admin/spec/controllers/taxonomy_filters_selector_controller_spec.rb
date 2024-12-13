@@ -175,7 +175,7 @@ module Decidim
           expect(response).to render_template("show")
         end
 
-        context "when taxonomy filter id is invalild" do
+        context "when taxonomy filter id is invalid" do
           let(:taxonomy_filter_id) { 0 }
 
           it_behaves_like "redirects to new", :show
