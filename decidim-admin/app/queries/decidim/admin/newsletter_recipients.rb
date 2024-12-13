@@ -20,7 +20,7 @@ module Decidim
       end
 
       def query
-        recipients = base_recipients
+        recipients = recipients_base_query
 
         return recipients if @form.send_to_all_users
         return verified_users if @form.send_to_verified_users
@@ -37,13 +37,12 @@ module Decidim
 
       private
 
-      def base_recipients
-        Decidim::User.where(organization: @form.current_organization)
+      def recipients_base_query
+        Decidim::User.available
+                     .where(organization: @form.current_organization)
                      .where.not(newsletter_notifications_at: nil)
                      .where.not(email: nil)
                      .confirmed
-                     .not_deleted
-                     .not_blocked
       end
 
       def filters_present?

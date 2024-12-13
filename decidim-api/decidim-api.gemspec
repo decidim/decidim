@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Api.version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -37,6 +37,7 @@ Gem::Specification.new do |s|
   s.add_dependency "graphql-docs", "~> 5.0"
   s.add_dependency "rack-cors", "~> 1.0"
 
+  s.add_development_dependency "decidim-assemblies", Decidim::Api.version
   s.add_development_dependency "decidim-comments", Decidim::Api.version
   s.add_development_dependency "decidim-dev", Decidim::Api.version
   s.add_development_dependency "decidim-participatory_processes", Decidim::Api.version

@@ -23,6 +23,7 @@ Decidim.register_component(:debates) do |component|
     settings.attribute :comments_enabled, type: :boolean, default: true
     settings.attribute :comments_max_length, type: :integer, required: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
+    settings.attribute :attachments_allowed, type: :boolean, default: false
   end
 
   component.settings(:step) do |settings|
