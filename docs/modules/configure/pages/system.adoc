@@ -35,8 +35,8 @@ image::system-dashboard.png[system empty dashboard]
 
 Inside of the system panel, you need to create your Organization through the form:
 
-TIP: Please mind that some of these fields can't change through the System Form, as changing them could 
-potentially leave your database in a broken state. You can change it through the console, but you'll be on your own.
+TIP: Please mind that some of these fields cannot change through the System Form, as changing them could 
+potentially leave your database in a broken state. You can change it through the console, but you will be on your own.
 
 === General settings
 
@@ -52,7 +52,7 @@ potentially leave your database in a broken state. You can change it through the
 |Reference prefix
 |Required
 |The reference prefix is used to uniquely identify resources across all organizations. For instance, "BCN". You can change how 
-it's created through xref:configure:initializer.adoc[Decidim's initializer] (see **Custom resource reference**).
+it is created through xref:configure:initializer.adoc[Decidim's initializer] (see **Custom resource reference**).
 
 |Host
 |Required
@@ -60,7 +60,7 @@ it's created through xref:configure:initializer.adoc[Decidim's initializer] (see
 
 |Secondary hosts
 |Optional
-|Others domains or subdomains that point to this same installation. Normally this shouldn't be used. 
+|Others domains or subdomains that point to this same installation. Normally this should not be used. 
 Enter each one of them in a new line. For instance, "example.com".
 
 |Organization admin name
@@ -80,7 +80,7 @@ xref:configure:initializer.adoc[Decidim's initializer].
 |Force authentication
 |Optional
 |Check if you want to **Force users to authenticate before access organization**. 
-That means visitor they don't see any published content and they only have access to the log-in form.
+That means visitor they do not see any published content and they only have access to the log-in form.
 
 |Users registration mode
 |Optional
@@ -127,7 +127,7 @@ in multi tenant mode. To learn more, check this https://developer.mozilla.org/en
 
 Most of the installations use this setting. Means that everyone can register a participant account and login, without restrictions, only with an email account confirmation (and you can disable that confirmation also if you want to through xref:configure:initializer.adoc[Decidim's initializer])
 
-==== Don't allow participants to register, but allow existing participants to login
+==== Do not allow participants to register, but allow existing participants to login
 
 This is for when you make a manual import of participants' accounts.
 
@@ -139,4 +139,4 @@ In the case where you have an external provider configured (like the `Omniauth s
 
 Finally, you can also Edit an organization, although some fields cannot be changed as some contents in the database depends on them.
 
-For accessing your newly created Organization, you can do it going to the domain or subdomain that you've configured in `Host`.
+For accessing your newly created Organization, you can do it going to the domain or subdomain that you have configured in `Host`.
