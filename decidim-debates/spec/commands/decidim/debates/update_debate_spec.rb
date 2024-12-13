@@ -16,8 +16,8 @@ describe Decidim::Debates::UpdateDebate do
   let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization:) }
   let(:form) do
     Decidim::Debates::DebateForm.from_params(
-      title: "title",
-      description: "description",
+      title: "Title",
+      description: "Description",
       documents: current_files,
       add_documents: uploaded_files,
       taxonomies:,
@@ -85,13 +85,13 @@ describe Decidim::Debates::UpdateDebate do
     it "sets the title with i18n" do
       subject.call
       debate.reload
-      expect(debate.title.except("machine_translations").values.uniq).to eq ["title"]
+      expect(debate.title.except("machine_translations").values.uniq).to eq ["Title"]
     end
 
     it "sets the description with i18n" do
       subject.call
       debate.reload
-      expect(debate.description.except("machine_translations").values.uniq).to eq ["description"]
+      expect(debate.description.except("machine_translations").values.uniq).to eq ["Description"]
     end
 
     it "traces the action", versioning: true do
@@ -125,6 +125,7 @@ describe Decidim::Debates::UpdateDebate do
       expect do
         subject.call
         debate.reload
+        pp form.errors
       end.to change(debate.attachments, :count).by(2)
 
       debate_attachments = debate.attachments
