@@ -37,6 +37,7 @@ document.addEventListener("decidim:loaded", () => {
       if (remove) {
         remove.addEventListener("ajax:success", (event) => {
           currentFilters.innerHTML = event.detail[2].responseText;
+          activateSettingsActions();
           drawer.close();
         });
       }
@@ -61,8 +62,8 @@ document.addEventListener("decidim:loaded", () => {
         });
         
         if (save) {
-          save.addEventListener("click", (evt) => {
-            evt.preventDefault();
+          save.addEventListener("click", (event) => {
+            event.preventDefault();
             Rails.fire(saveForm, "submit");
           });
         }

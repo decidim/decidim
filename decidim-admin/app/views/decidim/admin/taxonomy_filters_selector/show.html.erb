@@ -1,6 +1,6 @@
 <% content_for(:action_buttons) do %>
   <% if taxonomy_filter %>
-    <%= link_to decidim_admin.taxonomy_filters_selector_path(taxonomy_filter, component_id: component.id), remote: true, method: :delete, class: "button button__transparent-secondary button__sm", id: "remove-taxonomy-filter" do %>
+    <%= link_to decidim_admin.taxonomy_filters_selector_path(id: taxonomy_filter.id, taxonomy_id: root_taxonomy.id, component_id: component.id), remote: true, method: :delete, class: "button button__transparent-secondary button__sm", id: "remove-taxonomy-filter" do %>
       <%= t(".remove") %>
     <% end %>
   <% end %>
