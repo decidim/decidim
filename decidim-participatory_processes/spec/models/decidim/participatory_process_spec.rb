@@ -9,8 +9,8 @@ module Decidim
     let(:participatory_process) { build(:participatory_process, slug: "my-slug") }
 
     it { is_expected.to be_valid }
-
     it { is_expected.to be_versioned }
+    it { is_expected.to act_as_paranoid }
 
     it_behaves_like "publicable"
     it_behaves_like "has private users"

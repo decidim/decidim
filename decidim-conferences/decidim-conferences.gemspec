@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Conferences.version
   s.authors = ["Isaac Massot Gil"]
   s.email = ["isaac.mg@coditramuntana.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
@@ -33,10 +33,6 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-core", Decidim::Conferences.version
   s.add_dependency "decidim-meetings", Decidim::Conferences.version
   s.add_dependency "wicked_pdf", "~> 2.7"
-  # Latest version of wkhtmltopdf-binary downloads more versions of the binary
-  # This brings problems with deployment in certain environments, as Heroku
-  # Hopefully they will fix this situation soon
-  s.add_dependency "wkhtmltopdf-binary", "= 0.12.6.6"
 
   s.add_development_dependency "decidim-admin", Decidim::Conferences.version
   s.add_development_dependency "decidim-dev", Decidim::Conferences.version

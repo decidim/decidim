@@ -41,7 +41,7 @@ module Decidim
           return disallow! if meeting && !meeting.official?
 
           case permission_action.action
-          when :close, :copy, :destroy, :export_registrations, :update, :read_invites
+          when :close, :copy, :export_registrations, :update, :read_invites
             toggle_allow(meeting.present?)
           when :invite_attendee
             toggle_allow(meeting.present? && meeting.registrations_enabled?)

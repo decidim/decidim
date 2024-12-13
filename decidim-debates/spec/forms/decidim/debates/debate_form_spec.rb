@@ -17,12 +17,16 @@ describe Decidim::Debates::DebateForm do
   let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "debates") }
   let(:title) { "My title" }
   let(:description) { "My description" }
+  let(:uploaded_files) { [] }
+  let(:current_files) { [] }
   let(:taxonomies) { [] }
   let(:attributes) do
     {
       taxonomies:,
       title:,
-      description:
+      description:,
+      add_documents: uploaded_files,
+      documents: current_files
     }
   end
 
@@ -65,6 +69,20 @@ describe Decidim::Debates::DebateForm do
     end
   end
 
+  context "when handling attachments" do
+    let(:uploaded_files) do
+      [
+        { file: upload_test_file(Decidim::Dev.asset("city.jpeg"), content_type: "image/jpeg") },
+        { file: upload_test_file(Decidim::Dev.asset("Exampledocument.pdf"), content_type: "application/pdf") }
+      ]
+    end
+
+    it "accepts valid attachments" do
+      expect(form).to be_valid
+      expect(form.add_documents.count).to eq(2)
+    end
+  end
+
   describe "map_model" do
     subject { described_class.from_model(debate).with_context(context) }
 
@@ -80,6 +98,10 @@ describe Decidim::Debates::DebateForm do
 
     it "sets the debate" do
       expect(subject.debate).to eq(debate)
+    end
+
+    it "sets the attachments" do
+      expect(subject.documents).to eq(debate.documents)
     end
   end
 end

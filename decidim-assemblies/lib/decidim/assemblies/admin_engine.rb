@@ -23,8 +23,6 @@ module Decidim
           resources :assemblies, param: :slug, except: [:show, :destroy] do
             resource :publish, controller: "assembly_publications", only: [:create, :destroy]
             resources :copies, controller: "assembly_copies", only: [:new, :create]
-            resources :members, controller: "assembly_members"
-
             resources :user_roles, controller: "assembly_user_roles" do
               member do
                 post :resend_invitation, to: "assembly_user_roles#resend_invitation"
@@ -36,7 +34,13 @@ module Decidim
 
             resource :export, controller: "assembly_exports", only: :create
 
+            member do
+              patch :soft_delete
+              patch :restore
+            end
+
             collection do
+              get :manage_trash, to: "assemblies#manage_trash"
               resources :imports, controller: "assembly_imports", only: [:new, :create]
             end
 
@@ -57,6 +61,11 @@ module Decidim
                 put :publish
                 put :unpublish
                 get :share
+                patch :soft_delete
+                patch :restore
+              end
+              collection do
+                get :manage_trash, to: "components#manage_trash"
                 put :hide
               end
               resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
@@ -84,6 +93,8 @@ module Decidim
                 resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
                   delete :destroy_all
                 end
+                post :publish_all
+                post :unpublish_all
               end
             end
 

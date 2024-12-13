@@ -86,5 +86,33 @@ module Decidim::Admin
 
       it { is_expected.not_to be_valid }
     end
+
+    describe "#from_model" do
+      let(:taxonomy_filter) { create(:taxonomy_filter, name:, internal_name:, space_filter:, root_taxonomy:) }
+      let!(:filter_item) { create(:taxonomy_filter_item, taxonomy_item:, taxonomy_filter:) }
+      let(:name) { { "en" => "Public name" } }
+      let(:internal_name) { { "en" => "Internal Name" } }
+      let(:space_filter) { true }
+
+      subject { described_class.from_model(taxonomy_filter) }
+
+      it "returns the form with the model attributes" do
+        expect(subject.root_taxonomy_id).to eq(root_taxonomy.id)
+        expect(subject.taxonomy_items).to eq([taxonomy_item.id])
+        expect(subject.name).to eq(name)
+        expect(subject.internal_name).to eq(internal_name)
+        expect(subject.space_filter).to eq(space_filter)
+      end
+
+      context "when no name is present" do
+        let(:name) { nil }
+        let(:internal_name) { { "en" => "" } }
+
+        it "returns an empty hash" do
+          expect(subject.name).to eq({})
+          expect(subject.internal_name).to eq({})
+        end
+      end
+    end
   end
 end

@@ -28,7 +28,7 @@ describe "Admin filters participatory processes private space users" do
       login_as user, scope: :user
       visit decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
       within_admin_sidebar_menu do
-        click_on "Private participants"
+        click_on "Members"
       end
     end
 

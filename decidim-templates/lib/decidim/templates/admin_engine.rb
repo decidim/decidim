@@ -45,11 +45,12 @@ module Decidim
             end
           end
 
-          get "/questionnaire_template/questionnaire/answer_options", to: "questionnaires#answer_options", as: "answer_options_template"
+          get "/questionnaire_template/questionnaire/answer_options", to: "questionnaire_templates/questionnaires#answer_options", as: "answer_options_template"
 
           root to: "questionnaire_templates#index"
         end
       end
+
 
       initializer "decidim_templates_admin.mount_routes" do
         Decidim::Core::Engine.routes do
