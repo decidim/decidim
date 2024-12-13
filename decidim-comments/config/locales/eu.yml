@@ -39,6 +39,7 @@ eu:
     components:
       add_comment_form:
         account_message: Sartu edo sortu kontu bat zure iruzkina gehitzeko.
+        add_comment: Gehitu iruzkina
         form:
           body:
             label: Iruzkina
@@ -48,6 +49,7 @@ eu:
           submit_root_comment: Argitaratu iruzkina
           user_group_id:
             label: 'Egin iruzkina honako honen gisa:'
+            your_profile: Zure profila
         opinion:
           label: Zure iritzia gai honi buruz
           negative: Negatiboa
