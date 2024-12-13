@@ -304,7 +304,7 @@ describe "Edit proposals" do
 
         within "form.edit_proposal" do
           fill_in :proposal_title, with: "A title with a #hashtag"
-          fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL"
+          fill_in :proposal_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL or a COLLABORATIVE DRAFT"
         end
         click_on "Send"
 

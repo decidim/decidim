@@ -2,13 +2,48 @@
 
 require "spec_helper"
 require "decidim/api/test/component_context"
-require "decidim/budgets/test/factories"
+require "decidim/sortitions/test/factories"
 
 describe "Decidim::Api::QueryType" do
-  include_context "with a graphql decidim component"
+  include_context "with a graphql decidim component" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Sortitions {
+        sortition(id: #{sortition.id}){
+          acceptsNewComments
+          additionalInfo {  translation(locale: "#{locale}") }
+          author { id }
+          cancelReason { translation(locale: "#{locale}") }
+          cancelledByUser { id }
+          cancelledOn
+          candidateProposals
+          taxonomies { id }
+          comments { id }
+          commentsHaveAlignment
+          commentsHaveVotes
+          createdAt
+          dice
+          hasComments
+          id
+          reference
+          requestTimestamp
+          selectedProposals
+          targetItems
+          title { translation(locale: "#{locale}") }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
+          witnesses { translation(locale: "#{locale}") }
+        }
+      }
+    )
+    end
+  end
   let(:component_type) { "Sortitions" }
   let!(:current_component) { create(:sortition_component, participatory_space: participatory_process) }
-  let!(:sortition) { create(:sortition, component: current_component, taxonomies:) }
+  let(:author) { create(:user, :confirmed, :admin, organization: current_component.organization) }
+  let!(:sortition) { create(:sortition, component: current_component, taxonomies:, author:) }
 
   let(:sortition_single_result) do
     sortition.reload
@@ -55,6 +90,25 @@ describe "Decidim::Api::QueryType" do
       },
       "weight" => 0
     }
+  end
+
+  describe "commentable" do
+    let(:component_fragment) { nil }
+    let(:participatory_process_query) do
+      %(
+        commentable(id: "#{sortition.id}", type: "Decidim::Sortitions::Sortition", locale: "en", toggleTranslations: false) {
+          __typename
+        }
+      )
+    end
+
+    it "executes successfully" do
+      expect { response }.not_to raise_error
+    end
+
+    it do
+      expect(response).to eq({ "commentable" => { "__typename" => "Sortition" } })
+    end
   end
 
   describe "valid connection query" do
@@ -104,44 +158,16 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Sortitions {
-        sortition(id: #{sortition.id}){
-          acceptsNewComments
-          additionalInfo {  translation(locale: "#{locale}") }
-          author { id }
-          cancelReason { translation(locale: "#{locale}") }
-          cancelledByUser { id }
-          cancelledOn
-          candidateProposals
-          taxonomies { id }
-          comments { id }
-          commentsHaveAlignment
-          commentsHaveVotes
-          createdAt
-          dice
-          hasComments
-          id
-          reference
-          requestTimestamp
-          selectedProposals
-          targetItems
-          title { translation(locale: "#{locale}") }
-          totalCommentsCount
-          type
-          updatedAt
-          userAllowedToComment
-          witnesses { translation(locale: "#{locale}") }
-        }
-      }
-    )
-    end
-
     it "executes successfully" do
       expect { response }.not_to raise_error
     end
 
     it { expect(response["participatoryProcess"]["components"].first["sortition"]).to eq(sortition_single_result) }
+  end
+
+  include_examples "with resource visibility" do
+    let(:component_factory) { :sortition_component }
+    let(:lookout_key) { "sortition" }
+    let(:query_result) { sortition_single_result }
   end
 end
