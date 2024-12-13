@@ -151,8 +151,20 @@ module Decidim
         it "adds the taxonomy filter to the component" do
           post(:create, params:)
 
-          expect(component.reload.settings.taxonomy_filters).to include(taxonomy_filter.id)
+          expect(component.reload.settings.taxonomy_filters).to include(taxonomy_filter.id.to_s)
           expect(response).to render_template("_component_table")
+        end
+
+        it "traces the action", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:perform_action!)
+            .with("update_filters", component, current_user)
+            .and_call_original
+
+          expect { post(:create, params:) }.to change(Decidim::ActionLog, :count)
+          action_log = Decidim::ActionLog.last
+          expect(action_log.action).to eq("update_filters")
+          expect(action_log.version).to be_present
         end
 
         context "when taxonomy filter id is not present" do
@@ -187,15 +199,27 @@ module Decidim
         let(:taxonomy_filter_id) { taxonomy_filter.id }
 
         before do
-          component.update!(settings: { taxonomy_filters: [taxonomy_filter.id] })
+          component.update!(settings: { taxonomy_filters: [taxonomy_filter.id.to_s] })
         end
 
         it "removes the taxonomy filter from the component" do
-          expect(component.reload.settings.taxonomy_filters).to include(taxonomy_filter.id)
+          expect(component.reload.settings.taxonomy_filters).to include(taxonomy_filter.id.to_s)
           delete(:destroy, params:)
 
-          expect(component.reload.settings.taxonomy_filters).not_to include(taxonomy_filter.id)
+          expect(component.reload.settings.taxonomy_filters).not_to include(taxonomy_filter.id.to_s)
           expect(response).to render_template("_component_table")
+        end
+
+        it "traces the action", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:perform_action!)
+            .with("update_filters", component, current_user)
+            .and_call_original
+
+          expect { delete(:destroy, params:) }.to change(Decidim::ActionLog, :count)
+          action_log = Decidim::ActionLog.last
+          expect(action_log.action).to eq("update_filters")
+          expect(action_log.version).to be_present
         end
 
         context "when taxonomy filter id is invalid" do
@@ -204,7 +228,7 @@ module Decidim
           it "ignores the taxonomy filter" do
             delete(:destroy, params:)
 
-            expect(component.reload.settings.taxonomy_filters).to include(taxonomy_filter.id)
+            expect(component.reload.settings.taxonomy_filters).to include(taxonomy_filter.id.to_s)
             expect(response).to render_template("_component_table")
           end
         end

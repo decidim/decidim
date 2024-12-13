@@ -4,7 +4,7 @@ document.addEventListener("decidim:loaded", () => {
     const drawer = window.Decidim.currentDialogs[settingsContainer.dataset.drawer];
     const container = drawer.dialog.querySelector(".js-taxonomy-filters-drawer-container");
     const addButton = settingsContainer.querySelector(".js-add-taxonomy-filter");
-    
+
     // Handles the click on edit button for each taxonomy filter in the component settings table
     const activateSettingsActions = () => {
       const edits = settingsContainer.querySelectorAll(".js-edit-taxonomy-filter");
@@ -16,7 +16,7 @@ document.addEventListener("decidim:loaded", () => {
         });
       });
     };
-    
+
     // Handles the change on the taxonomy and filter selects in the drawer
     const activateDrawerActions = () => {
       const taxonomySelector = container.querySelector(".js-drawer-taxonomy-select select");
@@ -26,7 +26,7 @@ document.addEventListener("decidim:loaded", () => {
       const save = drawer.dialog.querySelector("#save-taxonomy-filter");
       const remove = drawer.dialog.querySelector("#remove-taxonomy-filter");
       const currentFilters = settingsContainer.querySelector(".js-current-filters");
-      
+
       if (selectForm) {
         selectForm.addEventListener("ajax:success", (event) => {
           container.innerHTML = event.detail[2].responseText;
@@ -42,7 +42,7 @@ document.addEventListener("decidim:loaded", () => {
         });
       }
 
-      if (taxonomySelector) { 
+      if (taxonomySelector) {
         taxonomySelector.addEventListener("change", () => {
           Rails.fire(selectForm, "submit");
         });
@@ -53,14 +53,14 @@ document.addEventListener("decidim:loaded", () => {
           Rails.fire(selectForm, "submit");
         });
       }
-      
+
       if (saveForm) {
         saveForm.addEventListener("ajax:success", (event) => {
           currentFilters.innerHTML = event.detail[2].responseText;
           activateSettingsActions();
           drawer.close();
         });
-        
+
         if (save) {
           save.addEventListener("click", (event) => {
             event.preventDefault();
@@ -69,7 +69,7 @@ document.addEventListener("decidim:loaded", () => {
         }
       }
     };
-  
+
     const fetchUrl = (url) => {
       container.classList.add("spinner-container");
       fetch(url).then((response) => response.text()).then((html) => {
@@ -78,7 +78,7 @@ document.addEventListener("decidim:loaded", () => {
         activateDrawerActions();
       });
     };
-  
+
     // Activate the rendered edit buttons
     activateSettingsActions();
 

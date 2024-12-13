@@ -34,8 +34,10 @@ module Decidim
       def create
         enforce_permission_to :create, :taxonomy_filter
 
-        filter_ids = component.settings.taxonomy_filters + [taxonomy_filter.id.to_s]
-        component.update!(settings: { taxonomy_filters: filter_ids.uniq.map(&:to_s) })
+        Decidim.traceability.perform_action!("update_filters", component, current_user) do
+          filter_ids = component.settings.taxonomy_filters + [taxonomy_filter.id.to_s]
+          component.update!(settings: { taxonomy_filters: filter_ids.uniq.map(&:to_s) })
+        end
 
         render partial: "decidim/admin/taxonomy_filters_selector/component_table"
       end
@@ -48,9 +50,12 @@ module Decidim
       # Removes the selected taxonomy filter from the component
       def destroy
         enforce_permission_to :destroy, :taxonomy_filter
+
         unless taxonomy_filter.nil?
-          filter_ids = component.settings.taxonomy_filters - [taxonomy_filter.id.to_s]
-          component.update!(settings: { taxonomy_filters: filter_ids })
+          Decidim.traceability.perform_action!("update_filters", component, current_user) do
+            filter_ids = component.settings.taxonomy_filters - [taxonomy_filter.id.to_s]
+            component.update!(settings: { taxonomy_filters: filter_ids })
+          end
         end
 
         render partial: "decidim/admin/taxonomy_filters_selector/component_table"

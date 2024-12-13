@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      component:
+        taxonomy_filters: Taxonomy filters
       account:
         delete_reason: Reason to delete your account
       common:
@@ -1138,6 +1140,8 @@ en:
         unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
         unpublish_with_space: "%{user_name} unpublished %{resource_name} from %{space_name}"
         update: "%{user_name} updated %{resource_name}"
+        update_filters: "%{user_name} updated the filters of %{resource_name}"
+        update_filters_with_space: "%{user_name} updated the filters of %{resource_name} in %{space_name}"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
