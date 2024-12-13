@@ -43,7 +43,7 @@ module Decidim
       end
 
       def unreport!
-        Decidim.traceability.perform_action_without_log!(current_user) do
+        Decidim.traceability.perform_action_without_log!(@current_user) do
           @reportable.moderation.destroy!
         end
       end

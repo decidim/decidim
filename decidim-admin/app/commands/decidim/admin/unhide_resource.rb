@@ -47,7 +47,7 @@ module Decidim
       end
 
       def unhide!
-        Decidim.traceability.perform_action_without_log!(current_user) do
+        Decidim.traceability.perform_action_without_log!(@current_user) do
           @reportable.moderation.update!(hidden_at: nil)
         end
       end
