@@ -906,12 +906,26 @@ ca:
         destroy:
           error: S'ha produït un error en eliminar una participant participada d'aquest espai participatiu.
           success: L'accés de la participant a l'espai de participació privat s'ha eliminat correctament.
+        edit:
+          title: Editar participant privada de l'espai de participació.
+          update: Actualitzar
         index:
           import_via_csv: Importar des de CSV
+          publish_all: Publicar tot
           title: Participant de l'espai participatiu privat
+          unpublish_all: Despublicar tot
         new:
           create: Crear
           title: Nova participant de l'espai privat.
+        publish_all:
+          error: S'ha produït un error en publicar totes les participants privades d'aquest espai de participació.
+          success: S'han publicat correctament totes les participants privades d'aquest espai de participació
+        unpublish_all:
+          error: S'ha produït un error en despublicar totes les participants privades d'aquest espai de participació.
+          success: S'han despublicat correctament totes les participants privades d'aquest espai de participació
+        update:
+          error: S'ha produït un error en actualitzar una participant participada d'aquest espai de participació.
+          success: S'ha actualitzat correctament l'espai de participació privat
       participatory_space_private_users_csv_imports:
         create:
           invalid: S'ha produït un error llegint el fitxer CSV. Si us plau, assegura't d'haver seguit les instruccions.
