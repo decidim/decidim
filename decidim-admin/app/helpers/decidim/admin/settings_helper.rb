@@ -81,7 +81,7 @@ module Decidim
                   link_to(t("define_taxonomy_filters", scope: i18n_scope), decidim_admin.taxonomies_path, class: "button button__text-secondary")
               end.html_safe
           else
-            taxonomy_filters(name, i18n_scope)
+            taxonomy_filters(form, name, i18n_scope)
           end
         else
           form.send(form_method, name, options)
@@ -221,9 +221,10 @@ module Decidim
       #
       # @param name (see #settings_attribute_input)
       # @param i18n_scope (see #settings_attribute_input)
-      def taxonomy_filters(name, i18n_scope)
+      def taxonomy_filters(form, name, i18n_scope)
         current_filters = content_tag(:div, class: "js-current-filters") do
-          render partial: "decidim/admin/taxonomy_filters_selector/component_table", locals: { component_filters:, component: @component }
+          render partial: "decidim/admin/taxonomy_filters_selector/component_table",
+                 locals: { field_name: "#{form.object_name}[#{name}][]", component_filters:, component: @component }
         end
         add_button = content_tag(:div, class: "mt-2") do
           content_tag(:button,

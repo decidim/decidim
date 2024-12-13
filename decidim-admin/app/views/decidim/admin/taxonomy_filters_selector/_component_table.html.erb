@@ -8,6 +8,7 @@
   </thead>
   <tbody>
     <% component_filters.each do |taxonomy_filter| %>
+        <%= hidden_field_tag(field_name, taxonomy_filter.id) %>
       <tr>
         <td><%= taxonomy_filter.translated_name %></td>
         <td><%= taxonomy_filter.translated_internal_name %></td>

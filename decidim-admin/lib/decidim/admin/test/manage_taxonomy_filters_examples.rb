@@ -36,6 +36,13 @@ shared_examples "manage taxonomy filters in settings" do
         expect(page).to have_link("Edit")
       end
       expect(component.reload.settings.taxonomy_filters).to eq([taxonomy_filter.id.to_s])
+
+      click_on "Update"
+      click_on "Configure"
+      within ".js-current-filters" do
+        expect(page).to have_css("td", text: "Internal taxonomy filter name")
+        expect(page).to have_css("td", text: "Public taxonomy filter name")
+      end
     end
   end
 
@@ -72,6 +79,7 @@ shared_examples "manage taxonomy filters in settings" do
       end
       sleep 1
       expect(component.reload.settings.taxonomy_filters).to eq([another_taxonomy_filter.id.to_s])
+      expect(page).to have_css("td", text: "Another taxonomy filter name")
       expect(page).to have_no_css("#taxonomy_filters-dialog-content")
       expect(page).to have_no_content("Internal taxonomy filter name")
 
@@ -87,6 +95,13 @@ shared_examples "manage taxonomy filters in settings" do
         expect(page).to have_css("td", text: "Internal taxonomy filter name")
         expect(page).to have_css("td", text: "Public taxonomy filter name")
         expect(page).to have_link("Edit", count: 2)
+      end
+
+      click_on "Update"
+      click_on "Configure"
+      within ".js-current-filters" do
+        expect(page).to have_css("td", text: "Internal taxonomy filter name")
+        expect(page).to have_css("td", text: "Public taxonomy filter name")
       end
     end
   end

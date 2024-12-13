@@ -2,12 +2,12 @@
 en:
   activemodel:
     attributes:
-      component:
-        taxonomy_filters: Taxonomy filters
       account:
         delete_reason: Reason to delete your account
       common:
         created_at: Created at
+      component:
+        taxonomy_filters: Taxonomy filters
       conversation:
         body: Body
       group:

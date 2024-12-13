@@ -5,7 +5,7 @@ module Decidim
     class TaxonomyFiltersSelectorController < Decidim::Admin::ApplicationController
       layout "decidim/admin/taxonomy_filters_selector"
 
-      helper_method :root_taxonomy, :taxonomy_filter, :component, :component_filters
+      helper_method :root_taxonomy, :taxonomy_filter, :component, :component_filters, :field_name
 
       # ensure component is valid
       before_action do
@@ -34,10 +34,7 @@ module Decidim
       def create
         enforce_permission_to :create, :taxonomy_filter
 
-        Decidim.traceability.perform_action!("update_filters", component, current_user) do
-          filter_ids = component.settings.taxonomy_filters + [taxonomy_filter.id.to_s]
-          component.update!(settings: { taxonomy_filters: filter_ids.uniq.map(&:to_s) })
-        end
+        update_filters!(component.settings.taxonomy_filters + [taxonomy_filter.id.to_s])
 
         render partial: "decidim/admin/taxonomy_filters_selector/component_table"
       end
@@ -51,17 +48,22 @@ module Decidim
       def destroy
         enforce_permission_to :destroy, :taxonomy_filter
 
-        unless taxonomy_filter.nil?
-          Decidim.traceability.perform_action!("update_filters", component, current_user) do
-            filter_ids = component.settings.taxonomy_filters - [taxonomy_filter.id.to_s]
-            component.update!(settings: { taxonomy_filters: filter_ids })
-          end
-        end
+        update_filters!(component.settings.taxonomy_filters - [taxonomy_filter.id.to_s]) if taxonomy_filter
 
         render partial: "decidim/admin/taxonomy_filters_selector/component_table"
       end
 
       private
+
+      def update_filters!(filter_ids)
+        Decidim.traceability.perform_action!("update_filters", component, current_user) do
+          component.update!(settings: { taxonomy_filters: filter_ids.map(&:to_s).uniq })
+        end
+      end
+
+      def field_name
+        "component[settings][taxonomy_filters][]"
+      end
 
       def component_filters
         @component_filters ||= root_taxonomy.taxonomy_filters.where(id: component.settings.taxonomy_filters)

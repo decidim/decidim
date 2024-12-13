@@ -167,6 +167,12 @@ module Decidim
           expect(action_log.version).to be_present
         end
 
+        it "increments the components_count" do
+          expect(taxonomy_filter.components_count).to eq(0)
+          post(:create, params:)
+          expect(taxonomy_filter.reload.components_count).to eq(1)
+        end
+
         context "when taxonomy filter id is not present" do
           let(:taxonomy_filter_id) { nil }
 
@@ -200,6 +206,7 @@ module Decidim
 
         before do
           component.update!(settings: { taxonomy_filters: [taxonomy_filter.id.to_s] })
+          taxonomy_filter.reload
         end
 
         it "removes the taxonomy filter from the component" do
@@ -220,6 +227,12 @@ module Decidim
           action_log = Decidim::ActionLog.last
           expect(action_log.action).to eq("update_filters")
           expect(action_log.version).to be_present
+        end
+
+        it "decrements the components_count" do
+          expect(taxonomy_filter.components_count).to eq(1)
+          delete(:destroy, params:)
+          expect(taxonomy_filter.reload.components_count).to eq(0)
         end
 
         context "when taxonomy filter id is invalid" do

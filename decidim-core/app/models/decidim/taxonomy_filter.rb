@@ -92,6 +92,15 @@ module Decidim
       end
     end
 
+    def update_components_count
+      update(components_count: components.count)
+    end
+
+    def reset_all_counters
+      Decidim::TaxonomyFilter.reset_counters(id, :filter_items_count)
+      update_components_count
+    end
+
     private
 
     def insert_child(taxonomy, tree)
@@ -108,17 +117,6 @@ module Decidim
       tree[taxonomy.parent_id].presence ||
         tree.values.detect { |v| find_parent(taxonomy, v[:children]) }
     end
-
-    def update_component_count
-      update(components_count: components.count)
-    end
-
-    def reset_all_counters
-      Decidim::TaxonomyFilter.reset_counters(id, :filter_items_count)
-      update_component_count
-    end
-
-    private
 
     def root_taxonomy_is_root
       return if root_taxonomy&.root?
