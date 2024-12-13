@@ -72,8 +72,8 @@ module Decidim
           next if filter.filter_items.exists?(taxonomy_item: taxonomy)
 
           filter.filter_items.create!(taxonomy_item: taxonomy) do
-            result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] ||= []
-            result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] << item_names.join(" > ")
+            result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[organization.default_locale]}"] ||= []
+            result[:filters_created]["#{filter.space_manifest}: #{filter.internal_name[organization.default_locale]}"] << item_names.join(" > ")
           end
         end
 
@@ -82,8 +82,8 @@ module Decidim
           if component
             begin
               component.update!(settings: { taxonomy_filters: [filter.id.to_s] })
-              result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] ||= []
-              result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[I18n.locale.to_s]}"] << component_id
+              result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[organization.default_locale]}"] ||= []
+              result[:components_assigned]["#{filter.space_manifest}: #{filter.internal_name[organization.default_locale]}"] << component_id
             rescue ActiveRecord::RecordInvalid
               result[:failed_components] << component_id
             end
@@ -113,8 +113,8 @@ module Decidim
           space_filter: data["space_filter"],
           space_manifest: data["space_manifest"]
         }
-        attributes["internal_name"] = { I18n.locale.to_s => data["internal_name"] } if data["internal_name"]
-        attributes["name"] = { I18n.locale.to_s => data["public_name"] } if data["public_name"]
+        attributes["internal_name"] = { organization.default_locale => data["internal_name"] } if data["internal_name"]
+        attributes["name"] = { organization.default_locale => data["public_name"] } if data["public_name"]
         find_taxonomy_filter(root_taxonomy, name:, space_filter: data["space_filter"], space_manifest: data["space_manifest"]) || root_taxonomy.taxonomy_filters.create!(attributes)
       end
 
