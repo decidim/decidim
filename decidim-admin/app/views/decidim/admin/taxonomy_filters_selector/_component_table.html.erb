@@ -13,7 +13,7 @@
         <td><%= taxonomy_filter.translated_internal_name %></td>
         <td>
           <%= icon_link_to("pencil-line",
-                           decidim_admin.taxonomy_filters_selector_path(component_id: component.id, taxonomy_id: taxonomy_filter.root_taxonomy_id, id: taxonomy_filter.id),
+                           decidim_admin.taxonomy_filters_selector_path(component_id: component.id, taxonomy_id: taxonomy_filter.root_taxonomy_id, taxonomy_filter_id: taxonomy_filter.id),
                            t("decidim.admin.taxonomy_filters.table.edit"),
                            class: "js-edit-taxonomy-filter",
                            data: { drawer: "taxonomy_filters-dialog" }) %>

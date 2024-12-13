@@ -7,6 +7,19 @@ module Decidim
 
       helper_method :root_taxonomy, :taxonomy_filter, :component, :component_filters
 
+      # ensure component is valid
+      before_action do
+        raise Decidim::ActionForbidden unless component && component.organization == current_organization
+      end
+
+      before_action except: :index do
+        redirect_to taxonomy_filters_selector_index_path(component_id: params[:component_id]) if root_taxonomy.nil?
+      end
+
+      before_action except: [:index, :new, :destroy] do
+        redirect_to new_taxonomy_filters_selector_path(component_id: params[:component_id], taxonomy_id: params[:taxonomy_id]) if taxonomy_filter.nil?
+      end
+
       # Renders "choose the taxonomy" step
       def index
         enforce_permission_to :index, :taxonomy_filter
@@ -36,8 +49,10 @@ module Decidim
       def destroy
         enforce_permission_to :destroy, :taxonomy_filter
 
-        filter_ids = component.settings.taxonomy_filters - [taxonomy_filter.id]
-        component.update!(settings: { taxonomy_filters: filter_ids })
+        unless taxonomy_filter.nil?
+          filter_ids = component.settings.taxonomy_filters - [taxonomy_filter.id]
+          component.update!(settings: { taxonomy_filters: filter_ids })
+        end
 
         render partial: "decidim/admin/taxonomy_filters_selector/component_table"
       end
@@ -45,19 +60,19 @@ module Decidim
       private
 
       def component_filters
-        @component_filters ||= TaxonomyFilter.for(current_organization).where(id: component.settings.taxonomy_filters)
+        @component_filters ||= root_taxonomy.taxonomy_filters.where(id: component.settings.taxonomy_filters)
       end
 
       def component
-        @component ||= Component.find(params[:component_id])
+        @component ||= Component.find_by(id: params[:component_id])
       end
 
       def root_taxonomy
-        @root_taxonomy ||= Taxonomy.roots.find_by(id: params[:taxonomy_id])
+        @root_taxonomy ||= current_organization.taxonomies.roots.find_by(id: params[:taxonomy_id])
       end
 
       def taxonomy_filter
-        @taxonomy_filter ||= root_taxonomy.taxonomy_filters.find_by(id: params[:taxonomy_filter_id].presence || params[:id])
+        @taxonomy_filter ||= root_taxonomy.taxonomy_filters.find_by(id: params[:taxonomy_filter_id])
       end
     end
   end
