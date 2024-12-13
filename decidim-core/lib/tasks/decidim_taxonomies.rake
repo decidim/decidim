@@ -7,7 +7,7 @@ namespace :decidim do
     desc "Creates a JSON file with the taxonomies structure imported from older models"
     task :make_plan, [] => :environment do |_task, _args|
       Decidim::Organization.find_each do |organization|
-        log.info "Creating a plan for organization #{organization.id} in #{plan_file_path(organization)}"
+        log(true).info "Creating a plan for organization #{organization.id} in #{plan_file_path(organization)}"
         FileUtils.mkdir_p(Rails.root.join("tmp/taxonomies"))
         json = planner(organization).to_json do |model|
           log.info "...Exporting taxonomies for #{model.table_name}"
@@ -27,7 +27,7 @@ namespace :decidim do
       data = JSON.parse(File.read(file))
       organization = Decidim::Organization.find_by(id: data.dig("organization", "id"))
       abort "Organization not found! [#{data["organization"]}]" unless organization
-      log.info "Importing taxonomies and filters for organization #{organization.id}"
+      log(true).info "Importing taxonomies and filters for organization #{organization.id}"
 
       planner(organization).import(data) do |importer, model_name|
         taxonomies = importer.roots
@@ -146,7 +146,8 @@ namespace :decidim do
       Rails.root.join("tmp/taxonomies", "#{organization.host}_plan.json")
     end
 
-    def log
+    def log(reset = false) # rubocop:disable Style/OptionalBooleanParameter
+      @log = nil if reset
       @log ||= Logger.new($stdout, formatter: proc { |_severity, _time, _progname, msg|
         "#{msg}\n"
       })

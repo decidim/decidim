@@ -35,6 +35,8 @@ describe "Executing Decidim Taxonomy importer tasks" do
   let(:settings) { { scopes_enabled: true, scope_id: sub_scope.id } }
 
   before do
+    allow($stdout).to receive(:puts).and_call_original
+
     scope.update!(part_of: [scope.id])
     another_scope.update!(part_of: [scope.id])
     sub_scope.update!(part_of: [scope.id, sub_scope.id])
