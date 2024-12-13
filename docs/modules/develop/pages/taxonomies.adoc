@@ -143,7 +143,7 @@ Provides methods to extract available taxonomies and filters according to the co
 
 See `decidim-admin/app/forms/concerns/decidim/has_taxonomy_form_attributes.rb`
 
-Provides with attribute definitions for adding multiple taxonomies in a `Decidim::Form`` object. It only requires for the implementing class to return the manifest of the participatory space (which is used to obtain the list of filters available). Used in every resource form that needs to include taxonomies (ie: `AssemblyForm`, `ProposalForm`, etc...).
+Provides with attribute definitions for adding multiple taxonomies in a `Decidim::Form` object. It only requires for the implementing class to return the manifest of the participatory space (which is used to obtain the list of filters available). Used in every resource form that needs to include taxonomies (ie: `AssemblyForm`, `ProposalForm`, etc...).
 
 A related file is `decidim-core/app/helpers/decidim/taxonomies_helper.rb` which defines the method `taxonomy_items_options_for_filter` that is used in the form views as:
 
