@@ -8,7 +8,7 @@ Even if you only have one organization you need to create it through the System 
 It is available after you have installed Decidim, at `/system`. For instance if you domain is `example.org`, 
 then it should be available at `http://example.org/system`.
 
-After you haveve freshly installed Decidim, you are redirected to the System panel log-in page:
+After you have freshly installed Decidim, you are redirected to the System panel log-in page:
 
 image::system-log_in.png[system panel log in]
 
@@ -116,7 +116,7 @@ See xref:services:social_providers.adoc[Social providers configuration].
 
 |Content security policy
 |Optional
-|Allows you to configure organization based rules, but also to configure system wide policies in case your decidim instansce is running 
+|Allows you to configure organization based rules, but also to configure system wide policies in case your decidim instance is running 
 in multi tenant mode. To learn more, check this https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP[CSP header documentation].
 
 |===
