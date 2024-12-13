@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Templates.version
   s.authors = ["Vera Rojman"]
   s.email = ["vrojman@protonmail.com"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",
