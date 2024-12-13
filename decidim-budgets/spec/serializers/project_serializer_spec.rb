@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Budgets
   describe ProjectSerializer do
-    let(:budget) { create(:budget) }
+    let(:budget) { create(:budget, component:) }
     let(:serialized) { subject.run }
     let(:attachment) { create(:attachment, attached_to: project) }
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: project.participatory_space) }
@@ -12,6 +12,7 @@ module Decidim::Budgets
     let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: budget.component.organization) }
     let(:project) { create(:project, budget:, taxonomies:) }
     let(:router) { Decidim::EngineRouter.main_proxy(budget.component) }
+    let(:component) { create(:budgets_component) }
 
     subject { described_class.new(project) }
 
@@ -55,10 +56,6 @@ module Decidim::Budgets
 
       it "includes the budget amount" do
         expect(serialized[:budget_amount]).to eq(project.budget_amount)
-      end
-
-      it "includes count of confirmed votes" do
-        expect(serialized[:confirmed_votes]).to eq(project.confirmed_orders_count)
       end
 
       it "includes comment count" do
@@ -140,6 +137,20 @@ module Decidim::Budgets
 
       it "includes new field" do
         expect(serialized[:test_field]).to eq("Resource class: Decidim::Budgets::Project")
+      end
+    end
+
+    context "when show votes is disabled" do
+      it "does not include count of confirmed votes" do
+        expect(serialized[:confirmed_votes]).to be_nil
+      end
+    end
+
+    context "when show votes is enabled" do
+      let(:component) { create(:budgets_component, :with_show_votes_enabled) }
+
+      it "includes count of confirmed votes" do
+        expect(serialized[:confirmed_votes]).to eq(project.confirmed_orders_count)
       end
     end
   end

@@ -18,6 +18,8 @@ module Decidim
             can_vote?(false) if can_vote_project?(project || order&.projects&.first)
           when :report
             permission_action.allow!
+          when :read
+            toggle_allow(project.visible?)
           end
         end
 

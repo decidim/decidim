@@ -31,7 +31,8 @@ module Decidim
                     title: project.budget.title,
                     url: budget_url },
           budget_amount: project.budget_amount,
-          confirmed_votes: project.confirmed_orders_count,
+          confirmed_votes: (project.confirmed_orders_count if
+            project.component.current_settings.show_votes?),
           comments: project.comments_count,
           created_at: project.created_at,
           url: project.polymorphic_resource_url({}),

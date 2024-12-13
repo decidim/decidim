@@ -17,6 +17,10 @@ module Decidim
         render :single_comment_warning
       end
 
+      def reply?
+        model.is_a?(Decidim::Comments::Comment)
+      end
+
       def comments_loading
         return if single_comment?
 
@@ -150,15 +154,25 @@ module Decidim
         model.try(:participatory_space)
       end
 
+      def onboarding_action_params
+        params = if model.try(:component).present? || current_component.present?
+                   { resource: model }
+                 else
+                   { resource: model, permissions_holder: model }
+                 end
+        return params if ResourceLocatorPresenter.new(model).url
+      rescue NoMethodError
+        params.merge!(data: { onboarding_redirect_path: request.path })
+      end
+
       def blocked_comments_for_unauthorized_user_warning_link
-        options = if current_component.present?
-                    { resource: model }
-                  else
-                    { resource: model, permissions_holder: model }
-                  end
-        action_authorized_link_to(:comment, commentable_path, options) do
+        action_authorized_link_to(:comment, commentable_path, onboarding_action_params) do
           t("decidim.components.comments.blocked_comments_for_unauthorized_user_warning")
         end
+      end
+
+      def decidim_verifications
+        Decidim::Verifications::Engine.routes.url_helpers
       end
     end
   end
