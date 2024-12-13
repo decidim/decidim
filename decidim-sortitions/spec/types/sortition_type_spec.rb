@@ -111,7 +111,9 @@ module Decidim
       end
 
       context "when the sortition is cancelled" do
-        let(:model) { create(:sortition, :cancelled) }
+        let(:component) { create(:sortition_component) }
+        let(:author) { create(:user, :confirmed, :admin, organization: component.organization) }
+        let(:model) { create(:sortition, :cancelled, component:, author:, cancelled_by_user: author) }
 
         describe "cancelReason" do
           let(:query) { '{ cancelReason { translation(locale: "en")}}' }
@@ -134,6 +136,49 @@ module Decidim
 
           it "returns the user that cancelled the sortition" do
             expect(response["cancelledByUser"]["name"]).to eq(model.cancelled_by_user.name)
+          end
+        end
+
+        context "when participatory space is private" do
+          let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
+          let(:current_component) { create(:sortition_component, participatory_space:) }
+          let(:model) { create(:sortition, component: current_component) }
+          let(:query) { "{ id }" }
+
+          it "returns nothing" do
+            expect(response).to be_nil
+          end
+        end
+
+        context "when participatory space is private but transparent" do
+          let(:participatory_space) { create(:assembly, :private, :transparent, organization: current_organization) }
+          let(:current_component) { create(:sortition_component, :published, participatory_space:) }
+          let(:model) { create(:sortition, component: current_component) }
+          let(:query) { "{ id }" }
+
+          it "returns the object" do
+            expect(response).to include("id" => model.id.to_s)
+          end
+        end
+
+        context "when participatory space is not published" do
+          let(:participatory_space) { create(:participatory_process, :with_steps, :unpublished, organization: current_organization) }
+          let(:current_component) { create(:sortition_component, participatory_space:) }
+          let(:model) { create(:sortition, component: current_component) }
+          let(:query) { "{ id }" }
+
+          it "returns nothing" do
+            expect(response).to be_nil
+          end
+        end
+
+        context "when component is not published" do
+          let(:current_component) { create(:sortition_component, :unpublished, organization: current_organization) }
+          let(:model) { create(:sortition, component: current_component) }
+          let(:query) { "{ id }" }
+
+          it "returns nothing" do
+            expect(response).to be_nil
           end
         end
       end

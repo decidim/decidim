@@ -101,6 +101,8 @@ module Decidim
               resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
                 delete :destroy_all
               end
+              post :publish_all
+              post :unpublish_all
             end
           end
 
