@@ -15,6 +15,7 @@ module Decidim
   # Base module for the initiatives engine.
   module Initiatives
     autoload :ApplicationFormPDF, "decidim/initiatives/application_form_pdf"
+    autoload :ValidatableAuthorizations, "decidim/initiatives/validatable_authorizations"
 
     include ActiveSupport::Configurable
 
