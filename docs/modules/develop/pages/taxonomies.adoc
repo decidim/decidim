@@ -137,7 +137,7 @@ component.settings(:global) do |settings|
 
 See `decidim-core/lib/decidim/has_taxonomy_settings.rb`.
 
-Provides methods to extract available taxonomies and filters according to the components settings' configuration. These are intended to be used in places where the user has to assign taxonomies to a resource. It is included in the `Component`` model.
+Provides methods to extract available taxonomies and filters according to the components settings' configuration. These are intended to be used in places where the user has to assign taxonomies to a resource. It is included in the `Component` model.
 
 === The concern HasTaxonomyFormAttributes
 
