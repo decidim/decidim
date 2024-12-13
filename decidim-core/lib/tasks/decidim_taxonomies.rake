@@ -147,7 +147,7 @@ namespace :decidim do
     end
 
     def log
-      @log ||= Logger.new($stdout, formatter: proc { |severity, time, progname, msg|
+      @log ||= Logger.new($stdout, formatter: proc { |_severity, _time, _progname, msg|
         "#{msg}\n"
       })
     end
