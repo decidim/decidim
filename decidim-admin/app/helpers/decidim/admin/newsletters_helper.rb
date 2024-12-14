@@ -46,6 +46,7 @@ module Decidim
                    select_id: "#{manifest_name}-spaces-select",
                    field_name: "#{child_form.object_name}[ids][]",
                    options_for_select: spaces,
+                   selected_values: selected_options(:participatory_space_types)[manifest_name] || [],
                    placeholder: t("select_recipients_to_deliver.select_#{manifest_name}", scope: "decidim.admin.newsletters"),
                    class: "mb-2"
                  }))

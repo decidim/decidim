@@ -10,8 +10,12 @@ module Decidim
         render :show
       end
 
-      def options_for_select
+      def cell_options_for_select
         context[:options_for_select] || []
+      end
+
+      def selected_values
+        context[:selected_values] || []
       end
 
       def select_id
