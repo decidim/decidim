@@ -4,7 +4,6 @@ module Decidim
   class NotificationsDigestSendingDecider
     class << self
       def must_notify?(user, time = Time.now.utc)
-
         # TODO: seems that .blank? applies to first time users
         # as well as existing users
         # find another way of determining whether a user is new
@@ -25,7 +24,7 @@ module Decidim
           elsif user.digest_sent_at.present?
             return true if user.digest_sent_at <= (time - 1.day).end_of_day
             return true if user.digest_sent_at <= (time - 2.days).end_of_day
-            return false if user.digest_sent_at = (time - 1.hour)
+            return false if (user.digest_sent_at = (time - 1.hour))
           else
             return false
           end
