@@ -2,6 +2,7 @@ import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
 document.addEventListener("DOMContentLoaded", () => {
   const isOnSelectRecipientsPage = window.location.pathname.includes("/select_recipients_to_deliver");
+
   const selectors = {
     form: document.querySelector(".form.newsletter_deliver"),
     sendToAllUsers: document.querySelector("#newsletter_send_to_all_users"),
@@ -27,19 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
     ].filter(Boolean)
   };
 
-  const toggleVisibility = (element, condition) => {
-    if (element) {
-      element.classList.toggle("hidden", !condition);
-    }
-  };
+  const toggleVisibility = (element, condition) => element?.classList.toggle("hidden", !condition);
 
   const updateHiddenField = (input) => {
     const hiddenInput = selectors.form?.elements[input.name];
     if (hiddenInput) {
       hiddenInput.value = input.checked
         ? "1"
-        : "0";
-    }
+        : "0";}
   };
 
   const ensureAtLeastOneOptionSelected = () => {
@@ -50,13 +46,14 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const updateConfirmRecipientsLink = () => {
-    if (selectors.confirmRecipientsLink) {
-      const params = new URLSearchParams(new FormData(selectors.form));
-      selectors.confirmRecipientsLink.setAttribute(
-        "href",
-        `${selectors.confirmRecipientsLink.dataset.baseUrl}?${params.toString()}`
-      );
+    if (!selectors.confirmRecipientsLink) {
+      return;
     }
+    const params = new URLSearchParams(new FormData(selectors.form));
+    selectors.confirmRecipientsLink.setAttribute(
+      "href",
+      `${selectors.confirmRecipientsLink.dataset.baseUrl}?${params.toString()}`
+    );
   };
 
   const updateRecipientsCount = async () => {
@@ -81,11 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const resetIdsForParticipatorySpaces = () => {
-    const selectInputs = document.querySelectorAll('.form.newsletter_deliver select[name$="[ids][]"]');
-    selectInputs.forEach((select) => {
-      const tomSelectInstance = select.tomselect;
-      if (tomSelectInstance) {
-        tomSelectInstance.clear();
+    document.querySelectorAll('.form.newsletter_deliver select[name$="[ids][]"]').forEach((select) => {
+      if (select.tomselect) {
+        select.tomselect.clear();
       } else {
         select.value = [];
       }
@@ -94,12 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const resetVerificationTypes = () => {
     const select = document.querySelector("#verification-types-select");
-    if (select) {
-      const tomSelectInstance = select.tomselect;
-      if (tomSelectInstance) {
-        tomSelectInstance.clear();
-      }
-    }
+    select?.tomselect?.clear();
     const hiddenInput = selectors.form?.elements["newsletter[verification_types]"];
     if (hiddenInput) {
       hiddenInput.value = "";
@@ -111,9 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const isAllUsersChecked = selectors.sendToAllUsers?.checked;
     const isAnyChecked = [...inputs.radioButtons, ...inputs.checkboxes].some((input) => input?.checked);
 
-    selectors.deliverButton?.style.setProperty("display", isAllUsersChecked
-      ? "inline-block"
-      : "none");
+    toggleVisibility(selectors.deliverButton, isAllUsersChecked);
     toggleVisibility(selectors.confirmRecipientsLink, !isAllUsersChecked && isAnyChecked);
     toggleVisibility(
       selectors.participatorySpacesForSelect,
@@ -125,50 +113,32 @@ document.addEventListener("DOMContentLoaded", () => {
     updateRecipientsCount();
   };
 
+  const handleRadioChange = (radio) => {
+    inputs.radioButtons.forEach((rb) => (rb.checked = rb === radio));
+    inputs.checkboxes.forEach((checkbox) => (checkbox.checked = false));
+    resetVerificationTypes();
+    resetIdsForParticipatorySpaces();
+    updateFormState();
+  };
+
+  const handleCheckboxChange = () => {
+    inputs.radioButtons.forEach((radio) => (radio.checked = false));
+    resetVerificationTypes();
+    resetIdsForParticipatorySpaces();
+    updateFormState();
+  };
+
   const attachEventListeners = () => {
     inputs.radioButtons.forEach((radio) =>
-      radio.addEventListener("change", () => {
-        inputs.radioButtons.forEach((rb) => (rb.checked = rb === radio));
-        inputs.checkboxes.forEach((checkbox) => (checkbox.checked = false));
-        updateFormState();
-      })
+      radio.addEventListener("change", () => handleRadioChange(radio))
     );
 
     inputs.checkboxes.forEach((checkbox) =>
-      checkbox.addEventListener("change", () => {
-        inputs.radioButtons.forEach((radio) => (radio.checked = false));
-        updateFormState();
-      })
+      checkbox.addEventListener("change", handleCheckboxChange)
     );
 
     selectors.form?.addEventListener("change", updateFormState);
   };
-
-  inputs.radioButtons.forEach((radio) =>
-    radio.addEventListener("change", () => {
-      if (radio.checked) {
-        inputs.checkboxes.forEach((checkbox) => {
-          checkbox.checked = false;
-          updateHiddenField(checkbox);
-        });
-        resetVerificationTypes();
-        resetIdsForParticipatorySpaces();
-        updateFormState();
-      }
-    })
-  );
-
-  inputs.checkboxes.forEach((checkbox) =>
-    checkbox.addEventListener("change", () => {
-      inputs.radioButtons.forEach((radio) => {
-        radio.checked = false;
-        updateHiddenField(radio);
-      });
-      resetVerificationTypes();
-      resetIdsForParticipatorySpaces();
-      updateFormState();
-    })
-  );
 
   const initializeTomSelect = () => {
     document.querySelectorAll("[data-multiselect='true']").forEach((select) => {
@@ -188,8 +158,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   if (isOnSelectRecipientsPage) {
-    updateFormState();
     attachEventListeners();
     initializeTomSelect();
+    updateFormState();
   }
 });
