@@ -8,6 +8,8 @@ module Decidim
     class ConferenceDiplomaPDF
       include ActionView::Helpers::AssetUrlHelper
       include Shakapacker::Helper
+      include Decidim::TranslatableAttributes
+      include Decidim::SanitizeHelper
 
       def initialize(conference, user)
         @conference = conference
@@ -85,21 +87,22 @@ module Decidim
       end
 
       def add_text
-        composer.text("Dolor rerum veniam in possimus.", style: :h1, position: [0, box_height - 130])
-        composer.text("Certificate of Attendance", style: :h2, position: [0, box_height - 170])
-        composer.formatted_text([
-                                  "This is to certify that ",
-                                  { text: "Gary Herzog", style: :bold },
-                                  " has attended and taken part in the ",
+        composer.text(translated_attribute(conference.title), style: :h1, position: [0, box_height - 130])
+        composer.text(I18n.t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.certificate_of_attendance"),
+                      style: :h2, position: [0, box_height - 170])
 
-                                  { text: "Dolor rerum veniam in possimus.", style: :bold },
-                                  " held at the on ",
-                                  { text: "01/11/2024 - 03/01/2025", style: :bold }
-                                ], style: :text, position: [0, box_height - 200])
+        text = I18n.t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.certificate_of_attendance_description",
+                      user: @user.name,
+                      title: translated_attribute(@conference.title),
+                      location: @conference.location,
+                      start: I18n.l(@conference.start_date, format: :decidim_short),
+                      end: I18n.l(@conference.end_date, format: :decidim_short))
+
+        composer.formatted_text([decidim_sanitize(text, strip_tags: true)], style: :text, width: box_width - 50, position: [10, box_height - 200])
       end
 
       def add_logo
-        attached_image = conference.attached_uploader(:main_logo).variant(:thumb)
+        attached_image = conference.attached_uploader(:main_logo).variant(:original)
         logo = document.images.add(StringIO.new(attached_image.download))
 
         frame = ::HexaPDF::Layout::Frame.new(box_x, box_y, box_width, box_height)
@@ -122,10 +125,8 @@ module Decidim
         aspect_ratio = metadata[:width] / metadata[:height]
 
         if metadata[:width] >= metadata[:height]
-          max_width = 160
           max_height = (max_width / aspect_ratio).round
         else
-          max_height = 120
           max_width = (max_height / aspect_ratio).round
         end
 
@@ -137,20 +138,23 @@ module Decidim
       # Attach a signature image to which we compute the aspect ratio, so that the image is not getting blurred or skewed
       # Place 2 texts around the signature, at the nearest possible places, and we do a lot of calculations to counter the mix of geometries
       def add_signature
-        attached_image = conference.attached_uploader(:signature).variant(:thumb)
+        attached_image = conference.attached_uploader(:signature).variant(:original)
         logo = document.images.add(StringIO.new(attached_image.download))
 
-        frame = ::HexaPDF::Layout::Frame.new(box_x, box_y, box_width, 150)
-
         max_height, max_width = compute_dimensions(attached_image, 80, 60)
+        frame = ::HexaPDF::Layout::Frame.new(box_x, box_y, box_width, max_height)
 
         box_x = (frame.width - max_width) / 2
 
-        attendence = composer.text("Attendance verified by", style: :bold, position: [0, frame.height])
+        composer.text(I18n.t("decidim.conferences.admin.send_conference_diploma_mailer.diploma_user.attendance_verified_by"),
+                      style: :bold, position: [0, frame.height + max_height + 20])
 
-        image = composer.image(logo, position: [box_x, frame.height - attendence.height - max_height], width: max_width, height: max_height)
+        composer.text([
+          I18n.l(conference.sign_date, format: :decidim_short),
+          conference.signature_name
+        ].join(", "), style: :text, position: [0, frame.height + max_height])
 
-        composer.text("06/11/2024, LUPU AL", style: :text, position: [0, frame.height - attendence.height - (2 * (image.height + max_height))])
+        composer.image(logo, position: [box_x, frame.height], width: max_width, height: max_height)
       end
 
       def font
@@ -164,7 +168,6 @@ module Decidim
       def load_font(path)
         document.fonts.add(Decidim::Core::Engine.root.join("app/packs/fonts/decidim/").join(path))
       end
-
     end
   end
 end

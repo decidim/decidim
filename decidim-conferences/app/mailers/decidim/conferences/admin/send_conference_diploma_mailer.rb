@@ -46,7 +46,7 @@ module Decidim
             render_to_string(pdf: "conference-diploma",
                              template: "decidim/conferences/admin/send_conference_diploma_mailer/diploma_user",
                              layout: "decidim/diploma"),
-            orientation: "Landscape"
+            with_html_string: true
           ).to_inline_css
         end
       end
