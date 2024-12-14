@@ -53,6 +53,9 @@ en:
               previous: "&lsaquo; Prev"
               show: Show answers
             empty: No answers yet
+            export:
+              answer:
+                title: 'Response #%{number}'
             export_response:
               title: survey_user_answers_%{token}
             index:
@@ -80,17 +83,6 @@ en:
           edit:
             save: Save
             title: Edit questionnaire
-          export:
-            completion: Completion
-            created_at: Answered on
-            ip_hash: IP Hash
-            question:
-              response: 'Response #%{count}'
-              title:
-                one: 1 response
-                other: "%{count} total responses"
-            session_token: User identifier
-            user_status: User status
           form:
             add_question: Add question
             add_separator: Add separator
