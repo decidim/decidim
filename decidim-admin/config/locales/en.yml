@@ -808,6 +808,8 @@ en:
           select_users_for_participatory_space: Send newsletter to one or more participatory spaces
           select_users_general: Send general newsletter
           select_verification_types: Choose verification methods
+          send_to_all_users: Send to all users
+          send_to_verified_users: Send to verified users
           title: Select recipients to deliver
           verified_users_help: Sends a newsletter to all confirmed and verified users via any selected verification method.
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."

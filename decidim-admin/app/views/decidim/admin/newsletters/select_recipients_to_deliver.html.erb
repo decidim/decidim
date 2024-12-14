@@ -26,14 +26,14 @@
                   <div class="cell small-12" id="send_newsletter_to_all_users">
                     <%= label_tag "newsletter_send_to_all_users" do %>
                       <%= radio_button_tag "newsletter[send_to_all_users]", "1", @form.send_to_all_users == true, id: "newsletter_send_to_all_users" %>
-                      <%= t(".send_to_all_users", default: "Send to all users") %>
+                      <%= t(".send_to_all_users") %>
                     <% end %>
                     <span class="help-text"><%= t(".all_users_help", default: "Sends a newsletter to all users.") %></span>
                   </div>
                   <div class="cell small-12" id="send_newsletter_to_verified_users">
                     <%= label_tag "newsletter_send_to_verified_users" do %>
                       <%= radio_button_tag "newsletter[send_to_verified_users]", "1", @form.send_to_verified_users == true, id: "newsletter_send_to_verified_users" %>
-                      <%= t(".send_to_verified_users", default: "Send to verified users") %>
+                      <%= t(".send_to_verified_users") %>
                     <% end %>
                     <span class="help-text"><%= t(".verified_users_help", default: "Sends a newsletter to all confirmed and verified users via any selected verification method.") %></span>
                   </div>
