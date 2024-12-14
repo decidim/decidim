@@ -209,7 +209,7 @@ describe "Admin manages newsletters" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
-            find_by_id("newsletter_send_to_all_users").set(true)
+            choose("Send to all users")
           end
 
           within "#recipients_count" do
@@ -248,7 +248,7 @@ describe "Admin manages newsletters" do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
 
           within(".newsletter_deliver") do
-            check("Send to verified users")
+            choose("Send to verified users")
             select_verification_type(verification_type_first.name) # Одна авторизация передается как строка
           end
 
@@ -284,7 +284,7 @@ describe "Admin manages newsletters" do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
 
           within(".newsletter_deliver") do
-            check("Send to verified users")
+            choose("Send to verified users")
             select_verification_type([verification_type_first.name, verification_type_last.name]) # Несколько авторизаций передаются как массив
           end
 
@@ -326,9 +326,7 @@ describe "Admin manages newsletters" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         perform_enqueued_jobs do
           within(".newsletter_deliver") do
-            uncheck("Send to all users")
             check("Send to followers")
-            uncheck("Send to participants")
             select_all
           end
 
@@ -364,8 +362,6 @@ describe "Admin manages newsletters" do
         it "has a working user counter" do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
           expect(page).to have_content("This newsletter will be send to 5 users.")
-          uncheck("Send to all users")
-          uncheck("Send to participants")
           check("Send to followers")
           select_all
           expect(page).to have_content("This newsletter will be send to 3 users.")
@@ -385,10 +381,7 @@ describe "Admin manages newsletters" do
       it "has a working user counter" do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
         expect(page).to have_content("This newsletter will be send to 5 users.")
-        uncheck("Send to all users")
-        uncheck("Send to followers")
-        uncheck("Send to verified users")
-        uncheck("Send to private members")
+        check("Send to participants")
 
         expect(find("input[name='newsletter[send_to_participants]']")).to be_checked
 
@@ -400,10 +393,7 @@ describe "Admin manages newsletters" do
 
       it "sends to participants", :slow do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
-        uncheck("Send to all users")
-        uncheck("Send to followers")
-        uncheck("Send to verified users")
-        uncheck("Send to private members")
+        check("Send to participants")
 
         expect(find("input[name='newsletter[send_to_participants]']")).to be_checked
 
@@ -449,10 +439,8 @@ describe "Admin manages newsletters" do
 
       it "sends to followers and participants", :slow do
         visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
-        uncheck("Send to all users")
-        uncheck("Send to private members")
-        check("Send to followers")
         check("Send to participants")
+        check("Send to followers")
         select_all
 
         within "#recipients_count" do
@@ -488,9 +476,7 @@ describe "Admin manages newsletters" do
 
         it "sends to private members", :slow do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
-          uncheck("Send to all users")
-          uncheck("Send to followers")
-          uncheck("Send to participants")
+          check("Send to private members")
 
           expect(find("input[name='newsletter[send_to_private_members]']")).to be_checked
 
@@ -521,9 +507,7 @@ describe "Admin manages newsletters" do
       context "when the private members count is 0" do
         it "does not display any recipients", :slow do
           visit decidim_admin.select_recipients_to_deliver_newsletter_path(newsletter)
-          uncheck("Send to all users")
-          uncheck("Send to followers")
-          uncheck("Send to participants")
+          check("Send to private members")
 
           expect(find("input[name='newsletter[send_to_private_members]']")).to be_checked
 

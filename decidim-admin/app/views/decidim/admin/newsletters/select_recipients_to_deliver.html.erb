@@ -24,7 +24,6 @@
                 </div>
                 <div class="grid-x mb-4">
                   <div class="cell small-12" id="send_newsletter_to_all_users">
-                    <%#= hidden_field_tag :send_to_all_users, "0" %>
                     <%= label_tag "newsletter_send_to_all_users" do %>
                       <%= radio_button_tag "newsletter[send_to_all_users]", "1", @form.send_to_all_users == true, id: "newsletter_send_to_all_users" %>
                       <%= t(".send_to_all_users", default: "Send to all users") %>
@@ -32,7 +31,6 @@
                     <span class="help-text"><%= t(".all_users_help", default: "Sends a newsletter to all users.") %></span>
                   </div>
                   <div class="cell small-12" id="send_newsletter_to_verified_users">
-                    <%#= hidden_field_tag :send_to_verified_users, "0" %>
                     <%= label_tag "newsletter_send_to_verified_users" do %>
                       <%= radio_button_tag "newsletter[send_to_verified_users]", "1", @form.send_to_verified_users == true, id: "newsletter_send_to_verified_users" %>
                       <%= t(".send_to_verified_users", default: "Send to verified users") %>

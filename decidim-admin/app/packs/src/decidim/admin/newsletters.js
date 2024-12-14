@@ -30,6 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const toggleVisibility = (element, condition) => element?.classList.toggle("hidden", !condition);
 
+  const updateDeliverButtonVisibility = () => {
+    const sendToAllUsersChecked = selectors.form?.elements["newsletter[send_to_all_users]"]?.value === "1";
+
+    toggleVisibility(selectors.deliverButton, sendToAllUsersChecked);
+    toggleVisibility(selectors.confirmRecipientsLink, !sendToAllUsersChecked);
+  };
+
   const updateHiddenField = (input) => {
     const hiddenInput = selectors.form?.elements[input.name];
     if (hiddenInput) {
@@ -161,5 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
     attachEventListeners();
     initializeTomSelect();
     updateFormState();
+    updateDeliverButtonVisibility();
   }
 });
