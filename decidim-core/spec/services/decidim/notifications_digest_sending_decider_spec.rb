@@ -37,6 +37,17 @@ describe Decidim::NotificationsDigestSendingDecider do
       end
     end
 
+    context "with a user who has not received a notifications digest mail but has no notifications" do
+      let(:current_time) { Time.now.utc }
+      let(:user) { build(:user, notifications_sending_frequency: :daily, digest_sent_at: nil) }
+
+      describe "must_notify?" do
+        it "returns false" do
+          expect(subject.must_notify?(user, current_time)).to be(false)
+        end
+      end
+    end
+
     context "with a user who has received a notifications digest mail two days ago" do
       let(:current_time) { Time.now.utc }
       let(:user) { build(:user, notifications_sending_frequency: :daily, digest_sent_at: current_time - 2.days) }
