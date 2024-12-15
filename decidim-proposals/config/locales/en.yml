@@ -1,6 +1,5 @@
 ---
 en:
-
   activemodel:
     attributes:
       collaborative_draft:
@@ -13,8 +12,6 @@ en:
         title: Title
         user_group_id: Create collaborative draft as
       proposal:
-        latitude: Latitude
-        longitude: Longitude
         address: Address
         answer: Answer
         answered_at: Answered at
@@ -23,6 +20,8 @@ en:
         decidim_proposals_proposal_state_id: State
         decidim_scope_id: Scope
         has_address: Has address
+        latitude: Latitude
+        longitude: Longitude
         scope_id: Scope
         state: State
         suggested_hashtags: Suggested hashtags
