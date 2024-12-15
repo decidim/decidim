@@ -3,14 +3,38 @@
   <% content_for(:subtitle) { t("my_data", scope: "layouts.decidim.user_profile") } %>
 
   <div class="download-your-data">
-    <span class="uppercase font-semibold text-gray-2 mb-4 block">
-      <%= t("download_data", scope:"decidim.download_your_data.show") %>
-    </span>
-    <p class="help-text pb-8">
-      <%= t("download_data_description_html", scope:"decidim.download_your_data.show" , user_email: current_user.email) %>
-    </p>
-    <div class="form__wrapper-block">
-      <%= button_to t("request_data", scope:"decidim.download_your_data.show"), export_download_your_data_path, class: "button button__sm md:button__lg button__secondary mr-auto !ml-0", data: { disable: true } %>
-    </div>
+    <table class="w-full">
+      <span class="uppercase font-semibold text-gray-2 mb-4 block">
+        <%= t("download_data", scope:"decidim.download_your_data.show") %>
+      </span>
+
+      <p class="help-text pb-8">
+        <%= t("download_data_description_1", scope:"decidim.download_your_data.show") %>
+      </p>
+      <p class="help-text pb-8">
+        <%= t("download_data_description_2", scope:"decidim.download_your_data.show") %>
+      </p>
+
+      <thead class="uppercase">
+        <th class="text-left"><%= t("type", scope:"decidim.download_your_data.show") %></th>
+        <th class="w-[20%]"><%= t("expiration", scope:"decidim.download_your_data.show") %></th>
+        <th class="w-[15%] text-left"><%= t("action", scope:"decidim.download_your_data.show") %></th>
+      </thead>
+      <tbody>
+        <% if @exports.first_page? %>
+          <tr>
+            <td colspan="2" class="font-bold">
+              <%= t("download_your_data", scope:"decidim.download_your_data.show") %>
+            </td>
+            <td class="text-left py-4">
+              <%= button_to t("request_data", scope:"decidim.download_your_data.show"), export_download_your_data_path, class: "button button__sm button__secondary mr-auto !ml-0", data: { disable: true } %>
+            </td>
+          </tr>
+        <% end %>
+        <%= render partial: "decidim/download_your_data/export", collection: @exports %>
+      </tbody>
+    </table>
+    <%= decidim_paginate(@exports) %>
   </div>
+
 <% end %>

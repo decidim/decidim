@@ -59,6 +59,7 @@ module Decidim
             resources :components do
               collection do
                 put :reorder
+                get :manage_trash, to: "components#manage_trash"
               end
               resource :permissions, controller: "component_permissions"
               member do
@@ -66,6 +67,8 @@ module Decidim
                 put :unpublish
                 get :share
                 put :hide
+                patch :soft_delete
+                patch :restore
               end
               resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
               resources :exports, only: :create

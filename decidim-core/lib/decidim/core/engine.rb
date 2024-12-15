@@ -245,6 +245,34 @@ module Decidim
         app.config.action_mailer.deliver_later_queue_name = :mailers
       end
 
+      initializer "decidim_core.active_storage", before: "active_storage.configs" do |app|
+        next if app.config.active_storage.service_urls_expire_in.present?
+
+        # Ensure that the ActiveStorage URLs are valid long enough because with
+        # the default configuration they would expire in 5 minutes which is a
+        # problem:
+        #   a) for the backend blob URL replacement
+        #   and
+        #   b) for caching
+        #
+        # Note the limitations for each storage service regarding the signed URL
+        # expiration times. This limitation has to be also considered when
+        # defining a caching strategy, otherwise e.g. images or files may not
+        # display correctly when caching is enabled.
+        #
+        # ActiveStorage disk service (default): no limitation
+        #
+        # S3: maximum is 7 days from the creation of the URL
+        # https://docs.aws.amazon.com/AmazonS3/latest/userguide/PresignedUrlUploadObject.html
+        #
+        # Google: maximum is 7 days (604800 seconds)
+        # https://cloud.google.com/storage/docs/access-control/signed-urls
+        #
+        # Azure: no limitation
+        # https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview#best-practices-when-using-sas
+        app.config.active_storage.service_urls_expire_in = 7.days
+      end
+
       initializer "decidim_core.signed_global_id", after: "global_id" do |app|
         next if app.config.global_id.fetch(:expires_in, nil).present?
 
@@ -424,7 +452,7 @@ module Decidim
 
       initializer "decidim_core.content_processors" do |_app|
         Decidim.configure do |config|
-          config.content_processors += [:user, :user_group, :hashtag, :link]
+          config.content_processors += [:user, :user_group, :hashtag, :link, :blob]
         end
       end
 

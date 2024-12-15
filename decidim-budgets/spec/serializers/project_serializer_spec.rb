@@ -4,13 +4,14 @@ require "spec_helper"
 
 module Decidim::Budgets
   describe ProjectSerializer do
-    let(:budget) { create(:budget) }
+    let(:budget) { create(:budget, component:) }
     let(:serialized) { subject.run }
     let(:attachment) { create(:attachment, attached_to: project) }
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: project.participatory_space) }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
     let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: budget.component.organization) }
     let(:project) { create(:project, budget:, taxonomies:) }
+    let(:component) { create(:budgets_component) }
 
     subject { described_class.new(project) }
 
@@ -52,10 +53,6 @@ module Decidim::Budgets
         expect(serialized[:budget_amount]).to eq(project.budget_amount)
       end
 
-      it "includes count of confirmed votes" do
-        expect(serialized[:confirmed_votes]).to eq(project.confirmed_orders_count)
-      end
-
       it "includes comment count" do
         expect(serialized[:comments]).to eq(project.comments.count)
       end
@@ -90,12 +87,41 @@ module Decidim::Budgets
     end
 
     context "when subscribed to the serialize event" do
+      before do
+        I18n.backend.store_translations(
+          :en,
+          decidim: {
+            open_data: {
+              help: {
+                projects: {
+                  test_field: "Test field for projects serializer subscription"
+                }
+              }
+            }
+          }
+        )
+      end
+
       ActiveSupport::Notifications.subscribe("decidim.serialize.budgets.project_serializer") do |_event_name, data|
         data[:serialized_data][:test_field] = "Resource class: #{data[:resource].class}"
       end
 
       it "includes new field" do
         expect(serialized[:test_field]).to eq("Resource class: Decidim::Budgets::Project")
+      end
+    end
+
+    context "when show votes is disabled" do
+      it "does not include count of confirmed votes" do
+        expect(serialized[:confirmed_votes]).to be_nil
+      end
+    end
+
+    context "when show votes is enabled" do
+      let(:component) { create(:budgets_component, :with_show_votes_enabled) }
+
+      it "includes count of confirmed votes" do
+        expect(serialized[:confirmed_votes]).to eq(project.confirmed_orders_count)
       end
     end
   end

@@ -28,6 +28,11 @@ module Decidim
             resource :publish, controller: "participatory_process_publications", only: [:create, :destroy]
             resources :copies, controller: "participatory_process_copies", only: [:new, :create]
 
+            member do
+              patch :soft_delete
+              patch :restore
+            end
+
             resources :steps, controller: "participatory_process_steps" do
               resource :activate, controller: "participatory_process_step_activations", only: [:create, :destroy]
               collection do
@@ -45,6 +50,7 @@ module Decidim
             resource :export, controller: "participatory_process_exports", only: :create
 
             collection do
+              get :manage_trash, to: "participatory_processes#manage_trash"
               resources :imports, controller: "participatory_process_imports", only: [:new, :create]
             end
             resource :landing_page, only: [:edit, :update], controller: "participatory_process_landing_page" do
@@ -64,6 +70,11 @@ module Decidim
                 put :publish
                 put :unpublish
                 get :share
+                patch :soft_delete
+                patch :restore
+              end
+              collection do
+                get :manage_trash, to: "components#manage_trash"
                 put :hide
               end
               resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
@@ -91,6 +102,8 @@ module Decidim
                 resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
                   delete :destroy_all
                 end
+                post :publish_all
+                post :unpublish_all
               end
             end
 

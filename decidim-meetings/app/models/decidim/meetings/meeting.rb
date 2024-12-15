@@ -27,6 +27,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::Publicable
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       TYPE_OF_MEETING = { in_person: 0, online: 10, hybrid: 20 }.freeze
       REGISTRATION_TYPES = { registration_disabled: 0, on_this_platform: 10, on_different_platform: 20 }.freeze

@@ -409,6 +409,7 @@ Decidim.configure do |config|
   # config.password_similarity_length = Decidim::Env.new("DECIDIM_PASSWORD_SIMILARITY_LENGTH", 4).to_i
   # config.denied_passwords = Decidim::Env.new("DECIDIM_DENIED_PASSWORDS").to_array(separator: ", ")
   # config.allow_open_redirects = Decidim::Env.new("DECIDIM_ALLOW_OPEN_REDIRECTS").present?
+  # config.enable_etiquette_validator = Decidim::Env.new("DECIDIM_ENABLE_ETIQUETTE_VALIDATOR", true).present?
 end
 
 # if Decidim.module_installed? :api

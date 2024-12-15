@@ -37,6 +37,7 @@ module Decidim
     include Decidim::TranslatableResource
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::SoftDeletable
     include Decidim::ShareableWithToken
 
     CREATED_BY = %w(city_council public others).freeze
@@ -61,11 +62,6 @@ module Decidim
              foreign_type: "decidim_participatory_space_type",
              dependent: :destroy,
              as: :participatory_space
-
-    has_many :members,
-             foreign_key: "decidim_assembly_id",
-             class_name: "Decidim::AssemblyMember",
-             dependent: :destroy
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
@@ -122,6 +118,11 @@ module Decidim
 
     def self.log_presenter_class_for(_log)
       Decidim::Assemblies::AdminLog::AssemblyPresenter
+    end
+
+    # This is a overwrite for Decidim::ParticipatorySpaceResourceable.visible?
+    def visible?
+      published? && (!private_space? || (private_space? && is_transparent?))
     end
 
     def hashtag

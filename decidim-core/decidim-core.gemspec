@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   }
   s.summary = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.required_ruby_version = "~> 3.3.0"
 
   s.files = Dir.chdir(__dir__) do
@@ -62,6 +62,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-rails_csrf_protection", "~> 1.0"
   s.add_dependency "omniauth-twitter", "~> 1.4"
   s.add_dependency "paper_trail", "~> 15.1"
+  s.add_dependency "paranoia", "~> 3.0.0"
   s.add_dependency "pg", "~> 1.4.0", "< 2"
   s.add_dependency "pg_search", "~> 2.2"
   s.add_dependency "premailer-rails", "~> 1.10"
