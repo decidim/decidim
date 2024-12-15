@@ -122,6 +122,9 @@ module Decidim
 
       def compute_dimensions(attached_image, max_width, max_height)
         metadata = attached_image.blob.metadata
+
+        return max_height, max_width unless metadata.has_key?(:width) && metadata.has_key?(:height)
+
         aspect_ratio = metadata[:width] / metadata[:height]
 
         if metadata[:width] >= metadata[:height]
