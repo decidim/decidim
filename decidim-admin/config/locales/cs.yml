@@ -784,7 +784,6 @@ cs:
           confirm_delete: Opravdu chcete tento zpravodaj smazat?
           followers: 'sledující '
           has_been_sent_to: 'Byl poslán: '
-          no_scopes: Žádné oblasti působnosti
           not_sent: Neodesláno
           participants: 'účastníci '
           segmented_to: 'Rozděleno na %{subject}: '
@@ -799,13 +798,10 @@ cs:
           confirm_deliver: Opravdu chcete tento zpravodaj doručit? Tuto akci nelze vrátit zpět.
           deliver: Doručit zpravodaj
           followers_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
-          none: Žádný
           participants_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
           recipients_count: Tento zpravodaj bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
-          scopes_help: Odešle zpravodaj uživatelům, kteří mají některý z vybraných oblastí působnosti aktivovaný v nastavení svého účtu "Moje zájmy".
-          select_scopes: Filtrovat uživatele, kteří aktivovali jakoukoli vybranou oblast působnosti v nastavení jejich účtu Moje Zájmy.
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
-          select_users: Vybrat, kterým uživatelům chcete poslat zpravodaj
+          send_to_all_users: Odeslat všem uživatelům
           title: Vybrat příjemce k doručení
           warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
