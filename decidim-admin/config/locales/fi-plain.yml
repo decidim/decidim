@@ -774,7 +774,6 @@ fi-pl:
           confirm_delete: Haluatko varmasti poistaa tämän uutiskirjeen?
           followers: 'seuraajat '
           has_been_sent_to: 'Lähetettiin vastaanottajille: '
-          no_scopes: Ei teemoja
           not_sent: Ei lähetetty
           participants: 'osallistujat '
           segmented_to: 'Kohdennettu vastaanottajille %{subject}: '
@@ -789,13 +788,10 @@ fi-pl:
           confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi peruuttaa.
           deliver: Toimita uutiskirje
           followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallisuustiloista.
-          none: Ei kenellekään
           participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallisuustiloista.
           recipients_count: Tämä uutiskirje lähetetään <strong id='recipients_count'>%{count}</strong>:lle käyttäjälle.
-          scopes_help: Lähetä uutiskirje käyttäjille, jotka ovat valinneet minkä tahansa teeman heidän tilinsä "Kiinnostuksen kohteet" -asetuksesta.
-          select_scopes: Suodata käyttäjiä, jotka ovat valinneet minkä tahansa teeman tilinsä "Kiinnostuksen kohteet" -asetuksesta.
           select_spaces: Valitse tilat, joille haluat kohdistaa uutiskirjeen
-          select_users: Valitse käyttäjät, joille haluat lähettää uutiskirjeen
+          send_to_all_users: Lähetä kaikille käyttäjille
           title: Valitse vastaanottajat
           warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet asetuksen <em>Haluan vastaanottaa uutiskirjeitä</em> tilinsä ilmoitusasetuksista."
         send:
