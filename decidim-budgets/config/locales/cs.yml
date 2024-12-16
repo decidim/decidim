@@ -393,7 +393,6 @@ cs:
       help:
         projects:
           address: Adresa projektu (pokud existuje)
-          budget: Do které skupiny projektů (např. „rozpočet 2021“) patří tento projekt
           budget_amount: Celková částka rozpočtu pro tento projekt
           comments: Počet komentářů, které tento projekt obdržel
           component: Složka, do které projekt patří,
