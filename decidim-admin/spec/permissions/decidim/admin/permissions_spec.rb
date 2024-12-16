@@ -354,6 +354,54 @@ describe Decidim::Admin::Permissions do
     end
   end
 
+  describe "soft delete" do
+    let(:action_subject) { :resource }
+    let(:action_name) { :soft_delete }
+    let(:context) { { trashable_deleted_resource: resource } }
+
+    context "when resource exists and is not trashed" do
+      let(:resource) { instance_double("Resource", deleted?: false) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when resource exists and is trashed" do
+      let(:resource) { instance_double("Resource", deleted?: true) }
+
+      it { is_expected.to be false }
+    end
+  end
+
+  describe "restore" do
+    let(:action_subject) { :resource }
+    let(:action_name) { :restore }
+    let(:context) { { trashable_deleted_resource: resource } }
+
+    context "when resource exists and is trashed" do
+      let(:resource) { instance_double("Resource", deleted?: true) }
+
+      it { is_expected.to be true }
+    end
+
+    context "when resource exists and is not trashed" do
+      let(:resource) { instance_double("Resource", deleted?: false) }
+
+      it { is_expected.to be false }
+    end
+  end
+
+  describe "manage trash" do
+    let(:action_subject) { :resource }
+    let(:action_name) { :manage_trash }
+    let(:context) { { trashable_deleted_resource: resource } }
+
+    context "when any resource" do
+      let(:resource) { instance_double("Resource") }
+
+      it { is_expected.to be true }
+    end
+  end
+
   shared_examples "can perform any action for" do |action_subject_name|
     let(:action_subject) { action_subject_name }
 

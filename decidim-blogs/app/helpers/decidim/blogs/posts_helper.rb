@@ -18,6 +18,11 @@ module Decidim
         body = translated_attribute(post.body)
         CGI.unescapeHTML html_truncate(body, max_length:)
       end
+
+      def render_schema_org_blog_posting_post(post)
+        exported_post = Decidim::Exporters::JSON.new([post], SchemaOrgBlogPostingPostSerializer).export.read
+        JSON.pretty_generate(JSON.parse(exported_post).first)
+      end
     end
   end
 end

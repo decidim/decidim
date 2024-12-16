@@ -4,94 +4,26 @@
 <div class="card" id="processes">
   <%= admin_filter_selector %>
 </div>
+
 <div class="table-scroll">
   <table class="table-list">
-    <thead>
-      <tr>
-        <th>
-          <%= sort_link(query, :title, t("models.participatory_process.fields.title", scope: "decidim.admin")) %>
-        </th>
-        <th>
-          <%= sort_link(query, :created_at, t("models.participatory_process.fields.created_at", scope: "decidim.admin"), default_order: :desc) %>
-        </th>
-        <th>
-          <%= sort_link(query, :private_space, t("models.participatory_process.fields.private", scope: "decidim.admin")) %>
-        </th>
-        <th class="table-list__actions">
-          <%= sort_link(query, :published_at, t("models.participatory_process.fields.published", scope: "decidim.admin")) %>
-        </th>
-        <th>
-          <%= t("models.participatory_process.fields.actions", scope: "decidim.admin") %>
-        </th>
-      </tr>
-    </thead>
+    <%= render partial: "processes_thead" %>
     <tbody>
-      <% @participatory_processes.each do |process| %>
-        <tr>
-          <td>
-            <% if process.promoted? %>
-              <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
-            <% end %>
-            <% if allowed_to? :update, :process, process: process %>
-              <%= link_to translated_attribute(process.title), edit_participatory_process_path(process) %><br>
-            <% elsif allowed_to? :read, :component, process: process %>
-              <%= link_to translated_attribute(process.title), components_path(process) %><br>
-            <% else %>
-              <%= translated_attribute(process.title) %>
-            <% end %>
-          </td>
-          <td class="table-list__date">
-            <%= l process.created_at, format: :short %>
-          </td>
-          <td class="table-list__state">
-            <% if process.private_space? %>
-              <span><%= t("participatory_processes.index.private", scope: "decidim.admin") %></span>
-            <% else %>
-              <span><%= t("participatory_processes.index.public", scope: "decidim.admin") %></span>
-            <% end %>
-          </td>
-          <td class="table-list__state">
-            <% if process.published? %>
-              <span class="label success !text-sm"><%= t("participatory_processes.index.published", scope: "decidim.admin") %></span>
-            <% else %>
-              <span class="label alert !text-sm"><%= t("participatory_processes.index.unpublished", scope: "decidim.admin") %></span>
-            <% end %>
-          </td>
-          <td class="table-list__actions">
-
-            <% if allowed_to? :update, :process, process: process %>
-              <%= icon_link_to "pencil-line", edit_participatory_process_path(process), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
-            <% else %>
-              <span class="action-space icon"></span>
-            <% end %>
-
-            <% if allowed_to? :create, :process, process: process %>
-              <%= icon_link_to "download-line", participatory_process_export_path(process), t("actions.export", scope: "decidim.admin"), method: :post, class: "action-icon--export" %>
-            <% else %>
-              <span class="action-space icon"></span>
-            <% end %>
-
-            <% if allowed_to? :create, :process, process: process %>
-              <%= icon_link_to "file-copy-line", new_participatory_process_copy_path(process), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
-            <% else %>
-              <span class="action-space icon"></span>
-            <% end %>
-
-            <% if allowed_to? :preview, :process, process: process %>
-              <%= icon_link_to "eye-line", decidim_participatory_processes.participatory_process_path(process), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
-            <% else %>
-              <span class="action-space icon"></span>
-            <% end %>
-
-            <% if allowed_to? :read, :moderation, process: process %>
-              <%= icon_link_to "flag-line", moderations_path(process), t("actions.moderate", scope: "decidim.admin"), class: "action-icon--moderate" %>
-            <% else %>
-              <span class="action-space icon"></span>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
+    <%= render partial: "decidim/participatory_processes/admin/participatory_processes/process_row",
+               collection: @participatory_processes,
+               as: :process,
+               locals: { view: :index } %>
     </tbody>
   </table>
 </div>
+<div class="card mt-4">
+  <%= link_to manage_trash_participatory_processes_path, class: "flex items-center underline text-secondary" do %>
+    <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+    <%= t("actions.view_deleted_processes", scope: "decidim.admin") %>
+    <span class="ml-2">
+      <%= icon_with_tooltip("information-line", t("tooltips.deleted_processes_info", scope: "decidim.admin")) %>
+    </span>
+  <% end %>
+</div>
+
 <%= decidim_paginate @participatory_processes %>

@@ -69,8 +69,7 @@ module Decidim
           {
             title: parsed_title,
             body: parsed_body,
-            category: form.category,
-            scope: form.scope,
+            taxonomizations: form.taxonomizations,
             component: form.component,
             address: form.address,
             latitude: form.latitude,

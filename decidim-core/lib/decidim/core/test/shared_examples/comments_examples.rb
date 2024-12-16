@@ -38,7 +38,7 @@ shared_examples "comments" do
     expect(page).to have_css(".comment", minimum: 1)
 
     within ".comment-order-by" do
-      click_on "Best rated"
+      select "Best rated", from: "order"
     end
 
     expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
@@ -54,7 +54,7 @@ shared_examples "comments" do
       expect(page).to have_css(".comment", minimum: 1)
 
       within("#accordion-#{single_comment.id}") do
-        expect(page).to have_content "Hide reply"
+        expect(page).to have_content "1 answer"
       end
     end
 
@@ -120,6 +120,24 @@ shared_examples "comments" do
       expect(page).to have_no_css(".add-comment form")
       expect(page).to have_css(".comment-thread")
     end
+
+    context "when user visit a mobile browser" do
+      before do
+        driven_by(:iphone)
+        switch_to_host(organization.host)
+        visit decidim.root_path
+        click_on "Accept all"
+        visit resource_path
+      end
+
+      it "does not show the add comment button" do
+        expect(page).to have_no_content("Add comment")
+      end
+
+      it "shows a message so user can Log in or create an account" do
+        expect(page).to have_content("Log in or create an account to add your comment.")
+      end
+    end
   end
 
   context "when authenticated" do
@@ -130,6 +148,60 @@ shared_examples "comments" do
 
     it "shows form to add comments to user" do
       expect(page).to have_css(".add-comment form")
+    end
+
+    context "when user visit a computer browser" do
+      before do
+        switch_to_host(organization.host)
+        visit decidim.root_path
+        login_as user, scope: :user
+        visit resource_path
+      end
+
+      it "does not show a modal with form to add comments" do
+        expect(page).to have_no_css(".fullscreen")
+      end
+
+      it "does not show the add comment button" do
+        expect(page).to have_no_content("Add comment")
+      end
+
+      it "allows user to comment" do
+        find("textarea[name='comment[body]']").set("Test comment with a computer.")
+        click_on "Publish comment"
+        expect(page).to have_content("Test comment with a computer.")
+      end
+    end
+
+    context "when user visit a mobile browser" do
+      before do
+        driven_by(:iphone)
+        switch_to_host(organization.host)
+        visit decidim.root_path
+        click_on "Accept all"
+        login_as user, scope: :user
+        visit resource_path
+      end
+
+      it "shows the add comment button" do
+        expect(page).to have_content("Add comment")
+      end
+
+      it "does not show a message so user can Log in or create an account" do
+        expect(page).to have_no_content("Log in or create an account to add your comment.")
+      end
+
+      it "shows a modal with the comment form" do
+        click_on "Add comment"
+        expect(page).to have_content("Add comment")
+        expect(page).to have_content("1000 characters left")
+        expect(page).to have_css(".add-comment form")
+        expect(page).to have_css(".fullscreen")
+
+        find("textarea[name='comment[body]']").set("Test comment with a mobile phone.")
+        click_on "Publish comment"
+        expect(page).to have_content("Test comment with a mobile phone.")
+      end
     end
 
     context "when user is not authorized to comment" do
@@ -560,19 +632,29 @@ shared_examples "comments" do
         let(:new_reply_body) { "Hey, I just jumped inside the thread!" }
         let!(:new_reply) { create(:comment, commentable: thread, root_commentable: commentable, body: new_reply_body) }
 
-        it "displays the hide button" do
+        it "displays a way to to display content" do
           visit current_path
           within "#comment_#{thread.id}" do
-            expect(page).to have_content("Hide reply")
+            expect(page).to have_content("1 answer")
+            click_on "1 answer"
             expect(page).to have_content(new_reply_body)
+            click_on "Reply", match: :first
+            expect(page).to have_content("Publish reply")
+            find("textarea[name='comment[body]']").set("Test reply comments.")
+            click_on "Publish reply"
+            expect(page).to have_content("Show 2 replies")
+            click_on "Show 2 replies"
+            expect(page).to have_content("Test reply comments.")
           end
         end
 
-        it "displays the show button" do
+        it "displays a way hide content" do
           visit current_path
           within "#comment_#{thread.id}" do
-            click_on "Hide reply"
-            expect(page).to have_content("Show reply")
+            expect(page).to have_content("1 answer")
+            click_on "1 answer"
+            expect(page).to have_content("1 answer")
+            click_on "1 answer"
             expect(page).to have_no_content(new_reply_body)
           end
         end
@@ -583,9 +665,10 @@ shared_examples "comments" do
           it "displays the show button" do
             visit current_path
             within "#comment_#{thread.id}" do
-              click_on "Hide 3 replies"
-              expect(page).to have_content("Show 3 replies")
+              expect(page).to have_content("3 answers")
               expect(page).to have_no_content(new_reply_body)
+              click_on "3 answers"
+              expect(page).to have_content(new_reply_body)
             end
           end
         end
@@ -619,7 +702,7 @@ shared_examples "comments" do
     end
 
     context "when the user has verified organizations" do
-      let(:user_group) { create(:user_group, :verified) }
+      let(:user_group) { create(:user_group, :verified, organization:) }
       let(:content) { "This is a new comment" }
 
       before do
@@ -633,7 +716,6 @@ shared_examples "comments" do
           field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
           field.set " "
           field.native.send_keys content
-          select user_group.name, from: "Comment as"
           click_on "Publish comment"
         end
 
@@ -747,6 +829,20 @@ shared_examples "comments" do
               expect(page).to have_content("Edited")
             end
           end
+
+          it "has only one edit modal" do
+            expect(page).to have_css("#editCommentModal#{comment.id}", visible: :hidden, count: 1)
+            3.times do |index|
+              sleep 2
+              within "#comment_#{comment.id}" do
+                page.find("[id^='dropdown-trigger']").click
+                click_on "Edit"
+              end
+              fill_in "edit_comment_#{comment.id}", with: " This comment has been edited #{1 + index} times"
+              click_on "Send"
+            end
+            expect(page).to have_css("#editCommentModal#{comment.id}", visible: :all, count: 1)
+          end
         end
       end
     end
@@ -801,29 +897,6 @@ shared_examples "comments" do
 
           expect(page).to have_css(".add-comment form")
         end
-
-        it "works according to the setting in the commentable" do
-          if commentable.comments_have_alignment?
-            page.find("[data-toggle-ok=true]").click
-            expect(page.find("[data-toggle-ok=true]")["aria-pressed"]).to eq("true")
-            expect(page.find("[data-toggle-meh=true]")["aria-pressed"]).to eq("false")
-            expect(page.find("[data-toggle-ko=true]")["aria-pressed"]).to eq("false")
-            expect(page.find("div[data-opinion-toggle] .selected-state", visible: false)).to have_content("Your opinion about this topic is positive")
-
-            within "form#new_comment_for_#{commentable.commentable_type.demodulize}_#{commentable.id}" do
-              field = find("#add-comment-#{commentable.commentable_type.demodulize}-#{commentable.id}")
-              field.set " "
-              field.native.send_keys "I am in favor about this!"
-              click_on "Publish comment"
-            end
-
-            within "#comments" do
-              expect(page).to have_css "span.success.label", text: "In favor", wait: 20
-            end
-          else
-            expect(page).to have_no_css("[data-toggle-ok=true]")
-          end
-        end
       end
     end
 
@@ -852,10 +925,11 @@ shared_examples "comments" do
             skip "Commentable comments has no votes" unless commentable.comments_have_votes?
 
             visit current_path
-            expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/, visible: :all)
             page.find("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up").click
-            expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/)
-            expect(page).to have_css("#comment_#{comment_on_comment.id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/)
+            expect(page).to have_css("#comment_#{comments[0].id} > [data-comment-footer] > .comment__footer-grid .comment__votes .js-comment__votes--up", text: /1/, visible: :all)
+            expect(page).to have_css("#comment_#{comment_on_comment.id} > [data-comment-footer] >.comment__footer-grid .comment__votes .js-comment__votes--up", text: /0/,
+                                                                                                                                                                visible: :all)
           end
         end
       end
@@ -1031,7 +1105,6 @@ shared_examples "comments blocked" do
   end
 
   context "when authenticated" do
-    let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization:) }
     let!(:comments) { create_list(:comment, 3, commentable:) }
 
@@ -1045,7 +1118,7 @@ shared_examples "comments blocked" do
         visit resource_path
         expect(page).to have_link("Comment")
         page.find("a", text: "Comment").click
-        fill_in "Comment", with: "Test admin commenting in a closed comment."
+        find("textarea[name='comment[body]']").set("Test admin commenting in a closed comment.")
         click_on "Publish comment"
         expect(page).to have_content("Test admin commenting in a closed comment.")
 
@@ -1053,7 +1126,7 @@ shared_examples "comments blocked" do
         first("button", text: "Reply").click
         expect(page).to have_css(".comment-thread")
         within first(".comment-thread") do
-          fill_in "Comment", with: "Test admin replying a closed comment."
+          find("textarea[name='comment[body]']").set("Test admin replying a closed comment.")
           click_on "Publish reply"
         end
         expect(page).to have_content("Test admin replying a closed comment.")

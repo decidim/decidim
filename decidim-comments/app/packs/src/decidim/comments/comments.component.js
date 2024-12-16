@@ -12,6 +12,7 @@
 const $ = window.$;
 
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior"
+import { initializeCommentsDropdown } from "../../decidim/comments/comments_dropdown";
 
 export default class CommentsComponent {
   constructor($element, config) {
@@ -43,6 +44,7 @@ export default class CommentsComponent {
           $(".add-comment textarea", this.$element).prop("disabled", false);
         });
       }
+      this._initializeSortDropdown();
     }
   }
 
@@ -131,6 +133,11 @@ export default class CommentsComponent {
         $submit.attr("disabled", "disabled");
         this._stopPolling();
       });
+
+      const $dropdown = $add.find("[data-comments-dropdown]");
+      if ($dropdown.length > 0) {
+        initializeCommentsDropdown($dropdown[0]);
+      }
 
       document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
@@ -316,5 +323,31 @@ export default class CommentsComponent {
     } else {
       $submit.attr("disabled", "disabled");
     }
+  }
+
+  /**
+  * Adds the behaviour for the drop down order section within comments.
+  * @private
+  * @returns {Void} - Returns nothing
+  */
+  _initializeSortDropdown() {
+    const orderSelect = document.querySelector("[data-order-comment-select]");
+
+    if (!orderSelect) {
+      return;
+    }
+    orderSelect.style.fontWeight = "bold";
+    orderSelect.style.borderColor = "black";
+
+    orderSelect.addEventListener("change", function(event) {
+      const selectedOption = orderSelect.querySelector(`[value=${event.target.value}`);
+      const orderUrl = selectedOption.dataset.orderCommentUrl;
+
+      Rails.ajax({
+        url: orderUrl,
+        type: "GET",
+        error: (data) => (console.error(data))
+      });
+    });
   }
 }

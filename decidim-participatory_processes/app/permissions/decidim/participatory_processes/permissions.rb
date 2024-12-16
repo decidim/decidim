@@ -17,6 +17,7 @@ module Decidim
         if permission_action.scope == :public
           public_list_processes_action?
           public_list_process_groups_action?
+          public_list_members_action?
           public_read_process_group_action?
           public_read_process_action?
           return permission_action
@@ -102,6 +103,13 @@ module Decidim
         allow!
       end
 
+      def public_list_members_action?
+        return unless permission_action.action == :list &&
+                      permission_action.subject == :members
+
+        allow!
+      end
+
       def public_read_process_group_action?
         return unless permission_action.action == :read &&
                       permission_action.subject == :process_group &&
@@ -118,6 +126,7 @@ module Decidim
         return disallow! unless can_view_private_space?
         return allow! if user&.admin?
         return allow! if process.published?
+        return allow! if user_can_preview_space?
 
         toggle_allow(can_manage_process?)
       end
@@ -238,6 +247,7 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
@@ -257,9 +267,16 @@ module Decidim
           :process_step,
           :process_user_role,
           :export_space,
+          :share_tokens,
           :import
         ].include?(permission_action.subject)
         allow! if is_allowed
+      end
+
+      def user_can_preview_space?
+        context[:share_token].present? && Decidim::ShareToken.use!(token_for: process, token: context[:share_token], user:)
+      rescue ActiveRecord::RecordNotFound, StandardError
+        nil
       end
 
       def taxonomy_filter_action?

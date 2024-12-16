@@ -1,0 +1,15 @@
+<tr>
+  <td class="title">
+    <span class="js-component-title text-md">
+      <%= link_to component.hierarchy_title, main_component_path(component) if component %>
+    </span>
+    <%= hidden_field_tag "meeting[component_ids][]", component&.id %>
+  </td>
+  <td>
+    <%= with_tooltip(t(".unlink"), class: :top) do %>
+      <button type="button" class="js-remove-component cursor text-secondary text-md font-semibold">
+        <%= icon "unlink" %>
+      </button>
+    <% end %>
+  </td>
+</tr>

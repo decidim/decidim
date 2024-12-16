@@ -47,26 +47,15 @@ on:
 jobs:
   build_app:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     env:
       DATABASE_USERNAME: postgres
       DATABASE_PASSWORD: postgres
       DATABASE_HOST: localhost
-      VALIDATOR_HTML_URI: http://localhost:8888/
-      RUBY_VERSION: ${{ inputs.ruby_version }}
-      DECIDIM_MODULE: ${{ inputs.working-directory }}
-      CODECOV_TOKEN: ${{ inputs.codecov_token }}
-      DECIDIM_BULLET_ENABLED: ${{ inputs.bullet_enabled }}
-      DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
-      DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
-      DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
-      DISPLAY: ":99"
-      CI: "true"
-      SIMPLECOV: "true"
-      SHAKAPACKER_RUNTIME_COMPILE: "false"
-      NODE_ENV: "test"
+      DECIDIM_SPAM_DETECTION_BACKEND_RESOURCE: "memory"
+      DECIDIM_SPAM_DETECTION_BACKEND_USER: "memory"
     services:
       validator:
         image: ghcr.io/validator/validator:latest
@@ -106,6 +95,8 @@ jobs:
         with:
           chromedriver-version: ${{inputs.chrome_version}}
         name: Install Chrome version ${{inputs.chrome_version}}
+      - run: |
+          sudo apt install wkhtmltopdf
       - uses: actions/cache@v4
         id: app-cache
         with:
@@ -123,13 +114,20 @@ jobs:
           ${{ inputs.test_command }}
         name: RSpec
         working-directory: ${{ inputs.working-directory }}
-        continue-on-error: true
-      - run: |
-          sudo Xvfb -ac $DISPLAY -screen 0 1920x1084x24 > /dev/null 2>&1 & # optional
-          ${{ inputs.test_command }}
-        name: RSpec Retry
-        if: failure() && github.run_attempt < 2
-        working-directory: ${{ inputs.working-directory }}
+        env:
+          VALIDATOR_HTML_URI: http://localhost:8888/
+          RUBY_VERSION: ${{ inputs.ruby_version }}
+          DECIDIM_MODULE: ${{ inputs.working-directory }}
+          CODECOV_TOKEN: ${{ inputs.codecov_token }}
+          DECIDIM_BULLET_ENABLED: ${{ inputs.bullet_enabled }}
+          DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
+          DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
+          DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
+          DISPLAY: ":99"
+          CI: "true"
+          SIMPLECOV: "true"
+          SHAKAPACKER_RUNTIME_COMPILE: "false"
+          NODE_ENV: "test"
       - uses: codecov/codecov-action@v4
         name: Upload coverage
         with:

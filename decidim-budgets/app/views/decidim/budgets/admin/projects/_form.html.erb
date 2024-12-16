@@ -19,15 +19,13 @@
         </div>
       <% end %>
 
-      <% if current_component.has_subscopes? %>
-        <div class="row column">
-          <%= scopes_select_field form, :decidim_scope_id, root: budget.scope %>
-        </div>
+      <% if @form.taxonomy_filters&.any? %>
+        <% @form.taxonomy_filters.each do |filter| %>
+          <div class="row column">
+            <%= filter_taxonomy_items_select_field form, :taxonomies, filter %>
+          </div>
+        <% end %>
       <% end %>
-
-      <div class="row column">
-        <%= form.categories_select :decidim_category_id, current_participatory_space.categories, include_blank: true, disable_parents: false %>
-      </div>
 
     <% if Decidim::Budgets.enable_proposal_linking %>
       <div class="row column">

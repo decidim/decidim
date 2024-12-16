@@ -10,8 +10,6 @@ module Decidim::Meetings
     let(:current_user) { create(:user, :admin, :confirmed, organization:) }
     let(:participatory_process) { create(:participatory_process, organization:) }
     let(:current_component) { create(:component, participatory_space: participatory_process, manifest_name: "meetings") }
-    let(:scope) { create(:scope, organization:) }
-    let(:category) { create(:category, participatory_space: participatory_process) }
     let(:address) { "address" }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }
@@ -27,6 +25,9 @@ module Decidim::Meetings
     let(:registrations_enabled) { true }
     let(:available_slots) { 0 }
     let(:registration_terms) { Faker::Lorem.sentence(word_count: 3) }
+    let(:taxonomizations) do
+      2.times.map { build(:taxonomization, taxonomy: create(:taxonomy, :with_parent, organization:), taxonomizable: nil) }
+    end
     let(:form) do
       double(
         invalid?: invalid,
@@ -39,8 +40,6 @@ module Decidim::Meetings
         address:,
         latitude:,
         longitude:,
-        scope:,
-        category:,
         user_group_id:,
         current_user:,
         current_component:,
@@ -54,7 +53,8 @@ module Decidim::Meetings
         clean_type_of_meeting: type_of_meeting,
         online_meeting_url:,
         iframe_embed_type:,
-        iframe_access_level:
+        iframe_access_level:,
+        taxonomizations:
       )
     end
 
@@ -89,14 +89,19 @@ module Decidim::Meetings
         expect(meeting.reload.followers).to include(current_user)
       end
 
-      it "sets the scope" do
+      it "sets the taxonomies" do
         subject.call
-        expect(meeting.scope).to eq scope
+        expect(meeting.taxonomizations).to match_array(taxonomizations)
       end
 
-      it "sets the category" do
-        subject.call
-        expect(meeting.category).to eq category
+      context "when no taxonomizations are set" do
+        let(:taxonomizations) { [] }
+
+        it "taxonomizations are empty" do
+          subject.call
+
+          expect(meeting.taxonomizations).to be_empty
+        end
       end
 
       it "sets the registration_terms" do
@@ -164,21 +169,21 @@ module Decidim::Meetings
       end
 
       it "schedules a upcoming meeting notification job 48h before start time" do
-        meeting = instance_double(Meeting, id: 1, start_time:, participatory_space: participatory_process, author: current_user, persisted?: true)
+        meeting = create(:meeting, start_time:, component: current_component, author: current_user)
         allow(Decidim.traceability)
           .to receive(:create!)
           .and_return(meeting)
 
         expect(meeting).to receive(:valid?)
         expect(meeting).to receive(:publish!)
-        allow(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/1"
+        allow(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/#{meeting.id}"
 
         allow(UpcomingMeetingNotificationJob)
           .to receive(:generate_checksum).and_return "1234"
 
         expect(UpcomingMeetingNotificationJob)
           .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
-          .with(set: start_time - Decidim::Meetings.upcoming_meeting_notification).with(1, "1234")
+          .with(set: start_time - Decidim::Meetings.upcoming_meeting_notification).with(meeting.id, "1234")
 
         allow(Decidim::EventsManager).to receive(:publish).and_return(true)
 
@@ -186,14 +191,14 @@ module Decidim::Meetings
       end
 
       it "does not schedule an upcoming meeting notification if start time is in the past" do
-        meeting = instance_double(Meeting, id: 1, start_time: 2.days.ago, participatory_space: participatory_process, author: current_user, persisted?: true)
+        meeting = create(:meeting, start_time: 2.days.ago, component: current_component, author: current_user)
         allow(Decidim.traceability)
           .to receive(:create!)
           .and_return(meeting)
 
         expect(meeting).to receive(:valid?)
         expect(meeting).to receive(:publish!)
-        allow(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/1"
+        allow(meeting).to receive(:to_signed_global_id).and_return "gid://Decidim::Meetings::Meeting/#{meeting.id}"
 
         expect(UpcomingMeetingNotificationJob).not_to receive(:generate_checksum)
         expect(UpcomingMeetingNotificationJob).not_to receive(:set)

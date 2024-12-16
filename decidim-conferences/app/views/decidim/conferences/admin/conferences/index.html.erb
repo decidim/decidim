@@ -3,61 +3,23 @@
   <%= admin_filter_selector %>
   <div class="table-scroll">
     <table class="table-list">
-      <thead>
-        <tr>
-          <th><%= t("models.conference.fields.title", scope: "decidim.admin") %></th>
-          <th><%= sort_link(query, :created_at, t("models.conference.fields.created_at", scope: "decidim.admin"), default_order: :desc) %></th>
-          <th class="table-list__actions"><%= t("models.conference.fields.published", scope: "decidim.admin") %></th>
-          <th></th>
-        </tr>
-      </thead>
+      <%= render partial: "conferences_thead" %>
       <tbody>
-        <% @conferences.each do |conference| %>
-          <tr>
-            <td>
-              <% if conference.promoted? %>
-                <%= icon_with_tooltip "star-s-fill", t("models.assembly.fields.promoted", scope: "decidim.admin") %>
-              <% end %>
-
-              <% if allowed_to? :update, :conference, conference: conference %>
-                <%= link_to translated_attribute(conference.title), edit_conference_path(conference) %><br>
-              <% elsif allowed_to? :read, :component, conference: conference %>
-                <%= link_to translated_attribute(conference.title), components_path(conference) %><br>
-              <% else %>
-                <%= translated_attribute(conference.title) %>
-              <% end %>
-            </td>
-            <td>
-              <%= l conference.created_at, format: :short %>
-            </td>
-            <td class="table-list__state">
-              <% if conference.published? %>
-                <span class="label !text-sm success"><%= t("conferences.index.published", scope: "decidim.admin") %></span>
-              <% else %>
-                <span class="label !text-sm alert"><%= t("conferences.index.unpublished", scope: "decidim.admin") %></span>
-              <% end %>
-            </td>
-            <td class="table-list__actions">
-              <% if allowed_to? :update, :conference, conference: conference %>
-                <%= icon_link_to "pencil-line", edit_conference_path(conference), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
-              <% end %>
-
-              <% if allowed_to? :create, :conference, conference: conference %>
-                <%= icon_link_to "file-copy-line", new_conference_copy_path(conference), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
-              <% end %>
-
-              <% if allowed_to? :preview, :conference, conference: conference %>
-                <%= icon_link_to "eye-line", decidim_conferences.conference_path(conference), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
-              <% end %>
-
-              <% if allowed_to? :read, :moderation, conference: conference %>
-                <%= icon_link_to "flag-line", moderations_path(conference), t("actions.moderate", scope: "decidim.admin"), class: "action-icon--moderate" %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+        <%= render partial: "decidim/conferences/admin/conferences/conference_row",
+                   collection: @conferences,
+                   as: :conference,
+                   locals: { view: :index } %>
       </tbody>
     </table>
+  </div>
+  <div class="card mt-4">
+    <%= link_to manage_trash_conferences_path, class: "flex items-center underline text-secondary" do %>
+      <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+      <%= t("decidim.admin.actions.view_deleted_conferences") %>
+      <span class="ml-2">
+        <%= icon_with_tooltip("information-line", t("decidim.admin.tooltips.deleted_conferences_info")) %>
+      </span>
+    <% end %>
   </div>
   <%= decidim_paginate @conferences %>
 </div>

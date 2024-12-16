@@ -2,8 +2,7 @@
 
 require "spec_helper"
 require "decidim/api/test/type_context"
-require "decidim/core/test/shared_examples/categorizable_interface_examples"
-require "decidim/core/test/shared_examples/scopable_interface_examples"
+require "decidim/core/test/shared_examples/taxonomizable_interface_examples"
 require "decidim/core/test/shared_examples/attachable_interface_examples"
 require "decidim/core/test/shared_examples/authorable_interface_examples"
 require "decidim/core/test/shared_examples/coauthorable_interface_examples"
@@ -20,9 +19,9 @@ module Decidim
       include_context "with a graphql class type"
       let(:component) { create(:proposal_component) }
       let(:model) { create(:proposal, :with_votes, :with_endorsements, :with_amendments, component:) }
+      let(:organization) { model.organization }
 
-      include_examples "categorizable interface"
-      include_examples "scopable interface"
+      include_examples "taxonomizable interface"
       include_examples "attachable interface"
       include_examples "coauthorable interface"
       include_examples "fingerprintable interface"
@@ -169,6 +168,59 @@ module Decidim
 
         it "returns the meeting of this proposal" do
           expect(response["meeting"]["title"]["translation"]).to eq(model.authors.first.title["en"])
+        end
+      end
+
+      context "when participatory space is private" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :private, organization: current_organization) }
+        let(:current_component) { create(:proposal_component, participatory_space:) }
+        let(:model) { create(:proposal, component: current_component) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when participatory space is private but transparent" do
+        let(:participatory_space) { create(:assembly, :private, :transparent, organization: current_organization) }
+        let(:current_component) { create(:proposal_component, participatory_space:) }
+        let(:model) { create(:proposal, component: current_component) }
+        let(:query) { "{ id }" }
+
+        it "returns the model" do
+          expect(response).to include("id" => model.id.to_s)
+        end
+      end
+
+      context "when participatory space is not published" do
+        let(:participatory_space) { create(:participatory_process, :with_steps, :unpublished, organization: current_organization) }
+        let(:current_component) { create(:proposal_component, participatory_space:) }
+        let(:model) { create(:proposal, component: current_component) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when component is not published" do
+        let(:current_component) { create(:proposal_component, :unpublished, organization: current_organization) }
+        let(:model) { create(:proposal, component: current_component) }
+        let(:query) { "{ id }" }
+
+        it "returns nothing" do
+          expect(response).to be_nil
+        end
+      end
+
+      context "when proposal is moderated" do
+        let(:model) { create(:proposal, :hidden) }
+        let(:query) { "{ id }" }
+        let(:root_value) { model.reload }
+
+        it "returns all the required fields" do
+          expect(response).to be_nil
         end
       end
     end

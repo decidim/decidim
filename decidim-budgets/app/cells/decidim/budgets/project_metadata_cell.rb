@@ -19,11 +19,11 @@ module Decidim
       private
 
       def project_items
-        [voted_item, category_item, scope_item, status_item]
+        [voted_item] + taxonomy_items + [status_item]
       end
 
       def project_items_for_map
-        [voted_item_for_map, category_item, scope_item].compact_blank.map do |item|
+        ([voted_item_for_map] + taxonomy_items).compact_blank.map do |item|
           {
             text: item[:text].to_s.html_safe,
             icon: item[:icon].present? ? icon(item[:icon]).html_safe : nil

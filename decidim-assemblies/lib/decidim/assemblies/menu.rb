@@ -79,6 +79,7 @@ module Decidim
                           active: is_active_link?(manage_component_path(component)) ||
                                   is_active_link?(decidim_admin_assemblies.edit_component_path(current_participatory_space, component)) ||
                                   is_active_link?(decidim_admin_assemblies.edit_component_permissions_path(current_participatory_space, component)) ||
+                                  is_active_link?(decidim_admin_assemblies.component_share_tokens_path(current_participatory_space, component)) ||
                                   participatory_space_active_link?(component),
                           if: component.manifest.admin_engine && user_role_config.component_is_accessible?(component.manifest_name)
           end
@@ -123,12 +124,6 @@ module Decidim
                         if: allowed_to?(:read, :attachment_collection, assembly: current_participatory_space) ||
                             allowed_to?(:read, :attachment, assembly: current_participatory_space)
 
-          menu.add_item :assembly_members,
-                        I18n.t("assembly_members", scope: "decidim.admin.menu.assemblies_submenu"),
-                        decidim_admin_assemblies.assembly_members_path(current_participatory_space),
-                        icon_name: "user-settings-line",
-                        if: allowed_to?(:read, :assembly_member, assembly: current_participatory_space)
-
           menu.add_item :assembly_user_roles,
                         I18n.t("assembly_admins", scope: "decidim.admin.menu.assemblies_submenu"),
                         decidim_admin_assemblies.assembly_user_roles_path(current_participatory_space),
@@ -146,6 +141,13 @@ module Decidim
                         decidim_admin_assemblies.moderations_path(current_participatory_space),
                         icon_name: "flag-line",
                         if: allowed_to?(:read, :moderation, assembly: current_participatory_space)
+
+          menu.add_item :assembly_share_tokens,
+                        I18n.t("menu.share_tokens", scope: "decidim.admin"),
+                        decidim_admin_assemblies.assembly_share_tokens_path(current_participatory_space),
+                        active: is_active_link?(decidim_admin_assemblies.assembly_share_tokens_path(current_participatory_space)),
+                        icon_name: "share-line",
+                        if: allowed_to?(:read, :share_tokens, current_participatory_space:)
         end
       end
 

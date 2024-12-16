@@ -10,6 +10,7 @@ module Decidim
     include Decidim::HasAttachmentCollections
     include Decidim::Participable
     include Decidim::Publicable
+    include Decidim::Taxonomizable
     include Decidim::ScopableParticipatorySpace
     include Decidim::Followable
     include Decidim::HasReference
@@ -20,6 +21,8 @@ module Decidim
     include Decidim::HasUploadValidations
     include Decidim::TranslatableResource
     include Decidim::FilterableResource
+    include Decidim::SoftDeletable
+    include Decidim::ShareableWithToken
 
     translatable_fields :title, :slogan, :short_description, :description, :objectives, :registration_terms
 
@@ -144,6 +147,10 @@ module Decidim
 
     def attachment_context
       :admin
+    end
+
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).conference_url(self, share_token: share_token.token)
     end
 
     # Allow ransacker to search for a key in a hstore column (`title`.`en`)

@@ -12,7 +12,7 @@ concurrency:
 jobs:
   check_title:
     name: Check PR title
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: deepakputhraya/action-pr-title@master
         with:

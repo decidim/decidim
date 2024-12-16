@@ -9,6 +9,7 @@ module Decidim
       def serialize
         super.merge(
           {
+            url: EngineRouter.main_proxy(resource).assembly_url(resource),
             subtitle: resource.subtitle,
             remote_hero_image_url: Decidim::ParticipatoryProcesses::ParticipatoryProcessPresenter.new(resource).hero_image_url,
             remote_banner_image_url: Decidim::Assemblies::AssemblyPresenter.new(resource).banner_image_url,
@@ -22,7 +23,6 @@ module Decidim
             duration: resource.duration,
             participatory_structure: resource.participatory_structure,
             target: resource.target,
-            reference: resource.reference,
             decidim_scope_id: resource.decidim_scope_id,
             area: {
               id: resource.area.try(:id),

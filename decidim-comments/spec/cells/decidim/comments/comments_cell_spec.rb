@@ -20,7 +20,7 @@ module Decidim::Comments
         expect(subject).to have_css(".comments-count", text: "1 comment")
         expect(subject).to have_css(".flash.primary.loading-comments", text: "Loading comments ...")
         expect(subject).to have_no_content(comment.body.values.first)
-        expect(subject).to have_css(".add-comment")
+        expect(subject).to have_no_css(".add-comment")
         expect(subject).to have_content("Log in or create an account to add your comment.")
 
         {
@@ -29,7 +29,7 @@ module Decidim::Comments
           older: "Older",
           most_discussed: "Most discussed"
         }.each do |key, title|
-          expect(subject).to have_css("a[href^='/comments?'][href$='&order=#{key}&reload=1']", text: title)
+          expect(subject).to have_css("select#order option[value='#{key}']", text: title)
         end
       end
 
@@ -83,18 +83,6 @@ module Decidim::Comments
 
         it "renders the add comment form" do
           expect(subject).to have_css(".add-comment #new_comment_for_DummyResource_#{commentable.id}")
-        end
-
-        context "when alignment is enabled" do
-          before do
-            allow(commentable).to receive(:comments_have_alignment?).and_return(true)
-          end
-
-          it "renders the alignment buttons" do
-            expect(subject).to have_css("button[data-toggle-ok]")
-            expect(subject).to have_css("button[data-toggle-meh]")
-            expect(subject).to have_css("button[data-toggle-ko]")
-          end
         end
 
         context "when comments are blocked" do

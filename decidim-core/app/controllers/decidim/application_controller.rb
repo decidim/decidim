@@ -26,6 +26,7 @@ module Decidim
     include NeedsPasswordChange
     include LinkedResourceReference
     include ActiveStorage::SetCurrent
+    include OnboardingActionMethods
 
     helper Decidim::MetaTagsHelper
     helper Decidim::DecidimFormHelper
@@ -42,6 +43,7 @@ module Decidim
     helper Decidim::TwitterSearchHelper
     helper Decidim::SocialShareButtonHelper
     helper Decidim::FiltersHelper
+    helper Decidim::OnboardingActionHelper
 
     register_permissions(::Decidim::ApplicationController,
                          ::Decidim::Admin::Permissions,
@@ -56,6 +58,12 @@ module Decidim
     layout "layouts/decidim/application"
 
     skip_before_action :disable_http_caching, unless: :user_signed_in?
+
+    def store_share_token
+      session[:share_token] = params[:share_token] if params.has_key?(:share_token)
+
+      session[:share_token].presence
+    end
 
     private
 

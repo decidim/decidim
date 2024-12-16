@@ -14,7 +14,7 @@ env:
 jobs:
   backport:
     name: "Backporter"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 60
     # the below IF structure checks:
     #  - PR repository must be the official Decidim repository ( decidim/decidim )

@@ -1,0 +1,20 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="card">
+  <div class="item_show__header">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+    </h1>
+  </div>
+  <div class="table-scroll">
+    <table class="table-list">
+      <%= render partial: "posts-thead" %>
+      <tbody>
+        <%= render partial: "decidim/blogs/admin/posts/post-tr",
+                   collection: trashable_deleted_collection,
+                   as: :post,
+                   locals: { view: :deleted } %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= decidim_paginate trashable_deleted_collection %>

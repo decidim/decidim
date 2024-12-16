@@ -1,0 +1,43 @@
+= Spam detection Strategy
+
+```ruby
+module SpamDetection::Strategy
+  class Bayes < Base
+    def initialize(options = {})
+      # Add here your configuration, assign your variables
+    end
+
+    def log
+      return unless category
+
+      "The Classification engine marked this as #{category}"
+    end
+
+    def train(category, text)
+      # some call to the original backend
+    end
+
+    # Calling this method without any trained categories will throw an error
+    def untrain(category, content)
+      # some call to the original backend
+    end
+
+    def reset
+      # some call that actually resets the backend data
+    end
+
+    def classify(content)
+      @category, @internal_score = backend.classify_with_score(content)
+      category
+    end
+
+    def score
+      category.presence == "spam" ? 1 : 0
+    end
+
+    private
+
+    # your implementation
+  end
+end
+```

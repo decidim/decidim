@@ -13,11 +13,11 @@
 
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <section class="layout-main__section">
-    <h2 class="h4"><%= category.present? ? decidim_escape_translated(category.name) : t("decidim.accountability.results.home_header.global_status") %></h2>
+    <h2 class="h4"><%= taxonomy.present? ? decidim_escape_translated(taxonomy.name) : t("decidim.accountability.results.home_header.global_status") %></h2>
   </section>
 
   <section id="results" class="layout-main__section">
     <%= cell "decidim/accountability/results", results %>
-    <%= decidim_paginate results, order_start_time: params[:order_start_time], with_scope: params.dig(:filter, :with_scope) %>
+    <%= decidim_paginate results, order_start_time: params[:order_start_time] %>
   </section>
 <% end %>

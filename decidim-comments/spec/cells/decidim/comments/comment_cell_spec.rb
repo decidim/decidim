@@ -270,13 +270,13 @@ module Decidim::Comments
         end
 
         it "renders an action_authorized button" do
-          expect(subject).to have_css("[data-dialog-open=\"authorizationModal\"]")
+          expect(subject).to have_css("[data-onboarding-action=\"vote_comment\"]")
         end
       end
 
       context "when commentable has no permissions set for the vote_comment action" do
         it "renders a plain button" do
-          expect(subject).to have_no_css("[data-dialog-open=\"authorizationModal\"]")
+          expect(subject).to have_no_css("[data-onboarding-action=\"vote_comment\"]")
         end
       end
     end

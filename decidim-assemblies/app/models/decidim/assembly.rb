@@ -37,6 +37,8 @@ module Decidim
     include Decidim::TranslatableResource
     include Decidim::HasArea
     include Decidim::FilterableResource
+    include Decidim::SoftDeletable
+    include Decidim::ShareableWithToken
 
     CREATED_BY = %w(city_council public others).freeze
 
@@ -60,11 +62,6 @@ module Decidim
              foreign_type: "decidim_participatory_space_type",
              dependent: :destroy,
              as: :participatory_space
-
-    has_many :members,
-             foreign_key: "decidim_assembly_id",
-             class_name: "Decidim::AssemblyMember",
-             dependent: :destroy
 
     has_many :components, as: :participatory_space, dependent: :destroy
 
@@ -123,6 +120,11 @@ module Decidim
       Decidim::Assemblies::AdminLog::AssemblyPresenter
     end
 
+    # This is a overwrite for Decidim::ParticipatorySpaceResourceable.visible?
+    def visible?
+      published? && (!private_space? || (private_space? && is_transparent?))
+    end
+
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end
@@ -161,7 +163,11 @@ module Decidim
     end
 
     def self.ransackable_scopes(_auth_object = nil)
-      [:with_any_area, :with_any_scope, :with_any_type]
+      [:with_any_taxonomies, :with_any_type]
+    end
+
+    def shareable_url(share_token)
+      EngineRouter.main_proxy(self).assembly_url(self, share_token: share_token.token)
     end
 
     def self.ransackable_attributes(auth_object = nil)

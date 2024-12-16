@@ -6,6 +6,7 @@ module Decidim
     # title, description and any other useful information to render a custom result.
     class Result < Accountability::ApplicationRecord
       include Decidim::Resourceable
+      include Decidim::Taxonomizable
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
       include Decidim::HasComponent
@@ -20,6 +21,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       component_manifest_name "accountability"
 
@@ -44,6 +46,8 @@ module Decidim
         D: :description,
         datetime: :start_date
       )
+
+      geocoded_by :address
 
       def self.log_presenter_class_for(_log)
         Decidim::Accountability::AdminLog::ResultPresenter
@@ -83,7 +87,7 @@ module Decidim
       end
 
       def self.ransackable_scopes(_auth_object = nil)
-        [:with_category, :with_scope]
+        [:with_any_taxonomies]
       end
 
       ransacker :id_string do
@@ -105,7 +109,7 @@ module Decidim
       def self.ransackable_associations(auth_object = nil)
         return [] unless auth_object&.admin?
 
-        %w(category status scope)
+        %w(taxonomies status)
       end
 
       private
