@@ -379,7 +379,6 @@ ca:
       help:
         projects:
           address: La localització (adreça) del projecte (si en té)
-          budget: 'A quin grup de projectes (per exemple: "Pressupostos 2021") pertany aquest projecte'
           budget_amount: La quantitat total de pressupost per a aquest projecte
           comments: El número de comentaris que ha rebut aquest projecte
           component: El component al qual pertany el projecte
