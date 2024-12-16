@@ -39,6 +39,7 @@ fr-CA:
     components:
       add_comment_form:
         account_message: Connectez-vous ou créez un compte pour ajouter votre commentaire.
+        add_comment: Ajouter un commentaire
         form:
           body:
             label: Commentaire
@@ -48,6 +49,7 @@ fr-CA:
           submit_root_comment: Publier le commentaire
           user_group_id:
             label: Commenter en tant que
+            your_profile: Votre profil
         opinion:
           label: Votre avis sur ce sujet
           negative: Négatif
