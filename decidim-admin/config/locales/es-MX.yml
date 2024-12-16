@@ -906,12 +906,26 @@ es-MX:
         destroy:
           error: Se ha producido un error al eliminar un usuario privado para este espacio participativo.
           success: El acceso de usuarios privados del espacio participativo se eliminado con éxito.
+        edit:
+          title: Editar participante privada del espacio de participación.
+          update: Actualizar
         index:
           import_via_csv: Importar vía csv
+          publish_all: Publicar todo
           title: Usuario privado de espacio participativo.
+          unpublish_all: Despublicar todo
         new:
           create: Crear
           title: Nuevo usuario privado en el espacio participativo.
+        publish_all:
+          error: Se ha producido un error al publicar todas las participantes privadas de este espacio de participación.
+          success: Se han publicado correctamente todas las participantes privadas de este espacio de participación
+        unpublish_all:
+          error: Se ha producido un error al despublicar todas las participantes privadas de este espacio de participación.
+          success: Se han despublicado correctamente todas las participantes privadas de este espacio de participación
+        update:
+          error: Se ha producido un error actualizando una participante privada de este espacio de participación.
+          success: Se ha actualizado correctamente el espacio de participación privado
       participatory_space_private_users_csv_imports:
         create:
           invalid: Hubo un problema al leer el archivo CSV. Por favor, asegúrate de haber seguido las instrucciones.
