@@ -43,6 +43,7 @@ Decidim.register_component(:blogs) do |component|
     exports.collection do |component_instance|
       Decidim::Blogs::Post
         .not_hidden
+        .published
         .where(component: component_instance)
         .includes(component: { participatory_space: :organization })
     end
