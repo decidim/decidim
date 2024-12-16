@@ -372,7 +372,6 @@ ja:
       help:
         projects:
           address: プロジェクトのアドレス (もしあれば)
-          budget: 'このプロジェクトが属するプロジェクトグループ (例: "2021 Budget")'
           budget_amount: このプロジェクトの予算の合計
           comments: このプロジェクトが受け取ったコメント数
           component: プロジェクトが属するコンポーネント
