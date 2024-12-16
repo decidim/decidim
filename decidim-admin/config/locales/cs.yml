@@ -765,6 +765,10 @@ cs:
           preview: 'Náhled šablony: %{template_name}'
           use_template: Použít tuto šablonu
       newsletters:
+        confirm_recipients:
+          email: E-mail
+          name: Název
+          title: Potvrdit příjemce
         create:
           error: Při vytváření tohoto zpravodaje došlo k chybě.
           success: Zpravodaj byl úspěšně vytvořen. Před odesláním si jej zkontrolujte.
@@ -786,9 +790,12 @@ cs:
           has_been_sent_to: 'Byl poslán: '
           not_sent: Neodesláno
           participants: 'účastníci '
+          private_members: 'soukromí členové '
           segmented_to: 'Rozděleno na %{subject}: '
           subscribed_count: 'Přihlášeno:'
           title: Zpravodaje
+          verification_types: 'Typy ověření: %{types}'
+          verified_users: Ověření uživatelé
         new:
           save: Uložit
           title: Nový zpravodaj
@@ -796,13 +803,24 @@ cs:
           all_spaces: Vše
           all_users_help: Poslat Zpravodaj všem potvrzeným uživatelům.
           confirm_deliver: Opravdu chcete tento zpravodaj doručit? Tuto akci nelze vrátit zpět.
+          confirm_recipients: Potvrdit příjemce
           deliver: Doručit zpravodaj
           followers_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří sledují všechny vybrané participační prostory v seznamu.
           participants_help: Odešle zpravodaj všem potvrzeným uživatelům, kteří se zúčastnili některého z vybraných participačních prostorů v seznamu.
+          private_members_help: Odešle newsletter všem potvrzeným uživatelům, kteří byli přidáni do vybraných soukromých participačních prostor.
           recipients_count: Tento zpravodaj bude odeslán <strong id='recipients_count'>%{count}</strong> uživatelům.
+          select_assemblies: Vybrat shromáždění
+          select_conferences: Vybrat konference
+          select_initiatives: Vybrat iniciativy
+          select_participatory_processes: Vybrat participační procesy
           select_spaces: Vybrat mezery pro rozdělení zpravodaje
+          select_users_for_participatory_space: Poslat newsletter na jeden nebo více participačních prostor
+          select_users_general: Odeslat obecný newsletter
+          select_verification_types: Zvolte ověřovací metody
           send_to_all_users: Odeslat všem uživatelům
+          send_to_verified_users: Poslat ověřeným uživatelům
           title: Vybrat příjemce k doručení
+          verified_users_help: Odešle newsletter všem potvrzeným a ověřeným uživatelům prostřednictvím zvolené metody ověřování.
           warning: "<strong> Pozor: </strong> Tento zpravodaj bude zasílán pouze uživatelům, kteří si aktivovali <em> chci dostávat zpravodaj </em> v nastavení oznámení."
         send:
           no_recipients: Žádní příjemci pro tento výběr.
