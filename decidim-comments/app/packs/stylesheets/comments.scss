@@ -54,7 +54,7 @@
   @apply rounded-lg border-2 border-background-5 p-3 pl-6;
 
   &.top-comment {
-    border-color: #3e4c5c;
+    @apply border-gray-2;
   }
 
   &__header {
