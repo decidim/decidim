@@ -774,7 +774,6 @@ ca:
           confirm_delete: Segur que vols suprimir aquest butlletí?
           followers: 'seguidores '
           has_been_sent_to: 'Ha estat enviat a: '
-          no_scopes: Sense àmbits
           not_sent: No enviat
           participants: 'participants '
           segmented_to: 'Segmentat a %{subject}: '
@@ -789,13 +788,10 @@ ca:
           confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
-          none: Cap
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
           recipients_count: Aquest bulleti s'enviarà a <strong id='recipients_count'>%{count}</strong> participants.
-          scopes_help: Envia el butlletí als usuaris que tinguin qualsevol dels àmbits seleccionats activat als paràmetres "Els meus interessos" del seu compte.
-          select_scopes: Filtra per als usuaris que hagin activat qualsevol àmbit seleccionat a la configuració "Els meus interessos" del seu compte.
           select_spaces: Selecciona espais per segmentar el butlletí
-          select_users: Selecciona a quines participants vols enviar el butlletí de notícies
+          send_to_all_users: Envia a totes les participants
           title: Selecciona les destinatàries a lliurar
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         send:
