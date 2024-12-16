@@ -145,7 +145,7 @@ describe Decidim::Proposals::Admin::UpdateProposal do
       end
 
       context "when galleries are allowed" do
-        it_behaves_like "admin manages resource gallery for proposals" do
+        it_behaves_like "admin manages resource gallery for resources" do
           let(:component) { create(:proposal_component, :with_attachments_allowed) }
           let!(:resource) { proposal }
           let(:command) { described_class.new(form, resource) }

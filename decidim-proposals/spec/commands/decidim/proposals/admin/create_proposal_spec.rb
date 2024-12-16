@@ -233,7 +233,7 @@ module Decidim
             end
 
             context "when galleries are allowed" do
-              it_behaves_like "admin creates resource gallery for proposals" do
+              it_behaves_like "admin creates resource gallery for resources" do
                 let(:component) { create(:proposal_component, :with_attachments_allowed) }
                 let(:command) { described_class.new(form) }
                 let(:resource_class) { Decidim::Proposals::Proposal }

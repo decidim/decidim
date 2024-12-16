@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "admin creates resource gallery for proposals" do
+shared_examples "admin creates resource gallery for resources" do
   context "when uploading images" do
     let(:uploaded_files) do
       [
@@ -36,7 +36,7 @@ shared_examples "admin creates resource gallery for proposals" do
   end
 end
 
-shared_examples "admin manages resource gallery for proposals" do
+shared_examples "admin manages resource gallery for resources" do
   context "when managing images" do
     let(:uploaded_files) do
       [
