@@ -352,7 +352,6 @@ de:
       help:
         projects:
           address: Projektadresse (falls vorhanden)
-          budget: Zu welcher Projektgruppe (z.B. "Budget 2021") dieses Projekt gehört
           budget_amount: Der Gesamtbetrag des Budgets für dieses Projekt
           comments: Die Anzahl der Kommentare, die dieses Projekt erhalten hat
           component: Komponente, zu der dieses Projekt gehört
