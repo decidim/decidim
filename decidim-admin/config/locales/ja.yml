@@ -769,7 +769,6 @@ ja:
           confirm_delete: このニュースレターを削除してもよろしいですか？
           followers: 'フォロワー '
           has_been_sent_to: '送信先: '
-          no_scopes: スコープなし
           not_sent: 送信されていません
           participants: '参加者 '
           segmented_to: '%{subject}にセグメント : '
@@ -784,13 +783,9 @@ ja:
           confirm_deliver: このニュースレターを配信してもよろしいですか？この操作は元に戻せません。
           deliver: ニュースレターを配信する
           followers_help: リスト内の選択した参加型スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
-          none: なし
           participants_help: 選択した参加型スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
-          scopes_help: アカウントの「私の興味」設定で選択したスコープのいずれかを有効にしているユーザーにニュースレターを送信します。
-          select_scopes: アカウントの「趣味」設定で選択したスコープを有効にしているユーザーをフィルタリングします。
           select_spaces: ニュースレターをセグメント化するスペースを選択
-          select_users: ニュースレターを送信したいユーザーを選択してください
           title: 配信する宛先を選択
           warning: "<strong>注意:</strong> このニュースレターは、通知設定で <em>ニュースレターを受信したい</em> ユーザーにのみ送信されます。"
         send:
