@@ -580,7 +580,6 @@ pt:
           confirm_delete: Tem certeza de que deseja eliminar este boletim informativo?
           followers: 'seguidores '
           has_been_sent_to: 'Foi enviado para: '
-          no_scopes: Sem âmbitos
           not_sent: Não enviado
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
@@ -595,13 +594,10 @@ pt:
           confirm_deliver: Tem a certeza de que deseja enviar este boletim informativo? Esta ação não pode ser desfeita.
           deliver: Entregar boletim informativo
           followers_help: Envia um boletim informativo para todos os utilizadores confirmados que seguem quaisquer espaços participativos na lista.
-          none: Nenhum
           participants_help: Envia um boletim informativo para todos os utilizadores confirmados que tenham participado em qualquer um dos espaços participativos selecionados na lista.
           recipients_count: Este boletim informativo será enviado para <strong id='recipients_count'>%{count}</strong> utilizadores.
-          scopes_help: Envia um boletim informativo aos utilizadores que tenham qualquer um dos âmbitos selecionados ativados nas definições "Os meus interesses" das suas contas.
-          select_scopes: Filtro para os utilizadores que ativaram qualquer âmbito selecionado nas definições "Os meus interesses" das suas contas.
           select_spaces: Selecione os espaços para segmentar o boletim informativo
-          select_users: Selecione os utilizadores para os quais pretende enviar o boletim informativo
+          send_to_all_users: Enviar para todos os utilizadores
           title: Selecione os destinatários
           warning: "<strong>Atenção:</strong> Este boletim informativo apenas será enviado para utilizadores que tenham ativado a opção <em>Pretendo receber boletins informativo</em> nas suas definições de notificações."
         show:
