@@ -774,7 +774,6 @@ eu:
           confirm_delete: Ziur zaude buletin hau ezabatu nahi duzula?
           followers: 'jarraitzaileak '
           has_been_sent_to: 'Honi bidalia: '
-          no_scopes: Esparrurik gabe
           not_sent: Ez bidalita
           participants: 'parte-hartzaileak '
           segmented_to: 'Honentzat zatitua %{subject}:'
@@ -789,13 +788,10 @@ eu:
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
           deliver: Bidali buletina
           followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu jarraitzen duten erabiltzaile guztiei bidaltzen die.
-          none: Bat ere ez
           participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten erabiltzaile guztiei bidaltzen die.
           recipients_count: 'Buletin hau erabiltzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
-          scopes_help: Albisteen buletina "Nire interesekoak" konfigurazioan edozein esparru aktibatuta duten erabiltzaileei bidaltzen die.
-          select_scopes: Iragazi "Nire interesekoak" konfigurazioan edozein esparru aktibatu duten erabiltzaileentzat.
           select_spaces: Hautatu espazioak buletina zatitzeko
-          select_users: Hautatu zein erabiltzaileri bidali nahi diezun buletina
+          send_to_all_users: Bidali erabiltzaile guztiei
           title: Hautatu hartzaileak entregatzeko
           warning: "<strong>Adi:</strong> Jakinarazpen-doikuntzetan “Albiste-buletinak jaso nahi ditut” aktibatu duten erabiltzaileei baino ez zaie bidaliko buletin hau."
         send:
