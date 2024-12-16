@@ -113,7 +113,7 @@ cs:
               'false': Návrhy
               'true': Pozměňovací návrhy
           scope_id_eq:
-            label: Oblast působnosti
+            label: Rozsah
           state_eq:
             label: Stav
             values:
@@ -328,12 +328,12 @@ cs:
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> byl zamítnut.
         proposal_update_category:
           email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
-          email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem návrhu.
           email_subject: Kategorie návrhů %{resource_title} byla aktualizována
           notification_title: Kategorie návrhu <a href="%{resource_path}">%{resource_title}</a> byla aktualizována administrátorem.
         proposal_update_scope:
           email_intro: 'Administrátor aktualizoval rozsah vašeho návrhu "%{resource_title}", podívejte se na tuto stránku:'
-          email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem návrhu.
           email_subject: Rámec návrhu %{resource_title} byl aktualizován
           notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> byl aktualizován správcem.
         voting_enabled:

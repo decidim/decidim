@@ -11,7 +11,7 @@ gl:
       project:
         budget_amount: Importe do orzamento
         decidim_category_id: Categoría
-        decidim_scope_id: Alcance
+        decidim_scope_id: Ámbito
         description: Descrición
         proposal_ids: Propostas relacionadas
         title: Título
@@ -37,7 +37,6 @@ gl:
       actions:
         attachment_collections: Carpetas
         attachments: Anexos
-        confirm_destroy: Estás seguro de que queres eliminar este proxecto?
         destroy: Eliminar
         edit: Editar
         edit_projects: Xestionar proxectos
@@ -144,7 +143,7 @@ gl:
           title: Aínda non votaches
         filters:
           category: Categoría
-          scope: Alcance
+          scope: Ámbito
           search: Busca
           status: Estado
           status_values:

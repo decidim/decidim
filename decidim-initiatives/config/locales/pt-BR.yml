@@ -471,7 +471,7 @@ pt-BR:
           phone_number: Número de telefone
           place_date: Local, data
           postal_code: CEP/CEP
-          print: Imprimir
+          print: Impressão
           province: Cidade/Estado
           section: 'Se solicitado pela organização, por favor imprima e preencha este formulário para enviar quando indicado:'
           signature: Assinatura
@@ -540,6 +540,7 @@ pt-BR:
     resources:
       initiatives_type:
         actions:
+          create: Criar
           title: Ações
           vote: Voto
   layouts:

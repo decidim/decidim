@@ -63,6 +63,13 @@ id:
       decidim/proposals/proposal_vote:
         other: Suara
   decidim:
+    admin:
+      filters:
+        proposals:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Cakupan
     components:
       proposals:
         actions:
@@ -174,11 +181,8 @@ id:
             notification_title: Proposal <a href="%{resource_path}">%{resource_title}</a> telah ditolak.
         proposal_update_category:
           email_intro: 'Admin telah memperbarui kategori proposal Anda "%{resource_title}", periksa ini:'
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
           email_subject: Kategori proposal %{resource_title} telah diperbarui
           notification_title: Kategori proposal <a href="%{resource_path}">%{resource_title}</a> telah diperbarui oleh admin.
-        proposal_update_scope:
-          email_outro: Anda telah menerima pemberitahuan ini karena Anda adalah penulis proposal.
         voting_enabled:
           email_intro: 'Anda dapat memilih proposal dalam %{participatory_space_title}! Mulai berpartisipasi di halaman ini:'
           email_outro: Anda telah menerima pemberitahuan ini karena Anda mengikuti %{participatory_space_title}. Anda dapat berhenti menerima notifikasi mengikuti tautan sebelumnya.

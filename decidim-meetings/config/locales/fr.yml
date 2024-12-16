@@ -105,7 +105,7 @@ fr:
               'false': Passées
               'true': À venir
           scope_id_eq:
-            label: Secteur
+            label: Périmètre d'application
           with_any_origin:
             label: Origine
             values:
@@ -217,7 +217,7 @@ fr:
         attachment_collections: Dossiers
         attachments: Documents liés
         close: Clore
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
+        confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cette réunion ?
         destroy: Supprimer
         edit: Modifier
         invalid_destroy:
@@ -393,7 +393,7 @@ fr:
           update: "%{user_name} a mis à jour le questionnaire pour la réunion %{meeting_name}"
       application_helper:
         filter_category_values:
-          all: Tout
+          all: Toutes
         filter_meeting_space_values:
           all: Tout
       calendar:

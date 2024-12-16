@@ -548,7 +548,7 @@
             plural: Flertall
         share_token:
           fields:
-            created_at: Opprettet i
+            created_at: Opprettet på
             expires_at: Utløper
             last_used_at: Sist brukt
             times_used: Ganger brukt

@@ -353,7 +353,7 @@ lb:
             'false': Veröffentlicht
             'true': Unveröffentlicht
         scope_id_eq:
-          label: Themenbereich
+          label: Umfang
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
@@ -496,7 +496,7 @@ lb:
             plural: Plural
         share_token:
           fields:
-            created_at: Erstellt am
+            created_at: Hergestellt in
             expires_at: Läuft ab am
             last_used_at: Zuletzt verwendet
             times_used: Anzahl Anwendungen
@@ -711,7 +711,7 @@ lb:
       resources:
         index:
           headers:
-            scope: Bereich
+            scope: Umfang
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.

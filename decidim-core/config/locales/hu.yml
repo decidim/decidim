@@ -1399,7 +1399,7 @@ hu:
         filters:
           area: Terület
           areas: Területek
-          scope: Hatókör
+          scope: Hatáskör
           select_an_area: Válasszon ki egy területet
       progress: Folyamat
       public_participation:

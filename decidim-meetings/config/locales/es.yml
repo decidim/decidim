@@ -217,7 +217,7 @@ es:
         attachment_collections: Carpetas
         attachments: Adjuntos
         close: Cerrar
-        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
+        confirm_destroy: '¿Seguro que quiere eliminar este encuentro?'
         destroy: Elimina
         edit: Editar
         invalid_destroy:
@@ -393,7 +393,7 @@ es:
           update: "%{user_name} ha actualizado el cuestionario del encuentro %{meeting_name}"
       application_helper:
         filter_category_values:
-          all: Todas
+          all: Todos
         filter_meeting_space_values:
           all: Todos
       calendar:
@@ -516,9 +516,9 @@ es:
           see_all_withdrawn: Ver todos los encuentros retirados
           text_banner: Estás viendo la lista de encuentros retirados por sus autores. %{go_back_link}.
         meeting:
-          close_meeting: Cerrar el encuentro
+          close_meeting: Cerrar encuentro
           edit_close_meeting: Editar el informe del encuentro
-          edit_meeting: Editar el encuentro
+          edit_meeting: Editar encuentro
           join_meeting: Unirse al encuentro
         meetings:
           no_meetings_warning: No hay encuentros que coincidan con tu búsqueda o no hay ningún encuentro programado.

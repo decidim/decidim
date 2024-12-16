@@ -204,10 +204,8 @@ ro:
         filters:
           all: Toate
         home:
-          categories_label: Categorii
           empty: Nu există rezultate încă.
           empty_filters: Nu există rezultate pentru acest criteriu.
-          subcategories_label: Subcategorii
         home_header:
           global_status: Stare execuție globală
         nav_breadcrumb:

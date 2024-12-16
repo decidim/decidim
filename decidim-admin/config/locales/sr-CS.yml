@@ -261,8 +261,6 @@ sr:
           values:
             'false': Objavljeno
             'true': Neobjavljeno
-        scope_id_eq:
-          label: Opseg
         search_label: Pretraži
         search_placeholder:
           name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
@@ -379,6 +377,9 @@ sr:
           fields:
             name: Ime
             plural: Množina
+        share_token:
+          fields:
+            created_at: Stvoreno
         static_page:
           fields:
             created_at: Kreirano na

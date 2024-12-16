@@ -327,6 +327,7 @@ lv:
           recently_published: Pēdējās publicētās
         print:
           city: Pilsēta
+          print: Drukāt
         result:
           initiative_rejected_reason: Šī iniciatīva ir noraidīta parakstu trūkuma dēļ.
         signatures_count:
@@ -367,6 +368,7 @@ lv:
     resources:
       initiatives_type:
         actions:
+          create: Izveidot
           title: Darbības
           vote: Parakstīt
   layouts:

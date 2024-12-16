@@ -96,7 +96,7 @@ eu:
             import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
             new_items:
               one: Aukeratutako proiektu bat inportatuko da
-              other: "Hautatutako %{count} proiektu inportatuko dira"
+              other: "Aukeratutako proiektu bat inportatuko da"
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Hautatu osagaia
@@ -139,11 +139,11 @@ eu:
             create: Egoera sortu
             title: Beste egoera bat
           update:
-            invalid: Arazoren bat gertatu da egoera hau sortzean.
-            success: Egoera ondo eguneratu da.
+            invalid: Arazo bat egon da egoera hau eguneratzean.
+            success: Egoera zuzen eguneratua.
         timeline_entries:
           create:
-            invalid: Arazoen bat gertatu da sarrera hau sortzean.
+            invalid: Arazo bat egon da sarrera hau sortzean.
             success: Sarrera zuzen sortua.
           destroy:
             success: Sarrera behar bezala ezabatua.
@@ -153,7 +153,7 @@ eu:
           index:
             title: Proiektuaren bilakaera
           new:
-            create: Sortu sarrerak
+            create: Sortu sarrera
             title: Beste sarrera bat
           update:
             invalid: Arazo bat egon da sarrera hau eguneratzean.
@@ -173,7 +173,7 @@ eu:
           update: "%{user_name} k %{resource_name} sarrera eguneratu du kronologian"
         value_types:
           parent_presenter:
-            not_found: 'Nagusi ez zen aurkitu (ID: %{id}) datu-basean'
+            not_found: 'Nagusia ez zen aurkitu (ID: %{id}) datu-basean'
       content_blocks:
         highlighted_results:
           results: Emaitzak
@@ -274,7 +274,7 @@ eu:
             scopes_enabled: Esparruak gaituta
             subcategories_label: '"Azpikategoriak" izena'
           step:
-            comments_blocked: Iruzkinak blokeatuta
+            comments_blocked: Iruzkin blokeatuak
     events:
       accountability:
         proposal_linked:

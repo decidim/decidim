@@ -8,7 +8,6 @@ ko:
   decidim:
     blogs:
       actions:
-        destroy: 삭제
         edit: 수정
         new: 새 게시물
         title: 작업

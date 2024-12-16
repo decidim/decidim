@@ -69,7 +69,7 @@ it:
               'false': Conclusi
               'true': Prossimi
           scope_id_eq:
-            label: Ambito
+            label: Visibilità
           with_any_origin:
             values:
               user_group: Gruppi di utenti
@@ -171,7 +171,6 @@ it:
         attachment_collections: Cartelle
         attachments: Allegati
         close: Chiuso
-        confirm_destroy: Sei certo di voler cancellare questo meeting?
         destroy: Cancella
         edit: Modifica
         invalid_destroy:
@@ -309,6 +308,9 @@ it:
           value_types:
             organizer_presenter:
               not_found: 'L''organizzatore non è stato trovato nel database (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Tutte
       calendar_modal:
         calendar_url: URL del calendario
         export_calendar: Esporta il calendario
@@ -386,6 +388,9 @@ it:
           select_a_registration_type: Seleziona un tipo di registrazione
         index:
           new_meeting: Nuova riunione
+        meeting:
+          close_meeting: Chiusura meeting
+          edit_meeting: Modifica la riunione
         meetings:
           upcoming_meetings_warning: Attualmente non vi sono meeting in programma, ma qui puoi trovare elencati tutti i meeting effettuati in passato.
         new:

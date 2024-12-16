@@ -295,8 +295,6 @@ sq:
           values:
             'false': Publikuar
             'true': E papublikuar
-        scope_id_eq:
-          label: Qëllimi
         search_label: Kërko
         state_eq:
           label: Gjendja

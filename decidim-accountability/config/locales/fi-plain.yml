@@ -103,7 +103,7 @@ fi-pl:
             success:
               one: 1 hanke on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
               other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
-            title: Tuo hankkeita toisesta komponentista
+            title: Tuo projekteja toisesta komponentista
         results:
           create:
             invalid: Tuloksen luonti epäonnistui.
@@ -231,7 +231,7 @@ fi-pl:
           global_status: Yleisen toteutuksen tila
         nav_breadcrumb:
           global: Yleinen toteutus
-        no_results: Hankkeita ei ole saatavilla
+        no_results: Projekteja ei ole saatavilla
         search:
           search: Hae toimintoja
         show:

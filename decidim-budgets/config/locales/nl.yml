@@ -11,7 +11,7 @@ nl:
       project:
         budget_amount: Budget bedrag
         decidim_category_id: Categorie
-        decidim_scope_id: Reikwijdte
+        decidim_scope_id: Scope
         description: Beschrijving
         proposal_ids: Verwante voorstellen
         proposals: Voorstellen
@@ -41,7 +41,6 @@ nl:
       actions:
         attachment_collections: Mappen
         attachments: Bijlagen
-        confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
         destroy: Verwijderen
         edit: Bewerk
         edit_projects: Beheer projecten
@@ -178,7 +177,7 @@ nl:
           title: Je hebt nog niet gestemd
         filters:
           category: Categorie
-          scope: Reikwijdte
+          scope: Scope
           search: Zoeken
           status: Status
           status_values:

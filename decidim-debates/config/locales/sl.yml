@@ -3,7 +3,6 @@ sl:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorija
         closed_at: Zaključeno ob
   decidim:
     debates:

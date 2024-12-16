@@ -4,7 +4,6 @@ is:
     attributes:
       project:
         decidim_category_id: Flokkur
-        decidim_scope_id: Umfang
         description: Lýsing
         proposal_ids: Tengdar tillögur
         title: Titill
@@ -12,7 +11,6 @@ is:
     budgets:
       actions:
         attachments: Viðhengi
-        confirm_destroy: Ertu viss um að þú viljir eyða þessu verkefni?
         destroy: Eyða
         edit: Breyta
         preview: Preview
@@ -61,7 +59,6 @@ is:
             other: "%{count} verkefni"
         filters:
           category: Flokkur
-          scope: Umfang
           search: Leita
         show:
           budget: Fjárhagsáætlun

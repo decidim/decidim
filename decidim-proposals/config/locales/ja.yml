@@ -101,7 +101,7 @@ ja:
               'false': 提案
               'true': 修正
           scope_id_eq:
-            label: 対象範囲
+            label: スコープ
           state_eq:
             label: 州(県)
             values:
@@ -316,12 +316,10 @@ ja:
             notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案は拒否されました。
         proposal_update_category:
           email_intro: '管理者があなたの提案 "%{resource_title}" のカテゴリを更新しました。このページでチェックしてください：'
-          email_outro: あなたが提案の著者であるため、この通知を受け取りました。
           email_subject: '%{resource_title} 提案カテゴリが更新されました'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案カテゴリは管理者によって更新されました。
         proposal_update_scope:
           email_intro: '管理者があなたの提案 "%{resource_title}" のスコープを更新しました。このページで確認してください：'
-          email_outro: あなたが提案の著者であるため、この通知を受け取りました。
           email_subject: '%{resource_title} の提案範囲が更新されました'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案スコープが管理者によって更新されました。
         voting_enabled:

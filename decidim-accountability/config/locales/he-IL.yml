@@ -232,10 +232,8 @@ he:
         filters:
           all: הכל
         home:
-          categories_label: קטגוריות
           empty: אין תוצאות עדיין.
           empty_filters: אין תוצאות עם קריטריון זה.
-          subcategories_label: תתי קטגוריות
         home_header:
           global_status: סטטוס ביצוע גלובלי
         nav_breadcrumb:

@@ -108,6 +108,9 @@ ga:
             save: Sábháil
           form:
             invites: Cuirí
+      application_helper:
+        filter_category_values:
+          all: Uile
       directory:
         meetings:
           index:

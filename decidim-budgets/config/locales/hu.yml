@@ -11,7 +11,7 @@ hu:
       project:
         budget_amount: Költségvetés összege
         decidim_category_id: Kategória
-        decidim_scope_id: Hatáskör
+        decidim_scope_id: Hatókör
         description: Leírás
         proposal_ids: Kapcsolódó javaslatok
         proposals: Javaslatok
@@ -41,7 +41,6 @@ hu:
       actions:
         attachment_collections: Mappák
         attachments: Mellékletek
-        confirm_destroy: Biztosan törölni szeretnéd ezt a projektet?
         destroy: Törlés
         edit: Szerkesztés
         edit_projects: Projektek kezelése
@@ -237,7 +236,7 @@ hu:
           title: Még nem szavaztál
         filters:
           category: Kategória
-          scope: Hatáskör
+          scope: Hatókör
           search: Keresés
           status: Státusz
           status_values:

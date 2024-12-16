@@ -50,6 +50,10 @@ gl:
     admin:
       filters:
         meetings:
+          category_id_eq:
+            label: Categoría
+          scope_id_eq:
+            label: Alcance
           with_any_origin:
             label: Orixe
             values:
@@ -143,7 +147,6 @@ gl:
         attachment_collections: Carpetas
         attachments: Anexos
         close: Pechar
-        confirm_destroy: Estás seguro de que queres eliminar esta reunión?
         destroy: Eliminar
         edit: Editar
         preview: Vista previa
@@ -259,8 +262,6 @@ gl:
             organizer_presenter:
               not_found: 'O organizador non se atopou na base de datos (ID: %{id})'
       application_helper:
-        filter_category_values:
-          all: Todas
         filter_meeting_space_values:
           all: Todas
       calendar_modal:
@@ -310,6 +311,8 @@ gl:
           see_all: Ver todas as xuntanzas
           see_all_withdrawn: Ver todas as xuntanzas anuladas
           text_banner: Estás a ver todas as xuntanzas anuladas polos seus autores. %{go_back_link}.
+        meeting:
+          close_meeting: Pechar reunión
         meetings:
           upcoming_meetings_warning: Actualmente, non hai reunións programadas, pero aquí podes atopar todas as reunións anteriores.
         registration_confirm:

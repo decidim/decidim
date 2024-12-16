@@ -454,7 +454,7 @@ fr-CA:
             'false': Publié
             'true': Dépublié
         scope_id_eq:
-          label: Périmètre d'application
+          label: Secteur
         search_label: Rechercher
         search_placeholder:
           name_or_nickname_or_email_cont: Rechercher %{collection} par e-mail, nom ou pseudo.

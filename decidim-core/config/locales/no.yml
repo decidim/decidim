@@ -384,6 +384,10 @@
         name: Organisasjonsstatistikk
       sub_hero:
         name: Underhelt banner
+    core:
+      application_helper:
+        filter_category_values:
+          all: Alle
     devise:
       omniauth_registrations:
         new:
@@ -1038,6 +1042,7 @@
       participatory_space_filters:
         filters:
           areas: Områder
+          scope: Tema
           select_an_area: Velg et område
       public_participation:
         public_participation: Vis min deltagelse offentlig

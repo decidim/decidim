@@ -222,10 +222,8 @@ sq:
         filters:
           all: Të gjitha
         home:
-          categories_label: Kategoritë
           empty: Nuk ka rezultate.
           empty_filters: Nuk ka rezultate me kriteret e kërkuara.
-          subcategories_label: Nënkategoritë
         home_header:
           global_status: Statusi i përgjithshëm i ekzekutimit
         nav_breadcrumb:

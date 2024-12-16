@@ -89,8 +89,10 @@ sr:
       models:
         result:
           fields:
+            category: Kategorija
             end_date: Krajnji datum
             progress: Napredak
+            scope: Opseg
             start_date: Datum početka
             status: Stanje
             title: Naslov
@@ -111,9 +113,6 @@ sr:
             other: "%{count} rezultata"
         filters:
           all: Sve
-        home:
-          categories_label: Kategorije
-          subcategories_label: Podkategorije
         home_header:
           global_status: Sveopšte stanje izvršenja
         nav_breadcrumb:
@@ -132,6 +131,13 @@ sr:
             votes: Podržavanja
         timeline:
           title: Evolucija projekta
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorija
+          scope_id_eq:
+            label: Opseg
     components:
       accountability:
         name: Odgovornost

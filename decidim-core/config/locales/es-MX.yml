@@ -1079,6 +1079,8 @@ es-MX:
           not_found: 'No se encontró el ámbito en la base de datos (ID: %{id})'
         scope_type_presenter:
           not_found: 'No se encontró el tipo de ámbito en la base de datos (ID: %{id})'
+    machine_translations:
+      automatic: traducción automática a %{locale_name}
     managed_users:
       expired_session: La sesión de suplantación actual ha caducado.
     map:
@@ -1167,7 +1169,7 @@ es-MX:
         active: Activas
         finished: 'Terminado el: %{end_date}'
         not_started: Aún no ha comenzado
-        remaining: "queda %{time_distance}"
+        remaining: "Queda(n) %{time_distance}"
     metrics:
       download:
         csv: Descargar datos (CSV)

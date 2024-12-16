@@ -150,6 +150,7 @@ is:
           recent: Síðast
         print:
           city: Borg
+          print: Prenta
         vote_cabin:
           vote: Skráðu þig
         votes_count:
@@ -166,6 +167,10 @@ is:
         expired: Útrunnið
     menu:
       initiatives: Frumkvæði
+    resources:
+      initiatives_type:
+        actions:
+          create: Búa til
   layouts:
     decidim:
       initiative_creation_header:

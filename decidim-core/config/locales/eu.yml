@@ -71,10 +71,10 @@ eu:
         other: Atxikimenduak
       decidim/user:
         one: Parte-hartzailea
-        other: Erabiltzaileak
+        other: Parte-hartzaileak
       decidim/user_group:
         one: Taldea
-        other: Taldeak
+        other: Erabiltzaile taldeak
   booleans:
     'false': 'Ez'
     'true': 'Bai'
@@ -101,6 +101,12 @@ eu:
         one: hilabete inguru
         other: '%{count} hilabete inguru'
       half_a_minute: minutu erdia
+      less_than_x_minutes:
+        one: minutu bat baino gutxiago
+        other: '%{count} minutu baino gutxiago'
+      less_than_x_seconds:
+        one: segundo 1 baino gutxiago
+        other: '%{count} segundo baino gutxiago'
       short:
         about_x_days: "%{count} egun"
         about_x_hours: "%{count}h"
@@ -120,13 +126,13 @@ eu:
         x_years: "%{count} urte"
       x_days:
         one: Egun 1
-        other: "Egun bat"
+        other: "%{count} egun"
       x_hours:
         one: Ordu 1
         other: "%{count} ordu"
       x_minutes:
         one: Minutu 1
-        other: "Minutu %{count}"
+        other: "%{count} minutu"
       x_months:
         one: 1 hilabete
         other: "%{count} hilabete"
@@ -164,7 +170,7 @@ eu:
         cancel_error: Ezin izan da ezeztatu korreo elektronikoaren aldaketa.
         cancel_successfully: Posta elektronikoaren aldaketa zuzen ezeztatua.
         resend_error: Ezin izan da birbidali berresteko korreoa.
-        resend_successfully: 'Berresteko posta elektronikoa zuzen birbidalia hona: %{unconfirmed_email}.'
+        resend_successfully: Correo de confirmación reenviado con éxito a %{unconfirmed_email}.
         send_again: Bidali berriro
         title: Posta elektronikoaren aldaketak egiaztatzea
       show:
@@ -286,6 +292,10 @@ eu:
         promote_button: '%{model_name}suspertzea'
         promote_confirm_text: Ziur al zaude zuzenketa hau sustatu nahi duzula?
         promote_help_text: Zuzenketa hau sustatu eta %{model_name} independiente gisa argitara dezakezu.
+      amendments:
+        title:
+          one: "%{count} zuzenketa"
+          other: "%{count} zuzenketa"
       compare_draft:
         continue: Jarraitu
         no_similars_found: Ez da aurkitu antzeko zuzenketarik.
@@ -710,7 +720,7 @@ eu:
             notification_title: <a href="%{emendation_path}">k ukatu du zuzenketa</a> honetarako <a href="%{amendable_path}">%{amendable_title}</a> argitaratu du %{amendable_type} berri gisa honek <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
           follower:
             email_intro: '%{amendable_title} rako zuzenketa %{amendable_type} berri gisa argitaratu da. Orrialde honetan ikusi dezakezu:'
-            email_outro: Jakinarazpen hau jaso duzu %{amendable_title}jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_outro: Jakinarazpen hau jaso duzu %{amendable_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Batetik zuzenketa %{emendation_author_nickname} izan berri gisa argitaratuko %{amendable_type}
             notification_title: <a href="%{emendation_path}"> k ukatu du </a> zuzenketa honetarako <a href="%{amendable_path}">%{amendable_title}</a> argitaratu du %{amendable_type} berri gisa honek <a href="%{emendation_author_path}">%{emendation_author_nickname}</a>.
         amendment_rejected:
@@ -857,6 +867,9 @@ eu:
         other: "%{count} jarraitzaileak"
       no_followers: Ez da jarraitzailerik oraindik.
     following:
+      following_count:
+        one: "%{count} jarraitzaile"
+        other: "%{count} jarraitzaile"
       no_followings: Oraindik ez du inor edo ezer jarraitzen.
       non_public_followings: Jarraitutako baliabide batzuk ez dira publikoak.
     follows:
@@ -1066,6 +1079,8 @@ eu:
           not_found: 'Esparrua ez da aurkitu (ID: %{id}) datu-basean'
         scope_type_presenter:
           not_found: 'Esparru mota ez da aurkitu (ID: %{id}) datu-basean'
+    machine_translations:
+      automatic: 'itzulpen automatikoa hemen: %{locale_name}'
     managed_users:
       expired_session: Parte-hartzaile baten egungo administrazio-saioa iraungi egin da.
     map:
@@ -1699,9 +1714,9 @@ eu:
       destroyed: Agur! Zure kontua behar bezala bertan behera utzi da. Laster ikusiko dugu berriro.
       new:
         sign_up: Eman izena
-      signed_up: Ongi etorri! Eginda sinatu duzu.
+      signed_up: Ongi etorri!  Ondo eman duzu izena.
       signed_up_but_inactive: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua oraindik ez baita aktibatuta.
-      signed_up_but_locked: Eginda sinatu duzu. Hala ere, ezin izan dugu saioa hasi kontua blokeatuta dagoelako.
+      signed_up_but_locked: Ongi eman duzu izena. Hala ere, ezin duzu saioa hasi zure kontua giltzapetuta dagoelako.
       signed_up_but_unconfirmed: Berrespen-esteka duen mezu bat zure helbide elektronikora bidali da. Jarraitu esteka zure kontua aktibatzeko.
       update_needs_confirmation: Zure kontua arrakastaz eguneratu duzu, baina helbide elektroniko berria egiaztatu behar dugu. Egiaztatu zure posta elektronikoa eta berretsi esteka jarraitu zure helbide elektroniko berria berresteko.
       updated: Zure kontua ondo eguneratu da.
@@ -1969,7 +1984,7 @@ eu:
         title: Parte-hartzailearen ezarpenak
         user_groups: Taldeak
   locale:
-    name: Euskera
+    name: Euskara
     name_with_error: Euskera (akatsa!)
   password_validator:
     denied: ukatu egin da

@@ -595,7 +595,7 @@ sv:
           already_have_an_account?: Har du redan ett konto?
           log_in: Logga in
           newsletter: Få enstaka nyhetsbrev med relevant information
-          newsletter_title: Kontakttillstånd
+          newsletter_title: Tillåtelse att kontakta mig
           sign_up: Registrera dig
           subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           terms: användarvillkoren
@@ -938,9 +938,9 @@ sv:
         index:
           badge_title: "%{name} märke"
           how: Hur kan du få det
-          page_description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken. Här är listan med märken och hur du kan få dem.
+          page_description: Märkena visar att du varit en aktiv deltagare på plattformen. Genom att utforska, delta och samverka på plattformen får du olika märken. Här är alla märken och hur du kan få dem.
           title: Märken
-      description: Märken visar att du varit aktiv som deltagare på plattformen och deltagit i behandlingen. Medan du upptäcker, deltar och samverkar på plattformen får du olika märken.
+      description: Märkena visar att du varit en aktiv deltagare på plattformen. Genom att utforska, delta och samverka på plattformen får du olika märken.
       level: Nivå %{level}
       reached_top: Du har nått den högsta nivån för detta märke.
       title: Vilka är märkena?
@@ -1033,7 +1033,7 @@ sv:
     help:
       main_topic:
         default_page:
-          content: "<p>I %{organization} kan du delta och besluta i de deltagandeprocesser som visas i toppmenyn: processer, samråd, namninsamlingar och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten med mera.</p>\n"
+          content: "<p>I %{organization} kan du delta och besluta i de deltagandeprocesser som visas i toppmenyn: processer, samråd, initiativ och konsultationer.</p> <p>Inom varje område kan du delta på olika sätt: lämna förslag – enskilt eller med andra människor – delta i debatter, prioritera projekt att genomföra, delta i möten med mera.</p>\n"
           title: Vad kan jag göra i %{organization}?
         description: Läs mer om %{organization}.
         title: Allmän hjälp
@@ -1716,7 +1716,7 @@ sv:
       already_signed_out: Du är utloggad.
       new:
         log_in: Logga in
-      signed_in: Loggade in.
+      signed_in: Du är inloggad.
       signed_out: Du är utloggad.
     shared:
       links:
@@ -1969,7 +1969,7 @@ sv:
         account: Konto
         authorizations: Auktoriseringar
         delete_my_account: Radera mitt konto
-        my_data: Mitt data
+        my_data: Min data
         my_interests: Mina intressen
         notifications_settings: Meddelandeinställningar
         profile: Profil

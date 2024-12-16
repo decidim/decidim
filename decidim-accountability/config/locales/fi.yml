@@ -90,20 +90,20 @@ fi:
             name: Tila
         projects_import:
           create:
-            invalid: Hankkeiden tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut hankkeita toteutukseen.
+            invalid: Projektien tuominen tuloksiin epäonnistui, seuraa ohjeita tarkasti ja tarkasta, että olet valinnut hankkeita toteutukseen.
           new:
             create: Tuo
-            import_all_selected_projects: Tuo kaikki toteutukseen valitut hankkeet
+            import_all_selected_projects: Tuo kaikki toteutukseen valitut projektit
             new_items:
-              one: 1 toteutukseen valittu hanke tuodaan
-              other: "%{count} toteutukseen valittua hanketta tuodaan"
-            no_components: Tässä osallistumistilassa ei ole yhtään budjetointikomponenttia, josta hankkeet voitaisiin tuoda tuloksiksi.
+              one: 1 toteutukseen valittu projekti tuodaan
+              other: "%{count} toteutukseen valittua projektia tuodaan"
+            no_components: Tässä osallisuustilassa ei ole yhtään budjetointikomponenttia, josta projektit voitaisiin tuoda tuloksiksi.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
             success:
-              one: 1 hanke on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
-              other: "%{count} hanketta on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
-            title: Tuo hankkeita toisesta komponentista
+              one: 1 projekti on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu.
+              other: "%{count} projektia on lisätty jonoon tuotavaksi. Sinulle ilmoitetaan sähköpostitse, kun tuonti valmistuu."
+            title: Tuo projekteja toisesta komponentista
         results:
           create:
             invalid: Tuloksen luonti epäonnistui.
@@ -187,10 +187,10 @@ fi:
       import_projects_mailer:
         import:
           added_projects:
-            one: Yksi tulos tuotiin hankkeista.
-            other: "%{count} tulosta tuotiin hankkeista."
+            one: Yksi tulos tuotiin projekteista.
+            other: "%{count} tulosta tuotiin projekteista."
           subject: Tulosten tuonti onnistui
-          success: Hankkeiden tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
+          success: Projektien tuonti tuloksiksi %{component_name} -komponentista onnistui. Voit tarkastaa tuonnin tulokset hallintapaneelista.
       last_activity:
         new_result: 'Uusi tulos:'
       models:
@@ -231,7 +231,7 @@ fi:
           global_status: Yleisen toteutuksen tila
         nav_breadcrumb:
           global: Yleinen toteutus
-        no_results: Hankkeita ei ole saatavilla
+        no_results: Projekteja ei ole saatavilla
         search:
           search: Hae toimintoja
         show:
@@ -297,7 +297,7 @@ fi:
         see_all: Näytä kaikki tulokset
     resource_links:
       included_projects:
-        result_project: Tähän tulokseen liittyvät hankkeet
+        result_project: Tähän tulokseen liittyvät projektit
       included_proposals:
         result_proposal: Tähän tulokseen liittyvät ehdotukset
     statistics:

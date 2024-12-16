@@ -159,7 +159,7 @@ sv:
               recent: Senaste
               with_more_authors: Med flera författare
             geocoding_enabled: Aktivera visning på karta
-            minimum_votes_per_user: Minsta antal stöd per användare
+            minimum_votes_per_user: Minst antal stöd per deltagare
             new_proposal_body_template: Innehållsmall för nytt förslag
             new_proposal_body_template_help: Du kan ange den förifyllda texten för nya förslag
             new_proposal_help_text: Hjälptext till nya förslag
@@ -181,7 +181,7 @@ sv:
             resources_permissions_enabled: Behörigheter kan ställas in för varje förslag
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
-            threshold_per_proposal: Minsta antal per förslag
+            threshold_per_proposal: Minst antal stöd per förslag
             vote_limit: Max antal stöd varje deltagare kan ge
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
@@ -319,12 +319,10 @@ sv:
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har avslagits.
         proposal_update_category:
           email_intro: 'En administratör har uppdaterat kategorin för ditt förslag "%{resource_title}", ta en titt på följande sida:'
-          email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
           email_subject: Förslagskategorin %{resource_title} har uppdaterats
           notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         proposal_update_scope:
           email_intro: 'En administratör har uppdaterat indelningen för ditt förslag "%{resource_title}", ta en titt på följande sida:'
-          email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
           email_subject: Indelningen för förslaget %{resource_title} har uppdaterats
           notification_title: Indelningen för förslaget <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         voting_enabled:
@@ -386,7 +384,7 @@ sv:
         title: Stöd
     participatory_spaces:
       highlighted_proposals:
-        last: Senaste förslag
+        last: Senaste förslagen
         see_all: Visa alla förslag
     proposals:
       actions:

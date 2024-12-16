@@ -4,7 +4,6 @@ id:
     attributes:
       project:
         decidim_category_id: Kategori
-        decidim_scope_id: Cakupan
         description: Deskripsi
         proposal_ids: Proposal terkait
         title: Judul
@@ -17,7 +16,6 @@ id:
       actions:
         attachment_collections: Folder
         attachments: Lampiran
-        confirm_destroy: Anda yakin ingin menghapus proyek ini?
         destroy: Menghapus
         edit: Edit
         import: Impor proposal ke proyek
@@ -72,7 +70,6 @@ id:
             other: "%{count} proyek"
         filters:
           category: Kategori
-          scope: Cakupan
           search: Pencarian
         show:
           budget: Anggaran

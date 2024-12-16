@@ -228,10 +228,8 @@ pl:
         filters:
           all: Wszystkie
         home:
-          categories_label: Kategorie
           empty: Nie ma jeszcze żadnych wyników.
           empty_filters: Brak wyników z tymi kryteriami.
-          subcategories_label: Podkategorie
         home_header:
           global_status: Globalny status realizacji
         nav_breadcrumb:

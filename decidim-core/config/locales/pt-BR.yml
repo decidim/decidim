@@ -1431,7 +1431,7 @@ pt-BR:
         filters:
           area: Área
           areas: Áreas
-          scope:
+          scope: Escopo
           select_an_area: Selecione uma área
       progress: Progresso
       public_participation:

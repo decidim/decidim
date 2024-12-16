@@ -105,7 +105,7 @@ pt-BR:
               'false': Passado
               'true': Próximos
           scope_id_eq:
-            label: Escopo
+            label: Âmbito
           with_any_origin:
             label: Origem
             values:
@@ -217,7 +217,6 @@ pt-BR:
         attachment_collections: Pastas
         attachments: Anexos
         close: Fechar
-        confirm_destroy: Deseja mesmo excluir este encontro?
         destroy: Excluir
         edit: Editar
         invalid_destroy:
@@ -393,7 +392,7 @@ pt-BR:
           update: "%{user_name} atualizou o questionário para a reunião %{meeting_name}"
       application_helper:
         filter_category_values:
-          all: Todos
+          all: Tudo
         filter_meeting_space_values:
           all: Todos
       calendar:
@@ -515,9 +514,9 @@ pt-BR:
           see_all_withdrawn: Veja todas as reuniões retiradas
           text_banner: Você está vendo a lista de reuniões retiradas por seus autores. %{go_back_link}.
         meeting:
-          close_meeting: Encerrar reunião
+          close_meeting: Reunião próxima
           edit_close_meeting: Editar relatório da reunião
-          edit_meeting: Editar Reunião
+          edit_meeting: Editar reuniões
           join_meeting: Participe da reunião
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.

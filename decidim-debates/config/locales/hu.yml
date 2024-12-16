@@ -79,8 +79,6 @@ hu:
           update:
             invalid: Probléma merült fel a vita frissítése során.
             success: A vita sikeresen frissült.
-        exports:
-          comments: Hozzászólások
       admin_log:
         debate:
           close: "%{user_name} lezárta a(z) %{resource_name} vitát a(z) %{space_name} térben"

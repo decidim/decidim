@@ -342,6 +342,10 @@ sk:
         name: Štatistiky organizácie
       sub_hero:
         name: Pruh pod hlavným pruhom
+    core:
+      application_helper:
+        filter_category_values:
+          all: Všetko
     devise:
       omniauth_registrations:
         new:

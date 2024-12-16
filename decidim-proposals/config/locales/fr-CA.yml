@@ -105,7 +105,7 @@ fr-CA:
               'false': Propositions
               'true': Amendements
           scope_id_eq:
-            label: Secteur
+            label: Portée
           state_eq:
             label: État
             values:
@@ -320,12 +320,10 @@ fr-CA:
             notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> n'a pas été retenue.
         proposal_update_category:
           email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
-          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
           email_subject: La catégorie de la proposition %{resource_title} a été mise à jour
           notification_title: La catégorie de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         proposal_update_scope:
           email_intro: 'Un administrateur a mis à jour la portée de votre proposition "%{resource_title}", regardez-la dans cette page :'
-          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
           email_subject: La portée de la proposition %{resource_title} a été mise à jour
           notification_title: La portée de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         voting_enabled:
@@ -739,7 +737,7 @@ fr-CA:
             official_proposal: Proposition officielle
             published_answer: Réponse publiée
             published_at: Publiée à
-            scope: Périmètre d'application
+            scope: Portée
             state: État
             title: Titre
             valuator: Évaluateur

@@ -191,10 +191,8 @@ ko:
         filters:
           all: 전체
         home:
-          categories_label: 분류
           empty: 결과가 없습니다
           empty_filters: 이 기준에는 결과가 없습니다.
-          subcategories_label: '하위 분류:'
         no_results: 프로젝트가 없습니다.
         search:
           search: 작업 검색

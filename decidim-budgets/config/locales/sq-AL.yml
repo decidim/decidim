@@ -3,7 +3,6 @@ sq:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Fushëveprimi
         description: Përshkrimi
         title: Titulli
         total_budget: Buxheti total
@@ -11,7 +10,6 @@ sq:
       project:
         budget_amount: Shuma buxhetore
         decidim_category_id: Kategori
-        decidim_scope_id: Fushëveprim
         description: Përshkrimi
         proposal_ids: Propozime të ngjashme
         proposals: Propozimet
@@ -30,8 +28,6 @@ sq:
         projects:
           category_id_eq:
             label: Kategori
-          scope_id_eq:
-            label: Qëllimi
           selected_at_null:
             label: E përzgjedhur
             values:
@@ -41,7 +37,6 @@ sq:
       actions:
         attachment_collections: Dosjet
         attachments: Bashkëngjitjet
-        confirm_destroy: A je i sigurt që do ta fshish këtë projekt?
         destroy: Fshi
         edit: Përpuno
         edit_projects: Menaxho projektet

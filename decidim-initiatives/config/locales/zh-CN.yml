@@ -344,6 +344,7 @@ zh-CN:
           recently_published: 最近发布的
         print:
           city: 城市
+          print: 打印
         result:
           initiative_rejected_reason: 这项倡议由于没有签字而被拒绝。
         signatures_count:
@@ -390,6 +391,7 @@ zh-CN:
     resources:
       initiatives_type:
         actions:
+          create: 创建
           title: 行动
           vote: 签名
   layouts:

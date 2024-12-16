@@ -275,6 +275,7 @@ sk:
           recent: Najnovšie
         print:
           city: Mesto
+          print: Tlač
         result:
           initiative_rejected_reason: Táto iniciatíva bola zamietnutá z dôvodu nedostatočnej podpory.
         signatures_count:
@@ -314,6 +315,7 @@ sk:
     resources:
       initiatives_type:
         actions:
+          create: Vytvoriť
           title: Akcia
           vote: Hlasovanie
   layouts:

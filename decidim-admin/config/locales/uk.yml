@@ -326,6 +326,9 @@ uk:
           fields:
             name: Ім'я
             plural: Множина
+        share_token:
+          fields:
+            created_at: 'Створено:'
         static_page:
           fields:
             created_at: 'Створено:'

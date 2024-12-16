@@ -111,7 +111,7 @@ cs:
               'false': Minulé
               'true': Nadcházející
           scope_id_eq:
-            label: Oblast působnosti
+            label: Rozsah
           with_any_origin:
             label: Původ
             values:
@@ -223,7 +223,7 @@ cs:
         attachment_collections: Složky
         attachments: Přílohy
         close: Zavřít
-        confirm_destroy: Opravdu chcete tuto schůzku smazat?
+        confirm_destroy: Opravdu chcete smazat tuto schůzi?
         destroy: Odstranit
         edit: Upravit
         invalid_destroy:
@@ -530,7 +530,7 @@ cs:
           see_all_withdrawn: Zobrazit všechny stažené schůzky
           text_banner: Zobrazujete seznam schůzek stažených jejich autory. %{go_back_link}.
         meeting:
-          close_meeting: Ukončit schůzku
+          close_meeting: Zavřete schůzku
           edit_close_meeting: Upravit zprávu schůzky
           edit_meeting: Upravit schůzku
           join_meeting: Připojit se ke schůzce

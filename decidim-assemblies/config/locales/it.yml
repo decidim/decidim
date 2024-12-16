@@ -173,7 +173,7 @@ it:
         assemblies: Assemblee
         assemblies_submenu:
           assembly_admins: Amministratori dell'assemblea
-          assembly_members: Membri
+          assembly_members: Utenti
           attachment_collections: Cartelle
           attachment_files: File
           attachments: Allegati

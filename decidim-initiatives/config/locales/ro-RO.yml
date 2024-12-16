@@ -532,6 +532,7 @@ ro:
           comment: Comentează
       initiatives_type:
         actions:
+          create: Creează
           title: Acțiuni
           vote: Semnare
   layouts:

@@ -206,7 +206,6 @@ ro:
         attachment_collections: Dosare
         attachments: Atașamente
         close: Închide
-        confirm_destroy: Sigur dorești să ştergi acestă întâlnire?
         destroy: Ștergere
         edit: Editare
         invalid_destroy:
@@ -463,6 +462,9 @@ ro:
           see_all: Vezi toate întâlnirile
           see_all_withdrawn: Afișează toate întâlnirile anulate
           text_banner: Vizualizezi lista de întâlniri anulate de autorii lor. %{go_back_link}.
+        meeting:
+          close_meeting: Închide ședința
+          edit_meeting: Editați ședința
         meetings:
           upcoming_meetings_warning: În prezent, nu există întâlniri programate, dar aici se află pe listă toate întâlnirile anterioare.
         new:

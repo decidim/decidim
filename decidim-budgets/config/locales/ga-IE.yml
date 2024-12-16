@@ -10,6 +10,11 @@ ga:
         decidim_scope_id: Scóip
         title: Teideal
   decidim:
+    admin:
+      filters:
+        projects:
+          scope_id_eq:
+            label: Scóip
     budgets:
       actions:
         attachment_collections: Fillteáin

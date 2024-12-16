@@ -171,7 +171,6 @@ pt:
         attachment_collections: Pastas
         attachments: Anexos
         close: Fechar
-        confirm_destroy: Tem a certeza de que deseja eliminar esta reunião?
         destroy: Eliminar
         edit: Editar
         invalid_destroy:
@@ -309,6 +308,9 @@ pt:
           value_types:
             organizer_presenter:
               not_found: 'O(A) organizador(a) não foi encontrado(a) na base de dados (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Todos
       calendar_modal:
         calendar_url: URL do calendário
         export_calendar: Exportar calendário
@@ -385,6 +387,9 @@ pt:
           select_a_registration_type: Por favor seleccione um tipo de registo
         index:
           new_meeting: Nova reunião
+        meeting:
+          close_meeting: Encerrar reunião
+          edit_meeting: Editar reunião
         meetings:
           upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui pode encontrar listadas todas as reuniões passadas.
         new:

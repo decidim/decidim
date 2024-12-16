@@ -327,6 +327,10 @@ lv:
         name: Organizācijas statistika
       sub_hero:
         name: Kājenes apakšējais galvenais reklāmkarogs
+    core:
+      application_helper:
+        filter_category_values:
+          all: Visi
     devise:
       omniauth_registrations:
         new:

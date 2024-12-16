@@ -324,6 +324,7 @@ el:
           recently_published: Δημοσιεύτηκαν πιο πρόσφατα
         print:
           city: Πόλη
+          print: Εκτύπωση
         result:
           initiative_rejected_reason: Αυτή η πρωτοβουλία απορρίφθηκε λόγω της έλλειψης υπογραφών.
         signatures_count:
@@ -367,6 +368,7 @@ el:
     resources:
       initiatives_type:
         actions:
+          create: Δημιουργία
           title: Ενέργειες
           vote: Υπογραφή
   layouts:

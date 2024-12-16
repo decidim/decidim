@@ -62,12 +62,12 @@ eu:
           attributes:
             base:
               not_official: Ez dira ofizialak
-              supported: Laguntza edo basesak jaso izana
+              supported: Laguntza edo atxikimenduak jaso izana
         proposals_split:
           attributes:
             base:
               not_official: Ez dira ofizialak
-              supported: Laguntza edo basesak jaso izana
+              supported: Laguntza edo atxikimenduak jaso izana
     models:
       decidim/proposals/accepted_proposal_event: Poposamena onartura
       decidim/proposals/admin/update_proposal_category_event: Proposamen kategoria aldatu da
@@ -88,7 +88,7 @@ eu:
         one: Proposamena
         other: Proposamenak
       decidim/proposals/proposal_note:
-        one: Ohar
+        one: Oharra
         other: Oharrak
       decidim/proposals/proposal_vote:
         one: Bozka
@@ -320,12 +320,12 @@ eu:
             notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu egin da.
         proposal_update_category:
           email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, ikus ezazu orri honetan:'
-          email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
           email_subject: '%{resource_title} proposamenaren kategoria eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren kategoria administratzaile batek eguneratu du.
         proposal_update_scope:
           email_intro: 'Administratzaile batek %{resource_title} zure proposamenaren eremua eguneratu du, orri honetan egiazta dezakezu:'
-          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
           email_subject: '%{resource_title} proposamenaren esparrua eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eremua administratzaile batek eguneratu du.
         voting_enabled:
@@ -428,7 +428,7 @@ eu:
           resources:
             answers:
               one: proposamenari emandako erantzuna
-              other: proposamenei emandako erantzunak
+              other: erantzunak proposamenei
             proposals:
               one: proposamena
               other: proposamenak
@@ -666,7 +666,7 @@ eu:
         index:
           count:
             one: "%{count} lankidetza zirriborroa"
-            other: "%{count} zirriborro kolaboratiboa"
+            other: "%{count} zirriborro kolaboratibo"
         name: Zirriborro kolaboratzaileak
         new:
           add_file: Gehitu fitxategiak
@@ -694,12 +694,12 @@ eu:
             error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
             success: "@%{user} behar bezala ukatu da kolaboratzaile gisa."
         show:
-          edit: Editatu lankidetza zirriborroa
+          edit: Editatu zirriborro kolaboratiboa
           final_proposal: azken proposamena
           final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
           hidden_authors_count:
             one: eta pertsona %{count} gehiago
-            other: eta beste %{count} pertsona
+            other: eta %{count} pertsona gehiago
           info-message: Hau <strong>zirriborro kolaboratiboa </strong> da proposamen baterako. Horrek esan nahi du egileei proposamena taxutzen lagundu ahal diezula, jarraian agertzen den iruzkinen atala erabiliz, edo zuzenean hobetu daitekeela editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honetan aldaketak egin ahal izango dituzu.
           publish: Argitaratu
           publish_info: Argitaratu zirriborroaren bertsio hau edo
@@ -839,7 +839,7 @@ eu:
           estimated_cost: Gutxi gorabeherako kostua
           hidden_endorsers_count:
             one: eta pertsona %{count} gehiago
-            other: eta beste %{count} pertsona
+            other: eta %{count} pertsona gehiago
           link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
           link_to_collaborative_draft_text: Ikusi testu kolaboratiboaren ziriborroa
           link_to_promoted_emendation_help_text: Proposamen hau zuzenketa batetik dator
@@ -863,8 +863,8 @@ eu:
           votes_blocked: Bozketa desaktibatu da
         votes_count:
           count:
-            one: Eman babesa
-            other: Babesak
+            one: Babesa
+            other: Bozkak
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Proposamen bakoitzak %{limit} babes baino gehiagotan jaso dezake

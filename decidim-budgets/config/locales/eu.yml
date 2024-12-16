@@ -156,6 +156,9 @@ eu:
         reminders:
           orders:
             description: Erabiltzaileek mezu elektroniko bat jasoko dute, eskaera bat egiteke duten aurrekontuetarako estekekin.
+            title:
+              one: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} erabiltzaileri
+              other: Gogorarazpen bat bidaltzear zaude posta elektronikoz % {count} erabiltzaileri
       admin_log:
         budget:
           create: "%{user_name} k sortu du %{resource_name} aurrekontua %{space_name} esparruan"
@@ -175,6 +178,9 @@ eu:
         cancel_order:
           more_than_one: ezabatu zure botoa hemen %{name} eta hasi berriro
           only_one: ezabatu zure botoa eta hasi berriro.
+        count:
+          one: "%{count} aurrekontu"
+          other: "%{count} aurrekontu"
         empty: Oraindik ez dago aurrekonturik
         finished_message: Amaitu duzu bozkatzeko prozesua. Eskerrik asko parte hartzeagatik!
         highlighted_cta: Botoa eman hemen %{name}
@@ -304,6 +310,9 @@ eu:
           email_intro: Aurrekontu partehartzaileen bozketa hasi duzu, baina ez duzu osatu.
           email_link: 'Joan hona: Jarraitu bozkatzen'
           email_outro: Mesedez, gogoratu bozketa osatzea. Botoa emateko, lehenik eta behin, zein proiekturi buruz bozkatu nahi duzun aukeratu behar duzu, eta, ondoren, zure botoa berretsi, "Bozkatu" botoia sakatuz.
+          email_subject:
+            one: Aurrekontu partehartzaileen bozketan amaitu gabeko boto bat duzu
+            other: Aurrekontu partehartzaileen bozketan amaitu gabeko botoak dituzu
     components:
       budgets:
         actions:

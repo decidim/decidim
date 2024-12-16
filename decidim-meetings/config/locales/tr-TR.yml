@@ -51,6 +51,12 @@ tr:
         other: Kayıtlar
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: kapsam
       meeting_copies:
         create:
           error: Bu toplantıyı kopyalarken bir sorun oluştu.
@@ -142,7 +148,6 @@ tr:
         attachment_collections: Klasörler
         attachments: Ekler
         close: Kapat
-        confirm_destroy: Bu toplantıyı silmek istediğinizden emin misiniz?
         destroy: Sil
         edit: Düzenle
         invalid_destroy:
@@ -273,6 +278,9 @@ tr:
           value_types:
             organizer_presenter:
               not_found: 'Organizatör veritabanında bulunamadı (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: Tümü
       calendar:
         meeting_to_event:
           read_more: Bu toplantı hakkında daha fazlasını okuyun
@@ -339,6 +347,9 @@ tr:
           select_a_registration_type: Lütfen bir kayıt türü seçin
         index:
           new_meeting: Yeni toplantı
+        meeting:
+          close_meeting: Toplantıyı kapat
+          edit_meeting: Toplantıyı Düzenle
         meetings:
           upcoming_meetings_warning: Şu anda planlanmış bir toplantı yok, ancak burada listelenen tüm geçmiş toplantıları bulabilirsiniz.
         new:

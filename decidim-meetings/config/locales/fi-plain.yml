@@ -217,7 +217,7 @@ fi-pl:
         attachment_collections: Kansiot
         attachments: Liitteet
         close: Sulje
-        confirm_destroy: Haluatko varmasti poistaa tämän tapahtuman?
+        confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
         destroy: Poista
         edit: Muokkaa
         invalid_destroy:
@@ -516,7 +516,7 @@ fi-pl:
           see_all_withdrawn: Näytä kaikki peruutetut tapahtumat
           text_banner: Katselet peruutettuja tapahtumia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
         meeting:
-          close_meeting: Sulje tapaaminen
+          close_meeting: Sulje tapahtuma
           edit_close_meeting: Muokkaa tapaamisraporttia
           edit_meeting: Muokkaa tapaamista
           join_meeting: Ilmoittaudu tapaamiseen

@@ -89,7 +89,7 @@ tr:
               'false': Teklifler
               'true': Değişiklikler
           scope_id_eq:
-            label: Kapsam
+            label: kapsam
           state_eq:
             label: Durum
             values:
@@ -245,12 +245,10 @@ tr:
             notification_title: <a href="%{resource_path}">%{resource_title}</a> teklifi reddedildi.
         proposal_update_category:
           email_intro: 'Bir yönetici "%{resource_title}" teklifinizin kategorisini güncelledi, bu sayfada kontrol edin:'
-          email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
           email_subject: '%{resource_title} teklif kategorisi güncellendi'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> teklif kategorisi bir yönetici tarafından güncellendi.
         proposal_update_scope:
           email_intro: 'Bir yönetici, "%{resource_title}" teklifinizin kapsamını güncelledi, bu sayfada göz atın:'
-          email_outro: Bu bildirimi, teklifin yazarı olduğunuz için aldınız.
           email_subject: '%{resource_title} teklif kapsamı güncellendi'
           notification_title: <a href="%{resource_path}">%{resource_title} </a> teklif kapsamı bir yönetici tarafından güncellendi.
         voting_enabled:
@@ -505,7 +503,7 @@ tr:
           open: Aç
           published: Yayınlandı
           related_to: İle ilgili
-          scope: Kapsam
+          scope: kapsam
           search: Arama
           state: Statü
           withdrawn: Geri çekildi
@@ -578,7 +576,7 @@ tr:
             official_proposal: Resmi teklif
             published_answer: Yayınlanan cevap
             published_at: Yayınlandı
-            scope: Kapsam
+            scope: kapsam
             state: Durum
             title: Başlık
             valuator: Bilirkişi

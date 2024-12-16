@@ -207,6 +207,7 @@ ru:
           recent: Самые последние
         print:
           city: Город
+          print: Распечатать
         result:
           initiative_rejected_reason: Этот почин был отвергнут из-за недостатка поддержки.
         signatures_count:
@@ -241,6 +242,10 @@ ru:
         expired: Истекшие
     menu:
       initiatives: Почины
+    resources:
+      initiatives_type:
+        actions:
+          create: Создать
   layouts:
     decidim:
       initiative_creation_header:

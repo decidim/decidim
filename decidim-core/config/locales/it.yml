@@ -216,6 +216,8 @@ it:
       update_draft:
         error: C'è stato un problema nell'eliminazione della bozza di emendamento.
         success: Bozza emendamento aggiornata correttamente.
+      withdraw:
+        error: Si è verificato un errore durante il ritiro dell'emendamento.
       wizard_step_form:
         steps:
           '1': Crea il tuo emendamento
@@ -378,6 +380,12 @@ it:
         name: Statistiche dell'organizzazione
       sub_hero:
         name: Testo in evidenza home
+    core:
+      actions:
+        login_before_access: Per favore, fai login con il tuo account prima di accedere.
+      application_helper:
+        filter_category_values:
+          all: Tutto
     devise:
       omniauth_registrations:
         new:
@@ -401,6 +409,7 @@ it:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
           register: Crea un account
+          sign_up_disabled: La registrazione è disabilitata, puoi accedere a un utente esistente.
       shared:
         newsletter_modal:
           buttons:
@@ -428,13 +437,19 @@ it:
         ready: Pronto
       show:
         download_data: Scarica i dati
+        download_data_description_html: |-
+          Un file contenente tutte le informazioni associate al tuo account verrà inviato a <strong>%{user_email}</strong>. Questa email conterrà un file .zip e una password per aprirlo.<br/><br/>Per decomprimere il file, avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows) o <a href="https://www.keka.io/">Keka</a> (per MacOS). Se si utilizza Linux, la maggior parte delle volte il software predefinito è sufficiente. In caso contrario, è possibile utilizzare <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
         request_data: Richiedi dati
     editor_images:
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
+    endorsement_buttons_cell:
+      already_endorsed: Non mi piace
     endorsements:
       identities:
         done: Fatto
         select_identity: Seleziona identità
+    endorsers_list:
+      endorsed_by: Piace a…
     errors:
       internal_server_error:
         title: C'era un problema con il nostro server
@@ -555,6 +570,8 @@ it:
           email_outro: Hai ricevuto questa notifica perché sei un amministratore della piattaforma.
           email_subject: Un gruppo di utenti ha aggiornato il suo profilo
           notification_title: Il gruppo utenti %{user_group_name} ha aggiornato il suo profilo, lasciandolo non verificato. Ora puoi verificarlo nel <a href="%{groups_admin_path}">pannello di amministratore</a>.
+      nickname_event:
+        notification_body: Abbiamo corretto il modo in cui vengono usati i soprannomi in modo che non ci siano duplicati, ed è per questo che abbiamo rimosso la regola del caso sensibile. <br/> Il tuo nickname è stato creato dopo un altro con lo stesso nome, quindi lo abbiamo rinominato automaticamente. Puoi cambiarlo da <a href="%{link_to_account_settings}">le impostazioni del tuo account</a>.
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
       reports:
@@ -1026,7 +1043,9 @@ it:
         sign_up: Registrazione
       participatory_space_filters:
         filters:
+          area: Area
           areas: Ambiti territoriali
+          scope: Ambito
           select_an_area: Seleziona un'area
       public_participation:
         public_participation: Mostra pubblicamente la mia presenza
@@ -1126,6 +1145,7 @@ it:
       last_attempt: Hai ancora un tentativo prima che il tuo account sia bloccato.
       locked: Il tuo account è bloccato.
       not_found_in_database: '%{authentication_keys} o password non validi.'
+      unauthenticated: Devi accedere o registrarti, per continuare.
     invitations:
       edit:
         header: Completa la creazione del tuo account
@@ -1218,6 +1238,21 @@ it:
   doorkeeper:
     scopes:
       public: Le tue informazioni pubbliche.
+  emojis:
+    categories:
+      activities: Attività
+      people-body: Persone & Corpo
+      recents: Usati di recente
+      smileys-emotion: Sorrisi ed Emozioni
+    error:
+      load: Impossibile caricare le emoji
+    recents:
+      clear: Cancella le emoji recenti
+      none: Non hai ancora selezionato nessuna emojis
+    search:
+      clear: Cancella ricerca
+      error: Ricerca emojis non riuscita
+      not_found: Nessun risultato trovato
   errors:
     messages:
       confirmation_period_expired: deve essere confermato entro %{period}, si prega di richiederne uno nuovo
@@ -1260,6 +1295,7 @@ it:
         log_in: Accedi
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
         sign_up: Registrati
+        terms_and_conditions: Termini e condizioni
       header:
         log_in: Accedi
         main_menu: Menù principale
@@ -1273,6 +1309,10 @@ it:
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
         mark_as_read: Segna come già letto
+      shared:
+        layout_item:
+          next: Articolo successivo
+          prev: Articolo precedente
       social_media_links:
         facebook: "%{organization} su Facebook"
         github: "%{organization} su GitHub"

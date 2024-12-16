@@ -97,8 +97,10 @@ da:
       models:
         result:
           fields:
+            category: Kategori
             end_date: Slutdato
             progress: Fremskridt
+            scope: Anvendelsesområde
             start_date: Start dato
             status: Status
             title: Titel
@@ -118,9 +120,6 @@ da:
             other: "%{count} resultater"
         filters:
           all: Alle
-        home:
-          categories_label: Kategorier
-          subcategories_label: Underkategorier
         home_header:
           global_status: Samlet gennemførelsesstatus
         nav_breadcrumb:
@@ -139,6 +138,13 @@ da:
             votes: Støtter
         timeline:
           title: Projektets udvikling
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Anvendelsesområde
     components:
       accountability:
         name: Ansvarlighed

@@ -87,8 +87,10 @@ id:
       models:
         result:
           fields:
+            category: Kategori
             end_date: Tanggal akhir
             progress: Kemajuan
+            scope: Cakupan
             start_date: Mulai tanggal
             status: Status
             title: Judul
@@ -107,9 +109,6 @@ id:
             other: "%{count} hasil"
         filters:
           all: Semua
-        home:
-          categories_label: Kategori
-          subcategories_label: Subkategori
         home_header:
           global_status: Status eksekusi global
         nav_breadcrumb:
@@ -128,6 +127,13 @@ id:
             votes: Mendukung
         timeline:
           title: Evolusi proyek
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategori
+          scope_id_eq:
+            label: Cakupan
     components:
       accountability:
         name: Akuntabilitas

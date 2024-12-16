@@ -200,7 +200,7 @@ fr-CA:
             end_date: Date de fin
             id: ID
             progress: Avancement
-            scope: Secteur
+            scope: Périmètre d'application
             start_date: Date de début
             status: Statut
             title: Titre
@@ -222,10 +222,8 @@ fr-CA:
         filters:
           all: Tous
         home:
-          categories_label: Catégories
           empty: Il n'y a aucun résultat pour le moment.
           empty_filters: Il n'y a aucun résultat avec ces critères.
-          subcategories_label: Sous-catégories
         home_header:
           global_status: État d'exécution global
         nav_breadcrumb:
@@ -252,7 +250,7 @@ fr-CA:
           category_id_eq:
             label: Catégorie
           scope_id_eq:
-            label: Secteur
+            label: Périmètre d'application
           status_id_eq:
             label: Statut
     components:

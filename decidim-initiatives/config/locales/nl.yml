@@ -359,6 +359,7 @@ nl:
           recently_published: Meest recent gepubliceerd
         print:
           city: stad
+          print: Afdrukken
         result:
           initiative_rejected_reason: Dit initiatief is afgewezen vanwege het gebrek aan handtekeningen.
         signatures_count:
@@ -410,6 +411,7 @@ nl:
           comment: Reactie
       initiatives_type:
         actions:
+          create: creëren
           title: acties
           vote: Onderteken
   layouts:

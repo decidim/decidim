@@ -80,8 +80,6 @@ pt-BR:
           update:
             invalid: Ocorreu um problema ao atualizar esse debate.
             success: Debate atualizado com sucesso.
-        exports:
-          comments: Comentários
       admin_log:
         debate:
           close: "%{user_name} fechou o debate %{resource_name} no espaço %{space_name}"

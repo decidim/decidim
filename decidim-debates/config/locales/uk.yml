@@ -88,6 +88,8 @@ uk:
           back: Повернутись
           create: Започаткувати
           title: Додати обговорення
+        show:
+          edit_debate: Редагувати обговорення
       models:
         debate:
           fields:

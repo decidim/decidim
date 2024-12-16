@@ -1081,6 +1081,8 @@ de:
           not_found: 'Der Bereich wurde nicht in der Datenbank gefunden (ID: %{id})'
         scope_type_presenter:
           not_found: 'Der Bereichstyp wurde nicht in der Datenbank gefunden (ID: %{id})'
+    machine_translations:
+      automatic: automatische Übersetzung in %{locale_name}
     managed_users:
       expired_session: Die aktuelle Identitätswechselsitzung ist abgelaufen.
     map:
@@ -1311,7 +1313,7 @@ de:
           participate_title: Beteiligen Sie sich an den Prozessen auf dieser Plattform
           welcome: Willkommen bei %{organization}!
         statistics:
-          headline: Aktueller Status von %{organization}
+          headline: Starea curentă a %{organization}
         sub_hero:
           register: Registrieren
           register_title: Registrieren Sie sich um ein Konto anzulegen
@@ -1477,7 +1479,7 @@ de:
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Verbergen
         hide_content: Diesen Inhalt verbergen
-        offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder jede Form von Hassreden.
+        offensive: Er enthält Formen von Rassismus, Sexismus, Verunglimpfungen, persönlichen Angriffen, Morddrohungen, Selbstmord oder jeder Form von Hassreden.
         reason: Begründung
         report: Meldung erfassen
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
@@ -1506,7 +1508,7 @@ de:
         filters:
           area: Gebiet
           areas: Bereiche
-          scope: Thema
+          scope: Umfang
           select_an_area: Wählen Sie einen Bereich aus
       progress: Fortschritt
       public_participation:

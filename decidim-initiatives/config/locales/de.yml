@@ -223,7 +223,7 @@ de:
         committee_requests:
           index:
             approve: Genehmigen
-            confirm_revoke: Sind Sie sicher?
+            confirm_revoke: Sind Sie sich sicher?
             invite_to_committee_help: Teilen Sie diesen Link, um andere Teilnehmer zum Unterstützungskomitee einzuladen.
             no_members_yet: Es gibt keine Mitglieder im Unterstützungskomitee.
             revoke: Widerrufen

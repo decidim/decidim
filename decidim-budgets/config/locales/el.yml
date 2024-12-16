@@ -41,7 +41,6 @@ el:
       actions:
         attachment_collections: Φάκελοι
         attachments: Συνημμένα
-        confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το έργο;
         destroy: Διαγραφή
         edit: Επεξεργασία
         edit_projects: Διαχείριση έργων

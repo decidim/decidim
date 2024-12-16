@@ -210,7 +210,6 @@ zh-TW:
         attachment_collections: 資料夾
         attachments: 附件
         close: 關閉
-        confirm_destroy: 你確定要刪除此會議？
         destroy: 刪除
         edit: 編輯
         invalid_destroy:
@@ -494,6 +493,9 @@ zh-TW:
           see_all: 查看所有會議
           see_all_withdrawn: 查看所有撤回的會議
           text_banner: 您正在查看已被其作者撤回的會議列表。 %{go_back_link}。
+        meeting:
+          close_meeting: 關閉會議
+          edit_meeting: 編輯會議
         meetings:
           no_meetings_warning: 沒有符合搜尋條件的會議或者目前沒有任何已排定的會議。
           upcoming_meetings_warning: 目前沒有安排的會議，但您可以在這裡找到所有過去的會議列表。

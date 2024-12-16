@@ -18,7 +18,7 @@ eu:
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
-        confirm_destroy: Ziur zaude post hau argitalpen ezabatu nahi duzula?
+        confirm_destroy: Ziur zaude korreo hau ezabatu nahi duzula?
         destroy: Ezabatu
         edit: Editatu
         new: Beste argitalpen bat
@@ -66,7 +66,7 @@ eu:
         index:
           count:
             one: "%{count} argitalpen"
-            other: "%{count} edukin"
+            other: "%{count} argitalpen"
           empty: Oraindik ez dago argitalpenik.
     components:
       blogs:
