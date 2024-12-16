@@ -29,7 +29,7 @@ module Decidim
       return unless show_space?
 
       {
-        text: translated_attribute(participatory_space.title),
+        text: decidim_escape_translated(participatory_space.title),
         icon: resource_type_icon_key(participatory_space.class),
         url: Decidim::ResourceLocatorPresenter.new(participatory_space).path
       }

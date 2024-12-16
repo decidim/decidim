@@ -54,7 +54,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rspec-cells", "~> 0.3.7"
   s.add_dependency "rspec-html-matchers", "~> 0.10"
   s.add_dependency "rspec_junit_formatter", "~> 0.6.0"
-  s.add_dependency "rspec-rails", "~> 6.0"
+  s.add_dependency "rspec-rails", "~> 7.0"
   s.add_dependency "rspec-retry", "~> 0.6.2"
   s.add_dependency "rubocop", "~> 1.65.0"
   s.add_dependency "rubocop-capybara", "~> 2.21"
