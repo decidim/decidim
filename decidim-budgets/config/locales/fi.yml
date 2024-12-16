@@ -379,7 +379,6 @@ fi:
       help:
         projects:
           address: Projektin osoite (jos määritetty)
-          budget: Mihin projektien ryhmään (esim. "2021 budjetti") tämä kyseinen projekti kuuluu
           budget_amount: Budjetin kokonaismäärä tälle projektille
           comments: Projektin saamien kommenttien määrä
           component: Projektin komponentti
