@@ -1,0 +1,20 @@
+<% add_decidim_page_title(t("conferences_deleted", scope: "decidim.admin.titles")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t "conferences.manage_trash.title", scope: "decidim.admin" %>
+  </h1>
+</div>
+<div class="card" id="conferences">
+  <%= admin_filter_selector %>
+</div>
+<div class="table-scroll">
+  <table class="table-list">
+    <%= render partial: "conferences_thead" %>
+    <tbody>
+      <%= render partial: "decidim/conferences/admin/conferences/conference_row",
+                 collection: trashable_deleted_collection,
+                 as: :conference,
+                 locals: { view: :deleted } %>
+    </tbody>
+  </table>
+</div>

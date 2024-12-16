@@ -16,14 +16,30 @@ module Decidim
     validate :root_taxonomy_is_root
     validate :space_manifest_is_registered
 
-    delegate :name, to: :root_taxonomy
+    scope :for, ->(space_manifest) { where(space_manifest:) }
+    scope :space_filters, -> { where(space_filter: true) }
 
+    # Returns the presenter class for this log.
+    #
+    # log - A Decidim::Log instance.
+    #
+    # Returns a Decidim::AdminLog::TaxonomyFilterPresenter class
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::TaxonomyFilterPresenter
     end
 
-    def self.for(space_manifest)
-      where(space_manifest:)
+    # Public name for this filter, defaults to the root taxonomy name.
+    def name
+      return root_taxonomy.name if super&.compact_blank.blank?
+
+      super
+    end
+
+    # Internal name for this filter, defaults to the root taxonomy name.
+    def internal_name
+      return root_taxonomy.name if super&.compact_blank.blank?
+
+      super
     end
 
     # Components that have this taxonomy filter enabled.
@@ -60,6 +76,15 @@ module Decidim
 
     def filter_taxonomy_ids
       @filter_taxonomy_ids ||= filter_items.map(&:taxonomy_item_id)
+    end
+
+    def update_component_count
+      update(components_count: components.count)
+    end
+
+    def reset_all_counters
+      Decidim::TaxonomyFilter.reset_counters(id, :filter_items_count)
+      update_component_count
     end
 
     private

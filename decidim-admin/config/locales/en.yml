@@ -185,6 +185,13 @@ en:
         browse: Browse
         category:
           new: New category
+        confirm_delete_component: |
+          Are you sure you want to delete this component?<br>
+          This component contains:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} resources</li>
+          </ul>
+          If you change your mind, you can restore it later.
         export: Export all
         export-selection: Export selection
         import: Import
@@ -196,12 +203,15 @@ en:
         per_page: Per page
         permissions: Permissions
         reject: Reject
+        restore: Restore
         send_me_a_test_email: Send me a test email
         share: Share
         share_tokens: Access links
+        soft_delete: Soft delete
         user:
           new: New admin
         verify: Verify
+        view_deleted_components: View deleted components
       admin_terms_of_service:
         accept:
           error: There was a problem while accepting the admin terms of service.
@@ -321,9 +331,6 @@ en:
           error: There was a problem creating this component.
           success: Component created successfully.
           success_landing_page: Component created successfully. You can add a content block for this component in the home of the space. Go to <a href="%{landing_page_path}">Landing page</a> to configure it.
-        destroy:
-          error: There was a problem destroying this component.
-          success: Component deleted successfully.
         edit:
           title: Edit component
           update: Update
@@ -340,6 +347,8 @@ en:
             name: Component name
             type: Component type
             visibility: Visibility
+        manage_trash:
+          title: Deleted components
         new:
           add: Add component
           title: 'Add component: %{name}'
@@ -573,6 +582,8 @@ en:
         logs_list:
           no_logs_yet: There are no logs yet.
           no_matching_logs: There are no logs with the provided search filters. Try to change them and retry.
+      manage_trash:
+        deleted_items_warning: You are currently viewing deleted items. To make any edits or changes, you must first restore them.
       managed_users:
         promotion:
           error: There was a problem promoting the managed participant.
@@ -745,6 +756,10 @@ en:
           preview: 'Preview template: %{template_name}'
           use_template: Use this template
       newsletters:
+        confirm_recipients:
+          email: Email
+          name: Name
+          title: Confirm recipients
         create:
           error: There was a problem creating this newsletter.
           success: Newsletter created successfully. Please review it before sending.
@@ -764,12 +779,14 @@ en:
           confirm_delete: Are you sure you want to delete this newsletter?
           followers: 'followers '
           has_been_sent_to: 'Has been sent to: '
-          no_scopes: No scopes
           not_sent: Not sent
           participants: 'participants '
+          private_members: 'private members '
           segmented_to: 'Segmented to %{subject}: '
           subscribed_count: 'Subscribed:'
           title: Newsletters
+          verification_types: 'Verification types: %{types}'
+          verified_users: Verified users
         new:
           save: Save
           title: New newsletter
@@ -777,16 +794,24 @@ en:
           all_spaces: All
           all_users_help: Sends newsletter to all confirmed users.
           confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
+          confirm_recipients: Confirm recipients
           deliver: Deliver newsletter
           followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
-          none: None
           participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          private_members_help: Sends a newsletter to all confirmed users that have been added to the selected private participatory spaces.
           recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong> users.
-          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
-          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
+          select_assemblies: Choose assemblies
+          select_conferences: Choose conferences
+          select_initiatives: Choose initiatives
+          select_participatory_processes: Choose participatory processes
           select_spaces: Select spaces to segment the newsletter
-          select_users: Select which users you want to send the newsletter
+          select_users_for_participatory_space: Send newsletter to one or more participatory spaces
+          select_users_general: Send general newsletter
+          select_verification_types: Choose verification methods
+          send_to_all_users: Send to all users
+          send_to_verified_users: Send to verified users
           title: Select recipients to deliver
+          verified_users_help: Sends a newsletter to all confirmed and verified users via any selected verification method.
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
           no_recipients: No recipients for this selection.
@@ -896,12 +921,26 @@ en:
         destroy:
           error: There was a problem deleting a private participant for this participatory space.
           success: Participatory space private participant access successfully destroyed.
+        edit:
+          title: Edit Participatory Space private participant.
+          update: Update
         index:
           import_via_csv: Import via CSV
+          publish_all: Publish all
           title: Participatory space private participant
+          unpublish_all: Unpublish all
         new:
           create: Create
           title: New Participatory Space private participant.
+        publish_all:
+          error: There was a problem publishing all the private participants for this participatory space.
+          success: Successfully published all private participants for this participatory space
+        unpublish_all:
+          error: There was a problem unpublishing all the private participants for this participatory space.
+          success: Successfully unpublished all private participants for this participatory space
+        update:
+          error: There was a problem updating the private participant for this participatory space.
+          success: Participatory space private participant successfully updated
       participatory_space_private_users_csv_imports:
         create:
           invalid: There was a problem reading the CSV file. Please make sure you have followed the instructions.
@@ -1067,8 +1106,8 @@ en:
           success: Page updated successfully.
       taxonomies:
         actions: Actions
-        amount: Amount
-        count: Count
+        amount: Number of items
+        count: Associated resources
         create:
           invalid: There was a problem creating this taxonomy.
           success: Taxonomy created successfully.
@@ -1106,7 +1145,7 @@ en:
         actions:
           new_taxonomy_filter: New taxonomy filter
         callout:
-          modify_taxonomy_html: If you need to modify this taxonomy or its items, do it through the configuration settings in the <a href="%{url}">Taxonomies</a> section.
+          modify_taxonomy_html: If you need to modify this taxonomy or its items, please do it through the configuration settings in the <a href="%{url}">Taxonomies</a> section.
         create:
           error: There was a problem creating this taxonomy filter.
           success: Taxonomy filter created successfully.
@@ -1115,28 +1154,35 @@ en:
           success: Taxonomy filter successfully destroyed.
         edit:
           back: Back
-          items: "%{count} items selected"
-          no_items: No items are available for this taxonomy. You can create items in the taxonomy configuration settings.
           title: Edit taxonomy filter
           update: Update taxonomy filter
         form:
-          select_taxonomy: Select a taxonomy
+          all: All
+          items:
+            one: "%{count} item selected"
+            other: "%{count} items selected"
+          name_help: The title of the filter to be displayed in the frontend.
+          no_items: No items are available for this taxonomy. You can create items in the taxonomy configuration settings.
+          space_filter: Available as filter for all %{manifest_name}
         index:
           description: A taxonomy filter allows admins to sort and filter participatory spaces based on a taxonomy. For example, add a taxonomy filter to sort processes by geographical scope.
           empty: There are currently no taxonomy filters. Create a list of taxonomy filters here to sort and filter participatory spaces based on a taxonomy.
         new:
           back: Back
           create: Create taxonomy filter
-          items: "%{count} items available"
+          select_taxonomy: Select a taxonomy
           title: New taxonomy filter
         table:
           actions: Actions
-          components_count: Components count
+          components_count: Associated components
           confirm_destroy: 'Are you sure you want to delete the filter %{name}? NOTE: Resources that are using this filter will not be affected but they will lose the reference to this filter.'
-          count: Number of items
+          count: Number of items used
           destroy: Delete
           edit: Edit
-          name: Name
+          internal_name: Internal filter name
+          name: Public filter title
+          space_filter: Used to filter %{manifest_name}
+          taxonomy: From taxonomy
         update:
           error: There was a problem updating this taxonomy filter.
           success: Taxonomy filter updated successfully.
@@ -1172,6 +1218,15 @@ en:
         taxonomy_filters: Taxonomy filters
         user_groups: Groups
         users: Administrators
+      tooltips:
+        deleted_component_info: This component can only be deleted if status is 'Unpublished'.
+      trash_management:
+        restore:
+          invalid: There was a problem restoring %{resource_name}.
+          success: "%{resource_name} successfully restored."
+        soft_delete:
+          invalid: There was a problem deleting %{resource_name}.
+          success: "%{resource_name} successfully deleted."
       user_group:
         csv_verify:
           invalid: There was a problem reading the CSV file.

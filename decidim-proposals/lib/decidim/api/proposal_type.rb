@@ -54,6 +54,19 @@ module Decidim
         current_component = object.component
         object.proposal_votes_count unless current_component.current_settings.votes_hidden?
       end
+
+      def self.authorized?(object, context)
+        context[:proposal] = object
+
+        chain = [
+          allowed_to?(:read, :proposal, object, context),
+          object.published?
+        ].all?
+
+        super && chain
+      rescue Decidim::PermissionAction::PermissionNotSetError
+        false
+      end
     end
   end
 end

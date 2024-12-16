@@ -29,6 +29,7 @@ FactoryBot.define do
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") } # Keep after organization
     banner_image { Decidim::Dev.test_file("city2.jpeg", "image/jpeg") } # Keep after organization
     published_at { Time.current }
+    deleted_at { nil }
     meta_scope { generate_localized_word(:assembly_meta_scope, skip_injection:) }
     developer_group { generate_localized_title(:assembly_developer_group, skip_injection:) }
     local_area { generate_localized_title(:assembly_local_area, skip_injection:) }
@@ -70,6 +71,10 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :trashed do
+      deleted_at { Time.current }
     end
 
     trait :with_parent do
@@ -188,28 +193,6 @@ FactoryBot.define do
              assembly: evaluator.assembly,
              role: :valuator,
              skip_injection: evaluator.skip_injection)
-    end
-  end
-
-  factory :assembly_member, class: "Decidim::AssemblyMember" do
-    transient do
-      skip_injection { false }
-    end
-    assembly { create(:assembly, skip_injection:) }
-
-    full_name { Faker::Name.name }
-    gender { Faker::Lorem.word }
-    birthday { Faker::Date.birthday(min_age: 18, max_age: 65) }
-    birthplace { Faker::Lorem.word }
-    position { Decidim::AssemblyMember::POSITIONS.first }
-    designation_date { Faker::Date.between(from: 1.year.ago, to: 1.month.ago) }
-
-    trait :ceased do
-      ceased_date { Faker::Date.between(from: 1.day.ago, to: 5.days.ago) }
-    end
-
-    trait :with_user do
-      user { create(:user, organization: assembly.organization, skip_injection:) }
     end
   end
 end

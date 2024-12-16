@@ -319,9 +319,6 @@ pt-BR:
           error: Ocorreu um erro ao criar esse componente.
           success: Componente criado com sucesso.
           success_landing_page: Componente criado com sucesso. Você pode adicionar um bloco de conteúdo para este componente na página inicial do espaço. Acesse <a href="%{landing_page_path}">Página inicial</a> para configurá-la.
-        destroy:
-          error: Ocorreu um erro ao destruir esse componente.
-          success: Componente excluído com sucesso.
         edit:
           title: Editar componente
           update: Atualizar
@@ -404,8 +401,6 @@ pt-BR:
           JSON: JSON
         notice: Sua exportação está atualmente em progresso. Você receberá um e-mail quando estiver completa.
       filters:
-        category_id_eq:
-          label: Categoria
         filter_label: Filtro
         invitation_accepted_at_present:
           label: Convite aceito
@@ -453,8 +448,6 @@ pt-BR:
           values:
             'false': Publicado
             'true': Não publicado
-        scope_id_eq:
-          label: Escopo
         search_label: Buscar
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquise %{collection} por e-mail, nome ou apelido.
@@ -640,12 +633,8 @@ pt-BR:
             plural: Plural
         share_token:
           fields:
-            created_at: Criado em
             expires_at: Expira em
-            last_used_at: Última uso
             times_used: Tempo Usado
-            token: Token
-            user: Criado por
         static_page:
           fields:
             created_at: Criado em
@@ -913,10 +902,6 @@ pt-BR:
           title: Editar permissões
         update:
           success: Permissões atualizadas com sucesso.
-      resources:
-        index:
-          headers:
-            scope: Escopo
       scope_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de âmbito.
@@ -950,16 +935,7 @@ pt-BR:
           success: Âmbito atualizado com sucesso
       share_tokens:
         actions:
-          confirm_destroy: Você tem certeza que quer excluir este token?
           destroy: Excluir
-          share: Compartilhar
-        destroy:
-          error: Houve um problema ao destruir o token.
-          success: Token excluído com sucesso.
-        share_tokens:
-          empty: Não há tokens ativos.
-          help: Esses tokens são usados para compartilhar publicamente esse recurso não publicado para qualquer usuário. Eles estarão ocultos quando o recurso estiver publicado. Clique no ícone de compartilhamento do token para visitar a URL compartilhável.
-          title: Compartilhar tokens
       shared:
         gallery:
           add_images: Adicione imagens
@@ -1008,7 +984,6 @@ pt-BR:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso.
       taxonomies:
-        count: Contagem
         edit:
           back: Retornar
           new_item: Novo item
@@ -1022,19 +997,14 @@ pt-BR:
           success: Filtro de taxonomia criado com sucesso.
         edit:
           back: Retornar
-          no_items: Nenhum item está disponível para estas taxonomias. Você pode criar itens nas configurações de configuração da taxonomia.
         new:
           back: Voltar
           create: Criar filtro de taxonomia
-          items: "%{count} itens disponíveis"
           title: Novo filtro de taxonomia
         table:
           actions: Ações
-          confirm_destroy: Tem certeza de que deseja excluir este filtro? %{name}?
-          count: Número de itens
           destroy: Deletar
           edit: Editar
-          name: Nome
       taxonomy_items:
         edit:
           title: Editar item em %{taxonomy}

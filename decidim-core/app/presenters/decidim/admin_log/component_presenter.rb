@@ -29,7 +29,7 @@ module Decidim
 
       def action_string
         case action
-        when "export_component"
+        when "export_component", "soft_delete", "restore"
           "decidim.admin_log.component.#{action}"
         when "create", "delete", "publish", "unpublish", "update_permissions"
           generate_action_string(action)

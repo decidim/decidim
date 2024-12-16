@@ -110,6 +110,24 @@ sudo apt install wkhtmltopdf
 
 You can read more about this change on PR [#13616](https://github.com/decidim/decidim/pull/13616).
 
+### 2.7. Clean deleted user records `decidim:upgrade:clean:clean_deleted_users` task
+
+When a user deleted their account, we mistakenly retained some metadata, such as the personal_url and about fields. Going forward, these fields will be automatically cleared upon deletion. To fix this issue for previously deleted accounts, we've added a new rake task that should be run on your production database.
+
+```ruby
+bin/rails decidim:upgrade:clean:clean_deleted_users
+```
+
+You can read more about this change on PR [#13624](https://github.com/decidim/decidim/pull/13624).
+
+### 2.8. Fixes on migration files
+
+Since we have introduced the "Soft delete for spaces and components" [#13297](https://github.com/decidim/decidim/pull/13297), we have noticed there are some migrations that are failing as a result of defaults scopes we added.
+To address the issue, we created a script that will update the migration files in your project so that we can fix any migrations that are potentially broken by the code evolution.
+We added as part of the upgrade script, so you do not need to do anything about it.
+
+You can read more about this change on PR [#13690](https://github.com/decidim/decidim/pull/13624).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
@@ -150,7 +168,39 @@ If you want to calculate this metric you could run the following command, where 
 
 You can see more details about this change on PR [\#13442](https://github.com/decidim/decidim/pull/13442)
 
-### 3.4. [[TITLE OF THE ACTION]]
+### 3.4. Convert old categorization models (Categories, Scopes, Areas, Participatory Process and Assembly types) into taxonomies
+
+All those models have been deprecated, now a unique entity called "Taxonomies" is used for classifying all the content in Decidim (see https://docs.decidim.org/en/develop/develop/taxonomies.html for reference).
+
+A rake task is available for converting the old classification to the new system composed of taxonomies and taxonomy filters.
+
+In a nutshell, you can run this two-step process with the commands:
+
+First, create the plan for the import:
+
+```bash
+bin/rails decidim:taxonomies:make_plan
+```
+
+Second, review the created files under the folder `tmp/taxonomies/*.json` (optional).
+
+Finally, import the taxonomies with:
+
+```bash
+bin/rails decidim:taxonomies:import_all_plans
+```
+
+Once the import has finished, update the metrics:
+
+```bash
+bin/rails decidim:taxonomies:update_all_metrics
+```
+
+For more information about this process, please refer to the documentation at https://docs.decidim.org/en/develop/develop/taxonomies.html#_importing_taxonomies_from_old_models_categories_scopes_etc
+
+You can see more details about this change on PR [\#13669](https://github.com/decidim/decidim/pull/13669)
+
+### 3.5. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
@@ -180,39 +230,3 @@ query { decidim { version } }
 This no longer returns the running Decidim version by default and instead it will result to `null` being reported as the version number.
 
 If you would like to re-enable exposing the Decidim version number through the GraphQL API, you may do so by setting the `DECIDIM_API_DISCLOSE_SYSTEM_VERSION` environment variable to `true`. However, this is highly discouraged but may be required for some automation or integrations.
-
-### 5.2 New configuration option for geolocation input forms
-
-Now a button to use the user's device location is enabled by default in Decidim. However this can be disabled with the new configuration option `show_my_location_button`, also available as an ENV var `DECIDIM_SHOW_MY_LOCATION_BUTTON`.
-
-You can decide to enable it in a specific component only (eg "proposals") or everywhere (by default).
-
-Example:
-
-Use only "my location button" in meetings and proposals:
-
-```bash
-DECIDIM_SHOW_MY_LOCATION_BUTTON=meetings,proposals
-```
-
-or in an initializer:
-
-```ruby
-Decidim.configure do |config|
-  config.show_my_location_button = [:meetings, :proposals]
-end
-```
-
-the default value is `:all` equivalent to:
-
-```bash
-DECIDIM_SHOW_MY_LOCATION_BUTTON=all
-```
-
-or in an initializer:
-
-```ruby
-Decidim.configure do |config|
-  config.show_my_location_button = [:all]
-end
-```

@@ -11,9 +11,11 @@ module Decidim
         {
           reference: resource.reference,
           title: resource.title,
+          url: EngineRouter.main_proxy(resource).initiative_url(resource),
           description: resource.description,
           state: resource.state,
           created_at: resource.created_at,
+          updated_at: resource.updated_at,
           published_at: resource.published_at,
           signature_start_date: resource.signature_start_date,
           signature_end_date: resource.signature_end_date,
@@ -25,6 +27,10 @@ module Decidim
           hashtag: resource.hashtag,
           first_progress_notification_at: resource.first_progress_notification_at,
           second_progress_notification_at: resource.second_progress_notification_at,
+          online_votes: resource.online_votes,
+          offline_votes: resource.offline_votes,
+          comments_count: resource.comments_count,
+          follows_count: resource.follows_count,
           scope: {
             id: resource.scope.try(:id),
             name: resource.scope.try(:name) || empty_translatable

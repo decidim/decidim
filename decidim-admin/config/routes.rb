@@ -89,6 +89,7 @@ Decidim::Admin::Engine.routes.draw do
         get :preview
         get :select_recipients_to_deliver
         post :deliver
+        get :confirm_recipients
       end
     end
 

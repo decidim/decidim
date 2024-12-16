@@ -318,9 +318,6 @@ pl:
           error: Wystąpił błąd podczas tworzenia tego komponentu.
           success: Komponent został pomyślnie utworzony.
           success_landing_page: Komponent został pomyślnie utworzony. Możesz dodać blok zawartości dla tego komponentu w domu przestrzeni. Przejdź do <a href="%{landing_page_path}">strony startowej</a>, aby ją skonfigurować.
-        destroy:
-          error: Wystąpił błąd podczas usuwania tego komponentu.
-          success: Komponent został pomyślnie usunięty.
         edit:
           title: Edytuj komponent
           update: Aktualizuj
@@ -395,8 +392,6 @@ pl:
           JSON: JSON
         notice: Trwa eksportowanie. Po zakończeniu otrzymasz wiadomość e-mail.
       filters:
-        category_id_eq:
-          label: Kategoria
         filter_label: Filtr
         invitation_accepted_at_present:
           label: Zaproszenie zaakceptowane
@@ -445,8 +440,6 @@ pl:
             'false': Opublikowany
             'true': Nieopublikowany
         remove_all: Usuń wszystkie
-        scope_id_eq:
-          label: Zakres
         search_label: Szukaj
         search_placeholder:
           name_or_nickname_or_email_cont: Przeszukaj %{collection} według adresu e-mail, nazwiska lub nazwy użytkownika.
@@ -644,12 +637,8 @@ pl:
             plural: Liczba mnoga
         share_token:
           fields:
-            created_at: Utworzono
             expires_at: Wygasa
-            last_used_at: Ostatnio używane
             times_used: Ilość użyć
-            token: Token
-            user: Utworzony przez
         static_page:
           fields:
             created_at: Utworzono
@@ -919,10 +908,6 @@ pl:
           title: Edytuj uprawnienia
         update:
           success: Uprawnienia zostały pomyślnie zaktualizowane.
-      resources:
-        index:
-          headers:
-            scope: Zakres
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
@@ -956,16 +941,7 @@ pl:
           success: Zakres został zaktualizowany
       share_tokens:
         actions:
-          confirm_destroy: Czy jesteś pewien, że chcesz usunąć ten token?
           destroy: Usuń
-          share: Udostępnij
-        destroy:
-          error: Wystąpił błąd podczas usuwania tokenu.
-          success: Token został usunięty.
-        share_tokens:
-          empty: Brak aktywnych tokenów.
-          help: Te tokeny są używane do publicznego udostępniania nieopublikowanego zasobu każdemu użytkownikowi. Zostaną one ukryte, gdy zasób zostanie opublikowany. Kliknij na ikonę udostępniania tokenu aby odwiedzić udostępniany adres URL.
-          title: Udostępnij tokeny
       shared:
         adjacent_navigation:
           next: Następny
@@ -1018,8 +994,6 @@ pl:
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana.
-      taxonomies:
-        count: Liczba
       titles:
         admin_log: Logi administratora
         area_types: Typy kategorii
