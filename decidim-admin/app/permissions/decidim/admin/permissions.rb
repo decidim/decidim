@@ -3,6 +3,7 @@
 module Decidim
   module Admin
     class Permissions < Decidim::DefaultPermissions
+      include Decidim::UserRoleChecker
       def permissions
         return permission_action if managed_user_action?
 
@@ -30,6 +31,8 @@ module Decidim
         apply_newsletter_permissions_for_admin!
 
         apply_global_moderations_permission_for_admin!
+
+        allow! if admin_terms_accepted? && user_has_any_role?(user, nil, broad_check: true) && (permission_action.subject == :editor_image)
 
         if user.admin? && admin_terms_accepted?
           allow! if read_admin_log_action?
