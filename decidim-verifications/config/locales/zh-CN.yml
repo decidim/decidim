@@ -65,17 +65,6 @@ zh-CN:
           unconfirmed: 您需要确认您的电子邮件才能授权自己。
         destroy:
           error: 删除授权时出错。
-        first_login:
-          actions:
-            another_dummy_authorization_handler: 验证另一个验证处理程序
-            csv_census: 核查该组织的人口普查情况
-            dummy_authorization_handler: 对照示例授权处理程序验证
-            dummy_authorization_workflow: 对照示例授权工作流程验证
-            id_documents: 通过上传您的身份证件获得验证
-            postal_letter: 通过邮件接收验证码
-            sms: 通过接收短信验证码获得验证
-          title: 验证您的身份
-          verify_with_these_options: '以下是验证您身份的可用选项：'
         index:
           expired_verification: 验证已过期
           pending_verification: 待验证

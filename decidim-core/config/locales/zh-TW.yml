@@ -542,23 +542,17 @@ zh-TW:
     download_your_data:
       export:
         ready: 準備就緒
-      show:
-        download_data: 下載資料
-        request_data: 請求數據
     editor_images:
       create:
         error: 上傳圖片時發生錯誤.
         success: 圖片上傳成功.
       drag_and_drop_help: 通過拖放或粘貼方式添加圖片。
     endorsement_buttons_cell:
-      already_endorsed: 不喜歡
       endorse: 喜歡！
     endorsements:
       identities:
         done: 已完成
         select_identity: 選擇身份
-    endorsers_list:
-      endorsed_by: 被喜歡...
     errors:
       internal_server_error:
         copied: 文字已複製!
@@ -721,10 +715,7 @@ zh-TW:
           notification_title: 參與者 %{name} (%{nickname}) 已被官方認證。
     export_mailer:
       download_your_data_export:
-        click_button: '點擊下方鏈接下載您的資料。<br/>檔案將可取得直到 %{date}.<br/>您需要 <a href="https://www.7-zip.org/">7-Zip</a> (Windows)，<a href="https://www.keka.io/en/">Keka</a> (MacOS)，或<a href="https://peazip.github.io">PeaZip</a> (Linux) 來打開它。密碼: %{password}'
         download: 下載
-      export:
-        ready: 請查收附上的壓縮檔，這是您的匯出資料。
       subject: 您的匯出檔案 "%{name}" 已準備就緒。
     filters:
       linked_classes:
@@ -1332,10 +1323,6 @@ zh-TW:
         help: 幫助
       mentions_modal:
         remove_recipient: 移除收件人 %{name}。
-      participatory_space_filters:
-        filters:
-          areas: 區域
-          select_an_area: 選擇一個地區
       public_participation:
         public_participation: 公開展示我的出席情況。
       reference:
@@ -1363,9 +1350,6 @@ zh-TW:
       pages_count: 頁
       participants_count: 參與者
       users_count: 參與者
-    tags:
-      filter_results_for_category: '篩選類別為 %{resource} 的結果。'
-      filter_results_for_scope: '篩選範圍為 %{resource} 的結果。'
     translation_bar:
       help_text: "<strong>警告：</strong>內容可能會被自動翻譯，並且可能不是100％準確。"
       show_original: 顯示原始文本
@@ -1646,7 +1630,6 @@ zh-TW:
         cc_by_license: 知識共用授權合約。
         data_consent_settings: Cookie 設定
         decidim_logo: Decidim 商標
-        download_open_data: 下載開放數據檔案
         log_in: 登入
         made_with_open_source: 使用<a target="_blank" href="https://github.com/decidim/decidim">自由軟體</a>建立的網站。
       header:

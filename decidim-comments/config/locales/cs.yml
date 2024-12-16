@@ -42,7 +42,8 @@ cs:
           error: Při hlasování o komentáři došlo k chybě.
     components:
       add_comment_form:
-        account_message: <a href="%{sign_in_url}">Přihlaste se</a> nebo <a href="%{sign_up_url}">vytvořit účet</a> a přidejte svůj komentář.
+        account_message: Přihlaste se nebo vytvořte účet pro přidání komentáře.
+        add_comment: Přidat komentář
         form:
           body:
             label: Komentář
@@ -52,6 +53,7 @@ cs:
           submit_root_comment: Publikovat komentář
           user_group_id:
             label: Komentovat jako
+            your_profile: Váš profil
         opinion:
           label: Váš názor na toto téma
           negative: Negativní
@@ -67,6 +69,11 @@ cs:
         alignment:
           against: Proti
           in_favor: Ve prospěch
+        answers:
+          one: "%{count} odpověď"
+          few: "%{count} odpovědi"
+          many: "%{count} odpovědí"
+          other: "%{count} odpovědí"
         cancel_reply: Zrušit odpověď
         comment_label: Komentář %{comment_id}
         comment_label_reply: Komentář %{comment_id} (odpověď na komentář %{parent_comment_id})
@@ -101,6 +108,7 @@ cs:
           many: Zobrazit %{count} odpovědí
           other: Zobrazit %{count} odpovědí
         single_comment_link_title: Získat odkaz
+        sort_by: 'Řadit podle: '
       comment_order_selector:
         order:
           best_rated: Nejlépe hodnocené

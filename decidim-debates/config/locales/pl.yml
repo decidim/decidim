@@ -2,15 +2,12 @@ pl:
   activemodel:
     attributes:
       debate:
-        category_id: Kategoria
         closed_at: Zamknięto
         conclusions: Wnioski
-        decidim_category_id: Kategoria
         description: Opis
         end_time: Skończy się
         information_updates: Aktualizacje informacji
         instructions: Instrukcje uczestnictwa
-        scope_id: Zakres
         start_time: Zaczyna się
         title: Tytuł
         user_group_id: Utwórz debatę jako
@@ -31,7 +28,6 @@ pl:
       debates:
         actions:
           comment: Skomentuj
-          create: Tworzenie
           endorse: Rekomendacje
         name: Debaty
         settings:
@@ -50,8 +46,6 @@ pl:
     debates:
       actions:
         close: Zamknij
-        confirm_destroy: Jesteś pewny?
-        destroy: Usuń
         edit: Edytuj
         new: Nowa debata
         title: Działania
@@ -64,8 +58,6 @@ pl:
           create:
             invalid: Podczas tworzenia debaty wystąpił błąd.
             success: Debata została utworzona pomyślnie.
-          destroy:
-            success: Debata została usunięta.
           edit:
             title: Edytuj debatę
             update: Zaktualizuj debatę
@@ -81,8 +73,6 @@ pl:
           update:
             invalid: Wystąpił błąd podczas aktualizowania tej debaty.
             success: Debata została zaktualizowana pomyślnie.
-        exports:
-          comments: Komentarze
       admin_log:
         debate:
           close: "%{user_name} zamknął/zamknęła debatę %{resource_name} w przestrzeni %{space_name}"
@@ -130,8 +120,6 @@ pl:
             closed: Zakończone
             open: Otwarte
           user_group: Grupy
-        form:
-          select_a_category: Wybierz kategorię
         index:
           new_debate: Nowa debata
         new:
@@ -145,11 +133,9 @@ pl:
           recent: Najnowsze
           updated: Ostatnio aktualizowane
         show:
-          close_debate: Zamknij debatę
           debate_closed: Zamknięta
           debate_conclusions_are: 'Debata została zamknięta %{date} z następującymi wnioskami:'
           edit_conclusions: Edytuj wnioski
-          edit_debate: Edytuj debatę
           groups_count: Grupy
           open: Otwarta
           participants_count: Użytkownicy

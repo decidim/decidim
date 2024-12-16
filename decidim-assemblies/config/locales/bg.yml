@@ -95,13 +95,11 @@ bg:
       actions:
         import_assembly: Импортиране
         new_assembly: Ново събрание
-        new_assembly_member: Нов член на събранието
         new_assembly_type: Нов тип събрание
         new_assembly_user_role: Нов администратор на събранието
       assemblies:
         create:
           error: Възникна проблем при създаването на ново събрание.
-          success: Събранието беше създадено успешно.
         edit:
           update: Актуализация
         index:
@@ -144,23 +142,6 @@ bg:
           import: Импортиране
           select: Изберете кои данни искате да импортирате
           title: Импортиране на събрание
-      assembly_members:
-        create:
-          error: Възникна проблем при добавянето на член за това събрание.
-          success: Членът беше добавен успешно за това събрание.
-        destroy:
-          success: Членът беше изтрит успешно за това събрание.
-        edit:
-          title: Актуализиране на член на събранието
-          update: Актуализация
-        index:
-          assembly_members_title: Членове на събранието
-        new:
-          create: Създаване
-          title: Нов член на събранието
-        update:
-          error: Възникна проблем при актуализирането на члена за това събрание.
-          success: Членът беше актуализиран успешно за това събрание.
       assembly_publications:
         create:
           error: Възникна проблем при публикуването на това събрание.
@@ -199,7 +180,6 @@ bg:
         assemblies: Събрания
         assemblies_submenu:
           assembly_admins: Администратори на събранието
-          assembly_members: Членове
           attachment_collections: Папки
           attachment_files: Файлове
           attachments: Прикачени файлове
@@ -225,11 +205,6 @@ bg:
             title: Заглавие
           name: Събрание
         assembly_member:
-          fields:
-            ceased_date: Дата на прекратяване
-            designation_date: Дата на обозначаване
-            full_name: Име
-            position: Длъжност
           name: Член
           positions:
             other: Друго
@@ -306,14 +281,9 @@ bg:
             slug_help_html: 'Използват се променливи полета в URL адреса, за да се генерират URL адреси, които водят към това събрание. Допуска се използването само на букви, цифри и тирета и адресът трябва да започва с буква. Пример: %{url}'
         assembly_members:
           form:
-            existing_user: Съществуващ участник
             explanation: 'Указания за изображението:'
             image_guide: За предпочитане е портретно (вертикално) изображение без текст.
-            non_user: Не е участник
             non_user_avatar_help: Трябва да получите съгласието на лицата, преди да ги публикувате като членове.
-            select_a_position: Изберете длъжност
-            select_user: Изберете участник
-            user_type: Тип участник
         content_blocks:
           highlighted_assemblies:
             max_results: Максимален брой елементи, които да се показват
@@ -397,8 +367,6 @@ bg:
         private_space: Това е частно събрание
         social_networks_title: Посетете събранието на
     assembly_members:
-      assembly_member:
-        designated_on: Обозначено на
       index:
         title: Членове
     events:

@@ -105,8 +105,6 @@ pl:
           create:
             invalid: Podczas tworzenia tego wyniku wystąpił błąd.
             success: Wynik został pomyślnie utworzony.
-          destroy:
-            success: Wynik został pomyślnie usunięty.
           edit:
             title: Edytuj wynik
             update: Zaktualizuj wynik
@@ -195,12 +193,10 @@ pl:
       models:
         result:
           fields:
-            category: Kategoria
             created_at: Utworzono
             end_date: Data zakończenia
             id: ID
             progress: Postęp
-            scope: Zakres
             start_date: Data rozpoczęcia
             status: Status
             title: Tytuł
@@ -221,17 +217,11 @@ pl:
             few: "%{count} wyników"
             many: "%{count} wyników"
             other: "%{count} wyników"
-        filters:
-          all: Wszystkie
         home:
-          categories_label: Kategorie
           empty: Nie ma jeszcze żadnych wyników.
           empty_filters: Brak wyników z tymi kryteriami.
-          subcategories_label: Podkategorie
         home_header:
           global_status: Globalny status realizacji
-        nav_breadcrumb:
-          global: Globalna realizacja
         no_results: Nie ma żadnych projektów
         search:
           search: Szukaj działań
@@ -243,10 +233,6 @@ pl:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategoria
-          scope_id_eq:
-            label: Zakres
           status_id_eq:
             label: Status
     components:

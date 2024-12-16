@@ -21,6 +21,11 @@ ja:
         details: 追加コメント
       taxonomy:
         name: タクソノミー名
+      taxonomy_filter:
+        internal_name: 内部フィルター名
+        name: 公開フィルタータイトル
+        root_taxonomy_id: タクソノミーから
+        space_filter: 参加型スペースのフィルターとして利用できます
       user:
         about: 私について
         email: あなたのメールアドレス
@@ -153,6 +158,7 @@ ja:
         error: アカウントの削除中に問題が発生しました。
         success: アカウントが正常に削除されました。
       download_your_data_export:
+        export_expired: エクスポートの有効期限が切れています。新しいエクスポートを生成してください。
         file_no_exists: ファイルが存在しません
         notice: データのダウンロードは現在進行中です。完了した際にはメールでお知らせします。
       email_change:
@@ -207,6 +213,8 @@ ja:
         delete: "%{user_name} が %{resource_name} スペースから %{space_name} コンポーネントを削除しました"
         export_component: "%{user_name} は%{space_name} の %{resource_name} %{component_name} を %{format_name} としてエクスポートしました"
         publish: "%{user_name} が %{resource_name} スペースで %{space_name} コンポーネントを公開しました"
+        restore: "%{user_name} がコンポーネント %{resource_name} をスコープ %{space_name} に復元しました。"
+        soft_delete: "%{user_name} が %{space_name} スペースの %{resource_name} コンポーネントをゴミ箱に移動しました"
         unpublish: "%{user_name} は %{resource_name} スペースから %{space_name} コンポーネントを非公開にしました"
         update_permissions_with_space: "%{user_name} が %{resource_name} の %{space_name} の権限を更新しました"
       contextual_help_section:
@@ -248,6 +256,13 @@ ja:
         create: "%{user_name} が %{resource_name} スコープタイプを作成しました"
         delete: "%{user_name} が %{resource_name} のスコープタイプを削除しました"
         update: "%{user_name} は %{resource_name} スコープタイプを更新しました"
+      share_token:
+        create: "%{user_name} が %{space_name} にアクセスリンクを作成しました"
+        create_with_space: "%{user_name} が %{resource_name} のアクセスリンクを %{space_name} に作成しました"
+        delete: "%{user_name} が %{space_name} のアクセスリンクを削除しました"
+        delete_with_space: "%{user_name} が %{space_name} にある %{resource_name} へのアクセスリンクを削除しました"
+        update: "%{user_name} が %{space_name} のアクセスリンクを更新しました"
+        update_with_space: "%{user_name} が %{space_name} にある %{resource_name} へのアクセスリンクを更新しました"
       static_page:
         create: "%{user_name} が %{resource_name} の静的ページを作成しました"
         delete: "%{user_name} が %{resource_name} の静的ページを削除しました"
@@ -401,6 +416,7 @@ ja:
           scope_id: スコープ
         name: 許可の例：
       dummy_authorization_workflow:
+        explanation: ダミー認証ワークフロー
         name: ダミー認証ワークフロー
       errors:
         duplicate_authorization: 同じデータを持つ参加者はすでに承認されています。管理者があなたの詳細を確認するために連絡します。
@@ -484,13 +500,16 @@ ja:
             amendments_enabled: 修正を有効にする
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             dummy_global_attribute1: ダミーステータス１
             dummy_global_attribute2: ダミーステータス2
             dummy_global_translatable_text: ダミー翻訳可能なテキスト
             enable_pads_creation: パッドの作成を有効にする
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             resources_permissions_enabled: リソースの権限を有効にする
             scope_id: スコープ
             scopes_enabled: スコープが有効
+            taxonomy_filters: コンポーネントのフィルタを選択
           step:
             amendment_creation_enabled: 修正の作成は有効です
             amendment_promotion_enabled: プロモーションの修正を有効にする
@@ -575,9 +594,9 @@ ja:
       application_helper:
         filter_area_values:
           all: すべて
-        filter_category_values:
-          all: すべて
         filter_scope_values:
+          all: すべて
+        filter_taxonomy_values:
           all: すべて
     devise:
       omniauth_registrations:
@@ -635,6 +654,8 @@ ja:
           show_password: パスワードを表示
           shown_password: パスワードは表示されています
         placeholder_email: hi@example.org
+    documents:
+      other: "%{count} ドキュメント"
     doorkeeper:
       authorizations:
         new:
@@ -654,24 +675,34 @@ ja:
       export:
         ready: 準備完了
       show:
-        download_data: データをダウンロード
-        download_data_description_html: |-
-          あなたのアカウントに関連付けられたすべての情報を含むファイルを<strong>%{user_email}</strong> に送信します。このメールは.zipファイルとパスワードが添付されています。<br/><br/>ファイルを展開するには、 <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け) か <a href="https://www.keka.io/">Keka</a> (MacOSユーザー向け)等が必要です。Linuxをお使いの場合、すでにツールがインストールされているはずです。インストールされていない場合、 <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> や <a href="https://peazip.github.io">PeaZip</a> が利用できます。
-        request_data: データを要求する
+        action: アクション
+        download: ダウンロード
+        download_data: ダウンロードエリア
+        download_data_description_1: あなたのアカウントで利用可能なすべてのダウンロードを見つけることができます。これらの.zipファイルは削除される2週間前に利用可能になります。
+        download_data_description_2: 提出物と個人データを含む .zip ファイルをリクエストできます。
+        download_your_data: 個人データ
+        expiration: 有効期限
+        expired: 有効期限が切れています
+        request_data: リクエスト
+        type: ダウンロードの種類
     editor_images:
       create:
         error: 画像のアップロードに失敗しました。
         success: 画像が正常にアップロードされました。
       drag_and_drop_help: ドラッグ&ドロップまたは貼り付けることで画像を追加できます。
     endorsement_buttons_cell:
-      already_endorsed: 取り消し
+      already_endorsed: オススメの取り消し
       endorse: いいね
     endorsements:
       identities:
         done: 完了
         select_identity: IDを選択
     endorsers_list:
-      endorsed_by: オススメ
+      endorsed_by:
+        other: '%{visible} によるオススメ'
+      others: "%{count} 以上"
+      title: オススメ
+      you: あなた
     errors:
       files:
         file_cannot_be_processed: ファイルを処理できません
@@ -843,10 +874,7 @@ ja:
           notification_title: 参加者 %{name} (%{nickname}) が公式化されました。
     export_mailer:
       download_your_data_export:
-        click_button: '次のリンクをクリックするとあなたのデータがダウンロードできます。<br/>このファイルは %{date} まで利用できます。<br/>ファイルを開くには <a href="https://www.7-zip.org/">7-Zip</a> (Windowsユーザー向け), <a href="https://www.keka.io/en/">Keka</a> (MacOSユーザー向け) または <a href="https://peazip.github.io">PeaZip</a> (Linuxユーザー向け)等が必要です。パスワード:%{password}'
         download: ダウンロード
-      export:
-        ready: エクスポートのzipバージョンを見つけてください。
       subject: '"%{name}" のエクスポートの準備ができました'
     filters:
       linked_classes:
@@ -1297,6 +1325,81 @@ ja:
         message_2: しばらくたってから改めてやり直してください。
         retry: 再試行
     open_data:
+      help:
+        core:
+          components: コンポーネント
+          description: ZIPファイルには、この参加型プラットフォームについての研究や研究のためのファイルが含まれています。
+          main: コア
+          spaces: スペース
+          title: '%{organization} のデータファイルを開く'
+        user_groups:
+          avatar_url: ユーザーグループのアバター
+          badge: ユーザーグループのバッジ
+          deleted: ユーザーが削除されたかどうか
+          id: ユーザーグループの固有ID
+          members: グループに属するユーザーのIDと名前
+          members_count: ユーザーグループに属するユーザーの数
+          name: ユーザーグループの表示名
+          nickname: ユーザーグループのユーザー名
+          profile_url: プロファイルURL
+        users:
+          about: ユーザーの紹介テキスト
+          avatar_url: ユーザーのアバター
+          badge: ユーザーのバッジ
+          deleted: ユーザーが削除されたかどうか
+          direct_messages_enabled: ユーザーがダイレクトメッセージを許可しているかどうか
+          groups: ユーザーグループのIDと名前
+          id: ユーザーの固有ID
+          name: ユーザーの表示名
+          nickname: ユーザーのユーザー名
+          profile_url: プロファイルURL
+      index:
+        description: '%{organization_name} オープンデータページへようこそ。ここでは、 %{organization_name} 内のさまざまな審議およびガバナンスプロセスから定期的に生成されるデータファイルを提供しています。これらのファイルは、透明性、アクセス性、および協力を促進するために公開されています。以下に、これらのファイルが何であるか、どのように開いて使用するか、各ファイルの内容と構造についての詳細な情報を記載しています。'
+        detailed:
+          body_1: '以下は各データセットの説明です。各データセットのスキーマ（構造）や含まれている情報の種類を含みます。'
+          components: コンポーネント
+          spaces: 参加型スペース
+          title: 各ファイルの詳細な説明
+        download:
+          components: コンポーネント
+          core: コア
+          spaces: 参加型スペース
+          title: リソースをダウンロード
+        download_open_data: すべてのオープンデータファイルをダウンロード
+        download_resource: '%{resource_name} をCSV形式でダウンロード'
+        explanation:
+          body_1: これらのファイルは、提案、コメント、ミーティングなど、 %{organization_name} の参加型プロセスからエクスポートされたデータセットです。 分析、研究、または他のツールとの統合に使用できる、生の構造化されたデータを提供します。 データは24時間ごとに自動的に更新され、最新の情報にアクセスできるようになります。
+          body_2: ファイルはCSV(カンマ区切り) 形式です。これは広く使われているファイル形式で、表計算プログラム、テキストエディタ、データ分析ツールなど、様々なソフトウェア・アプリケーションで開いて処理できます。
+          title: これらのファイルは何ですか?
+        how_to:
+          step_1:
+            body_html: 以下のリンクをクリックして、CSVファイルをダウンロードしてください。
+            title: 1. ファイルをダウンロード
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>表計算アプリケーション</b>: Microsoft Excel、Googleスプレッドシート、LibreOffice Calcなどのアプリケーションを使用してCSVファイルを開くことができます。アプリケーションを開き、ファイルメニューから「開く」を選択し、ダウンロードしたCSVファイルを選んでください。</li>
+              <li><b>テキストエディタ</b>: CSVファイルは、NotepadやSublime Textなど、任意のテキストエディタでも開くことができます。この場合、生データが表示され、各行が1行として、各値がカンマで区切られて表示されます。</li>
+              <li><b>データ分析ツール</b>: Python（とpandasライブラリ）やR、SQLデータベースなどのデータ分析ツールに慣れている場合、これらのCSVファイルを直接インポートして処理・分析することができます。</li>
+              </ul>
+            title: 2. ファイルを開く
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>フィルタリングと並べ替え</b>: 表計算アプリケーションでは、データをフィルタリングおよび並べ替えて、特定の情報のサブセットに焦点を当てることができます。</li>
+              <li><b>分析</b>: データを使用して、提案の数を数えたり、コメントの傾向を分析したり、会議への参加状況を評価したりするなど、さまざまな分析を行うことができます。</li>
+              <li><b>可視化</b>: データを解釈するために、チャートやグラフ、その他の視覚化を作成することができます。</li>
+              </ul>
+            title: 3. データの操作
+          title: これらのファイルを開いて操作する方法
+        license:
+          body_1_html: この %{organization_name} データベースは、 %{link_database} の下で利用可能になります。データベースの個々のコンテンツの権利は、 %{link_contents} の下でライセンスされます。
+          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Database Contents License
+          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Open Database License
+          title: ライセンス
+        title: オープンデータ
       not_available_yet: オープンデータファイルはまだ利用できません。数分後にもう一度お試しください。
     pad_iframe:
       disclaimer: このパッドの内容は登録ユーザーによって書かれ、意見を表明します。 %{organization} はその内容について責任を負うことはできません。
@@ -1514,12 +1617,6 @@ ja:
         sign_up: アカウントを作成
       mentions_modal:
         remove_recipient: 受信者 %{name} を削除
-      participatory_space_filters:
-        filters:
-          area: エリア
-          areas: エリア
-          scope: スコープ
-          select_an_area: エリアを選択
       progress: 進捗状況
       public_participation:
         public_participation: 参加を公開する
@@ -1549,10 +1646,7 @@ ja:
       participants_count: 参加者
       users_count: 参加者
     tags:
-      filter_results_for_category: 'カテゴリの検索結果: %{resource}'
-      filter_results_for_scope: 'スコープの検索結果: %{resource}'
-    taxonomies:
-      prompt: '"%{name}"から選択'
+      filter_results_for_taxonomy: '%{resource} の検索結果'
     translation_bar:
       help_text: "<strong>警告:</strong>内容は自動的に翻訳されている場合があり、100%正確ではありません。"
       show_original: 元テキストを表示する
@@ -1941,9 +2035,9 @@ ja:
         data_consent_settings: Cookieの設定
         decidim_logo: Decidim ロゴ
         decidim_title: Decidim
-        download_open_data: オープンデータファイルをダウンロード
         log_in: ログイン
         made_with_open_source: このサイトは <a target="_blank" href="https://github.com/decidim/decidim">フリーソフトウェア</a>で作られています。
+        open_data: オープンデータ
         resources: リソース
         sign_up: アカウントを作成
         terms_of_service: 利用規約
