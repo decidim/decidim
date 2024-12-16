@@ -25,7 +25,7 @@ module Decidim
         @taxonomy_filters ||= if defined?(current_component) && current_component&.settings.respond_to?(:taxonomy_filters)
                                 all_taxonomy_filters.where(id: current_component.settings.taxonomy_filters)
                               else
-                                all_taxonomy_filters
+                                all_taxonomy_filters.space_filters
                               end
       end
 

@@ -84,8 +84,6 @@ ar:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: الفئة
           closed_at_present:
             label: الحالة
             values:
@@ -96,8 +94,6 @@ ar:
             values:
               'false': السابق
               'true': القادم
-          scope_id_eq:
-            label: نطاق
           with_any_origin:
             label: الأصل
             values:
@@ -204,8 +200,6 @@ ar:
         attachment_collections: المجلدات
         attachments: مرفقات
         close: قريب
-        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا الاجتماع؟
-        destroy: حذف
         edit: تعديل
         invalid_destroy:
           proposals_count:
@@ -273,10 +267,10 @@ ar:
             close: قريب
             title: اجتماع قريب
         meetings:
+          component:
+            unlink: إلغاء الربط
           create:
             success: تم إنشاء الاجتماع بنجاح. لاحظ أن هذا غير منشور حتى الآن، تحتاج إلى نشره بنفسك.
-          destroy:
-            success: تم حذف الاجتماع بنجاح
           edit:
             title: تعديل الاجتماعات
             update: تحديث
@@ -290,7 +284,18 @@ ar:
             select_a_registration_type: الرجاء تحديد نوع التسجيل
             select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
           index:
+            linked_meeting_warning_html: يجب تعديل هذا الاجتماع من <br><a href="%{href}">%{name}</a>
             title: اجتماعات
+          linked_spaces:
+            assign: تعيين
+            link_a_space: اربط مساحة
+            private_meeting_warning: لم يتم تطبيق المساحات المربوطة إذا كان الاجتماع خاص وغير شفاف.
+            private_space_warning: لم يتم تطبيق المساحات المربوطة إذا كان الاجتماع ينتمي إلى مساحه خاصة وغير شفافه.
+            select: اختر مساحه
+            table:
+              actions: الإجراءات
+              component: مساحات مربوطة
+            title: مساحات مربوطة
           new:
             create: إنشاء
             title: إنشاء اجتماع
@@ -350,8 +355,6 @@ ar:
         questionnaire:
           update: "قام %{user_name} بتحديث الاستبيان للاجتماع %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: الكل
         filter_meeting_space_values:
           all: الكل
       calendar_modal:
@@ -454,7 +457,6 @@ ar:
           location_hints_help: 'توضيح حول الموقع: معلومات إضافية. على سبيل المثال: إدراج طابق المبنى في حال كان الاجتماع شخصيا، أو كلمة مرور الاجتماع إذا كان اجتماعا على الإنترنت يحتوي على تقييد الدخول.'
           online_meeting_url_help: 'الرابط: السماح للمشاركين بالاتصال مباشرة باجتماعك'
           registration_url_help: 'الرابط: يتيح للمشاركين استخدام الخدمة الخارجية التي تستخدمها للتسجيل'
-          select_a_category: يُرجى اختيار فئة
           select_a_meeting_type: الرجاء تحديد نوع الاجتماع
           select_a_registration_type: الرجاء تحديد نوع التسجيل
           select_an_iframe_access_level: الرجاء تحديد مستوى الوصول إلى iframe
@@ -486,6 +488,7 @@ ar:
           micro_camera_permissions_warning: عند النقر على الزر أدناه، سيتم طلب أذونات الميكروفون و/أو الكاميرا، وسوف تنضم إلى مؤتمر الفيديو
           no_slots_available: لا فتحات المتاحة
           organizations: حضور المنظمات
+          redirect_notice: هذا الاجتماع جزء من مساحة أخرى، لذلك تم نقلك إلى %{current_space_name}. <br>إذا كنت تفضل، يمكنك العودة إلى <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: رمز التسجيل الخاص بك
           registration_state:
             validated: التحقق من صحة
@@ -500,7 +503,6 @@ ar:
           visit_finished: عرض الاجتماع السابق
           withdraw_btn_hint: يمكن أن تسحب اجتماعك اذا غيرت رأيك. لا يتم إلغاء الاجتماع بل سيظهر في قائمة الاجتماعات المسحوبة.
           withdraw_confirmation_html: هل أنت متأكد من أنك تريد سحب هذا الاجتماع؟<br><br><strong>لا يمكن إلغاء هذا الإجراء!</strong>
-          withdraw_meeting: سحب الاجتماع
         update:
           invalid: طرأت مشكلة خلال تحديث الاجتماع.
           success: لقد قمت بتحديث الاجتماع بنجاح.

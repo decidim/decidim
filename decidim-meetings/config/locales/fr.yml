@@ -96,8 +96,6 @@ fr:
             'false': Non acceptée
             'true': Accepté
         meetings:
-          category_id_eq:
-            label: Catégorie
           closed_at_present:
             label: État
             values:
@@ -108,8 +106,6 @@ fr:
             values:
               'false': Passées
               'true': À venir
-          scope_id_eq:
-            label: Secteur
           with_any_origin:
             label: Origine
             values:
@@ -167,6 +163,10 @@ fr:
             comments_blocked: Commentaires bloqués
             creation_enabled_for_participants: La création de rencontre par les participants est activée
             creation_enabled_for_user_groups: La création de rencontres par des groupes d'utilisateurs est activée
+    download_your_data:
+      show:
+        meeting_comments: Export des commentaires de réunion
+        meetings: Export des réunions
     events:
       meetings:
         meeting_closed:
@@ -234,8 +234,8 @@ fr:
         attachment_collections: Dossiers
         attachments: Documents liés
         close: Clore
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
-        destroy: Supprimer
+        confirm_delete_meeting: Êtes-vous sûr(e) de vouloir supprimer cette réunion ?
+        deleted_meetings_info: Les réunions supprimées peuvent être restaurées depuis la corbeille.
         edit: Modifier
         invalid_destroy:
           proposals_count:
@@ -246,6 +246,7 @@ fr:
         preview: Aperçu
         registrations: Inscriptions
         title: Actions
+        view_deleted_meetings: Voir les réunions supprimées
       admin:
         agenda:
           agenda_item:
@@ -310,15 +311,11 @@ fr:
           close:
             invalid: Il y a eu un problème au moment de clore cette rencontre.
             success: Rencontre close avec succès.
+          component:
+            unlink: Délier
           create:
             invalid: Une erreur s'est produite lors de la création de cette rencontre.
             success: Rencontre créée avec succès. Notez que celle-ci n'est pas encore publiée, vous devez la publier manuellement.
-          destroy:
-            invalid:
-              proposals_count:
-                one: La rencontre ne peut être supprimée car %{count} proposition y est rattachée.
-                other: La rencontre ne peut être supprimée car %{count} propositions y sont rattachées.
-            success: La rencontre a été supprimée avec succès
           edit:
             title: Modifier la rencontre
             update: Mettre à jour
@@ -334,7 +331,18 @@ fr:
             select_a_registration_type: Veuillez sélectionner un type d'inscription
             select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
           index:
+            linked_meeting_warning_html: Cette réunion doit être modifiée à partir de <br><a href="%{href}">%{name}</a>
             title: Rencontres
+          linked_spaces:
+            assign: Assigner
+            link_a_space: Lier un espace
+            select: Sélectionner un espace
+            table:
+              actions: Actions
+              component: Espaces liés
+            title: Espaces liés
+          manage_trash:
+            title: Réunions supprimées
           new:
             create: Créer
             title: Créer une rencontre
@@ -410,8 +418,6 @@ fr:
         questionnaire:
           update: "%{user_name} a mis à jour le questionnaire pour la réunion %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Tout
         filter_meeting_space_values:
           all: Tout
       calendar:
@@ -521,7 +527,6 @@ fr:
           location_hints_help: 'Indices de localisation : informations complémentaires. Exemple: l''étage du bâtiment s''il s''agit d''une réunion en personne, ou le mot de passe de la réunion s''il s''agit d''une réunion en ligne avec accès restreint.'
           online_meeting_url_help: 'Lien : permettre aux participants de se connecter directement à votre rencontre'
           registration_url_help: 'Lien : permet aux participants de partir sur le service externe que vous utilisez pour les inscriptions'
-          select_a_category: Veuillez sélectionner une catégorie
           select_a_meeting_type: Veuillez sélectionner un type de rencontre
           select_a_registration_type: Veuillez sélectionner un type d'inscription
           select_an_iframe_access_level: Veuillez sélectionner un niveau d'accès iframe
@@ -532,9 +537,9 @@ fr:
           see_all_withdrawn: Voir toutes les rencontres annulées
           text_banner: Vous consultez la liste des rencontres annulées par leurs auteurs. %{go_back_link}.
         meeting:
-          close_meeting: Clore la rencontre
+          close_meeting: Clore
           edit_close_meeting: Modifier le compte-rendu de la rencontre
-          edit_meeting: Modifier la rencontre
+          edit_meeting: Modifier
           join_meeting: Participer à la rencontre
           reply_poll: Répondre au sondage
           view_poll: Voir le sondage
@@ -561,6 +566,7 @@ fr:
           micro_camera_permissions_warning: Lorsque vous cliquez sur le bouton ci-dessous, on vous demandera des autorisations de microphone et/ou de caméra, et vous rejoindrez la vidéoconférence
           no_slots_available: Il ne reste plus de place
           organizations: Organisations participantes
+          redirect_notice: Cette réunion fait partie d'un autre espace, vous avez donc été redirigé(e) vers %{current_space_name}. <br>Si vous préférez, vous pouvez revenir à <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Votre code d'inscription
           registration_state:
             validated: Validé
@@ -571,7 +577,7 @@ fr:
           visit_finished: Consulter l’historique des rencontres
           withdraw_btn_hint: Vous pouvez annuler votre rencontre si vous changez d'avis. La rencontre n'est pas supprimée, elle apparaîtra dans la liste des rencontres retirées.
           withdraw_confirmation_html: Êtes-vous sûr de vouloir annuler cette rencontre ?<br><br><strong>Cette action ne peut pas être annulée !</strong>
-          withdraw_meeting: Annuler la rencontre
+          withdraw_meeting: Retirer
         update:
           invalid: Une erreur s'est produite lors de la mise à jour de la rencontre.
           success: La rencontre a été mise à jour avec succès.
@@ -670,6 +676,10 @@ fr:
         description: Nombre de rencontres créées
         object: rencontres
         title: Rencontres
+    open_data:
+      help:
+        meetings:
+          author: Les données pour l'auteur de cette réunion
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Rencontres passées
@@ -683,6 +693,7 @@ fr:
         meeting_proposal: 'Propositions créées lors de cette rencontre :'
         proposal_meeting: 'Rencontres associées :'
     statistics:
+      attendees_count: Participants à la réunion
       meetings_count: Rencontres
   devise:
     mailer:

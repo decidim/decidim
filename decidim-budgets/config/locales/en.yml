@@ -96,9 +96,8 @@ en:
             actions: Actions
             cancel: Cancel
             change_budget: Change budget
-            change_category: Change category
-            change_scope: Change scope
             change_selected: Change selected state
+            change_taxonomies: Change taxonomies
             deselect_implementation: Unselect from implementation
             finished_orders: Finished votes
             pending_orders: Pending votes
@@ -110,7 +109,6 @@ en:
             title: Projects
             update: Update
             update_budget_button: Update project's budget
-            update_scope_button: Update scope
           manage_trash:
             title: Deleted projects
           new:
@@ -120,28 +118,23 @@ en:
             invalid: There was a problem updating this project.
             success: Project successfully updated.
           update_budget:
-            invalid: 'These projects already are in the same budget or their budgets are more than the maximum allowed: %{projects}.'
+            invalid: 'These projects already are in the same budget or their budgets are more than the maximum allowed: %{errored}.'
             select_a_project: Please select a project.
-            success: 'Projects successfully updated to the %{subject_name} budget: %{projects}.'
-          update_category:
-            invalid: 'These projects already had the %{subject_name} category: %{projects}.'
-            select_a_category: Please select a category.
-            select_a_project: Please select a project.
-            success: 'Projects successfully updated to the %{subject_name} category: %{projects}.'
-          update_scope:
-            invalid: 'These projects already had the %{subject_name} scope: %{projects}.'
-            select_a_project: Please select a project.
-            select_a_scope: Please select a scope.
-            success: 'Projects successfully updated to the %{subject_name} scope: %{projects}.'
+            success: 'Projects successfully updated to the %{subject_name} budget: %{successful}.'
           update_selected:
             invalid:
-              selected: 'These projects were already selected for implementation: %{projects}.'
-              unselected: 'These projects were already unselected from implementation: %{projects}.'
+              selected: 'These projects were already selected for implementation: %{errored}.'
+              unselected: 'These projects were already unselected from implementation: %{errored}.'
             select_a_project: Please select a project.
             select_a_selection: Please select an implementation state.
             success:
-              selected: 'These projects were successfully selected for implementation: %{projects}.'
-              unselected: 'These projects were successfully unselected from implementation: %{projects}.'
+              selected: 'These projects were successfully selected for implementation: %{successful}.'
+              unselected: 'These projects were successfully unselected from implementation: %{successful}.'
+          update_taxonomies:
+            invalid: 'Taxonomies %{taxonomies} where already assigned on these projects: %{errored}.'
+            select_a_project: Please select a project.
+            select_a_taxonomy: Please select a taxonomy.
+            success: 'Projects successfully updated to the %{taxonomies} taxonomies: %{successful}.'
         proposals_imports:
           create:
             invalid: There was a problem importing the proposals into projects.
@@ -387,20 +380,26 @@ en:
       help:
         projects:
           address: The address of the project (if any)
-          budget: To which group of projects (e.g. "2021 Budget") this project belongs to
+          budget: Data regarding the budget (e.g. "2021 Budget") of the project
           budget_amount: The total amount of the budget for this project
           comments: The number of comments this project has received
           component: The component that the project belongs to
           confirmed_votes: The number of confirmed votes this project has received
           created_at: The date and time when the project was created
           description: The description of the project
+          follows_count: The number of follows the project has
           id: The unique identifier of the project
+          latitude: The latitude of the project in case it has a physical location
+          longitude: The longitude of the project in case it has a physical location
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this project belongs to
+          reference: The unique reference of the project
           related_proposal_titles: The titles of the related proposals
           related_proposal_urls: The URLs of the related proposals
           related_proposals: The related proposals to this project
+          selected_at: The time at which the project was selected
           taxonomies: The taxonomies of the project
           title: The title of the project
+          updated_at: The last date the project was updated
           url: The URL of the project
     orders:
       checkout:

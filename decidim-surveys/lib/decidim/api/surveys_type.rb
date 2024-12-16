@@ -2,9 +2,7 @@
 
 module Decidim
   module Surveys
-    class SurveysType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class SurveysType < Decidim::Core::ComponentType
       graphql_name "Surveys"
       description "A surveys component of a participatory space."
 

@@ -78,6 +78,10 @@ de:
       decidim/meetings/update_meeting_event: Besprechung aktualisiert
   activerecord:
     models:
+      decidim:
+        meetings:
+          meeting:
+            text: 'Diskutiert in der Veranstaltung: %{link}'
       decidim/meetings/meeting:
         one: Sitzung
         other: Sitzungen
@@ -96,8 +100,6 @@ de:
             'false': Nicht angenommen
             'true': Angenommen
         meetings:
-          category_id_eq:
-            label: Kategorie
           closed_at_present:
             label: Status
             values:
@@ -108,8 +110,8 @@ de:
             values:
               'false': Vergangenheit
               'true': Anstehend
-          scope_id_eq:
-            label: Umfang
+          taxonomies_part_of_contains:
+            label: Klassifizierung
           with_any_origin:
             label: Ursprung
             values:
@@ -151,22 +153,31 @@ de:
         settings:
           global:
             announcement: Ankündigung
+            clear_all: Alles löschen
             comments_enabled: Kommentare aktiviert
             comments_max_length: Maximale Länge der Kommentare (0 für Standardwert)
             creation_enabled_for_participants: Teilnehmer können Besprechungen erstellen
             default_registration_terms: Standard-Registrierungsbedingungen
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             enable_pads_creation: Aktivieren Sie die Pads-Erstellung
             maps_enabled: Karten aktiviert
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             registration_code_enabled: Registrierungscode aktiviert
             resources_permissions_enabled: Aktionsberechtigungen können für jedes Meeting festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
             terms_and_conditions_url_for_meeting_creators: Nutzungsbedingungen URL für Meeting-Ersteller
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
             creation_enabled_for_participants: Besprechung-Erstellung durch Teilnehmer aktiviert
             creation_enabled_for_user_groups: Besprechung-Erstellung durch Benutzergruppen aktiviert
+    download_your_data:
+      show:
+        meeting_comments: Kommentare zu Veranstaltungen exportieren
+        meetings: Export für Veranstaltungen
     events:
       meetings:
         meeting_closed:
@@ -191,7 +202,7 @@ de:
         meeting_registrations_over_percentage:
           email_intro: Die Slots der Sitzung "%{resource_title}" sind zu über %{percentage}% belegt.
           email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie ein Administrator des Teilnahmebereichs der Besprechung sind.
-          email_subject: Slots der Sitzung "%{resource_title}" über %{percentage}% belegt
+          email_subject: Plätze der Sitzung "%{resource_title}" sind zu %{percentage}% belegt
           notification_title: Die Slots der Sitzung <a href="%{resource_path}">%{resource_title}</a> sind zu über %{percentage}% belegt.
         meeting_updated:
           email_intro: 'Die Sitzung "%{resource_title}" wurde aktualisiert. Sie können die neue Version auf der Sitzungs-Seite lesen:'
@@ -234,8 +245,6 @@ de:
         attachment_collections: Ordner
         attachments: Anhänge
         close: Schließen
-        confirm_destroy: Möchten Sie dieses Meeting wirklich löschen?
-        destroy: Löschen
         edit: Bearbeiten
         invalid_destroy:
           proposals_count:
@@ -310,20 +319,16 @@ de:
           close:
             invalid: Beim Abschliessen dieser Veranstaltung ist ein Problem aufgetreten.
             success: Veranstaltung erfolgreich abgeschlossen.
+          component:
+            unlink: Verlinkung aufheben
           create:
             invalid: Beim Erstellen dieser Veranstaltung ist ein Problem aufgetreten.
             success: Sitzung erfolgreich erstellt. Beachten Sie, dass dies noch nicht veröffentlicht wurde. Sie müssen es manuell veröffentlichen.
-          destroy:
-            invalid:
-              proposals_count:
-                one: Die Veranstaltung kann nicht gelöscht werden, da ein Vorschlag damit verbunden ist.
-                other: Die Veranstaltung kann nicht gelöscht werden, da %{count} Vorschläge damit verbunden sind.
-            success: Das Meeting wurde erfolgreich gelöscht
           edit:
             title: Meeting bearbeiten
             update: Aktualisieren
           form:
-            address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+            address_help: 'Adresse: wird vom Geocoder zur Lokalisierung verwendet'
             disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungssystems ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
             iframe_embed_type_html: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
             location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
@@ -410,8 +415,6 @@ de:
         questionnaire:
           update: "%{user_name} hat den Fragebogen für die Veranstaltung %{meeting_name} aktualisiert"
       application_helper:
-        filter_category_values:
-          all: Alle
         filter_meeting_space_values:
           all: Alle
       calendar:
@@ -512,7 +515,7 @@ de:
             in_person: Persönlich
             online: Online
         form:
-          address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
+          address_help: 'Adresse: wird vom Geocoder zur Lokalisierung verwendet'
           available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
           create_as: Besprechung erstellen als
           disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungsdienstes ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
@@ -521,7 +524,6 @@ de:
           location_hints_help: 'Standorthinweise: Zusätzliche Informationen. Beispiel: die Etage des Gebäudes, wenn es sich um eine persönliche Sitzung oder das Sitzungspasswort, wenn es sich um ein Online-Meeting mit eingeschränktem Zugriff handelt.'
           online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
           registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
-          select_a_category: Bitte wählen sie eine Kategorie
           select_a_meeting_type: Bitte eine Meeting-Art auswählen
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
           select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
@@ -532,9 +534,7 @@ de:
           see_all_withdrawn: Alle zurückgezogenen Treffen ansehen
           text_banner: Hier sehen Sie alle Veranstaltungen, die von ihren Autoren zurückgezogen wurden. %{go_back_link}.
         meeting:
-          close_meeting: Veranstaltung beenden
           edit_close_meeting: Veranstaltungsbericht bearbeiten
-          edit_meeting: Veranstaltung bearbeiten
           join_meeting: Veranstaltung beitreten
           reply_poll: Umfrage beantworten
           view_poll: Umfrage ansehen
@@ -559,7 +559,7 @@ de:
           live_event: Dieses Meeting findet gerade statt
           meeting_minutes: Sitzungsprotokolle
           micro_camera_permissions_warning: Wenn Sie auf die Schaltfläche unten klicken, werden Sie nach Mikrofon- und/oder Kamera-Berechtigungen gefragt und Sie werden der Videokonferenz hinzugefügt
-          no_slots_available: Keine Steckplätze verfügbar
+          no_slots_available: Keine Plätze verfügbar
           organizations: Teilnahme an Organisationen
           registration_code_help_text: Ihr Registrierungscode
           registration_state:
@@ -571,7 +571,6 @@ de:
           visit_finished: Vergangene Treffen anzeigen
           withdraw_btn_hint: Sie können Ihr Treffen zurückziehen, wenn Sie Ihre Meinung ändern. Das Meeting wird nicht gelöscht, es wird in der Liste der zurückgezogenen Meetings angezeigt.
           withdraw_confirmation_html: Sind Sie sicher, dass Sie diese Veranstaltung zurückziehen möchten?<br><br><strong> Diese Aktion kann nicht rückgängig gemacht werden!</strong>
-          withdraw_meeting: Treffen zurückziehen
         update:
           invalid: Beim Aktualisieren der Besprechung ist ein Fehler aufgetreten.
           success: Sie haben die Sitzung erfolgreich aktualisiert.
@@ -594,6 +593,7 @@ de:
             map: Karte
             official_meeting: Offizielle Besprechung
             start_time: Anfangsdatum
+            taxonomies: Klassifizierungen
             title: Titel
       polls:
         answers:
@@ -670,6 +670,10 @@ de:
         description: Anzahl der erstellten Meetings
         object: Treffen
         title: Meetings
+    open_data:
+      help:
+        meetings:
+          taxonomies: Die Klassifizierungen, zu denen diese Veranstaltung gehört
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Vergangene Treffen

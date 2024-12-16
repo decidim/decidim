@@ -63,11 +63,6 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    has_many :members,
-             foreign_key: "decidim_assembly_id",
-             class_name: "Decidim::AssemblyMember",
-             dependent: :destroy
-
     has_many :components, as: :participatory_space, dependent: :destroy
 
     has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy

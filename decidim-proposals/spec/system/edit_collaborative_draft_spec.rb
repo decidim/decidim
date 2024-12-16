@@ -120,7 +120,7 @@ describe "Edit collaborative_drafts" do
 
         within "form.edit_collaborative_draft" do
           fill_in :collaborative_draft_title, with: "A title with a #hashtag"
-          fill_in :collaborative_draft_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL"
+          fill_in :collaborative_draft_body, with: "ỲÓÜ WÄNTt TÙ ÚPDÀTÉ À PRÖPÔSÁL or a COLLABORATIVE DRAFT"
         end
         click_on "Send"
 

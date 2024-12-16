@@ -5,7 +5,7 @@ module Decidim
     # A command with all the business logic to create a new taxonomy filter in the
     # system.
     class CreateTaxonomyFilter < Decidim::Commands::CreateResource
-      fetch_form_attributes :root_taxonomy_id, :filter_items, :space_manifest
+      fetch_form_attributes :root_taxonomy_id, :filter_items, :internal_name, :name, :space_filter, :space_manifest
 
       protected
 
