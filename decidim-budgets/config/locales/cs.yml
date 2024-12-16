@@ -393,19 +393,26 @@ cs:
       help:
         projects:
           address: Adresa projektu (pokud existuje)
+          budget: Údaje týkající se rozpočtu projektu (např. „2021 rozpočet“)
           budget_amount: Celková částka rozpočtu pro tento projekt
           comments: Počet komentářů, které tento projekt obdržel
           component: Složka, do které projekt patří,
           confirmed_votes: Počet potvrzených hlasů tohoto projektu
           created_at: Datum a čas, kdy byl projekt vytvořen
           description: Popis projektu
+          follows_count: Počet sledujících tohoto projektu
           id: Jedinečný identifikátor projektu
+          latitude: Zeměpisná šířka projektu v případě, že má fyzickou polohu
+          longitude: Zeměpisná délka projektu v případě, že má fyzickou polohu
           participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tento projekt
+          reference: Jedinečný odkaz na projekt
           related_proposal_titles: Názvy souvisejících návrhů
           related_proposal_urls: URL adresy souvisejících návrhů
           related_proposals: Související návrhy k tomuto projektu
+          selected_at: Doba, kdy byl projekt vybrán
           taxonomies: Taxonomie projektu
           title: Název projektu
+          updated_at: Poslední datum, kdy byl projekt aktualizován
           url: URL adresa projektu
     orders:
       checkout:
