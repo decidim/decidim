@@ -90,8 +90,8 @@ module Decidim
           organization.users.first,
           visibility: "all"
         ) do
-            Decidim::Conference.create!(params)
-          end
+          Decidim::Conference.create!(params)
+        end
         conference.add_to_index_as_search_resource
 
         conference
