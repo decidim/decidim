@@ -343,6 +343,16 @@ fr-CA:
           email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
           email_subject: Le budget %{resource_title} est maintenant actif pour %{participatory_space_title}.
           notification_title: Le budget <a href="%{resource_path}">%{resource_title}</a> est maintenant actif pour %{participatory_space_title}.
+    open_data:
+      help:
+        projects:
+          budget: Données concernant le budget (par exemple "Budget 2021") du projet
+          follows_count: Le nombre de personnes qui suivent ce projet
+          latitude: La latitude du projet au cas où il a un emplacement physique
+          longitude: La longitude du projet dans le cas où il a un emplacement physique
+          reference: La référence unique du projet
+          selected_at: L'heure à laquelle le projet a été sélectionné
+          updated_at: La dernière date de mise à jour du projet
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote.
