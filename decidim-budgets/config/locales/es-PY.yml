@@ -379,19 +379,26 @@ es-PY:
       help:
         projects:
           address: La localización (dirección) del proyecto (si tiene)
+          budget: Datos sobre el presupuesto (e.g. "Presupuestos participativos 2021") en el que está incluido el proyecto
           budget_amount: La cantidad total de presupuesto para este proyecto
           comments: El número de comentarios que ha recibido este proyecto
           component: El componente al que pertenece el proyecto
           confirmed_votes: El número de votos confirmados que ha recibido este proyecto
           created_at: La fecha y hora en que se creó el proyecto
           description: La descripción del proyecto
+          follows_count: El número de seguidoras que tiene el proyecto
           id: El identificador único del proyecto
+          latitude: La latitud del proyecto en caso de que este tenga una ubicación física
+          longitude: La longitud del proyecto en caso de que este tenga una ubicación física
           participatory_space: A qué espacio pertenece este proyecto (proceso participativo, asamblea, etc.)
+          reference: La referencia única del proyecto
           related_proposal_titles: Los títulos de las propuestas relacionadas
           related_proposal_urls: Las URL de las propuestas relacionadas
           related_proposals: Las propuestas relacionadas con este proyecto
+          selected_at: La hora en la que el proyecto fue seleccionado
           taxonomies: Las taxonomías del proyecto
           title: El título del proyecto
+          updated_at: La fecha de la última actualización de este proyecto
           url: La URL del proyecto
     orders:
       checkout:
