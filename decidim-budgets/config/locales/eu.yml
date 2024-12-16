@@ -379,7 +379,6 @@ eu:
       help:
         projects:
           address: Proiektuaren helbidea (hala badagokio)
-          budget: 'Zein proiektu-talderi dagokio proiektu hau (adibidez: "Aurrekontua2021")'
           budget_amount: Proiektu honetarako aurrekontuaren zenbateko osoa
           comments: Proiektu honek zenbat iruzkin jaso ditu?
           component: Proiektuaren osagaia
