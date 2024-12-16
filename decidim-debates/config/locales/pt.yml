@@ -2,10 +2,8 @@ pt:
   activemodel:
     attributes:
       debate:
-        category_id: Categoria
         closed_at: Encerrado às
         conclusions: Conclusões
-        decidim_category_id: Categoria
         description: Descrição
         end_time: Termina em
         information_updates: Atualizações de informações
@@ -27,7 +25,6 @@ pt:
       debates:
         actions:
           comment: Comentários
-          create: Criar
           endorse: Apoiar
         name: Debates
         settings:
@@ -45,8 +42,6 @@ pt:
     debates:
       actions:
         close: Fechar
-        confirm_destroy: Tem a certeza?
-        destroy: Eliminar
         edit: Editar
         title: Ações
       admin:
@@ -58,8 +53,6 @@ pt:
           create:
             invalid: Ocorreu um problema ao criar o debate.
             success: Debate criado corretamente.
-          destroy:
-            success: Debate eliminado corretamente.
           edit:
             title: Editar debate
             update: Atualizar debate
@@ -75,8 +68,6 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar este debate.
             success: Debate atualizado corretamente.
-        exports:
-          comments: Comentários
       admin_log:
         debate:
           close: "%{user_name} Fechou o debate %{resource_name} no espaço %{space_name}"
@@ -116,8 +107,6 @@ pt:
           state_values:
             closed: Fechar
             open: Abertas
-        form:
-          select_a_category: Por favor, selecione uma categoria
         index:
           new_debate: Novo debate
         new:
@@ -131,11 +120,9 @@ pt:
           recent: Mais recente
           updated: Actualizado recentemente
         show:
-          close_debate: Fechar debate
           debate_closed: Fechar
           debate_conclusions_are: 'O debate foi fechado em %{date} com as seguintes conclusões:'
           edit_conclusions: Editar conclusões
-          edit_debate: Editar debate
           groups_count: Grupos
           open: Abrir debate
           participants_count: Participantes

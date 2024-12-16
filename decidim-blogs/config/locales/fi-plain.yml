@@ -17,24 +17,25 @@ fi-pl:
     blogs:
       actions:
         author_id: Luo artikkeli käyttäjänä
-        confirm_destroy: Haluatko varmasti poistaa tämän artikkelin?
-        destroy: Poista
+        confirm_delete_post: Haluatko varmasti poistaa tämän artikkelin?
+        deleted_posts_info: Poistetut artikkelit voidaan palauttaa roskakorista.
         edit: Muokkaa
         new: Uusi artikkeli
         title: Toiminnot
+        view_deleted_posts: Näytä poistetut artikkelit
       admin:
         posts:
           create:
             invalid: Artikkelin luonti epäonnistui.
             success: Artikkelin luonti onnistui.
-          destroy:
-            success: Artikkelin poisto onnistui.
           edit:
             save: Päivitä
             title: Muokkaa artikkelia
           index:
             not_published_yet: Ei vielä julkaistu.
             title: Artikkelit
+          manage_trash:
+            title: Poistetut artikkelit
           new:
             create: Luo
             title: Luo artikkeli
@@ -45,6 +46,8 @@ fi-pl:
         post:
           create: "%{user_name} loi blogikirjoituksen %{resource_name} tilassa %{space_name}"
           delete: "%{user_name} poisti blogikirjoituksen %{resource_name} tilasta %{space_name}"
+          restore: "%{user_name} palautti artikkelin %{resource_name} tilassa %{space_name}"
+          soft_delete: "%{user_name} siirsi artikkelin %{resource_name} roskakoriin tilassa %{space_name}"
           update: "%{user_name} päivitti blogikirjoitusta %{resource_name} tilassa %{space_name}"
       content_blocks:
         highlighted_posts:

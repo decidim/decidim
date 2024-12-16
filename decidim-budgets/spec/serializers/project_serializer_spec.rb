@@ -11,6 +11,7 @@ module Decidim::Budgets
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
     let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: budget.component.organization) }
     let(:project) { create(:project, budget:, taxonomies:) }
+    let(:router) { Decidim::EngineRouter.main_proxy(budget.component) }
     let(:component) { create(:budgets_component) }
 
     subject { described_class.new(project) }
@@ -45,8 +46,12 @@ module Decidim::Budgets
         expect(serialized[:description]).to include(project.description)
       end
 
-      it "includes the budget id" do
-        expect(serialized[:budget]).to eq(id: project.budget.id)
+      it "includes the budget" do
+        expect(serialized[:budget]).to eq(
+          id: project.budget.id,
+          title: project.budget.title,
+          url: router.budget_url(project.budget)
+        )
       end
 
       it "includes the budget amount" do
@@ -83,6 +88,30 @@ module Decidim::Budgets
         expect(serialized[:related_proposal_urls]).to include(Decidim::ResourceLocatorPresenter.new(proposals.first).url)
         expect(serialized[:related_proposal_urls]).to include(Decidim::ResourceLocatorPresenter.new(proposals.second).url)
         expect(serialized[:related_proposal_urls]).to include(Decidim::ResourceLocatorPresenter.new(proposals.last).url)
+      end
+
+      it "includes the updated date" do
+        expect(serialized).to include(updated_at: project.updated_at)
+      end
+
+      it "includes the follows count" do
+        expect(serialized).to include(follows_count: project.follows_count)
+      end
+
+      it "includes the selected date" do
+        expect(serialized).to include(selected_at: project.selected_at)
+      end
+
+      it "serializes the reference" do
+        expect(serialized).to include(reference: project.reference)
+      end
+
+      it "serializes the latitude" do
+        expect(serialized).to include(latitude: project.latitude)
+      end
+
+      it "serializes the longitude" do
+        expect(serialized).to include(longitude: project.longitude)
       end
     end
 

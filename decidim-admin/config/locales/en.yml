@@ -756,6 +756,10 @@ en:
           preview: 'Preview template: %{template_name}'
           use_template: Use this template
       newsletters:
+        confirm_recipients:
+          email: Email
+          name: Name
+          title: Confirm recipients
         create:
           error: There was a problem creating this newsletter.
           success: Newsletter created successfully. Please review it before sending.
@@ -775,12 +779,14 @@ en:
           confirm_delete: Are you sure you want to delete this newsletter?
           followers: 'followers '
           has_been_sent_to: 'Has been sent to: '
-          no_scopes: No scopes
           not_sent: Not sent
           participants: 'participants '
+          private_members: 'private members '
           segmented_to: 'Segmented to %{subject}: '
           subscribed_count: 'Subscribed:'
           title: Newsletters
+          verification_types: 'Verification types: %{types}'
+          verified_users: Verified users
         new:
           save: Save
           title: New newsletter
@@ -788,16 +794,24 @@ en:
           all_spaces: All
           all_users_help: Sends newsletter to all confirmed users.
           confirm_deliver: Are you sure you want to deliver this newsletter? This action cannot be undone.
+          confirm_recipients: Confirm recipients
           deliver: Deliver newsletter
           followers_help: Sends newsletter to all confirmed users that follow any selected participatory spaces in the list.
-          none: None
           participants_help: Sends newsletter to all confirmed users that have participated in any of the selected participatory spaces in the list.
+          private_members_help: Sends a newsletter to all confirmed users that have been added to the selected private participatory spaces.
           recipients_count: This newsletter will be send to <strong id='recipients_count'>%{count}</strong> users.
-          scopes_help: Sends newsletter to users that have any of the selected scope activated in their account's "My Interests" settings.
-          select_scopes: Filter for users having activated any selected scope in their account's My Interests settings.
+          select_assemblies: Choose assemblies
+          select_conferences: Choose conferences
+          select_initiatives: Choose initiatives
+          select_participatory_processes: Choose participatory processes
           select_spaces: Select spaces to segment the newsletter
-          select_users: Select which users you want to send the newsletter
+          select_users_for_participatory_space: Send newsletter to one or more participatory spaces
+          select_users_general: Send general newsletter
+          select_verification_types: Choose verification methods
+          send_to_all_users: Send to all users
+          send_to_verified_users: Send to verified users
           title: Select recipients to deliver
+          verified_users_help: Sends a newsletter to all confirmed and verified users via any selected verification method.
           warning: "<strong>Attention:</strong> This newsletter will only be send to users that have activated <em>I want to receive newsletters</em> in their notifications settings."
         send:
           no_recipients: No recipients for this selection.

@@ -103,8 +103,6 @@ sq:
           create:
             invalid: Ndodhi një gabim gjatë krijimit të këtij rezultati.
             success: Rezultati u krijua suksesshëm.
-          destroy:
-            success: Rezultati u fshi suksesshëm.
           edit:
             title: Ndrysho rezultatin
             update: Përditëso rezultatin
@@ -191,12 +189,10 @@ sq:
       models:
         result:
           fields:
-            category: Kategoria
             created_at: Krijuar
             end_date: Data e përfundimit
             id: ID
             progress: Ecuria
-            scope: Fushëveprimi
             start_date: Data e fillimit
             status: Statusi
             title: Titulli
@@ -215,17 +211,11 @@ sq:
           results_count:
             one: 1 rezultat
             other: "%{count} rezultate"
-        filters:
-          all: Të gjitha
         home:
-          categories_label: Kategoritë
           empty: Nuk ka rezultate.
           empty_filters: Nuk ka rezultate me kriteret e kërkuara.
-          subcategories_label: Nënkategoritë
         home_header:
           global_status: Statusi i përgjithshëm i ekzekutimit
-        nav_breadcrumb:
-          global: Ekzekutimi i përgjithshëm
         no_results: Nuk ka projekte
         search:
           search: Kërko për veprime
@@ -237,10 +227,6 @@ sq:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategoria
-          scope_id_eq:
-            label: Fushëveprimi
           status_id_eq:
             label: Statusi
     components:

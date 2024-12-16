@@ -10,6 +10,7 @@ module Decidim
   # This namespace holds the logic of the `Blogs` component. This component
   # allows the admins to create a custom blog for a participatory process.
   module Blogs
+    autoload :PostSerializer, "decidim/blogs/post_serializer"
     autoload :SchemaOrgBlogPostingPostSerializer, "decidim/blogs/schema_org_blog_posting_post_serializer"
   end
 end
