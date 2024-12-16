@@ -379,19 +379,26 @@ ca:
       help:
         projects:
           address: La localització (adreça) del projecte (si en té)
+          budget: Dades sobre el pressupost (e.g. "Pressupostos participatius 2021") en el que està inclòs el projecte
           budget_amount: La quantitat total de pressupost per a aquest projecte
           comments: El número de comentaris que ha rebut aquest projecte
           component: El component al qual pertany el projecte
           confirmed_votes: El número de vots confirmats que ha rebut aquest projecte
           created_at: La data i l'hora en què es va crear el projecte
           description: La descripció del projecte
+          follows_count: El número de seguidores que té el projecte
           id: L'identificador únic del projecte
+          latitude: La latitud del projecte en cas que aquest tingui una ubicació física
+          longitude: La longitud del projecte en cas que aquest tingui una ubicació física
           participatory_space: A quin espai pertany aquest projecte (procés participatiu, assemblea, etc.)
+          reference: La referència única del projecte
           related_proposal_titles: Els títols de les propostes relacionades
           related_proposal_urls: Les URL de les propostes relacionades
           related_proposals: Les propostes relacionades amb aquest projecte
+          selected_at: L'hora en què el projecte va ser seleccionat
           taxonomies: Les taxonomies del projecte
           title: El títol del projecte
+          updated_at: La data de la darrera actualització d'aquest projecte
           url: L'URL del projecte
     orders:
       checkout:
