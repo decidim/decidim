@@ -407,6 +407,7 @@ id:
         select_recipients_to_deliver:
           confirm_deliver: Anda yakin ingin menyampaikan buletin ini? Tindakan ini tidak bisa dibatalkan.
           deliver: Kirimkan buletin
+          none: Tidak ada
         show:
           preview: Preview
           subject: Subyek
