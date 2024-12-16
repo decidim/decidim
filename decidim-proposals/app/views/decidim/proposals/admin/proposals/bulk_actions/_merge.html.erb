@@ -16,7 +16,13 @@
         <%= bulk_components_select((current_component.siblings + [current_component])) %>
       </div>
 
-      <%= render partial: "decidim/proposals/admin/proposals_merge/merge_form", locals: { form: f, title: t(".title") } %>
+      <%= render partial: "decidim/proposals/admin/proposals_merge/merge_form", object: f, locals: { form: @form, title: t(".title") } %>
+
+      <div class="hide">
+        <% proposals.each do |proposal| %>
+          <%= hidden_field_tag "proposal_ids[]", proposal.id %>
+        <% end %>
+      </div>
 
     <% end %>
   </div>
