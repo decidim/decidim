@@ -532,7 +532,7 @@ tr:
           confirm_deliver: Bu bülteni sunmak istediğinizden emin misiniz? Bu işlem geri alınamaz.
           deliver: Bülten sunun
           followers_help: Listede seçili herhangi bir katılımcı süreci takip eden bütün onaylanmış kullanıcılara haber bülteni gönderir.
-          none: Hiçbiri
+          none: Yok
           participants_help: Listede seçili herhangi bir katılımcı sürece katılmış olan bütün onaylanmış kullanıcılara haber bülteni gönderir.
           recipients_count: Bu haber bülteni <strong id='recipients_count'>%{count}</strong> kullanıcıya gönderilecektir.
           scopes_help: Hesaplarındaki 'İlgi Alanlarım' ayarlarında etkinleştirilmiş herhangi bir seçili kapsam bulunan kullanıcılara haber bülteni gönderir.
