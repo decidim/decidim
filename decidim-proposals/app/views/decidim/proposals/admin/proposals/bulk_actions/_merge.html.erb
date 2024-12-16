@@ -16,13 +16,7 @@
         <%= bulk_components_select((current_component.siblings + [current_component])) %>
       </div>
 
-      <%= render partial: "form", object: f, locals: { title: t(".title") } %>
-
-      <div class="hide">
-        <% proposals.each do |proposal| %>
-          <%= check_box_tag "proposal_ids[]", proposal.id, false, class: "js-check-all-proposal js-proposal-id-#{proposal.id}" %>
-        <% end %>
-      </div>
+      <%= render partial: "decidim/proposals/admin/proposals_merge/merge_form", locals: { form: f, title: t(".title") } %>
 
     <% end %>
   </div>
