@@ -129,6 +129,7 @@ es-MX:
           info: Acerca de este proceso
           landing_page: Página de inicio
           moderations: Moderaciones
+          private_users: Miembros
           process_admins: Usuarios del proceso
           steps: Fases del proceso
       models:
@@ -170,6 +171,7 @@ es-MX:
           fields:
             invitation_accepted_at: Invitación aceptada el día
             invitation_sent_at: Invitación enviada el día
+            published: Publicados
       participatory_process_copies:
         new:
           copy: Copiar
@@ -473,6 +475,7 @@ es-MX:
             metadata: Metadatos
             no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             other: Otro
+            private_notice: Podrás administrar las miembros después de configurar el espacio como privado
             related_processes: Procesos relacionados
             scope_type_max_depth_help: Restringe la profundidad del filtro de ámbito; se mostrará el filtro desde el ámbito general hasta el seleccionado.
             select_an_area: Seleccione una área
@@ -544,6 +547,9 @@ es-MX:
           type: Tipo
         show:
           title: Acerca de este proceso
+      participatory_space_private_users:
+        index:
+          title: Miembros
       show:
         belongs_to_group: Este proceso pertenece a
         private_space: Este es un proceso privado
@@ -557,6 +563,8 @@ es-MX:
           browse: Explorar
           browse_resource: Explorar el grupo de procesos %{resource_name}
           processes_count: 'Procesos:'
+      participatory_process_navigation:
+        member_menu_item: Miembros
       participatory_processes:
         index:
           promoted_processes: Procesos destacados
