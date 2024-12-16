@@ -244,10 +244,10 @@ describe "Vote Proposal", slow: true do
                 }
               }
 
-            component.update!(permissions:)
-            visit_component
-            find(".card__list#proposals__proposal_#{proposal.id}").click
-          end
+              component.update!(permissions:)
+              visit_component
+              find(".card__list#proposals__proposal_#{proposal.id}").click
+            end
 
             it "redirects to the authorization form" do
               within "#proposal-#{proposal.id}-vote-button" do
