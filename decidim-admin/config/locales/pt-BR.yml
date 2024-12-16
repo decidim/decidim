@@ -202,11 +202,11 @@ pt-BR:
         verify: Verificar
       admin_terms_of_service:
         accept:
-          error: Houve um erro ao aceitar os termos de serviço de administrador.
+          error: Houve um erro ao aceitar os termos de serviço de administrador. 
           success: Ótimo! Você aceitou os termos de uso do administrador.
         actions:
           accept: Concordo com estes termos
-          are_you_sure: Tem certeza que deseja negar os termos de Serviço para administrador?
+          are_you_sure: Tem certeza que deseja negar os termos de Serviço para administrador? 
           refuse: Recusar os termos de administrador
           title: "Concordo com os termos de serviço\n"
         required_review:
@@ -732,7 +732,6 @@ pt-BR:
           confirm_delete: Deseja mesmo excluir esta newsletter?
           followers: 'seguidores '
           has_been_sent_to: 'Foi enviado para: '
-          no_scopes: Nenhum escopo
           not_sent: Não enviado
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
@@ -747,13 +746,10 @@ pt-BR:
           confirm_deliver: Deseja mesmo enviar este boletim informativo? Essa ação não pode ser desfeita.
           deliver: Entregar boletim informativo
           followers_help: Enviar newsletter para todos os usuários confirmados que seguem quaisquer espaços participativos selecionados na lista.
-          none: Nenhum
           participants_help: Enviar newsletter para todos os usuários confirmados que participaram de qualquer um dos espaços participativos selecionados na lista.
           recipients_count: Esta newsletter será enviada para <strong id='recipients_count'>%{count}</strong> usuários.
-          scopes_help: Enviar newsletter para os usuários que tenham qualquer um dos escopos selecionados nas configurações "Meus Interesses" de sua conta.
-          select_scopes: Filtrar por usuários que ativaram qualquer escopo selecionado nas configurações de meus interesses em sua conta.
           select_spaces: Selecionar espaços para segmentar a newsletter
-          select_users: Selecione quais usuários você deseja enviar a newsletter
+          send_to_all_users: Enviar para todos os usuários
           title: Selecionar destinatários para entregar
           warning: "<strong>Atenção:</strong> Esta newsletter será enviada apenas para usuários que ativaram <em>quero receber newsletters</em> nas configurações de notificação."
         send:
