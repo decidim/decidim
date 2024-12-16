@@ -32,6 +32,12 @@ describe Decidim::OpenDataExporter do
     let(:unpublished_resource) { create(:post, component: unpublished_component) }
 
     it_behaves_like "open data exporter"
+
+    context "with unpublished posts" do
+      let!(:unpublished_resource) { create(:post, published_at: 5.weeks.from_now, component:) }
+
+      it_behaves_like "open data exporter"
+    end
   end
 
   describe "posts by deleted user" do
