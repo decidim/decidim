@@ -463,7 +463,6 @@ sq:
           all_users_help: Dërgo buletinin te të gjithë përdoruesit e konfirmuar.
           confirm_deliver: A je i sigurt që do ta dërgosh këtë buletin? Veprimi nuk mund të anulohet.
           deliver: Dërgo buletinin
-          none: Asnjë
         show:
           preview: Parapamje
           subject: Tema
