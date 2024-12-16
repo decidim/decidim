@@ -13,6 +13,7 @@
 const $ = window.$;
 
 import changeReportFormBehavior from "src/decidim/change_report_form_behavior";
+import { initializeCommentsDropdown } from "../../decidim/comments/comments_dropdown";
 
 export default class CommentsComponent {
   constructor($element, config) {
@@ -166,6 +167,13 @@ export default class CommentsComponent {
       });
 
       document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container));
+
+      const $dropdown = $add.find("[data-comments-dropdown]");
+      if ($dropdown.length > 0) {
+        initializeCommentsDropdown($dropdown[0]);
+      }
+
+      document.querySelectorAll(".new_report").forEach((container) => changeReportFormBehavior(container))
 
       if ($text.length && $text.get(0) !== null) {
         // Attach event to the DOM node, instead of the jQuery object

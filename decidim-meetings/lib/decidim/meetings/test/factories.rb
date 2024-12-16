@@ -65,6 +65,12 @@ FactoryBot.define do
       type_of_meeting { :in_person }
     end
 
+    trait :hidden do
+      after :create do |meeting, evaluator|
+        create(:moderation, hidden_at: Time.current, reportable: meeting, skip_injection: evaluator.skip_injection)
+      end
+    end
+
     trait :online do
       type_of_meeting { :online }
       online_meeting_url { "https://decidim.org" }

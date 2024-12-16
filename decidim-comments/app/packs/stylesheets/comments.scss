@@ -6,16 +6,26 @@
   }
 
   .add-comment {
-    @apply mt-12;
+    @apply mt-12 md:bg-gray-5 p-0 md:px-4 md:pb-6 md:pt-1 rounded-lg w-full;
+
+    .new_comment {
+      @apply w-full;
+    }
 
     .remaining-character-count {
-      @apply block text-right text-sm text-gray-2;
+      @apply block text-left text-sm text-gray-2 mx-4 md:m-0;
     }
 
     .form__wrapper {
       @apply pt-0;
     }
 
+    a {
+      @apply text-secondary underline font-semibold;
+    }
+  }
+
+  .account-message {
     a {
       @apply text-secondary underline font-semibold;
     }
@@ -48,6 +58,12 @@
   .most-upvoted-label {
     @apply px-2 mb-2;
   }
+
+  input[type="radio"] {
+    &:not(.reset-defaults) {
+      @apply inline-block mr-0;
+    }
+  }
 }
 
 .comment {
@@ -72,6 +88,14 @@
     & ~ [data-comment-footer] {
       .comment__header {
         @apply -ml-10;
+      }
+
+      [data-target*="dropdown-menu-add-comment"] {
+        @apply w-full flex items-center justify-between gap-2 px-0 pt-2 pb-0 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+
+        > svg {
+          @apply w-6 h-6 flex-none text-secondary fill-current;
+        }
       }
     }
   }
@@ -138,7 +162,27 @@
   }
 
   &__as {
-    @apply my-4;
+    @apply my-4 px-4 md:p-0;
+
+    &-author-container {
+      @apply flex justify-between items-center;
+    }
+
+    &-author-info {
+      @apply flex items-center gap-2;
+    }
+
+    &-author-name {
+      @apply text-secondary font-semibold;
+    }
+
+    &-author-selected {
+      @apply flex flex-col;
+
+      .author__avatar-container {
+        @apply -mt-3.5;
+      }
+    }
   }
 
   .add-comment {
@@ -331,30 +375,15 @@
     }
 
     &-submit {
-      @apply flex flex-col md:flex-row justify-between items-stretch md:items-end gap-4 mt-4;
+      @apply flex flex-col md:flex-row md:justify-end items-stretch md:items-end gap-4 mt-4;
     }
-  }
 
-  &__opinion {
-    &-container {
-      @apply flex mt-2 w-full md:w-fit;
+    &-mobile-banner {
+      @apply flex relative md:hidden h-[72px] border-b border-gray justify-center items-center;
 
-      button {
-        @apply grow border border-gray first-of-type:rounded-l last-of-type:rounded-r inline-flex justify-center items-center gap-1 px-4 py-1.5 text-sm text-gray-2 -ml-px first:ml-0 transition-all;
-
-        svg {
-          @apply fill-current;
-        }
-
-        &:hover,
-        &.is-active {
-          @apply border-secondary text-secondary bg-background-4;
-        }
+      .close-button {
+        @apply absolute top-7 right-6 [&_svg]:w-4 [&_svg]:h-4;
       }
-    }
-
-    &-label {
-      @apply text-sm text-gray-2;
     }
   }
 
@@ -370,4 +399,53 @@
 
 .comments-label-dropdown {
   @apply mr-2 mt-2;
+}
+
+[id*="dropdown-menu-add-comment"] {
+  @apply flex flex-col py-0 mx-0 border-t-0 border-gray-3 cursor-pointer;
+
+  &[aria-hidden="true"] {
+    @apply hidden;
+  }
+}
+
+[data-target*="dropdown-menu-add-comment"] {
+  @apply w-full flex items-center justify-between mb-4 gap-2 px-0 pt-2 pb-0 first-of-type:[&>svg]:block last-of-type:[&>svg]:hidden;
+
+  & > span {
+    @apply hidden font-semibold text-secondary;
+
+    &:only-of-type,
+    &.is-active {
+      @apply flex items-center gap-2 [&_svg]:fill-current;
+    }
+  }
+
+  > svg {
+    @apply w-6 h-6 flex-none text-secondary fill-current;
+  }
+
+  &[aria-expanded="false"] > svg:last-of-type,
+  &[aria-expanded="true"] > svg:first-of-type {
+    @apply hidden;
+  }
+
+  &[aria-expanded="true"] > svg:last-of-type,
+  &[aria-expanded="false"] > svg:first-of-type {
+    @apply block;
+  }
+}
+
+.publish-comment-button {
+  @apply md:relative fixed inset-x-0 bottom-0 z-30 md:z-0 flex flex-row items-center md:items-end md:justify-end font-semibold justify-around bg-white md:bg-transparent gap-4 md:gap-0 p-4 md:p-0 shadow-inner md:shadow-none first:[&>*]:grow md:first:[&>*]:grow-0 h-14 md:h-fit first:[&>button]:py-3;
+}
+
+.fullscreen {
+  @apply fixed md:relative inset-0 w-screen md:w-full h-screen bg-white z-50 p-0 overflow-auto md:overflow-hidden rounded-none;
+}
+
+.comments {
+  .fullscreen.add-comment {
+    @apply mt-0;
+  }
 }

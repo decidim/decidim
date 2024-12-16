@@ -50,10 +50,11 @@ module Decidim::Comments
           end
 
           it "renders the comment as input" do
-            expect(subject).to have_css("#add-comment-DummyResource-#{commentable.id}-user-group-id")
+            expect(subject).to have_css(".comment__as-author-container")
 
             groups.each do |group|
-              expect(subject).to have_css("#add-comment-DummyResource-#{commentable.id}-user-group-id option[value='#{group.id}']", text: group.name)
+              expect(subject).to have_css("input[type='radio'][name='comment[user_group_id]'][value='#{group.id}']")
+              expect(subject).to have_css(".comment__as-author-name", text: group.name)
             end
           end
         end

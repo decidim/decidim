@@ -12,17 +12,21 @@ module Decidim::Admin
     let!(:name) { "Weird Guy" }
     let!(:user) { create(:user, email: "my_email@example.org", organization: privatable_to.organization) }
     let!(:current_user) { create(:user, email: "some_email@example.org", organization: privatable_to.organization) }
+    let(:role) { generate_localized_title(:role) }
     let(:form) do
       double(
         invalid?: invalid,
         delete_current_private_participants?: delete,
         email:,
         current_user:,
-        name:
+        name:,
+        role:,
+        published:
       )
     end
     let(:delete) { false }
     let(:invalid) { false }
+    let(:published) { true }
 
     context "when the form is not valid" do
       let(:invalid) { true }

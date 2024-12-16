@@ -23,6 +23,10 @@ module Decidim
         render :single_comment_warning
       end
 
+      def reply?
+        model.is_a?(Decidim::Comments::Comment)
+      end
+
       def comments_loading
         return if single_comment?
 
