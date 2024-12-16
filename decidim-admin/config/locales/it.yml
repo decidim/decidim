@@ -582,7 +582,6 @@ it:
           confirm_delete: Sei sicuro di voler cancellare questa newsletter?
           followers: 'followers '
           has_been_sent_to: 'E'' stata inviata a: '
-          no_scopes: Nessun ambito
           not_sent: Non inviato
           participants: 'partecipanti '
           segmented_to: 'Segmentato a %{subject}: '
@@ -597,13 +596,10 @@ it:
           confirm_deliver: Sei certo di voler inviare questa Newsletter?  Questa azione sarà irrevocabile.
           deliver: Invia la newsletter
           followers_help: Invia newsletter a tutti gli utenti confermati che seguono tutti gli spazi partecipativi selezionati nella lista.
-          none: Nessuno
           participants_help: Invia newsletter a tutti gli utenti confermati che hanno partecipato a uno degli spazi partecipativi selezionati nella lista.
           recipients_count: Questa newsletter verrà inviata agli utenti <strong id='recipients_count'>%{count}</strong>.
-          scopes_help: Invia newsletter agli utenti che hanno uno dei campi selezionati attivati nelle impostazioni "I miei interessi".
-          select_scopes: Filtra per gli utenti che hanno attivato qualsiasi ambito selezionato nelle impostazioni interessi personali del proprio account.
           select_spaces: Selezionare gli spazi per segmentare la newsletter
-          select_users: Seleziona gli utenti a cui desideri inviare la newsletter
+          send_to_all_users: Invia a tutti gli utenti
           title: Seleziona destinatari a cui inviare
           warning: "<strong>Attenzione:</strong> Questa newsletter sarà inviata solo agli utenti che hanno attivato <em>Voglio ricevere newsletter</em> nelle impostazioni delle notifiche."
         show:
