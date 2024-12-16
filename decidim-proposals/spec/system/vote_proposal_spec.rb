@@ -272,7 +272,7 @@ describe "Vote Proposal", slow: true do
 
               component.update!(permissions:)
               visit_component
-              click_on proposal_title
+              find(".card__list#proposals__proposal_#{proposal.id}").click
             end
 
             it "redirects to pending onboarding authorizations page" do
