@@ -277,7 +277,6 @@ ga:
           save: Sábháil
         select_recipients_to_deliver:
           all_spaces: Uile
-          none: Ceann ar Bith
         show:
           preview: Réamhamharc
           subject: Ábhar
