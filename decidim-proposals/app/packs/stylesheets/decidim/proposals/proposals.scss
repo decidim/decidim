@@ -246,17 +246,23 @@
         }
 
         .with_votes_limit {
-          @apply flex flex-col lg:items-start flex-1 lg:flex-1 md:flex-none md:mr-4 lg:mr-0;
+          @apply flex flex-col lg:items-start flex-1 md:mr-4 lg:mr-0;
 
           .proposals__aside-progress {
             @apply flex flex-col-reverse w-[80%] items-center;
           }
 
-          .progress-bar__number {
-            @apply lg:w-[80%];
+          .progress-bar {
+            &__number {
+              @apply lg:w-[80%];
 
-            span {
-              @apply text-sm;
+              span {
+                @apply text-sm;
+              }
+            }
+
+            &__units {
+              @apply flex justify-center w-[80%];
             }
           }
         }
