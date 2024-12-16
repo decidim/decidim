@@ -732,6 +732,10 @@ fr:
           preview: 'Prévisualiser le modèle: %{template_name}'
           use_template: Utiliser ce modèle
       newsletters:
+        confirm_recipients:
+          email: Email
+          name: Nom
+          title: Confirmer les destinataires
         create:
           error: Il y a eu une erreur lors de la création de cette newsletter.
           success: Newsletter créée avec succès. N'hésitez pas à la relire avant de l'envoyer.
@@ -753,9 +757,12 @@ fr:
           has_been_sent_to: 'A été envoyé à : '
           not_sent: Envoi non effectué
           participants: 'participants '
+          private_members: 'membres privés '
           segmented_to: 'Segmenté à %{subject}: '
           subscribed_count: 'Abonné:'
           title: Newsletters
+          verification_types: 'Types de vérification : %{types}'
+          verified_users: Utilisateurs vérifiés
         new:
           save: Enregistrer
           title: Nouvelle newsletter
@@ -763,12 +770,19 @@ fr:
           all_spaces: Tous
           all_users_help: Envoie la newsletter à tous les utilisateurs confirmés.
           confirm_deliver: Êtes-vous sûr de vouloir envoyer cette newsletter ? Cette action ne peut pas être annulée.
+          confirm_recipients: Confirmer les destinataires
           deliver: Envoyer la newsletter
           followers_help: Envoie la newsletter à tous les utilisateurs confirmés qui suivent les espaces participatifs sélectionnés dans la liste.
           participants_help: Envoie la newsletter à tous les utilisateurs confirmés qui ont participé à l'un des espaces participatifs sélectionnés dans la liste.
           recipients_count: Cette newsletter sera envoyé à <strong id='recipients_count'>%{count}</strong> users.
+          select_assemblies: Choisissez les assemblées
+          select_conferences: Choisissez les conférences
+          select_participatory_processes: Choisissez les processus participatifs
           select_spaces: Sélectionnez les espaces pour segmenter la newsletter
+          select_users_for_participatory_space: Envoyer la newsletter à un ou plusieurs espaces participatifs
+          select_verification_types: Choisissez les méthodes de vérification
           send_to_all_users: Envoyer à tous
+          send_to_verified_users: Envoyer aux utilisateurs vérifiés
           title: Sélectionner les destinataires
           warning: "<strong>Attention :</strong> Cette newsletter ne sera envoyée qu'aux utilisateurs qui ont activé <em>Je veux recevoir newsletters</em> dans leurs paramètres de notifications."
         send:
