@@ -74,8 +74,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
       expect(process_type_roots["~ Participatory process types"]["filters"].count).to eq(1)
       expect(process_type_roots["~ Participatory process types"]["filters"].first["name"]).to eq("~ Participatory process types")
-      expect(process_type_roots["~ Participatory process types"]["filters"].first["space_filter"]).to be(true)
-      expect(process_type_roots["~ Participatory process types"]["filters"].first["space_manifest"]).to eq("participatory_processes")
+      expect(process_type_roots["~ Participatory process types"]["filters"].first["participatory_space_manifests"]).to eq(["participatory_processes"])
       expect(process_type_roots["~ Participatory process types"]["filters"].first["items"]).to contain_exactly(["Participatory Process Type 1"], ["Participatory Process Type 2"])
       expect(process_type_roots["~ Participatory process types"]["filters"].first["components"]).to eq([])
 
@@ -92,8 +91,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
 
       expect(assembly_types_roots["~ Assemblies types"]["filters"].count).to eq(1)
       expect(assembly_types_roots["~ Assemblies types"]["filters"].first["name"]).to eq("~ Assemblies types")
-      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["space_filter"]).to be(true)
-      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["space_manifest"]).to eq("assemblies")
+      expect(assembly_types_roots["~ Assemblies types"]["filters"].first["participatory_space_manifests"]).to eq(["assemblies"])
       expect(assembly_types_roots["~ Assemblies types"]["filters"].first["items"]).to contain_exactly(["Assembly Type 1"], ["Assembly Type 2"])
       expect(assembly_types_roots["~ Assemblies types"]["filters"].first["components"]).to eq([])
 
@@ -113,24 +111,15 @@ describe "Executing Decidim Taxonomy importer tasks" do
                                                          participatory_process.to_global_id.to_s => "Process"
                                                        })
 
-      expect(scope_roots["~ Scopes"]["filters"].count).to eq(5)
+      expect(scope_roots["~ Scopes"]["filters"].count).to eq(2)
       expect(scope_roots["~ Scopes"]["filters"]).to include(
-        "space_filter" => true,
-        "space_manifest" => "participatory_processes",
+        "participatory_space_manifests" => %w(assemblies participatory_processes conferences initiatives),
         "name" => "~ Scopes",
         "items" => [["Scope 1"], ["Scope 1", "Scope 1 second level"], ["Scope 2"]],
         "components" => []
       )
+
       expect(scope_roots["~ Scopes"]["filters"]).to include(
-        "space_filter" => true,
-        "space_manifest" => "assemblies",
-        "name" => "~ Scopes",
-        "items" => [["Scope 1"], ["Scope 1", "Scope 1 second level"], ["Scope 2"]],
-        "components" => []
-      )
-      expect(scope_roots["~ Scopes"]["filters"]).to include(
-        "space_filter" => false,
-        "space_manifest" => "assemblies",
         "name" => "~ Scopes",
         "internal_name" => "~ Scopes: Dummy component",
         "items" => [["Scope 1", "Scope 1 second level"]],
@@ -144,24 +133,9 @@ describe "Executing Decidim Taxonomy importer tasks" do
       expect(areas_roots["~ Areas"]["taxonomies"]["Area 1"]["resources"]).to eq({
                                                                                   assembly.to_global_id.to_s => "Assembly"
                                                                                 })
-      expect(areas_roots["~ Areas"]["filters"].count).to eq(3)
+      expect(areas_roots["~ Areas"]["filters"].count).to eq(1)
       expect(areas_roots["~ Areas"]["filters"]).to include(
-        "space_filter" => true,
-        "space_manifest" => "assemblies",
-        "name" => "~ Areas",
-        "items" => [["Area 1"]],
-        "components" => []
-      )
-      expect(areas_roots["~ Areas"]["filters"]).to include(
-        "space_filter" => true,
-        "space_manifest" => "participatory_processes",
-        "name" => "~ Areas",
-        "items" => [["Area 1"]],
-        "components" => []
-      )
-      expect(areas_roots["~ Areas"]["filters"]).to include(
-        "space_filter" => true,
-        "space_manifest" => "initiatives",
+        "participatory_space_manifests" => %w(assemblies participatory_processes initiatives),
         "name" => "~ Areas",
         "items" => [["Area 1"]],
         "components" => []
@@ -182,8 +156,6 @@ describe "Executing Decidim Taxonomy importer tasks" do
       expect(cat_taxonomies["Participatory process: Process"]["children"]["Another Category 2"]["name"]).to eq("en" => "Another Category 2", "ca" => "Una Altra Categoria 2")
       expect(categories_roots["~ Categories"]["filters"].count).to eq(1)
       expect(categories_roots["~ Categories"]["filters"]).to include(
-        "space_filter" => false,
-        "space_manifest" => "assemblies",
         "internal_name" => "Assembly: Assembly",
         "name" => "~ Categories",
         "items" => [["Assembly: Assembly", "Category 1"],
@@ -243,8 +215,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Filters: 1
               - Filter name: ~ Participatory process types
                 Internal name: -
-                Manifest: participatory_processes
-                Space filter: true
+                Space manifests: participatory_processes
                 Items: 2
                 Components: 0
             !Taxonomy imported: Participatory Process Type 1
@@ -255,7 +226,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
               - Participatory Process Type 1
               - Participatory Process Type 2
             Created filters: 1
-              - participatory_processes: ~ Participatory process types: 2 items
+              - ~ Participatory process types: 2 items
             Assigned resources: 1
               - Participatory Process Type 1: 1 resources
             Assigned components: 0
@@ -270,8 +241,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Filters: 1
               - Filter name: ~ Assemblies types
                 Internal name: -
-                Manifest: assemblies
-                Space filter: true
+                Space manifests: assemblies
                 Items: 2
                 Components: 0
             !Taxonomy imported: Assembly Type 1
@@ -282,7 +252,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
               - Assembly Type 1
               - Assembly Type 2
             Created filters: 1
-              - assemblies: ~ Assemblies types: 2 items
+              - ~ Assemblies types: 2 items
             Assigned resources: 1
               - Assembly Type 1: 1 resources
             Assigned components: 0
@@ -294,42 +264,19 @@ describe "Executing Decidim Taxonomy importer tasks" do
         ...Importing 1 root taxonomies from decidim_scopes
           - Root taxonomy: ~ Scopes
             1st level taxonomies: 2
-            Filters: 5
-              - Filter name: ~ Scopes
-                Internal name: -
-                Manifest: assemblies
-                Space filter: true
-                Items: 3
-                Components: 0
+            Filters: 2
               - Filter name: ~ Scopes
                 Internal name: ~ Scopes: Dummy component
-                Manifest: assemblies
-                Space filter: false
+                Space manifests: -
                 Items: 1
                 Components: 1
               - Filter name: ~ Scopes
                 Internal name: -
-                Manifest: participatory_processes
-                Space filter: true
-                Items: 3
-                Components: 0
-              - Filter name: ~ Scopes
-                Internal name: -
-                Manifest: conferences
-                Space filter: true
-                Items: 3
-                Components: 0
-              - Filter name: ~ Scopes
-                Internal name: -
-                Manifest: initiatives
-                Space filter: true
+                Space manifests: assemblies, participatory_processes, conferences, initiatives
                 Items: 3
                 Components: 0
             !Taxonomy imported: Scope 1
             !Taxonomy imported: Scope 2
-            !Filter imported: ~ Scopes
-            !Filter imported: ~ Scopes
-            !Filter imported: ~ Scopes
             !Filter imported: ~ Scopes
             !Filter imported: ~ Scopes
             Created taxonomies: 4
@@ -337,18 +284,15 @@ describe "Executing Decidim Taxonomy importer tasks" do
               - Scope 1
               - Scope 1 second level
               - Scope 2
-            Created filters: 5
-              - assemblies: ~ Scopes: 3 items
-              - assemblies: ~ Scopes: Dummy component: 1 items
-              - participatory_processes: ~ Scopes: 3 items
-              - conferences: ~ Scopes: 3 items
-              - initiatives: ~ Scopes: 3 items
+            Created filters: 2
+              - ~ Scopes: Dummy component: 1 items
+              - ~ Scopes: 3 items
             Assigned resources: 3
               - Scope 1: 1 resources
               - Scope 1 second level: 1 resources
               - Scope 2: 1 resources
             Assigned components: 1
-              - assemblies: ~ Scopes: Dummy component: 1 components
+              - ~ Scopes: Dummy component: 1 components
             Failed resources: 0
             Failed components: 0
       MSG
@@ -357,36 +301,19 @@ describe "Executing Decidim Taxonomy importer tasks" do
         ...Importing 1 root taxonomies from decidim_areas
           - Root taxonomy: ~ Areas
             1st level taxonomies: 1
-            Filters: 3
+            Filters: 1
               - Filter name: ~ Areas
                 Internal name: -
-                Manifest: assemblies
-                Space filter: true
-                Items: 1
-                Components: 0
-              - Filter name: ~ Areas
-                Internal name: -
-                Manifest: participatory_processes
-                Space filter: true
-                Items: 1
-                Components: 0
-              - Filter name: ~ Areas
-                Internal name: -
-                Manifest: initiatives
-                Space filter: true
+                Space manifests: assemblies, participatory_processes, initiatives
                 Items: 1
                 Components: 0
             !Taxonomy imported: Area 1
             !Filter imported: ~ Areas
-            !Filter imported: ~ Areas
-            !Filter imported: ~ Areas
             Created taxonomies: 2
               - ~ Areas
               - Area 1
-            Created filters: 3
-              - assemblies: ~ Areas: 1 items
-              - participatory_processes: ~ Areas: 1 items
-              - initiatives: ~ Areas: 1 items
+            Created filters: 1
+              - ~ Areas: 1 items
             Assigned resources: 1
               - Area 1: 1 resources
             Assigned components: 0
@@ -401,8 +328,7 @@ describe "Executing Decidim Taxonomy importer tasks" do
             Filters: 1
               - Filter name: ~ Categories
                 Internal name: Assembly: Assembly
-                Manifest: assemblies
-                Space filter: false
+                Space manifests: -
                 Items: 2
                 Components: 1
             !Taxonomy imported: Assembly: Assembly
@@ -416,11 +342,11 @@ describe "Executing Decidim Taxonomy importer tasks" do
               - Participatory process: Process
               - Another Category 2
             Created filters: 1
-              - assemblies: Assembly: Assembly: 2 items
+              - Assembly: Assembly: 2 items
             Assigned resources: 1
               - Category 1: 1 resources
             Assigned components: 1
-              - assemblies: Assembly: Assembly: 1 components
+              - Assembly: Assembly: 1 components
             Failed resources: 0
             Failed components: 0
       MSG
