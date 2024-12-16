@@ -379,7 +379,6 @@ es-PY:
       help:
         projects:
           address: La localización (dirección) del proyecto (si tiene)
-          budget: A qué grupo de proyectos (por ejemplo, "Presupuestos 2021") pertenece este proyecto
           budget_amount: La cantidad total de presupuesto para este proyecto
           comments: El número de comentarios que ha recibido este proyecto
           component: El componente al que pertenece el proyecto
