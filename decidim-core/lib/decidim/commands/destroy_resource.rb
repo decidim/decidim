@@ -40,7 +40,11 @@ module Decidim
           current_user,
           **extra_params
         ) do
-          resource.destroy!
+          if resource.respond_to?(:really_destroy!)
+            resource.really_destroy!
+          else
+            resource.destroy!
+          end
         end
       end
 

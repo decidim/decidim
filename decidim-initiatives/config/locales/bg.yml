@@ -505,9 +505,7 @@ bg:
           phone_number: Телефонен номер
           place_date: Място, дата
           postal_code: Пощенски код (ПК)
-          print: Принтиране
           province: Район/Област
-          section: 'При поискване от организацията, моля, отпечатайте и попълнете този формуляр, за да го изпратите, където е посочено:'
           signature: Подпис
         result:
           answer_title: На тази инициатива е отговорено.
@@ -529,7 +527,6 @@ bg:
           other: " подписи"
         vote_cabin:
           already_voted: Вече подписани
-          verification_required: Потвърдете профила си, за да подпишете инициативата
           vote: Подписване
           votes_blocked: Подписването е деактивирано
         votes_count:
@@ -580,7 +577,6 @@ bg:
           comment: Коментар
       initiatives_type:
         actions:
-          create: Създаване
           title: Активности
           vote: Подписване
   layouts:

@@ -2,10 +2,8 @@ nl:
   activemodel:
     attributes:
       debate:
-        category_id: Categorie
         closed_at: Gesloten op
         conclusions: Besluit
-        decidim_category_id: Categorie
         description: Omschrijving
         end_time: Eindigt op
         information_updates: Informatie updates
@@ -28,7 +26,6 @@ nl:
       debates:
         actions:
           comment: Reactie
-          create: Aanmaken
         name: Debatten
         settings:
           global:
@@ -44,8 +41,6 @@ nl:
     debates:
       actions:
         close: Sluiten
-        confirm_destroy: Ben je zeker?
-        destroy: Verwijder
         edit: Bewerk
         title: acties
       admin:
@@ -53,8 +48,6 @@ nl:
           create:
             invalid: Er is een probleem opgetreden tijdens het maken van het debat.
             success: Debat succesvol aangemaakt.
-          destroy:
-            success: Debat succesvol verwijderd.
           edit:
             title: Bewerk debat
             update: Update debat
@@ -70,8 +63,6 @@ nl:
           update:
             invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
             success: Debat succesvol bijgewerkt.
-        exports:
-          comments: Reacties
       admin_log:
         debate:
           create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"
@@ -105,8 +96,6 @@ nl:
           state_values:
             closed: Gesloten
             open: Open
-        form:
-          select_a_category: Selecteer een categorie
         index:
           new_debate: Nieuw debat
         new:
@@ -120,7 +109,6 @@ nl:
           recent: Meest recent
           updated: Onlangs bijgewerkt
         show:
-          edit_debate: Bewerk debat
           open: Debat openen
         update:
           invalid: Er is een fout opgetreden bij het bijwerken van het debat.

@@ -22,6 +22,11 @@ en:
         details: Additional comments
       taxonomy:
         name: Taxonomy name
+      taxonomy_filter:
+        internal_name: Internal filter name
+        name: Public filter title
+        root_taxonomy_id: From taxonomy
+        space_filter: Available as filter for participatory spaces
       user:
         about: About
         email: Your email
@@ -168,6 +173,7 @@ en:
         error: There was a problem deleting your account.
         success: Your account was successfully deleted.
       download_your_data_export:
+        export_expired: The export has expired. Try to generate a new export.
         file_no_exists: File does not exist
         notice: The download of your data is currently in progress. You will receive an email when it is complete.
       email_change:
@@ -222,6 +228,8 @@ en:
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
         export_component: "%{user_name} exported the %{resource_name} %{component_name} in %{space_name} as %{format_name}"
         publish: "%{user_name} published the %{resource_name} component in the %{space_name} space"
+        restore: "%{user_name} restored the %{resource_name} component in the %{space_name} space"
+        soft_delete: "%{user_name} moved to trash the %{resource_name} component in the %{space_name} space"
         unpublish: "%{user_name} unpublished the %{resource_name} component from the %{space_name} space"
         update_permissions_with_space: "%{user_name} updated the permissions of %{resource_name} in %{space_name}"
       contextual_help_section:
@@ -426,6 +434,7 @@ en:
           scope_id: Scope
         name: Example authorization
       dummy_authorization_workflow:
+        explanation: Dummy authorization workflow
         name: Dummy authorization workflow
       errors:
         duplicate_authorization: A participant is already authorized with the same data. An administrator will contact you to verify your details.
@@ -668,6 +677,9 @@ en:
           show_password: Show password
           shown_password: Your password is shown
         placeholder_email: hi@example.org
+    documents:
+      one: "%{count} document"
+      other: "%{count} documents"
     doorkeeper:
       authorizations:
         new:
@@ -687,12 +699,16 @@ en:
       export:
         ready: Ready
       show:
-        download_data: Download the data
-        download_data_description_html: |-
-          A file containing all the information associated with your account will be sent to <strong>%{user_email}</strong>.
-          This email will contain a .zip file and a password to open it.<br/><br/>To unzip the file, you will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows) or <a href="https://www.keka.io/">Keka</a> (for MacOS).
-          If you use Linux, most of the time you will have it installed by default. If not, you can use <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> or <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Request data
+        action: Action
+        download: Download
+        download_data: Downloads area
+        download_data_description_1: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
+        download_data_description_2: You can request a .zip file with your submissions and personal data.
+        download_your_data: Personal data
+        expiration: Expiration
+        expired: Already expired
+        request_data: Request
+        type: Download type
     editor_images:
       create:
         error: Error uploading image.
@@ -870,6 +886,9 @@ en:
         email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
         email_subject: "%{endorser_nickname} has performed a new endorsement"
         notification_title: The <a href="%{resource_path}">%{resource_title}</a> %{resource_type} has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+      resources:
+        soft_deleted:
+          notification_title: An admin has deleted your "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
@@ -883,10 +902,11 @@ en:
           notification_title: Participant %{name} (%{nickname}) has been officialized.
     export_mailer:
       download_your_data_export:
-        click_button: 'Click the next link to download your data.<br/>The file will be available until %{date}.<br/>You will need <a href="https://www.7-zip.org/">7-Zip</a> (for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) to open it. Password: %{password}'
+        click_button_html: Click the next link to download your data.<br/>The file will be available for download until %{date}.
         download: Download
       export:
-        ready: Please find attached a zipped version of your export.
+        click_button_html: Your download is ready. <br/>The file will be available for download until %{date}.
+        download: Download
       subject: Your export "%{name}" is ready
     filters:
       linked_classes:
@@ -1131,6 +1151,8 @@ en:
           not_found: 'The scope type was not found on the database (ID: %{id})'
         taxonomy_presenter:
           not_found: 'The taxonomy was not found on the database (ID: %{id})'
+    machine_translations:
+      automatic: automatic translation in %{locale_name}
     managed_users:
       expired_session: The current administration session of a participant has expired.
     map:
@@ -1338,16 +1360,79 @@ en:
         message_1: It looks like you are currently offline.
         message_2: Please, try again later.
         retry: Retry
+    onboarding_action_message:
+      click_link: Click here
+      cta_html: <a href="%{path}">%{link_text}</a> in order to %{action} in the %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Your authorization has expired.
+      finish_authorization_process: You can finish the authorization process
+      incomplete_authorization_active_title: Your verification has not been completed with all the necessary information.
+      pending_authorization_active_message: Please complete the form to proceed with this action.
+      pending_authorization_active_title: We need to verify your identity.
     open_data:
       help:
         core:
           components: Components
           description: This ZIP file contains files for studying and researching about this participation platform.
+          main: Core
           spaces: Spaces
           title: Open Data files for %{organization}
+        metrics:
+          cumulative: The total number of the metric at this day
+          day: The day this metric was created
+          metric_type: The type of the metric
+          quantity: The number of the metrics for this day
+        moderated_users:
+          about: The about field of the user
+          block_reasons: The reason why the admin user blocked the user
+          blocked_at: Date and time when the user has been blocked
+          blocking_user: The name of the user that has performed the blocking
+          details: The details of the reports
+          reasons: A list of the reasons why the profile has been reported
+          user_id: The unique ID of the reported user
+        moderations:
+          hidden_at: Date and time when the content has been hidden
+          id: The unique identifier of the moderation
+          report_count: The number of times it has been reported
+          reportable_id: The unique id of the reportable
+          reportable_type: Type of the reportable
+          reported_content: The content that has been reported
+          reported_url: The url of the reported resource
+          reports: A list of reasons for which the resource has been reported
+        user_groups:
+          avatar_url: The avatar of the user group
+          badge: The badge of the user group
+          deleted: Whether the user is deleted or not
+          id: The unique identifier of the user group
+          members: The id and name of the users belonging to the group
+          members_count: The number of the users belonging to the user group
+          name: The display name of user group
+          nickname: The username of the user group
+          profile_url: The profile url
+        users:
+          about: The about text of the user
+          avatar_url: The avatar of the user
+          badge: The badge of the user
+          deleted: Whether the user is deleted or not
+          direct_messages_enabled: Whether the user allows direct messages
+          groups: The id and name of the user group
+          id: The unique identifier of the user
+          name: The display name of user
+          nickname: The username of the user
+          profile_url: The profile url
       index:
         description: Welcome to the %{organization_name} Open Data page. Here, you will find data files that are regularly generated from various deliberative and governance processes within %{organization_name}. These files are made available to promote transparency, accessibility, and collaboration. Below, you will find detailed information on what these files are, how to open and work with them, and a description of the content and structure of each file.
+        detailed:
+          body_1: 'Below is a description of each dataset, including its schema (structure) and the type of information it contains:'
+          components: Components
+          spaces: Participatory spaces
+          title: Detailed explanation of each file
+        download:
+          components: Components
+          core: Core
+          spaces: Participatory spaces
+          title: Download resources
         download_open_data: Download all the Open Data files
+        download_resource: Download %{resource_name} in CSV format
         explanation:
           body_1: These files are datasets exported from %{organization_name}'s participatory processes, such as proposals, comments, and meetings. They provide raw, structured data that can be used for analysis, research, or integration with other tools. The data is updated automatically every 24 hours, ensuring that you have access to the most recent information.
           body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
@@ -1373,6 +1458,13 @@ en:
               </ul>
             title: 3. Working with the data
           title: How to open and work with these files
+        license:
+          body_1_html: This %{organization_name} database is made available under the %{link_database}. Any rights in individual contents of the database are licensed under the %{link_contents}.
+          license_contents_link: http://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_name: Database Contents License
+          license_database_link: http://opendatacommons.org/licenses/odbl/1.0/
+          license_database_name: Open Database License
+          title: License
         title: Open Data
       not_available_yet: The Open Data files are not yet available, please try again in a few minutes.
     pad_iframe:
@@ -1622,7 +1714,7 @@ en:
     tags:
       filter_results_for_taxonomy: 'Filter results for: %{resource}'
     taxonomies:
-      prompt: Select from "%{name}"
+      prompt: Please select an option
     translation_bar:
       help_text: "<strong>Warning:</strong> Content might be automatically translated and not be 100% accurate."
       show_original: Show original text

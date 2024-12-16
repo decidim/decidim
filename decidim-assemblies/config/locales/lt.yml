@@ -104,7 +104,6 @@ lt:
       assemblies:
         create:
           error: Kuriant naują asamblėją iškilo problema.
-          success: Asamblėja sukurta.
         edit:
           update: Atnaujinti
         index:
@@ -146,21 +145,6 @@ lt:
           import: Importuoti
           select: Pasirinkite, kuriuos duomenis norėtumėte importuoti
           title: Importuoti asamblėją
-      assembly_members:
-        create:
-          error: Įtraukiant naują šios asamblėjos narį iškilo problema.
-          success: Šios asamblėjos narys sukurtas sėkmingai.
-        destroy:
-          success: Šios asamblėjos narys pašalintas sėkmingai.
-        edit:
-          update: Atnaujinti
-        index:
-          assembly_members_title: Asamblėjos nariai
-        new:
-          create: Sukurti
-        update:
-          error: Atnaujinant šios asamblėjos narį iškilo problema.
-          success: Šios asamblėjos narys atnaujintas sėkmingai.
       assembly_publications:
         create:
           error: Skelbiant šią asamblėją iškilo problema.
@@ -190,7 +174,6 @@ lt:
         assemblies: Asamblėjos
         assemblies_submenu:
           assembly_admins: Asamblėjos administratoriai
-          assembly_members: Nariai
           attachment_collections: Aplankai
           attachment_files: Dokumentai
           attachments: Priedai
@@ -213,11 +196,6 @@ lt:
             title: Pavadinimas
           name: Asamblėja
         assembly_member:
-          fields:
-            ceased_date: Nutraukimo data
-            designation_date: Paskyrimo data
-            full_name: Vardas
-            position: Pareigos
           name: Narys
           positions:
             other: Kita
@@ -286,13 +264,8 @@ lt:
             title: Pavadinimas
         assembly_members:
           form:
-            existing_user: Egzistuojantis dalyvis
             explanation: 'Paveikslėliui skirtos gairės:'
-            non_user: Neturintis dalyvio statuso subjektas
             non_user_avatar_help: Turite gauti naudotojų sutikimą prieš publikuodami juos kaip narius.
-            select_a_position: Pasirinkti poziciją
-            select_user: Pasirinkti dalyvį
-            user_type: Dalyvio tipas
         content_blocks:
           highlighted_assemblies:
             max_results: Didžiausias rodomų elementų skaičius
@@ -376,8 +349,6 @@ lt:
         private_space: Tai yra uždara asamblėja
         social_networks_title: Aplankyti asamblėją
     assembly_members:
-      assembly_member:
-        designated_on: Paskirtas
       index:
         title: Nariai
     events:

@@ -12,80 +12,26 @@
   <%= admin_filter_selector(:meetings) %>
   <div class="table-scroll">
     <table class="table-list">
-      <thead>
-        <tr>
-          <th>
-            <%= sort_link(query, :id, t("models.meeting.fields.id", scope: "decidim.meetings"), default_order: :desc ) %>
-          </th>
-          <th class="!text-left">
-            <%= sort_link(query, :translated_title, t("models.meeting.fields.title", scope: "decidim.meetings"), default_order: :desc ) %>
-          </th>
-          <th>
-            <%= sort_link(query, :start_time, t("models.meeting.fields.start_time", scope: "decidim.meetings"), default_order: :desc ) %>
-          </th>
-          <th>
-            <%= sort_link(query, :end_time, t("models.meeting.fields.end_time", scope: "decidim.meetings"), default_order: :desc ) %>
-          </th>
-          <th>
-            <%= sort_link(query, :closed, t("models.meeting.fields.closed", scope: "decidim.meetings"), default_order: :desc ) %>
-          </th>
-          <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
-            <th><%= t("models.meeting.fields.map", scope: "decidim.meetings") %></th>
-          <% end %>
-          <th>
-            <%= sort_link(query, :scope_name, t("models.meeting.fields.taxonomies", scope: "decidim.meetings") ) %>
-          </th>
-          <th><%= t("actions.title", scope: "decidim.meetings") %></th>
-        </tr>
-      </thead>
+      <%= render partial: "meetings-thead" %>
       <tbody>
-        <% meetings.each do |meeting| %>
-          <% is_linked = meeting.decidim_component_id != current_component.id %>
-
-          <tr data-id="<%= meeting.id %>">
-            <td>
-              <%= meeting.id %><br>
-            </td>
-            <td class="!text-left">
-              <% if allowed_to? :update, :meeting, meeting: meeting %>
-                <%= link_to present(meeting).title(html_escape: true), edit_meeting_path(meeting) %>
-              <% else %>
-                <%= present(meeting).title(html_escape: true) %><br>
-              <% end %>
-            </td>
-            <td>
-              <% if meeting.start_time %>
-                <%= l meeting.start_time, format: :long %>
-              <% end %>
-            </td>
-            <td>
-              <% if meeting.end_time %>
-                <%= l meeting.end_time, format: :long %>
-              <% end %>
-            </td>
-            <td>
-              <%= humanize_boolean meeting.closed? %>
-            </td>
-            <% if maps_enabled? && Decidim::Map.available?(:static, :geocoding) %>
-              <td>
-                <%= static_map_link(meeting, {}, { class: "static-map__admin" }) unless meeting.online? %>
-              </td>
-            <% end %>
-            <td>
-              <%= present(meeting).taxonomy_names.join(", ") %>
-            </td>
-            <td class="table-list__actions">
-              <% if is_linked %>
-                <%= t(".linked_meeting_warning_html", href: edit_meeting_path(meeting), name: present(meeting).space_title) %>
-              <% else %>
-                <%= render "/decidim/meetings/admin/meetings/meeting_actions", meeting: %>
-              <% end %>
-            </td>
-          </tr>
-        <% end %>
+        <%= render partial: "decidim/meetings/admin/meetings/meeting-tr",
+                   collection: meetings,
+                   as: :meeting,
+                   locals: { view: :index } %>
       </tbody>
     </table>
   </div>
+  <% if allowed_to? :manage_trash, :meeting, participatory_space: current_participatory_space %>
+    <div class="card mt-4">
+      <%= link_to manage_trash_meetings_path, class: "flex items-center underline text-secondary" do %>
+        <%= icon "delete-bin-2-line", class: "mr-2 fill-current text-secondary", role: "img" %>
+        <%= t("actions.view_deleted_meetings", scope: "decidim.meetings") %>
+        <span class="ml-2">
+          <%= icon_with_tooltip("information-line", t("actions.deleted_meetings_info", scope: "decidim.meetings")) %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <%= decidim_paginate meetings %>

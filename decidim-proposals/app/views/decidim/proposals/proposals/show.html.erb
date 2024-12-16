@@ -54,16 +54,19 @@ extra_admin_link(
     <% end %>
 
     <% unless component_settings.participatory_texts_enabled? %>
-      <div class="layout-author">
+      <% unless ["section","subsection"].include?(@proposal.participatory_text_level) %>
+        <div class="layout-author has_status">
+          <%= cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text) %>
+        </div>
+      <% end %>
+      <div class="layout-author <%= "has_status" unless %w(section subsection).include?(@proposal.participatory_text_level) %>">
         <div class="relative flex items-center justify-center w-full">
           <div class="w-10/12 flex items-center gap-4">
             <%= cell "decidim/coauthorships", @proposal, context_actions: [:date] %>
-
-            <% if not ["section","subsection"].include? @proposal.participatory_text_level %>
-              <%= cell("decidim/proposals/proposal_metadata", @proposal).state_item&.dig(:text) %>
-            <% end %>
           </div>
-          <%= render "decidim/shared/resource_actions", resource: @proposal %>
+          <%= render "decidim/shared/resource_actions", resource: @proposal do %>
+            <%= render "decidim/proposals/proposals/proposal_actions" %>
+          <% end %>
         </div>
       </div>
     <% end %>

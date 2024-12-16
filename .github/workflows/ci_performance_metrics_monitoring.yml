@@ -38,6 +38,14 @@ jobs:
     if: "!startsWith(github.head_ref, 'chore/l10n')"
     timeout-minutes: 60
     services:
+      redis:
+        image: redis
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
       postgres:
         image: postgres:14
         ports: ["5432:5432"]

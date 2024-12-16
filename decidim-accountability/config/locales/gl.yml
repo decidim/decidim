@@ -100,12 +100,10 @@ gl:
       models:
         result:
           fields:
-            category: Categoría
             created_at: Creado
             end_date: Data de finalización
             id: ID
             progress: Progreso
-            scope: Ámbito
             start_date: Data de inicio
             status: Estado
             title: Título
@@ -123,15 +121,8 @@ gl:
           results_count:
             one: 1 resultado
             other: "%{count} resultados"
-        filters:
-          all: Todo
-        home:
-          categories_label: Categorías
-          subcategories_label: Subcategorías
         home_header:
           global_status: Estado de execución global
-        nav_breadcrumb:
-          global: Execución global
         search:
           search: Busca de accións
         show:
@@ -142,10 +133,6 @@ gl:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categoría
-          scope_id_eq:
-            label: Ámbito
           status_id_eq:
             label: Estado
     components:

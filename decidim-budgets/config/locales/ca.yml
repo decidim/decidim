@@ -2,15 +2,12 @@ ca:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Àmbit
         description: Descripció
         title: Títol
         total_budget: Pressupost total
         weight: Ordre de posició
       project:
         budget_amount: Import del pressupost
-        decidim_category_id: Categoria
-        decidim_scope_id: Àmbit
         description: Descripció
         proposal_ids: Propostes relacionades
         proposals: Propostes
@@ -34,21 +31,20 @@ ca:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categoria
-          scope_id_eq:
-            label: Àmbit
           selected_at_null:
             label: Seleccionat
             values:
               'false': Seleccionat per implementar
               'true': No s'ha seleccionat per implementar
+          taxonomies_part_of_contains:
+            label: Taxonomia
     budgets:
       actions:
         attachment_collections: Carpetes
         attachments: Adjunts
-        confirm_destroy: Segur que vols eliminar aquest projecte?
-        destroy: Esborrar
+        confirm_delete_budget: Segur que vols suprimir aquest pressupost?
+        confirm_delete_project: Segur que vols eliminar aquest projecte?
+        deleted_budgets_info: Els pressupostos eliminats es poden restaurar des de la paperera.
         edit: Editar
         edit_projects: Gestionar projectes
         import: Importa propostes a projectes
@@ -57,14 +53,13 @@ ca:
         preview: Previsualitzar
         send_voting_reminders: Enviar recordatoris de votació
         title: Accions
+        view_deleted_budgets: Veure els pressupostos eliminats
+        view_deleted_projects: Veure els projectes eliminats
       admin:
         budgets:
           create:
             invalid: S'ha produït un error en crear aquest pressupost.
             success: Pressupost creat correctament.
-          destroy:
-            invalid: S'ha produït un error en eliminar aquest pressupost.
-            success: Pressupost eliminat correctament.
           edit:
             title: Edita el pressupost
             update: Actualitza el pressupost
@@ -74,6 +69,8 @@ ca:
             title: Pressupostos
             users_with_finished_orders: Usuàries amb vots finalitzats
             users_with_pending_orders: Usuàries amb vots pendents
+          manage_trash:
+            title: Pressupostos eliminats
           new:
             create: Crea pressupost
             title: Nou pressupost
@@ -91,8 +88,6 @@ ca:
           create:
             invalid: S'ha produït un error en crear aquest projecte.
             success: Projecte creat correctament.
-          destroy:
-            success: Projecte eliminat correctament.
           edit:
             title: Editar projecte
             update: Actualitzar
@@ -100,9 +95,8 @@ ca:
             actions: Accions
             cancel: Cancel·lar
             change_budget: Canviar pressupost
-            change_category: Canviar categoria
-            change_scope: Canviar àmbit
             change_selected: Canviar l'estat seleccionat
+            change_taxonomies: Canviar taxonomies
             deselect_implementation: No s'ha seleccionat per implementar
             finished_orders: Vots finalitzats
             pending_orders: Vots en procés
@@ -114,7 +108,8 @@ ca:
             title: Projectes
             update: Actualitzar
             update_budget_button: Actualitzar el pressupost del projecte
-            update_scope_button: Actualitzar àmbit
+          manage_trash:
+            title: Projectes eliminats
           new:
             create: Crear
             title: Nou projecte
@@ -122,28 +117,23 @@ ca:
             invalid: S'ha produït un error en actualitzar aquest projecte.
             success: Projecte actualitzat correctament.
           update_budget:
-            invalid: 'Aquests projectes ja estan al mateix pressupost o els seus pressupostos són superiors al màxim permès: %{projects}.'
+            invalid: 'Aquests projectes ja estan al mateix pressupost o els seus pressupostos són superiors al màxim permès: %{errored}.'
             select_a_project: Si us plau, selecciona un projecte.
-            success: 'Projectes actualitzats correctament pel pressupost de %{subject_name}: %{projects}.'
-          update_category:
-            invalid: 'Aquestes propostes ja tenien la categoria %{subject_name}: %{projects}.'
-            select_a_category: Si us plau, selecciona una categoria.
-            select_a_project: Si us plau, selecciona un projecte.
-            success: 'Els projectes s''han actualitzat correctament a la categoria %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Aquests projectes ja estaven assignats a l''àmbit %{subject_name}: %{projects}.'
-            select_a_project: Si us plau, selecciona un projecte.
-            select_a_scope: Si us plau, selecciona un àmbit.
-            success: 'Els projectes s''han actualitzat correctament a l''àmbit %{subject_name}: %{projects}.'
+            success: 'Projectes actualitzats correctament pel pressupost de %{subject_name}: %{successful}.'
           update_selected:
             invalid:
-              selected: 'Aquests projectes ja han estat seleccionats per a ser implementats: %{projects}.'
-              unselected: 'Aquests projectes han estat deseleccionats de ser implementats: %{projects}.'
+              selected: 'Aquests projectes ja han estat seleccionats per a ser implementats: %{errored}.'
+              unselected: 'Aquests projectes que apareixien per ser implementats ja s''han desseleccionat: %{errored}.'
             select_a_project: Si us plau, selecciona un projecte.
             select_a_selection: Si us plau, selecciona un estat d'implementació.
             success:
-              selected: 'Aquests projectes s''han seleccionat correctament per a ser implementats: %{projects}.'
-              unselected: 'Aquests projectes s''han deseleccionat correctament per a ser implementats: %{projects}.'
+              selected: 'Aquests projectes han estat de seleccionats de ser implementats: %{errored}.'
+              unselected: 'Aquests projectes que apareixien per ser implementats s''han desseleccionat amb èxit: %{successful}.'
+          update_taxonomies:
+            invalid: 'Les taxonomies %{taxonomies} ja estaven assignades a aquests projectes: %{errored}.'
+            select_a_project: Si us plau, selecciona un projecte.
+            select_a_taxonomy: Si us plau, selecciona una taxonomia.
+            success: 'Els projectes s''han actualitzat correctament a les taxonomies "%{taxonomies}": %{successful}.'
         proposals_imports:
           create:
             invalid: S'ha produït un error en importar les propostes a projectes.
@@ -166,10 +156,14 @@ ca:
         budget:
           create: "%{user_name} ha creat el pressupost %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat el pressupost %{resource_name} de l'espai %{space_name}"
+          restore: "%{user_name} ha restaurat el pressupost %{resource_name} a %{space_name}"
+          soft_delete: "%{user_name} ha mogut el pressupost %{resource_name} de %{space_name} a la paperera"
           update: "%{user_name} ha actualitzat el pressupost %{resource_name} de l'espai %{space_name}"
         project:
           create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat el projecte %{resource_name} de l'espai %{space_name}"
+          restore: "%{user_name} ha restaurat el projecte %{resource_name} a %{space_name}"
+          soft_delete: "%{user_name} ha mogut el projecte %{resource_name} de %{space_name} a la paperera"
           update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai %{space_name}"
       budget_information_modal:
         back_to: Tornar a %{component_name}
@@ -214,9 +208,9 @@ ca:
             total_budget: Pressupost total
         project:
           fields:
-            category: Categoria
             id: ID
             map: Mapa
+            taxonomies: Taxonomies
             title: Títol
       order_summary_mailer:
         order_summary:
@@ -258,8 +252,6 @@ ca:
           message: El teu vot no ha estat registrat perquè encara no ha completat el procés de votació. Segur que vols sortir de la votació?
           title: Encara no has votat
         filters:
-          category: Categoria
-          scope: Àmbit
           search: Cerca
           status: Estat
           status_values:
@@ -328,8 +320,10 @@ ca:
         settings:
           global:
             announcement: Avís
+            clear_all: Netejar-ho tot
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris (deixa 0 si vols mantenir la configuració per defecte)
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             form:
               errors:
                 budget_voting_rule_only_one: Només s'ha d'activar una norma de votació.
@@ -337,10 +331,13 @@ ca:
             geocoding_enabled: Mapes habilitats
             landing_page_content: Pàgina d'inici de pressupostos
             more_information_modal: Finestra de "Més informació"
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             projects_per_page: Projectes per pàgina
             resources_permissions_enabled: Es poden establir permisos d'accions per a cada projecte
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            taxonomy_filters: Seleccionar filtres pel component
+            taxonomy_filters_add: Afegir un filtre
             title: Títol
             total_budget: Pressupost total
             vote_minimum_budget_projects_number: Número mínim de projectes a votar
@@ -368,6 +365,9 @@ ca:
               disabled: Votació inhabilitada
               enabled: S'ha habilitat la votació
               finished: Votació finalitzada
+    download_your_data:
+      show:
+        projects: Exportar els projectes
     events:
       budgets:
         budget_published:
@@ -375,6 +375,24 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint l'espai "%{participatory_space_title}". Pots deixar de rebre notificacions a través de l'enllaç anterior.
           email_subject: El component %{resource_title} ja està actiu per %{participatory_space_title}.
           notification_title: El pressupost <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title} ja està actiu.
+    open_data:
+      help:
+        projects:
+          address: La localització (adreça) del projecte (si en té)
+          budget_amount: La quantitat total de pressupost per a aquest projecte
+          comments: El número de comentaris que ha rebut aquest projecte
+          component: El component al qual pertany el projecte
+          confirmed_votes: El número de vots confirmats que ha rebut aquest projecte
+          created_at: La data i l'hora en què es va crear el projecte
+          description: La descripció del projecte
+          id: L'identificador únic del projecte
+          participatory_space: A quin espai pertany aquest projecte (procés participatiu, assemblea, etc.)
+          related_proposal_titles: Els títols de les propostes relacionades
+          related_proposal_urls: Les URL de les propostes relacionades
+          related_proposals: Les propostes relacionades amb aquest projecte
+          taxonomies: Les taxonomies del projecte
+          title: El títol del projecte
+          url: L'URL del projecte
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot.

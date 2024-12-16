@@ -47,6 +47,7 @@ FactoryBot.define do
     component { build(:meeting_component) }
     iframe_access_level { :all }
     iframe_embed_type { :none }
+    deleted_at { nil }
 
     author do
       component.try(:organization)
@@ -62,6 +63,12 @@ FactoryBot.define do
 
     trait :in_person do
       type_of_meeting { :in_person }
+    end
+
+    trait :hidden do
+      after :create do |meeting, evaluator|
+        create(:moderation, hidden_at: Time.current, reportable: meeting, skip_injection: evaluator.skip_injection)
+      end
     end
 
     trait :online do

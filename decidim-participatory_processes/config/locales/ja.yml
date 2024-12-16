@@ -88,6 +88,7 @@ ja:
       actions:
         activate: 有効にする
         configure: 設定
+        confirm_delete_process: このプロセスを削除してもよろしいですか？気が変わった場合は、後で復元できます。
         confirm_destroy: 削除の確認
         destroy: 削除
         duplicate: 複製
@@ -105,6 +106,7 @@ ja:
         resend_invitation: 招待を再送信する
         see_process: プロセスを見る
         unpublish: 公開しない
+        view_deleted_processes: 削除されたプロセスを表示
       filters:
         decidim_participatory_process_group_id_eq:
           label: プロセスグループ別
@@ -124,7 +126,7 @@ ja:
           info: このプロセスについて
           landing_page: ランディングページ
           moderations: モデレーション
-          private_users: プライベート参加者
+          private_users: メンバー
           process_admins: 参加型プロセス管理者
           steps: フェーズ
       models:
@@ -166,6 +168,7 @@ ja:
           fields:
             invitation_accepted_at: 招待が承認されました
             invitation_sent_at: 招待状が送信された日時
+            published: 公開済み
       participatory_process_copies:
         new:
           copy: コピー
@@ -275,6 +278,8 @@ ja:
           public: 公開
           published: 公開済み
           unpublished: 未公開
+        manage_trash:
+          title: 削除された参加型プロセス
         new:
           create: 作成
           title: 新しい参加型プロセス
@@ -293,6 +298,9 @@ ja:
         participatory_process_groups: 参加型プロセスグループ
         participatory_process_types: 参加型プロセス種別
         participatory_processes: 参加型プロセス
+        participatory_processes_deleted: 削除された参加型プロセス
+      tooltips:
+        deleted_processes_info: プロセスは、ステータスが "未公開" の場合にのみ削除できます。
       users:
         resend_invitation:
           error: 招待状の再送信中に問題が発生しました。
@@ -304,6 +312,8 @@ ja:
         export: "%{user_name} が %{resource_name} の参加プロセスをエクスポートしました"
         import: "%{user_name} が %{resource_name} の参加プロセスをインポートしました"
         publish: "%{user_name} が %{resource_name} 参加型プロセスを公開しました"
+        restore: "%{user_name} が %{resource_name} 参加型プロセスを復元しました"
+        soft_delete: "%{user_name} が %{resource_name} 参加型プロセスをゴミ箱に移動しました"
         unpublish: "%{user_name} が %{resource_name} 参加型プロセスを非公開にしました"
         update: "%{user_name} が %{resource_name} の参加型プロセスを更新しました"
       participatory_process_group:
@@ -322,6 +332,9 @@ ja:
         create: "%{user_name} が参加者 %{resource_name} を %{space_name} 参加型プロセスに招待しました"
         delete: "%{user_name} が参加者 %{resource_name} を %{space_name} 参加型プロセスから削除しました"
         update: "%{user_name} が %{resource_name} 参加型プロセスにおける参加者 %{space_name} の役割を変更しました"
+    download_your_data:
+      show:
+        participatory_processes: 参加型プロセスのエクスポート
     events:
       participatory_process:
         role_assigned:
@@ -356,6 +369,38 @@ ja:
         description: この組織の参加型プロセス数
         object: 参加型プロセス
         title: 参加型プロセス
+    open_data:
+      help:
+        participatory_processes:
+          announcement: アナウンス（コールアウト）情報
+          area: プロセスが行われているエリア
+          created_at: このスペースの作成日時
+          description: プロセスの詳しい説明
+          developer_group: プロセスの開発者グループ。これはプロセスをプロモートしている組織です
+          end_date: プロセスの終了日時
+          follows_count: このスペースをフォローしているユーザー数
+          hashtag: Twitter/Xで使用されるプロセスのハッシュタグ
+          id: このプロセスの固有ID
+          local_area: プロセスのローカルエリア。これはプロセスが行われている組織のエリアです。
+          meta_scope: プロセスのスコープメタデータ
+          participatory_process_group: プロセスのグループ、もしあれば
+          participatory_process_type: プロセスの種別
+          participatory_scope: プロセスの参加スコープ
+          participatory_structure: プロセスの参加型構造。これはプロセスの決定方法です。
+          promoted: プロセスがプロモートされるかどうか
+          published_at: このスペースの公開日時
+          reference: スペースのユニークな参照
+          remote_hero_image_url: プロセスのヒーロー画像の URL
+          scope: プロセスのスコープ
+          scopes_enabled: スコープが有効かどうか
+          short_description: プロセスの簡単な説明
+          slug: プロセスのスラグ (識別目的、URLに使用)
+          start_date: プロセスの開始日時
+          subtitle: プロセスのサブタイトル
+          target: プロセスのターゲット。これはプロセスに参加するよう呼びかけられる対象者です。
+          title: プロセスのタイトル
+          updated_at: このスペースの最終更新日時
+          url: スペースのURL
     participatory_process_groups:
       content_blocks:
         extra_data:
@@ -418,11 +463,14 @@ ja:
         participatory_processes:
           form:
             announcement_help: ここに入力したテキストは、参加型プロセス情報のすぐ下にユーザーに表示されます。
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 期間
             filters: フィルタ
             images: 画像
             metadata: メタデータ
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             other: その他
+            private_notice: プライベートとして設定した後、メンバーを管理することができます
             related_processes: 関連する参加型プロセス
             scope_type_max_depth_help: スコープフィルターの深さを制限します。フィルターは、一般から選択したスコープタイプに表示されます。
             select_an_area: エリアを選択
@@ -490,6 +538,9 @@ ja:
           type: 種別
         show:
           title: このプロセスについて
+      participatory_space_private_users:
+        index:
+          title: メンバー
       show:
         belongs_to_group: このプロセスの所属グループ
         private_space: これはプライベートな参加型プロセスです
@@ -503,6 +554,8 @@ ja:
           browse: 検索
           browse_resource: 参加型プロセスグループ %{resource_name} を参照
           processes_count: '参加型プロセス:'
+      participatory_process_navigation:
+        member_menu_item: メンバー
       participatory_processes:
         index:
           promoted_processes: ハイライトされた参加型プロセス

@@ -20,6 +20,7 @@ module Decidim
       include Decidim::Searchable
       include Decidim::TranslatableResource
       include Decidim::FilterableResource
+      include Decidim::SoftDeletable
 
       translatable_fields :title, :description
 

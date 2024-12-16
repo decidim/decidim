@@ -40,7 +40,8 @@ module Decidim
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),
           answered_at: proposal.answered_at,
-          votes: proposal.proposal_votes_count,
+          votes: (proposal.proposal_votes_count unless
+          proposal.component.current_settings.votes_hidden?),
           endorsements: {
             total_count: proposal.endorsements.size,
             user_endorsements:
@@ -128,7 +129,7 @@ module Decidim
 
       def author_url(author)
         if author.respond_to?(:nickname)
-          profile_url(author.nickname) # is a Decidim::User or Decidim::UserGroup
+          profile_url(author) # is a Decidim::User or Decidim::UserGroup
         elsif author.respond_to?(:title)
           meeting_url(author) # is a Decidim::Meetings::Meeting
         else
@@ -136,8 +137,10 @@ module Decidim
         end
       end
 
-      def profile_url(nickname)
-        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+      def profile_url(author)
+        return "" if author.respond_to?(:deleted?) && author.deleted?
+
+        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
       end
 
       def meeting_url(meeting)
