@@ -721,7 +721,7 @@ ro:
           participants_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care au participat la oricare dintre spațiile participative selectate din listă.
           recipients_count: Acest buletin informativ va fi trimis la <strong id='recipients_count'>%{count}</strong> utilizatori.
           select_spaces: Selectează spațiile pentru segmentarea buletinului informativ
-          send_to_all_users: Trimite către toți utilizatorii
+          send_to_all_users: Trimiteți către toți utilizatorii
           title: Selectează destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
