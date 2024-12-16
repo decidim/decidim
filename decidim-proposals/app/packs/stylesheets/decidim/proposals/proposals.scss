@@ -138,10 +138,14 @@
         }
 
         .with_votes_limit {
-          @apply flex flex-col flex-1 lg:flex-1 justify-center md:flex-none;
+          @apply flex flex-col md:flex-row md:flex-wrap lg:flex-col lg:flex-nowrap flex-1 md:flex-none lg:flex-1 justify-center;
 
           .proposals__aside-progress {
-            @apply flex flex-col-reverse w-[80%] items-center;
+            @apply flex flex-col w-[80%] items-center md:order-1 lg:order-none md:flex-[1_1_100%] lg:flex-none;
+          }
+
+          .progress-bar__units {
+            @apply md:order-none;
           }
 
           .progress-bar__number {
