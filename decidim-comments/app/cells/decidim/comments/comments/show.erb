@@ -17,6 +17,11 @@
       <%= single_comment_warning %>
       <%= blocked_comments_warning %>
       <%= render_comments %>
+      <% if user_signed_in? %>
+        <button class="button button__lg button__secondary flex md:hidden w-full h-9 text-sm add-comment-mobile">
+          <%= t("add_comment", scope: "decidim.components.add_comment_form") %>
+        </button>
+      <% end %>
       <%= add_comment %>
       <%= user_comments_blocked_warning %>
     </div>

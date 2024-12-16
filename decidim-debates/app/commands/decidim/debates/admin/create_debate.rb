@@ -42,6 +42,7 @@ module Decidim
                         description: parsed_description,
                         end_time: (form.end_time if form.finite),
                         start_time: (form.start_time if form.finite),
+                        comments_layout: form.comments_layout
                       })
         end
 

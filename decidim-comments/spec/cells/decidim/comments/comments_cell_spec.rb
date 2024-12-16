@@ -185,6 +185,18 @@ module Decidim::Comments
           my_cell.render_comments
           expect(subject).to have_css(".comments-two-columns")
         end
+
+        context "when alignment is enabled" do
+          before do
+            allow(commentable).to receive(:comments_have_alignment?).and_return(true)
+          end
+
+          it "renders the alignment buttons" do
+            expect(subject).to have_css("button[data-toggle-ok]")
+            expect(subject).to have_css("button[data-toggle-meh]")
+            expect(subject).to have_css("button[data-toggle-ko]")
+          end
+        end
       end
 
       context "when supports_two_columns_layout? is false" do
