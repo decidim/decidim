@@ -70,6 +70,9 @@ describe "Locales" do
 
       before do
         login_as user, scope: :user
+
+        # Prevent flaky spec, where sometimes the language is not changed before the visit
+        sleep 2
         visit decidim.root_path
       end
 
