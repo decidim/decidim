@@ -69,7 +69,6 @@ module Decidim
 
       def classes
         super.merge(metadata: "card__list-metadata")
-        super.merge(votes: "card__proposals-votes")
       end
     end
   end

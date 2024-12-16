@@ -5,9 +5,15 @@
     <%= render :extra_data if render_extra_data? %>
   <% end %>
     <% if has_actions? %>
-      <div class="card__proposals-votes">
-        <%= cell proposal_vote_cell, resource, **options %>
-      </div>
+      <% if current_settings.votes_hidden? %>
+        <div class="card__proposals-votes votes_hidden">
+          <%= cell proposal_vote_cell, resource, **options %>
+        </div>
+      <% else %>
+        <div class="card__proposals-votes>">
+          <%= cell proposal_vote_cell, resource, **options %>
+        </div>
+      <% end%>
     <% end %>
   </div>
 <% else %>
@@ -17,9 +23,15 @@
     <% end %>
     <%= render :extra_data if render_extra_data? %>
     <% if has_actions? %>
-      <div class="card__proposals-votes">
-        <%= cell proposal_vote_cell, resource, **options %>
-      </div>
+      <% if current_settings.votes_hidden? %>
+        <div class="card__proposals-votes votes_hidden">
+          <%= cell proposal_vote_cell, resource, **options %>
+        </div>
+      <% else %>
+        <div class="card__proposals-votes>">
+          <%= cell proposal_vote_cell, resource, **options %>
+        </div>
+      <% end%>
     <% end %>
   <% end %>
 <% end %>
