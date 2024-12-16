@@ -130,7 +130,7 @@
   }
 
   &__list--header {
-    @apply grid grid-cols-2;
+    @apply flex items-center justify-between;
   }
 
   &-list {
