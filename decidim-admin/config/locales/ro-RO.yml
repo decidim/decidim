@@ -704,7 +704,6 @@ ro:
           confirm_delete: Sigur dorești să ştergi acest buletin informativ?
           followers: 'urmăritori '
           has_been_sent_to: 'A fost trimis la: '
-          no_scopes: Nici un domeniu
           not_sent: Nu a fost trimis
           participants: 'participanți '
           segmented_to: 'Segmentat la %{subject}: '
@@ -719,13 +718,10 @@ ro:
           confirm_deliver: Sigur dorești să livrezi acest buletin informativ? Această acţiune nu poate fi anulată.
           deliver: Trimite buletinul informativ
           followers_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care urmăresc orice spații participative selectate din listă.
-          none: Niciunul
           participants_help: Trimite buletinul informativ tuturor utilizatorilor confirmați care au participat la oricare dintre spațiile participative selectate din listă.
           recipients_count: Acest buletin informativ va fi trimis la <strong id='recipients_count'>%{count}</strong> utilizatori.
-          scopes_help: Trimite buletinul informativ utilizatorilor care au unul dintre domeniile selectate activat în setările privind „Interesele mele” din contul lor.
-          select_scopes: Filtrați utilizatorii care au activat oricare dintre domeniile selectate în setările privind „Interesele mele” din contul lor.
           select_spaces: Selectează spațiile pentru segmentarea buletinului informativ
-          select_users: Selectează utilizatorii cărora vrei să trimiți buletinul informativ
+          send_to_all_users: Trimite către toți utilizatorii
           title: Selectează destinatarii pentru trimitere
           warning: "<strong>Atenție:</strong> Acest buletin informativ va fi trimis doar utilizatorilor care au activat <em>Vreau să primesc știri</em> în setările lor."
         send:
