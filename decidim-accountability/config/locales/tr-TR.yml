@@ -97,8 +97,6 @@ tr:
           create:
             invalid: Sonuçlar sorgulanırken bir sorun oluştu.
             success: Sonuçlar Başarıyla oluşturuldu.
-          destroy:
-            success: Sonuçlar Başarıyla Silindi.
           edit:
             title: Sonucu düzenle
             update: Sonuç güncelle
@@ -182,12 +180,10 @@ tr:
       models:
         result:
           fields:
-            category: Kategori
             created_at: Oluşturuldu
             end_date: Bitiş tarihi
             id: ID
             progress: İlerleme
-            scope: Kapsam
             start_date: Başlangıç tarihi
             status: durum
             title: Başlık
@@ -206,17 +202,11 @@ tr:
           results_count:
             one: 1 sonuç
             other: "%{count} sonuç"
-        filters:
-          all: Herşey
         home:
-          categories_label: Kategoriler
           empty: Henüz sonuç yok.
           empty_filters: Bu kriterlere uyan sonuç bulunamamıştır.
-          subcategories_label: Alt Kategoriler
         home_header:
           global_status: Genel yürütme durumu
-        nav_breadcrumb:
-          global: Global yürütme
         no_results: Proje Bulunamadı
         search:
           search: İşlemleri ara
@@ -228,10 +218,6 @@ tr:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategori
-          scope_id_eq:
-            label: Kapsam
           status_id_eq:
             label: Durum
     components:

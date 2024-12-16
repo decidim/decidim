@@ -313,9 +313,6 @@ gl:
     download_your_data:
       export:
         ready: Listo
-      show:
-        download_data: Descarga os datos
-        request_data: Solicitar datos
     editor_images:
       drag_and_drop_help: Engade imaxes arrastrándoas ou pegándoas aquí.
     errors:
@@ -442,8 +439,6 @@ gl:
     export_mailer:
       download_your_data_export:
         download: Descarga
-      export:
-        ready: Atopa unha versión comprimida da túa exportación.
       subject: A exportación "%{name}" está lista
     filters:
       linked_classes:
@@ -777,10 +772,6 @@ gl:
         help: Axuda
       mentions_modal:
         remove_recipient: Eliminar o destinatario %{name}
-      participatory_space_filters:
-        filters:
-          areas: Ámbitos
-          select_an_area: Seleccione unha área
       public_participation:
         public_participation: Amosar a miña presenza publicamente
       reference:
@@ -950,7 +941,6 @@ gl:
       edit_link:
         edit: Editar
       footer:
-        download_open_data: Descargar ficheiros Open Data
         made_with_open_source: Sitio web feito con <a target="_blank" href="https://github.com/decidim/decidim"> software libre</a>.
       header:
         main_menu: Menú principal

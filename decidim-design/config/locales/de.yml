@@ -84,7 +84,7 @@ de:
           accessibility_title: Barrierefreiheit
           adjacent_links: Angrenzende Links
           adjacent_links_header: Angrenzende Links für die gleiche Ressource
-          adjacent_links_paragraph: Wenn die selbe Ressource mehrere angrenzende Links hat, die auf sie verweisen, erschwert das den Benutzer*innen, die Seite durchzusehen, da sie unter Umständen mehrere Links durchlaufen müssen, um zur nächsten Ressource zu gelangen.
+          adjacent_links_paragraph: Wenn die selbe Ressource mehrere angrenzende Links hat, die auf sie verweisen es erschwert solchen Benutzern, durch die Seite zu schauen, da sie unter Umständen mehrere Links durchlaufen müssen, um zur nächsten Ressource zu gelangen.
           color_contrast: Farbkontrast
           color_contrast_paragraph: Wenn Sie die Benutzeroberfläche erstellen oder die Farben ändern, stellen Sie immer sicher, dass Sie mit Ihren Änderungen nicht die Barrierefreiheit verletzen. Sie können mit der Farbkontrastprüfung sicherstellen, dass Ihre Textfarben ausreichend Kontrast zur Hintergrundfarbe haben, auf der sie angezeigt werden.
           decidim_follows_html: Decidim folgt bei Barrierefreiheit den Richtlinien für <u>Web Content Accessibility Guidelines (WCAG) 2.1</u>
@@ -98,8 +98,8 @@ de:
           illogical_heading_order: Unlogische Überschriftenreihenfolge
           illogical_heading_paragraph: Jede Seite sollte eine logische Überschriftenreihenfolge haben, wenn die Überschriften <h1>, <h2>, <h3>, <h4>, <h5> und <h6> verwendet werden.
           important_sections_heading: Überschrift zu wichtigen Abschnitten
-          important_sections_paragraph: Es ist sehr wichtig, dass jeder wichtige Abschnitt der Seite eine Überschrift hat. Damit wird es einfacher zu verstehen, welche Abschnitte auf der Seite wichtig sind, wenn man die Überschriften auf der Seite überfliegt.
-          links_and_buttons: Links und Buttons
+          important_sections_paragraph: Es ist sehr wichtig, dass jeder wichtige Abschnitt der Seite eine Überschrift hat, die es einfacher macht zu verstehen, welche wichtigen Abschnitte auf der Seite nur durch das Durchsuchen der Rubriken.
+          links_and_buttons: Links und Tasten
           links_and_buttons_paragraph: Die Ankerelemente (z.B. Links) sollen auf andere Seiten verlinken oder Positionen innerhalb der Seite verankert werden. Wenn das Element z.B. ein verstecktes Element auf dieser Seite öffnen soll, sollten Sie stattdessen das Element <button> verwenden.
           see_further_info_html: Siehe weitere Informationen
           unique_h1: Eindeutige H1
@@ -301,7 +301,7 @@ de:
         variations_text: Was die Art der Aktivität betrifft, so könnte die Zelle verschiedene Inhalte anzeigen, zum Beispiel ob die unterschiedlichen Ressourcen angezeigt werden, ob sie zu einem partizipatorischen Raum gehören oder nicht, ob sie einen einen Autor haben oder nicht.
       home:
         index:
-          by_sharing_principles: Durch die gemeinsame Nutzung der Prinzipien, Philosophie, und der Logik hinter Designentscheidungen wollen wir die Community dazu befähigen, konsequent beizutragen, so dass wir die beste Erfahrung für die Teilnehmenden erreichen.
+          by_sharing_principles: Durch die gemeinsame Nutzung der Prinzipien, Philosophie, und der Logik hinter Designentscheidungen wollen wir die Community dazu befähigen, konsequent beizutragen, dass wir die beste Erfahrung für die Teilnehmenden erreichen.
           decidim_guide: Der Leitfaden zum Design von Decidim
           different_ui_components: Gleichzeitig dokumentieren wir die verschiedenen verwendeten UI-Komponenten und -Muster, die wiederverwendet oder erweitert werden sollten.
           github_source: Quellcode auf GitHub
