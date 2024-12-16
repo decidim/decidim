@@ -427,7 +427,6 @@ sk:
           confirm_delete: Naozaj chcete tento spravodaj vymazať?
           followers: 'sledujúci '
           has_been_sent_to: 'Bol poslaný týmto: '
-          no_scopes: Žiadne rozsahy
           not_sent: Neodoslané
           participants: 'účastníci '
           segmented_to: 'Rozdelené na %{subject}: '
@@ -442,13 +441,10 @@ sk:
           confirm_deliver: Naozaj chcete odstrániť tento spravodaj? Túto akciu nie je možné vrátiť späť.
           deliver: Odoslať spravodaj
           followers_help: Poslať spravodaj všetkým potvrdeným účastníkom, ktorí sledujú niektorý z participatívnych priestorov na zozname.
-          none: Žiadne
           participants_help: Poslať spravodaj všetkým potvrdeným účastníkom, ktorí participovali na niektorom z participatívnych priestorov na zozname.
           recipients_count: Tento spravodaj bude zasielaný <strong id='recipients_count'>%{count}</strong> používateľom.
-          scopes_help: Poslať spravodaj užívateľom, ktorí majú aspoň jednu z označených oblastí aktivovanú vo svojich nastaveniach "Moje záujmy".
-          select_scopes: Filtrovať užívateľov, ktorí aktivovali aspoň jednu označenú oblasť vo svojich nastaveniach "Moje záujmy".
           select_spaces: Vyberte skupiny pre rozdelenie spravodaja
-          select_users: Vyberte, ktorým účastníkom chcete rozoslať spravodaj
+          send_to_all_users: Poslať všetkým účastníkom
           title: Vyberte príjemcov
           warning: "<strong>Pozor:</strong> Tento spravodaj bude odoslaný len účastníkom, ktorí aktivovali možnosť <em>Chcem dostávať spravodaje</em> vo svojich nastaveniach."
         show:
