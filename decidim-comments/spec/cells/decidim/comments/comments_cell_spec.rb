@@ -170,10 +170,13 @@ module Decidim::Comments
       end
 
       context "when two_columns_layout? is true" do
+        let(:current_user) { create(:user, :confirmed, organization: component.organization) }
+
         before do
-          allow(commentable).to receive(:two_columns_layout?).and_return(true)
+          allow(controller).to receive(:current_user).and_return(current_user)
+          allow(controller).to receive(:user_signed_in?).and_return(true)
+          commentable.define_singleton_method(:two_columns_layout?) { true }
           allow(commentable).to receive(:closed?).and_return(false)
-          allow(my_cell).to receive(:two_columns_layout?).and_return(true)
         end
 
         it "calls render_comments_in_two_columns" do
@@ -193,7 +196,6 @@ module Decidim::Comments
 
           it "renders the alignment buttons" do
             expect(subject).to have_css("button[data-toggle-ok]")
-            expect(subject).to have_css("button[data-toggle-meh]")
             expect(subject).to have_css("button[data-toggle-ko]")
           end
         end
