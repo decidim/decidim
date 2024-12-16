@@ -774,7 +774,6 @@ es-PY:
           confirm_delete: '¿Estás seguro de que quieres eliminar este boletín?'
           followers: 'seguidores '
           has_been_sent_to: 'Se ha enviado a: '
-          no_scopes: Sin ámbitos
           not_sent: No enviado
           participants: 'participantes '
           segmented_to: 'Segmentado para %{subject}: '
@@ -789,13 +788,10 @@ es-PY:
           confirm_deliver: '¿Estás seguro de que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
-          none: Ninguno
           participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
           recipients_count: Este boletín se enviará a <strong id='recipients_count'>%{count}</strong> usuarias.
-          scopes_help: Envía el boletín de noticias a las participantes que tengan cualquiera de los ámbitos activados en su configuración de "Mis intereses".
-          select_scopes: Filtrar para las participantes que hayan activado cualquier ámbito en su configuración de "Mis intereses".
           select_spaces: Selecciona espacios para segmentar el boletín
-          select_users: Selecciona a qué usuarios deseas enviar el boletín
+          send_to_all_users: Enviar a todos los usuarios
           title: Selecciona los destinatarios
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
         send:
