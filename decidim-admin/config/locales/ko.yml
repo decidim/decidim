@@ -524,7 +524,6 @@ ko:
           confirm_delete: 이 뉴스레터를 삭제하시겠습니까?
           followers: '팔로워 '
           has_been_sent_to: '다음에게 전송됨: '
-          no_scopes: 범위가 없습니다.
           not_sent: 전송되지 않음
           participants: '참여자 '
           subscribed_count: '구독중:'
@@ -538,13 +537,9 @@ ko:
           confirm_deliver: 이 뉴스레터를 전송하시겠습니까? 이 작업은 취소할 수 없습니다.
           deliver: 뉴스레터 전송
           followers_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
-          none: 없음
           participants_help: 목록에서 선택한 참여 공간을 따르는 것이 확인된 모든 사용자에게 뉴스레터를 보냅니다.
           recipients_count: 이 뉴스레터는 <strong id='receiveners_count'>% {count}/strong> 사용자에게 발송됩니다.
-          scopes_help: 계정의 "내 관심사" 설정에서 선택한 범위 중 하나라도 활성화된 사용자에게 뉴스레터를 보냅니다.
-          select_scopes: 계정의 내 관심사 설정에서 선택한 범위를 활성화한 사용자를 위해 필터링합니다.
           select_spaces: 뉴스레터를 분할할 공간 선택
-          select_users: 뉴스레터를 보낼 사용자 선택
           title: 전송 받는 사람 선택
           warning: "<strong>주의:/strong>이 뉴스레터는 알림 설정에서 <em>I want to received newsletter</em>을 활성화한 사용자에게만 발송됩니다."
         send:
