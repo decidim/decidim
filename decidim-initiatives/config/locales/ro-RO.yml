@@ -465,9 +465,7 @@ ro:
           phone_number: Număr de telefon
           place_date: Locul, data
           postal_code: Cod poștal
-          print: Tipărește
           province: Județ/stat
-          section: 'Dacă organizația solicită acest lucru, te rugăm tipărește și completează acest formular pentru a-l depune conform indicațiilor:'
           signature: Semnătură
         result:
           initiative_rejected_reason: Această inițiativă a fost respinsă din cauza lipsei de semnături.
@@ -481,7 +479,6 @@ ro:
           other: " semnături"
         vote_cabin:
           already_voted: Deja semnat
-          verification_required: Verifică-ți contul pentru a semna inițiativa
           vote: Semnare
           votes_blocked: Semnarea este dezactivată
         votes_count:

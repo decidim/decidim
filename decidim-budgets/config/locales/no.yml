@@ -2,15 +2,12 @@
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Tema
         description: Beskrivelse
         title: Tittel
         total_budget: Totalt budsjett
         weight: Prioritert rekkefølge
       project:
         budget_amount: Budsjettbeløp
-        decidim_category_id: Kategori
-        decidim_scope_id: Tema
         description: Beskrivelse
         proposal_ids: Relaterte forslag
         selected: Utvalgt for implementering
@@ -24,10 +21,6 @@
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategori
-          scope_id_eq:
-            label: Tema
           selected_at_null:
             label: Valgt
             values:
@@ -37,8 +30,6 @@
       actions:
         attachment_collections: Mapper
         attachments: Vedlegg
-        confirm_destroy: Er du sikker på at du vil slette dette prosjektet?
-        destroy: Slett
         edit: Editar
         edit_projects: Administrer prosjekter
         import: Importer forslag til prosjekter
@@ -119,7 +110,6 @@
             total_budget: Totalt budsjett
         project:
           fields:
-            category: Kategori
             id: ID
             title: Tittel
       order_summary_mailer:
@@ -156,8 +146,6 @@
           message: Stemmen din er ikke registrert fordi du ikke har fullført avstemmingen. Er du sikker på at du vil avslutte avstemming?
           title: Du har ikke stemt enda
         filters:
-          category: Kategori
-          scope: Tema
           search: Søk
           status: Status
           status_values:

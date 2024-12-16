@@ -89,6 +89,7 @@ fi-pl:
     admin:
       actions:
         confirm: Vahvista
+        confirm_delete_conference: Haluatko varmasti poistaa tämän konferenssin? Mikäli muutat mieltäsi, voit palauttaa konferenssin myöhemmin.
         new_conference: Uusi konferenssi
         new_conference_user_role: Uusi konferenssin hallintakäyttäjä
         new_media_link: Uusi medialinkki
@@ -96,6 +97,7 @@ fi-pl:
         new_registration_type: Uusi ilmoittautumistyyppi
         new_speaker: Uusi puhuja
         send_diplomas: Lähetä läsnäolotodistukset
+        view_deleted_conferences: Näytä poistetut konferenssit
       conference_copies:
         new:
           copy: Kopio
@@ -165,6 +167,8 @@ fi-pl:
         index:
           published: Julkaistu
           unpublished: Julkaisematon
+        manage_trash:
+          title: Poistetut konferenssit
         new:
           create: Luo
           title: Konferenssi
@@ -298,11 +302,16 @@ fi-pl:
           success: Konferenssin ilmoittautumistyyppi päivitettiin onnistuneesti.
       titles:
         conferences: Konferenssit
+        conferences_deleted: Poistetut konferenssit
+      tooltips:
+        deleted_conferences_info: Konferenssi voidaan poistaa ainoastaan, mikäli sitä ei ole julkaistu.
     admin_log:
       conference:
         create: "%{user_name} loi konferenssin %{resource_name}"
         publish: "%{user_name} julkaisi konferenssin %{resource_name}"
+        restore: "%{user_name} palautti konferenssin %{resource_name}"
         send_conference_diplomas: "%{user_name} lähetti konferenssin %{resource_name} läsnäolotodistukset osallistujille"
+        soft_delete: "%{user_name} siirsi konferenssin %{resource_name} roskakoriin"
         unpublish: "%{user_name} lopetti konferenssin %{resource_name} julkaisun"
         update: "%{user_name} päivitti konferenssia %{resource_name}"
         update_diploma: "%{user_name} päivitti läsnäolotodistusten asetuksia konferenssille %{resource_name}"
@@ -373,10 +382,13 @@ fi-pl:
         conferences:
           form:
             available_slots_help: Jätä arvoksi 0, mikäli paikkojen määrää ei ole rajoitettu.
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             registrations_count:
               one: Ilmoittautumisia on 1 kpl.
               other: Ilmoittautumisia on %{count} kpl.
             slug_help_html: 'URL-tunnisteita käytetään luomaan URL-osoitteet, jotka osoittavat tähän konferenssiin. Hyväksyy vain kirjaimet, numerot ja viivat. Kirjaimen on oltava ensimmäinen merkki tunnisteessa. Esimerkki: %{url}'
+            taxonomies: Luokittelut
         content_blocks:
           highlighted_conferences:
             max_results: Näytettävien elementtien enimmäismäärä
@@ -572,6 +584,33 @@ fi-pl:
         title: Media ja linkit
     menu:
       conferences: Konferenssit
+    open_data:
+      help:
+        conferences:
+          created_at: Tilan luontiaika
+          decidim_scope_id: Konferenssin teema
+          description: Konferenssin pitkä kuvaus
+          end_date: Konferenssin päättymispäivä.
+          follows_count: Tilaa seuraavien käyttäjien määrä
+          hashtag: Konferenssia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
+          id: Konferenssin yksilöllinen tunniste
+          location: Konferenssin paikka, eli missä konferenssi järjestetään.
+          objectives: Konferenssin tavoitteet tai päämäärät.
+          promoted: Onko konferenssi korostettu vai ei
+          published_at: Tilan julkaisuaika
+          reference: Tilan yksilöllinen viite
+          remote_banner_image_url: Konferenssin bannerikuvan URL-osoite
+          remote_hero_image_url: Konferenssin hero-kuvan URL-osoite
+          scope: Konferenssin teema
+          scopes_enabled: Ovatko teemat otettu käyttöön vai eivät
+          short_description: Konferenssin lyhyt kuvaus
+          slogan: Konferenssin tunnuslause
+          slug: Konferenssin URL-tunniste (URL-osoitteen osa, joka erottaa konferenssin muista konferensseista)
+          start_date: Konferenssin alkamispäivä.
+          taxonomies: Konferenssin luokittelut
+          title: Konferenssin otsikko
+          updated_at: Tilan viimeisen päivityksen aika
+          url: Tilan URL-osoite
     statistics:
       conferences_count: Konferenssia
   devise:

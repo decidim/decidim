@@ -16,8 +16,6 @@ zh-TW:
     blogs:
       actions:
         author_id: 發佈文章
-        confirm_destroy: 您確定要刪除此文章嗎？
-        destroy: 刪除
         edit: 編輯
         new: 新貼文
         title: 操作
@@ -26,8 +24,6 @@ zh-TW:
           create:
             invalid: 建立此文章時出現問題
             success: 文章已成功建立
-          destroy:
-            success: 文章已成功刪除
           edit:
             save: 更新
             title: 编辑文章

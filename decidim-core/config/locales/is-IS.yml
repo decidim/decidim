@@ -181,8 +181,6 @@ is-IS:
           email_subject: "%{nickname} uppfærði prófílinn sinn"
           notification_title: <a href="%{resource_path}">prófíl síðu</a> af %{name} (%{nickname}), sem þú fylgist með, hefur verið uppfærð.
     export_mailer:
-      export:
-        ready: Vinsamlegast finndu tengdri útgáfu af útflutningi þínum.
       subject: Útflutningur þinn "%{name}" er tilbúinn
     filters:
       linked_classes:

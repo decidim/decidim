@@ -17,24 +17,25 @@ fr:
     blogs:
       actions:
         author_id: Créer un article en tant que
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cet article ?
-        destroy: Supprimer
+        confirm_delete_post: Êtes-vous sûr(e) de vouloir supprimer cet article ?
+        deleted_posts_info: Les articles supprimés peuvent être restaurés depuis la corbeille.
         edit: Modifier
         new: Nouvel article
         title: Actions
+        view_deleted_posts: Voir les articles supprimés
       admin:
         posts:
           create:
             invalid: Un problème est survenu lors de la création de cet article.
             success: Article créé avec succès.
-          destroy:
-            success: Article supprimé avec succès.
           edit:
             save: Mettre à jour
             title: Éditer le post
           index:
             not_published_yet: Pas encore publié.
             title: Articles
+          manage_trash:
+            title: Articles supprimés
           new:
             create: Créer
             title: Créer un article

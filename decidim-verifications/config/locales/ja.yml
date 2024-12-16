@@ -124,17 +124,6 @@ ja:
         destroy:
           error: 承認の削除中に問題が発生しました。
           success: 承認を削除しました。
-        first_login:
-          actions:
-            another_dummy_authorization_handler: 認証ハンドラーの別の例に対して検証する
-            csv_census: 組織のセンサスに照らして確認
-            dummy_authorization_handler: 認証ハンドラーの例に対して確認する
-            dummy_authorization_workflow: 認証ワークフローの例に対して確認する
-            id_documents: 本人確認書類をアップロードして認証を取得する
-            postal_letter: 郵便物で確認コードを受信して認証する
-            sms: SMS確認コードを受信して認証を取得する
-          title: 本人確認を行う
-          verify_with_these_options: '本人確認には以下のオプションがあります。'
         index:
           expired_verification: 認証の有効期限が切れました
           granted_verification: 許可された検証
@@ -146,6 +135,12 @@ ja:
         new:
           authorize: 送信
           authorize_with: '%{authorizer} で認証'
+        onboarding_pending:
+          completed_verifications: あなたは正常に承認されました。今、 %{resource_name} で %{action} ができます。
+          granted_verifications: 許可された検証
+          pending_admin_approval_verifications: 管理者承認の検証を保留中
+          pending_verifications: 保留中の検証
+          unauthorized: このリソースを %{action} する権限がありません。
         renew_modal:
           cancel: キャンセル
           continue: 続ける

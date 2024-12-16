@@ -2,15 +2,12 @@ el:
   activemodel:
     attributes:
       debate:
-        category_id: Κατηγορία
         closed_at: Έκλεισε στις
         conclusions: Συμπεράσματα
-        decidim_category_id: Κατηγορία
         description: Περιγραφή
         end_time: Λήγει στις
         information_updates: Ενημερώσεις πληροφοριών
         instructions: Οδηγίες συμμετοχής
-        scope_id: Πεδίο εφαρμογής
         start_time: Ξεκινά στις
         title: Τίτλος
         user_group_id: Δημιουργία συζήτησης ως
@@ -29,7 +26,6 @@ el:
       debates:
         actions:
           comment: Σχόλιο
-          create: Δημιουργία
           endorse: Επιδοκιμασία
         name: Συζητήσεις
         settings:
@@ -48,8 +44,6 @@ el:
     debates:
       actions:
         close: Κλείσιμο
-        confirm_destroy: Είστε βέβαιοι;
-        destroy: Διαγραφή
         edit: Επεξεργασία
         title: Ενέργειες
       admin:
@@ -61,8 +55,6 @@ el:
           create:
             invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία της συζήτησης.
             success: Η συζήτηση δημιουργήθηκε με επιτυχία.
-          destroy:
-            success: Η συζήτηση διαγράφηκε με επιτυχία.
           edit:
             title: Επεξεργασία συζήτησης
             update: Ενημέρωση συζήτησης
@@ -78,8 +70,6 @@ el:
           update:
             invalid: Υπήρξε ένα πρόβλημα κατά την ενημέρωση αυτής της συζήτησης.
             success: Η συζήτηση ενημερώθηκε με επιτυχία.
-        exports:
-          comments: Σχόλια
       admin_log:
         debate:
           close: "Ο/Η %{user_name} έκλεισε τον διάλογο %{resource_name} στον χώρο %{space_name}"
@@ -120,8 +110,6 @@ el:
           state_values:
             closed: Κλειστό
             open: Άνοιγμα
-        form:
-          select_a_category: Please select a category
         index:
           new_debate: Νέα συζήτηση
         new:
@@ -135,11 +123,9 @@ el:
           recent: Πιο πρόσφατες
           updated: Πρόσφατα ενημερωμένες
         show:
-          close_debate: Κλείσιμο συζήτησης
           debate_closed: Κλειστό
           debate_conclusions_are: 'Η συζήτηση έκλεισε στις %{date} με αυτά τα συμπεράσματα:'
           edit_conclusions: Επεξεργασία συμπερασμάτων
-          edit_debate: Επεξεργασία συζήτησης
           groups_count: Ομάδες
           open: Άνοιγμα συζήτησης
           participants_count: Συμμετέχοντες

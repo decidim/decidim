@@ -10,8 +10,6 @@ sr:
           attributes:
             body:
               cant_be_equal_to_template: ne može biti jednak šablonu
-    models:
-      decidim/proposals/admin/update_proposal_scope_event: Predlog opsega izmenjen
   decidim:
     admin:
       filters:
@@ -41,10 +39,6 @@ sr:
             email_subject: Neko je ostavio poruku na predlogu %{resource_title}.
         proposal_mentioned:
           email_intro: Vaš predlog %{mentioned_proposal_title} je bio pomenut <a href="%{resource_url}">ovde</a> u komentarima.
-        proposal_update_scope:
-          email_intro: 'Administrator je ažurirao opseg vašeg predloga "%{resource_title}", pogledajte na ovoj strani:'
-          email_subject: Opseg predloga %{resource_title} je ažuriran
-          notification_title: Opseg predloga <a href="%{resource_path}">%{resource_title}</a> je ažuriran od strane administratora.
     proposals:
       actions:
         answer_proposal: Odgovor na predlog
@@ -54,11 +48,9 @@ sr:
           index:
             assign_to_valuator: Dodeli procenjivaču
             assign_to_valuator_button: Dodeli
-            change_scope: Promeni opseg
             publish_answers: Objavi odgovore
             unassign_from_valuator: Oduzmi od procenjivača
             unassign_from_valuator_button: Od dodeli
-            update_scope_button: Ažuriraj opseg
           show:
             amendments_count: Broj izmena
             assigned_valuators: Dodeljeni procenjivači
@@ -76,12 +68,6 @@ sr:
             remove_assignment: Ukloni zadatak
             remove_assignment_confirmation: Da li ste sigurni da želite da uklonite procenjivača sa ovog predloga?
             valuators: Procenjivači
-          update_category:
-            invalid: 'Ovi predlozi već imaju %{subject_name} kategoriju: %{proposals}.'
-            success: 'Predlozi uspešno dodati u kategoriju %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Ovi predlozi već imaju %{subject_name} opseg: %{proposals}.'
-            success: 'Predlozi kojima je uspešno dodat opseg %{subject_name}: %{proposals}.'
       admin_log:
         proposal:
           publish_answer: "%{user_name} je objavio odgovor na predlog %{resource_name} u prostoru %{space_name}"

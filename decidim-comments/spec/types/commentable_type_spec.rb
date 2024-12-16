@@ -8,7 +8,7 @@ module Decidim
     describe CommentableType do
       include_context "with a graphql class type"
 
-      let(:model) { create(:dummy_resource) }
+      let(:model) { create(:dummy_resource, :published) }
       let!(:comments) { create_list(:comment, 3, commentable: model) }
 
       describe "acceptsNewComments" do
