@@ -39,6 +39,7 @@ es-PY:
     components:
       add_comment_form:
         account_message: Inicia sesión o crea una cuenta para añadir tu comentario.
+        add_comment: Añadir un comentario
         form:
           body:
             label: Comentario
@@ -48,6 +49,7 @@ es-PY:
           submit_root_comment: Publicar comentario
           user_group_id:
             label: Comentar como
+            your_profile: Tu perfil
         opinion:
           label: Tu opinión sobre este tema
           negative: Negativa
