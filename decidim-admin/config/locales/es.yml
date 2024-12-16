@@ -763,7 +763,7 @@ es:
           confirm_deliver: '¿Seguro que quieres enviar este boletín? Esta acción no se puede deshacer.'
           deliver: Enviar boletín
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
-          none: Ninguno
+          none: Ninguna
           participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
           recipients_count: Este boletín se enviará a <strong id='recipients_count'>%{count}</strong> usuarias.
           scopes_help: Envía el boletín de noticias a las participantes que tengan cualquiera de los ámbitos activados en su configuración de "Mis intereses".
