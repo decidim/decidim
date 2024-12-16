@@ -97,3 +97,10 @@ th:
           success: ทำลายพื้นที่สำเร็จ
         edit:
           title: แก้ไขพื้นที่
+      filters:
+        scope_id_eq:
+          label: ขอบเขต
+      resources:
+        index:
+          headers:
+            scope: ขอบเขต

@@ -96,8 +96,10 @@ zh-CN:
       models:
         result:
           fields:
+            category: 类别
             end_date: 结束日期
             progress: 进展情况
+            scope: 范围
             start_date: 开始日期
             status: 状态
             title: 标题
@@ -116,9 +118,6 @@ zh-CN:
             other: "%{count} 个结果"
         filters:
           all: 所有的
-        home:
-          categories_label: 类别管理
-          subcategories_label: 子类别
         home_header:
           global_status: 全局执行状态
         nav_breadcrumb:
@@ -130,6 +129,13 @@ zh-CN:
             back_to_resource: 返回结果
         timeline:
           title: 项目进化
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: 类别
+          scope_id_eq:
+            label: 范围
     components:
       accountability:
         name: 问责制

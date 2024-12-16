@@ -87,7 +87,7 @@ zh-TW:
       filters:
         proposals:
           category_id_eq:
-            label: 分類
+            label: 類別
           is_emendation_true:
             label: 類別
             values:
@@ -254,12 +254,10 @@ zh-TW:
           notification_title_official: 官方提案 <a href="%{resource_path}">%{resource_title}</a> 已經被添加到 %{participatory_space_title}.
         proposal_update_category:
           email_intro: '管理員已更新您的提案 "%{resource_title}" 的分類，請前往此頁面查看：'
-          email_outro: 您收到此通知是因為您是該提案的作者。
           email_subject: '「%{resource_title}」提案的分類已更新'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案類別已由管理員更新。
         proposal_update_scope:
           email_intro: '一位管理員已更新您的提案"%{resource_title}" 的範圍，您可以在此頁面檢查：'
-          email_outro: 您收到此通知是因為您是該提案的作者。
           email_subject: '%{resource_title} 提案範圍已更新'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案範圍已由管理員更新。
         voting_enabled:
@@ -627,7 +625,7 @@ zh-TW:
       models:
         proposal:
           fields:
-            category: 分類
+            category: 類別
             comments: 評論
             id: ID
             notes: 備註

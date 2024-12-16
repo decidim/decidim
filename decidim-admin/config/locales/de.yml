@@ -455,7 +455,7 @@ de:
             'true': Unveröffentlicht
         remove_all: Alle entfernen
         scope_id_eq:
-          label: Themenbereich
+          label: Umfang
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Kontoname.
@@ -923,7 +923,7 @@ de:
       resources:
         index:
           headers:
-            scope: Bereich
+            scope: Umfang
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.

@@ -277,6 +277,7 @@ id:
           recent: Terbaru
         print:
           city: Kota
+          print: Mencetak
         result:
           initiative_rejected_reason: Inisiatif ini telah ditolak karena kurangnya dukungan.
         signatures_count:
@@ -309,6 +310,7 @@ id:
     resources:
       initiatives_type:
         actions:
+          create: Membuat
           title: Tindakan
           vote: Memilih
   layouts:

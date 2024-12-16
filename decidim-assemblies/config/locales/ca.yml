@@ -153,7 +153,7 @@ ca:
           success: El membre per a aquesta assemblea s'ha eliminat correctament.
         edit:
           title: Actualitzar membre de l'assemblea
-          update: Actualitza
+          update: Actualitzar
         index:
           assembly_members_title: Membres de l'assemblea
         new:

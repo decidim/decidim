@@ -223,7 +223,7 @@ fi:
       helpers:
         answers: vastaukset
         comments: kommentit
-        projects: hankkeet
+        projects: projektit
         results: tulokset
       impersonation_log:
         manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
@@ -850,7 +850,7 @@ fi:
         collaborative_draft: Yhdessä koostettu luonnos
         dummy_resource: Esimerkkitietueet
         meeting: Tapaamiset
-        project: Hankkeet
+        project: Projektit
         proposal: Ehdotukset
         result: Tulokset
     fingerprint:
@@ -1042,7 +1042,7 @@ fi:
     help:
       main_topic:
         default_page:
-          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
+          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia projekteja sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
           title: Mitä voin tehdä palvelussa %{organization}?
         description: Lue lisää palvelusta %{organization}.
         title: Yleiset asiat
@@ -1084,6 +1084,8 @@ fi:
           not_found: 'Teemaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
+    machine_translations:
+      automatic: automaattinen käännös kielelle %{locale_name}
     managed_users:
       expired_session: Käyttäjän hallintaistunto on vanhentunut.
     map:

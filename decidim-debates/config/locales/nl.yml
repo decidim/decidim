@@ -11,6 +11,7 @@ nl:
         end_time: Eindigt op
         information_updates: Informatie updates
         instructions: Instructies om deel te nemen
+        scope_id: Scope
         start_time: Begint om
         title: Titel
         user_group_id: Maak een debat als
@@ -71,8 +72,6 @@ nl:
           update:
             invalid: Er is een probleem opgetreden tijdens het bijwerken van dit debat.
             success: Debat succesvol bijgewerkt.
-        exports:
-          comments: Reacties
       admin_log:
         debate:
           create: "%{user_name} heeft het %{resource_name} debat gemaakt in de %{space_name} ruimte"

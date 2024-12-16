@@ -80,8 +80,6 @@ sv:
           update:
             invalid: Det gick inte att uppdatera debatten.
             success: Debatten uppdaterades.
-        exports:
-          comments: Kommentarer
       admin_log:
         debate:
           close: "%{user_name} avslutade debatten %{resource_name} i %{space_name}"

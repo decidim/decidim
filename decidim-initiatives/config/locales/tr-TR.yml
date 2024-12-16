@@ -394,7 +394,7 @@ tr:
           phone_number: Telefon numarası
           place_date: Yer, Tarih
           postal_code: Posta Kodu
-          print: Yazdır
+          print: baskı
           province: İlçe / İl
           section: 'Kuruluş tarafından istenirse, lütfen belirtilen yerlerde göndermek için bu formu yazdırın ve doldurun:'
           signature: İmza
@@ -451,6 +451,7 @@ tr:
     resources:
       initiatives_type:
         actions:
+          create: Oluştur
           title: Eylemler
           vote: İmza
   layouts:

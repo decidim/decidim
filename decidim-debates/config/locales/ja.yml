@@ -140,7 +140,7 @@ ja:
           recent: 新着順
           updated: 更新が新しい順
         show:
-          close_debate: ディベートを終了する
+          close_debate: ディベートを閉じる
           debate_closed: 終了
           debate_conclusions_are: 'ディベートは %{date} に、以下の結論を持って終了しました。'
           edit_conclusions: 結論を編集

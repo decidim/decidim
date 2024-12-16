@@ -49,6 +49,12 @@ uk:
         other: Зареєстрованих
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Категорія
+          scope_id_eq:
+            label: Обсяг
       meeting_copies:
         create:
           error: При спробі створити копію цієї зустрічі сталася помилка.
@@ -114,7 +120,6 @@ uk:
         attachment_collections: Теки
         attachments: Вкладені файли
         close: Закрити
-        confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
         destroy: Видалити
         edit: Редагувати
         preview: Попередній перегляд
@@ -231,6 +236,8 @@ uk:
           category: Категорія
           date: Дата
           search: Шукати
+        meeting:
+          close_meeting: Закрити зустріч
         meetings:
           upcoming_meetings_warning: Наразі нема запланованих зустрічей, але тут ви можете знайти перелік усіх попередніх зустрічей.
         registration_confirm:

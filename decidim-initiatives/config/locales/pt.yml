@@ -480,6 +480,7 @@ pt:
           comment: Comentários
       initiatives_type:
         actions:
+          create: Criar
           title: Ações
           vote: Assinar
   layouts:

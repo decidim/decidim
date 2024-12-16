@@ -113,7 +113,7 @@ it:
             end_date: Data di fine
             id: ID
             progress: Avanzamento
-            scope: Ambito
+            scope: Obiettivi
             start_date: Data di inizio
             status: Stato
             title: Titolo
@@ -134,9 +134,6 @@ it:
             other: "%{count} risultati"
         filters:
           all: Tutti
-        home:
-          categories_label: Categorie
-          subcategories_label: Sottocategorie
         home_header:
           global_status: Stato di esecuzione globale
         nav_breadcrumb:
@@ -154,7 +151,7 @@ it:
           category_id_eq:
             label: Categoria
           scope_id_eq:
-            label: Ambito
+            label: Obiettivi
           status_id_eq:
             label: Stato
     components:

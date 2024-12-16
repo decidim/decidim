@@ -11,6 +11,7 @@ zh-CN:
         end_time: 结束于
         information_updates: 信息更新
         instructions: 参与说明
+        scope_id: 范围
         start_time: 开始于
         title: 标题
         user_group_id: 创建辩论为

@@ -228,10 +228,10 @@ eu:
           name: Batzarra
         assembly_member:
           fields:
-            ceased_date: Sortze-data
+            ceased_date: Uzte-data
             designation_date: Izendapen-data
             full_name: Izena
-            position: Kargua
+            position: Posizioa
           name: kidea
           positions:
             other: Beste bat
@@ -450,7 +450,7 @@ eu:
           promoted_assemblies: Batzar nabarmenduak
         metadata:
           children_item:
-            one: "%{count} batzarra"
+            one: "%{count} batzar"
             other: "%{count} batzar"
         order_by_assemblies:
           assemblies:

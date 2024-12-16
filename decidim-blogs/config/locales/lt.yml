@@ -20,7 +20,6 @@ lt:
     blogs:
       actions:
         author_id: Sukurti įrašą kaip
-        confirm_destroy: Ar tikrai norite ištrinti šį įrašą?
         destroy: Ištrinti
         edit: Redaguoti
         new: Naujas įrašas

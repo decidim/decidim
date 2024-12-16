@@ -919,9 +919,9 @@ fi:
       copied_from_component:
         proposal_proposal: Liittyvät ehdotukset
       included_projects:
-        project_result: 'Ehdotus sisältyy seuraaviin hankkeisiin:'
+        project_result: 'Ehdotus sisältyy seuraaviin projekteihin:'
       included_proposals:
-        proposal_project: 'Ehdotus sisältyy seuraaviin hankkeisiin:'
+        proposal_project: 'Ehdotus sisältyy seuraaviin projekteihin:'
         proposal_result: 'Ehdotus sisältyy seuraaviin tuloksiin:'
     statistics:
       proposals_accepted: Hyväksyttyä ehdotusta

@@ -107,6 +107,11 @@ cs:
         few: Poznámky
         many: Poznámky
         other: Poznámky
+      decidim/proposals/proposal_vote:
+        one: Hlas
+        few: Hlasů
+        many: Hlasů
+        other: Hlasů
   decidim:
     admin:
       filters:
@@ -121,7 +126,7 @@ cs:
           proposal_state_id_eq:
             label: Stav
           scope_id_eq:
-            label: Oblast působnosti
+            label: Rozsah
           state_eq:
             label: Stav
             values:
@@ -148,6 +153,7 @@ cs:
           comment: Komentář
           create: Vytvořit
           endorse: Schválit
+          vote: Hlasovat
           vote_comment: Komentář hlasování
           withdraw: Ustoupit
         name: Návrhy
@@ -312,12 +318,12 @@ cs:
             notification_title: Návrh <a href="%{resource_path}">%{resource_title}</a> změnil svůj stav na "%{state}".
         proposal_update_category:
           email_intro: 'Správce aktualizoval kategorii vašeho návrhu "%{resource_title}", podívejte se na něj:'
-          email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem návrhu.
           email_subject: Kategorie návrhů %{resource_title} byla aktualizována
           notification_title: Kategorie návrhu <a href="%{resource_path}">%{resource_title}</a> byla aktualizována administrátorem.
         proposal_update_scope:
           email_intro: 'Administrátor aktualizoval rozsah vašeho návrhu "%{resource_title}", podívejte se na tuto stránku:'
-          email_outro: Toto oznámení jste obdrželi, protože jste autorem návrhu.
+          email_outro: Obdrželi jste toto oznámení, protože jste autorem návrhu.
           email_subject: Rámec návrhu %{resource_title} byl aktualizován
           notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> byl aktualizován správcem.
         voting_enabled:
@@ -809,6 +815,7 @@ cs:
           search: Vyhledávání
           state: Stav
           type: Typ
+          voted: Hlasováno
         index:
           click_here: Zobrazit všechny návrhy
           collaborative_drafts_list: Přístup ke konceptům spolupráce
@@ -831,6 +838,7 @@ cs:
           most_commented: Nejvíce komentované
           most_endorsed: Nejvíce schválené
           most_followed: Nejvíce sledované
+          most_voted: Nejvíce hlasovalo
           random: Náhodně
           recent: Nedávné
           with_more_authors: S více autory
@@ -884,6 +892,12 @@ cs:
           no_votes_remaining: Žádné zbývající hlasy
           vote: Hlasovat
           votes_blocked: Hlasování zakázáno
+        votes_count:
+          count:
+            one: Hlas
+            few: Hlasy
+            many: Hlasů
+            other: Hlasů
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Každý návrh může sshromáždit více než %{limit} hlasů

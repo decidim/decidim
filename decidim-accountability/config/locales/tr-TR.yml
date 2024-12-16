@@ -191,7 +191,7 @@ tr:
             end_date: Bitiş tarihi
             id: ID
             progress: İlerleme
-            scope: Kapsam
+            scope: kapsam
             start_date: Başlangıç tarihi
             status: durum
             title: Başlık
@@ -213,10 +213,8 @@ tr:
         filters:
           all: Herşey
         home:
-          categories_label: Kategoriler
           empty: Henüz sonuç yok.
           empty_filters: Bu kriterlere uyan sonuç bulunamamıştır.
-          subcategories_label: Alt Kategoriler
         home_header:
           global_status: Genel yürütme durumu
         nav_breadcrumb:
@@ -235,7 +233,7 @@ tr:
           category_id_eq:
             label: Kategori
           scope_id_eq:
-            label: Kapsam
+            label: kapsam
           status_id_eq:
             label: Durum
     components:

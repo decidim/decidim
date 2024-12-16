@@ -241,7 +241,6 @@ pl:
         attachment_collections: Folder
         attachments: Załączniki
         close: Zamknij
-        confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
         destroy: Usuń
         edit: Edytuj
         invalid_destroy:

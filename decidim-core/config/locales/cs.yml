@@ -1127,6 +1127,8 @@ cs:
           not_found: 'Oblast působnosti nebyla nalezena v databázi (ID: %{id})'
         scope_type_presenter:
           not_found: 'Typ oboru nebyl nalezen v databázi (ID: %{id})'
+    machine_translations:
+      automatic: automatický překlad do %{locale_name}
     managed_users:
       expired_session: Aktuální relace správy účastníka vypršela.
     map:
@@ -2105,6 +2107,7 @@ cs:
       long_with_particles: "%B %d, %Y v %H:%M"
       short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
+      tooltip: "%d-%m-%Y %H:%M %p %Z (GMT %:z)"
   versions:
     directions:
       left: Smazané

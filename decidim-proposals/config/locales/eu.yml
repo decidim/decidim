@@ -99,8 +99,11 @@ eu:
         one: Proposamena
         other: Proposamenak
       decidim/proposals/proposal_note:
-        one: Ohar
+        one: Oharra
         other: Oharrak
+      decidim/proposals/proposal_vote:
+        one: Botoa
+        other: Botoak
   decidim:
     admin:
       filters:
@@ -227,8 +230,8 @@ eu:
             publish_answers_immediately: Argitaratu berehala proposamen erantzunak
             publish_answers_immediately_help_html: 'Kontuz, proposamenen bati erantzuten badiozu hau gabe, eskuz argitaratu beharko dituzu, aukeratuz eta argitaratzeko ekintza erabiliz. Nola funtzionatzen duen jakiteko, ikus <a href="https://docs.decidim.org/en/admin/components/proposals/answers#_publication" target="_blank"> proposals'' answers documentation page</a>proposamenen erantzunen dokumentazio-orria.'
             suggested_hashtags: Traolek erabiltzaileei proposamen berriak proposatu dizkie
-            votes_blocked: Botoiak blokeatuta
-            votes_enabled: Botoiak gaituta
+            votes_blocked: Bozketak blokeatuta
+            votes_enabled: Bozketak gaituta
             votes_hidden: Boto ezkutuak (botoak gaituta badaude, hau markatuz boto kopurua ezkutuan geratuko da)
     events:
       proposals:
@@ -307,12 +310,12 @@ eu:
             notification_title: Zure proposamenak <a href="%{resource_path}">%{resource_title}</a> egoera aldatu du eta "%{state}" egoera jarri du.
         proposal_update_category:
           email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, ikus ezazu orri honetan:'
-          email_outro: Jakinarazpen hau jaso duzu iruzkin honen egilea zarelako.
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
           email_subject: '%{resource_title} proposamenaren kategoria eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren kategoria administratzaile batek eguneratu du.
         proposal_update_scope:
           email_intro: 'Administratzaile batek %{resource_title} zure proposamenaren eremua eguneratu du, orri honetan egiazta dezakezu:'
-          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea zarelako.
           email_subject: '%{resource_title} proposamenaren esparrua eguneratu egin da'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren eremua administratzaile batek eguneratu du.
         voting_enabled:
@@ -419,7 +422,7 @@ eu:
           resources:
             answers:
               one: proposamenari emandako erantzuna
-              other: proposamenei emandako erantzunak
+              other: erantzunak proposamenei
             proposals:
               one: proposamena
               other: proposamenak
@@ -671,7 +674,7 @@ eu:
         index:
           count:
             one: "%{count} lankidetza zirriborroa"
-            other: "%{count} zirriborro kolaboratiboa"
+            other: "%{count} zirriborro kolaboratibo"
         name: Zirriborro kolaboratzaileak
         new:
           add_file: Gehitu fitxategiak
@@ -699,12 +702,12 @@ eu:
             error: Ezin izan da laguntzailea baztertu, saiatu berriro geroago.
             success: "@%{user} behar bezala ukatu da kolaboratzaile gisa."
         show:
-          edit: Editatu lankidetza zirriborroa
+          edit: Editatu zirriborro kolaboratiboa
           final_proposal: azken proposamena
           final_proposal_help_text: Abisua amaitu da. Azken bukatutako proposamena ikus dezakezu
           hidden_authors_count:
             one: eta pertsona %{count} gehiago
-            other: eta beste %{count} pertsona
+            other: eta %{count} pertsona gehiago
           info-message: Hau <strong>zirriborro kolaboratiboa </strong> da proposamen baterako. Horrek esan nahi du egileei proposamena taxutzen lagundu ahal diezula, jarraian agertzen den iruzkinen atala erabiliz, edo zuzenean hobetu daitekeela editatzeko sarbidea eskatuz. Egileek sarbidea ematen dizutenean, zirriborro honetan aldaketak egin ahal izango dituzu.
           publish: Argitaratu
           publish_info: Argitaratu zirriborroaren bertsio hau edo
@@ -844,7 +847,7 @@ eu:
           estimated_cost: Gutxi gorabeherako kostua
           hidden_endorsers_count:
             one: eta pertsona %{count} gehiago
-            other: eta beste %{count} pertsona
+            other: eta %{count} pertsona gehiago
           link_to_collaborative_draft_help_text: Proposamen hau ziriborro kolaboratibo baten emaitza da. Berrikusi historia
           link_to_collaborative_draft_text: Ikusi testu kolaboratiboaren ziriborroa
           link_to_promoted_emendation_help_text: Proposamen hau zuzenketa batetik dator
@@ -864,8 +867,12 @@ eu:
           already_voted_hover: Kendu botoa
           maximum_votes_reached: Botoen muga lortua
           no_votes_remaining: Ez da gelditzen botorik
-          vote: Proiektuaren alde egin
+          vote: Botoa
           votes_blocked: Bozketa desaktibatu da
+        votes_count:
+          count:
+            one: Botoa
+            other: Botoak
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Proposamen bakoitzak %{limit} boto baino gehiago jaso dezake

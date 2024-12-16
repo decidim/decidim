@@ -61,11 +61,8 @@ is:
         proposal_published_for_space:
           email_intro: Tillagan "%{resource_title}" hefur verið bætt við "%{participatory_space_title}" sem þú fylgist með.
         proposal_update_category:
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
           email_subject: '%{resource_title} tillöguflokkinn hefur verið uppfærður'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> tillögu flokkurinn hefur verið uppfærður af admin.
-        proposal_update_scope:
-          email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú ert höfundur tillögunnar.
         voting_enabled:
           email_outro: Þú hefur fengið þessa tilkynningu vegna þess að þú fylgist með %{participatory_space_title}. Þú getur hætt við að fá tilkynningar eftir fyrri tengilinn.
     proposals:
@@ -129,12 +126,10 @@ is:
       models:
         proposal:
           fields:
-            category: Flokkur
             comments: Athugasemdir
             id: Auðkenni
             notes: Skýringar
             official_proposal: Opinber tillaga
-            scope: Umfang
             title: Titill
             votes: Atkvæði
       proposals:
@@ -170,7 +165,6 @@ is:
           title: Birta tillöguna þína
         show:
           answer: Svara
-          edit_proposal: Breyta tillögu
           proposal_accepted_reason: 'Þessi tillaga hefur verið samþykkt vegna þess að:'
           proposal_in_evaluation_reason: Þessi tillaga er metin
           proposal_rejected_reason: 'Þessi tillaga hefur verið hafnað vegna þess að:'

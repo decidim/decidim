@@ -12,8 +12,7 @@ nl:
     blogs:
       actions:
         author_id: Bericht aanmaken als
-        confirm_destroy: Weet je zeker dat je dit bericht wilt verwijderen?
-        destroy: Verwijder
+        destroy: Verwijderen
         edit: Bewerk
         new: Nieuwe blogpost
         title: acties

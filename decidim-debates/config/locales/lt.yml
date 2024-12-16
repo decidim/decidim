@@ -11,7 +11,7 @@ lt:
         end_time: Biagiasi
         information_updates: Informacijos atnaujinimai
         instructions: Dalyvavimo instrukcija
-        scope_id: Sritis
+        scope_id: Apimtis
         start_time: Prasideda
         title: Pavadinimas
         user_group_id: Sukurti diskusiją kaip
@@ -81,8 +81,6 @@ lt:
           update:
             invalid: Atnaujinant šią diskusiją iškilo problema.
             success: Diskusija atnaujinta.
-        exports:
-          comments: Komentarai
       admin_log:
         debate:
           close: "%{user_name} uždarė %{resource_name} diskusiją %{space_name} erdvėje"

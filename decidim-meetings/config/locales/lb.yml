@@ -275,6 +275,9 @@ lb:
           select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
         index:
           new_meeting: Nei Versammlung
+        meeting:
+          close_meeting: Sitzung beenden
+          edit_meeting: Meeting bearbeiten
         meetings:
           upcoming_meetings_warning: Momentan gibt es keine geplanten Besprechungen, aber hier finden Sie alle aufgelisteten Besprechungen.
         new:

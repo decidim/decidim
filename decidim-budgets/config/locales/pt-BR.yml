@@ -11,7 +11,7 @@ pt-BR:
       project:
         budget_amount: Valor do orçamento
         decidim_category_id: Categoria
-        decidim_scope_id: Âmbito
+        decidim_scope_id: Escopo
         description: Descrição
         proposal_ids: Propostas relacionadas
         proposals: Propostas
@@ -44,7 +44,6 @@ pt-BR:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
-        confirm_destroy: Deseja mesmo excluir este projeto?
         destroy: Excluir
         edit: Editar
         edit_projects: Gerenciar projetos
@@ -254,7 +253,7 @@ pt-BR:
           title: Você ainda não votou
         filters:
           category: Categoria
-          scope: Âmbito
+          scope: Escopo
           search: Pesquisa
           status: Status
           status_values:

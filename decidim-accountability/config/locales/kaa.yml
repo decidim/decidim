@@ -91,11 +91,11 @@ kaa:
           results_count:
             one: 1 nátiyje
             other: "%{count} nátiyje"
-        home:
-          categories_label: Kategoriyalar
     admin:
       filters:
         results:
+          category_id_eq:
+            label: Kategoriya
           status_id_eq:
             label: Jaǵday
     metrics:

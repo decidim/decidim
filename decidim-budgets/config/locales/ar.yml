@@ -8,7 +8,6 @@ ar:
         total_budget: الميزانية الإجمالية
       project:
         decidim_category_id: الفئة
-        decidim_scope_id: نطاق
         description: وصف
         proposal_ids: المقترحات ذات الصلة
         title: عنوان
@@ -31,7 +30,6 @@ ar:
       actions:
         attachment_collections: المجلدات
         attachments: مرفقات
-        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا المشروع؟
         destroy: حذف
         edit: تعديل
         edit_projects: إدارة المشاريع
@@ -117,7 +115,6 @@ ar:
             other: "%{count} مشاريع"
         filters:
           category: الفئة
-          scope: نطاق
           search: بحث
         show:
           budget: ميزانية

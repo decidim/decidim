@@ -22,11 +22,15 @@ pt:
         one: Projeto
         other: Projetos
   decidim:
+    admin:
+      filters:
+        projects:
+          scope_id_eq:
+            label: Âmbito
     budgets:
       actions:
         attachment_collections: Pastas
         attachments: Anexos
-        confirm_destroy: Tem certeza de que deseja eliminar este projeto?
         destroy: Eliminar
         edit: Editar
         edit_projects: Gerir projectos

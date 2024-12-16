@@ -11,7 +11,7 @@ de:
       project:
         budget_amount: Höhe des Budgets
         decidim_category_id: Kategorie
-        decidim_scope_id: Umfang
+        decidim_scope_id: Bereich
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
         proposals: Vorschläge
@@ -34,7 +34,7 @@ de:
           category_id_eq:
             label: Kategorie
           scope_id_eq:
-            label: Themenbereich
+            label: Bereich
           selected_at_null:
             label: Ausgewählt
             values:
@@ -44,7 +44,6 @@ de:
       actions:
         attachment_collections: Ordner
         attachments: Anhänge
-        confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
         edit_projects: Projekte verwalten
@@ -254,7 +253,7 @@ de:
           title: Sie haben noch nicht abgestimmt
         filters:
           category: Kategorie
-          scope: Umfang
+          scope: Bereich
           search: Suche
           status: Status
           status_values:

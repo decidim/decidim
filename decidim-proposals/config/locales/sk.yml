@@ -79,6 +79,10 @@ sk:
     admin:
       filters:
         proposals:
+          category_id_eq:
+            label: Kategória
+          scope_id_eq:
+            label: Rozsah
           valuator_role_ids_has:
             label: Priradené ku hodnotiteľov
         search_placeholder:
@@ -176,12 +180,10 @@ sk:
           email_subject: Nový návrh "%{resource_title}" bol pridaný k%{participatory_space_title}
         proposal_update_category:
           email_intro: 'Správca aktualizoval kategórii vášho návrhu "%{resource_title}", pozrite sa na neho:'
-          email_outro: Toto oznámenie ste dostali, pretože ste autorom návrhu.
           email_subject: Kategória návrhov %{resource_title} bola aktualizovaná
           notification_title: Kategória návrhu <a href="%{resource_path}">%{resource_title} </a> bola aktualizovaná administrátorom.
         proposal_update_scope:
           email_intro: 'Admin upravil rozsah Vašeho návrhu %{resource_title}, pozrite sa na to na tejto stránke:'
-          email_outro: Toto oznámenie ste dostali, pretože ste autorom návrhu.
           email_subject: Rozsah návrhu %{resource_title} bol aktualizovaný
           notification_title: Rozsah návrhu <a href="%{resource_path}">%{resource_title}</a> bol aktualizovaný administrátorom.
         voting_enabled:

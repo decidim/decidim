@@ -415,7 +415,7 @@ de:
           confirm: Bestätigen
         show:
           going: Gehen
-          no_slots_available: Keine Steckplätze verfügbar
+          no_slots_available: Keine Plätze verfügbar
           registration: Anmeldung
       conference_program:
         show:

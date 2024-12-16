@@ -261,8 +261,6 @@ sk:
           values:
             'false': Zverejnené
             'true': Nepublikované
-        scope_id_eq:
-          label: Rozsah
         search_label: Hľadať
         search_placeholder:
           name_or_nickname_or_email_cont: Hľadať {collection} podľa e-mailu, mena alebo prezývky.
@@ -379,6 +377,9 @@ sk:
           fields:
             name: Meno
             plural: Množné číslo
+        share_token:
+          fields:
+            created_at: Vytvorené
         static_page:
           fields:
             created_at: Vytvorené

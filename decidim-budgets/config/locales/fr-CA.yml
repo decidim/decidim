@@ -11,7 +11,7 @@ fr-CA:
       project:
         budget_amount: Montant du budget
         decidim_category_id: Catégorie
-        decidim_scope_id: Périmètre d'application
+        decidim_scope_id: Secteur
         description: Description
         proposal_ids: Propositions liées
         proposals: Propositions
@@ -44,7 +44,7 @@ fr-CA:
       actions:
         attachment_collections: Dossiers
         attachments: Documents liés
-        confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
+        confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer ce projet ?
         destroy: Supprimer
         edit: Modifier
         edit_projects: Gérer les projets
@@ -254,7 +254,7 @@ fr-CA:
           title: Vous n'avez pas encore voté
         filters:
           category: Catégorie
-          scope: Périmètre d'application
+          scope: Secteur
           search: Rechercher
           status: Statut
           status_values:

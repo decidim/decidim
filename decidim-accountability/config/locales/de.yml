@@ -201,7 +201,7 @@ de:
             end_date: Enddatum
             id: ID
             progress: Fortschritt
-            scope: Themenbereich
+            scope: Umfang
             start_date: Startdatum
             status: Status
             title: Titel
@@ -245,7 +245,7 @@ de:
           category_id_eq:
             label: Kategorie
           scope_id_eq:
-            label: Themenbereich
+            label: Umfang
           status_id_eq:
             label: Status
     components:

@@ -1082,6 +1082,8 @@ fr-CA:
           not_found: 'Le secteur n''a pas été trouvé dans la base de données (ID: %{id})'
         scope_type_presenter:
           not_found: 'Le type de secteur n''a pas été trouvé dans la base de données (ID: %{id})'
+    machine_translations:
+      automatic: traduction automatique en %{locale_name}
     managed_users:
       expired_session: La session de représentation d'identité a expiré.
     map:
@@ -1506,7 +1508,7 @@ fr-CA:
         filters:
           area: Périmètre d'assemblée
           areas: Zones d'application
-          scope: Secteur
+          scope: Périmètre d'application
           select_an_area: Sélectionnez une zone d'application
       progress: Avancement
       public_participation:

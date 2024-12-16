@@ -47,6 +47,12 @@ lv:
         other: Reģistrācija
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategorija
+          scope_id_eq:
+            label: Darbības tvērums
       meeting_copies:
         create:
           error: Šīs sanāksmes dublēšanas laikā radās problēma.
@@ -130,7 +136,6 @@ lv:
         attachment_collections: Mapes
         attachments: Pielikumi
         close: Aizvērt
-        confirm_destroy: Vai tiešām vēlaties dzēst šo sanāksmi?
         destroy: Dzēst
         edit: Labot
         preview: Priekšskatīt
@@ -267,6 +272,8 @@ lv:
           category: Kategorija
           date: Datums
           search: Meklēt
+        meeting:
+          close_meeting: Slēgt sanāksmi
         meetings:
           upcoming_meetings_warning: Pašlaik nav plānotas sanāksmes, taču šeit varat atrast visas iepriekšējās sanāksmes.
         registration_confirm:

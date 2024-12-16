@@ -645,7 +645,7 @@ es-MX:
             plural: Plural
         share_token:
           fields:
-            created_at: Creado el
+            created_at: Fecha de creación
             expires_at: Caduca el
             last_used_at: Último uso
             times_used: Veces utilizado
@@ -972,7 +972,7 @@ es-MX:
           next: Siguiente
           next_title: Siguiente elemento
           previous: Anterior
-          previous_title: Anterior elemento
+          previous_title: Elemento anterior
         gallery:
           add_images: Añadir imágenes
           edit_images: Editar imagenes

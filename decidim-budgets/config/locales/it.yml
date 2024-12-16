@@ -3,7 +3,7 @@ it:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Ambito
+        decidim_scope_id: Obiettivo
         description: Descrizione
         title: Titolo
         total_budget: Budget totale
@@ -11,7 +11,7 @@ it:
       project:
         budget_amount: Importo del budget
         decidim_category_id: Categoria
-        decidim_scope_id: Ambito tematico
+        decidim_scope_id: Obiettivo
         description: Descrizione
         proposal_ids: Proposte correlate
         selected: Selezionato per l'implementazione
@@ -22,11 +22,15 @@ it:
         one: Progetto
         other: Progetti
   decidim:
+    admin:
+      filters:
+        projects:
+          scope_id_eq:
+            label: Obiettivo
     budgets:
       actions:
         attachment_collections: Cartelle
         attachments: Allegati
-        confirm_destroy: Sei certo di voler cancellare questo progetto?
         destroy: Cancella
         edit: Modifica
         edit_projects: Gestisci progetti
@@ -143,7 +147,7 @@ it:
           title: Non hai ancora votato
         filters:
           category: Categoria
-          scope: Ambito tematico
+          scope: Obiettivo
           search: Cerca
           status: Stato
           status_values:

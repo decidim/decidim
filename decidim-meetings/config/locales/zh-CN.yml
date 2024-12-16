@@ -43,6 +43,12 @@ zh-CN:
         other: 注册
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: 类别
+          scope_id_eq:
+            label: 范围
       meeting_copies:
         create:
           error: 重复这次会议时出现问题。
@@ -132,7 +138,6 @@ zh-CN:
         attachment_collections: 文件夹
         attachments: 附件
         close: 关闭
-        confirm_destroy: 您确定要删除这个会议吗？
         destroy: 删除
         edit: 编辑
         invalid_destroy:
@@ -249,6 +254,9 @@ zh-CN:
           value_types:
             organizer_presenter:
               not_found: '在数据库中找不到组织者 (ID: %{id})'
+      application_helper:
+        filter_category_values:
+          all: 所有的
       calendar_modal:
         calendar_url: 日历 URL
         export_calendar: 导出日历
@@ -295,6 +303,8 @@ zh-CN:
           select_a_category: 请选择一个类别
         index:
           new_meeting: 新会议
+        meeting:
+          close_meeting: 关闭会议
         meetings:
           upcoming_meetings_warning: 目前没有排定的会议，但在这里你可以找到过去所有会议的清单。
         new:

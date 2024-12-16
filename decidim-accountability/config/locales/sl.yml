@@ -73,8 +73,10 @@ sl:
       models:
         result:
           fields:
+            category: Kategorija
             end_date: Končni datum
             progress: Napredek
+            scope: Obseg
             start_date: Začetni datum
             status: Status
             title: Naslov
@@ -90,11 +92,15 @@ sl:
       results:
         filters:
           all: Vsi
-        home:
-          categories_label: Kategorije
-          subcategories_label: Podkategorije
         search:
           search: Išči dejanja
+    admin:
+      filters:
+        results:
+          category_id_eq:
+            label: Kategorija
+          scope_id_eq:
+            label: Obseg
     components:
       accountability:
         settings:

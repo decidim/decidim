@@ -153,11 +153,11 @@ fi-pl:
           success: Jäsen poistettiin onnistuneesti ryhmästä.
         edit:
           title: Päivitä ryhmän jäsenen tietoja
-          update: Päivittää
+          update: Päivitä
         index:
           assembly_members_title: Ryhmän jäsenet
         new:
-          create: Luoda
+          create: Luo
           title: Uusi ryhmän jäsen
         update:
           error: Ryhmän jäsenen päivityksessä tapahtui virhe.

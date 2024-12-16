@@ -44,13 +44,13 @@ fi-pl:
       actions:
         attachment_collections: Kansiot
         attachments: Liitteet
-        confirm_destroy: Haluatko varmasti poistaa tämän suunnitelman?
+        confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista
         edit: Muokkaa
         edit_projects: Hallinnoi projekteja
         import: Tuo ehdotuksia suunnitelmiin
         new_budget: Uusi budjetti
-        new_project: Uusi hanke
+        new_project: Uusi projekti
         preview: Esikatsele
         send_voting_reminders: Lähetä äänestysmuistutukset
         title: Toiminnot
@@ -110,7 +110,7 @@ fi-pl:
               'yes': 'Kyllä'
             title: Suunnitelmat
             update: Päivitä
-            update_budget_button: Päivitä hankkeen budjetti
+            update_budget_button: Päivitä projektin budjetti
             update_scope_button: Muuta teema
           new:
             create: Luo
@@ -119,9 +119,9 @@ fi-pl:
             invalid: Hankkeen poisto epäonnistui.
             success: Hankkeen päivitys onnistui.
           update_budget:
-            invalid: 'Nämä hankkeet ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
-            select_a_project: Valitse hanke.
-            success: 'Seuraavat hankkeet päivitys onnistui budjetissa %{subject_name}: %{projects}.'
+            invalid: 'Nämä projektit ovat jo samassa budjetissa tai niiden budjetit ovat enemmän kuin suurin sallittu määrä: %{projects}.'
+            select_a_project: Valitse projekti.
+            success: 'Seuraavien projektien päivitys onnistui budjetissa %{subject_name}: %{projects}.'
           update_category:
             invalid: 'Näillä projekteilla oli jo aihepiiri %{subject_name}: %{projects}.'
             select_a_category: Valitse aihepiiri.
@@ -152,7 +152,7 @@ fi-pl:
             no_components: Tässä osallisuustilassa ei ole ole muita ehdotuskomponentteja, joista voitaisiin tuoda ehdotuksia suunnitelmiin.
             origin_component_id: Lähdekomponentti
             select_component: Valitse komponentti
-            title: Tuo ehdotuksia hankkeiksi
+            title: Tuo ehdotuksia projekteiksi
         reminders:
           orders:
             description: Käyttäjät saavat sähköpostiviestin, jossa on linkit budjetteihin, joissa heillä on odottavia ääniä.
@@ -246,7 +246,7 @@ fi-pl:
           projects_count:
             one: 1 suunnitelma
             other: "%{count} suunnitelmaa"
-        empty: Ei yhtään hanketta
+        empty: Ei yhtään projektia
         exit_modal:
           cancel: Palaa äänestykseen
           exit: Poistu äänestyksestä
@@ -265,18 +265,18 @@ fi-pl:
           assigned: Varattu
           budget: Budjetti
           dynamic_help:
-            keep_adding_projects: Jatka hankkeiden lisäämistä
+            keep_adding_projects: Jatka projektien valitsemista
             minimum_reached: Olet saavuttanut äänestystä varten vaaditun vähimmäismäärän
-            start_adding_projects: Aloita lisäämällä hankkeita
+            start_adding_projects: Aloita valitsemalla projekteja
           minimum: Vähintään
           minimum_projects_rule:
-            description: Valitse vähintään %{minimum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Valitse vähintään %{minimum_number} haluamaasi projektia ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           projects_rule:
-            description: Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Valitse vähintään %{minimum_number} ja enintään %{maximum_number} haluamaasi projektia ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           projects_rule_maximum_only:
-            description: Valitse enintään %{maximum_number} haluamaasi hanketta ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Valitse enintään %{maximum_number} haluamaasi projektia ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
           vote_threshold_percent_rule:
-            description: Varaa vähintään %{minimum_budget} hankkeille ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
+            description: Varaa vähintään %{minimum_budget} projekteille ja äänestä haluamallasi tavalla vaikuttaaksesi budjetin jakautumiseen.
         orders:
           highest_cost: Kallein ensin
           label: Järjestä suunnitelmat
@@ -301,7 +301,7 @@ fi-pl:
           added: Lisätty
           all: Kaikki
         projects_for: Projektit kohteelle %{name}
-        select_projects: Valitse hankkeita
+        select_projects: Valitse projekteja
         show:
           budget: Budjetti
       prompt: Valitse budjetti

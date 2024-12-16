@@ -50,6 +50,12 @@ ru:
         other: Зарегистрировались
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Категория
+          scope_id_eq:
+            label: Охват
       meeting_copies:
         create:
           error: При попытке создать копию этой встречи произошла ошибка.
@@ -131,7 +137,6 @@ ru:
         attachment_collections: Папки
         attachments: Прикрепленные файлы
         close: Закрыть
-        confirm_destroy: Вы действительно хотите удалить эту встречу?
         destroy: Удалить
         edit: Редактировать
         preview: Предпросмотр
@@ -258,6 +263,8 @@ ru:
           category: Категория
           date: Дата
           search: Поиск
+        meeting:
+          close_meeting: Закрыть встречу
         meetings:
           upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
         registration_confirm:

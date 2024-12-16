@@ -11,6 +11,7 @@ tr:
         end_time: Biter
         information_updates: Bilgi güncellemeleri
         instructions: Katılma talimatları
+        scope_id: Kapsam
         start_time: Den başlar
         title: Başlık
         user_group_id: Olarak tartışma oluştur
@@ -27,7 +28,7 @@ tr:
     components:
       debates:
         actions:
-          create: yaratmak
+          create: Oluştur
           endorse: Onayla
         name: Tartışmalar
         settings:
@@ -76,8 +77,6 @@ tr:
           update:
             invalid: Bu tartışmayı güncellerken bir sorun oluştu.
             success: Tartışma başarıyla güncellendi.
-        exports:
-          comments: Yorumlar
       admin_log:
         debate:
           close: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını kapattı"

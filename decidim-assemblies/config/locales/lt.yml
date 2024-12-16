@@ -218,7 +218,7 @@ lt:
             ceased_date: Nutraukimo data
             designation_date: Paskyrimo data
             full_name: Vardas
-            position: Pareigos
+            position: Pozicija
           name: Narys
           positions:
             other: Kita

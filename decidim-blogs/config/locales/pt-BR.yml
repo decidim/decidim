@@ -18,7 +18,6 @@ pt-BR:
     blogs:
       actions:
         author_id: Criar publicação como
-        confirm_destroy: Deseja mesmo excluir este post?
         destroy: Excluir
         edit: Editar
         new: Nova postagem

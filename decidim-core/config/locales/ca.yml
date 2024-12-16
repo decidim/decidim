@@ -986,7 +986,7 @@ ca:
         success: Sol·licitud d'incorporació rebutjada correctament.
       actions:
         are_you_sure: Segur?
-        promote_to_admin: Fer administrador
+        promote_to_admin: Fer administradora
         remove_from_group: Eliminar participant
       index:
         current_members_without_admins: 'Membres actuals (sense administradors):'
@@ -1084,6 +1084,8 @@ ca:
           not_found: 'L''àmbit no s''ha trobat a la base de dades (ID: %{id})'
         scope_type_presenter:
           not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
+    machine_translations:
+      automatic: traducció automàtica a %{locale_name} 
     managed_users:
       expired_session: La sessió actual d'administració d'una participant ha caducat.
     map:
@@ -1172,7 +1174,7 @@ ca:
         active: Actives
         finished: 'Finalitzat el: %{end_date}'
         not_started: No s'ha iniciat encara
-        remaining: "resta %{time_distance}"
+        remaining: "Resta(en) %{time_distance}"
     metrics:
       download:
         csv: Descarregar les dades (csv)
@@ -1583,7 +1585,7 @@ ca:
     user_update_mailer:
       notify:
         body_1: Reps aquest missatge per informar-te d'una actualització del teu compte.
-        body_2: En el cas que no hagis estat tu qui ha realitzat aquesta actualització, si us plau, inicia la teva sessió i modifica la teva contrasenya. Si no poguessis iniciar la teva sessió, si ús pla, contacte amb el servei de suport a la plataforma.
+        body_2: En el cas que no hagis estat tu qui ha realitzat aquesta actualització, si us plau, inicia la teva sessió i modifica la teva contrasenya. Si no poguessis iniciar la teva sessió, si us plau, contacte amb el servei de suport a la plataforma.
         greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{user}
         main_body: 'S''han modificat els següents detalls: %{updates}.'

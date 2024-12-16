@@ -3,14 +3,13 @@ lb:
   activemodel:
     attributes:
       debate:
-        category_id: Kategorie
         closed_at: Geschlossen am
         conclusions: Zusammenfassung
-        decidim_category_id: Kategorie
         description: Beschreibung
         end_time: Endet am
         information_updates: Informationsaktualisierungen
         instructions: Anweisungen zur Teilnahme
+        scope_id: Bereich
         start_time: Startet um
         title: Titel
         user_group_id: Debatte erstellen als
@@ -70,11 +69,9 @@ lb:
           recent: Neueste zuerst
           updated: Kürzlich aktualisiert
         show:
-          close_debate: Debatte schließen
           debate_closed: Geschlossen
           debate_conclusions_are: 'Die Debatte wurde am %{date} mit diesen Ergebnissen geschlossen:'
           edit_conclusions: Schlussfolgerungen bearbeiten
-          edit_debate: Debatte bearbeiten
           groups_count: Gruppen
           open: Offene Debatte
           participants_count: Teilnehmer

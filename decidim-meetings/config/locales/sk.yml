@@ -50,6 +50,12 @@ sk:
         other: Registrácie
   decidim:
     admin:
+      filters:
+        meetings:
+          category_id_eq:
+            label: Kategória
+          scope_id_eq:
+            label: Rozsah
       meeting_copies:
         create:
           error: Bolo tu chyba, že sa toto stretnutie zdvojnásobila.
@@ -133,7 +139,6 @@ sk:
         attachment_collections: Zložky
         attachments: Prílohy
         close: Zavrieť
-        confirm_destroy: Naozaj chcete túto schôdzku vymazať?
         destroy: Odstrániť
         edit: Upraviť
         preview: Náhľad
@@ -271,6 +276,8 @@ sk:
           category: Kategória
           date: dátum
           search: Vyhľadávanie
+        meeting:
+          close_meeting: Zatvorte schôdzku
         meetings:
           upcoming_meetings_warning: V súčasnosti neexistujú žiadne plánované schôdzky, ale nájdete tu všetky minulé stretnutia.
         registration_confirm:

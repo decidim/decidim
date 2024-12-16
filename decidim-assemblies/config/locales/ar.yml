@@ -218,7 +218,7 @@ ar:
             ceased_date: تاريخ التوقف
             designation_date: تاريخ التعيين
             full_name: الاسم
-            position: موضع
+            position: الموقع
           name: عضو
           positions:
             other: آخر

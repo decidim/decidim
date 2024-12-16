@@ -44,7 +44,6 @@ sv:
       actions:
         attachment_collections: Mappar
         attachments: Bilagor
-        confirm_destroy: Vill du radera projektet?
         destroy: Radera
         edit: Redigera
         edit_projects: Hantera projekt
@@ -224,7 +223,7 @@ sv:
           are_you_sure: Om du ändrar dig kan du ändra rösten senare.
           cancel: Avbryt
           confirm: Bekräfta
-          description: De projekt där du har valt att delta i budgeten.
+          description: Projekt du har valt inom budgeten.
           title: Bekräfta röst
         budget_excess:
           budget_excess:
@@ -262,7 +261,7 @@ sv:
             not_selected: Inte vald
             selected: Valda
         order_progress:
-          assigned: Tilldelade
+          assigned: Valda
           budget: Budget
           dynamic_help:
             keep_adding_projects: Fortsätt lägga till projekt

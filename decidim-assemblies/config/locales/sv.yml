@@ -23,14 +23,14 @@ sv:
         decidim_assemblies_type_id: Typ av samråd
         decidim_scope_id: Indelning
         description: Beskrivning
-        developer_group: Kampanjgrupp
+        developer_group: Arrangör
         document: Dokument
         domain: Domän
         duration: Varaktighet
         facebook: Facebook
         github: GitHub
         hashtag: Hashtag
-        hero_image: Hembild
+        hero_image: Startbild
         import_attachments: Importera bilagor
         import_categories: Importera kategorier
         import_components: Importera komponenter
@@ -39,7 +39,7 @@ sv:
         internal_organisation: Organisation
         is_transparent: Är transparent
         local_area: Område
-        meta_scope: Metadata för indelning
+        meta_scope: Omfattning
         parent_id: Överordnat samråd
         participatory_processes_ids: Relaterade deltagandeprocesser
         participatory_scope: Vad bestäms
@@ -231,7 +231,7 @@ sv:
             ceased_date: Slutade datum
             designation_date: Utnämningsdatum
             full_name: Namn
-            position: Position
+            position: Befattning
           name: Medlem
           positions:
             other: Andra
@@ -311,7 +311,7 @@ sv:
             existing_user: Befintlig deltagare
             explanation: 'Instruktioner för bild:'
             image_guide: Helst en porträttbild utan text.
-            non_user: Ej deltagande
+            non_user: Icke-deltagare
             non_user_avatar_help: Du bör få medgivande av personerna innan du lägger till dem som medlemmar.
             select_a_position: Välj en position
             select_user: Välj en deltagare
@@ -329,7 +329,7 @@ sv:
           created_by: Skapad av
           creation_date: Skapad
           data: Data från samråd
-          developer_group: Kampanjgrupp
+          developer_group: Arrangör
           duration: Varaktighet
           included_at: Inkluderad
           indefinite_duration: Permanent

@@ -2,10 +2,12 @@
 lb:
   activemodel:
     attributes:
+      budget:
+        decidim_scope_id: Bereich
       project:
         budget_amount: Höhe des Budgets
         decidim_category_id: Kategorie
-        decidim_scope_id: Umfang
+        decidim_scope_id: Bereich
         description: Beschreibung
         proposal_ids: Ähnliche Vorschläge
         selected: Zur Implementierung ausgewählt
@@ -16,11 +18,15 @@ lb:
         one: Projekt
         other: Projekte
   decidim:
+    admin:
+      filters:
+        projects:
+          scope_id_eq:
+            label: Bereich
     budgets:
       actions:
         attachment_collections: Ordner
         attachments: Anhänge
-        confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
         edit_projects: Projekte verwalten
@@ -122,7 +128,7 @@ lb:
             other: "%{count} Projekte"
         filters:
           category: Kategorie
-          scope: Umfang
+          scope: Bereich
           search: Suche
           status: Status
           status_values:

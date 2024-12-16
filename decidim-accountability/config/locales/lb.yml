@@ -108,7 +108,7 @@ lb:
             end_date: Enddatum
             id: ID
             progress: Fortschritt
-            scope: Themenbereich
+            scope: Umfang
             start_date: Startdatum
             status: Status
             title: Titel
@@ -128,9 +128,6 @@ lb:
             other: "%{count} Ergebnisse"
         filters:
           all: Alle
-        home:
-          categories_label: Kategorien
-          subcategories_label: Unterkategorien
         home_header:
           global_status: Globaler Umsetzungsstatus
         nav_breadcrumb:
@@ -148,7 +145,7 @@ lb:
           category_id_eq:
             label: Kategorie
           scope_id_eq:
-            label: Themenberäich
+            label: Umfang
           status_id_eq:
             label: Status
     components:

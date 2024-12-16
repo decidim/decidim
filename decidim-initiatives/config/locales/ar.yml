@@ -314,6 +314,7 @@ ar:
           full_name: الاسم الكامل
           initiative:
             description: 'الوصف:'
+          print: طباعة
         result:
           initiative_rejected_reason: تم رفض هذه المبادرة بسبب افتقارها للتوقيعات.
         signatures_count:
@@ -360,6 +361,7 @@ ar:
     resources:
       initiatives_type:
         actions:
+          create: إنشاء
           title: أفعال
           vote: إشارة
   layouts:

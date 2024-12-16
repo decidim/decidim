@@ -138,7 +138,7 @@ nl:
         index:
           assembly_members_title: Groepsleden
         new:
-          create: Creëren
+          create: creëren
         update:
           error: Er is een fout opgetreden bij het bijwerken van het lid voor deze groep.
           success: Lid is succesvol bijgewerkt voor deze groep.

@@ -11,6 +11,7 @@
         end_time: Avsluttes den
         information_updates: Oppdateringer
         instructions: Instruksjoner for å delta
+        scope_id: Tema
         start_time: Starter den
         title: Tittel
         user_group_id: Opprett innspillstråd som
@@ -78,8 +79,6 @@
           update:
             invalid: Det oppstod et problem med å oppdatere denne innspillstråden.
             success: Innspillstråden ble oppdatert.
-        exports:
-          comments: Kommentarer
       admin_log:
         debate:
           close: "%{user_name} lukket tråden %{resource_name} under området %{space_name}"
@@ -135,7 +134,7 @@
           recent: Nyeste
           updated: Sist oppdatert
         show:
-          close_debate: Avslutt innspillstråd
+          close_debate: Lukk innspillstråd
           debate_closed: Lukket
           debate_conclusions_are: 'Innspillstråden er avsluttet den %{date}, med denne oppsummeringen:'
           edit_conclusions: Rediger oppsummering

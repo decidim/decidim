@@ -69,7 +69,7 @@ hu:
               'false': Előzmények
               'true': Közelgő
           scope_id_eq:
-            label: Hatókör
+            label: Hatáskör
           with_any_origin:
             label: Kiindulópont
             values:
@@ -176,7 +176,6 @@ hu:
         attachment_collections: Mappák
         attachments: Mellékletek
         close: Bezárás
-        confirm_destroy: Biztosan törölni szeretnéd ezt a találkozót?
         destroy: Törlés
         edit: Szerkesztés
         invalid_destroy:
@@ -409,6 +408,9 @@ hu:
           address_help: 'Cím: Geocoder használata a helymeghatározáshoz'
           available_slots_help: Hagyd "0" értéken, ha a jelentkezők száma korlátlan
           create_as: Ülés létrehozása mint
+        meeting:
+          close_meeting: Ttalálkozó lezárása
+          edit_meeting: Találkozó szerkesztése
         meetings:
           upcoming_meetings_warning: Jelenleg nincs ütemezett találkozó, de itt megtalálhatod az összes korábbi találkozó listáját.
         new:

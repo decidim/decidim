@@ -287,6 +287,7 @@ gl:
           recent: Máis recente
         print:
           city: Cidade
+          print: Imprimir
         result:
           initiative_rejected_reason: Esta iniciativa foi rexeitada debido á súa falta de apoios.
         signatures_count:
@@ -321,6 +322,7 @@ gl:
     resources:
       initiatives_type:
         actions:
+          create: Crear
           title: Accións
           vote: Vota
   layouts:

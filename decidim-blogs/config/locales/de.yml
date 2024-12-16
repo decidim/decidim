@@ -18,7 +18,6 @@ de:
     blogs:
       actions:
         author_id: Beitrag erstellen als
-        confirm_destroy: Möchten Sie diesen Beitrag wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
         new: Neuer Beitrag

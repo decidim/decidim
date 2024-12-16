@@ -11,6 +11,7 @@ pt:
         end_time: Termina em
         information_updates: Atualizações de informações
         instructions: Instruções para participar
+        scope_id: Âmbito
         start_time: Começa em
         title: Título
         user_group_id: Criar debate como
@@ -76,8 +77,6 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar este debate.
             success: Debate atualizado corretamente.
-        exports:
-          comments: Comentários
       admin_log:
         debate:
           close: "%{user_name} Fechou o debate %{resource_name} no espaço %{space_name}"

@@ -18,7 +18,7 @@ fr:
     blogs:
       actions:
         author_id: Créer un article en tant que
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cet article ?
+        confirm_destroy: Êtes-vous sûr(e) de vouloir supprimer cet article ?
         destroy: Supprimer
         edit: Modifier
         new: Nouvel article

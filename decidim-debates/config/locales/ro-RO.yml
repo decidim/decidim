@@ -80,8 +80,6 @@ ro:
           update:
             invalid: A apărut o problemă la actualizarea acestei dezbateri.
             success: Dezbatere actualizata cu succes.
-        exports:
-          comments: Comentarii
       admin_log:
         debate:
           close: "%{user_name} a închis dezbaterea %{resource_name} cu privire la spațiul %{space_name}"
@@ -142,7 +140,7 @@ ro:
           debate_closed: Închisă
           debate_conclusions_are: 'Dezbaterea s-a încheiat la %{date} cu următoarele concluzii:'
           edit_conclusions: Editează concluziile
-          edit_debate: Editează dezbaterea
+          edit_debate: Editare dezbatere
           groups_count: Grupuri
           open: Dezbatere deschisă
           participants_count: Participanţi
