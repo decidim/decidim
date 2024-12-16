@@ -346,6 +346,7 @@ fr:
     open_data:
       help:
         projects:
+          budget: Données concernant le budget (par exemple "Budget 2021") du projet
           follows_count: Le nombre de personnes qui suivent ce projet
           latitude: La latitude du projet au cas où il a un emplacement physique
           longitude: La longitude du projet dans le cas où il a un emplacement physique
