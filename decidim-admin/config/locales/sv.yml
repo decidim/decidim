@@ -747,7 +747,6 @@ sv:
           confirm_delete: Vill du radera nyhetsbrevet?
           followers: 'följare '
           has_been_sent_to: 'Har skickats till: '
-          no_scopes: Ingen indelning
           not_sent: Inte skickat
           participants: 'deltagare '
           segmented_to: 'Segmenterad till %{subject}: '
@@ -762,13 +761,10 @@ sv:
           confirm_deliver: Vill du skicka nyhetsbrevet? Den här åtgärden kan inte ångras.
           deliver: Leverera nyhetsbrev
           followers_help: Skickar nyhetsbrevet till alla verifierade användare som följer något av de markerade deltagarutrymmena i listan.
-          none: Inga
           participants_help: Skickar nyhetsbrevet till alla verifierade användare som har deltagit i något av de markerade deltagarutrymmena i listan.
           recipients_count: Nyhetsbrevet kommer att skickas till <strong id='recipients_count'>%{count}</strong> användare.
-          scopes_help: Skickar nyhetsbrev till användare som markerat någon av de valda indelningarna under "Mina intressen".
-          select_scopes: Filtrera användare som markerat någon av de valda indelningarna under "Mina intressen".
           select_spaces: Segmentera nyhetsbrevet genom att markera utrymmen
-          select_users: Välj vilka användare som ska få nyhetsbrevet
+          send_to_all_users: Skicka till alla användare
           title: Välj mottagare att skicka till
           warning: "<strong>Obs:</strong> Detta nyhetsbrev kommer endast att skickas till de användare som har markerat <em>Jag vill få nyhetsbrev</em> i sina meddelandeinställningar."
         send:
