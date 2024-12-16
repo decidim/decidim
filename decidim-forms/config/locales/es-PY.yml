@@ -25,6 +25,10 @@ es-PY:
         questionnaire:
           request_invalid: Se ha producido un problema al procesar la solicitud. Por favor, vuelve a intentarlo.
   decidim:
+    download_your_data:
+      show:
+        answers: Exportar las respuestas
+        survey_user_answers: Respuestas de las usuarias a la encuesta
     forms:
       admin:
         models:

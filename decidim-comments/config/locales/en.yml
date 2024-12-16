@@ -44,6 +44,7 @@ en:
     components:
       add_comment_form:
         account_message: Log in or create an account to add your comment.
+        add_comment: Add comment
         form:
           body:
             label: Comment
@@ -53,6 +54,7 @@ en:
           submit_root_comment: Publish comment
           user_group_id:
             label: Comment as
+            your_profile: Your profile
         opinion:
           label: Your opinion about this topic
           negative: Negative

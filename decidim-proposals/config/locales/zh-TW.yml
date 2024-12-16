@@ -4,7 +4,6 @@ zh-TW:
       collaborative_draft:
         address: 地址
         body: 內容
-        category_id: 類別
         decidim_scope_id: 範圍
         has_address: 有地址
         scope_id: 範圍
@@ -17,7 +16,6 @@ zh-TW:
         answered_at: 回答
         automatic_hashtags: 已自動添加標籤
         body: 內容
-        category_id: 類別
         decidim_scope_id: 範圍
         has_address: 有地址
         scope_id: 範圍
@@ -66,8 +64,6 @@ zh-TW:
             base:
               not_official: 非正式
     models:
-      decidim/proposals/admin/update_proposal_category_event: 提案類別已更改
-      decidim/proposals/admin/update_proposal_scope_event: 提案範圍已更改
       decidim/proposals/creation_enabled_event: 建立提案已啟用
       decidim/proposals/endorsing_enabled_event: 提案連署功能已啟用
       decidim/proposals/proposal_mentioned_event: 提案已被提及
@@ -85,15 +81,11 @@ zh-TW:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: 分類
           is_emendation_true:
             label: 類別
             values:
               'false': 提案
               'true': 修正案
-          scope_id_eq:
-            label: 範圍
           state_eq:
             label: 狀態
             values:
@@ -112,7 +104,6 @@ zh-TW:
         actions:
           amend: 修訂
           comment: 評論
-          create: 建立
           endorse: 連署
           vote_comment: 投票評論
           withdraw: 撤回
@@ -247,16 +238,6 @@ zh-TW:
           email_subject: 新增提案「%{resource_title}」至「%{participatory_space_title}」。
           notification_title: '%{author} 將提案<a href="%{resource_path}">%{resource_title}</a>新增至%{participatory_space_title}.'
           notification_title_official: 官方提案 <a href="%{resource_path}">%{resource_title}</a> 已經被添加到 %{participatory_space_title}.
-        proposal_update_category:
-          email_intro: '管理員已更新您的提案 "%{resource_title}" 的分類，請前往此頁面查看：'
-          email_outro: 您收到此通知是因為您是該提案的作者。
-          email_subject: '「%{resource_title}」提案的分類已更新'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案類別已由管理員更新。
-        proposal_update_scope:
-          email_intro: '一位管理員已更新您的提案"%{resource_title}" 的範圍，您可以在此頁面檢查：'
-          email_outro: 您收到此通知是因為您是該提案的作者。
-          email_subject: '%{resource_title} 提案範圍已更新'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案範圍已由管理員更新。
         voting_enabled:
           email_outro: 你收到此通知是因為你正在追蹤 %{participatory_space_title}。你可以透過前面的連結停止接收通知。
     gamification:
@@ -404,15 +385,12 @@ zh-TW:
             attachment_legend: "(可選) 新增附件"
             created_in_meeting: 這個提案來自會議
             delete_attachment: 刪除附件
-            select_a_category: 選擇一個類別
             select_a_meeting: 選擇一個會議
           index:
             actions: 操作
             assign_to_valuator: 分配給評估人員
             assign_to_valuator_button: 指派
             cancel: 取消
-            change_category: 變更類別
-            change_scope: 變更範圍
             merge: 合併為新提案
             merge_button: 合併
             publish: 發布
@@ -425,7 +403,6 @@ zh-TW:
             unassign_from_valuator: 取消分派給評估者
             unassign_from_valuator_button: 取消分配
             update: 更新
-            update_scope_button: 更新範圍
           new:
             create: 建立
             title: 建立提案
@@ -447,16 +424,6 @@ zh-TW:
             remove_assignment: 移除指派
             remove_assignment_confirmation: 您確定要將評估者從此提案中移除嗎？
             valuators: 評估者
-          update_category:
-            invalid: '這些提案已經擁有 %{subject_name} 類別: %{proposals}。'
-            select_a_category: 請選擇一個類別。
-            select_a_proposal: 請選擇一個提案。
-            success: '已成功將以下提案更新至 %{subject_name} 類別: %{proposals}。'
-          update_scope:
-            invalid: '這些提案已經有了 %{subject_name} 的範圍: %{proposals}。'
-            select_a_proposal: 請選擇一個提案。
-            select_a_scope: 請選擇一個範圍。
-            success: '成功將提案更新到 %{subject_name} 的範圍內： %{proposals}。'
         proposals_imports:
           create:
             invalid: 匯入提案時發生問題.
@@ -532,17 +499,14 @@ zh-TW:
         edit:
           attachment_legend: "(可選) 新增附件"
           back: 返回
-          select_a_category: 請選擇一個類別
           send: 發送
           title: 編輯協作草稿
         filters:
           all: 全部
           amendment: 修正案
-          category: 類別
           open: 開啟
           published: 已發佈
           related_to: 相關於
-          scope: 範圍
           search: 搜尋
           state: 狀態
           withdrawn: 已撤回
@@ -580,7 +544,6 @@ zh-TW:
             error: 無法拒絕作為合作者，請稍後再試。
             success: "@%{user} 已被成功拒絕成為協作者。"
         show:
-          edit: 編輯協作草稿
           final_proposal: 最終提案
           final_proposal_help_text: 此草案已完成。請查看最終提案。
           hidden_authors_count:
@@ -615,14 +578,12 @@ zh-TW:
       models:
         proposal:
           fields:
-            category: 分類
             comments: 評論
             id: ID
             notes: 備註
             official_proposal: 正式提案
             published_answer: 已發布的回答
             published_at: 發佈於
-            scope: 範圍
             state: 狀態
             title: 標題
             valuator: 評估者
@@ -644,7 +605,6 @@ zh-TW:
           attachment_legend: "(可選) 新增附件"
           back: 返回
           edit_documents: 編輯文件
-          select_a_category: 請選擇一個類別
           send: 發送
           title: 編輯提案
         edit_draft:
@@ -655,7 +615,6 @@ zh-TW:
           activity: 我的活動
           all: 全部
           amendment_type: 類別
-          category: 分類
           my_proposals: 我的提案
           origin: 起源
           related_to: 相關於
@@ -699,7 +658,6 @@ zh-TW:
         show:
           answer: 回答
           changes_at_title: 修正案 "%{title}"
-          edit_proposal: 編輯提案
           estimated_cost: 預估成本
           hidden_endorsers_count:
             other: "one\n以及其他 %{count} 個人\n\nOther\n以及其他 %{count} 個人"
@@ -713,7 +671,6 @@ zh-TW:
           proposal_in_evaluation_reason: 這個提案正在被評估中
           proposal_rejected_reason: '這個提案被拒絕了，因為：'
           withdraw_confirmation_html: 您確定要撤回此提案嗎？<br><br><strong>此操作無法取消！</strong>
-          withdraw_proposal: 撤回提案
         update:
           title: 更新提案
         voting_rules:

@@ -113,7 +113,6 @@ pt-BR:
           components: Componentes
           info: Sobre este processo
           moderations: Moderação
-          private_users: Usuários privados
           process_admins: Processar usuários
           steps: Passos
       models:

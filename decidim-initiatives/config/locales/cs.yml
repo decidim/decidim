@@ -158,6 +158,9 @@ cs:
       titles:
         initiatives: Iniciativy
         initiatives_types: Typy iniciativ
+    download_your_data:
+      show:
+        initiatives: Export iniciativ
     events:
       initiatives:
         admin:
@@ -541,9 +544,7 @@ cs:
           phone_number: Telefonní číslo
           place_date: Místo, datum
           postal_code: PSČ/ZIP
-          print: Tisk
           province: Kraj / Stát
-          section: 'Pokud o to organizace požádá, vytiskněte a vyplňte tento formulář pro odeslání, pokud je uvedeno:'
           signature: Podpis
         result:
           answer_title: Tato iniciativa byla zodpovězena.
@@ -567,7 +568,6 @@ cs:
           other: " podpisy"
         vote_cabin:
           already_voted: Již jste podepsal
-          verification_required: Ověřte svůj účet, abyste podepsali iniciativu
           vote: Podepsat
           votes_blocked: Podpis zakázán
         votes_count:
@@ -616,13 +616,42 @@ cs:
         success: Tato iniciativa byla úspěšně aktualizována.
     menu:
       initiatives: Iniciativy
+    open_data:
+      help:
+        initiatives:
+          answer: Odpověď, kterou tato iniciativa obdržela (pokud existuje)
+          answer_url: URL odpovědi (pokud existuje)
+          answered_at: Datum odpovědi (pokud existuje)
+          area: Oblast této iniciativy
+          authors: Autoři této iniciativy
+          comments_count: Počet komentářů, které tato iniciativa má
+          created_at: Datum, kdy byl tento prostor vytvořen
+          description: Popis iniciativy
+          first_progress_notification_at: Datum, kdy bylo odesláno první oznámení o pokroku
+          follows_count: Počet uživatelů sledujících tento prostor
+          hashtag: Hashtag Iniciativy, používaný pro Twitter/X
+          offline_votes: Počet podpisů, které byly použity mimo tuto platformu
+          online_votes: Počet podpisů, které tato iniciativa obdržela on-line (přímo prostřednictvím platformy)
+          published_at: Datum, kdy byl tento prostor publikován
+          reference: Jedinečný odkaz na prostor
+          scope: Rozsah iniciativy
+          second_progress_notification_at: Datum, kdy bylo odesláno druhé oznámení o pokroku
+          signature_end_date: Datum, kdy končí doba sběru podpisů
+          signature_start_date: Datum, kdy začalo období sběru podpisů
+          signature_type: Typ sbírky podpisů (online nebo osobní)
+          signatures: Počet podpisů, které tato iniciativa má
+          state: Stav, který tato iniciativa v tuto chvíli má
+          title: Název iniciativy
+          type: Typ iniciativy
+          updated_at: Poslední datum, kdy byl tento prostor aktualizován
+          url: URL prostoru
     resources:
       initiative:
         actions:
           comment: Komentář
       initiatives_type:
         actions:
-          create: Vytvořit
+          create: Vytvořit iniciativu
           title: Akce
           vote: Podepsat
   layouts:

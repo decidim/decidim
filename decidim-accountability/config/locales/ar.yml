@@ -9,6 +9,7 @@ ar:
         end_date: تاريخ الانتهاء
         progress: تقدم
         start_date: تاريخ البدء
+        subresults: النتائج الفرعية
         title: عنوان
         updated_at: تم التحديث في
       status:
@@ -25,6 +26,14 @@ ar:
       decidim/accountability/result_progress_updated_event: النتائج المحدثة
   activerecord:
     models:
+      decidim:
+        accountability:
+          result:
+            budget_text: هذه النتيجة %{link} كانت متضمنة
+            meetings_ids: 'تم نقاشها في الاجتماع: %{link}'
+            project_ids: 'تم تضمينه في هذا المشروع: %{link}'
+            proposal_ids: 'تم تضمينه في هذا الاقتراح: %{link}'
+            text: 'كانت مضافه في النتيجة: %{link}'
       decidim/accountability/result:
         zero: النتائج
         one: نتيجة
@@ -40,6 +49,11 @@ ar:
         confirm_destroy: هل أنت متأكد أنك تريد حذف هذا %{name}؟
         destroy: حذف
         edit: تعديل
+        import: اجلب مشروعات من مكون آخر
+        import_csv: اجلب النتائج من ملف CSV
+        new_result: نتيجة جديدة
+        new_status: حالة جديدة
+        new_timeline_entry: دخول جدول الزمني جديد
         preview: معاينة
         timeline_entries: تطور المشروع
         title: الإجراءات
@@ -51,6 +65,31 @@ ar:
           new:
             download_export: تحميل التصدير بصيغه CSV
             import: استيراد
+            info: |
+              <p>نحن ننصح باتباع هذه الخطوات:</p>
+              <ol>
+               <li>قم بإنشاء حالات النتائج التي تريد إضافتها (<a href="%{link_new_status}" target="_blank">الرابط</a>)</li>
+               <li>قم بإنشاء نتيجة واحدة على الأقل يدويًا من خلال لوحة المدير هذه (<a href="%{link_new_result}" target="_blank">link</a>) قبل أستخدام الاستيراد, للحصول على فهم أفضل للتنسيق وما ستحتاج لملئه.</li>
+               <li>قم بتنزيل التصدير بتنسيق CSV(%{link_export_csv})</li>
+               <li>قم بإجراء التغييرات محليًا على جهازك. يمكنك فقط تغيير الأعمدة التالية من ملف CSV:</li>
+              </ol>
+              <ul>
+               <li><b>category/id:</b>رقم مٌعرف للفئه</li>
+               <li><b>scope/id:</b>رقم مٌعرف للمجال</li>
+               <li><b>parent/id:</b> رقم مٌعرف بالأب (للنتائج ذات الصلة). اختياري</li>
+               <li><b>title/I18N:</b> عنوان اللغه</li>
+               <li><b>description/I18N:</b> وصف اللغه</li>
+               <li><b>start_date:</b>التاريخ الذي يبدأ فيه تنفيذ النتيجة (التنسيق YYYY-MM-DD)</li>
+               <li><b>end_date:</b> التاريخ الذي ينتهى فيه تنفيذ النتيجة (التنسيق YYYY-MM-DD</li>
+               <li><b>status/id:</b> رقم مٌعرف لحالة النتيجة</li>
+               <li><b>progress:</b> النسبة المئوية (من 0 الى 100) للتنفيذ</li>
+               <li><b>proposals_ids:</b> رقم مُعرف داخلى للمقترحات ذات الصلة (مفصولاً بفاصلة). يتم تحويله تلقائيًا إلى <span class="attribute-name">رابط للمقترح</span></li>
+              </ul>
+            title: اجلب النتائج من ملف CSV
+        imports:
+          create:
+            invalid: حدثت مشكلة في جلب النتائج.
+            success: لقد بدأ إرسال الملف. سوف تتلقى رسالة بريد إلكتروني في غصون الدقائق القادمة مع نتيجة الاستيراد.
         models:
           result:
             name: نتيجة
@@ -72,7 +111,11 @@ ar:
             no_components: لا توجد أى مقومات فى الميزانيه فى هذا الحيز لتوريد المشاريع إلى نتائج.
             origin_component_id: عنصر أساسى
             select_component: اختيار المكون
+            title: اجلب مشاريع من مكون آخر
         results:
+          create:
+            invalid: هناك مشكلة في إنشاء هذه النتيجة.
+            success: تم إنشاء النتيجة بنجاح.
           edit:
             title: تحرير النتيجة
             update: تحديث النتيجة
@@ -81,10 +124,18 @@ ar:
           new:
             create: إنشاء نتيجة
             title: نتيجة جديدة
+          update:
+            invalid: هناك مشكلة في تحديث هذه النتيجة.
+            success: تم تحديث النتيجة بنجاح.
         shared:
           subnav:
             statuses: الحالات
         statuses:
+          create:
+            invalid: هناك مشكلة في إنشاء هذه الحالة.
+            success: تم إنشاء الحالة بنجاح.
+          destroy:
+            success: تم حذف الحالة بنجاح.
           edit:
             title: تحرير الحالة
             update: تحديث الحالة
@@ -93,7 +144,15 @@ ar:
           new:
             create: إنشاء الحالة
             title: حالة جديدة
+          update:
+            invalid: هناك مشكلة في تحديث هذه الحالة.
+            success: تم تحديث الحالة بنجاح.
         timeline_entries:
+          create:
+            invalid: حدثت مشكلة في إنشاء هذا الإدخال.
+            success: تم إنشاء الدخول بنجاح.
+          destroy:
+            success: تم حذف الإدخال بنجاح.
           edit:
             title: تحرير الإدخال
             update: تحديث الإدخال
@@ -102,6 +161,9 @@ ar:
           new:
             create: إنشاء الإدخال
             title: إدخال جديد
+          update:
+            invalid: حدثت مشكلة في تحديث هذا الإدخال.
+            success: تم تحديث الإدخال بنجاح.
       admin_log:
         result:
           create: "%{user_name} أنشأ النتيجة %{resource_name} في %{space_name}"
@@ -121,9 +183,12 @@ ar:
       content_blocks:
         highlighted_results:
           results: النتائج
+      creation:
+        text: تم إنشاء هذه النتيجة
       import_mailer:
         import:
           errors: أخطاء
+          errors_present: حدثت مشكلة في استيراد النتائج.
           row_number: الصف
           subject: استيراد النتائج بنجاح
           success: نجاح استيراد النتائج. يمكنك مراجعة النتائج في واجهة الإدارة.
@@ -136,12 +201,10 @@ ar:
       models:
         result:
           fields:
-            category: الفئة
             created_at: تم الإنشاء
             end_date: تاريخ الانتهاء
             id: المعرف ID
             progress: تقدم
-            scope: النطاق
             start_date: تاريخ البدء
             status: الحالة
             title: عنوان
@@ -158,21 +221,18 @@ ar:
       results:
         count:
           results_count:
-            zero: "%{count} النتائج"
+            zero: "%{count} نتيجة 1"
             one: نتيجة واحدة
             two: "%{count} النتائج"
             few: "%{count} النتائج"
             many: "%{count} النتائج"
             other: "%{count} النتائج"
-        filters:
-          all: الكل
         home:
-          categories_label: الفئات
-          subcategories_label: الفئات الفرعية
+          empty: لا توجد نتائج بعد.
+          empty_filters: لا توجد نتائج تطابق هذه المعايير.
         home_header:
           global_status: حالة التنفيذ العالمي
-        nav_breadcrumb:
-          global: التنفيذ العالمي
+        no_results: لا يوجد مشاريع
         search:
           search: البحث عن الإجراءات
         show:
@@ -183,10 +243,6 @@ ar:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: الفئة
-          scope_id_eq:
-            label: النطاق
           status_id_eq:
             label: الحالة
     components:
@@ -221,6 +277,20 @@ ar:
         description: عدد النتائج التي تم توليدها
         object: النتائج
         title: النتائج
+    open_data:
+      help:
+        result_comments:
+          alignment: إذا كان هذا التعليق تفضيلا, أو معارضا أو محايدا
+          author: اسم المشارك الذي صنع هذا التعليق
+          body: التعليق نفسه
+          commentable_id: المعرف المميز للتعليق
+          commentable_type: النوع القابل للتعليق (إذا كانت نتيجة, اقتراح, الخ.)
+          created_at: التاريخ الذي تم إنشاء فيه هذا التعليق
+          depth: المكان الذي يوجد فيه هذا التعليق في ثلاث تعليقات (إذا كان إجابة أو إجابة على إجابة)
+          id: معرف هذا التعليق
+          locale: اللغة التي كانت لدى المشارك عندما ترك هذا التعليق
+          root_commentable_url: عنوان URL للمورد الذي يربط بهذا التعليق
+          user_group: اسم مجموعة المستخدم الذي صنع هذا التعليق (إن وجد)
     participatory_spaces:
       highlighted_results:
         see_all: عرض كل النتائج (%{count})

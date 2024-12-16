@@ -95,6 +95,7 @@ cs:
     admin:
       actions:
         confirm: Potvrdit
+        confirm_delete_conference: Opravdu chcete odstranit tuto konferenci? Pokud změníte názor, můžete ji obnovit později.
         new_conference: Nová konference
         new_conference_user_role: Nový administrátor konference
         new_media_link: Nový odkaz na média
@@ -102,6 +103,7 @@ cs:
         new_registration_type: Nový typ registrace
         new_speaker: Nový mluvčí
         send_diplomas: Odeslání certifikátů o účasti
+        view_deleted_conferences: Zobrazit smazané konference
       conference_copies:
         new:
           copy: Kopírovat
@@ -171,6 +173,8 @@ cs:
         index:
           published: Publikováno
           unpublished: Nezveřejněno
+        manage_trash:
+          title: Smazané konference
         new:
           create: Vytvořit
           title: Konference
@@ -304,11 +308,16 @@ cs:
           success: Typ registrace byl úspěšně aktualizován pro tuto konferenci.
       titles:
         conferences: Konference
+        conferences_deleted: Smazané konference
+      tooltips:
+        deleted_conferences_info: Konference mohou být smazané pouze v případě, že je stav "Nezveřejněný".
     admin_log:
       conference:
         create: "%{user_name} vytvořil konferenci %{resource_name}"
         publish: "%{user_name} zveřejnila %{resource_name} konferenci"
+        restore: "%{user_name} obnovil konferenci %{resource_name}"
         send_conference_diplomas: "%{user_name} zaslal certifikaci o účasti na konferenci %{resource_name}"
+        soft_delete: "%{user_name} přesunul do koše konferenci %{resource_name}"
         unpublish: "%{user_name} nepublikováno %{resource_name} konferenci"
         update: "%{user_name} aktualizoval konferenci %{resource_name}"
         update_diploma: "%{user_name} aktualizovala certifikáty pro účast na %{resource_name} konferenci"
@@ -379,12 +388,15 @@ cs:
         conferences:
           form:
             available_slots_help: Nechte to na 0, pokud máte k dispozici neomezené sloty.
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             registrations_count:
               one: Došlo k 1 registraci.
               few: Bylo zde %{count} registrací.
               many: Bylo zde %{count} registrací.
               other: Bylo zde %{count} registrací.
             slug_help_html: 'URL slugy se používají ke generování adres URL, které odkazují na tuto konferenci. Povolená jsou pouze písmena, číslice a pomlčky a musí začínat písmenem. Příklad: %{url}'
+            taxonomies: Taxonomie
         content_blocks:
           highlighted_conferences:
             max_results: Maximální počet zobrazených prvků
@@ -582,6 +594,33 @@ cs:
         title: Média a odkazy
     menu:
       conferences: Konference
+    open_data:
+      help:
+        conferences:
+          created_at: Datum, kdy byl tento prostor vytvořen
+          decidim_scope_id: Rozsah konference
+          description: Dlouhý popis konference
+          end_date: Datum, kdy tato konference skončí.
+          follows_count: Počet uživatelů sledujících tento prostor
+          hashtag: Hashtag Konference, používaná pro Twitter/X
+          id: Jedinečný identifikátor této konference
+          location: Místo konference, kde se bude konat.
+          objectives: Cíle této konference. Co je cílem.
+          promoted: Zda je konference propagována, nebo ne
+          published_at: Datum, kdy byl tento prostor publikován
+          reference: Jedinečný odkaz na prostor
+          remote_banner_image_url: URL obrázku banneru konference
+          remote_hero_image_url: URL obrázku přední osobnosti konference
+          scope: Rozsah konference
+          scopes_enabled: Zda jsou rozsahy povoleny nebo ne
+          short_description: Stručný popis konference
+          slogan: Slogan pro tuto konferenci
+          slug: Konference slug (používá se pro účely identifikace, pro URL)
+          start_date: Datum, kdy tato konference začne.
+          taxonomies: Taxonomie konference
+          title: Název konference
+          updated_at: Poslední datum, kdy byl tento prostor aktualizován
+          url: URL prostoru
     statistics:
       conferences_count: Konference
   devise:

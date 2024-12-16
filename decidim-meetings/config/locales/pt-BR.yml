@@ -96,8 +96,6 @@ pt-BR:
             'false': Não aceito
             'true': Aceitou
         meetings:
-          category_id_eq:
-            label: Categoria
           closed_at_present:
             label: Estado
             values:
@@ -108,8 +106,6 @@ pt-BR:
             values:
               'false': Passado
               'true': Próximos
-          scope_id_eq:
-            label: Escopo
           with_any_origin:
             label: Origem
             values:
@@ -233,8 +229,6 @@ pt-BR:
         attachment_collections: Pastas
         attachments: Anexos
         close: Fechar
-        confirm_destroy: Deseja mesmo excluir este encontro?
-        destroy: Excluir
         edit: Editar
         invalid_destroy:
           proposals_count:
@@ -312,12 +306,6 @@ pt-BR:
           create:
             invalid: Houve um problema ao criar esta reunião.
             success: Reunião criada com sucesso. Note que ainda não foi publicada, você precisa publicá-la manualmente.
-          destroy:
-            invalid:
-              proposals_count:
-                one: A reunião não pode ser destruída porque tem %{count} proposta associada a ela.
-                other: A reunião não pode ser destruída porque tem %{count} propostas associadas a ela.
-            success: Reunião excluída com sucesso
           edit:
             title: Editar reuniões
             update: Atualizar
@@ -402,8 +390,6 @@ pt-BR:
         questionnaire:
           update: "%{user_name} atualizou o questionário para a reunião %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Todos
         filter_meeting_space_values:
           all: Todos
       calendar:
@@ -511,7 +497,6 @@ pt-BR:
           location_hints_help: 'Dicas de localização: informações adicionais Exemplo: o piso do edifício se é uma reunião presencial, ou a senha da reunião, se é uma reunião online com acesso restrito.'
           online_meeting_url_help: 'Link: permitir que os participantes se conectem diretamente à sua reunião'
           registration_url_help: 'Link: permitir que os participantes possam acessar um serviço externo que você está usando para inscrições'
-          select_a_category: Por favor, selecione uma categoria
           select_a_meeting_type: Por favor, selecione um tipo de reunião
           select_a_registration_type: Por favor, selecione um tipo de registro
           select_an_iframe_access_level: Por favor, selecione um nível de acesso iframe
@@ -522,9 +507,7 @@ pt-BR:
           see_all_withdrawn: Veja todas as reuniões retiradas
           text_banner: Você está vendo a lista de reuniões retiradas por seus autores. %{go_back_link}.
         meeting:
-          close_meeting: Encerrar reunião
           edit_close_meeting: Editar relatório da reunião
-          edit_meeting: Editar Reunião
           join_meeting: Participe da reunião
         meetings:
           no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
@@ -559,7 +542,6 @@ pt-BR:
           visit_finished: Ver reunião anterior
           withdraw_btn_hint: Você pode retirar sua reunião se mudar de ideia. A reunião não é excluída, ela aparecerá na lista de reuniões retiradas.
           withdraw_confirmation_html: Tem certeza de que deseja retirar esta reunião?<br><br><strong>esta ação não pode ser cancelada!</strong>
-          withdraw_meeting: Retirar reunião
         update:
           invalid: Houve um problema ao atualizar a reunião.
           success: Você atualizou a reunião com sucesso.

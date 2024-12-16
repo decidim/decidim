@@ -9,7 +9,8 @@ module Decidim
         include Decidim::Assemblies::Admin::Filterable
         include Decidim::Admin::ParticipatorySpaceAdminContext
         include Decidim::Admin::HasTrashableResources
-        helper_method :current_assembly, :parent_assembly, :current_participatory_space
+
+        helper_method :current_assembly, :parent_assembly, :parent_assembly_id, :current_participatory_space
 
         layout "decidim/admin/assemblies"
 
@@ -31,7 +32,7 @@ module Decidim
           CreateAssembly.call(@form) do
             on(:ok) do |assembly|
               flash[:notice] = I18n.t("assemblies.create.success", scope: "decidim.admin")
-              redirect_to assemblies_path(q: { parent_id_eq: assembly.parent_id })
+              redirect_to components_path(assembly)
             end
 
             on(:invalid) do
