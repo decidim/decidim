@@ -187,6 +187,14 @@
           }
         }
       }
+
+      .votes_hidden {
+        @apply md:flex-none;
+
+        .proposal_votes_container {
+          @apply md:flex-none md:w-[140px];
+        }
+      }
     }
   }
 
@@ -282,6 +290,18 @@
 
           button {
             @apply text-sm leading-[18px] font-semibold py-1;
+          }
+        }
+      }
+
+      .votes_hidden {
+        @apply md:justify-end;
+
+        .proposal_votes_container {
+          @apply md:flex-none md:w-[110px] lg:w-[140px];
+
+          button {
+            @apply md:px-3 lg:px-6;
           }
         }
       }
