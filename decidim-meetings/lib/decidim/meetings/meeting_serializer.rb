@@ -48,7 +48,9 @@ module Decidim
           published: meeting.published_at.present?,
           withdrawn: meeting.withdrawn?,
           withdrawn_at: meeting.withdrawn_at,
-          location_hints: meeting.location_hints
+          location_hints: meeting.location_hints,
+          created_at: meeting.created_at,
+          updated_at: meeting.updated_at
         }
       end
 

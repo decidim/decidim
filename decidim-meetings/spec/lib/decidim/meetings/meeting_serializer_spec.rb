@@ -121,8 +121,16 @@ module Decidim
           expect(serialized).to include(published: meeting.published?)
         end
 
-        it "serializes the the hint of the meeting location" do
+        it "serializes the hint of the meeting location" do
           expect(serialized).to include(location_hints: meeting.location_hints)
+        end
+
+        it "serializes the created at date" do
+          expect(serialized).to include(created_at: meeting.created_at)
+        end
+
+        it "serializes the updated at date" do
+          expect(serialized).to include(updated_at: meeting.updated_at)
         end
       end
     end
