@@ -1,0 +1,67 @@
+
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <div class="w-full">
+    <h1 class="item_show__header-title">
+      <%= t(".title") %>
+      <%= link_to t("actions.back", scope: "decidim.forms.admin.questionnaires"), questionnaire_url, class: "button button__sm button__secondary new" %>
+    </h1>
+  </div>
+</div>
+
+<p class="mt-2 text-gray-600">
+  <%= t(".description") %>
+</p>
+
+<%= cell("decidim/announcement", t(".callout_html", link: index_survey_path), callout_class: "warning" ) %>
+
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <ol class="list-decimal">
+      <% @survey.questionnaire.questions.each do |question| %>
+        <% next if question.question_type == "separator" %>
+
+        <li class="<%= "text-gray" unless question_answer_is_publicable(question.question_type) %> mb-4">
+          <%= translated_attribute question.body %> (<%= I18n.t("decidim.surveys.admin.publish_answers.index.answers", count: question.answers.count) %>)
+
+          <% if question_answer_is_publicable(question.question_type) %>
+            <div class="flex flex-row-reverse">
+              <div class="toggle__switch-trigger">
+                <% label = "publish_answer_#{question.id}" %>
+                <label for="<%= label %>" class="toggle__switch-toggle">
+                  <span class="toggle__switch-trigger-text -ml-28 pt-[2px]">
+                    <% if question.survey_answers_published_at.present? %>
+                      <%= content_tag(:span, class: "label success") { t(".status.published") } %>
+                    <% else %>
+                      <%= content_tag(:span, class: "label alert") { t(".status.not_published") } %>
+                    <% end %>
+                  </span>
+                  <span>
+                    <input
+                    <%== %(checked="checked") if question.survey_answers_published_at.present? %>
+                    id="<%= label %>"
+                    type="checkbox"
+                    name="<%= label %>"
+                    data-publish-question-answer-action="<%= question.survey_answers_published_at.present? ? "unpublish" : "publish" %>"
+                    data-publish-question-answer-question-id="<%= question.id %>">
+                    <span class="toggle__switch-toggle-content">
+                    </span>
+                    <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+                    <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <%= button_to "Publish", { action: :update, id: question.id }, class: "hidden", method: :put, data: { confirm: t(".confirm.publish"), "publish-question-answer" => question.id } %>
+            <%= button_to "Unpublish", { action: :destroy, id: question.id }, class: "hidden", method: :delete, data: { confirm: t(".confirm.unpublish"), "unpublish-question-answer" => question.id } %>
+
+            <%= chart_for_question(question.id) %>
+          <% end %>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+</div>
+
+<%= append_javascript_pack_tag "decidim_forms_admin" %>

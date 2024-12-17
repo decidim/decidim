@@ -14,7 +14,7 @@ module Decidim
         get "/answer/:session_token/export", to: "surveys#export_response", as: :export_response_survey
         get "/answers", to: "surveys#index", as: :index_survey
 
-        resources :publish_answers, only: [:new, :create]
+        resources :publish_answers, only: [:index, :update, :destroy]
 
         get "/answer_options", to: "surveys#answer_options", as: :answer_options_survey
         put "/", to: "surveys#update", as: :survey

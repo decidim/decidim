@@ -7,31 +7,43 @@ module Decidim
       class PublishAnswersController < Admin::ApplicationController
         include Decidim::Forms::Admin::Concerns::HasQuestionnaireAnswersUrlHelper
 
-        def new
-          # FIXME: update to correct permisison
+        def index
+          # FIXME: update to correct permission
           enforce_permission_to :show, :questionnaire_answers
 
           @survey ||= survey
-          @form = form(Decidim::Forms::Admin::PublishAnswersForm).from_model(@survey)
-
-          render :new
         end
 
-        def create
-          # FIXME: update to correct permisison
+        def update
+          # FIXME: update to correct permission
           enforce_permission_to :show, :questionnaire_answers
 
-          @survey ||= survey
-          @form = form(Decidim::Forms::Admin::PublishAnswersForm).from_params(params).with_context(current_user:)
-          Decidim::Surveys::PublishAnswers.call(@form, survey) do
+          Decidim::Surveys::PublishAnswers.call(params[:id], current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("success", scope: "decidim.surveys.admin.publish_answers.callout")
-              redirect_to questionnaire_url
+              redirect_to publish_answers_path
             end
 
             on(:invalid) do
               flash[:notice] = I18n.t("invalid", scope: "decidim.surveys.admin.publish_answers.callout")
-              render template: :new
+              redirect_to publish_answers_path
+            end
+          end
+        end
+
+        def destroy
+          # FIXME: update to correct permission
+          enforce_permission_to :show, :questionnaire_answers
+
+          Decidim::Surveys::UnpublishAnswers.call(params[:id], current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t(".success", scope: "decidim.surveys.admin.unpublish_answers.callout")
+              redirect_to publish_answers_path
+            end
+
+            on(:invalid) do
+              flash[:notice] = I18n.t("invalid", scope: "decidim.surveys.admin.unpublish_answers.callout")
+              redirect_to publish_answers_path
             end
           end
         end

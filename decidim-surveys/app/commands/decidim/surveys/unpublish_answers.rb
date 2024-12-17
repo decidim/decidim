@@ -2,22 +2,22 @@
 
 module Decidim
   module Surveys
-    # This command is executed when the admin publishes the Answers from the admin
+    # This command is executed when the admin unpublishes the Answers from the admin
     # panel.
-    class PublishAnswers < Decidim::Command
-      # Initializes a PublishAnswers Command.
+    class UnpublishAnswers < Decidim::Command
+      # Initializes a UnpublishAnswers Command.
       #
       def initialize(question_id, current_user)
         @question_id = question_id
         @current_user = current_user
       end
 
-      # Publishes the questions' answer
+      # Unpublishes the questions' answer
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        Decidim.traceability.perform_action!(:publish_answer, question, current_user) do
-          publish_survey_answer
+        Decidim.traceability.perform_action!(:unpublish_answer, question, current_user) do
+          unpublish_survey_answer
         end
 
         broadcast(:ok)
@@ -29,8 +29,8 @@ module Decidim
 
       attr_reader :question_id
 
-      def publish_survey_answer
-        question.update(survey_answers_published_at: Time.current)
+      def unpublish_survey_answer
+        question.update(survey_answers_published_at: nil)
       end
 
       def question
@@ -39,3 +39,4 @@ module Decidim
     end
   end
 end
+
