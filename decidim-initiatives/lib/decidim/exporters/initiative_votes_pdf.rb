@@ -34,9 +34,9 @@ module Decidim
         {
           initiative_title: { font: bold_font, text_align: :center, font_size: 12, margin: [0, 0, 10, 0] },
           initiative_th: { font: bold_font, font_size: 10 },
-          initiative_td: { font:, font_size: 10 },
-          vote_th: { font: bold_font, font_size: 11 },
-          vote_td: { font:, font_size: 10 }
+          initiative_td: { font:, font_size: 9 },
+          vote_th: { font: bold_font, font_size: 10 },
+          vote_td: { font:, font_size: 9 }
         }
       end
 
@@ -46,7 +46,8 @@ module Decidim
           layout.text(I18n.t("models.initiatives_votes.fields.initiative_title", scope: "decidim.admin"), style: :initiative_th),
           layout.text(I18n.t("models.initiatives_votes.fields.initiative_start_date", scope: "decidim.admin"), style: :initiative_th),
           layout.text(I18n.t("models.initiatives_votes.fields.initiative_end_date", scope: "decidim.admin"), style: :initiative_th),
-          layout.text(I18n.t("models.initiatives_votes.fields.initiative_signatures_count", scope: "decidim.admin"), style: :initiative_th)
+          layout.text(I18n.t("models.initiatives_votes.fields.initiative_signatures_count", scope: "decidim.admin"), style: :initiative_th),
+          layout.text(I18n.t("models.initiatives_votes.fields.initiative_scope", scope: "decidim.admin"), style: :initiative_th)
         ]
 
         data_row = [
@@ -54,12 +55,15 @@ module Decidim
           layout.text(translated_attribute(initiative.title), style: :initiative_td),
           layout.text(I18n.l(initiative.signature_start_date, format: :short), style: :initiative_td),
           layout.text(I18n.l(initiative.signature_end_date, format: :short), style: :initiative_td),
-          layout.text(collection.count.to_s, style: :initiative_td)
+          layout.text(collection.count.to_s, style: :initiative_td),
+          layout.text(translated_attribute(initiative.scope.name), style: :initiative_td)
         ]
 
+        column_widths = [-1, -1.75, -0.55, -0.55, -1, -1]
+
         cells = [
-          [layout.table([data_header], column_widths: [-1, -1.75, -0.55, -0.55, -1], cell_style: row_style)],
-          [layout.table([data_row], column_widths: [-1, -1.75, -0.55, -0.55, -1], cell_style: row_style)]
+          [layout.table([data_header], column_widths:, cell_style: row_style)],
+          [layout.table([data_row], column_widths:, cell_style: row_style)]
         ]
         composer.table(cells, cell_style:)
       end
@@ -67,8 +71,8 @@ module Decidim
       def add_signature_data
         cells = [[layout.table([header], column_widths: signature_column_widths, cell_style: row_style)]]
 
-        collection.map do |vote|
-          cells.push([layout.table(vote_row(vote), column_widths: signature_column_widths, cell_style: row_style)])
+        collection.map.with_index do |vote, index|
+          cells.push([layout.table(vote_row(vote, index), column_widths: signature_column_widths, cell_style: row_style)])
         end
 
         composer.table(cells, margin: [20, 0, 0, 0], cell_style:)
@@ -76,16 +80,18 @@ module Decidim
 
       def signature_column_widths
         if collect_user_extra_fields
-          [-1, -1, -1, -0.75, -0.5, -0.5, -0.75, -0.75, -1, -0.75]
+          [-0.5, -1, -0.75, -0.75, -0.75, -0.75, -0.75, -0.5, -0.75]
         else
-          [-1, -1.25, -1, -0.5, -1.25, -1]
+          [-0.5, -1, -0.75, -0.75, -0.75]
         end
       end
 
-      def vote_row(model)
+      def vote_row(model, index)
         cell = [
-          layout.text(model.initiative.reference, style: :vote_td),
-          layout.text(decidim_sanitize_translated(model.initiative.title), style: :vote_td)
+          layout.text((index + 1).to_s, style: :vote_td),
+          layout.text(model.author.nickname, style: :vote_td),
+          layout.text(I18n.l(model.created_at, format: "%Y-%m-%d %H:%M:%S %Z"), style: :vote_td),
+          layout.text(truncate(model.hash_id), style: :vote_td)
         ]
 
         if collect_user_extra_fields
@@ -100,10 +106,7 @@ module Decidim
         end
 
         cell += [
-          layout.text(I18n.l(model.created_at, format: "%Y-%m-%d %H:%M:%S %Z"), style: :vote_td),
-          layout.text((model.timestamp.presence || "").to_s, style: :vote_td),
-          layout.text(model.hash_id, style: :vote_td),
-          layout.text(scope(model), style: :vote_td)
+          layout.text(truncate(model.timestamp.presence || ""), style: :vote_td)
         ]
         [cell]
       end
@@ -117,8 +120,10 @@ module Decidim
 
       def header
         header = [
-          layout.text(I18n.t("models.initiatives_votes.fields.initiative_id", scope: "decidim.admin"), style: :vote_th),
-          layout.text(I18n.t("models.initiatives_votes.fields.initiative_title", scope: "decidim.admin"), style: :vote_th)
+          layout.text(I18n.t("models.initiatives_votes.fields.signature_count", scope: "decidim.admin"), style: :vote_th),
+          layout.text(I18n.t("models.initiatives_votes.fields.nickname", scope: "decidim.admin"), style: :vote_th),
+          layout.text(I18n.t("models.initiatives_votes.fields.date_and_time", scope: "decidim.admin"), style: :vote_th),
+          layout.text(I18n.t("models.initiatives_votes.fields.hash", scope: "decidim.admin"), style: :vote_th)
         ]
 
         if collect_user_extra_fields
@@ -131,10 +136,7 @@ module Decidim
         end
 
         header += [
-          layout.text(I18n.t("models.initiatives_votes.fields.time_and_date", scope: "decidim.admin"), style: :vote_th),
-          layout.text(I18n.t("models.initiatives_votes.fields.timestamp", scope: "decidim.admin"), style: :vote_th),
-          layout.text(I18n.t("models.initiatives_votes.fields.hash", scope: "decidim.admin"), style: :vote_th),
-          layout.text(I18n.t("models.initiatives_votes.fields.scope", scope: "decidim.admin"), style: :vote_th)
+          layout.text(I18n.t("models.initiatives_votes.fields.timestamp", scope: "decidim.admin"), style: :vote_th)
         ]
         header
       end
@@ -152,6 +154,10 @@ module Decidim
 
       def encryptor
         @encryptor ||= Decidim::Initiatives::DataEncryptor.new(secret: "personal user metadata")
+      end
+
+      def truncate(text, length = 50)
+        text.truncate(length)
       end
 
       def row_style
