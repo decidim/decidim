@@ -805,8 +805,11 @@ ca:
           select_participatory_processes: Seleccionar processos participatius
           select_spaces: Selecciona espais per segmentar el butlletí
           select_users_for_participatory_space: Enviar el butlletí informatiu a un o més espais de participació
+          select_verification_types: Seleccionar mètodes de verificació
           send_to_all_users: Envia a totes les participants
+          send_to_verified_users: Enviar a usuàries verificades
           title: Selecciona les destinatàries a lliurar
+          verified_users_help: Envia un butlletí informatiu a tots els usuaris confirmats i verificats amb qualsevol dels mètodes de verificació seleccionats.
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
         send:
           no_recipients: No hi ha destinatàries per a aquesta selecció.
