@@ -3,7 +3,6 @@
 module Decidim
   module Admin
     class BulkUnblockUsers < Decidim::Command
-
       # Public: Initializes the command.
       def initialize(blocked_users, current_user)
         @blocked_users = blocked_users

@@ -3,7 +3,6 @@
 module Decidim
   module Admin
     class BulkBlockUsers < Decidim::Command
-
       # Public: Initializes the command.
       def initialize(form)
         @form = form
