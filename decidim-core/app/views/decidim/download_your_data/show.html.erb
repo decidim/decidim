@@ -24,6 +24,7 @@
     <%= render layout: "decidim/application/accordion_section", locals: { panel_id: "detailed", title: t("title", scope: "decidim.open_data.index.detailed") } do %>
       <p> <%= t("body_1", scope: "decidim.open_data.index.detailed") %> </p>
       <% help_definitions.each do |export_manifest_name, export_manifest_definitions| %>
+        <% next if export_manifest_definitions.blank? %>
         <div class="mt-8">
           <h4><%= export_manifest_name %></h4>
           <ul>
