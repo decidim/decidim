@@ -688,8 +688,6 @@ de:
         ready: Bereit
       show:
         action: Aktion
-        download: Herunterladen
-        download_data: Downloadbereich
         download_data_description_1: Hier finden Sie alle für Ihr Konto verfügbaren Downloads. Diese .zip Dateien sind zwei Wochen verfügbar, bevor sie gelöscht werden.
         download_data_description_2: Sie können eine .zip-Datei mit Ihren Beiträgen und personenbezogenen Daten anfordern.
         download_your_data: Personenbezogene Daten
