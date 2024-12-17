@@ -718,7 +718,7 @@ en:
           created_at: The date at which the meeting was created
           description: The description of the meeting
           end_time: The date and time that this meeting ends
-          followers: The number of followers of this meeting
+          follows_count: The number of follows the meeting has
           id: The unique identifier of the meeting
           latitude: The latitude of the meeting
           location: The location of the meeting

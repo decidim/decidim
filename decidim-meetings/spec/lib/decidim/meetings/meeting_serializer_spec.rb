@@ -82,10 +82,6 @@ module Decidim
           expect(serialized).to include(comments: meeting.comments_count)
         end
 
-        it "serializes the amount of followers" do
-          expect(serialized).to include(followers: meeting.followers.count)
-        end
-
         it "serializes the url" do
           expect(serialized[:url]).to include("http", meeting.id.to_s)
         end
@@ -139,6 +135,10 @@ module Decidim
 
         it "serializes the longitude" do
           expect(serialized).to include(longitude: meeting.longitude)
+        end
+
+        it "serializes the number of followers to the meeting" do
+          expect(serialized).to include(follows_count: meeting.follows_count)
         end
       end
     end

@@ -41,7 +41,6 @@ module Decidim
           reference: meeting.reference,
           comments: meeting.comments_count,
           attachments: meeting.attachments.size,
-          followers: meeting.follows.size,
           url:,
           related_proposals:,
           related_results:,
@@ -52,7 +51,8 @@ module Decidim
           created_at: meeting.created_at,
           updated_at: meeting.updated_at,
           latitude: meeting.latitude,
-          longitude: meeting.longitude
+          longitude: meeting.longitude,
+          follows_count: meeting.follows_count
         }
       end
 
