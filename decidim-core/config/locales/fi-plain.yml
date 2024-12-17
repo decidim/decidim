@@ -692,8 +692,6 @@ fi-pl:
         ready: Valmis
       show:
         action: Toiminto
-        download: Lataa
-        download_data: Latausosio
         download_data_description_1: Täältä löydät kaikki tililtäsi ladattavissa olevat tiedot. Nämä ZIP-tiedostot ovat ladattavissa kahden viikon ajan ennen kuin ne poistetaan.
         download_data_description_2: Voit pyytää ZIP-tiedoston henkilökohtaisista tiedoistasi.
         download_your_data: Omat tiedot
