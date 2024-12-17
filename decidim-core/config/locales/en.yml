@@ -1374,6 +1374,7 @@ en:
           components: Components
           description: This ZIP file contains files for studying and researching about this participation platform.
           main: Core
+          resources: resources
           spaces: Spaces
           title: Open Data files for %{organization}
         metrics:

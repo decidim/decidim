@@ -60,7 +60,7 @@ module Decidim
       collection = export_manifest.collection.call(organization)
       exporter = Decidim::Exporters::CSV.new(collection, export_manifest.serializer)
 
-      get_help_definition(:core, exporter, export_manifest) unless collection.empty?
+      get_help_definition(:core, exporter, export_manifest, collection.count) unless collection.empty?
 
       exporter.export
     end
@@ -98,7 +98,7 @@ module Decidim
 
             collection.push(filename)
 
-            get_help_definition(:components, exporter, export_manifest) unless collection.empty?
+            get_help_definition(:components, exporter, export_manifest, collection.count) unless collection.empty?
           end
         end
       end
@@ -121,17 +121,19 @@ module Decidim
       end
       serializer = export_manifest.open_data_serializer.nil? ? export_manifest.serializer : export_manifest.open_data_serializer
       exporter = Decidim::Exporters::CSV.new(collection, serializer)
-      get_help_definition(:spaces, exporter, export_manifest) unless collection.empty?
+      get_help_definition(:spaces, exporter, export_manifest, collection.count) unless collection.empty?
 
       exporter.export
     end
 
-    def get_help_definition(manifest_type, exporter, export_manifest)
+    def get_help_definition(manifest_type, exporter, export_manifest, collection_count)
       help_definition[manifest_type] = {} if help_definition[manifest_type].nil?
       help_definition[manifest_type][export_manifest.name] = {} if help_definition[manifest_type][export_manifest.name].blank?
+      help_definition[manifest_type][export_manifest.name][:headers] = {} if help_definition[manifest_type][export_manifest.name][:headers].blank?
       exporter.headers_without_locales.each do |header|
-        help_definition[manifest_type][export_manifest.name][header] = I18n.t("decidim.open_data.help.#{export_manifest.name}.#{header}")
+        help_definition[manifest_type][export_manifest.name][:headers][header] = I18n.t("decidim.open_data.help.#{export_manifest.name}.#{header}")
       end
+      help_definition[manifest_type][export_manifest.name][:collection_count] = collection_count
     end
 
     def readme
@@ -147,8 +149,9 @@ module Decidim
       return unless help_definition.fetch(:core, false)
 
       readme_file = "## #{I18n.t("decidim.open_data.help.core.main")}\n\n"
-      help_definition.fetch(:core, []).each do |element, headers|
-        readme_file << "### #{element}\n\n"
+      help_definition.fetch(:core, []).each do |element, metadata|
+        headers = metadata[:headers]
+        readme_file << "### #{element} (#{metadata[:collection_count]} #{I18n.t("decidim.open_data.help.core.resources")})\n\n"
 
         headers.each do |header, help_value|
           readme_file << "* #{header}: #{help_value}\n"
@@ -164,8 +167,9 @@ module Decidim
 
       readme_file = "## #{I18n.t("decidim.open_data.help.core.spaces")}\n\n"
 
-      help_definition.fetch(:spaces, []).each do |space, headers|
-        readme_file << "### #{space}\n\n"
+      help_definition.fetch(:spaces, []).each do |space, metadata|
+        headers = metadata[:headers]
+        readme_file << "### #{space} (#{metadata[:collection_count]} #{I18n.t("decidim.open_data.help.core.resources")})\n\n"
 
         headers.each do |header, help_value|
           readme_file << "* #{header}: #{help_value}\n"
@@ -181,8 +185,9 @@ module Decidim
 
       readme_file = "## #{I18n.t("decidim.open_data.help.core.components")}\n\n"
 
-      help_definition.fetch(:components, []).each do |component, headers|
-        readme_file << "### #{component}\n\n"
+      help_definition.fetch(:components, []).each do |component, metadata|
+        headers = metadata[:headers]
+        readme_file << "### #{component} (#{metadata[:collection_count]} #{I18n.t("decidim.open_data.help.core.resources")})\n\n"
 
         headers.each do |header, help_value|
           readme_file << "* #{header}: #{help_value}\n"
