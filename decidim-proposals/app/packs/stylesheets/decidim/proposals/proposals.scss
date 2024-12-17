@@ -137,3 +137,9 @@
 .select-wrapper select {
   @apply w-full;
 }
+
+#merge-proposals_drawer {
+  .form-defaults h1 {
+    @apply ml-0;
+  }
+}

@@ -1,7 +1,7 @@
 <%= decidim_drawer id: "merge-proposals_drawer" do %>
   <div id="js-merge-proposals-actions" class="js-bulk-action-form">
     <%= decidim_form_for(proposals_merge_path, method: :post, id: "js-form-merge-proposals", class: "form form-defaults") do |f| %>
-      <div class="item_show__header--with-action-options">
+      <div class="header-title-margin item_show__header--with-action-options">
         <h1 class="item_show__header-title">
           <div>
             <%= t(".title") %>
