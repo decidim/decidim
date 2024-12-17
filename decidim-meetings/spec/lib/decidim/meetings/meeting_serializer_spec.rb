@@ -120,6 +120,10 @@ module Decidim
         it "serialized the published column" do
           expect(serialized).to include(published: meeting.published?)
         end
+
+        it "serializes the the hint of the meeting location" do
+          expect(serialized).to include(location_hints: meeting.location_hints)
+        end
       end
     end
   end
