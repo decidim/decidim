@@ -78,10 +78,6 @@ module Decidim
           expect(serialized).to include(location: meeting.location)
         end
 
-        it "serializes the amount of comments" do
-          expect(serialized).to include(comments: meeting.comments_count)
-        end
-
         it "serializes the url" do
           expect(serialized[:url]).to include("http", meeting.id.to_s)
         end
@@ -151,6 +147,26 @@ module Decidim
 
         it "serializes whether the registration form was enabled or not" do
           expect(serialized).to include(registration_form_enabled: meeting.registration_form_enabled)
+        end
+
+        it "serializes the start time of comments" do
+          expect(serialized[:comments]).to include(start_time: meeting.comments_start_time)
+        end
+
+        it "serializes the end time of comments" do
+          expect(serialized[:comments]).to include(end_time: meeting.comments_end_time)
+        end
+
+        it "serializes whether comments are enabled" do
+          expect(serialized[:comments]).to include(enabled: meeting.comments_enabled)
+        end
+
+        it "serializes the number of comemnts" do
+          expect(serialized[:comments]).to include(count: meeting.comments_count)
+        end
+
+        it "serializes the online meeting url" do
+          expect(serialized).to include(online_meeting_url: meeting.online_meeting_url)
         end
       end
     end

@@ -39,7 +39,6 @@ module Decidim
           address: meeting.address,
           location: meeting.location,
           reference: meeting.reference,
-          comments: meeting.comments_count,
           attachments: meeting.attachments.size,
           url:,
           related_proposals:,
@@ -55,7 +54,11 @@ module Decidim
           follows_count: meeting.follows_count,
           private_meeting: meeting.private_meeting,
           transparent: meeting.transparent,
-          registration_form_enabled: meeting.registration_form_enabled
+          registration_form_enabled: meeting.registration_form_enabled,
+          comments: {
+            **comment_fields
+          },
+          online_meeting_url: meeting.online_meeting_url
         }
       end
 
@@ -116,6 +119,17 @@ module Decidim
 
       def url
         Decidim::ResourceLocatorPresenter.new(meeting).url
+      end
+
+      def comment_fields
+        return {} unless meeting.comments
+
+        {
+          start_time: meeting.comments_start_time,
+          end_time: meeting.comments_end_time,
+          enabled: meeting.comments_enabled,
+          count: meeting.comments_count
+        }
       end
     end
   end
