@@ -737,8 +737,6 @@ cs:
         ready: Připraven
       show:
         action: Akce
-        download: Stáhnout
-        download_data: Oblast stahování
         download_data_description_1: Zde naleznete všechna stažení, která jsou k dispozici pro váš účet. Tyto .zip soubory budou k dispozici po dobu dvou týdnů než budou odstraněny.
         download_data_description_2: Můžete požádat o .zip soubor s vašimi příspěvky a osobními údaji.
         download_your_data: Osobní údaje
