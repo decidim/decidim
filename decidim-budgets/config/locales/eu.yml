@@ -379,19 +379,26 @@ eu:
       help:
         projects:
           address: Proiektuaren helbidea (hala badagokio)
+          budget: 'Proiektuaren aurrekontuari buruzko datuak (adibidez: "Aurrekontua 2021")'
           budget_amount: Proiektu honetarako aurrekontuaren zenbateko osoa
           comments: Proiektu honek zenbat iruzkin jaso ditu?
           component: Proiektuaren osagaia
           confirmed_votes: Zenbat boto baieztatuta ditu proiektu honek?
           created_at: Zein data eta zein ordutan sortu zen proiektu hau
           description: Proiektuaren deskribapena
+          follows_count: Proiektu honek duen jarraitzaile kopurua
           id: Proiektuaren identifikatzaile bakarra
+          latitude: Proiektuaren latitudea, baldin eta kokagune fisikoa badu
+          longitude: Proiektuaren longitudea, baldin eta kokapen fisikoa badu
           participatory_space: Proiektu hau zein espaziotakoa da (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          reference: Proiektuaren erreferentzia bakarra
           related_proposal_titles: Zerrendatutako proposamenen izenburuak
           related_proposal_urls: Zerrendatutako proposamenen URLak
           related_proposals: Zerrendatutako proposamenak proiektu honetarako
+          selected_at: Zein ordutan hautatu zen proiektua
           taxonomies: Proiektuaren taxonomiak
           title: Proiektuaren izenburua
+          updated_at: Zein egunetan eguneratu zen azken aldiz proiektua
           url: Proiektuaren URLa
     orders:
       checkout:
