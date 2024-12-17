@@ -30,6 +30,9 @@ en:
         other: Projects
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projects
       filters:
         projects:
           selected_at_null:
