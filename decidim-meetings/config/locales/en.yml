@@ -715,6 +715,7 @@ en:
           comments: The number of comments made in this meeting
           component: The component that the meeting belongs to
           contributions: The number of contributions in this meeting made by the atteendes
+          created_at: The date at which the meeting was created
           description: The description of the meeting
           end_time: The date and time that this meeting ends
           followers: The number of followers of this meeting
@@ -730,6 +731,7 @@ en:
           start_time: The date and time that this meeting starts
           taxonomies: The taxonomies that this meeting belongs to
           title: The title of the meeting
+          updated_at: The time at which the meeting was last updated
           url: The URL of the meeting
           withdrawn: Wheter this meeting has been withdrawn
           withdrawn_at: When this meeting was withdrawn
