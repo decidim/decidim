@@ -755,6 +755,10 @@ es:
           preview: 'Previsualizar la plantilla: %{template_name}'
           use_template: Utilizar esta plantilla
       newsletters:
+        confirm_recipients:
+          email: Correo electrónico
+          name: Nombre
+          title: Confirmar destinatarias
         create:
           error: Se ha producido un error al crear este boletín.
           success: Boletín creado correctamente. Por favor, revísalo antes de enviarlo.
@@ -776,9 +780,12 @@ es:
           has_been_sent_to: 'Se ha enviado a: '
           not_sent: No enviado
           participants: 'participantes '
+          private_members: 'miembros privadas'
           segmented_to: 'Segmentado para %{subject}: '
           subscribed_count: 'Suscritas:'
           title: Boletines
+          verification_types: 'Tipos de verificación: %{types}'
+          verified_users: Usuarias verificadas
         new:
           save: Guardar
           title: Nuevo boletín
@@ -786,11 +793,18 @@ es:
           all_spaces: Todos
           all_users_help: Envía el boletín de noticias a todos las participantes confirmadas.
           confirm_deliver: '¿Seguro que quieres enviar este boletín? Esta acción no se puede deshacer.'
+          confirm_recipients: Confirmar destinatarias
           deliver: Enviar boletín
           followers_help: Envía el boletín de noticias a todas las participantes confirmadas que sigan cualquier espacio participativo seleccionado en la lista.
           participants_help: Envía el boletín de noticias a todas las participantes confirmadas que hayan participado en cualquier espacio participativo seleccionado de la lista.
+          private_members_help: Envía un boletín informativo a todas las usuarias confirmadas que han sido añadidas a los espacios de participación privados seleccionados.
           recipients_count: Este boletín se enviará a <strong id='recipients_count'>%{count}</strong> usuarias.
+          select_assemblies: Seleccionar asambleas
+          select_conferences: Seleccionar jornadas
+          select_initiatives: Seleccionar iniciativas
+          select_participatory_processes: Seleccionar procesos participativos
           select_spaces: Selecciona espacios para segmentar el boletín
+          select_users_for_participatory_space: Enviar el boletín informativo a uno o más espacios de participación
           send_to_all_users: Enviar a todos los usuarios
           title: Selecciona los destinatarios
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
