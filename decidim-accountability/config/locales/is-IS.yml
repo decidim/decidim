@@ -97,12 +97,10 @@ is-IS:
       models:
         result:
           fields:
-            category: Flokkur
             created_at: Stofnað
             end_date: Loka dagsetning
             id: ID
             progress: Framfarir
-            scope: Gildissvið
             start_date: Upphafsdagur
             status: Staða
             title: Titill
@@ -120,15 +118,8 @@ is-IS:
           results_count:
             one: 1 niðurstaða
             other: "%{count} niðurstöður"
-        filters:
-          all: Allt
-        home:
-          categories_label: Flokkar
-          subcategories_label: Undirflokka
         home_header:
           global_status: Global framkvæmdastaða
-        nav_breadcrumb:
-          global: Global framkvæmd
         search:
           search: Leitaðu að aðgerðum
         show:
@@ -139,10 +130,6 @@ is-IS:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Flokkur
-          scope_id_eq:
-            label: Gildissvið
           status_id_eq:
             label: Staða
     components:

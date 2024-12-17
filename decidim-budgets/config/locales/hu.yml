@@ -2,15 +2,12 @@ hu:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Hatókör
         description: Leírás
         title: Cím
         total_budget: Teljes költségvetés
         weight: Sorbarendezés
       project:
         budget_amount: Költségvetés összege
-        decidim_category_id: Kategória
-        decidim_scope_id: Hatáskör
         description: Leírás
         proposal_ids: Kapcsolódó javaslatok
         proposals: Javaslatok
@@ -27,10 +24,6 @@ hu:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Kategória
-          scope_id_eq:
-            label: Hatókör
           selected_at_null:
             label: Kiválasztva
             values:
@@ -40,8 +33,6 @@ hu:
       actions:
         attachment_collections: Mappák
         attachments: Mellékletek
-        confirm_destroy: Biztosan törölni szeretnéd ezt a projektet?
-        destroy: Törlés
         edit: Szerkesztés
         edit_projects: Projektek kezelése
         import: Javaslatok importálása projektekhez
@@ -55,9 +46,6 @@ hu:
           create:
             invalid: Hiba történt a költségvetés létrehozása során.
             success: A költségvetés létrehozása sikeres.
-          destroy:
-            invalid: Hiba történt a költségvetés törlése során.
-            success: A költségvetés törlésre került.
           edit:
             title: Költségvetés szerkesztése
             update: Költségvetés frissítése
@@ -84,8 +72,6 @@ hu:
           create:
             invalid: Probléma történt a projekt létrehozása során.
             success: Projekt létrehozása sikeres.
-          destroy:
-            success: A projekt törlése sikerült.
           edit:
             title: Projekt szerkesztése
             update: Frissítés
@@ -93,8 +79,6 @@ hu:
             actions: Műveletek
             cancel: Mégsem
             change_budget: Költségvetés megváltoztatása
-            change_category: Kategória módosítása
-            change_scope: Hatáskör megváltoztatása
             change_selected: Kijelölés módosítása
             deselect_implementation: A kiválasztpott törlése a megvalósításra várók közül
             finished_orders: Befejezett szavazások
@@ -106,7 +90,6 @@ hu:
             title: Projektek
             update: Frissítés
             update_budget_button: A projekt költségvetésének frissítése
-            update_scope_button: Hatáskör frissítése
           new:
             create: Létrehozás
             title: Új projekt
@@ -115,24 +98,9 @@ hu:
             success: Projekt frissítése sikeres.
           update_budget:
             select_a_project: Kérem, válasszon projektet.
-            success: 'A projektek sikeresen frissültek a(z) %{subject_name} költségvetésre: %{projects}.'
-          update_category:
-            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{projects}.'
-            select_a_category: Kérlek, válassz kategóriát.
-            select_a_project: Kérlek, válassz projektet.
-            success: 'A projektek sikeresen frissültek a(z) %{subject_name} kategóriában: %{projects}.'
-          update_scope:
-            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{projects}.'
-            select_a_project: Kérlek, válassz projektet.
-            select_a_scope: Kérlek válassz hatókört.
-            success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{projects}.'
           update_selected:
-            invalid:
-              selected: 'Ezeket a projekteket már kiválasztásra kerültek a megvalósításra: %{projektek}.'
             select_a_project: Kérlek, válassz projektet.
             select_a_selection: Kérjük, válasszon egy végrehajtási állapotot.
-            success:
-              selected: 'Ezeket a projektek sikseresen kiválasztásra kerültek a megvalósításra: %{projektek}.'
         proposals_imports:
           create:
             invalid: Probléma merült fel a javaslatok projektekbe történő importálásakor.
@@ -191,7 +159,6 @@ hu:
             total_budget: Teljes költségvetés
         project:
           fields:
-            category: Kategória
             id: Azonosító
             map: Térkép
             title: Cím
@@ -235,8 +202,6 @@ hu:
           message: Szavazatod nem regisztráltuk, mert még nem fejezted be a szavazási folyamatot. Biztosan kilépsz a szavazásból?
           title: Még nem szavaztál
         filters:
-          category: Kategória
-          scope: Hatáskör
           search: Keresés
           status: Státusz
           status_values:

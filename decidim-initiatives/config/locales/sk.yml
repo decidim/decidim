@@ -282,7 +282,6 @@ sk:
           other: "podpisy"
         vote_cabin:
           already_voted: Už ste podpísal
-          verification_required: Overte svoj účet, aby ste podpísali iniciatívu
           vote: Podpísať
           votes_blocked: Podpis zakázaný
         votes_count:
