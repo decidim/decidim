@@ -755,6 +755,10 @@ ca:
           preview: 'Previsualitzar la plantilla: %{template_name}'
           use_template: Utilitzar aquesta plantilla
       newsletters:
+        confirm_recipients:
+          email: Correu electrònic
+          name: Nom
+          title: Confirmar destinatàries
         create:
           error: S'ha produït un error en crear aquest butlletí.
           success: Butlletí creat correctament. Si us plau, revisa'l abans d'enviar-lo.
@@ -776,9 +780,12 @@ ca:
           has_been_sent_to: 'Ha estat enviat a: '
           not_sent: No enviat
           participants: 'participants '
+          private_members: 'membres privades'
           segmented_to: 'Segmentat a %{subject}: '
           subscribed_count: 'Subscrites:'
           title: Butlletins
+          verification_types: 'Tipus de verificació: %{types}'
+          verified_users: Usuàries verificades
         new:
           save: Desar
           title: Nou butlletí
@@ -786,11 +793,18 @@ ca:
           all_spaces: Totes
           all_users_help: Envia el butlletí a tots els usuaris confimats.
           confirm_deliver: Segur que vols enviar aquest butlletí? Aquesta acció no es pot desfer.
+          confirm_recipients: Confirmar destinatàries
           deliver: Enviar butlletí
           followers_help: Envia el butlletí a tots els usuaris confirmats que segueixin qualsevol dels espais participatius seleccionats a la llista.
           participants_help: Envia el butlletí a tots els usuaris confirmats que hagin participat a qualsevol dels espais participatius de la llista.
+          private_members_help: Envia un butlletí informatiu a totes les usuàries confirmades que han estat afegides als espais de participació privats seleccionats.
           recipients_count: Aquest bulleti s'enviarà a <strong id='recipients_count'>%{count}</strong> participants.
+          select_assemblies: Seleccionar assemblees
+          select_conferences: Seleccionar jornades
+          select_initiatives: Seleccionar iniciatives
+          select_participatory_processes: Seleccionar processos participatius
           select_spaces: Selecciona espais per segmentar el butlletí
+          select_users_for_participatory_space: Enviar el butlletí informatiu a un o més espais de participació
           send_to_all_users: Envia a totes les participants
           title: Selecciona les destinatàries a lliurar
           warning: "<strong>Atenció:</strong> Aquest butlletí només s'enviarà a les participants que hagin activat <em>Vull rebre butlletins</em> a la configuració de les notificacions."
