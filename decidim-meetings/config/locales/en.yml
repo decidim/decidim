@@ -727,11 +727,13 @@ en:
           organizations: The organizations attending this meeting
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this meeting belongs to
           published: When the meeting has been published
+          registration_form_enabled: Whether the registration form was enabled or not
           reference: The unique identifier of the resource in this platform
           related_proposals: The proposals related to this meeting
           related_results: The results related to this meeting
           start_time: The date and time that this meeting starts
           taxonomies: The taxonomies that this meeting belongs to
+          transparent: The visabilty of the meetng for non-members
           title: The title of the meeting
           updated_at: The time at which the meeting was last updated
           url: The URL of the meeting

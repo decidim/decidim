@@ -52,7 +52,10 @@ module Decidim
           updated_at: meeting.updated_at,
           latitude: meeting.latitude,
           longitude: meeting.longitude,
-          follows_count: meeting.follows_count
+          follows_count: meeting.follows_count,
+          private_meeting: meeting.private_meeting,
+          transparent: meeting.transparent,
+          registration_form_enabled: meeting.registration_form_enabled
         }
       end
 

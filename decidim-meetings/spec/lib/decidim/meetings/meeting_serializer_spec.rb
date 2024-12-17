@@ -140,6 +140,18 @@ module Decidim
         it "serializes the number of followers to the meeting" do
           expect(serialized).to include(follows_count: meeting.follows_count)
         end
+
+        it "serializes whether it is a private meeting" do
+          expect(serialized).to include(private_meeting: meeting.private_meeting)
+        end
+
+        it "serializes the transparency of the meeting for non-members" do
+          expect(serialized).to include(transparent: meeting.transparent)
+        end
+
+        it "serializes whether the registration form was enabled or not" do
+          expect(serialized).to include(registration_form_enabled: meeting.registration_form_enabled)
+        end
       end
     end
   end
