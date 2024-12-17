@@ -96,5 +96,33 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarelako. Aurreko estekan utzi ahal diozu jarraitzeari.
           email_subject: Argitalpen berria %{participatory_space_title} espazioan
           notification_title: <a href="%{resource_path}">%{resource_title}</a> posta %{participatory_space_title} argitaratu da
+    open_data:
+      help:
+        post_comments:
+          alignment: Iruzkin hau aldekoa, kontrakoa edo neutrala bazen
+          author: Iruzkin hau egin duen parte-hartzailearen izena
+          body: Iruzkin bera
+          commentable_id: Iruzkin daitekeenaren id bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          created_at: Zein datatan sortu zen iruzkin hau
+          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
+          id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
+          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          user_group: Iruzkin hau egin duen erabiltzaile-taldearen izena (baldin badago)
+        posts:
+          author: Egilearen informazioa
+          body: Argitaratuaren gorputza
+          comments_count: Argitalpen honek duen iruzkin kopurua
+          component: Zein osagairi dagokion argitalpena
+          created_at: Zein datatan sortu zen argitalpen hau
+          endorsements_count: Argitalpen honek duen abal kopurua
+          follows_count: Argitalpen honek duen jarraitzaile kopurua
+          id: Argitalpen honen identifikatzaile bakarra
+          participatory_space: Argitalpen hau zein espaziotakoa da (adibidez, Prozesu Parte-hartzailea, Batzarra)
+          published_at: Zein datatan argitaratu zen atgitalpen hau
+          title: Argitalpenaren izenburua
+          updated_at: Zein egunetan eguneratu zen azken aldiz argitalpen hau
+          url: Argitalpen honetarakko URLa
     statistics:
       posts_count: Argitalpenak
