@@ -692,8 +692,6 @@ ca:
         ready: Llest
       show:
         action: Acció
-        download: Descarregar
-        download_data: Àrees de descàrregues
         download_data_description_1: Aquí pots trobar totes les descàrregues disponibles pel teu compte. Aquests fitxers .zip estaran disponibles durant dues setmanes abans de ser eliminats.
         download_data_description_2: Pots sol·licitar un fitxer .zip amb les teves aportacions i informació personal.
         download_your_data: Dades personals
