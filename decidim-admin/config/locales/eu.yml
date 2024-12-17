@@ -755,6 +755,10 @@ eu:
           preview: 'Aurrebistaratu txantiloia: %{template_name}'
           use_template: Erabili txantiloi hau
       newsletters:
+        confirm_recipients:
+          email: Helbide elektronikoa
+          name: Izena
+          title: Baieztatu hartzaileak
         create:
           error: Arazo bat egon da buletin hau sortzean.
           success: Buletina zuzen sortua. Mesedez, berrikusi bidali baino lehen.
@@ -776,9 +780,12 @@ eu:
           has_been_sent_to: 'Honi bidalia: '
           not_sent: Ez bidalita
           participants: 'parte-hartzaileak '
+          private_members: 'kide pribatuak '
           segmented_to: 'Honentzat zatitua %{subject}:'
           subscribed_count: 'Harpidetuak:'
           title: Buletinak
+          verification_types: 'Egiaztapen motak: %{types}'
+          verified_users: Erabiltzaileak egiaztatuta
         new:
           save: Gorde
           title: Beste buletin bat
@@ -786,13 +793,24 @@ eu:
           all_spaces: Guztiak
           all_users_help: Albisteen buletina baieztatu duten erabiltzaile guztiei bidaltzen die.
           confirm_deliver: Ziur zaude buletin hau bidali nahi duzula? Ekintza hau ezin da desegin.
+          confirm_recipients: Baieztatu hartzaileak
           deliver: Bidali buletina
           followers_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu jarraitzen duten erabiltzaile guztiei bidaltzen die.
           participants_help: Albisteen buletina baieztatu duten eta zerrendan aukeratutako edozein eremu parte-hartzailetan esku hartu duten erabiltzaile guztiei bidaltzen die.
+          private_members_help: Bidali buletin bat aukeratutako parte hartzeko espazio pribatuetan gehitu diren baieztatutako erabiltzaile guztiei.
           recipients_count: 'Buletin hau erabiltzaile hauei bidaliko zaie: <strong id=''recipients_count''>%{count}</strong>.'
+          select_assemblies: Hautatu batzarrak
+          select_conferences: Hautatu hitzaldiak
+          select_initiatives: Hautatu ekimenak
+          select_participatory_processes: Hautatu prozesu parte-hartzaileak
           select_spaces: Hautatu espazioak buletina zatitzeko
+          select_users_for_participatory_space: Bidali buletina espazio parte-hartzaile bati baino gehiagori
+          select_users_general: Bidali buletin orokorra
+          select_verification_types: Hautatu egiaztapen-metodoak
           send_to_all_users: Bidali erabiltzaile guztiei
+          send_to_verified_users: Bidali egiaztatutako erabiltzaileei
           title: Hautatu hartzaileak entregatzeko
+          verified_users_help: Buletin bat bidaltzen du egiaztatutako eta baieztatutako erabiltzaile guztiei, aukeratutako edozein egiaztatze-metodo erabiliz.
           warning: "<strong>Adi:</strong> Jakinarazpen-doikuntzetan “Albiste-buletinak jaso nahi ditut” aktibatu duten erabiltzaileei baino ez zaie bidaliko buletin hau."
         send:
           no_recipients: Ez dago hartzailerik hautaketa honetarako.
