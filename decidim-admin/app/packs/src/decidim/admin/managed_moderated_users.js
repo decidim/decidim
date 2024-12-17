@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".js-check-all").addEventListener("change", function () {
       const isChecked = this.checked;
       const checkboxes = document.querySelectorAll(".js-check-all-moderated_users");
-    
+
       checkboxes.forEach((checkbox) => {
         checkbox.checked = isChecked;
         const row = checkbox.closest("tr");
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const checkbox = event.target;
       const moderationId = checkbox.value;
       const checked = checkbox.checked;
-    
+
       // Uncheck "select all" if one of the checkboxes is unchecked
       const selectAllCheckbox = document.querySelector(".js-check-all");
       if (!checked) {

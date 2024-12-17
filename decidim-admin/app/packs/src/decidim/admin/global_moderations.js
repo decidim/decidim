@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.hideBulkActionForms = hideBulkActionForms;
 
   const bulkActionsButton = document.getElementById("js-bulk-actions-button");
-  
+
   if (document.querySelectorAll(".js-bulk-action-form").length) {
     hideBulkActionForms();
     bulkActionsButton.classList.add("hide");
