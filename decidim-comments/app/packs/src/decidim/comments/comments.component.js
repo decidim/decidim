@@ -325,8 +325,8 @@ export default class CommentsComponent {
   * @returns {Void} - Returns nothing
   */
   _initializeSortDropdown() {
-    const desktopOrderSelect = document.querySelector("[desktop-data-order-comment-select]");
-    const mobileOrderSelect = document.querySelector("[mobile-data-order-comment-select]");
+    const desktopOrderSelect = document.querySelector("[data-desktop-order-comment-select]");
+    const mobileOrderSelect = document.querySelector("[data-mobile-order-comment-select]");
 
     if (!desktopOrderSelect && !mobileOrderSelect) {
       return;
