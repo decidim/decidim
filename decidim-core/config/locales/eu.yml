@@ -695,8 +695,6 @@ eu:
         ready: Prest
       show:
         action: Ekintza
-        download: Deskargatu
-        download_data: Deskargen arloa
         download_data_description_1: Hemen aurkituko dituzu zure konturako deskarga guztiak.Fitxategi hauek (.zip) bi astetan egongo dira eskuragarri ezabatu aurretik.
         download_data_description_2: Zure bidalketak eta datu pertsonalak dituen .zip fitxategi bat eska dezakezu.
         download_your_data: Datu pertsonalak
