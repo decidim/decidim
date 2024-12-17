@@ -255,9 +255,6 @@ pt:
         create:
           error: Ocorreu um problema ao criar este componente.
           success: Componente criado corretamente.
-        destroy:
-          error: Ocorreu um problema ao destruir este componente.
-          success: Componente eliminado corretamente.
         edit:
           title: Editar componente
           update: Atualizar
@@ -307,8 +304,6 @@ pt:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Categoria
         filter_label: Filtro
         invitation_accepted_at_present:
           label: Convite aceite
@@ -349,8 +344,6 @@ pt:
           values:
             'false': Publicado
             'true': Publicação removida
-        scope_id_eq:
-          label: Âmbito
         search_label: Pesquisa
         search_placeholder:
           name_or_nickname_or_email_cont: Pesquisar %{collection} por e-mail, nome ou alcunha.
@@ -494,12 +487,8 @@ pt:
             plural: Plural
         share_token:
           fields:
-            created_at: Criado em
             expires_at: Expira em
-            last_used_at: Ultima utilização
             times_used: Total de utilizações
-            token: Identificador
-            user: Criado por
         static_page:
           fields:
             created_at: Criado em
@@ -700,10 +689,6 @@ pt:
           title: Editar permissões
         update:
           success: Permissões atualizadas corretamente.
-      resources:
-        index:
-          headers:
-            scope: Âmbito
       scope_types:
         create:
           error: Ocorreu um problema ao criar um novo tipo de âmbito.
@@ -735,15 +720,7 @@ pt:
           success: Âmbito atualizado com sucesso
       share_tokens:
         actions:
-          confirm_destroy: Tem a certeza que quer eliminar este identificador?
           destroy: Eliminar
-          share: Partilhar
-        destroy:
-          error: Houve um problema ao destruir o identificador
-          success: Identificador destruído com sucesso.
-        share_tokens:
-          help: Estes identificadores são usados para partilhar publicamente para qualquer utilizador este recurso não publicado. Estarão escondidos quando o recurso estiver publicado. Clique no icone de partilha do identificador para visitar o URL parltilhável.
-          title: Compartilhar identificadores
       shared:
         gallery:
           add_images: Adicionar imagens
@@ -783,8 +760,6 @@ pt:
           without_topic: Páginas sem tópico
         update:
           error: Ocorreu um problema ao atualizar esta página.
-      taxonomies:
-        count: Contagem
       titles:
         admin_log: Registo de administrador
         area_types: Tipos de área

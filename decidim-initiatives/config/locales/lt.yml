@@ -507,9 +507,7 @@ lt:
           phone_number: Telefono numeris
           place_date: Vieta, Data
           postal_code: Pašto kodas
-          print: Spausdinti
           province: Provincija/Rajonas
-          section: 'Jei to reikalauja organizacija, prašome atspausdinti ir užpildyti šią formą išsiunčiamą kur nurodyta:'
           signature: Parašas
         result:
           answer_title: Į iniciatyvą buvo atsakyta.
@@ -531,7 +529,6 @@ lt:
           other: " parašai"
         vote_cabin:
           already_voted: Jau pasirašyta
-          verification_required: Norėdami pasirašyti iniciatyvą, patvirtinkite savo paskyrą
           vote: Pasirašyti
           votes_blocked: Pasirašymas išjungtas
         votes_count:
@@ -584,7 +581,6 @@ lt:
           comment: Komentaras
       initiatives_type:
         actions:
-          create: Sukurti
           title: Veiksmai
           vote: Pasirašyti
   layouts:

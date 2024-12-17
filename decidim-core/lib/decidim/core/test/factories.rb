@@ -270,6 +270,16 @@ FactoryBot.define do
     end
     user
     privatable_to { create(:participatory_process, organization: user.organization, skip_injection:) }
+
+    role { generate_localized_title(:role, skip_injection:) }
+
+    trait :unpublished do
+      published { false }
+    end
+
+    trait :published do
+      published { true }
+    end
   end
 
   factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
@@ -502,6 +512,7 @@ FactoryBot.define do
     participatory_space { create(:participatory_process, organization:, skip_injection:) }
     manifest_name { "dummy" }
     published_at { Time.current }
+    deleted_at { nil }
     settings do
       {
         dummy_global_translatable_text: generate_localized_title(:dummy_global_translatable_text, skip_injection:),
@@ -530,6 +541,10 @@ FactoryBot.define do
 
     trait :published do
       published_at { Time.current }
+    end
+
+    trait :trashed do
+      deleted_at { Time.current }
     end
 
     trait :with_amendments_enabled do

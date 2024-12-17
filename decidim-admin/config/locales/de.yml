@@ -197,6 +197,7 @@ de:
         reject: Ablehnen
         send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
+        share_tokens: Zugangslinks
         user:
           new: Neuer Administrator
         verify: Überprüfen
@@ -319,9 +320,6 @@ de:
           error: Beim Erstellen dieser Komponente ist ein Fehler aufgetreten.
           success: Komponente wurde erfolgreich erstellt.
           success_landing_page: Komponente erfolgreich erstellt. Sie können einen Inhaltsblock für diese Komponente auf der Startseite des Bereichs hinzufügen. Gehen Sie dazu zur <a href="%{landing_page_path}">Startseite</a>, um sie zu konfigurieren.
-        destroy:
-          error: Beim Löschen dieser Komponente ist ein Fehler aufgetreten.
-          success: Komponente wurde erfolgreich gelöscht.
         edit:
           title: Komponente bearbeiten
           update: Aktualisieren
@@ -343,6 +341,14 @@ de:
           title: 'Komponente hinzufügen: %{name}'
         publish:
           success: Die Komponente wurde erfolgreich veröffentlicht.
+        taxonomy_filters_badge:
+          remove: Entfernen
+        taxonomy_filters_drawer:
+          add_filter: Filter hinzufügen
+          clear_all: Alles löschen
+          filters: Filter
+          save: Speichern
+          title: Filter
         title: Komponenten
         unpublish:
           success: Die Veröffentlichung der Komponente wurde erfolgreich zurückgezogen.
@@ -409,8 +415,6 @@ de:
           JSON: JSON
         notice: Ihr Export wird gerade ausgeführt. Sie erhalten nach Fertigstellung eine E-Mail.
       filters:
-        category_id_eq:
-          label: Kategorie
         filter_label: Filtern
         invitation_accepted_at_present:
           label: Einladung angenommen
@@ -459,8 +463,6 @@ de:
             'false': Veröffentlicht
             'true': Unveröffentlicht
         remove_all: Alle entfernen
-        scope_id_eq:
-          label: Themenbereich
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Kontoname.
@@ -598,6 +600,7 @@ de:
         scopes: Bereiche
         see_site: Seite ansehen
         settings: Einstellungen
+        share_tokens: Zugangslinks
         static_page_topics: Themen
         static_pages: Seiten
         taxonomies: Taxonomien
@@ -655,12 +658,11 @@ de:
             plural: Plural
         share_token:
           fields:
-            created_at: Erstellt am
+            actions: Aktionen
             expires_at: Läuft ab am
-            last_used_at: Zuletzt verwendet
+            registered_only: Nur registrierte?
             times_used: Anzahl Anwendungen
-            token: Token
-            user: Erstellt von
+            token: Zugangslink
         static_page:
           fields:
             created_at: Erstellt am
@@ -930,10 +932,6 @@ de:
           title: Berechtigungen bearbeiten
         update:
           success: Berechtigungen wurden erfolgreich aktualisiert.
-      resources:
-        index:
-          headers:
-            scope: Bereich
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.
@@ -967,16 +965,50 @@ de:
           success: Bereich wurde erfolgreich aktualisiert
       share_tokens:
         actions:
-          confirm_destroy: Sind Sie sicher, dass Sie diesen Token löschen wollen?
+          confirm_destroy: Sind Sie sicher, dass Sie diesen Zugang löschen wollen?
+          copy_link: Link kopieren
           destroy: Löschen
-          share: Teilen
+          edit: Bearbeiten
+          preview: Vorschau
+        create:
+          invalid: Beim Erstellen des Zugangslinks ist ein Problem aufgetreten.
+          success: Zugangslink erfolgreich erstellt.
         destroy:
-          error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
-          success: Token wurde erfolgreich gelöscht.
-        share_tokens:
-          empty: Es gibt keine aktiven Token.
-          help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
-          title: Token teilen
+          error: Beim Löschen des Zugangslinks ist ein Problem aufgetreten.
+          success: Der Zugangslink wurde erfolgreich gelöscht.
+        edit:
+          title: 'Zugangslinks bearbeiten für: %{name}'
+          update: Aktualisieren
+        form:
+          automatic: Automatisch
+          custom: Personalisiert
+          custom_expiration: Benutzerdefiniertes Ablaufen
+          custom_token: Benutzerdefiniertes Wort
+          expires_at: Läuft ab am
+          'false': 'Nein'
+          never_expire: Niemals
+          registered_only: Nur registrierte?
+          token: Zugangsschlüssel
+          'true': 'Ja'
+        index:
+          back_to_share_tokens: Zurück zu den Zugangslinks
+          copied: Zugangslink kopiert!
+          copy_message: Der Text wurde erfolgreich in die Zwischenablage kopiert.
+          create_new_token: Einen ersten Zugangslink erstellen!
+          empty_html: Keine aktiven Zugangslinks vorhanden. %{new_token_link}
+          never: Niemals
+          new_share_token_button: Neuer Zugangslink
+          share_tokens_help_html: |
+            Erstellen und teilen Sie einen Zugangslink, um anderen die Ansicht dieser unveröffentlichten Ressource zu ermöglichen.
+            Zugangslinks können z.B. nur für registrierte Teilnehmer gültig sein oder falls nötig über ein Ablaufdatum verfügen.
+            Um einen neuen Zugangslink mit jemandem zu teilen, erstellen Sie ihn und kopieren Sie dann den Link mit dem Aktionssymbol "%{clipboard} Zwischenablage".
+          title: 'Zugangslink für: %{name}'
+        new:
+          create: Erstellen
+          title: 'Neuer Zugangslink für: %{name}'
+        update:
+          error: Bei der Aktualisierung dieses Zugangs ist ein Problem aufgetreten.
+          success: Zugangslink erfolgreich aktualisiert.
       shared:
         adjacent_navigation:
           next: Weiter
@@ -1031,78 +1063,67 @@ de:
           success: Seite wurde erfolgreich aktualisiert.
       taxonomies:
         actions: Aktionen
-        amount: Anzahl
-        count: Anzahl
         create:
-          invalid: Beim Erstellen dieser Taxonomie ist ein Fehler aufgetreten.
-          success: Taxonomie wurde erfolgreich erstellt.
+          invalid: Beim Erstellen dieser Klassifizierung ist ein Fehler aufgetreten.
+          success: Klassifizierung wurde erfolgreich erstellt.
         destroy:
-          invalid: Beim Löschen dieser Taxonomie ist ein Fehler aufgetreten.
-          success: Taxonomie erfolgreich gelöscht.
+          invalid: Beim Löschen dieser Klassifizierung ist ein Fehler aufgetreten.
+          success: Klassifizierung erfolgreich gelöscht.
         edit:
           back: Zurück
-          description: Die Elemente dieser Taxonomie werden verwendet, um Ressourcen zu klassifizieren oder zu filtern, wie Partizipationsbereiche oder Komponenten. Per "Drag and Drop" kann die Liste neu geordnet werden.
+          description: Die Elemente dieser Klassifizierung werden verwendet, um Ressourcen zu klassifizieren oder zu filtern, wie Partizipationsbereiche oder Komponenten. Per "Drag and Drop" kann die Liste neu geordnet werden.
           new_item: Neues Element
-          no_items: Es gibt derzeit keine Elemente in dieser Taxonomie. Erstellen Sie hier eine Liste von Elementen, um Ressourcen zu klassifizieren oder zu filtern, z. B. Partizizipationsbereiche oder Komponenten. Elemente können auf bis zu drei Ebenen verschachtelt werden.
+          no_items: Es gibt derzeit keine Elemente in dieser Klassifizierung. Erstellen Sie hier eine Liste von Elementen, um Ressourcen zu klassifizieren oder zu filtern, z. B. Partizipationsbereiche oder Komponenten. Elemente können auf bis zu drei Ebenen verschachtelt werden.
           subtitle: Elemente in "%{taxonomy_name}"
-          title: Taxonomie "%{taxonomy_name} " bearbeiten
+          title: Klassifizierung "%{taxonomy_name} " bearbeiten
           update: Aktualisieren
         filters:
           search_placeholder: Suchen
         index:
-          description: Eine Taxonomie erlaubt Admins Inhalte zu kategorisieren und zu organisieren. Zum Beispiel können Sie eine Taxonomie hinzufügen, um Prozesse nach geographischem Bereichen zu klassifizieren.
-          new_taxonomy: Neue Taxonomie
-          no_items_found: Es wurden keine Taxonomien gefunden, die Ihren Suchkriterien entsprechen.
+          description: Eine Klassifizierung erlaubt Admins Inhalte zu kategorisieren und zu organisieren. Zum Beispiel können Sie eine Taxonomie hinzufügen, um Prozesse nach geographischem Bereichen zu klassifizieren.
+          new_taxonomy: Neue Klassifizierung
+          no_items_found: Es wurden keine Klassifizierungen gefunden, die Ihren Suchkriterien entsprechen.
         name: Name
         new:
-          create: Taxonomie erstellen
-          title: Neue Taxonomie
-        no_taxonomies: Derzeit gibt es keine Taxonomien. Erstellen Sie hier eine Liste von Taxonomien und fügen Sie Elemente in jede von ihnen hinzu, um nach Ressourcen klassifizieren oder filtern zu können.
+          create: Klassifizierung erstellen
+          title: Neue Klassifizierung
+        no_taxonomies: Derzeit gibt es keine Klassifizierungen. Erstellen Sie eine Liste von Klassifizierungen hier und füge ihnen Elemente hinzu, um nach Ressourcen klassifizieren oder filtern zu können.
         table:
           to_next_page: Für die nächste Seite hinziehen
           to_prev_page: Für die vorherige Seite hinziehen
         taxonomy_actions:
-          confirm_destroy: Sind Sie sicher, dass Sie die Taxonomie%{Name} entfernen möchten? Dadurch werden auch alle unter dieser Texonomie geführten Elemente gelöscht. Der mit der Taxonomie verbundene Inhalt wird nicht gelöscht, sondern ausschliesslich die Klassifizierungsinformationen.
+          confirm_destroy: 'Sind Sie sicher, dass Sie %{name} löschen möchten? Dies wird auch alle untergeordneten Elemente löschen. HINWEIS: Nicht betroffen sind Ressourcen, die diese Klassifizierung verwenden, aber sie verlieren den Verweis auf diese Klassifizierung.'
         update:
-          invalid: Beim Aktualisieren dieser Taxonomie ist ein Fehler aufgetreten.
-          success: Taxonomie wurde erfolgreich aktualisiert.
+          invalid: Beim Aktualisieren dieser Klassifizierung ist ein Fehler aufgetreten.
+          success: Klassifizierung wurde erfolgreich aktualisiert.
       taxonomy_filters:
         actions:
-          new_taxonomy_filter: Neuer Taxonomie-Filter
-        callout:
-          modify_taxonomy_html: Wenn Sie diese Taxonomie oder ihre Elemente ändern möchten, finden Sie die Konfigurationseinstellungen unter <a href="%{url}">Taxonomien</a>.
+          new_taxonomy_filter: Neuer Klassifizierung-Filter
         create:
-          error: Beim Erstellen dieses Taxonomie-Filters ist ein Fehler aufgetreten.
-          success: Taxonomie-Filter wurde erfolgreich erstellt.
+          error: Beim Erstellen dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
+          success: Klassifizierungsfilter wurde erfolgreich erstellt.
         destroy:
-          error: Beim Löschen dieses Taxonomie-Filters ist ein Fehler aufgetreten.
-          success: Taxonomie-Filter erfolgreich gelöscht.
+          error: Beim Löschen dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
+          success: Klassifizeriungsfilter erfolgreich gelöscht.
         edit:
           back: Zurück
-          items: "%{count} ausgewählte Elemente"
-          no_items: Keine Elemente für diese Taxonomien verfügbar. Sie können Elemente in den Taxonomie-Konfigurationseinstellungen erstellen.
-          title: Taxonomie-Filter bearbeiten
-          update: Taxonomie-Filter aktualisieren
-        form:
-          select_taxonomy: Taxonomie auswählen
+          title: Klassifizierungsfilter bearbeiten
+          update: Klassifizierungsfilter aktualisieren
         index:
-          description: Ein Taxonomie-Filter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
-          empty: Derzeit gibt es keine Taxonomie-Filter. Erstellen Sie hier eine Liste von Taxonomie-Filtern, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
+          description: Ein Klassifizierungsfilter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
+          empty: Derzeit gibt es keine Klassifizierungsfilter. Erstellen Sie hier eine Liste von Klassifizierungsfilter, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
         new:
           back: Zurück
-          create: Taxonomie-Filter erstellen
-          items: "%{count} Elemente verfügbar"
-          title: Neuer Taxonomie-Filter
+          create: Klassifizierungsfilter erstellen
+          title: Neuer Klassifizierungsfilter
         table:
           actions: Aktionen
-          confirm_destroy: Sind Sie sicher, dass Sie den Filter %{name} löschen möchten?
-          count: Anzahl Elemente
+          confirm_destroy: 'Sind Sie sicher, dass Sie den Filter %{name} löschen möchten? HINWEIS: Ressourcen, die diesen Filter verwenden, sind nicht betroffen, aber sie verlieren den Verweis auf diesen Filter.'
           destroy: Löschen
           edit: Bearbeiten
-          name: Name
         update:
-          error: Beim Aktualisieren dieses Taxonomie-Filters ist ein Fehler aufgetreten.
-          success: Taxonomie-Filter wurde erfolgreich aktualisiert.
+          error: Beim Aktualisieren dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
+          success: Klassifizierungsfilter wurde erfolgreich aktualisiert.
       taxonomy_items:
         edit:
           title: Element in %{taxonomy} bearbeiten
@@ -1131,8 +1152,8 @@ de:
         scope_types: Bereichstypen
         scopes: Bereiche
         statistics: Aktivität
-        taxonomies: Taxonomien
-        taxonomy_filters: Taxonomie-Filter
+        taxonomies: Klassifizierungen
+        taxonomy_filters: Klassifizierungsfilter
         user_groups: Benutzergruppen
         users: Administratoren
       user_group:

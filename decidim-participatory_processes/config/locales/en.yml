@@ -92,6 +92,7 @@ en:
       actions:
         activate: Activate
         configure: Configure
+        confirm_delete_process: Are you sure you want to delete this process? If you change your mind, you can restore it later.
         confirm_destroy: Confirm delete
         destroy: Delete
         duplicate: Duplicate
@@ -109,6 +110,7 @@ en:
         resend_invitation: Resend invitation
         see_process: See process
         unpublish: Unpublish
+        view_deleted_processes: View deleted processes
       filters:
         decidim_participatory_process_group_id_eq:
           label: By process group
@@ -128,7 +130,7 @@ en:
           info: About this process
           landing_page: Landing page
           moderations: Moderations
-          private_users: Private participants
+          private_users: Members
           process_admins: Process admins
           steps: Phases
       models:
@@ -170,6 +172,7 @@ en:
           fields:
             invitation_accepted_at: Invitation accepted at
             invitation_sent_at: Invitation sent at
+            published: Published
       participatory_process_copies:
         new:
           copy: Copy
@@ -280,6 +283,8 @@ en:
           public: Public
           published: Published
           unpublished: Unpublished
+        manage_trash:
+          title: Deleted participatory processes
         new:
           create: Create
           title: New participatory process
@@ -298,6 +303,9 @@ en:
         participatory_process_groups: Participatory process groups
         participatory_process_types: Participatory process types
         participatory_processes: Participatory processes
+        participatory_processes_deleted: Deleted participatory processes
+      tooltips:
+        deleted_processes_info: A process can only be deleted if status is "Unpublished".
       users:
         resend_invitation:
           error: There was a problem resending the invitation.
@@ -309,6 +317,8 @@ en:
         export: "%{user_name} exported the %{resource_name} participatory process"
         import: "%{user_name} imported the %{resource_name} participatory process"
         publish: "%{user_name} published the %{resource_name} participatory process"
+        restore: "%{user_name} restored the %{resource_name} participatory process"
+        soft_delete: "%{user_name} trashed the %{resource_name} participatory process"
         unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
         update: "%{user_name} updated the %{resource_name} participatory process"
       participatory_process_group:
@@ -466,6 +476,7 @@ en:
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
+            private_notice: You will be able to manage members after setting it as private
             related_processes: Related processes
             scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
             select_an_area: Select an Area
@@ -537,6 +548,9 @@ en:
           type: Type
         show:
           title: About this process
+      participatory_space_private_users:
+        index:
+          title: Members
       show:
         belongs_to_group: This process belongs to
         private_space: This is a private process
@@ -550,6 +564,8 @@ en:
           browse: Browse
           browse_resource: Browse process group %{resource_name}
           processes_count: 'Processes:'
+      participatory_process_navigation:
+        member_menu_item: Members
       participatory_processes:
         index:
           promoted_processes: Highlighted processes

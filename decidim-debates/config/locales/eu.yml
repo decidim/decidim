@@ -2,15 +2,12 @@ eu:
   activemodel:
     attributes:
       debate:
-        category_id: Kategoria
         closed_at: Amaiera-data
         conclusions: Ondorioak
-        decidim_category_id: Kategoria
         description: Deskribapena
         end_time: Bukaera-data
         information_updates: Informazioaren eguneratzeak
         instructions: Parte hartzeko argibideak
-        scope_id: Esparrua
         start_time: Hasi da
         title: Izenburua
         user_group_id: Sortu eztabaida honela
@@ -29,16 +26,22 @@ eu:
       debates:
         actions:
           comment: Iruzkina
-          create: Sortu
+          create: Sortu eztabaida bat
           endorse: Atxiki
         name: Eztabaidak
         settings:
           global:
             announcement: Iragarpena
+            attachments_allowed: Baimendu eranskinak
+            clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 lehenetsitako konfigurazioari eutsi nahi badiozu)
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu espazio parte-hartzaile honetarako iragazki batzuk.
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
+            taxonomy_filters: Hautatu iragazkiak osagairako
+            taxonomy_filters_add: Erantsi iragazkia
           step:
             announcement: Iragarpena
             comments_blocked: Iruzkinak blokeatuta
@@ -48,11 +51,12 @@ eu:
     debates:
       actions:
         close: Itxi
-        confirm_destroy: Ziur zaude?
-        destroy: Ezabatu
+        confirm_delete_debate: Ziur zaude eztabaida hau ezabatu nahi duzula?
+        deleted_debate_info: Ezabatutako eztabaida zaborretik berreskura daiteke.
         edit: Editatu
         new: Beste eztabaida bat
         title: Ekintzak
+        view_deleted_debates: Ikusi ezabatutako eztabaidak
       admin:
         debate_closes:
           edit:
@@ -62,17 +66,20 @@ eu:
           create:
             invalid: Arazo bat gertatu da eztabaida sortzean.
             success: Eztabaida zuzen sortu da.
-          destroy:
-            success: Eztabaida zuzen ezabatu da.
           edit:
             title: Editatu eztabaida
             update: Eguneratu eztabaida
           form:
+            add_documents: Gehitu dokumentuak
+            attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
             debate_type: Eztabaida mota
+            edit_documents: Editatu dokumentuak
             finite: Amaiera (hasiera- eta amaiera-ordua)
             open: Zabalik (ez dago hasiera- edo amaiera-ordurik)
           index:
             title: eztabaidak
+          manage_trash:
+            title: Ezabatutako eztabaidak
           new:
             create: Sortu eztabaida
             title: Beste eztabaida bat
@@ -80,12 +87,19 @@ eu:
             invalid: Arazo bat egon da eztabaida hau eguneratzean.
             success: Debate arrakastaz eguneratu da.
         exports:
-          comments: Iruzkinak
+          debate_comments: Iruzkinak
+          debates: Eztabaidak
       admin_log:
         debate:
           close: "%{user_name} erabiltzaileak %{resource_name} eztabaida sortu du %{space_name} esparruan"
           create: "%{user_name} k %{resource_name} eztabaida sortu du %{space_name} espazioan"
+          restore: "%{user_name} k berreskuratu du %{resource_name} eztabaida %{space_name} espazioan"
+          soft_delete: "%{user_name} k eraman du %{space_name} espazioko %{resource_name} eztabaida zaborrontzira"
           update: "%{user_name} k %{resource_name} eztabaida eguneratu du %{space_name} espazioan"
+      content_blocks:
+        highlighted_debates:
+          name: Eztabaidak
+          see_all: Ikusi eztabaida guztiak
       debate_m:
         commented_time_ago: Iruzkina eginda orain dela %{time}
       debates:
@@ -126,8 +140,6 @@ eu:
             closed: Itxita
             open: Ireki
           user_group: Taldeak
-        form:
-          select_a_category: Hautatu kategoria bat
         index:
           new_debate: Beste eztabaida bat
         new:
@@ -141,11 +153,11 @@ eu:
           recent: Azkenak
           updated: Orain dela gutxi eguneratuak
         show:
-          close_debate: Itxi eztabaida
+          close_debate: Itxi
           debate_closed: Itxita
           debate_conclusions_are: 'Eztabaida %{date} egunean itxi zen ondorio hauekin:'
           edit_conclusions: Editatu ondorioak
-          edit_debate: Editatu eztabaida
+          edit_debate: Editatu
           groups_count: Taldeak
           open: Eztabaida irekita
           participants_count: Parte-hartzaileak
@@ -163,7 +175,12 @@ eu:
             official_debate: Ofizial eztabaida
             start: Hasi
             start_time: Hasiera data
+            taxonomies: Taxonomiak
             title: Izenburua
+    download_your_data:
+      show:
+        debate_comments: Esportatu eztabaiden iruzkinak
+        debates: Esportatu eztabaidak
     events:
       debates:
         create_debate_event:
@@ -219,5 +236,43 @@ eu:
         description: Sortutako eztabaida kopurua
         object: eztabaidak
         title: eztabaidak
+    open_data:
+      help:
+        debate_comments:
+          alignment: Iruzkin hau aldekoa, kontrakoa edo neutrala bazen
+          author: Iruzkin hau egin duen parte-hartzailearen izena
+          body: Iruzkin bera
+          commentable_id: Iruzkingarriaren identifikazio bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          created_at: Zein datatan sortu zen iruzkin hau
+          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna edo erantzunaren erantzuna bada)
+          id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uzteko erabilitako lokala (hizkuntza)
+          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          user_group: Iruzkin hau egin duen erabiltzaile-taldearen izena (baldin badago)
+        debates:
+          author: Eztabaida honen egilearen data
+          closed_at: Zein datatan itxi zen eztabaida hau
+          comments: Eztabaida honek duen iruzkin kopurua
+          comments_enabled: Eztabaida honek iruzkinak ditu baimenduta edo ez
+          component: Emaitzaren osagaia honi dagokio
+          conclusions: Eztabaidaren ondorioak itxita bazegoen
+          created_at: Zein datatan eta zein ordutan sortu zen eztabaida
+          description: Eztabaidaren deskribapena
+          end_time: Eztabaida hau amaitzen denean, eztabaida irekia bada eta denbora mugatua badu
+          endorsements_count: Eztabaidak dituen berme kopurua
+          follows_count: Eztabaida honek duen jarraitzaile kopurua
+          id: Eztabaidaren identifikatzaile bakarra
+          information_updates: Egileak eztabaidari egin dizkion eguneraketak
+          instructions: Jarraibideak eztabaida honetan iruzkina egiteko
+          last_comment_at: Zein datatan aipatu zen eztabaida hau azkenekoz?
+          last_comment_by: Eztabaidan egindako azken iruzkinaren datuak
+          participatory_space: Zein espaziotakoa da eztabaida hau (adibidez, Prozesu Parte-hartzailea edo Batzarra)?
+          reference: Plataforma honetako baliabidearen identifikatzaile bakarra
+          start_time: Eztabaida hau hasten denean, eztabaida irekia bada eta denbora mugatua badu
+          taxonomies: Proiektuaren taxonomiak
+          title: Eztabaidearen izenburua
+          updated_at: Eztabaida azken aldiz eguneratu zen eguna
+          url: Eztabaida hau URL honetan aurki daiteke
     statistics:
       debates_count: Eztabaidak

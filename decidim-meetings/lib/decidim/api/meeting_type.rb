@@ -76,6 +76,18 @@ module Decidim
       field :type_of_meeting, GraphQL::Types::String, "The type of the meeting (online or in-person)", null: false
       field :online_meeting_url, GraphQL::Types::String, "The URL of the meeting (when the type is online)", null: false
       field :iframe_embed_type, GraphQL::Types::String, "The type of displaying of the online meeting URL", null: true
+
+      def self.authorized?(object, context)
+        context[:meeting] = object
+
+        chain = [
+          allowed_to?(:read, :meeting, object, context),
+          object.published?,
+          object.current_user_can_visit_meeting?(context[:current_user])
+        ].all?
+
+        super && chain
+      end
     end
   end
 end
