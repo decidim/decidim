@@ -676,8 +676,6 @@ ja:
         ready: 準備完了
       show:
         action: アクション
-        download: ダウンロード
-        download_data: ダウンロードエリア
         download_data_description_1: あなたのアカウントで利用可能なすべてのダウンロードを見つけることができます。これらの.zipファイルは削除される2週間前に利用可能になります。
         download_data_description_2: 提出物と個人データを含む .zip ファイルをリクエストできます。
         download_your_data: 個人データ
