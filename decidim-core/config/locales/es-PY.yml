@@ -695,8 +695,6 @@ es-PY:
         ready: Listo
       show:
         action: Acción
-        download: Descargar
-        download_data: Área de descargas
         download_data_description_1: Aquí puedes encontrar todas las descargas disponibles para tu cuenta. Estos archivos .zip estarán disponibles durante dos semanas antes de ser eliminados.
         download_data_description_2: Puedes solicitar un archivo .zip con tus contribuciones e información personal.
         download_your_data: Datos personales
