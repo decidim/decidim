@@ -139,6 +139,7 @@ module Decidim
     def readme
       "# #{I18n.t("decidim.open_data.help.core.title", organization: translated_attribute(organization.name))}\n\n
 #{I18n.t("decidim.open_data.help.core.description")}\n\n
+#{I18n.t("decidim.open_data.help.core.generated_on_date", date: I18n.l(Time.current, format: :decidim_short))}\n\n
 #{core_readme}
 #{space_readme}
 #{component_readme}
