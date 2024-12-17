@@ -805,6 +805,7 @@ es:
           select_participatory_processes: Seleccionar procesos participativos
           select_spaces: Selecciona espacios para segmentar el boletín
           select_users_for_participatory_space: Enviar el boletín informativo a uno o más espacios de participación
+          select_users_general: Enviar un boletín general
           select_verification_types: Seleccionar métodos de verificación
           send_to_all_users: Enviar a todos los usuarios
           send_to_verified_users: Enviar a usuarias verificadas
