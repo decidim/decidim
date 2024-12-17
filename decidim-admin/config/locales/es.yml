@@ -805,8 +805,11 @@ es:
           select_participatory_processes: Seleccionar procesos participativos
           select_spaces: Selecciona espacios para segmentar el boletín
           select_users_for_participatory_space: Enviar el boletín informativo a uno o más espacios de participación
+          select_verification_types: Seleccionar métodos de verificación
           send_to_all_users: Enviar a todos los usuarios
+          send_to_verified_users: Enviar a usuarias verificadas
           title: Selecciona los destinatarios
+          verified_users_help: Envía un boletín informativo a todas las usuarias confirmadas y verificadas con cualquiera de los métodos de verificación seleccionados.
           warning: "<strong>Atención:</strong> Este boletín sólo será enviado a participantes que hayan activado <em>Quiero recibir boletines de noticias</em> en sus ajustes de notificaciones."
         send:
           no_recipients: No hay destinatarias para esta selección.
