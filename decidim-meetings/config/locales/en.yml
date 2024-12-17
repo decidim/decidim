@@ -720,8 +720,10 @@ en:
           end_time: The date and time that this meeting ends
           followers: The number of followers of this meeting
           id: The unique identifier of the meeting
+          latitude: The latitude of the meeting
           location: The location of the meeting
           location_hints: A hint of the location in which the meeting is taking place
+          longitude: The longitude of the meeting
           organizations: The organizations attending this meeting
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this meeting belongs to
           published: When the meeting has been published

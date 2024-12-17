@@ -132,6 +132,14 @@ module Decidim
         it "serializes the updated at date" do
           expect(serialized).to include(updated_at: meeting.updated_at)
         end
+
+        it "serializes the latitude" do
+          expect(serialized).to include(latitude: meeting.latitude)
+        end
+
+        it "serializes the longitude" do
+          expect(serialized).to include(longitude: meeting.longitude)
+        end
       end
     end
   end

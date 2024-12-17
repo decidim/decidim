@@ -50,7 +50,9 @@ module Decidim
           withdrawn_at: meeting.withdrawn_at,
           location_hints: meeting.location_hints,
           created_at: meeting.created_at,
-          updated_at: meeting.updated_at
+          updated_at: meeting.updated_at,
+          latitude: meeting.latitude,
+          longitude: meeting.longitude
         }
       end
 
