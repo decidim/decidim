@@ -1,0 +1,15 @@
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+
+      <div class="row column pb-4">
+        <%= merge_form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
+      </div>
+      <div class="row column">
+        <%= merge_form.translated :editor, :body, hashtaggable: true, aria: { label: :body } %>
+      </div>
+
+    </div>
+  </div>
+</div>
+<%= append_javascript_pack_tag "decidim_proposals_admin" %>
