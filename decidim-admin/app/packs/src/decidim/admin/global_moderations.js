@@ -2,45 +2,57 @@
 /* eslint no-unused-vars: 0 */
 /* eslint id-length: ["error", { "exceptions": ["e"] }] */
 
-$(() => {
-  const selectedModerationsCount = () => $(".table-list .js-check-all-moderations:checked").length;
+document.addEventListener("DOMContentLoaded", () => {
+  const selectedModerationsCount = () => {
+    return document.querySelectorAll(".table-list .js-check-all-moderations:checked").length;
+  };
 
-  const selectedModerationsCountUpdate = function () {
+  const selectedModerationsCountUpdate = () => {
     const selectedModerations = selectedModerationsCount();
 
+    const countElement = document.getElementById("js-selected-moderations-count");
+    const hideActions = document.getElementById("js-hide-global-moderations-actions");
+    const unhideActions = document.getElementById("js-unhide-global-moderations-actions");
+    const unreportActions = document.getElementById("js-unreport-global-moderations-actions");
+
     if (selectedModerations === 0) {
-      $("#js-selected-moderations-count").text("");
-      $("#js-hide-global-moderations-actions").addClass("hide");
-      $("#js-unhide-global-moderations-actions").addClass("hide");
-      $("#js-unreport-global-moderations-actions").addClass("hide");
+      countElement.textContent = "";
+      hideActions.classList.add("hide");
+      unhideActions.classList.add("hide");
+      unreportActions.classList.add("hide");
     } else {
-      $("#js-selected-moderations-count").text(selectedModerations);
+      countElement.textContent = selectedModerations;
     }
   };
 
-  const showBulkActionsButton = function () {
+  const showBulkActionsButton = () => {
     if (selectedModerationsCount() > 0) {
-      $("#js-bulk-actions-button").removeClass("hide");
+      document.getElementById("js-bulk-actions-button").classList.remove("hide");
     }
   };
 
   const hideBulkActionsButton = (force = false) => {
+    const bulkActionsButton = document.getElementById("js-bulk-actions-button");
+    const bulkActionsDropdown = document.getElementById("js-bulk-actions-dropdown");
+
     if (selectedModerationsCount() === 0 || force === true) {
-      $("#js-bulk-actions-button").addClass("hide");
-      $("#js-bulk-actions-dropdown").removeClass("is-open");
+      bulkActionsButton.classList.add("hide");
+      bulkActionsDropdown.classList.remove("is-open");
     }
   }
 
-  const showOtherActionsButtons = function () {
-    $("#js-other-actions-wrapper").removeClass("hide");
+  const showOtherActionsButtons = () => {
+    document.getElementById("js-other-actions-wrapper").classList.remove("hide");
   };
 
-  const hideOtherActionsButtons = function () {
-    $("#js-other-actions-wrapper").addClass("hide");
+  const hideOtherActionsButtons = () => {
+    document.getElementById("js-other-actions-wrapper").classList.add("hide");
   };
 
-  const hideBulkActionForms = function() {
-    $(".js-bulk-action-form").addClass("hide");
+  const hideBulkActionForms = () => {
+    document.querySelectorAll(".js-bulk-action-form").forEach((form) => {
+      form.classList.add("hide");
+    });
   }
 
   // Expose functions to make them available in .js.erb templates
@@ -51,51 +63,66 @@ $(() => {
   window.hideOtherActionsButtons = hideOtherActionsButtons;
   window.hideBulkActionForms = hideBulkActionForms;
 
-  if ($(".js-bulk-action-form").length) {
+  const bulkActionsButton = document.getElementById("js-bulk-actions-button");
+  
+  if (document.querySelectorAll(".js-bulk-action-form").length) {
     hideBulkActionForms();
-    $("#js-bulk-actions-button").addClass("hide");
+    bulkActionsButton.classList.add("hide");
 
-    $("#js-bulk-actions-dropdown ul li button").click(function (event) {
-      $("#js-bulk-actions-dropdown").removeClass("is-open");
-      hideBulkActionForms();
+    document.querySelectorAll("#js-bulk-actions-dropdown ul li button").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        const bulkActionsDropdown = document.getElementById("js-bulk-actions-dropdown");
+        bulkActionsDropdown.classList.remove("is-open");
+        hideBulkActionForms();
 
-      let action = $(event.target).data("action");
-      const panelActions = [
-        "hide-global-moderations",
-        "unreport-global-moderations",
-        "unhide-global-moderations"
-      ];
+        const action = event.target.dataset.action;
+        const panelActions = [
+          "hide-global-moderations",
+          "unreport-global-moderations",
+          "unhide-global-moderations"
+        ];
 
-      if (!action) {
-        return;
-      }
+        if (!action) {
+          return;
+        }
 
-      if (panelActions.includes(action)) {
-        $(`#js-form-${action}`).submit(function () {
-          $(".layout-content > div[data-callout-wrapper]").html("");
-        });
+        const form = document.getElementById(`js-form-${action}`);
+        const actionElement = document.getElementById(`js-${action}-actions`);
 
-        $(`#js-${action}-actions`).removeClass("hide");
-      } else {
-        $(`#js-form-${action}`).submit(function () {
-          $(".layout-content > div[data-callout-wrapper]").html("");
-        });
+        if (panelActions.includes(action)) {
+          form.addEventListener("submit", () => {
+            document.querySelector(".layout-content > div[data-callout-wrapper]").innerHTML = "";
+          });
 
-        $(`#js-${action}-actions`).removeClass("hide");
-        hideBulkActionsButton(true);
-        hideOtherActionsButtons();
-      }
+          actionElement.classList.remove("hide");
+        } else {
+          form.addEventListener("submit", () => {
+            document.querySelector(".layout-content > div[data-callout-wrapper]").innerHTML = "";
+          });
+
+          actionElement.classList.remove("hide");
+          hideBulkActionsButton(true);
+          hideOtherActionsButtons();
+        }
+      });
     });
 
     // select all checkboxes
-    $(".js-check-all").change(function () {
-      $(".js-check-all-moderations").prop("checked", $(this).prop("checked"));
+    document.querySelector(".js-check-all").addEventListener("change", function () {
+      const isChecked = this.checked;
+      const checkboxes = document.querySelectorAll(".js-check-all-moderations");
 
-      if ($(this).prop("checked")) {
-        $(".js-check-all-moderations").closest("tr").addClass("selected");
+      checkboxes.forEach((checkbox) => {
+        checkbox.checked = isChecked;
+        const row = checkbox.closest("tr");
+        if (row) {
+          row.classList.toggle("selected", isChecked);
+        }
+      });
+
+      if (isChecked) {
         showBulkActionsButton();
       } else {
-        $(".js-check-all-moderations").closest("tr").removeClass("selected");
         hideBulkActionsButton();
       }
 
@@ -103,43 +130,57 @@ $(() => {
     });
 
     // moderation checkbox change
-    $(".table-list").on("change", ".js-check-all-moderations", function () {
-      let moderationId = $(this).val();
-      let checked = $(this).prop("checked");
-
-      // uncheck "select all", if one of the listed checkbox item is unchecked
-      if ($(this).prop("checked") === false) {
-        $(".js-check-all").prop("checked", false);
+    document.querySelector(".table-list").addEventListener("change", (event) => {
+      if (!event.target.matches(".js-check-all-moderations")) {
+        return;
       }
+
+      const checkbox = event.target;
+      const moderationId = checkbox.value;
+      const checked = checkbox.checked;
+
+      // Uncheck "select all" if one of the checkboxes is unchecked
+      const selectAllCheckbox = document.querySelector(".js-check-all");
+      if (!checked) {
+        selectAllCheckbox.checked = false;
+      }
+
       // check "select all" if all checkbox moderations are checked
-      if (
-        $(".js-check-all-moderations:checked").length ===
-        $(".js-check-all-moderations").length
-      ) {
-        $(".js-check-all").prop("checked", true);
+      const allCheckboxes = Array.from(document.querySelectorAll(".js-check-all-moderations")).filter((checkboxItem) => checkboxItem.offsetParent !== null);
+      const checkedCheckboxes = Array.from(document.querySelectorAll(".js-check-all-moderations:checked")).filter((checkboxItem) => checkboxItem.offsetParent !== null);
+
+      if (allCheckboxes.length === checkedCheckboxes.length) {
+        selectAllCheckbox.checked = true;
         showBulkActionsButton();
       }
 
-      if ($(this).prop("checked")) {
+      const row = checkbox.closest("tr");
+      if (row) {
+        row.classList.toggle("selected", checked);
+      }
+
+      if (checked) {
         showBulkActionsButton();
-        $(this).closest("tr").addClass("selected");
       } else {
         hideBulkActionsButton();
-        $(this).closest("tr").removeClass("selected");
       }
 
-      if ($(".js-check-all-moderations:checked").length === 0) {
+      if (checkedCheckboxes.length === 0) {
         hideBulkActionsButton();
       }
 
-      $(".js-bulk-action-form").find(`.js-moderation-id-${moderationId}`).prop("checked", checked);
+      document.querySelectorAll(`.js-moderation-id-${moderationId}`).forEach((input) => {
+        input.checked = checked;
+      });
       selectedModerationsCountUpdate();
     });
 
-    $(".js-cancel-bulk-action").on("click", function () {
-      hideBulkActionForms();
-      showBulkActionsButton();
-      showOtherActionsButtons();
+    document.querySelectorAll(".js-cancel-bulk-action").forEach((button) => {
+      button.addEventListener("click", () => {
+        hideBulkActionForms();
+        showBulkActionsButton();
+        showOtherActionsButtons();
+      });
     });
   }
 });

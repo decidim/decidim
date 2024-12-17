@@ -4,9 +4,12 @@ module Decidim
   module Admin
     class BulkAction < Decidim::Command
       # Public: Initializes the command.
-
-      def initialize(user, action, selected_moderations)
-        @user = user
+      #
+      # current_user - the user that performs the action
+      # action - can be hide, unhide and unreport resources
+      # selected_moderations - all resources selected by current_user
+      def initialize(current_user, action, selected_moderations)
+        @current_user = current_user
         @action = action
         @selected_moderations = selected_moderations
         @result = { ok: [], ko: [] }
@@ -29,14 +32,14 @@ module Decidim
 
       private
 
-      attr_reader :action, :selected_moderations, :user, :result, :with_traceability
+      attr_reader :action, :selected_moderations, :current_user, :result, :with_admin_log
 
       def create_action_log
         action_log_type = "bulk_#{action}"
 
         Decidim::ActionLogger.log(
           action_log_type,
-          user,
+          current_user,
           selected_moderations.first,
           nil,
           extra: {
@@ -59,11 +62,11 @@ module Decidim
         selected_moderations.each do |moderation|
           next unless moderation
 
-          if moderation.respond_to?(:organization) && moderation.organization != user.organization
+          if moderation.respond_to?(:organization) && moderation.organization != current_user.organization
             result[:ko] << moderation
             next
           end
-          command.call(moderation.reportable, user, with_admin_log: false) do
+          command.call(moderation.reportable, current_user, with_admin_log: false) do
             on(:ok) do
               result[:ok] << moderation
             end

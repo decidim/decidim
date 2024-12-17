@@ -8,6 +8,7 @@ module Decidim
       #
       # reportable - A Decidim::Reportable
       # current_user - the user that performs the action
+      # with_admin_log Boolean - determines whether to log the action of unhiding a resource in the admin log
       def initialize(reportable, current_user, with_admin_log: true)
         @reportable = reportable
         @current_user = current_user

@@ -4,9 +4,11 @@ module Decidim
   module Admin
     class BulkUnreportUsers < Decidim::Command
       # Public: Initializes the command.
-
-      def initialize(user, reportables)
-        @user = user
+      #
+      # current_user - the user that performs the action
+      # reportables - all Decidim::Reportable selected by current_user
+      def initialize(current_user, reportables)
+        @current_user = current_user
         @reportables = reportables
         @result = { ok: [], ko: [] }
       end
@@ -28,12 +30,12 @@ module Decidim
 
       private
 
-      attr_reader :reportables, :user, :result, :first_unreported
+      attr_reader :reportables, :current_user, :result, :first_unreported
 
       def create_action_log
         Decidim::ActionLogger.log(
           "bulk_ignore",
-          user,
+          current_user,
           first_unreported,
           nil,
           extra: {
@@ -51,7 +53,7 @@ module Decidim
         reportables.each do |reportable|
           next unless reportable
 
-          if reportable.respond_to?(:organization) && reportable.organization != user.organization
+          if reportable.respond_to?(:organization) && reportable.organization != current_user.organization
             result[:ok] << reportable
             next
           end
