@@ -698,15 +698,90 @@ en:
     download_your_data:
       export:
         ready: Ready
+      help:
+        core:
+          description: These are the files with the personal data, contributions and activity from the user %{user_name}
+          title: Download your data files from %{organization}
+        follows:
+          created_at: The date and time when the follow was created
+          followable: The resource or space that is being followed
+          id: The unique identifier of this follow
+          updated_at: The date and time when the follow was last updated
+        identities:
+          created_at: The date and time when the identity was created
+          id: The unique identifier of this identity
+          provider: The provider of this identity
+          uid: The unique identifier of this identity
+          updated_at: The date and time when the identity was last updated
+          user: The user that this identity belongs to
+        messaging_conversations:
+          created_at: The date when this conversation was created
+          id: The unique identifier for this conversation
+          messages: The messages of this conversation
+          updated_at: The date when this converstaion was last updated
+        notifications:
+          created_at: The date and time when the notification was created
+          event_class: The class of the event that triggered the notification
+          event_name: The name of the event that triggered the notification
+          extra: Extra information of this notification
+          id: The unique identifier of this notification
+          resource_type: The type of the resource that the notification is related to
+          updated_at: The date and time when the notification was last updated
+        user_groups:
+          document_number: The document number of this user group
+          id: The unique identifier of this user group
+          name: The name of this user group
+          phone: The phone number of this user group
+          verified_at: The date and time when this user group was verified
+        users:
+          about: The biography of this user
+          admin: Whether this user is an administrator
+          confirmation_sent_at: The date and time when the confirmation was sent
+          confirmed_at: The date and time when this user was confirmed
+          created_at: The date and time when this user was created
+          current_sign_in_at: The date and time of the current login
+          current_sign_in_ip: The IP address of the current login
+          delete_reason: The reason given for deleting this user
+          deleted_at: The date and time when this user was deleted
+          email: The email address of this user
+          id: The unique identifier of this user
+          invitation_accepted_at: The date and time when the invitation was accepted
+          invitation_created_at: The date and time when this user was invited
+          invitation_sent_at: The date and time when the invitation was sent
+          invitations_count: The number of invitations sent to this user
+          invited_by: The user who invited this user
+          last_sign_in_at: The date and time of the last login
+          last_sign_in_ip: The IP address of the last login
+          locale: The locale (language) that this user has selected
+          managed: Whether this user is managed by another user
+          name: The name of this user
+          newsletter_notifications_at: The date and time when this user last received a newsletter
+          nickname: The nickname of this user
+          notification_settings: The notification settings that this user has selected
+          notifications_sending_frequency: The frequency of the notifications that this user receives
+          officialized_as: The name of the officialization (Counsellor, Mayor, etc)
+          officialized_at: The date and time when this user was officialized
+          organization: The organization that this user belongs to
+          personal_url: The personal URL of this user
+          remember_created_at: The date and time when the user was selected to be remembered
+          reset_password_sent_at: The date and time when the password reset was sent
+          sign_in_count: The number of times this user has logged in
+          unconfirmed_email: The email address that this user has not yet confirmed
+          updated_at: The date and time when this user was last updated
       show:
         action: Action
-        download: Download
-        download_data: Downloads area
+        download: Download file
+        download_data: Data download
         download_data_description_1: Here you can find all the downloads available for your account. These .zip files will be available during two weeks before being deleted.
         download_data_description_2: You can request a .zip file with your submissions and personal data.
         download_your_data: Personal data
         expiration: Expiration
         expired: Already expired
+        explanation:
+          body_1: These files are datasets exported from your activity in this platform, such as proposals, or comments. They provide raw, structured data that can be used for analysis, research, or integration with other tools
+          body_2: These files are in CSV (Comma-Separated Values) format, which is a widely-used file format that can be opened and processed by a variety of software applications, including spreadsheet programs, text editors, and data analysis tools.
+          title: What are these files?
+        files_to_download: Files to download
         request_data: Request
         type: Download type
     editor_images:
