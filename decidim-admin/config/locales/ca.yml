@@ -805,6 +805,7 @@ ca:
           select_participatory_processes: Seleccionar processos participatius
           select_spaces: Selecciona espais per segmentar el butlletí
           select_users_for_participatory_space: Enviar el butlletí informatiu a un o més espais de participació
+          select_users_general: Enviar un butlletí general
           select_verification_types: Seleccionar mètodes de verificació
           send_to_all_users: Envia a totes les participants
           send_to_verified_users: Enviar a usuàries verificades
