@@ -672,8 +672,6 @@ fr-CA:
         ready: Prêt
       show:
         action: Action
-        download: Télécharger
-        download_data: Zone des téléchargements
         download_data_description_1: Vous trouverez ici tous les téléchargements disponibles pour votre compte. Ces fichiers .zip seront disponibles pendant deux semaines avant d'être supprimés.
         download_data_description_2: Vous pouvez demander un fichier .zip avec vos contributions et vos données personnelles.
         download_your_data: Données personnelles
