@@ -70,7 +70,7 @@
   }
 
   &__card__list-project {
-    @apply ml-auto rounded py-3 px-6 bg-background w-[30%] min-w-[120px] grid grid-cols-1 md:grid-cols-2 md:place-items-center;
+    @apply ml-auto rounded py-3 px-4 bg-background w-[30%] min-w-[120px] flex flex-col justify-center items-center lg:flex-row lg:justify-around lg:place-items-center;
   }
 
   &__card__list-project__amount {
