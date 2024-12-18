@@ -537,6 +537,13 @@ ca:
         objectives: Objectius
         related_assemblies: Assemblees relacionades
         related_participatory_processes: Processos participatius relacionats
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: La data en què la invitació a la jornada es va acceptar
+          conference: La jornada a la qual correspon aquesta invitació
+          id: L'identificador únic de la invitació a la jornada
+          registration_type: El tipus d'inscripció enviada per a aquesta jornada
     events:
       conferences:
         conference_registration_confirmed:
