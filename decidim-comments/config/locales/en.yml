@@ -112,16 +112,19 @@ en:
           recent: Recent
         title: 'Order by:'
       comments:
+        against: Against
         blocked_comments_for_unauthorized_user_warning: You need to be verified to comment at this moment, but you can read the previous ones.
         blocked_comments_for_user_warning: You are not able to comment at this moment, but you can read the previous ones.
         blocked_comments_warning: Comments are currently disabled, only administrators can reply or post new ones.
         comment_details_title: Comment details
+        in_favor: In Favor
         loading: Loading comments ...
         single_comment_warning: <a href="%{url}">View all comments</a>
         single_comment_warning_title: You are seeing a single comment
         title:
           one: "%{count} comment"
           other: "%{count} comments"
+        top_comment_label: Most upvoted
       down_vote_button:
         text: I disagree with this comment
       edit_comment_modal_form:
