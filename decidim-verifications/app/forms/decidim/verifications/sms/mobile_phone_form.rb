@@ -57,7 +57,7 @@ module Decidim
         end
 
         def generated_code
-          @generated_code ||= SecureRandom.random_number(1_000_000).to_s
+          @generated_code ||= format("%06d", SecureRandom.random_number(1_000_000))
         end
       end
     end
