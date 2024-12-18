@@ -217,7 +217,6 @@ shared_examples "manage assembly components" do
   end
 
   describe "reorders a component" do
-    let(:participatory_space) { assembly }
     let!(:component1) { create(:component, name: { en: "Component 1" }, participatory_space:) }
     let!(:component2) { create(:component, name: { en: "Component 2" }, participatory_space:) }
     let!(:component3) { create(:component, name: { en: "Component 3" }, participatory_space:) }
