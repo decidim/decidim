@@ -457,7 +457,6 @@ cs:
           comments: Počet komentářů, které má tento návrh
           component: Komponenta, do které návrh patří
           endorsements: Počet souhlasů ("lajků"), které tento návrh získal
-          followers: Počet příznivců tohoto návrhu
           id: Jedinečný identifikátor návrhu
           is_amend: Zda je tento návrh změnou jiného návrhu
           latitude: Zeměpisná šířka návrhu v případě, že má fyzické umístění
