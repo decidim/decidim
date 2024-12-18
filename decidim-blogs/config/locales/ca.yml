@@ -14,6 +14,10 @@ ca:
         one: Publicació
         other: Publicacions
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Entrades al blog
     blogs:
       actions:
         author_id: Crear publicació com
