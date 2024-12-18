@@ -21,7 +21,7 @@ module Decidim
         end
 
         broadcast(:ok)
-      rescue
+      rescue StandardError
         broadcast(:invalid)
       end
 
@@ -39,4 +39,3 @@ module Decidim
     end
   end
 end
-

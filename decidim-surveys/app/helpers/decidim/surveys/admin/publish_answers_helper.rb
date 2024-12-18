@@ -4,7 +4,6 @@ module Decidim
   module Surveys
     module Admin
       module PublishAnswersHelper
-
         def question_answer_is_publicable(question_type)
           ignored_question_types = %w(short_answer long_answer separator files).freeze
 
@@ -16,10 +15,10 @@ module Decidim
         #
         # @param question_id [Integer] the question id for Decidim:
         def chart_for_question(question_id)
-          question = Decidim::Forms::Question.includes(answers: { choices: [ :answer_option, :matrix_row ] }).find(question_id)
+          question = Decidim::Forms::Question.includes(answers: { choices: [:answer_option, :matrix_row] }).find(question_id)
 
           Chartkick.options = {
-            library: {animation: {easing: 'easeOutQuart'}},
+            library: { animation: { easing: "easeOutQuart" } },
             colors: colors_list
           }
 
@@ -38,7 +37,6 @@ module Decidim
         private
 
         def sorting_stack_chart_wrapper(question)
-          tally = []
           counts = Hash.new { |hash, key| hash[key] = Hash.new(0) }
 
           question.answers.each do |answer|
@@ -52,7 +50,7 @@ module Decidim
 
           tally = counts.map do |name, row_data|
             {
-              name: name,
+              name:,
               data: row_data.map { |row, count| [row, count] }
             }
           end
@@ -61,7 +59,6 @@ module Decidim
         end
 
         def matrix_stack_chart_wrapper(question)
-          tally = []
           counts = Hash.new { |hash, key| hash[key] = Hash.new(0) }
 
           question.answers.each do |answer|
@@ -75,7 +72,7 @@ module Decidim
 
           tally = counts.map do |name, row_data|
             {
-              name: name,
+              name:,
               data: row_data.map { |row, count| [row, count] }
             }
           end
@@ -86,23 +83,22 @@ module Decidim
         def options_column_chart_wrapper(question)
           tally = question.answers.map { |answer| answer.choices.map { |choice| translated_attribute(choice.answer_option.body) } }.tally
 
-
           column_chart(tally, download: true)
         end
 
         def colors_list
           %w(
-          #3366CC
-          #DC3912
-          #FF9900
-          #109618
-          #3B3EAC
-          #0099C6
-          #DD4477
-          #66AA00
-          #B82E2E
-          #316395
-        )
+            #3366CC
+            #DC3912
+            #FF9900
+            #109618
+            #3B3EAC
+            #0099C6
+            #DD4477
+            #66AA00
+            #B82E2E
+            #316395
+          )
         end
       end
     end

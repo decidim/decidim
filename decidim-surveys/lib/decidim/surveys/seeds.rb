@@ -131,7 +131,7 @@ module Decidim
       end
 
       def create_answers!(questionnaire:, user: nil)
-        user = find_or_initialize_user_by(email: "survey-#{questionnaire.id}-#{rand(100_0000)}@example.org") if user.nil?
+        user = find_or_initialize_user_by(email: "survey-#{questionnaire.id}-#{rand(1_000_000)}@example.org") if user.nil?
 
         answer_options = {
           user:,
