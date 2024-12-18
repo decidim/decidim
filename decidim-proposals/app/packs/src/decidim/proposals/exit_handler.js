@@ -1,62 +1,69 @@
-const allowExitFrom = ($el) => {
-  if ($el.attr("id") === "exit-proposal-notification-link" || $el.hasClass("no-modal")) {
+const allowExitFrom = (el) => {
+  if (el.id === "exit-proposal-notification-link" || el.classList.contains("no-modal")) {
     return true;
   }
 
   return false;
-}
+};
 
-$(() => {
-  const $exitNotification = $("#exit-proposal-notification");
-  const $exitLink = $("#exit-proposal-notification-link");
-  const defaultExitUrl = $exitLink.attr("href");
-  const defaultExitLinkText = $exitLink.text();
+document.addEventListener("DOMContentLoaded", () => {
+  const exitNotification = document.getElementById("exit-proposal-notification");
+  const exitLink = document.getElementById("exit-proposal-notification-link");
+  const defaultExitUrl = exitLink.getAttribute("href");
+  const defaultExitLinkText = exitLink.textContent;
   const signOutPath = window.Decidim.config.get("sign_out_path");
   let exitLinkText = defaultExitLinkText;
 
-  if ($exitNotification.length < 1) {
+  if (exitNotification.length < 1) {
     // Do not apply when not inside the voting pipeline
     return;
   }
 
   const openExitNotification = (url, method = null) => {
     if (method && method !== "get") {
-      $exitLink.attr("data-method", method);
+      exitLink.setAttribute("data-method", method);
     } else {
-      $exitLink.removeAttr("data-method");
+      exitLink.removeAttribute("data-method");
     }
 
-    $exitLink.attr("href", url);
-    $exitLink.text(exitLinkText);
+    exitLink.setAttribute("href", url);
+    exitLink.textContent = exitLinkText;
     window.Decidim.currentDialogs["exit-proposal-notification"].open();
   };
 
-  $(document).on("click", "a", (event) => {
-    exitLinkText = defaultExitLinkText;
+  const handleClicks = (link) => {
+    link.addEventListener("click", (event) => {
+      exitLinkText = defaultExitLinkText;
 
-    const $link = $(event.currentTarget);
-    if (!allowExitFrom($link) && !$(window.Decidim.currentDialogs["exit-proposal-notification"].dialog.querySelector("[data-dialog-container]")).data("minimum-votes-reached")) {
+      if (
+        !allowExitFrom(link) &&
+        ((window.Decidim.currentDialogs["exit-proposal-notification"].dialog.querySelector("[data-dialog-container]")).dataset.minimumVotesReached !== true)
+      ) {
+        event.preventDefault();
+        openExitNotification(link.getAttribute("href"), link.dataset.method);
+      }
+    });
+  };
+
+  document.querySelectorAll("a").forEach(handleClicks);
+  // Custom handling for the header sign-out link
+  const signOutLink = document.querySelector(`[href='${signOutPath}']`);
+  if (signOutLink) {
+    signOutLink.addEventListener("click", (event) => {
       event.preventDefault();
-      openExitNotification($link.attr("href"), $link.data("method"));
-    }
-  });
-  // Custom handling for the header sign out so that it will not trigger the
-  // logout form submit and so that it changes the exit link text. This does
-  // not trigger the document link click listener because it has the
-  // data-method attribute to trigger a form submit event.
-  $(`[href='${signOutPath}']`).on("click", (event) => {
-    event.preventDefault();
-    event.stopPropagation();
+      event.stopPropagation();
 
-    const $link = $(event.currentTarget);
-    exitLinkText = $link.text();
-    openExitNotification($link.attr("href"), $link.data("method"));
-  });
-  // Custom handling for the exit link which needs to change the exit link
-  // text to the default text as this is not handled by the document click
-  // listener.
-  $("a[data-dialog-open='exit-proposal-notification']").on("click", () => {
-    exitLinkText = defaultExitLinkText;
-    openExitNotification(defaultExitUrl);
+      exitLinkText = signOutLink.textContent;
+      openExitNotification(signOutLink.getAttribute("href"), signOutLink.dataset.method);
+    });
+  }
+
+  // Custom handling for links that open the exit notification dialog
+  const dialogOpenLinks = document.querySelectorAll("a[data-dialog-open='exit-proposal-notification']");
+  dialogOpenLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      exitLinkText = defaultExitLinkText;
+      openExitNotification(defaultExitUrl);
+    });
   });
 });
