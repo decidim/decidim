@@ -291,7 +291,6 @@ gl:
         solved: Resolto
         transfer:
           email: Correo electrónico
-          error: Produciuse un problema ao transferir el participante actual a un participante xestionado.
           name: Nome
           reason: Motivo
           success: A transferencia actual completouse con éxito.
