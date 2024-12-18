@@ -200,11 +200,11 @@ module Decidim
       end
 
       def sms_step?
-        current_initiative.validate_sms_code_on_votes?
+        current_initiative.organization.available_authorizations.include?("sms") && signature_workflow_manifest.sms_verification
       end
 
       def fill_personal_data_step?
-        initiative_type.collect_user_extra_fields?
+        signature_workflow_manifest.form.present?
       end
 
       def authorize_wizard_step
