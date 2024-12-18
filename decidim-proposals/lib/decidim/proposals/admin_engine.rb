@@ -24,7 +24,7 @@ module Decidim
             post :update_multiple_answers, controller: "proposal_answers"
             get :manage_trash, controller: "proposals"
             resource :proposals_import, only: [:new, :create]
-            resource :proposals_merge, only: [:create]
+            resource :proposals_merge, only: [:new, :create]
             resource :proposals_split, only: [:create]
             resource :valuation_assignment, only: [:create, :destroy]
           end

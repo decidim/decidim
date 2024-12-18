@@ -4,7 +4,10 @@ module Decidim
   module Proposals
     module Admin
       class ProposalsMergesController < Admin::ApplicationController
-        def index; end
+        def new
+          render plain: "bla bla bla"
+          # @form = form(Admin::ProposalsMergeForm).from_params(params)
+        end
 
         def create
           enforce_permission_to :merge, :proposals
