@@ -14,6 +14,10 @@ es:
         one: Publicación
         other: Publicaciones
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Entradas en el blog
     blogs:
       actions:
         author_id: Crear publicación como
