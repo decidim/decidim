@@ -2,7 +2,7 @@
   <% label = "publish_answer_#{question.id}" %>
   <label for="<%= label %>" class="toggle__switch-toggle">
     <span class="toggle__switch-trigger-text">
-      <%= content_tag(:span, class: "label success ml-[-8.5rem] mt-1 #{"hidden" unless question.survey_answers_published_at.present?}") { t("status.published", scope: "decidim.surveys.admin.publish_answers.index") } %>
+      <%= content_tag(:span, class: "label success ml-[-8.5rem] mt-1 #{"hidden" if question.survey_answers_published_at.blank?}") { t("status.published", scope: "decidim.surveys.admin.publish_answers.index") } %>
       <%= content_tag(:span, class: "label alert -ml-40 mt-1 #{"hidden" if question.survey_answers_published_at.present?}") { t("status.not_published", scope: "decidim.surveys.admin.publish_answers.index") } %>
     </span>
     <span>
@@ -20,4 +20,3 @@
     </span>
   </label>
 </div>
-
