@@ -20,13 +20,11 @@ module Decidim
 
           Decidim::Surveys::PublishAnswers.call(params[:id], current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("success", scope: "decidim.surveys.admin.publish_answers.callout")
-              redirect_to publish_answers_path
+              render json: {}
             end
 
             on(:invalid) do
-              flash[:notice] = I18n.t("invalid", scope: "decidim.surveys.admin.publish_answers.callout")
-              redirect_to publish_answers_path
+              render json: {}, status: :unprocessable_entity
             end
           end
         end
@@ -37,13 +35,11 @@ module Decidim
 
           Decidim::Surveys::UnpublishAnswers.call(params[:id], current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t(".success", scope: "decidim.surveys.admin.unpublish_answers.callout")
-              redirect_to publish_answers_path
+              render json: {}
             end
 
             on(:invalid) do
-              flash[:notice] = I18n.t("invalid", scope: "decidim.surveys.admin.unpublish_answers.callout")
-              redirect_to publish_answers_path
+              render json: {}, status: :unprocessable_entity
             end
           end
         end

@@ -70,19 +70,12 @@ en:
               one: "%{count} answer"
               other: "%{count} answers"
             callout_html: Some of the responses can have personal data. Please <a href="%{link}">review them before publishing</a>.
-            confirm:
-              publish: Are you sure you want to publish the question?
-              unpublish: Are you sure you want to unpublish the question?
             description: By selecting the answers you want to publish, you will make them visible to the public. You can select the answers you want to publish by clicking on the checkbox next to each answer.
             publish: Publish
             status:
               not_published: Not published
               published: Published
             title: Publish answers
-        unpublish_answers:
-          callout:
-            invalid: There was a problem unpublishing the answers.
-            success: The answers have been unpublished successfully.
         surveys:
           update:
             invalid: There was a problem saving the survey.

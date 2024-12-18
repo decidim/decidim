@@ -29,12 +29,9 @@
               <div class="toggle__switch-trigger">
                 <% label = "publish_answer_#{question.id}" %>
                 <label for="<%= label %>" class="toggle__switch-toggle">
-                  <span class="toggle__switch-trigger-text -ml-28 pt-[2px]">
-                    <% if question.survey_answers_published_at.present? %>
-                      <%= content_tag(:span, class: "label success") { t(".status.published") } %>
-                    <% else %>
-                      <%= content_tag(:span, class: "label alert") { t(".status.not_published") } %>
-                    <% end %>
+                  <span class="toggle__switch-trigger-text">
+                    <%= content_tag(:span, class: "label success ml-[-8.5rem] mt-1 #{"hidden" unless question.survey_answers_published_at.present?}") { t(".status.published") } %>
+                    <%= content_tag(:span, class: "label alert -ml-40 mt-1 #{"hidden" if question.survey_answers_published_at.present?}") { t(".status.not_published") } %>
                   </span>
                   <span>
                     <input
@@ -43,7 +40,7 @@
                     type="checkbox"
                     name="<%= label %>"
                     data-publish-question-answer-action="<%= question.survey_answers_published_at.present? ? "unpublish" : "publish" %>"
-                    data-publish-question-answer-question-id="<%= question.id %>">
+                    data-publish-question-answer-question-url="<%= publish_answer_path(question) %>">
                     <span class="toggle__switch-toggle-content">
                     </span>
                     <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
@@ -52,9 +49,6 @@
                 </label>
               </div>
             </div>
-
-            <%= button_to "Publish", { action: :update, id: question.id }, class: "hidden", method: :put, data: { confirm: t(".confirm.publish"), "publish-question-answer" => question.id } %>
-            <%= button_to "Unpublish", { action: :destroy, id: question.id }, class: "hidden", method: :delete, data: { confirm: t(".confirm.unpublish"), "unpublish-question-answer" => question.id } %>
 
             <%= chart_for_question(question.id) %>
           <% end %>
