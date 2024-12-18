@@ -449,9 +449,16 @@ ca:
           attachments: El número de fitxers adjunt que té aquesta proposta
           author: Les dades d'autoria d'aquesta proposta
           body: La descripció de la proposta
+          coauthorships_count: El número d'autories que la proposta representa
           comments: El número de comentaris que té aquesta proposta
           component: El component al qual pertany aquesta proposta
+          cost: El cost total que representa la proposta en qüestió
+          cost_report: Un informe dels costos que representa la proposta
+          created_at: La data en què es va crear la proposta
+          created_in_meeting: Si la proposta s'ha formulat en una trobada
           endorsements: El número d'adhesions ("m'agrada") que té aquesta proposta
+          execution_period: El període d'execució de la proposta, de principi a fi
+          follows_count: El número de seguidores que té aquesta proposta
           id: L'identificador únic de la proposta
           is_amend: Si aquesta proposta és una esmena a una altra proposta o no
           latitude: La latitud de la proposta en cas que aquesta tingui una ubicació física
@@ -463,8 +470,10 @@ ca:
           reference: L'identificador únic del recurs a aquesta plataforma
           related_proposals: Les propostes relacionades amb aquesta proposta
           state: 'L''estat d''aquesta proposta (per exemple: "Acceptada")'
+          state_published_at: Un segell de temps del moment en què es va publicar la proposta
           taxonomies: Les taxonomies a les quals pertany aquesta proposta
           title: El títol de la proposta
+          updated_at: La data de la darrera actualització de la proposta
           url: L'URL on es pot trobar aquesta proposta
           votes: El número de suports que té aquesta proposta
           withdrawn: Si aquesta proposta va ser retirada o no
