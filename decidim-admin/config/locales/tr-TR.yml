@@ -265,7 +265,6 @@ tr:
         solved: Çözüldü
         transfer:
           email: E-Posta
-          error: Mevcut katılımcıyı yönetilen katılımcıya aktarırken bir sorun oluştu.
           name: İsim
           reason: Nedeni
           success: Aktarım başarıyla tamamlandı.
