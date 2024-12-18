@@ -137,18 +137,20 @@ en:
           name: Initiative type
         initiatives_votes:
           fields:
+            date_and_time: Date and time
             date_of_birth: Date of birth
             document_number: Document number
             hash: Hash
             initiative_end_date: End date
             initiative_id: Initiative ID
+            initiative_scope: Scope
             initiative_signatures_count: Number of signatures
             initiative_start_date: Start date
             initiative_title: Initiative title
             name_and_surname: Name and surname
+            nickname: Nickname
             postal_code: Postal code
-            scope: Scope
-            time_and_date: Time and date
+            signature_count: Signature count
             timestamp: Timestamp
       titles:
         initiatives: Initiatives

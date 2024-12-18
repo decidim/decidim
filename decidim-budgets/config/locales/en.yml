@@ -395,20 +395,26 @@ en:
       help:
         projects:
           address: The address of the project (if any)
-          budget: To which group of projects (e.g. "2021 Budget") this project belongs to
+          budget: Data regarding the budget (e.g. "2021 Budget") of the project
           budget_amount: The total amount of the budget for this project
           comments: The number of comments this project has received
           component: The component that the project belongs to
           confirmed_votes: The number of confirmed votes this project has received
           created_at: The date and time when the project was created
           description: The description of the project
+          follows_count: The number of follows the project has
           id: The unique identifier of the project
+          latitude: The latitude of the project in case it has a physical location
+          longitude: The longitude of the project in case it has a physical location
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this project belongs to
+          reference: The unique reference of the project
           related_proposal_titles: The titles of the related proposals
           related_proposal_urls: The URLs of the related proposals
           related_proposals: The related proposals to this project
+          selected_at: The time at which the project was selected
           taxonomies: The taxonomies of the project
           title: The title of the project
+          updated_at: The last date the project was updated
           url: The URL of the project
     orders:
       checkout:
