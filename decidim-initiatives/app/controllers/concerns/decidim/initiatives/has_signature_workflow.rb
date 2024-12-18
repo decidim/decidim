@@ -19,8 +19,7 @@ module Decidim
 
         def signature_workflow_manifest
           @signature_workflow_manifest ||= begin
-            # XXX - This is a temporary trick
-            handler_name = current_initiative.type.document_number_authorization_handler.gsub("authorization", "signature")
+            handler_name = current_initiative.type.document_number_authorization_handler
             Decidim::Initiatives::Signatures.find_workflow_manifest(handler_name) || Decidim::Initiatives::SignatureWorkflowManifest.new
           end
         end
