@@ -457,12 +457,15 @@ en:
           help: Please, fill the following fields with your personal data to sign the initiative.
         finish:
           back_to_initiative: Back to initiative
-        sms_code:
-          continue: Check code and continue
-          help: Check the SMS received at your phone
         sms_phone_number:
-          continue: Send me an SMS
-          help: Fill the form with your verified phone number to request your verification code.
+          confirmed_data: You have confirmed your data.
+          continue: Sign initiative
+          help_confirm_phone_number: Now you need to confirm your phone number to finish validating your identity.
+          help_enter_your_number: Enter your number and you will receive a code that you should type.
+          receive_code: Receive code
+          your_code_is_correct: Your code is correct.
+          your_code_is_wrong: The code is not correct. <a href="%{new_code_path}">Request a new code</a>
+          your_confirmation_code: Your confirmation code
       initiative_votes:
         create:
           error: There was a problem signing the initiative.
