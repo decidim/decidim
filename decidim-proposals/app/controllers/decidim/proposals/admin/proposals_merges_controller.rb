@@ -4,9 +4,12 @@ module Decidim
   module Proposals
     module Admin
       class ProposalsMergesController < Admin::ApplicationController
+        layout false
+
         def new
-          render plain: "bla bla bla"
-          # @form = form(Admin::ProposalsMergeForm).from_params(params)
+          @form = form(Admin::ProposalsMergeForm).from_params(
+            params.merge(attachment: form(AttachmentForm).from_params({}))
+          )
         end
 
         def create

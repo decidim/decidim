@@ -13,9 +13,9 @@ document.addEventListener("decidim:loaded", () => {
         // activateDrawerActions();
       });
     };
-      
+
     button.addEventListener("click", (event) => {
-      fetchUrl(url);
+      fetchUrl(url + new URLSearchParams({ proposal_ids: selectedProposals }));
       drawer.open();
     });
   })

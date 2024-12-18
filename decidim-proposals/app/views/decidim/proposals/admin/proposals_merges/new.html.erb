@@ -1,0 +1,17 @@
+<% add_decidim_page_title(t(".title")) %>
+<div class="item_show__header">
+  <h1 class="item_show__header-title">
+    <%= t(".title") %>
+    <div class="flex items-center gap-x-4">
+      <%= submit_tag(t("decidim.proposals.admin.proposals.index.merge_button"), id: "js-submit-merge-proposals", class: "button button__sm button__secondary small button--simple float-left") %>
+    </div>
+  </h1>
+</div>
+<div class="item__edit item__edit-1col">
+  <div class="item__edit-form">
+    <%= decidim_form_for(@form, url: proposals_merge_path, method: :post, html: { id: "js-form-merge-proposals", class: "form form-defaults" })  do |f| %>
+    <%= @form.proposals %>
+      <%#render partial: "form", object: f, locals: { title: t(".title") } %>
+    <% end %>
+  </div>
+</div>
