@@ -449,7 +449,6 @@ es-MX:
           comments: El número de comentarios que tiene esta propuesta
           component: El componente al que pertenece esta propuesta
           endorsements: El número de adhesiones ("me gusta") que tiene esta propuesta
-          followers: El número de seguidoras que tiene esta propuesta
           id: El identificador único de la propuesta
           is_amend: Si esta propuesta es una enmienda a otra propuesta o no
           latitude: La latitud de la propuesta en caso de que esta tenga una ubicación física
