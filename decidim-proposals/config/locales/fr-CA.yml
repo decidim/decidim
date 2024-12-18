@@ -393,6 +393,18 @@ fr-CA:
         description: Nombre de votes sur des propositions
         object: votes
         title: Votes
+    open_data:
+      help:
+        proposals:
+          coauthorships_count: Le nombre de coauteurs que la proposition représente
+          cost: Le coût total de la proposition en question
+          cost_report: Un rapport sur les coûts de la proposition
+          created_at: La date de création de la proposition
+          created_in_meeting: Si la proposition a été créée dans une réunion
+          execution_period: La période à laquelle la proposition s'est déroulée du début à la fin
+          follows_count: Le nombre de personnes qui suivent cette proposition
+          state_published_at: Un horodatage de l'état de la proposition lorsqu'elle est publiée
+          updated_at: La date de la dernière mise à jour de la proposition
     participatory_spaces:
       highlighted_proposals:
         last: Dernières propositions
