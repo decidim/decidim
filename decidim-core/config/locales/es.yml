@@ -241,6 +241,9 @@ es:
       impersonation_log:
         manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
       moderation:
+        bulk_hide: "%{user_name} ha ocultado %{reported_count} contenidos"
+        bulk_unhide: "%{user_name} ha vuelto a mostrar %{reported_count} contenidos"
+        bulk_unreport: "%{user_name} ha cancelado la denuncia de %{reported_count} contenidos"
         hide: "%{user_name} ocultó un recurso de tipo %{resource_type} en el espacio %{space_name}"
         unreport: "%{user_name} deshizo la denuncia de un recurso de tipo %{resource_type} en el espacio %{space_name}"
       newsletter:
@@ -297,6 +300,9 @@ es:
         update_with_filter_items_count: "%{user_name} ha eliminado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
       user:
         block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
+        bulk_block: "%{user_name} ha bloqueado a %{blocked_count} usuarias"
+        bulk_ignore: "%{user_name} ha cancelado la denuncia de %{unreported_users_count} usuarias"
+        bulk_unblock: "%{user_name} ha desbloqueado a %{unblocked_count} usuarias"
         invite: "%{user_name} invitó a la participante %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó a la participante %{resource_name}"
         promote: "%{user_name} ha promocionado a %{resource_name}"
@@ -307,6 +313,9 @@ es:
         unofficialize: "%{user_name} ha desoficializado a la participante %{resource_name}"
       user_group:
         block: "%{user_name} ha bloqueado al grup de usuarias %{resource_name}"
+        bulk_block: "%{user_name} ha bloqueado a %{blocked_count} usuarias"
+        bulk_ignore: "%{user_name} ha cancelado la denuncia de %{unreported_users_count} usuarias"
+        bulk_unblock: "%{user_name} ha desbloqueado a %{unblocked_count} usuarias"
         reject: "%{user_name} rechazó la verificación del grupo %{resource_name}"
         unblock: "%{user_name} ha desbloqueado el grupo de usuarias %{resource_name}"
         verify: "%{user_name} verificó el grupo %{resource_name}"
