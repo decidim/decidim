@@ -550,6 +550,8 @@ ca:
         conference_registrations:
           conference: La jornada a la qual pertany aquesta inscripció
           id: L'identificador únic de la inscripció a la jornada
+          registration_type: El tipus d'inscripció habilitat para aquesta jornada
+          user: L'identificador únic de la usuària per aquesta inscripció
     events:
       conferences:
         conference_registration_confirmed:
