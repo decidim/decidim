@@ -21,7 +21,6 @@ bundle remove spring spring-watcher-listen
 bundle update decidim
 bin/rails decidim:upgrade
 bin/rails db:migrate
-bin/rails decidim:upgrade:clean:invalid_records
 bin/rails decidim_proposals:upgrade:set_categories
 bin/rails decidim:upgrade:clean:fix_blocked_user_notification
 ```
