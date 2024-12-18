@@ -12,6 +12,10 @@ ca:
         one: Resposta
         other: Respostes
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: Enquestes
     components:
       surveys:
         actions:
