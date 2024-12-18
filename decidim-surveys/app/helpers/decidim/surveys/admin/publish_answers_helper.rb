@@ -18,6 +18,11 @@ module Decidim
         def chart_for_question(question_id)
           question = Decidim::Forms::Question.includes(answers: { choices: [ :answer_option, :matrix_row ] }).find(question_id)
 
+          Chartkick.options = {
+            library: {animation: {easing: 'easeOutQuart'}},
+            colors: colors_list
+          }
+
           case question.question_type
           when "single_option", "multiple_option"
             options_column_chart_wrapper(question)
@@ -52,7 +57,7 @@ module Decidim
             }
           end
 
-          bar_chart tally.sort_by { |data| data[:name] }, stacked: true, colors: colors_list
+          bar_chart(tally.sort_by { |data| data[:name] }, stacked: true, download: true)
         end
 
         def matrix_stack_chart_wrapper(question)
@@ -75,26 +80,29 @@ module Decidim
             }
           end
 
-          column_chart tally, stacked: true, colors: colors_list
+          column_chart(tally, stacked: true, legend: :right, download: true)
         end
 
         def options_column_chart_wrapper(question)
           tally = question.answers.map { |answer| answer.choices.map { |choice| translated_attribute(choice.answer_option.body) } }.tally
 
 
-          column_chart(tally, dataset: { backgroundColor: colors_list, borderWidth: 0 })
+          column_chart(tally, download: true)
         end
 
         def colors_list
-          [
-            'rgba(255, 99, 132, 0.4)',
-            'rgba(255, 159, 64, 0.4)',
-            'rgba(75, 192, 192, 0.4)',
-            'rgba(54, 162, 235, 0.4)',
-            'rgba(153, 102, 255, 0.4)',
-            'rgba(255, 205, 86, 0.4)',
-            'rgba(201, 203, 207, 0.4)'
-          ]
+          %w(
+          #3366CC
+          #DC3912
+          #FF9900
+          #109618
+          #3B3EAC
+          #0099C6
+          #DD4477
+          #66AA00
+          #B82E2E
+          #316395
+        )
         end
       end
     end
