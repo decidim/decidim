@@ -292,7 +292,6 @@ pt:
         title: Conflitos de verificação
         transfer:
           email: e-Mail
-          error: Houve um problema ao transferir o utilizador actual para utilizador gerido.
           name: Nome
           reason: Motivo
           success: A transferência actual foi completada com êxito.
