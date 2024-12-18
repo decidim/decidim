@@ -1,1 +1,19 @@
+---
 bs:
+  activemodel:
+    attributes:
+      oauth_application:
+        organization_logo: Logo organizacije (kvadrat)
+        organization_url: Link organizacije
+        redirect_uri: Preusmeren URL
+      organization:
+        address: SMTP domaćin
+        password: Šifra
+        port: Port
+        user_name: Korisničko ime
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: URI za preusmeravanje mora biti SSL URI
