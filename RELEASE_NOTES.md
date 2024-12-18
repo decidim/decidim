@@ -23,6 +23,7 @@ bin/rails decidim:upgrade
 bin/rails db:migrate
 bin/rails decidim:upgrade:clean:invalid_records
 bin/rails decidim_proposals:upgrade:set_categories
+bin/rails decidim:upgrade:clean:fix_blocked_user_notification
 ```
 
 ### 1.3. Follow the steps and commands detailed in these notes
@@ -128,6 +129,15 @@ We added as part of the upgrade script, so you do not need to do anything about 
 
 You can read more about this change on PR [#13690](https://github.com/decidim/decidim/pull/13624).
 
+### 2.9. Stop notifications to blocked users
+
+When a user is being blocked, their account was still generating notifications, even though the user is not able to use its account. In order to stop any notifications being generated to blocked users, we added the below task.
+
+```ruby
+bin/rails decidim:upgrade:clean:fix_blocked_user_notification
+```
+
+You can read more about this change on PR [#13689](https://github.com/decidim/decidim/pull/13689).
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
