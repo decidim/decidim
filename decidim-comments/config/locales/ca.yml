@@ -16,6 +16,10 @@ ca:
         one: Vot
         other: Vots
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentaris
     comments:
       admin:
         shared:
@@ -107,16 +111,19 @@ ca:
           recent: Recent
         title: 'Ordenar per:'
       comments:
+        against: En contra
         blocked_comments_for_unauthorized_user_warning: Has d'estar verificat abans de poder fer comentaris, però pots llegir els comentaris anteriors.
         blocked_comments_for_user_warning: No pots fer comentaris en aquest moment, però pots llegir els anteriors.
         blocked_comments_warning: Els comentaris estan deshabilitats en aquests moments, només les administradores poden respondre o publicar-ne de nous.
         comment_details_title: Detalls del comentari
+        in_favor: A favor
         loading: Carregant els comentaris ...
         single_comment_warning: <a href="%{url}">Mostra tots els comentaris</a>
         single_comment_warning_title: Estàs veient un sol comentari
         title:
           one: "%{count} comentari"
           other: "%{count} comentaris"
+        top_comment_label: Més ben valorat
       down_vote_button:
         text: No estic d'acord amb aquest comentari
       edit_comment_modal_form:
