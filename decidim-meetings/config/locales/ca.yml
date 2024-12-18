@@ -93,6 +93,9 @@ ca:
         other: Inscripcions
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Trobades
       filters:
         accepted_at_not_null:
           label: Acceptada
