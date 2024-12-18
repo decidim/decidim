@@ -106,7 +106,7 @@ module Decidim
       def sms_code
         redirect_to(finish_path) && return unless sms_step?
 
-        redirect_to sms_phone_number_path && return if session_sms_code.blank?
+        return redirect_to sms_phone_number_path if session_sms_code.blank?
 
         @form = Decidim::Verifications::Sms::ConfirmationForm.new
       end
