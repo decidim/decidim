@@ -21,12 +21,12 @@
       <% @survey.questionnaire.questions.each do |question| %>
         <% next if question.question_type == "separator" %>
 
-        <li class="<%= "text-gray" unless question_answer_is_publicable(question.question_type) %> mb-4">
-          <%= translated_attribute question.body %> (<%= I18n.t("decidim.surveys.admin.publish_answers.index.answers", count: question.answers.count) %>)
+        <li class="<%= "text-gray" unless question_answer_is_publicable(question.question_type) %> mb-6">
+          <div class="inline">
+            <span><%= translated_attribute question.body %> (<%= I18n.t("decidim.surveys.admin.publish_answers.index.answers", count: question.answers.count) %>)</span>
 
-          <% if question_answer_is_publicable(question.question_type) %>
-            <div class="flex flex-row-reverse">
-              <div class="toggle__switch-trigger">
+            <% if question_answer_is_publicable(question.question_type) %>
+              <div class="toggle__switch-trigger float-right">
                 <% label = "publish_answer_#{question.id}" %>
                 <label for="<%= label %>" class="toggle__switch-toggle">
                   <span class="toggle__switch-trigger-text">
@@ -48,9 +48,13 @@
                   </span>
                 </label>
               </div>
-            </div>
+            <% end %>
+          </div>
 
-            <%= chart_for_question(question.id) %>
+          <% if question_answer_is_publicable(question.question_type) %>
+            <div class="m-4">
+              <%= chart_for_question(question.id) %>
+            </div>
           <% end %>
         </li>
       <% end %>
