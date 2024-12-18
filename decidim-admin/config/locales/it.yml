@@ -292,7 +292,6 @@ it:
         title: Verifica dei conflitti
         transfer:
           email: Email
-          error: Si è verificato un problema nel trasferimento dell'utente corrente a partecipante gestito.
           name: Nome
           reason: Motivazione
           success: Il trasferimento è stato completato con successo.
