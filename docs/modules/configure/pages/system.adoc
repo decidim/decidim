@@ -126,8 +126,8 @@ in multi tenant mode. To learn more, check this https://developer.mozilla.org/en
 
 ==== Allow participants to register and login
 
-Most of the installations use this setting. Means that everyone can register a participant account and login, without restrictions, only with an email account confirmation. 
-You can disable that confirmation also if you want to through xref:configure:initializer.adoc[Decidim's initializer], although we do not recommend doing that, 
+Most of the installations use this setting. Means that everyone can register a participant account and login, without restrictions, only with an email account confirmation.
+You can disable that confirmation also if you want to through xref:configure:initializer.adoc[Decidim's initializer], although we do not recommend doing that,
 as it is a measure for stopping spam accounts.
 
 ==== Do not allow participants to register, but allow existing participants to login
