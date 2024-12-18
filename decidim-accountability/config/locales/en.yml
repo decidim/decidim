@@ -70,8 +70,8 @@ en:
               one: 1 proposal will be imported
               other: "%{count} proposals will be imported"
               zero: There are no proposals in this origin component
-            proposal_state: Proposal state
-            select_state: Select state
+            proposal_state: Proposal status
+            select_state: Select status
           form:
             create: Import
             no_components: There are no components in this participatory space to import.
