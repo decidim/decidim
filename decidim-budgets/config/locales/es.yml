@@ -29,6 +29,9 @@ es:
         other: Proyectos
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Proyectos
       filters:
         projects:
           selected_at_null:
