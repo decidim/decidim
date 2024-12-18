@@ -706,7 +706,35 @@ es:
           updated_at: La fecha en la que esta conversación fue actualizado por última vez
         notifications:
           created_at: La fecha y hora en que se creó esta notificación
+          extra: Información adicional de esta notificación
+          id: El identificador único de esta notificación
+          resource_type: El tipo de recurso con el que está relacionada la notificación
+        user_groups:
+          document_number: El número de documento de este grupo de usuarias
+          id: El identificador único de este grupo de usuarias
+          name: El nombre de este grupo de usuarias
+          phone: El número de teléfono de este grupo de usuarias
+          verified_at: La fecha y hora en que se verificó este grupo de usuarias
         users:
+          about: La biografía de esta usuaria
+          admin: Si esta usuaria es una administradora
+          confirmed_at: La fecha y la hora en que se confirmó esta usuaria
+          created_at: La fecha y hora en que se creó esta usuaria
+          current_sign_in_at: La fecha y hora del inicio de sesión actual
+          current_sign_in_ip: La dirección IP del inicio de sesión actual
+          delete_reason: La razón dada para eliminar a esta usuaria
+          deleted_at: La fecha y hora en que se eliminó a esta usuaria
+          email: La dirección de correo electrónico de esta usuaria
+          id: El identificador único de esta usuaria
+          invitation_accepted_at: La fecha y hora en que se aceptó la invitación
+          invitation_created_at: La fecha y hora en que se invitó a esta usuaria
+          invitation_sent_at: La fecha y hora en que se envió la invitación
+          invitations_count: El número de invitaciones enviadas a esta usuaria
+          invited_by: La usuaria que invito a esta usuaria
+          last_sign_in_at: La fecha y hora del último inicio de sesión
+          last_sign_in_ip: La dirección IP del último inicio de sesión
+          locale: La configuración regional (idioma) que ha seleccionado esta usuaria
+          managed: Si se trata de una cuenta de usuaria gestionada (impersonada) o no
           name: El nombre de usuaria de la usuaria
           newsletter_notifications_at: La fecha y hora cuando esta usuaria recibió un boletín informativo por última vez
           nickname: El alias de la usuaria
