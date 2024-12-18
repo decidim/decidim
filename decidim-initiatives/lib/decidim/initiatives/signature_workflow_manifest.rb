@@ -39,6 +39,9 @@ module Decidim
       attribute :promote_authorization_validation_errors, Boolean, default: false
       attribute :ephemeral, Boolean, default: false
       attribute :sms_verification, Boolean, default: true
+      attribute :sms_mobile_phone_form, String, default: nil
+      attribute :sms_mobile_phone_validator, String, default: nil
+      attribute :sms_code_validator, String, default: nil
 
       validates :name, presence: true
       validates :form, presence: true
@@ -55,6 +58,24 @@ module Decidim
         else
           DefaultSignatureAuthorizer
         end
+      end
+
+      def sms_mobile_phone_form_class
+        return unless sms_verification
+
+        sms_mobile_phone_form&.safe_constantize || Decidim::Verifications::Sms::MobilePhoneForm
+      end
+
+      def sms_mobile_phone_validator_class
+        return unless sms_verification
+
+        sms_mobile_phone_validator&.safe_constantize || Decidim::Initiatives::ValidateMobilePhone
+      end
+
+      def sms_code_validator_class
+        return unless sms_verification
+
+        sms_code_validator&.safe_constantize || Decidim::Initiatives::ValidateSmsCode
       end
 
       # For the moment this will not be used
