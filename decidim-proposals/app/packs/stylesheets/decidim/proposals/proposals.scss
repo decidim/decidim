@@ -103,7 +103,7 @@
   }
 
   &__grid-text-title {
-    @apply flex justify-between flex-row items-center md:flex-col md:items-start lg:flex-row lg:items-center;
+    @apply flex justify-between flex-row items-center md:flex-col md:items-start lg:flex-row;
   }
 
   &__list-metadata {
