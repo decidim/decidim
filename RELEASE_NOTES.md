@@ -138,6 +138,7 @@ bin/rails decidim:upgrade:clean:fix_blocked_user_notification
 ```
 
 You can read more about this change on PR [#13689](https://github.com/decidim/decidim/pull/13689).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
