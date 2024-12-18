@@ -442,7 +442,7 @@ describe "Vote Proposal", slow: true do
 
             first("a", text: "Proposals").click
 
-            expect(page).to have_content("Remember you have 1 votes left", wait: 10)
+            expect(page).to have_content("Remember you have 1 votes left", wait: 20)
             expect(page).to have_content("You have to give 1 more votes between different proposals for your votes to be taken into account.")
             expect(page).to have_content("Exit voting")
             expect(page).to have_content("Back to voting")

@@ -85,8 +85,8 @@ module Decidim
       def remaining_minimum_votes_count_for(user)
         return 0 unless vote_limit_enabled?
 
-        proposals = Proposal.where(component: current_component)
-        votes_count = ProposalVote.where(author: user, proposal: proposals).size
+        votes_count = Decidim::Proposals::ProposalVote.joins(:proposal).where(decidim_proposals_proposals: { decidim_component_id: current_component.id }).where(author: user).count
+
         component_settings.minimum_votes_per_user - votes_count
       end
     end
