@@ -29,6 +29,9 @@ ca:
         other: Projectes
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projectes
       filters:
         projects:
           selected_at_null:
