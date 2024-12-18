@@ -11,6 +11,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
+        helper_method :signature_has_steps?
 
         delegate :sms_mobile_phone_form_class, :sms_mobile_phone_validator_class, :sms_code_validator_class, to: :signature_workflow_manifest
 
@@ -28,6 +29,12 @@ module Decidim
           return Decidim::Initiatives::SignatureHandler if signature_workflow_manifest.form.blank?
 
           signature_workflow_manifest.form.constantize
+        end
+
+        def signature_has_steps?
+          return unless current_initiative
+
+          signature_workflow_manifest.sms_verification || signature_workflow_manifest.form.present?
         end
       end
     end
