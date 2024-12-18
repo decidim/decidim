@@ -437,7 +437,6 @@ ja:
           comments: 提案のコメント数
           component: 提案が属するコンポーネント
           endorsements: この提案のオススメ(「いいね」) の数
-          followers: 提案のフォロワー数
           id: 提案の固有ID
           is_amend: この提案が別の提案の修正版かどうか
           latitude: 提案に物理的な場所がある場合の提案の緯度
