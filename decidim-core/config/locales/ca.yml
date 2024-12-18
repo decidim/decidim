@@ -706,7 +706,35 @@ ca:
           updated_at: La data en què aquesta conversa es va actualitzar per darrera vegada
         notifications:
           created_at: La data i l'hora en què es va crear aquesta notificació
+          extra: Informació addicional sobre aquesta notificació
+          id: L'identificador únic d'aquesta notificació
+          resource_type: El tipus de recurs amb el qual està relacionat amb la notificació
+        user_groups:
+          document_number: El número de document d'aquest grup d'usuàries
+          id: L'identificador únic d'aquest d'usuàries
+          name: El nom d'aquest grup d'usuàries
+          phone: El número de telèfon d'aquest grup d'usuàries
+          verified_at: La data i l'hora en què es va verificar aquest grup d'usuàries
         users:
+          about: L'àlies d'aquesta usuària
+          admin: Si aquesta usuària és una administradora
+          confirmed_at: La data i l'hora en què es va confirmar aquesta usuària
+          created_at: La data i l'hora en què es va crear aquesta usuària
+          current_sign_in_at: La data i l'hora de l'inici de sessió actual
+          current_sign_in_ip: L'adreça IP de l'inici de sessió actual
+          delete_reason: La raó donada per eliminar a aquesta usuària
+          deleted_at: La data i l'hora en què es va eliminar aquesta usuària
+          email: L'adreça de correu electrònic d'aquesta usuària
+          id: L'identificador únic d'aquesta usuària
+          invitation_accepted_at: La data i l'hora en què es va acceptar la invitació
+          invitation_created_at: La data i l'hora en què es va convidar a aquesta usuària
+          invitation_sent_at: La data i l'hora en què es va enviar la invitació
+          invitations_count: El número d'invitacions enviades a aquesta usuària
+          invited_by: La usuària que va convidar a aquesta usuària
+          last_sign_in_at: La data i l'hora del darrer inici de sessió
+          last_sign_in_ip: L'adreça IP del darrer inici de sessió
+          locale: La configuració regional (idioma) que ha seleccionat aquesta usuària
+          managed: Si es tracta d'una usuària gestionada (impersonada) o no
           name: El nom d'usuària de la usuària
           newsletter_notifications_at: La data i l'hora en què aquesta usuària va rebre un butlletí informatiu per darrera vegada
           nickname: L'àlies d'aquesta usuària
