@@ -2,7 +2,8 @@
 
 Every Decidim is multi-tenant by default. That means that you can have multiple organizations inside a same installation. 
 This is being used for instance for the Barcelona and Girona Provincial Governments, for offering Decidim installations 
-to many small cities, or by the City of Barcelona, for giving service to lots of organizations (organizations, cooperatives, etc).
+to many small cities, or by the City of Barcelona, for giving service to lots of organizations (associations, 
+federations, cooperatives, etc).
 
 Even if you only have one organization you need to create it through the System Panel. 
 It is available after you have installed Decidim, at `/system`. For instance if you domain is `example.org`, 
@@ -125,7 +126,7 @@ in multi tenant mode. To learn more, check this https://developer.mozilla.org/en
 
 ==== Allow participants to register and login
 
-Most of the installations use this setting. Means that everyone can register a participant account and login, without restrictions, only with an email account confirmation (and you can disable that confirmation also if you want to through xref:configure:initializer.adoc[Decidim's initializer])
+Most of the installations use this setting. Means that everyone can register a participant account and login, without restrictions, only with an email account confirmation. You can disable that confirmation also if you want to through xref:configure:initializer.adoc[Decidim's initializer], although we don't recommend doing that, as it's a measure for stopping spam accounts.
 
 ==== Do not allow participants to register, but allow existing participants to login
 
@@ -139,4 +140,4 @@ In the case where you have an external provider configured (like the `Omniauth s
 
 Finally, you can also Edit an organization, although some fields cannot be changed as some contents in the database depends on them.
 
-For accessing your newly created Organization, you can do it going to the domain or subdomain that you have configured in `Host`.
+For accessing your newly created Organization, you can do it by going to the domain or subdomain that you have configured in `Host`.
