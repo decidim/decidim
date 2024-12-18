@@ -93,6 +93,9 @@ es:
         other: Inscripción
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Encuentros
       filters:
         accepted_at_not_null:
           label: Aceptada
