@@ -26,6 +26,13 @@ es:
           request_invalid: Se ha producido un problema al procesar la solicitud. Por favor, vuelve a intentarlo.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: La respuesta a la pregunta
+          id: El identificador único de la respuesta
+          question: La pregunta que se respondió
+          questionnaire: La encuesta que fue respondida
+          user: La usuaria que respondió a la encuesta
       show:
         answers: Exportar las respuestas
         survey_user_answers: Respuestas de las usuarias a la encuesta
