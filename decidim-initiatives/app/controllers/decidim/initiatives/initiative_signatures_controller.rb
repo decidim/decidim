@@ -11,6 +11,7 @@ module Decidim
       layout "layouts/decidim/initiative_signature_creation"
       include Decidim::Initiatives::NeedsInitiative
       include Decidim::FormFactory
+      include Decidim::Initiatives::HasSignatureWorkflow
 
       prepend_before_action :set_wizard_steps
       before_action :authenticate_user!
@@ -36,11 +37,10 @@ module Decidim
       def create
         enforce_permission_to :vote, :initiative, initiative: current_initiative
 
-        @form = form(Decidim::Initiatives::VoteForm)
-                .from_params(
-                  initiative: current_initiative,
-                  signer: current_user
-                )
+        @form = form(signature_form_class).from_params(
+          initiative: current_initiative,
+          user: current_user
+        )
 
         VoteInitiative.call(@form) do
           on(:ok) do
@@ -57,11 +57,10 @@ module Decidim
       def fill_personal_data
         redirect_to(sms_phone_number_path) && return unless fill_personal_data_step?
 
-        @form = form(Decidim::Initiatives::VoteForm)
-                .from_params(
-                  initiative: current_initiative,
-                  signer: current_user
-                )
+        @form = form(signature_form_class).from_params(
+          initiative: current_initiative,
+          user: current_user
+        )
       end
 
       def store_personal_data
@@ -70,6 +69,7 @@ module Decidim
         build_vote_form(params)
 
         if @vote_form.invalid?
+          # TODO - Use other method for invalid_authorization handler
           flash[:alert] = I18n.t("personal_data.invalid", scope: "decidim.initiatives.initiative_votes")
           @form = @vote_form
 
@@ -82,17 +82,17 @@ module Decidim
       def sms_phone_number
         redirect_to(finish_path) && return unless sms_step?
 
-        @form = Decidim::Verifications::Sms::MobilePhoneForm.new
+        @form = sms_mobile_phone_form_class.new
       end
 
       def store_sms_phone_number
         redirect_to(finish_path) && return unless sms_step?
 
-        @form = Decidim::Verifications::Sms::MobilePhoneForm.from_params(params.merge(user: current_user))
+        @form = sms_mobile_phone_form_class.from_params(params.merge(user: current_user))
 
-        ValidateMobilePhone.call(@form, current_user) do
+        sms_mobile_phone_validator_class.call(@form, current_user) do
           on(:ok) do |metadata|
-            store_session_sms_code(metadata)
+            store_session_sms_code(metadata, @form.mobile_phone_number)
             redirect_to sms_code_path
           end
 
@@ -106,24 +106,41 @@ module Decidim
       def sms_code
         redirect_to(finish_path) && return unless sms_step?
 
-        redirect_to sms_phone_number_path && return if session_sms_code.blank?
+        return redirect_to sms_phone_number_path if session_sms_code.blank?
 
-        @form = Decidim::Verifications::Sms::ConfirmationForm.new
+        @sms_code_form = Decidim::Verifications::Sms::ConfirmationForm.new
+        @phone_number_form = sms_mobile_phone_form_class.from_params(mobile_phone_number: session_sms_code[:phone_number], user: current_user)
       end
 
       def store_sms_code
         redirect_to(finish_path) && return unless sms_step?
 
-        @form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
-        ValidateSmsCode.call(@form, session_sms_code) do
+        @sms_code_form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
+        sms_code_validator_class.call(@sms_code_form, session_sms_code) do
           on(:ok) do
-            clear_session_sms_code
-            redirect_to finish_path
+            respond_to do |format|
+              format.js do
+                render json: { sms_code: "OK" }
+              end
+
+              format.html do
+                clear_session_sms_code
+                redirect_to finish_path
+              end
+            end
           end
 
           on(:invalid) do
-            flash[:alert] = I18n.t("sms_code.invalid", scope: "decidim.initiatives.initiative_votes")
-            render :sms_code
+            respond_to do |format|
+              format.js do
+                render json: { sms_code: "KO" }
+              end
+
+              format.html do
+                flash[:alert] = I18n.t("sms_code.invalid", scope: "decidim.initiatives.initiative_votes")
+                render :sms_code
+              end
+            end
           end
         end
       end
@@ -169,13 +186,13 @@ module Decidim
       end
 
       def build_vote_form(parameters)
-        @vote_form = form(Decidim::Initiatives::VoteForm).from_params(parameters).tap do |form|
+        @vote_form = form(signature_form_class).from_params(parameters).tap do |form|
           form.initiative = current_initiative
-          form.signer = current_user
+          form.user = current_user
         end
 
         session[:initiative_vote_form] ||= {}
-        session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values.except(:initiative, :signer))
+        session[:initiative_vote_form] = session[:initiative_vote_form].merge(@vote_form.attributes_with_values.except(:initiative, :user))
       end
 
       def initiative_type
@@ -183,11 +200,11 @@ module Decidim
       end
 
       def sms_step?
-        current_initiative.validate_sms_code_on_votes?
+        current_initiative.organization.available_authorizations.include?("sms") && signature_workflow_manifest.sms_verification
       end
 
       def fill_personal_data_step?
-        initiative_type.collect_user_extra_fields?
+        signature_workflow_manifest.form.present?
       end
 
       def authorize_wizard_step
@@ -205,9 +222,9 @@ module Decidim
       end
 
       def session_vote_form
-        attributes = session[:initiative_vote_form].merge(initiative: current_initiative, signer: current_user)
+        attributes = session[:initiative_vote_form].merge(initiative: current_initiative, user: current_user)
 
-        @vote_form = form(Decidim::Initiatives::VoteForm).from_params(attributes)
+        @vote_form = form(signature_form_class).from_params(attributes)
       end
 
       def check_session_personal_data
@@ -221,8 +238,8 @@ module Decidim
         session[:initiative_sms_code] = {}
       end
 
-      def store_session_sms_code(metadata)
-        session[:initiative_sms_code] = metadata
+      def store_session_sms_code(metadata, phone_number)
+        session[:initiative_sms_code] = metadata.merge(phone_number:)
       end
 
       def session_sms_code

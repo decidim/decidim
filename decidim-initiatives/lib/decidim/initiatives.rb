@@ -5,6 +5,7 @@ require "decidim/initiatives/api"
 require "decidim/initiatives/engine"
 require "decidim/initiatives/admin_engine"
 require "decidim/initiatives/participatory_space"
+require "decidim/initiatives/signatures"
 
 module Decidim
   module Exporters
@@ -14,6 +15,7 @@ module Decidim
   # Base module for the initiatives engine.
   module Initiatives
     autoload :ApplicationFormPDF, "decidim/initiatives/application_form_pdf"
+    autoload :ValidatableAuthorizations, "decidim/initiatives/validatable_authorizations"
 
     include ActiveSupport::Configurable
 

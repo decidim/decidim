@@ -26,6 +26,7 @@ module Decidim
       include Decidim::Initiatives::Orderable
       include TypeSelectorOptions
       include NeedsInitiative
+      include HasSignatureWorkflow
       include SingleInitiativeType
       include Decidim::IconHelper
 
