@@ -129,6 +129,20 @@ ca:
         title: Edita el teu comentari
       up_vote_button:
         text: Estic d'acord amb aquest comentari
+    download_your_data:
+      help:
+        comments:
+          alignment: Si aquest comentari va ser a favor, en contra o neutral
+          author: El nom d'usuària de la participant que va fer aquest comentari
+          body: El comentari pròpiament
+          commentable_id: L'identificador únic d'allò que es podia comentar
+          commentable_type: La tipologia d'allò sobre el que es va fer el comentari (si va ser un resultat, una proposta, etc.)
+          created_at: La data en què es va crear aquest comentari
+          depth: El lloc on es troba aquest comentari a la terna de comentaris (si és una resposta a un comentari, o la resposta d'una resposta)
+          id: L'identificador d'aquest comentari
+          locale: La configuració regional (idioma) que la participant tenia en deixar aquest comentari
+          root_commentable_url: L'URL (adreça web) del recurs que enllaça amb aquest comentari
+          user_group: El nom del grup d'usuàries que va fer aquest comentari (si n'hi ha)
     events:
       comments:
         comment_by_followed_user:
