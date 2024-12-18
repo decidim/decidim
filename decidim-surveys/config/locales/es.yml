@@ -12,6 +12,10 @@ es:
         one: Respuesta
         other: Respuestas
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: Encuestas
     components:
       surveys:
         actions:
