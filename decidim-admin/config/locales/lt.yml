@@ -350,7 +350,6 @@ lt:
         title: Patikros konfliktai
         transfer:
           email: El. paštas
-          error: Iškilo problema perkeliant dabartinį dalyvį į tvarkomą dalyvį.
           name: Vardas
           reason: Priežastis
           success: Perkėlimas sėkmingai baigtas.
