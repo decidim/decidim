@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const signOutPath = window.Decidim.config.get("sign_out_path");
   let exitLinkText = defaultExitLinkText;
 
-  if (exitNotification.length < 1) {
+  if (!exitNotification) {
     // Do not apply when not inside the voting pipeline
     return;
   }
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (
         !allowExitFrom(link) &&
-        ((window.Decidim.currentDialogs["exit-proposal-notification"].dialog.querySelector("[data-dialog-container]")).dataset.minimumVotesReached !== true)
+        ((window.Decidim.currentDialogs["exit-proposal-notification"].dialog.querySelector("[data-dialog-container]")).dataset.minimumVotesReached !== "true")
       ) {
         event.preventDefault();
         openExitNotification(link.getAttribute("href"), link.dataset.method);
