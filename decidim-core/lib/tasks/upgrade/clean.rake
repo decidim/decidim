@@ -10,7 +10,8 @@ namespace :decidim do
         :"decidim:upgrade:clean:follows",
         :"decidim:upgrade:clean:categories",
         :"decidim:upgrade:clean:action_logs",
-        :"decidim:upgrade:clean:clean_deleted_users"
+        :"decidim:upgrade:clean:clean_deleted_users",
+        :"decidim:upgrade:clean:fix_blocked_user_notification"
       ]
 
       desc "Remove data from deleted users"
