@@ -112,6 +112,9 @@ ca:
         other: Suports
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Propostes
       filters:
         proposals:
           is_emendation_true:
