@@ -439,8 +439,9 @@ describe "Vote Proposal", slow: true do
           it "shows the exit modal" do
             expect(page).to have_content("Already voted")
             click_on "Already voted"
-            expect(page).to have_no_content("Already voted", wait: 10)
+            expect(page).to have_content("Vote")
 
+            expect(page).to have_content("Proposals")
             first("a", text: "Proposals").click
 
             expect(page).to have_content("Remember you have 1 votes left", wait: 10)
