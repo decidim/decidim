@@ -9,7 +9,10 @@ const allowExitFrom = (el) => {
 document.addEventListener("DOMContentLoaded", () => {
   const exitNotification = document.getElementById("exit-proposal-notification");
   const exitLink = document.getElementById("exit-proposal-notification-link");
-  const defaultExitUrl = exitLink.getAttribute("href");
+  if (!exitLink) {
+    return;
+  }
+  const defaultExitUrl = exitLink.href;
   const defaultExitLinkText = exitLink.textContent;
   const signOutPath = window.Decidim.config.get("sign_out_path");
   let exitLinkText = defaultExitLinkText;
