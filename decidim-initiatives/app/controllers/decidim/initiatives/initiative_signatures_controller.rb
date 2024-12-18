@@ -92,7 +92,7 @@ module Decidim
 
         ValidateMobilePhone.call(@form, current_user) do
           on(:ok) do |metadata|
-            store_session_sms_code(metadata)
+            store_session_sms_code(metadata, @form.mobile_phone_number)
             redirect_to sms_code_path
           end
 
@@ -221,8 +221,8 @@ module Decidim
         session[:initiative_sms_code] = {}
       end
 
-      def store_session_sms_code(metadata)
-        session[:initiative_sms_code] = metadata
+      def store_session_sms_code(metadata, phone_number)
+        session[:initiative_sms_code] = metadata.merge(phone_number:)
       end
 
       def session_sms_code
