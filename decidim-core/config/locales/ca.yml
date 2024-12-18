@@ -690,13 +690,50 @@ ca:
     download_your_data:
       export:
         ready: Llest
+      help:
+        core:
+          description: Aquests són els fitxers amb les dades personals, les contribucions i l'activitat de la usuària %{user_name}
+          title: Descarrega els teus fitxers de dades des de %{organization}
+        follows:
+          created_at: La data i l'hora en què vas demanar "Seguir"
+          followable: El recurs o l'espai de participació que s'està seguint
+          id: L'identificador únic d'aquest seguiment
+          updated_at: La data de la darrera actualització del seguiment
+        messaging_conversations:
+          created_at: La data en què es va iniciar aquesta conversa
+          id: L'identificador únic d'aquesta conversa
+          messages: Els missatges d'aquesta conversa
+          updated_at: La data en què aquesta conversa es va actualitzar per darrera vegada
+        notifications:
+          created_at: La data i l'hora en què es va crear aquesta notificació
+        users:
+          name: El nom d'usuària de la usuària
+          newsletter_notifications_at: La data i l'hora en què aquesta usuària va rebre un butlletí informatiu per darrera vegada
+          nickname: L'àlies d'aquesta usuària
+          notification_settings: La configuració de les notificacions que ha seleccionat aquesta usuària
+          notifications_sending_frequency: La freqüència amb què aquesta usuària rep les notificacions
+          officialized_as: La descripció de l'oficialització (Alcaldia, Conselleria, etc.)
+          officialized_at: La data i l'hora en què aquesta usuària va ser oficialitzada
+          organization: L'organització a la qual pertany aquesta usuària
+          personal_url: L'URL personal d'aquesta usuària
+          reset_password_sent_at: La data i l'hora en què es va enviar el correu per a restaurar la contrasenya
+          sign_in_count: El número de vegades en què aquesta usuària ha iniciat la seva sessió
+          unconfirmed_email: El correu electrònic que aquesta usuària encara no ha confirmat
+          updated_at: La data de la darrera actualització d'aquesta usuària
       show:
         action: Acció
+        download: Descarregar fitxer
+        download_data: Descarregar dades
         download_data_description_1: Aquí pots trobar totes les descàrregues disponibles pel teu compte. Aquests fitxers .zip estaran disponibles durant dues setmanes abans de ser eliminats.
         download_data_description_2: Pots sol·licitar un fitxer .zip amb les teves aportacions i informació personal.
         download_your_data: Dades personals
         expiration: Data de caducitat
         expired: Ha caducat
+        explanation:
+          body_1: Aquests fitxers són conjunts de dades exportades de la teva activitat en aquesta plataforma, com ara propostes, o comentaris. Proporcionen dades en brut (sense processar) i estructurades que poden ser utilitzades per a anàlisi, investigació o integració amb altres eines
+          body_2: Aquests fitxers estan en format CSV (valors separats per comes), un format de fitxer àmpliament utilitzat que pot ser obert i processat per una varietat d'aplicacions de programari, incloent-hi programes de fulls de càlcul, editors de text i eines d'anàlisi de dades.
+          title: Què són aquests fitxers?
+        files_to_download: Fitxer a descarregar
         request_data: Sol·licitar
         type: Tipus de descàrrega
     editor_images:
