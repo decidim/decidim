@@ -38,7 +38,7 @@ module Decidim
       attribute :save_authorizations, Boolean, default: true
       attribute :promote_authorization_validation_errors, Boolean, default: false
       attribute :ephemeral, Boolean, default: false
-      attribute :sms_verification, Boolean, default: true
+      attribute :sms_verification, Boolean, default: false
       attribute :sms_mobile_phone_form, String, default: nil
       attribute :sms_mobile_phone_validator, String, default: nil
       attribute :sms_code_validator, String, default: nil
