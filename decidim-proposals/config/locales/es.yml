@@ -112,6 +112,9 @@ es:
         other: Apoyo
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Propuestas
       filters:
         proposals:
           is_emendation_true:
