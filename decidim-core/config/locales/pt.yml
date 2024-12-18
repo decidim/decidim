@@ -413,9 +413,6 @@ pt:
     download_your_data:
       export:
         ready: Pronto
-      show:
-        download_data: Transferir os dados
-        request_data: Solicitar dados
     endorsements:
       identities:
         done: Concluído
@@ -561,10 +558,7 @@ pt:
           notification_title: A <a href="%{resource_path}">página de perfil</a> de %{name} (%{nickname}), que você segue, foi atualizada.
     export_mailer:
       download_your_data_export:
-        click_button: 'Clique na ligação seguinta para descarregar os seus dados. <Br/> Irá precisar  de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS), ou <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abrir o ficheiro. Palavra-chave: %{password}'
         download: Transferir
-      export:
-        ready: Por favor, encontre em anexo uma versão zip da sua exportação.
       subject: A sua exportação "%{name}" está pronta
     filters:
       linked_classes:
@@ -991,10 +985,6 @@ pt:
         title: Denunciar utilizador inapropriado
       floating_help:
         help: Ajuda
-      participatory_space_filters:
-        filters:
-          areas: Áreas
-          select_an_area: Selecione uma área
       public_participation:
         public_participation: Mostrar publicamente a minha participação
       reference:
@@ -1021,9 +1011,6 @@ pt:
       pages_count: Páginas
       participants_count: Participantes
       users_count: Participantes
-    tags:
-      filter_results_for_category: 'Resultados do filtro para a categoria: %{resource}'
-      filter_results_for_scope: 'Resultados do filtro para o âmbito: %{resource}'
     translation_bar:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não ser 100% fidedigno."
       show_original: Mostrar texto original
@@ -1216,7 +1203,6 @@ pt:
       footer:
         cc_by_license: Licença Creative Commons
         decidim_logo: Logótipo do Decidim
-        download_open_data: Transferir ficheiros Open Data
         log_in: Entrar
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
       header:

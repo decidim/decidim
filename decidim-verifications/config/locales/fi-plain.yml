@@ -124,17 +124,6 @@ fi-pl:
         destroy:
           error: Vahvistuksen poisto epäonnistui.
           success: Vahvistuksen poisto onnistui.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Varmista toisen esimerkkivahvistustavan käsittelijällä
-            csv_census: Vahvista organisaation rekisteritietojen avulla
-            dummy_authorization_handler: Vahvista tili esimerkkivaltuuttajan avulla
-            dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
-            id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
-            postal_letter: Vahvista tilisi paperipostissa lähetettävän vahvistuskoodin avulla
-            sms: Vahvista tilisi tekstiviestillä lähetettävällä vahvistuskoodilla
-          title: Vahvista henkilöllisyytesi
-          verify_with_these_options: 'Käytettävissä olevat tavat vahvistaa identiteettisi:'
         index:
           expired_verification: Vahvistus on erääntynyt
           granted_verification: Hyväksytyt tunnistautumiset
@@ -146,6 +135,13 @@ fi-pl:
         new:
           authorize: Lähetä
           authorize_with: Vahvista palvelulla %{authorizer}
+        onboarding_pending:
+          completed_verifications: Käyttäjätilisi vahvistaminen onnistui, voit nyt suorittaa toiminnon %{action} kohteessa %{resource_name}
+          granted_verifications: Myönnetyt vahvistukset
+          onboarding_message_html: Melkein valmista suorittaaksesi toiminnon %{action} kohteessa <strong>%{resource_title}</strong> %{resource_name}. Vahvista tilisi suorittamalla seuraavat tilin vahvistustoimet.
+          pending_admin_approval_verifications: Hallintakäyttäjän tarkastusta odottavat vahvistukset
+          pending_verifications: Odottavat vahvistukset
+          unauthorized: Sinulla ei ole oikeutta suorittaa toimintoa %{action} tässä kohteessa
         renew_modal:
           cancel: Peruuta
           continue: Jatka

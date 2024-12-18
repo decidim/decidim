@@ -233,9 +233,6 @@ uk:
     download_your_data:
       export:
         ready: Готово
-      show:
-        download_data: Завантажити дані
-        request_data: Подати запит на дані
     errors:
       internal_server_error:
         title: При з'єднанні з нашим сервером сталася помилка
@@ -269,8 +266,6 @@ uk:
     export_mailer:
       download_your_data_export:
         download: Завантажити
-      export:
-        ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
       subject: Ваш збережений файл "%{name}" готовий
     filters:
       linked_classes:

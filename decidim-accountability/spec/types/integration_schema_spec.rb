@@ -2,10 +2,84 @@
 
 require "spec_helper"
 require "decidim/api/test/component_context"
-require "decidim/accountability/test/factories"
 
 describe "Decidim::Api::QueryType" do
-  include_context "with a graphql decidim component"
+  include_context "with a graphql decidim component" do
+    let(:component_fragment) do
+      %(
+      fragment fooComponent on Accountability {
+        result(id: #{result.id}) {
+          acceptsNewComments
+          taxonomies {
+            id
+          }
+          children {
+            id
+          }
+          childrenCount
+          comments {
+            id
+          }
+          commentsHaveAlignment
+          commentsHaveVotes
+          createdAt
+          description {
+            translation(locale:"#{locale}")
+          }
+          endDate
+          externalId
+          hasComments
+          id
+          parent {
+            id
+          }
+          progress
+          reference
+          startDate
+          status {
+            id
+            createdAt
+            description {
+              translation(locale:"#{locale}")
+            }
+            key
+            name {
+              translation(locale:"#{locale}")
+            }
+            progress
+            results {
+              id
+            }
+            updatedAt
+          }
+          timelineEntries {
+            id
+            createdAt
+            title {
+              translation(locale:"#{locale}")
+            }
+            description {
+              translation(locale:"#{locale}")
+            }
+            entryDate
+            result {
+              id
+            }
+            updatedAt
+          }
+          title {
+            translation(locale:"#{locale}")
+          }
+          totalCommentsCount
+          type
+          updatedAt
+          userAllowedToComment
+          weight
+        }
+      }
+    )
+    end
+  end
   let(:component_type) { "Accountability" }
   let!(:current_component) { create(:accountability_component, participatory_space: participatory_process) }
   let!(:result) { create(:result, component: current_component, taxonomies:) }
@@ -74,6 +148,26 @@ describe "Decidim::Api::QueryType" do
       },
       "weight" => 0
     }
+  end
+
+  describe "commentable" do
+    let(:component_fragment) { nil }
+
+    let(:participatory_process_query) do
+      %(
+        commentable(id: "#{result.id}", type: "Decidim::Accountability::Result", locale: "en", toggleTranslations: false) {
+          __typename
+        }
+      )
+    end
+
+    it "executes successfully" do
+      expect { response }.not_to raise_error
+    end
+
+    it do
+      expect(response).to eq({ "commentable" => { "__typename" => "Result" } })
+    end
   end
 
   describe "valid connection query" do
@@ -164,85 +258,16 @@ describe "Decidim::Api::QueryType" do
   end
 
   describe "valid query" do
-    let(:component_fragment) do
-      %(
-      fragment fooComponent on Accountability {
-        result(id: #{result.id}) {
-          acceptsNewComments
-          taxonomies {
-            id
-          }
-          children {
-            id
-          }
-          childrenCount
-          comments {
-            id
-          }
-          commentsHaveAlignment
-          commentsHaveVotes
-          createdAt
-          description {
-            translation(locale:"#{locale}")
-          }
-          endDate
-          externalId
-          hasComments
-          id
-          parent {
-            id
-          }
-          progress
-          reference
-          startDate
-          status {
-            id
-            createdAt
-            description {
-              translation(locale:"#{locale}")
-            }
-            key
-            name {
-              translation(locale:"#{locale}")
-            }
-            progress
-            results {
-              id
-            }
-            updatedAt
-          }
-          timelineEntries {
-            id
-            createdAt
-            title {
-              translation(locale:"#{locale}")
-            }
-            description {
-              translation(locale:"#{locale}")
-            }
-            entryDate
-            result {
-              id
-            }
-            updatedAt
-          }
-          title {
-            translation(locale:"#{locale}")
-          }
-          totalCommentsCount
-          type
-          updatedAt
-          userAllowedToComment
-          weight
-        }
-      }
-    )
-    end
-
     it "executes successfully" do
       expect { response }.not_to raise_error
     end
 
     it { expect(response["participatoryProcess"]["components"].first["result"]).to eq(accountability_single_result) }
+  end
+
+  include_examples "with resource visibility" do
+    let(:component_factory) { :accountability_component }
+    let(:lookout_key) { "result" }
+    let(:query_result) { accountability_single_result }
   end
 end

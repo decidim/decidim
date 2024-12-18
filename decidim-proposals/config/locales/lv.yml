@@ -4,7 +4,6 @@ lv:
       collaborative_draft:
         address: Adrese
         body: Pamatteksts
-        category_id: Kategorija
         decidim_scope_id: Darbības tvērums
         has_address: Ir adrese
         state: Stāvoklis
@@ -16,7 +15,6 @@ lv:
         answered_at: Atbildēts
         automatic_hashtags: Automātiski tiek pievienotas mirkļbirkas
         body: Pamatteksts
-        category_id: Kategorija
         decidim_scope_id: Darbības tvērums
         has_address: Ir adrese
         state: Stāvoklis
@@ -47,8 +45,6 @@ lv:
             title:
               identical: UN pamatteksts nevar būt identisks
     models:
-      decidim/proposals/admin/update_proposal_category_event: Priekšlikuma kategorija ir mainīta
-      decidim/proposals/admin/update_proposal_scope_event: Priekšlikuma tvērums ir mainīts
       decidim/proposals/creation_enabled_event: Priekšlikuma izveide ir iespējota
       decidim/proposals/endorsing_enabled_event: Priekšlikuma atbalstīšana ir iespējota
       decidim/proposals/proposal_mentioned_event: Priekšlikums ir minēts
@@ -80,7 +76,6 @@ lv:
       proposals:
         actions:
           amend: Grozīt
-          create: Izveidot
           endorse: Atbalstīt
           withdraw: Atsaukt
         name: Priekšlikumi
@@ -172,16 +167,6 @@ lv:
           email_intro: Priekšlikums "%{resource_title}" ir pievienots "%{participatory_space_title}", kam jūs sekojat.
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat "%{participatory_space_title}". Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
           email_subject: Jauns priekšlikums "%{resource_title}" tika pievienots %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'Administrators ir atjauninājis jūsu priekšlikuma kategoriju "%{resource_title}", aplūkojiet to šajā lapā:'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo esat priekšlikuma autors.
-          email_subject: '%{resource_title} priekšlikuma kategorija ir atjaunināta'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> administrators ir atjauninājis priekšlikuma kategoriju.
-        proposal_update_scope:
-          email_intro: 'Administrators ir atjauninājis jūsu priekšlikuma tvērumu "%{resource_title}", aplūkojiet to šajā lapā:'
-          email_outro: Jūs saņēmāt šo paziņojumu, jo esat priekšlikuma autors.
-          email_subject: '%{resource_title} priekšlikuma tvērums tika atjaunināts'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> administrators ir atjauninājis priekšlikuma tvērumu.
         voting_enabled:
           email_outro: Jūs saņēmāt šo paziņojumu, jo sekojat %{participatory_space_title}. Jūs varat atteikties no paziņojumu saņemšanas, sekojot iepriekšējai saitei.
     gamification:
@@ -283,15 +268,12 @@ lv:
           form:
             attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
             created_in_meeting: Šis priekšlikums tika izteikts sanāksmē
-            select_a_category: Izvēlieties kategoriju
             select_a_meeting: Atlasiet sanāksmi
           index:
             actions: Darbības
             assign_to_valuator: Piešķirt vērtētājam
             assign_to_valuator_button: Piešķirt
             cancel: Atcelt
-            change_category: Mainīt kategoriju
-            change_scope: Mainīt tvērumu
             merge: Apvienot jaunā
             merge_button: Apvienot
             publish: Publicēt
@@ -304,7 +286,6 @@ lv:
             unassign_from_valuator: Atsaukt no vērtētāja
             unassign_from_valuator_button: Atsaukt
             update: Atjaunināt
-            update_scope_button: Atjaunināt tvērumu
           new:
             create: Izveidot
             title: Izveidot priekšlikumu
@@ -326,12 +307,6 @@ lv:
             remove_assignment: Noņemt uzdevumu
             remove_assignment_confirmation: Vai tiešām vēlaties noņemt vērtētāju šim priekšlikumam?
             valuators: Vērtētāji
-          update_category:
-            invalid: 'Šiem priekšlikumiem jau bija %{subject_name} kategorija: %{proposals}.'
-            success: 'Priekšlikumi ir veiksmīgi atjaunināti kategorijā %{subject_name} kategorija: %{proposals}.'
-          update_scope:
-            invalid: 'Šiem priekšlikumiem jau bija %{subject_name} tvērums: %{proposals}.'
-            success: 'Priekšlikumi ir veiksmīgi atjaunināti %{subject_name} tvērumam: %{proposals}.'
         proposals_imports:
           new:
             create: Importēt priekšlikumus
@@ -395,17 +370,14 @@ lv:
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
-          select_a_category: Lūdzu, izvēlieties kategoriju
           send: Sūtīt
           title: Rediģēt sadarbības projektu
         filters:
           all: Visi
           amendment: Grozījumi
-          category: Kategorija
           open: Atvērti
           published: Publicēts
           related_to: Saistīts ar
-          scope: Darbības tvērums
           search: Meklēt
           state: Statuss
           withdrawn: Atsaukts
@@ -440,7 +412,6 @@ lv:
           rejected_request:
             error: Nevarēja noraidīt sadarbības pieprasījumu, lūdzu, vēlāk mēģiniet vēlreiz.
         show:
-          edit: Rediģēt sadarbības projektu
           final_proposal: galīgais priekšlikums
           final_proposal_help_text: Šis projekts ir pabeigts. Iepazīstieties ar galīgo priekšlikumu
           hidden_authors_count:
@@ -471,13 +442,11 @@ lv:
       models:
         proposal:
           fields:
-            category: Kategorija
             comments: Komentāri
             notes: Piezīmes
             official_proposal: Oficiālais priekšlikums
             published_answer: Publicētā atbilde
             published_at: Publicēts plkst.
-            scope: Darbības tvērums
             state: Statuss
             title: Nosaukums
             valuator: Vērtētājs
@@ -492,7 +461,6 @@ lv:
         edit:
           attachment_legend: "(Pēc izvēles) Pievienojiet pielikumu"
           back: Atpakaļ
-          select_a_category: Lūdzu, izvēlieties kategoriju
           send: Sūtīt
           title: Rediģēt priekšlikumu
         edit_draft:
@@ -503,7 +471,6 @@ lv:
           activity: Mana aktivitāte
           all: Visi
           amendment_type: Veids
-          category: Kategorija
           my_proposals: Mani priekšlikumi
           origin: Izcelsme
           related_to: Saistīts ar
@@ -540,7 +507,6 @@ lv:
         show:
           answer: Atbilde
           changes_at_title: Grozīts "%{title}"
-          edit_proposal: Rediģēt priekšlikumu
           estimated_cost: Paredzamās izmaksas
           hidden_endorsers_count:
             zero: un vēl %{count} personas
@@ -555,7 +521,6 @@ lv:
           proposal_accepted_reason: 'Šis priekšlikums ir pieņemts, jo:'
           proposal_in_evaluation_reason: Šis priekšlikums tiek vērtēts
           proposal_rejected_reason: 'Šis priekšlikums netika pieņemts, jo'
-          withdraw_proposal: Atsaukt priekšlikumu
         voting_rules:
           proposal_limit:
             description: Jūs varat izveidot līdz %{limit} priekšlikumiem.

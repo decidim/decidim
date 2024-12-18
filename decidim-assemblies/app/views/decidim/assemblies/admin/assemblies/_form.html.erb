@@ -224,12 +224,7 @@
       <% else %>
         <div class="row column">
           <%= form.select :parent_id,
-                          options_from_collection_for_select(
-                            parent_assemblies_for_select,
-                            :id,
-                            :translated_title,
-                            selected: current_assembly.try(:parent_id)
-                          ),
+                          parent_assemblies_options,
                           include_blank: t(".select_parent_assembly") %>
         </div>
       <% end %>
@@ -240,6 +235,7 @@
 
       <div class="row column" id="private_space">
         <%= form.check_box :private_space %>
+        <p class="help-text"><%= t(".private_notice") %></p>
       </div>
 
       <div class="row column" id="is_transparent">

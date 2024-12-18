@@ -29,8 +29,8 @@ module Decidim
 
         let(:query) { %({ components { id } }) }
 
-        it "only includes the published components" do
-          component_ids = response["components"].map { |c| c["id"].to_i }
+        it "only displays the published components" do
+          component_ids = response["components"].compact.map { |c| c["id"].to_i }
 
           # Ordered by ID by default.
           expect(component_ids.sort).to eq(published_components.map(&:id))

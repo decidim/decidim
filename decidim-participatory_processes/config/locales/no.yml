@@ -126,7 +126,6 @@
           info: Om denne prosessen
           landing_page: Landingsside
           moderations: Moderering
-          private_users: Private brukere
           process_admins: Prosessadministratorer
           steps: Faser
       models:
