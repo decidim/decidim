@@ -1,6 +1,6 @@
 
 <% add_decidim_page_title(t(".title")) %>
-<div class="item_show__header">
+<div class="item_show__header border-none">
   <div class="w-full">
     <h1 class="item_show__header-title">
       <%= t(".title") %>
@@ -13,11 +13,11 @@
   <%= t(".description") %>
 </p>
 
-<%= cell("decidim/announcement", t(".callout_html", link: index_survey_path), callout_class: "warning" ) %>
+<hr class="border-b border-t-0 border-gray mb-8 pb-4" />
 
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
-    <ol class="list-decimal">
+    <ol class="list-decimal list-inside">
       <% @survey.questionnaire.questions.each do |question| %>
         <% next if question.question_type == "separator" %>
 

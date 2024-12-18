@@ -60,17 +60,14 @@ en:
         exports:
           survey_user_answers: Survey participant answers
         publish_answers:
-          callout:
-            invalid: There was a problem publishing the answers.
-            success: The answers have been published successfully.
-          form:
-            select_questions_to_publish: Select questions to publish
           index:
             answers:
               one: "%{count} answer"
               other: "%{count} answers"
-            callout_html: Some of the responses can have personal data. Please <a href="%{link}">review them before publishing</a>.
-            description: By selecting the answers you want to publish, you will make them visible to the public. You can select the answers you want to publish by clicking on the checkbox next to each answer.
+            description: |-
+              By publishing the questions' answers, you will make them visible to the public.
+              You can select the answers you want to publish by clicking on the checkbox next to each question.
+              You can only publish the following question types: "Single option", "Multiple option", "Matrix (single option)", "Matrix (multiple option)", and "Sorting".
             publish: Publish
             status:
               not_published: Not published
