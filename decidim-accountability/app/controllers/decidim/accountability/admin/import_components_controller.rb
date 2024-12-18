@@ -3,7 +3,7 @@
 module Decidim
   module Accountability
     module Admin
-      # This controller allows an admin to import results from a csv file for the Accountability component
+      # This controller allows an admin to import results from a component
       class ImportComponentsController < Admin::ApplicationController
         def new
           enforce_permission_to :create, :import_component
