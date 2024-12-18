@@ -175,6 +175,12 @@ ca:
             creation_enabled_for_participants: Habilitar la creació de trobades per part de les participants
             creation_enabled_for_user_groups: Habilitar la creació de trobades per part dels grups d'usuàries
     download_your_data:
+      help:
+        registrations:
+          code: El codi d'inscripció
+          id: L'identificador únic de la inscripció
+          meeting: La trobada a la qual es va inscriure la usuària
+          user: La usuària que va realitzar la inscripció
       show:
         meeting_comments: Exportar els comentaris a les trobades
         meetings: Exportar les trobades
