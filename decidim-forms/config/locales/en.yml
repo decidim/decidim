@@ -39,7 +39,6 @@ en:
         questionnaires:
           actions:
             back: Back to questions
-            back_responses: Back to responses
             publish_answers: Publish answers
             show: Show responses
           answer_option:
