@@ -2,15 +2,12 @@ it:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Ambito
         description: Descrizione
         title: Titolo
         total_budget: Budget totale
         weight: Ordine di posizionamento
       project:
         budget_amount: Importo del budget
-        decidim_category_id: Categoria
-        decidim_scope_id: Ambito tematico
         description: Descrizione
         proposal_ids: Proposte correlate
         selected: Selezionato per l'implementazione
@@ -25,8 +22,6 @@ it:
       actions:
         attachment_collections: Cartelle
         attachments: Allegati
-        confirm_destroy: Sei certo di voler cancellare questo progetto?
-        destroy: Cancella
         edit: Modifica
         edit_projects: Gestisci progetti
         import: Importa proposte nei progetti
@@ -141,8 +136,6 @@ it:
           message: Il tuo voto non è stato registrato perché non hai ancora completato il processo di votazione. Sei sicuro di voler uscire dal voto?
           title: Non hai ancora votato
         filters:
-          category: Categoria
-          scope: Ambito tematico
           search: Cerca
           status: Stato
           status_values:

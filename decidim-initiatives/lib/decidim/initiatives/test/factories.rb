@@ -108,6 +108,7 @@ FactoryBot.define do
     end
     type { create(:initiatives_type, skip_injection:) }
     scope { create(:scope, organization: type.organization, skip_injection:) }
+    taxonomy { create(:taxonomy, organization: type.organization, skip_injection:) }
     supports_required { 1000 }
 
     trait :with_user_extra_fields_collection do

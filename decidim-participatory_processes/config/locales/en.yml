@@ -130,7 +130,7 @@ en:
           info: About this process
           landing_page: Landing page
           moderations: Moderations
-          private_users: Private participants
+          private_users: Members
           process_admins: Process admins
           steps: Phases
       models:
@@ -172,6 +172,7 @@ en:
           fields:
             invitation_accepted_at: Invitation accepted at
             invitation_sent_at: Invitation sent at
+            published: Published
       participatory_process_copies:
         new:
           copy: Copy
@@ -475,6 +476,7 @@ en:
             metadata: Metadata
             no_taxonomy_filters_found: No taxonomy filters found.
             other: Other
+            private_notice: You will be able to manage members after setting it as private
             related_processes: Related processes
             scope_type_max_depth_help: Restrict the scope filter depth; The filter will show from general to the selected scope type.
             select_an_area: Select an Area
@@ -546,6 +548,9 @@ en:
           type: Type
         show:
           title: About this process
+      participatory_space_private_users:
+        index:
+          title: Members
       show:
         belongs_to_group: This process belongs to
         private_space: This is a private process
@@ -559,6 +564,8 @@ en:
           browse: Browse
           browse_resource: Browse process group %{resource_name}
           processes_count: 'Processes:'
+      participatory_process_navigation:
+        member_menu_item: Members
       participatory_processes:
         index:
           promoted_processes: Highlighted processes

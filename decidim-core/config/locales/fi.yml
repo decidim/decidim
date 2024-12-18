@@ -21,6 +21,11 @@ fi:
         details: Lisätiedot
       taxonomy:
         name: Luokittelun nimi
+      taxonomy_filter:
+        internal_name: Sisäinen suodattimen nimi
+        name: Julkinen suodattimen otsikko
+        root_taxonomy_id: Luokittelusta
+        space_filter: Määritettävissä osallistumistilojen suodattimeksi
       user:
         about: Profiilikuvaus
         email: Sähköpostiosoitteesi
@@ -167,6 +172,7 @@ fi:
         error: Tilisi poistaminen epäonnistui.
         success: Tilisi poistaminen onnistui.
       download_your_data_export:
+        export_expired: Vientitiedosto on vanhentunut. Yritä luoda uusi vienti.
         file_no_exists: Tiedostoa ei ole olemassa
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
       email_change:
@@ -221,6 +227,8 @@ fi:
         delete: "%{user_name} poisti %{resource_name} -komponentin %{space_name} -tilasta"
         export_component: "%{user_name} vei komponentin %{component_name} %{resource_name} tilassa %{space_name} tiedostomuodossa %{format_name}"
         publish: "%{user_name} julkaisi komponentin %{resource_name} osallistumistilassa %{space_name}"
+        restore: "%{user_name} palautti komponentin %{resource_name} tilassa %{space_name}"
+        soft_delete: "%{user_name} siirsi komponentin %{resource_name} roskakoriin tilassa %{space_name}"
         unpublish: "%{user_name} lopetti komponentin %{resource_name} julkaisun osallistumistilassa %{space_name}"
         update_permissions_with_space: "%{user_name} päivitti oikeuksia kohteessa %{resource_name} tilassa %{space_name}"
       contextual_help_section:
@@ -228,7 +236,7 @@ fi:
       helpers:
         answers: vastaukset
         comments: kommentit
-        projects: hankkeet
+        projects: projektit
         results: tulokset
       impersonation_log:
         manage: "%{user_name} hallinnoi käyttäjää %{resource_name}, koska %{reason}"
@@ -262,6 +270,13 @@ fi:
         create: "%{user_name} loi teematyypin %{resource_name}"
         delete: "%{user_name} poisti teematyypin %{resource_name}"
         update: "%{user_name} päivitti teematyyppiä %{resource_name}"
+      share_token:
+        create: "%{user_name} loi pääsylinkin osallistumistilassa %{space_name}"
+        create_with_space: "%{user_name} loi pääsylinkin kohteelle %{resource_name} osallistumistilassa %{space_name}"
+        delete: "%{user_name} poisti pääsylinkin osallistumistilassa %{space_name}"
+        delete_with_space: "%{user_name} poisti pääsylinkin kohteelle %{resource_name} osallistumistilassa %{space_name}"
+        update: "%{user_name} päivitti pääsylinkiä osallistumistilassa %{space_name}"
+        update_with_space: "%{user_name} päivitti pääsylinkiä kohteelle %{resource_name} osallistumistilassa %{space_name}"
       static_page:
         create: "%{user_name} loi staattisen sivun %{resource_name}"
         delete: "%{user_name} poisti staattisen sivun %{resource_name}"
@@ -418,6 +433,7 @@ fi:
           scope_id: Teema
         name: Esimerkkivahvistus
       dummy_authorization_workflow:
+        explanation: Esimerkkivahvistuksen työnkulku
         name: Esimerkkivahvistuksen työnkulku
       errors:
         duplicate_authorization: Osallistuja on jo tunnistettu vastaavilla tiedoilla. Hallintakäyttäjä ottaa sinuun yhteyttä tarkastakseen tietosi.
@@ -502,13 +518,16 @@ fi:
             amendments_enabled: Muutokset käytössä
             comments_enabled: Kommentit käytössä
             comments_max_length: Kommenttien maksimipituus
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             dummy_global_attribute1: Esimerkkitietue 1
             dummy_global_attribute2: Esimerkkitietue 2
             dummy_global_translatable_text: Käännettävän tekstin esimerkki
             enable_pads_creation: Ota käyttöön muistioiden luominen
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             resources_permissions_enabled: Resurssien käyttöoikeudet ovat käytössä
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
           step:
             amendment_creation_enabled: Muutosten luonti käytössä
             amendment_promotion_enabled: Muutosten siirto uusiksi ehdotuksiksi käytössä
@@ -593,9 +612,9 @@ fi:
       application_helper:
         filter_area_values:
           all: Kaikki
-        filter_category_values:
-          all: Kaikki
         filter_scope_values:
+          all: Kaikki
+        filter_taxonomy_values:
           all: Kaikki
     devise:
       omniauth_registrations:
@@ -672,24 +691,35 @@ fi:
       export:
         ready: Valmis
       show:
-        download_data: Lataa tiedot
-        download_data_description_html: |-
-          Tiedosto sisältää kaikki tiliisi liitetyt tiedot ja se lähetetään osoitteeseen <strong>%{user_email}</strong>. Kyseinen sähköposti sisältää .zip-tiedoston ja salasanan, jolla kyseisen tiedoston voi avata.<br/><br/>Purkaaksesi tiedoston, tarvitset <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille) tai <a href="https://www.keka.io/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille). Jos käytät Linux-käyttöjärjestelmää, useimmiten paketin avaamiseen tarvittava ohjelmisto on valmiiksi asennettuna järjestelmääsi. Jos näin ei kuitenkaan ole, voit käyttää <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller -ohjelmistoa</a> tai <a href="https://peazip.github.io">PeaZip-ohjelmistoa</a> paketin avaamiseen.
-        request_data: Pyydä tietoja
+        action: Toiminto
+        download: Lataa
+        download_data: Latausosio
+        download_data_description_1: Täältä löydät kaikki tililtäsi ladattavissa olevat tiedot. Nämä ZIP-tiedostot ovat ladattavissa kahden viikon ajan ennen kuin ne poistetaan.
+        download_data_description_2: Voit pyytää ZIP-tiedoston henkilökohtaisista tiedoistasi.
+        download_your_data: Omat tiedot
+        expiration: Vanhentumisaika
+        expired: Vanhentunut
+        request_data: Pyydä
+        type: Latauksen tyyppi
     editor_images:
       create:
         error: Kuvan lähettäminen epäonnistui.
         success: Kuvan lähettäminen onnistui.
       drag_and_drop_help: Lisää kuvia raahaamalla ja pudottamalla tai liittämällä niitä leikepöydältä.
     endorsement_buttons_cell:
-      already_endorsed: Poista tykkäys
+      already_endorsed: Peruuta tykkäys
       endorse: Tykkää
     endorsements:
       identities:
         done: Valmis
         select_identity: Valitse henkilöllisyys
     endorsers_list:
-      endorsed_by: He tykkäävät tästä…
+      endorsed_by:
+        one: Tästä on tykännyt %{visible}
+        other: Tästä on tykännyt %{visible} ja %{others}
+      others: "%{count} lisää"
+      title: Tykänneet
+      you: sinä
     errors:
       files:
         file_cannot_be_processed: Tiedostoa ei voida käsitellä
@@ -847,6 +877,9 @@ fi:
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska olet seuraat käyttäjää %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
         email_subject: "%{endorser_nickname} on tehnyt uuden suosituksen"
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> on suositellut kohdetta <a href="%{resource_path}">%{resource_title}</a> %{resource_type}.
+      resources:
+        soft_deleted:
+          notification_title: Ylläpitäjä poisti kohteen "%{resource_type}" "%{resource_title}".
       users:
         profile_updated:
           email_intro: Seuraamasi käyttäjän %{name} (%{nickname}) <a href="%{resource_url}">profiilisivua</a> on päivitetty.
@@ -860,10 +893,11 @@ fi:
           notification_title: Osallistuja %{name} (%{nickname}) on virallistettu.
     export_mailer:
       download_your_data_export:
-        click_button: 'Napsauta Seuraava-linkkiä ladataksesi tietosi.<br/>Tiedosto on saatavilla %{date} saakka.<br/>Tarvitset paketin avaamiseen <a href="https://www.7-zip.org/">7-Zip-ohjelmiston</a> (Windows-käyttöjärjestelmille), <a href="https://www.keka.io/en/">Keka-ohjelmiston</a> (MacOS-käyttöjärjestelmille) tai <a href="https://peazip.github.io">PeaZip-ohjelmiston</a> (Linux-käyttöjärjestelmille). Salasana: %{password}'
+        click_button_html: Napsauta seuraavaa linkkiä ladataksesi tietosi.<br/>Tiedosto on ladattavissa %{date} saakka.
         download: Lataa
       export:
-        ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
+        click_button_html: Lataustiedostosi on valmis.<br/>Tiedosto on ladattavissa %{date} saakka.
+        download: Lataa
       subject: Tietojen vienti "%{name}" on valmis
     filters:
       linked_classes:
@@ -872,7 +906,7 @@ fi:
         collaborative_draft: Yhdessä koostettu luonnos
         dummy_resource: Esimerkkitietueet
         meeting: Tapaamiset
-        project: Hankkeet
+        project: Projektit
         proposal: Ehdotukset
         result: Tulokset
     fingerprint:
@@ -1064,7 +1098,7 @@ fi:
     help:
       main_topic:
         default_page:
-          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia hankkeita sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
+          content: "<p>Palvelussa %{organization} voit osallistua ja päättää eri aiheista ylävalikossa näkyvien osallistumistilojen kautta: prosessit, ryhmät, aloitteet ja kuulemiset.</p> <p>Jokaisessa tilassa voit osallistua: tehdä ehdotuksia - itsenäisesti tai muiden ihmisten kanssa, osallistua keskusteluihin, priorisoida toteutettavia projekteja sekä osallistua tapaamisiin ja muihin toimiin.</p>\n"
           title: Mitä voin tehdä palvelussa %{organization}?
         description: Lue lisää palvelusta %{organization}.
         title: Yleiset asiat
@@ -1108,6 +1142,8 @@ fi:
           not_found: 'Teeman tyyppiä ei löytynyt tietokannasta (ID: %{id})'
         taxonomy_presenter:
           not_found: 'Luokittelua ei löytynyt tietokannasta (ID: %{id})'
+    machine_translations:
+      automatic: automaattinen käännös kielelle %{locale_name}
     managed_users:
       expired_session: Käyttäjän hallintaistunto on vanhentunut.
     map:
@@ -1315,7 +1351,112 @@ fi:
         message_1: Verkkoyhteytesi näyttää olevan poissa käytöstä tällä hetkellä.
         message_2: Yritä myöhemmin uudestaan.
         retry: Yritä uudestaan
+    onboarding_action_message:
+      click_link: Paina tästä
+      cta_html: <a href="%{path}">%{link_text}</a> suorittaaksesi toiminnon %{action} kohteelle %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: Vahvistus on vanhentunut.
+      finish_authorization_process: Voit suorittaa vahvistuksen loppuun
+      incomplete_authorization_active_title: Vahvistustasi ei ole suoritettu loppuun kaikkine tarvittavine tietoineen.
+      pending_authorization_active_message: Täytä esitetty lomake suorittaaksesi tämän toiminnon loppuun.
+      pending_authorization_active_title: Meidän on vahvistettava henkilöllisyytesi.
     open_data:
+      help:
+        core:
+          components: Komponentit
+          description: Tämä ZIP-tiedosto sisältää tiedostoja tämän alustan tutkimiseen.
+          main: Ydin
+          spaces: Tilat
+          title: Avoimet datan tiedostot palvelulle %{organization}
+        metrics:
+          cumulative: Kyseisen päivän tilastomittarien kokonaismäärä
+          day: Tilastomittarin luontipäivä
+          metric_type: Tilastomittarin tyyppi
+          quantity: Tilastomittarien määrä tälle päivälle
+        moderated_users:
+          about: Käyttäjän henkilökohtainen kuvaus
+          block_reasons: Syy, miksi käyttäjä estettiin
+          blocked_at: Päivämäärä ja aika, jolloin käyttäjä estettiin
+          blocking_user: Eston tehneen käyttäjän nimi
+          details: Ilmoituksen tiedot
+          reasons: Lista profiilin ilmoittamisen syistä
+          user_id: Ilmoitetun käyttäjän yksilöllinen tunniste (ID)
+        moderations:
+          hidden_at: Päivämäärä ja aika, sisältö piilotettiin
+          id: Moderoinnin yksilöllinen tunniste
+          report_count: Ilmoitusten lukumäärä
+          reportable_id: Ilmoitettavan asian yksilöllinen tunniste
+          reportable_type: Ilmoitettavan asian tyyppi
+          reported_content: Ilmoitettu sisältö
+          reported_url: Ilmoitetun asian URL-osoite
+          reports: Lista ilmoittamisen syistä
+        user_groups:
+          avatar_url: Käyttäjäryhmän avatar-kuva
+          badge: Käyttäjäryhmän tunnusmerkki
+          deleted: Onko käyttäjä poistettu vai ei
+          id: Käyttäjäryhmän yksilöllinen tunniste
+          members: Ryhmään kuuluvien käyttäjien yksilöllinen tunniste (ID) ja nimi
+          members_count: Käyttäjäryhmään kuuluvien käyttäjien määrä
+          name: Käyttäjäryhmän nimi
+          nickname: Käyttäjäryhmän käyttäjänimi
+          profile_url: Profiilin URL-osoite
+        users:
+          about: Käyttäjäryhmän kuvaus
+          avatar_url: Käyttäjän avatar-kuva
+          badge: Käyttäjän tunnusmerkki
+          deleted: Onko käyttäjä poistettu vai ei
+          direct_messages_enabled: Salliiko käyttäjä yksityisviestit vai ei
+          groups: Käyttäjäryhmän yksilöivä tunniste (ID) ja nimi
+          id: Käyttäjän yksilöivä tunniste
+          name: Käyttäjän nimi
+          nickname: Käyttäjän käyttäjänimi
+          profile_url: Profiilin URL-osoite
+      index:
+        description: Tervetuloa %{organization_name} -palvelun avoimen datan sivulle. Tältä sivulta löydät datatiedostoja, joita päivitetään säännöllisesti erilaisten deliberatiivisten ja hallinnollisten prosessien perusteella palvelussa %{organization_name}. Nämä tiedostot ovat saatavilla edistääksemme avoimuutta, tiedon saatavuutta ja saavutettavuutta sekä yhteistyötarkoituksiin. Löydät alta yksityiskohtaisia tiedostoja kustakin tiedostosta sekä kuinka voit avata ja työskennellä tiedostojen kanssa. Jokaiselle tiedostolle on annettu myös selitykset ja rakennekuvaukset.
+        detailed:
+          body_1: 'Alla on jokaisen tietojoukon selitteet, jotka kuvaavat tietojoukkojen rakenteen ja minkälaista tietoa ne sisältävät:'
+          components: Komponentit
+          spaces: Osallistumistilat
+          title: Jokaisen tiedoston selitteet
+        download:
+          components: Komponentit
+          core: Ydin
+          spaces: Osallistumistilat
+          title: Lataa tietoja
+        download_open_data: Lataa kaikki avoimet datatiedostot
+        download_resource: Lataa kohde %{resource_name} CSV-muodossa
+        explanation:
+          body_1: Nämä tiedostot on viety %{organization_name} -palvelun osallistumisprosesseista ja sisältävät asioita, kuten ehdotuksia, kommentteja ja tapaamisia. Tiedostot tarjotaan jäsenneltynä raakadatana, jota voidaan käyttää analyyseihin, tutkimuksiin tai integraatioihin muiden työkalujen kanssa. Tätä tietoa päivitetään automaattisest 24 tunnin välein, jotta sinulla olisi aina pääsy kaikista viimeisimpään tietoon.
+          body_2: Nämä tiedostot ovat CSV-muodossa, jota käytetään laajasti tietojenkäsittelyssä. Kyseisen formaatin mukaisia tiedostoja voi avata ja käsitellä useilla erilaisilla ohjelmistoilla, kuten taulukkolaskentaohjelmistot, tekstinkäsittelyohjelmistot ja data-analyysityökalut.
+          title: Mitä nämä tiedostot ovat?
+        how_to:
+          step_1:
+            body_html: Napsauta alla olevia linkkejä ladataksesi CSV-tiedostot tietokoneellesi.
+            title: 1. Lataa tiedostot
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Taulukkolaskentaohjelmat</b>: voit avata CSV-tiedostoja esimerkiksi Microsoft Excel, Google Sheets tai LibreOffice Calc -ohjelmistoilla. Avaa käyttämäsi ohjelmisto, valitse "Avaa" ohjelman Tiedosto-valikosta ja valitse lataamasi CSV-tiedosto.</li>
+              <li><b>Tekstinkäsittelyohjelmat</b>: CSV-tiedostoja voi avata myös tekstinkäsittelyohjelmilla, kuten Muistio tai Sublime Text. Tämä näyttää raakadatan, jossa jokainen rivi on eroteltu rivinvaihdolla ja jokainen arvo pilkulla tai puolipisteellä.</li>
+              <li><b>Data-analyysiohjelmat</b>: jos ymmärrät data-analyysiohjelmistojen päälle, kuten Python (esim. pandas-kirjasto), R tai SQL-tietokannat, voi tuoda CSV-tiedostot suoraan käsittelyä ja analysointia varten kyseisiin ohjelmistoihin.</li>
+              </ul>
+            title: 2. Avaa tiedostot
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Rajaus ja järjestäminen</b>: taulukkolaskentaohjelmistoissa voit rajata ja järjestää tietoa keskittyäksesi ainoastaan tiettyyn tietojoukkoon koko lähdedatassa.</li>
+              <li><b>Analysointi</b>: käytä dataa analysoidaksesi erilaisia asioita, kuten laskeakssesi ehdotusten kokonaismäärän, tunnistaaksesi trendejä kommenteissa tai arvioidaksesi tapaamisten osallistumisaktiivisuutta.</li>
+              <li><b>Visualisointi</b>: voit luoda kaavioita, graafeja tai muunlaisia visualisointeja tiedon pohjalta helpottaaksesi tiedon tulkintaa.</li>
+              </ul>
+            title: 3. Työskentele tietojen kanssa
+          title: Miten nämä tiedostot avataan ja miten niiden kanssa työskennellään?
+        license:
+          body_1_html: '%{organization_name} -palvelun tietokanta on lisensoitu %{link_database} -lisenssillä. Kaikki tietokannan sisällöt on lisensoitu %{link_contents} -lisenssillä.'
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_name: Tietokannan sisällön lisenssi
+          license_database_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_database_name: Avoimien tietojen lisenssi
+          title: Lisenssi
+        title: Avoin data
       not_available_yet: Avoimet datatiedostot eivät ole vielä käytettävissä, yritä uudestaan muutaman minuutin kuluttua.
     pad_iframe:
       disclaimer: Tämän muistion sisällön ovat kirjoittaneet alustan rekisteröityneet käyttäjät, jotka ilmaisevat omia mielipiteitään. %{organization} ei ole vastuussa sisällöstä.
@@ -1533,12 +1674,6 @@ fi:
         sign_up: Luo tili
       mentions_modal:
         remove_recipient: Poista vastaanottaja %{name}
-      participatory_space_filters:
-        filters:
-          area: Alue
-          areas: Alueet
-          scope: Teema
-          select_an_area: Valitse alue
       progress: Edistyminen
       public_participation:
         public_participation: Näytä läsnäoloni julkisesti
@@ -1568,10 +1703,9 @@ fi:
       participants_count: Osallistujaa
       users_count: Osallistujaa
     tags:
-      filter_results_for_category: 'Rajaa tulokset aihepiirin mukaan: %{resource}'
-      filter_results_for_scope: 'Rajaa tulokset teeman mukaan: %{resource}'
+      filter_results_for_taxonomy: 'Rajaa tulokset kohteelle: %{resource}'
     taxonomies:
-      prompt: Valitse kohteesta "%{name}"
+      prompt: Valitse vaihtoehto
     translation_bar:
       help_text: "<strong>Varoitus:</strong> Sisältö saatetaan kääntää automaattisesti eikä koneelliset käännökset ole 100% tarkkoja."
       show_original: Näytä alkuperäinen teksti
@@ -1964,9 +2098,9 @@ fi:
         data_consent_settings: Evästeasetukset
         decidim_logo: Decidim-logo
         decidim_title: Decidim
-        download_open_data: Lataa avoimet datatiedostot
         log_in: Kirjaudu sisään
         made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">vapaan ohjelmiston</a> avulla.
+        open_data: Avoin data
         resources: Resurssit
         sign_up: Luo tili
         terms_of_service: Käyttöehdot

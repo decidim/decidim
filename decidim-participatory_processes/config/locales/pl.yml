@@ -132,7 +132,6 @@ pl:
           info: O tym procesie
           landing_page: Strona startowa
           moderations: Moderacje
-          private_users: Użytkownicy prywatni
           process_admins: Użytkownicy procesu
           steps: Etapy
       models:

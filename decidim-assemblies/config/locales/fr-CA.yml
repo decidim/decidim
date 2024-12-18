@@ -93,15 +93,16 @@ fr-CA:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: Êtes-vous sûr(e) de vouloir supprimer cette assemblée ? Si vous changez d'avis, vous pourrez la restaurer plus tard.
         import_assembly: Importation
         new_assembly: Nouvelle assemblée
-        new_assembly_member: Nouveau membre de l'assemblée
         new_assembly_type: Nouveau type d'assemblée
         new_assembly_user_role: Nouvel administrateur de l'assemblée
+        view_deleted_assemblies: Voir les assemblées supprimées
       assemblies:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
-          success: Assemblée créée avec succès.
+          success: Assemblée créée avec succès. Vous pouvez maintenant ajouter des composants et la configurer.
         edit:
           update: Mettre à jour
         index:
@@ -109,6 +110,8 @@ fr-CA:
           public: Publique
           published: Publiée
           unpublished: Non publié
+        manage_trash:
+          title: Assemblées supprimées
         new:
           create: Créer
           title: Nouvelle assemblée
@@ -144,23 +147,6 @@ fr-CA:
           import: Importation
           select: Sélectionnez les données que vous souhaitez importer
           title: Importer un assemblage
-      assembly_members:
-        create:
-          error: Une erreur s'est produite lors de l'ajout d'un membre pour cette assemblée.
-          success: Membre créé avec succès pour cette assemblée.
-        destroy:
-          success: Membre supprimé avec succès pour cette assemblée.
-        edit:
-          title: Mettre à jour le membre de l'assemblée
-          update: Mettre à jour
-        index:
-          assembly_members_title: Membres de l'assemblée
-        new:
-          create: Créer
-          title: Nouveau membre de l'assemblée
-        update:
-          error: Une erreur s'est produite lors de la mise à jour du membre de cette assemblée.
-          success: Membre mis à jour avec succès pour cette assemblée.
       assembly_publications:
         create:
           error: Une erreur s'est produite lors de la publication de cette assemblée.
@@ -199,7 +185,6 @@ fr-CA:
         assemblies: Assemblées
         assemblies_submenu:
           assembly_admins: Administrateurs de l'assemblée
-          assembly_members: Membres
           attachment_collections: Dossiers
           attachment_files: Fichiers
           attachments: Documents liés
@@ -208,7 +193,7 @@ fr-CA:
           info: À propos de cette assemblée
           landing_page: Page d'accueil
           moderations: Modérations
-          private_users: Participants privés
+          private_users: Membres
           see_assembly: Voir l'assemblée
         assemblies_types: Types d'assemblée
       models:
@@ -226,11 +211,6 @@ fr-CA:
             title: Titre
           name: Assemblée
         assembly_member:
-          fields:
-            ceased_date: Date de radiation
-            designation_date: Date de désignation
-            full_name: Nom et prénom
-            position: Statut
           name: Membre
           positions:
             other: Autre
@@ -250,7 +230,10 @@ fr-CA:
             valuator: Évaluateur
       titles:
         assemblies: Assemblées
+        assemblies_deleted: Assemblées supprimées
         assemblies_types: Types d'assemblée
+      tooltips:
+        deleted_assemblies_info: Une assemblée ne peut être supprimée que si son statut est "non publiée".
     admin_log:
       assembly:
         create: "%{user_name} a créé l'assemblée %{resource_name}"
@@ -258,6 +241,7 @@ fr-CA:
         export: "%{user_name} a exporté l'assemblée %{resource_name}"
         import: "%{user_name} a importé l'assemblée %{resource_name}"
         publish: "%{user_name} a publié l'assemblée %{resource_name}"
+        restore: "%{user_name} a restauré l'assemblée %{resource_name}"
         unpublish: "%{user_name} a dépublié l'assemblée %{resource_name}"
         update: "%{user_name} a mis à jour l'assemblée %{resource_name}"
       assembly_member:
@@ -308,14 +292,9 @@ fr-CA:
             slug_help_html: 'Les identifiants d''URL sont utilisés pour générer les URL qui pointent vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_members:
           form:
-            existing_user: Utilisateur existant
             explanation: 'Instruction concernant l’image:'
             image_guide: De préférence une image au format portrait ne contenant pas de texte.
-            non_user: Utilisateur inconnu
             non_user_avatar_help: Vous devriez obtenir le consentement des personnes avant de les publier en tant que membre.
-            select_a_position: Sélectionnez un statut
-            select_user: Sélectionnez un utilisateur
-            user_type: Type d'utilisateur
         content_blocks:
           highlighted_assemblies:
             max_results: Quantité maximale d'éléments à afficher
@@ -399,10 +378,11 @@ fr-CA:
         private_space: Ceci est une assemblée privée
         social_networks_title: Visiter l'assemblée sur
     assembly_members:
-      assembly_member:
-        designated_on: Désigné le
       index:
         title: Membres
+    download_your_data:
+      show:
+        assemblies: Export des assemblées
     events:
       assemblies:
         create_assembly_member:
@@ -435,6 +415,10 @@ fr-CA:
         description: Nombre d'assemblées créées
         object: assemblées
         title: Assemblées
+    open_data:
+      help:
+        assemblies:
+          assembly_type: Le type de l'assemblée
     participatory_processes:
       show:
         related_assemblies: Assemblées associées

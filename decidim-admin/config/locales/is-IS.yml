@@ -198,8 +198,6 @@ is-IS:
       components:
         create:
           success: Hluti búin til með góðum árangri.
-        destroy:
-          success: Hluti eytt með góðum árangri.
         edit:
           title: Breyta hlutanum
           update: Uppfæra
@@ -229,8 +227,6 @@ is-IS:
       exports:
         export_as: "%{name} sem %{export_format}"
       filters:
-        category_id_eq:
-          label: Flokkur
         officialized_at_null:
           label: Ríki
           values:
@@ -450,8 +446,6 @@ is-IS:
           update: Uppfæra
         new:
           title: Ný síða
-      taxonomies:
-        count: Telja
       titles:
         admin_log: Admin log
         area_types: Svæði tegundir
