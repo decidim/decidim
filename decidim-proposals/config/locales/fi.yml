@@ -449,7 +449,6 @@ fi:
           comments: Ehdotuksen saamien kommenttien määrä
           component: Ehdotuksen komponentti
           endorsements: Ehdotuksen keräämien suositusten ("tykkäykset") lukumäärä
-          followers: Ehdotusten seuraajien lukumäärä
           id: Ehdotuksen yksilöllinen tunniste
           is_amend: Onko tämä ehdotus toisen ehdotuksen muutosehdotus
           latitude: Ehdotuksen sijainnin leveysaste, mikäli ehdotus on määritetty tiettyyn paikkaan
