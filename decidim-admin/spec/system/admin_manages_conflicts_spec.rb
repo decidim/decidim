@@ -79,7 +79,7 @@ describe "Admin manages conflicts" do
         let(:email) { "other_user@example.org" }
 
         it "the transfer fails" do
-          expect(page).to have_no_content("The current transfer has been successfully completed.")
+          expect(page).not_to have_content("The current transfer has been successfully completed.")
           expect(page).to have_content("There was a problem transferring the current participant to managed participant")
         end
       end

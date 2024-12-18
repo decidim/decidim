@@ -41,7 +41,7 @@ shared_examples "manage impersonations examples" do
       let(:name) { "" }
 
       it "shows a validation error message" do
-        expect(page).to have_no_content("successfully")
+        expect(page).not_to have_content("successfully")
         expect(page).to have_content("There are errors on the form")
       end
     end
