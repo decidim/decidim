@@ -1,1 +1,6 @@
 bs:
+  decidim:
+    admin:
+      newsletters:
+        select_recipients_to_deliver:
+          send_to_all_users: Pošalji svim korisnicima
