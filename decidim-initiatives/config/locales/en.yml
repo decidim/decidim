@@ -150,9 +150,7 @@ en:
             name_and_surname: Name and surname
             nickname: Nickname
             postal_code: Postal code
-            scope: Scope
             signature_count: Signature count
-            time_and_date: Time and date
             timestamp: Timestamp
       titles:
         initiatives: Initiatives
