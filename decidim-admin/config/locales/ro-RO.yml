@@ -353,7 +353,6 @@ ro:
         title: Conflicte de verificare
         transfer:
           email: E-mail
-          error: A apărut o problemă la transferul participantului curent drept participant gestionat.
           name: Nume
           reason: Motiv
           success: Transferul curent a fost finalizat cu succes.
