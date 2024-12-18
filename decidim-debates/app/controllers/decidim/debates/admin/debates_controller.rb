@@ -47,7 +47,7 @@ module Decidim
         def update
           enforce_permission_to(:update, :debate, debate:)
 
-          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component:)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component:, debate:)
 
           UpdateDebate.call(@form, debate) do
             on(:ok) do
