@@ -537,6 +537,13 @@ es-PY:
         objectives: Objetivos
         related_assemblies: Asambleas relacionadas
         related_participatory_processes: Procesos participativos relacionados
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: La fecha en que la invitación a la jornada fue aceptada
+          conference: La jornada a la que corresponde esta invitación
+          id: El identificador único de la invitación a la jornada
+          registration_type: El tipo de inscripción enviada para esta jornada
     events:
       conferences:
         conference_registration_confirmed:
