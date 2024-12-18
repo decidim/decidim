@@ -296,7 +296,6 @@
         title: Verifiseringskonflikter
         transfer:
           email: E-post
-          error: Det oppstod et problem med overføring av gjeldende deltaker til håndtert deltaker.
           name: Navn
           reason: Årsak
           success: Overføringen er gjennomført.
