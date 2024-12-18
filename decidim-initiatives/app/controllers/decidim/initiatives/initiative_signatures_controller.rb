@@ -82,15 +82,15 @@ module Decidim
       def sms_phone_number
         redirect_to(finish_path) && return unless sms_step?
 
-        @form = Decidim::Verifications::Sms::MobilePhoneForm.new
+        @form = sms_mobile_phone_form_class.new
       end
 
       def store_sms_phone_number
         redirect_to(finish_path) && return unless sms_step?
 
-        @form = Decidim::Verifications::Sms::MobilePhoneForm.from_params(params.merge(user: current_user))
+        @form = sms_mobile_phone_form_class.from_params(params.merge(user: current_user))
 
-        ValidateMobilePhone.call(@form, current_user) do
+        sms_mobile_phone_validator_class.call(@form, current_user) do
           on(:ok) do |metadata|
             store_session_sms_code(metadata, @form.mobile_phone_number)
             redirect_to sms_code_path
@@ -109,14 +109,14 @@ module Decidim
         return redirect_to sms_phone_number_path if session_sms_code.blank?
 
         @sms_code_form = Decidim::Verifications::Sms::ConfirmationForm.new
-        @phone_number_form = Decidim::Verifications::Sms::MobilePhoneForm.from_params(mobile_phone_number: session_sms_code[:phone_number], user: current_user)
+        @phone_number_form = sms_mobile_phone_form_class.from_params(mobile_phone_number: session_sms_code[:phone_number], user: current_user)
       end
 
       def store_sms_code
         redirect_to(finish_path) && return unless sms_step?
 
         @sms_code_form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
-        ValidateSmsCode.call(@sms_code_form, session_sms_code) do
+        sms_code_validator_class.call(@sms_code_form, session_sms_code) do
           on(:ok) do
             respond_to do |format|
               format.js do
