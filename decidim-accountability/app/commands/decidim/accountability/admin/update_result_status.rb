@@ -38,7 +38,14 @@ module Decidim
           Decidim::Accountability::Result.where(id: result_ids).find_each do |result|
             next if result.decidim_accountability_status_id == status_id
 
-            result.update!(decidim_accountability_status_id: status_id)
+            status = Decidim::Accountability::Status.find_by(id: status_id)
+
+            next if status.blank?
+
+            result.update!(
+              decidim_accountability_status_id: status_id,
+              progress: status.progress
+            )
 
             # Trace the action to keep track of changes
             Decidim.traceability.perform_action!(
