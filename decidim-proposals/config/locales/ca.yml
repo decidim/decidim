@@ -449,7 +449,6 @@ ca:
           comments: El número de comentaris que té aquesta proposta
           component: El component al qual pertany aquesta proposta
           endorsements: El número d'adhesions ("m'agrada") que té aquesta proposta
-          followers: El número de seguidores que té aquesta proposta
           id: L'identificador únic de la proposta
           is_amend: Si aquesta proposta és una esmena a una altra proposta o no
           latitude: La latitud de la proposta en cas que aquesta tingui una ubicació física
