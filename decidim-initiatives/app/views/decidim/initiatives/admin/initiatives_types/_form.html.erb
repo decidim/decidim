@@ -104,7 +104,9 @@
         <%=
           form.select(
             :document_number_authorization_handler,
-            current_organization.available_authorizations.map { |name| [t("#{name}.name", scope: "decidim.authorization_handlers"), name] },
+            Decidim::Initiatives::Signatures.workflows.map do |workflow|
+              [t("#{workflow.name}.name", scope: "decidim.initiatives.signatures.workflows"), workflow.name]
+            end,
             include_blank: true
           )
         %>
