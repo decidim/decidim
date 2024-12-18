@@ -16,7 +16,7 @@ module Decidim
       #
       # Broadcasts :ok if successful, :invalid otherwise.
       def call
-        Decidim.traceability.perform_action!(:unpublish_answer, question, current_user) do
+        Decidim.traceability.perform_action!(:unpublish_answers, question, current_user) do
           unpublish_survey_answer
         end
 
@@ -27,7 +27,7 @@ module Decidim
 
       private
 
-      attr_reader :question_id
+      attr_reader :question_id, :current_user
 
       def unpublish_survey_answer
         question.update(survey_answers_published_at: nil)
