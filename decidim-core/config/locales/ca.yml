@@ -241,6 +241,9 @@ ca:
       impersonation_log:
         manage: "%{user_name} ha gestionat a %{resource_name} perquè %{reason}"
       moderation:
+        bulk_hide: "%{user_name} ha amagat %{reported_count} continguts"
+        bulk_unhide: "%{user_name} ha tornat a mostrar %{reported_count} continguts"
+        bulk_unreport: "%{user_name} ha desfet la denúncia de %{reported_count} continguts"
         hide: "%{user_name} ha ocultat un recurs del tipus %{resource_type} a l'espai %{space_name}"
         unreport: "%{user_name} ha desfet la denuncia d'un recurs del tipus %{resource_type} a l'espai %{space_name}"
       newsletter:
@@ -297,6 +300,9 @@ ca:
         update_with_filter_items_count: "En/na %{user_name} ha actualitzat un filtre basat en la taxonomia \"%{resource_name}\" amb %{filter_items_count} filtres per \"%{space_manifest_name}\""
       user:
         block: "%{user_name} ha bloquejat a la usuària %{resource_name}"
+        bulk_block: "%{user_name} ha bloquejat a %{blocked_count} usuàries"
+        bulk_ignore: "%{user_name} ha desfet la denúncia de %{unreported_users_count} usuàries"
+        bulk_unblock: "%{user_name} ha desbloquejat a %{unblocked_count} usuàries"
         invite: "%{user_name} ha convidat la participant %{resource_name} amb el rol: %{role}"
         officialize: "%{user_name} ha oficialitzat la participant %{resource_name}"
         promote: "%{user_name} ha promocionat a %{resource_name}"
@@ -307,6 +313,9 @@ ca:
         unofficialize: "%{user_name} ha desoficialitzat la participant %{resource_name}"
       user_group:
         block: "%{user_name} ha bloquejat al grup d'usuàries %{resource_name}"
+        bulk_block: "%{user_name} ha bloquejat a %{blocked_count} usuàries"
+        bulk_ignore: "%{user_name} ha desfet la denúncia de %{unreported_users_count} usuàries"
+        bulk_unblock: "%{user_name} ha desbloquejat a %{unblocked_count} usuàries"
         reject: "%{user_name} ha rebutjat la verificació del grup %{resource_name}"
         unblock: "%{user_name} ha desbloquejat al grup d'usuàries %{resource_name}"
         verify: "%{user_name} ha verificat el grup %{resource_name}"
