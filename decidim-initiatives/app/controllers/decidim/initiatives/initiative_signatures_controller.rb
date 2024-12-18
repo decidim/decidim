@@ -108,7 +108,8 @@ module Decidim
 
         return redirect_to sms_phone_number_path if session_sms_code.blank?
 
-        @form = Decidim::Verifications::Sms::ConfirmationForm.new
+        @sms_code_form = Decidim::Verifications::Sms::ConfirmationForm.new
+        @phone_number_form = Decidim::Verifications::Sms::MobilePhoneForm.from_params(mobile_phone_number: session_sms_code[:phone_number], user: current_user)
       end
 
       def store_sms_code
@@ -117,13 +118,29 @@ module Decidim
         @form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
         ValidateSmsCode.call(@form, session_sms_code) do
           on(:ok) do
-            clear_session_sms_code
-            redirect_to finish_path
+            respond_to do |format|
+              format.js do
+                render json: { sms_code: "OK" }
+              end
+
+              format.html do
+                clear_session_sms_code
+                redirect_to finish_path
+              end
+            end
           end
 
           on(:invalid) do
-            flash[:alert] = I18n.t("sms_code.invalid", scope: "decidim.initiatives.initiative_votes")
-            render :sms_code
+            respond_to do |format|
+              format.js do
+                render json: { sms_code: "KO" }
+              end
+
+              format.html do
+                flash[:alert] = I18n.t("sms_code.invalid", scope: "decidim.initiatives.initiative_votes")
+                render :sms_code
+              end
+            end
           end
         end
       end

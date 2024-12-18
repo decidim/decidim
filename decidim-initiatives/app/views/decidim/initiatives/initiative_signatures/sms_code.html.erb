@@ -1,11 +1,25 @@
-<%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_code.help"), callout_class: "secondary") %>
+<%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.confirmed_data"), callout_class: "secondary") %>
 
-<%= decidim_form_for(@form, url: sms_code_initiative_signatures_path, method: :put) do |f| %>
+<%= decidim_form_for(@phone_number_form, url: sms_phone_number_initiative_signatures_path, method: :put) do |f| %>
+  <%= render partial: "sms_phone_number_form", object: f, locals: { disabled: true } %>
+<% end %>
+
+<%= decidim_form_for(@sms_code_form, url: sms_code_initiative_signatures_path, method: :put) do |f| %>
   <div class="form__wrapper">
-    <%= f.text_field :verification_code %>
-  </div>
-
-  <div class="form__wrapper-block">
-    <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary" %>
+    <label for="mobile_phone_verification_code">
+      <%= t("decidim.initiatives.initiative_signatures.sms_phone_number.your_confirmation_code") %>
+      <div class="flex gap-x-4" data-check-code>
+        <% (0..5).each do |i| %>
+          <input pattern="^[0-9]$" maxlength="1" size="1" type="tel" class="" name="mobile_phone[verification_code][<%= i %>]" data-verification-code="<%= i %>">
+        <% end %>
+        <%= f.hidden_field(:verification_code, data: { check_code_path: sms_code_initiative_signatures_path }) %>
+      </div>
+    </label>
+    <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_correct"), callout_class: "secondary code-correct-announcement hidden") %>
+    <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_wrong", new_code_path: sms_phone_number_initiative_signatures_path), callout_class: "alert code-wrong-announcement hidden") %>
+    <button type="submit" class="button button__lg button__secondary" disabled data-submit-verification-code>
+      <span><%= t("decidim.initiatives.initiative_signatures.sms_phone_number.continue") %></span>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    </button>
   </div>
 <% end %>
