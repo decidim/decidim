@@ -603,6 +603,16 @@ ro:
     download_your_data:
       export:
         ready: Gata
+      help:
+        identities:
+          created_at: Data și ora la care a fost creată identitatea
+          id: Identificatorul unic al acestei identități
+          provider: Furnizorul acestei identități
+          uid: Identificatorul unic al acestei identități
+          updated_at: Data și ora la care identitatea a fost actualizată ultima dată
+          user: Utilizatorul căruia îi aparține această identitate
+        messaging_conversations:
+          created_at: Data la care a fost creată această conversație
     editor_images:
       drag_and_drop_help: Adaugă imagini prin tragere & plasare sau lipirea lor.
     endorsement_buttons_cell:
