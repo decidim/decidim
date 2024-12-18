@@ -13,7 +13,7 @@ describe Decidim::OpenDataExporter do
       create(:accountability_component, organization:, published_at: Time.current)
     end
     let!(:resource) { create(:result, component:) }
-    let(:resource_title) { "## results" }
+    let(:resource_title) { "## results (1 resource)" }
     let(:help_lines) do
       [
         "* id: The unique identifier of the result"
@@ -34,7 +34,7 @@ describe Decidim::OpenDataExporter do
     end
     let(:result) { create(:result, component:) }
     let!(:resource) { create(:comment, commentable: result) }
-    let(:resource_title) { "## result_comments" }
+    let(:resource_title) { "## result_comments (1 resource)" }
     let(:help_lines) do
       [
         "* id: The id for this comment"

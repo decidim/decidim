@@ -35,6 +35,7 @@ describe Decidim::OpenDataExporter do
         it "includes the README content" do
           expect(csv_data).to include("# Open Data files for #{organization.name[:en]}")
           expect(csv_data).to include("This ZIP file contains files for studying and researching about this participation platform.")
+          expect(csv_data).to include("Generated on #{Time.current.strftime("%d/%m/%Y")}")
         end
       end
 
@@ -199,15 +200,15 @@ describe Decidim::OpenDataExporter do
         let(:file_data) { zip_contents.glob("README.md").first.get_input_stream.read }
 
         it "includes the help description for all the entities" do
-          expect(file_data).to include("## users")
-          expect(file_data).to include("## user_groups")
-          expect(file_data).to include("## proposals")
-          expect(file_data).to include("## proposal_comments")
-          expect(file_data).to include("## results")
-          expect(file_data).to include("## meetings")
-          expect(file_data).to include("## meeting_comments")
-          expect(file_data).to include("## participatory_process")
-          expect(file_data).to include("## assemblies")
+          expect(file_data).to include("## users (1 resource)")
+          expect(file_data).to include("## user_groups (1 resource)")
+          expect(file_data).to include("## proposals (1 resource)")
+          expect(file_data).to include("## proposal_comments (1 resource)")
+          expect(file_data).to include("## results (1 resource)")
+          expect(file_data).to include("## meetings (1 resource)")
+          expect(file_data).to include("## meeting_comments (1 resource)")
+          expect(file_data).to include("## participatory_processes (20 resources)")
+          expect(file_data).to include("## assemblies (5 resources)")
         end
 
         it "does not have any missing translation" do

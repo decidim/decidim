@@ -1375,7 +1375,9 @@ en:
           description: This ZIP file contains files for studying and researching about this participation platform.
           generated_on_date: Generated on %{date}
           main: Core
-          resources: resources
+          resources:
+            one: "%{count} resource"
+            other: "%{count} resources"
           spaces: Spaces
           title: Open Data files for %{organization}
         metrics:

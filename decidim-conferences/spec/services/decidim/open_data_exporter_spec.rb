@@ -9,7 +9,7 @@ describe Decidim::OpenDataExporter do
 
   let(:resource_file_name) { "conferences" }
   let!(:resource) { create(:conference, organization:) }
-  let(:resource_title) { "## conferences" }
+  let(:resource_title) { "## conferences (1 resource)" }
   let(:help_lines) do
     [
       "* id: The unique identifier of this conference"

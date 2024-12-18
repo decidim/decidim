@@ -152,7 +152,7 @@ module Decidim
       readme_file = "## #{I18n.t("decidim.open_data.help.core.main")}\n\n"
       help_definition.fetch(:core, []).each do |element, metadata|
         headers = metadata[:headers]
-        readme_file << "### #{element} (#{metadata[:collection_count]} #{I18n.t("decidim.open_data.help.core.resources")})\n\n"
+        readme_file << "### #{element} (#{I18n.t("decidim.open_data.help.core.resources", count: metadata[:collection_count])})\n\n"
 
         headers.each do |header, help_value|
           readme_file << "* #{header}: #{help_value}\n"
@@ -170,7 +170,7 @@ module Decidim
 
       help_definition.fetch(:spaces, []).each do |space, metadata|
         headers = metadata[:headers]
-        readme_file << "### #{space} (#{metadata[:collection_count]} #{I18n.t("decidim.open_data.help.core.resources")})\n\n"
+        readme_file << "### #{space} (#{I18n.t("decidim.open_data.help.core.resources", count: metadata[:collection_count])})\n\n"
 
         headers.each do |header, help_value|
           readme_file << "* #{header}: #{help_value}\n"
@@ -188,7 +188,7 @@ module Decidim
 
       help_definition.fetch(:components, []).each do |component, metadata|
         headers = metadata[:headers]
-        readme_file << "### #{component} (#{metadata[:collection_count]} #{I18n.t("decidim.open_data.help.core.resources")})\n\n"
+        readme_file << "### #{component} (#{I18n.t("decidim.open_data.help.core.resources", count: metadata[:collection_count])})\n\n"
 
         headers.each do |header, help_value|
           readme_file << "* #{header}: #{help_value}\n"
