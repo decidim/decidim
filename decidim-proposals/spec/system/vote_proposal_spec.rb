@@ -395,10 +395,10 @@ describe "Vote Proposal", slow: true do
 
           expect(page).to have_content("Remember you have 5 votes left")
           expect(page).to have_content("You have to give 5 more votes between different proposals for your votes to be taken into account.")
-          expect(page).to have_content("Exit voting")
-          expect(page).to have_content("Back to voting")
+          expect(page).to have_content("Continue")
+          expect(page).to have_content("Cancel")
 
-          click_on "Exit voting"
+          click_on "Continue"
           expect(page).to have_content("proposals")
           expect(page).to have_content("Status")
         end
@@ -437,17 +437,18 @@ describe "Vote Proposal", slow: true do
           end
 
           it "shows the exit modal" do
-            expect(page).to have_content("Already vote")
+            expect(page).to have_content("Already voted")
             click_on "Already voted"
+            expect(page).to have_no_content("Already voted", wait: 10)
 
             first("a", text: "Proposals").click
 
-            expect(page).to have_content("Remember you have 1 votes left", wait: 20)
+            expect(page).to have_content("Remember you have 1 votes left", wait: 10)
             expect(page).to have_content("You have to give 1 more votes between different proposals for your votes to be taken into account.")
-            expect(page).to have_content("Exit voting")
-            expect(page).to have_content("Back to voting")
+            expect(page).to have_content("Continue")
+            expect(page).to have_content("Cancel")
 
-            click_on "Back to voting"
+            click_on "Cancel"
 
             expect(page).to have_content("You have 1 supports left", wait: 10)
             expect(page).to have_content("Remember that you still have to give")
