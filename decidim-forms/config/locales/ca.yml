@@ -26,6 +26,13 @@ ca:
           request_invalid: Hi ha hagut un problema en gestionar la sol·licitud. Si us plau, torna-ho a provar.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: La resposta a la pregunta
+          id: L'identificador únic de la resposta
+          question: La pregunta que es va respondre
+          questionnaire: L'enquesta que es va respondre
+          user: La usuària que va respondre l'enquesta
       show:
         answers: Exportar les respostes
         survey_user_answers: Respostes de les usuàries a l'enquesta
