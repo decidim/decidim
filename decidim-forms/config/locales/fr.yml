@@ -25,6 +25,10 @@ fr:
         questionnaire:
           request_invalid: Une erreur s'est produite lors du traitement de la requête. Veuillez essayer à nouveau.
   decidim:
+    download_your_data:
+      show:
+        answers: Export des réponses
+        survey_user_answers: Réponses à l'enquête
     forms:
       admin:
         models:

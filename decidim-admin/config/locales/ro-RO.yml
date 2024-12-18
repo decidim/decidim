@@ -316,9 +316,6 @@ ro:
         create:
           error: A apărut o eroare la crearea acestei componente.
           success: Componenta a fost creată cu succes.
-        destroy:
-          error: A apărut o problemă la eliminarea acestei componente.
-          success: Componenta a fost ștearsă cu succes.
         edit:
           title: Editează componenta
           update: Actualizează
@@ -372,8 +369,6 @@ ro:
           JSON: JSON
         notice: Exportul dvs. este în desfășurare. Veți primi un e-mail atunci când acesta este complet.
       filters:
-        category_id_eq:
-          label: Categorie
         filter_label: Filtru
         invitation_accepted_at_present:
           label: Invitația a fost acceptată
@@ -421,8 +416,6 @@ ro:
           values:
             'false': Publicat
             'true': Nepublicat
-        scope_id_eq:
-          label: Domeniu
         search_label: Caută
         search_placeholder:
           name_or_nickname_or_email_cont: Caută %{collection} după e-mail, nume sau pseudonim.
@@ -613,12 +606,8 @@ ro:
             plural: Plural
         share_token:
           fields:
-            created_at: Creat la
             expires_at: Expiră la
-            last_used_at: Ultima utilizare
             times_used: Număr utilizări
-            token: Token
-            user: Creat de
         static_page:
           fields:
             created_at: Creat la
@@ -858,10 +847,6 @@ ro:
           title: Editează drepturile
         update:
           success: Drepturile au fost actualizate cu succes.
-      resources:
-        index:
-          headers:
-            scope: Domeniu
       scope_types:
         create:
           error: A apărut o problemă la crearea unui nou tip de domeniu.
@@ -895,16 +880,7 @@ ro:
           success: Domeniul a fost actualizat cu succes
       share_tokens:
         actions:
-          confirm_destroy: Sigur vrei să ștergi acest token?
           destroy: Șterge
-          share: Distribuie
-        destroy:
-          error: A apărut o problemă la distrugerea acestui token.
-          success: Token-ul a fost distrus cu succes.
-        share_tokens:
-          empty: Nu există token-uri active.
-          help: Aceste tipuri de token sunt utilizate pentru a distribui public această resursă nepublicată cu orice utilizator. Acestea vor fi ascunse la momentul publicării resursei. Faceți clic pe pictograma de distribuire aferentă acestui token pentru a vizita URL-ul distribuit.
-          title: Distribuiți token
       shared:
         gallery:
           add_images: Adaugă imagini
@@ -950,13 +926,9 @@ ro:
         update:
           error: A apărut o eroare la actualizarea acestei pagini.
           success: Pagina a fost actualizată cu succes.
-      taxonomies:
-        count: Număr
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Filtru nou de taxonomie
-        callout:
-          modify_taxonomy_html: Dacă aveți nevoie să modificați această taxonomie sau elementele sale, faceți acest lucru prin setările de configurare din secțiunea <a href="%{url}">Taxonomii</a>.
         create:
           error: A apărut o problemă la crearea acestui filtru de taxonomie.
           success: Filtru de taxonomie creat cu succes.
@@ -965,27 +937,19 @@ ro:
           success: Filtru taxonomie șters cu succes.
         edit:
           back: Înapoi
-          items: "%{count} elemente selectate"
-          no_items: Nu există elemente disponibile pentru această taxonomie. Puteți crea elemente în setările de configurare a taxonomiei.
           title: Actualizare filtru taxonomie
           update: Actualizare filtru taxonomie
-        form:
-          select_taxonomy: Selectați o taxonomie
         index:
           description: Un filtru de taxonomie permite administratorilor să sorteze si să filtreze spațiile participative pe baza unei taxonomii. De exemplu, adăugați un filtru de taxonomie pentru a sorta procesele în funcție de aria geografică.
           empty: Momentan nu există filtre de taxonomie. Creați o listă de filtre de taxonomie aici pentru a sorta și filtra spațiile participative bazate pe taxonomie.
         new:
           back: Înapoi
           create: Creați filtru taxonomie
-          items: "%{count} elemente disponibile"
           title: Filtru nou de taxonomie
         table:
           actions: Acțiuni
-          confirm_destroy: Sunteți sigur că doriți să ștergeți filtrul %{name}?
-          count: Numărul de elemente
           destroy: Ștergere
           edit: Actualizare
-          name: Nume
         update:
           error: A apărut o problema la actualizarea acestui filtru de taxonomie.
           success: Filtrul de taxonomie actualizat cu succes.

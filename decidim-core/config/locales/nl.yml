@@ -414,17 +414,12 @@ nl:
     download_your_data:
       export:
         ready: Klaar
-      show:
-        download_data: Download de gegevens
-        request_data: Gegevens aanvragen
     editor_images:
       drag_and_drop_help: Voeg afbeeldingen toe door ze te slepen of te plakken.
     endorsements:
       identities:
         done: Voltooid
         select_identity: Selecteer identiteit
-    endorsers_list:
-      endorsed_by: Geliket door...
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -558,10 +553,7 @@ nl:
           notification_title: De <a href="%{resource_path}">profile page</a> van %{name} (%{nickname}), die je volgt, is bijgewerkt.
     export_mailer:
       download_your_data_export:
-        click_button: 'Klik op de volgende link om je gegevens te downloaden. <br/> Het bestand is beschikbaar tot %{date}. <br/> Je hebt <a href="https://www.7-zip.org/">7-Zip</a>(for Windows), <a href="https://www.keka.io/en/">Keka</a> (for MacOS) or <a href="https://peazip.github.io">PeaZip</a> (for Linux) nodig om het te openen. Wachtwoord: %{password}'
         download: Download
-      export:
-        ready: In de bijlage vindt u een versie van uw export.
       subject: Uw export "%{name}" is klaar
     filters:
       linked_classes:
@@ -991,10 +983,6 @@ nl:
         title: Meld een probleem
       floating_help:
         help: Help
-      participatory_space_filters:
-        filters:
-          areas: Onderwerpen
-          select_an_area: Selecteer een onderwerp
       public_participation:
         public_participation: Maak mijn aanwezigheid openbaar
       reference:
@@ -1021,9 +1009,6 @@ nl:
       pages_count: Pagina's
       participants_count: Deelnemers
       users_count: Deelnemers
-    tags:
-      filter_results_for_category: 'Resultaten filteren voor categorie: %{resource}'
-      filter_results_for_scope: 'Filter resultaten voor bereik: %{resource}'
     user_contact_disabled: Deze gebruiker accepteert geen directe berichten.
     user_conversations:
       create:
@@ -1215,7 +1200,6 @@ nl:
       footer:
         cc_by_license: Creative Commons-licentie
         decidim_logo: Logo Decidimmen
-        download_open_data: Download Open Data-bestanden
         log_in: Aanmelden
         made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:

@@ -15,6 +15,10 @@ en:
         one: Post
         other: Posts
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Posts
     blogs:
       actions:
         author_id: Create post as
@@ -97,5 +101,33 @@ en:
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New post published in %{participatory_space_title}
           notification_title: The post <a href="%{resource_path}">%{resource_title}</a> has been published in %{participatory_space_title}
+    open_data:
+      help:
+        post_comments:
+          alignment: If this comment was a favour, against or neutral
+          author: The name of the participant that made this comment
+          body: The comment itself
+          commentable_id: The unique id of the commentable
+          commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
+          created_at: The date when this comment was created
+          depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
+          id: The id for this comment
+          locale: The locale (language) that the participant had when leaving this comment
+          root_commentable_url: The URL of the resource that ties to this comment
+          user_group: The name of the user group that made this comment (if any)
+        posts:
+          author: The information of the author
+          body: The body of the post
+          comments_count: The number of comments this post has
+          component: The component that the post belongs to
+          created_at: The date this post was created
+          endorsements_count: The number of endorsements this post has
+          follows_count: The number of follows this post has
+          id: The unique identifier of this post
+          participatory_space: To which space (e.g. Participatory Process, or Assembly) this post belongs to
+          published_at: The date this post was published
+          title: The title of the post
+          updated_at: The last date this post was updated
+          url: The URL for this post
     statistics:
       posts_count: Posts

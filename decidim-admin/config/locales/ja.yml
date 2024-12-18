@@ -184,6 +184,13 @@ ja:
         browse: 検索
         category:
           new: 新しいカテゴリ
+        confirm_delete_component: |
+          このコンポーネントを削除しますか?<br>
+          このコンポーネントが含むもの:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} リソース</li>
+          </ul>
+          気が変わった場合は、後で元に戻せます。
         export: 全てエクスポート
         export-selection: 選択したものをエクスポート
         import: インポート
@@ -195,11 +202,15 @@ ja:
         per_page: ページごと
         permissions: アクセス許可
         reject: 拒否
+        restore: 復元
         send_me_a_test_email: テストメールを自分宛てに送信
         share: 共有
+        share_tokens: アクセスリンク
+        soft_delete: 論理削除
         user:
           new: 新しい管理者
         verify: 確認する
+        view_deleted_components: 削除されたコンポーネントを表示
       admin_terms_of_service:
         accept:
           error: 管理者の利用規約に同意中に問題が発生しました。
@@ -319,9 +330,6 @@ ja:
           error: このコンポーネントの作成に問題がありました。
           success: コンポーネントが作成されました。
           success_landing_page: コンポーネントを作成しました。このコンポーネントのコンテンツブロックをスペースのホームに追加できます。 <a href="%{landing_page_path}">ランディングページ</a> に移動して設定してください。
-        destroy:
-          error: このコンポーネントの削除中に問題が発生しました。
-          success: コンポーネントは正常に削除されました。
         edit:
           title: コンポーネントを編集
           update: 更新
@@ -338,11 +346,21 @@ ja:
             name: コンポーネント名
             type: コンポーネントタイプ
             visibility: 可視性
+        manage_trash:
+          title: 削除されたコンポーネント
         new:
           add: コンポーネントを追加
           title: 'コンポーネントを追加: %{name}'
         publish:
           success: コンポーネントは正常に公開されました。
+        taxonomy_filters_badge:
+          remove: 削除
+        taxonomy_filters_drawer:
+          add_filter: フィルターを追加
+          clear_all: すべてクリア
+          filters: フィルター
+          save: 保存
+          title: フィルター
         title: コンポーネント
         unpublish:
           success: コンポーネントの非公開に成功しました。
@@ -408,8 +426,6 @@ ja:
           JSON: JSON
         notice: 現在エクスポートが進行中です。完了した際にはメールでお知らせします。
       filters:
-        category_id_eq:
-          label: カテゴリ
         filter_label: フィルター
         invitation_accepted_at_present:
           label: 招待が承認されました
@@ -458,8 +474,6 @@ ja:
             'false': 公開済み
             'true': 未公開
         remove_all: すべて削除
-        scope_id_eq:
-          label: スコープ
         search_label: 検索
         search_placeholder:
           name_or_nickname_or_email_cont: '%{collection} をメール、表示名、アカウントIDで検索します。'
@@ -562,6 +576,8 @@ ja:
         logs_list:
           no_logs_yet: ログはまだありません。
           no_matching_logs: 指定された検索フィルターにはログがありません。変更して再試行してください。
+      manage_trash:
+        deleted_items_warning: 削除されたアイテムを表示しています。編集や変更を行うには、最初にそれらを復元する必要があります。
       managed_users:
         promotion:
           error: 管理対象参加者の昇格に問題が発生しました。
@@ -593,6 +609,7 @@ ja:
         scopes: スコープ
         see_site: サイトを見る
         settings: 設定
+        share_tokens: アクセスリンク
         static_page_topics: トピック
         static_pages: ページ
         taxonomies: タクソノミー
@@ -650,12 +667,11 @@ ja:
             plural: 複数形
         share_token:
           fields:
-            created_at: 作成日時
+            actions: アクション
             expires_at: 有効期限
-            last_used_at: 前回の利用
+            registered_only: 登録者のみ？
             times_used: 利用回数
-            token: トークン
-            user: 作成者
+            token: アクセス リンク
         static_page:
           fields:
             created_at: 作成日時
@@ -885,12 +901,26 @@ ja:
         destroy:
           error: この参加型スペースのプライベート参加者を削除する際に問題が発生しました。
           success: 参加型スペースのプライベート参加者アクセスが正常に破棄されました。
+        edit:
+          title: 参加スペースの非公開参加者を編集します。
+          update: 更新
         index:
           import_via_csv: CSV形式でインポート
+          publish_all: すべて公開
           title: 参加型スペースプライベート参加者
+          unpublish_all: すべて非公開
         new:
           create: 作成
           title: 新しい参加型スペースのプライベート参加者。
+        publish_all:
+          error: この参加型スペースのすべてのプライベート参加者を公開する際に問題が発生しました。
+          success: この参加型スペースのすべてのプライベート参加者を公開しました
+        unpublish_all:
+          error: この参加型スペースのすべてのプライベート参加者を非公開にする際に問題が発生しました。
+          success: この参加型スペースのすべてのプライベート参加者を非公開にしました
+        update:
+          error: この参加型スペースのプライベート参加者の更新中に問題が発生しました。
+          success: 参加型スペースのプライベート参加者を更新しました
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSVファイルの読み込み中に問題が発生しました。手順を確認してください。
@@ -924,10 +954,6 @@ ja:
           title: 権限の編集
         update:
           success: 権限は正常に更新されました。
-      resources:
-        index:
-          headers:
-            scope: スコープ
       scope_types:
         create:
           error: 新しいスコープ種別の作成中に問題が発生しました。
@@ -961,16 +987,49 @@ ja:
           success: スコープが正常に更新されました
       share_tokens:
         actions:
-          confirm_destroy: このトークンを削除してもよろしいですか？
+          confirm_destroy: このアクセスを削除してもよろしいですか？
+          copy_link: リンクをコピー
           destroy: 削除
-          share: 共有
+          edit: 編集
+          preview: プレビュー
+        create:
+          invalid: アクセスリンクの生成中に問題が発生しました。
+          success: アクセスリンクを作成しました。
         destroy:
-          error: トークンを削除する際に問題が発生しました。
-          success: トークンが正常に破棄されました。
-        share_tokens:
-          empty: 有効なトークンはありません。
-          help: これらのトークンは、公開されていないリソースをすべてのユーザーに公開するために使用されます。 リソースが公開されると、それらは非表示になります。共有可能なURLにアクセスするにはトークンの共有アイコンをクリックしてください。
-          title: トークンを共有
+          error: アクセスリンクの削除中に問題が発生しました。
+          success: アクセスリンクを削除しました。
+        edit:
+          title: '%{name} へのアクセスリンクを編集'
+          update: 更新
+        form:
+          automatic: 自動
+          custom: カスタム
+          custom_expiration: カスタム有効期限
+          custom_token: カスタムワード
+          expires_at: 有効期限
+          'false': 'いいえ'
+          never_expire: 無期限
+          registered_only: 登録者のみ？
+          token: アクセスキー
+          'true': 'はい'
+        index:
+          back_to_share_tokens: アクセスリンクへ戻る
+          copied: アクセスリンクをコピーしました
+          copy_message: テキストをクリップボードにコピーしました。
+          create_new_token: 最初のアクセスリンクを作成します
+          empty_html: 有効なアクセスリンクはありません。 %{new_token_link}
+          never: 無期限
+          new_share_token_button: 新しいアクセスリンク
+          share_tokens_help_html: |
+            この未公開リソースを他の人が閲覧できるようにするために、アクセスリンクを作成して共有してください。
+            アクセスリンクは、登録済みの参加者のみが使えるようにするか、有効期限を設定するか、必要に応じて選択できます。 新しいアクセスリンクを誰かと共有するには、リンクを作成し、"%{clipboard} クリップボード" アクションアイコンを使用してリンクをコピーしてください。
+          title: '%{name} へのアクセスリンク'
+        new:
+          create: 作成
+          title: '%{name} への新しいアクセスリンク'
+        update:
+          error: このアクセスを更新中に問題が発生しました。
+          success: アクセスリンクが更新されました。
       shared:
         adjacent_navigation:
           next: 次へ
@@ -1025,8 +1084,8 @@ ja:
           success: ページが更新されました。
       taxonomies:
         actions: アクション
-        amount: 合計
-        count: カウント
+        amount: アイテムの数
+        count: 関連するリソース
         create:
           invalid: タクソノミーの作成中に問題が発生しました。
           success: タクソノミーを作成しました。
@@ -1056,7 +1115,7 @@ ja:
           to_next_page: 次のページにドラッグ
           to_prev_page: 前のページにドラッグ
         taxonomy_actions:
-          confirm_destroy: '%{name} を削除してもよろしいですか？全ての子アイテムも削除されます。'
+          confirm_destroy: '%{name} を削除してもよろしいですか？その場合全ての子アイテムも削除されます。 注意: このタクソノミーを使用しているリソース自体は影響を受けませんが、このタクソノミーへの参照は失われます。'
         update:
           invalid: タクソノミーの更新中に問題が発生しました。
           success: タクソノミーを更新しました。
@@ -1064,7 +1123,7 @@ ja:
         actions:
           new_taxonomy_filter: 新規タクソノミフィルター
         callout:
-          modify_taxonomy_html: このタクソノミーまたはそのアイテムを変更する必要がある場合は、 <a href="%{url}">タクソノミー</a> セクションの設定を通して行います。
+          modify_taxonomy_html: このタクソノミーまたはそのアイテムを変更する必要がある場合は、 <a href="%{url}">タクソノミー</a> セクションの設定から行ってください。
         create:
           error: タクソノミーフィルタの作成中に問題が発生しました。
           success: タクソノミーフィルターを作成しました。
@@ -1073,27 +1132,34 @@ ja:
           success: タクソノミーフィルタを削除しました。
         edit:
           back: 戻る
-          items: "{count} 個のアイテムを選択中です"
-          no_items: このタクソノミーで使えるアイテムはありません。タクソノミー設定でアイテムを作成できます。
           title: タクソノミーフィルタを編集
           update: タクソノミーフィルタを更新
         form:
-          select_taxonomy: タクソノミーを選択
+          all: すべて
+          items:
+            other: "%{count} 個のアイテムを選択しました"
+          name_help: フロントエンドに表示するフィルタのタイトル。
+          no_items: このタクソノミーで使えるアイテムはありません。タクソノミー設定でアイテムを作成できます。
+          space_filter: すべての %{manifest_name} のフィルターとして利用できます
         index:
           description: タクソノミーフィルターは、管理者がタクソノミーに基づいて参加型スペースを分類したりフィルタリングしたりできるようにするものです。例えば、地理的範囲でプロセスをソートするためにタクソノミーフィルターを追加することができます。
           empty: 現在、タクソノミーフィルターはありません。タクソノミーフィルターのリストを作成し、タクソノミーに基づいて参加型スペースをソートおよびフィルタリングしてください。
         new:
           back: 戻る
           create: タクソノミーフィルタを作成
-          items: "%{count} 個のアイテムがあります"
+          select_taxonomy: タクソノミーを選択
           title: 新規タクソノミーフィルター
         table:
           actions: アクション
-          confirm_destroy: フィルター %{name} を削除してもよろしいですか？
-          count: アイテム数
+          components_count: 関連するコンポーネント
+          confirm_destroy: 'フィルター %{name} を削除してもよろしいですか？ 注意: このフィルタを使用しているリソース自体は影響を受けませんが、このフィルタへの参照は失われます。'
+          count: 使用しているアイテムの数
           destroy: 削除
           edit: 編集
-          name: 名前
+          internal_name: 内部フィルター名
+          name: 公開フィルタータイトル
+          space_filter: '%{manifest_name} へのフィルターに使用'
+          taxonomy: タクソノミーから
         update:
           error: タクソノミーフィルタの更新に問題がありました。
           success: タクソノミーフィルターを更新しました。
@@ -1129,6 +1195,15 @@ ja:
         taxonomy_filters: タクソノミーフィルター
         user_groups: グループ
         users: 管理者
+      tooltips:
+        deleted_component_info: このコンポーネントは、ステータスが '未公開' の場合にのみ削除できます。
+      trash_management:
+        restore:
+          invalid: '%{resource_name} の復元に問題が発生しました。'
+          success: "%{resource_name} は正常に復元されました。"
+        soft_delete:
+          invalid: '%{resource_name} の削除中に問題が発生しました。'
+          success: "%{resource_name} を削除しました。"
       user_group:
         csv_verify:
           invalid: CSVファイルの読み込みに問題が発生しました。

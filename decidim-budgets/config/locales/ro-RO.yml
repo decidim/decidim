@@ -2,15 +2,12 @@ ro:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Domeniu de interes
         description: Descriere
         title: Titlu
         total_budget: Total budget
         weight: Ordinea în poziționare
       project:
         budget_amount: Sumă bugetară
-        decidim_category_id: Categorie
-        decidim_scope_id: Domeniu de interes
         description: Descriere
         proposal_ids: Propuneri asociate
         proposals: Propuneri
@@ -28,10 +25,6 @@ ro:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categorie
-          scope_id_eq:
-            label: Domeniu de interes
           selected_at_null:
             label: Selectate
             values:
@@ -41,8 +34,6 @@ ro:
       actions:
         attachment_collections: Dosare
         attachments: Atașamente
-        confirm_destroy: Sigur dorești să ştergi acest proiect?
-        destroy: Ștergere
         edit: Editare
         edit_projects: Gestionați proiectele
         import: Importă propuneri în proiecte
@@ -77,8 +68,6 @@ ro:
           index:
             actions: Acțiuni
             cancel: Anulează
-            change_category: Schimbă categoria
-            change_scope: Schimbă domeniul
             change_selected: Schimbă starea selectată
             finished_orders: Voturi terminate
             pending_orders: Voturi în așteptare
@@ -86,7 +75,6 @@ ro:
             selected: Selectate
             title: Proiecte
             update: Actualizare
-            update_scope_button: Actualizează domeniu
           new:
             create: Creează
             title: Proiect nou
@@ -126,7 +114,6 @@ ro:
             total_budget: Buget total
         project:
           fields:
-            category: Categorie
             id: ID
             title: Titlu
       order_summary_mailer:
@@ -164,8 +151,6 @@ ro:
           message: Votul tău nu a fost înregistrat încă pentru că nu ai finalizat procesul de votare. Sigur dorești să ieși din secțiunea de votare?
           title: Nu ai votat încă
         filters:
-          category: Categorie
-          scope: Domeniu
           search: Caută
           status: Stadiu
           status_values:

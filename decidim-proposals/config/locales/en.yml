@@ -113,6 +113,9 @@ en:
         other: Votes
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Proposals
       filters:
         proposals:
           is_emendation_true:

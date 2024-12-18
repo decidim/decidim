@@ -9,6 +9,7 @@ describe Decidim::Budgets::Budget do
   it { is_expected.to act_as_paranoid }
 
   include_examples "has component"
+  include_examples "has taxonomies"
   include_examples "resourceable"
   include_examples "has scope"
 

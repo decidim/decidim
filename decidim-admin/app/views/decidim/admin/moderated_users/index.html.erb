@@ -1,12 +1,18 @@
 <% add_decidim_page_title(t(".title")) %>
 <div class="item_show__header">
   <h1 class="item_show__header-title">
-    <%= t(".title") %>
+    <div>
+      <%= t(".title") %>
+      <span id="js-selected-moderated_users-count" class="component-counter " title="<%= t("decidim.admin.moderated_users.index.selected") %>"></span>
+    </div>
 
-    <div class="card__filter">
-      <%= link_to t("decidim.admin.moderated_users.tabs.unblocked"), moderated_users_path %>
-      |
-      <%= link_to t("decidim.admin.moderated_users.tabs.blocked"), moderated_users_path(blocked: true) %>
+    <div class="flex items-center gap-x-4">
+      <%= render partial: "bulk-actions" %>
+      <div class="card__filter">
+        <%= link_to t("decidim.admin.moderated_users.tabs.unblocked"), moderated_users_path %>
+        |
+        <%= link_to t("decidim.admin.moderated_users.tabs.blocked"), moderated_users_path(blocked: true) %>
+      </div>
     </div>
   </h1>
 </div>
@@ -16,6 +22,7 @@
   <table class="table-list">
     <thead>
     <tr>
+      <th><%= check_box_tag "moderated_users_bulk", "all", false, class: "js-check-all" %></th>
       <th><%= t(".name") %></th>
       <th><%= t(".nickname") %></th>
       <th><%= t(".reason") %></th>
@@ -27,6 +34,7 @@
     <tbody>
     <% @moderated_users.each do |moderation| %>
       <tr data-id="<%= moderation.id %>">
+        <td><%= check_box_tag "user_ids_s[]", moderation.user.id, false, class: "js-check-all-moderated_users js-moderated_user-list-check  js-moderated_user-id-#{moderation.user.id}" %><br></td>
         <% if moderation.user.nickname.present? %>
           <td><%= link_to moderation.user.name, decidim.profile_path(moderation.user.nickname) %></td>
           <td><%= link_to moderation.user.nickname, decidim.profile_path(moderation.user.nickname) %></td>
@@ -53,7 +61,7 @@
             <% if moderation.user.blocked? %>
               <%= icon_link_to "refresh-line", user_block_path(user_id: moderation.user.id), t(".actions.unblock"), class: "action-icon action-icon--disabled", method: :delete %>
             <% else %>
-             <%= icon_link_to "lock-2-line", new_user_block_path(user_id: moderation.user.id), t(".actions.block"), class: "action-icon action-icon" %>
+              <%= icon_link_to "lock-2-line", new_user_block_path(user_id: moderation.user.id), t(".actions.block"), class: "action-icon action-icon" %>
             <% end %>
           <% end %>
         </td>

@@ -4,7 +4,6 @@ sv:
       collaborative_draft:
         address: Adress
         body: Innehåll
-        category_id: Kategori
         decidim_scope_id: Indelning
         has_address: Har adress
         scope_id: Indelning
@@ -17,7 +16,6 @@ sv:
         answered_at: Besvarad
         automatic_hashtags: Hashtags läggs till automatiskt
         body: Innehåll
-        category_id: Kategori
         decidim_scope_id: Indelning
         has_address: Har adress
         scope_id: Indelning
@@ -81,8 +79,6 @@ sv:
               not_official: Är inte officiella
               voted: Har fått röster eller stöd
     models:
-      decidim/proposals/admin/update_proposal_category_event: Förslagskategori ändrad
-      decidim/proposals/admin/update_proposal_scope_event: Förslagets indelning har ändrats
       decidim/proposals/creation_enabled_event: Skapande av förslag aktiverat
       decidim/proposals/endorsing_enabled_event: Stöttande av förslag aktiverat
       decidim/proposals/proposal_mentioned_event: Förslag nämnt
@@ -106,8 +102,6 @@ sv:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategori
           is_emendation_true:
             label: Typ
             values:
@@ -115,8 +109,6 @@ sv:
               'true': Ändringsförslag
           proposal_state_id_eq:
             label: Status
-          scope_id_eq:
-            label: Indelning
           state_eq:
             label: Status
             values:
@@ -141,7 +133,6 @@ sv:
         actions:
           amend: Ändra
           comment: Kommentera
-          create: Skapa
           endorse: Gilla
           vote: Rösta
           vote_comment: Rösta på en kommentar
@@ -199,7 +190,7 @@ sv:
             resources_permissions_enabled: Behörigheter kan ställas in för varje förslag
             scope_id: Indelning
             scopes_enabled: Aktivera indelningar
-            threshold_per_proposal: Minsta antal per förslag
+            threshold_per_proposal: Minst antal stöd per förslag
             vote_limit: Antal röster per deltagare
           step:
             amendment_creation_enabled: Skapa ändringar är aktiverat
@@ -343,16 +334,6 @@ sv:
             email_outro: Du har fått det här meddelande eftersom du följer "%{resource_title}". Du kan sluta följa det från föregående länk.
             email_subject: Ett förslag som du följer har ändrat status (%{state})
             notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har ändrat status till "%{state}".
-        proposal_update_category:
-          email_intro: 'En administratör har uppdaterat kategorin för ditt förslag "%{resource_title}", ta en titt på följande sida:'
-          email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
-          email_subject: Förslagskategorin %{resource_title} har uppdaterats
-          notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
-        proposal_update_scope:
-          email_intro: 'En administratör har uppdaterat indelningen för ditt förslag "%{resource_title}", ta en titt på följande sida:'
-          email_outro: Du har fått det här meddelandet eftersom du är författare till förslaget.
-          email_subject: Indelningen för förslaget %{resource_title} har uppdaterats
-          notification_title: Indelningen för förslaget <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
         rejected_coauthorship:
           notification_title: Du har avböjt inbjudan från <a href="%{author_path}">%{author_name}</a> att bli medförfattare till förslaget <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
@@ -414,7 +395,7 @@ sv:
         title: Röster
     participatory_spaces:
       highlighted_proposals:
-        last: Senaste förslag
+        last: Senaste förslagen
         see_all: Visa alla förslag
     proposals:
       actions:
@@ -555,7 +536,6 @@ sv:
             attachment_legend: "(Frivilligt) Lägg till en bilaga"
             created_in_meeting: Detta förslag kommer från ett möte
             delete_attachment: Ta bort bilaga
-            select_a_category: Välj en kategori
             select_a_meeting: Välj ett möte
           index:
             actions: Åtgärder
@@ -563,8 +543,6 @@ sv:
             assign_to_valuator: Tilldela till handläggare
             assign_to_valuator_button: Tilldela
             cancel: Avbryt
-            change_category: Ändra kategori
-            change_scope: Ändra indelning
             merge: Slå samman till ett nytt
             merge_button: Slå ihop
             no_templates_available: Ingen mall tillgänglig
@@ -580,7 +558,6 @@ sv:
             unassign_from_valuator: Ta bort tilldelning till handläggare
             unassign_from_valuator_button: Ta bort tilldelning
             update: Uppdatera
-            update_scope_button: Uppdatera indelning
           new:
             create: Skapa
             title: Skapa förslag
@@ -606,16 +583,6 @@ sv:
             remove_assignment_confirmation: Vill du ta bort handläggaren från förslaget?
             valuators: Handläggare
             votes_count: Antal röster
-          update_category:
-            invalid: 'Dessa förslag var redan i kategorin %{subject_name}: %{proposals}.'
-            select_a_category: Välj en kategori.
-            select_a_proposal: Välj ett förslag.
-            success: 'Förslag som har uppdaterats till kategorin %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'De här förslagen tillhör redan %{subject_name}: %{proposals}.'
-            select_a_proposal: Välj ett förslag.
-            select_a_scope: Välj en indelning.
-            success: 'Förslag som har uppdaterats till %{subject_name}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Det gick inte att importera förslagen.
@@ -696,7 +663,6 @@ sv:
         edit:
           attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
-          select_a_category: Välj en kategori
           send: Skicka
           title: Redigera gemensamt utkast
         empty: Det finns inga gemensamma utkast ännu
@@ -704,11 +670,9 @@ sv:
         filters:
           all: Alla
           amendment: Ändringsförslag
-          category: Kategori
           open: Öppna
           published: Publicerade
           related_to: Relaterade till
-          scope: Indelning
           search: Sök
           state: Status
           withdrawn: Återkallade
@@ -748,7 +712,6 @@ sv:
             error: Kunde inte avvisas som samarbetspartner, försök igen senare.
             success: "@%{user} har avvisats som medskapare."
         show:
-          edit: Redigera gemensamt utkast
           final_proposal: Färdigt förslag
           final_proposal_help_text: Detta utkast är klart. Du kan se det slutliga förslaget
           hidden_authors_count:
@@ -800,14 +763,12 @@ sv:
       models:
         proposal:
           fields:
-            category: Kategori
             comments: Kommentarer
             id: ID
             notes: Anteckningar
             official_proposal: Officiellt förslag
             published_answer: Publicerat svar
             published_at: Publicerad
-            scope: Indelning
             state: Status
             title: Titel
             valuator: Handläggare
@@ -835,7 +796,6 @@ sv:
           attachment_legend: "(Frivilligt) Lägg till en bilaga"
           back: Tillbaka
           edit_documents: Ändra dokument
-          select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
         edit_draft:
@@ -849,7 +809,6 @@ sv:
           activity: Min aktivitet
           all: Allt
           amendment_type: Typ
-          category: Kategori
           my_proposals: Mina förslag
           origin: Ursprung
           related_to: Relaterade till
@@ -902,7 +861,6 @@ sv:
         show:
           answer: Svara
           changes_at_title: Ändring till %{title}
-          edit_proposal: Redigera förslag
           estimated_cost: Beräknad kostnad
           hidden_endorsers_count:
             one: och %{count} till person
@@ -918,7 +876,6 @@ sv:
           proposal_rejected_reason: 'Förslaget har avslagits på grund av att:'
           withdraw_btn_hint: Om du ändrar dig kan du återkalla förslaget, så länge det inte har fått någon röst. Förslaget raderas inte, utan står med i listan över återkallade förslag.
           withdraw_confirmation_html: Är du säker på att du vill dra tillbaka förslaget?<br><br><strong>Denna åtgärd kan inte ångras!</strong>
-          withdraw_proposal: Dra tillbaka förslaget
         update:
           title: Uppdatera förslag
         vote_button:
