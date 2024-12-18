@@ -52,8 +52,9 @@ describe "Admin manages projects" do
       expect(page).to have_admin_callout "Projects successfully updated"
       expect(page).to have_admin_callout translated(taxonomy.name)
       expect(page).to have_admin_callout translated(another_taxonomy.name)
-      expect(Decidim::Budgets::Project.find(project.id).taxonomies.first).to eq(taxonomy)
-      expect(Decidim::Budgets::Project.find(project2.id).taxonomies.first).to be_nil
+      expect(project.reload.taxonomies).to include(taxonomy)
+      expect(project.taxonomies).to include(another_taxonomy)
+      expect(project2.reload.taxonomies).to be_empty
     end
 
     it "selects projects to implementation" do
