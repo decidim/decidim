@@ -115,8 +115,8 @@ module Decidim
       def store_sms_code
         redirect_to(finish_path) && return unless sms_step?
 
-        @form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
-        ValidateSmsCode.call(@form, session_sms_code) do
+        @sms_code_form = Decidim::Verifications::Sms::ConfirmationForm.from_params(params)
+        ValidateSmsCode.call(@sms_code_form, session_sms_code) do
           on(:ok) do
             respond_to do |format|
               format.js do
