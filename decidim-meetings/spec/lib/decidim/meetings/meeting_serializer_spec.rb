@@ -184,6 +184,10 @@ module Decidim
           expect(serialized).to include(decidim_user_group_id: meeting.decidim_user_group_id)
         end
 
+        it "serializes the the closing date" do
+          expect(serialized).to include(closed_at: meeting.closed_at)
+        end
+
         describe "closing report and visibility" do
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
