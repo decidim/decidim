@@ -275,8 +275,8 @@ module Decidim
         end
 
         describe "attendees and their visabilty" do
-          it "does not serializes the the number of attendees organizations" do
-            expect(serialized[:attendees]).to eq("Some organization")
+          it "does not serializes the the number of attendees" do
+            expect(serialized[:attendees]).to eq(10)
           end
 
           it "does not serializes the meetings visabilty" do
@@ -299,7 +299,7 @@ module Decidim
             let!(:meeting) { create(:meeting, closing_visible: nil) }
 
             it "does not serialize the attendees" do
-              expect(serialized[:attendees]).to be_nil
+              expect(serialized[:attendees]).to eq(0)
             end
 
             it "does not serialize the meeting's visibilty" do
