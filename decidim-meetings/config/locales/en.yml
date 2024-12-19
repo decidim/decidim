@@ -734,6 +734,7 @@ en:
           online_meeting_url: The URL of the online meeting
           organizations: The organizations attending this meeting
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this meeting belongs to
+          private_meeting: To indicate whether the meeting is private or not
           published: When the meeting has been published
           reference: The unique identifier of the resource in this platform
           registration_form_enabled: Whether the registration form was enabled or not
