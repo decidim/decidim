@@ -29,6 +29,13 @@ module Decidim
         meeting.link_resources(results, "meetings_through_proposals")
       end
 
+      # Internal field for admins. Test is implemented to make sure salt is not published
+      describe "salt" do
+        it "is not published" do
+          expect(subject.serialize).not_to have_key(:salt)
+        end
+      end
+
       describe "#serialize" do
         let(:serialized) { subject.serialize }
 
@@ -60,14 +67,6 @@ module Decidim
 
         it "serializes the amount of attendees" do
           expect(serialized).to include(attendees: meeting.attendees_count)
-        end
-
-        it "serializes the amount of contributions" do
-          expect(serialized).to include(contributions: meeting.contributions_count)
-        end
-
-        it "serializes the attending organizations" do
-          expect(serialized).to include(organizations: meeting.attending_organizations)
         end
 
         it "serializes the address" do
@@ -161,12 +160,118 @@ module Decidim
           expect(serialized[:comments]).to include(enabled: meeting.comments_enabled)
         end
 
-        it "serializes the number of comemnts" do
+        it "serializes the number of comments" do
           expect(serialized[:comments]).to include(count: meeting.comments_count)
         end
 
         it "serializes the online meeting url" do
           expect(serialized).to include(online_meeting_url: meeting.online_meeting_url)
+        end
+
+        it "serializes the registration url" do
+          expect(serialized).to include(registration_url: meeting.registration_url)
+        end
+
+        describe "closing report and visabilty" do
+          it "does not serializes the closing report" do
+            expect(serialized[:closing_report]).to be_nil
+          end
+
+          it "does not serializes the meetings visabilty" do
+            expect(serialized[:closing_visible]).to be_nil
+          end
+
+          context "when the meeting is completed" do
+            let!(:meeting) { create(:meeting, :closed) }
+
+            it "serializes the the closing report" do
+              expect(serialized).to include(closing_report: meeting.closing_report)
+            end
+
+            it "serializes the whether the meeting was visable or not" do
+              expect(serialized).to include(closing_visible: meeting.closing_visible)
+            end
+          end
+
+          context "when the meeting is not visible" do
+            let!(:meeting) { create(:meeting, closing_visible: nil) }
+
+            it "does not serialize the closing report" do
+              expect(serialized[:closing_report]).to be_nil
+            end
+
+            it "does not serialize the meeting's visibilty" do
+              expect(serialized[:closing_visible]).to be_nil
+            end
+          end
+        end
+
+        describe "contributions and visabilty" do
+          it "does not serializes the closing report" do
+            expect(serialized[:contributions_count]).to be_nil
+          end
+
+          it "does not serializes the meetings visabilty" do
+            expect(serialized[:closing_visible]).to be_nil
+          end
+
+          context "when the meeting is completed" do
+            let!(:meeting) { create(:meeting, :closed) }
+
+            it "serializes the amount of contributions" do
+              expect(serialized).to include(contributions: meeting.contributions_count)
+            end
+
+            it "serializes the whether the meeting was visable or not" do
+              expect(serialized).to include(closing_visible: meeting.closing_visible)
+            end
+          end
+
+          context "when the meeting is not viasible" do
+            let!(:meeting) { create(:meeting, closing_visible: nil) }
+
+            it "does not serialize the meetings contributions" do
+              expect(serialized[:contributions]).to eq(0)
+            end
+
+            it "does not serialize the meeting's visibilty" do
+              expect(serialized[:closing_visible]).to be_nil
+            end
+          end
+        end
+
+        describe "attending organizations and their visabilty" do
+          it "does not serializes the the number of attending organizations" do
+            expect(serialized[:attending_organizations]).to eq("Some organization")
+          end
+
+          it "does not serializes the meetings visabilty" do
+            expect(serialized[:closing_visible]).to be_nil
+          end
+
+          context "when the meeting is completed" do
+            let!(:meeting) { create(:meeting, :closed) }
+
+            it "serializes the amount of contributions" do
+              expect(serialized).to include(attending_organizations: meeting.attending_organizations)
+            end
+
+            it "serializes the whether the meeting was visable or not" do
+              expect(serialized).to include(closing_visible: meeting.closing_visible)
+            end
+          end
+
+          context "when the meeting is not viasible" do
+            let!(:meeting) { create(:meeting, closing_visible: nil) }
+
+            it "does not serialize the meetings contributions" do
+              expect(serialized[:attending_organizations]).to be_nil
+            end
+
+            it "does not serialize the meeting's visibilty" do
+              expect(serialized[:closing_visible]).to be_nil
+            end
+          end
         end
       end
     end

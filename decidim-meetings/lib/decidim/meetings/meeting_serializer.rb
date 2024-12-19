@@ -58,7 +58,11 @@ module Decidim
           comments: {
             **comment_fields
           },
-          online_meeting_url: meeting.online_meeting_url
+          online_meeting_url: meeting.online_meeting_url,
+          closing_visible: meeting.closing_visible,
+          closing_report: meeting.closing_report,
+          attending_organizations: meeting.attending_organizations,
+          registration_url: meeting.registration_url
         }
       end
 

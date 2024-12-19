@@ -701,6 +701,7 @@ en:
           body: The comment itself
           commentable_id: The unique id of the commentable
           commentable_type: The type of the commentable (if it was a result, a proposal, etc.)
+          comments: The comments data of the meeting
           created_at: The date when this comment was created
           depth: The place where this comment is in the three of comments (if it is an answer or an answer of an answer)
           id: The id for this comment
@@ -711,8 +712,10 @@ en:
           address: The address of the meeting in case it is in person and has a physical location
           attachments: The number of attachments in this meeting
           attendees: The number of people attending this meeting
+          attending_organizations: The organizations attending the meeting
           author: The data for the author of this meeting
-          comments: The number of comments made in this meeting
+          closing_report: Report of the closed meeting
+          closing_visible: The visibilty of the meeting
           component: The component that the meeting belongs to
           contributions: The number of contributions in this meeting made by the atteendes
           created_at: The date at which the meeting was created
@@ -724,17 +727,19 @@ en:
           location: The location of the meeting
           location_hints: A hint of the location in which the meeting is taking place
           longitude: The longitude of the meeting
+          online_meeting_url: The URL of the online meeting
           organizations: The organizations attending this meeting
           participatory_space: To which space (e.g. Participatory Process, or Assembly) this meeting belongs to
           published: When the meeting has been published
-          registration_form_enabled: Whether the registration form was enabled or not
           reference: The unique identifier of the resource in this platform
+          registration_form_enabled: Whether the registration form was enabled or not
+          registration_url: URL of the meeting registration
           related_proposals: The proposals related to this meeting
           related_results: The results related to this meeting
           start_time: The date and time that this meeting starts
           taxonomies: The taxonomies that this meeting belongs to
-          transparent: The visabilty of the meetng for non-members
           title: The title of the meeting
+          transparent: The visabilty of the meetng for non-members
           updated_at: The time at which the meeting was last updated
           url: The URL of the meeting
           withdrawn: Wheter this meeting has been withdrawn
