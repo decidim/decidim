@@ -37,7 +37,11 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
 
     it "calculates the fields that have changed" do
       expect(subject.keys)
-        .to contain_exactly(:title_en, :description_ca, :address, :location_ca, :location_en, :location_hints_ca, :location_hints_en, :start_time, :end_time, :decidim_scope_id)
+        .to contain_exactly(
+          :title_en, :description_ca, :address, :location_ca, :location_en, :location_hints_ca, :location_hints_en,
+          :start_time, :end_time, :decidim_scope_id, :description_machine_translations_es,
+          :location_hints_machine_translations_es, :location_machine_translations_es, :title_machine_translations_es
+        )
     end
 
     it "has the old and new values for each field" do
@@ -76,14 +80,18 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
       expected_types = {
         title_en: :i18n,
         description_ca: :i18n_html,
+        description_machine_translations_es: :i18n_html,
         address: :string,
         location_ca: :i18n,
         location_en: :i18n,
         location_hints_ca: :i18n,
         location_hints_en: :i18n,
+        location_hints_machine_translations_es: :i18n,
+        location_machine_translations_es: :i18n,
         start_time: :date,
         end_time: :date,
-        decidim_scope_id: :scope
+        decidim_scope_id: :scope,
+        title_machine_translations_es: :i18n
       }
       types = subject.to_h { |attribute, data| [attribute.to_sym, data[:type]] }
       expect(types).to eq expected_types
@@ -93,14 +101,18 @@ describe Decidim::Meetings::DiffRenderer, versioning: true do
       expected_labels = {
         title_en: "Title (English)",
         description_ca: "Description (Català)",
+        description_machine_translations_es: "Description (traducción automática a Castellano)",
         address: "Address",
         location_ca: "Location (Català)",
         location_en: "Location (English)",
         location_hints_ca: "Location hints (Català)",
         location_hints_en: "Location hints (English)",
+        location_hints_machine_translations_es: "Location hints (traducción automática a Castellano)",
+        location_machine_translations_es: "Location (traducción automática a Castellano)",
         start_time: "Start time",
         end_time: "End time",
-        decidim_scope_id: "Scope"
+        decidim_scope_id: "Scope",
+        title_machine_translations_es: "Title (traducción automática a Castellano)"
       }
       labels = subject.to_h { |attribute, data| [attribute.to_sym, data[:label]] }
       expect(labels).to eq expected_labels

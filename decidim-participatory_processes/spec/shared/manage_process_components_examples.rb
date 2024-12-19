@@ -259,32 +259,6 @@ shared_examples "manage process components" do
     end
   end
 
-  describe "remove a component" do
-    let(:component_name) do
-      {
-        en: "My component",
-        ca: "La meva funcionalitat",
-        es: "Mi funcionalitat"
-      }
-    end
-
-    let!(:component) do
-      create(:component, name: component_name, participatory_space: participatory_process)
-    end
-
-    before do
-      visit decidim_admin_participatory_processes.components_path(participatory_process)
-    end
-
-    it "removes the component" do
-      within ".component-#{component.id}" do
-        click_on "Delete"
-      end
-
-      expect(page).to have_no_content("My component")
-    end
-  end
-
   describe "publish and unpublish a component" do
     let!(:component) do
       create(:component, participatory_space: participatory_process, published_at:, visible:)
@@ -356,6 +330,28 @@ shared_examples "manage process components" do
           expect(page).to have_css(".action-icon--publish")
         end
       end
+    end
+  end
+
+  describe "reorders a component" do
+    let!(:component1) { create(:component, name: { en: "Component 1" }, participatory_space:) }
+    let!(:component2) { create(:component, name: { en: "Component 2" }, participatory_space:) }
+    let!(:component3) { create(:component, name: { en: "Component 3" }, participatory_space:) }
+
+    before do
+      visit participatory_space_components_path(participatory_space)
+    end
+
+    it "changes the order of the components" do
+      expect(page.text.index("Component 1")).to be < page.text.index("Component 2")
+      expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
+
+      first("td.dragging-handle").drag_to(find("tbody.draggable-table tr:last-child"))
+
+      visit current_path
+
+      expect(page.text.index("Component 2")).to be < page.text.index("Component 1")
+      expect(page.text.index("Component 1")).to be < page.text.index("Component 3")
     end
   end
 

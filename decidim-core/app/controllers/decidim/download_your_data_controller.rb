@@ -8,6 +8,8 @@ module Decidim
     include Decidim::UserProfile
     include Decidim::Paginable
 
+    helper_method :help_definitions
+
     # i18n-tasks-use t('decidim.download_your_data.show.answers')
     # i18n-tasks-use t('decidim.download_your_data.show.assemblies')
     # i18n-tasks-use t('decidim.download_your_data.show.debate_comments')
@@ -21,6 +23,7 @@ module Decidim
     # i18n-tasks-use t('decidim.download_your_data.show.proposals')
     # i18n-tasks-use t('decidim.download_your_data.show.result_comments')
     # i18n-tasks-use t('decidim.download_your_data.show.results')
+    # i18n-tasks-use t('decidim.download_your_data.show.survey_user_answers')
     def show
       enforce_permission_to(:show, :user, current_user:)
 
@@ -55,6 +58,10 @@ module Decidim
 
     def private_export
       @private_export ||= current_user.private_exports.find(params[:uuid])
+    end
+
+    def help_definitions
+      @help_definitions ||= Decidim::DownloadYourDataSerializers.help_definitions_for(current_user)
     end
   end
 end

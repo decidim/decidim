@@ -43,6 +43,7 @@ module Decidim
 
     default_scope { order(:weight) }
     scope :roots, -> { where(parent_id: nil) }
+    scope :non_roots, -> { where.not(parent_id: nil) }
 
     ransacker_i18n :name
 
@@ -90,6 +91,10 @@ module Decidim
 
     def all_children
       @all_children ||= children.flat_map { |child| [child] + child.all_children }
+    end
+
+    def reset_all_counters
+      Taxonomy.reset_counters(id, :children_count, :taxonomizations_count, :taxonomy_filters_count, :taxonomy_filter_items_count)
     end
 
     private

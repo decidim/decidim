@@ -159,16 +159,16 @@ describe "Admin manages initiative components" do
     end
 
     let!(:component) do
-      create(:component, name: component_name, participatory_space: initiative)
+      create(:component, :unpublished, name: component_name, participatory_space: initiative)
     end
 
     before do
       visit decidim_admin_initiatives.components_path(initiative)
     end
 
-    it "removes the component" do
+    it "soft deletes the component" do
       within ".component-#{component.id}" do
-        page.find(".action-icon--remove").click
+        accept_confirm { click_on("Soft delete") }
       end
 
       expect(page).to have_no_content("My component")
@@ -228,6 +228,28 @@ describe "Admin manages initiative components" do
           expect(page).to have_css(".action-icon--publish")
         end
       end
+    end
+  end
+
+  describe "reorders a component" do
+    let!(:component1) { create(:component, name: { en: "Component 1" }, participatory_space:) }
+    let!(:component2) { create(:component, name: { en: "Component 2" }, participatory_space:) }
+    let!(:component3) { create(:component, name: { en: "Component 3" }, participatory_space:) }
+
+    before do
+      visit participatory_space_components_path(participatory_space)
+    end
+
+    it "changes the order of the components" do
+      expect(page.text.index("Component 1")).to be < page.text.index("Component 2")
+      expect(page.text.index("Component 2")).to be < page.text.index("Component 3")
+
+      first("td.dragging-handle").drag_to(find("tbody.draggable-table tr:last-child"))
+
+      visit current_path
+
+      expect(page.text.index("Component 2")).to be < page.text.index("Component 1")
+      expect(page.text.index("Component 1")).to be < page.text.index("Component 3")
     end
   end
 

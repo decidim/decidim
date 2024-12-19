@@ -2,8 +2,6 @@ sk:
   activemodel:
     attributes:
       project:
-        decidim_category_id: Kategória
-        decidim_scope_id: Rozsah
         description: Popis
         proposal_ids: Súvisiace návrhy
         title: Názov
@@ -19,8 +17,6 @@ sk:
       actions:
         attachment_collections: Priečinky
         attachments: Prílohy
-        confirm_destroy: Naozaj chcete odstrániť tento projekt?
-        destroy: Odstrániť
         edit: Upraviť
         import: Importovať návrhy do projektov
         preview: Ukážka
@@ -80,8 +76,6 @@ sk:
             many: "%{count} projekty"
             other: "%{count} projekty"
         filters:
-          category: Kategória
-          scope: Rozsah
           search: Hľadať
         orders:
           highest_cost: Najvyššie náklady

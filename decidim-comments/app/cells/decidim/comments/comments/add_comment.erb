@@ -1,15 +1,13 @@
-<div class="add-comment" id="add-comment-anchor">
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
+  <div class="add-comment hidden md:flex" id="add-comment-anchor">
     <%== cell("decidim/comments/comment_form", model, root_depth:) %>
-  <% else %>
-    <p>
-      <span>
-        <%== t(
-          "decidim.components.add_comment_form.account_message",
-          sign_in_url: decidim.new_user_session_path,
-          sign_up_url: decidim.new_user_registration_path
-        ) %>
-      </span>
-    </p>
-  <% end %>
-</div>
+  </div>
+<% else %>
+  <p>
+  <div class="flash flex-col warning">
+    <div class="flash__message">
+      <%= action_authorized_link_to("comment", t("decidim.components.add_comment_form.account_message"), "#", **onboarding_action_params) %>
+    </div>
+  </div>
+  </p>
+<% end %>

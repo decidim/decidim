@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version = Decidim::Ai.version
   s.authors = ["Alexandru-Emil Lupu"]
   s.email = ["contact@alecslupu.ro"]
-  s.license = "AGPL-3.0"
+  s.license = "AGPL-3.0-or-later"
   s.homepage = "https://decidim.org"
   s.metadata = {
     "bug_tracker_uri" => "https://github.com/decidim/decidim/issues",

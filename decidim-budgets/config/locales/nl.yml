@@ -2,15 +2,12 @@ nl:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Scope
         description: Omschrijving
         title: Titel
         total_budget: Totale budget
         weight: Bestelpositie
       project:
         budget_amount: Budget bedrag
-        decidim_category_id: Categorie
-        decidim_scope_id: Reikwijdte
         description: Beschrijving
         proposal_ids: Verwante voorstellen
         proposals: Voorstellen
@@ -27,10 +24,6 @@ nl:
     admin:
       filters:
         projects:
-          category_id_eq:
-            label: Categorie
-          scope_id_eq:
-            label: Scope
           selected_at_null:
             label: Geselecteerd
             values:
@@ -40,8 +33,6 @@ nl:
       actions:
         attachment_collections: Mappen
         attachments: Bijlagen
-        confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
-        destroy: Verwijderen
         edit: Bewerk
         edit_projects: Beheer projecten
         import: Voorstellen importeren in projecten
@@ -75,23 +66,14 @@ nl:
           index:
             actions: Acties
             cancel: Annuleren
-            change_category: Categorie wijzigen
-            change_scope: Scope wijzigen
             finished_orders: Voltooide stemmen
             pending_orders: Afwachtende stemmen
             selected: Geselecteerd
             title: Projecten
             update: Bijwerken
-            update_scope_button: Scope bijwerken
           new:
             create: Creëren
             title: Nieuw project
-          update_category:
-            invalid: 'Deze voorstellen hadden al categorie %{subject_name}: %{projects}.'
-            success: 'Voorstellen succesvol bijgewerkt naar categorie %{subject_name}: %{projects}.'
-          update_scope:
-            invalid: 'Deze voorstellen hadden al scope %{subject_name}: %{projects}.'
-            success: 'Voorstellen succesvol bijgewerkt naar categorie %{subject_name}: %{projects}.'
         proposals_imports:
           new:
             create: Voorstellen importeren in projecten
@@ -137,7 +119,6 @@ nl:
             total_budget: Totale budget
         project:
           fields:
-            category: Categorie
             id: ID
             title: Titel
       order_summary_mailer:
@@ -175,8 +156,6 @@ nl:
           message: Je stem is niet geregistreerd omdat je het stemproces nog niet hebt voltooid. Weet je zeker dat je stemmen wil verlaten?
           title: Je hebt nog niet gestemd
         filters:
-          category: Categorie
-          scope: Reikwijdte
           search: Zoeken
           status: Status
           status_values:

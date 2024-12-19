@@ -201,9 +201,6 @@ id:
         create:
           error: Terjadi kesalahan saat membuat komponen ini.
           success: Komponen berhasil dibuat.
-        destroy:
-          error: Terjadi kesalahan saat merusak komponen ini.
-          success: Komponen berhasil dihapus.
         edit:
           title: Edit komponen
           update: Memperbarui
@@ -234,8 +231,6 @@ id:
       exports:
         export_as: "%{name} sebagai %{export_format}"
       filters:
-        category_id_eq:
-          label: Kategori
         officialized_at_null:
           label: Negara
           values:
@@ -533,8 +528,6 @@ id:
           without_topic: Halaman tanpa topik
         update:
           error: Terjadi kesalahan saat memperbarui halaman ini.
-      taxonomies:
-        count: Menghitung
       titles:
         admin_log: Log admin
         area_types: Tipe area

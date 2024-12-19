@@ -2,18 +2,14 @@ ga:
   activemodel:
     attributes:
       budget:
-        decidim_scope_id: Scóip
         title: Teideal
       project:
-        decidim_category_id: Catagóir
-        decidim_scope_id: Scóip
         title: Teideal
   decidim:
     budgets:
       actions:
         attachment_collections: Fillteáin
         attachments: Ceangaltáin
-        destroy: Scrios
         edit: Eagar
         preview: Réamhamharc
         title: Gníomhartha
@@ -53,8 +49,6 @@ ga:
         budget_excess:
           ok: Togha
         filters:
-          category: Catagóir
-          scope: Scóip
           search: Cuardaigh
           status: Stádas
           status_values:
