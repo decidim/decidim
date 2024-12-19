@@ -62,7 +62,11 @@ module Decidim
           closing_visible: meeting.closing_visible,
           closing_report: meeting.closing_report,
           attending_organizations: meeting.attending_organizations,
-          registration_url: meeting.registration_url
+          registration_url: meeting.registration_url,
+          decidim_user_group_id: meeting.decidim_user_group_id,
+          decidim_author_type: meeting.decidim_author_type,
+          video_url: meeting.video_url,
+          audio_url: meeting.audio_url
         }
       end
 

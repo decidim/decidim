@@ -172,15 +172,19 @@ module Decidim
           expect(serialized).to include(registration_url: meeting.registration_url)
         end
 
+        it "serializes the author id" do
+          expect(serialized[:author]).to include(id: meeting.author.id)
+        end
+
+        it "serializes the author type" do
+          expect(serialized).to include(decidim_author_type: meeting.decidim_author_type)
+        end
+
+        it "serializes the user group id" do
+          expect(serialized).to include(decidim_user_group_id: meeting.decidim_user_group_id)
+        end
+
         describe "closing report and visabilty" do
-          it "does not serializes the closing report" do
-            expect(serialized[:closing_report]).to be_nil
-          end
-
-          it "does not serializes the meetings visabilty" do
-            expect(serialized[:closing_visible]).to be_nil
-          end
-
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
 
@@ -207,14 +211,6 @@ module Decidim
         end
 
         describe "contributions and visabilty" do
-          it "does not serializes the closing report" do
-            expect(serialized[:contributions_count]).to be_nil
-          end
-
-          it "does not serializes the meetings visabilty" do
-            expect(serialized[:closing_visible]).to be_nil
-          end
-
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
 
@@ -241,14 +237,6 @@ module Decidim
         end
 
         describe "attending organizations and their visabilty" do
-          it "does not serializes the the number of attending organizations" do
-            expect(serialized[:attending_organizations]).to eq("Some organization")
-          end
-
-          it "does not serializes the meetings visabilty" do
-            expect(serialized[:closing_visible]).to be_nil
-          end
-
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
 
@@ -275,14 +263,6 @@ module Decidim
         end
 
         describe "attendees and their visabilty" do
-          it "does not serializes the the number of attendees" do
-            expect(serialized[:attendees]).to eq(10)
-          end
-
-          it "does not serializes the meetings visabilty" do
-            expect(serialized[:closing_visible]).to be_nil
-          end
-
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
 
@@ -295,11 +275,63 @@ module Decidim
             end
           end
 
-          context "when the meeting is not viasible" do
+          context "when the meeting is not visible" do
             let!(:meeting) { create(:meeting, closing_visible: nil) }
 
             it "does not serialize the attendees" do
               expect(serialized[:attendees]).to eq(0)
+            end
+
+            it "does not serialize the meeting's visibilty" do
+              expect(serialized[:closing_visible]).to be_nil
+            end
+          end
+        end
+
+        describe "videos and their visabilty" do
+          context "when the meeting is completed" do
+            let!(:meeting) { create(:meeting, :closed) }
+
+            it "serializes the meeting video" do
+              expect(serialized).to include(video_url: meeting.video_url)
+            end
+
+            it "serializes the whether the meeting was visable or not" do
+              expect(serialized).to include(closing_visible: meeting.closing_visible)
+            end
+          end
+
+          context "when the meeting is not viasible" do
+            let!(:meeting) { create(:meeting, closing_visible: nil) }
+
+            it "does not serialize the attendees" do
+              expect(serialized[:video_url]).to be_nil
+            end
+
+            it "does not serialize the meeting's visibilty" do
+              expect(serialized[:closing_visible]).to be_nil
+            end
+          end
+        end
+
+        describe "meeting audio and its visabilty" do
+          context "when the meeting is completed" do
+            let!(:meeting) { create(:meeting, :closed) }
+
+            it "serializes the meeting audio" do
+              expect(serialized).to include(audio_url: meeting.audio_url)
+            end
+
+            it "serializes the whether the meeting was visable or not" do
+              expect(serialized).to include(closing_visible: meeting.closing_visible)
+            end
+          end
+
+          context "when the meeting is not viasible" do
+            let!(:meeting) { create(:meeting, closing_visible: nil) }
+
+            it "does not serialize the attendees" do
+              expect(serialized[:audio_url]).to be_nil
             end
 
             it "does not serialize the meeting's visibilty" do
