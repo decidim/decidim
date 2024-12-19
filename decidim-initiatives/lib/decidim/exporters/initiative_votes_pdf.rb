@@ -56,7 +56,7 @@ module Decidim
           layout.text(I18n.l(initiative.signature_start_date, format: :short), style: :initiative_td),
           layout.text(I18n.l(initiative.signature_end_date, format: :short), style: :initiative_td),
           layout.text(collection.count.to_s, style: :initiative_td),
-          layout.text(translated_attribute(initiative.scope.name), style: :initiative_td)
+          layout.text(scope(initiative), style: :initiative_td)
         ]
 
         column_widths = [-1, -1.75, -0.55, -0.55, -1, -1]
