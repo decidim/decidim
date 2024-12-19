@@ -375,9 +375,6 @@ sk:
     download_your_data:
       export:
         ready: Pripravený
-      show:
-        download_data: Stiahnuť dáta
-        request_data: Vyžiadať dáta
     endorsements:
       identities:
         done: Hotovo
@@ -508,8 +505,6 @@ sk:
     export_mailer:
       download_your_data_export:
         download: Stiahnutie
-      export:
-        ready: V prílohe nájdete exportovanú exportovanú verziu.
       subject: Váš export "%{name}" je pripravený
     filters:
       linked_classes:
@@ -840,10 +835,6 @@ sk:
         title: Nahlásiť problém
       floating_help:
         help: Pomoc
-      participatory_space_filters:
-        filters:
-          areas: Oblasti
-          select_an_area: Vyberte rozsah
       reference:
         reference: 'Odkaz: %{reference}'
       represent_user_group:
@@ -1008,7 +999,6 @@ sk:
       edit_link:
         edit: Upraviť
       footer:
-        download_open_data: Stiahnite si súbory s otvorenými dátami
         log_in: Prihlásiť sa
         made_with_open_source: Webová stránka vytvorená s <a target="_blank" href="https://github.com/decidim/decidim"> slobodným softvérom </a>.
       header:

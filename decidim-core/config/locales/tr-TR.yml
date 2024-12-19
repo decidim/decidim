@@ -424,9 +424,6 @@ tr:
     download_your_data:
       export:
         ready: Hazır
-      show:
-        download_data: Verileri indir
-        request_data: Veri talep et
     endorsements:
       identities:
         done: Bitti
@@ -573,8 +570,6 @@ tr:
     export_mailer:
       download_your_data_export:
         download: İndir
-      export:
-        ready: Lütfen dışa aktarımınızın sıkıştırılmış bir sürümünü ekte bulun.
       subject: '"%{name}" dışa aktarmanız hazır'
     filters:
       linked_classes:
@@ -1005,10 +1000,6 @@ tr:
         log_in_before_follow: Bu İşlemi gerçekleştirmeden önce lütfen giriş yapın
       login_modal:
         please_log_in: Lütfen Giriş Yapın
-      participatory_space_filters:
-        filters:
-          areas: alanlar
-          select_an_area: Bir bölge seçin
       progress: "Süreç\nİlerleme"
       reference:
         reference: 'Referans: %{reference}'
@@ -1023,9 +1014,6 @@ tr:
         share_link: Linki paylaş
     statistics:
       comments_count: Yorumlar
-    tags:
-      filter_results_for_category: 'Kategori için sonuçları filtrele: %{resource}'
-      filter_results_for_scope: 'Sonuçları kapsam için filtrele: %{resource}'
     translation_bar:
       help_text: "<strong> Uyarı: </strong> İçerik otomatik olarak çevrilebilir ve %100 doğru olmayabilir."
       show_original: Orijinal metni göster
@@ -1223,7 +1211,6 @@ tr:
       footer:
         cc_by_license: Kar Amaçsız Lisanslama (Creative Commons License)
         decidim_logo: Decidim Logo
-        download_open_data: Açık Veri dosyalarını indir
         log_in: Giriş Yapın
         made_with_open_source: Web sitesi <a target="_blank" href="https://github.com/decidim/decidim">ücretsiz yazılımla yapılmıştır</a>.
         terms_of_service: Hizmet Kullanım Koşulları

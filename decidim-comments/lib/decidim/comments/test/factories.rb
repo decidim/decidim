@@ -8,7 +8,7 @@ FactoryBot.define do
       skip_injection { false }
     end
     author { build(:user, organization: commentable.organization, skip_injection:) }
-    commentable { build(:dummy_resource, skip_injection:) }
+    commentable { build(:dummy_resource, :published, skip_injection:) }
     root_commentable { commentable }
     body { Decidim::Faker::Localized.paragraph }
     participatory_space { commentable.try(:participatory_space) }
@@ -45,6 +45,14 @@ FactoryBot.define do
       after(:create) do |comment, evaluator|
         create(:moderation, reportable: comment, hidden_at: 2.days.ago, skip_injection: evaluator.skip_injection)
       end
+    end
+
+    trait :in_favor do
+      alignment { 1 }
+    end
+
+    trait :against do
+      alignment { -1 }
     end
   end
 

@@ -482,9 +482,7 @@ zh-TW:
           phone_number: 電話號碼
           place_date: 地點、日期
           postal_code: 郵遞區號/郵政編碼
-          print: 列印
           province: 省份/州
-          section: '如果組織要求，請打印並填寫此表格，並按指示提交：'
           signature: 簽名
         result:
           answer_title: 這個倡議已經有回應了。
@@ -497,7 +495,6 @@ zh-TW:
           other: " 簽名"
         vote_cabin:
           already_voted: 已簽署
-          verification_required: 驗證您的帳戶以簽署該倡議
           vote: 簽署
           votes_blocked: 簽署已禁用
         votes_count:
@@ -542,7 +539,6 @@ zh-TW:
           comment: 評論
       initiatives_type:
         actions:
-          create: 建立
           title: 操作
           vote: 簽署
   layouts:

@@ -255,9 +255,6 @@ lb:
         create:
           error: Beim Erstellen dieser Komponente ist ein Fehler aufgetreten.
           success: Komponente wurde erfolgreich erstellt.
-        destroy:
-          error: Beim Löschen dieser Komponente ist ein Fehler aufgetreten.
-          success: Komponente wurde erfolgreich gelöscht.
         edit:
           title: Komponente bearbeiten
           update: Aktualisieren
@@ -307,8 +304,6 @@ lb:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Kategorie
         filter_label: Filtern
         invitation_accepted_at_present:
           label: Einladung angenommen
@@ -349,8 +344,6 @@ lb:
           values:
             'false': Veröffentlicht
             'true': Unveröffentlicht
-        scope_id_eq:
-          label: Themenbereich
         search_label: Suche
         search_placeholder:
           name_or_nickname_or_email_cont: Suche in %{collection} nach E-Mail, Name oder Benutzername.
@@ -492,12 +485,8 @@ lb:
             plural: Plural
         share_token:
           fields:
-            created_at: Erstellt am
             expires_at: Läuft ab am
-            last_used_at: Zuletzt verwendet
             times_used: Anzahl Anwendungen
-            token: Token
-            user: Erstellt von
         static_page:
           fields:
             created_at: Hergestellt in
@@ -698,10 +687,6 @@ lb:
           title: Berechtigungen bearbeiten
         update:
           success: Berechtigungen wurden erfolgreich aktualisiert.
-      resources:
-        index:
-          headers:
-            scope: Bereich
       scope_types:
         create:
           error: Beim Erstellen eines neuen Geltungstyps ist ein Fehler aufgetreten.
@@ -733,15 +718,7 @@ lb:
           success: Bereich wurde erfolgreich aktualisiert
       share_tokens:
         actions:
-          confirm_destroy: Sind Sie sicher, dass Sie diesen Token löschen wollen?
           destroy: Löschen
-          share: Teilen
-        destroy:
-          error: Beim Löschen dieses Tokens ist ein Fehler aufgetreten.
-          success: Token wurde erfolgreich gelöscht.
-        share_tokens:
-          help: Diese Token werden verwendet, um diese unveröffentlichte Ressource öffentlich an jeden Benutzer weiterzugeben. Sie werden ausgeblendet, wenn das Werk veröffentlicht wird. Klicken Sie auf das Teilen-Symbol des Tokens um die teilbare URL zu besuchen.
-          title: Token teilen
       shared:
         gallery:
           add_images: Bilder hinzufügen
@@ -781,8 +758,6 @@ lb:
           without_topic: Seiten ohne Thema
         update:
           error: Beim Aktualisieren dieser Seite ist ein Fehler aufgetreten.
-      taxonomies:
-        count: Anzahl
       titles:
         admin_log: Adminprotokoll
         area_types: Bereichstypen

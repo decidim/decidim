@@ -4,13 +4,15 @@ require "spec_helper"
 
 module Decidim::Budgets
   describe ProjectSerializer do
-    let(:budget) { create(:budget) }
+    let(:budget) { create(:budget, component:) }
     let(:serialized) { subject.run }
     let(:attachment) { create(:attachment, attached_to: project) }
     let(:proposals_component) { create(:component, manifest_name: "proposals", participatory_space: project.participatory_space) }
     let(:proposals) { create_list(:proposal, 3, component: proposals_component) }
     let(:taxonomies) { create_list(:taxonomy, 2, :with_parent, organization: budget.component.organization) }
     let(:project) { create(:project, budget:, taxonomies:) }
+    let(:router) { Decidim::EngineRouter.main_proxy(budget.component) }
+    let(:component) { create(:budgets_component) }
 
     subject { described_class.new(project) }
 
@@ -44,16 +46,16 @@ module Decidim::Budgets
         expect(serialized[:description]).to include(project.description)
       end
 
-      it "includes the budget id" do
-        expect(serialized[:budget]).to eq(id: project.budget.id)
+      it "includes the budget" do
+        expect(serialized[:budget]).to eq(
+          id: project.budget.id,
+          title: project.budget.title,
+          url: router.budget_url(project.budget)
+        )
       end
 
       it "includes the budget amount" do
         expect(serialized[:budget_amount]).to eq(project.budget_amount)
-      end
-
-      it "includes count of confirmed votes" do
-        expect(serialized[:confirmed_votes]).to eq(project.confirmed_orders_count)
       end
 
       it "includes comment count" do
@@ -87,6 +89,30 @@ module Decidim::Budgets
         expect(serialized[:related_proposal_urls]).to include(Decidim::ResourceLocatorPresenter.new(proposals.second).url)
         expect(serialized[:related_proposal_urls]).to include(Decidim::ResourceLocatorPresenter.new(proposals.last).url)
       end
+
+      it "includes the updated date" do
+        expect(serialized).to include(updated_at: project.updated_at)
+      end
+
+      it "includes the follows count" do
+        expect(serialized).to include(follows_count: project.follows_count)
+      end
+
+      it "includes the selected date" do
+        expect(serialized).to include(selected_at: project.selected_at)
+      end
+
+      it "serializes the reference" do
+        expect(serialized).to include(reference: project.reference)
+      end
+
+      it "serializes the latitude" do
+        expect(serialized).to include(latitude: project.latitude)
+      end
+
+      it "serializes the longitude" do
+        expect(serialized).to include(longitude: project.longitude)
+      end
     end
 
     context "when subscribed to the serialize event" do
@@ -111,6 +137,20 @@ module Decidim::Budgets
 
       it "includes new field" do
         expect(serialized[:test_field]).to eq("Resource class: Decidim::Budgets::Project")
+      end
+    end
+
+    context "when show votes is disabled" do
+      it "does not include count of confirmed votes" do
+        expect(serialized[:confirmed_votes]).to be_nil
+      end
+    end
+
+    context "when show votes is enabled" do
+      let(:component) { create(:budgets_component, :with_show_votes_enabled) }
+
+      it "includes count of confirmed votes" do
+        expect(serialized[:confirmed_votes]).to eq(project.confirmed_orders_count)
       end
     end
   end
