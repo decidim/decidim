@@ -67,10 +67,6 @@ module Decidim
         }
       end
 
-      def component
-        debate.component
-      end
-
       def url
         Decidim::ResourceLocatorPresenter.new(debate).url
       end
@@ -93,14 +89,6 @@ module Decidim
         else
           root_url # is a Decidim::Organization
         end
-      end
-
-      def root_url
-        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
-      end
-
-      def host
-        resource.organization.host
       end
     end
   end

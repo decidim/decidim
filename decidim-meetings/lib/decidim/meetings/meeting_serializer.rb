@@ -76,18 +76,6 @@ module Decidim
         end
       end
 
-      def root_url
-        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
-      end
-
-      def host
-        resource.organization.host
-      end
-
-      def component
-        meeting.component
-      end
-
       def related_proposals
         meeting.linked_resources(:proposals, "proposals_from_meeting").map do |proposal|
           Decidim::ResourceLocatorPresenter.new(proposal).url

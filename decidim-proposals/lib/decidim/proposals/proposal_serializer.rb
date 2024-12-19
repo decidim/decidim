@@ -76,10 +76,6 @@ module Decidim
       attr_reader :proposal
       alias resource proposal
 
-      def component
-        proposal.component
-      end
-
       def meetings
         proposal.linked_resources(:meetings, "proposals_from_meeting").map do |meeting|
           Decidim::ResourceLocatorPresenter.new(meeting).url
@@ -147,14 +143,6 @@ module Decidim
 
       def meeting_url(meeting)
         Decidim::EngineRouter.main_proxy(meeting.component).meeting_url(id: meeting.id, host:)
-      end
-
-      def root_url
-        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
-      end
-
-      def host
-        resource.organization.host
       end
     end
   end

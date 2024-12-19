@@ -55,10 +55,20 @@ module Decidim
         ActiveSupport::Inflector.underscore(self.class.to_s).sub("/", ".serialize.").gsub("/", ".")
       end
 
+      delegate :component, to: :resource
+
       def profile_url(user)
         return "" if user.respond_to?(:deleted?) && user.deleted?
 
-        EngineRouter.new("decidim", { host: user.organization.host }).profile_url(user.nickname)
+        EngineRouter.new("decidim", { host: }).profile_url(user.nickname)
+      end
+
+      def root_url
+        Decidim::Core::Engine.routes.url_helpers.root_url(host:)
+      end
+
+      def host
+        resource.organization.host
       end
     end
   end
