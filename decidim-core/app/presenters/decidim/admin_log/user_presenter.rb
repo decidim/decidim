@@ -11,12 +11,13 @@ module Decidim
     #    action_log = Decidim::ActionLog.last
     #    view_helpers # => this comes from the views
     #    UserPresenter.new(action_log, view_helpers).present
-    class UserPresenter < Decidim::Log::BasePresenter
+    class UserPresenter < BaseUserPresenter
       private
 
       def action_string
         case action
-        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin", "show_email", "unofficialize", "block", "unblock", "promote", "transfer"
+        when "grant_id_documents_offline_verification", "invite", "officialize", "remove_from_admin",
+              "show_email", "unofficialize", "block", "unblock", "bulk_block", "bulk_unblock", "promote", "transfer", "bulk_ignore"
           "decidim.admin_log.user.#{action}"
         else
           super
@@ -45,23 +46,8 @@ module Decidim
         action_log.extra.dig("extra", "previous_justification") || ""
       end
 
-      def current_justification
-        action_log.extra.dig("extra", "current_justification") || Hash.new("")
-      end
-
-      # Overwrite the changeset for officialization and block actions.
-      def changeset
-        original = { badge: [previous_user_badge, user_badge] }
-        fields = { badge: :i18n }
-        if action.to_s == "block"
-          original = { justification: [previous_justification, current_justification] }
-          fields = { justification: :string }
-        end
-        Decidim::Log::DiffChangesetCalculator.new(original, fields, i18n_labels_scope).changeset
-      end
-
       def diff_actions
-        %w(officialize unofficialize block)
+        %w(officialize unofficialize block bulk_block bulk_unblock bulk_ignore)
       end
     end
   end

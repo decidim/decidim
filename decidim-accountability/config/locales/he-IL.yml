@@ -109,8 +109,6 @@ he:
           create:
             invalid: הייתה בעיה ביצירת תוצאה זו.
             success: התוצאה נוצרה בהצלחה.
-          destroy:
-            success: התוצאה נמחקה בהצלחה.
           edit:
             title: עריכת תוצאה
             update: עדכון תוצאה
@@ -199,12 +197,10 @@ he:
       models:
         result:
           fields:
-            category: קטגוריה
             created_at: נוצר
             end_date: תאריך סיום
             id: מספר מזהה
             progress: התקדמות
-            scope: היקף
             start_date: תאריך התחלה
             status: סטטוס
             title: כותרת
@@ -225,17 +221,11 @@ he:
             two: "שתי תוצאות"
             many: "%{count} תוצאות"
             other: "%{count} תוצאות"
-        filters:
-          all: הכל
         home:
-          categories_label: קטגוריות
           empty: אין תוצאות עדיין.
           empty_filters: אין תוצאות עם קריטריון זה.
-          subcategories_label: תתי קטגוריות
         home_header:
           global_status: סטטוס ביצוע גלובלי
-        nav_breadcrumb:
-          global: ביצוע גלובלי
         no_results: אין פרוייקטים
         search:
           search: חיפוש פעולה
@@ -247,10 +237,6 @@ he:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: קטגוריה
-          scope_id_eq:
-            label: היקף
           status_id_eq:
             label: סטטוס
     components:

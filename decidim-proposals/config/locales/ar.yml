@@ -4,7 +4,6 @@ ar:
       collaborative_draft:
         address: عنوان
         body: الجسم
-        category_id: الفئة
         decidim_scope_id: نطاق
         has_address: لديه عنوان
         scope_id: نطاق
@@ -17,7 +16,6 @@ ar:
         answered_at: أجاب في
         automatic_hashtags: علامات التصنيف المضافة تلقائيًا
         body: الجسم
-        category_id: الفئة
         decidim_scope_id: النطاق
         has_address: لديه عنوان
         scope_id: نطاق
@@ -65,8 +63,6 @@ ar:
             base:
               not_official: غير رسمية
     models:
-      decidim/proposals/admin/update_proposal_category_event: تم تغيير فئة الاقتراح
-      decidim/proposals/admin/update_proposal_scope_event: تم تغيير نطاق الاقتراح
       decidim/proposals/creation_enabled_event: تمكين إنشاء الاقتراح
       decidim/proposals/endorsing_enabled_event: تمكين اقتراح الاقتراح
       decidim/proposals/proposal_mentioned_event: الاقتراح المذكور
@@ -99,15 +95,11 @@ ar:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: الفئة
           is_emendation_true:
             label: النوع
             values:
               'false': اقتراحات
               'true': تعديلات
-          scope_id_eq:
-            label: نطاق
           state_eq:
             label: الحالة
             values:
@@ -126,7 +118,6 @@ ar:
         actions:
           amend: تعديل
           comment: تعليق
-          create: إنشاء
           endorse: تأييد
           vote: تصويت
           vote_comment: التصويت على التعليق
@@ -257,16 +248,6 @@ ar:
           email_intro: تمت إضافة الاقتراح "%{resource_title}" إلى "%{participatory_space_title}" الذي تتابعه.
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع "%{participatory_space_title}". يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
           email_subject: تمت إضافة اقتراح جديد "%{resource_title}" إلى %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'قام المشرف بتحديث فئة اقتراحك "%{resource_title}" ، تحقق من ذلك في هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
-          email_subject: تم تحديث فئة %{resource_title} اقتراح
-          notification_title: تم تحديث فئة اقتراح <a href="%{resource_path}">%{resource_title}</a> بواسطة مسؤول.
-        proposal_update_scope:
-          email_intro: 'قام مدير بتحديث نطاق اقتراحك "%{resource_title}" ، يرجى التحقق منه على هذه الصفحة:'
-          email_outro: لقد تلقيت هذا الإشعار لأنك مؤلف الاقتراح.
-          email_subject: تم تحديث نطاق الاقتراح %{resource_title}
-          notification_title: نطاق الاقتراح <a href="%{resource_path}">%{resource_title}</a> تم تحديثه من قبل مدير.
         voting_enabled:
           email_outro: لقد تلقيت هذا الإشعار لأنك تتابع %{participatory_space_title}. يمكنك إيقاف تلقي الإخطارات باتباع الرابط السابق.
     gamification:
@@ -413,15 +394,12 @@ ar:
             attachment_legend: "(اختياري) إضافة مرفق"
             created_in_meeting: هذا الاقتراح يأتي من اجتماع
             delete_attachment: حذف المرفق
-            select_a_category: اختر تصنيف
             select_a_meeting: اختيار اجتماع
           index:
             actions: أفعال
             assign_to_valuator: أسنِده إلى مُقيِّم
             assign_to_valuator_button: تعيين
             cancel: إلغاء
-            change_category: تغيير الفئة
-            change_scope: تغيير النطاق
             merge: دمج في واحدة جديدة
             merge_button: دمج
             publish: نشر
@@ -434,7 +412,6 @@ ar:
             unassign_from_valuator: إلغاء الإسناد مِن المُقيِّم
             unassign_from_valuator_button: إلغاء الإسناد
             update: تحديث
-            update_scope_button: تحديث النطاق
           new:
             create: إنشاء
             title: إنشاء اقتراح
@@ -459,12 +436,6 @@ ar:
             remove_assignment: إزالة التعيين
             remove_assignment_confirmation: هل أنت متأكد من أنك تريد إزالة المُقيِّم من هذا الاقتراح؟
             valuators: المُقيِّمون
-          update_category:
-            invalid: 'هذه الاقتراحات تحتوي بالفعل على فئة %{subject_name}: %{proposals}.'
-            success: 'تم تحديث الاقتراحات بنجاح إلى فئة %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'تحتوي الاقتراحات مسبقاً على نطاق %{subject_name}: %{proposals}.'
-            success: 'تم تحديث الاقتراحات بنجاح إلى نطاق %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: مقترحات الاستيراد
@@ -530,17 +501,14 @@ ar:
         edit:
           attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
-          select_a_category: الرجاء تحديد الفئة
           send: إرسال
           title: تحرير المسودة التعاونية
         filters:
           all: الكل
           amendment: تعديلات
-          category: الفئة
           open: افتح
           published: نشرت
           related_to: متعلق ب
-          scope: نطاق
           search: بحث
           state: الحالة
           withdrawn: سحب
@@ -580,7 +548,6 @@ ar:
           rejected_request:
             error: لا يمكن الرفض كمتعاون ، يرجى المحاولة مرة أخرى لاحقًا.
         show:
-          edit: تحرير المسودة التعاونية
           final_proposal: الاقتراح النهائي
           final_proposal_help_text: انتهى هذا المشروع. تحقق من الاقتراح النهائي
           hidden_authors_count:
@@ -619,14 +586,12 @@ ar:
       models:
         proposal:
           fields:
-            category: الفئة
             comments: تعليقات
             id: هوية شخصية
             notes: ملاحظات
             official_proposal: الاقتراح الرسمي
             published_answer: الإجابة المنشورة
             published_at: نشرت في
-            scope: نطاق
             state: الحالة
             title: عنوان
             valuator: مُقيِّم
@@ -646,7 +611,6 @@ ar:
           attachment_legend: "(اختياري) إضافة مرفق"
           back: الى الخلف
           edit_documents: تحرير الوثائق
-          select_a_category: الرجاء تحديد الفئة
           send: إرسال
           title: تعديل الاقتراح
         edit_draft:
@@ -657,7 +621,6 @@ ar:
           activity: نشاطي
           all: الكل
           amendment_type: نوع
-          category: الفئة
           my_proposals: اقتراحاتي
           origin: الأصل
           related_to: متعلق ب
@@ -708,7 +671,6 @@ ar:
         show:
           answer: إجابة
           changes_at_title: تعديل على "%{title}"
-          edit_proposal: تعديل الاقتراح
           estimated_cost: التكلفة التقديرية
           hidden_endorsers_count:
             zero: و %{count} المزيد من الناس
@@ -727,7 +689,6 @@ ar:
           proposal_in_evaluation_reason: هذا الاقتراح قيد التقييم
           proposal_rejected_reason: 'تم رفض هذا الاقتراح بسبب:'
           withdraw_confirmation_html: هل أنت متأكد من أنك تريد سحب هذا الاقتراح؟<br><br><strong>لا يمكن إلغاء هذا الإجراء!</strong>
-          withdraw_proposal: سحب الاقتراح
         update:
           title: تحديث الإقتراح
         vote_button:

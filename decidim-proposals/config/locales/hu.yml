@@ -4,7 +4,6 @@ hu:
       collaborative_draft:
         address: Cím
         body: Szöveg
-        category_id: Kategória
         decidim_scope_id: Hatáskör
         has_address: Van lakcíme
         state: Állapot
@@ -16,7 +15,6 @@ hu:
         answered_at: 'Megválaszolva:'
         automatic_hashtags: Hashtagek automatikusan hozzáadva
         body: Szöveg
-        category_id: Kategória
         decidim_scope_id: Hatáskör
         has_address: Van lakcíme
         scope_id: Hatáskör
@@ -49,8 +47,6 @@ hu:
             title:
               identical: A szövegtörzs nem lehet azonos
     models:
-      decidim/proposals/admin/update_proposal_category_event: Javaslat kategória megváltozott
-      decidim/proposals/admin/update_proposal_scope_event: Javaslat hatáskör megváltozott
       decidim/proposals/creation_enabled_event: Javaslat létrehozása engedélyezve
       decidim/proposals/endorsing_enabled_event: Javaslat jóváhagyás engedélyezve
       decidim/proposals/proposal_mentioned_event: Javaslat megemlítve
@@ -74,15 +70,11 @@ hu:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategória
           is_emendation_true:
             label: Típus
             values:
               'false': Javaslatok
               'true': Módosítások
-          scope_id_eq:
-            label: Hatáskör
           state_eq:
             label: Állapot
             values:
@@ -106,7 +98,6 @@ hu:
       proposals:
         actions:
           amend: Módosítás
-          create: Létrehozás
           endorse: Támogatás
           vote: Szavazás
           withdraw: Visszalépés
@@ -220,16 +211,6 @@ hu:
           email_subject: Új javaslat "%{resource_title}" hozzáadva az %{participatory_space_title}
           notification_title: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat hozzáadva ehhez: %{participatory_space_title}.'
           notification_title_official: 'A(z) <a href="%{resource_path}">%{resource_title}</a> című hivatalos javaslat hozzáadva ehhez: %{participatory_space_title}.'
-        proposal_update_category:
-          email_intro: 'Az admin frissítette a(z) "%{resource_title}" című javaslatod kategóriáját, ellenőrizd:'
-          email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
-          email_subject: A(z) %{resource_title} című javaslat frissítve
-          notification_title: A(z) <a href="%{resource_path}">%{resource_title}</a> című javaslat kategóriát az admin frissítette.
-        proposal_update_scope:
-          email_intro: 'Egy adminisztrátor frissítette a "%{resource_title}" javaslatának hatáskörét, ellenőrizze ezen az oldalon:'
-          email_outro: Ezt az értesítést kaptad, mert te vagy a javaslat szerzője.
-          email_subject: A(z) %{resource_title} javaslat hatásköre frissült
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> javaslat hatáskörét egy adminisztrátor frissítette.
         voting_enabled:
           email_intro: 'Szavazhatsz a javaslatokról itt: %{participatory_space_title}! Láss munkának ezen az oldalon:'
           email_outro: 'Ezt az értesítést azért kaptad, mert ezt követed: "%{participatory_space_title}". Az értesítéseket a következő linkre kattintva kapcsolhatod ki.'
@@ -375,15 +356,12 @@ hu:
           form:
             attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
             created_in_meeting: Ez a javaslat egy találkozóból származik
-            select_a_category: Válassz kategóriát
             select_a_meeting: Válasszon egy találkozót
           index:
             actions: Műveletek
             assign_to_valuator: Értékelőhöz rendel
             assign_to_valuator_button: Hozzárendel
             cancel: Mégse
-            change_category: Kategória módosítása
-            change_scope: Hatáskör megváltoztatása
             merge: Összeolvasztás egy újba
             merge_button: Összeolvasztás
             publish: Közzétesz
@@ -396,7 +374,6 @@ hu:
             unassign_from_valuator: Visszarendelés értékelőtől
             unassign_from_valuator_button: Visszarendelés
             update: Frissítés
-            update_scope_button: Hatáskör frissítése
           new:
             create: Létrehozás
             title: Javaslat létrehozása
@@ -419,14 +396,6 @@ hu:
             remove_assignment: Hozzárendelés eltávolítsa
             remove_assignment_confirmation: Biztosan eltávolítja az értékelőt ebből a javaslatból?
             valuators: Értékelők
-          update_category:
-            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} kategóriája: %{proposals}.'
-            select_a_proposal: Kérjük, válasszon egy javaslatot.
-            success: 'A javaslatokat sikeresen frissítették a(z) %{subject_name} kategóriához: %{proposals}.'
-          update_scope:
-            invalid: 'Ezeknek a javaslatoknak már megvolt a(z) %{subject_name} hatásköre: %{proposals}.'
-            select_a_proposal: Kérjük, válasszon egy javaslatot.
-            success: 'A javaslatok frissítése a(z) %{subject_name} hatáskörben sikeres: %{proposals}.'
         proposals_imports:
           new:
             create: Javaslatok importálása
@@ -491,17 +460,14 @@ hu:
         edit:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
-          select_a_category: Válassz kategóriát
           send: Küldés
           title: Közös vázlat szerkesztése
         filters:
           all: Összes
           amendment: Módosítások
-          category: Kategória
           open: Megnyitás
           published: Közzétéve
           related_to: Kapcsolódó
-          scope: Hatáskör
           search: Keresés
           state: Állapot
           withdrawn: Visszavonva
@@ -537,7 +503,6 @@ hu:
           rejected_request:
             error: Nem lehetett elutasítani a közreműködőt, próbálkozz később.
         show:
-          edit: Közös vázlat szerkesztése
           final_proposal: végleges javaslat
           final_proposal_help_text: Ez a vázlat készen áll. Nézd meg a javaslat végső verzióját
           hidden_authors_count:
@@ -570,14 +535,12 @@ hu:
       models:
         proposal:
           fields:
-            category: Kategória
             comments: Hozzászólások
             id: ID
             notes: Jegyzetek
             official_proposal: Hivatalos javaslat
             published_answer: Közzétett válasz
             published_at: 'Közzétéve:'
-            scope: Hatáskör
             state: Állapot
             title: Cím
             valuator: Értékelő
@@ -594,7 +557,6 @@ hu:
           attachment_legend: "(Nem kötelező) Melléklet hozzáadása"
           back: Vissza
           edit_documents: Dokumentum szerkesztése
-          select_a_category: Válassz kategóriát
           send: Küldés
           title: Javaslat szerkesztése
         edit_draft:
@@ -605,7 +567,6 @@ hu:
           activity: Tevékenységeim
           all: Összes
           amendment_type: Típus
-          category: Kategória
           my_proposals: Javaslataim
           origin: Kiindulópont
           related_to: Kapcsolódó
@@ -644,7 +605,6 @@ hu:
         show:
           answer: Válasz
           changes_at_title: A (z) "%{title}" módosítása
-          edit_proposal: Javaslat szerkesztése
           estimated_cost: Becsült költség
           hidden_endorsers_count:
             one: és még %{count} személy
@@ -658,7 +618,6 @@ hu:
           proposal_accepted_reason: 'Ezt a javaslatot elfogadták, mert:'
           proposal_in_evaluation_reason: Javaslat értékelése folyamatban
           proposal_rejected_reason: 'Ezt a javaslatot elutasították, mert:'
-          withdraw_proposal: Javaslat visszavonása
         vote_button:
           already_voted: Már szavazott
           maximum_votes_reached: Szavazási határon túl

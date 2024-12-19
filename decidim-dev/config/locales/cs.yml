@@ -14,6 +14,7 @@ cs:
       dummy:
         settings:
           global:
+            clear_all: Vymazat vše
             guided: Řízené zadávání
             guided_help: Text nápovědy
             guided_readonly: Zakázaný zápis
@@ -22,6 +23,7 @@ cs:
             guided_rich_readonly_html: HTML <strong>nápověda</strong> text pro zakázaný zápis
             readonly_attribute: Atribut pouze pro čtení
             test: Zkouška A
+            test_add: Přidat test
             test_choices:
               a: Možnost A
               b: Možnost B

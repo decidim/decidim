@@ -100,8 +100,6 @@ fi:
             'false': Muut paitsi hyväksytyt
             'true': Hyväksytyt
         meetings:
-          category_id_eq:
-            label: Aihepiiri
           closed_at_present:
             label: Tila
             values:
@@ -112,8 +110,8 @@ fi:
             values:
               'false': Menneet
               'true': Tulevat
-          scope_id_eq:
-            label: Teema
+          taxonomies_part_of_contains:
+            label: Luokittelu
           with_any_origin:
             label: Alkuperä
             values:
@@ -155,22 +153,31 @@ fi:
         settings:
           global:
             announcement: Ilmoitus
+            clear_all: Tyhjennä kaikki
             comments_enabled: Kommentit ovat käytössä
             comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
             creation_enabled_for_participants: Osallistujat voivat luoda tapaamisia
             default_registration_terms: Ilmoittautumisen oletusehdot
+            define_taxonomy_filters: Määritä osallistumistilalle suodattimia ennen kuin käytät tätä asetusta.
             enable_pads_creation: Ota käyttöön muistioiden luominen
             maps_enabled: Karttatoiminnot käytössä
+            no_taxonomy_filters_found: Luokittelusuodattimia ei löytynyt.
             registration_code_enabled: Ilmoittautumiskoodit käytössä
             resources_permissions_enabled: Toiminnallisuutta koskevat oikeudet voidaan asettaa jokaiselle tapaamiselle
             scope_id: Teema
             scopes_enabled: Teemat käytössä
+            taxonomy_filters: Valitse suodattimet komponentille
+            taxonomy_filters_add: Lisää suodatin
             terms_and_conditions_url_for_meeting_creators: Ehtojen osoite (URL) tapaamisten luojille
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             creation_enabled_for_participants: Tapaamisten luonti sallittu osallistujille
             creation_enabled_for_user_groups: Tapaamisten luonti sallittu ryhmille
+    download_your_data:
+      show:
+        meeting_comments: Tapaamisten kommenttien vienti
+        meetings: Tapaamisten vienti
     events:
       meetings:
         meeting_closed:
@@ -238,8 +245,8 @@ fi:
         attachment_collections: Kansiot
         attachments: Liitteet
         close: Sulje
-        confirm_destroy: Haluatko varmasti poistaa tämän tapaamisen?
-        destroy: Poista
+        confirm_delete_meeting: Haluatko varmasti poistaa tämän tapaamisen?
+        deleted_meetings_info: Poistetut tapaamiset voidaan palauttaa roskakorista.
         edit: Muokkaa
         invalid_destroy:
           proposals_count:
@@ -250,6 +257,7 @@ fi:
         preview: Esikatsele
         registrations: Ilmoittautumiset
         title: Toiminnot
+        view_deleted_meetings: Näytä poistetut tapaamiset
       admin:
         agenda:
           agenda_item:
@@ -314,15 +322,11 @@ fi:
           close:
             invalid: Tapaamisen sulkeminen epäonnistui.
             success: Tapaamisen sulkeminen onnistui.
+          component:
+            unlink: Poista linkitys
           create:
             invalid: Tapaamisen luonti epäonnistui.
             success: Tapaamisen luonti onnistui. Huomaa, että tapaamista ei ole vielä julkaistu, sinun pitää julkaista se manuaalisesti.
-          destroy:
-            invalid:
-              proposals_count:
-                one: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotus.
-                other: Tapaamista ei voi poistaa, koska siihen on liitetty %{count} ehdotusta.
-            success: Tapaamisen poisto onnistui
           edit:
             title: Muokkaa tapaamista
             update: Päivitä
@@ -338,7 +342,20 @@ fi:
             select_a_registration_type: Valitse ilmoittautumisten tyyppi
             select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
           index:
+            linked_meeting_warning_html: Tätä tapaamista tulee muokata kohteesta <br><a href="%{href}">%{name}</a>
             title: Tapaamiset
+          linked_spaces:
+            assign: Määritä
+            link_a_space: Liitä osallistumistila
+            private_meeting_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityinen ja läpinäkymätön.
+            private_space_warning: Liitettyjä osallistumistiloja ei käytetä, mikäli tapaaminen on yksityisessä ja läpinäkymättömässä osallistumistilassa.
+            select: Valitse osallistumistila
+            table:
+              actions: Toiminnot
+              component: Liitetyt osallistumistilat
+            title: Liitetyt osallistumistilat
+          manage_trash:
+            title: Poistetut tapaamiset
           new:
             create: Luo
             title: Luo tapaaminen
@@ -407,6 +424,8 @@ fi:
           create: "%{user_name} loi tapaamisen %{resource_name} osallistumistilassa %{space_name}"
           delete: "%{user_name} poisti tapaamisen %{resource_name} osallistumistilassa %{space_name}"
           export_registrations: "%{user_name} vei tapaamisen %{resource_name} ilmoittautumiset osallistumistilaan %{space_name}"
+          restore: "%{user_name} palautti tapaamisen %{resource_name} tilassa %{space_name}"
+          soft_delete: "%{user_name} siirsi tapaamisen %{resource_name} roskakoriin tilassa %{space_name}"
           update: "%{user_name} päivitti tapaamisen %{resource_name} osallistumistilassa %{space_name}"
           value_types:
             organizer_presenter:
@@ -414,8 +433,6 @@ fi:
         questionnaire:
           update: "%{user_name} päivitti tapaamisen %{meeting_name} kyselyä"
       application_helper:
-        filter_category_values:
-          all: Kaikki
         filter_meeting_space_values:
           all: Kaikki
       calendar:
@@ -525,7 +542,6 @@ fi:
           location_hints_help: 'Vihjeet sijainnille: sijainnin lisätieto. Esimerkiksi rakennuksen kerros fyysisissä tapaamisissa tai tapaamisen salasana rajatussa verkkotapaamisessa.'
           online_meeting_url_help: 'Linkki: salli osallistujien yhdistäminen tapaamiseen suoraan'
           registration_url_help: 'Linkki: salli käyttäjien siirtyminen käytettyyn ulkoiseen ilmoittautumispalveluun'
-          select_a_category: Valitse aihepiiri
           select_a_meeting_type: Valitse tapaamisen tyyppi
           select_a_registration_type: Valitse ilmoittautumisten tyyppi
           select_an_iframe_access_level: Valitse iframe-upotusten käyttöoikeustaso
@@ -536,9 +552,9 @@ fi:
           see_all_withdrawn: Näytä kaikki peruutetut tapaamiset
           text_banner: Katselet peruutettuja tapaamisia, jotka niiden tekijät ovat peruuttaneet. %{go_back_link}.
         meeting:
-          close_meeting: Sulje tapaaminen
+          close_meeting: Päätä
           edit_close_meeting: Muokkaa tapaamisraporttia
-          edit_meeting: Muokkaa tapaamista
+          edit_meeting: Muokkaa
           join_meeting: Ilmoittaudu tapaamiseen
           reply_poll: Vastaa mielipidetiedusteluun
           view_poll: Näytä mielipidetiedustelu
@@ -565,6 +581,7 @@ fi:
           micro_camera_permissions_warning: Painaessasi alla olevaa painiketta, sinua pyydetään antamaan palvelulle oikeudet käyttää mikrofoniasi ja/tai kameraasi, minkä jälkeen voit liittyä tapaamiseen
           no_slots_available: Ei paikkoja vapaana
           organizations: Osallistuvat järjestöt
+          redirect_notice: Tämä tapaaminen on toisessa osallistumistilassa, joten sinut on siirretty osallistumistilaan nimeltä %{current_space_name}.<br>Jos haluat, voit siirtyä takaisin osallistumistilaan nimeltä <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Ilmoittautumiskoodisi
           registration_state:
             validated: VAHVISTETTU
@@ -575,7 +592,7 @@ fi:
           visit_finished: Näytä mennyt tapaaminen
           withdraw_btn_hint: Voit peruuttaa tapaamisen, jos muutat mieltäsi. Tapaamista ei poisteta kokonaan, eli se löytyy edelleen peruutettujen tapaamisten listasta.
           withdraw_confirmation_html: Haluatko varmasti peruuttaa tämän tapaamisen?<br><br><strong>Tätä toimintoa ei voi peruuttaa!</strong>
-          withdraw_meeting: Peruuta tapaaminen
+          withdraw_meeting: Peru
         update:
           invalid: Tapaamisen luonti epäonnistui.
           success: Tapaamisen luonti onnistui.
@@ -598,6 +615,7 @@ fi:
             map: Kartta
             official_meeting: Virallinen tapaaminen
             start_time: Alkamispäivä
+            taxonomies: Luokittelut
             title: Otsikko
       polls:
         answers:
@@ -674,6 +692,45 @@ fi:
         description: Tapaamisten määrä
         object: tapaamiset
         title: Tapaamiset
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
+          author: Kommentin laatijan nimi
+          body: Kommentin teksti
+          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
+          created_at: Kommentin laatimisaika
+          depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
+          id: Kommentin yksilöllinen tunniste
+          locale: Kommentoijan valitsema kieliasetus sivustolla
+          root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
+          user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
+        meetings:
+          address: Tapaamisen osoite, mikäli tapaaminen on määritetty tiettyyn paikkaan
+          attachments: Tapaamisen liitteiden lukumäärä
+          attendees: Tapaamisen osallistuvien tai osallistuneiden ihmisten määrä
+          author: Tapaamisen laatijan tiedot
+          comments: Tapaamisen kommenttien lukumäärä
+          component: Tapaamisen komponentti
+          contributions: Tapaamisen osallistujien tekemien kontribuutioiden lukumäärä
+          description: Tapaamisen kuvaus
+          end_time: Tapaamisen päättymisajankohta
+          followers: Tapaamisen seuraajien lukumäärä
+          id: Tapaamisen yksilöllinen tunniste
+          location: Tapaamisen sijainti
+          organizations: Tapaamiseen osallistuvat tai osallistuneet organisaatiot
+          participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä tapaaminen kuuluu
+          published: Tapaamisen julkaisuajankohta
+          reference: Tapaamisen yksilöllinen tunniste tällä alustalla
+          related_proposals: Ehdotukset, jotka liittyvät tähän tapaamiseen
+          related_results: Tulokset, jotka liittyvät tähän tapaamiseen
+          start_time: Tapaamisen alkamisajankohta
+          taxonomies: Tälle tapaamiselle määritetyt luokittelut
+          title: Tapaamisen otsikko
+          url: Tapaamisen URL-osoite
+          withdrawn: Onko tämä tapaaminen peruttu
+          withdrawn_at: Ajankohta, jolloin tapaaminen peruutettiin
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Aikaisemmat tapaamiset
@@ -687,6 +744,7 @@ fi:
         meeting_proposal: 'Liittyvät ehdotukset:'
         proposal_meeting: 'Liittyvät tapaamiset:'
     statistics:
+      attendees_count: Tapaamisen osallistujat
       meetings_count: Tapaamista
   devise:
     mailer:

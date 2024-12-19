@@ -569,8 +569,6 @@ pt-BR:
       application_helper:
         filter_area_values:
           all: Tudo
-        filter_category_values:
-          all: Todos
         filter_scope_values:
           all: Tudo
     devise:
@@ -639,25 +637,17 @@ pt-BR:
     download_your_data:
       export:
         ready: pronto
-      show:
-        download_data: Baixe os dados
-        download_data_description_html: |-
-          Um arquivo contendo todas as informações associadas à sua conta será enviado para <strong>%{user_email}</strong>. Este e-mail conterá um arquivo .zip e uma senha para abri-lo.<br/><br/>Para descompactar o arquivo, você precisará de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows) ou <a href="https://www.keka.io/">Keka</a> (para MacOS). Se você usar Linux, a maior parte do tempo você o terá instalado por padrão. Se não, você pode usar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> ou <a href="https://peazip.github.io">PeaZip</a>. ).
-        request_data: Solicitar dados
     editor_images:
       create:
         error: Erro ao carregar a imagem.
         success: Imagem carregada com sucesso.
       drag_and_drop_help: Adicione imagens arrastando e soltando ou colando-as.
     endorsement_buttons_cell:
-      already_endorsed: Dislike
       endorse: Like
     endorsements:
       identities:
         done: Concluído
         select_identity: Selecione a identidade
-    endorsers_list:
-      endorsed_by: Curtido por…
     errors:
       files:
         file_cannot_be_processed: O arquivo não pode ser processado
@@ -825,10 +815,7 @@ pt-BR:
           notification_title: O participante %{name} (%{nickname}) foi oficializado.
     export_mailer:
       download_your_data_export:
-        click_button: 'Clique no próximo link para baixar seus dados.<br/>O arquivo estará disponível até %{date}.<br/>Você vai precisar de <a href="https://www.7-zip.org/">7-Zip</a> (para Windows), <a href="https://www.keka.io/en/">Keka</a> (para MacOS) ou <a href="https://peazip.github.io">PeaZip</a> (para Linux) para abri-lo. Senha: %{password}'
         download: Download
-      export:
-        ready: Encontre em anexo uma versão com zíper da sua exportação.
       subject: Sua exportação "%{name}" está pronta
     filters:
       linked_classes:
@@ -1430,12 +1417,6 @@ pt-BR:
         sign_up: Criar uma conta
       mentions_modal:
         remove_recipient: Remover destinatário %{name}
-      participatory_space_filters:
-        filters:
-          area: Área
-          areas: Áreas
-          scope:
-          select_an_area: Selecione uma área
       progress: Progresso
       public_participation:
         public_participation: Mostre minha presença publicamente
@@ -1464,11 +1445,6 @@ pt-BR:
       pages_count: Páginas
       participants_count: Participantes
       users_count: Participantes
-    tags:
-      filter_results_for_category: 'Filtrar resultados para a categoria: %{resource}'
-      filter_results_for_scope: 'Resultados do filtro para escopo: %{resource}'
-    taxonomies:
-      prompt: Selecionar do "%{name}"
     translation_bar:
       help_text: "<strong>Aviso:</strong> O conteúdo pode ser traduzido automaticamente e não está 100% correto."
       show_original: Exibir texto original
@@ -1803,7 +1779,6 @@ pt-BR:
         data_consent_settings: Configurações de cookies
         decidim_logo: Logo Decidim
         decidim_title: Decidim
-        download_open_data: Baixar arquivos Open Data
         log_in: Iniciar sessão
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
         resources: Recursos

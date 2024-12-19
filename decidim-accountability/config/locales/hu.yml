@@ -103,8 +103,6 @@ hu:
           create:
             invalid: Volt egy probléma az eredmény létrehozásával.
             success: Eredmény sikeresen létrehozva.
-          destroy:
-            success: Eredmény sikeresen törölve.
           edit:
             title: Eredmény szerkesztése
             update: Eredmény frissítése
@@ -191,12 +189,10 @@ hu:
       models:
         result:
           fields:
-            category: Kategória
             created_at: Létrehozva
             end_date: Befejezés dátuma
             id: ID
             progress: Folyamat
-            scope: Hatáskör
             start_date: Kezdő dátum
             status: Állapot
             title: Cím
@@ -215,17 +211,11 @@ hu:
           results_count:
             one: 1 találat
             other: "%{count} találat"
-        filters:
-          all: Összes
         home:
-          categories_label: Kategóriák
           empty: Nincs még eredmény.
           empty_filters: Nincsenek eredmények erre a feltételre.
-          subcategories_label: Alkategóriák
         home_header:
           global_status: Globális alkalmazás állapota
-        nav_breadcrumb:
-          global: Globális alkalmazás
         no_results: Nincsenek projektek
         search:
           search: Műveletek keresése
@@ -237,10 +227,6 @@ hu:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategória
-          scope_id_eq:
-            label: Hatáskör
           status_id_eq:
             label: Állapot
     components:

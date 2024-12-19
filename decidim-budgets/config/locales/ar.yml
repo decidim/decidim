@@ -6,8 +6,6 @@ ar:
         title: العنوان
         total_budget: الميزانية الإجمالية
       project:
-        decidim_category_id: الفئة
-        decidim_scope_id: نطاق
         description: وصف
         proposal_ids: المقترحات ذات الصلة
         title: عنوان
@@ -21,17 +19,10 @@ ar:
         many: مشاريع
         other: مشاريع
   decidim:
-    admin:
-      filters:
-        projects:
-          category_id_eq:
-            label: الفئة
     budgets:
       actions:
         attachment_collections: المجلدات
         attachments: مرفقات
-        confirm_destroy: هل أنت متأكد أنك تريد حذف هذا المشروع؟
-        destroy: حذف
         edit: تعديل
         edit_projects: إدارة المشاريع
         import: استيراد مقترحات للمشاريع
@@ -56,7 +47,6 @@ ar:
           index:
             actions: الإجراءات
             cancel: إلغاء
-            change_category: تغيير الفئة
             finished_orders: الانتهاء من الأصوات
             pending_orders: في انتظار الأصوات
             selected_options:
@@ -89,7 +79,6 @@ ar:
             name: الإسم
         project:
           fields:
-            category: الفئة
             title: عنوان
       projects:
         budget_confirm:
@@ -115,8 +104,6 @@ ar:
             many: "%{count} مشاريع"
             other: "%{count} مشاريع"
         filters:
-          category: الفئة
-          scope: نطاق
           search: بحث
         show:
           budget: ميزانية
