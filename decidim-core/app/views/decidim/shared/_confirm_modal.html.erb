@@ -1,7 +1,6 @@
 <%= decidim_modal id: "confirm-modal" do %>
   <div data-dialog-container>
-    <%= icon "delete-bin-line" %>
-    <h2 class="h2" data-dialog-title id="dialog-title-confirm-modal"><%= t("title", scope: "decidim.shared.confirm_modal") %></h2>
+    <h2 class="h2" data-dialog-title id="dialog-title-confirm-modal"><%= t("title", scope: "decidim.group_members.actions.confirm_modal") %></h2>
 
     <div data-confirm-modal-content></div>
   </div>
@@ -11,7 +10,7 @@
       <span><%= t("cancel", scope: "decidim.shared.confirm_modal") %></span>
     </button>
     <button class="button button__lg button__secondary" data-confirm-ok>
-      <span><%= t("ok", scope: "decidim.shared.confirm_modal") %></span>
+      <span><%= t("ok", scope: "decidim.group_members.actions.confirm_modal") %></span>
     </button>
   </div>
 <% end %>

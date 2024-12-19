@@ -18,7 +18,7 @@
   }
 
   [data-dialog-container] {
-    @apply grid grid-cols-[auto_1fr] items-start md:items-center gap-2 text-left;
+    @apply flex flex-col items-start gap-2 text-left;
 
     > svg {
       @apply w-6 h-6 text-gray fill-current flex-none;
