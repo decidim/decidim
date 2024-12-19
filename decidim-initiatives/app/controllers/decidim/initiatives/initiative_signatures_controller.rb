@@ -243,7 +243,7 @@ module Decidim
       end
 
       def session_sms_code
-        session[:initiative_sms_code]
+        (session[:initiative_sms_code] || {}).symbolize_keys
       end
     end
   end

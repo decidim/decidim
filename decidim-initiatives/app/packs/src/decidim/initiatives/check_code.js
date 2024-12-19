@@ -64,8 +64,7 @@ const updateValue = (codeInput, event, digitsInputs) => {
   }
 };
 
-const initializeCodeVerificator = () => {
-  const codeElement = document.querySelector("[data-check-code]");
+const initializeCodeVerificator = (codeElement) => {
   const codeInput = codeElement.querySelector("[data-check-code-path]");
   const digitsInputs = codeElement.querySelectorAll("[data-verification-code]");
 
@@ -76,5 +75,8 @@ const initializeCodeVerificator = () => {
 };
 
 $(() => {
-  initializeCodeVerificator();
+  const codeElement = document.querySelector("[data-check-code]");
+  if (codeElement) {
+    initializeCodeVerificator(codeElement);
+  }
 });
