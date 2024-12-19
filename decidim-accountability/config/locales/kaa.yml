@@ -32,7 +32,7 @@ kaa:
             name: Nátiyje
           status:
             name: Jaǵday
-        import_components:
+        projects_import:
           new:
             create: Importlaw
         results:

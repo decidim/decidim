@@ -80,7 +80,7 @@ ko:
             name: 결과
           status:
             name: 상태
-        import_components:
+        projects_import:
           create:
             invalid: 프로젝트를 결과로 가져오는 동안 문제가 발생했습니다. 지침을 주의 깊게 따르고 구현할 프로젝트를 선택했는지 확인하십시오.
           new:

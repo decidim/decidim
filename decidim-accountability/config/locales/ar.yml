@@ -56,7 +56,7 @@ ar:
             name: نتيجة
           status:
             name: الحالة
-        import_components:
+        projects_import:
           create:
             invalid: كان هناك مشكله فى استيراد المشاريع إلى النتائج, يرجى اتباع التعليمات بعناية و التأكد من اختيار مشاريع للتنفيذ.
           new:

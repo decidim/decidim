@@ -84,7 +84,7 @@ sv:
             name: Resultat
           status:
             name: Status
-        import_components:
+        projects_import:
           create:
             invalid: Det gick inte att importera projekten till resultat, följ instruktionerna noga och se till att du har valt projekt för genomförande.
           new:

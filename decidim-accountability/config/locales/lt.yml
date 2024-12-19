@@ -78,7 +78,7 @@ lt:
             name: Rezultatas
           status:
             name: Statusas
-        import_components:
+        projects_import:
           create:
             invalid: Importuojant projektus į rezultatus iškilo problema. Atidžiai vykdykite instrukcijas ir įsitikinkite, kad pasirinkote įgyvendinimui skirtus projektus.
           new:

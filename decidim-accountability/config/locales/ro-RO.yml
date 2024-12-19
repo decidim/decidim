@@ -63,7 +63,7 @@ ro:
             name: Rezultat
           status:
             name: Stare
-        import_components:
+        projects_import:
           create:
             invalid: A apărut o problemă la importul proiectelor în rezultate, vă rugăm să urmați instrucțiunile cu atenție și să vă asigurați că ați selectat proiecte pentru implementare.
           new:

@@ -85,7 +85,7 @@ he:
             name: תוצאה
           status:
             name: סטטוס
-        import_components:
+        projects_import:
           create:
             invalid: הייתה בעיה בייבוא ​​הפרויקטים לתוצאות, נא לעקוב אחר ההוראות בקפידה ולודא שבחרתם.ן פרויקטים ליישום.
           new:

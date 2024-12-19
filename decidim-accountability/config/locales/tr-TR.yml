@@ -83,7 +83,7 @@ tr:
             name: Sonuç
           status:
             name: durum
-        import_components:
+        projects_import:
           create:
             invalid: Projelerin sonuçlara aktarılmasında bir sorun oluştu. Lütfen talimatları dikkatlice takip edin ve projeleri seçtiğinizden emin olun.
           new:

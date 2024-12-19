@@ -83,7 +83,7 @@ sq:
             name: Rezultati
           status:
             name: Statusi
-        import_components:
+        projects_import:
           create:
             invalid: Ndodhi një problem gjatë importimit të projekteve në rezultate, ju lutem ndiqni udhëzimet me kujdes dhe kujdesuni që të zgjidhni projektet për implementim.
           new:

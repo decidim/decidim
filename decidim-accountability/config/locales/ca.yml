@@ -92,7 +92,7 @@ ca:
             name: Resultat
           status:
             name: Estat
-        import_components:
+        projects_import:
           create:
             invalid: Hi ha hagut un problema important els projectes com a resultats, si us plau, segueix les instruccions amb cura i assegura't de marcar els projectes seleccionats per a la seva implementació.
           new:
