@@ -152,6 +152,9 @@ es-PY:
       titles:
         initiatives: Iniciativas
         initiatives_types: Tipos de Iniciativa
+    download_your_data:
+      show:
+        initiatives: Exportar las iniciativas
     events:
       initiatives:
         admin:
@@ -529,9 +532,7 @@ es-PY:
           phone_number: Número de teléfono
           place_date: Lugar, fecha
           postal_code: Código postal
-          print: Imprimir
           province: Provincia
-          section: 'Si lo solicita la organización, por favor imprime y rellena este formulario para enviar donde se indique:'
           signature: Firma
         result:
           answer_title: Se ha respondido a esta iniciativa.
@@ -553,7 +554,6 @@ es-PY:
           other: " firmas"
         vote_cabin:
           already_voted: Ha sido firmado
-          verification_required: Verifica tu cuenta para firmar la iniciativa.
           vote: Firmar
           votes_blocked: Firma desactivada
         votes_count:
@@ -600,13 +600,42 @@ es-PY:
         success: La iniciativa se ha actualizado correctamente.
     menu:
       initiatives: Iniciativas
+    open_data:
+      help:
+        initiatives:
+          answer: La respuesta que ha recibido esta iniciativa (si la hay)
+          answer_url: La URL de la respuesta (si la hay)
+          answered_at: La fecha de la respuesta (si existe)
+          area: El área de esta iniciativa
+          authors: Las autoras de esta iniciativa
+          comments_count: El número de comentarios que tiene esta iniciativa
+          created_at: La fecha en la que se creó esta iniciativa
+          description: La descripción de la iniciativa
+          first_progress_notification_at: La fecha en la que se envió la primera notificación de progreso
+          follows_count: El número de usuarias que siguen esta iniciativa
+          hashtag: La etiqueta que utiliza la iniciativa en Twitter/X
+          offline_votes: El número de firmas que esta iniciativa recogió presencialmente (en papel)
+          online_votes: El número de firmas digitales que recogió esta iniciativa (directamente a través de la plataforma)
+          published_at: La fecha en la que se publicó esta iniciativa
+          reference: La referencia única de la iniciativa
+          scope: El ámbito territorial de la iniciativa
+          second_progress_notification_at: La fecha en la que se envió la segunda notificación de progreso
+          signature_end_date: La fecha en la que terminó el período de recogida de firmas
+          signature_start_date: La fecha en la que se inició el período de recogida de firmas
+          signature_type: El tipo de recogida de firmas (presencial, digital o mixta)
+          signatures: El número de firmas que recogió esta iniciativa
+          state: El estado en que se encuentra esta iniciativa en este momento
+          title: El título de la iniciativa
+          type: El tipo de iniciativa
+          updated_at: La fecha de la última actualización de esta iniciativa
+          url: La URL de la iniciativa
     resources:
       initiative:
         actions:
           comment: Comentar
       initiatives_type:
         actions:
-          create: Crear
+          create: Crear una iniciativa
           title: Comportamiento
           vote: Votar
   layouts:

@@ -13,6 +13,10 @@ module Decidim
         render view: :comment_as, locals: { form: }
       end
 
+      def two_columns_layout?
+        model.respond_to?(:two_columns_layout?) && model.two_columns_layout?
+      end
+
       private
 
       def cache_hash

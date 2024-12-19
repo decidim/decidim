@@ -4,7 +4,6 @@ pt-BR:
       collaborative_draft:
         address: Endereço
         body: Corpo
-        category_id: Categoria
         decidim_scope_id: Escopo
         has_address: Tem endereço
         scope_id: Escopo
@@ -17,7 +16,6 @@ pt-BR:
         answered_at: Respondido em
         automatic_hashtags: Hashtags adicionados automaticamente
         body: Corpo
-        category_id: Categoria
         decidim_scope_id: Escopo
         has_address: Tem endereço
         scope_id: Escopo
@@ -57,8 +55,6 @@ pt-BR:
             title:
               identical: E o corpo não pode ser idêntico
     models:
-      decidim/proposals/admin/update_proposal_category_event: Categoria da proposta alterada
-      decidim/proposals/admin/update_proposal_scope_event: Escopo da proposta alterado
       decidim/proposals/creation_enabled_event: Criação de proposta ativada
       decidim/proposals/endorsing_enabled_event: Endosso da proposta ativado
       decidim/proposals/proposal_mentioned_event: Proposta mencionada
@@ -82,15 +78,11 @@ pt-BR:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Categoria
           is_emendation_true:
             label: Tipo
             values:
               'false': Propostas
               'true': Emendas
-          scope_id_eq:
-            label: Escopo
           state_eq:
             label: Estado
             values:
@@ -113,7 +105,6 @@ pt-BR:
         actions:
           amend: Alterar
           comment: Comentar
-          create: Criar
           endorse: Endossar
           vote: Voto
           vote_comment: Votar no documento
@@ -238,16 +229,6 @@ pt-BR:
           email_subject: Nova proposta "%{resource_title}" adicionada a %{participatory_space_title}
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionada a %{participatory_space_title} por %{author}.
           notification_title_official: A proposta oficial <a href="%{resource_path}">%{resource_title}</a> foi adicionada à %{participatory_space_title}.
-        proposal_update_category:
-          email_intro: 'Um administrador atualizou a categoria de sua proposta "%{resource_title}", confira:'
-          email_outro: Você recebeu esta notificação porque você é o autor da proposta.
-          email_subject: A categoria de proposta %{resource_title} foi atualizada
-          notification_title: A <a href="%{resource_path}">%{resource_title}</a> categoria de proposta foi atualizada por um administrador.
-        proposal_update_scope:
-          email_intro: 'Um administrador atualizou o escopo de sua proposta "%{resource_title}", confira nesta página:'
-          email_outro: Você recebeu esta notificação porque você é o autor da proposta.
-          email_subject: O escopo da proposta %{resource_title} foi atualizado
-          notification_title: O escopo da proposta <a href="%{resource_path}">%{resource_title}</a> foi atualizado por um administrador.
         voting_enabled:
           email_intro: 'Você pode votar propostas em %{participatory_space_title}! Comece a participar nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
@@ -388,15 +369,12 @@ pt-BR:
             attachment_legend: "(Opcional) Adicionar um anexo"
             created_in_meeting: Esta proposta vem de uma reunião
             delete_attachment: Excluir anexo
-            select_a_category: Selecionar uma categoria
             select_a_meeting: Selecione uma reunião
           index:
             actions: Ações
             assign_to_valuator: Atribuir ao avaliador
             assign_to_valuator_button: Atribuir
             cancel: Cancelar
-            change_category: Alterar categoria
-            change_scope: Alterar o escopo
             merge: Junte-se a um novo
             merge_button: Combinar
             publish: Publicar
@@ -409,7 +387,6 @@ pt-BR:
             unassign_from_valuator: Desatribuir do avaliador
             unassign_from_valuator_button: Desatribuir
             update: Atualizar
-            update_scope_button: Atualizar Escopo
           new:
             create: Criar
             title: Criar proposta
@@ -430,13 +407,6 @@ pt-BR:
             remove_assignment: Remover Atribuição
             remove_assignment_confirmation: Tem certeza que deseja remover o avaliador desta proposta?
             valuators: Avaliadores
-          update_category:
-            invalid: 'Estas propostas já tinham a categoria %{subject_name}: %{proposals}.'
-            select_a_category: Por favor, selecione uma categoria.
-            success: 'Propostas atualizadas com sucesso para a categoria %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Estas propostas já tinham o escopo %{subject_name}: %{proposals}.'
-            success: 'Propostas atualizadas com sucesso para o escopo %{subject_name}: %{proposals}.'
         proposals_imports:
           new:
             create: Propostas de importação
@@ -502,17 +472,14 @@ pt-BR:
         edit:
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Costas
-          select_a_category: Por favor, selecione uma categoria
           send: Enviar
           title: Editar rascunho colaborativo
         filters:
           all: Todos
           amendment: Emendas
-          category: Categoria
           open: Aberto
           published: Publicados
           related_to: Relacionado a
-          scope: Escopo
           search: Pesquisa
           state: Estado
           withdrawn: Retirado
@@ -547,7 +514,6 @@ pt-BR:
           rejected_request:
             error: Não foi possível rejeitá-lo como colaborador. Tente novamente mais tarde.
         show:
-          edit: Editar rascunho colaborativo
           final_proposal: proposta final
           final_proposal_help_text: Este rascunho está terminado. Você pode ver a proposta final concluída
           hidden_authors_count:
@@ -582,14 +548,12 @@ pt-BR:
       models:
         proposal:
           fields:
-            category: Categoria
             comments: Comentários
             id: ID
             notes: Notas
             official_proposal: Proposta oficial
             published_answer: Resposta publicada
             published_at: Publicado em
-            scope: Âmbito
             state: Estado
             title: Título
             valuator: Avaliador
@@ -609,7 +573,6 @@ pt-BR:
           attachment_legend: "(Opcional) Adicione um anexo"
           back: Voltar
           edit_documents: Editar documentos
-          select_a_category: Selecione uma categoria
           send: Enviar
           title: Editar proposta
         edit_draft:
@@ -620,7 +583,6 @@ pt-BR:
           activity: Minha atividade
           all: Tudo
           amendment_type: Tipo
-          category: Categoria
           my_proposals: Minhas propostas
           origin: Origem
           related_to: Relacionado a
@@ -665,7 +627,6 @@ pt-BR:
         show:
           answer: Responda
           changes_at_title: Alteração para "%{title}"
-          edit_proposal: Editar proposta
           estimated_cost: Custo estimado
           hidden_endorsers_count:
             one: e mais %{count} pessoa
@@ -680,7 +641,6 @@ pt-BR:
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
           withdraw_confirmation_html: Tem certeza que deseja retirar esta proposta?<br><br><strong>Esta ação não pode ser cancelada!</strong>
-          withdraw_proposal: Retirar proposta
         update:
           title: Atualizar proposta
         vote_button:

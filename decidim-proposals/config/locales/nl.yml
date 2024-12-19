@@ -4,7 +4,6 @@ nl:
       collaborative_draft:
         address: Adres
         body: Tekstgedeelte
-        category_id: Categorie
         decidim_scope_id: Scope
         has_address: Heeft adres
         scope_id: Bereik
@@ -17,7 +16,6 @@ nl:
         answered_at: Beantwoord op
         automatic_hashtags: Hashtags worden automatisch toegevoegd
         body: Body
-        category_id: Categorie
         decidim_scope_id: Scope
         has_address: Heeft adres
         scope_id: Bereik
@@ -61,8 +59,6 @@ nl:
             base:
               not_official: Zijn niet officieel
     models:
-      decidim/proposals/admin/update_proposal_category_event: Voorstelcategorie gewijzigd
-      decidim/proposals/admin/update_proposal_scope_event: Voorstel bereik gewijzigd
       decidim/proposals/creation_enabled_event: Voorstelcreatie ingeschakeld
       decidim/proposals/endorsing_enabled_event: Voorstel endorsing ingeschakeld
       decidim/proposals/proposal_mentioned_event: Voorstel vermeld
@@ -92,7 +88,6 @@ nl:
         actions:
           amend: Pas aan
           comment: Reactie
-          create: creëren
           endorse: Aanbevelen
           vote: Stem
           vote_comment: Stem op de reactie
@@ -212,16 +207,6 @@ nl:
           email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat je volgt.
           email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Schakel de meldingen uit door op bovenstaande link te klikken en te stoppen met volgen.
           email_subject: Nieuw voorstel "%{resource_title}" toegevoegd aan %{participatory_space_title}
-        proposal_update_category:
-          email_intro: 'Een beheerder heeft de categorie van uw voorstel "%{resource_title} bijgewerkt, bekijk het op deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
-          email_subject: De categorie van het %{resource_title} voorstel is bijgewerkt
-          notification_title: De categorie van het <a href="%{resource_path}">%{resource_title}</a> voorstel is bijgewerkt door een beheerder.
-        proposal_update_scope:
-          email_intro: 'Een admin heeft de reikwijdte van je voorstel "%{resource_title}" geüpdatet, bekijk het op deze pagina:'
-          email_outro: Je hebt deze melding ontvangen omdat je de auteur bent van het voorstel.
-          email_subject: Het toepassingsgebied van het %{resource_title} voorstel is bijgewerkt
-          notification_title: Het bereik van <a href="%{resource_path}">%{resource_title}</a> voorstel is bijgewerkt door een admin.
         voting_enabled:
           email_intro: 'Je kan op voorstellen in %{participatory_space_title} stemmen! Neem deel via deze pagina:'
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Schakel de meldingen uit door te klikken op de voorgaande link.
@@ -344,15 +329,12 @@ nl:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             created_in_meeting: Dit voorstel komt uit een vergadering
             delete_attachment: Bijlage verwijderen
-            select_a_category: Kies een categorie
             select_a_meeting: Selecteer een vergadering
           index:
             actions: acties
             assign_to_valuator: Toewijzen aan beoordelaar
             assign_to_valuator_button: Toewijzen
             cancel: Annuleer
-            change_category: Categorie wijzigen
-            change_scope: Wijzig scope
             merge: Samenvoegen met een nieuwe
             merge_button: Samensmelten
             publish: Publiceren
@@ -365,7 +347,6 @@ nl:
             unassign_from_valuator: Toewijzing beoordelaar ongedaan maken
             unassign_from_valuator_button: Ontkoppelen
             update: Bijwerken
-            update_scope_button: Toepassingsgebied bijwerken
           new:
             create: Creëren
             title: Maak een voorstel
@@ -386,12 +367,6 @@ nl:
             remove_assignment: Opdracht verwijderen
             remove_assignment_confirmation: Weet u zeker dat u de beoordelaar uit dit voorstel wilt verwijderen?
             valuators: Beoordelaars
-          update_category:
-            invalid: 'Deze voorstellen hadden al de %{subject_name} categorie: %{proposals}.'
-            success: 'Voorstellen zijn succesvol bijgewerkt naar de %{subject_name} categorie: %{proposals}.'
-          update_scope:
-            invalid: 'Deze voorstellen hadden al het toepassingsgebied van %{subject_name} : %{proposals}.'
-            success: 'Voorstellen zijn succesvol bijgewerkt naar de scope %{subject_name} : %{proposals}.'
         proposals_imports:
           new:
             create: Geïmporteerde voorstellen
@@ -456,17 +431,14 @@ nl:
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
-          select_a_category: Selecteer een categorie
           send: Verzenden
           title: Bewerk gezamenlijk ontwerp
         filters:
           all: Alle
           amendment: wijzigingen
-          category: Categorie
           open: Open
           published: Gepubliceerd
           related_to: Gerelateerd aan
-          scope: Scope
           search: Zoeken
           state: Status
           withdrawn: teruggetrokken
@@ -500,7 +472,6 @@ nl:
           rejected_request:
             error: Kan niet worden afgewezen als bijdrager, probeer het later opnieuw.
         show:
-          edit: Bewerk gezamenlijk ontwerp
           final_proposal: definitief voorstel
           final_proposal_help_text: Dit concept is voltooid. U kunt het definitieve voltooide voorstel zien
           hidden_authors_count:
@@ -532,14 +503,12 @@ nl:
       models:
         proposal:
           fields:
-            category: Categorie
             comments: Reacties
             id: ID
             notes: Opmerkingen
             official_proposal: Officieel voorstel
             published_answer: Gepubliceerd antwoord
             published_at: Gepubliceerd op
-            scope: Scope
             state: Staat
             title: Titel
             valuator: Beoordelaar
@@ -557,7 +526,6 @@ nl:
         edit:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
-          select_a_category: Selecteer een categorie
           send: Verzenden
           title: Bewerk voorstel
         edit_draft:
@@ -568,7 +536,6 @@ nl:
           activity: Mijn activiteit
           all: Alle
           amendment_type: Type
-          category: Categorie
           my_proposals: Mijn voorstellen
           origin: Oorsprong
           related_to: Gerelateerd aan
@@ -610,7 +577,6 @@ nl:
         show:
           answer: Antwoord
           changes_at_title: Amendement op "%{title}"
-          edit_proposal: Bewerk voorstel
           estimated_cost: Geschatte kosten
           hidden_endorsers_count:
             one: en nog %{count} persoon
@@ -625,7 +591,6 @@ nl:
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
           withdraw_confirmation_html: Weet u zeker dat u dit voorstel wilt intrekken?<br><br><strong>Deze actie kan niet worden geannuleerd!</strong>
-          withdraw_proposal: Voorstel intrekken
         update:
           title: Update voorstel
         vote_button:

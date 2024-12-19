@@ -19,8 +19,6 @@ lt:
     blogs:
       actions:
         author_id: Sukurti įrašą kaip
-        confirm_destroy: Ar tikrai norite ištrinti šį įrašą?
-        destroy: Ištrinti
         edit: Redaguoti
         new: Naujas įrašas
         title: Veiksmai
@@ -29,8 +27,6 @@ lt:
           create:
             invalid: Kuriant šį įrašą iškilo problema.
             success: Įrašas sukurtas sėkmingai.
-          destroy:
-            success: Įrašas pašalintas.
           edit:
             save: Atnaujinimas
             title: Redaguoti publikaciją
