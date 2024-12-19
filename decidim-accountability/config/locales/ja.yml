@@ -94,7 +94,7 @@ ja:
             name: 結果
           status:
             name: ステータス
-        import_components:
+        projects_import:
           create:
             invalid: プロジェクトを結果にインポートする際に問題が発生しました。指示に従い、実装のためにプロジェクトを選択していることを確認してください。
           new:

@@ -83,7 +83,7 @@ hu:
             name: Eredmény
           status:
             name: Állapot
-        import_components:
+        projects_import:
           create:
             invalid: Probléma merült fel a projektek importálásával az eredményekbe, kérjük, gondosan kövesse az utasításokat, és győződjön meg róla, hogy a projekteket a végrehajtáshoz kiválasztotta.
           new:

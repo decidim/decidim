@@ -95,7 +95,7 @@ es-PY:
             name: Resultado
           status:
             name: Estado
-        import_components:
+        projects_import:
           create:
             invalid: Hubo un problema al importar los proyectos como resultados, por favor, sigue las instrucciones cuidadosamente y asegúrate que has marcado los proyectos seleccionados para su implementación.
           new:

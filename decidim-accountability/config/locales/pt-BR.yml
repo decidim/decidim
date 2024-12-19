@@ -88,7 +88,7 @@ pt-BR:
             name: Resultado
           status:
             name: Status
-        import_components:
+        projects_import:
           create:
             invalid: Houve um problema ao importar os projetos para os resultados, por favor, siga as instruções cuidadosamente e verifique se você selecionou projetos para implementação.
           new:
