@@ -240,11 +240,11 @@ module Decidim
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
 
-            it "serializes the amount of cattending organizations" do
+            it "serializes the amount of attending organizations" do
               expect(serialized).to include(attending_organizations: meeting.attending_organizations)
             end
 
-            it "serializes the whether the meeting was visble or not" do
+            it "serializes the whether the meeting was visible or not" do
               expect(serialized).to include(closing_visible: meeting.closing_visible)
             end
           end
