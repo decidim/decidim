@@ -709,16 +709,19 @@ en:
           root_commentable_url: The URL of the resource that ties to this comment
           user_group: The name of the user group that made this comment (if any)
         meetings:
-          address: The address of the meeting in case it is in person and has a physical location
+          address: The address of the meeting in case it is in person and has a physical lAuocation
           attachments: The number of attachments in this meeting
           attendees: The number of people attending this meeting
           attending_organizations: The organizations attending the meeting
+          audio_url: Audio recording of the meeting
           author: The data for the author of this meeting
           closing_report: Report of the closed meeting
           closing_visible: The visibilty of the meeting
           component: The component that the meeting belongs to
           contributions: The number of contributions in this meeting made by the atteendes
           created_at: The date at which the meeting was created
+          decidim_author__type: Author type of the meeting's author
+          decidim_user_group_id: User group ID of people involved in the meeting
           description: The description of the meeting
           end_time: The date and time that this meeting ends
           follows_count: The number of follows the meeting has
@@ -742,6 +745,7 @@ en:
           transparent: The visabilty of the meetng for non-members
           updated_at: The time at which the meeting was last updated
           url: The URL of the meeting
+          vidoe_url: Video recording of the meeting
           withdrawn: Wheter this meeting has been withdrawn
           withdrawn_at: When this meeting was withdrawn
     participatory_spaces:
