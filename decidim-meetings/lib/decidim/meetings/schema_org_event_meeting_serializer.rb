@@ -37,6 +37,7 @@ module Decidim
       private
 
       attr_reader :meeting
+      alias resource meeting
 
       def organizer
         return organizer_user_group if meeting.decidim_user_group_id?

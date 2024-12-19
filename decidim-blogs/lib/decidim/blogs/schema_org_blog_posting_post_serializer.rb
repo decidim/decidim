@@ -32,6 +32,7 @@ module Decidim
       private
 
       attr_reader :post
+      alias resource post
 
       def author
         case post.author.class.name
