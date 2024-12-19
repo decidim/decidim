@@ -192,7 +192,7 @@ module Decidim
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
 
-            it "serializes the the closing report" do
+            it "serializes the closing report" do
               expect(serialized).to include(closing_report: meeting.closing_report)
             end
 
