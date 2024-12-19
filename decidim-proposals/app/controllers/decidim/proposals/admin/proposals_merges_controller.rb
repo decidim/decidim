@@ -5,6 +5,7 @@ module Decidim
     module Admin
       class ProposalsMergesController < Admin::ApplicationController
         layout false
+        helper Decidim::Proposals::Admin::ProposalsHelper
 
         def new
           @form = form(Admin::ProposalsMergeForm).from_params(

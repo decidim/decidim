@@ -7,11 +7,10 @@
     </div>
   </h1>
 </div>
-<div class="item__edit item__edit-1col">
+<div class="">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: proposals_merge_path, method: :post, html: { id: "js-form-merge-proposals", class: "form form-defaults" })  do |f| %>
-    <%= @form.proposals %>
-      <%#render partial: "form", object: f, locals: { title: t(".title") } %>
+      <% render partial: "form", object: f, locals: { title: t(".title") } %>
     <% end %>
   </div>
 </div>

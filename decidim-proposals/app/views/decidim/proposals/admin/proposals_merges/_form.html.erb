@@ -1,16 +1,16 @@
-<div class="form__wrapper">
-  <div class="card pt-4">
+<div class="form__wrapper pt-0 h-screen">
+  <div class="card">
     <div class="card-section">
 
-      <div class="row column select-wrapper">
+      <div class="row column">
         <%= bulk_components_select((current_component.siblings + [current_component])) %>
       </div>
 
-      <div class="row column pb-4">
-        <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", hashtaggable: true, aria: { label: :title } %>
+      <div class="row column">
+        <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", aria: { label: :title } %>
       </div>
       <div class="row column">
-        <%= form.translated :editor, :body, hashtaggable: true, aria: { label: :body } %>
+        <%= form.translated :editor, :body, aria: { label: :body } %>
       </div>
       <% if @form.meetings %>
         <div class="meeting-fields">
@@ -30,9 +30,8 @@
           <%= @form.geocoding_field :address %>
         </div>
       <% end %>
-      
-        <% if component_settings.attachments_allowed? %>
-        <%= render partial: "decidim/admin/shared/gallery", locals: { form: f } %>
+      <% if component_settings.attachments_allowed? %>
+        <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
       <% end %>
       <% if component_settings.attachments_allowed? %>
         <div class="row column">
