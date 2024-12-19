@@ -252,8 +252,42 @@ module Decidim
           context "when the meeting is completed" do
             let!(:meeting) { create(:meeting, :closed) }
 
-            it "serializes the amount of contributions" do
+            it "serializes the amount of cattending organizations" do
               expect(serialized).to include(attending_organizations: meeting.attending_organizations)
+            end
+
+            it "serializes the whether the meeting was visable or not" do
+              expect(serialized).to include(closing_visible: meeting.closing_visible)
+            end
+          end
+
+          context "when the meeting is not visible" do
+            let!(:meeting) { create(:meeting, closing_visible: nil) }
+
+            it "does not serialize the meetings attending organizations" do
+              expect(serialized[:attending_organizations]).to be_nil
+            end
+
+            it "does not serialize the meeting's visibilty" do
+              expect(serialized[:closing_visible]).to be_nil
+            end
+          end
+        end
+
+        describe "attendees and their visabilty" do
+          it "does not serializes the the number of attendees organizations" do
+            expect(serialized[:attendees]).to eq("Some organization")
+          end
+
+          it "does not serializes the meetings visabilty" do
+            expect(serialized[:closing_visible]).to be_nil
+          end
+
+          context "when the meeting is completed" do
+            let!(:meeting) { create(:meeting, :closed) }
+
+            it "serializes the amount of attendees" do
+              expect(serialized).to include(attendees: meeting.attendees_count.to_i)
             end
 
             it "serializes the whether the meeting was visable or not" do
@@ -264,8 +298,8 @@ module Decidim
           context "when the meeting is not viasible" do
             let!(:meeting) { create(:meeting, closing_visible: nil) }
 
-            it "does not serialize the meetings contributions" do
-              expect(serialized[:attending_organizations]).to be_nil
+            it "does not serialize the attendees" do
+              expect(serialized[:attendees]).to be_nil
             end
 
             it "does not serialize the meeting's visibilty" do
