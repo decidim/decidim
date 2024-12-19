@@ -84,7 +84,6 @@ gl:
       assemblies:
         create:
           error: Produciuse un erro ao crear un novo conxunto.
-          success: Asemblea creada con éxito.
         edit:
           update: Actualización
         index:
@@ -126,21 +125,6 @@ gl:
           import: Importar
           select: Selecciona que tipo de datos desexas importar
           title: Importar xuntanza
-      assembly_members:
-        create:
-          error: Produciuse un erro ao engadir un membro para este conxunto.
-          success: Membro creado con éxito para este conxunto.
-        destroy:
-          success: O membro eliminouse con éxito por este conxunto.
-        edit:
-          update: Actualización
-        index:
-          assembly_members_title: Membros da asemblea
-        new:
-          create: Crear
-        update:
-          error: Produciuse un erro ao actualizar o membro para este conxunto.
-          success: Membro actualizado correctamente para este conxunto.
       assembly_publications:
         create:
           error: Produciuse un erro ao publicar esta asemblea.
@@ -170,7 +154,6 @@ gl:
         assemblies: Asembleas
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
-          assembly_members: Membros
           attachment_collections: Carpetas
           attachment_files: Arquivos
           attachments: Anexos
@@ -192,11 +175,6 @@ gl:
             title: Título
           name: Asemblea
         assembly_member:
-          fields:
-            ceased_date: Data de suspensión
-            designation_date: Data de designación
-            full_name: Nome
-            position: Posición
           name: Membro
           positions:
             other: Outra
@@ -262,13 +240,8 @@ gl:
             title: Título
         assembly_members:
           form:
-            existing_user: Usuario existente
             explanation: 'Instrucións para a imaxe:'
-            non_user: Non usuario
             non_user_avatar_help: Tes que obter o consentimento das persoas antes de publicalas coma membros.
-            select_a_position: Seleccione unha posición
-            select_user: Selecciona un usuario
-            user_type: Tipo de usuario
         content_blocks:
           highlighted_assemblies:
             max_results: Cantidade máxima de elementos para mostrar
@@ -320,8 +293,6 @@ gl:
         duration: Duración
         private_space: Esta é unha asemblea privada
     assembly_members:
-      assembly_member:
-        designated_on: Designado en
       index:
         title: Membros
     events:

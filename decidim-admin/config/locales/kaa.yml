@@ -71,8 +71,6 @@ kaa:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Kategoriya
         filter_label: Filtr
         invitation_accepted_at_present:
           values:
@@ -184,7 +182,6 @@ kaa:
       share_tokens:
         actions:
           destroy: Óshiriw
-          share: Bólisiw
       shared:
         gallery:
           add_images: Súwretlerdi qosıw

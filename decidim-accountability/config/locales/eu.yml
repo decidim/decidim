@@ -42,7 +42,9 @@ eu:
       actions:
         attachment_collections: Karpetak
         attachments: Erantsitako artxiboak
+        confirm_delete_result: Ziur zaude emaitza hau ezabatu nahi duzula?
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
+        deleted_results_info: Ezabatutako emaitzak berreskura daitezke zaborrontzitik.
         destroy: Ezabatu
         edit: Editatu
         import: Inportatu proposamenak beste osagai batetik
@@ -53,6 +55,7 @@ eu:
         preview: Aurreikusi
         timeline_entries: Proiektuaren bilakaera
         title: Ekintzak
+        view_deleted_results: Ikusi ezabatutako emaitzak
       admin:
         exports:
           result_comments: Iruzkinak
@@ -100,7 +103,7 @@ eu:
             import_all_selected_projects: Inportatu inplementatzeko aukeratu dituzun proiektu guztiak
             new_items:
               one: Aukeratutako proiektu bat inportatuko da
-              other: "Hautatutako %{count} proiektu inportatuko dira"
+              other: "Aukeratutako proiektu bat inportatuko da"
             no_components: Ez dago aurrekontuen osagairik parte-hartze espazio honetan proiektuak emaitzetara inportatzeko.
             origin_component_id: Jatorrizko osagaia
             select_component: Hautatu osagaia
@@ -112,13 +115,13 @@ eu:
           create:
             invalid: Arazo bat egon da emaitza hau sortzean.
             success: Emaitza zuzen sortua.
-          destroy:
-            success: Emaitza zuzen ezabatua.
           edit:
             title: Editatu emaitza
             update: Eguneratu emaitza
           index:
             title: Emaitzak
+          manage_trash:
+            title: Ezabatutako emaitzak
           new:
             create: Sortu emaitza
             title: Beste emaitza bat
@@ -143,11 +146,11 @@ eu:
             create: Egoera sortu
             title: Beste egoera bat
           update:
-            invalid: Arazoren bat gertatu da egoera hau sortzean.
-            success: Egoera ondo eguneratu da.
+            invalid: Arazo bat egon da egoera hau eguneratzean.
+            success: Egoera zuzen eguneratua.
         timeline_entries:
           create:
-            invalid: Arazoen bat gertatu da sarrera hau sortzean.
+            invalid: Arazo bat egon da sarrera hau sortzean.
             success: Sarrera zuzen sortua.
           destroy:
             success: Sarrera behar bezala ezabatua.
@@ -157,7 +160,7 @@ eu:
           index:
             title: Proiektuaren bilakaera
           new:
-            create: Sortu sarrerak
+            create: Sortu sarrera
             title: Beste sarrera bat
           update:
             invalid: Arazo bat egon da sarrera hau eguneratzean.
@@ -166,6 +169,8 @@ eu:
         result:
           create: "%{user_name} k emaitza sortu du %{resource_name} %{space_name} espazioan"
           delete: "%{user_name} k %{resource_name} emaitza ezabatu du %{space_name} espazioan"
+          restore: "% {user_name} k % {baliabide_name}} emaitza berreskuratu du hemen:% {space_name}"
+          soft_delete: "% {user_name} k hemengo: %{space_name} {baliabide_name} emaitza zaborrontzira eraman zuen"
           update: "%{user_name} k %{resource_name} emaitza eguneratu du %{space_name} espazioan"
         status:
           create: "%{user_name} k %{resource_name} egoera sortu du"
@@ -177,7 +182,7 @@ eu:
           update: "%{user_name} k %{resource_name} sarrera eguneratu du kronologian"
         value_types:
           parent_presenter:
-            not_found: 'Nagusi ez zen aurkitu (ID: %{id}) datu-basean'
+            not_found: 'Nagusia ez zen aurkitu (ID: %{id}) datu-basean'
       content_blocks:
         highlighted_results:
           results: Emaitzak
@@ -202,14 +207,13 @@ eu:
       models:
         result:
           fields:
-            category: Kategoria
             created_at: Noiz sortua
             end_date: Amaiera-data
             id: ID
             progress: Aurrerapena
-            scope: Esparrua
             start_date: Hasiera-data
             status: Egoera
+            taxonomies: Taxonomiak
             title: Izenburua
         status:
           fields:
@@ -226,17 +230,13 @@ eu:
           results_count:
             one: Emaitza 1
             other: "%{count} emaitza"
-        filters:
-          all: Guztiak
         home:
-          categories_label: Kategoriak
           empty: Oraindik ez dago emaitzarik.
           empty_filters: Ez dago emaitzarik irizpide honekin.
-          subcategories_label: Azpikategoriak
+          sub_taxonomies_label: Azpikategoriak
+          taxonomies_label: Kategoriak
         home_header:
           global_status: Gauzatzearen egoera orokorra
-        nav_breadcrumb:
-          global: Gauzatze osoa
         no_results: Ez dago proiekturik
         search:
           search: Bilatu ekintzak
@@ -248,12 +248,10 @@ eu:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Kategoria
-          scope_id_eq:
-            label: Esparrua
           status_id_eq:
             label: Egoera
+          taxonomies_part_of_contains:
+            label: Taxonomia
     components:
       accountability:
         actions:
@@ -261,14 +259,24 @@ eu:
         name: Jarraipena
         settings:
           global:
+            clear_all: Garbitu dena
             comments_enabled: Iruzkinak gaituta
             comments_max_length: Iruzkinen gehieneko luzera (utzi 0 hasierako konfigurazioari eusteko)
+            define_taxonomy_filters: Mesedez, eszenatoki hau erabili aurretik, zehaztu iragazki batzuk espazio parte-hartzaile honetarako.
             display_progress_enabled: Erakutsi aurrerapena
+            geocoding_enabled: Mapak gaituta
             intro: Intro
+            no_taxonomy_filters_found: Ez da taxonomia-iragazkirik aurkitu.
             scope_id: Esparrua
             scopes_enabled: Esparruak gaituta
+            taxonomy_filters: Hautatu iragazkiak osagairako
+            taxonomy_filters_add: Erantsi iragazkia
           step:
-            comments_blocked: Iruzkinak blokeatuta
+            comments_blocked: Iruzkin blokeatuak
+    download_your_data:
+      show:
+        result_comments: Esportatu emaitzen iruzkinak
+        results: Esportatu emaitzak
     events:
       accountability:
         proposal_linked:
@@ -286,6 +294,41 @@ eu:
         description: Sortutako emaitza kopurua
         object: emaitzak
         title: Emaitzak
+    open_data:
+      help:
+        result_comments:
+          alignment: Iruzkin hau aldekkoa, kontrakoa edo neutrala bazen
+          author: Iruzkin hau egin duen parte-hartzailearen izena
+          body: Iruzkin bera
+          commentable_id: Iruzkingarriaren identifikazio bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... izan bazen)
+          created_at: Zein datatan sortu zen iruzkin hau
+          depth: Iruzkin hau hiru iruzkinetan dago (erantzuna bada edo erantzun batren erantzuna)
+          id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uztean zuen lokala (hizkuntza)
+          root_commentable_url: Iruzkin honekin lotzen duen baliabidearen URLa
+          user_group: Iruzkin hau egin duen erabiltzaile taldearen izena (hala badagokio)
+        results:
+          address: Emaitzaren helbidea (hala badagokio)
+          children_count: Emaitza txikien kopurua
+          comments_count: Emaitza horrek zenbat iruzkin dituen
+          component: Emaitzaren osagaia honi dagokio
+          created_at: Zein datatan sortu zen emaitza
+          description: Emaitzaren deskribapena
+          end_date: Zein datatan exekutatzen eta amaitzen den emaitza
+          id: Emaitzaren identifikatzaile bakarra
+          latitude: Emaitzaren latitudea, kokapen fisikoa badu
+          longitude: Emaitzaren longitudea, kokapen fisikoa badu
+          parent: Emaitzaren emaitza nagusia (baldin badago)
+          progress: Emaitza gauzatzearen ehunekoa
+          proposal_urls: Emaitza honetan jasotzen diren proposamenen URLak
+          reference: Emaitzaren erreferentzia bakarra
+          start_date: Zein datatan hasi da emaitza gauzatzen
+          status: Emaitza honen egungo egoera
+          taxonomies: Emaitzaren taxonomiak
+          title: Emaitzaren izenburua
+          updated_at: Zein egunetan eguneratu zen azken aldiz emaitza hau
+          url: Emaitza hau aurkitu daitekeen URLa
     participatory_spaces:
       highlighted_results:
         see_all: Ikusi emaitza guztiak (%{count})

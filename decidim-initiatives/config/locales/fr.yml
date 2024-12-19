@@ -507,9 +507,7 @@ fr:
           phone_number: Numéro de téléphone
           place_date: Lieu, Date
           postal_code: Code Postal/ZIP
-          print: Imprimer
           province: Province/état
-          section: 'Si l''organisme le demande, veuillez imprimer et remplir ce formulaire pour soumettre si indiqué:'
           signature: Signature
         result:
           answer_title: Cette pétition a reçu une réponse.
@@ -531,7 +529,6 @@ fr:
           other: " signatures"
         vote_cabin:
           already_voted: Déjà signée
-          verification_required: Vérifiez votre compte pour signer la pétition
           vote: Signer
           votes_blocked: Signatures désactivées
         votes_count:
@@ -583,7 +580,6 @@ fr:
           comment: Commenter
       initiatives_type:
         actions:
-          create: Créer
           title: Actions
           vote: Vote
   layouts:

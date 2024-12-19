@@ -12,8 +12,6 @@ sk:
   decidim:
     blogs:
       actions:
-        confirm_destroy: Naozaj chcete odstrániť tento príspevok?
-        destroy: Odstrániť
         edit: Upraviť
         new: Nový príspevok
         title: Akcie

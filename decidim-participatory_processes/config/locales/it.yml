@@ -102,7 +102,6 @@ it:
           categories: Categorie
           components: Componenti
           moderations: Moderazione
-          private_users: Utenti privati
           process_admins: Amministratrici/tori di processo
           steps: Fasi (Steps)
       models:

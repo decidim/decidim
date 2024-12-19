@@ -413,9 +413,6 @@ lb:
     download_your_data:
       export:
         ready: Fäerdeg
-      show:
-        download_data: Daten eroflueden
-        request_data: Daten ufroen
     endorsements:
       identities:
         done: Erleedegt
@@ -560,10 +557,7 @@ lb:
           notification_title: D' <a href="%{resource_path}">Profil-Säit</a> vum </a>%{name} (%{nickname}), där s'du nogees, gouf aktualiséiert.
     export_mailer:
       download_your_data_export:
-        click_button: 'Klick op den Link, fir den Daten erofzelueden.<br/>D''Datei steet bis den %{date} zur Verfügung.<br/>du brauchs <a href="https://www.7-zip.org/">7-Zip</a> (fir Windows), <a href="https://www.keka.io/en/">Keka</a> (fir MacOS) oder <a href="https://peazip.github.io">PeaZip</a> (fir Linux) fir d''Datei opzemaachen. Passwuert: %{password}'
         download: Eroflueden
-      export:
-        ready: Am Anhang fënns de eng kompriméiert Versioun vun dengem exportéierten Element.
       subject: Däin Export- %{name} ass prett
     filters:
       linked_classes:
@@ -987,10 +981,6 @@ lb:
         title: Notzer mellen den net zoulässeg ass
       floating_help:
         help: Hëllef
-      participatory_space_filters:
-        filters:
-          areas: Beräicher
-          select_an_area: Wiel e Beräich
       public_participation:
         public_participation: Uweisen, dass ech ageloggt sinn
       reference:
@@ -1017,9 +1007,6 @@ lb:
       pages_count: Säiten
       participants_count: Benotzer
       users_count: Benotzer
-    tags:
-      filter_results_for_category: 'Resultater no Kategorie filteren: %{resource}'
-      filter_results_for_scope: 'Resultater no Uwendungsberäich filteren: %{resource}'
     translation_bar:
       help_text: "<strong>Warnung:</strong> Inhalt kéint automatesch iwwersetzt sinn an net 100% korrekt sinn."
       show_original: Originaltext weisen
@@ -1212,7 +1199,6 @@ lb:
       footer:
         cc_by_license: Creative Commons Lizenz
         decidim_logo: Decidim-Logo
-        download_open_data: Open Data Dateien eroflueden
         log_in: Umelden
         made_with_open_source: Website mat <a target="_blank" href="https://github.com/decidim/decidim">fräi Software erstallt</a>.
       header:
