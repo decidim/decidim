@@ -76,9 +76,7 @@ module Decidim
         before do
           # Temporarily change the secret so that it matches the secret used
           # when encrypting the value.
-          allow(Rails.application.secrets).to receive(
-            :secret_key_base
-          ).and_return("testsecret")
+          allow(Rails.application).to receive(:secret_key_base).and_return("testsecret")
         end
 
         it "returns the decrypted value" do

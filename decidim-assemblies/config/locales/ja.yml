@@ -90,15 +90,16 @@ ja:
   decidim:
     admin:
       actions:
+        confirm_delete_assembly: このアセンブリを削除してもよろしいですか？気が変わった場合は、後で復元できます。
         import_assembly: インポート
         new_assembly: 新しい参加スペース
-        new_assembly_member: 新しい参加スペースメンバー
         new_assembly_type: 新しい参加スペース種別
         new_assembly_user_role: 新しい参加スペース管理者
+        view_deleted_assemblies: 削除されたアセンブリを表示
       assemblies:
         create:
           error: 新しい参加スペースの作成中に問題が発生しました。
-          success: 参加スペースが作成されました。
+          success: 参加スペースが正常に作成されました。これでコンポーネントを追加して設定できます。
         edit:
           update: 更新
         index:
@@ -106,6 +107,8 @@ ja:
           public: 公開
           published: 公開済み
           unpublished: 未公開
+        manage_trash:
+          title: 削除されたアセンブリ
         new:
           create: 作成
           title: 新しい参加スペース
@@ -141,23 +144,6 @@ ja:
           import: インポート
           select: インポートしたいデータを選択
           title: 参加スペースをインポート
-      assembly_members:
-        create:
-          error: この参加スペースにメンバーを追加する際に問題が発生しました。
-          success: メンバーは正常にこの参加スペース用に作成されました。
-        destroy:
-          success: メンバーはこの参加スペースの削除に成功しました。
-        edit:
-          title: 参加スペースメンバーを更新
-          update: 更新
-        index:
-          assembly_members_title: 参加スペースメンバー
-        new:
-          create: 作成
-          title: 新しい参加スペースメンバー
-        update:
-          error: この参加スペースのメンバーの更新に問題がありました。
-          success: メンバーがこの参加スペースの更新に成功しました。
       assembly_publications:
         create:
           error: この参加スペースの公開中に問題がありました。
@@ -196,7 +182,6 @@ ja:
         assemblies: 参加スペース
         assemblies_submenu:
           assembly_admins: 参加スペース管理者
-          assembly_members: メンバー
           attachment_collections: フォルダ
           attachment_files: ファイル
           attachments: 添付ファイル
@@ -205,7 +190,7 @@ ja:
           info: この参加スペースについて
           landing_page: ランディングページ
           moderations: モデレーション
-          private_users: プライベート参加者
+          private_users: メンバー
           see_assembly: 参加スペースを見る
         assemblies_types: 参加スペース種別
       models:
@@ -223,11 +208,6 @@ ja:
             title: タイトル
           name: 参加スペース
         assembly_member:
-          fields:
-            ceased_date: 終了日
-            designation_date: 指定日
-            full_name: 名前
-            position: ポジション
           name: メンバー
           positions:
             other: その他
@@ -247,7 +227,10 @@ ja:
             valuator: 評価者
       titles:
         assemblies: 参加スペース
+        assemblies_deleted: 削除されたアセンブリ
         assemblies_types: 参加スペース種別
+      tooltips:
+        deleted_assemblies_info: アセンブリは、ステータスが "未公開" の場合にのみ削除できます。
     admin_log:
       assembly:
         create: "%{user_name} が %{resource_name} 参加スペースを作成しました"
@@ -255,6 +238,8 @@ ja:
         export: "%{user_name} は %{resource_name} 参加スペースをエクスポートしました"
         import: "%{user_name} が %{resource_name} 参加スペースをインポートしました"
         publish: "%{user_name} が %{resource_name} 参加スペースを公開しました"
+        restore: "%{user_name} が %{resource_name} 参加スペースを復元しました"
+        soft_delete: "%{user_name} が %{resource_name} 参加スペースをゴミ箱に移動しました"
         unpublish: "%{user_name} が %{resource_name} 参加スペースを非公開にしました"
         update: "%{user_name} が %{resource_name} 参加スペースを更新しました"
       assembly_member:
@@ -278,13 +263,16 @@ ja:
         assemblies:
           form:
             announcement_help: ここに入力したテキストは、アセンブリ情報のすぐ下に表示されます。
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             duration: 持続期間
             duration_help: この参加スペースの持続時間が限られている場合は、終了日を選択します。それ以外の場合は、不定義として表示されます。
             filters: フィルタ
             images: 画像
             included_at_help: この参加スペースがプラットフォームに追加された日付を選択します。必ずしも作成日と同じである必要はありません。
             metadata: メタデータ
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             other: その他
+            private_notice: プライベートとして設定した後、プライベート参加者を管理することができます
             select_a_created_by: 作成者を選択してください
             select_an_area: エリアを選択
             select_an_assembly_type: 参加スペース種別を選択
@@ -305,14 +293,9 @@ ja:
             slug_help_html: 'URLスラグは、この参加スペースを指すURLを生成するために使用されます。 英字、数字、ハイフンのみを受け付け、英字で始める必要があります。例: %{url}'
         assembly_members:
           form:
-            existing_user: 既存の参加者
             explanation: '画像のガイダンス:'
             image_guide: テキストを含まない縦長の画像をお勧めします。
-            non_user: 参加者がいません
             non_user_avatar_help: メンバーとして公開する前に同意を得る必要があります。
-            select_a_position: ポジションを選択
-            select_user: 参加者を選択
-            user_type: 参加者の種類
         content_blocks:
           highlighted_assemblies:
             max_results: 表示する要素の最大量
@@ -396,10 +379,11 @@ ja:
         private_space: これは私的参加スペースです
         social_networks_title: 参加スペースを訪問
     assembly_members:
-      assembly_member:
-        designated_on: 指定日時：
       index:
         title: メンバー
+    download_your_data:
+      show:
+        assemblies: 参加スペースのエクスポート
     events:
       assemblies:
         create_assembly_member:
@@ -432,6 +416,55 @@ ja:
         description: 作成された参加スペース数
         object: 参加スペース
         title: 参加スペース
+    open_data:
+      help:
+        assemblies:
+          announcement: アナウンス（コールアウト）情報
+          area: 参加スペースのエリア
+          assembly_type: 参加スペースの種別
+          closing_date: 参加スペースの終了日
+          closing_date_reason: 参加スペースが終了した理由
+          composition: 参加スペースの構成
+          created_at: このスペースの作成日時
+          created_by: この参加スペースの作成者
+          created_by_other: 参加スペースの他の作成者
+          creation_date: 参加スペースの作成日
+          decidim_scope_id: 参加スペースのスコープ
+          description: 参加スペースの詳しい説明
+          developer_group: 参加スペースの開発者グループ
+          duration: 参加スペースの期間
+          facebook_handler: Facebook 用のソーシャルメディアハンドラー
+          follows_count: このスペースをフォローしているユーザー数
+          github_handler: GitHub 用のソーシャルメディアハンドラ
+          hashtag: Twitter/Xで使用される参加スペースのハッシュタグ
+          id: このアセンブリの固有ID
+          included_at: 参加スペースが含まれた日付
+          instagram_handler: Instagramのソーシャルメディアハンドラー
+          internal_organisation: 参加スペースの内部組織
+          is_transparent: 参加スペースの透明性があるかどうか
+          local_area: 参加スペースのローカルエリア
+          meta_scope: 参加スペースのスコープメタデータ
+          participatory_scope: 参加スペースの参加スコープ
+          participatory_structure: 参加スペースの参加構造
+          promoted: 参加スペースがプロモートされるかどうか
+          published_at: このスペースが公開された日時
+          purpose_of_action: 参加スペースのアクションの目的
+          reference: スペースのユニークな参照
+          remote_banner_image_url: 参加スペースのバナー画像のURL
+          remote_hero_image_url: 参加スペースのヒーロー画像の URL
+          scope: 参加スペースのスコープ
+          scopes_enabled: スコープが有効かどうか
+          short_description: 参加スペースの簡単な説明
+          slug: 参加スペースのスラグ (識別目的、URLに使用)
+          special_features: この参加スペースにはどのような特別な機能があるか
+          subtitle: 参加スペースのサブタイトル
+          target: 参加スペースのターゲット
+          taxonomies: このプロジェクトのタクソノミー
+          title: 参加スペースのタイトル
+          twitter_handler: Twitter 用のソーシャルメディアハンドラー
+          updated_at: このスペースの最終更新日時
+          url: スペースのURL
+          youtube_handler: YouTube用のソーシャルメディアハンドラー
     participatory_processes:
       show:
         related_assemblies: 関連する参加スペース

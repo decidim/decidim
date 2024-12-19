@@ -95,7 +95,7 @@ In order to provide configuration options for the Geocoder gem's lookup, you can
 ----
 config.maps = {
   provider: :your_provider,
-  api_key: Rails.application.secrets.maps[:api_key],
+  api_key: ENV["MAPS_API_KEY"],
   geocoding: { extra_option: "value", another_option: "value" }
 }
 ----
@@ -106,7 +106,7 @@ This would equal to configuring the Geocoder gem with the following code:
 ----
 Geocoder.configure(
   your_provider: {
-    api_key: Rails.application.secrets.maps[:api_key],
+    api_key: ENV["MAPS_API_KEY"],
     extra_option: "value",
     another_option: "value"
   }
@@ -152,8 +152,8 @@ In order to provide configuration options for the geocoding autocompletion, you 
 [source,ruby]
 ----
 config.maps = {
-  provider: :your_provider,
-  api_key: Rails.application.secrets.maps[:api_key],
+  provider: ENV["MAPS_PROVIDER"],
+  api_key: ENV["MAPS_API_KEY"],
   autocomplete: {
     url: "https://photon.example.org/api/"
   }
@@ -353,7 +353,7 @@ In order to provide configuration options for the dynamic maps, you can pass the
 ----
 config.maps = {
   provider: :your_provider,
-  api_key: Rails.application.secrets.maps[:api_key],
+  api_key: ENV["MAPS_API_KEY"],
   dynamic: {
     tile_layer: {
       url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}&style={style}",
@@ -376,7 +376,7 @@ This will cause the following options to be available for the builder instance b
   tile_layer: {
     url: "https://tiles.example.org/{z}/{x}/{y}.png?key={apiKey}&{foo}&style={style}",
     configuration: {
-      api_key: Rails.application.secrets.maps[:api_key],
+      api_key: ENV["MAPS_API_KEY"],
       foo: "bar=baz",
       style: "bright",
       attribution: %{
@@ -450,7 +450,7 @@ In order to provide configuration options for the static maps, you can pass them
 ----
 config.maps = {
   provider: :your_provider,
-  api_key: Rails.application.secrets.maps[:api_key],
+  api_key: ENV["MAPS_API_KEY"],
   static: {
     url: "https://staticmap.example.org/",
     foo: "bar",
@@ -485,7 +485,7 @@ If you want to use the dynamic map replacements for the static map images, do no
 ----
 config.maps = {
   provider: :your_provider,
-  api_key: Rails.application.secrets.maps[:api_key]
+  api_key: ENV["MAPS_API_KEY"]
   # static: { ... } # LEAVE THIS OUT
 }
 ----

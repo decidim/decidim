@@ -73,17 +73,6 @@
           unconfirmed: Du må bekrefte e-posten din for å autorisere deg.
         destroy:
           error: Det oppsto et problem med å slette autorisasjonen.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verifiser mot et annet eksempel på autorisasjons behandler
-            csv_census: Verifiser mot organisasjonens folketelling
-            dummy_authorization_handler: Verifiser mot eksempelets autoriserings behandler
-            dummy_authorization_workflow: Verifiser mot eksempelets autoriserings arbeidsflyt
-            id_documents: Bli verifisert med å laste opp ditt identitets dokumentet
-            postal_letter: Bli verifisert med å motta en verifiseringskode gjennom posten
-            sms: Bli bekreftet ved å motta en verifiseringskode på SMS
-          title: Verifiser din identitet
-          verify_with_these_options: 'Disse er de tilgjengelige alternativene for å verifisere identiteten din:'
         index:
           expired_verification: Verifikasjon utløpt
           pending_verification: Venter på verifisering

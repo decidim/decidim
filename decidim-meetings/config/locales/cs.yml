@@ -106,8 +106,6 @@ cs:
             'false': Nepřijato
             'true': Přijato
         meetings:
-          category_id_eq:
-            label: Kategorie
           closed_at_present:
             label: Stav
             values:
@@ -118,8 +116,8 @@ cs:
             values:
               'false': Minulé
               'true': Nadcházející
-          scope_id_eq:
-            label: Oblast působnosti
+          taxonomies_part_of_contains:
+            label: Taxonomie
           with_any_origin:
             label: Původ
             values:
@@ -156,26 +154,36 @@ cs:
         actions:
           comment: Komentář
           join: Přidat se
+          reply_poll: Odpověď ankety
         name: Setkání
         settings:
           global:
             announcement: Oznámení
+            clear_all: Vymazat vše
             comments_enabled: Komentáře povoleny
             comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
             creation_enabled_for_participants: Účastníci mohou vytvářet schůzky
             default_registration_terms: Výchozí podmínky registrace
+            define_taxonomy_filters: Před použitím tohoto nastavení prosím definujte některé filtry pro tento participační prostor.
             enable_pads_creation: Povolit vytvoření sdíleného textu
             maps_enabled: Mapy povoleny
+            no_taxonomy_filters_found: Nebyly nalezeny žádné filtry taxonomie.
             registration_code_enabled: Registrační kód povolen
             resources_permissions_enabled: Nastavení oprávnění lze nastavit pro každou schůzku
             scope_id: Oblast působnosti
             scopes_enabled: Oblasti působnosti povoleny
+            taxonomy_filters: Vyberte filtry pro komponentu
+            taxonomy_filters_add: Přidat filtr
             terms_and_conditions_url_for_meeting_creators: URL pro Zásady a podmínky ke schůzce tvůrců
           step:
             announcement: Oznámení
             comments_blocked: Komentáře blokovány
             creation_enabled_for_participants: Vytváření schůzek od účastníků povoleno
             creation_enabled_for_user_groups: Vytvoření schůzky od skupin uživatelů povoleno
+    download_your_data:
+      show:
+        meeting_comments: Export komentářů schůzky
+        meetings: Exportovat schůzky
     events:
       meetings:
         meeting_closed:
@@ -243,8 +251,8 @@ cs:
         attachment_collections: Složky
         attachments: Přílohy
         close: Zavřít
-        confirm_destroy: Opravdu chcete tuto schůzku smazat?
-        destroy: Odstranit
+        confirm_delete_meeting: Opravdu chcete smazat tuto schůzi?
+        deleted_meetings_info: Smazané schůzky mohou být obnoveny z koše.
         edit: Upravit
         invalid_destroy:
           proposals_count:
@@ -257,6 +265,7 @@ cs:
         preview: Náhled
         registrations: Registrace
         title: Akce
+        view_deleted_meetings: Zobrazit odstraněné schůzky
       admin:
         agenda:
           agenda_item:
@@ -321,17 +330,11 @@ cs:
           close:
             invalid: Při uzavření této schůzky došlo k chybě.
             success: Schůzka byla úspěšně uzavřena.
+          component:
+            unlink: Odpojit
           create:
             invalid: Při vytváření této schůzky došlo k chybě.
             success: Schůze byla úspěšně vytvořena. Všimněte si, že není publikována, musíte ji publikovat ručně.
-          destroy:
-            invalid:
-              proposals_count:
-                one: Schůzku nelze zničit, protože je k ní přidružený %{count} návrh.
-                few: Schůzka nemůže být zničena, protože má k ní přidružený %{count} návrhy.
-                many: Schůzka nemůže být zničena, protože má k ní přidruženo %{count} návrhů.
-                other: Schůzka nemůže být zničena, protože má k ní přidruženo %{count} návrhů.
-            success: Setkání bylo úspěšně smazáno
           edit:
             title: Upravit schůzku
             update: Aktualizace
@@ -347,7 +350,20 @@ cs:
             select_a_registration_type: Vyberte prosím typ registrace
             select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
           index:
+            linked_meeting_warning_html: Tato schůzka musí být upravena od <br><a href="%{href}">%{name}</a>
             title: Setkání
+          linked_spaces:
+            assign: Přiřadit
+            link_a_space: Propojit prostor
+            private_meeting_warning: Propojené prostory nebudou použity, pokud je schůzka soukromá a netransparentní.
+            private_space_warning: Propojené prostory nebudou použity, pokud schůzka patří do soukromého netransparentního prostoru.
+            select: Vyberte prostor
+            table:
+              actions: Akce
+              component: Propojené prostory
+            title: Propojené prostory
+          manage_trash:
+            title: Smazané schůzky
           new:
             create: Vytvořit
             title: Vytvořte schůzku
@@ -418,6 +434,8 @@ cs:
           create: "%{user_name} vytvořila %{resource_name} schůzku v prostoru %{space_name}"
           delete: "%{user_name} smazala %{resource_name} schůzku v prostoru %{space_name}"
           export_registrations: "%{user_name} exportoval registraci %{resource_name} schůzky na %{space_name} prostoru"
+          restore: "%{user_name} obnovil schůzku %{resource_name} ve skupině %{space_name}"
+          soft_delete: "%{user_name} přesunul schůzku %{resource_name} ve skupině %{space_name} do koše"
           update: "%{user_name} aktualizovalo %{resource_name} schůzku v prostoru %{space_name}"
           value_types:
             organizer_presenter:
@@ -425,8 +443,6 @@ cs:
         questionnaire:
           update: "%{user_name} aktualizoval dotazník pro schůzku %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Vše
         filter_meeting_space_values:
           all: Vše
       calendar:
@@ -538,7 +554,6 @@ cs:
           location_hints_help: 'Upřesnění k místu: dodatečné informace. Příklad: patro budovy, pokud se jedná o osobní schůzku, nebo vstupní heslo pro schůzku, pokud se jedná o schůzku s omezeným přístupem.'
           online_meeting_url_help: 'Odkaz: Umožnit účastníkům připojení přímo k vaší schůzce'
           registration_url_help: 'Odkaz: umožnit účastníkům jít na externí službu, kterou používáte pro registrace'
-          select_a_category: Vyberte prosím kategorii
           select_a_meeting_type: Vyberte prosím typ schůzky
           select_a_registration_type: Vyberte prosím typ registrace
           select_an_iframe_access_level: Vyberte prosím úroveň přístupu iframe
@@ -549,9 +564,9 @@ cs:
           see_all_withdrawn: Zobrazit všechny stažené schůzky
           text_banner: Zobrazujete seznam schůzek stažených jejich autory. %{go_back_link}.
         meeting:
-          close_meeting: Ukončit schůzku
+          close_meeting: Zavřít‏
           edit_close_meeting: Upravit zprávu schůzky
-          edit_meeting: Upravit schůzku
+          edit_meeting: Upravit
           join_meeting: Připojit se ke schůzce
           reply_poll: Odpověď ankety
           view_poll: Zobrazit anketu
@@ -578,6 +593,7 @@ cs:
           micro_camera_permissions_warning: Po kliknutí na tlačítko níže budete požádáni o povolení k mikrofonu nebo fotoaparátu a připojíte se k videokonferenci
           no_slots_available: Žádné sloty nejsou k dispozici
           organizations: Účastnické organizace
+          redirect_notice: Tato schůzka je součástí jiné skupiny, takže jste byli přesunuti do %{current_space_name}. <br>Pokud chcete, můžete se vrátit do <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Váš registrační kód
           registration_state:
             validated: OVĚŘENÝ
@@ -590,7 +606,7 @@ cs:
           visit_finished: Zobrazit minulou schůzku
           withdraw_btn_hint: Schůzku můžete stáhnout, pokud změníte názor. Schůzka není smazána, objeví se v seznamu stažených schůzek.
           withdraw_confirmation_html: Opravdu chcete tuto schůzku stáhnout?<br><br><strong>Tuto akci nelze zrušit!</strong>
-          withdraw_meeting: Stažení schůzky
+          withdraw_meeting: Odebrat
         update:
           invalid: Při aktualizaci schůzky došlo k chybě.
           success: Úspěšně jste aktualizovali schůzku.
@@ -613,6 +629,7 @@ cs:
             map: Mapa
             official_meeting: Oficiální schůzka
             start_time: Datum zahájení
+            taxonomies: Taxonomie
             title: Titul
       polls:
         answers:
@@ -691,6 +708,45 @@ cs:
         description: Počet vytvořených schůzek
         object: setkání
         title: Setkání
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
+          author: Jméno účastníka, který vytvořil tento komentář
+          body: Samotný komentář
+          commentable_id: Jedinečné ID komentovatelného
+          commentable_type: Typ komentovatelného (pokud to byl výsledek, návrh atd.)
+          created_at: Datum, kdy byl komentář vytvořen
+          depth: Místo, kde se tato poznámka nachází ve třech komentářích (pokud se jedná o odpověď nebo odpověď na odpověď)
+          id: ID pro tento komentář
+          locale: Lokalizace (jazyk), kterou měl účastník při opuštění tohoto komentáře
+          root_commentable_url: URL adresa zdroje, který má vazbu na tento komentář
+          user_group: Název skupiny uživatelů, která přidala tento komentář (pokud existuje)
+        meetings:
+          address: Adresa schůzky v případě, že se koná osobně a má fyzické umístění
+          attachments: Počet příloh v této schůzce
+          attendees: Počet lidí účastnících se této schůzky
+          author: Data autora této schůzky
+          comments: Počet komentářů k této schůzce
+          component: Komponenta, ke které schůzka patří,
+          contributions: Počet příspěvků na této schůzce zúčastněných stran
+          description: Popis schůzky
+          end_time: Datum a čas ukončení této schůzky
+          followers: Počet sledujících tuto schůzku
+          id: Jedinečný identifikátor sschůzky
+          location: Místo schůzky
+          organizations: Organizace, které se účastní této schůzky
+          participatory_space: Do kterého prostoru (např. účastnický proces nebo Shromáždění) patří tato schůzka
+          published: Po zveřejnění schůzky
+          reference: Jedinečný identifikátor zdroje na této platformě
+          related_proposals: Návrhy související s touto schůzkou
+          related_results: Výsledky týkající se této schůzky
+          start_time: Datum a čas zahájení této schůzky
+          taxonomies: Taxonomie, do kterých tato schůzka patří,
+          title: Název schůzky
+          url: URL schůzky
+          withdrawn: Kdy byla tato schůzka stažena
+          withdrawn_at: Kdy byla tato schůzka odvolána
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Minulé schůze
@@ -704,6 +760,7 @@ cs:
         meeting_proposal: 'Související návrhy:'
         proposal_meeting: 'Související setkání:'
     statistics:
+      attendees_count: Účastníci schůzky
       meetings_count: Setkání
   devise:
     mailer:

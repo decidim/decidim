@@ -3,7 +3,7 @@
 module Decidim
   class OmniauthProvider
     def self.available
-      Rails.application.secrets[:omniauth] || {}
+      Decidim.omniauth_providers
     end
 
     def self.enabled

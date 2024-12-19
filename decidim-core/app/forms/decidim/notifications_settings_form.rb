@@ -46,7 +46,7 @@ module Decidim
     end
 
     def meet_push_notifications_requirements?
-      Rails.application.secrets.dig(:vapid, :enabled) || false
+      Decidim::Env.new("VAPID_PUBLIC_KEY", nil).present?
     end
   end
 end
