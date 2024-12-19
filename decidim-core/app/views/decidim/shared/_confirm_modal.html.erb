@@ -1,7 +1,10 @@
 <%= decidim_modal id: "confirm-modal" do %>
   <div data-dialog-container>
-    <h2 class="h2" data-dialog-title id="dialog-title-confirm-modal"><%= t("title", scope: "decidim.group_members.actions.confirm_modal") %></h2>
-
+  <% if @title_key == "group_admins" %>
+    <h2 class="h2" data-dialog-title id="dialog-title-confirm-modal"><%= t("title_remove", scope: "decidim.group_members.actions.confirm_modal") %></h2>
+  <% else %>
+    <h2 class="h2" data-dialog-title id="dialog-title-confirm-modal"><%= t("title_add", scope: "decidim.group_members.actions.confirm_modal") %></h2>
+  <% end %>
     <div data-confirm-modal-content></div>
   </div>
 
@@ -10,7 +13,11 @@
       <span><%= t("cancel", scope: "decidim.shared.confirm_modal") %></span>
     </button>
     <button class="button button__lg button__secondary" data-confirm-ok>
-      <span><%= t("ok", scope: "decidim.group_members.actions.confirm_modal") %></span>
+    <% if @title_key == "group_admins" %>
+      <span><%= t("ok_remove", scope: "decidim.group_members.actions.confirm_modal") %></span>
+    <% else %>
+      <span><%= t("ok_add", scope: "decidim.group_members.actions.confirm_modal") %></span>
+    <% end %>
     </button>
   </div>
 <% end %>
