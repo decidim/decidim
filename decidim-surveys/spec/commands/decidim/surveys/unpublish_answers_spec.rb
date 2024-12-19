@@ -14,7 +14,7 @@ module Decidim::Surveys
       end
 
       it "changes the survey_answers_published_at date" do
-        expect { command.call }.to change { question.reload.survey_answers_published_at }
+        expect { command.call }.to(change { question.reload.survey_answers_published_at })
         expect(question.survey_answers_published_at).to be_nil
       end
 
