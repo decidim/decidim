@@ -575,6 +575,8 @@
         voting_rules:
           proposal_limit:
             description: Du kan lage opptil %{limit} forslag.
+          vote_limit:
+            description: Du kan støtte opptil %{limit} forslag.
         wizard_aside:
           back: Tilbake
           back_from_step_1: Tilbake til forslag
