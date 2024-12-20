@@ -93,6 +93,9 @@ es-MX:
         other: Registros
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Encuentros
       filters:
         accepted_at_not_null:
           label: Aceptada
@@ -175,6 +178,12 @@ es-MX:
             creation_enabled_for_participants: Habilitar la creación de encuentros por parte de las participantes
             creation_enabled_for_user_groups: Habilitar la creación de encuentros por parte de los grupos de usuarias
     download_your_data:
+      help:
+        registrations:
+          code: El código de inscripción
+          id: El identificador único de la inscripción
+          meeting: El encuentro al que se inscribió la usuaria
+          user: La usuaria que realizó la inscripción
       show:
         meeting_comments: Exportar los comentarios en los encuentros
         meetings: Exportar los encuentros
