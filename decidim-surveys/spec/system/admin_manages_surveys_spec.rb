@@ -94,7 +94,7 @@ describe "Admin manages surveys" do
         end
 
         context "when clean_after_publish is set to true" do
-          context "when deletes previous answers afer publishing" do
+          context "when deletes previous answers after publishing" do
             it "show popup with an alert" do
               find(:css, ".action-icon--publish").click
               expect(page).to have_content("Confirm")
@@ -115,7 +115,7 @@ describe "Admin manages surveys" do
         context "when clean_after_publish is set to false" do
           let(:clean_after_publish) { false }
 
-          it "does not delete previous answers afer publishing" do
+          it "does not delete previous answers after publishing" do
             expect(survey.clean_after_publish?).to be false
 
             perform_enqueued_jobs do
