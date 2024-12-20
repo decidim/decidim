@@ -524,6 +524,8 @@ lv:
         voting_rules:
           proposal_limit:
             description: Jūs varat izveidot līdz %{limit} priekšlikumiem.
+          vote_limit:
+            description: Jūs varat atbalstīt līdz %{limit} priekšlikumiem.
         wizard_aside:
           back: Atpakaļ
         wizard_steps:
