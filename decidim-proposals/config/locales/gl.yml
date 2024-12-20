@@ -549,6 +549,8 @@ gl:
         voting_rules:
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
+          vote_limit:
+            description: Podes votar ata %{limit} propostas.
         wizard_aside:
           back: De volta
         wizard_steps:
