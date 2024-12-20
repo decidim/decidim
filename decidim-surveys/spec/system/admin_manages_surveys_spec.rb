@@ -135,7 +135,7 @@ describe "Admin manages surveys" do
           let!(:question3) { create(:questionnaire_question, question_type: "files", questionnaire:) }
           let!(:question4) { create(:questionnaire_question, question_type: "separator", questionnaire:) }
 
-          let!(:answer) { create(:answer, question: question, questionnaire:) }
+          let!(:answer) { create(:answer, question:, questionnaire:) }
           let!(:answer1) { create(:answer, question: question1, questionnaire:) }
           let!(:answer2) { create(:answer, question: question2, questionnaire:) }
           let!(:answer3) { create(:answer, question: question3, questionnaire:) }
@@ -148,7 +148,7 @@ describe "Admin manages surveys" do
 
           it "has not the buttons for publishing them" do
             within ".item__edit-form" do
-              expect(page).not_to have_content "Not published"
+              expect(page).to have_no_content "Not published"
             end
           end
 
@@ -165,14 +165,14 @@ describe "Admin manages surveys" do
           let(:question_multiple_option) { create(:questionnaire_question, :with_answer_options, question_type: "multiple_option", questionnaire:) }
 
           let(:question_matrix_single) { create(:questionnaire_question, :with_answer_options, question_type: "matrix_single", questionnaire:) }
-          let!(:question_matrix_row_single_1) { create(:question_matrix_row, question: question_matrix_single) }
-          let!(:question_matrix_row_single_2) { create(:question_matrix_row, question: question_matrix_single) }
-          let!(:question_matrix_row_single_3) { create(:question_matrix_row, question: question_matrix_single) }
+          let!(:question_matrix_row_single1) { create(:question_matrix_row, question: question_matrix_single) }
+          let!(:question_matrix_row_single2) { create(:question_matrix_row, question: question_matrix_single) }
+          let!(:question_matrix_row_single3) { create(:question_matrix_row, question: question_matrix_single) }
 
           let(:question_matrix_multiple) { create(:questionnaire_question, :with_answer_options, question_type: "matrix_multiple", questionnaire:) }
-          let!(:question_matrix_row_multiple_1) { create(:question_matrix_row, question: question_matrix_multiple) }
-          let!(:question_matrix_row_multiple_2) { create(:question_matrix_row, question: question_matrix_multiple) }
-          let!(:question_matrix_row_multiple_3) { create(:question_matrix_row, question: question_matrix_multiple) }
+          let!(:question_matrix_row_multiple1) { create(:question_matrix_row, question: question_matrix_multiple) }
+          let!(:question_matrix_row_multiple2) { create(:question_matrix_row, question: question_matrix_multiple) }
+          let!(:question_matrix_row_multiple3) { create(:question_matrix_row, question: question_matrix_multiple) }
 
           let(:question_sorting) { create(:questionnaire_question, :with_answer_options, question_type: "sorting", questionnaire:) }
 
@@ -208,7 +208,6 @@ describe "Admin manages surveys" do
 
           # We do not do this in separate examples as the performance would be bad
           it "allows publishing and unpublishing the questions answers" do
-
             # shows the charts for each of the questions
             expect(page.html).to include('new Chartkick["ColumnChart"]("chart-1"')
             expect(page.html).to include('new Chartkick["ColumnChart"]("chart-2"')
@@ -248,7 +247,6 @@ describe "Admin manages surveys" do
             within ".item__edit-form" do
               expect(page).to have_content "Not published"
             end
-
           end
         end
       end
