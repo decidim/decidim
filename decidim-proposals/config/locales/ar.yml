@@ -696,6 +696,8 @@ ar:
         voting_rules:
           proposal_limit:
             description: يمكنك إنشاء ما يصل إلى %{limit} مقترحات.
+          vote_limit:
+            description: يمكنك دعم ما يصل إلى %{limit} مقترحات.
         wizard_aside:
           back: الى الخلف
           back_from_step_1: العودة إلى الاقتراحات
