@@ -650,8 +650,6 @@ pt-BR:
           vote: Voto
           votes_blocked: Votação desativada
         voting_rules:
-          minimum_votes_per_user:
-            description: Você deve distribuir um mínimo de %{votes} votos entre diferentes propostas.
           proposal_limit:
             description: Você pode criar até %{limit} propostas.
           vote_limit:
