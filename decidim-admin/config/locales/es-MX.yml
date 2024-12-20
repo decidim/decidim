@@ -297,6 +297,12 @@ es-MX:
         no_results: No se han encontrado resultados
         search_prompt: Escriba al menos tres caracteres para buscar.
       block_user:
+        bulk_new:
+          action: Bloquear cuentas y enviar justificación
+          already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de las participantes.
+          description: El bloqueo de las usuarias dejará sus cuentas inutilizables. Puedes proporcionar en tu justificación los criterios bajo los cuales considerarías desbloquearlas.
+          justification: Justificación
+          title: Bloquear usuarias
         new:
           action: Bloquear cuenta y enviar justificación
           already_reported_html: Al continuar con esta acción también ocultarás todos los contenidos de la participante.
@@ -706,13 +712,27 @@ es-MX:
         index:
           actions:
             block: Bloquear usuaria
+            bulk_actions:
+              actions_dropdown: Acciones
+              block:
+                title: Bloquear
+                update_moderated_user_button: Bloquear usuarias
+              unblock:
+                title: Desbloquear
+                update_moderated_user_button: Desbloquear usuarias
+              unreport:
+                title: Deshacer la denuncia
+            ignore:
+              update_moderated_user_button: Deshacer la denuncia a las usuarias
             title: Acciones
             unblock: Desbloquear usuaria
             unreport: Deshacer denuncia
+          cancel: Cancelar
           name: Nombre
           nickname: Alias
           reason: Motivo
           reports: Cantidad de veces reportado
+          selected: Seleccionadas
           title: Participantes reportadas
         report:
           reasons:
@@ -724,6 +744,19 @@ es-MX:
           unblocked: No bloqueado
       moderations:
         index:
+          actions:
+            actions_dropdown: Acciones
+            hide:
+              title: Esconder
+              update_moderation_button: Ocultar los contenidos seleccionados
+            unhide:
+              title: Volver a mostrar
+              update_moderation_button: Volver a mostrar los contenidos seleccionados
+            unreport:
+              title: Deshacer la denuncia
+              update_moderation_button: Deshacer la denuncia de los contenidos seleccionados
+          cancel: Cancelar
+          selected: seleccionadas
           title: Contenido reportado
         report:
           reasons:
@@ -828,6 +861,13 @@ es-MX:
         block:
           error: Se ha producido un error al bloquear a la participante.
           success: Participante bloqueada correctamente.
+        bulk_action:
+          block:
+            invalid: Se ha producido un error al bloquear a las participantes.
+            success: Participantes bloqueadas correctamente.
+          unblock:
+            invalid: Se ha producido un error al desbloquear a las participantes.
+            success: Participantes desbloqueadas correctamente.
         create:
           success: Participante oficializada correctamente.
         destroy:
@@ -1299,6 +1339,22 @@ es-MX:
         unreport: Cancelar denuncia
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Hubo un problema al ocultar algunos contenidos: %{errored}'
+              invalid: No hay ninguna moderación seleccionada.
+              success: Los contenidos se han ocultado correctamente.
+            ignore:
+              invalid: No hay ninguna moderación de usuaria seleccionada.
+              success: Se han retirado las denuncias sobre las usuarias correctamente.
+            unhide:
+              failed: 'Hubo un problema volviendo a mostrar algunos contenidos: %{errored}'
+              invalid: No hay ninguna moderación seleccionada.
+              success: Los contenidos se han vuelto a mostrar correctamente.
+            unreport:
+              failed: 'Hubo un problema al retirar la denuncia de algunos contenidos: %{errored}'
+              invalid: No hay ninguna moderación seleccionada.
+              success: La denuncia a los contenidos se ha cancelado correctamente.
           hide:
             invalid: Ha habido un error al ocultar el contenido.
             success: Contenido ocultado con éxito.
