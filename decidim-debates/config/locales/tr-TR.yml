@@ -2,10 +2,8 @@ tr:
   activemodel:
     attributes:
       debate:
-        category_id: Kategori
         closed_at: Kapandı
         conclusions: Sonuçlar
-        decidim_category_id: Kategori
         description: Açıklama
         end_time: Biter
         information_updates: Bilgi güncellemeleri
@@ -26,7 +24,6 @@ tr:
     components:
       debates:
         actions:
-          create: yaratmak
           endorse: Onayla
         name: Tartışmalar
         settings:
@@ -44,8 +41,6 @@ tr:
     debates:
       actions:
         close: Kapat
-        confirm_destroy: Emin misiniz?
-        destroy: Sil
         edit: Düzenle
         new: Yeni Tartışma
         title: Eylemler
@@ -58,8 +53,6 @@ tr:
           create:
             invalid: Tartışmayı oluştururken bir sorun oluştu.
             success: Tartışma başarıyla oluşturuldu.
-          destroy:
-            success: Tartışma başarıyla silindi.
           edit:
             title: Tartışmayı düzenle
             update: Tartışmayı güncelle
@@ -75,8 +68,6 @@ tr:
           update:
             invalid: Bu tartışmayı güncellerken bir sorun oluştu.
             success: Tartışma başarıyla güncellendi.
-        exports:
-          comments: Yorumlar
       admin_log:
         debate:
           close: "%{user_name}, %{space_name} alanındaki %{resource_name} tartışmasını kapattı"
@@ -119,8 +110,6 @@ tr:
           state_values:
             closed: Kapalı
             open: Açık
-        form:
-          select_a_category: Lütfen bir kategori seçin
         index:
           new_debate: Yeni tartışma
         new:
@@ -134,11 +123,9 @@ tr:
           recent: En yeni
           updated: Yeni güncellenmiş
         show:
-          close_debate: Tartışmayı kapat
           debate_closed: Kapalı
           debate_conclusions_are: 'Tartışma bu sonuçlarla %{date} tarihinde kapatıldı:'
           edit_conclusions: Sonuçları düzenleyin
-          edit_debate: Tartışmayı düzenle
           groups_count: Gruplar
           open: Açık tartışma
           participants_count: Katılımcılar

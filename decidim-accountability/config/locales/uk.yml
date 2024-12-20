@@ -107,15 +107,8 @@ uk:
             few: "%{count} підсумків"
             many: "%{count} підсумків"
             other: "%{count} підсумків"
-        filters:
-          all: Усі
-        home:
-          categories_label: Категорії
-          subcategories_label: Підкатегорії
         home_header:
           global_status: Загальний стан виконання
-        nav_breadcrumb:
-          global: Загальне виконання
         search:
           search: Пошук дій
         show:

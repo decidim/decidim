@@ -255,9 +255,6 @@ gl:
         create:
           error: Produciuse un erro ao crear este compoñente.
           success: Compoñente creado con éxito.
-        destroy:
-          error: Produciuse un erro ao destruír este compoñente.
-          success: Componente eliminado con éxito.
         edit:
           title: Editar compoñente
           update: Actualización
@@ -306,8 +303,6 @@ gl:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: Categoría
         filter_label: Filtrar
         invitation_accepted_at_present:
           label: Convite aceptado
@@ -355,8 +350,6 @@ gl:
           values:
             'false': Publicado
             'true': Publicación borrada
-        scope_id_eq:
-          label: Ámbito
         search_label: Busca
         search_placeholder:
           name_or_nickname_or_email_cont: Procurar %{collection} por correo electrónico, nome ou alcume.
@@ -527,12 +520,8 @@ gl:
             plural: Plural
         share_token:
           fields:
-            created_at: Creado o
             expires_at: Caduca o
-            last_used_at: Empregado por última vez
             times_used: Veces utilizado
-            token: Token
-            user: Creado por
         static_page:
           fields:
             created_at: Creado en
@@ -739,10 +728,6 @@ gl:
           title: Editar permisos
         update:
           success: Permisos actualizados correctamente.
-      resources:
-        index:
-          headers:
-            scope: Ámbito
       scope_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de alcance.
@@ -774,15 +759,7 @@ gl:
           success: Ámbito actualizado con éxito
       share_tokens:
         actions:
-          confirm_destroy: Estás certo/a de querer eliminar este token?
           destroy: Eliminar
-          share: Compartir
-        destroy:
-          error: Produciuse un problema ao destruír o token.
-          success: Token eliminado con éxito.
-        share_tokens:
-          help: Estes tokens empréganse para compartir publicamente con calquera usuario este recurso non publicado. Ocultaranse cando o recurso sexa publicado. Preme na icona de compartir token para visitar o URL compartíbel.
-          title: Compartir tokens
       shared:
         gallery:
           add_images: Engadir imaxes
@@ -823,8 +800,6 @@ gl:
           without_topic: Páxinas sen tema
         update:
           error: Produciuse un erro ao actualizar esta páxina.
-      taxonomies:
-        count: Conde
       titles:
         admin_log: Rexistro de administrador
         area_types: Tipos de área

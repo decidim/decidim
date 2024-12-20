@@ -120,7 +120,6 @@ hu:
           categories: Kategóriák
           components: Elemek
           moderations: Moderálások
-          private_users: Privát felhasználók
           process_admins: Folyamat adminisztrátorok
           steps: Fázisok
       models:

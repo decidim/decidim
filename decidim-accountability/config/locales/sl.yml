@@ -85,11 +85,6 @@ sl:
           fields:
             entry_date: Datum
       results:
-        filters:
-          all: Vsi
-        home:
-          categories_label: Kategorije
-          subcategories_label: Podkategorije
         search:
           search: Išči dejanja
     components:

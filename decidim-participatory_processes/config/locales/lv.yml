@@ -92,7 +92,6 @@ lv:
           categories: Kategorijas
           components: Komponenti
           moderations: Moderācijas
-          private_users: Privātie dalībnieki
           process_admins: Procesa administratori
           steps: Fāzes
       models:
