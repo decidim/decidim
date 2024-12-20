@@ -112,6 +112,9 @@ es-MX:
         other: Apoyo
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Propuestas
       filters:
         proposals:
           is_emendation_true:
@@ -446,9 +449,16 @@ es-MX:
           attachments: El número de archivos adjuntos que tiene esta propuesta
           author: Los datos de autoría de esta propuesta
           body: La descripción de la propuesta
+          coauthorships_count: El número de coautorias que la propuesta representa
           comments: El número de comentarios que tiene esta propuesta
           component: El componente al que pertenece esta propuesta
+          cost: El coste total que representa la propuesta en cuestión
+          cost_report: Un informe de los costes que representa la propuesta
+          created_at: La fecha en la que se creó la propuesta
+          created_in_meeting: Si la propuesta se ha elaborado en un encuentro
           endorsements: El número de adhesiones ("me gusta") que tiene esta propuesta
+          execution_period: El período de ejecución de la propuesta, de principio a fin
+          follows_count: El número de seguidoras que tiene esta propuesta
           id: El identificador único de la propuesta
           is_amend: Si esta propuesta es una enmienda a otra propuesta o no
           latitude: La latitud de la propuesta en caso de que esta tenga una ubicación física
@@ -460,8 +470,10 @@ es-MX:
           reference: El identificador único del recurso en esta plataforma
           related_proposals: Las propuestas relacionadas con esta propuesta
           state: El estado de esta propuesta (por ejemplo, "Aceptado")
+          state_published_at: Un sello de tiempo del momento en que se publicó la proposta
           taxonomies: Las taxonomías a las que pertenece esta propuesta
           title: El título de la propuesta
+          updated_at: La fecha de última actualización de la propuesta
           url: La URL donde se puede encontrar esta propuesta
           votes: El número de apoyos que tiene esta propuesta
           withdrawn: Si esta propuesta fue retirada o no
@@ -993,15 +1005,10 @@ es-MX:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
-          minimum_votes_per_user:
-            description: Debes distribuir un mínimo de %{votes} apoyos entre las diferentes propuestas.
-            given_enough_votes: Has dado apoyos suficientes.
-            votes_remaining: Has de dar %{remaining_votes} apoyo/s más a propuestas para que tus apoyos sean tenidos en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
             description: Para que una propuesta se valide, debe recibir %{limit} apoyos.
-          title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
             votes: Queda/n %{number} apoyo/s
