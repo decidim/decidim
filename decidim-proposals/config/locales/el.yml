@@ -691,6 +691,8 @@ el:
         voting_rules:
           proposal_limit:
             description: Μπορείτε να δημιουργήσετε έως και %{limit} προτάσεις.
+          vote_limit:
+            description: Μπορείτε να υποστηρίξετε έως και %{limit} προτάσεις.
         wizard_aside:
           back: Πίσω
           back_from_step_1: Πίσω στις προτάσεις
