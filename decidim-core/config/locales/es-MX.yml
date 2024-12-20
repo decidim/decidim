@@ -241,6 +241,9 @@ es-MX:
       impersonation_log:
         manage: "%{user_name} ha gestionado a %{resource_name} porque %{reason}"
       moderation:
+        bulk_hide: "%{user_name} ha ocultado %{reported_count} contenidos"
+        bulk_unhide: "%{user_name} ha vuelto a mostrar %{reported_count} contenidos"
+        bulk_unreport: "%{user_name} ha cancelado la denuncia de %{reported_count} contenidos"
         hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el espacio %{space_name}"
         unreport: "%{user_name} publicó un recurso de tipo %{resource_type} en el espacio %{space_name}"
       newsletter:
@@ -297,6 +300,9 @@ es-MX:
         update_with_filter_items_count: "%{user_name} ha eliminado un filtro de taxonomía basado en la taxonomía \"%{resource_name}\" con %{filter_items_count} filtros para \"%{space_manifest_name}\""
       user:
         block: "%{user_name} ha bloqueado a la usuaria %{resource_name}"
+        bulk_block: "%{user_name} ha bloqueado a %{blocked_count} usuarias"
+        bulk_ignore: "%{user_name} ha cancelado la denuncia de %{unreported_users_count} usuarias"
+        bulk_unblock: "%{user_name} ha desbloqueado a %{unblocked_count} usuarias"
         invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó al usuario %{resource_name}"
         promote: "%{user_name} ha promocionado a %{resource_name}"
@@ -307,6 +313,9 @@ es-MX:
         unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
       user_group:
         block: "%{user_name} ha bloqueado al grup de usuarias %{resource_name}"
+        bulk_block: "%{user_name} ha bloqueado a %{blocked_count} usuarias"
+        bulk_ignore: "%{user_name} ha cancelado la denuncia de %{unreported_users_count} usuarias"
+        bulk_unblock: "%{user_name} ha desbloqueado a %{unblocked_count} usuarias"
         reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
         unblock: "%{user_name} ha desbloqueado el grupo de usuarias %{resource_name}"
         verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
@@ -693,13 +702,78 @@ es-MX:
     download_your_data:
       export:
         ready: Listo
+      help:
+        core:
+          description: Estos son los archivos con los datos personales, las contribuciones y la actividad de la usuaria %{user_name}
+          title: Descarga tus archivos de datos desde %{organization}
+        follows:
+          created_at: La fecha y hora en que solicitaste "Seguir"
+          followable: El recurso o espacio de participación que se está siguiendo
+          id: El identificador único de este seguimiento
+          updated_at: La fecha de la última actualización del seguimiento
+        messaging_conversations:
+          created_at: La fecha en la que se inició esta conversación
+          id: El identificador único de esta conversación
+          messages: Los mensajes de esta conversación
+          updated_at: La fecha en la que esta conversación fue actualizado por última vez
+        notifications:
+          created_at: La fecha y hora en que se creó esta notificación
+          extra: Información adicional de esta notificación
+          id: El identificador único de esta notificación
+          resource_type: El tipo de recurso con el que está relacionada la notificación
+        user_groups:
+          document_number: El número de documento de este grupo de usuarias
+          id: El identificador único de este grupo de usuarias
+          name: El nombre de este grupo de usuarias
+          phone: El número de teléfono de este grupo de usuarias
+          verified_at: La fecha y hora en que se verificó este grupo de usuarias
+        users:
+          about: La biografía de esta usuaria
+          admin: Si esta usuaria es una administradora
+          confirmed_at: La fecha y la hora en que se confirmó esta usuaria
+          created_at: La fecha y hora en que se creó esta usuaria
+          current_sign_in_at: La fecha y hora del inicio de sesión actual
+          current_sign_in_ip: La dirección IP del inicio de sesión actual
+          delete_reason: La razón dada para eliminar a esta usuaria
+          deleted_at: La fecha y hora en que se eliminó a esta usuaria
+          email: La dirección de correo electrónico de esta usuaria
+          id: El identificador único de esta usuaria
+          invitation_accepted_at: La fecha y hora en que se aceptó la invitación
+          invitation_created_at: La fecha y hora en que se invitó a esta usuaria
+          invitation_sent_at: La fecha y hora en que se envió la invitación
+          invitations_count: El número de invitaciones enviadas a esta usuaria
+          invited_by: La usuaria que invito a esta usuaria
+          last_sign_in_at: La fecha y hora del último inicio de sesión
+          last_sign_in_ip: La dirección IP del último inicio de sesión
+          locale: La configuración regional (idioma) que ha seleccionado esta usuaria
+          managed: Si se trata de una cuenta de usuaria gestionada (impersonada) o no
+          name: El nombre de usuaria de la usuaria
+          newsletter_notifications_at: La fecha y hora cuando esta usuaria recibió un boletín informativo por última vez
+          nickname: El alias de la usuaria
+          notification_settings: Los ajustes de notificación que ha seleccionado esta usuaria
+          notifications_sending_frequency: La frecuencia con la que esta usuaria recibe las notificaciones
+          officialized_as: La descripción de la oficialización (Alcaldía, Consejería, etc.)
+          officialized_at: La fecha y hora en que esta usuaria fue oficializada
+          organization: La organización a la que pertenece esta usuaria
+          personal_url: La URL personal de esta usuaria
+          reset_password_sent_at: La fecha y hora en que se envió el correo para restablecer la contraseña
+          sign_in_count: El número de veces que esta usuaria ha iniciado sesión
+          unconfirmed_email: La dirección de correo electrónico que esta usuaria aún no ha confirmado
+          updated_at: La fecha de la última actualización de esta usuaria
       show:
         action: Acción
+        download: Descargar archivo
+        download_data: Descargar de datos
         download_data_description_1: Aquí puedes encontrar todas las descargas disponibles para tu cuenta. Estos archivos .zip estarán disponibles durante dos semanas antes de ser eliminados.
         download_data_description_2: Puedes solicitar un archivo .zip con tus contribuciones e información personal.
         download_your_data: Datos personales
         expiration: Fecha de caducidad
         expired: Ha caducado
+        explanation:
+          body_1: Estos archivos son conjuntos de datos exportados de tu actividad en esta plataforma, tales como propuestas, o comentarios. Proporcionan datos en bruto (sin procesar) y estructurados que pueden ser utilizados para análisis, investigación o integración con otras herramientas
+          body_2: Estos archivos están en formato CSV (valores separados por comas), un formato de archivo ampliamente utilizado que puede ser abierto y procesado por una variedad de aplicaciones de software, incluyendo programas de hojas de cálculo, editores de texto y herramientas de análisis de datos.
+          title: '¿Cuáles son estos archivos?'
+        files_to_download: Archivos a descargar
         request_data: Solicitar
         type: Tipo de descarga
     editor_images:
