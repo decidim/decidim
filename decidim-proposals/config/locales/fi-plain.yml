@@ -992,15 +992,10 @@ fi-pl:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} ääntä
-          minimum_votes_per_user:
-            description: Sinun on annettava vähintään %{votes} ääntä eri ehdotuksille.
-            given_enough_votes: Olet äänestänyt tarpeeksi monta ehdotusta.
-            votes_remaining: Sinun on äänestettävä vielä %{remaining_votes} ehdotusta, jotta äänesi otetaan huomioon.
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
           threshold_per_proposal:
             description: Jotta ehdotukset vahvistettaisiin, niiden on saavutettava %{limit} ääntä.
-          title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
             votes: 'Käytettävissä olevien äänten määrä: %{number}'
