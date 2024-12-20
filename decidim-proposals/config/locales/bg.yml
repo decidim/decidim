@@ -818,17 +818,12 @@ bg:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Всяко предложение може да събере повече от %{limit} гласа
-          minimum_votes_per_user:
-            description: Трябва да разпределите минимум %{votes} гласа между различните предложения.
-            given_enough_votes: Дадохте достатъчно гласове.
-            votes_remaining: Трябва да гласувате за още %{remaining_votes} предложения, за да бъдат взети под внимание вашите гласове.
           proposal_limit:
             description: Можете да създадете до %{limit} предложения.
           threshold_per_proposal:
             description: За да бъдат валидирани, предложенията трябва да достигнат %{limit} гласа.
-          title: 'За гласуването се прилагат следните правила:'
           vote_limit:
-            description: Можете да гласувате до %{limit} предложения.
+            description: Можете да подкрепите до %{limit} предложения.
             votes: Оставащи %{number} гласа
         wizard_aside:
           back: Назад
