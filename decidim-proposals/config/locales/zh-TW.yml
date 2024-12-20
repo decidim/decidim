@@ -676,6 +676,8 @@ zh-TW:
         voting_rules:
           proposal_limit:
             description: 您最多可以創建 %{limit} 個提案。
+          vote_limit:
+            description: 您最多可以支持 %{limit} 個提案。
         wizard_aside:
           back: 返回
           back_from_step_1: 返回提案
