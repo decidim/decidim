@@ -434,6 +434,8 @@ id:
         voting_rules:
           proposal_limit:
             description: Anda dapat membuat hingga %{limit} proposal.
+          vote_limit:
+            description: Anda dapat memilih hingga %{limit} proposal.
         wizard_aside:
           back: Kembali
         wizard_steps:
