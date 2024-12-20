@@ -126,6 +126,132 @@ describe "Admin manages surveys" do
           end
         end
       end
+
+      context "when publishing the questions' answers" do
+        context "and the questions are unsupported" do
+          let!(:question) { create(:questionnaire_question, questionnaire:) }
+          let!(:question1) { create(:questionnaire_question, question_type: "short_answer", questionnaire:) }
+          let!(:question2) { create(:questionnaire_question, question_type: "long_answer", questionnaire:) }
+          let!(:question3) { create(:questionnaire_question, question_type: "files", questionnaire:) }
+          let!(:question4) { create(:questionnaire_question, question_type: "separator", questionnaire:) }
+
+          let!(:answer) { create(:answer, question: question, questionnaire:) }
+          let!(:answer1) { create(:answer, question: question1, questionnaire:) }
+          let!(:answer2) { create(:answer, question: question2, questionnaire:) }
+          let!(:answer3) { create(:answer, question: question3, questionnaire:) }
+          let!(:answer4) { create(:answer, question: question4, questionnaire:) }
+
+          before do
+            visit questionnaire_edit_path
+            click_on "Publish answers"
+          end
+
+          it "has not the buttons for publishing them" do
+            within ".item__edit-form" do
+              expect(page).not_to have_content "Not published"
+            end
+          end
+
+          it "does not show the separator question type" do
+            within ".item__edit-form" do
+              expect(page).to have_css("li", count: 4)
+            end
+          end
+        end
+
+        context "and the questions are supported" do
+          let(:question_single_option) { create(:questionnaire_question, :with_answer_options, question_type: "single_option", questionnaire:) }
+
+          let(:question_multiple_option) { create(:questionnaire_question, :with_answer_options, question_type: "multiple_option", questionnaire:) }
+
+          let(:question_matrix_single) { create(:questionnaire_question, :with_answer_options, question_type: "matrix_single", questionnaire:) }
+          let!(:question_matrix_row_single_1) { create(:question_matrix_row, question: question_matrix_single) }
+          let!(:question_matrix_row_single_2) { create(:question_matrix_row, question: question_matrix_single) }
+          let!(:question_matrix_row_single_3) { create(:question_matrix_row, question: question_matrix_single) }
+
+          let(:question_matrix_multiple) { create(:questionnaire_question, :with_answer_options, question_type: "matrix_multiple", questionnaire:) }
+          let!(:question_matrix_row_multiple_1) { create(:question_matrix_row, question: question_matrix_multiple) }
+          let!(:question_matrix_row_multiple_2) { create(:question_matrix_row, question: question_matrix_multiple) }
+          let!(:question_matrix_row_multiple_3) { create(:question_matrix_row, question: question_matrix_multiple) }
+
+          let(:question_sorting) { create(:questionnaire_question, :with_answer_options, question_type: "sorting", questionnaire:) }
+
+          before do
+            10.times do
+              answer = create(:answer, question: question_single_option, questionnaire:)
+              answer_option = question_single_option.answer_options.sample
+              create(:answer_choice, answer_option:, answer:, matrix_row: nil)
+
+              answer = create(:answer, question: question_multiple_option, questionnaire:)
+              answer_option = question_multiple_option.answer_options.sample
+              create(:answer_choice, answer_option:, answer:, matrix_row: nil)
+
+              answer = create(:answer, question: question_matrix_single, questionnaire:)
+              answer_option = question_matrix_single.answer_options.sample
+              matrix_row = question_matrix_single.matrix_rows.sample
+              create(:answer_choice, answer_option:, answer:, matrix_row:)
+
+              answer = create(:answer, question: question_matrix_multiple, questionnaire:)
+              answer_option = question_matrix_multiple.answer_options.sample
+              matrix_row = question_matrix_multiple.matrix_rows.sample
+              create(:answer_choice, answer_option:, answer:, matrix_row:)
+
+              answer = create(:answer, question: question_sorting, questionnaire:)
+              answer_option = question_sorting.answer_options.sample
+              position = (0..(question_sorting.answer_options.count - 1)).to_a.sample
+              create(:answer_choice, answer_option:, answer:, position:, matrix_row: nil)
+            end
+
+            visit questionnaire_edit_path
+            click_on "Publish answers"
+          end
+
+          # We do not do this in separate examples as the performance would be bad
+          it "allows publishing and unpublishing the questions answers" do
+
+            # shows the charts for each of the questions
+            expect(page.html).to include('new Chartkick["ColumnChart"]("chart-1"')
+            expect(page.html).to include('new Chartkick["ColumnChart"]("chart-2"')
+            expect(page.html).to include('new Chartkick["ColumnChart"]("chart-3"')
+            expect(page.html).to include('new Chartkick["ColumnChart"]("chart-4"')
+            expect(page.html).to include('new Chartkick["BarChart"]("chart-5"')
+
+            # has the buttons for publishing them
+            within ".item__edit-form" do
+              expect(page).to have_content "Not published"
+            end
+
+            # publishes them
+            page.find("[for='publish_answer_#{question_single_option.id}']").click
+
+            within ".item__edit-form" do
+              expect(page).to have_content "Published"
+            end
+
+            # Is still published on page reload
+            visit current_path
+
+            within ".item__edit-form" do
+              expect(page).to have_content "Published"
+            end
+
+            # unpublishes them
+            page.find("[for='publish_answer_#{question_single_option.id}']").click
+
+            within ".item__edit-form" do
+              expect(page).to have_content "Not published"
+            end
+
+            # Is still not published on page reload
+            visit current_path
+
+            within ".item__edit-form" do
+              expect(page).to have_content "Not published"
+            end
+
+          end
+        end
+      end
     end
   end
 
