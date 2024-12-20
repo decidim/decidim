@@ -1019,15 +1019,10 @@ cs:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Každý návrh může sshromáždit více než %{limit} hlasů
-          minimum_votes_per_user:
-            description: Musíte rozdělit minimálně %{votes} hlasů mezi různé návrhy.
-            given_enough_votes: Dali jste dostatek hlasů.
-            votes_remaining: Musíte hlasovat o dalších %{remaining_votes} návrzích k vašim hlasům, které budou brány v úvahu.
           proposal_limit:
             description: Můžete vytvořit až %{limit} návrhů.
           threshold_per_proposal:
             description: Aby byly návrhy schváleny, musí dosáhnout %{limit} hlasů.
-          title: 'Hlasy podléhají těmto pravidlům:'
           vote_limit:
             description: Můžete hlasovat až pro %{limit} návrhů.
             votes: Zbývá %{number} hlasů
