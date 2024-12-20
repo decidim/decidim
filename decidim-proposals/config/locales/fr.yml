@@ -914,15 +914,10 @@ fr:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Chaque proposition peut accumuler plus de %{limit} votes
-          minimum_votes_per_user:
-            description: Vous devez répartir un minimum de %{votes} voix entre différentes propositions.
-            given_enough_votes: Vous avez attribué suffisamment de votes.
-            votes_remaining: Vous devez voter pour %{remaining_votes} propositions supplémentaires pour que vos votes soient pris en compte.
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} votes.
-          title: 'Les votes sont soumis aux règles suivantes :'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             votes: '%{number} votes restants'
