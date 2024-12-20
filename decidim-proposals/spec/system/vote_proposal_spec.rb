@@ -391,10 +391,13 @@ describe "Vote Proposal", slow: true do
         it "shows a modal dialog" do
           visit_component
           click_on proposal_title
+          expect(page).to have_content("Vote")
+          click_on "Vote"
+          expect(page).to have_content("Already voted")
           first("a", text: "Proposals").click
 
-          expect(page).to have_content("Remember you have 5 votes left")
-          expect(page).to have_content("You have to give 5 more votes between different proposals for your votes to be taken into account.")
+          expect(page).to have_content("Remember you have 4 votes left")
+          expect(page).to have_content("You have to give 4 more votes between different proposals for your votes to be taken into account.")
           expect(page).to have_content("Continue")
           expect(page).to have_content("Cancel")
 
@@ -436,23 +439,26 @@ describe "Vote Proposal", slow: true do
             expect(page).to have_content("Your votes have been successfully accepted")
           end
 
-          it "shows the exit modal" do
-            expect(page).to have_content("Already voted")
-            click_on "Already voted"
-            expect(page).to have_content("Vote")
+          context "when participant start voting proposals" do
+            let!(:vote_limit) { 4 }
+            let!(:minimum_votes_per_user) { 2 }
 
-            expect(page).to have_content("Proposals")
-            first("a", text: "Proposals").click
+            it "shows the exit modal" do
+              expect(page).to have_content("Already voted")
 
-            expect(page).to have_content("Remember you have 1 votes left", wait: 10)
-            expect(page).to have_content("You have to give 1 more votes between different proposals for your votes to be taken into account.")
-            expect(page).to have_content("Continue")
-            expect(page).to have_content("Cancel")
+              expect(page).to have_content("Proposals")
+              first("a", text: "Proposals").click
 
-            click_on "Cancel"
+              expect(page).to have_content("Remember you have 1 votes left", wait: 10)
+              expect(page).to have_content("You have to give 1 more votes between different proposals for your votes to be taken into account.")
+              expect(page).to have_content("Continue")
+              expect(page).to have_content("Cancel")
 
-            expect(page).to have_content("You have 1 supports left", wait: 10)
-            expect(page).to have_content("Remember that you still have to give")
+              click_on "Cancel"
+
+              expect(page).to have_content("You have 1 supports left", wait: 10)
+              expect(page).to have_content("Remember that you still have to give")
+            end
           end
 
           it "does not show the exit modal" do
