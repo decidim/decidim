@@ -609,6 +609,8 @@ tr:
         voting_rules:
           proposal_limit:
             description: En fazla %{limit} teklif oluşturabilirsin.
+          vote_limit:
+            description: En fazla %{limit} teklife oy verebilirsiniz.
         wizard_aside:
           back: Geri
           back_from_step_1: Teklifte geri dön
