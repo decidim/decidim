@@ -36,11 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const handleClicks = (link) => {
     link.addEventListener("click", (event) => {
-      exitLinkText = defaultExitLinkText;
+      exitLinkText = defaultExitLinkText;;
 
       if (
         !allowExitFrom(link) &&
-        ((window.Decidim.currentDialogs["exit-proposal-notification"].dialog.querySelector("[data-dialog-container]")).dataset.minimumVotesReached !== "true")
+        ((window.Decidim.currentDialogs["exit-proposal-notification"].dialog.querySelector("[data-dialog-container]")).dataset.minimumVotesReached !== "true") &&
+        ((window.Decidim.currentDialogs["exit-proposal-notification"].dialog.querySelector("[data-dialog-container]")).dataset.minimumVotesCount > 0)
       ) {
         event.preventDefault();
         openExitNotification(link.getAttribute("href"), link.dataset.method);
