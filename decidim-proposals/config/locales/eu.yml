@@ -994,17 +994,12 @@ eu:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Proposamen bakoitzak %{limit} boto baino gehiago jaso dezake
-          minimum_votes_per_user:
-            description: Gutxienez %{votes} boto banatu behar dituzu proposamen desberdinen artean.
-            given_enough_votes: Boto gehiegi eman dituzu.
-            votes_remaining: '%{remaining_votes} boto gehiago eman behar dizkiezu proposamenei zure botoak kontuan har daitezen.'
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
           threshold_per_proposal:
             description: Proposamenak baliagarriak izan daitezen, %{limit} boto izatera iritsi behar da.
-          title: 'Botoek arau hauek bete behar dituzte:'
           vote_limit:
-            description: Gehienez, %{limit} proposamen bozkatu ahal dituzu.
+            description: '%{limit} proposameni eman ahal diozu babesa.'
             votes: Gainerako % {kopurua} boto
         wizard_aside:
           back: Atzera
