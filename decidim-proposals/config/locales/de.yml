@@ -902,17 +902,12 @@ de:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Jeder Vorschlag kann mehr als %{limit} Stimmen sammeln
-          minimum_votes_per_user:
-            description: Sie müssen mindestens %{votes} Stimmen auf unterschiedliche Vorschläge erteilen.
-            given_enough_votes: Sie haben ausreichend Stimmen erteilt.
-            votes_remaining: Wählen Sie %{remaining_votes} weitere Vorschläge, damit Ihre Auswahl Stimmen gewertet werden kann.
           proposal_limit:
             description: Sie können bis zu %{limit} Vorschläge erstellen.
           threshold_per_proposal:
             description: Vorschläge müssen %{limit} Stimmen erreichen, um berücksichtigt zu werden.
-          title: 'Die Abstimmung unterliegt folgenden Regeln:'
           vote_limit:
-            description: Sie können bis zu %{limit} Vorschläge auswählen.
+            description: Sie können bis zu %{limit} Vorschläge abstimmen.
             votes: '%{number} Stimmen verbleibend'
         wizard_aside:
           back: Zurück
