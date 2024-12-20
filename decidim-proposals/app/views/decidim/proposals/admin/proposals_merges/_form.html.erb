@@ -1,23 +1,24 @@
 <div class="form__wrapper pt-0 h-screen">
   <div class="card">
     <div class="card-section">
-
+      <% @form.proposal_ids.each do |id| %>
+        <%= hidden_field_tag "proposal_ids[]", id %>
+      <% end %>
       <div class="row column">
         <%= bulk_components_select((current_component.siblings + [current_component])) %>
       </div>
-
       <div class="row column">
         <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", aria: { label: :title } %>
       </div>
       <div class="row column">
-        <%= form.translated :editor, :body, aria: { label: :body } %>
+        <%= form.translated :editor, :body, hashtaggable: true, aria: { label: :body } %>
       </div>
       <% if @form.meetings %>
         <div class="meeting-fields">
           <div class="row column">
             <%= form.check_box :created_in_meeting, label: t(".created_in_meeting") %>
           </div>
-          <div class="row column" id="proposal_meeting">
+          <div class="row column" id="proposals_merge_meeting">
             <%= form.select :meeting_id,
                             options_for_select(@form.meetings&.map { |meeting| [present(meeting).title(html_escape: true), meeting.id] }, selected: meetings_as_authors_selected ),
                             { include_blank: true, label: t(".select_a_meeting") },
@@ -26,8 +27,8 @@
         </div>
       <% end %>
       <% if @form.geocoding_enabled? %>
-        <div class="row column">
-          <%= @form.geocoding_field :address %>
+        <div class="row column" id="proposals_merge_address">
+          <%= form.geocoding_field :address %>
         </div>
       <% end %>
       <% if component_settings.attachments_allowed? %>

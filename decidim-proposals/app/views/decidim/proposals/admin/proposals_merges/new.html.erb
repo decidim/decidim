@@ -7,10 +7,8 @@
     </div>
   </h1>
 </div>
-<div class="">
-  <div class="item__edit-form">
-    <%= decidim_form_for(@form, url: proposals_merge_path, method: :post, html: { id: "js-form-merge-proposals", class: "form form-defaults" })  do |f| %>
-      <% render partial: "form", object: f, locals: { title: t(".title") } %>
-    <% end %>
-  </div>
+<div>
+  <%= decidim_form_for(@form, url: proposals_merge_path, method: :post, html: { id: "js-form-merge-proposals", class: "form form-defaults new_proposals_merge proposals_merge_form_admin" })  do |f| %>
+    <% render partial: "form", object: f, locals: { title: t(".title") } %>
+  <% end %>
 </div>
