@@ -594,6 +594,8 @@ pt:
         voting_rules:
           proposal_limit:
             description: Pode criar até %{limit} propostas.
+          vote_limit:
+            description: Pode votar até %{limit} propostas.
         wizard_aside:
           back: Retroceder
           back_from_step_1: Retroceder para as propostas
