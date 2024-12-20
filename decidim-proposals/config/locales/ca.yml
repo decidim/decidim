@@ -1005,15 +1005,10 @@ ca:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
-          minimum_votes_per_user:
-            description: Has de distribuir un mínim de %{votes} suports entre diferents propostes.
-            given_enough_votes: Has donat suports suficients.
-            votes_remaining: Has de donar %{remaining_votes} suport/s més a propostes perquè els teus suports siguin tinguts en compte.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
           threshold_per_proposal:
             description: Per ser validades, les propostes han d'arribar a %{limit} suports.
-          title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
             votes: Queda/en %{number} suport/s
