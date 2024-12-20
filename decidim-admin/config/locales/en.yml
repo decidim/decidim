@@ -298,6 +298,12 @@ en:
         no_results: No results found
         search_prompt: Type at least three characters to search.
       block_user:
+        bulk_new:
+          action: Block accounts and send justification
+          already_reported_html: Continuing with this action you will also hide all the participants contents.
+          description: Blocking a user will render their account unusable. You may provide in your justification any guidelines on ways you would consider unblocking the user.
+          justification: Justification
+          title: Block Users
         new:
           action: Block account and send justification
           already_reported_html: Continuing with this action you will also hide all the participants contents.
@@ -707,13 +713,27 @@ en:
         index:
           actions:
             block: Block User
+            bulk_actions:
+              actions_dropdown: Actions
+              block:
+                title: Block
+                update_moderated_user_button: Block users
+              unblock:
+                title: Unblock
+                update_moderated_user_button: Unblock users
+              unreport:
+                title: Unreport
+            ignore:
+              update_moderated_user_button: Unreport users
             title: Actions
             unblock: Unblock User
             unreport: Unreport
+          cancel: Cancel
           name: Name
           nickname: Nickname
           reason: Reason
           reports: Reports count
+          selected: Selected
           title: Reported participants
         report:
           reasons:
@@ -725,6 +745,19 @@ en:
           unblocked: Not Blocked
       moderations:
         index:
+          actions:
+            actions_dropdown: Actions
+            hide:
+              title: Hide
+              update_moderation_button: Hide selected resources
+            unhide:
+              title: Unhide
+              update_moderation_button: Unhide selected resources
+            unreport:
+              title: Unreport
+              update_moderation_button: Unreport selected resources
+          cancel: Cancel
+          selected: selected
           title: Reported content
         report:
           reasons:
@@ -829,6 +862,13 @@ en:
         block:
           error: There was a problem blocking the participant.
           success: Participant successfully blocked.
+        bulk_action:
+          block:
+            invalid: There was a problem blocking the participants.
+            success: Participants successfully blocked.
+          unblock:
+            invalid: There was a problem unblocking the participants.
+            success: Participants successfully unblocked.
         create:
           success: Participant successfully officialized.
         destroy:
@@ -1300,6 +1340,22 @@ en:
         unreport: Unreport
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'There was a problem hiding some resources: %{errored}'
+              invalid: No moderations selected.
+              success: Resources successfully hidden.
+            ignore:
+              invalid: No users moderations selected.
+              success: Participants successfully unreported.
+            unhide:
+              failed: 'There was a problem unhiding some resources: %{errored}'
+              invalid: No moderations selected.
+              success: Resources successfully unhidden.
+            unreport:
+              failed: 'There was a problem unreporting some resources: %{errored}'
+              invalid: No moderations selected.
+              success: Resources successfully unreported.
           hide:
             invalid: There was a problem hiding the resource.
             success: Resource successfully hidden.

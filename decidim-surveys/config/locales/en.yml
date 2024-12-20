@@ -13,6 +13,10 @@ en:
         one: Answer
         other: Answers
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: surveys
     components:
       surveys:
         actions:
