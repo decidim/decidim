@@ -531,6 +531,8 @@ zh-CN:
         voting_rules:
           proposal_limit:
             description: 您最多可以创建 %{limit} 个建议。
+          vote_limit:
+            description: 您可以最多支持 %{limit} 个建议。
         wizard_aside:
           back: 后退
           back_from_step_1: 回到提议
