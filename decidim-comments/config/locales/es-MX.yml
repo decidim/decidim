@@ -16,6 +16,10 @@ es-MX:
         one: Voto
         other: Votos
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Comentarios
     comments:
       admin:
         shared:
@@ -107,16 +111,19 @@ es-MX:
           recent: Reciente
         title: 'Ordenar por:'
       comments:
+        against: En contra
         blocked_comments_for_unauthorized_user_warning: Necesitas estar verificada para comentar en este momento, pero puedes leer los comentarios anteriores.
         blocked_comments_for_user_warning: No puede hacer comentarios en este momento, pero puede leer los anteriores.
         blocked_comments_warning: Los comentarios están desactivados en estos momentos, solo las administradoras pueden responder o publicar nuevos.
         comment_details_title: Detalles del comentario
+        in_favor: A favor
         loading: Cargando los comentarios ...
         single_comment_warning: <a href="%{url}">Ver todos los comentarios</a>
         single_comment_warning_title: Estás viendo un solo comentario
         title:
           one: "%{count} comentario"
           other: "%{count} comentarios"
+        top_comment_label: Mejor valorado
       down_vote_button:
         text: No estoy de acuerdo con este comentario
       edit_comment_modal_form:
