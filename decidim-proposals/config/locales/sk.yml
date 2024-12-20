@@ -535,6 +535,8 @@ sk:
         voting_rules:
           proposal_limit:
             description: Môžete vytvoriť až %{limit} návrhov.
+          vote_limit:
+            description: Môžete hlasovať až pre %{limit} návrhov.
         wizard_aside:
           back: Zadná
         wizard_steps:
