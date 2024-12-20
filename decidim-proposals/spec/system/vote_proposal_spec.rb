@@ -26,6 +26,18 @@ describe "Vote Proposal", slow: true do
         click_on proposal_title
         expect_page_not_to_include_votes
       end
+
+      it "does not show the exit modal" do
+        visit_component
+        click_on proposal_title
+
+        expect_page_not_to_include_votes
+        expect(page).to have_content("Log in or create an account")
+        page.find(".main-bar__logo a").click
+        expect(page).to have_no_content("Remember you have")
+        expect(page).to have_no_content("Cancel")
+        expect(page).to have_no_content("Continue")
+      end
     end
 
     context "when the user is logged in" do
