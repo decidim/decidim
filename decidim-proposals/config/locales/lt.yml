@@ -724,6 +724,8 @@ lt:
         voting_rules:
           proposal_limit:
             description: Galite parengti iki %{limit} pasiūlymų.
+          vote_limit:
+            description: Galite paremti iki %{limit} pasiūlymų.
         wizard_aside:
           back: Grįžti
           back_from_step_1: Grįžti į pasiūlymus
