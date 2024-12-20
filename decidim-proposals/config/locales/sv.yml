@@ -892,17 +892,12 @@ sv:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Varje förslag kan få mer än %{limit} röster
-          minimum_votes_per_user:
-            description: Du måste lägga minst %{votes} röster på olika förslag.
-            given_enough_votes: Du har lagt alla dina röster.
-            votes_remaining: Du behöver rösta på ytterligare %{remaining_votes} förslag för att dina röster ska räknas.
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
           threshold_per_proposal:
             description: Förslag behöver få minst %{limit} röster för accepteras.
-          title: 'Följande regler gäller för omröstningar:'
           vote_limit:
-            description: Du kan rösta upp till %{limit} förslag.
+            description: Du kan stödja upp till %{limit} förslag.
             votes: Saknar %{number} röster
         wizard_aside:
           back: Tillbaka
