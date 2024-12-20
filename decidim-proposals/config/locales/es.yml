@@ -1005,15 +1005,10 @@ es:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Cada propuesta puede acumular más de %{limit} apoyos
-          minimum_votes_per_user:
-            description: Debes distribuir un mínimo de %{votes} apoyos entre las diferentes propuestas.
-            given_enough_votes: Has dado apoyos suficientes.
-            votes_remaining: Has de dar %{remaining_votes} apoyo/s más a propuestas para que tus apoyos sean tenidos en cuenta.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
           threshold_per_proposal:
             description: Para que una propuesta se valide, debe recibir %{limit} apoyos.
-          title: 'La recogida de apoyos se rige por las siguientes normas:'
           vote_limit:
             description: Puedes apoyar hasta %{limit} propuestas.
             votes: Queda/n %{number} apoyo/s
