@@ -758,6 +758,11 @@ fr:
       destroy_draft:
         error: Des erreurs sont survenues lors de la suppression du brouillon de la proposition.
         success: Le brouillon de la proposition a bien été supprimé.
+      exit_modal:
+        cancel: Annuler
+        exit: Continuer
+        message: Vous devez encore donner %{number} votes de plus à différentes propositions afin que l'ensemble de vos votes soient pris en compte.
+        title: N'oubliez pas qu'il vous reste encore %{number}
       forms:
         errors:
           device_not_supported: Votre appareil ne prend pas en charge les services de localisation. Veuillez entrer l'adresse manuellement.
@@ -912,12 +917,16 @@ fr:
             one: Vote
             other: Votes
         voting_rules:
+          already_vote:
+            see_other_proposals: Voir les autres propositions
           can_accumulate_votes_beyond_threshold:
             description: Chaque proposition peut accumuler plus de %{limit} votes
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
+          success: Vos votes ont été acceptés avec succès
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} votes.
+          title: Règles de participation
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             votes: '%{number} votes restants'
