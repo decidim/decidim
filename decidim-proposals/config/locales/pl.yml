@@ -828,15 +828,10 @@ pl:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: Każda propozycja może zgromadzić głosy poparcia ponad limit %{limit} głosów
-          minimum_votes_per_user:
-            description: Musisz rozdzielić minimum %{votes} głosów pomiędzy różne propozycje.
-            given_enough_votes: Udzieliłeś(aś) wystarczającej liczby głosów.
-            votes_remaining: Musisz wesprzeć %{remaining_votes} dodatkowych propozycji, aby Twoje głosy zostały policzone.
           proposal_limit:
             description: Możesz utworzyć maksymalnie %{limit} propozycji.
           threshold_per_proposal:
             description: Aby propozycje zostały zatwierdzone, muszą osiągnąć limit %{limit} głosów.
-          title: 'Głosy podlegają następującym zasadom:'
           vote_limit:
             description: Możesz wesprzeć maksymalnie %{limit} propozycji.
             votes: Pozostało %{number} głosów
