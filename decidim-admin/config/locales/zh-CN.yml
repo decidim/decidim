@@ -217,9 +217,6 @@ zh-CN:
         create:
           error: 创建此组件时出现问题。
           success: 组件创建成功。
-        destroy:
-          error: 销毁此组件时出现问题。
-          success: 组件删除成功。
         edit:
           title: 编辑组件
           update: 更新
@@ -255,8 +252,6 @@ zh-CN:
           FormPDF: PDF
           JSON: JSON
       filters:
-        category_id_eq:
-          label: 类别
         filter_label: 筛选器
         officialized_at_null:
           label: 状态
@@ -273,8 +268,6 @@ zh-CN:
           values:
             'false': 已发布
             'true': 未发布
-        scope_id_eq:
-          label: 范围
         search_label: 搜索
         search_placeholder:
           name_or_nickname_or_email_cont: 通过电子邮件、名称或昵称搜索 %{collection}。
@@ -395,12 +388,8 @@ zh-CN:
             plural: 复数
         share_token:
           fields:
-            created_at: 创建于
             expires_at: 过期时间
-            last_used_at: 上次使用时间
             times_used: 使用的时间
-            token: 令牌
-            user: 创建者
         static_page:
           fields:
             created_at: 创建于
@@ -559,10 +548,6 @@ zh-CN:
           title: 编辑权限
         update:
           success: 权限更新成功。
-      resources:
-        index:
-          headers:
-            scope: 范围
       scope_types:
         create:
           error: 创建新的范围类型时出现问题。
@@ -594,15 +579,7 @@ zh-CN:
           success: 范围已成功更新
       share_tokens:
         actions:
-          confirm_destroy: 您确定要删除此令牌吗？
           destroy: 删除
-          share: 分享
-        destroy:
-          error: 摧毁令牌时出现问题。
-          success: 令牌已成功销毁。
-        share_tokens:
-          help: 这些代币用于公开分享此未发布的资源给任何用户。 当资源发布时，它们将被隐藏。点击令牌的共享图标访问可共享的 URL。
-          title: 分享令牌
       shared:
         gallery:
           add_images: 添加图像
@@ -642,8 +619,6 @@ zh-CN:
           without_topic: 无主题页面
         update:
           error: 更新此页面时出现问题。
-      taxonomies:
-        count: 计数
       titles:
         admin_log: 管理员日志
         area_types: 区域类型

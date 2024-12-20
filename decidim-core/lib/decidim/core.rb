@@ -649,8 +649,8 @@ module Decidim
       CoreDataManifest.new(
         name: :moderated_users,
         collection: lambda { |organization|
-                      Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: organization.id }).where.not(decidim_users: { blocked_at: nil })
-                    },
+          Decidim::UserModeration.joins(:user).where(decidim_users: { decidim_organization_id: organization.id }).where.not(decidim_users: { blocked_at: nil })
+        },
         serializer: Decidim::Exporters::OpenDataBlockedUserSerializer,
         include_in_open_data: true
       ),

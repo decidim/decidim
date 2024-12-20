@@ -220,20 +220,22 @@ module Decidim
 
         template "sidekiq.yml.erb", "config/sidekiq.yml", force: true
 
+        gsub_file "config/environments/development.rb",
+                  /Rails.application.configure do/,
+                  "Rails.application.configure do\n  config.active_job.queue_adapter = :sidekiq\n"
         gsub_file "config/environments/production.rb",
                   /# config.active_job.queue_adapter     = :resque/,
                   "config.active_job.queue_adapter = ENV['QUEUE_ADAPTER'] if ENV['QUEUE_ADAPTER'].present?"
 
         prepend_file "config/routes.rb", "require \"sidekiq/web\"\n\n"
+
         route <<~RUBY
           authenticate :user, ->(u) { u.admin? } do
             mount Sidekiq::Web => "/sidekiq"
           end
         RUBY
 
-        add_production_gems do
-          gem "sidekiq"
-        end
+        append_file "Gemfile", %(gem "sidekiq")
       end
 
       def add_production_gems(&block)
