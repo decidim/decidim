@@ -963,17 +963,12 @@ ja:
         voting_rules:
           can_accumulate_votes_beyond_threshold:
             description: 各提案は %{limit} 票を超えることができます
-          minimum_votes_per_user:
-            description: 異なる提案には、 %{votes} 票以上の票を配布する必要があります。
-            given_enough_votes: 十分な投票を行いました。
-            votes_remaining: あなたの投票が考慮されるためには、あと %{remaining_votes} 件の提案に投票する必要があります。
           proposal_limit:
             description: 最大 %{limit} 件の提案を作成できます。
           threshold_per_proposal:
             description: 提案が検証されるためには、 %{limit} 票に到達する必要があります。
-          title: '投票は以下のルールに従います：'
           vote_limit:
-            description: '%{limit} 件までの提案に投票できます。'
+            description: 最大 %{limit} 件の提案をサポートできます。
             votes: 残り %{number} 票
         wizard_aside:
           back: 戻る
