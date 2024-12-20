@@ -620,6 +620,8 @@ ro:
         voting_rules:
           proposal_limit:
             description: Poți crea până la %{limit} propuneri.
+          vote_limit:
+            description: Poți vota până la %{limit} propuneri.
         wizard_aside:
           back: Înapoi
           back_from_step_1: Înapoi la propuneri
