@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const handleClicks = (link) => {
     link.addEventListener("click", (event) => {
-      exitLinkText = defaultExitLinkText;;
+      exitLinkText = defaultExitLinkText;
 
       if (
         !allowExitFrom(link) &&
