@@ -12,6 +12,8 @@ document.addEventListener("decidim:loaded", () => {
     // Handles geocoding_field
     const geocoding = () => {
       document.querySelectorAll("[data-decidim-geocoding]").forEach((el) => {
+        if (el.dataset.geocodingInitialized) return;
+        el.dataset.geocodingInitialized = true;
         const input = el;
       
         const autoComplete = new AutoComplete(el, {
@@ -51,7 +53,7 @@ document.addEventListener("decidim:loaded", () => {
 
     // Handles active drawer form
     const activateDrawerForm = () => {
-      const form = document.querySelector(".proposal_form_admin");
+      const form = document.querySelector(".proposals_merge_form_admin");
       
       if (form) {
         const proposalCreatedInMeeting = form.querySelector("#proposal_created_in_meeting");
@@ -61,13 +63,8 @@ document.addEventListener("decidim:loaded", () => {
           const enabledMeeting = proposalCreatedInMeeting.checked;
           const meetingSelect = proposalMeeting.querySelector("select");
     
-          meetingSelect.setAttribute("disabled", "disabled");
-          proposalMeeting.style.display = "none";
-    
-          if (enabledMeeting) {
-            meetingSelect.removeAttribute("disabled");
-            proposalMeeting.style.display = "";
-          }
+          meetingSelect.disabled = !enabledMeeting;
+          proposalMeeting.classList.toggle("hide", !enabledMeeting);
         };
 
         proposalCreatedInMeeting.addEventListener("change", toggleDisabledHiddenFields);

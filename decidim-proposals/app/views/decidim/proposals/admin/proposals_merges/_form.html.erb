@@ -7,10 +7,10 @@
       <div class="row column">
         <%= bulk_components_select((current_component.siblings + [current_component])) %>
       </div>
-      <div class="row column">
+      <div class="row column pt-8">
         <%= form.translated :text_field, :title, autofocus: true, class: "js-hashtags", aria: { label: :title } %>
       </div>
-      <div class="row column">
+      <div class="row column pt-8">
         <%= form.translated :editor, :body, hashtaggable: true, aria: { label: :body } %>
       </div>
       <% if @form.meetings %>
@@ -27,7 +27,7 @@
         </div>
       <% end %>
       <% if @form.geocoding_enabled? %>
-        <div class="row column" id="proposals_merge_address">
+        <div class="row column pt-8" id="proposals_merge_address">
           <%= form.geocoding_field :address %>
         </div>
       <% end %>
@@ -35,7 +35,7 @@
         <%= render partial: "decidim/admin/shared/gallery", locals: { form: } %>
       <% end %>
       <% if component_settings.attachments_allowed? %>
-        <div class="row column">
+        <div class="row column pt-8">
           <legend><%= t(".attachment_legend") %></legend>
           <%= form.fields_for :attachment, @form.attachment do |form| %>
             <%= form.text_field :title %>
