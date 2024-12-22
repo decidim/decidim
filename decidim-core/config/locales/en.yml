@@ -11,6 +11,7 @@ en:
         created_at: Created at
       content_block_attachment:
         background_image: Background image
+        main_image: Main image
       conversation:
         body: Body
       editor_image:
@@ -852,7 +853,7 @@ en:
             email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
             email_subject: Accepted amendment for %{amendable_title} from %{emendation_author_nickname}
-            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a>.
+            notification_title: The <a href='%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
@@ -891,6 +892,11 @@ en:
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -1339,6 +1345,8 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
+      blocked_users:
+        description: Number of blocked participants
       download:
         csv: Download data (CSV)
       followers:
@@ -1349,6 +1357,10 @@ en:
         description: Number of active participants in organization
         object: participants
         title: Participants
+      reported_users:
+        description: Number of reported participants
+      user_reports:
+        description: Number of reports done by participants
       users:
         description: Number of participants in organization
         object: participants

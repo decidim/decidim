@@ -229,6 +229,12 @@ module Decidim
         ENV["SHAKAPACKER_CONFIG"] = Decidim::Webpacker.configuration.configuration_file
       end
 
+      # this is just to pass us through Rails upgrade
+      initializer "decidim_core.patch_encryption" do |app|
+        app.config.active_support.hash_digest_class = OpenSSL::Digest::SHA1
+        app.config.active_support.key_generator_hash_digest_class = OpenSSL::Digest::SHA1
+      end
+
       initializer "decidim_core.active_storage_variant_processor" do |app|
         app.config.active_storage.variant_processor = :mini_magick
       end
