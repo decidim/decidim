@@ -129,6 +129,8 @@ module Decidim
   autoload :HasConversations, "decidim/has_conversations"
   autoload :SoftDeletable, "decidim/soft_deletable"
   autoload :PrivateDownloadHelper, "decidim/private_download_helper"
+  autoload :ActionAuthorizationHelper, "decidim/action_authorization_helper"
+  autoload :ResourceHelper, "decidim/resource_helper"
 
   module Commands
     autoload :CreateResource, "decidim/commands/create_resource"

@@ -17,6 +17,6 @@ RSpec.describe "Session" do
       headers: { "HOST" => organization.host }
     )
 
-    expect(response.headers["Set-Cookie"].split("; ")).to include("SameSite=Lax")
+    expect(response.headers["Set-Cookie"].split("; ")).to include("samesite=lax")
   end
 end

@@ -7,24 +7,18 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@<%= decidim_meta_twitter_handler %>">
+<meta name="twitter:title" content="<%= decidim_page_title %>">
+<meta name="twitter:description" content="<%= decidim_meta_description %>">
+<meta name="twitter:image" content="<%= decidim_meta_image_url %>">
 
-<%= tag :meta, name: "twitter:title", content: decidim_page_title %>
-<%= tag :meta, name: "twitter:description", content: decidim_meta_description %>
-<% if decidim_meta_image_url.present? %>
-  <%= tag :meta, name: "twitter:image", content: decidim_meta_image_url %>
-<% end %>
-
-<%= tag :meta, property: "og:type", content: "article" %>
-<%= tag :meta, property: "og:url", content: decidim_meta_url %>
-<%= tag :meta, property: "og:title", content: decidim_page_title %>
-<%= tag :meta, property: "og:description", content: decidim_meta_description %>
-
-<% if decidim_meta_image_url.present? %>
-  <%= tag :meta, property: "og:image", content: decidim_meta_image_url %>
-<% end %>
+<meta property="og:url" content="<%= decidim_meta_url %>">
+<meta property="og:type" content="article">
+<meta property="og:title" content="<%= decidim_page_title %>">
+<meta property="og:description" content="<%= decidim_meta_description %>">
+<meta property="og:image" content="<%= decidim_meta_image_url %>">
 
 <% if current_organization.colors.present? %>
-  <%= tag :meta, name: "theme-color", content: current_organization.colors["primary"] %>
+  <meta name="theme-color" content="<%= current_organization.colors["primary"] %>">
 <% end %>
 
 <%= legacy_favicon %>

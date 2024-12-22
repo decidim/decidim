@@ -121,7 +121,7 @@ shared_context "with application env vars" do
       "DECIDIM_ADMIN_PASSWORD_REPETITION_TIMES" => "",
       "DECIDIM_ADMIN_PASSWORD_STRONG" => "",
       "DECIDIM_SERVICE_WORKER_ENABLED" => "",
-      "RAILS_LOG_LEVEL" => "nonsense",
+      # "RAILS_LOG_LEVEL" => "nonsense",
       "STORAGE_PROVIDER" => ""
     }
   end
@@ -767,11 +767,15 @@ shared_examples_for "an application with storage and queue gems" do
 end
 
 def initializer_config_for(path, env, mod = "Decidim")
-  JSON.parse cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env:)
+  command = cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env:)
+  pp command
+  JSON.parse command
 end
 
 def rails_value(value, path, env)
-  JSON.parse cmd_capture(path, "bin/rails runner 'puts #{value}.to_json'", env:)
+  command = cmd_capture(path, "bin/rails runner 'puts #{value}.to_json'", env:)
+  pp command
+  JSON.parse command
 end
 
 def repo_root
