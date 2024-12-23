@@ -1,6 +1,5 @@
 ---
 en:
-
   activemodel:
     attributes:
       user_group:
@@ -1410,6 +1409,7 @@ en:
         moderated: Content moderated
     notifications_digest_mailer:
       header:
+        real_time: Real time
         daily: Daily Notification Digest
         weekly: Weekly Notification Digest
       hello: Hello %{name},
