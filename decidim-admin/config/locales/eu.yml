@@ -297,6 +297,12 @@ eu:
         no_results: Ez da emaitzarik aurkitu
         search_prompt: Idatzi gutxienez hiru karaktere bilatzeko.
       block_user:
+        bulk_new:
+          action: Blokeatu kontuak eta bidali justifikazioa
+          already_reported_html: Ekintza honekin jarraituz gero, parte-hartzaile guztien edukiak ere ezkutatuko dituzu.
+          description: Erabiltzaile bat blokeatzeak bere kontua erabilezin bihurtuko du. Zure justifikazioan edozein jarraibide eman dezakezu erabiltzailea desblokeatzeko moduei buruz.
+          justification: Justifikazioa
+          title: Blokeatu Erabiltzaileak
         new:
           action: Blokeatu kontua eta bidali justifikazioa
           already_reported_html: Ekintza honekin jarraituz, parte-hartzailearen eduki guztiak ere ezkutatuko dituzu.
@@ -706,13 +712,27 @@ eu:
         index:
           actions:
             block: Blokeatu erabiltzailea
+            bulk_actions:
+              actions_dropdown: Ekintzak
+              block:
+                title: Blokeatu
+                update_moderated_user_button: Blokeatu erabiltzaileak
+              unblock:
+                title: Desblokeatu
+                update_moderated_user_button: Desblokeatu erabiltzaileak
+              unreport:
+                title: Ez erreportatu
+            ignore:
+              update_moderated_user_button: Ez erreportatu erabiltzaileak
             title: Ekintzak
             unblock: Desblokeatu erabiltzailea
             unreport: Ez erreportatu
+          cancel: Ezeztatu
           name: Izena
           nickname: Ezizena
           reason: Arrazoia
           reports: Erreporte kopurua
+          selected: Hautatua
           title: Parte-hartzaile erreportatuak
         report:
           reasons:
@@ -724,6 +744,19 @@ eu:
           unblocked: Ez blokeatuta
       moderations:
         index:
+          actions:
+            actions_dropdown: Ekintzak
+            hide:
+              title: Ezkutatu
+              update_moderation_button: Ezkutatu hautatutako edukiak
+            unhide:
+              title: Erakutsi berriro
+              update_moderation_button: Erakutsi berriro hautatutako edukiak
+            unreport:
+              title: Ez erreportatu
+              update_moderation_button: Ez erreportatu hautatutako edukiak
+          cancel: Ezeztatu
+          selected: hautatua
           title: Eduki erreportatua
         report:
           reasons:
@@ -828,6 +861,13 @@ eu:
         block:
           error: Arazo bat izan da parte-hartzailea blokeatzean.
           success: Parte-hartzailea zuzen blokeatua.
+        bulk_action:
+          block:
+            invalid: Arazo bat egon da parte-hartzaileak blokeatzean.
+            success: Parte-hartzaileak zuzen blokeatuta.
+          unblock:
+            invalid: Arazo bat izan da parte-hartzaileak desblokeatzean.
+            success: Parte-hartzaileak zuzen desblokeatuta.
         create:
           success: Pate-hartzailea zuzen ofizializatua.
         destroy:
@@ -1299,6 +1339,22 @@ eu:
         unreport: Ez erreportatu
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Arazo bat izan da eduki batzuk ezkutatzean: %{errored}'
+              invalid: Ez dago moderaziorik hautatuta.
+              success: Edukiak zuzen ezkutatuta.
+            ignore:
+              invalid: Ez dago moderaziorik hautatuta.
+              success: Parte-hartzaileak zuzen ez erreportatuak.
+            unhide:
+              failed: 'Arazo bat izan da eduki batzuk %{errored} berriro erakustean'
+              invalid: Ez dago moderaziorik hautatuta.
+              success: Edukiak zuzen berriro erakutsita.
+            unreport:
+              failed: 'Arazo bat izan da eduki batzuk %{errored} berriro erakustean'
+              invalid: Ez dago moderaziorik hautatuta.
+              success: Edukiak zuzen ez erreportatuak.
           hide:
             invalid: Arazo bat egon da baliabidea ezkutatzean.
             success: Edukia zuzen ezkutatua.
