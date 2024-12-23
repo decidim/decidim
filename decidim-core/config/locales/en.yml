@@ -2,14 +2,14 @@
 en:
   activemodel:
     attributes:
-      editor_image:
-        file: File
       account:
         delete_reason: Reason to delete your account
       common:
         created_at: Created at
       conversation:
         body: Body
+      editor_image:
+        file: File
       group:
         about: About
         avatar: Avatar

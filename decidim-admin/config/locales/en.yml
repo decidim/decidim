@@ -780,6 +780,11 @@ en:
             report_language: Report language
             report_reason: Reason
             title: Report details
+      new_import:
+        accepted_mime_types:
+          csv: CSV
+          json: JSON
+          xlsx: XLSX
       newsletter_templates:
         index:
           preview_template: Preview
