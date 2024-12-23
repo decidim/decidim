@@ -1,9 +1,13 @@
 ---
 en:
+
   activemodel:
     attributes:
       account:
         delete_reason: Reason to delete your account
+      attachment:
+        documents: Documents
+        photos: Photos
       common:
         created_at: Created at
       conversation:
