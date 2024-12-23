@@ -31,6 +31,7 @@ en:
         space_filter: Available as filter for participatory spaces
       user:
         about: About
+        avatar: Avatar
         email: Your email
         encrypted_password: Password
         locale: Locale
