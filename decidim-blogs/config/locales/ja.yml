@@ -111,5 +111,20 @@ ja:
           id: コメントのID
           locale: コメントを残した参加者の使っていたロケール（言語）
           root_commentable_url: コメントに関連するリソースの URL
+          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
+        posts:
+          author: 作者の情報
+          body: 投稿の本文
+          comments_count: 投稿のコメント数
+          component: ポストが属するコンポーネント
+          created_at: この投稿の作成日時
+          endorsements_count: 投稿のオススメ数
+          follows_count: 投稿のフォロー数
+          id: 投稿の固有ID
+          participatory_space: この投稿が所属するスペース（参加型プロセス、参加スペースなど）
+          published_at: この投稿の公開日時
+          title: 投稿のタイトル
+          updated_at: この投稿が更新された日時
+          url: この投稿の URL
     statistics:
       posts_count: 投稿
