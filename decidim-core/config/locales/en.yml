@@ -1,8 +1,10 @@
 ---
 en:
-
   activemodel:
     attributes:
+      content_block_attachment:
+        background_image: Background image
+        main_image: Main image
       user_group:
         avatar: Avatar
       account:
@@ -844,6 +846,11 @@ en:
         title: The page you are looking for cannot be found
     events:
       amendments:
+        emendation_promoted:
+          follower:
+            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
         amendment_accepted:
           affected_user:
             email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
@@ -1336,6 +1343,8 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
+      blocked_users:
+        description: Number of blocked participants
       download:
         csv: Download data (CSV)
       followers:
