@@ -29,6 +29,9 @@ eu:
         other: Proiektuak
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Proiektuak
       filters:
         projects:
           selected_at_null:
@@ -366,6 +369,15 @@ eu:
               enabled: Bozketa gaituta
               finished: Bozketa amaituta
     download_your_data:
+      help:
+        orders:
+          budget: Aurrekontuaren ordena honako hau da
+          checked_out_at: Zein datatan eta zein ordutan aztertu zen ordena
+          component: Osagaien ordena honako hau da
+          created_at: Zein datatan eta zein ordutan sortu zen ordena
+          id: Ordenaren identifikatzaile bakarra
+          projects: Proiektuak ordena honetan bozkatu dira
+          updated_at: Zein datatan eta zein ordutan eguneratu zen ordena
       show:
         projects: Esportatu proiektuak
     events:
