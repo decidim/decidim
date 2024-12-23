@@ -58,7 +58,9 @@ module Decidim
             author: form.current_organization,
             action_user: form.current_user,
             extra_attributes: {
-              component: form.target_component
+              component: form.target_component,
+              title: form.title,
+              body: form.body
             },
             skip_link: true
           )

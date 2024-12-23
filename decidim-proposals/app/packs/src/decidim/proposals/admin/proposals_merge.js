@@ -59,7 +59,7 @@ document.addEventListener("decidim:loaded", () => {
         saveForm.addEventListener("ajax:success", (event) => {
           const response = event.detail[0];
 
-          if (response.status === 'ok') {
+          if (response.status === "ok") {
             window.location.reload();
             drawer.close();
           } else {
@@ -77,9 +77,9 @@ document.addEventListener("decidim:loaded", () => {
       }
     }
 
-    const fetchUrl = (url) => {
+    const fetchUrl = (urlToFetch) => {
       container.classList.add("spinner-container");
-      fetch(url).then((response) => response.text()).then((html) => {
+      fetch(urlToFetch).then((response) => response.text()).then((html) => {
         container.innerHTML = html;
         container.classList.remove("spinner-container");
         activateDrawerForm();
@@ -88,7 +88,7 @@ document.addEventListener("decidim:loaded", () => {
       });
     };
 
-    button.addEventListener("click", (event) => {
+    button.addEventListener("click", () => {
       const selectedProposals = Array.from(document.querySelectorAll(".js-check-all-proposal:checked")).map((checkbox) => checkbox.value);
       const uniqueProposals = [...new Set(selectedProposals)];
 
