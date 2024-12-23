@@ -846,6 +846,7 @@ en:
       amendments:
         emendation_promoted:
           follower:
+            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
             email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
         amendment_accepted:
           affected_user:
