@@ -2,6 +2,8 @@
 en:
   activemodel:
     attributes:
+      dummy:
+        image: Image
       dummy_attribute: Dummy Attribute
       dummy_resource:
         created_at: Created at
