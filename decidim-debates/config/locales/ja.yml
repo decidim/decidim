@@ -21,6 +21,10 @@ ja:
       decidim/debates/debate:
         other: ディベート数
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: ディベート
     components:
       debates:
         actions:
