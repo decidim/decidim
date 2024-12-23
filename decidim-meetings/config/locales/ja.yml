@@ -714,7 +714,7 @@ ja:
     participatory_spaces:
       highlighted_meetings:
         past_meetings: 過去のミーティング
-        see_all: すべてのミーティングを見る (%{count})
+        see_all: すべてのミーティングを見る
         upcoming_meetings: 今後のミーティング
     resource_links:
       meetings_through_proposals:
