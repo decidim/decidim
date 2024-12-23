@@ -34,9 +34,9 @@ module Decidim
         {
           initiative_title: { font: bold_font, text_align: :center, font_size: 12, margin: [0, 0, 10, 0] },
           initiative_th: { font: bold_font, font_size: 10 },
-          initiative_td: { font:, font_size: 9 },
-          vote_th: { font: bold_font, font_size: 10 },
-          vote_td: { font:, font_size: 9 }
+          initiative_td: { font:, font_size: 10 },
+          vote_th: { font: bold_font, font_size: 11 },
+          vote_td: { font:, font_size: 10 }
         }
       end
 
@@ -53,8 +53,8 @@ module Decidim
         data_row = [
           layout.text(initiative.reference, style: :initiative_td),
           layout.text(translated_attribute(initiative.title), style: :initiative_td),
-          layout.text(I18n.l(initiative.signature_start_date, format: :short), style: :initiative_td),
-          layout.text(I18n.l(initiative.signature_end_date, format: :short), style: :initiative_td),
+          layout.text(I18n.l(initiative.signature_start_date, format: :long), style: :initiative_td),
+          layout.text(I18n.l(initiative.signature_end_date, format: :long), style: :initiative_td),
           layout.text(collection.count.to_s, style: :initiative_td),
           layout.text(scope(initiative), style: :initiative_td)
         ]
