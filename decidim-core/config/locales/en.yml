@@ -3,6 +3,8 @@ en:
 
   activemodel:
     attributes:
+      user_group:
+        avatar: Avatar
       account:
         delete_reason: Reason to delete your account
       attachment:
