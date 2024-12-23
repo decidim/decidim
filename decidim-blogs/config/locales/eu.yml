@@ -14,6 +14,10 @@ eu:
         one: Argitalpena
         other: Argitalpenak
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Argitalpenak
     blogs:
       actions:
         author_id: Sortu argitalpena hau bezala
