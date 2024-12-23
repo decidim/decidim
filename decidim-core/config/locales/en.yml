@@ -8,6 +8,8 @@ en:
         created_at: Created at
       conversation:
         body: Body
+      editor_image:
+        file: File
       group:
         about: About
         avatar: Avatar
