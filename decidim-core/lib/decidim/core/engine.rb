@@ -239,18 +239,16 @@ module Decidim
         app.config.active_storage.variant_processor = :mini_magick
       end
 
-      initializer "decidim_core.active_storage_method_patch" do |app|
+      initializer "decidim_core.active_storage_method_patch" do |_app|
         if Rails::VERSION::MAJOR < 8
-          # This is a manual bubfix of https://github.com/rails/rails/pull/51931
+          # This is a manual bugfix of https://github.com/rails/rails/pull/51931
           module Attachment
             def named_variants
               record.attachment_reflections[name]&.named_variants || {}
             end
           end
 
-          config.to_prepare do
-            ActiveStorage::Attachment.prepend(Attachment)
-          end
+          ActiveSupport.on_load(:active_storage_attachment) { prepend Attachment }
         else
           ActiveSupport::Deprecation.warn("Remove decidim_core.active_storage_method_patch initializer from #{__FILE__}")
         end

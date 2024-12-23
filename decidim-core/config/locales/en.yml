@@ -2,8 +2,6 @@
 en:
   activemodel:
     attributes:
-      editor_image:
-        file: File
       account:
         delete_reason: Reason to delete your account
       common:
@@ -842,6 +840,7 @@ en:
             email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are an author of %{amendable_title}.
             email_subject: Accepted amendment for %{amendable_title} from %{emendation_author_nickname}
+            notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been accepted for <a href="%{amendable_path}">%{amendable_title}</a>.
           follower:
             email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
@@ -1328,7 +1327,6 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
-
       download:
         csv: Download data (CSV)
       followers:

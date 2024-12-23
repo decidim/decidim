@@ -767,15 +767,11 @@ shared_examples_for "an application with storage and queue gems" do
 end
 
 def initializer_config_for(path, env, mod = "Decidim")
-  command = cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env:)
-  pp command
-  JSON.parse command
+  JSON.parse cmd_capture(path, "bin/rails runner 'puts #{mod}.config.to_json'", env:)
 end
 
 def rails_value(value, path, env)
-  command = cmd_capture(path, "bin/rails runner 'puts #{value}.to_json'", env:)
-  pp command
-  JSON.parse command
+  JSON.parse cmd_capture(path, "bin/rails runner 'puts #{value}.to_json'", env:)
 end
 
 def repo_root
