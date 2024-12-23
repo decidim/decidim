@@ -2,9 +2,6 @@
 en:
   activemodel:
     attributes:
-      dummy:
-        image: Image
-      dummy_attribute: Dummy Attribute
       dummy_resource:
         created_at: Created at
         decidim_scope_id: Scope
