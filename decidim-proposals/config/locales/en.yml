@@ -20,6 +20,8 @@ en:
         decidim_proposals_proposal_state_id: State
         decidim_scope_id: Scope
         has_address: Has address
+        latitude: Latitude
+        longitude: Longitude
         scope_id: Scope
         state: State
         suggested_hashtags: Suggested hashtags

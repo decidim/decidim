@@ -1,8 +1,9 @@
 ---
 en:
-
   activemodel:
     attributes:
+      user_group:
+        avatar: Avatar
       account:
         delete_reason: Reason to delete your account
       attachment:
@@ -1408,6 +1409,7 @@ en:
         moderated: Content moderated
     notifications_digest_mailer:
       header:
+        real_time: Real time
         daily: Daily Notification Digest
         weekly: Weekly Notification Digest
       hello: Hello %{name},
