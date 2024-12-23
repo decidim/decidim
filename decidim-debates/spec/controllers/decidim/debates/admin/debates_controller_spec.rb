@@ -7,7 +7,6 @@ module Decidim
   module Debates
     module Admin
       describe DebatesController do
-        routes { Decidim::Debates::AdminEngine.routes }
 
         let(:organization) { create(:organization) }
         let(:current_user) { create(:user, :confirmed, :admin, organization:) }

@@ -3,8 +3,6 @@
 require "spec_helper"
 
 describe Decidim::Meetings::MeetingsController do
-  routes { Decidim::Meetings::Engine.routes }
-
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, organization:) }
   let(:meeting_component) { create(:meeting_component, :with_creation_enabled, participatory_space: participatory_process) }
@@ -148,7 +146,7 @@ describe Decidim::Meetings::MeetingsController do
       it "redirects to the login page" do
         get(:new)
         expect(response).to have_http_status(:found)
-        expect(response.body).to have_text("You are being redirected")
+        expect(response).to redirect_to("/users/sign_in")
       end
     end
   end

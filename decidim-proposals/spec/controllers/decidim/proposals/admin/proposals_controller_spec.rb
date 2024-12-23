@@ -4,7 +4,6 @@ require "spec_helper"
 require "decidim/core/test/shared_examples/softdeleteable_components_examples"
 
 describe Decidim::Proposals::Admin::ProposalsController do
-  routes { Decidim::Proposals::AdminEngine.routes }
 
   let(:component) { create(:proposal_component) }
   let(:proposal) { create(:proposal, component:) }
