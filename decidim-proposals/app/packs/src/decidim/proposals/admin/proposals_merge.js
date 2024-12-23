@@ -1,7 +1,5 @@
-import AutoComplete from "src/decidim/autocomplete";
 import createEditor from "src/decidim/editor";
-import attachGeocoding from "src/decidim/geocoding/attach_input"
-
+import AutoComplete from "src/decidim/autocomplete";
 
 document.addEventListener("decidim:loaded", () => {
   document.querySelectorAll('button[data-action="merge-proposals"]').forEach((button) => {
@@ -12,7 +10,9 @@ document.addEventListener("decidim:loaded", () => {
     // Handles geocoding_field
     const geocoding = () => {
       document.querySelectorAll("[data-decidim-geocoding]").forEach((el) => {
-        if (el.dataset.geocodingInitialized) return;
+        if (el.dataset.geocodingInitialized) {
+          return
+        };
         el.dataset.geocodingInitialized = true;
         const input = el;
       
@@ -51,38 +51,12 @@ document.addEventListener("decidim:loaded", () => {
       container.querySelectorAll(".editor-container").forEach((element) => createEditor(element));
     }
 
-    // Handles active drawer form
-    const activateDrawerForm = () => {
-      const form = document.querySelector(".proposals_merge_form_admin");
-      
-      if (form) {
-        const proposalCreatedInMeeting = form.querySelector("#proposal_created_in_meeting");
-        const proposalMeeting = form.querySelector("#proposals_merge_meeting");
-    
-        const toggleDisabledHiddenFields = () => {
-          const enabledMeeting = proposalCreatedInMeeting.checked;
-          const meetingSelect = proposalMeeting.querySelector("select");
-    
-          meetingSelect.disabled = !enabledMeeting;
-          proposalMeeting.classList.toggle("hide", !enabledMeeting);
-        };
-
-        proposalCreatedInMeeting.addEventListener("change", toggleDisabledHiddenFields);
-        toggleDisabledHiddenFields();
-
-        const proposalAddress = form.querySelector("#proposals_merge_address");
-        if (proposalAddress) {
-          attachGeocoding(proposalAddress);
-        }
-      }
-    }
-
     const fetchUrl = (url) => {
       container.classList.add("spinner-container");
       fetch(url).then((response) => response.text()).then((html) => {
         container.innerHTML = html;
         container.classList.remove("spinner-container");
-        activateDrawerForm();
+        // activateDrawerForm();
         editorInitializer()
         geocoding()
       });
@@ -97,10 +71,4 @@ document.addEventListener("decidim:loaded", () => {
       drawer.open();
     });
   })
-
 });
-
-
-
-
-  

@@ -5,6 +5,11 @@
 import TomSelect from "tom-select/dist/cjs/tom-select.popular";
 
 $(() => {
+  let isMergeProposalsClicked = false;
+  $('button[data-action="merge-proposals"]').on("click", function() {
+    isMergeProposalsClicked = true;
+  });
+
   const selectedProposalsCount = function() {
     return $(".table-list .js-check-all-proposal:checked").length
   }
@@ -72,10 +77,16 @@ $(() => {
   }
 
   const showOtherActionsButtons = function() {
+    if (isMergeProposalsClicked) {
+      return;
+    }
     $("#js-other-actions-wrapper").removeClass("hide");
   }
 
   const hideOtherActionsButtons = function() {
+    if (isMergeProposalsClicked) {
+      return;
+    }
     $("#js-other-actions-wrapper").addClass("hide");
   }
 
