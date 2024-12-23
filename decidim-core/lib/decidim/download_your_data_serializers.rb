@@ -19,5 +19,24 @@ module Decidim
         Decidim.participatory_space_manifests.map(&:data_portable_entities).flatten |
         (Decidim::Comments.data_portable_entities.flatten if defined?(Decidim::Comments))
     end
+
+    def self.help_definitions_for(user)
+      export_format = "CSV"
+      help_definition = {}
+
+      data_entities.each do |object|
+        klass = Object.const_get(object)
+        exporter = Exporters.find_exporter(export_format).new(klass.user_collection(user), klass.export_serializer)
+        entity = klass.model_name.route_key
+        headers = exporter.headers_without_locales
+        help_definition[entity] = {}
+
+        headers.each do |header|
+          help_definition[entity][header] = I18n.t("decidim.open_data.help.#{entity}.#{header}", default: I18n.t("decidim.download_your_data.help.#{entity}.#{header}"))
+        end
+      end
+
+      help_definition
+    end
   end
 end

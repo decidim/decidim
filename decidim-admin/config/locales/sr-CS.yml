@@ -209,9 +209,6 @@ sr:
         create:
           error: Nastao je problem pri stvaranju ove komponente.
           success: Komponenta je uspešno stvorena.
-        destroy:
-          error: Nastao je problem pri uništavanju ove komponente.
-          success: Komponenta je uspešno obrisana.
         edit:
           title: Uređivanje komponente
           update: Ažuriraj
@@ -242,8 +239,6 @@ sr:
       exports:
         export_as: "%{name} kao %{export_format}"
       filters:
-        category_id_eq:
-          label: Kategorija
         filter_label: Filter
         officialized_at_null:
           label: Državno
@@ -260,8 +255,6 @@ sr:
           values:
             'false': Objavljeno
             'true': Neobjavljeno
-        scope_id_eq:
-          label: Opseg
         search_label: Pretraži
         search_placeholder:
           name_or_nickname_or_email_cont: Pretraži %{collection} prema e-pošti, imenu ili nadimku.
