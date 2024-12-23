@@ -16,6 +16,10 @@ eu:
         one: Botoa
         other: Botoak
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          comments: Iruzkinak
     comments:
       admin:
         shared:
@@ -107,10 +111,12 @@ eu:
           recent: Berrienak
         title: 'Ordenatu honen arabera:'
       comments:
+        against: Aurka
         blocked_comments_for_unauthorized_user_warning: Egiaztatuta egon behar zara momentu honetan iruzkina egiteko, baina aurreko iruzkinak irakur ditzakezu.
         blocked_comments_for_user_warning: Oraindik ez duzu iruzkinik egin, baina aurrekoak irakurri ditzakezu.
         blocked_comments_warning: Iruzkinak desaktibatuta daude, administratzaileek soilik erantzun dezakete edo berriak argitaratu.
         comment_details_title: Iruzkinaren xehetasunak
+        in_favor: Alde
         loading: Iruzkinak kargatzen...
         single_comment_warning: <a href="%{url}">k erakusten ditu iruzkin guztiak</a>
         single_comment_warning_title: Iruzkin bakar bat ikusten ari zara
