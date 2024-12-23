@@ -10,6 +10,10 @@ ja:
       decidim/surveys/survey_answer:
         other: 回答
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: 調査
     components:
       surveys:
         actions:
