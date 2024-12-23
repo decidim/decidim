@@ -844,6 +844,9 @@ en:
         title: The page you are looking for cannot be found
     events:
       amendments:
+        emendation_promoted:
+          follower:
+            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
         amendment_accepted:
           affected_user:
             email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
