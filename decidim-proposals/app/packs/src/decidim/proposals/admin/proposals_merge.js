@@ -51,12 +51,38 @@ document.addEventListener("decidim:loaded", () => {
       container.querySelectorAll(".editor-container").forEach((element) => createEditor(element));
     }
 
+    // Handles the change on the form
+    const activateDrawerForm = () => {
+      const saveForm = drawer.dialog.querySelector("#js-form-merge-proposals");
+
+      if (saveForm) {
+        saveForm.addEventListener("ajax:success", (event) => {
+          const response = event.detail[0];
+
+          if (response.status === 'ok') {
+            window.location.reload();
+            drawer.close();
+          } else {
+            window.location.href = response.redirect_url;
+          }
+        });
+
+        saveForm.addEventListener("ajax:error", (event) => {
+          const response = event.detail[2];
+          container.innerHTML = response.responseText;
+
+          editorInitializer();
+          geocoding();
+        });
+      }
+    }
+
     const fetchUrl = (url) => {
       container.classList.add("spinner-container");
       fetch(url).then((response) => response.text()).then((html) => {
         container.innerHTML = html;
         container.classList.remove("spinner-container");
-        // activateDrawerForm();
+        activateDrawerForm();
         editorInitializer()
         geocoding()
       });
