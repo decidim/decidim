@@ -69,8 +69,8 @@ module Decidim
 
       def set_component_breadcrumb_item
         context_breadcrumb_items << {
-          label: current_component.name,
-          url: root_path,
+          label: translated_attribute(current_component.name),
+          url: Decidim::EngineRouter.main_proxy(current_component).root_path,
           active: false,
           resource: current_component
         }

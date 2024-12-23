@@ -100,11 +100,11 @@ module Decidim
           parent_resource_name = parent_resource.class.name.demodulize.underscore
           action_prefix = trash ? "manage_trash_" : ""
           route_name = "#{action_prefix}#{parent_resource_name}_#{trashable_deleted_resource_type.to_s.pluralize}_path"
-          send(route_name, parent_resource)
+          Decidim::EngineRouter.admin_proxy(current_component).send(route_name, parent_resource)
         else
           action_prefix = trash ? "manage_trash_" : ""
           route_name = "#{action_prefix}#{trashable_deleted_resource_type.to_s.pluralize}_path"
-          send(route_name)
+          Decidim::EngineRouter.admin_proxy(current_component).send(route_name)
         end
       end
 
