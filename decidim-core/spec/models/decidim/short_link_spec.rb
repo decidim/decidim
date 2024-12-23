@@ -47,14 +47,14 @@ module Decidim
     describe ".unique_identifier_within" do
       subject { described_class.unique_identifier_within(organization) }
 
-      let(:organization) { create(:organization) }
+      let!(:organization) { create(:organization) }
 
       it "returns a 10 character long alphanumeric string" do
         expect(subject).to match(/[a-zA-Z0-9]{10}/)
       end
 
       context "when the first two identifiers are taken" do
-        let(:taken_identifier1) { "abcDEF1234" }
+        let!(:taken_identifier1) { "abcDEF1234" }
         let(:taken_identifier2) { "GHIjkl5678" }
         let!(:existing_link1) { create(:short_link, target: organization, identifier: taken_identifier1) }
         let!(:existing_link2) { create(:short_link, target: organization, identifier: taken_identifier2) }
@@ -72,7 +72,7 @@ module Decidim
         context "and the link is created for another organization" do
           subject { described_class.unique_identifier_within(another_organization) }
 
-          let(:another_organization) { create(:organization) }
+          let!(:another_organization) { create(:organization) }
 
           it "returns the identifier already in use in the other organization" do
             expect(SecureRandom).to receive(:alphanumeric).with(10).once.and_return(taken_identifier1)
