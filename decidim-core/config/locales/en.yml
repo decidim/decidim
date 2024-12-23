@@ -1,8 +1,10 @@
 ---
 en:
-
   activemodel:
     attributes:
+      content_block_attachment:
+        background_image: Background image
+        main_image: Main image
       user_group:
         avatar: Avatar
       account:
