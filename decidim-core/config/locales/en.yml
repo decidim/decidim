@@ -1,5 +1,6 @@
 ---
 en:
+
   activemodel:
     attributes:
       content_block_attachment:
@@ -1343,6 +1344,8 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
+      user_reports:
+        description: Number of reports done by participants
       blocked_users:
         description: Number of blocked participants
       download:
