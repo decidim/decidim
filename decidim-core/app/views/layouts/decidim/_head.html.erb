@@ -10,11 +10,11 @@
 <%= tag :meta, name: "twitter:title", content: decidim_page_title %>
 <%= tag :meta, name: "twitter:description", content: decidim_meta_description %>
 <%= tag :meta, name: "twitter:image", content: decidim_meta_image_url.presence || "" %>
-<%= tag :meta, name: "og:image", content: decidim_meta_image_url.presence || "" %>
-<%= tag :meta, name: "og:type", content: "article" %>
-<%= tag :meta, name: "og:title", content: decidim_page_title %>
-<%= tag :meta, name: "og:description", content: decidim_meta_description %>
-<%= tag :meta, name: "og:url", content: decidim_meta_url %>
+<%= tag :meta, property: "og:image", content: decidim_meta_image_url.presence || "" %>
+<%= tag :meta, property: "og:type", content: "article" %>
+<%= tag :meta, property: "og:title", content: decidim_page_title %>
+<%= tag :meta, property: "og:description", content: decidim_meta_description %>
+<%= tag :meta, property: "og:url", content: decidim_meta_url %>
 
 <% if current_organization.colors.present? %>
   <%= tag :meta, name: "theme-color", content: current_organization.colors["primary"] %>
