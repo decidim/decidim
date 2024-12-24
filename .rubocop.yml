@@ -33,3 +33,42 @@ RSpec/NoExpectationExample:
     - decidim-proposals/spec/system/admin/admin_manages_participatory_texts_spec.rb
     - decidim-proposals/spec/system/participatory_texts_spec.rb
     - decidim-participatory_processes/spec/system/participatory_processes_spec.rb
+
+Rails/CompactBlank:
+  Enabled: false
+
+Style/KeywordArgumentsMerging:
+  Enabled: false
+
+Style/SafeNavigationChainLength:
+  Enabled: false
+
+Style/SelectByRegexp:
+  Enabled: false
+
+Rails/WhereEquals:
+  Enabled: false
+
+Style/RedundantInterpolationUnfreeze:
+  Enabled: false
+
+Style/FileNull:
+  Enabled: false
+
+RSpec/StringAsInstanceDoubleConstant:
+  Enabled: false
+
+Lint/UselessDefined:
+  Enabled: false
+
+Rails/RootPathnameMethods:
+  Enabled: false
+
+Rails/PluralizationGrammar:
+  Enabled: false
+
+Lint/SafeNavigationConsistency:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Enabled: false
