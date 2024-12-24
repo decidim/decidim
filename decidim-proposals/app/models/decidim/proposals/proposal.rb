@@ -249,8 +249,14 @@ module Decidim
         proposal_state&.token || "not_answered"
       end
 
-      # This is only used to define the setter, as the getter will be overridden below.
-      alias internal_state state
+      # Public: Returns the internal state of the proposal.
+      #
+      # Returns Boolean.
+      def internal_state
+        return amendment.state if emendation?
+
+        proposal_state&.token || "not_answered"
+      end
 
       # Public: Checks if the organization has published the state for the proposal.
       #
