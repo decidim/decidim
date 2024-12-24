@@ -106,6 +106,8 @@ en:
       participatory_space_private_user:
         email: Email
         name: Name
+      participatory_space_private_user_csv_import:
+        file: File
       scope:
         code: Code
         name: Name

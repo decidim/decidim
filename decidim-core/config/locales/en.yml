@@ -1,13 +1,7 @@
 ---
 en:
-
   activemodel:
     attributes:
-      content_block_attachment:
-        background_image: Background image
-        main_image: Main image
-      user_group:
-        avatar: Avatar
       account:
         delete_reason: Reason to delete your account
       attachment:
@@ -15,6 +9,9 @@ en:
         photos: Photos
       common:
         created_at: Created at
+      content_block_attachment:
+        background_image: Background image
+        main_image: Main image
       conversation:
         body: Body
       editor_image:
@@ -27,6 +24,8 @@ en:
         name: Name
         nickname: Nickname
         phone: Phone
+      import:
+        file: File
       message:
         body: Body
       report:
@@ -52,6 +51,8 @@ en:
         personal_url: Personal URL
         remove_avatar: Remove avatar
         tos_agreement: Terms of service agreement
+      user_group:
+        avatar: Avatar
     models:
       decidim/attachment_created_event: Attachment
       decidim/component_published_event: Active component
@@ -847,11 +848,6 @@ en:
         title: The page you are looking for cannot be found
     events:
       amendments:
-        emendation_promoted:
-          follower:
-            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
-            email_outro: You have received this notification because you are an author of %{amendable_title}.
-            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
         amendment_accepted:
           affected_user:
             email_intro: 'An amendment has been accepted for %{amendable_title}. You can see it from this page:'
@@ -896,6 +892,11 @@ en:
             email_outro: You have received this notification because you are following %{amendable_title}. You can stop receiving notifications following the previous link.
             email_subject: Amendment rejected for %{amendable_title} from %{emendation_author_nickname}
             notification_title: The <a href="%{emendation_path}">amendment</a> created by <a href="%{emendation_author_path}">%{emendation_author_nickname}</a> has been rejected for <a href="%{amendable_path}">%{amendable_title}</a>.
+        emendation_promoted:
+          follower:
+            email_intro: 'An emendation has been published for %{amendable_title}. You can see it from this page:'
+            email_outro: You have received this notification because you are an author of %{amendable_title}.
+            email_subject: An emendation from %{emendation_author_nickname} has been published as a new %{amendable_type}
       attachments:
         attachment_created:
           email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
@@ -1344,10 +1345,6 @@ en:
         not_started: Not started yet
         remaining: "%{time_distance} remaining"
     metrics:
-      user_reports:
-        description: Number of reports done by participants
-      reported_users:
-        description: Number of reported participants
       blocked_users:
         description: Number of blocked participants
       download:
@@ -1360,6 +1357,10 @@ en:
         description: Number of active participants in organization
         object: participants
         title: Participants
+      reported_users:
+        description: Number of reported participants
+      user_reports:
+        description: Number of reports done by participants
       users:
         description: Number of participants in organization
         object: participants
@@ -1424,13 +1425,13 @@ en:
         moderated: Content moderated
     notifications_digest_mailer:
       header:
-        real_time: Real time
         daily: Daily Notification Digest
+        real_time: Real time
         weekly: Weekly Notification Digest
       hello: Hello %{name},
       intro:
-        real_time: 'These is a notification on the activity you are following:'
         daily: 'These are the notifications from the last day based on the activity you are following:'
+        real_time: 'These is a notification on the activity you are following:'
         weekly: 'These are the notifications from the last week based on the activity you are following:'
       outro: You have received these notifications because you are following this content or its authors. You can unfollow them from their respective pages.
       see_more: See more notifications
