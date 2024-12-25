@@ -297,6 +297,12 @@ ja:
         no_results: 結果が見つかりませんでした
         search_prompt: 検索には3文字以上入力してください。
       block_user:
+        bulk_new:
+          action: アカウントをブロックして理由を送信
+          already_reported_html: この操作を続けると、すべての参加者のコンテンツも非表示になります。
+          description: ユーザーをブロックすると、そのアカウントは利用できなくなります。ユーザーのブロックを解除することを検討する方法に関するガイドラインを判定通知に含めることができます。
+          justification: 判定理由
+          title: ユーザーをブロック
         new:
           action: アカウントをブロックして理由を送信
           already_reported_html: このアクションを続けると、参加者のすべてのコンテンツも非表示になります。
@@ -701,13 +707,27 @@ ja:
         index:
           actions:
             block: ユーザーをブロック
+            bulk_actions:
+              actions_dropdown: アクション
+              block:
+                title: ブロック
+                update_moderated_user_button: ユーザーをブロック
+              unblock:
+                title: ブロック解除
+                update_moderated_user_button: ユーザーのブロックを解除
+              unreport:
+                title: 通報を解除
+            ignore:
+              update_moderated_user_button: ユーザーの通報を解除
             title: アクション
             unblock: ユーザーのブロックを解除
             unreport: 報告解除
+          cancel: キャンセル
           name: 名前
           nickname: ニックネーム
           reason: 理由
           reports: レポート数
+          selected: 選択済み
           title: 報告された参加者
         report:
           reasons:
@@ -719,6 +739,17 @@ ja:
           unblocked: 未ブロック
       moderations:
         index:
+          actions:
+            actions_dropdown: アクション
+            hide:
+              title: 非表示
+              update_moderation_button: 選択したリソースを非表示
+            unhide:
+              title: 非表示解除
+              update_moderation_button: 選択したリソースの非表示を解除
+            unreport:
+              title: 通報を解除
+              update_moderation_button: 選択したリソースの通報を解除
           title: 報告されたコンテンツ
         report:
           reasons:
