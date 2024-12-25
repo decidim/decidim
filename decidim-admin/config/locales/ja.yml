@@ -750,6 +750,8 @@ ja:
             unreport:
               title: 通報を解除
               update_moderation_button: 選択したリソースの通報を解除
+          cancel: キャンセル
+          selected: 選択済み
           title: 報告されたコンテンツ
         report:
           reasons:
@@ -781,6 +783,10 @@ ja:
           preview: 'テンプレートをプレビュー: %{template_name}'
           use_template: このテンプレートを使用
       newsletters:
+        confirm_recipients:
+          email: Eメールアドレス
+          name: 名前
+          title: 受取人を確認
         create:
           error: このニュースレターの作成中に問題が発生しました。
           success: ニュースレターが正常に作成されました。送信する前に確認してください。
@@ -802,9 +808,12 @@ ja:
           has_been_sent_to: '送信先: '
           not_sent: 送信されていません
           participants: '参加者 '
+          private_members: 'プライベートメンバー '
           segmented_to: '%{subject}にセグメント : '
           subscribed_count: '購読済み:'
           title: ニュースレター
+          verification_types: '検証の種別: %{types}'
+          verified_users: 検証済みユーザー
         new:
           save: 保存
           title: 新しいニュースレター
@@ -812,12 +821,16 @@ ja:
           all_spaces: すべて
           all_users_help: 確認済みのすべてのユーザーにニュースレターを送信します。
           confirm_deliver: このニュースレターを配信してもよろしいですか？この操作は元に戻せません。
+          confirm_recipients: 受取人を確認
           deliver: ニュースレターを配信する
           followers_help: リスト内の選択した参加型スペースに従っているすべての確認済みユーザーにニュースレターを送信します。
           participants_help: 選択した参加型スペースに参加しているすべての確認済みユーザーにニュースレターを送信します。
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
+          select_assemblies: 参加スペースを選択
           select_spaces: ニュースレターをセグメント化するスペースを選択
+          send_to_verified_users: 検証済みユーザーに送る
           title: 配信する宛先を選択
+          verified_users_help: 選択した検証方法ですべての確認済みおよび検証済みユーザーにニュースレターを送信します。
           warning: "<strong>注意:</strong> このニュースレターは、通知設定で <em>ニュースレターを受信したい</em> ユーザーにのみ送信されます。"
         send:
           no_recipients: 受信者が選択されていません。
