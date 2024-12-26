@@ -14,9 +14,7 @@ module Decidim
         Rails.application.reloader.reload! if Rails.application.reloader.check!
         reset_column_information
 
-        if ENV["SEED_INLINE"]
-          ActiveJob::Base.queue_adapter = :inline
-        end
+        ActiveJob::Base.queue_adapter = :inline if ENV["SEED_INLINE"]
 
         organization = create_organization!
 
