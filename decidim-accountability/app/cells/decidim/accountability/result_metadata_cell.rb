@@ -60,7 +60,7 @@ module Decidim
         return if status.blank?
 
         {
-          text: decidim_escape_translated(status.name),
+          text: decidim_escape_translated(status.name).html_safe,
           icon: "focus-2-line"
         }
       end
