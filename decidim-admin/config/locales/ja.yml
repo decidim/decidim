@@ -828,6 +828,7 @@ ja:
           recipients_count: このニュースレターは、 <strong id='recipients_count'>%{count}</strong> のユーザーに送信されます。
           select_assemblies: 参加スペースを選択
           select_spaces: ニュースレターをセグメント化するスペースを選択
+          send_to_all_users: すべてのユーザーに送信
           send_to_verified_users: 検証済みユーザーに送る
           title: 配信する宛先を選択
           verified_users_help: 選択した検証方法ですべての確認済みおよび検証済みユーザーにニュースレターを送信します。
