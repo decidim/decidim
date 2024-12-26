@@ -5,7 +5,7 @@
  * it to gain control over the confirm events BEFORE rails-ujs is loaded.
  */
 
-import Rails from "@rails/ujs"
+const { Rails } = window;
 
 class ConfirmDialog {
   constructor(sourceElement) {
