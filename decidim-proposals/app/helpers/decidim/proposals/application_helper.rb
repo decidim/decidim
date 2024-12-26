@@ -217,7 +217,7 @@ module Decidim
             items.append(method: :with_any_state, collection: filter_proposals_state_values, label: t("decidim.proposals.proposals.filters.state"), id: "state")
           end
           current_component.available_taxonomy_filters.each do |taxonomy_filter|
-            items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+            items.append(method: :with_any_taxonomies,
                          collection: filter_taxonomy_values_for(taxonomy_filter),
                          label: decidim_sanitize_translated(taxonomy_filter.name),
                          id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
