@@ -51,7 +51,7 @@ module Decidim
           items.append(method: :with_any_type, collection: filter_type_values, label: t("decidim.meetings.meetings.filters.type"), id: "type") if type
           if taxonomies
             available_taxonomy_filters.each do |taxonomy_filter|
-              items.append(method: "with_any_taxonomies[#{taxonomy_filter.root_taxonomy_id}]",
+              items.append(method: :with_any_taxonomies,
                            collection: filter_taxonomy_values_for(taxonomy_filter),
                            label: decidim_sanitize_translated(taxonomy_filter.name),
                            id: "taxonomy-#{taxonomy_filter.root_taxonomy_id}")
