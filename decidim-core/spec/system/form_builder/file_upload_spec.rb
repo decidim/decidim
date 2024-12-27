@@ -85,7 +85,6 @@ describe "File upload" do
   before do
     switch_to_host(organization.host)
     sign_in current_user
-    Object.const_set(:AnonymousController, controller)
 
     endpoint = controller.action(:endpoint)
     final_html = html_document
@@ -107,8 +106,6 @@ describe "File upload" do
   end
 
   after do
-    Object.send(:remove_const, :AnonymousController)
-
     expect_no_js_errors
 
     # Reset the routes back to original
