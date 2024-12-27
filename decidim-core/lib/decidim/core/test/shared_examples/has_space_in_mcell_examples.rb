@@ -8,7 +8,7 @@ shared_examples_for "has space in m-cell" do
     let(:show_space) { true }
 
     it "renders the space where the model belongs to" do
-      expect(cell_html).to have_content(decidim_escape_translated(model.component.participatory_space.title))
+      expect(cell_html).to have_content(translated_attribute(model.component.participatory_space.title))
     end
   end
 end
