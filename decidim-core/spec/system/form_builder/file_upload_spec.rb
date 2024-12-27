@@ -64,7 +64,6 @@ describe "File upload" do
       end
 
       def endpoint
-        image = images["0"]
         render html: <<~HTML.html_safe
           <h1>Form submitted successfully</h1>
           <div class="image">
@@ -77,8 +76,8 @@ describe "File upload" do
 
       private
 
-      def images
-        @images ||= params.dig(:form, :add_image)
+      def image
+        @image ||= params.dig(:form, :add_image)
       end
     end
   end

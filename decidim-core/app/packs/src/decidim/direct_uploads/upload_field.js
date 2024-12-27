@@ -35,16 +35,26 @@ const updateActiveUploads = (modal) => {
     let hidden = ""
     if (file.hiddenField) {
       // if there is hiddenField, this file is new
-      const fileField = (isMultiple || isTitled)
-        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
-        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
+      let fileField = null;
+      if (isMultiple) {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
+      } else if (isTitled) {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][file]`
+      } else {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}]`;
+      }
 
       hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
     } else {
       // otherwise, we keep the attachmentId
-      const fileField = (isMultiple || isTitled)
-        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
-        : `${modal.options.resourceName}[${modal.options.addAttribute}]`
+      let fileField = null;
+      if (isMultiple) {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`;
+      } else if (isTitled) {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}][id]`;
+      } else {
+        fileField = `${modal.options.resourceName}[${modal.options.addAttribute}]`;
+      }
 
       // convert all node attributes to string
       const attributes = Array.from(previousId.find(({ id }) => id === file.attachmentId).attributes).reduce((acc, { name, value }) => `${acc} ${name}="${value}"`, "")
@@ -55,7 +65,9 @@ const updateActiveUploads = (modal) => {
     if (isTitled) {
       const titleValue = modal.modal.querySelectorAll('input[type="text"]')[ix].value
       // NOTE - Renaming the attachment is not supported when multiple uploader is disabled
-      const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
+      const titleField = isMultiple
+        ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
+        : `${modal.options.resourceName}[${modal.options.addAttribute}][title]`
       hidden += `<input type="hidden" name="${titleField}" value="${escapeQuotes(titleValue)}" />`
 
       title = titleValue
