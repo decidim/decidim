@@ -47,8 +47,9 @@ module Decidim
         def update
           enforce_permission_to :manage, :participatory_texts
 
-          form_params = params.require(:preview_participatory_text)
-          @preview_form = form(Admin::PreviewParticipatoryTextForm).from_params(proposals: form_params[:proposals_attributes]&.values)
+          form_params = params.require(:preview_participatory_text).require(:proposals_attributes)
+          form_params.permit!
+          @preview_form = form(Admin::PreviewParticipatoryTextForm).from_params(proposals: form_params.values)
 
           if params.has_key?("save_draft")
             UpdateParticipatoryText.call(@preview_form) do

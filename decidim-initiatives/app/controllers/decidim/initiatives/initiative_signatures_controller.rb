@@ -87,6 +87,7 @@ module Decidim
 
       def store_sms_phone_number
         redirect_to(finish_path) && return unless sms_step?
+
         @form = Decidim::Verifications::Sms::MobilePhoneForm.from_params(params.merge(user: current_user))
 
         ValidateMobilePhone.call(@form, current_user) do

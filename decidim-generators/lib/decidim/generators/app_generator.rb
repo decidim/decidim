@@ -347,17 +347,16 @@ module Decidim
             config.active_job.queue_adapter = :test
           end
         CONFIG
-
       end
 
       def patch_logging
         gsub_file "config/environments/production.rb", /# Log to STDOUT by default\n((.*)\n){3}/, <<~CONFIG
 
-            if ENV["RAILS_LOG_TO_STDOUT"].present?
-              config.logger = ActiveSupport::Logger.new(STDOUT)
-                .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
-                .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
-            end
+          if ENV["RAILS_LOG_TO_STDOUT"].present?
+            config.logger = ActiveSupport::Logger.new(STDOUT)
+              .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+              .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
+          end
         CONFIG
       end
 
