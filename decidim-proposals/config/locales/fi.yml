@@ -434,11 +434,11 @@ fi:
           alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
           author: Kommentin laatijan nimi
           body: Kommentin teksti
-          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
-          id: Kommentin yksilöllinen tunniste
+          id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
@@ -459,7 +459,7 @@ fi:
           endorsements: Ehdotuksen keräämien suositusten ("tykkäykset") lukumäärä
           execution_period: Ehdotuksen toteutuksen aikaväli
           follows_count: Ehdotuksen seuraajien lukumäärä
-          id: Ehdotuksen yksilöllinen tunniste
+          id: Ehdotuksen yksilöivä tunniste
           is_amend: Onko tämä ehdotus toisen ehdotuksen muutosehdotus
           latitude: Ehdotuksen sijainnin leveysaste, mikäli ehdotus on määritetty tiettyyn paikkaan
           longitude: Ehdotuksen sijainnin pituusaste, mikäli ehdotus on määritetty tiettyyn paikkaan
@@ -467,7 +467,7 @@ fi:
           original_proposal: Alkuperäisen ehdotuksen viite, mikäli kyseessä on muutosehdotus
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä ehdotus kuuluu
           published_at: Ehdotuksen julkaisun ajankohta
-          reference: Tämän ehdotuksen yksilöllinen tunniste tällä alustalla
+          reference: Tämän ehdotuksen yksilöivä tunniste tällä alustalla
           related_proposals: Muut ehdotukset, jotka liittyvät tähän ehdotukseen
           state: Ehdotuksen tila (esim. "Hyväksytty")
           state_published_at: Ehdotuksen julkaisun ajankohta
