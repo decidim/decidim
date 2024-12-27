@@ -545,7 +545,7 @@ fi:
           initiative_data: Aloitteen tiedot
           scope: Teema
           send_to_technical_validation: Lähetä tekniseen validointiin
-          send_to_technical_validation_announcement: Jos kaikki näyttää hyvältä, paina "Lähetä tekniseen validointiin" -painiketta, jotta hallinnointikäyttäjä voi tarkistaa ja julkaista aloitteesi
+          send_to_technical_validation_announcement: Jos kaikki näyttää hyvältä, paina "Lähetä tekniseen validointiin" -painiketta, jotta hallintakäyttäjä voi tarkistaa ja julkaista aloitteesi
           signature_collection: Allekirjoituksen keräämistapa
           state: Tila
           type: Tyyppi
@@ -617,7 +617,7 @@ fi:
           offline_votes: Aloitteen keräämien allekirjoitusten määrä alustan ulkopuolella
           online_votes: Aloitteen keräämien allekirjoitusten määrä verkkoalustalla (suoraan tämän alustan kautta)
           published_at: Tilan julkaisuaika
-          reference: Tilan yksilöllinen viite
+          reference: Tilan yksilöivä viite
           scope: Aloitteen teema
           second_progress_notification_at: Ajankohta, jolloin toinen edistymisheräte lähetettiin
           signature_end_date: Päivämäärä, jolloin aloitteen allekirjoitusten keräysaika päättyy
@@ -627,7 +627,7 @@ fi:
           state: Aloitteen tila tällä hetkellä
           title: Aloitteen otsikko
           type: Aloitteen tyyppi
-          updated_at: Tilan viimeisen päivityksen aika
+          updated_at: Tilan viimeisimmän päivityksen ajankohta
           url: Tilan URL-osoite
     resources:
       initiative:
