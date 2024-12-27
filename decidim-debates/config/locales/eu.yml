@@ -22,6 +22,10 @@ eu:
         one: Eztabaida
         other: Eztabaidak
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Eztabaidak
     components:
       debates:
         actions:
@@ -72,6 +76,7 @@ eu:
           form:
             add_documents: Gehitu dokumentuak
             attachment_legend: "(Aukerakoa) Gehitu fitxategi bat"
+            comments_visualization: Iruzkinak bistaratzea
             debate_type: Eztabaida mota
             edit_documents: Editatu dokumentuak
             finite: Amaiera (hasiera- eta amaiera-ordua)
