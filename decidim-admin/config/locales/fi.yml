@@ -297,6 +297,12 @@ fi:
         no_results: Ei tuloksia
         search_prompt: Kirjoita vähintään kolme merkkiä hakeaksesi.
       block_user:
+        bulk_new:
+          action: Estä tilit ja lähetä perustelut
+          already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jota nämä osallistujat ovat luoneet.
+          description: Käyttäjätilien estäminen estää kyseisten käyttäjien pääsyn omalle tililleen. Voit antaa perusteluissasi ja ohjeistuksissasi tietoa siitä, mitä käyttäjät voivat tehdä palauttaakseen pääsyn tileilleen.
+          justification: Perustelut
+          title: Estä käyttäjät
         new:
           action: Estä tili ja lähetä perustelut
           already_reported_html: Tämä toiminto piilottaa myös kaiken sisällön, jonka kyseinen osallistuja on luonut.
@@ -706,13 +712,27 @@ fi:
         index:
           actions:
             block: Estä käyttäjä
+            bulk_actions:
+              actions_dropdown: Toiminnot
+              block:
+                title: Estä
+                update_moderated_user_button: Estä käyttäjät
+              unblock:
+                title: Poista esto
+                update_moderated_user_button: Poista käyttäjien esto
+              unreport:
+                title: Poista ilmoitus
+            ignore:
+              update_moderated_user_button: Poista käyttäjätilien ilmoitukset
             title: Toiminnot
             unblock: Poista käyttäjän esto
             unreport: Poista ilmoitus
+          cancel: Peruuta
           name: Nimi
           nickname: Nimimerkki
           reason: Syy
           reports: Ilmoitusten määrä
+          selected: Valitut
           title: Ilmoitetut osallistujat
         report:
           reasons:
@@ -724,6 +744,19 @@ fi:
           unblocked: Ei estetty
       moderations:
         index:
+          actions:
+            actions_dropdown: Toiminnot
+            hide:
+              title: Piilota
+              update_moderation_button: Piilota valitut sisällöt
+            unhide:
+              title: Poista piilotus
+              update_moderation_button: Poista valittujen sisältöjen piilotus
+            unreport:
+              title: Poista ilmoitus
+              update_moderation_button: Poista valittujen sisältöjen ilmoitukset
+          cancel: Peruuta
+          selected: valittu
           title: Ilmoitettu sisältö
         report:
           reasons:
@@ -755,6 +788,10 @@ fi:
           preview: 'Esikatsele pohjaa: %{template_name}'
           use_template: Käytä tätä pohjaa
       newsletters:
+        confirm_recipients:
+          email: Sähköposti
+          name: Nimi
+          title: Vahvista vastaanottajat
         create:
           error: Uutiskirjeen luonti epäonnistui.
           success: Uutiskirjeen luonti onnistui. Tarkasta se ennen lähetystä.
@@ -776,9 +813,12 @@ fi:
           has_been_sent_to: 'Lähetettiin vastaanottajille: '
           not_sent: Ei lähetetty
           participants: 'osallistujat '
+          private_members: 'yksityiset käyttäjät '
           segmented_to: 'Kohdennettu vastaanottajille %{subject}: '
           subscribed_count: 'Tilaukset:'
           title: Uutiskirjeet
+          verification_types: 'Vahvistusten tyypit: %{types}'
+          verified_users: Vahvistetut käyttäjät
         new:
           save: Tallenna
           title: Uusi uutiskirje
@@ -786,13 +826,24 @@ fi:
           all_spaces: Kaikki
           all_users_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille.
           confirm_deliver: Haluatko varmasti toimittaa tämän uutiskirjeen? Tätä toimintoa ei voi peruuttaa.
+          confirm_recipients: Vahvista vastaanottajat
           deliver: Toimita uutiskirje
           followers_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka seuraavat jotain listan osallistumistiloista.
           participants_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka ovat osallistuneet jossain listan valituista osallistumistiloista.
+          private_members_help: Lähetä uutiskirje kaikille vahvistetuille käyttäjille, jotka on lisätty yksityisiin osallistumistiloihin.
           recipients_count: Tämä uutiskirje lähetetään <strong id='recipients_count'>%{count}</strong>:lle käyttäjälle.
+          select_assemblies: Valitse ryhmät
+          select_conferences: Valitse konferenssit
+          select_initiatives: Valitse aloitteet
+          select_participatory_processes: Valitse osallistumisprosessit
           select_spaces: Valitse tilat, joille haluat kohdistaa uutiskirjeen
+          select_users_for_participatory_space: Lähetä uutiskirje yhteen tai useampaan osallistumistilaan
+          select_users_general: Lähetä yleinen uutiskirje
+          select_verification_types: Valitse tunnistautumistavat
           send_to_all_users: Lähetä kaikille käyttäjille
+          send_to_verified_users: Lähetä varmennetuille käyttäjille
           title: Valitse vastaanottajat
+          verified_users_help: Lähetä uutiskirje kaikille vahvistetuille ja millä tahansa tavalla tunnistautuneille käyttäjille.
           warning: "<strong>Huomio:</strong> Tämä uutiskirje lähetetään ainoastaan käyttäjille, jotka ovat valinneet asetuksen <em>Haluan vastaanottaa uutiskirjeitä</em> tilinsä ilmoitusasetuksista."
         send:
           no_recipients: Ei yhtään vastaanottajaa valituille rajauksille.
@@ -810,6 +861,13 @@ fi:
         block:
           error: Osallistujan estäminen epäonnistui.
           success: Osallistujan estäminen onnistui.
+        bulk_action:
+          block:
+            invalid: Osallistujien estäminen epäonnistui.
+            success: Osallistujien estäminen onnistui.
+          unblock:
+            invalid: Osallistujien eston peruuttaminen epäonnistui.
+            success: Osallistujien eston peruuttaminen onnistui.
         create:
           success: Osallistujan virallistaminen onnistui.
         destroy:
@@ -902,12 +960,20 @@ fi:
         destroy:
           error: Osallistumistilan yksityisen käyttäjän poistaminen epäonnistui.
           success: Osallistumistilaa koskeva yksityisen käyttäjän käyttöoikeuden tuhoaminen onnistui.
+        edit:
+          title: Muokkaa osallistumistilan yksityistä käyttäjää.
+          update: Päivitä
         index:
           import_via_csv: Tuo CSV-tiedostosta
+          publish_all: Julkaise kaikki
           title: Osallistumistilan yksityinen käyttäjä
+          unpublish_all: Lopeta kaikkien julkaisu
         new:
           create: Luo
           title: Uusi osallistumistilan yksityinen käyttäjä.
+        publish_all:
+          error: Osallistumistilan yksityisten käyttäjien julkaiseminen epäonnistui.
+          success: Osallistumistilan yksityisten käyttäjien julkaiseminen onnistui
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
