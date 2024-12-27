@@ -21,6 +21,7 @@ const updateActiveUploads = (modal) => {
   const files = document.querySelector(`[data-active-uploads=${modal.modal.id}]`)
   const previousId = Array.from(files.querySelectorAll("[type=hidden][id]"))
   const isMultiple = modal.options.multiple
+  const isTitled = modal.options.titled
 
   // fastest way to clean children nodes
   files.textContent = ""
@@ -34,14 +35,14 @@ const updateActiveUploads = (modal) => {
     let hidden = ""
     if (file.hiddenField) {
       // if there is hiddenField, this file is new
-      const fileField = isMultiple
+      const fileField = (isMultiple || isTitled)
         ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][file]`
         : `${modal.options.resourceName}[${modal.options.addAttribute}]`
 
       hidden = `<input type="hidden" name="${fileField}" value="${file.hiddenField}" />`
     } else {
       // otherwise, we keep the attachmentId
-      const fileField = isMultiple
+      const fileField = (isMultiple || isTitled)
         ? `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][id]`
         : `${modal.options.resourceName}[${modal.options.addAttribute}]`
 
@@ -51,7 +52,7 @@ const updateActiveUploads = (modal) => {
       hidden += `<input type="hidden" name="${fileField}" value="${file.attachmentId}" />`
     }
 
-    if (modal.options.titled) {
+    if (isTitled) {
       const titleValue = modal.modal.querySelectorAll('input[type="text"]')[ix].value
       // NOTE - Renaming the attachment is not supported when multiple uploader is disabled
       const titleField = `${modal.options.resourceName}[${modal.options.addAttribute}][${ix}][title]`
