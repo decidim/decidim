@@ -93,6 +93,9 @@ fi:
         other: Ilmoittautumiset
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Tapaamiset
       filters:
         accepted_at_not_null:
           label: Hyväksytyt
@@ -175,6 +178,12 @@ fi:
             creation_enabled_for_participants: Tapaamisten luonti sallittu osallistujille
             creation_enabled_for_user_groups: Tapaamisten luonti sallittu ryhmille
     download_your_data:
+      help:
+        registrations:
+          code: Ilmoittautumiskoodi
+          id: Ilmoittautumisen yksilöivä tunniste
+          meeting: Tapaaminen, johon käyttäjä ilmoittautui
+          user: Ilmoittautunut käyttäjä
       show:
         meeting_comments: Tapaamisten kommenttien vienti
         meetings: Tapaamisten vienti
