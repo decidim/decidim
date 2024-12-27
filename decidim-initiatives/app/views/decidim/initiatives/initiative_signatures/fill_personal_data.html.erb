@@ -17,7 +17,10 @@
     </small>
   </div>
 
-  <div class="form__wrapper-block">
-    <%= f.submit t(".continue"), class: "button button__sm md:button__lg button__secondary" %>
+  <div class="form__wrapper">
+    <button type="submit" class="button button__lg button__secondary">
+      <span><%= t(".continue") %></span>
+      <%= icon "arrow-right-line", class: "fill-current" %>
+    </button>
   </div>
 <% end %>
