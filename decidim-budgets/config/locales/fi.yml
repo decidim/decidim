@@ -29,6 +29,9 @@ fi:
         other: Projektit
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projektit
       filters:
         projects:
           selected_at_null:
@@ -366,6 +369,15 @@ fi:
               enabled: Äänestys on käytössä
               finished: Äänestys päättynyt
     download_your_data:
+      help:
+        orders:
+          budget: Budjetti, jolle ääni on annettu
+          checked_out_at: Äänen vahvistusaika
+          component: Äänen komponentti
+          created_at: Äänen luontiaika
+          id: Äänen yksilöivä tunniste
+          projects: Ääneen valitut projektit
+          updated_at: Äänen viimeisimmän päivityksen ajankohta
       show:
         projects: Projektien vienti
     events:
@@ -387,18 +399,18 @@ fi:
           created_at: Projektin luontiaika
           description: Projektin kuvaus
           follows_count: Projektin seuraajien lukumäärä
-          id: Projektin yksilöllinen tunniste
+          id: Projektin yksilöivä tunniste
           latitude: Projektin sijainnin leveysaste, mikäli projekti on määritetty tiettyyn paikkaan
           longitude: Projektin sijainnin pituusaste, mikäli projekti on määritetty tiettyyn paikkaan
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä projekti kuuluu
-          reference: Projektin yksilöllinen viite
+          reference: Projektin yksilöivä viite
           related_proposal_titles: Projektiin liitettyjen ehdotusten otsikot
           related_proposal_urls: Projektiin liitettyjen ehdotusten URL-osoitteet
           related_proposals: Projektiin liitetyt ehdotukset
           selected_at: Projektin toteutukseen valitsemisen ajankohta
           taxonomies: Projektin luokittelut
           title: Projektin otsikko
-          updated_at: Projektin viimeisen päivityksen aika
+          updated_at: Projektin viimeisimmän päivityksen ajankohta
           url: Projektin URL-osoite
     orders:
       checkout:
