@@ -1,7 +1,10 @@
 ---
 en:
+
   activemodel:
     attributes:
+      proposals_file_import:
+        file: File
       collaborative_draft:
         address: Address
         body: Body
