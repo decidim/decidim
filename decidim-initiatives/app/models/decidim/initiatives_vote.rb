@@ -39,7 +39,7 @@ module Decidim
     end
 
     def decrypted_metadata
-      @decrypted_metadata ||= encrypted_metadata ? encryptor.decrypt(encrypted_metadata) : {}
+      @decrypted_metadata ||= (encrypted_metadata ? encryptor.decrypt(encrypted_metadata) : {}).with_indifferent_access
     end
 
     private

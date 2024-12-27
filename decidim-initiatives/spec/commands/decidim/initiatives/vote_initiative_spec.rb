@@ -28,7 +28,7 @@ module Decidim
         {
           name_and_surname: ::Faker::Name.name,
           document_number: ::Faker::IDNumber.spanish_citizen_number,
-          date_of_birth: ::Faker::Date.birthday(min_age: 18, max_age: 40),
+          date_of_birth: ::Faker::Date.birthday(min_age: 18, max_age: 40).to_s,
           postal_code: ::Faker::Address.zip_code
         }
       end
@@ -261,7 +261,7 @@ module Decidim
                   command_with_personal_data.call
                   vote = InitiativesVote.last
                   expect(vote.encrypted_metadata).to be_present
-                  expect(vote.decrypted_metadata).to eq personal_data_params
+                  expect(vote.decrypted_metadata).to eq personal_data_params.with_indifferent_access
                 end
               end
 
