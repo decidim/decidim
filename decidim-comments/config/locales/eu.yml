@@ -123,6 +123,7 @@ eu:
         title:
           one: "%{count} iruzkin"
           other: "%{count} iruzkin"
+        top_comment_label: Bozkatuenak
       down_vote_button:
         text: Ez nago ados iruzkin honekin
       edit_comment_modal_form:
@@ -135,6 +136,26 @@ eu:
         title: Editatu zure iruzkina
       up_vote_button:
         text: Ados nago iruzkin honekin
+    download_your_data:
+      help:
+        comment_votes:
+          comment: Bozkatutako iruzkinaren identifikazioa
+          created_at: Zein datatan sortu zen bozketa hau
+          id: Botoaren identifikazioa
+          updated_at: Zein datatan eguneratu zen azken aldiz bozketa hau
+          weight: Botoaren balioa (1 boto gehiago, -1 boto gutxiago)
+        comments:
+          alignment: Iruzkin hau aldekoa bazen, kontrakoa edo neutrala
+          author: Iruzkin hau egin duen parte-hartzailearen izena
+          body: Iruzkina bera
+          commentable_id: Iruzkingarriaren identifikazio bakarra
+          commentable_type: Iruzkingarri mota (emaitza, proposamena... bazen)
+          created_at: Zein datatan sortu zen iruzkin hau
+          depth: Zein lekutan dago iruzkin hau hiru iruzkinetan (iruzkinaren erantzuna bada edo erantzunaren erantzuna bada)
+          id: Identifikazioa iruzkin honetarako
+          locale: Parte-hartzaileak iruzkin hau uztean erabili zuen tokiko hizkuntza
+          root_commentable_url: Iruzkin honekin lotzen den baliabidearen URLa (web helbidea)
+          user_group: Iruzkin hau egin duen erabiltzaile-taldearen izena (baldin badago)
     events:
       comments:
         comment_by_followed_user:
