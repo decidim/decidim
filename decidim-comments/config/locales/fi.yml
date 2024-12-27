@@ -148,11 +148,11 @@ fi:
           alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
           author: Kommentin laatijan nimi
           body: Kommentin teksti
-          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
-          id: Kommentin yksilöllinen tunniste
+          id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
