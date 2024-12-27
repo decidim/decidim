@@ -600,8 +600,8 @@ en:
       signatures:
         workflows:
           dummy_signature_handler:
-            name: Dummy Signature Handler
             description: Signature which takes personal information from user validates authorization and phone number
+            name: Dummy Signature Handler
       states:
         accepted: Accepted
         expired: Expired
@@ -657,10 +657,6 @@ en:
         promotal_committee: Promoter committee
         select_initiative_type: Choose
       initiative_signature_creation_header:
-        fill_personal_data: Complete your data
-        finish: Finish
-        sms_code: SMS code verification
-        sms_phone_number: Mobile phone number
         title: Sign %{initiative_title}
       initiatives:
         no_initiatives_yet:
