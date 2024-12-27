@@ -11,9 +11,9 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="editor-content">
     <small>
-      <%= strip_tags(translated_attribute(extra_data_legal_information)) %>
+      <%= decidim_sanitize_admin(translated_attribute(extra_data_legal_information)) %>
     </small>
   </div>
 
