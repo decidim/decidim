@@ -537,6 +537,15 @@ eu:
         objectives: Helburuak
         related_assemblies: Lotutako Batzarrak
         related_participatory_processes: Lotutako parte-hartze prozesuak
+    download_your_data:
+      help:
+        conference_invites:
+          accepted_at: Zein datatan onartu zen hitzaldirako gonbidapena
+          conference: Zein hitzalditarako bidali zen gonbidapena
+          id: Hitzaldirako gonbidapenaren identifikatzaile bakarra
+          registration_type: Zein erregistro mota bidali zen hitzaldi honetarako
+          rejected_at: Zein datatan ukatu zen hitzaldirako gonbidapena
+          sent_at: Zein datatan bidali zen hitzaldi honetarako gonbidapena
     events:
       conferences:
         conference_registration_confirmed:
