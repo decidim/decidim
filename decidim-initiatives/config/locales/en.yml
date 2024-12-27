@@ -603,8 +603,8 @@ en:
       signatures:
         workflows:
           dummy_signature_handler:
-            name: Dummy Signature Handler
             description: Signature which takes personal information from user validates authorization and phone number
+            name: Dummy Signature Handler
       states:
         accepted: Accepted
         expired: Expired
