@@ -739,7 +739,7 @@ fi:
           verified_at: Käyttäjäryhmän vahvistamisen ajankohta
         users:
           about: Käyttäjätilin profiilin kuvaus
-          admin: Onko tämä käyttäjä hallinnointikäyttäjä
+          admin: Onko tämä käyttäjä hallintakäyttäjä
           confirmation_sent_at: Käyttäjätilin vahvistusviestin lähetysaika
           confirmed_at: Käyttäjätilin vahvistamisen ajankohta
           created_at: Käyttäjätilin luontiaika
@@ -759,6 +759,7 @@ fi:
           locale: Käyttäjän valitsema kieliasetus
           managed: Onko tämä käyttäjätili toisen käyttäjän hallinnoima
           name: Käyttäjän nimi
+          newsletter_notifications_at: Uutiskirjeiden tilauksen ajankohta
           nickname: Käyttäjän nimimerkki
           notification_settings: Käyttäjän määrittämät ilmoitusten asetukset
           notifications_sending_frequency: Käyttäjän vastaanottamien ilmoitusten tiheys
@@ -1175,7 +1176,7 @@ fi:
         subtitle: Luo ryhmä ja pyydä muita käyttäjiä osallistumaan yhteisöllisellä tasolla.
       no_user_groups: Ei kuulu vielä yhteenkään ryhmään.
       roles:
-        admin: Ylläpitäjä
+        admin: Hallinnoija
         creator: Hallinnoija
         member: Jäsen
       update:
@@ -1465,12 +1466,12 @@ fi:
           blocking_user: Eston tehneen käyttäjän nimi
           details: Ilmoituksen tiedot
           reasons: Lista profiilin ilmoittamisen syistä
-          user_id: Ilmoitetun käyttäjän yksilöllinen tunniste (ID)
+          user_id: Ilmoitetun käyttäjän yksilöivä tunniste (ID)
         moderations:
           hidden_at: Päivämäärä ja aika, sisältö piilotettiin
-          id: Moderoinnin yksilöllinen tunniste
+          id: Moderointi-ilmoituksen yksilöivä tunniste
           report_count: Ilmoitusten lukumäärä
-          reportable_id: Ilmoitettavan asian yksilöllinen tunniste
+          reportable_id: Ilmoitettavan asian yksilöivä tunniste
           reportable_type: Ilmoitettavan asian tyyppi
           reported_content: Ilmoitettu sisältö
           reported_url: Ilmoitetun asian URL-osoite
@@ -1479,8 +1480,8 @@ fi:
           avatar_url: Käyttäjäryhmän avatar-kuva
           badge: Käyttäjäryhmän tunnusmerkki
           deleted: Onko käyttäjä poistettu vai ei
-          id: Käyttäjäryhmän yksilöllinen tunniste
-          members: Ryhmään kuuluvien käyttäjien yksilöllinen tunniste (ID) ja nimi
+          id: Käyttäjäryhmän yksilöivä tunniste
+          members: Ryhmään kuuluvien käyttäjien yksilöivät tunnisteet (ID) ja nimet
           members_count: Käyttäjäryhmään kuuluvien käyttäjien määrä
           name: Käyttäjäryhmän nimi
           nickname: Käyttäjäryhmän käyttäjänimi
