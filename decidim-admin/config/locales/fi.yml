@@ -974,6 +974,12 @@ fi:
         publish_all:
           error: Osallistumistilan yksityisten käyttäjien julkaiseminen epäonnistui.
           success: Osallistumistilan yksityisten käyttäjien julkaiseminen onnistui
+        unpublish_all:
+          error: Osallistumistilan yksityisten käyttäjien julkaisun peruuttaminen epäonnistui.
+          success: Osallistumistilan yksityisten käyttäjien julkaisun peruuttaminen onnistui.
+        update:
+          error: Osallistumistilan yksityisen käyttäjän päivittäminen epäonnistui.
+          success: Osallistumistilan yksityisen käyttäjän päivittäminen onnistui.
       participatory_space_private_users_csv_imports:
         create:
           invalid: CSV-tiedoston lukeminen epäonnistui. Tarkasta, että olet seurannut esitettyjä ohjeita.
@@ -1333,6 +1339,22 @@ fi:
         unreport: Poista ilmoitus
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Joidenkin kohteiden piilottaminen epäonnistui: %{errored}'
+              invalid: Yhtään moderointi-ilmoitusta ei ole valittu.
+              success: Kohteiden piilottaminen onnistui.
+            ignore:
+              invalid: Yhtään käyttäjätilien moderointi-ilmoitusta ei ole valittu.
+              success: Osallistujien ilmoitusten peruuttaminen epäonnistui.
+            unhide:
+              failed: 'Joidenkin kohteiden näkyviin palauttaminen epäonnistui: %{errored}'
+              invalid: Yhtään moderointi-ilmoitusta ei ole valittu.
+              success: Kohteiden näkyviin palauttaminen onnistui.
+            unreport:
+              failed: 'Joidenkin kohteiden moderointi-ilmoitusten peruuttaminen epäonnistui: %{errored}'
+              invalid: Yhtään moderointi-ilmoitusta ei ole valittu.
+              success: Kohteiden moderointi-ilmoitusten peruuttaminen onnistui.
           hide:
             invalid: Kohteen piilotus epäonnistui.
             success: Resurssin piilotus onnistui.
