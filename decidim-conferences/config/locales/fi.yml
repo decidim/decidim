@@ -608,12 +608,12 @@ fi:
           end_date: Konferenssin päättymispäivä.
           follows_count: Tilaa seuraavien käyttäjien määrä
           hashtag: Konferenssia vastaava aihetunniste (hashtag), jota käytetään Twitter/X-palvelussa
-          id: Konferenssin yksilöllinen tunniste
+          id: Konferenssin yksilöivä tunniste
           location: Konferenssin paikka, eli missä konferenssi järjestetään.
           objectives: Konferenssin tavoitteet tai päämäärät.
           promoted: Onko konferenssi korostettu vai ei
           published_at: Tilan julkaisuaika
-          reference: Tilan yksilöllinen viite
+          reference: Tilan yksilöivä viite
           remote_banner_image_url: Konferenssin bannerikuvan URL-osoite
           remote_hero_image_url: Konferenssin hero-kuvan URL-osoite
           scope: Konferenssin teema
@@ -624,7 +624,7 @@ fi:
           start_date: Konferenssin alkamispäivä.
           taxonomies: Konferenssin luokittelut
           title: Konferenssin otsikko
-          updated_at: Tilan viimeisen päivityksen aika
+          updated_at: Tilan viimeisimmän päivityksen ajankohta
           url: Tilan URL-osoite
     statistics:
       conferences_count: Konferenssia
