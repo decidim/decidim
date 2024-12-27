@@ -30,7 +30,7 @@ shared_examples "manage participatory space publications" do |_options|
       allow(Rails.application).to \
         receive(:env_config).with(no_args).and_wrap_original do |m, *|
           m.call.merge(
-            "action_dispatch.show_exceptions" => true,
+            "action_dispatch.show_exceptions" => :all,
             "action_dispatch.show_detailed_exceptions" => false
           )
         end

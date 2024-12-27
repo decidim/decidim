@@ -8,7 +8,7 @@ describe "Internal server error display" do
   let(:controller) do
     Class.new(Decidim::ApplicationController) do
       def show
-        request.env["action_dispatch.show_exceptions"] = true
+        request.env["action_dispatch.show_exceptions"] = :all
         request.env["action_dispatch.show_detailed_exceptions"] = false
 
         # This should generate an undefined constant error
