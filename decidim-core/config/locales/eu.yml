@@ -705,13 +705,43 @@ eu:
       help:
         core:
           description: Hauek dira %{user_name} erabiltzailearen datu pertsonalak, ekarpenak eta jarduera dituzten artxiboak
+          title: 'Deskargatu zure datuen artxiboak hemendik: %{organization}'
+        follows:
+          created_at: Zein datatan eta zein ordutan sortu zen jarraipena
+          followable: Jarraitzen ari den baliabidea edo espazioa
+          id: Jarraipen honen identifikatzaile bakarra
+          updated_at: Zein datatan eta zein ordutan eguneratu zen azken aldiz jarraipena
+        identities:
+          created_at: Zein datatan eta zein ordutan sortu zen identitatea
+          id: Identitate honen identifikatzaile bakarra
+          provider: Identitate honen hornitzailea
+          uid: Identitate honen identifikatzaile bakarra
+          updated_at: Zein datatan eta zein ordutan eguneratu zen identitatea azken aldiz
+          user: Zein erabiltzaileri dagokio identitate hau
+        messaging_conversations:
+          created_at: Zein datatan sortu zen elkarrizketa hau
+          id: Elkarrizketa honen identifikatzaile bakarra
+          messages: Elkarrizketa honen mezuak
+          updated_at: Zein datatan eguneratu zen elkarrizketa hau azken aldiz
+        notifications:
+          created_at: Zein datatan eta zein ordutan sortu zen jakinarazpena
+          event_class: Jakinarazpenak eragin duen ekitaldi mota
+          event_name: Jakinarazpenak eragin duen ekitaldiaren izena
+          extra: Jakiarazpen honen informazio osagarria
+          id: Jakinarazpen honen identifikatzaile bakarra
+          resource_type: Jakinarazpena zein baliabide motarekin dago lotuta
       show:
         action: Ekintza
+        download: Deskargatu fitxategia
+        download_data: Deskargatu datuak
         download_data_description_1: Hemen aurkituko dituzu zure konturako deskarga guztiak.Fitxategi hauek (.zip) bi astetan egongo dira eskuragarri ezabatu aurretik.
         download_data_description_2: Zure bidalketak eta datu pertsonalak dituen .zip fitxategi bat eska dezakezu.
         download_your_data: Datu pertsonalak
         expiration: Iraungitze-data
         expired: Dagoeneko iraungita
+        explanation:
+          title: Zer dira artxibo hauek?
+        files_to_download: Deskargatu beharreko artxiboak
         request_data: Eskaera
         type: Deskarga mota
     editor_images:
