@@ -93,6 +93,9 @@ eu:
         other: Izen-emateak
   decidim:
     admin:
+      admin_log:
+        changeset:
+          meetings: Topaketak
       filters:
         accepted_at_not_null:
           label: Onartua
@@ -175,6 +178,12 @@ eu:
             creation_enabled_for_participants: Partehartzaileek topaketak sortu dizatkete
             creation_enabled_for_user_groups: Erabiltzaileek topaketak sor ditzakete taldearen arabera
     download_your_data:
+      help:
+        registrations:
+          code: Erregistro-kodea
+          id: Erregistroaren identifikatzaile bakarra
+          meeting: Erabiltzailea zein topaketatan erregistratu zen
+          user: Erregistroa egin zuen erabiltzailea
       show:
         meeting_comments: Esportatu topaketen iruzkinak
         meetings: Esportatu topaketak
