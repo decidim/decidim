@@ -7,6 +7,22 @@ require "decidim/core/test/shared_examples/download_open_data_shared_examples"
 describe "Download Open Data files", download: true do
   let(:organization) { create(:organization) }
 
+  before do
+    I18n.backend.reload!
+    I18n.backend.store_translations(
+      :en,
+      decidim: {
+        open_data: {
+          help: {
+            projects: {
+              test_field: "Test field for projects serializer subscription"
+            }
+          }
+        }
+      }
+    )
+  end
+
   include_context "when downloading open data files"
 
   it "lets the users download open data files" do
