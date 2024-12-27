@@ -379,19 +379,26 @@ fi:
       help:
         projects:
           address: Projektin osoite (jos määritetty)
+          budget: Tietoja budjetista (esim. "2021 budjetti")
           budget_amount: Budjetin kokonaismäärä tälle projektille
           comments: Projektin saamien kommenttien määrä
           component: Projektin komponentti
           confirmed_votes: Vahvistettujen äänten määrä tälle projektille
           created_at: Projektin luontiaika
           description: Projektin kuvaus
+          follows_count: Projektin seuraajien lukumäärä
           id: Projektin yksilöllinen tunniste
+          latitude: Projektin sijainnin leveysaste, mikäli projekti on määritetty tiettyyn paikkaan
+          longitude: Projektin sijainnin pituusaste, mikäli projekti on määritetty tiettyyn paikkaan
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä projekti kuuluu
+          reference: Projektin yksilöllinen viite
           related_proposal_titles: Projektiin liitettyjen ehdotusten otsikot
           related_proposal_urls: Projektiin liitettyjen ehdotusten URL-osoitteet
           related_proposals: Projektiin liitetyt ehdotukset
+          selected_at: Projektin toteutukseen valitsemisen ajankohta
           taxonomies: Projektin luokittelut
           title: Projektin otsikko
+          updated_at: Projektin viimeisen päivityksen aika
           url: Projektin URL-osoite
     orders:
       checkout:
