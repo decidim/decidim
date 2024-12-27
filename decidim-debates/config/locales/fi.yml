@@ -22,6 +22,10 @@ fi:
         one: Keskustelu
         other: Keskustelut
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          debates: Keskustelut
     components:
       debates:
         actions:
@@ -72,10 +76,16 @@ fi:
           form:
             add_documents: Lisää asiakirjoja
             attachment_legend: "(Valinnainen) Lisää liitetiedosto"
+            comments_visualization: Kommenttien visualisointi
+            comments_warning: Ensimmäisen kommentin jälkeen kommenttien esitysmuotoasetusta ei voi muuttaa.
             debate_type: Keskustelun tyyppi
             edit_documents: Muokkaa asiakirjoja
+            errors:
+              comments_layout_locked: Et voi muuttaa kommenttien esitysmuotoa sen jälkeen, kun kommentteja on laadittu.
             finite: Määräaikainen (keskustelulla on alku- ja loppuaika)
             open: Avoin (keskustelulla ei ole alku- ja loppuaikaa)
+            single_column: 'Yksi sarake: kommentit näytetään yhdessä sarakkeessa kronologisessa järjestyksessä ja niihin voi vastata.'
+            two_columns: 'Kaksi saraketta: kommentit näytetään kahdessa sarakkeessa "puolesta" ja "vastaan", eikä kommentteihin voi vastata.'
           index:
             title: Keskustelut
           manage_trash:
