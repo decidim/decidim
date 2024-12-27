@@ -75,7 +75,8 @@ module Decidim
       end
 
       def sms_phone_number
-        redirect_to(finish_path) && return unless sms_step?
+        return redirect_to fill_personal_data_path if fill_personal_data_step? && session[:initiative_vote_form].blank?
+        return redirect_to(finish_path) unless sms_step?
 
         @form = sms_mobile_phone_form_class.new
       end
