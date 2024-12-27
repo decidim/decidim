@@ -112,6 +112,9 @@ eu:
         other: Botoak
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Proposamenak
       filters:
         proposals:
           is_emendation_true:
@@ -837,6 +840,9 @@ eu:
       destroy_draft:
         error: Arazo bat egon da proposamenaren zirriborroa ezabatzean.
         success: Proposamenaren zirriborroa zuzen ezabatu da.
+      exit_modal:
+        cancel: Ezeztatu
+        exit: Jarraitu
       forms:
         errors:
           device_not_supported: Zure gailuak ez ditu kokapen-zerbitzuak onartzen. Mesedez, sartu helbidea eskuz.
@@ -992,6 +998,8 @@ eu:
             one: Botoa
             other: Botoak
         voting_rules:
+          already_vote:
+            see_other_proposals: Ikusi beste proposamen batzuk
           can_accumulate_votes_beyond_threshold:
             description: Proposamen bakoitzak %{limit} boto baino gehiago jaso dezake
           proposal_limit:
