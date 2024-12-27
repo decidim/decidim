@@ -12,6 +12,10 @@ eu:
         one: Erantzuna
         other: Erantzunak
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: inkestak
     components:
       surveys:
         actions:
