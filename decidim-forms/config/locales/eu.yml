@@ -26,6 +26,9 @@ eu:
           request_invalid: Arazo bat izan da eskaera kudeatzean. Mesedez, saiatu berriro.
   decidim:
     download_your_data:
+      help:
+        answers:
+          user: Inkesta erantzun zuen erabiltzailea
       show:
         answers: Esportatu erantzunak
         survey_user_answers: Inkesta erabiltzaile erantzunak
