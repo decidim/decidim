@@ -241,6 +241,9 @@ eu:
       impersonation_log:
         manage: "%{user_name} k %{resource_name} kudeatu du arrazoi honengatik %{reason}"
       moderation:
+        bulk_hide: "%{user_name} k %{reported_count} baliabide ezkutatu du"
+        bulk_unhide: "%{user_name} k berriro erakutsi du %{reported_count} baliabide"
+        bulk_unreport: "%{reported_count} k %{reported_count} baliabideri salaketa kendu die"
         hide: "%{user_name} k %{resource_type} baliabide mota %{space_name} espazioan ezkutatu du"
         unreport: "%{user_name} k %{resource_type} baliabide motaren salaketa kendu du %{space_name} espazioan"
       newsletter:
@@ -297,6 +300,9 @@ eu:
         update_with_filter_items_count: "%{user_name}-keguneratu du %{baliabide_name} taxonomian oinarritutako iragazkia, %{filter_items_count} filtroarekin, \n%{space_manifest_name} -rako\n"
       user:
         block: "%{user_name} k %{resource_name} erabiltzailea blokeatu du"
+        bulk_block: "%{user_name} k %{blocked_count} erabiltzaile blokeatu du"
+        bulk_ignore: "%{user_name} k %{unreported_users_count} erabiltzaileri salaketa kendu die"
+        bulk_unblock: "%{user_name} k %{unblocked_count} erabiltzaile desblokeatu du"
         invite: "%{user_name} k %{resource_name} parte-hartzailea gonbidatu du %{role} rolarekin"
         officialize: "%{user_name} k %{resource_name} parte-hartzailea ofizializatu du"
         promote: "%{user_name} k %{resource_name} sustatu du"
@@ -307,6 +313,9 @@ eu:
         unofficialize: "%{user_name} k %{resource_name} parte-hartzailea desofizializatu du"
       user_group:
         block: "%{user_name} k %{resource_name} erabiltzaile-taldea blokeatu du"
+        bulk_block: "%{user_name} k %{blocked_count} erabiltzaile blokeatu du"
+        bulk_ignore: "%{user_name} k %{unreported_users_count} erabiltzaileri salaketa kendu die"
+        bulk_unblock: "%{user_name} k %{unblocked_count} erabiltzaile desblokeatu du"
         reject: "%{user_name} k ukatu du %{resource_name} taldearen egiaztapena"
         unblock: "%{user_name} k %{resource_name} erabiltzaile-taldea desblokeatu du"
         verify: "%{user_name} k egiaztatu du %{resource_name} taldea"
@@ -693,6 +702,9 @@ eu:
     download_your_data:
       export:
         ready: Prest
+      help:
+        core:
+          description: Hauek dira %{user_name} erabiltzailearen datu pertsonalak, ekarpenak eta jarduera dituzten artxiboak
       show:
         action: Ekintza
         download_data_description_1: Hemen aurkituko dituzu zure konturako deskarga guztiak.Fitxategi hauek (.zip) bi astetan egongo dira eskuragarri ezabatu aurretik.
