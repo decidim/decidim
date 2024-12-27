@@ -112,6 +112,9 @@ fi:
         other: Äänet
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Ehdotukset
       filters:
         proposals:
           is_emendation_true:
@@ -446,9 +449,16 @@ fi:
           attachments: Ehdotuksen liitteiden lukumäärä
           author: Ehdotuksen laatijan tiedot
           body: Ehdotuksen kuvaus
+          coauthorships_count: Ehdotuksen laatijoiden lukumäärä
           comments: Ehdotuksen saamien kommenttien määrä
           component: Ehdotuksen komponentti
+          cost: Ehdotuksen kokonaiskustannukset
+          cost_report: Ehdotuksen kustannusraportti
+          created_at: Ehdotuksen laatimisaika
+          created_in_meeting: Oliko ehdotus laadittu tapaamisessa
           endorsements: Ehdotuksen keräämien suositusten ("tykkäykset") lukumäärä
+          execution_period: Ehdotuksen toteutuksen aikaväli
+          follows_count: Ehdotuksen seuraajien lukumäärä
           id: Ehdotuksen yksilöllinen tunniste
           is_amend: Onko tämä ehdotus toisen ehdotuksen muutosehdotus
           latitude: Ehdotuksen sijainnin leveysaste, mikäli ehdotus on määritetty tiettyyn paikkaan
@@ -460,8 +470,10 @@ fi:
           reference: Tämän ehdotuksen yksilöllinen tunniste tällä alustalla
           related_proposals: Muut ehdotukset, jotka liittyvät tähän ehdotukseen
           state: Ehdotuksen tila (esim. "Hyväksytty")
+          state_published_at: Ehdotuksen julkaisun ajankohta
           taxonomies: Tälle ehdotukselle määritetyt luokittelut
           title: Ehdotuksen otsikko
+          updated_at: Ehdotuksen viimeisimmän päivityksen ajankohta
           url: URL-osoite ehdotukseen
           votes: Ehdotuksen saamien äänten määrä
           withdrawn: Oliko tämä ehdotus peruutettu
@@ -835,6 +847,11 @@ fi:
       destroy_draft:
         error: Ehdotusluonnoksen poistaminen epäonnistui.
         success: Ehdotusluonnoksen poistaminen onnistui.
+      exit_modal:
+        cancel: Peruuta
+        exit: Jatka
+        message: Sinun on äänestettävä vielä %{number} ehdotusta, jotta äänesi otetaan huomioon.
+        title: Sinulla on %{number} ääntä jäljellä
       forms:
         errors:
           device_not_supported: Laitteesi ei tue sijaintipalveluita. Syötä osoite manuaalisesti.
@@ -990,12 +1007,20 @@ fi:
             one: Ääni
             other: Ääntä
         voting_rules:
+          already_vote:
+            description: Sinun on annettava vielä %{number} ääntä ehdotuksille, jotta äänesi otetaan huomioon.
+            see_other_proposals: Näytä muut ehdotukset
+            title: Sinulla on %{number} ääntä jäljellä
           can_accumulate_votes_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} ääntä
+          minimum_votes_per_user:
+            description: Sinun on annettava vähintään %{votes} ääntä eri ehdotuksille, jotta äänesi otetaan huomioon.
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
+          success: Antamasi äänet on hyväksytty
           threshold_per_proposal:
             description: Jotta ehdotukset vahvistettaisiin, niiden on saavutettava %{limit} ääntä.
+          title: Osallistumista koskevat säännöt
           vote_limit:
             description: Voit kannattaa enintään %{limit} ehdotusta.
             votes: 'Käytettävissä olevien äänten määrä: %{number}'
