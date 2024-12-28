@@ -8,11 +8,11 @@ describe "Initiative signing" do
   let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation_and_user_extra_fields_collection, organization:) }
   let(:confirmed_user) { create(:user, :confirmed, organization:) }
   let(:authorizations) { ["sms"] }
-  let(:document_number) { "0123345678A" }
+  let(:document_number) { "0123345678X" }
   let(:phone_number) { "666666666" }
   let!(:verification_form) { Decidim::Verifications::Sms::MobilePhoneForm.new(mobile_phone_number: phone_number) }
   let(:unique_id) { verification_form.unique_id }
-  let(:sms_code) { "12345" }
+  let(:sms_code) { "012345" }
   let!(:authorization) do
     create(
       :authorization,
@@ -42,14 +42,15 @@ describe "Initiative signing" do
       click_on "Sign"
     end
 
-    if has_content?("Complete your data")
-      fill_in :initiatives_vote_name_and_surname, with: confirmed_user.name
-      fill_in :initiatives_vote_document_number, with: document_number
-      fill_in_datepicker :initiatives_vote_date_of_birth_date, with: 30.years.ago.strftime("01/01/%Y")
+    if has_content?("Verify with Dummy Signature Handler")
+      fill_in :dummy_signature_handler_name_and_surname, with: confirmed_user.name
+      select "Identification number", from: :dummy_signature_handler_document_type
+      fill_in :dummy_signature_handler_document_number, with: document_number
+      fill_in_datepicker :dummy_signature_handler_date_of_birth_date, with: 30.years.ago.strftime("01/01/%Y")
+      fill_in :dummy_signature_handler_postal_code, with: "01234"
+      select translated_attribute(initiative.scope.name), from: :dummy_signature_handler_scope_id
 
-      fill_in :initiatives_vote_postal_code, with: "01234"
-
-      click_on "Continue"
+      click_on "Validate your data"
 
       expect(page).to have_no_css("div.alert")
     end
@@ -80,8 +81,8 @@ describe "Initiative signing" do
       end
 
       it "mobile phone is required" do
-        expect(page).to have_content("Fill the form with your verified phone number")
-        expect(page).to have_content("Send me an SMS")
+        expect(page).to have_content("Enter your number and you will receive a code that you should type")
+        expect(page).to have_content("Receive code")
         expect(initiative.reload.supports_count).to be_zero
       end
 
@@ -119,17 +120,19 @@ describe "Initiative signing" do
             end
 
             it "sms code is required" do
-              expect(page).to have_content("Check the SMS received at your phone")
+              expect(page).to have_content("Your confirmation code")
+              expect(page).to have_css("[data-check-code]")
               expect(initiative.reload.supports_count).to be_zero
             end
 
             context "and inserts the wrong code number" do
-              let(:form_sms_code) { "wadus" }
+              let(:form_sms_code) { "000000" }
 
               it "appears an invalid message" do
                 fill_sms_code
 
-                expect(page).to have_content("Your verification code does not match ours")
+                expect(page).to have_content("The code is not correct")
+                expect(page).to have_button("Sign initiative", disabled: true)
                 expect(initiative.reload.supports_count).to be_zero
               end
             end
@@ -137,6 +140,9 @@ describe "Initiative signing" do
             context "and inserts the correct code number" do
               it "the vote is created" do
                 fill_sms_code
+
+                expect(page).to have_content("Your code is correct")
+                click_on "Sign initiative"
 
                 expect(page).to have_content("initiative has been successfully signed")
                 click_on "Back to initiative"
@@ -154,12 +160,15 @@ end
 
 def fill_phone_number
   fill_in :mobile_phone_mobile_phone_number, with: phone_number
-  click_on "Send me an SMS"
+  click_on "Receive code"
 end
 
 def fill_sms_code
-  fill_in :confirmation_verification_code, with: form_sms_code
-  click_on "Check code and continue"
+  within("[data-check-code]") do
+    form_sms_code.chars.each_with_index do |digit, idx|
+      fill_in "mobile_phone[verification_code][#{idx}]", with: digit
+    end
+  end
 end
 
 def signature_text(number)
