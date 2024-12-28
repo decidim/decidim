@@ -34,9 +34,6 @@ RSpec/NoExpectationExample:
     - decidim-proposals/spec/system/participatory_texts_spec.rb
     - decidim-participatory_processes/spec/system/participatory_processes_spec.rb
 
-Rails/CompactBlank:
-  Enabled: false
-
 Style/SafeNavigationChainLength:
   Enabled: false
 
