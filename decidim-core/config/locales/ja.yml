@@ -1291,7 +1291,7 @@ ja:
     notifications_settings:
       show:
         administrators: 管理者
-        allow_public_contact: 私をフォローしていないユーザーからでもダイレクトメッセージを送信できます
+        allow_public_contact: フォローしていない人からもダイレクトメッセージを受信する
         allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取ります。いつでもオフにできます。
         assigned_to_proposal: 誰かが私に提案の評価を割り当てた際に、メールを受信したいです
         direct_messages: ダイレクトメッセージを受信する
@@ -1310,7 +1310,7 @@ ja:
         own_activity: 誰かが提案にコメントしたり、私に言及したりした時など、自分自身の活動
         push_notifications: プッシュ通知
         push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で通知を許可する必要があります。
-        receive_notifications_about: 通知を受け取りたい
+        receive_notifications_about: 受け取りたい通知
         update_notifications_settings: 変更を保存
         valuators: 評価者
       update:
@@ -1330,6 +1330,15 @@ ja:
           main: コア
           spaces: スペース
           title: '%{organization} のデータファイルを開く'
+        moderations:
+          hidden_at: コンテンツが非表示になった日時
+          id: モデレーションの固有ID
+          report_count: 通報された回数
+          reportable_id: 報告対象の固有ID
+          reportable_type: 報告可能なタイプ
+          reported_content: 通報されたコンテンツ
+          reported_url: 通報されたリソースの url
+          reports: リソースが通報された理由のリスト
         user_groups:
           avatar_url: ユーザーグループのアバター
           badge: ユーザーグループのバッジ
@@ -1645,6 +1654,8 @@ ja:
       users_count: 参加者
     tags:
       filter_results_for_taxonomy: '%{resource} の検索結果'
+    taxonomies:
+      prompt: オプションを選択してください
     translation_bar:
       help_text: "<strong>警告:</strong>内容は自動的に翻訳されている場合があり、100%正確ではありません。"
       show_original: 元テキストを表示する
