@@ -58,9 +58,6 @@ Style/FileNull:
 RSpec/StringAsInstanceDoubleConstant:
   Enabled: false
 
-Lint/UselessDefined:
-  Enabled: false
-
 Rails/RootPathnameMethods:
   Enabled: false
 
