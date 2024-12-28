@@ -603,7 +603,7 @@ en:
       signatures:
         workflows:
           dummy_signature_handler:
-            description: Signature which takes personal information from user validates authorization and phone number
+            description: Signature which takes personal information from user, validates authorization and phone number
             name: Dummy Signature Handler
       states:
         accepted: Accepted
