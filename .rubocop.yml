@@ -46,9 +46,6 @@ Style/SafeNavigationChainLength:
 Style/SelectByRegexp:
   Enabled: false
 
-Style/RedundantInterpolationUnfreeze:
-  Enabled: false
-
 Style/FileNull:
   Enabled: false
 
