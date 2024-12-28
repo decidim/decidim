@@ -46,9 +46,6 @@ Style/SafeNavigationChainLength:
 Style/SelectByRegexp:
   Enabled: false
 
-Rails/WhereEquals:
-  Enabled: false
-
 Style/RedundantInterpolationUnfreeze:
   Enabled: false
 
