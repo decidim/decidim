@@ -42,7 +42,7 @@ class DummySignatureHandler < Decidim::Initiatives::SignatureHandler
 
   # You can (and should) also define validations on each attribute:
   #
-  validates :document_number, presence: true
+  validates :document_number, :scope_id, presence: true
 
   validates :document_type,
             inclusion: { in: :document_types },
