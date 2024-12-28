@@ -36,6 +36,3 @@ RSpec/NoExpectationExample:
 
 Style/SafeNavigationChainLength:
   Enabled: false
-
-Style/SelectByRegexp:
-  Enabled: false
