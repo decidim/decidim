@@ -12,7 +12,8 @@ module Decidim
     #
     # To define a direct signature method, you need to specify the `form`
     # attribute as a `Decidim::Form` that will be valid if the signature
-    # process is valid.
+    # process is valid. If no form is provided the application assumes that the
+    # form class is `Decidim::Initiatives::SignatureHandler`
     #
     # An example of declaration of a workflow:
     #
@@ -44,7 +45,6 @@ module Decidim
       attribute :sms_code_validator, String, default: nil
 
       validates :name, presence: true
-      validates :form, presence: true
 
       alias key name
 
