@@ -37,14 +37,8 @@ RSpec/NoExpectationExample:
 Rails/CompactBlank:
   Enabled: false
 
-Style/KeywordArgumentsMerging:
-  Enabled: false
-
 Style/SafeNavigationChainLength:
   Enabled: false
 
 Style/SelectByRegexp:
-  Enabled: false
-
-Lint/SafeNavigationConsistency:
   Enabled: false
