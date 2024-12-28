@@ -69,6 +69,3 @@ Rails/PluralizationGrammar:
 
 Lint/SafeNavigationConsistency:
   Enabled: false
-
-Lint/UselessAssignment:
-  Enabled: false
