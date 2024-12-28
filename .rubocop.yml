@@ -55,8 +55,5 @@ Style/FileNull:
 RSpec/StringAsInstanceDoubleConstant:
   Enabled: false
 
-Rails/RootPathnameMethods:
-  Enabled: false
-  
 Lint/SafeNavigationConsistency:
   Enabled: false
