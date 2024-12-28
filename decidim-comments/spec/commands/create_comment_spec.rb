@@ -73,9 +73,7 @@ module Decidim
           end
 
           it "calls content processors" do
-            user_parser = instance_double(Decidim::ContentParsers::UserParser, users: [])
-            user_group_parser = instance_double(Decidim::ContentParsers::UserGroupParser, groups: [])
-            parsed_metadata = { user: user_parser, user_group: user_group_parser }
+            parsed_metadata = { user: double(users: []), user_group: double(groups: []) }
             parser = instance_double(Decidim::ContentParsers::BaseParser, rewrite: "whatever", metadata: parsed_metadata)
             allow(Decidim::ContentProcessor).to receive(:parse).with(
               form.body,
