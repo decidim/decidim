@@ -674,6 +674,9 @@ ja:
     download_your_data:
       export:
         ready: 準備完了
+      help:
+        users:
+          notification_settings: このユーザーが選択した通知設定
       show:
         action: アクション
         download_data_description_1: あなたのアカウントで利用可能なすべてのダウンロードを見つけることができます。これらの.zipファイルは削除される2週間前に利用可能になります。
@@ -1291,11 +1294,11 @@ ja:
     notifications_settings:
       show:
         administrators: 管理者
-        allow_public_contact: フォローしていない人からもダイレクトメッセージを受信する
-        allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取ります。いつでもオフにできます。
+        allow_public_contact: フォローしていない人からのダイレクトメッセージを受信する
+        allow_push_notifications: プラットフォーム上にいないときに何が起きているかを知るためにプッシュ通知を受け取る。いつでもオフにできます。
         assigned_to_proposal: 誰かが私に提案の評価を割り当てた際に、メールを受信したいです
         direct_messages: ダイレクトメッセージを受信する
-        email_on_moderations: 私はモデレーションの報告がなされたたびに毎回メールを受け取りたいです。
+        email_on_moderations: モデレーションの報告がなされたたびに毎回メールを受け取りたい
         everything_followed: 自分がフォローしているすべて
         newsletter_notifications: ニュースレターを受け取る
         newsletters: ニュースレター
@@ -1307,7 +1310,7 @@ ja:
           real_time: リアルタイム
           weekly: 週1回
         notifications_sending_frequency: 通知メールを受信する頻度は？
-        own_activity: 誰かが提案にコメントしたり、私に言及したりした時など、自分自身の活動
+        own_activity: 誰かが私の提案にコメントしたり、私に言及したりした時など、自分自身の活動
         push_notifications: プッシュ通知
         push_notifications_reminder: プラットフォームから通知を受け取るには、まずブラウザの設定で通知を許可する必要があります。
         receive_notifications_about: 受け取りたい通知
