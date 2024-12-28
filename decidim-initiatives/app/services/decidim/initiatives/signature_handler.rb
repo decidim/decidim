@@ -182,6 +182,10 @@ module Decidim
         "decidim/initiatives/initiative_signatures/#{handler_name.sub!(/_handler$/, "")}/form"
       end
 
+      def self.requires_extra_attributes?
+        (new.form_attributes - ["handler_name"]).present?
+      end
+
       private
 
       # To be defined. It is expected to validate that no other user has voted
