@@ -231,7 +231,7 @@ ja:
           sub_taxonomies_label: サブカテゴリ
           taxonomies_label: カテゴリ
         home_header:
-          global_status: グローバル実行状況
+          global_status: 全体の実行状況
         no_results: プロジェクトがありません
         search:
           search: アクションを検索
