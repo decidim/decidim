@@ -1310,7 +1310,7 @@ ja:
       actions:
         expand: 展開
         hidden: 非表示
-        hide: 非表示
+        hide: 非表示にする
         not_hidden: 表示
         title: アクション
         unhide: 非表示解除
