@@ -46,8 +46,5 @@ Style/SafeNavigationChainLength:
 Style/SelectByRegexp:
   Enabled: false
 
-RSpec/StringAsInstanceDoubleConstant:
-  Enabled: false
-
 Lint/SafeNavigationConsistency:
   Enabled: false
