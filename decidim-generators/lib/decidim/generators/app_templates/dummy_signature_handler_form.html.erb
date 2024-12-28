@@ -1,0 +1,51 @@
+<% content_for :title do %>
+  <%= t(
+        "decidim.verifications.authorizations.new.authorize_with",
+        authorizer: t("name", scope: "decidim.initiatives.signatures.workflows.dummy_signature_handler")
+      ) %>
+<% end %>
+
+<% content_for :help do %>
+  <div class="form__wrapper">
+    <p>
+      <%= t("description", scope: "decidim.initiatives.signatures.workflows.dummy_signature_handler") %>
+    </p>
+  </div>
+<% end %>
+
+<div class="form__wrapper">
+  <%= form.hidden_field :handler_name %>
+
+  <div class="row column">
+    <%= form.text_field :name_and_surname %>
+  </div>
+
+  <div class="row column">
+    <%= form.select(
+          :document_type,
+          handler.document_types_for_select,
+          prompt: true
+        ) %>
+    <%= form.text_field :document_number %>
+  </div>
+
+  <div class="row column">
+    <%= form.select(
+          :gender,
+          handler.genders_for_select,
+          prompt: true
+        ) %>
+  </div>
+
+  <div class="row column">
+    <%= form.text_field :postal_code %>
+  </div>
+
+  <div class="row column">
+    <%= form.date_field :date_of_birth %>
+  </div>
+
+  <div class="row column">
+    <%= scopes_select_field(form, :scope_id) %>
+  </div>
+</div>

@@ -387,6 +387,15 @@ module Decidim
         copy_file "budgets_initializer.rb", "config/initializers/decidim_budgets.rb"
       end
 
+      def initiative_signatures_workflows
+        return unless options[:demo]
+
+        copy_file "dummy_signature_handler.rb", "app/services/dummy_signature_handler.rb"
+        copy_file "dummy_signature_handler_form.html.erb", "app/views/decidim/initiatives/initiative_signatures/dummy_signature/_form.html.erb"
+        copy_file "dummy_sms_mobile_phone_validator.rb", "app/services/dummy_sms_mobile_phone_validator.rb"
+        copy_file "initiatives_initializer.rb", "config/initializers/decidim_initiatives.rb"
+      end
+
       def ai_toolkit
         return unless options[:demo]
 
