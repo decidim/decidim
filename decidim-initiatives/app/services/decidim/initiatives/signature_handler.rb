@@ -121,7 +121,7 @@ module Decidim
       # The signature_scope_id can be defined in the signature workflow to be
       # used by the author scope feature
       def signature_scope_id
-        nil
+        scope.id
       end
 
       def authorization_handler
