@@ -5,7 +5,7 @@ require "spec_helper"
 describe "Initiative signing" do
   let(:organization) { create(:organization, available_authorizations: authorizations) }
   let(:initiative) { create(:initiative, organization:, scoped_type: create(:initiatives_type_scope, type: initiatives_type)) }
-  let(:initiatives_type) { create(:initiatives_type, :with_user_extra_fields_collection, :with_sms_code_validation, organization:) }
+  let(:initiatives_type) { create(:initiatives_type, :with_sms_code_validation_and_user_extra_fields_collection, organization:) }
   let(:confirmed_user) { create(:user, :confirmed, organization:) }
   let(:authorizations) { ["sms"] }
   let(:document_number) { "0123345678A" }
