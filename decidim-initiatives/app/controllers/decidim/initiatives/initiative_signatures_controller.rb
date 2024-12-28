@@ -200,7 +200,7 @@ module Decidim
       end
 
       def fill_personal_data_step?
-        signature_workflow_manifest.form.present?
+        signature_form_class.requires_extra_attributes?
       end
 
       def authorize_wizard_step
