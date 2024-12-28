@@ -57,9 +57,6 @@ RSpec/StringAsInstanceDoubleConstant:
 
 Rails/RootPathnameMethods:
   Enabled: false
-
-Rails/PluralizationGrammar:
-  Enabled: false
-
+  
 Lint/SafeNavigationConsistency:
   Enabled: false
