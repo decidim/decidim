@@ -42,4 +42,5 @@ Style/SafeNavigationChainLength:
     - decidim-core/app/models/decidim/attachment.rb
     - decidim-proposals/app/cells/decidim/proposals/proposals_picker_cell.rb
     - decidim-proposals/spec/types/integration_schema_spec.rb
+    - decidim-admin/app/views/decidim/admin/taxonomy_filters/new.html.erb
 
