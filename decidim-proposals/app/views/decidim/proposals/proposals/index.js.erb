@@ -3,3 +3,15 @@ var $orderFilterInput = $('.order_filter');
 
 $proposals.html('<%= j(render partial: "proposals").strip.html_safe %>');
 $orderFilterInput.val('<%= order %>');
+
+<% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
+  var $map = $("#map");
+  var controller = $map.data("map-controller");
+  if (controller) {
+    var markerData = JSON.parse('<%= escape_javascript cell("decidim/map", @proposals, metadata_card: "decidim/proposals/proposal_metadata").geocoded_data.to_json.html_safe %>');
+    controller.clearMarkers();
+    if (markerData.length > 0 ) {
+      controller.addMarkers(markerData);
+    }
+  }
+<% end %>

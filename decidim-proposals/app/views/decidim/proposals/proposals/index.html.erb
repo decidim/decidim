@@ -35,7 +35,7 @@
 
   <% if Decidim::Map.available?(:geocoding, :dynamic) && component_settings.geocoding_enabled? %>
     <div class="proposal-list__map">
-      <%= cell "decidim/map", @all_geocoded_proposals, metadata_card: "decidim/proposals/proposal_metadata" %>
+      <%= cell "decidim/map", @proposals, metadata_card: "decidim/proposals/proposal_metadata" %>
     </div>
   <% end %>
 
