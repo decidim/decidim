@@ -3,13 +3,16 @@
 module Decidim
   module Blogs
     class PublishPostJob < ApplicationJob
-      def perform(post_id, published_date)
+      queue_as :default
+
+      def perform(post_id, current_user, published_date)
         resource = Decidim::Blogs::Post.find(post_id)
 
         return unless resource.published?
         return unless resource.published_at == published_date
 
-        Decidim.traceability.perform_action!(:publish, resource, resource.author, visibility: "all") do
+        Decidim.traceability.perform_action!(:publish, resource, current_user, visibility: "all") do
+          resource.publish!
           resource
         end
 

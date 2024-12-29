@@ -15,8 +15,10 @@ module Decidim
         def extra_params = { visibility: "all" }
 
         def run_after_hooks
+          resource.reload
           Decidim::Blogs::PublishPostJob.set(wait_until: resource.published_at).perform_later(
             resource.id,
+            current_user,
             resource.published_at
           )
         end
