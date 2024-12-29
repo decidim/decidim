@@ -15,11 +15,9 @@ module Decidim
         def extra_params = { visibility: "all" }
 
         def run_after_hooks
-          Decidim::EventsManager.publish(
-            event: "decidim.events.blogs.post_created",
-            event_class: Decidim::Blogs::CreatePostEvent,
-            resource:,
-            followers: resource.participatory_space.followers
+          Decidim::Blogs::PublishPostJob.set(wait_until: resource.published_at).perform_later(
+            resource.id,
+            resource.published_at
           )
         end
       end
