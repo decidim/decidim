@@ -8,7 +8,6 @@ module Decidim
       module ApplicationHelper
         include PaginateHelper
         include Decidim::MapHelper
-        include Decidim::Meetings::MapHelper
         include Decidim::Meetings::MeetingsHelper
         include Decidim::Comments::CommentsHelper
         include Decidim::SanitizeHelper

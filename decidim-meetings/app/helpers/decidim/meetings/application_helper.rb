@@ -7,7 +7,6 @@ module Decidim
     module ApplicationHelper
       include PaginateHelper
       include Decidim::MapHelper
-      include Decidim::Meetings::MapHelper
       include Decidim::Comments::CommentsHelper
       include Decidim::SanitizeHelper
       include Decidim::CheckBoxesTreeHelper

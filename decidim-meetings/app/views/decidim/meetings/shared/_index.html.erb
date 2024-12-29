@@ -10,7 +10,7 @@
 <%= render layout: "layouts/decidim/shared/layout_two_col" do %>
   <% if display_map %>
     <div class="meeting-list__map">
-      <%= cell "decidim/meetings/meetings_map", search.result %>
+      <%= cell "decidim/map", search.result, metadata_card: "decidim/meetings/meeting_card_metadata" %>
     </div>
   <% end %>
 
