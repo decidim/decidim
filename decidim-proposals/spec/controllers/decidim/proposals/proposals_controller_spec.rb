@@ -52,7 +52,7 @@ module Decidim
             expect(subject).to render_template(:index)
 
             expect(assigns(:proposals).count).to eq 12
-            expect(assigns(:all_geocoded_proposals)).to match_array(geocoded_proposals)
+            expect(assigns(:proposals)).to match_array(geocoded_proposals + _non_geocoded_proposals)
           end
         end
 
