@@ -732,13 +732,27 @@ eu:
           resource_type: Jakinarazpena zein baliabide motarekin dago lotuta
           updated_at: Zein datatan eta zein ordutan eguneratu zen jakinarazpena azken aldiz
         user_groups:
+          document_number: Erabiltzaile-talde honen dokumentu-zenbakia
+          phone: Erabiltzaile-talde honen telefono-zenbakia
           verified_at: Zein datatan eta zein ordutan egiaztatu zen erabiltzaile-talde hori
         users:
           confirmation_sent_at: Zein datatan eta zein ordutan bidali zen konfirmazioa
           confirmed_at: Zein datatan eta zein ordutan konfirmatu zen erabiltzaile hau
           created_at: Zein datatan eta zein ordutan sortu zen erabiltzaile hau
           current_sign_in_at: Gaur egungo loginaren hasiera-data eta -ordua
+          deleted_at: Zein datatan eta zein ordutan ezabatu zen erabiltzaile hau
+          invitation_accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapena
+          invitation_created_at: Zein datatan eta zein ordutan gonbidatu zen erabiltzaile hau
+          invitation_sent_at: Zein datatan eta zein ordutan bidali zen gonbidapena
+          invitations_count: Erabiltzaile honi bidalitako gonbidapen kopurua
           last_sign_in_at: Azken saioaren hasiera-data eta -ordua
+          newsletter_notifications_at: Zein datatan eta zein ordutan jaso zuen erabiltzaile honek buletin bat azken aldiz
+          officialized_at: Zein datatan eta zein ordutan ofizializatu zen erabiltzaile hau
+          organization: Zein erakundetakoa den erabiltzaile hau
+          remember_created_at: Zein egun eta zein ordutan aukeratu zuten erabiltzailea gogoratzeko
+          reset_password_sent_at: Zein datatan eta zein ordutan bidali zen pasahitza berriro
+          sign_in_count: Zenbat aldiz hasi duen saioa erabiltzaile honek
+          updated_at: Zein datatan eta zein ordutan eguneratu zen erabiltzaile hau azken aldiz
       show:
         action: Ekintza
         download: Deskargatu fitxategia
