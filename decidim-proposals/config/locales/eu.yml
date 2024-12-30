@@ -449,11 +449,13 @@ eu:
           attachments: Proposamen honek duen iruzkin kopurua
           author: Proposamen honen egilearen data
           body: Proposamenaren gorputza
+          coauthorships_count: Zenbat egilekide ordezkatzen dituen proposamenak
           comments: Proposamen honek duen boto kopurua
           component: Proposamena osagai honen barruan dago
           cost: Proposamen honen kostua, guztira
           created_at: Zein datatan sortu zen proposamen hau
           endorsements: Proposamen honek duen onarpen ("atsegin dut") kopurua
+          follows_count: Proposamen honek duen jarraitzaile kopurua
           id: Proposamenaren identifikatzaile bakarra
           is_amend: Proposamen honek beste proposamen bat dakarren
           latitude: Proposamenaren latitudea, baldin eta kokagune fisikoa badu
@@ -467,6 +469,7 @@ eu:
           state: Proposamen honen egoera (adibidez, "Onartua")
           taxonomies: Proposamen honi dagozkion taxonomiak
           title: Proposamenaren izenburua
+          updated_at: Proposamenaren azken eguneraketaren data
           url: Proposamen hau URL honetan aurki daiteke
           votes: Proposamen honek duen boto kopurua
           withdrawn: Proposamen hau bertan behera geratu den
@@ -845,6 +848,8 @@ eu:
       exit_modal:
         cancel: Ezeztatu
         exit: Jarraitu
+        message: Proposamen ezberdinen artean %{number} boto gehiago eman behar dizkiezu proposamenei zure botoak kontuan har daitezen.
+        title: Gogoratu botoen %{number} geratzen zaizula
       forms:
         errors:
           device_not_supported: Zure gailuak ez ditu kokapen-zerbitzuak onartzen. Mesedez, sartu helbidea eskuz.
@@ -1001,9 +1006,13 @@ eu:
             other: Botoak
         voting_rules:
           already_vote:
+            description: Gogoratu oraindik % {number} euskarri eman behar dituzula proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
             see_other_proposals: Ikusi beste proposamen batzuk
+            title: '% {number} euskarri geratzen zaizkizu'
           can_accumulate_votes_beyond_threshold:
             description: Proposamen bakoitzak %{limit} boto baino gehiago jaso dezake
+          minimum_votes_per_user:
+            description: Gutxienez % {boto} euskarri banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
           threshold_per_proposal:
