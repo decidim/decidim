@@ -730,6 +730,15 @@ eu:
           extra: Jakiarazpen honen informazio osagarria
           id: Jakinarazpen honen identifikatzaile bakarra
           resource_type: Jakinarazpena zein baliabide motarekin dago lotuta
+          updated_at: Zein datatan eta zein ordutan eguneratu zen jakinarazpena azken aldiz
+        user_groups:
+          verified_at: Zein datatan eta zein ordutan egiaztatu zen erabiltzaile-talde hori
+        users:
+          confirmation_sent_at: Zein datatan eta zein ordutan bidali zen konfirmazioa
+          confirmed_at: Zein datatan eta zein ordutan konfirmatu zen erabiltzaile hau
+          created_at: Zein datatan eta zein ordutan sortu zen erabiltzaile hau
+          current_sign_in_at: Gaur egungo loginaren hasiera-data eta -ordua
+          last_sign_in_at: Azken saioaren hasiera-data eta -ordua
       show:
         action: Ekintza
         download: Deskargatu fitxategia
