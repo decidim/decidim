@@ -451,6 +451,8 @@ eu:
           body: Proposamenaren gorputza
           comments: Proposamen honek duen boto kopurua
           component: Proposamena osagai honen barruan dago
+          cost: Proposamen honen kostua, guztira
+          created_at: Zein datatan sortu zen proposamen hau
           endorsements: Proposamen honek duen onarpen ("atsegin dut") kopurua
           id: Proposamenaren identifikatzaile bakarra
           is_amend: Proposamen honek beste proposamen bat dakarren
