@@ -733,25 +733,44 @@ eu:
           updated_at: Zein datatan eta zein ordutan eguneratu zen jakinarazpena azken aldiz
         user_groups:
           document_number: Erabiltzaile-talde honen dokumentu-zenbakia
+          id: Erabiltzaile-talde honen identifikatzaile bakarra
+          name: Erabiltzaile-talde honen izena
           phone: Erabiltzaile-talde honen telefono-zenbakia
           verified_at: Zein datatan eta zein ordutan egiaztatu zen erabiltzaile-talde hori
         users:
+          about: Erabiltzaile honen biografia
+          admin: Erabiltzaile hau administratzailea bada
           confirmation_sent_at: Zein datatan eta zein ordutan bidali zen konfirmazioa
           confirmed_at: Zein datatan eta zein ordutan konfirmatu zen erabiltzaile hau
           created_at: Zein datatan eta zein ordutan sortu zen erabiltzaile hau
           current_sign_in_at: Gaur egungo loginaren hasiera-data eta -ordua
+          current_sign_in_ip: Gaur egungo loginaren IP helbidea
+          delete_reason: Erabiltzaile hau ezabatzeko arrazoia
           deleted_at: Zein datatan eta zein ordutan ezabatu zen erabiltzaile hau
+          email: Erabiltzaile honen helbide elektronikoa
+          id: Erabiltzaile honen identifikatzaile bakarra
           invitation_accepted_at: Zein datatan eta zein ordutan onartu zen gonbidapena
           invitation_created_at: Zein datatan eta zein ordutan gonbidatu zen erabiltzaile hau
           invitation_sent_at: Zein datatan eta zein ordutan bidali zen gonbidapena
           invitations_count: Erabiltzaile honi bidalitako gonbidapen kopurua
+          invited_by: Erabiltzaile hau gonbidatu duen erabiltzailea
           last_sign_in_at: Azken saioaren hasiera-data eta -ordua
+          last_sign_in_ip: Azken loginaren IP helbidea
+          locale: Erabiltzaile honek aukeratu duen lokala (hizkuntza)
+          managed: Erabiltzaile hau beste erabiltzaile batek kudeatzen badu
+          name: Erabiltzaile honen izena
           newsletter_notifications_at: Zein datatan eta zein ordutan jaso zuen erabiltzaile honek buletin bat azken aldiz
+          nickname: Erabiltzaile honen ezizena
+          notification_settings: Erabiltzaile honek aukeratu duen jakinarazpen-konfigurazioa
+          notifications_sending_frequency: Erabiltzaile honek jasotzen dituen jakinarazpenen maiztasuna
+          officialized_as: Ofizializazioaren izena (Kontseilaritza, Alkatetza, etab.)
           officialized_at: Zein datatan eta zein ordutan ofizializatu zen erabiltzaile hau
           organization: Zein erakundetakoa den erabiltzaile hau
+          personal_url: Erabiltzaile honen URL pertsonala
           remember_created_at: Zein egun eta zein ordutan aukeratu zuten erabiltzailea gogoratzeko
           reset_password_sent_at: Zein datatan eta zein ordutan bidali zen pasahitza berriro
           sign_in_count: Zenbat aldiz hasi duen saioa erabiltzaile honek
+          unconfirmed_email: Erabiltzaile honek oraindik baieztatu ez duen helbide elektronikoa
           updated_at: Zein datatan eta zein ordutan eguneratu zen erabiltzaile hau azken aldiz
       show:
         action: Ekintza
@@ -763,6 +782,8 @@ eu:
         expiration: Iraungitze-data
         expired: Dagoeneko iraungita
         explanation:
+          body_1: Fitxategi hauek zure jardueratik plataforma honetan esportatutako datuak dira, adibidez, proposamenak edo iruzkinak. Datu gordinak ematen dituzte, egituratuak, analisirako, ikerketarako edo beste tresna batzuekin integratzeko erabil daitezkeenak
+          body_2: Fitxategi hauek CSV formatuan daude (Comma-Separated Values). Fitxategi formatu hori oso erabilia da, eta hainbat software-aplikazioren bidez ireki eta prozesa daiteke, kalkulu-orriak, testu-editoreak eta datuak aztertzeko tresnak barne.
           title: Zer dira artxibo hauek?
         files_to_download: Deskargatu beharreko artxiboak
         request_data: Eskaera
