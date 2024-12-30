@@ -28,6 +28,9 @@ eu:
     download_your_data:
       help:
         answers:
+          answer: Galderaren erantzuna
+          question: Erantzun zen galdera
+          questionnaire: Erantzun zen galdetegia
           user: Inkesta erantzun zuen erabiltzailea
       show:
         answers: Esportatu erantzunak
