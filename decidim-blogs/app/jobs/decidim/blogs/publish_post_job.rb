@@ -12,7 +12,7 @@ module Decidim
         return unless resource.published_at == published_date
 
         Decidim.traceability.perform_action!(:publish, resource, current_user, visibility: "all") do
-          resource.publish!
+          # resource.publish!
           resource
         end
 
