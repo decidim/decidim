@@ -1017,6 +1017,7 @@ eu:
             description: '%{limit} proposamen sortu ditzakezu.'
           threshold_per_proposal:
             description: Proposamenak baliagarriak izan daitezen, %{limit} boto izatera iritsi behar da.
+          title: Parte hartzeko arauak
           vote_limit:
             description: '%{limit} proposameni eman ahal diozu babesa.'
             votes: Gainerako % {kopurua} boto
