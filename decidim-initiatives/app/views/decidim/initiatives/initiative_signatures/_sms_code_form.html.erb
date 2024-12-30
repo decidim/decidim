@@ -9,9 +9,13 @@
     </div>
   </label>
   <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_correct"), callout_class: "secondary code-correct-announcement hidden") %>
-  <%= cell("decidim/announcement", t("decidim.initiatives.initiative_signatures.sms_phone_number.your_code_is_wrong", new_code_path: sms_phone_number_initiative_signatures_path), callout_class: "alert code-wrong-announcement hidden") %>
-  <button type="submit" class="button button__lg button__secondary" disabled data-submit-verification-code>
+
+  <button type="submit" class="button button__lg button__secondary hidden" disabled data-submit-verification-code>
     <span><%= t("decidim.initiatives.initiative_signatures.sms_phone_number.continue") %></span>
     <%= icon "arrow-right-line", class: "fill-current" %>
   </button>
+</div>
+
+<div class="editor-content" data-resend-code>
+  <%= t("decidim.initiatives.initiative_signatures.sms_phone_number.resend_code_html", new_code_path: sms_phone_number_initiative_signatures_path) %>
 </div>
