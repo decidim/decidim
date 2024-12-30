@@ -121,7 +121,7 @@ module Decidim
       # The signature_scope_id can be defined in the signature workflow to be
       # used by the author scope feature
       def signature_scope_id
-        nil
+        scope.id
       end
 
       def authorization_handler
@@ -180,6 +180,10 @@ module Decidim
       # Returns a String.
       def to_partial_path
         "decidim/initiatives/initiative_signatures/#{handler_name.sub!(/_handler$/, "")}/form"
+      end
+
+      def self.requires_extra_attributes?
+        (new.form_attributes - ["handler_name"]).present?
       end
 
       private

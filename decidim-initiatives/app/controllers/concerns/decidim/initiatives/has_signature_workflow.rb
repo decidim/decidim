@@ -33,7 +33,7 @@ module Decidim
         def signature_has_steps?
           return unless current_initiative
 
-          signature_workflow_manifest.sms_verification || signature_workflow_manifest.form.present?
+          signature_workflow_manifest.sms_verification || signature_form_class.requires_extra_attributes?
         end
       end
     end
