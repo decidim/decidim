@@ -19,9 +19,9 @@
     var $remainingVotesCount = $('#remaining-votes-count');
     var $notVotedButtons = $('.card__button.button').not('.success');
 
-    if(!$remainingVotesCount[0]) { return; }
-
-    morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');
+    if($remainingVotesCount[0]) {
+      morphdom($remainingVotesCount[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_count").strip.html_safe %>');
+    }
 
     <% if remaining_votes_count_for(current_user) == 0 %>
       $notVotedButtons.attr('disabled', true);
@@ -35,8 +35,28 @@
 
 <% if show_voting_rules? %>
   (function() {
+    var $remainingVotesNotification = $('#remaining-votes-notification');
+    var $exitProposalModal = $('#exit-proposal-notification');
     var $votingRules = $('.voting-rules');
-    if(!$votingRules[0]) { return; }
-    morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
+    var $votingRulesNode = $('.item_voting_rules')
+
+    if($votingRules[0]) {
+      morphdom($votingRules[0], '<%= j(render partial: "decidim/proposals/proposals/voting_rules").strip.html_safe %>');
+    }
+
+    <% if remaining_minimum_votes_count_for(current_user).zero? %>
+      $votingRulesNode.prepend(`<%= j(render partial: "decidim/proposals/proposals/notification_alert_box").strip.html_safe %>`)
+
+    <% end %>
+    if ($exitProposalModal[0]) {
+      morphdom($exitProposalModal[0], '<%= j(render partial: "decidim/proposals/proposals/exit_modal").strip.html_safe %>')
+      if(window.Decidim.currentDialogs["exit-proposal-notification"] && window.Decidim.currentDialogs["exit-proposal-notification"].dialog) {
+        window.Decidim.currentDialogs["exit-proposal-notification"].dialog.innerHTML = $exitProposalModal[0].innerHTML;
+      }
+    }
+
+    if ($remainingVotesNotification[0]) {
+      morphdom($remainingVotesNotification[0], '<%= j(render partial: "decidim/proposals/proposals/remaining_votes_notification").strip.html_safe %>')
+    }
   }());
 <% end %>
