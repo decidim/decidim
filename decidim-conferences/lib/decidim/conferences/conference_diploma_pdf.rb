@@ -88,11 +88,9 @@ module Decidim
         ]
 
         text = decidim_sanitize(text, strip_tags: true)
-
-        layouter = HexaPDF::Layout::TextLayouter.new(align: :center)
         text_fragments = create_text_fragments(text, texts_to_bold)
 
-        result = layouter.fit(text_fragments, 710, 30)
+        result = HexaPDF::Layout::TextLayouter.new.fit(text_fragments, 710, 30)
 
         x_width = (page_width - result.lines.first.width) / 2
 
