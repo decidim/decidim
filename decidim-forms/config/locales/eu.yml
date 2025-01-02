@@ -29,6 +29,7 @@ eu:
       help:
         answers:
           answer: Galderaren erantzuna
+          id: Erantzunaren identifikatzaile bakarra
           question: Erantzun zen galdera
           questionnaire: Erantzun zen galdetegia
           user: Inkesta erantzun zuen erabiltzailea
