@@ -6,8 +6,6 @@ module Decidim
   module Surveys
     module Admin
       describe SurveysController do
-        routes { Decidim::Surveys::AdminEngine.routes }
-
         let(:component) { survey.component }
         let(:survey) { create(:survey) }
         let(:user) { create(:user, :confirmed, :admin, organization: component.organization) }

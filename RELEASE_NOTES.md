@@ -230,3 +230,48 @@ query { decidim { version } }
 This no longer returns the running Decidim version by default and instead it will result to `null` being reported as the version number.
 
 If you would like to re-enable exposing the Decidim version number through the GraphQL API, you may do so by setting the `DECIDIM_API_DISCLOSE_SYSTEM_VERSION` environment variable to `true`. However, this is highly discouraged but may be required for some automation or integrations.
+
+### 5.2. Changes in the routing
+
+As we were upgrading the application to Rails 7.1, we have noticed there are some changes in the routing system that led us to change the way participatory space mounting points are being used by Decidim.
+
+Previously, the participatory space routes were mounted like follows in either the Core or Admin.
+
+```ruby
+  Decidim.participatory_space_manifests.each do |manifest|
+    mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
+  end
+```
+
+As of [\#13294](https://github.com/decidim/decidim/pull/13294), we have changed the way of mounting. Now, each one of the Participatory Spaces are being installed specifically from their own modules like follows:
+
+```ruby
+  initializer "decidim_assemblies.mount_routes" do
+    Decidim::Core::Engine.routes do
+      mount Decidim::Assemblies::Engine, at: "/", as: "decidim_assemblies"
+    end
+  end
+```
+
+As a developer or as a user, you should not feel the difference of this change, however, we would like to emphasize this change, as the upgrade may impact other community libraries.
+This particular change in the way we mount things, applies also for `Comments` and `Verifications` modules.
+
+You can read more about this change on PR [#13294](https://github.com/decidim/decidim/pull/13294).
+
+### 5.3. [[TITLE OF THE CHANGE]]
+
+In order to [[REASONING (e.g. improve the maintenance of the code base)]] we have changed...
+
+If you have used code as such:
+
+```ruby
+# Explain the usage of the API as it was in the previous version
+result = 1 + 1 if before
+```
+
+You need to change it to:
+
+```ruby
+# Explain the usage of the API as it is in the new version
+result = 1 + 1 if after
+```
