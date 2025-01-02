@@ -100,8 +100,6 @@ es-PY:
             'false': No aceptada
             'true': Aceptada
         meetings:
-          category_id_eq:
-            label: Categoría
           closed_at_present:
             label: Estado
             values:
@@ -112,8 +110,8 @@ es-PY:
             values:
               'false': Pasados
               'true': Próximos
-          scope_id_eq:
-            label: Ámbito
+          taxonomies_part_of_contains:
+            label: Taxonomía
           with_any_origin:
             label: Origen
             values:
@@ -155,22 +153,31 @@ es-PY:
         settings:
           global:
             announcement: Anuncio
+            clear_all: Limpiar todo
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
             creation_enabled_for_participants: Las participantes pueden crear encuentros
             default_registration_terms: Términos de registro predeterminados
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio de participación antes de utilizar esta configuración.
             enable_pads_creation: Habilitar la creación de pads
             maps_enabled: Mapas habilitados
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             registration_code_enabled: Código de inscripción activado
             resources_permissions_enabled: Los permisos sobre acciones pueden establecerse para cada encuentro
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
             terms_and_conditions_url_for_meeting_creators: URL de términos y condiciones para las creadoras de encuentros
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             creation_enabled_for_participants: Habilitar la creación de encuentros por parte de las participantes
             creation_enabled_for_user_groups: Habilitar la creación de encuentros por parte de los grupos de usuarias
+    download_your_data:
+      show:
+        meeting_comments: Exportar los comentarios en los encuentros
+        meetings: Exportar los encuentros
     events:
       meetings:
         meeting_closed:
@@ -238,8 +245,8 @@ es-PY:
         attachment_collections: Carpetas
         attachments: Archivos adjuntos
         close: Cerrar
-        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
-        destroy: Borrar
+        confirm_delete_meeting: '¿Seguro que quiere eliminar este encuentro?'
+        deleted_meetings_info: Los encuentros eliminados se pueden restaurar desde papelera.
         edit: Editar
         invalid_destroy:
           proposals_count:
@@ -250,6 +257,7 @@ es-PY:
         preview: Previsualizar
         registrations: Inscripciones
         title: Acciones
+        view_deleted_meetings: Ver los encuentros eliminados
       admin:
         agenda:
           agenda_item:
@@ -314,15 +322,11 @@ es-PY:
           close:
             invalid: Se ha producido un error al cerrar este encuentro.
             success: Encuentro cerrado con éxito.
+          component:
+            unlink: Suprimir el enlace
           create:
             invalid: Se ha producido un error al crear este encuentro.
             success: Encuentro creado correctamente. Ten en cuenta que aún no se ha publicado, deberás publicarlo manualmente.
-          destroy:
-            invalid:
-              proposals_count:
-                one: No se puede eliminar el encuentro porque tiene %{count} propuesta relacionada.
-                other: No se puede eliminar el encuentro porque tiene %{count} propuestas relacionadas.
-            success: El encuentro se ha eliminado correctamente
           edit:
             title: Editar encuentro
             update: Actualizar
@@ -338,7 +342,20 @@ es-PY:
             select_a_registration_type: Por favor, seleccione un tipo de inscripción
             select_an_iframe_access_level: Por favor, seleccione un nivel de acceso iframe
           index:
+            linked_meeting_warning_html: Esta reunión debe ser editada desde <br><a href="%{href}">%{name}</a>
             title: Encuentros
+          linked_spaces:
+            assign: Asignar
+            link_a_space: Vincular un espacio
+            private_meeting_warning: Los espacios enlazados no se aplicarán si la reunión es privada y no transparente.
+            private_space_warning: Los espacios enlazados no se aplicarán cuando la reunión pertenezca a un espacio privado no transparente.
+            select: Selecciona un espacio
+            table:
+              actions: Acciones
+              component: Espacios vinculados
+            title: Espacios vinculados
+          manage_trash:
+            title: Encuentros eliminados
           new:
             create: Crear
             title: Crear encuentro
@@ -407,6 +424,8 @@ es-PY:
           create: "%{user_name} creó el encuentro %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} eliminó el encuentro %{resource_name} en el espacio %{space_name}"
           export_registrations: "%{user_name} exportó los registros del encuentro %{resource_name} en el espacio %{space_name}"
+          restore: "%{user_name} restauró el encuentro %{resource_name} en el espacio %{space_name}"
+          soft_delete: "%{user_name} ha movido el encuentro %{resource_name} desde %{space_name} a la papelera"
           update: "%{user_name} actualizó el encuentro %{resource_name} en el espacio %{space_name}"
           value_types:
             organizer_presenter:
@@ -414,8 +433,6 @@ es-PY:
         questionnaire:
           update: "%{user_name} ha actualizado el cuestionario del encuentro %{meeting_name}"
       application_helper:
-        filter_category_values:
-          all: Todas
         filter_meeting_space_values:
           all: Todos
       calendar:
@@ -525,7 +542,6 @@ es-PY:
           location_hints_help: 'Consejos de ubicación: información adicional. Ejemplo: la planta del edificio si se trata de un encuentro presencial, o la contraseña de la sala si se trata de un encuentro online con acceso restringido.'
           online_meeting_url_help: 'Enlace: permitir a las participantes conectarse directamente a tu encuentro'
           registration_url_help: 'Enlace: permitir a las participantes ir al servicio externo que estás utilizando para las inscripciones'
-          select_a_category: Por favor, selecciona una categoría
           select_a_meeting_type: Por favor, selecciona un tipo de encuentro
           select_a_registration_type: Por favor, selecciona un tipo de inscripción
           select_an_iframe_access_level: Por favor, selecciona un nivel de acceso iframe
@@ -536,9 +552,9 @@ es-PY:
           see_all_withdrawn: Ver todos los encuentros retirados
           text_banner: Estás viendo la lista de encuentros retirados por sus autores. %{go_back_link}.
         meeting:
-          close_meeting: Cerrar el encuentro
+          close_meeting: Cerrar
           edit_close_meeting: Editar el informe del encuentro
-          edit_meeting: Editar el encuentro
+          edit_meeting: Editar
           join_meeting: Unirse al encuentro
           reply_poll: Responder consulta
           view_poll: Ver consulta
@@ -565,6 +581,7 @@ es-PY:
           micro_camera_permissions_warning: Cuando hagas clic en el botón de abajo, se te pedirán permisos de micrófono y/o cámara y te unirás a la videoconferencia
           no_slots_available: No hay espacio disponible
           organizations: Organizaciones que han asistido
+          redirect_notice: Este encuentro pertenece a otro espacio de participación, por lo que se te ha trasladado a %{current_space_name}.<br>Si lo prefieres, puedes volver a <a href="%{previous_space_url}">%{previous_space_name}</a>.
           registration_code_help_text: Tu codigo de registro
           registration_state:
             validated: Validado
@@ -575,7 +592,7 @@ es-PY:
           visit_finished: Ver encuentro pasado
           withdraw_btn_hint: Puedes retirar tu encuentro si cambias de opinión. El encuentro no será eliminado, aparecerá en la lista de encuentros retirados.
           withdraw_confirmation_html: '¿Seguro que quieres retirar este encuentro?<br><br><strong>¡Esta acción no se puede cancelar!</strong>'
-          withdraw_meeting: Retirar encuentro
+          withdraw_meeting: Retirar
         update:
           invalid: Se ha producido un error al actualizar este encuentro.
           success: Has actualizado el encuentro con éxito.
@@ -598,6 +615,7 @@ es-PY:
             map: Mapa
             official_meeting: Encuentro oficial
             start_time: Fecha de inicio
+            taxonomies: Taxonomías
             title: Título
       polls:
         answers:
@@ -674,6 +692,45 @@ es-PY:
         description: Número de reuniones creadas
         object: reuniones
         title: Reuniones
+    open_data:
+      help:
+        meeting_comments:
+          alignment: Si este comentario fue un favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
+        meetings:
+          address: La dirección del encuentro en caso de que este sea presencial y tenga una ubicación física
+          attachments: El número de archivos adjuntos en este encuentro
+          attendees: El número de personas que asistieron a este encuentro
+          author: Los datos de autoría de este encuentro
+          comments: El número de comentarios en este encuentro
+          component: El componente al que pertenece este encuentro
+          contributions: El número de contribuciones realizadas en este encuentro por las asistentes
+          description: La descripción del encuentro
+          end_time: La fecha y hora en que terminó este encuentro
+          followers: El número de seguidoras de este encuentro
+          id: El identificador único del encuentro
+          location: La localización del encuentro
+          organizations: Las organizaciones que asistieron a esta reunión
+          participatory_space: A qué espacio pertenece este encuentro (proceso participativo, asamblea, etc.)
+          published: Cuando se publicó el encuentro
+          reference: El identificador único del recurso en esta plataforma
+          related_proposals: Las propuestas relacionadas con este encuentro
+          related_results: Los resultados relacionados con este encuentro
+          start_time: La fecha y hora en que se inició este encuentro
+          taxonomies: Las taxonomías a las que pertenece este encuentro
+          title: El título del encuentro
+          url: La URL del encuentro
+          withdrawn: Si este encuentro fue retirado/cancelado
+          withdrawn_at: Cuando fue retirado/cancelado este encuentro
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Encuentros pasados
@@ -687,6 +744,7 @@ es-PY:
         meeting_proposal: 'Propuestas relacionadas:'
         proposal_meeting: 'Encuentros relacionados:'
     statistics:
+      attendees_count: Asistentes a la reunión
       meetings_count: Encuentros
   devise:
     mailer:

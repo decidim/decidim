@@ -4,7 +4,6 @@ ja:
       collaborative_draft:
         address: 住所
         body: 本文
-        category_id: カテゴリ
         decidim_scope_id: スコープ
         has_address: 住所有り
         scope_id: 対象範囲
@@ -17,7 +16,6 @@ ja:
         answered_at: 回答日時
         automatic_hashtags: ハッシュタグが自動的に追加されました
         body: 本文
-        category_id: カテゴリ
         decidim_proposals_proposal_state_id: 状態
         decidim_scope_id: スコープ
         has_address: 住所有り
@@ -82,8 +80,7 @@ ja:
               not_official: 公式ではありません
               voted: 投票またはオススメを受けました
     models:
-      decidim/proposals/admin/update_proposal_category_event: 提案カテゴリが変更されました
-      decidim/proposals/admin/update_proposal_scope_event: 提案範囲が変更されました
+      decidim/proposals/admin/update_proposal_taxonomies_event: 提案のタクソノミーが変更されました
       decidim/proposals/creation_enabled_event: 提案の作成を有効にする
       decidim/proposals/endorsing_enabled_event: 提案の推奨が有効になりました
       decidim/proposals/proposal_mentioned_event: 提案について述べました
@@ -110,8 +107,6 @@ ja:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: カテゴリ
           is_emendation_true:
             label: タイプ
             values:
@@ -119,8 +114,6 @@ ja:
               'true': 修正
           proposal_state_id_eq:
             label: ステータス
-          scope_id_eq:
-            label: 対象範囲
           state_eq:
             label: 州(県)
             values:
@@ -131,6 +124,8 @@ ja:
               rejected: 却下済み
               validating: 技術的検証
               withdrawn: 撤回
+          taxonomies_part_of_contains:
+            label: タクソノミー
           valuator_role_ids_has:
             label: 評価者にアサインされました
           with_any_state:
@@ -140,12 +135,15 @@ ja:
               state_published: 回答済み
         search_placeholder:
           id_string_or_title_cont: '%{collection} をIDまたはタイトルで検索します。'
+    application:
+      geocoding:
+        not_configured: ジオコーディングが設定されていません
     components:
       proposals:
         actions:
           amend: 修正
           comment: コメント
-          create: 作成
+          create: 提案を作成
           endorse: オススメする
           vote: 投票
           vote_comment: コメントに投票
@@ -160,6 +158,7 @@ ja:
             attachments_allowed: 添付ファイルを許可
             attachments_allowed_help: このオプションを有効にすると、提案はデフォルトでグリッドモードになり、最初の画像がカードに表示されるようになります。
             can_accumulate_votes_beyond_threshold: しきい値以上の票を集めることができます
+            clear_all: すべてクリア
             collaborative_drafts_enabled: 共同草稿を有効にする
             comments_enabled: コメントを有効にする
             comments_max_length: コメント最大長 (デフォルト値は 0 のまま)
@@ -174,6 +173,7 @@ ja:
               random: ランダム
               recent: 新しい順
               with_more_authors: 起案者の多い順
+            define_taxonomy_filters: この設定を使用する前に、参加型スペースのフィルターをいくつか定義してください。
             edit_time: 提案は、この時間までの間は著者が編集することができます
             edit_time_units:
               days: 日
@@ -184,6 +184,7 @@ ja:
             new_proposal_body_template: 新しい提案本文テンプレート
             new_proposal_body_template_help: 新しい提案に含まれる予定のテキストを定義することができます。
             new_proposal_help_text: 新しい提案ヘルプテキスト
+            no_taxonomy_filters_found: タクソノミーフィルタが見つかりません。
             official_proposals_enabled: 管理者の提案を有効にする
             participatory_texts_enabled: 参加型テキストを有効にする
             participatory_texts_enabled_readonly: 既存の提案がある場合は、この設定は操作できません。 この機能を有効にする場合は、新しい `提案 コンポーネント` を作成し、もし無効にしたい場合はインポートされたすべての提案を `参加型 テキスト` メニューから破棄してください。
@@ -203,6 +204,8 @@ ja:
             resources_permissions_enabled: アクションの権限を提案ごとに設定する
             scope_id: スコープ
             scopes_enabled: スコープが有効
+            taxonomy_filters: コンポーネントのフィルタを選択
+            taxonomy_filters_add: フィルターを追加
             threshold_per_proposal: 提案ごとのしきい値
             vote_limit: 参加者ごとの投票制限
           step:
@@ -243,6 +246,10 @@ ja:
             votes_blocked: 投票をブロックしました
             votes_enabled: 投票を有効にしました
             votes_hidden: 投票を非表示にしました (投票が有効な場合、チェックを入れると投票数が非表示になります)
+    download_your_data:
+      show:
+        proposal_comments: 提案コメントのエクスポート
+        proposals: 提案のエクスポート
     events:
       proposals:
         accepted_coauthorship:
@@ -347,16 +354,6 @@ ja:
             email_outro: '"%{resource_title}" をフォローしているため、この通知を受け取りました。前述のリンクからフォローを解除できます。'
             email_subject: あなたがフォローしている提案のステータスが変更されました (%{state})
             notification_title: 提案 <a href="%{resource_path}">%{resource_title}</a> のステータスを「%{state} 」に変更しました。
-        proposal_update_category:
-          email_intro: '管理者があなたの提案 "%{resource_title}" のカテゴリを更新しました。このページでチェックしてください：'
-          email_outro: あなたが提案の著者であるため、この通知を受け取りました。
-          email_subject: '%{resource_title} 提案カテゴリが更新されました'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> 提案カテゴリは管理者によって更新されました。
-        proposal_update_scope:
-          email_intro: '管理者があなたの提案 "%{resource_title}" のスコープを更新しました。このページで確認してください：'
-          email_outro: あなたが提案の著者であるため、この通知を受け取りました。
-          email_subject: '%{resource_title} の提案範囲が更新されました'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> の提案スコープが管理者によって更新されました。
         rejected_coauthorship:
           notification_title: <a href="%{author_path}">%{author_name}</a> からの提案 <a href="%{resource_path}">%{resource_title}</a> の共著者になるための招待を拒否しました。
         voting_enabled:
@@ -416,6 +413,48 @@ ja:
         description: 提案への投票数
         object: 投票
         title: 投票
+    open_data:
+      help:
+        proposal_comments:
+          alignment: このコメントが好意的、敵対的、中立的であった場合
+          author: このコメントを作成した参加者の名前
+          body: コメント本文
+          commentable_id: コメント対象の固有ID
+          commentable_type: コメント対象の種別 (結果、提案など)
+          created_at: コメントの作成日時
+          depth: コメントがコメントツリーのどこに位置しているか（回答、または回答の回答である場合）
+          id: コメントのID
+          locale: コメントを残した参加者の使っていたロケール（言語）
+          root_commentable_url: コメントに関連するリソースの URL
+          user_group: コメントを作成したユーザーグループの名前 (もしあれば)
+        proposals:
+          address: 提案に物理的な場所がある場合の提案の所在地
+          answer: 回答済みの提案に対する回答
+          answered_at: 提案への回答の日時
+          attachments: 提案の添付ファイル数
+          author: 提案の作者に関するデータ
+          body: 提案本文
+          comments: 提案のコメント数
+          component: 提案が属するコンポーネント
+          endorsements: この提案のオススメ(「いいね」) の数
+          followers: 提案のフォロワー数
+          id: 提案の固有ID
+          is_amend: この提案が別の提案の修正版かどうか
+          latitude: 提案に物理的な場所がある場合の提案の緯度
+          longitude: 提案に物理的な場所がある場合の提案の経度
+          meeting_urls: この提案が提出または議論されたミーティングのURL
+          original_proposal: 修正版の場合、元の提案の参照
+          participatory_space: この提案が所属するスペース（参加型プロセス、参加スペースなど）
+          published_at: この提案の公開日時
+          reference: このプラットフォームでのリソースの固有ID
+          related_proposals: この提案に関連する提案
+          state: 'この提案のステータス (例: "承認済み")'
+          taxonomies: この提案が属しているタクソノミー
+          title: 提案のタイトル
+          url: この提案が見つかるURL
+          votes: 提案の投票数
+          withdrawn: この提案が撤回されたかどうか
+          withdrawn_at: この提案が撤回された日時
     participatory_spaces:
       highlighted_proposals:
         last: 最近の提案
@@ -440,6 +479,7 @@ ja:
       admin:
         actions:
           preview: プレビュー
+          view_deleted_proposals: 削除された提案を表示
         exports:
           proposal_comments: コメント
           proposals: 提案
@@ -557,7 +597,6 @@ ja:
             attachment_legend: "(オプション) 添付ファイルを追加"
             created_in_meeting: この提案は会議から来ています
             delete_attachment: 添付ファイルを削除
-            select_a_category: カテゴリを選択
             select_a_meeting: ミーティングを選択
           index:
             actions: アクション
@@ -565,8 +604,7 @@ ja:
             assign_to_valuator: 評価者に割り当てる
             assign_to_valuator_button: 割り当て
             cancel: キャンセル
-            change_category: カテゴリの変更
-            change_scope: スコープの変更
+            change_taxonomies: タクソノミーを変更
             merge: 新しいものにマージ
             merge_button: 結合
             no_templates_available: 利用可能なテンプレートはありません
@@ -582,7 +620,8 @@ ja:
             unassign_from_valuator: 評価者からの割り当てを解除
             unassign_from_valuator_button: 割り当ての解除
             update: 更新
-            update_scope_button: スコープの更新
+          manage_trash:
+            title: 削除された提案
           new:
             create: 作成
             title: 提案を作成
@@ -607,16 +646,9 @@ ja:
             remove_assignment_confirmation: この提案から評価者を削除してもよろしいですか？
             valuators: 評価者
             votes_count: 投票数
-          update_category:
-            invalid: 'これらの提案は既に %{subject_name} カテゴリ: %{proposals} を持っています。'
-            select_a_category: カテゴリを選択してください。
+          update_taxonomies:
             select_a_proposal: 提案を選択してください。
-            success: '%{subject_name} カテゴリ: %{proposals} に提案を更新しました。'
-          update_scope:
-            invalid: 'これらの提案は既に %{subject_name} スコープを持っています: %{proposals}。'
-            select_a_proposal: 提案を選択してください。
-            select_a_scope: スコープを選択してください。
-            success: '提案が %{subject_name} スコープ: %{proposals} に更新されました。'
+            select_a_taxonomy: タクソノミーを選択してください。
         proposals_imports:
           create:
             invalid: 提案のインポート中に問題が発生しました。
@@ -697,7 +729,6 @@ ja:
         edit:
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
-          select_a_category: カテゴリを選択してください
           send: 送信
           title: 共同草案を編集
         empty: 共同草案はまだありません
@@ -705,11 +736,9 @@ ja:
         filters:
           all: すべて
           amendment: 修正
-          category: カテゴリ
           open: 開く
           published: 公開済み
           related_to: 関連
-          scope: スコープ
           search: 検索
           state: ステータス
           withdrawn: 撤回
@@ -748,7 +777,7 @@ ja:
             error: コラボレーターとして拒否できませんでした。後でもう一度やり直してください。
             success: "@%{user} さんはコラボレーターとして正常に拒否されました。"
         show:
-          edit: 共同草案を編集
+          edit: 編集
           final_proposal: 最終的な提案
           final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
           hidden_authors_count:
@@ -782,6 +811,11 @@ ja:
       destroy_draft:
         error: 共同草案を削除する際に問題が発生しました。
         success: 提案の下書きは正常に削除されました。
+      forms:
+        errors:
+          device_not_supported:
+          no_device_location: 申し訳ありませんが、場所を検出できませんでした。アドレスを手動で入力してください。
+        use_my_location: 現在地を使用
       invite_coauthors:
         cancel:
           error: 共同執筆者の招待を取り消す際に問題が発生しました。
@@ -801,15 +835,14 @@ ja:
       models:
         proposal:
           fields:
-            category: カテゴリ
             comments: コメント
             id: ID
             notes: メモ
             official_proposal: 事務局の提案
             published_answer: 公開された回答
             published_at: 公開日時
-            scope: スコープ
             state: ステータス
+            taxonomies: タクソノミー
             title: タイトル
             valuator: 評価者
             valuators: 評価者
@@ -836,7 +869,6 @@ ja:
           attachment_legend: "(オプション) 添付ファイルを追加"
           back: 戻る
           edit_documents: ドキュメントを編集
-          select_a_category: カテゴリを選択してください
           send: 送信
           title: 提案を編集
         edit_draft:
@@ -850,13 +882,13 @@ ja:
           activity: 参加したもの
           all: すべて
           amendment_type: タイプ
-          category: カテゴリ
           my_proposals: 私の提案
           origin: 起案者：
           related_to: 関連
           scope: スコープ
           search: 検索
           state: ステータス
+          taxonomy_filters: フィルター
           type: タイプ
           voted: 投票
         index:
@@ -901,7 +933,7 @@ ja:
         show:
           answer: 回答
           changes_at_title: '「%{title} 」に修正'
-          edit_proposal: 提案を編集
+          edit_proposal: 編集
           estimated_cost: 推定コスト
           hidden_endorsers_count:
             other: '%{count} 人以上'
@@ -916,7 +948,7 @@ ja:
           proposal_rejected_reason: 'この提案は以下の理由により拒否されました:'
           withdraw_btn_hint: 投票を受けていない限り、提案を取り消すことができます。 提案は削除されず、撤回された提案のリストに表示されます。
           withdraw_confirmation_html: この提案を撤回してもよろしいですか？<br><br><strong>この操作はキャンセルできません！</strong>
-          withdraw_proposal: 提案を撤回する
+          withdraw_proposal: 撤回する
         update:
           title: 提案を更新
         vote_button:

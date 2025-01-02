@@ -2,9 +2,7 @@
 
 module Decidim
   module Budgets
-    class BudgetsType < Decidim::Api::Types::BaseObject
-      implements Decidim::Core::ComponentInterface
-
+    class BudgetsType < Decidim::Core::ComponentType
       graphql_name "Budgets"
       description "A budget component of a participatory space."
 

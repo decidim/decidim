@@ -7,6 +7,12 @@ module Decidim
       include UserRoleChecker
       delegate :user_signed_in?, to: :controller
 
+      def render_comments
+        return render_single_comment if single_comment?
+
+        two_columns_layout? ? render_comments_in_two_columns : render(:comments_in_single_column)
+      end
+
       def add_comment
         render :add_comment if can_add_comments?
       end
@@ -15,6 +21,10 @@ module Decidim
         return unless single_comment?
 
         render :single_comment_warning
+      end
+
+      def reply?
+        model.is_a?(Decidim::Comments::Comment)
       end
 
       def comments_loading
@@ -38,6 +48,19 @@ module Decidim
       end
 
       private
+
+      def two_columns_layout?
+        model.try(:two_columns_layout?)
+      end
+
+      def render_single_comment
+        @sorted_comments_in_favor = [single_comment]
+        render :comments_in_single_column
+      end
+
+      def render_comments_in_two_columns
+        cell(TwoColumnsCommentsCell, model).call
+      end
 
       def can_add_comments?
         return true if current_participatory_space && user_has_any_role?(current_user, current_participatory_space)
