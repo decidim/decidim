@@ -80,8 +80,12 @@ eu:
             comments_warning: Lehen iruzkina argitaratu ondoren, ezin da aldatu aukeratutako bistaratze-aukera.
             debate_type: Eztabaida mota
             edit_documents: Editatu dokumentuak
+            errors:
+              comments_layout_locked: Iruzkinen planoa ezin da aldatu iruzkinak argitaratu ondoren.
             finite: Amaiera (hasiera- eta amaiera-ordua)
             open: Zabalik (ez dago hasiera- edo amaiera-ordurik)
+            single_column: 'Zutabe bakarra: iruzkinak hurrenkera kronologikoan agertzen dira eta erantzunak izan ditzakete.'
+            two_columns: 'Bi zutabe: iruzkinak "Alde" eta "Kontra" zutabeetan agertzen dira eta ezin dute erantzunik izan.'
           index:
             title: eztabaidak
           manage_trash:
