@@ -453,8 +453,11 @@ eu:
           comments: Proposamen honek duen boto kopurua
           component: Proposamena osagai honen barruan dago
           cost: Proposamen honen kostua, guztira
+          cost_report: Proposamenaren kostuen txostena
           created_at: Zein datatan sortu zen proposamen hau
+          created_in_meeting: Proposamena bilera batean sortu bazen
           endorsements: Proposamen honek duen onarpen ("atsegin dut") kopurua
+          execution_period: Proposamena burutzeko aldia, hasieratik bukaerara arte
           follows_count: Proposamen honek duen jarraitzaile kopurua
           id: Proposamenaren identifikatzaile bakarra
           is_amend: Proposamen honek beste proposamen bat dakarren
@@ -467,6 +470,7 @@ eu:
           reference: Baliabidearen identifikatzaile bakarra plataforma honetan
           related_proposals: Proposamen honekin lotutako proposamenak
           state: Proposamen honen egoera (adibidez, "Onartua")
+          state_published_at: Proposamenaren egoeraren denbora-zigilua, argitaratu zenekoa
           taxonomies: Proposamen honi dagozkion taxonomiak
           title: Proposamenaren izenburua
           updated_at: Proposamenaren azken eguneraketaren data
@@ -1015,6 +1019,7 @@ eu:
             description: Gutxienez % {boto} euskarri banatu behar duzu proposamen ezberdinen artean zure euskarriak kontuan har daitezen.
           proposal_limit:
             description: '%{limit} proposamen sortu ditzakezu.'
+          success: Zure botoak ongi onartu dira
           threshold_per_proposal:
             description: Proposamenak baliagarriak izan daitezen, %{limit} boto izatera iritsi behar da.
           title: Parte hartzeko arauak
