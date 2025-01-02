@@ -87,6 +87,8 @@ module Decidim
           I18n.l(@conference.end_date, format: :decidim_short)
         ]
 
+        texts_to_bold = texts_to_bold.map { |bold| decidim_sanitize(bold, strip_tags: true) }
+
         text = decidim_sanitize(text, strip_tags: true)
         text_fragments = create_text_fragments(text, texts_to_bold)
 
