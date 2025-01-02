@@ -21,6 +21,11 @@ ca:
         details: Comentaris addicionals
       taxonomy:
         name: Nom de la taxonomia
+      taxonomy_filter:
+        internal_name: Nom intern del filtre
+        name: Títol públic del filtre
+        root_taxonomy_id: Des de la taxonomia
+        space_filter: Disponible com a filtre pels espais de participació
       user:
         about: Quant a
         email: El teu correu electrònic
@@ -167,6 +172,7 @@ ca:
         error: S'ha produït un error en eliminar el teu compte.
         success: El teu compte s'ha eliminat correctament.
       download_your_data_export:
+        export_expired: L'exportació ha caducat. Intenta generar una nova exportació.
         file_no_exists: L'arxiu no existeix
         notice: La descàrrega de les teves dades està en curs. Rebràs un correu electrònic quan estigui completa.
       email_change:
@@ -221,6 +227,8 @@ ca:
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
         export_component: "%{user_name} ha exportat %{resource_name}%{component_name} de %{space_name} com %{format_name}"
         publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
+        restore: "%{user_name} ha restaurat el component %{resource_name} a l'espai %{space_name}"
+        soft_delete: "%{user_name} ha mogut el component %{resource_name} a l'espai %{space_name} a la paperera"
         unpublish: "%{user_name} ha despublicat el component %{resource_name} de l'espai %{space_name}"
         update_permissions_with_space: "%{user_name} ha actualitzat els permisos de %{resource_name} a %{space_name}"
       contextual_help_section:
@@ -262,6 +270,13 @@ ca:
         create: "%{user_name} ha creat el tipus d'àmbit %{resource_name}"
         delete: "%{user_name} ha eliminat el tipus d'àmbit %{resource_name}"
         update: "%{user_name} ha actualitzat el tipus d'àmbit %{resource_name}"
+      share_token:
+        create: "%{user_name} ha creat un enllaç d'accés a %{space_name}"
+        create_with_space: "%{user_name} ha creat un enllaç d'accés per a %{resource_name} a %{space_name}"
+        delete: "%{user_name} ha eliminat un enllaç d'accés a %{space_name}"
+        delete_with_space: "%{user_name} ha eliminat un enllaç d'accés per a %{resource_name} a %{space_name}"
+        update: "%{user_name} ha actualitzat un enllaç d'accés a %{space_name}"
+        update_with_space: "%{user_name} ha actualitzat un enllaç d'accés per a %{resource_name} a %{space_name}"
       static_page:
         create: "%{user_name} ha creat la pàgina estàtica %{resource_name}"
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
@@ -415,6 +430,7 @@ ca:
           scope_id: Àmbit
         name: Autorització d'exemple
       dummy_authorization_workflow:
+        explanation: Exemple de flux de verificació
         name: Flux de treball d'autorització d'exemple
       errors:
         duplicate_authorization: Ja hi ha una participant autoritzada amb les mateixes dades. Una administradora es posarà en contacte amb tu per verificar les teves dades.
@@ -499,13 +515,16 @@ ca:
             amendments_enabled: Esmenes habilitades
             comments_enabled: Comentaris habilitats
             comments_max_length: Longitud màxima dels comentaris
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
             dummy_global_attribute1: Atribut de prova 1
             dummy_global_attribute2: Atribut de prova 2
             dummy_global_translatable_text: Text traduïble de proves
             enable_pads_creation: Habilitar la creació de pads
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             resources_permissions_enabled: Permisos de recursos habilitats
             scope_id: Àmbit
             scopes_enabled: Àmbits habilitats
+            taxonomy_filters: Seleccionar filtres pel component
           step:
             amendment_creation_enabled: Creació d'esmenes habilitada
             amendment_promotion_enabled: Promoció d'esmenes habilitada
@@ -590,10 +609,10 @@ ca:
       application_helper:
         filter_area_values:
           all: Totes
-        filter_category_values:
-          all: Totes
         filter_scope_values:
           all: Tots
+        filter_taxonomy_values:
+          all: Totes
     devise:
       omniauth_registrations:
         create:
@@ -650,6 +669,9 @@ ca:
           show_password: Mostrar contrasenya
           shown_password: La contrasenya és visible
         placeholder_email: hi@example.org
+    documents:
+      one: "%{count} document"
+      other: "%{count} documents"
     doorkeeper:
       authorizations:
         new:
@@ -669,26 +691,35 @@ ca:
       export:
         ready: Llest
       show:
-        download_data: Descarrega't les dades
-        download_data_description_html: |-
-          S'enviarà un arxiu amb tota la informació associada al teu compte a <strong>%{user_email}</strong>.
-          Aquest correu electrònic contindrà un arxiu .zip i una contrasenya per obrir-lo.<br/><br/>Per a descomprimir l'arxiu, necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows) o <a href="https://www.keka.io/">Keka</a> (per a MacOS). 
-          Si uses Linux, la majoria de les vegades ho tindràs instal·lat per defecte. Si no, pots utilitzar <a href="https://gitlab.gnome.org/GNOME/file-roller">File Roller</a> o <a href="https://peazip.github.io">PeaZip</a>).
-        request_data: Sol·licita dades
+        action: Acció
+        download: Descarregar
+        download_data: Àrees de descàrregues
+        download_data_description_1: Aquí pots trobar totes les descàrregues disponibles pel teu compte. Aquests fitxers .zip estaran disponibles durant dues setmanes abans de ser eliminats.
+        download_data_description_2: Pots sol·licitar un fitxer .zip amb les teves aportacions i informació personal.
+        download_your_data: Dades personals
+        expiration: Data de caducitat
+        expired: Ha caducat
+        request_data: Sol·licitar
+        type: Tipus de descàrrega
     editor_images:
       create:
         error: S'ha produït un error en carregar la imatge.
         success: Imatge carregada correctament.
       drag_and_drop_help: Afegeix imatges arrossegant-les i deixant-les anar o bé enganxant-les.
     endorsement_buttons_cell:
-      already_endorsed: No m'agrada
+      already_endorsed: Desfer el "M'agrada"
       endorse: M'agrada
     endorsements:
       identities:
         done: Fet
         select_identity: Selecciona identitat
     endorsers_list:
-      endorsed_by: Li agrada a…
+      endorsed_by:
+        one: Li agrada a %{visible}
+        other: Li agrada a %{visible} i a %{others}
+      others: "%{count} més"
+      title: Li ha agradat a
+      you: tu
     errors:
       files:
         file_cannot_be_processed: No s'ha pogut processar el fitxer
@@ -847,6 +878,9 @@ ca:
         email_outro: Has rebut aquesta notificació perquè estàs seguint a "%{endorser_nickname}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
         email_subject: "%{endorser_nickname} s'ha adherit a una proposta"
         notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a <a href="%{resource_path}">%{resource_title}</a> (%{resource_type}).
+      resources:
+        soft_deleted:
+          notification_title: 'Una administradora ha eliminado tu %{resource_type}: "%{resource_title}".'
       users:
         profile_updated:
           email_intro: La pàgina <a href="%{resource_url}"> de perfil </a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
@@ -860,10 +894,11 @@ ca:
           notification_title: La participant %{name} (%{nickname}) ha estat oficialitzada.
     export_mailer:
       download_your_data_export:
-        click_button: 'Fes clic en el següent enllaç per descarregar les teves dades.<br/>L''arxiu estarà disponible fins %{date}.<br/>Necessitaràs <a href="https://www.7-zip.org/">7-Zip</a> (per a Windows), <a href="https://www.keka.io/en/">Keka</a> (per a MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per a Linux) per obrir-lo. Contrasenya: %{password}'
+        click_button_html: Clica a l'enllaç següent per a descarregar les teves dades.<br/>El fitxer estarà disponible per a la seva descàrrega fins al %{date}.
         download: Descarregar
       export:
-        ready: S'adjunta una versió comprimida de l'exportació.
+        click_button_html: La teva descàrrega està llesta.<br/>El fitxer estarà disponible per a la seva descàrrega fins al %{date}.
+        download: Descarregar
       subject: L'exportació "%{name}" està a punt
     filters:
       linked_classes:
@@ -1008,7 +1043,7 @@ ca:
         success: Sol·licitud d'incorporació rebutjada correctament.
       actions:
         are_you_sure: Segur?
-        promote_to_admin: Fer administrador
+        promote_to_admin: Fer administradora
         remove_from_group: Eliminar participant
       index:
         current_members_without_admins: 'Membres actuals (sense administradors):'
@@ -1108,6 +1143,8 @@ ca:
           not_found: 'El tipus d''àmbit no s''ha trobat a la base de dades (ID: %{id})'
         taxonomy_presenter:
           not_found: 'No s''ha trobat la taxonomia a la base de dades (ID: %{id})'
+    machine_translations:
+      automatic: traducció automàtica a %{locale_name} 
     managed_users:
       expired_session: La sessió actual d'administració d'una participant ha caducat.
     map:
@@ -1196,7 +1233,7 @@ ca:
         active: Actives
         finished: 'Finalitzat el: %{end_date}'
         not_started: No s'ha iniciat encara
-        remaining: "resta %{time_distance}"
+        remaining: "Resta(en) %{time_distance}"
     metrics:
       download:
         csv: Descarregar les dades (csv)
@@ -1315,7 +1352,112 @@ ca:
         message_1: Sembla que no tens connexió a Internet.
         message_2: Si us plau, torneu-ho a provar més tard.
         retry: Torna-ho a provar
+    onboarding_action_message:
+      click_link: Fes clic aquí
+      cta_html: <a href="%{path}">%{link_text}</a> per %{action} a %{resource_name} <strong>%{resource_title}</strong>
+      expired_authorization_active_title: La teva autorització ha caducat.
+      finish_authorization_process: Pots finalitzar el procés de verificació
+      incomplete_authorization_active_title: La teva verificació no s'ha completat amb tota la informació necessària.
+      pending_authorization_active_message: Si us plau, completa el formulari per a continuar amb aquesta acció.
+      pending_authorization_active_title: Necessitem verificar la teva identitat.
     open_data:
+      help:
+        core:
+          components: Components
+          description: Aquest fitxer ZIP conté fitxers per l'estudi i la recerca sobre aquesta plataforma de participació.
+          main: Nucli
+          spaces: Espais
+          title: Fitxers de dades obertes de %{organization}
+        metrics:
+          cumulative: El número total de mètriques en aquest dia
+          day: La data en què es va crear aquesta mètrica
+          metric_type: El tipus de mètrica
+          quantity: El número de mètriques en aquest dia
+        moderated_users:
+          about: El text "Quant a" inclòs al perfil d'usuària
+          block_reasons: El motiu pel qual l'administradora va bloquejar a la usuària
+          blocked_at: Data i hora en la qual es va bloquejar a la usuària
+          blocking_user: El nom d'usuària de l'administradora que va fer el bloqueig
+          details: Els detalls dels informes de moderació
+          reasons: Un llistat dels motius pels quals s'ha reportat el perfil d'usuària
+          user_id: L'ID únic de la usuària reportada
+        moderations:
+          hidden_at: Data i hora en la qual es va amagar el contingut
+          id: L'identificador únic de la moderació
+          report_count: El número de vegades que ha estat reportada
+          reportable_id: L'identificador únic d'allò que es podia reportar
+          reportable_type: Tipus de contigut reportat
+          reported_content: El contingut que va ser reportat
+          reported_url: L'URL del recurs que va ser reportat
+          reports: Un llistat dels motius pels quals es va reportar el recurs
+        user_groups:
+          avatar_url: L'avatar del grup d'usuàries
+          badge: L'ensenya del grup d'usuàries
+          deleted: Si el grup d'usuàries va ser eliminat o no
+          id: L'identificador únic del grup d'usuàries
+          members: L'ID i el nom de les usuàries que pertanyen al grup
+          members_count: El número de membres que formen part del grup d'usuàries
+          name: El nom que es mostra del grup d'usuàries
+          nickname: El nom d'usuària del grup d'usuàries
+          profile_url: L'URL del perfil del grup d'usuàries
+        users:
+          about: El text "Quant a" inclòs al perfil d'usuària
+          avatar_url: L'avatar de la usuària
+          badge: L'ensenya de la usuària
+          deleted: Si la usuària va ser eliminada o no
+          direct_messages_enabled: Si la usuària permet missatges directes o no
+          groups: L'ID i el nom del grup d'usuàries
+          id: L'identificador únic de la usuària
+          name: El nom que es mostra de la usuària
+          nickname: El nom d'usuària de l'usuària
+          profile_url: L'URL del perfil de la usuària
+      index:
+        description: Benvinguda a la pàgina de dades oberta %{organization_name}. Aquí trobaràs fitxers de dades que es generen regularment a partir de diversos processos deliberats i de governança dins %{organization_name}. Aquests fitxers estan disponibles per promoure la transparència, accessibilitat i col·laboració. A continuació, trobaràs informació detallada sobre quins són aquests fitxers, com obrir i treballar amb ells, i una descripció del contingut i l'estructura de cada fitxer.
+        detailed:
+          body_1: 'A continuació es mostra una descripció de cada conjunt de dades, incloent-hi el seu esquema (estructura) i el tipus d''informació que conté:'
+          components: Components
+          spaces: Espais de participació
+          title: Explicació detallada de cada arxiu
+        download:
+          components: Components
+          core: Nucli
+          spaces: Espai participatiu
+          title: Descarregar recursos
+        download_open_data: Descarrega tots els fitxers de dades obertes
+        download_resource: Descarregar "%{resource_name}" en format CSV
+        explanation:
+          body_1: Aquests fitxers són conjunts de dades exportades des dels processos participatius de %{organization_name}, com ara propostes, comentaris i reunions. Es proporcionen dades crues i estructurades que poden ser utilitzades per a l'anàlisi, la investigació o la integració amb altres eines. Les dades s'actualitzen automàticament cada 24 hores, per assegurar tenir accés a la informació més recent possible.
+          body_2: Aquests fitxers estan en format CSV (valors separats per comes), un format de fitxer àmpliament utilitzat que pot ser obert i processat per una varietat d'aplicacions de programari, incloent-hi programes de fulls de càlcul, editors de text i eines d'anàlisi de dades.
+          title: Què són aquests fitxers?
+        how_to:
+          step_1:
+            body_html: Fes clic als següents enllaços per a descarregar els fitxers CSV al teu ordinador.
+            title: 1. Descarregar els fitxers
+          step_2:
+            body_html: |-
+              <ul>
+              <li><b>Full de càlcul</b>: Pots obrir fitxers CSV utilitzant aplicacions com Microsoft Excel, Fulls de Google, o LibreOffice Calc. Simplement obre l'aplicació, després selecciona "Obrir" del menú Fitxer, i escull el fitxer CSV descarregat.</li>
+              <li><b>Edicions de text</b>: també es poden obrir fitxers CSV en qualsevol editor de text, com ara Bloc de notes o Text Sublim. Això mostrarà les dades crues, amb cada línia que representa una fila i cada valor separat per una coma.</li>
+              <li><b>Eines d'anàlisi de dades</b>: Si estàs familiaritzada amb eines d'anàlisi de dades com Python (amb pandes), R, o bases de dades SQL, pots importar aquests fitxers CSV directament per a processament i anàlisi.</li>
+              </ul>
+            title: 2. Obrir els fitxers
+          step_3:
+            body_html: |-
+              <ul>
+              <li><b>Filtrar i ordenar</b>: A les aplicacions de full de càlcul, pots filtrar i ordenar les dades per centrar-te en subconjunts específics d'informació.</li>
+              <li><b>Anàlisi</b>: Fes servir les dades per realitzar diverses anàlisis, com ara comptar el nombre de propostes, analitzar tendències en els comentaris o avaluar la participació a les reunions.</li>
+              <li><b>Visualització</b>: Pots crear gràfics, gràfics i altres visualitzacions per ajudar a interpretar les dades.</li>
+              </ul>
+            title: 3. Treballant amb les dades
+          title: Com obrir i treballar amb aquests fitxers
+        license:
+          body_1_html: Aquesta base de dades de "%{organization_name}" està disponible sota %{link_database}. Qualsevol dret sobre els continguts individuals de la base de dades està sota la llicència %{link_contents}.
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
+          license_contents_name: Llicència dels continguts a la base de dades
+          license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
+          license_database_name: Llicència Oberta per a base de dades
+          title: Llicència
+        title: Dades obertes
       not_available_yet: Els fitxers Open Data encara no estan disponibles, torna-ho a provar d'aquí a uns minuts.
     pad_iframe:
       disclaimer: Els continguts d'aquest pad han estat escrits per participants registrades i expressen les seves opinions. %{organization} no es fa responsable dels seu contingut.
@@ -1533,12 +1675,6 @@ ca:
         sign_up: Crea un compte
       mentions_modal:
         remove_recipient: Eliminar destinatària %{name}
-      participatory_space_filters:
-        filters:
-          area: Àrea
-          areas: Àrees
-          scope: Àmbit
-          select_an_area: Selecciona una àrea
       progress: Progrés
       public_participation:
         public_participation: Mostra públicament la meva assistència
@@ -1568,10 +1704,9 @@ ca:
       participants_count: Participants
       users_count: Participants
     tags:
-      filter_results_for_category: 'Resultats al filtrar per la categoria: %{resource}'
-      filter_results_for_scope: 'Resultats al filtrar per l''àmbit: %{resource}'
+      filter_results_for_taxonomy: 'Resultats en filtrar per: %{resource}'
     taxonomies:
-      prompt: Seleccionar de "%{name}"
+      prompt: Si us plau, selecciona una opció
     translation_bar:
       help_text: "<strong>Advertència:</strong> Pot ser que el contingut sigui traduït automàticament i no sigui 100% acurat."
       show_original: Mostra el text original
@@ -1614,7 +1749,7 @@ ca:
     user_update_mailer:
       notify:
         body_1: Reps aquest missatge per informar-te d'una actualització del teu compte.
-        body_2: En el cas que no hagis estat tu qui ha realitzat aquesta actualització, si us plau, inicia la teva sessió i modifica la teva contrasenya. Si no poguessis iniciar la teva sessió, si ús pla, contacte amb el servei de suport a la plataforma.
+        body_2: En el cas que no hagis estat tu qui ha realitzat aquesta actualització, si us plau, inicia la teva sessió i modifica la teva contrasenya. Si no poguessis iniciar la teva sessió, si us plau, contacte amb el servei de suport a la plataforma.
         greetings: Hola,<br/>%{organization_name}<br/><a href="%{organization_url}">%{organization_url}</a>
         hello: Hola %{user}
         main_body: 'S''han modificat els següents detalls: %{updates}.'
@@ -1963,9 +2098,9 @@ ca:
         data_consent_settings: Configuració de les galetes
         decidim_logo: Logo Decidim
         decidim_title: Decidim
-        download_open_data: Descarrega els fitxers de dades obertes
         log_in: Entra
         made_with_open_source: Web creada amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
+        open_data: Dades obertes
         resources: Recursos
         sign_up: Crea un compte
         terms_of_service: Termes i condicions d'ús

@@ -55,8 +55,6 @@ hu:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Kategória
           closed_at_present:
             label: Állapot
             values:
@@ -67,8 +65,6 @@ hu:
             values:
               'false': Előzmények
               'true': Közelgő
-          scope_id_eq:
-            label: Hatókör
           with_any_origin:
             label: Kiindulópont
             values:
@@ -175,8 +171,6 @@ hu:
         attachment_collections: Mappák
         attachments: Mellékletek
         close: Bezárás
-        confirm_destroy: Biztosan törölni szeretnéd ezt a találkozót?
-        destroy: Törlés
         edit: Szerkesztés
         invalid_destroy:
           proposals_count:
@@ -245,12 +239,6 @@ hu:
           create:
             invalid: Probléma történt a találkozó létrehozása során.
             success: A találkozó létrehozása sikeres - a nyilvánossá tételhez manuálisan kell publikálnia.
-          destroy:
-            invalid:
-              proposals_count:
-                one: A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá.
-                other: A találkozót nem lehet megsemmisíteni, mert %{count} javaslat van társítva hozzá.
-            success: Találkozó törlése sikeres
           edit:
             title: Találkozó szerkesztése
             update: Frissítés
@@ -320,8 +308,6 @@ hu:
         questionnaire:
           update: "%{user_name} frissítette a kérdőívet a %{meeting_name} üléshez"
       application_helper:
-        filter_category_values:
-          all: Összes
         filter_meeting_space_values:
           all: Összes
       calendar_modal:

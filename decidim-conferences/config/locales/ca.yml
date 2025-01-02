@@ -89,6 +89,7 @@ ca:
     admin:
       actions:
         confirm: Confirmar
+        confirm_delete_conference: Segur que vols esborrar aquesta jornada? Si canvies d'opinió, la pots restaurar més endavant.
         new_conference: Afegir jornada
         new_conference_user_role: Afegir administradora
         new_media_link: Afegir enllaç multimèdia
@@ -96,6 +97,7 @@ ca:
         new_registration_type: Afegir tipus de registre
         new_speaker: Afegir ponent
         send_diplomas: Enviar certificats d'assistència
+        view_deleted_conferences: Veure les jornades eliminades
       conference_copies:
         new:
           copy: Copiar
@@ -165,6 +167,8 @@ ca:
         index:
           published: Publicat
           unpublished: Despublicada
+        manage_trash:
+          title: Jornades eliminades
         new:
           create: Crear
           title: Jornada
@@ -298,11 +302,16 @@ ca:
           success: El tipus d'inscripció s'ha actualitzat correctament per a aquesta jornada.
       titles:
         conferences: Jornades
+        conferences_deleted: Jornades eliminades
+      tooltips:
+        deleted_conferences_info: Les jornades només es poden eliminar si el seu estat és 'Despublicada'.
     admin_log:
       conference:
         create: "%{user_name} ha creat la jornada %{resource_name}"
         publish: "%{user_name} ha publicat la jornada %{resource_name}"
+        restore: "%{user_name} ha restaurat la jornada %{resource_name}"
         send_conference_diplomas: "%{user_name} ha enviat certificats d'assistència a les assistents de la jornada %{resource_name}"
+        soft_delete: "%{user_name} ha mogut a la paperera la jornada %{resource_name}"
         unpublish: "%{user_name} no publicada la jornada %{resource_name}"
         update: "%{user_name} ha actualitzat la jornada %{resource_name}"
         update_diploma: "%{user_name} ha actualitzat la configuració dels certificats d'assistència per a la jornada %{resource_name}"
@@ -373,10 +382,13 @@ ca:
         conferences:
           form:
             available_slots_help: Deixa-ho a 0 si les places disponibles són il·limitades.
+            define_taxonomy_filters: Si us plau, defineix algunes filtres per aquest espai de participació abans de fer servir aquesta configuració.
+            no_taxonomy_filters_found: No s'han trobat filtres de taxonomia.
             registrations_count:
               one: Hi ha hagut 1 inscripció.
               other: Hi ha hagut %{count} inscripcions.
             slug_help_html: 'Les URL amigables s''utilitzen per generar els URL que apunten a aquesta jornada. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
+            taxonomies: Taxonomies
         content_blocks:
           highlighted_conferences:
             max_results: Quantitat màxima d'elements a mostrar
@@ -572,6 +584,33 @@ ca:
         title: Multimedia i enllaços
     menu:
       conferences: Jornades
+    open_data:
+      help:
+        conferences:
+          created_at: La data en què es va crear aquesta jornada
+          decidim_scope_id: L'àmbit territorial de la jornada
+          description: Una descripció llarga de la jornada
+          end_date: La data en la qual va finalitzar aquesta jornada.
+          follows_count: El número d'usuàries que segueixen aquesta jornada
+          hashtag: L'etiqueta que fa servir la jornada a Twitter/X
+          id: L'identificador únic de la jornada
+          location: El lloc de celebració de la jornada. On es va dur a terme aquesta jornada.
+          objectives: Els objectius de la jornada. Quina va ser la meta.
+          promoted: Si la jornada està destacada o no
+          published_at: La data en què es va publicar aquesta jornada
+          reference: La referència única de la jornada
+          remote_banner_image_url: L'URL de la imatge de capçalera de la jornada
+          remote_hero_image_url: L'URL de la imatge principal de la jornada
+          scope: L'àmbit territorial de la jornada
+          scopes_enabled: Si l'àmbit territorial està habilitat o no
+          short_description: Una descripció breu de la jornada
+          slogan: El lema d'aquesta jornada
+          slug: El nom curt de la jornada (utilitzat per a finalitats d'identificació, per a l'URL)
+          start_date: La data en la qual va començar aquesta jornada.
+          taxonomies: Les taxonomies de la jornada
+          title: El títol de la jornada
+          updated_at: La data de la darrera actualització d'aquesta jornada
+          url: L'URL de la jornada
     statistics:
       conferences_count: Jornades
   devise:

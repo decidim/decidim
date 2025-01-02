@@ -4,7 +4,6 @@ es-MX:
       collaborative_draft:
         address: Dirección
         body: Cuerpo
-        category_id: Categoría
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
         scope_id: Ámbito
@@ -17,7 +16,6 @@ es-MX:
         answered_at: Respondido en
         automatic_hashtags: Hashtags añadidos automáticamente
         body: Cuerpo
-        category_id: Categoría
         decidim_proposals_proposal_state_id: Estado
         decidim_scope_id: Ámbito
         has_address: Tiene dirección
@@ -82,8 +80,7 @@ es-MX:
               not_official: No son oficiales
               voted: Han recibido apoyos o adhesiones
     models:
-      decidim/proposals/admin/update_proposal_category_event: La categoría de la propuesta ha cambiado
-      decidim/proposals/admin/update_proposal_scope_event: Ámbito de propuesta cambiado
+      decidim/proposals/admin/update_proposal_taxonomies_event: Las taxonomías de la propuesta han cambiado
       decidim/proposals/creation_enabled_event: Creación de propuestas habilitada
       decidim/proposals/endorsing_enabled_event: Adhesión a propuesta habilitada
       decidim/proposals/proposal_mentioned_event: Propuesta mencionada
@@ -117,8 +114,6 @@ es-MX:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Categoría
           is_emendation_true:
             label: Tipo
             values:
@@ -126,8 +121,6 @@ es-MX:
               'true': Enmiendas
           proposal_state_id_eq:
             label: Estado
-          scope_id_eq:
-            label: Ámbito
           state_eq:
             label: Estado
             values:
@@ -138,6 +131,8 @@ es-MX:
               rejected: Rechazadas
               validating: Validación técnica
               withdrawn: Retiradas
+          taxonomies_part_of_contains:
+            label: Taxonomía
           valuator_role_ids_has:
             label: Asignada a evaluadora
           with_any_state:
@@ -147,12 +142,15 @@ es-MX:
               state_published: Respondidas
         search_placeholder:
           id_string_or_title_cont: Buscar %{collection} por ID o título.
+    application:
+      geocoding:
+        not_configured: '¡La geocodificación no está configurada!'
     components:
       proposals:
         actions:
           amend: Enmendar
           comment: Comentar
-          create: Crear
+          create: Crear una propuesta
           endorse: Adherirse
           vote: Apoyar
           vote_comment: Votar comentario
@@ -167,6 +165,7 @@ es-MX:
             attachments_allowed: Permitir archivos adjuntos
             attachments_allowed_help: Al activar esta opción, las propuestas se mostrarán en modo de cuadrícula por defecto y la primera imagen aparecerá en la tarjeta.
             can_accumulate_votes_beyond_threshold: Puede acumular apoyos más allá del umbral
+            clear_all: Limpiar todo
             collaborative_drafts_enabled: Habilitar borradores colaborativos
             comments_enabled: Comentarios habilitados
             comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
@@ -181,6 +180,7 @@ es-MX:
               random: Aleatorio
               recent: Recientes
               with_more_authors: Con más autoras
+            define_taxonomy_filters: Por favor, define algunos filtros para este espacio participativo antes de utilizar esta configuración.
             edit_time: Las autoras pueden editar las propuestas antes de que pase este tiempo
             edit_time_units:
               days: Días
@@ -191,6 +191,7 @@ es-MX:
             new_proposal_body_template: Plantilla para el texto de nueva propuesta
             new_proposal_body_template_help: Puede definir el texto predefinido que tendrán las nuevas propuestas
             new_proposal_help_text: Texto de ayuda al crear una propuesta
+            no_taxonomy_filters_found: No se han encontrado filtros de taxonomía.
             official_proposals_enabled: Propuestas oficiales habilitadas
             participatory_texts_enabled: Textos participativos habilitados
             participatory_texts_enabled_readonly: No se puede interactuar con esta configuración si hay propuestas existentes. Por favor, crea un nuevo componente de propuesta si quieres activar esta característica o descartar todas las propuestas importadas en el menú "Textos Participativos" si quieres desactivarla.
@@ -210,6 +211,8 @@ es-MX:
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada propuesta
             scope_id: Ámbito
             scopes_enabled: Ámbitos habilitados
+            taxonomy_filters: Seleccionar filtros para el componente
+            taxonomy_filters_add: Añadir un filtro
             threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de apoyos por participante
           step:
@@ -250,6 +253,10 @@ es-MX:
             votes_blocked: Apoyos bloqueados
             votes_enabled: Apoyos habilitados
             votes_hidden: Votos ocultos (si los votos están habilitados, marcando esta opción ocultará el número de votos)
+    download_your_data:
+      show:
+        proposal_comments: Exportar los comentarios a las propuestas
+        proposals: Exportar las propuestas
     events:
       proposals:
         accepted_coauthorship:
@@ -354,16 +361,11 @@ es-MX:
             email_outro: Has recibido esta notificación porque estás siguiendo el espacio "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Una propuesta que sigues ha cambiado su estado (%{state})
             notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha cambiado su estado a "%{state}".
-        proposal_update_category:
-          email_intro: 'Un/a administrador/a ha actualizado la categoría de tu propuesta "%{resource_title}", compruébalo:'
-          email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
-          email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
-          notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
-        proposal_update_scope:
-          email_intro: 'Una administradora ha actualizado el ámbito de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
-          email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
-          email_subject: El ámbito de la propuesta %{resource_title} ha sido actualizado
-          notification_title: El ámbito de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado por una administradora.
+        proposal_update_taxonomies:
+          email_intro: 'Una administradora ha actualizado las taxonomías de tu propuesta "%{resource_title}", puedes comprobarlo en esta página:'
+          email_outro: Recibiste esta notificación porque eres la autora de la propuesta.
+          email_subject: Se han actualizado las taxonomías de la propuesta %{resource_title}
+          notification_title: Una administradora ha actualitzado las taxonomias de la propouesta "<a href="%{resource_path}">%{resource_title}".
         rejected_coauthorship:
           notification_title: Has rechazado la invitación de <a href="%{author_path}">%{author_name}</a> para convertirte en coautora de la propuesta "<a href="%{resource_path}">%{resource_title}</a>".
         voting_enabled:
@@ -423,6 +425,48 @@ es-MX:
         description: Número de apoyos a propuestas
         object: votos
         title: Votos
+    open_data:
+      help:
+        proposal_comments:
+          alignment: Si este comentario fue un favor, en contra o neutral
+          author: El nombre usuaria de la participante que hizo este comentario
+          body: El comentario en sí
+          commentable_id: El identificador único de aquello que se podía comentar
+          commentable_type: La tipología de aquello sobre lo que se realizó el comentario (si fue un resultado, una propuesta, etc.)
+          created_at: La fecha en la que se creó este comentario
+          depth: El lugar donde se encuentra este comentario en la terna de comentarios (si es un comentario, una respuesta a un comentario, o la respuesta de una respuesta)
+          id: El identificador de este comentario
+          locale: La configuración regional (idioma) que la participante tuvo al dejar este comentario
+          root_commentable_url: La URL (dirección web) del recurso que enlaza con este comentario
+          user_group: El nombre del grupo de usuarias que hizo este comentario (si lo hay)
+        proposals:
+          address: La dirección de la propuesta en caso de que esta tenga una ubicación física
+          answer: La respuesta a la propuesta en el caso de que se haya respondido
+          answered_at: La fecha en que se respondió esta propuesta
+          attachments: El número de archivos adjuntos que tiene esta propuesta
+          author: Los datos de autoría de esta propuesta
+          body: La descripción de la propuesta
+          comments: El número de comentarios que tiene esta propuesta
+          component: El componente al que pertenece esta propuesta
+          endorsements: El número de adhesiones ("me gusta") que tiene esta propuesta
+          followers: El número de seguidoras que tiene esta propuesta
+          id: El identificador único de la propuesta
+          is_amend: Si esta propuesta es una enmienda a otra propuesta o no
+          latitude: La latitud de la propuesta en caso de que esta tenga una ubicación física
+          longitude: La longitud de la propuesta en caso de que esta tenga una ubicación física
+          meeting_urls: Las URL de los encuentros de los que resultó o se debatió esta propuesta
+          original_proposal: La referencia de la propuesta original en el caso de que se trate de una enmienda
+          participatory_space: A qué espacio pertenece este proyecto (proceso participativo, asamblea, etc.)
+          published_at: La fecha en que se publicó esta propuesta
+          reference: El identificador único del recurso en esta plataforma
+          related_proposals: Las propuestas relacionadas con esta propuesta
+          state: El estado de esta propuesta (por ejemplo, "Aceptado")
+          taxonomies: Las taxonomías a las que pertenece esta propuesta
+          title: El título de la propuesta
+          url: La URL donde se puede encontrar esta propuesta
+          votes: El número de apoyos que tiene esta propuesta
+          withdrawn: Si esta propuesta fue retirada o no
+          withdrawn_at: Cuando fue retirada esta propuesta
     participatory_spaces:
       highlighted_proposals:
         last: Propuestas más recientes
@@ -446,7 +490,10 @@ es-MX:
         title: Acciones
       admin:
         actions:
+          confirm_delete_proposal: '¿Seguro que quiere eliminar esta propuesta?'
+          deleted_proposals_info: Las propuestas eliminadas se pueden restaurar desde papelera.
           preview: Previsualizar
+          view_deleted_proposals: Ver las propuestas eliminadas
         exports:
           proposal_comments: Comentarios
           proposals: Propuestas
@@ -566,7 +613,6 @@ es-MX:
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             created_in_meeting: Esta propuesta procede de un encuentro
             delete_attachment: Eliminar archivo adjunto
-            select_a_category: Selecciona una categoría
             select_a_meeting: Selecciona un encuentro
           index:
             actions: Acciones
@@ -574,8 +620,7 @@ es-MX:
             assign_to_valuator: Asignar a evaluadora
             assign_to_valuator_button: Asignar
             cancel: Cancelar
-            change_category: Cambiar categoría
-            change_scope: Cambiar ámbito
+            change_taxonomies: Cambiar taxonomías
             merge: Fusionar en una nueva
             merge_button: Fusionar
             no_templates_available: No hay pantillas disponibles
@@ -591,7 +636,8 @@ es-MX:
             unassign_from_valuator: Desasignar de evaluadora
             unassign_from_valuator_button: Desasignar
             update: Actualizar
-            update_scope_button: Actualizar ámbito
+          manage_trash:
+            title: Propuestas eliminadas
           new:
             create: Crear
             title: Crear propuesta
@@ -617,16 +663,11 @@ es-MX:
             remove_assignment_confirmation: '¿Seguro que quieres desasignar a la evaluadora de esta propuesta?'
             valuators: Evaluadoras
             votes_count: Número de apoyos
-          update_category:
-            invalid: 'Estas propuestas ya tenían la categoría %{subject_name}: %{proposals}.'
-            select_a_category: Por favor, selecciona una categoría.
+          update_taxonomies:
+            invalid: 'Estas propuestas ya tenían las taxonomias %{taxonomies}: %{proposals}.'
             select_a_proposal: Por favor, selecciona una propuesta.
-            success: 'Propuestas actualizadas correctamente a la categoría %{subject_name}: %{proposals}.'
-          update_scope:
-            invalid: 'Estas propuestas ya tenían el ámbito %{subject_name}: %{proposals}.'
-            select_a_proposal: Por favor, selecciona una propuesta.
-            select_a_scope: Por favor, selecciona un ámbito.
-            success: 'Propuestas actualizadas correctamente al ámbito %{subject_name}: %{proposals}.'
+            select_a_taxonomy: Por favor, selecciona una taxonomía.
+            success: 'Propuestas actualizadas correctamente a las taxonomias %{taxonomies}: %{proposals}.'
         proposals_imports:
           create:
             invalid: Se ha producido un error al importar las propuestas.
@@ -657,6 +698,8 @@ es-MX:
           answer: "%{user_name} respondió a la propuesta %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
           publish_answer: "%{user_name} publicó la respuesta a la propuesta %{resource_name} en el espacio %{space_name}"
+          restore: "%{user_name} restauró la propuesta %{resource_name} en el espacio %{space_name}"
+          soft_delete: "%{user_name} ha movido a la papelera la propuesta %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} ha actualizado la propuesta oficial %{resource_name} en el espacio %{space_name}"
         proposal_note:
           create: "%{user_name} dejó una nota privada sobre la propuesta %{resource_name} en el espacio %{space_name}"
@@ -707,7 +750,6 @@ es-MX:
         edit:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
           back: Volver
-          select_a_category: Por favor seleccione una categoría
           send: Enviar
           title: Editar borrador colaborativo
         empty: Todavía no hay borradores colaborativos
@@ -715,11 +757,9 @@ es-MX:
         filters:
           all: Todas
           amendment: Enmiendas
-          category: Categoría
           open: Abierto
           published: Publicado
           related_to: Relacionado con
-          scope: Ámbito
           search: Buscar
           state: Estado
           withdrawn: Retirado
@@ -759,7 +799,7 @@ es-MX:
             error: No se pudo rechazar como colaborador, inténtalo de nuevo más tarde.
             success: "Se ha rechazado con éxito @%{user} como colaboradora."
         show:
-          edit: Editar borrador colaborativo
+          edit: Editar
           final_proposal: propuesta final
           final_proposal_help_text: Este borrador está terminado. Puedes ver la propuesta final terminada
           hidden_authors_count:
@@ -797,6 +837,11 @@ es-MX:
       destroy_draft:
         error: Se han producido errores al eliminar el borrador de la propuesta.
         success: El borrador de la propuesta fue eliminado con éxito.
+      forms:
+        errors:
+          device_not_supported: Su dispositivo no soporta servicios de ubicación. Por favor, introduzca la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
+          no_device_location: Lo sentimos, no hemos podido detectar tu ubicación. Por favor, introduce la dirección postal completa manualmente (tipo de vía, nombre de la vía, número, código postal y ciudad).
+        use_my_location: Usar mi ubicación actual
       invite_coauthors:
         cancel:
           error: Se ha producido un error al cancelar la invitación de coautoría.
@@ -816,15 +861,14 @@ es-MX:
       models:
         proposal:
           fields:
-            category: Categoría
             comments: Comentarios
             id: Identificador
             notes: Notas
             official_proposal: Propuesta oficial
             published_answer: Respuesta publicada
             published_at: Publicado el
-            scope: Ámbito
             state: Estado
+            taxonomies: Taxonomías
             title: Título
             valuator: Evaluadora
             valuators: Evaluadoras
@@ -851,7 +895,6 @@ es-MX:
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           back: Atrás
           edit_documents: Editar documentos
-          select_a_category: Por favor, selecciona una categoría
           send: Enviar
           title: Editar propuesta
         edit_draft:
@@ -865,13 +908,13 @@ es-MX:
           activity: Mi actividad
           all: Todo
           amendment_type: Tipo
-          category: Categoría
           my_proposals: Mis propuestas
           origin: Origen
           related_to: Relacionadas con
           scope: Ámbito
           search: Buscar
           state: Estado
+          taxonomy_filters: Filtros
           type: Tipo
           voted: Apoyadas
         index:
@@ -918,7 +961,7 @@ es-MX:
         show:
           answer: Respuesta
           changes_at_title: Enmienda a "%{title}"
-          edit_proposal: Editar propuesta
+          edit_proposal: Editar
           estimated_cost: Coste estimado
           hidden_endorsers_count:
             one: y %{count} persona más
@@ -934,7 +977,7 @@ es-MX:
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún apoyo. La propuesta no se eliminará, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation_html: '¿Seguro que quieres retirar esta propuesta?<br><br><strong>Esta acción no se puede deshacer!</strong>'
-          withdraw_proposal: Retirar propuesta
+          withdraw_proposal: Retirar
         update:
           title: Actualizar propuesta
         vote_button:

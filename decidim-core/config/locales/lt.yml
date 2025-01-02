@@ -582,8 +582,6 @@ lt:
       application_helper:
         filter_area_values:
           all: Visos
-        filter_category_values:
-          all: Visos
         filter_scope_values:
           all: Visos
     devise:
@@ -646,23 +644,17 @@ lt:
     download_your_data:
       export:
         ready: Pasirengęs
-      show:
-        download_data: Parsisiųsti duomenis
-        request_data: Prašyti duomenų
     editor_images:
       create:
         error: Klaida įkeliant paveikslėlį.
         success: Paveikslėlis įkeltas sėkmingai.
       drag_and_drop_help: Pridėkite paveikslėlius juos užvesdami ant lango arba juos įklijuodami.
     endorsement_buttons_cell:
-      already_endorsed: Nepatinka
       endorse: Patinka
     endorsements:
       identities:
         done: Atlikta
         select_identity: Pasirinkite tapatybę
-    endorsers_list:
-      endorsed_by: Mėgiama…
     errors:
       internal_server_error:
         copied: Tekstas nukopijuotas!
@@ -827,10 +819,7 @@ lt:
           notification_title: Dalyvis %{name} (%{nickname}) buvo oficializuotas.
     export_mailer:
       download_your_data_export:
-        click_button: 'Spustelėkite ant sekančios nuorodos, kad atsisiųsti prieigos kodų duomenis.<br/>Failas bus prieinamas iki %{date}.<br/>Jums reikės <a href="https://www.7-zip.org/">7-Zip</a> (Windows), <a href="https://www.keka.io/en/">Keka</a> (MacOS) arba <a href="https://peazip.github.io">PeaZip</a> (Linux) kad jį atverti. Slaptažodis: %{password}'
         download: Atsisiųsti
-      export:
-        ready: Pridedame jūsų eksporto suspaustos rinkmenos variantą.
       subject: Jūsų eksportuojamas „%{name}“ yra parengtas
     filters:
       linked_classes:
@@ -1463,12 +1452,6 @@ lt:
         help: Pagalba
       mentions_modal:
         remove_recipient: Išimti gavėją %{name}
-      participatory_space_filters:
-        filters:
-          area: Aplinka
-          areas: Erdvės
-          scope: Sritis
-          select_an_area: Pasirinkti erdvę
       progress: Progresas
       public_participation:
         public_participation: Rodyti mano dalyvavimą viešai
@@ -1497,9 +1480,6 @@ lt:
       pages_count: Puslapiai
       participants_count: Dalyviai
       users_count: Dalyviai
-    tags:
-      filter_results_for_category: 'Filtruoti nurodytos kategorijos rezultatus: %{resource}'
-      filter_results_for_scope: 'Filtruoti srities rezultatus: %{resource}'
     translation_bar:
       help_text: "<strong>Dėmesio:</strong> Turinys gali būti išverstas automatiškai, bet nebus visiškai tikslus."
       show_original: Rodyti teksto originalą
@@ -1846,7 +1826,6 @@ lt:
         data_consent_settings: Slapukų nustatymai
         decidim_logo: '„Decidim“ logotipas'
         decidim_title: Decidim
-        download_open_data: Parsisiųsti atvirųjų duomenų rinkmenas
         log_in: Prisijungti
         made_with_open_source: Interneto svetainė sukurta naudojant <a target="_blank" href="https://github.com/decidim/decidim">atvirą programinę įrangą</a>.
         resources: Ištekliai

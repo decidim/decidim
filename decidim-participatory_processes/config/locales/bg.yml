@@ -126,7 +126,6 @@ bg:
           info: Относно този процес
           landing_page: Целева страница
           moderations: Модерации
-          private_users: Частни участници
           process_admins: Администратори на процеси
           steps: Фази
       models:

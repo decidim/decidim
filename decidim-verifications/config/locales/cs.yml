@@ -124,17 +124,6 @@ cs:
         destroy:
           error: Při odstraňování autorizace došlo k chybě.
           success: Autorizace byla úspěšně odstraněna.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Ověřte proti jinému příkladu pověření pro autorizaci
-            csv_census: Ověřte prostřednictvím členství v organizaci
-            dummy_authorization_handler: Ověřte proti příkladu pověření autorizace
-            dummy_authorization_workflow: Ověřte proti pracovnímu postupu autorizace
-            id_documents: Získejte ověření odesláním dokladu totožnosti
-            postal_letter: Ověřte si, zda obdržíte ověřovací kód poštou
-            sms: Ověřit obdržením SMS ověřovacího kódu
-          title: Potvrďte vaši identitu
-          verify_with_these_options: 'Jsou to dostupné možnosti k ověření totožnosti:'
         index:
           expired_verification: Ověření vypršelo
           granted_verification: Udělené ověření
@@ -146,6 +135,13 @@ cs:
         new:
           authorize: Poslat
           authorize_with: Ověřte pomocí %{authorizer}
+        onboarding_pending:
+          completed_verifications: Byli jste úspěšně autorizováni, nyní můžete %{action} v %{resource_name}
+          granted_verifications: Udělená ověření
+          onboarding_message_html: Jste téměř připraveni %{action} na <strong>%{resource_title}</strong> %{resource_name}. Ověřte prosím svůj účet dokončením následujících autorizací.
+          pending_admin_approval_verifications: Čeká na ověření schválení administrátora
+          pending_verifications: Nevyřízená ověření
+          unauthorized: Nemáte oprávnění k %{action} v tomto zdroji
         renew_modal:
           cancel: Zrušit
           continue: Pokračovat
@@ -157,6 +153,7 @@ cs:
         admin:
           census:
             create:
+              error: Při importu členů organizace došlo k chybě.
               success: 'Počet úspěšně importovaných položek: %{count} (počet chyb: %{errors}).'
             destroy_all:
               success: Všechna data seznamu členů byly smazány.

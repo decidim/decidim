@@ -90,6 +90,7 @@ module Decidim
               put :hide
               put :unhide
             end
+            patch :bulk_action, on: :collection
             resources :reports, controller: "moderations/reports", only: [:index, :show]
           end
 
@@ -101,6 +102,8 @@ module Decidim
               resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
                 delete :destroy_all
               end
+              post :publish_all
+              post :unpublish_all
             end
           end
 

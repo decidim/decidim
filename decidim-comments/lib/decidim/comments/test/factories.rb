@@ -46,6 +46,14 @@ FactoryBot.define do
         create(:moderation, reportable: comment, hidden_at: 2.days.ago, skip_injection: evaluator.skip_injection)
       end
     end
+
+    trait :in_favor do
+      alignment { 1 }
+    end
+
+    trait :against do
+      alignment { -1 }
+    end
   end
 
   factory :comment_vote, class: "Decidim::Comments::CommentVote" do

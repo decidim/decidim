@@ -181,9 +181,6 @@ uk:
         create:
           error: При спробі створити цю складову сталася помилка.
           success: Складову успішно створено.
-        destroy:
-          error: При спробі видалити цю складову сталася помилка.
-          success: Складову успішно видалено.
         edit:
           title: Редагувати складову
           update: Оновити
@@ -214,8 +211,6 @@ uk:
       exports:
         export_as: "%{name} як %{export_format}"
       filters:
-        category_id_eq:
-          label: Категорія
         officialized_at_null:
           label: Стан
           values:
@@ -484,8 +479,6 @@ uk:
           title: Створити сторінку
         update:
           error: При спробі оновити цю сторінку сталася помилка.
-      taxonomies:
-        count: Кількість
       titles:
         admin_log: Журнал адміністратора
         area_types: Різновиди дільниць

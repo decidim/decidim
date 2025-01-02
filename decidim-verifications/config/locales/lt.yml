@@ -102,17 +102,6 @@ lt:
         destroy:
           error: Šalinant leidimą iškilo problema.
           success: Autorizaciją sėkmingai pašalinote.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Patikrinkti pagal kitą leidimų tvarkytojo pavyzdį
-            csv_census: Patikrinti pagal organizacijos surašymo duomenis
-            dummy_authorization_handler: Patikrinti pagal leidimų tvarkytojo pavyzdį
-            dummy_authorization_workflow: Patikrinti pagal leidimų suteikimo eigos pavyzdį
-            id_documents: Patikrinimas įkeliant savo tapatybės dokumentą
-            postal_letter: Patikrinimas pašto laišku gaunant tikrinimo kodą
-            sms: Patikrinimas gaunant tikrinimo kodą SMS
-          title: Patvirtinkite savo tapatybę
-          verify_with_these_options: 'Savo tapatybę galite patvirtinti šiomis priemonėmis:'
         index:
           expired_verification: Patvirtinimas baigė galioti
           granted_verification: Patvirtinta
