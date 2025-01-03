@@ -656,8 +656,6 @@ en:
         finish: Finish
         promotal_committee: Promoter committee
         select_initiative_type: Choose
-      initiative_signature_creation_header:
-        title: Sign %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: No initiatives yet!
