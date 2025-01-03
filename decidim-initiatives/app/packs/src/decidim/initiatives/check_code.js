@@ -1,3 +1,9 @@
+const focusDigit = (digit) => {
+  const length = digit.value.length;
+  digit.focus();
+  setTimeout(() => digit.setSelectionRange(length, length), 0);
+};
+
 const validateCode = (path, code) => {
   return fetch(path, {
     method: "PUT",
@@ -56,12 +62,30 @@ const updateValue = (codeInput, event, digitsInputs) => {
     }
 
     if (prevDigit && newDigit === "-") {
-      prevDigit.focus();
+      focusDigit(prevDigit);
     } else if (nextDigit && newDigit !== "-") {
-      nextDigit.focus();
+      focusDigit(nextDigit);
     }
   }
 };
+
+const updatePosition = (codeInput, event, digitsInputs) => {
+  const index = Number(event.target.dataset.verificationCode);
+  const nextDigit = (() => {
+    if (event.key === "ArrowLeft" || ["Delete", "Backspace"].includes(event.key) && event.target.value === "") {
+      return digitsInputs[index - 1];
+    } else if (event.key === "ArrowRight" || (/^\d$/).test(event.key) && event.target.value.length > 0) {
+      return digitsInputs[index + 1];
+    }
+    return false;
+  })();
+
+  if (nextDigit) {
+    focusDigit(nextDigit);
+  }
+  return true;
+};
+
 
 const initializeCodeVerificator = (codeElement) => {
   const codeInput = codeElement.querySelector("[data-check-code-path]");
@@ -69,6 +93,7 @@ const initializeCodeVerificator = (codeElement) => {
 
   digitsInputs.forEach((digitInput) => {
     digitInput.addEventListener("input", (event) => updateValue(codeInput, event, digitsInputs));
+    digitInput.addEventListener("keydown", (event) => updatePosition(codeInput, event, digitsInputs));
   });
   codeInput.value = "------";
 };
