@@ -675,8 +675,6 @@ en:
         finish: Technical validation
         promotal_committee: Look for promoters
         select_initiative_type: Choose
-      initiative_signature_creation_header:
-        title: Sign %{initiative_title}
       initiatives:
         no_initiatives_yet:
           no_initiatives_yet: No initiatives yet!
