@@ -1358,6 +1358,11 @@ cs:
               failed: 'Vyskytl se problém při skrývání některých zdrojů: %{errored}'
               invalid: Nebyla vybrána žádná moderace.
               success: Zdroje byly úspěšně skryty.
+            unhide:
+              invalid: Nebyla vybrána žádná moderace.
+              success: Zdroje byly úspěšně odkryty.
+            unreport:
+              invalid: Nebyla vybrána žádná moderace.
           hide:
             invalid: Došlo k potížím při skrývání zdroje.
             success: Zdroj byl úspěšně skryt.
