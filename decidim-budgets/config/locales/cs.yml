@@ -33,6 +33,9 @@ cs:
         other: Projekty
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projekty
       filters:
         projects:
           selected_at_null:
@@ -380,6 +383,9 @@ cs:
               enabled: Hlasování povoleno
               finished: Hlasování dokončeno
     download_your_data:
+      help:
+        orders:
+          budget: Rozpočet související s pokynem
       show:
         projects: Export projektů
     events:
