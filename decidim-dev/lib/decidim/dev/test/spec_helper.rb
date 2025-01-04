@@ -46,21 +46,6 @@ RSpec.configure do |config|
     }
   end
 
-  config.around do |example|
-    Timeout.timeout(60) { example.run }
-  rescue Timeout::Error, Timeout::ExitException => e
-    puts "\nTest Timeout Error Details:"
-    puts "------------------------"
-    puts "Spec Description: #{example.full_description}"
-    puts "Location: #{example.location}"
-    puts "File Path: #{example.metadata[:file_path]}"
-    puts "Line Number: #{example.metadata[:line_number]}"
-    puts "------------------------"
-    puts "This test timed out - subsequent tests will likely fail due to data not being cleaned up."
-    puts "Cause location: #{e.cause.backtrace.join("\n")}" if e.cause
-    raise e
-  end
-
   config.before do
     # Ensure that the current host is not set for any spec in order to test that
     # the automatic current host definition is working correctly in all
