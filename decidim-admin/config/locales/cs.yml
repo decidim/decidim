@@ -297,6 +297,12 @@ cs:
         no_results: Nenalezeny žádné výsledky
         search_prompt: Zadejte alespoň tři znaky pro vyhledávání.
       block_user:
+        bulk_new:
+          action: Zablokovat účty a odeslat zdůvodnění
+          already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
+          description: Blokováním uživatele bude jejich účet nepoužitelný. Ve svém zdůvodnění můžete uvést veškerá pravidla pro způsob, jakým byste uvažovali o odblokování uživatele.
+          justification: Odůvodnění
+          title: Zablokovat uživatele
         new:
           action: Blokovat účet a odeslat odůvodnění
           already_reported_html: Pokračováním v této akci také skryjete veškerý obsah účastníků.
@@ -716,13 +722,27 @@ cs:
         index:
           actions:
             block: Blokovat uživatele
+            bulk_actions:
+              actions_dropdown: Akce
+              block:
+                title: Blokovat
+                update_moderated_user_button: Zablokovat uživatele
+              unblock:
+                title: Odblokovat
+                update_moderated_user_button: Odblokovat uživatele
+              unreport:
+                title: Zrušit nahlášení
+            ignore:
+              update_moderated_user_button: Zrušit nahlášení uživatelů
             title: Akce
             unblock: Odblokovat uživatele
             unreport: Zrušit nahlášení
+          cancel: Zrušit
           name: Jméno
           nickname: Přezdívka
           reason: Důvod
           reports: Počet zpráv
+          selected: Vybráno
           title: Nahlášení účastníci
         report:
           reasons:
@@ -734,6 +754,19 @@ cs:
           unblocked: Neblokováno
       moderations:
         index:
+          actions:
+            actions_dropdown: Akce
+            hide:
+              title: Skrýt
+              update_moderation_button: Skrýt vybrané zdroje
+            unhide:
+              title: Zrušit skrytí
+              update_moderation_button: Odkrýt vybrané zdroje
+            unreport:
+              title: Zrušit nahlášení
+              update_moderation_button: Zrušit nahlášení vybraných zdrojů
+          cancel: Zrušit
+          selected: vybráno
           title: Nahlášený obsah
         report:
           reasons:
@@ -838,6 +871,9 @@ cs:
         block:
           error: Při blokování účastníka došlo k chybě.
           success: Účastník byl úspěšně zablokován.
+        bulk_action:
+          block:
+            invalid: Při blokování účastníků došlo k chybě.
         create:
           success: Účastník úspěšně oficiálně zaregistrován.
         destroy:
