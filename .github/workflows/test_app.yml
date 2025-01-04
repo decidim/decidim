@@ -123,7 +123,6 @@ jobs:
           DECIDIM_BULLET_N_PLUS_ONE: ${{ inputs.bullet_n_plus_one }}
           DECIDIM_BULLET_COUNTER_CACHE: ${{ inputs.bullet_counter_cache }}
           DECIDIM_BULLET_UNUSED_EAGER: ${{ inputs.bullet_unused_eager_loading }}
-          PARALLEL_TEST_PROCESSORS: 1
           DISPLAY: ":99"
           CI: "true"
           SIMPLECOV: "true"

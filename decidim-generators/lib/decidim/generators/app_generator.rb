@@ -215,11 +215,6 @@ module Decidim
       end
 
       def add_queue_adapter
-        gsub_file "config/environments/test.rb", /^end\n$/, <<~CONFIG
-            config.active_job.queue_adapter = :inline
-          end
-        CONFIG
-
         adapter = options[:queue]
 
         abort("#{adapter} is not supported as a queue adapter, please use sidekiq for the moment") unless adapter.in?(["", "sidekiq"])
@@ -345,6 +340,13 @@ module Decidim
         gsub_file "config/initializers/decidim.rb",
                   /#{Regexp.escape("config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json")}/,
                   "# config.available_locales = Decidim::Env.new(\"DECIDIM_AVAILABLE_LOCALES\", \"ca,cs,de,en,es,eu,fi,fr,it,ja,nl,pl,pt,ro\").to_array.to_json"
+      end
+
+      def patch_test
+        gsub_file "config/environments/test.rb", /^end\n$/, <<~CONFIG
+            config.active_job.queue_adapter = :inline
+          end
+        CONFIG
       end
 
       def patch_logging
