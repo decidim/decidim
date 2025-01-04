@@ -16,6 +16,10 @@ cs:
         many: Příspěvky
         other: Příspěvky
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          posts: Příspěvky
     blogs:
       actions:
         author_id: Vytvořit příspěvek jako
