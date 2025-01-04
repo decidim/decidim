@@ -735,6 +735,13 @@ cs:
     download_your_data:
       export:
         ready: Připraven
+      help:
+        users:
+          email: E-mailová adresa tohoto uživatele
+          id: Jedinečný identifikátor tohoto uživatele
+          invitation_accepted_at: Datum a čas, kdy byla pozvánka přijata
+          invitation_created_at: Datum a čas, kdy byl uživatel pozván
+          invitation_sent_at: Datum a čas, kdy byla pozvánka odeslána
       show:
         action: Akce
         download_data_description_1: Zde naleznete všechna stažení, která jsou k dispozici pro váš účet. Tyto .zip soubory budou k dispozici po dobu dvou týdnů než budou odstraněny.
