@@ -42,7 +42,7 @@ module Decidim
         questionnaire_id = @answers.first&.decidim_questionnaire_id
         return {} unless questionnaire_id
 
-        questions = Decidim::Forms::Question.where(decidim_questionnaire_id: questionnaire_id)
+        questions = Decidim::Forms::Question.where(decidim_questionnaire_id: questionnaire_id).order(:position)
         return {} if questions.none?
 
         questions.each.inject({}) do |serialized, question|
