@@ -874,6 +874,10 @@ cs:
         bulk_action:
           block:
             invalid: Při blokování účastníků došlo k chybě.
+            success: Účastníci byli úspěšně zablokováni.
+          unblock:
+            invalid: Při odblokování účastníků došlo k chybě.
+            success: Účastníci byli úspěšně odblokováni.
         create:
           success: Účastník úspěšně oficiálně zaregistrován.
         destroy:
@@ -1349,6 +1353,11 @@ cs:
         unreport: Zrušit nahlášení
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Vyskytl se problém při skrývání některých zdrojů: %{errored}'
+              invalid: Nebyla vybrána žádná moderace.
+              success: Zdroje byly úspěšně skryty.
           hide:
             invalid: Došlo k potížím při skrývání zdroje.
             success: Zdroj byl úspěšně skryt.
