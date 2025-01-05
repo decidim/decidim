@@ -16,6 +16,10 @@ cs:
         many: Odpovědi
         other: Odpovědi
   decidim:
+    admin:
+      admin_log:
+        changeset:
+          surveys: průzkumy
     components:
       surveys:
         actions:
