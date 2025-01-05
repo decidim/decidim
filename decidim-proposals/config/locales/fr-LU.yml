@@ -346,7 +346,7 @@ fr-LU:
         title: Votes
     participatory_spaces:
       highlighted_proposals:
-        see_all: Tout voir (%{count})
+        see_all: Tout voir
     proposals:
       actions:
         answer_proposal: Répondre à la proposition

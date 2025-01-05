@@ -329,7 +329,7 @@ sk:
           proposals: Návrhy
     participatory_spaces:
       highlighted_proposals:
-        see_all: Zobraziť všetky (%{count})
+        see_all: Zobraziť všetky
     proposals:
       actions:
         answer_proposal: Odpoveď na návrh

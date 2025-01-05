@@ -470,7 +470,7 @@ eu:
     participatory_spaces:
       highlighted_proposals:
         last: Azken proposamenak
-        see_all: Ikusi (%{count}) proposamenak
+        see_all: Ikusi proposamenak
     proposals:
       actions:
         answer_proposal: Erantzun proposamenari

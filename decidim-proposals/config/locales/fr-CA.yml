@@ -396,7 +396,7 @@ fr-CA:
     participatory_spaces:
       highlighted_proposals:
         last: Dernières propositions
-        see_all: Tout voir (%{count})
+        see_all: Tout voir
     proposals:
       actions:
         answer_proposal: Répondre à la proposition

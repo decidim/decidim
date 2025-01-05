@@ -277,7 +277,7 @@ fi-pl:
           proposals: Ehdotukset
     participatory_spaces:
       highlighted_proposals:
-        see_all: Näytä kaikki (%{count})
+        see_all: Näytä kaikki
     proposals:
       actions:
         answer: Vastaa

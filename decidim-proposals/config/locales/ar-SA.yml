@@ -286,7 +286,7 @@ ar:
           proposals: اقتراحات
     participatory_spaces:
       highlighted_proposals:
-        see_all: شاهد الكل (%{count})
+        see_all: شاهد الكل
     proposals:
       actions:
         answer: إجابة
