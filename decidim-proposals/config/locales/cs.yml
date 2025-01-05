@@ -120,6 +120,9 @@ cs:
         other: Hlasů
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Návrhy
       filters:
         proposals:
           is_emendation_true:
@@ -456,6 +459,10 @@ cs:
           body: Obsah návrhu
           comments: Počet komentářů, které má tento návrh
           component: Komponenta, do které návrh patří
+          cost: Celkové náklady daného návrhu
+          cost_report: Zpráva o nákladech na návrh
+          created_at: Datum, kdy byl návrh vytvořen
+          created_in_meeting: Zda byl návrh vytvořen na schůzce
           endorsements: Počet souhlasů ("lajků"), které tento návrh získal
           id: Jedinečný identifikátor návrhu
           is_amend: Zda je tento návrh změnou jiného návrhu
@@ -854,6 +861,11 @@ cs:
       destroy_draft:
         error: Došlo k chybám s vymazáním návrhového návrhu.
         success: Koncept návrhu byl úspěšně smazán.
+      exit_modal:
+        cancel: Zrušit
+        exit: Pokračovat
+        message: Musíte dát ještě %{number} hlasů mezi různými návrhy, aby bylo možné vzít v úvahu vaše hlasy.
+        title: Pamatujte, že vám zbývá ještě %{number} hlasů
       forms:
         errors:
           device_not_supported: Vaše zařízení nepodporuje služby určování polohy. Zadejte adresu ručně.
@@ -1017,12 +1029,20 @@ cs:
             many: Hlasů
             other: Hlasů
         voting_rules:
+          already_vote:
+            description: Nezapomeňte, že ještě musíte dát %{number} podpor mezi různými návrhy, aby byla zohledněna vaše podpora.
+            see_other_proposals: Zobrazit ostatní návrhy
+            title: Zbývá vám ještě %{number} podpor
           can_accumulate_votes_beyond_threshold:
             description: Každý návrh může sshromáždit více než %{limit} hlasů
+          minimum_votes_per_user:
+            description: Musíte rozdělit minimálně %{votes} podpor mezi různé návrhy, aby byla zohledněna vaše podpora.
           proposal_limit:
             description: Můžete vytvořit až %{limit} návrhů.
+          success: Vaše hlasy byly úspěšně přijaty
           threshold_per_proposal:
             description: Aby byly návrhy schváleny, musí dosáhnout %{limit} hlasů.
+          title: Pravidla účasti
           vote_limit:
             description: Můžete hlasovat až pro %{limit} návrhů.
             votes: Zbývá %{number} hlasů
