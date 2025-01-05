@@ -742,13 +742,28 @@ cs:
           invitation_accepted_at: Datum a čas, kdy byla pozvánka přijata
           invitation_created_at: Datum a čas, kdy byl uživatel pozván
           invitation_sent_at: Datum a čas, kdy byla pozvánka odeslána
+          invitations_count: Počet pozvánek zaslaných tomuto uživateli
+          invited_by: Uživatel, který pozval tohoto uživatele
+          locale: Lokalizace (jazyk), kterou tento uživatel vybral
+          managed: Zda je tento uživatel spravován jiným uživatelem
+          name: Jméno tohoto uživatele
+          nickname: Přezdívka tohoto uživatele
+          notification_settings: Nastavení oznámení, které tento uživatel vybral
+          notifications_sending_frequency: Četnost oznámení, která tento uživatel obdrží
       show:
         action: Akce
+        download: Stáhnout soubor
+        download_data: Stahování dat
         download_data_description_1: Zde naleznete všechna stažení, která jsou k dispozici pro váš účet. Tyto .zip soubory budou k dispozici po dobu dvou týdnů než budou odstraněny.
         download_data_description_2: Můžete požádat o .zip soubor s vašimi příspěvky a osobními údaji.
         download_your_data: Osobní údaje
         expiration: Vypršení platnosti
         expired: Již vypršela platnost
+        explanation:
+          body_1: Tyto soubory jsou datové soubory exportované z vaší aktivity na této platformě, jako jsou návrhy nebo komentáře. Poskytují surové, strukturované údaje, které lze použít k analýze, výzkumu nebo integraci s jinými nástroji
+          body_2: Tyto soubory jsou ve formátu CSV (Comma-Separated Values) který je široce používaný formát souboru, který lze otevřít a zpracovat různými softwarovými aplikacemi, včetně tabulkových programů, textových editorů a nástrojů pro analýzu údajů.
+          title: Jaké jsou tyto soubory?
+        files_to_download: Soubory ke stažení
         request_data: Požadavek
         type: Typ stahování
     editor_images:
