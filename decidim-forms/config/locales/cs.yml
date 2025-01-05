@@ -26,6 +26,13 @@ cs:
           request_invalid: Při zpracování požadavku se vyskytl problém. Zkuste to znovu.
   decidim:
     download_your_data:
+      help:
+        answers:
+          answer: Odpověď na otázku
+          id: Jedinečný identifikátor odpovědi
+          question: Otázka, která byla zodpovězena
+          questionnaire: Dotazník, který byl zodpovězen
+          user: Uživatel, který odpověděl na dotazník
       show:
         answers: Export odpovědí
         survey_user_answers: Odpovědi uživatele na dotazník
