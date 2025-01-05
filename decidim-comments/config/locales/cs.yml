@@ -153,6 +153,11 @@ cs:
         comment_votes:
           comment: ID komentáře, o kterém bylo hlasováno
           created_at: Datum, kdy bylo toto hlasování vytvořeno
+          id: ID hlasování
+          updated_at: Datum, kdy bylo toto hlasování naposledy aktualizováno
+          weight: Váha hlasování (1 pro zvýšení, -1 pro snížení)
+        comments:
+          alignment: Pokud byl tento komentář příznivý, proti nebo neutrální
     events:
       comments:
         comment_by_followed_user:
