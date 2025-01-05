@@ -9,6 +9,7 @@ pt:
         end_date: Data final
         progress: Progresso
         start_date: Data de início
+        subresults: Subresultados
         title: Título
         updated_at: Atualizado em
       status:
@@ -40,6 +41,7 @@ pt:
         import_csv: Importar resultados de um CSV
         new_result: Novo resultado
         new_status: Novo estado
+        new_timeline_entry: Nova entrada no cronograma
         preview: Pré-visualizar
         timeline_entries: Evolução do projeto
         title: Ações
