@@ -179,6 +179,8 @@ fr:
       content_blocks:
         highlighted_results:
           results: Réalisations
+      creation:
+        text: Ce résultat a été créé
       import_mailer:
         import:
           errors: Erreurs
