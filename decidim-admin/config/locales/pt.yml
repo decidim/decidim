@@ -159,6 +159,7 @@ pt:
         permissions: Permissões
         reject: Rejeitar
         share: Partilhar
+        soft_delete: Mover para a lixeira
         verify: Verificar
       area_types:
         create:
@@ -224,6 +225,12 @@ pt:
       autocomplete:
         no_results: Nenhum resultado encontrado
       block_user:
+        bulk_new:
+          action: Bloquear conta e enviar justificação
+          already_reported_html: Com essa ação todos os conteúdos dos participantes bloqueados serão ocultados.
+          description: Bloquear um participante torna a sua conta inutilizável. Pode dar na sua justificação orientações sobre o que poderia levar a considerar desbloquear o participante.
+          justification: Justificação
+          title: Bloquear participantes
         new:
           action: Bloquear conta e enviar justificação
           description: Bloquear um utilizador torna a sua conta inutilizável. Pode dar na sua justificação orientações sobre o que poderia levar a considerar desbloquear o utilizador.
@@ -273,6 +280,14 @@ pt:
           title: 'Adicionar componente: %{name}'
         publish:
           success: O componente foi publicado corretamente.
+        taxonomy_filters_badge:
+          remove: Remover
+        taxonomy_filters_drawer:
+          add_filter: Adicionar filtro
+          clear_all: Apagar Tudo
+          filters: Filtros
+          save: Guardar
+          title: Filtros
         title: Componentes
         unpublish:
           success: O componente deixou de estar publicado corretamente.
@@ -356,6 +371,9 @@ pt:
             pending: Pendentes
             rejected: Rejeitados
             verified: Verificados
+        taxonomies:
+          taxonomy_id_eq:
+            label: Taxonomia
       forms:
         file_help:
           import:
@@ -407,6 +425,8 @@ pt:
             back: Voltar
           file_legend: Adicionar ficheiro para importar a analisar.
           import: Importar
+      manage_trash:
+        deleted_items_warning: Visualize itens da lixeira no momento. Para fazer qualquer edição ou alterações, deve primeiro restaurá-los.
       managed_users:
         promotion:
           error: Ocorreu um problema ao promover o participante gerido.
@@ -434,6 +454,8 @@ pt:
         scopes: Âmbitos
         settings: Configurações
         static_pages: Páginas
+        taxonomies: Taxonomias
+        taxonomy_filters: Filtros de taxonomia
         user_groups: Grupos
         users: Utilizadores
       metrics:
@@ -516,13 +538,27 @@ pt:
         index:
           actions:
             block: Bloquear utilizador
+            bulk_actions:
+              actions_dropdown: Ações
+              block:
+                title: Bloquear
+                update_moderated_user_button: Bloquear participantes
+              unblock:
+                title: Desbloquear
+                update_moderated_user_button: Desbloquear participantes
+              unreport:
+                title: Remover denúncia
+            ignore:
+              update_moderated_user_button: Remover denúncias
             title: Acções
             unblock: Desbloquear utilizador
             unreport: Remover denúncia
+          cancel: Cancelar
           name: Nome
           nickname: Alcunha
           reason: Motivo
           reports: Contagem de denúncias
+          selected: Selecionado
         report:
           reasons:
             does_not_belong: Não pertence
