@@ -13,7 +13,7 @@ pt:
         project_ids: Projetos incluídos
         proposals: Propostas incluídas
         start_date: Data de início
-        subresults: Subresultados
+        subresults: Sub-resultados
         title: Título
         updated_at: Atualizado em
       status:
@@ -136,6 +136,9 @@ pt:
             other: "%{count} resultados"
         filters:
           all: Todos
+        home:
+          categories_label: Categorias
+          subcategories_label: Subcategorias
         home_header:
           global_status: Estado de execução global
         nav_breadcrumb:
