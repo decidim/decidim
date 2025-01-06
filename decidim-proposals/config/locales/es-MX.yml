@@ -378,7 +378,7 @@ es-MX:
     participatory_spaces:
       highlighted_proposals:
         last: Propuestas más recientes
-        see_all: Ver todo (%{count})
+        see_all: Ver todo
     proposals:
       actions:
         answer_proposal: Responder a la propuesta
