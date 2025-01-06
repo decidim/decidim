@@ -273,7 +273,7 @@ nl:
         title: voorstellen
     participatory_spaces:
       highlighted_proposals:
-        see_all: Alles zien (%{count})
+        see_all: Alles zien
     proposals:
       actions:
         answer_proposal: Antwoord voorstel
