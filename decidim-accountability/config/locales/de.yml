@@ -297,7 +297,7 @@ de:
     open_data:
       help:
         result_comments:
-          alignment: Ob dieser Kommentar zustimmend, ablehnen oder neutral war
+          alignment: Ob dieser Kommentar zustimmend, ablehnend oder neutral war
           author: Der Name des Teilnehmers, der diesen Kommentar erstellt hat
           body: Der Kommentar selbst
           commentable_id: Die eindeutige ID des kommentierten Objekts
