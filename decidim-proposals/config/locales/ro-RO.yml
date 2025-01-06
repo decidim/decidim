@@ -345,7 +345,7 @@ ro:
         title: Voturi
     participatory_spaces:
       highlighted_proposals:
-        see_all: Afișează toate propunerile (%{count})
+        see_all: Afișează toate propunerile
     proposals:
       actions:
         answer_proposal: Răspundeți la propunere
