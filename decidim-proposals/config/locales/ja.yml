@@ -372,7 +372,7 @@ ja:
     participatory_spaces:
       highlighted_proposals:
         last: 最近の提案
-        see_all: すべての提案を見る (%{count})
+        see_all: すべての提案を見る
     proposals:
       actions:
         answer_proposal: 提案に回答
@@ -696,7 +696,7 @@ ja:
           final_proposal_help_text: この草案は終了しました。最終提案を確認してください。
           hidden_authors_count:
             other: '%{count} 人以上'
-          info-message: これは提案のための<strong>共同草案</strong>です。コメントセクションを使用して著者に提案を形成するのを手伝うことができます。また、編集アクセスを要求することで直接改善することもできます。著者がアクセスを許可したら、このドラフトを変更できるようになります。
+          info-message: これは提案のための <strong>共同草案</strong> です。 これは、以下のコメントセクションを使用して提案を作成したり、編集するためのアクセスを要求することで、提案を改善したりすることができることを意味します。 作成者がアクセスを許可すると、この草案を変更できるようになります。
           publish: 公開
           publish_info: このバージョンの草案を公開するか、
           published_proposal: 公開された提案
