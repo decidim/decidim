@@ -187,7 +187,7 @@ id:
         title: Proposal
     participatory_spaces:
       highlighted_proposals:
-        see_all: Lihat semua (%{count})
+        see_all: Lihat semua
     proposals:
       actions:
         edit_proposal: Edit proposal
