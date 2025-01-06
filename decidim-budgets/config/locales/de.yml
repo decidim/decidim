@@ -29,6 +29,9 @@ de:
         other: Projekte
   decidim:
     admin:
+      admin_log:
+        changeset:
+          projects: Projekte
       filters:
         projects:
           selected_at_null:
@@ -42,6 +45,9 @@ de:
       actions:
         attachment_collections: Ordner
         attachments: Anhänge
+        confirm_delete_budget: Möchten Sie dieses Budget wirklich löschen?
+        confirm_delete_project: Möchten Sie dieses Projekt wirklich löschen?
+        deleted_budgets_info: Gelöschte Budgets können aus dem Papierkorb wiederhergestellt werden.
         edit: Bearbeiten
         edit_projects: Projekte verwalten
         import: Vorschläge in Projekte importieren
@@ -50,6 +56,8 @@ de:
         preview: Vorschau
         send_voting_reminders: Abstimmungserinnerungen versenden
         title: Aktionen
+        view_deleted_budgets: Gelöschte Budgets anzeigen
+        view_deleted_projects: Gelöschte Budgets anzeigen
       admin:
         budgets:
           create:
@@ -64,6 +72,8 @@ de:
             title: Budgets
             users_with_finished_orders: Benutzer mit abgeschlossenen Stimmen
             users_with_pending_orders: Benutzer mit ausstehenden Stimmen
+          manage_trash:
+            title: Gelöschte Budgets
           new:
             create: Budget erstellen
             title: Neues Budget
@@ -89,6 +99,7 @@ de:
             cancel: Abbrechen
             change_budget: Budget ändern
             change_selected: Ausgewählten Status ändern
+            change_taxonomies: Klassifizierungen ändern
             deselect_implementation: Von umzusetzenden Projekten abwählen
             finished_orders: Abgeschlossene Stimmen
             pending_orders: Ausstehende Stimmen
