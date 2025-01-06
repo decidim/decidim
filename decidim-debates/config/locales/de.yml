@@ -227,7 +227,7 @@ de:
     open_data:
       help:
         debate_comments:
-          alignment: Ob dieser Kommentar zustimmend, ablehnen oder neutral war
+          alignment: Ob dieser Kommentar zustimmend, ablehnend oder neutral war
           author: Der Name des Teilnehmers, der diesen Kommentar erstellt hat
           body: Der Kommentar selbst
           commentable_id: Die eindeutige ID des kommentierten Objekts
@@ -249,6 +249,7 @@ de:
           description: Die Beschreibung der Debatte
           end_time: Wann die Debatte zu Ende geht, ob sie öffentlich oder zeitlich begrenzt ist
           id: Die eindeutige Bezeichnung der Debatte
+          information_updates: Die Aktualisierungen, die der Autor zur Debatte gemacht hat
           taxonomies: Die Klassifizierungen des Projekts
           title: Der Titel der Debatte
     statistics:
