@@ -1430,7 +1430,7 @@ de:
           title: Wie man diese Dateien öffnet und mit ihnen arbeitet
         license:
           body_1_html: Diese Datenbank von %{organization_name} wird unter %{link_database} zur Verfügung gestellt. Alle Rechte an einzelnen Inhalten der Datenbank sind unter %{link_contents} lizenziert.
-          license_contents_link: https://opendatacommons.org/licenses/dbcl/1.0/
+          license_contents_link: https://opendatacommons.org/licenses/dbcl/1-0/
           license_contents_name: Lizenz für Datenbankinhalte
           license_database_link: https://opendatacommons.org/licenses/odbl/1-0/
           license_database_name: Offene Datenbanklizenz
