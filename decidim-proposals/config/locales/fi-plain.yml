@@ -112,6 +112,9 @@ fi-pl:
         other: Äänet
   decidim:
     admin:
+      admin_log:
+        changeset:
+          proposals: Ehdotukset
       filters:
         proposals:
           is_emendation_true:
@@ -431,11 +434,11 @@ fi-pl:
           alignment: Kertoo, oliko tämä kommentti puolesta, vastaan vai neutraali
           author: Kommentin laatijan nimi
           body: Kommentin teksti
-          commentable_id: Kommentoitavan asian yksilöllinen tunniste
+          commentable_id: Kommentoitavan asian yksilöivä tunniste
           commentable_type: Kommentoitavan asian tyyppi (tulos, ehdotus, jne.)
           created_at: Kommentin laatimisaika
           depth: Kommentin paikka keskusteluketjussa, eli millä tasolla kommentti oli (oliko se vastaus vai vastauksen vastaus)
-          id: Kommentin yksilöllinen tunniste
+          id: Kommentin yksilöivä tunniste
           locale: Kommentoijan valitsema kieliasetus sivustolla
           root_commentable_url: URL-osoite kommentoitavaan asiaan, eli millä sivulla kommentti luotiin
           user_group: Kommentin laatijan käyttäjäryhmä, mikäli kommentti laadittiin ryhmän puolesta
@@ -446,10 +449,17 @@ fi-pl:
           attachments: Ehdotuksen liitteiden lukumäärä
           author: Ehdotuksen laatijan tiedot
           body: Ehdotuksen kuvaus
+          coauthorships_count: Ehdotuksen laatijoiden lukumäärä
           comments: Ehdotuksen saamien kommenttien määrä
           component: Ehdotuksen komponentti
+          cost: Ehdotuksen kokonaiskustannukset
+          cost_report: Ehdotuksen kustannusraportti
+          created_at: Ehdotuksen laatimisaika
+          created_in_meeting: Oliko ehdotus laadittu tapaamisessa
           endorsements: Ehdotuksen keräämien suositusten ("tykkäykset") lukumäärä
-          id: Ehdotuksen yksilöllinen tunniste
+          execution_period: Ehdotuksen toteutuksen aikaväli
+          follows_count: Ehdotuksen seuraajien lukumäärä
+          id: Ehdotuksen yksilöivä tunniste
           is_amend: Onko tämä ehdotus toisen ehdotuksen muutosehdotus
           latitude: Ehdotuksen sijainnin leveysaste, mikäli ehdotus on määritetty tiettyyn paikkaan
           longitude: Ehdotuksen sijainnin pituusaste, mikäli ehdotus on määritetty tiettyyn paikkaan
@@ -457,11 +467,13 @@ fi-pl:
           original_proposal: Alkuperäisen ehdotuksen viite, mikäli kyseessä on muutosehdotus
           participatory_space: Mihin osallistumistilaan (esim. prosessi tai ryhmä) tämä ehdotus kuuluu
           published_at: Ehdotuksen julkaisun ajankohta
-          reference: Tämän ehdotuksen yksilöllinen tunniste tällä alustalla
+          reference: Tämän ehdotuksen yksilöivä tunniste tällä alustalla
           related_proposals: Muut ehdotukset, jotka liittyvät tähän ehdotukseen
           state: Ehdotuksen tila (esim. "Hyväksytty")
+          state_published_at: Ehdotuksen julkaisun ajankohta
           taxonomies: Tälle ehdotukselle määritetyt luokittelut
           title: Ehdotuksen otsikko
+          updated_at: Ehdotuksen viimeisimmän päivityksen ajankohta
           url: URL-osoite ehdotukseen
           votes: Ehdotuksen saamien äänten määrä
           withdrawn: Oliko tämä ehdotus peruutettu
@@ -469,7 +481,7 @@ fi-pl:
     participatory_spaces:
       highlighted_proposals:
         last: Viimeisimmät ehdotukset
-        see_all: Näytä kaikki (%{count})
+        see_all: Näytä kaikki ehdotukset
     proposals:
       actions:
         answer_proposal: Vastaa ehdotukseen
@@ -835,6 +847,11 @@ fi-pl:
       destroy_draft:
         error: Ehdotusluonnoksen poistamisessa tapahtui virheistä.
         success: Ehdotusluonnos poistettiin onnistuneesti.
+      exit_modal:
+        cancel: Peruuta
+        exit: Jatka
+        message: Sinun on äänestettävä vielä %{number} ehdotusta, jotta äänesi otetaan huomioon.
+        title: Sinulla on %{number} ääntä jäljellä
       forms:
         errors:
           device_not_supported: Laitteesi ei tue sijaintipalveluita. Syötä osoite manuaalisesti.
@@ -990,12 +1007,20 @@ fi-pl:
             one: Ääni
             other: Ääntä
         voting_rules:
+          already_vote:
+            description: Sinun on annettava vielä %{number} ääntä ehdotuksille, jotta äänesi otetaan huomioon.
+            see_other_proposals: Näytä muut ehdotukset
+            title: Sinulla on %{number} ääntä jäljellä
           can_accumulate_votes_beyond_threshold:
             description: Jokainen ehdotus voi kerätä yli %{limit} ääntä
+          minimum_votes_per_user:
+            description: Sinun on annettava vähintään %{votes} ääntä eri ehdotuksille, jotta äänesi otetaan huomioon.
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
+          success: Antamasi äänet on hyväksytty
           threshold_per_proposal:
             description: Jotta ehdotukset vahvistettaisiin, niiden on saavutettava %{limit} ääntä.
+          title: Osallistumista koskevat säännöt
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
             votes: 'Käytettävissä olevien äänten määrä: %{number}'
