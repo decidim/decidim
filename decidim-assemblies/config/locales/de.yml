@@ -241,6 +241,8 @@ de:
         export: "%{user_name} hat das Gremium %{resource_name} exportiert"
         import: "%{user_name} hat das Gremium %{resource_name} importiert"
         publish: "%{user_name} hat das Gremium %{resource_name} veröffentlicht"
+        restore: "%{user_name} hat das Gremium %{resource_name} wiederhergestellt"
+        soft_delete: "%{user_name} hat das Gremium %{resource_name} in den Papierkorb verschoben"
         unpublish: "%{user_name} hat das Gremium %{resource_name} auf \"unveröffentlicht\" gesetzt"
         update: "%{user_name} hat das Gremium %{resource_name} aktualisiert"
       assembly_member:
@@ -273,6 +275,7 @@ de:
             metadata: Metadaten
             no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             other: Andere
+            private_notice: Sie werden in der Lage sein, private Teilnehmer zu verwalten, nachdem Sie das Gremium als privat festgelegt haben
             select_a_created_by: Wählen Sie eine erstellt von aus
             select_an_area: Wählen Sie einen Bereich
             select_an_assembly_type: Wählen Sie einen Gremiumstyp
