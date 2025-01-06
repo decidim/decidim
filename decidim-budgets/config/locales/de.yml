@@ -44,6 +44,7 @@ de:
       actions:
         attachment_collections: Ordner
         attachments: Anhänge
+        confirm_destroy: Möchten Sie dieses Projekt wirklich löschen?
         destroy: Löschen
         edit: Bearbeiten
         edit_projects: Projekte verwalten
