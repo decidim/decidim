@@ -80,6 +80,7 @@ de:
               not_official: Sind nicht offiziell
               voted: Haben Stimmen oder Unterstützung erhalten
     models:
+      decidim/proposals/admin/update_proposal_taxonomies_event: Klassifizierung des Vorschlags geändert
       decidim/proposals/creation_enabled_event: Vorschlagserstellung aktiviert
       decidim/proposals/endorsing_enabled_event: Vorschlagsunterstützung aktiviert
       decidim/proposals/proposal_mentioned_event: Vorschlag erwähnt
@@ -127,6 +128,8 @@ de:
               rejected: Abgelehnt
               validating: Technische Validierung
               withdrawn: Zurückgezogen
+          taxonomies_part_of_contains:
+            label: Klassifizierung
           valuator_role_ids_has:
             label: Zur Bewertung zugewiesen
           with_any_state:
@@ -169,6 +172,7 @@ de:
               random: Zufällig
               recent: Neueste
               with_more_authors: Mit mehr Autoren
+            define_taxonomy_filters: Bitte definieren Sie einige Filter für diesen partizipativen Bereich, bevor Sie diese Einstellung verwenden.
             edit_time: Vorschläge können vor Ablauf dieser Zeit von den Autoren bearbeitet werden
             edit_time_units:
               days: Tage
@@ -179,6 +183,7 @@ de:
             new_proposal_body_template: Textvorlage für neuen Vorschlag
             new_proposal_body_template_help: Sie können den vorgefüllten Text der neuen Vorschläge bestimmen
             new_proposal_help_text: Hilfetext für neue Vorschläge
+            no_taxonomy_filters_found: Keine Klassifizierungsfilter gefunden.
             official_proposals_enabled: Offizielle Vorschläge aktiviert
             participatory_texts_enabled: Partizipative Texte aktiviert
             participatory_texts_enabled_readonly: Die Interaktion mit dieser Einstellung ist nicht möglich, wenn Vorschläge bestehen. Bitte erstellen Sie eine neue „Vorschlagskomponente“, wenn Sie diese Funktion aktivieren möchten, oder verwerfen Sie alle importierten Vorschläge im Menü „Beteiligungstexte“, wenn Sie diese Funktion deaktivieren möchten.
@@ -198,6 +203,8 @@ de:
             resources_permissions_enabled: Berechtigungen können für jeden Vorschlag festgelegt werden
             scope_id: Bereich
             scopes_enabled: Bereiche aktiviert
+            taxonomy_filters: Filter für die Komponente auswählen
+            taxonomy_filters_add: Filter hinzufügen
             threshold_per_proposal: Schwellenwert pro Vorschlag
             vote_limit: Maximal mögliche Anzahl Stimmen eines Abstimmenden
           step:
@@ -342,6 +349,11 @@ de:
             email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie "%{resource_title}" folgen. Falls Sie keine solchen Benachrichtigungen mehr erhalten möchten, besuchen Sie den obigen Link.
             email_subject: Der Status eines Vorschlags, dem Sie folgen, hat sich geändert (%{state})
             notification_title: Der Status des Vorschlags <a href="%{resource_path}">%{resource_title}</a> hat sich zu "%{state}" geändert.
+        proposal_update_taxonomies:
+          email_intro: 'Ein Admin hat die Klassifizierung Ihres Vorschlags „%{resource_title}“ aktualisiert. Auf der folgenden Seite ansehen:'
+          email_outro: Sie haben diese Benachrichtigung erhalten, weil Sie diesen Vorschlag verfasst haben.
+          email_subject: Die Klassifizierungen des Vorschlags %{resource_title} wurden aktualisiert
+          notification_title: Die Klassifizierung des Vorschlags <a href="%{resource_path}">%{resource_title}</a> wurde von einem Admin aktualisiert.
         rejected_coauthorship:
           notification_title: Sie haben die Einladung von <a href="%{author_path}">%{author_name}</a> abgelehnt, mitverfassende Person des Vorschlags <a href="%{resource_path}">%{resource_title}</a> zu werden.
         voting_enabled:
@@ -401,6 +413,10 @@ de:
         description: Anzahl Stimmen über Vorschläge
         object: Stimmen
         title: Abstimmungen
+    open_data:
+      help:
+        proposals:
+          taxonomies: Die Klassifizierungen, zu denen dieser Vorschlag gehört
     participatory_spaces:
       highlighted_proposals:
         last: Letzte Vorschläge
@@ -551,6 +567,7 @@ de:
             assign_to_valuator: Zuweisen zur Bewertung
             assign_to_valuator_button: Zuweisen
             cancel: Abbrechen
+            change_taxonomies: Klassifizierungen ändern
             merge: Zu einem neuen zusammenführen
             merge_button: Zusammenführen
             no_templates_available: Keine Vorlagen verfügbar
@@ -591,6 +608,11 @@ de:
             remove_assignment_confirmation: Sind Sie sicher, dass Sie den BewerterIn dieses Vorschlags entfernen möchten?
             valuators: Bewertende
             votes_count: Anzahl Stimmen
+          update_taxonomies:
+            invalid: 'Diese Vorschläge gehörten bereits zur Klassifizierung %{taxonomies}: %{proposals}.'
+            select_a_proposal: Bitte wählen Sie einen Vorschlag.
+            select_a_taxonomy: Bitte wählen Sie eine Klassifizierung.
+            success: 'Die Vorschläge wurden erfolgreich mit der Klassifizierung %{taxonomies} aktualisiert: %{proposals}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge ist ein Problem aufgetreten.
@@ -780,8 +802,9 @@ de:
             published_answer: Veröffentlichte Antwort
             published_at: Veröffentlicht am
             state: Status
+            taxonomies: Klassifizierungen
             title: Titel
-            valuator: BewerterIn
+            valuator: Bewertende
             valuators: Bewertende
             votes: Stimmen
         proposal_state:
@@ -825,6 +848,7 @@ de:
           scope: Umfang
           search: Suche
           state: Status
+          taxonomy_filters: Filter
           type: Art
           voted: Gewählt
         index:
