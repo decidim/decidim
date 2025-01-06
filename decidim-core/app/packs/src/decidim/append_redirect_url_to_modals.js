@@ -57,18 +57,17 @@ $(() => {
     const $target = $(event.target).closest("a");
 
     // Check if an <a> was found
-    if (!$target) { 
-      return; 
+    if (!$target) {
+      return;
     }
-      
-      
+
     const dialogTarget = `#${$target.data("dialog-open")}`;
     const redirectUrl = $target.data("redirectUrl");
 
-    if (!dialogTarget || !redirectUrl) { 
-      return; 
+    if (!dialogTarget || !redirectUrl) {
+      return;
     }
-      
+
     $("<input type='hidden' />").
       attr("id", "redirect_url").
       attr("name", "redirect_url").
