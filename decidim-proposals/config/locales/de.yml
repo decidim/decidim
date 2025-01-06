@@ -376,7 +376,7 @@ de:
     participatory_spaces:
       highlighted_proposals:
         last: Letzte Vorschläge
-        see_all: Alle anzeigen (%{count})
+        see_all: Alle anzeigen
     proposals:
       actions:
         answer_proposal: Vorschlag beantworten
