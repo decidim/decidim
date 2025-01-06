@@ -102,7 +102,6 @@ nl:
           categories: Categorieën
           components: Onderdelen
           moderations: Moderaties
-          private_users: Privégebruikers
           process_admins: Admins van het proces
           steps: Stappen
       models:

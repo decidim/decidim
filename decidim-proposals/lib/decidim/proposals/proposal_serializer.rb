@@ -37,17 +37,19 @@ module Decidim
           latitude: proposal.latitude,
           longitude: proposal.longitude,
           state: proposal.state.to_s,
+          state_published_at: proposal.state_published_at,
           reference: proposal.reference,
           answer: ensure_translatable(proposal.answer),
           answered_at: proposal.answered_at,
-          votes: proposal.proposal_votes_count,
+          votes: (proposal.proposal_votes_count unless
+          proposal.component.current_settings.votes_hidden?),
           endorsements: {
             total_count: proposal.endorsements.size,
             user_endorsements:
           },
           comments: proposal.comments_count,
           attachments: proposal.attachments.size,
-          followers: proposal.follows.size,
+          follows_count: proposal.follows_count,
           published_at: proposal.published_at,
           url:,
           meeting_urls: meetings,
@@ -58,7 +60,14 @@ module Decidim
             url: original_proposal_url
           },
           withdrawn: proposal.withdrawn?,
-          withdrawn_at: proposal.withdrawn_at
+          withdrawn_at: proposal.withdrawn_at,
+          created_at: proposal.created_at,
+          updated_at: proposal.updated_at,
+          created_in_meeting: proposal.created_in_meeting,
+          coauthorships_count: proposal.coauthorships_count,
+          cost: proposal.cost,
+          cost_report: proposal.cost_report,
+          execution_period: proposal.execution_period
         }
       end
 
@@ -128,7 +137,7 @@ module Decidim
 
       def author_url(author)
         if author.respond_to?(:nickname)
-          profile_url(author.nickname) # is a Decidim::User or Decidim::UserGroup
+          profile_url(author) # is a Decidim::User or Decidim::UserGroup
         elsif author.respond_to?(:title)
           meeting_url(author) # is a Decidim::Meetings::Meeting
         else
@@ -136,8 +145,10 @@ module Decidim
         end
       end
 
-      def profile_url(nickname)
-        Decidim::Core::Engine.routes.url_helpers.profile_url(nickname, host:)
+      def profile_url(author)
+        return "" if author.respond_to?(:deleted?) && author.deleted?
+
+        Decidim::Core::Engine.routes.url_helpers.profile_url(author.nickname, host:)
       end
 
       def meeting_url(meeting)

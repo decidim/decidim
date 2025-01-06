@@ -170,7 +170,7 @@ fi-pl:
         block_text: Käytä extra_data -lohkoa
         blog_cards_html: Käytetään <i>Blogien</i> korteissa
         blogs: Blogit
-        budget_card_html: 'Käytetään <i>Budjetointihankkeiden</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>'
+        budget_card_html: 'Käytetään <i>Budjetointiprojektien</i> korteissa. Tämä kortti vaatii kyseisen moduulin omien tyylitiedostojen sisällyttämisen sivulle, eli seuraavan koodin lisäämistä näkymään: <code>append_stylesheet_pack_tag \"decidim_budgets\"</code>'
         budgets: Budjetit
         callout_class: Huomautuselementin luokka
         callout_description: Tämä attribuutti määrittää ilmoituksen tilan. Oletuksena se käyttää toissijaista väriä.
@@ -242,8 +242,8 @@ fi-pl:
         post_g: Artikkeli G
         post_l: Artikkeli L
         post_s: Artikkeli S
-        project_l: Hanke L
-        project_s: Hanke S
+        project_l: Projekti L
+        project_s: Projekti S
         proposal_l: Ehdotus L
         proposal_s: Ehdotus S
         proposals: Ehdotukset

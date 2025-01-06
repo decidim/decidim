@@ -272,7 +272,6 @@ module Decidim
           :moderation,
           :assembly,
           :assembly_user_role,
-          :assembly_member,
           :export_space,
           :share_tokens,
           :import
@@ -292,7 +291,6 @@ module Decidim
           :moderation,
           :assembly,
           :assembly_user_role,
-          :assembly_member,
           :export_space,
           :share_tokens,
           :import

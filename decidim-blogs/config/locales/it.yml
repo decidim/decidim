@@ -11,8 +11,6 @@ it:
     blogs:
       actions:
         author_id: Crea post come
-        confirm_destroy: Sei sicuro di voler eliminare questo post?
-        destroy: Elimina
         edit: Modifica
         new: Nuovo post
         title: Azioni

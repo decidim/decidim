@@ -4,7 +4,6 @@ pl:
       collaborative_draft:
         address: Adres
         body: Treść
-        category_id: Kategoria
         decidim_scope_id: Zakres
         has_address: Ma adres
         scope_id: Zakres
@@ -17,7 +16,6 @@ pl:
         answered_at: Odpowiedziano
         automatic_hashtags: Hashtagi zostały dodane automatycznie
         body: Treść
-        category_id: Kategoria
         decidim_scope_id: Zakres
         has_address: Ma adres
         scope_id: Zakres
@@ -81,8 +79,6 @@ pl:
               not_official: Nie są oficjalne
               voted: Otrzymano głosy lub potwierdzenia
     models:
-      decidim/proposals/admin/update_proposal_category_event: Zmieniono kategorię propozycji
-      decidim/proposals/admin/update_proposal_scope_event: Zmieniono zakres propozycji
       decidim/proposals/creation_enabled_event: Włączono tworzenie propozycji
       decidim/proposals/endorsing_enabled_event: Możliwe rekomendowanie propozycji
       decidim/proposals/proposal_mentioned_event: Wspomniana propozycja
@@ -109,8 +105,6 @@ pl:
     admin:
       filters:
         proposals:
-          category_id_eq:
-            label: Kategoria
           is_emendation_true:
             label: Typ
             values:
@@ -118,8 +112,6 @@ pl:
               'true': Poprawki
           proposal_state_id_eq:
             label: Stan
-          scope_id_eq:
-            label: Zakres
           state_eq:
             label: Stan
             values:
@@ -144,7 +136,6 @@ pl:
         actions:
           amend: Popraw
           comment: Skomentuj
-          create: Tworzenie
           endorse: Rekomendacje
           vote: Głosuj
           vote_comment: Poprzyj komentarz
@@ -305,16 +296,6 @@ pl:
             email_outro: Otrzymujesz to powiadomienie, ponieważ obserwujesz "%{resource_title}". Aby przestać otrzymywać powiadomienia, kliknij wcześniejszy link.
             email_subject: Wniosek, który obserwujesz, zmienił swój stan (%{state})
             notification_title: Wniosek <a href="%{resource_path}">%{resource_title}</a> zmienił stan na "%{state}".
-        proposal_update_category:
-          email_intro: 'Administrator zaktualizował kategorię Twojej propozycji "%{resource_title}", sprawdź to:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem propozycji.
-          email_subject: Kategoria %{resource_title} propozycji została zaktualizowana
-          notification_title: Kategoria propozycji <a href="%{resource_path}">%{resource_title}</a> została zaktualizowana przez administratora.
-        proposal_update_scope:
-          email_intro: 'Administrator zaktualizował zakres Twojej propozycji „%{resource_title}”, sprawdź to na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem propozycji.
-          email_subject: Zaktualizowano zakres propozycji %{resource_title}
-          notification_title: Administrator zaktualizował zakres propozycji <a href="%{resource_path}">%{resource_title}</a>.
         voting_enabled:
           email_intro: 'Możesz głosować na propozycje w %{participatory_space_title}! Zacznij uczestniczyć na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia klikając w poprzedni link.
@@ -503,15 +484,12 @@ pl:
             attachment_legend: "(Opcjonalnie) Dodaj załącznik"
             created_in_meeting: Ta propozycja pochodzi ze spotkania
             delete_attachment: Usuń załącznik
-            select_a_category: Wybierz kategorię
             select_a_meeting: Wybierz spotkanie
           index:
             actions: Działania
             assign_to_valuator: Przypisz do weryfikatora
             assign_to_valuator_button: Przypisz
             cancel: Anuluj
-            change_category: Zmień kategorię
-            change_scope: Zmień zakres
             merge: Przyłącz do nowego
             merge_button: Przyłącz
             publish: Publikuj
@@ -526,7 +504,6 @@ pl:
             unassign_from_valuator: Anuluj przypisanie do weryfikatora
             unassign_from_valuator_button: Anuluj przypisanie
             update: Aktualizuj
-            update_scope_button: Aktualizuj zakres
           new:
             create: Utwórz
             title: Utwórz propozycję
@@ -554,16 +531,6 @@ pl:
             remove_assignment_confirmation: Czy na pewno chcesz usunąć przypisanie weryfikatora z tej propozycji?
             valuators: Weryfikatorzy
             votes_count: Liczba głosów
-          update_category:
-            invalid: 'Następujące propozycje miały już kategorię %{subject_name}: %{proposals}.'
-            select_a_category: Proszę wybrać kategorię.
-            select_a_proposal: Wybierz propozycję.
-            success: 'Zaktualizowano kategorię nad %{subject_name} dla następujących propozycji: %{proposals}.'
-          update_scope:
-            invalid: 'Następujące propozycje miały już zakres %{subject_name}: %{proposals}.'
-            select_a_proposal: Wybierz propozycję.
-            select_a_scope: Proszę wybrać zakres.
-            success: 'Zaktualizowano zakres na %{subject_name} dla następujących propozycji: %{proposals}.'
         proposals_imports:
           create:
             invalid: Podczas importowania propozycji wystąpił błąd.
@@ -640,7 +607,6 @@ pl:
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
-          select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj wspólny szkic
         empty: Nie ma jeszcze żadnych wspólnych wersji roboczych
@@ -648,11 +614,9 @@ pl:
         filters:
           all: Wszystko
           amendment: Poprawki
-          category: Kategoria
           open: Otwarty
           published: Opublikowany
           related_to: Związany z
-          scope: Zakres
           search: Szukaj
           state: Status
           withdrawn: Wycofane
@@ -694,7 +658,6 @@ pl:
             error: Nie można odrzucić, spróbuj ponownie później.
             success: "Użytkownik @%{user} został odrzucony jako współtwórca."
         show:
-          edit: Edytuj wspólny szkic
           final_proposal: ostateczna propozycja
           final_proposal_help_text: Ten szkic jest zakończony. zobacz ostateczną propozycję
           hidden_authors_count:
@@ -735,14 +698,12 @@ pl:
       models:
         proposal:
           fields:
-            category: Kategoria
             comments: Komentarze
             id: ID
             notes: Notatki
             official_proposal: Oficjalna propozycja
             published_answer: Opublikowane odpowiedzi
             published_at: Opublikowano
-            scope: Zakres
             state: Status
             title: Tytuł
             valuator: Weryfikator
@@ -770,7 +731,6 @@ pl:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Wróć
           edit_documents: Edytuj dokumenty
-          select_a_category: Wybierz kategorię
           send: Wyślij
           title: Edytuj propozycję
         edit_draft:
@@ -783,7 +743,6 @@ pl:
           activity: Moja aktywność
           all: Wszystko
           amendment_type: Typ
-          category: Kategoria
           my_proposals: Moje propozycje
           origin: Źródło
           related_to: Związany z
@@ -840,7 +799,6 @@ pl:
         show:
           answer: Odpowiedź
           changes_at_title: Poprawka do „%{title}”
-          edit_proposal: Edytuj propozycję
           estimated_cost: Szacowany koszt
           hidden_endorsers_count:
             one: i %{count} osoba więcej
@@ -858,7 +816,6 @@ pl:
           proposal_rejected_reason: 'Ta propozycja została odrzucona, ponieważ:'
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, dopóki nie otrzymasz żadnego głosu. Propozycja nie zostanie usunięta, pojawi się ona na liście wycofanych propozycji.
           withdraw_confirmation_html: Czy na pewno chcesz wycofać tę propozycję?<br><br><strong>Tej akcji nie można anulować!</strong>
-          withdraw_proposal: Wycofaj propozycję
         update:
           title: Aktualizuj propozycję
         vote_button:

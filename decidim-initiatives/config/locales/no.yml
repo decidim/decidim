@@ -427,9 +427,7 @@
           phone_number: Telefonnummer
           place_date: Sted, dato
           postal_code: Postnummer
-          print: Skriv ut
           province: Fylke
-          section: 'Hvis organisasjonen ber om det, vennligst skriv ut og fyll ut dette skjemaet for å levere der det angitt:'
           signature: Signatur
         result:
           initiative_rejected_reason: Dette initiativet er blitt avvist på grunn av manglende underskrifter.
@@ -442,7 +440,6 @@
           other: " underskrifter"
         vote_cabin:
           already_voted: Allerede signert
-          verification_required: Verifiser kontoen din for å signere initiativet
           vote: Signer
           votes_blocked: Underskriving deaktivert
         votes_count:

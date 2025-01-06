@@ -11,16 +11,20 @@ module Decidim::Admin
     let(:send_to_all_users) { true }
     let(:send_to_followers) { false }
     let(:send_to_participants) { false }
+    let(:send_to_verified_users) { false }
+    let(:send_to_private_members) { false }
     let(:participatory_space_types) { [] }
-    let(:scope_ids) { [] }
+    let(:verification_types) { [] }
 
     let(:form_params) do
       {
         send_to_all_users:,
         send_to_followers:,
         send_to_participants:,
+        send_to_verified_users:,
+        send_to_private_members:,
         participatory_space_types:,
-        scope_ids:
+        verification_types:
       }
     end
 
@@ -45,6 +49,15 @@ module Decidim::Admin
           let(:scope_ids) { [""] }
 
           it "returns all users" do
+            expect(subject.query).to match_array recipients
+            expect(recipients.count).to eq 5
+          end
+        end
+
+        context "with blocked accounts" do
+          let!(:blocked_recipients) { create_list(:user, 5, :confirmed, :blocked, newsletter_notifications_at: Time.current, organization:) }
+
+          it "returns all not blocked users" do
             expect(subject.query).to match_array recipients
             expect(recipients.count).to eq 5
           end
@@ -108,7 +121,7 @@ module Decidim::Admin
           ]
         end
 
-        context "when recipients participate to the participatory space" do
+        context "when recipients participate in the participatory space" do
           let!(:authors) do
             create_list(:user, 3, :confirmed, organization:, newsletter_notifications_at: Time.current)
           end
@@ -123,54 +136,49 @@ module Decidim::Admin
             expect(subject.query).to match_array authors
             expect(authors.count).to eq 3
           end
-
-          context "and other comment in other participatory spaces" do
-            # non participant commentator (comments into other spaces)
-            let!(:non_participant) { create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:) }
-            let!(:component_out_of_newsletter) { create(:dummy_component, organization:) }
-            let!(:resource_out_of_newsletter) { create(:dummy_resource, :published, author: non_participant, component: component_out_of_newsletter) }
-            let!(:outlier_comment) { create(:comment, author: non_participant, commentable: resource_out_of_newsletter) }
-            # participant commentator
-            let!(:commentator_participant) { create(:user, :confirmed, newsletter_notifications_at: Time.current, organization:) }
-            let!(:resource_in_newsletter) { create(:dummy_resource, :published, author: authors.first, component:) }
-            let!(:comment_in_newsletter) { create(:comment, author: commentator_participant, commentable: resource_in_newsletter) }
-
-            let(:recipients) { authors + [commentator_participant] }
-
-            it "returns only commenters in the selected spaces" do
-              expect(subject.query).to match_array(recipients)
-              expect(recipients.count).to eq 4
-            end
-          end
         end
       end
 
-      context "with scopes segment" do
-        let(:scopes) do
-          create_list(:scope, 5, organization:)
-        end
-        let(:scope_ids) { scopes.pluck(:id) }
+      context "when sending to verified users" do
+        let(:send_to_all_users) { false }
+        let(:send_to_verified_users) { true }
+        let!(:verified_users) { create_list(:user, 3, :confirmed, organization:, newsletter_notifications_at: Time.current) }
+        let(:verification_types) { ["example"] }
 
-        context "when recipients interested in scopes" do
-          let!(:recipients) do
-            create_list(:user, 3, :confirmed, organization:, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes" => scopes.first.id })
-          end
-
-          it "returns all users" do
-            expect(subject.query).to match_array recipients
-            expect(recipients.count).to eq 3
+        before do
+          verified_users.each do |user|
+            create(:authorization, name: "example", granted_at: Time.current, user:)
           end
         end
 
-        context "when interest not match the selected scopes" do
-          let(:user_interset) { create(:scope, organization:) }
-          let!(:recipients) do
-            create_list(:user, 3, :confirmed, organization:, newsletter_notifications_at: Time.current, extended_data: { "interested_scopes" => user_interset.id })
-          end
+        it "returns verified users only" do
+          expect(subject.query).to match_array verified_users
+          expect(verified_users.count).to eq 3
+        end
+      end
 
-          it "do not return recipients" do
-            expect(subject.query).to be_empty
+      context "when sending to private members" do
+        let(:send_to_all_users) { false }
+        let(:send_to_private_members) { true }
+        let!(:recipients) { create_list(:user, 3, :confirmed, newsletter_notifications_at: Time.current, organization:) }
+        let(:participatory_process) { create(:participatory_process, organization:, private_space: true) }
+        let(:participatory_space_types) do
+          [
+            { "id" => nil,
+              "manifest_name" => "participatory_processes",
+              "ids" => [participatory_process.id.to_s] }
+          ]
+        end
+
+        before do
+          recipients.each do |member|
+            create(:participatory_space_private_user, privatable_to: participatory_process, user: member)
           end
+        end
+
+        it "returns private members only" do
+          expect(subject.query).to match_array recipients
+          expect(recipients.count).to eq 3
         end
       end
     end

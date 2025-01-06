@@ -65,17 +65,6 @@ lv:
           unconfirmed: Lai autorizētos, jums jāapstiprina savs e-pasts.
         destroy:
           error: Autorizācijas dzēšanas laikā radās problēma.
-        first_login:
-          actions:
-            another_dummy_authorization_handler: Verificēt ar cita autorizācijas apstrādātāja piemēru
-            csv_census: Verificēt pret organizācijas uzskaiti
-            dummy_authorization_handler: Verificēt, izmantojot autorizācijas apstrādātāja piemēru
-            dummy_authorization_workflow: Verificēt, izmantojot autorizācijas darbplūsmas piemēru
-            id_documents: Tieciet verificēts, augšupielādējot personu apliecinošu dokumentu
-            postal_letter: Tieciet verificēts, saņemot verifikācijas kodu pa pastu
-            sms: Tieciet verificēts, saņemot SMS verifikācijas kodu
-          title: Verificējiet savu identitāti
-          verify_with_these_options: 'Jūsu identitātes verificēšanai ir pieejamas šādas iespējas:'
         index:
           expired_verification: Verifikācijas termiņš ir beidzies
           show_renew_info: Noklikšķiniet, lai atjaunotu verifikāciju

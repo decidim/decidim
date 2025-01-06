@@ -5,7 +5,7 @@ class FixMeetingsRegistrationTerms < ActiveRecord::Migration[5.2]
     reset_column_information
 
     PaperTrail.request(enabled: false) do
-      Decidim::Meetings::Meeting.find_each do |meeting|
+      Decidim::Meetings::Meeting.unscoped.find_each do |meeting|
         next if meeting.component.nil?
         # Only user-created meetings have this problem
         next if meeting.official?

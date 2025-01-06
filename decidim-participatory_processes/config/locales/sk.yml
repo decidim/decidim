@@ -95,7 +95,6 @@ sk:
           categories: Kategória
           components: Komponenty
           moderations: Moderovanie
-          private_users: Súkromní užívatelia
           process_admins: Spracovať užívateľa
           steps: Kroky
       models:

@@ -2,10 +2,8 @@ zh-CN:
   activemodel:
     attributes:
       debate:
-        category_id: 类别
         closed_at: 关闭于
         conclusions: 四. 结论
-        decidim_category_id: 类别
         description: 描述
         end_time: 结束于
         information_updates: 信息更新
@@ -25,7 +23,6 @@ zh-CN:
     components:
       debates:
         actions:
-          create: 创建
           endorse: 批准
         name: 辩论
         settings:
@@ -43,8 +40,6 @@ zh-CN:
     debates:
       actions:
         close: 关闭
-        confirm_destroy: 您确定吗？
-        destroy: 删除
         edit: 编辑
         title: 行动
       admin:
@@ -56,8 +51,6 @@ zh-CN:
           create:
             invalid: 有一个问题是如何建立辩论。
             success: 辩论成功创建。
-          destroy:
-            success: 辩论已成功删除。
           edit:
             title: 编辑辩论
             update: 更新辩论
@@ -120,11 +113,9 @@ zh-CN:
           recent: 最新的
           updated: 最近更新
         show:
-          close_debate: 结束辩论
           debate_closed: 已关闭
           debate_conclusions_are: '辩论在 %{date} 结束后得出以下结论：'
           edit_conclusions: 编辑结论
-          edit_debate: 编辑辩论
           groups_count: 群組
           participants_count: 参加者
         update:

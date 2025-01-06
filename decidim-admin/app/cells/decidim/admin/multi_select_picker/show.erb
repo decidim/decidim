@@ -1,0 +1,10 @@
+<%= select_tag field_name,
+               options_for_select(
+                 cell_options_for_select.map { |option| [option[0], option[1]] },
+                 selected_values
+               ),
+               id: select_id,
+               class: css_classes,
+               placeholder:,
+               multiple: true,
+               data: { multiselect: true } %>

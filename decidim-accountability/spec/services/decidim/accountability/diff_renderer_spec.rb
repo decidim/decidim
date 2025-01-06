@@ -26,7 +26,7 @@ describe Decidim::Accountability::DiffRenderer, versioning: true do
 
     it "calculates the fields that have changed" do
       expect(subject.keys)
-        .to contain_exactly(:title_en, :description_ca, :progress, :start_date)
+        .to contain_exactly(:title_en, :description_ca, :description_machine_translations_es, :progress, :start_date, :title_machine_translations_es)
     end
 
     it "has the old and new values for each field" do
@@ -37,9 +37,11 @@ describe Decidim::Accountability::DiffRenderer, versioning: true do
     it "has the type of each field" do
       expected_types = {
         description_ca: :i18n_html,
+        description_machine_translations_es: :i18n_html,
         progress: :percentage,
         start_date: :date,
-        title_en: :i18n
+        title_en: :i18n,
+        title_machine_translations_es: :i18n
       }
       types = subject.to_h { |attribute, data| [attribute.to_sym, data[:type]] }
       expect(types).to eq expected_types
@@ -48,9 +50,11 @@ describe Decidim::Accountability::DiffRenderer, versioning: true do
     it "generates the labels correctly" do
       expected_labels = {
         description_ca: "Description (Català)",
+        description_machine_translations_es: "Description (traducción automática a Castellano)",
         progress: "Progress",
         start_date: "Start date",
-        title_en: "Title (English)"
+        title_en: "Title (English)",
+        title_machine_translations_es: "Title (traducción automática a Castellano)"
       }
       labels = subject.to_h { |attribute, data| [attribute.to_sym, data[:label]] }
       expect(labels).to eq expected_labels

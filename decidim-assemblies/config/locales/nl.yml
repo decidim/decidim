@@ -84,7 +84,6 @@ nl:
       assemblies:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe groep.
-          success: Bijeenkomst is succesvol gecreëerd.
         edit:
           update: Bijwerken
         index:
@@ -126,21 +125,6 @@ nl:
           import: Importeren
           select: Selecteer welke gegevens u wilt importeren
           title: Importeer assemblage
-      assembly_members:
-        create:
-          error: Er is een fout opgetreden bij het toevoegen van een lid voor deze groep.
-          success: Gebruiker is succesvol toegevoegd aan deze groep.
-        destroy:
-          success: Lid is met succes verwijderd uit deze groep.
-        edit:
-          update: Bijwerken
-        index:
-          assembly_members_title: Groepsleden
-        new:
-          create: Creëren
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van het lid voor deze groep.
-          success: Lid is succesvol bijgewerkt voor deze groep.
       assembly_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze groep.
@@ -170,7 +154,6 @@ nl:
         assemblies: Groepen
         assemblies_submenu:
           assembly_admins: Groep-admins
-          assembly_members: Leden
           attachment_collections: Mappen
           attachment_files: Bestanden
           attachments: Bijlagen
@@ -192,11 +175,6 @@ nl:
             title: Titel
           name: Groep
         assembly_member:
-          fields:
-            ceased_date: Sluitingsdatum
-            designation_date: Ontwerpdatum
-            full_name: Naam
-            position: Positie
           name: Lid
           positions:
             other: Overige
@@ -265,13 +243,8 @@ nl:
             title: Titel
         assembly_members:
           form:
-            existing_user: Bestaande deelnemer
             explanation: 'Eigenschappen afbeelding:'
-            non_user: Niet deelnemer
             non_user_avatar_help: Je hebt de toestemming nodig van de personen voordat je ze als lid publiceert.
-            select_a_position: Selecteer een positie
-            select_user: Selecteer een deelnemer
-            user_type: Type deelnemer
         content_blocks:
           highlighted_assemblies:
             max_results: Maximum aantal elementen dat kan worden weergegeven
@@ -324,8 +297,6 @@ nl:
         private_space: Dit is een privé event
         social_networks_title: Bezoek groep op
     assembly_members:
-      assembly_member:
-        designated_on: Aangewezen op
       index:
         title: Leden
     events:

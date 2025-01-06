@@ -84,7 +84,6 @@ uk:
       assemblies:
         create:
           error: При спробі додати нові збори сталася помилка.
-          success: Збори успішно додано.
         edit:
           update: Оновити
         index:
@@ -109,21 +108,6 @@ uk:
           copy: Скопіювати
           select: Оберіть відомості, копію яких ви хотіли б створити
           title: Створити копію зборів
-      assembly_members:
-        create:
-          error: При спробі додати члена президії цих зборів сталася помилка.
-          success: Успішно додано члена президії цих зборів.
-        destroy:
-          success: Успішно видалено члена президії цих зборів.
-        edit:
-          update: Оновити
-        index:
-          assembly_members_title: Члени президії зборів
-        new:
-          create: Додати
-        update:
-          error: При спробі оновити члена президії цих зборів сталася помилка.
-          success: Члена президії цих зборів успішно оновлено.
       assembly_publications:
         create:
           error: Під час оприлюднення цих зборів сталася помилка.
@@ -150,7 +134,6 @@ uk:
         assemblies: Збори
         assemblies_submenu:
           assembly_admins: Учасники зборів
-          assembly_members: Члени президії
           attachment_collections: Теки
           attachment_files: Вкладені файли
           attachments: Вкладені файли
@@ -171,11 +154,6 @@ uk:
             title: Назва
           name: Збори
         assembly_member:
-          fields:
-            ceased_date: Дата припинення повноважень
-            designation_date: Дата надання повноважень
-            full_name: Ім'я
-            position: Посада
           name: Член президії
           positions:
             other: Інша
@@ -221,13 +199,6 @@ uk:
         assemblies_types:
           form:
             title: Назва
-        assembly_members:
-          form:
-            existing_user: Чинний учасник
-            non_user: Не учасник
-            select_a_position: Оберіть посаду
-            select_user: Оберіть учасника
-            user_type: Різновид учасника
       assemblies:
         filters:
           names:
@@ -261,8 +232,6 @@ uk:
         duration: Тривалість
         private_space: Це приватні збори
     assembly_members:
-      assembly_member:
-        designated_on: 'Надано повноваження:'
       index:
         title: Члени президії
     log:

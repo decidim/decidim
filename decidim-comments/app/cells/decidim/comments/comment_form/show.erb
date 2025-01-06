@@ -1,41 +1,43 @@
 <%= form_for(form_object, url: decidim_comments.comments_path(order:), method: :post, remote: true, html: { id: form_id }) do |form| %>
+  <% unless reply? %>
+    <div class="comment__form-mobile-banner">
+      <p class="font-semibold text-2xl"><%= t("decidim.components.add_comment_form.add_comment") %></p>
+      <button type="button" class="close-button close-add-comment-fullscreen">
+        <%= icon "close-line" %>
+      </button>
+    </div>
+  <% end %>
   <%= form.hidden_field :commentable_gid, id: nil %>
   <%= form.hidden_field :alignment, id: nil, class: "alignment-input" %>
   <%= comment_as_for(form) %>
 
-  <div class="flex justify-between items-end mb-4">
-    <label class="comment__form-label" for="<%= add_comment_id %>">
-      <%= t("decidim.components.add_comment_form.form.body.label") %>
-    </label>
-
-    <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
+  <div class="px-4 md:p-0">
+    <%= form.text_area(
+      :body,
+      id: add_comment_id,
+      class: "w-full min-h-[160px]",
+      maxlength: comments_max_length,
+      required: true,
+      placeholder: t("decidim.components.add_comment_form.form.body.placeholder"),
+      label: false,
+      data: { remaining_characters: "##{add_comment_id}-remaining-characters", input_emoji: true }
+    ) %>
   </div>
-
-  <%= form.text_area(
-    :body,
-    id: add_comment_id,
-    class: "w-full min-h-[160px]",
-    maxlength: comments_max_length,
-    required: true,
-    placeholder: t("decidim.components.add_comment_form.form.body.placeholder"),
-    label: false,
-    data: { remaining_characters: "##{add_comment_id}-remaining-characters", input_emoji: true }
-  ) %>
+  <span id="<%= add_comment_id %>-remaining-characters" class="remaining-character-count"></span>
 
   <div class="comment__form-submit">
-    <% if alignment_enabled? %>
+    <% if two_columns_layout? && alignment_enabled? %>
       <%= render :opinion %>
     <% end %>
-
-    <button type="submit" class="button button__sm button__secondary" disabled="disabled">
-      <span>
-      <% if reply? %>
-        <%= t("decidim.components.add_comment_form.form.submit_reply") %>
-      <% else %>
-        <%= t("decidim.components.add_comment_form.form.submit_root_comment") %>
-      <% end %>
-      </span>
-      <%= icon "chat-1-line" %>
-    </button>
+    <div class="<%= reply? ? "" : "publish-comment-button" %>">
+      <button type="submit"
+              class="button button__sm button__secondary <%= reply? ? "w-full" : "h-9 close-comment-fullscreen" %>"
+              disabled="disabled">
+        <span>
+          <%= reply? ? t("decidim.components.add_comment_form.form.submit_reply") : t("decidim.components.add_comment_form.form.submit_root_comment") %>
+        </span>
+        <%= icon "chat-1-line" %>
+      </button>
+    </div>
   </div>
 <% end %>

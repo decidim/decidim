@@ -84,8 +84,6 @@ ro:
           create:
             invalid: A apărut o problemă la crearea acestui rezultat.
             success: Rezultatul a fost creat.
-          destroy:
-            success: Rezultatul a fost șters.
           edit:
             title: Actualizare rezultat
             update: Actualizare rezultat
@@ -172,12 +170,10 @@ ro:
       models:
         result:
           fields:
-            category: Categorie
             created_at: Creat
             end_date: Data de sfârșit
             id: ID
             progress: Progres
-            scope: Domeniu de interes
             start_date: Data de început
             status: Stare
             title: Titlu
@@ -197,17 +193,11 @@ ro:
             one: 1 rezultat
             few: "%{count} rezultate"
             other: "%{count} rezultate"
-        filters:
-          all: Toate
         home:
-          categories_label: Categorii
           empty: Nu există rezultate încă.
           empty_filters: Nu există rezultate pentru acest criteriu.
-          subcategories_label: Subcategorii
         home_header:
           global_status: Stare execuție globală
-        nav_breadcrumb:
-          global: Execuție globală
         no_results: Nu există proiecte
         search:
           search: Caută acțiuni
@@ -219,10 +209,6 @@ ro:
     admin:
       filters:
         results:
-          category_id_eq:
-            label: Categorie
-          scope_id_eq:
-            label: Domeniu de interes
           status_id_eq:
             label: Stare
     components:
