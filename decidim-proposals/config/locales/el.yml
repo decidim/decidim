@@ -314,7 +314,7 @@ el:
         title: Προτάσεις
     participatory_spaces:
       highlighted_proposals:
-        see_all: Δείτε όλες τις προτάσεις (%{count})
+        see_all: Δείτε όλες τις προτάσεις
     proposals:
       actions:
         answer_proposal: Απάντηση σε πρόταση
