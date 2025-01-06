@@ -42,7 +42,9 @@ de:
       actions:
         attachment_collections: Ordner
         attachments: Anhänge
+        confirm_delete_result: Möchten Sie dieses Ergebnis wirklich löschen?
         confirm_destroy: Sind Sie sicher, dass Sie diese %{name}löschen möchten?
+        deleted_results_info: Gelöschte Ergebnisse können aus dem Papierkorb wiederhergestellt werden.
         destroy: Löschen
         edit: Bearbeiten
         import: Projekte aus einer anderen Komponente importieren
@@ -53,6 +55,7 @@ de:
         preview: Vorschau
         timeline_entries: Projektentwicklung
         title: Aktionen
+        view_deleted_results: Gelöschte Ergebnisse anzeigen
       admin:
         exports:
           result_comments: Bemerkungen
@@ -117,6 +120,8 @@ de:
             update: Ergebnis aktualisieren
           index:
             title: Ergebnisse
+          manage_trash:
+            title: Gelöschte Ergebnisse
           new:
             create: Ergebnis erstellen
             title: Neues Ergebnis
@@ -164,6 +169,8 @@ de:
         result:
           create: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} gelöscht"
+          restore: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} hat das Ergebnis %{resource_name} in %{space_name} aktualisiert"
         status:
           create: "%{user_name} hat den Status %{resource_name} erstellt"
@@ -302,18 +309,25 @@ de:
           root_commentable_url: Die URL der mit dem Kommentar verbundenen Ressource
           user_group: Der Name der Gruppe, die diesen Kommentar erstellt hat (falls vorhanden)
         results:
+          address: Projektadresse (falls vorhanden)
+          children_count: Die Anzahl der Teilergebnisse
+          comments_count: Die Anzahl der Kommentare zu diesem Ergebnis
           component: Komponente, zu der das Ergebnis gehört
           created_at: Das Erstellungsdatum des Ergebnisses
           description: Die Beschreibung des Ergebnisses
           end_date: Das Datum, an dem das Ergebnis umgesetzt und beendet ist
           id: Die eindeutige Bezeichnung des Ergebnisses
+          latitude: Der Breitengrad des Ergebnisses, falls es einen verortet wurde
+          longitude: Der Längengrad des Ergebnisses, falls es einen verortet wurde
           parent: Das übergeordnete Ergebnis (falls vorhanden) des Ergebnisses
           progress: Der Prozentsatz der Umsetzung des Ergebnisses
           proposal_urls: Die URLs der Vorschläge, die in diesem Ergebnis enthalten sind
+          reference: Die eindeutige Referenz des Ergebnisses
           start_date: Das Datum, an dem das Ergebnis mit der Umsetzung beginnt
           status: Der aktuelle Status dieses Ergebnisses
           taxonomies: Die Klassifizierungen des Ergebnisses
           title: Der Titel des Ergebnisses
+          updated_at: Letztes Aktualisierungsdatum dieses Ergebnisses
           url: Die URL, unter der dieses Ergebnis gefunden werden kann
     participatory_spaces:
       highlighted_results:
