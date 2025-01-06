@@ -837,6 +837,7 @@ de:
           select_initiatives: Initiativen auswählen
           select_participatory_processes: Beteiligungsprozesse auswählen
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
+          select_users_for_participatory_space: Newsletter an einen oder mehrere partizipative Bereiche senden
           send_to_all_users: An alle Benutzer senden
           title: Empfänger auswählen
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
