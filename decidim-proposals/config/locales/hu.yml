@@ -330,7 +330,7 @@ hu:
     participatory_spaces:
       highlighted_proposals:
         last: Legutóbbi javaslatok
-        see_all: Összes (%{count})
+        see_all: Összes
     proposals:
       actions:
         answer_proposal: Javaslat megválaszolása
