@@ -304,7 +304,7 @@ gl:
         title: Votos
     participatory_spaces:
       highlighted_proposals:
-        see_all: Ver todos (%{count})
+        see_all: Ver todos
     proposals:
       actions:
         answer_proposal: Responder á proposta
