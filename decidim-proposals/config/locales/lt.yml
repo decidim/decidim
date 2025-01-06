@@ -386,7 +386,7 @@ lt:
     participatory_spaces:
       highlighted_proposals:
         last: Paskutiniai pasiūlymai
-        see_all: Žiūrėti visus pasiūlymus (%{count})
+        see_all: Žiūrėti visus pasiūlymus
     proposals:
       actions:
         answer_proposal: Atsakyti į pasiūlymą
