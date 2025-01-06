@@ -184,6 +184,13 @@ de:
         browse: Durchsuchen
         category:
           new: Neue Kategorie
+        confirm_delete_component: |
+          Sind Sie sicher, dass Sie diese Komponente löschen möchten?<br>
+          Diese Komponente enthält:<br>
+          <ul class="list-disc ml-6 my-2">
+            <li class="font-bold">%{resources_count} Ressourcen</li>
+          </ul>
+          Wenn Sie Ihre Meinung ändern, können Sie es später wiederherstellen.
         export: Alles exportieren
         export-selection: Auswahl exportieren
         import: Importieren
@@ -195,12 +202,15 @@ de:
         per_page: Pro Seite
         permissions: Berechtigungen
         reject: Ablehnen
+        restore: Wiederherstellen
         send_me_a_test_email: Mir eine Test-E-Mail senden
         share: Teilen
         share_tokens: Zugangslinks
+        soft_delete: Vorläufiges Löschen
         user:
           new: Neuer Administrator
         verify: Überprüfen
+        view_deleted_components: Gelöschte Komponenten ansehen
       admin_terms_of_service:
         accept:
           error: Beim Akzeptieren der Nutzungsbedingungen ist ein Problem aufgetreten.
@@ -287,6 +297,12 @@ de:
         no_results: keine Ergebnisse gefunden
         search_prompt: Geben Sie mindestens drei Zeichen ein, um zu suchen.
       block_user:
+        bulk_new:
+          action: Konten sperren und Begründung senden
+          already_reported_html: Wenn Sie diese Aktion fortsetzen, werden Sie auch alle Inhalte der Teilnehmenden ausblenden.
+          description: Das Blockieren eines Teilnehmenden wird das verknüpfte Konto unbrauchbar machen. Sie können dies begründen und Richtlinien dafür bieten, wie der Teilnehmende vorgehen kann, damit das Konto wieder entsperrt wird.
+          justification: Begründung
+          title: Teilnehmende blockieren
         new:
           action: Konto sperren und Begründung senden
           already_reported_html: Wenn Sie diese Aktion fortsetzen, werden Sie auch alle Inhalte der Teilnehmenden ausblenden.
@@ -336,6 +352,8 @@ de:
             name: Komponentenname
             type: Komponententyp
             visibility: Sichtbarkeit
+        manage_trash:
+          title: Gelöschte Komponenten
         new:
           add: Komponente hinzufügen
           title: 'Komponente hinzufügen: %{name}'
@@ -569,6 +587,8 @@ de:
         logs_list:
           no_logs_yet: Es gibt noch keine Protokolle.
           no_matching_logs: Es gibt keine Protokolle mit den angegebenen Suchfiltern. Ändern Sie sie und versuchen Sie es erneut.
+      manage_trash:
+        deleted_items_warning: Sie sehen derzeit gelöschte Elemente. Um Änderungen vornehmen zu können, müssen Sie diese zuerst wiederherstellen.
       managed_users:
         promotion:
           error: Es ist ein Fehler aufgetreten, der den verwalteten Benutzer unterstützt.
@@ -692,13 +712,27 @@ de:
         index:
           actions:
             block: Benutzer blockieren
+            bulk_actions:
+              actions_dropdown: Aktionen
+              block:
+                title: Blockieren
+                update_moderated_user_button: Teilnehmende blockieren
+              unblock:
+                title: Blockierung aufheben
+                update_moderated_user_button: Blockierung aufheben
+              unreport:
+                title: Meldung zurückweisen
+            ignore:
+              update_moderated_user_button: Gemeldete Teilnehmende zurückweisen
             title: Aktionen
             unblock: Blockierung des Benutzers aufheben
             unreport: Meldung Rückgängig machen
+          cancel: Abbrechen
           name: Name
           nickname: Spitzname
           reason: Grund
           reports: Anzahl Meldungen
+          selected: Ausgewählt
           title: Gemeldete Teilnehmende
         report:
           reasons:
@@ -710,6 +744,19 @@ de:
           unblocked: Nicht blockiert
       moderations:
         index:
+          actions:
+            actions_dropdown: Aktionen
+            hide:
+              title: Verbergen
+              update_moderation_button: Ausgewählte Ressourcen verbergen
+            unhide:
+              title: Einblenden
+              update_moderation_button: Ausgewählte Ressourcen einblenden
+            unreport:
+              title: Meldung zurückweisen
+              update_moderation_button: Meldung ausgewählter Ressourcen aufheben
+          cancel: Abbrechen
+          selected: ausgewählt
           title: Gemeldeter Inhalt
         report:
           reasons:
@@ -741,6 +788,10 @@ de:
           preview: 'Vorschau der Vorlage: %{template_name}'
           use_template: Diese Vorlage verwenden
       newsletters:
+        confirm_recipients:
+          email: E-Mail
+          name: Name
+          title: Empfangende bestätigten
         create:
           error: Beim Erstellen dieses Newsletters ist ein Fehler aufgetreten.
           success: Newsletter erfolgreich erstellt Bitte, überprüfen Sie es vor dem Senden.
@@ -762,9 +813,12 @@ de:
           has_been_sent_to: 'Wurde gesendet an: '
           not_sent: Nicht gesendet
           participants: 'Teilnehmer: '
+          private_members: 'private Mitglieder '
           segmented_to: 'Unterteilt in %{subject}: '
           subscribed_count: 'Abonniert:'
           title: Newsletter
+          verification_types: 'Verifizierungstypen: %{types}'
+          verified_users: Verifizierte Nutzende
         new:
           save: Speichern
           title: Neuer Newsletter
@@ -772,10 +826,16 @@ de:
           all_spaces: Alle
           all_users_help: Sendet Newsletter an alle bestätigten Benutzer.
           confirm_deliver: Möchten Sie diesen Newsletter wirklich versenden? Diese Aktion kann nicht rückgängig gemacht werden.
+          confirm_recipients: Empfangende bestätigten
           deliver: Newsletter versenden
           followers_help: Sendet den Newsletter an alle bestätigten Benutzer, die den ausgewählten Teilnehmerräumen in der Liste folgen.
           participants_help: Sendet den Newsletter an alle bestätigten Benutzer, die an den ausgewählten Teilnehmerräumen der Liste teilgenommen haben.
+          private_members_help: Sendet einen Newsletter an alle bestätigten Teilnehmende, die den ausgewählten privaten Teilnahmebereichen hinzugefügt wurden.
           recipients_count: Dieser Newsletter wird an <strong id='recipients_count'>%{count}</strong> Teilnehmer gesendet.
+          select_assemblies: Gremien auswählen
+          select_conferences: Konferenzen auswählen
+          select_initiatives: Initiativen auswählen
+          select_participatory_processes: Beteiligungsprozesse auswählen
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
           send_to_all_users: An alle Benutzer senden
           title: Empfänger auswählen
