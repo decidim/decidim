@@ -867,6 +867,7 @@ de:
             success: Teilnehmende erfolgreich blockiert.
           unblock:
             invalid: Es gab ein Problem beim Entsperren der Teilnehmenden.
+            success: Teilnehmende erfolgreich entsperrt.
         create:
           success: Benutzer wurde offiziell anerkannt.
         destroy:
@@ -959,9 +960,14 @@ de:
         destroy:
           error: Beim Löschen eines privaten Benutzers für diesen partizipativen Bereich ist ein Fehler aufgetreten.
           success: Privater Zugriff zum partizipativen Raum erfolgreich gelöscht.
+        edit:
+          title: Privates Mitglied des partiziaptiven Bereichs bearbeiten.
+          update: Aktualisieren
         index:
           import_via_csv: Aus CSV-Datein importieren
+          publish_all: Alle veröffentlichen
           title: Participatory Space privater Benutzer
+          unpublish_all: Alle Veröffentlichungen aufheben
         new:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
@@ -1176,6 +1182,8 @@ de:
           back: Zurück
           title: Klassifizierungsfilter bearbeiten
           update: Klassifizierungsfilter aktualisieren
+        form:
+          all: Alle
         index:
           description: Ein Klassifizierungsfilter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
           empty: Derzeit gibt es keine Klassifizierungsfilter. Erstellen Sie hier eine Liste von Klassifizierungsfilter, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
