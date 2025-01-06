@@ -378,7 +378,7 @@ fi-pl:
     participatory_spaces:
       highlighted_proposals:
         last: Viimeisimmät ehdotukset
-        see_all: Näytä kaikki (%{count})
+        see_all: Näytä kaikki ehdotukset
     proposals:
       actions:
         answer_proposal: Vastaa ehdotukseen
