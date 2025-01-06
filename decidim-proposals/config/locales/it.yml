@@ -251,7 +251,7 @@ it:
         title: proposte
     participatory_spaces:
       highlighted_proposals:
-        see_all: Vedi tutto (%{count})
+        see_all: Vedi tutto
     proposals:
       actions:
         answer_proposal: Proposta di Risposta
@@ -537,6 +537,7 @@ it:
             one: "%{count} proposta"
             other: "%{count} proposte"
           new_proposal: Nuova proposta
+          see_all: Vedi tutto
           see_all_withdrawn: Vedi tutte le proposte ritirate
         new:
           send: Continua
