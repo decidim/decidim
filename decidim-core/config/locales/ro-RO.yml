@@ -505,7 +505,7 @@ ro:
         name: Valorile organizației
       static_page:
         section:
-          name: Secţiune
+          name: Secțiune
           section_content: Conţinut
         summary:
           name: Rezumat
@@ -569,7 +569,7 @@ ro:
           see_username: Vezi pseudonimul tău
           this_application_will_be_able_to: 'Această aplicație va putea să:'
           this_application_will_not_be_able_to: 'Această aplicație nu va putea să:'
-          update_profile: Actualizeză-ți profilul
+          update_profile: Actualizați-vă profilul
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vrea să folosească contul tău"
     download_your_data:
       export:
@@ -589,7 +589,7 @@ ro:
     errors:
       internal_server_error:
         copied: Text copiat!
-        copy_to_clipboard: Copiază în clipboard
+        copy_to_clipboard: Copiați în clipboard
         date_and_time: Data și ora
         title: A apărut o problemă cu serverul nostru
         unknown: Necunoscut
@@ -735,7 +735,7 @@ ro:
         download: Descărcare
       export:
         ready: Atașat vei găsi o versiune arhivată a exportului.
-      subject: Exportul tău "%{name}este gata
+      subject: Exportul dumneavoastră „%{name}” este gata
     filters:
       linked_classes:
         all: Toate
@@ -799,7 +799,7 @@ ro:
           title_required: Titlul este obligatoriu!
         select_file: Selectaţi fişierul
       upload_help:
-        dropzone: Trage fişierele aici sau apasă pe buton pentru a încărca
+        dropzone: Trageți fișierele aici sau apăsați pe buton pentru a încărca
         explanation: Îndrumare pentru %{attribute}
     gamification:
       all_badges_link: Vezi toate insignele disponibile.
@@ -1132,8 +1132,8 @@ ro:
     reported_mailer:
       hide:
         hello: Bună ziua %{name},
-        manage_moderations: Administreaza moderatii
-        report_html: <p>Următorul conţinut <a href="%{url}"></a> a fost ascuns automat.</p>
+        manage_moderations: Gestionați moderările
+        report_html: <p>Următorul <a href="%{url}">conținut</a> a fost ascuns automat.</p>
         subject: O resursă a fost ascunsă automat
       report:
         authors: Autori
@@ -1202,10 +1202,10 @@ ro:
         skip: Sari la rezultate
       flag_modal:
         already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
-        close: Inchide
+        close: Închideți
         description: Este acest conținut neadecvat?
         hide: Ascunde
-        hide_content: Ascunde conţinutul
+        hide_content: Ascundeți conținutul
         offensive: Conține rasism, sexism, slurbii, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
         reason: Motiv
         report: Raport
@@ -1213,7 +1213,7 @@ ro:
         title: Raportează o problemă
       flag_user_modal:
         already_reported: Acest conținut este deja raportat și va fi revizuit de către un administrator.
-        close: Inchide
+        close: Închideți
         description: Ce este nepotrivit pentru utilizator?
         offensive: Conține rasism, sexism, insulte, atacuri personale, amenințări cu moartea, cereri de sinucidere sau orice formă de discurs de incitare la ură.
         report: Raportează
@@ -1229,7 +1229,7 @@ ro:
       public_participation:
         public_participation: Arată public participarea mea
       reference:
-        reference: 'Referinţă: %{reference}'
+        reference: 'Referință: %{reference}'
       represent_user_group:
         represent_user_group: Reprezint un grup
         select_user_group: Selectați un grup
@@ -1333,7 +1333,7 @@ ro:
         submit_button: Salvează
         subtitle: Dacă acceptați invitația, vă rugăm să vă setați porecla și parola.
       invitation_removed: Invitația ta a fost eliminată.
-      invitation_token_invalid: Tokenul de invitație furnizat nu este valid!
+      invitation_token_invalid: Codul de invitație furnizat nu este valid!
       new:
         header: Trimite invitație
         submit_button: Trimite o invitație
