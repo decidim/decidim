@@ -838,8 +838,12 @@ de:
           select_participatory_processes: Beteiligungsprozesse auswählen
           select_spaces: Wählen Sie Abschnitte, um den Newsletter zu unterteilen
           select_users_for_participatory_space: Newsletter an einen oder mehrere partizipative Bereiche senden
+          select_users_general: Plattformweiter Newsletter senden
+          select_verification_types: Verifizierungsmethoden auswählen
           send_to_all_users: An alle Benutzer senden
+          send_to_verified_users: An verifizierte Teilnehmende senden
           title: Empfänger auswählen
+          verified_users_help: Sendet einen Newsletter an alle bestätigten und verifizierten Teilnehmenden über jede ausgewählte Verifikationsmethode.
           warning: "<strong>Achtung:</strong> Dieser Newsletter wird nur an Benutzer gesendet, die <em>Ich möchte Newsletter empfangen</em> in ihren Benachrichtigungseinstellungen aktiviert haben."
         send:
           no_recipients: Keine Empfänger für diese Auswahl.
@@ -857,6 +861,12 @@ de:
         block:
           error: Bei der Teilnehmendenblockierung ist ein Problem aufgetreten.
           success: Teilnehmer erfolgreich blockiert.
+        bulk_action:
+          block:
+            invalid: Es gab ein Problem beim Blockieren der Teilnehmenden.
+            success: Teilnehmende erfolgreich blockiert.
+          unblock:
+            invalid: Es gab ein Problem beim Entsperren der Teilnehmenden.
         create:
           success: Benutzer wurde offiziell anerkannt.
         destroy:
