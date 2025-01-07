@@ -258,6 +258,7 @@ As a developer or as a user, you should not feel the difference of this change, 
 This particular change in the way we mount things, applies also for `Comments` and `Verifications` modules.
 
 #### 5.2.1. Module developers
+
 As a module developer, when you add a new admin section you should always check if the admin is accessible to normal or visitors. If that is the case, you can always wrap your admin routes in a constraint like:
 
 ```ruby
