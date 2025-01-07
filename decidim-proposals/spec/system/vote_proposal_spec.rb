@@ -26,6 +26,18 @@ describe "Vote Proposal", slow: true do
         click_on proposal_title
         expect_page_not_to_include_votes
       end
+
+      it "does not show the exit modal" do
+        visit_component
+        click_on proposal_title
+
+        expect_page_not_to_include_votes
+        expect(page).to have_content("Log in or create an account")
+        page.find(".main-bar__logo a").click
+        expect(page).to have_no_content("Remember you have")
+        expect(page).to have_no_content("Cancel")
+        expect(page).to have_no_content("Continue")
+      end
     end
 
     context "when the user is logged in" do
@@ -180,16 +192,14 @@ describe "Vote Proposal", slow: true do
                      participatory_space: participatory_process)
             end
 
-            it "shows the remaining votes counter" do
+            it "shows the voting rules" do
               visit_component
 
               expect(page).to have_css("#voting-rules")
-              expect(page).to have_css("#remaining-votes-count")
 
               click_on proposal_title
 
-              expect(page).to have_css("#voting-rules")
-              expect(page).to have_css("#remaining-votes-count")
+              expect(page).to have_css("#proposal-voting-rules")
             end
           end
 
@@ -228,32 +238,59 @@ describe "Vote Proposal", slow: true do
               click_on "Vote"
               expect(page).to have_button("Already voted")
             end
-
-            expect(page).to have_content("Remaining 9 votes")
           end
         end
 
         context "when the proposal is not voted yet but the user is not authorized" do
-          before do
-            permissions = {
-              vote: {
-                authorization_handlers: {
-                  "dummy_authorization_handler" => { "options" => {} }
+          context "when there is only an authorization required" do
+            before do
+              permissions = {
+                vote: {
+                  authorization_handlers: {
+                    "dummy_authorization_handler" => { "options" => {} }
+                  }
                 }
               }
-            }
 
-            component.update!(permissions:)
-            visit_component
-            click_on proposal_title
-          end
-
-          it "shows a modal dialog" do
-            within "#proposal-#{proposal.id}-vote-button" do
-              click_on "Vote"
+              component.update!(permissions:)
+              visit_component
+              click_on proposal_title
             end
 
-            expect(page).to have_content("Authorization required")
+            it "redirects to the authorization form" do
+              within "#proposal-#{proposal.id}-vote-button" do
+                click_on "Vote"
+              end
+
+              expect(page).to have_content("We need to verify your identity")
+              expect(page).to have_content("Verify with Example authorization")
+            end
+          end
+
+          context "when there are more than one authorization required" do
+            before do
+              permissions = {
+                vote: {
+                  authorization_handlers: {
+                    "dummy_authorization_handler" => { "options" => {} },
+                    "another_dummy_authorization_handler" => { "options" => {} }
+                  }
+                }
+              }
+
+              component.update!(permissions:)
+              visit_component
+              click_on proposal_title
+            end
+
+            it "redirects to pending onboarding authorizations page" do
+              within "#proposal-#{proposal.id}-vote-button" do
+                click_on "Vote"
+              end
+
+              expect(page).to have_content("You are almost ready to vote")
+              expect(page).to have_css("a[data-verification]", count: 2)
+            end
           end
         end
 
@@ -280,8 +317,6 @@ describe "Vote Proposal", slow: true do
             within "#proposal-#{proposal.id}-votes-count" do
               expect(page).to have_content("0\nVotes")
             end
-
-            expect(page).to have_content("Remaining 10 votes")
           end
         end
 
@@ -332,6 +367,130 @@ describe "Vote Proposal", slow: true do
                 end
               end
             end
+          end
+        end
+      end
+
+      context "when participant has a minimum number of votes per proposal" do
+        let(:vote_limit) { 8 }
+        let(:minimum_votes_per_user) { 5 }
+
+        let!(:component) do
+          create(:proposal_component,
+                 :with_votes_enabled,
+                 participatory_space: participatory_process,
+                 settings:)
+        end
+        let(:settings) do
+          {
+            minimum_votes_per_user:,
+            vote_limit:
+          }
+        end
+
+        it "shows the voting rules" do
+          visit_component
+
+          expect(page).to have_css("#voting-rules")
+          expect(page).to have_content("You can support up to 8 proposals.")
+          expect(page).to have_content("You have to distribute a minimum of 5 supports among different proposals so that your supports are taken into account.")
+
+          click_on proposal_title
+
+          expect(page).to have_css("#proposal-voting-rules")
+        end
+
+        it "shows a modal dialog" do
+          visit_component
+          click_on proposal_title
+          expect(page).to have_content("Vote")
+          click_on "Vote"
+          expect(page).to have_content("Already voted")
+          first("a", text: "Proposals").click
+
+          expect(page).to have_content("Remember you have 4 votes left")
+          expect(page).to have_content("You have to give 4 more votes between different proposals for your votes to be taken into account.")
+          expect(page).to have_content("Continue")
+          expect(page).to have_content("Cancel")
+
+          click_on "Continue"
+          expect(page).to have_content("proposals")
+          expect(page).to have_content("Status")
+        end
+
+        context "when participant vote" do
+          let!(:vote_limit) { 4 }
+          let!(:minimum_votes_per_user) { 2 }
+
+          before do
+            visit_component
+            click_on proposal_title
+            click_on "Vote"
+          end
+
+          it "shows a notification indicating how many votes participant has left to give" do
+            expect(page).to have_content("You have 1 supports left")
+            expect(page).to have_content("Remember that you still have to give 1 supports between different proposals so that your supports are taken into account.")
+
+            click_on "Already vote"
+            expect(page).to have_content("You have 2 supports left")
+          end
+        end
+
+        context "when participant has voted for the minimum number of proposals" do
+          let!(:vote_limit) { 2 }
+          let!(:minimum_votes_per_user) { 1 }
+
+          before do
+            visit_component
+            click_on proposal_title
+            click_on "Vote"
+          end
+
+          it "shows a notification indicating that participant have correctly given all the minimum votes" do
+            expect(page).to have_content("Your votes have been successfully accepted")
+          end
+
+          context "when participant start voting proposals" do
+            let!(:vote_limit) { 4 }
+            let!(:minimum_votes_per_user) { 2 }
+
+            it "shows the exit modal" do
+              expect(page).to have_content("Already voted")
+
+              expect(page).to have_content("Proposals")
+              first("a", text: "Proposals").click
+
+              expect(page).to have_content("Remember you have 1 votes left", wait: 10)
+              expect(page).to have_content("You have to give 1 more votes between different proposals for your votes to be taken into account.")
+              expect(page).to have_content("Continue")
+              expect(page).to have_content("Cancel")
+
+              click_on "Cancel"
+
+              expect(page).to have_content("You have 1 supports left", wait: 10)
+              expect(page).to have_content("Remember that you still have to give")
+            end
+          end
+
+          it "does not show the exit modal" do
+            expect(page).to have_content("Already voted")
+            expect(page).to have_content("Your votes have been successfully accepted")
+
+            click_on "Already voted"
+            expect(page).to have_content("See other proposals")
+            expect(page).to have_content("You have 1 supports left", wait: 10)
+
+            click_on "See other proposals"
+            expect(page).to have_content("3 proposals")
+            expect(page).to have_css("#proposals__proposal_#{proposal.id}")
+
+            click_on translated_attribute(proposal.title)
+            click_on "Vote"
+            expect(page).to have_content("Your votes have been successfully accepted")
+
+            page.find(".main-bar__logo a").click
+            expect(page).to have_no_content("Already voted", wait: 10)
           end
         end
       end

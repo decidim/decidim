@@ -519,9 +519,7 @@ sv:
           phone_number: Telefonnummer
           place_date: Plats, datum
           postal_code: Postnummer
-          print: Skriv ut
           province: Region/Land
-          section: 'Om det begärs av organisationen, skriv ut och fyll i detta formulär för att skicka där det anges:'
           signature: Underskrift
         result:
           answer_title: Initiativet har besvarats.
@@ -543,7 +541,6 @@ sv:
           other: " underskrifter"
         vote_cabin:
           already_voted: Redan undertecknad
-          verification_required: Verifiera ditt konto för att skriva under initiativet
           vote: Signera
           votes_blocked: Underskrifter är avaktiverade
         votes_count:
@@ -596,7 +593,6 @@ sv:
           comment: Kommentera
       initiatives_type:
         actions:
-          create: Skapa
           title: Åtgärder
           vote: Underteckna
   layouts:

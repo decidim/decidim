@@ -19,8 +19,6 @@ ga:
     admin:
       filters:
         meetings:
-          category_id_eq:
-            label: Catagóir
           closed_at_present:
             label: Staid
             values:
@@ -31,8 +29,6 @@ ga:
             values:
               'false': Roimhe
               'true': Le teacht
-          scope_id_eq:
-            label: Scóip
       meeting_copies:
         new:
           copy: Cóipeáil
@@ -51,7 +47,6 @@ ga:
         attachment_collections: Fillteáin
         attachments: Ceangaltáin
         close: Dún
-        destroy: Scrios
         edit: Eagar
         preview: Réamhamharc
         title: Gníomhartha
@@ -134,8 +129,6 @@ ga:
           type_values:
             all: Uile
             online: Ar líne
-        form:
-          select_a_category: Roghnaigh catagóir le do thoil
         new:
           back: Ar Ais
           create: Cruthaigh

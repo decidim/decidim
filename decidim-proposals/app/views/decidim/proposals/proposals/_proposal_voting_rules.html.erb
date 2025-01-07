@@ -1,0 +1,33 @@
+<div id="proposal-voting-rules" class="flash flex-col p-0 gap-0">
+  <button id="dropdown-trigger-proposal-voting-rules" data-component="dropdown" data-target="dropdown-menu-proposal-voting-rules" class="flash__title">
+      <%= t("title", scope: "decidim.proposals.proposals.voting_rules") %>
+      <%= icon "arrow-down-s-line" %>
+      <%= icon "arrow-up-s-line" %>
+  </button>
+
+  <div class="flash__message">
+    <div class="text-base editor-content">
+      <ul id="dropdown-menu-proposal-voting-rules" class="mt-0 mb-2">
+        <% if vote_limit_enabled? %>
+          <li><%= t("vote_limit.description", scope: "decidim.proposals.proposals.voting_rules", limit: component_settings.vote_limit) %></li>
+        <% end %>
+
+        <% if proposal_limit_enabled? %>
+          <li><%= t("proposal_limit.description", scope: "decidim.proposals.proposals.voting_rules", limit: proposal_limit) %></li>
+        <% end %>
+
+        <% if threshold_per_proposal_enabled? %>
+          <li><%= t("threshold_per_proposal.description", scope: "decidim.proposals.proposals.voting_rules", limit: threshold_per_proposal) %></li>
+        <% end %>
+
+        <% if can_accumulate_votes_beyond_threshold? %>
+          <li><%= t("can_accumulate_votes_beyond_threshold.description", scope: "decidim.proposals.proposals.voting_rules", limit: threshold_per_proposal) %></li>
+        <% end %>
+
+        <% if minimum_votes_per_user_enabled? %>
+          <li><%= t("minimum_votes_per_user.description", scope: "decidim.proposals.proposals.voting_rules", votes: minimum_votes_per_user) %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

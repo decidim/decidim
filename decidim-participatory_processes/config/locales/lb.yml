@@ -102,7 +102,6 @@ lb:
           categories: Kategorien
           components: Komponenten
           moderations: Moderationen
-          private_users: Private Benutzer
           process_admins: Benutzer verarbeiten
           steps: Phasen
       models:

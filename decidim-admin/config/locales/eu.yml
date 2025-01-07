@@ -11,7 +11,7 @@ eu:
         plural: Plurala
       attachment:
         attachment_collection_id: Karpeta
-        description: Descripción
+        description: Deskribapena
         file: Fitxategia
         title: Erantsitakoaren edo irudiaren izena
         weight: Kokapenaren hurrenkera
@@ -20,7 +20,7 @@ eu:
         name: Izena
         weight: Kokapenaren hurrenkera
       category:
-        description: Descripción
+        description: Deskribapena
         name: Izena
         parent_id: Nagusia
         weight: Kokapenaren hurrenkera
@@ -47,7 +47,7 @@ eu:
         available_authorizations: Baimen erabilgarriak
         badges_enabled: Gaitu garaikurrak
         comments_max_length: Iruzkinen gehieneko luzera (utzi 0 defektuz konfigurazioa mantendu nahi baduzu)
-        cta_button_path: Deitu Ekintza-botoiaren bidera
+        cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Ekintza-botoiaren testua
         customize_welcome_notification: Pertsonalizatu ongietorri-jakinarazpena
         default_locale: Kokapen lehenetsia
@@ -124,7 +124,7 @@ eu:
         content: Edukia
         organization: Erakundea
         show_in_footer: Erakutsi orri-oinean
-        slug: URL laburra
+        slug: URL l
         title: Titulua
         topic_id: Gaia
         weight: Kokapenaren hurrenkera
@@ -184,6 +184,13 @@ eu:
         browse: Arakatu
         category:
           new: Beste kategoria bat
+        confirm_delete_component: |
+          Ziur zaude osagai hau ezabatu nahi duzula?<br>
+          Osagai honek honako hauek ditu: <br>
+          <ul class="list-disc ml-6 my-2">
+           <li class="font-bold">%{baliabide_kopurua} resources</li>
+          </ul>
+          Iritziz aldatzen baduzu, geroago berreskuratu ahal izango duzu.
         export: Esportatu dena
         export-selection: Esportatu hautaketa
         import: Inportatu
@@ -195,11 +202,15 @@ eu:
         per_page: Orrialdeko
         permissions: Baimenak
         reject: Ukatu
+        restore: Berreskuratu
         send_me_a_test_email: Bidali probako posta elektronikoa
         share: Partekatu
+        share_tokens: Sarbide-estekak
+        soft_delete: Ezabatze biguna
         user:
           new: Beste administratzaile bat
         verify: Egiaztatu
+        view_deleted_components: Ikusi ezabatutako osagaiak
       admin_terms_of_service:
         accept:
           error: Arazoa izan da zerbitzuaren baldintzak onartzean.
@@ -319,9 +330,6 @@ eu:
           error: Arazo bat egon da osagai hau sortzean.
           success: Osagaia zuzen sortua.
           success_landing_page: Osagaia zuzuen osatua. Eduki bloke bat gehitu ahal duzu osagai honetarako parte hartzeko espazioaren hasiera-orrian. Zoaz hasiera-orrira konfiguratzeko. <a href="%{landing_page_path}">.
-        destroy:
-          error: Arazo bat egon da osagai hau suntsitzean.
-          success: Osagaia behar bezala ezabatua.
         edit:
           title: Editatu osagaia
           update: Eguneratu
@@ -338,11 +346,21 @@ eu:
             name: Osagaiaren izena
             type: Osagai mota
             visibility: Ikusgarritasuna
+        manage_trash:
+          title: Ezabatutako osagaiak
         new:
           add: Gehitu osagaia
           title: 'Gehitu osagaia: %{name}'
         publish:
           success: Osagaia zuzen argitaratua.
+        taxonomy_filters_badge:
+          remove: Kendu
+        taxonomy_filters_drawer:
+          add_filter: Erantsi iragazkia
+          clear_all: Garbitu dena
+          filters: Iragazkiak
+          save: Gorde
+          title: Iragazkiak
         title: Osagaiak
         unpublish:
           success: Osagaia behar bezala desargitaratua.
@@ -387,8 +405,8 @@ eu:
       dashboard:
         pending_moderations:
           announcement:
-            one: Moderazio bat falta da
-            other: '%{count} moderazio daude zain'
+            one: '%{count} moderazio falta dira'
+            other: '%{count} moderazio falta dira'
           goto_moderation: Joan moderazio globaletara
           title: Zain dauden moderazioak
         show:
@@ -409,8 +427,6 @@ eu:
           JSON: JSON
         notice: Zure esportazioa bidean da une honetan. Mezu elektroniko bat jasoko duzu bukatutakoan.
       filters:
-        category_id_eq:
-          label: Kategoria
         filter_label: Iragazkia
         invitation_accepted_at_present:
           label: Gonbidapena onartua
@@ -459,8 +475,6 @@ eu:
             'false': Argitaratua
             'true': Ez da argitaratu
         remove_all: Ezabatu denak
-        scope_id_eq:
-          label: Esparrua
         search_label: Bilatu
         search_placeholder:
           name_or_nickname_or_email_cont: Bilatu %{collection} helbide elektroniko, izen edo ezizenaren arabera.
@@ -527,15 +541,24 @@ eu:
           duplicate_headers:
             detail: Mesedez, egiaztatu fitxategiak behin bakarrik eskatzen diren zutabeak edo goiburuak dituela.
             message:
-              one: Bikoiztu %{columns} zutabeak.
-              other: Bikoiztu %{columns} zutabea.
+              one: Bikoiztu %{columns} zutabe.
+              other: Bikoiztu %{columns} zutabe.
           invalid_indexes:
             lines:
               detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              message:
+                one: Errore bat aurkitu da inportazio-fitxategiko %{indexes} lerroan.
+                other: Erroreak aurkitu dira inportazio-fitxategiko %{indexes} lerroetan.
             records:
               detail: Mesedez, egiaztatu erregistro horiek formatu zuzena dutela eta baliozko erregistroak dituztela.
+              message:
+                one: Errore bat aurkitu da % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
+                other: Erroreak aurkitu dira % {indexes} ordenazio-zenbakiak dituzten erregistroetarako inportazio-fitxategian.
           missing_headers:
             detail: Mesedez, egiaztatu fitxategiak eskatutako zutabeak dituela.
+            message:
+              one: Falta da %{columns} zutabe.
+              other: Falta dira %{columns} zutabe.
         error: Arazo bat egon da inportatzean.
         example_error: Arazo bat egon da aukeratutako tiporako adibide bat sortzean.
         new:
@@ -558,6 +581,8 @@ eu:
         logs_list:
           no_logs_yet: Oraindik ez dago erregistrorik.
           no_matching_logs: Ez dago erregistrorik hautatutako bilaketa-iragazkiekin. Erabili beste batzuk eta saiatu berriro.
+      manage_trash:
+        deleted_items_warning: Ezabatutako gauzak ikusten ari zara. Edozein edizio edo aldaketa egiteko, berreskuratu egin behar dituzu.
       managed_users:
         promotion:
           error: Arazo bat egon da kudeatutako parte-hartzailea mailaz igotzean.
@@ -589,6 +614,7 @@ eu:
         scopes: Esparruak
         see_site: Ikusi web-orria
         settings: Ezarpenak
+        share_tokens: Sarbide-estekak
         static_page_topics: Gaiak
         static_pages: Orriak
         taxonomies: Taxonomiak
@@ -646,12 +672,11 @@ eu:
             plural: Plurala
         share_token:
           fields:
-            created_at: Noiz sortua
+            actions: Ekintzak
             expires_at: Noiz iraungia
-            last_used_at: Noiz erabilia azkenik
+            registered_only: Bakarrik erregistratuta?
             times_used: Erabilitako denbora
-            token: Sinboloak
-            user: Nork sortua
+            token: Sarbide-esteka
         static_page:
           fields:
             created_at: Noiz sortua
@@ -801,7 +826,7 @@ eu:
           name: Izena
           nickname: Ezizena
           not_officialized: Ez ofizializatua
-          officialize: Ofiziala
+          officialize: Ofizializatzen du
           officialized: Ofizializatua
           reofficialize: Berriro ofizializatzen du
           reports: Txostenak
@@ -881,12 +906,26 @@ eu:
         destroy:
           error: Arazo bat egon da parte-hartzaile pribatu bat ezabatzean parte hartzeko espazio honetarako.
           success: Behar bezala ezabatua parte-hartzailearen sarbidea parte hartzeko espazio pribaturako.
+        edit:
+          title: Editatu Espazio Parte-hartzailea parte-hartzaile pribatua.
+          update: Eguneratu
         index:
           import_via_csv: Inportatu CSV bidetik
+          publish_all: Argitaratu guztiak
           title: Parte hartzeko espazio pribatuko parte-hartzailea 
+          unpublish_all: Desargitaratu guztiak
         new:
           create: Sortu
           title: Parte hartzeko espazio pribatuko parte-hartzaile berria.
+        publish_all:
+          error: Arazo bat egon da parte-hartzaile pribatu guztiak argitaratzean parte hartzeko espazio honetarako.
+          success: Parte-hartzaile pribatu guztiak zuzen argitaratu dira parte hartzeko gune honetarako
+        unpublish_all:
+          error: Arazo bat egon da parte-hartzaile pribatu guztiak desargiratzean espazio parte-hartzaile honetarako.
+          success: Parte-hartzaile pribatu guztiak zuzen desargitaratu dira parte hartzeko espazio honetarako
+        update:
+          error: Arazo bat egon da parte hartzaile pribatua espazio parte-hartzaile horretarako eguneratzean.
+          success: Parte hartzeko espazioko parte-hartzaile pribatua zuzen eguneratu da
       participatory_space_private_users_csv_imports:
         create:
           invalid: Arazo bat egon da CSV fitxategia irakurtzean. Mesedez, ziurtatu jarraibideei kasu egin diezula.
@@ -910,6 +949,9 @@ eu:
       reminders:
         create:
           error: Arazo bat egon da ohartarazpenak sortzean.
+          success:
+            one: "%{count} erabiltzaile gogoratuko da."
+            other: "%{count} erabiltzaile gogoratuko dira."
         new:
           submit: Bidali
       resource_permissions:
@@ -918,10 +960,6 @@ eu:
           title: Editatu baimenak
         update:
           success: Baimenak behar bezala eguneratuak.
-      resources:
-        index:
-          headers:
-            scope: Esparrua
       scope_types:
         create:
           error: Arazo bat egon da beste esparru mota bat sortzean.
@@ -955,16 +993,50 @@ eu:
           success: Esparrua zuzen eguneratua
       share_tokens:
         actions:
-          confirm_destroy: Ziur zaude identifikatzaile-ikur hau ezabatu nahi duzula?
+          confirm_destroy: Ziur zaude sarbide hau ezabatu nahi duzula?
+          copy_link: Kopiatu esteka
           destroy: Ezabatu
-          share: Partekatu
+          edit: Editatu
+          preview: Aurreikusi
+        create:
+          invalid: Arazo bat izan da sarbide-lotura sortzean.
+          success: Lotura zuzen sortua.
         destroy:
-          error: Arazo bat egon da identifikatzaile-ikurra suntsitzean.
-          success: Identifikatzaile-ikurra behar bezala suntsitua.
-        share_tokens:
-          empty: Ez dago identifikatzaile-ikur aktiborik.
-          help: Identifikatzaile-ikur hauek argitaratu gabeko baliabide hori edozein erabiltzaileri publikoki partekatzeko erabiltzen dira. Errekurtsoa argitaratzean ezkutatuko dira. Egin klik identifikatzaile-ikurra partekatzeko ikonoan, URL partekagarria bisitatzeko.
-          title: Partekatu identifikatzaile-ikurrak
+          error: Arazo bat izan da sarbide-lotura suntsitzean.
+          success: Sarbide-lotura zuzen suntsitua.
+        edit:
+          title: 'Editatu sarbide-estekak honetarako: %{name}'
+          update: Eguneratu
+        form:
+          automatic: Automatikoa
+          custom: Ohitura
+          custom_expiration: Ohituren iraungipena
+          custom_token: Ohiturazko hitza
+          expires_at: Noiz iraungia
+          'false': 'Ez'
+          never_expire: Inoiz ez
+          registered_only: Bakarrik erregistratuta?
+          token: Sarbide-gakoa
+          'true': 'Bai'
+        index:
+          back_to_share_tokens: Itzuli sarbide-esteketara
+          copied: Sarbide-esteka kopiatuta!
+          copy_message: Testua zuzen kopiatu da arbelean.
+          create_new_token: Sortu zure lehen esteka!
+          empty_html: Ez dago konexio aktiborik. %{new_token_link}
+          never: Inoiz ez
+          new_share_token_button: Sarbide-esteka berria
+          share_tokens_help_html: |
+            Sortu eta partekatu sarbide-esteka, besteek ikusi ahal izateko baliabide argitaragabe hau.
+            Sarbide-estekak erregistratutako parte-hartzaileentzat soilik izan daitezke baliozkoak, edo, beharrezkoa bada, iraungitze-data eduki dezakete.
+            Sarbide-lotura berri bat partekatzeko, sortu eta gero kopiatu esteka "%{clipboard}" ekintza-ikonoa erabiliz.
+          title: 'sarbide-estekak honentzat: %{name}'
+        new:
+          create: Sortu
+          title: 'Sarbide-esteka berria honentzat: %{name}'
+        update:
+          error: Arazo bat egon da sarbide hau eguneratzean.
+          success: Sarbide-esteka zuzen eguneratu da.
       shared:
         adjacent_navigation:
           next: Hurrengoa
@@ -1019,8 +1091,8 @@ eu:
           success: Orria zuzen eguneratua.
       taxonomies:
         actions: Ekintzak
-        amount: Kopurua
-        count: Zenbaketa
+        amount: Item kopurua
+        count: Lotutako baliabideak
         create:
           invalid: Arazo bat egon da kategoria hau sortzean.
           success: Kategoria zuzen sortua.
@@ -1034,7 +1106,7 @@ eu:
           no_items: Gaur egun ez dago taxonomia honetako elementurik. Sortu hemen elementuen zerrenda bat baliabideak sailkatzeko edo iragazteko, hala nola espazio edo osagai parte-hartzaileak. Elementuak hiru mailatan sailka daitezke.
           subtitle: 'Elementuak hemen: "%{taxonomy_name}"'
           title: Editatu "%{taxonomy_name}" taxonomia
-          update: Gorde
+          update: Eguneratu
         filters:
           search_placeholder: Bilatu
         index:
@@ -1045,12 +1117,12 @@ eu:
         new:
           create: Sortu taxonomia
           title: Beste taxonomia bat
-        no_taxonomies: Gaur egun ez dago taxonomiarik. Sortu taxonomien zerrenda bat hemen, eta zehaztu elementuak horietako bakoitzean baliabideak sailkatzeko edo iragazteko.
+        no_taxonomies: Gaur egun ez dago taxonomiarik. Sortutaxonomia-zerrenda bat hemen eta zehaztu elementuak horietako bakoitzean baliabideak sailkatu edo iragazteko.
         table:
           to_next_page: Arrastatu hurrengo orrira
           to_prev_page: Arrastatu aurreko orrira
         taxonomy_actions:
-          confirm_destroy: Ziur zaude %{name} ezabatu nahi duzula? Honek elementu txiki guztiak ere ezabatuko ditu.
+          confirm_destroy: 'Ziur zaude %{name} ezabatu nahi duzula? Honek, gainera, haurren objektu guztiak ezabatuko ditu. OHARRA: Taxonomia hori erabiltzen ari diren baliabideek ez dute eraginik izango, baina taxonomia horren erreferentzia galduko dute.'
         update:
           invalid: Arazo bat izan da taxonomia hau eguneratzean.
           success: Taxonomia zuzen eguneratua.
@@ -1058,7 +1130,7 @@ eu:
         actions:
           new_taxonomy_filter: Beste taxonomia-iragazki bat
         callout:
-          modify_taxonomy_html: Taxonomia hau edo bere elementuak aldatu behar badituzu, egin ezazu Taxonomiak ataleko <a href="%{url}">Taxonomies</a> ezarpenen bidez.
+          modify_taxonomy_html: 'Taxonomia hau edo bere elementuak aldatu behar badituzu, mesesdez, egin ezazu konfigurazio ezarpenen bidez atal honetan: <a href="%{url}">Taxonomies</a>.'
         create:
           error: Arazo bai izan da taxonomia-iragazki hau sortzean.
           success: Taxonomia-iragazkia zuzen sortua.
@@ -1067,27 +1139,35 @@ eu:
           success: Taxonomia-iragazkia behar bezala suntsitua.
         edit:
           back: Atzera
-          items: "%{count} elementu hautatu dira"
-          no_items: Ez dago taxonomia hauentzako elementurik. Taxonomia konfiguratzeko konfigurazioan sor ditzakezu elementuak.
           title: Editatu taxonomia-iragazkia
           update: Eguneratu taxonomia-iragazkia
         form:
-          select_taxonomy: Hautatu taxonomia bat
+          all: Guztiak
+          items:
+            one: "%{count} item hautatuta"
+            other: "%{count} item hautatuta"
+          name_help: Aurrealdean erakutsiko den iragazkiaren izenburua.
+          no_items: Taxonomia honetarako ez dago elementurik. Artikuluak sor ditzakezu taxonomia konfiguratzeko ezarpenetan.
+          space_filter: Eskuragarri iragazki gisa %{manifest_name} guztientzat
         index:
           description: Taxonomia-iragazki batek aukera ematen die administratzaileei espazio parte-hartzaileak taxonomia batean oinarrituta ordenatzeko eta iragazteko. Adibidez, gehitu taxonomia-iragazki bat prozesuak eremu geografikoaren arabera sailkatzeko.
           empty: Gaur egun ez dago taxonomia-iragazkirik. Sortutaxonomia-iragazkien zerrenda bat, espazio parte-hartzaileak taxonomia baten arabera ordenatu eta iragazteko.
         new:
           back: Atzera
           create: Sortu taxonomia-iragazkia
-          items: "%{count} elementu eskuragarri"
+          select_taxonomy: Hautatu taxonomia bat
           title: Beste taxonomia-iragazki bat
         table:
           actions: Ekintzak
-          confirm_destroy: Ziur zaude %{name} iragazkia ezabatu nahi duzula?
-          count: Elementu kopurua
+          components_count: Osagai elkartuak
+          confirm_destroy: 'Ziur zaude %{name} iragazkia ezabatu nahi duzula? OHARRA: Iragazki hau erabiltzen ari diren baliabideei ez zaie eragingo, baina iragazki horren erreferentzia galduko dute.'
+          count: Erabilitako artikuluen kopurua
           destroy: Ezabatu
           edit: Editatu
-          name: Izena
+          internal_name: Barne iragazkiaren izena
+          name: Iragazki publikoaren titulua
+          space_filter: Iragazteko erabilia %{manifest_name}
+          taxonomy: Taxonomiatik
         update:
           error: Arazo bai izan da taxonomia-iragazki hau eguneratzean.
           success: Taxonomia-iragazkia zuzen eguneratua.
@@ -1123,6 +1203,15 @@ eu:
         taxonomy_filters: Taxonomia-iragazkiak
         user_groups: Erabiltzaile-taldeak
         users: Administratzaileak
+      tooltips:
+        deleted_component_info: Osagai hau ezabatu ahal izateko, egoera "Argitaratugabea" izan behar da.
+      trash_management:
+        restore:
+          invalid: Arazo bat egon da % {baliabide_name} berreskuratzean.
+          success: "%{resource_name} zuzen berreskuratu da."
+        soft_delete:
+          invalid: Arazo bat egon da %{resource_name} ezabatzean.
+          success: "%{resource_name} zuzen ezabatua."
       user_group:
         csv_verify:
           invalid: Arazo bat egon da CSV fitxategia irakurtzean.

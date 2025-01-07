@@ -23,16 +23,27 @@ shared_examples "manage impersonations examples" do
   end
 
   shared_examples_for "creating a managed user" do
+    let(:name) { "Rigoberto" }
+
     before do
       navigate_to_impersonations_page
 
       click_on "Manage new participant"
 
-      fill_in_the_impersonation_form(document_number, name: "Rigoberto")
+      fill_in_the_impersonation_form(document_number, name:)
     end
 
     it "shows a success message" do
       expect(page).to have_content("successfully")
+    end
+
+    context "when no name is provided" do
+      let(:name) { "" }
+
+      it "shows a validation error message" do
+        expect(page).to have_no_content("successfully")
+        expect(page).to have_content("There are errors on the form")
+      end
     end
 
     context "when authorization data is invalid" do
@@ -95,10 +106,9 @@ shared_examples "manage impersonations examples" do
       context "and the action not allowed by the handler used to impersonate", :slow do
         let(:authorization_handler) { "another_dummy_authorization_handler" }
 
-        it "shows popup to require verification" do
-          expect(page).to have_content(
-            /In order to perform this action, you need to be authorized with "Another example authorization"/
-          )
+        it "redirects to the authorization form" do
+          expect(page).to have_content("We need to verify your identity")
+          expect(page).to have_content("Verify with Another example authorization")
         end
       end
     end

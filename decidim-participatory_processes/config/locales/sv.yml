@@ -127,7 +127,6 @@ sv:
           info: Om processen
           landing_page: Landningssida
           moderations: Moderering
-          private_users: Privata deltagare
           process_admins: Administratörer för process
           steps: Steg
       models:

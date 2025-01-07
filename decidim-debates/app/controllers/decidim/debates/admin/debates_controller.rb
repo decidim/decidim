@@ -16,8 +16,9 @@ module Decidim
 
         def new
           enforce_permission_to :create, :debate
-
-          @form = form(Decidim::Debates::Admin::DebateForm).instance
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(
+            attachment: form(AttachmentForm).from_params({})
+          )
         end
 
         def create
@@ -40,14 +41,13 @@ module Decidim
 
         def edit
           enforce_permission_to(:update, :debate, debate:)
-
           @form = form(Decidim::Debates::Admin::DebateForm).from_model(debate)
         end
 
         def update
           enforce_permission_to(:update, :debate, debate:)
 
-          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component:)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component:, debate:)
 
           UpdateDebate.call(@form, debate) do
             on(:ok) do

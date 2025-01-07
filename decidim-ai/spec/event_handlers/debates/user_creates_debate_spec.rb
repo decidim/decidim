@@ -3,6 +3,7 @@
 require "spec_helper"
 
 describe "User creates debate", type: :system do
+  let(:attachments) { [] }
   let(:form) do
     double(
       invalid?: false,
@@ -10,6 +11,8 @@ describe "User creates debate", type: :system do
       description:,
       user_group_id: nil,
       taxonomizations:,
+      add_documents: attachments,
+      documents: [],
       current_user: author,
       current_component: component,
       current_organization: organization

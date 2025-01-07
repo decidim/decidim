@@ -120,6 +120,14 @@ bin/rails decidim:upgrade:clean:clean_deleted_users
 
 You can read more about this change on PR [#13624](https://github.com/decidim/decidim/pull/13624).
 
+### 2.8. Fixes on migration files
+
+Since we have introduced the "Soft delete for spaces and components" [#13297](https://github.com/decidim/decidim/pull/13297), we have noticed there are some migrations that are failing as a result of defaults scopes we added.
+To address the issue, we created a script that will update the migration files in your project so that we can fix any migrations that are potentially broken by the code evolution.
+We added as part of the upgrade script, so you do not need to do anything about it.
+
+You can read more about this change on PR [#13690](https://github.com/decidim/decidim/pull/13624).
+
 ## 3. One time actions
 
 These are one time actions that need to be done after the code is updated in the production database.
@@ -160,6 +168,7 @@ If you want to calculate this metric you could run the following command, where 
 
 You can see more details about this change on PR [\#13442](https://github.com/decidim/decidim/pull/13442)
 
+
 ### 3.4. Social login changes
 
 We have changed the icons for the social logins so they align better with the social networks guidelines (Twitter/X, Facebook, and Google). If you do not use any of these social logins you can skip this step.
@@ -181,7 +190,40 @@ Now it needs to say
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
 
-### 3.5. [[TITLE OF THE ACTION]]
+### 3.5. Convert old categorization models (Categories, Scopes, Areas, Participatory Process and Assembly types) into taxonomies
+
+All those models have been deprecated, now a unique entity called "Taxonomies" is used for classifying all the content in Decidim (see https://docs.decidim.org/en/develop/develop/taxonomies.html for reference).
+
+A rake task is available for converting the old classification to the new system composed of taxonomies and taxonomy filters.
+
+In a nutshell, you can run this two-step process with the commands:
+
+First, create the plan for the import:
+
+```bash
+bin/rails decidim:taxonomies:make_plan
+```
+
+Second, review the created files under the folder `tmp/taxonomies/*.json` (optional).
+
+Finally, import the taxonomies with:
+
+```bash
+bin/rails decidim:taxonomies:import_all_plans
+```
+
+Once the import has finished, update the metrics:
+
+```bash
+bin/rails decidim:taxonomies:update_all_metrics
+```
+
+For more information about this process, please refer to the documentation at https://docs.decidim.org/en/develop/develop/taxonomies.html#_importing_taxonomies_from_old_models_categories_scopes_etc
+
+You can see more details about this change on PR [\#13669](https://github.com/decidim/decidim/pull/13669)
+
+
+### 3.6. [[TITLE OF THE ACTION]]
 
 You can read more about this change on PR [#XXXX](https://github.com/decidim/decidim/pull/XXXX).
 
