@@ -65,6 +65,9 @@ it:
     'false': 'No'
     'true': 'Si'
   date:
+    buttons:
+      close: Chiudere
+      select: Seleziona
     formats:
       decidim_short: "%d/%m/%Y"
       decidim_short_with_month_name_short: "%d %b %Y"
@@ -417,9 +420,6 @@ it:
     download_your_data:
       export:
         ready: Pronto
-      show:
-        download_data: Scarica i dati
-        request_data: Richiedi dati
     editor_images:
       drag_and_drop_help: Aggiungi immagini trascinandole o incollandole.
     endorsements:
@@ -567,10 +567,7 @@ it:
           notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
       download_your_data_export:
-        click_button: 'Clicca sul link per scaricare i tuoi dati.<br/>Il file sarà disponibile fino a %{date}.<br/>Avrai bisogno di <a href="https://www.7-zip.org/">7-Zip</a> (per Windows), <a href="https://www.keka.io/en/">Keka</a> (per MacOS) o <a href="https://peazip.github.io">PeaZip</a> (per Linux) per aprirlo. Password: %{password}'
         download: Scaricare
-      export:
-        ready: In allegato una versione zippata (Zip) dei dati esportati.
       subject: Ecco i dati che hai chiesto di esportare per "%{name}"
     filters:
       linked_classes:
@@ -1003,10 +1000,6 @@ it:
         title: Segnala utente inappropriato
       floating_help:
         help: Aiuto
-      participatory_space_filters:
-        filters:
-          areas: Ambiti territoriali
-          select_an_area: Seleziona un'area
       public_participation:
         public_participation: Mostra pubblicamente la mia presenza
       reference:
@@ -1033,9 +1026,6 @@ it:
       pages_count: Pagine
       participants_count: Partecipanti
       users_count: Partecipanti
-    tags:
-      filter_results_for_category: 'Filtra i risultati per categoria: %{resource}'
-      filter_results_for_scope: 'Filtra i risultati per l''ambito: %{resource}'
     translation_bar:
       help_text: "<strong>Attenzione:</strong> Il contenuto potrebbe essere tradotto automaticamente e non essere accurato al 100%."
       show_original: Mostra testo originale
@@ -1229,7 +1219,6 @@ it:
       footer:
         cc_by_license: Licenza Creative Commons
         decidim_logo: Logo Decidim
-        download_open_data: Scarica i file Open Data
         log_in: Accedi
         made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:

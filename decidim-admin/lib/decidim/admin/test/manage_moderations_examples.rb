@@ -27,7 +27,7 @@ shared_examples "sorted moderations" do
       click_on link_text
     end
     all("tbody tr").each_with_index do |row, _index|
-      expect(row.find("td:first-child")).to have_content(reportables.first.id)
+      expect(row.find("td:nth-child(2)")).to have_content(reportables.first.id)
     end
   end
 end
@@ -106,7 +106,7 @@ shared_examples "manage moderations" do
 
         all("tbody tr").each_with_index do |row, index|
           reportable_id = moderations_ordered_by_report_count_asc[index].reportable.id
-          expect(row.find("td:first-child")).to have_content(reportable_id)
+          expect(row.find("td:nth-child(2)")).to have_content(reportable_id)
         end
       end
     end

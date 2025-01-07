@@ -539,20 +539,14 @@ ar:
     download_your_data:
       export:
         ready: جاهز
-      show:
-        download_data: قم بتنزيل البيانات
-        request_data: طلب البيانات
     editor_images:
       drag_and_drop_help: يمكن إضافة صور عن طريق سحبها وإسقاطها أو لصقها.
     endorsement_buttons_cell:
-      already_endorsed: لا يعجبني
       endorse: يعجبني
     endorsements:
       identities:
         done: تم
         select_identity: حدد الهوية
-    endorsers_list:
-      endorsed_by: أعجب…
     errors:
       internal_server_error:
         copied: تم نسخ النص!
@@ -708,10 +702,7 @@ ar:
           notification_title: تم إضفاء الطابع الرسمي على المشارك %{name} (%{nickname}).
     export_mailer:
       download_your_data_export:
-        click_button: 'انقر فوق الرابط التالي لتحميل بياناتك.<br/>الملف سيكون متاحا حتى %{date}.<br/>ستحتاج إلى <a href="https://www.7-zip.org/">7-Zip</a> (للويندوز)، <a href="https://www.keka.io/en/">Keka</a> (لماكوس) أو <a href="https://peazip.github.io">PeaZip</a> (للينوكس) لفتحه. كلمة المرور: %{password}'
         download: تحميل
-      export:
-        ready: يرجى الاطلاع على نسخة مضغوطة من التصدير.
       subject: تصديرك "%{name}" جاهز
     filters:
       linked_classes:
@@ -1244,10 +1235,6 @@ ar:
         please_log_in: برجى تسجيل الدخول
       mentions_modal:
         remove_recipient: إزالة المستلم %{name}
-      participatory_space_filters:
-        filters:
-          areas: المناطق
-          select_an_area: اختر المنطقة
       public_participation:
         public_participation: إبراز حضوري علنا
       reference:
@@ -1275,9 +1262,6 @@ ar:
       pages_count: صفحات
       participants_count: المشاركون
       users_count: المشاركون
-    tags:
-      filter_results_for_category: 'تصفية نتائج التصنيف للفئة: %{resource}'
-      filter_results_for_scope: 'تصفية نتائج التصنيف للنطاق: %{resource}'
     translation_bar:
       help_text: "<strong>تحذير:</strong> المحتوى قد يتم ترجمته تلقائياً ولا يكون دقيقاً بنسبة 100%."
       show_original: إظهار النص الأصلي
@@ -1563,7 +1547,6 @@ ar:
         data_consent_settings: إعدادات ملفات تعريف الارتباط
         decidim_logo: شعار Decidim
         decidim_title: Decidim
-        download_open_data: تحميل ملفات البيانات المفتوحة
         log_in: تسجيل الدخول
         made_with_open_source: موقع تم إنشاؤه <a target="_blank" href="https://github.com/decidim/decidim">بالبرمجيات الحرة</a>.
         resources: الموارد
