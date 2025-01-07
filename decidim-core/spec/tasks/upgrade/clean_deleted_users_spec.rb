@@ -15,6 +15,7 @@ describe "rake decidim:upgrade:clean:clean_deleted_users", type: :task do
       expect(user.reload.personal_url).to eq("http://example.com")
       expect(deleted_user.reload.about).to eq("")
       expect(deleted_user.reload.personal_url).to eq("")
+      expect(deleted_user.reload.notifications_sending_frequency).to eq("none")
     end
 
     it "avoid removing entries" do

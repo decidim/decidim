@@ -39,6 +39,7 @@ module Decidim
       current_user.email = ""
       current_user.personal_url = ""
       current_user.about = ""
+      current_user.notifications_sending_frequency = "none"
       current_user.delete_reason = @form.delete_reason
       current_user.admin = false if current_user.admin?
       current_user.deleted_at = Time.current
