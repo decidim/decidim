@@ -41,10 +41,6 @@ module Decidim
         def diff_actions
           super + %w(answer)
         end
-
-        def formatted_body
-          h(proposal.body) # Esto escapará el HTML y lo mostrará como texto plano
-        end
       end
     end
   end

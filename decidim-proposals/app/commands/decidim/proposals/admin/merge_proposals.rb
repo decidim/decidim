@@ -68,11 +68,18 @@ module Decidim
         end
 
         def merge_authors(merged_proposal)
+          organization = form.current_organization
+          add_organization_as_first_author(merged_proposal, organization)
+
           form.proposals.each do |proposal|
             proposal.authors.each do |author|
               merged_proposal.add_coauthor(author)
             end
           end
+        end
+
+        def add_organization_as_first_author(merged_proposal, organization)
+          merged_proposal.add_coauthor(organization) unless merged_proposal.authors.include?(organization)
         end
       end
     end

@@ -7,34 +7,46 @@ document.addEventListener("decidim:loaded", () => {
     const drawer = window.Decidim.currentDialogs[button.dataset.mergeDialog];
     const container = drawer.dialog.querySelector(".js-bulk-action-form");
 
+    // Handles autocomplete initialization
+    const initializeAutoComplete = (inputElement) => {
+
+      /**
+       * Initializes autocomplete functionality for a given input element.
+       *
+       * @param {HTMLElement} inputElement - The input element to attach autocomplete to.
+       */
+      AutoComplete.init(inputElement, {
+        mode: "single",
+        dataMatchKeys: ["value"],
+        dataSource: (query, callback) => {
+          const event = new CustomEvent("geocoder-suggest.decidim", {
+            detail: { query, callback }
+          });
+          inputElement.dispatchEvent(event);
+        }
+      });
+    };
+
     // Handles geocoding_field
     const geocoding = () => {
       document.querySelectorAll("[data-decidim-geocoding]").forEach((el) => {
         if (el.dataset.geocodingInitialized) {
-          return
-        };
+          return;
+        }
         el.dataset.geocodingInitialized = true;
         const input = el;
-      
-        const autoComplete = new AutoComplete(el, {
-          mode: "single",
-          dataMatchKeys: ["value"],
-          dataSource: (query, callback) => {
-            const event = new CustomEvent("geocoder-suggest.decidim", {
-              detail: { query, callback }
-            });
-            input.dispatchEvent(event);
-          }
-        });
-      
+
+        // Llamamos a la función que maneja la inicialización del autocompletado
+        initializeAutoComplete(input);
+
         el.addEventListener("selection", (event) => {
           const selectedItem = event.detail.selection.value;
-      
+
           const suggestSelectEvent = new CustomEvent("geocoder-suggest-select.decidim", {
             detail: selectedItem
           });
           input.dispatchEvent(suggestSelectEvent);
-      
+
           // Check for coordinates in the selected item
           if (selectedItem.coordinates) {
             const coordinatesEvent = new CustomEvent("geocoder-suggest-coordinates.decidim", {
@@ -44,7 +56,7 @@ document.addEventListener("decidim:loaded", () => {
           }
         });
       });
-    }
+    };
 
     // Handles editor initialization
     const editorInitializer = () => {
