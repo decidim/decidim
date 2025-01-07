@@ -675,7 +675,16 @@ ja:
       export:
         ready: 準備完了
       help:
+        follows:
+          id: フォローの固有ID
         users:
+          invitations_count: このユーザーに送信された招待の数
+          invited_by: このユーザーを招待したユーザー
+          last_sign_in_at: 最終ログイン日時
+          last_sign_in_ip: 最後のログインのIPアドレス
+          locale: このユーザーが選択したロケール（言語）
+          managed: このユーザーが別のユーザーによって管理されているかどうか
+          name: ユーザー名
           notification_settings: このユーザーが選択した通知設定
       show:
         action: アクション
@@ -684,6 +693,9 @@ ja:
         download_your_data: 個人データ
         expiration: 有効期限
         expired: 有効期限が切れています
+        explanation:
+          title: これらのファイルは何ですか?
+        files_to_download: ダウンロードするファイル
         request_data: リクエスト
         type: ダウンロードの種類
     editor_images:
@@ -862,6 +874,9 @@ ja:
         email_outro: '%{endorser_nickname}をフォローしているため、この通知を受け取りました。前のリンクに続く通知の受信を停止することができます。'
         email_subject: "%{endorser_nickname} が新しいオススメを行いました"
         notification_title: <a href="%{resource_path}">%{resource_title}</a> %{resource_type} は <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>によってオススメされました。
+      resources:
+        soft_deleted:
+          notification_title: 管理者があなたの "%{resource_type}" " "%{resource_title}" を削除しました。
       users:
         profile_updated:
           email_intro: あなたがフォロー中の %{name} (%{nickname}) さんの <a href="%{resource_url}">プロフィールページ</a> が更新されました。
@@ -875,6 +890,10 @@ ja:
           notification_title: 参加者 %{name} (%{nickname}) が公式化されました。
     export_mailer:
       download_your_data_export:
+        click_button_html: 次のリンクをクリックしてデータをダウンロードしてください。<br/>ファイルは %{date} までダウンロードできます。
+        download: ダウンロード
+      export:
+        click_button_html: ダウンロードの準備ができました。 <br/>ファイルは %{date} までダウンロードできます。
         download: ダウンロード
       subject: '"%{name}" のエクスポートの準備ができました'
     filters:
@@ -1118,6 +1137,8 @@ ja:
           not_found: 'スコープ種別がデータベース上に見つかりませんでした (ID: %{id})'
         taxonomy_presenter:
           not_found: 'データベース内にタクソノミーが見つかりませんでした (ID: %{id})'
+    machine_translations:
+      automatic: '%{locale_name} の自動翻訳'
     managed_users:
       expired_session: 参加者の現在の管理セッションの有効期限が切れています。
     map:
@@ -1325,6 +1346,14 @@ ja:
         message_1: 現在オフラインのようです。
         message_2: しばらくたってから改めてやり直してください。
         retry: 再試行
+    onboarding_action_message:
+      click_link: ここをクリックして下さい
+      cta_html: <a href="%{path}">%{link_text}</a> をクリックして、%{resource_name}「<strong>%{resource_title}</strong>」で%{action}を行ってください。
+      expired_authorization_active_title: 認証の有効期限が切れました。
+      finish_authorization_process: 認証プロセスを完了できます
+      incomplete_authorization_active_title: 必要な情報がすべて記載されていないため、検証が完了していません。
+      pending_authorization_active_message: このアクションを続行するには、フォームに記入してください。
+      pending_authorization_active_title: 本人確認が必要です。
     open_data:
       help:
         core:
@@ -1333,6 +1362,19 @@ ja:
           main: コア
           spaces: スペース
           title: '%{organization} のデータファイルを開く'
+        metrics:
+          cumulative: この日のメトリックの合計数
+          day: このメトリックの作成日時
+          metric_type: メトリックの種類
+          quantity: この日のメトリック数
+        moderated_users:
+          about: 利用者の紹介フィールド
+          block_reasons: 管理者ユーザーがユーザーをブロックした理由
+          blocked_at: ユーザーがブロックされた日時
+          blocking_user: ブロックを実行したユーザーの名前
+          details: レポートの詳細
+          reasons: プロファイルが報告された理由のリスト
+          user_id: 報告されたユーザーの固有ID
         moderations:
           hidden_at: コンテンツが非表示になった日時
           id: モデレーションの固有ID
