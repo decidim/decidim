@@ -254,7 +254,19 @@ As of [\#13294](https://github.com/decidim/decidim/pull/13294), we have changed 
 ```
 
 As a developer or as a user, you should not feel the difference of this change, however, we would like to emphasize this change, as the upgrade may impact other community libraries.
+
 This particular change in the way we mount things, applies also for `Comments` and `Verifications` modules.
+
+#### 5.2.1. Module developers
+As a module developer, when you add a new admin section you should always check if the admin is accessible to normal or visitors. If that is the case, you can always wrap your admin routes in a constraint like:
+
+```ruby
+  routes do
+    constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
+      resources :my_module
+    end
+  end
+```
 
 You can read more about this change on PR [#13294](https://github.com/decidim/decidim/pull/13294).
 
