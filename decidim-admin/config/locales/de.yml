@@ -971,6 +971,15 @@ de:
         new:
           create: Erstellen
           title: Neuer privater Benutzer des Participatory Space.
+        publish_all:
+          error: Es gab ein Problem bei der Veröffentlichung aller privaten Teilnehmenden für diesen partizipativen Bereich.
+          success: Alle privaten Teilnehmenden erfolgreich für diesen partizipativen Bereich veröffentlicht
+        unpublish_all:
+          error: Es gab ein Problem beim Entfernen aller privaten Teilnehmenden für diesen partizipativen Bereich.
+          success: Alle privaten Teilnehmenden für diesen teilnehmenden Raum erfolgreich zurückgezogen
+        update:
+          error: Beim Aktualisieren des privaten Teilnehmenden für diesen Beteiligungsbereich ist ein Problem aufgetreten.
+          success: Privater Teilnehmende für diesen partizipativen Raum erfolgreich erstellt
       participatory_space_private_users_csv_imports:
         create:
           invalid: Beim Lesen der CSV-Datei ist ein Problem aufgetreten. Bitte stellen Sie sicher, dass Sie den Anweisungen korrekt gefolgt sind.
@@ -1136,6 +1145,8 @@ de:
           success: Seite wurde erfolgreich aktualisiert.
       taxonomies:
         actions: Aktionen
+        amount: Anzahl Elemente
+        count: Verknüpfte Ressourcen
         create:
           invalid: Beim Erstellen dieser Klassifizierung ist ein Fehler aufgetreten.
           success: Klassifizierung wurde erfolgreich erstellt.
@@ -1172,6 +1183,8 @@ de:
       taxonomy_filters:
         actions:
           new_taxonomy_filter: Neuer Klassifizierung-Filter
+        callout:
+          modify_taxonomy_html: Wenn Sie diese Klassifizierung oder ihre Elemente ändern möchten, finden Sie die Konfigurationseinstellungen unter <a href="%{url}">Klassifizierungen</a>.
         create:
           error: Beim Erstellen dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
           success: Klassifizierungsfilter wurde erfolgreich erstellt.
@@ -1184,18 +1197,31 @@ de:
           update: Klassifizierungsfilter aktualisieren
         form:
           all: Alle
+          items:
+            one: "%{count} ausgewähltes Element"
+            other: "%{count} ausgewählte Elemente"
+          name_help: Der Titel des Filters, der im Frontend angezeigt wird.
+          no_items: Keine Elemente für diese Klassifizierungen verfügbar. Sie können Elemente in den Klassifizierungseinstellungen erstellen.
+          space_filter: Als Filter für alle %{manifest_name} verfügbar
         index:
           description: Ein Klassifizierungsfilter erlaubt es Admins, partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern. Fügen Sie zum Beispiel einen Taxonomie-Filter hinzu, um Prozesse nach geografischen Typologien zu sortieren.
           empty: Derzeit gibt es keine Klassifizierungsfilter. Erstellen Sie hier eine Liste von Klassifizierungsfilter, um partizipative Bereiche nach einer Taxonomie zu sortieren und zu filtern.
         new:
           back: Zurück
           create: Klassifizierungsfilter erstellen
+          select_taxonomy: Klassifizierung auswählen
           title: Neuer Klassifizierungsfilter
         table:
           actions: Aktionen
+          components_count: Verknüpfte Komponenten
           confirm_destroy: 'Sind Sie sicher, dass Sie den Filter %{name} löschen möchten? HINWEIS: Ressourcen, die diesen Filter verwenden, sind nicht betroffen, aber sie verlieren den Verweis auf diesen Filter.'
+          count: Anzahl der verwendeten Elemente
           destroy: Löschen
           edit: Bearbeiten
+          internal_name: Interner Filtername
+          name: Öffentlicher Filtertitel
+          space_filter: Wird verwendet, um %{manifest_name} zu filtern
+          taxonomy: Von der Klassifizierung
         update:
           error: Beim Aktualisieren dieses Klassifizierungsfilters ist ein Fehler aufgetreten.
           success: Klassifizierungsfilter wurde erfolgreich aktualisiert.
@@ -1231,6 +1257,15 @@ de:
         taxonomy_filters: Klassifizierungsfilter
         user_groups: Benutzergruppen
         users: Administratoren
+      tooltips:
+        deleted_component_info: Diese Komponente kann nur gelöscht werden, wenn der Status 'Nicht veröffentlicht' ist.
+      trash_management:
+        restore:
+          invalid: Es gab ein Problem beim Wiederherstellen von %{resource_name}.
+          success: "%{resource_name} erfolgreich wiederhergestellt."
+        soft_delete:
+          invalid: Es gab ein Problem beim Löschen von %{resource_name}.
+          success: "%{resource_name} erfolgreich gelöscht."
       user_group:
         csv_verify:
           invalid: Beim Lesen der CSV-Datei ist ein Fehler aufgetreten.
@@ -1304,6 +1339,22 @@ de:
         unreport: Nicht melden
       admin:
         reportable:
+          bulk_action:
+            hide:
+              failed: 'Es gab ein Problem beim Verbergen einiger Ressourcen: %{errored}'
+              invalid: Keine Moderationen ausgewählt.
+              success: Ressourcen erfolgreich ausgeblendet.
+            ignore:
+              invalid: Keine Moderationen ausgewählt.
+              success: Die Meldung der Teilnehmenden wurde erfolgreich entfernt.
+            unhide:
+              failed: 'Es gab ein Problem beim Aufdecken einiger Ressourcen: %{errored}'
+              invalid: Keine Moderationen ausgewählt.
+              success: Ressource erfolgreich eingeblendet.
+            unreport:
+              failed: 'Es gab ein Problem beim Aufdecken einiger Ressourcen: %{errored}'
+              invalid: Keine Moderationen ausgewählt.
+              success: Meldung der Ressource erfolgreich rückgängig gemacht.
           hide:
             invalid: Beim Verbergen der Ressource ist ein Problem aufgetreten.
             success: Ressource erfolgreich ausgeblendet
