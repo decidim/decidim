@@ -67,17 +67,17 @@ module Decidim
               render template: edit_questions_template
             end
 
+            # i18n-tasks-use t("decidim.forms.admin.questionnaires.questions_form.update.success")
+            # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
             def update_questions
               @form = form(Admin::QuestionsForm).from_params(params)
               Admin::UpdateQuestions.call(@form, questionnaire) do
                 on(:ok) do
-                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.questions_form.update.success")
                   flash[:notice] = I18n.t("update.success", scope: i18n_questions_flashes_scope)
                   redirect_to after_update_url
                 end
 
                 on(:invalid) do
-                  # i18n-tasks-use t("decidim.forms.admin.questionnaires.update.invalid")
                   flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
                   render template: edit_questions_template
                 end

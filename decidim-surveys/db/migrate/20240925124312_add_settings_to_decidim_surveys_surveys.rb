@@ -17,8 +17,9 @@ class AddSettingsToDecidimSurveysSurveys < ActiveRecord::Migration[7.0]
         add_column :decidim_surveys_surveys, :published_at, :datetime
         add_index :decidim_surveys_surveys, :published_at
 
-        Survey.find_each do |survey|
-          survey.update(published_at: survey.created_at)
+        Survey.where(published_at: nil).find_each do |survey|
+          published_at = survey.component.published_at || survey.created_at
+          survey.update(published_at:)
         end
       end
 

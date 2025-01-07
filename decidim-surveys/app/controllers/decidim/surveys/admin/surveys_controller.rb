@@ -17,12 +17,12 @@ module Decidim
           enforce_permission_to(:create, :questionnaire)
           Decidim::Surveys::CreateSurvey.call(current_component) do
             on(:ok) do |survey|
-              flash[:notice] = I18n.t("surveys.create.success", scope: "decidim.surveys.admin")
+              flash[:notice] = I18n.t("create.success", scope: "decidim.surveys.admin.surveys")
               redirect_to edit_survey_path(survey)
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("surveys.create.invalid", scope: "decidim.surveys.admin")
+              flash.now[:alert] = I18n.t("create.invalid", scope: "decidim.surveys.admin.surveys")
               render action: "index"
             end
           end
@@ -39,12 +39,12 @@ module Decidim
 
           Admin::UpdateSurvey.call(@form, survey, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("update.success", scope: i18n_flashes_scope)
+              flash[:notice] = I18n.t("update.success", scope: "decidim.surveys.admin.surveys")
               redirect_to(surveys_path) && return
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("update.invalid", scope: i18n_flashes_scope)
+              flash.now[:alert] = I18n.t("update.invalid", scope: "decidim.surveys.admin.surveys")
               render action: "edit"
             end
           end
@@ -54,12 +54,12 @@ module Decidim
           enforce_permission_to(:update, :questionnaire, questionnaire:)
           Decidim::Surveys::Admin::PublishSurvey.call(survey, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("surveys.publish.success", scope: "decidim.surveys.admin")
+              flash[:notice] = I18n.t("publish.success", scope: "decidim.surveys.admin.surveys")
               redirect_to surveys_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("surveys.publish.invalid", scope: "decidim.surveys.admin")
+              flash.now[:alert] = I18n.t("publish.invalid", scope: "decidim.surveys.admin.surveys")
               render action: "index"
             end
           end
@@ -69,12 +69,12 @@ module Decidim
           enforce_permission_to(:update, :questionnaire, questionnaire:)
           Decidim::Surveys::Admin::UnpublishSurvey.call(survey, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("surveys.unpublish.success", scope: "decidim.surveys.admin")
+              flash[:notice] = I18n.t("unpublish.success", scope: "decidim.surveys.admin.surveys")
               redirect_to surveys_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("surveys.unpublish.invalid", scope: "decidim.surveys.admin")
+              flash.now[:alert] = I18n.t("unpublish.invalid", scope: "decidim.surveys.admin.surveys")
               render action: "index"
             end
           end
@@ -84,7 +84,7 @@ module Decidim
           enforce_permission_to(:destroy, :questionnaire, questionnaire:)
           Decidim::Commands::DestroyResource.call(survey, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("surveys.destroy.success", scope: "decidim.surveys.admin")
+              flash[:notice] = I18n.t("destroy.success", scope: "decidim.surveys.admin.surveys")
 
               redirect_to surveys_path
             end
@@ -117,10 +117,6 @@ module Decidim
         end
 
         private
-
-        def i18n_flashes_scope
-          "decidim.surveys.admin.surveys"
-        end
 
         def surveys
           @surveys ||= filtered_collection

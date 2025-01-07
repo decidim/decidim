@@ -34,7 +34,7 @@
 <div class="item__edit item__edit-1col">
   <div class="item__edit-form">
     <%= decidim_form_for(@form, url: update_url, method: :put, html: { class: "form-defaults form edit_questionnaire" }) do |form| %>
-        <%= render partial: "decidim/forms/admin/questionnaires/questions_form", object: form %>
+      <%= render partial: "decidim/forms/admin/questionnaires/questions_form", object: form %>
       <div class="item__edit-sticky">
         <div class="item__edit-sticky-container">
           <%= form.submit t(".save"), class: "button button__sm button__secondary" %>
