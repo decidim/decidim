@@ -111,6 +111,8 @@ de:
             title: Projekte
             update: Aktualisieren
             update_budget_button: Projektbudget aktualisieren
+          manage_trash:
+            title: Gelöschte Projekte
           new:
             create: Erstellen
             title: Neues Projekt
@@ -118,10 +120,23 @@ de:
             invalid: Beim Aktualisieren dieses Projekts ist ein Problem aufgetreten.
             success: Projekt erfolgreich aktualisiert.
           update_budget:
+            invalid: 'Diese Projekte befinden sich bereits im gleichen Budget oder ihre Budgets betragen mehr als das erlaubte Maximum: %{errored}.'
             select_a_project: Bitte wählen Sie ein Projekt.
+            success: 'Die folgenden Projekte wurden erfolgreich zum Budget %{subject_name} hinzugefügt: %{successful}.'
           update_selected:
+            invalid:
+              selected: 'Diese Projekte wurden bereits für die Umsetzung ausgewählt: %{errored}.'
+              unselected: 'Diese Projekte wurden bereits von den umzusetzenden Projekten abgewählt: %{errored}.'
             select_a_project: Bitte wählen Sie ein Projekt.
             select_a_selection: Bitte wählen Sie einen Umsetzungsstatus.
+            success:
+              selected: 'Diese Projekte wurden erfolgreich für die Umsetzung ausgewählt: %{successful}.'
+              unselected: 'Diese Projekte wurden erfolgreich von den umzusetzenden Projekten abgewählt: %{successful}.'
+          update_taxonomies:
+            invalid: 'Die Klassifizierungen %{taxonomies} wurden bereits zu folgenden Projekten zugewiesen: %{errored}.'
+            select_a_project: Bitte wählen Sie ein Projekt.
+            select_a_taxonomy: Bitte wählen Sie eine Klassifizierung.
+            success: 'Die folgenden Projekte wurden erfolgreich zur Klassifizierung %{taxonomies} hinzugefügt: %{successful}.'
         proposals_imports:
           create:
             invalid: Beim Importieren der Vorschläge zu den Projekten ist ein Problem aufgetreten.
@@ -144,10 +159,13 @@ de:
         budget:
           create: "%{user_name} hat das Budget %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Budget %{resource_name} in %{space_name} gelöscht"
+          restore: "%{user_name} hat das Budget %{resource_name} in %{space_name} wiederhergestellt"
+          soft_delete: "%{user_name} hat das Budget %{resource_name} in %{space_name} in den Papierkorb verschoben"
           update: "%{user_name} hat das Budget %{resource_name} in %{space_name} aktualisiert"
         project:
           create: "%{user_name} hat das Projekt %{resource_name} in %{space_name} erstellt"
           delete: "%{user_name} hat das Projekt %{resource_name} in %{space_name} gelöscht"
+          restore: "%{user_name} hat das Projekt %{resource_name} in %{space_name} wiederhergestellt"
           update: "%{user_name} hat das Projekt %{resource_name} in %{space_name} aktualisiert"
       budget_information_modal:
         back_to: Zurück zu %{component_name}
