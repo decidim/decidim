@@ -1628,7 +1628,7 @@ de:
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Verbergen
         hide_content: Diesen Inhalt verbergen
-        offensive: Er enthält Formen von Rassismus, Sexismus, Verunglimpfungen, persönlichen Angriffen, Morddrohungen, Selbstmord oder jeder Form von Hassreden.
+        offensive: Enthält Formen von Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder andere Formen von seelischer Gewalt.
         reason: Begründung
         report: Meldung erfassen
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
@@ -1640,7 +1640,7 @@ de:
         description: Was ist unangebracht über den Benutzer?
         does_not_belong: Enthält illegale Aktivitäten, Selbstmorddrohungen, persönliche Informationen oder etwas anderes, von dem Sie denken, dass es nicht auf %{organization_name} gehört.
         hide: Alle dessen Inhalte verbergen
-        offensive: Enthält Rassismus, Sexismus, Verunglimpfungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder eine Form von Hassrede.
+        offensive: Enthält Formen von Rassismus, Sexismus, Verleumdungen, persönliche Angriffe, Morddrohungen, Selbstmordanträge oder andere Formen von seelischer Gewalt.
         report: Melden
         spam: Enthält Clickbait, Werbung, Scams oder Script Bots.
         title: Unangemessenen Nutzer melden
@@ -1674,7 +1674,7 @@ de:
         share_to: Teilen mit %{service}
     statistics:
       comments_count: Kommentare
-      endorsements_count: Befürworungen
+      endorsements_count: Befürwortungen
       followers_count: Follower
       headline: Statistik
       no_stats: Es gibt noch keine Statistiken.
