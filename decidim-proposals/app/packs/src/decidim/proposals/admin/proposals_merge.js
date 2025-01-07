@@ -1,5 +1,6 @@
 import createEditor from "src/decidim/editor";
 import AutoComplete from "src/decidim/autocomplete";
+import attachGeocoding from "src/decidim/geocoding/attach_input"
 
 document.addEventListener("decidim:loaded", () => {
   document.querySelectorAll('button[data-action="merge-proposals"]').forEach((button) => {
@@ -62,10 +63,43 @@ document.addEventListener("decidim:loaded", () => {
       container.querySelectorAll(".editor-container").forEach((element) => createEditor(element));
     }
 
-    // Handles the change on the form
+    // Handles changes on the form
     const activateDrawerForm = () => {
       const saveForm = drawer.dialog.querySelector("#js-form-merge-proposals");
 
+      // Handles meeting checkbox 
+      const form = document.querySelector(".proposals_merge_form_admin");
+
+      if (form) {
+        const proposalCreatedInMeeting = form.querySelector("#proposals_merge_created_in_meeting");
+        const proposalMeeting = form.querySelector("#proposals_merge_meeting");
+
+        const toggleDisabledHiddenFields = () => {
+          const enabledMeeting = proposalCreatedInMeeting.checked;
+          proposalMeeting.querySelector("select").setAttribute("disabled", "disabled");
+
+          proposalMeeting.classList.add("hidden");
+
+          if (enabledMeeting) {
+            proposalMeeting.querySelector("select").removeAttribute("disabled");
+            proposalMeeting.classList.remove("hidden");
+          }
+        };
+
+        proposalCreatedInMeeting.addEventListener("change", toggleDisabledHiddenFields);
+        toggleDisabledHiddenFields();
+      }
+
+      // Handles address input
+      const $form = $(".proposal_form_admin");
+      if ($form.length > 0) {
+        const $proposalAddress = $form.find("#proposals_merge_address");
+        if ($proposalAddress.length !== 0) {
+          attachGeocoding($proposalAddress);
+        }
+      }
+
+      // Handles form errors and success
       if (saveForm) {
         saveForm.addEventListener("ajax:success", (event) => {
           const response = event.detail[0];
