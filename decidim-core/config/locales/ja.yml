@@ -1082,7 +1082,7 @@ ja:
       all: すべてのアクティビティ種別
       index:
         last_activity: 最近のアクティビティ
-      name: 最後のアクティビティ
+      name: 最近のアクティビティ
       no_activities_warning: このアクティビティ種別に表示するエントリがありません。
     linked_resource_from:
       included_in: 含まれるリスト
