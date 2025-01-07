@@ -360,13 +360,13 @@ describe Decidim::Admin::Permissions do
     let(:context) { { trashable_deleted_resource: resource } }
 
     context "when resource exists and is not trashed" do
-      let(:resource) { instance_double("Resource", deleted?: false) }
+      let(:resource) { instance_double(Decidim::Dev::DummyResource, deleted?: false) }
 
       it { is_expected.to be true }
     end
 
     context "when resource exists and is trashed" do
-      let(:resource) { instance_double("Resource", deleted?: true) }
+      let(:resource) { instance_double(Decidim::Dev::DummyResource, deleted?: true) }
 
       it { is_expected.to be false }
     end
@@ -378,13 +378,13 @@ describe Decidim::Admin::Permissions do
     let(:context) { { trashable_deleted_resource: resource } }
 
     context "when resource exists and is trashed" do
-      let(:resource) { instance_double("Resource", deleted?: true) }
+      let(:resource) { instance_double(Decidim::Dev::DummyResource, deleted?: true) }
 
       it { is_expected.to be true }
     end
 
     context "when resource exists and is not trashed" do
-      let(:resource) { instance_double("Resource", deleted?: false) }
+      let(:resource) { instance_double(Decidim::Dev::DummyResource, deleted?: false) }
 
       it { is_expected.to be false }
     end
@@ -396,7 +396,7 @@ describe Decidim::Admin::Permissions do
     let(:context) { { trashable_deleted_resource: resource } }
 
     context "when any resource" do
-      let(:resource) { instance_double("Resource") }
+      let(:resource) { instance_double(Decidim::Dev::DummyResource) }
 
       it { is_expected.to be true }
     end

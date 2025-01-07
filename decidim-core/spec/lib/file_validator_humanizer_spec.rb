@@ -30,7 +30,7 @@ module Decidim
 
         attr_accessor :file
 
-        validates_upload(:file, **validation_options.merge(uploader: mount_class))
+        validates_upload(:file, **validation_options, uploader: mount_class)
 
         def organization
           @organization ||= FactoryBot.create(:organization)
