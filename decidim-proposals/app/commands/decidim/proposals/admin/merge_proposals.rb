@@ -32,6 +32,7 @@ module Decidim
         def merge_proposals
           transaction do
             merged_proposal = create_new_proposal
+            merge_authors(merged_proposal)
             merged_proposal.link_resources(proposals_to_link, "merged_from_component")
             form.proposals.each(&:destroy!) if form.same_component?
             merged_proposal
@@ -64,6 +65,14 @@ module Decidim
             },
             skip_link: true
           )
+        end
+
+        def merge_authors(merged_proposal)
+          form.proposals.each do |proposal|
+            proposal.authors.each do |author|
+              merged_proposal.add_coauthor(author)
+            end
+          end
         end
       end
     end
