@@ -20,6 +20,10 @@
       svg {
         @apply w-6 h-6 fill-current flex-none;
       }
+
+      &--facebook {
+        @apply text-white;
+      }
     }
 
     &-separator {
