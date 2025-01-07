@@ -18,11 +18,19 @@
       @apply button button__xl border border-gray shadow-[0_4px_6px_rgba(211,211,211,0.25)] justify-start gap-8 text-lg w-full;
 
       svg {
-        @apply w-6 h-6 fill-current flex-none;
+        @apply w-6 h-6 flex-none;
       }
 
       &--facebook {
-        @apply text-white bg-omniauth-facebook;
+        @apply text-white bg-facebook;
+      }
+
+      &--x {
+        @apply text-white bg-black;
+      }
+
+      &--google {
+        @apply text-black bg-google;
       }
     }
 
