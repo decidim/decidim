@@ -36,7 +36,6 @@ document.addEventListener("decidim:loaded", () => {
         el.dataset.geocodingInitialized = true;
         const input = el;
 
-        // Llamamos a la función que maneja la inicialización del autocompletado
         initializeAutoComplete(input);
 
         el.addEventListener("selection", (event) => {
