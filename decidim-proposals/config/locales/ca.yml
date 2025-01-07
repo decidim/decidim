@@ -848,6 +848,11 @@ ca:
       destroy_draft:
         error: S'ha produït un error en suprimir l'esborrany de la proposta.
         success: L'esborrany de proposta s'ha eliminat correctament.
+      exit_modal:
+        cancel: Cancel·lar
+        exit: Continuar
+        message: Has de donar %{number} suport/s més entre les diferents propostes perquè els teus suports siguin tinguts en compte.
+        title: Recorda que encara et queda/en %{number} suport/s
       forms:
         errors:
           device_not_supported: El teu dispositiu no admet serveis d'ubicació. Si us plau, introdueix l'adreça postal completa manualment (tipus de via, nom de la via, número, codi postal i ciutat).
@@ -1003,12 +1008,20 @@ ca:
             one: Suport
             other: Suports
         voting_rules:
+          already_vote:
+            description: Recorda que encara has de donar %{number} suport/s més entre les diferents propostes perquè els teus suports siguin tinguts en compte.
+            see_other_proposals: Veure altres propostes
+            title: Tens %{number} suport/s restant/s
           can_accumulate_votes_beyond_threshold:
             description: Cada proposta pot acumular més de %{limit} suports
+          minimum_votes_per_user:
+            description: Has de repartir un mínim de %{votes} suports entre diferents propostes perquè els teus suports siguin tinguts en compte.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
+          success: Els teus suports s'ha registrat correctament
           threshold_per_proposal:
             description: Per ser validades, les propostes han d'arribar a %{limit} suports.
+          title: Normes de participació
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
             votes: Queda/en %{number} suport/s
